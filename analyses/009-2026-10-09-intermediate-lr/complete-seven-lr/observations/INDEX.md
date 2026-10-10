@@ -2,3 +2,4 @@
 - [002: Log raw norms and cumulative LR overlays](002-log-norms-and-lr-overlays.md)
 - [003: Loss, raw ratio, smoothed alignment and vector norms](003-loss-ratio-smoothed-alignment.md)
 - [004: Implications for the manuscript and exact aggregate interference](004-implications-for-manuscript.md)
+- [005: Squared cumulative geometry for raw gradients and momentum](005-squared-cumulative-geometry.md)

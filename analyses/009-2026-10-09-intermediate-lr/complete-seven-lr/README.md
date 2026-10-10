@@ -41,6 +41,8 @@ Momentum raises B/A primarily by reducing A; B decreases in all four new runs. T
 
 - [Loss, raw ratio, smoothed alignment and norms](figures/loss_ratio_alignment_norms.pdf):3x2, all seven LRs with the same reversed-plasma colors. Panels(a)-(f): training loss; raw B/A; raw adjacent cosine with a50-update arithmetic mean; momentum cosine with a25-update arithmetic mean; raw norms with a10-update arithmetic mean on log Y; unsmoothed momentum norms on linear Y. [Full reduction/coverage/caption](observations/003-loss-ratio-smoothed-alignment.md). Generator: `../11_plot_loss_ratio_alignment.py`.
 
+- [Squared cumulative geometry](figures/squared_cumulative_geometry.pdf):3x2; columns are raw gradients and momentum; rows are A squared, B squared and A squared minus B squared. All seven LRs use the same palette, with independent linear Y scales. [Definitions, caption and verification](observations/005-squared-cumulative-geometry.md); generator: `../13_plot_squared_geometry.py`.
+
 ## Sources, coverage, uncertainty and reproducibility
 
 Scientific reduction and within-LR generator: `../09_analyze_results.py`; current metric revision and across-LR cumulative generator: `../10_plot_lr_geometry.py`, with the unchanged Analysis008 `08_plot_simplified.py` values/smoothing helpers. Compact retrieval script: `../07_fetch_result_metrics.py`; inventory receipt: `../metrics-retrieval-receipt.json`. [Reduction, all update metrics and source hashes](comparison_data.json), [summary table](summary.csv), [PDF/render QA](verification.json). Original source comparison: Analysis008/complete-three-lr/comparison_data.json, SHA256 b631551121647e7653b59b6fe6b70855881c9d1b7efa978d48cefb3e923b847c.

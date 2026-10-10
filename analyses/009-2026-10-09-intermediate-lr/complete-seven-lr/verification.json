@@ -89,6 +89,68 @@
       "renders_sha256": [
         "69e3431d0fa4aa6db478f1bd7f1c5b8076da2c29fdf6dc9d39cddfdedea9ca45"
       ]
+    },
+    "squared_cumulative_geometry.pdf": {
+      "pages": 1,
+      "panels": 6,
+      "lr_curves_per_panel": 7,
+      "bytes": 93844,
+      "sha256": "ce50e71d74962a2b09f25f7fd168e34989d75f765458e03143e28dd33f8384b5",
+      "generator_sha256": "8a15b4d05aedecfce88b36e87d5778bee854f37e76de7a2c9590a8061c6bdcad",
+      "source_comparison_sha256": "a02a1ba7ace7a7011063767e6e7fb1c25548be0a12be06b6dad6826e5e7b2739",
+      "layout": [
+        3,
+        2
+      ],
+      "columns": [
+        "raw",
+        "momentum"
+      ],
+      "rows": [
+        "A_squared",
+        "B_squared",
+        "A_squared_minus_B_squared"
+      ],
+      "y_scales": [
+        "linear",
+        "linear",
+        "linear",
+        "linear",
+        "linear",
+        "linear"
+      ],
+      "y_limits_row_major": [
+        [
+          0.0,
+          3946495.876320036
+        ],
+        [
+          0.0,
+          113726.81691417082
+        ],
+        [
+          0.0,
+          97051.9140781042
+        ],
+        [
+          0.0,
+          95197.71917781669
+        ],
+        [
+          0.0,
+          3938653.7788989185
+        ],
+        [
+          0.0,
+          18529.097736354142
+        ]
+      ],
+      "reduction_verification": "All 42 plotted arrays and update712 endpoints checked; A independently accumulated from individual norms; difference checked via (A-B)*(A+B)",
+      "existing_pdfs_preserved": true,
+      "visual_review": "Latest110dpi Poppler render inspected: six panels, all labels/legends readable, no clipping or overlap",
+      "renders_sha256": [
+        "ecfa7e60edd6915acd6f812573cd51a107745964181682e726a47b9114973c98"
+      ]
     }
   },
   "script_sha256": "5fcbdb34c0c86bacbba207fffa74acacbba57c24793c4ecf5ed9f7f20f6c65e7",
@@ -181,5 +243,5 @@
       }
     ]
   },
-  "last_figure_revision_at": "2026-10-09T19:39:11.412873+00:00"
+  "last_figure_revision_at": "2026-10-10T10:39:31.203671+00:00"
 }
