@@ -31,6 +31,9 @@ def verify_figure(report):
                                         window_updates=100, minimum_valid_values=100)
     assert manifest["y_scales"] == {panel: ("log" if panel == "b" else "linear") for panel in "bcdefghi"}
     coverage = []
+    turns = manifest["trajectory_turns"]["points"]
+    assert len(turns) == 3
+    turn_checks = []
     bounds = manifest["trajectory_domain"]
     assert bounds == [-1.4, 1.22, -0.15, 1.48]  # Same full landscape as Analysis012.
     for entry in report["conditions"]:
@@ -38,6 +41,19 @@ def verify_figure(report):
             np.testing.assert_array_equal(saved["theta"][0], report["initial_point"])
             assert (saved["theta"] >= [bounds[0], bounds[2]]).all()
             assert (saved["theta"] <= [bounds[1], bounds[3]]).all()
+            event = next(event for event in turns if event["run_id"] == entry["run_id"])
+            theta = saved["theta"]
+            # Direct position inequalities independently check the diff-based selector.
+            minima = np.flatnonzero((theta[1:-1, 1] < theta[:-2, 1]) &
+                                    (theta[1:-1, 1] < theta[2:, 1])) + 1
+            assert event["update"] == int(minima[0])
+            np.testing.assert_array_equal(event["point"], theta[event["update"]])
+            assert event["incoming_delta_y"] == theta[event["update"], 1] - theta[event["update"] - 1, 1]
+            assert event["outgoing_delta_y"] == theta[event["update"] + 1, 1] - theta[event["update"], 1]
+            assert event["incoming_delta_y"] < 0 < event["outgoing_delta_y"]
+            assert event["learning_rate"] == entry["learning_rate"]
+            turn_checks.append(dict(run_id=entry["run_id"], update=event["update"],
+                                    point=event["point"], first_y_reversal=True))
             for stream in ("raw", "momentum"):
                 values = saved[stream + "_cosine"]
                 expected = np.full_like(values, np.nan)
@@ -51,6 +67,13 @@ def verify_figure(report):
                 assert len(valid) == 1900 and valid[0] + 1 == 101
                 coverage.append(dict(run_id=entry["run_id"], stream=stream,
                                      first_update=101, displayed_means=1900))
+    assert len(manifest["vertical_reference_lines"]) == 24
+    for event in turns:
+        lines = [line for line in manifest["vertical_reference_lines"] if line["run_id"] == event["run_id"]]
+        assert {line["panel"] for line in lines} == set("bcdefghi")
+        assert all(line["update"] == event["update"] and line["linestyle"] == "--" for line in lines)
+        expected_color = {"Run038": "#0072B2", "Run039": "#8C4AA8", "Run040": "#D55E00"}[event["run_id"]]
+        assert all(line["color"] == expected_color for line in lines)
     pdf_path = ROOT / manifest["figure"]
     assert sha256(pdf_path) == manifest["sha256"]
     with fitz.open(pdf_path) as pdf:
@@ -60,7 +83,8 @@ def verify_figure(report):
         text = page.get_text()
         for label in ("(a)", "(b)", "(c)", "(d)", "(e)", "(f)", "(g)", "(h)", "(i)",
                       "Starting point", "Global optimum", "Final point", "Start (0, 1)",
-                      "weight decay 0.1", "B/A", "100-step trailing mean"):
+                      "weight decay 0.1", "B/A", "100-step trailing mean", "First y-turn",
+                      "turn t = 81", "turn t = 228", "turn t = 655"):
             assert label in text, label
         assert "log scale" not in text and "Start (−1.2, 1)" not in text
         for block in page.get_text("blocks"):
@@ -71,6 +95,7 @@ def verify_figure(report):
         physical_dimensions_inches=[16, 23], required_text_present=True,
         all_text_within_page=True, source_and_script_hashes=True, actual_initial_point_and_full_paths=True,
         rolling_means_against_direct_windows=True, rolling_coverage=coverage, y_scales=manifest["y_scales"],
+        first_y_turns_against_direct_positions=turn_checks, vertical_reference_lines=24,
         render="scratch/pdf_review.png", visual_review="pending"))
 
 

@@ -71,3 +71,17 @@ AdamW recipe, not independently manipulated alignment or decay. Initial loss,
 gradient direction and decay displacement change with the start. Positive
 cosine or a particular B/A does not establish better loss, stability,
 generalization, a universal LR ranking or transfer to LLM training.
+
+Post-execution presentation annotation, requested by the user: mark the
+visible turn near (0.5,0.4) in all metric panels. Operationalize it as the
+first strict local minimum in the saved y positions: choose the earliest
+interior t with y[t] < y[t-1] and y[t] < y[t+1]. This identifies the first
+transition from downward to upward vertical displacement during valley entry.
+Mark theta[t] by an LR-colored diamond in panel (a), and t by the same-color
+dashed vertical line in every panel (b-i). Record coordinates, adjacent
+displacements, update indices and the actual rendered line metadata in the
+figure manifest; independently verify the selection by direct position
+inequalities and all 24 lines' indices/styles/colors. Preserve executed inputs,
+histories and all metric reductions. This event is not a convergence threshold.
+The 100-step rolling means retain their original end-of-window indexing;
+markers are not shifted to compensate for smoothing or gradient timing.

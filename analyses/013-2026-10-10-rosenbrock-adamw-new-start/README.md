@@ -11,6 +11,14 @@ metric panels, with all three LRs overlaid. Cosine panels (c,d) use trailing
 panels (e,f,g) use linear Y; loss uses log Y; ratios are B/A. No zoom or thinning.
 The starting marker and label use the actual saved initial coordinates.
 
+The first turn from decreasing to increasing y is marked by a diamond on
+each trajectory and by an LR-colored dashed vertical line in every metric
+panel: updates **81 / 228 / 655** at LR **1e-2 / midpoint / 1e-3**. The legend
+lists these update indices. Selection uses the first strict local minimum of
+saved y. This is a visual reference event, not a convergence criterion; the
+exact locations and indexing are in the
+[observation](observations/001-initial-point-comparison.md).
+
 | LR | New run | Final objective | Final point | Final gradient norm |
 | --- | --- | ---: | --- | ---: |
 | 1e-2 | [038](../../runs/038-2026-10-10-rosenbrock-adamw-new-start-lr-1e-2/README.md) | 0.000972263060 | (0.969356332, 0.940228143) | 0.307249 |

@@ -1,10 +1,10 @@
 {
   "figure": "analyses\\013-2026-10-10-rosenbrock-adamw-new-start\\figures\\rosenbrock_learning_rates.pdf",
-  "sha256": "91cbf18d2907df5e9d6ed4e410f78957e23b993c9603eee092c31fca18db5501",
+  "sha256": "cde4003bc1e66cea86c273581aca08a9090455e135ddd22ddd58be43b50bd87c",
   "script": "analyses\\013-2026-10-10-rosenbrock-adamw-new-start\\02_plot.py",
-  "script_sha256": "874a58da218c6d8854a25b8accdd58d6fee36e6837a4c73d78a25c3a1c421b42",
+  "script_sha256": "57678c6f2210b7fcdd80bc683861e382f0dd3aa6e3bfcf443c391461c706b28e",
   "plot_implementation": "src\\controlled\\rosenbrock_plot.py",
-  "plot_implementation_sha256": "869db5714e7507745e4c6cfeedaf7e8cbca6b2610d0d687bff137503749525aa",
+  "plot_implementation_sha256": "053401787ae9510115928e8485473503b522bf3d1de181802cc06b47b373c16e",
   "title": "Rosenbrock \u00b7 AdamW with momentum, weight decay 0.1",
   "sources": [
     {
@@ -60,6 +60,215 @@
   "initial_point": [
     0.0,
     1.0
+  ],
+  "trajectory_turns": {
+    "definition": "First strict local minimum of y: y[t] < y[t-1] and y[t] < y[t+1]",
+    "indexing": "Position theta[t] after optimizer update t; no shift for vector or rolling panels",
+    "points": [
+      {
+        "run_id": "Run038",
+        "learning_rate": 0.01,
+        "update": 81,
+        "point": [
+          0.6496286832061973,
+          0.3648314219018606
+        ],
+        "incoming_delta_y": -4.0529695970126234e-05,
+        "outgoing_delta_y": 0.00016616529695262505
+      },
+      {
+        "run_id": "Run039",
+        "learning_rate": 0.0031622776601683794,
+        "update": 228,
+        "point": [
+          0.6238761676552245,
+          0.376754314839678
+        ],
+        "incoming_delta_y": -3.842711745039029e-05,
+        "outgoing_delta_y": 5.373271638020594e-06
+      },
+      {
+        "run_id": "Run040",
+        "learning_rate": 0.001,
+        "update": 655,
+        "point": [
+          0.6056350805457498,
+          0.362119115447759
+        ],
+        "incoming_delta_y": -1.3952378732917659e-06,
+        "outgoing_delta_y": 1.5162858920170219e-05
+      }
+    ]
+  },
+  "vertical_reference_lines": [
+    {
+      "panel": "b",
+      "run_id": "Run038",
+      "update": 81,
+      "color": "#0072B2",
+      "linestyle": "--"
+    },
+    {
+      "panel": "c",
+      "run_id": "Run038",
+      "update": 81,
+      "color": "#0072B2",
+      "linestyle": "--"
+    },
+    {
+      "panel": "d",
+      "run_id": "Run038",
+      "update": 81,
+      "color": "#0072B2",
+      "linestyle": "--"
+    },
+    {
+      "panel": "e",
+      "run_id": "Run038",
+      "update": 81,
+      "color": "#0072B2",
+      "linestyle": "--"
+    },
+    {
+      "panel": "f",
+      "run_id": "Run038",
+      "update": 81,
+      "color": "#0072B2",
+      "linestyle": "--"
+    },
+    {
+      "panel": "g",
+      "run_id": "Run038",
+      "update": 81,
+      "color": "#0072B2",
+      "linestyle": "--"
+    },
+    {
+      "panel": "h",
+      "run_id": "Run038",
+      "update": 81,
+      "color": "#0072B2",
+      "linestyle": "--"
+    },
+    {
+      "panel": "i",
+      "run_id": "Run038",
+      "update": 81,
+      "color": "#0072B2",
+      "linestyle": "--"
+    },
+    {
+      "panel": "b",
+      "run_id": "Run039",
+      "update": 228,
+      "color": "#8C4AA8",
+      "linestyle": "--"
+    },
+    {
+      "panel": "c",
+      "run_id": "Run039",
+      "update": 228,
+      "color": "#8C4AA8",
+      "linestyle": "--"
+    },
+    {
+      "panel": "d",
+      "run_id": "Run039",
+      "update": 228,
+      "color": "#8C4AA8",
+      "linestyle": "--"
+    },
+    {
+      "panel": "e",
+      "run_id": "Run039",
+      "update": 228,
+      "color": "#8C4AA8",
+      "linestyle": "--"
+    },
+    {
+      "panel": "f",
+      "run_id": "Run039",
+      "update": 228,
+      "color": "#8C4AA8",
+      "linestyle": "--"
+    },
+    {
+      "panel": "g",
+      "run_id": "Run039",
+      "update": 228,
+      "color": "#8C4AA8",
+      "linestyle": "--"
+    },
+    {
+      "panel": "h",
+      "run_id": "Run039",
+      "update": 228,
+      "color": "#8C4AA8",
+      "linestyle": "--"
+    },
+    {
+      "panel": "i",
+      "run_id": "Run039",
+      "update": 228,
+      "color": "#8C4AA8",
+      "linestyle": "--"
+    },
+    {
+      "panel": "b",
+      "run_id": "Run040",
+      "update": 655,
+      "color": "#D55E00",
+      "linestyle": "--"
+    },
+    {
+      "panel": "c",
+      "run_id": "Run040",
+      "update": 655,
+      "color": "#D55E00",
+      "linestyle": "--"
+    },
+    {
+      "panel": "d",
+      "run_id": "Run040",
+      "update": 655,
+      "color": "#D55E00",
+      "linestyle": "--"
+    },
+    {
+      "panel": "e",
+      "run_id": "Run040",
+      "update": 655,
+      "color": "#D55E00",
+      "linestyle": "--"
+    },
+    {
+      "panel": "f",
+      "run_id": "Run040",
+      "update": 655,
+      "color": "#D55E00",
+      "linestyle": "--"
+    },
+    {
+      "panel": "g",
+      "run_id": "Run040",
+      "update": 655,
+      "color": "#D55E00",
+      "linestyle": "--"
+    },
+    {
+      "panel": "h",
+      "run_id": "Run040",
+      "update": 655,
+      "color": "#D55E00",
+      "linestyle": "--"
+    },
+    {
+      "panel": "i",
+      "run_id": "Run040",
+      "update": 655,
+      "color": "#D55E00",
+      "linestyle": "--"
+    }
   ],
   "y_scales": {
     "b": "log",

@@ -50,16 +50,41 @@ there are 1,900 displayed means per stream/run. Other curves/statistics remain
 unsmoothed. Norm/A/B axes are linear starting at zero; loss is log Y; cosine
 limits [-1.08,1.08] and B/A limits [0,1.04] are fixed. No uncertainty bands.
 
+User-requested visual reference: identify the initial direction change near
+the user's approximate (0.5,0.4) as the first strict local minimum in y,
+the earliest interior t with y[t] < y[t-1] and y[t] < y[t+1]. This selects
+the first downward-to-upward y reversal, rather than a later/deeper bounce.
+The actual positions are near (0.6,0.4). Diamonds mark theta[t] in panel (a);
+same-color dashed vertical lines mark t in all eight time-series panels.
+The legend maps each LR to its turn update. Manifest coordinates and all
+24 rendered reference lines are checked against saved positions and LR colors.
+
+| LR | First y-turn update | Position theta[t] |
+| --- | ---: | --- |
+| 1e-2 | 81 | (0.649628683, 0.364831422) |
+| 3.162277660e-3 | 228 | (0.623876168, 0.376754315) |
+| 1e-3 | 655 | (0.605635081, 0.362119115) |
+
+The event uses the position after update t. Loss is measured there; raw g_t
+was evaluated at theta[t-1], so the gradient at the marked position enters
+the next update. Cosine rolling means keep their original end-of-window
+index, without shifting the event lines; update 81 precedes the first complete
+mean at 101. The geometric turn is a descriptive reference, not a stationarity
+event, unsmoothed cosine transition or causal loss/alignment interpretation.
+
 Caption: **Rosenbrock navigation and vector geometry under AdamW starting at
 (0,1).** Three constant LRs share weight decay 0.1, betas (0.9,0.95), epsilon
 1e-8 and 2,000 exact float64 updates. (a) Full objective contours/trajectories
-with the actual start, known optimum, direction arrows and final points.
+with the actual start, known optimum, direction arrows and final points;
+diamonds identify each path's first downward-to-upward y reversal.
 (b) Unpenalized Rosenbrock loss. (c,d) Trailing 100-update adjacent cosine means
 for raw gradients and stored momentum. (e) Raw/momentum vector norms on linear
 Y. (f,g) Their cumulative A and B on linear Y. (h,i) Their B/A ratios. Both
 coordinates receive decoupled shrinkage; no L2 term is added to the objective.
 Curves may overlap; colors identify LR and line styles identify stream/quantity
-where panels overlay them. All recorded positions/transitions contribute.
+where panels overlay them. Each panel (b-i) has a dashed vertical reference
+at the corresponding first y-turn update for each LR. All recorded
+positions/transitions contribute.
 
 | LR | Final objective | Final raw B/A | Final momentum B/A | Raw negative pairs | Momentum negative pairs | Late momentum median cosine |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |

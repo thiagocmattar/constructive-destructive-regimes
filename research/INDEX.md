@@ -9,6 +9,7 @@ the smallest LR now has the lowest final objective, versus the prior midpoint.
 Its raw negative-pair fraction rises from zero to 25.01% despite much lower loss.
 All fail joint stationarity. Three matched old/new pairs, replay/optimizer/
 geometry/hash checks and the same styled nine-panel PDF are verified and reviewed.
+The PDF marks each LR's first y-turn at updates 81/228/655 in all metric panels.
 Raw histories 2.84 MB retained locally; no cloud resources or billing.
 
 [Analysis012: Rosenbrock with weight decay](../analyses/012-2026-10-10-rosenbrock-adamw-lr/README.md)

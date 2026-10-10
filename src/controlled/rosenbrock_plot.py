@@ -33,7 +33,7 @@ def rolling_cosine(values, width):
 
 
 def plot(here, *, title, labels, colors=COLORS, styles=STYLES,
-         cosine_window=1, norm_scale="log"):
+         cosine_window=1, norm_scale="log", trajectory_turns=None):
     if not isinstance(cosine_window, int) or cosine_window < 1:
         raise ValueError("cosine_window must be a positive integer")
     if norm_scale not in {"log", "linear"}:
@@ -54,6 +54,13 @@ def plot(here, *, title, labels, colors=COLORS, styles=STYLES,
             histories.append({key: saved[key] for key in saved.files})
         sources.append(dict(entry, history_sha256=sha256(path),
                             config_sha256=sha256(run_dir / "config.json")))
+    turns = trajectory_turns["points"] if trajectory_turns else None
+    if turns:
+        assert len(turns) == len(histories)
+        for event, source, result in zip(turns, sources, histories):
+            assert event["run_id"] == source["run_id"] and event["learning_rate"] == source["learning_rate"]
+            assert 0 < event["update"] < len(result["theta"]) - 1
+            np.testing.assert_array_equal(event["point"], result["theta"][event["update"]])
     plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 11,
                          "axes.titlesize": 13, "axes.labelsize": 11, "legend.fontsize": 10,
                          "axes.spines.top": False, "axes.spines.right": False,
@@ -68,11 +75,14 @@ def plot(here, *, title, labels, colors=COLORS, styles=STYLES,
     fig.suptitle(figure_title, fontsize=20, y=0.979)
     fig.text(0.5, 0.959, r"2,000 updates per learning rate  ·  $\beta_1=0.9$, $\beta_2=0.95$  ·  CPU float64",
              ha="center", fontsize=12)
+    legend_labels = ([label + f" · turn t = {event['update']}" for label, event in zip(LABELS, turns)]
+                     if turns else LABELS)
     lr_handles = [Line2D([], [], color=color, ls=style, lw=2.5, label=label)
-                  for color, style, label in zip(COLORS, STYLES, LABELS)]
+                  for color, style, label in zip(COLORS, STYLES, legend_labels)]
     fig.legend(handles=lr_handles, loc="upper center", bbox_to_anchor=(0.5, 0.945),
                ncol=3, frameon=False, handlelength=3.5, columnspacing=3.5,
-               title="Optimization trajectory · learning rate",
+               title=("Learning rate · vertical dashed line at first y-turn" if turns
+                      else "Optimization trajectory · learning rate"),
                title_fontsize=10)
 
     bounds = (-1.4, 1.22, -0.15, 1.48)
@@ -119,6 +129,13 @@ def plot(here, *, title, labels, colors=COLORS, styles=STYLES,
     point_handles = [Line2D([], [], marker="s", color="none", markerfacecolor="#202A35", markersize=8, label="Starting point (t = 0)"),
                      Line2D([], [], marker="*", color="none", markerfacecolor="#E9B949", markeredgecolor="#202A35", markersize=13, label="Global optimum"),
                      Line2D([], [], marker="o", color="none", markerfacecolor="white", markeredgecolor="#455363", markeredgewidth=1.8, markersize=8, label="Final point (t = 2,000)")]
+    if turns:
+        for event, color in zip(turns, COLORS):
+            landscape.scatter(*event["point"], marker="D", s=115, facecolor="white",
+                              edgecolor=color, linewidth=2, zorder=8)
+        point_handles.append(Line2D([], [], marker="D", color="none", markerfacecolor="white",
+                                   markeredgecolor="#455363", markeredgewidth=1.8,
+                                   markersize=8, label="First y-turn"))
     landscape.legend(handles=point_handles, loc="lower left", frameon=True, framealpha=0.95,
                      edgecolor="#DCE2E7", fontsize=11, borderpad=0.8, labelspacing=0.6,
                      title="Trajectory markers", title_fontsize=11)
@@ -189,10 +206,21 @@ def plot(here, *, title, labels, colors=COLORS, styles=STYLES,
     if norm_scale == "linear":
         for ax in axes[3:6]:
             ax.set_ylim(bottom=0)
+    reference_lines = []
+    if turns:
+        for event, color in zip(turns, COLORS):
+            for panel, ax in zip("bcdefghi", axes):
+                line = ax.axvline(event["update"], color=color, ls="--", lw=1.15, alpha=0.8, zorder=1.8)
+                reference_lines.append(dict(panel=panel, run_id=event["run_id"],
+                                            update=int(line.get_xdata()[0]), color=line.get_color(),
+                                            linestyle=line.get_linestyle()))
     cosine_note = (f"Panels (c,d): {cosine_window}-step trailing means; complete finite windows only. Other series unsmoothed."
                    if cosine_window > 1 else "All updates shown; no smoothing.")
     fig.text(0.09, 0.042, r"$f(x,y)=(1-x)^2+100(y-x^2)^2$.  " + cosine_note, fontsize=10)
-    fig.text(0.09, 0.032, r"$m_t$ is the stored, uncorrected first moment.", fontsize=10)
+    momentum_note = r"$m_t$ is the stored, uncorrected first moment."
+    if turns:
+        momentum_note += "  Diamonds and LR-colored dashed vertical lines mark the first y-turn."
+    fig.text(0.09, 0.032, momentum_note, fontsize=10)
     fig.text(0.09, 0.023, r"Vectors at update $t$ use $g_t=\nabla f(x_{t-1},y_{t-1})$; loss uses $(x_t,y_t)$.  First adjacent cosines are undefined.  B/A is undefined if A = 0.", fontsize=10)
     destination = HERE / "figures/rosenbrock_learning_rates.pdf"
     destination.parent.mkdir(exist_ok=True)
@@ -211,6 +239,7 @@ def plot(here, *, title, labels, colors=COLORS, styles=STYLES,
                            window_updates=cosine_window, minimum_valid_values=cosine_window)
                       if cosine_window > 1 else None),
         "thinning": None, "trajectory_domain": list(bounds), "initial_point": start.tolist(),
+        "trajectory_turns": trajectory_turns, "vertical_reference_lines": reference_lines,
         "y_scales": {panel: ax.get_yscale() for panel, ax in zip("bcdefghi", axes)},
         "adjacent_cosine_rendering": ("connected trailing means; complete finite windows only"
                                       if cosine_window > 1 else "one point per defined pair; no connecting lines"),

@@ -2,7 +2,7 @@
   "passed": true,
   "pages": 1,
   "panels": 9,
-  "pdf_sha256": "91cbf18d2907df5e9d6ed4e410f78957e23b993c9603eee092c31fca18db5501",
+  "pdf_sha256": "cde4003bc1e66cea86c273581aca08a9090455e135ddd22ddd58be43b50bd87c",
   "physical_dimensions_inches": [
     16,
     23
@@ -60,7 +60,37 @@
     "h": "linear",
     "i": "linear"
   },
+  "first_y_turns_against_direct_positions": [
+    {
+      "run_id": "Run038",
+      "update": 81,
+      "point": [
+        0.6496286832061973,
+        0.3648314219018606
+      ],
+      "first_y_reversal": true
+    },
+    {
+      "run_id": "Run039",
+      "update": 228,
+      "point": [
+        0.6238761676552245,
+        0.376754314839678
+      ],
+      "first_y_reversal": true
+    },
+    {
+      "run_id": "Run040",
+      "update": 655,
+      "point": [
+        0.6056350805457498,
+        0.362119115447759
+      ],
+      "first_y_reversal": true
+    }
+  ],
+  "vertical_reference_lines": 24,
   "render": "scratch/pdf_review.png",
   "visual_review": "passed",
-  "visual_review_notes": "Reviewed the full PDF render: actual start (0, 1), full trajectories, optimum/final markers and legends are clear. All nine panels fit; cosine means and linear norm/A/B axes match the requested style."
+  "visual_review_notes": "Reviewed the final PDF render: three LR-colored diamonds identify the first y-turns and the legend lists updates 81/228/655. All eight metric panels have matching dashed vertical references; legends, labels and footer are readable without overlap."
 }
