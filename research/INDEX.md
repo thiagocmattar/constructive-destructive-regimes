@@ -2,6 +2,16 @@
 
 ## Current state
 
+[Analysis011: Rosenbrock learning rates](../analyses/011-2026-10-10-rosenbrock-lr/README.md)
+completed the requested momentum/no-decay refinement: LR 1e-2/1e-3/1e-4,
+2,000 updates each (Runs032-034). Final losses 0.000141348/0.325413/4.138634;
+largest LR reaches the optimum neighborhood but continues oscillating, whereas
+smaller LRs remain positively adjacent-aligned with less progress. All fail
+the joint stationarity test. One large full-trajectory panel plus the exact
+eight-panel diagnostic grid, including B/A ratios, is reviewed in a
+single PDF. Replay/optimizer/geometry/hash checks pass; Run032 exactly matches
+the Run028 prefix. Raw histories 2.85 MB retained locally; no cloud resources or billing.
+
 [Analysis010: controlled Rosenbrock](../analyses/010-2026-10-10-rosenbrock-controlled/README.md)
 completed four deterministic local CPU trajectories (Runs028-031),10,000 updates
 each, varying momentum beta1=0/0.9 and decoupled decay=0/0.1 at matched
@@ -180,4 +190,4 @@ SGD remains deferred. Original manuscript assets are preserved.
 - [Surgical changes proposal](../manuscript/2026-10-07-surgical-changes-proposal/README.md):
   evidence, draft changes, and proposed momentum/LR experiments; planning only.
 
-Next run: 032; analysis: 011; hypothesis: H010. Preserve executed inputs and raw evidence.
+Next run: 035; analysis: 012; hypothesis: H011. Preserve executed inputs and raw evidence.

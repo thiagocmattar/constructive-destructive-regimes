@@ -1,0 +1,118 @@
+{
+  "updates_per_run": 2000,
+  "initial_loss": 24.2,
+  "conditions": [
+    {
+      "run_id": "Run032",
+      "directory": "runs/032-2026-10-10-rosenbrock-lr-1e-2",
+      "learning_rate": 0.01,
+      "lr_label": "1e-2",
+      "final_loss": 0.0001413483391301838,
+      "final_point": [
+        1.00034921478409,
+        0.999510164426634
+      ],
+      "final_gradient_norm": 0.5322361750324536,
+      "minimum_loss": 2.7403686028348084e-09,
+      "minimum_loss_update": 757,
+      "final_100_updates_meet_threshold": false,
+      "loss_increase_fraction": 0.433,
+      "history_sha256": "719992f4d90418a4a03b881e58989147e611c6a6be60e008a23ff338155fb9a4",
+      "streams": {
+        "raw": {
+          "A": 3731.1247298431663,
+          "B": 1581.6040333579983,
+          "B_over_A": 0.4238947094712857,
+          "negative_cosine_fraction": 0.6673336668334167,
+          "late_median_cosine": -0.9999999903770292,
+          "cosine_defined_pairs": 1999,
+          "norm_updates": 2000
+        },
+        "momentum": {
+          "A": 2319.8309492116127,
+          "B": 1581.386882535717,
+          "B_over_A": 0.6816819488821573,
+          "negative_cosine_fraction": 0.6533266633316658,
+          "late_median_cosine": -0.9999999057932998,
+          "cosine_defined_pairs": 1999,
+          "norm_updates": 2000
+        }
+      }
+    },
+    {
+      "run_id": "Run033",
+      "directory": "runs/033-2026-10-10-rosenbrock-lr-1e-3",
+      "learning_rate": 0.001,
+      "lr_label": "1e-3",
+      "final_loss": 0.3254126307459666,
+      "final_point": [
+        0.42955056429032185,
+        0.18448684617999248
+      ],
+      "final_gradient_norm": 1.1362997078029207,
+      "minimum_loss": 0.3254126307459666,
+      "minimum_loss_update": 2000,
+      "final_100_updates_meet_threshold": false,
+      "loss_increase_fraction": 0.0,
+      "history_sha256": "2de7eb970b6832d53a5edbc8dbc112eaa1819ce5331b01b01617727c208005e0",
+      "streams": {
+        "raw": {
+          "A": 20694.884053674872,
+          "B": 17567.838018289098,
+          "B_over_A": 0.8488976296134169,
+          "negative_cosine_fraction": 0.0,
+          "late_median_cosine": 0.9999970178043429,
+          "cosine_defined_pairs": 1999,
+          "norm_updates": 2000
+        },
+        "momentum": {
+          "A": 20654.952293137667,
+          "B": 17557.67273154917,
+          "B_over_A": 0.8500466368727694,
+          "negative_cosine_fraction": 0.0,
+          "late_median_cosine": 0.9999999698792298,
+          "cosine_defined_pairs": 1999,
+          "norm_updates": 2000
+        }
+      }
+    },
+    {
+      "run_id": "Run034",
+      "directory": "runs/034-2026-10-10-rosenbrock-lr-1e-4",
+      "learning_rate": 0.0001,
+      "lr_label": "1e-4",
+      "final_loss": 4.138634285243877,
+      "final_point": [
+        -1.0319816304617313,
+        1.0748272942303136
+      ],
+      "final_gradient_norm": 1.9682423618835332,
+      "minimum_loss": 4.138634285243877,
+      "minimum_loss_update": 2000,
+      "final_100_updates_meet_threshold": false,
+      "loss_increase_fraction": 0.0,
+      "history_sha256": "69c197f55bf07c7c22e8d52f0940d6d4cbf9eb859084a8cbbd3440622ab9dc49",
+      "streams": {
+        "raw": {
+          "A": 156101.87090907915,
+          "B": 154669.6291395559,
+          "B_over_A": 0.9908249544916893,
+          "negative_cosine_fraction": 0.0,
+          "late_median_cosine": 0.9999998520829703,
+          "cosine_defined_pairs": 1999,
+          "norm_updates": 2000
+        },
+        "momentum": {
+          "A": 156081.94063601337,
+          "B": 154676.2947452392,
+          "B_over_A": 0.9909941798196105,
+          "negative_cosine_fraction": 0.0,
+          "late_median_cosine": 0.9999999804467439,
+          "cosine_defined_pairs": 1999,
+          "norm_updates": 2000
+        }
+      }
+    }
+  ],
+  "raw_storage_bytes": 2846401
+}

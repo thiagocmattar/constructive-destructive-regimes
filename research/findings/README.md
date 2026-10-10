@@ -1,5 +1,14 @@
 # Consolidated findings
 
+[Analysis011's three-LR Rosenbrock comparison](../../analyses/011-2026-10-10-rosenbrock-lr/observations/001-learning-rate-comparison.md)
+holds momentum/no decay fixed for 2,000 updates at LR 1e-2/1e-3/1e-4. Final
+loss is 0.000141348/0.325413/4.138634. The fastest valley traversal has frequent
+negative adjacent raw/momentum pairs and ongoing oscillation; the slower paths
+stay positively aligned with less progress. None reaches sustained joint
+stationarity. B/A measures prefix cancellation, without establishing a
+convergence proxy or a causal loss benefit. One exact deterministic setup;
+full histories and the requested single nine-panel PDF are verified.
+
 [Analysis010's controlled Rosenbrock pilot](../../analyses/010-2026-10-10-rosenbrock-controlled/observations/001-controlled-results.md)
 adds four exact2D trajectories with matched start/LR/beta2/horizon. In this
 setup, first-moment memory lowers the final objective at both decay settings;

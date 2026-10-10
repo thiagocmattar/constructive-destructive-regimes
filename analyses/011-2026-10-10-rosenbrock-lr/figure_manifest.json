@@ -1,0 +1,50 @@
+{
+  "figure": "analyses\\011-2026-10-10-rosenbrock-lr\\figures\\rosenbrock_learning_rates.pdf",
+  "sha256": "e948711177a8dad9f21febfddb98106ae9c6ab01a85e1fa64d4903e7f46ef562",
+  "script": "analyses\\011-2026-10-10-rosenbrock-lr\\02_plot.py",
+  "script_sha256": "6a0450267205aff8edf7473c542047c826c33742ea8a6f2ae60c4a10ce9aa1a6",
+  "sources": [
+    {
+      "run_id": "Run032",
+      "directory": "runs/032-2026-10-10-rosenbrock-lr-1e-2",
+      "learning_rate": 0.01,
+      "lr_label": "1e-2",
+      "history_sha256": "719992f4d90418a4a03b881e58989147e611c6a6be60e008a23ff338155fb9a4",
+      "config_sha256": "823e78267ff98847a4d92a40e636fe487b1c62e3b3c093447ad8fb1e9b2b171f"
+    },
+    {
+      "run_id": "Run033",
+      "directory": "runs/033-2026-10-10-rosenbrock-lr-1e-3",
+      "learning_rate": 0.001,
+      "lr_label": "1e-3",
+      "history_sha256": "2de7eb970b6832d53a5edbc8dbc112eaa1819ce5331b01b01617727c208005e0",
+      "config_sha256": "d348fcdb49a334b013c0b32abb7dfafc9b83874ee5023b6928da9b5b0cd18e75"
+    },
+    {
+      "run_id": "Run034",
+      "directory": "runs/034-2026-10-10-rosenbrock-lr-1e-4",
+      "learning_rate": 0.0001,
+      "lr_label": "1e-4",
+      "history_sha256": "69c197f55bf07c7c22e8d52f0940d6d4cbf9eb859084a8cbbd3440622ab9dc49",
+      "config_sha256": "3920c8c92721b670dee2fabc38491ef41cec407695f76ef65d12f85a95c3d164"
+    }
+  ],
+  "panels": 9,
+  "dimensions_inches": [
+    16,
+    23
+  ],
+  "updates_per_run": 2000,
+  "smoothing": null,
+  "thinning": null,
+  "trajectory_domain": [
+    -1.4,
+    1.22,
+    -0.15,
+    1.48
+  ],
+  "adjacent_cosine_rendering": "one point per defined pair; no connecting lines",
+  "ratio_orientation": "B/A",
+  "zero_A": "undefined",
+  "first_cosine": "undefined"
+}

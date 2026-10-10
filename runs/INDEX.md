@@ -35,7 +35,10 @@
 | [029](029-2026-10-10-rosenbrock-no-momentum/README.md) | H009: exact Rosenbrock; beta1=0, decay=0 | Completed; 10,000 local CPU updates; all histories verified; PDF reviewed | Attempt001-local | [001: Trajectory](029-2026-10-10-rosenbrock-no-momentum/observations/001-trajectory-geometry.md); Analysis010 |
 | [030](030-2026-10-10-rosenbrock-adamw/README.md) | H009: exact Rosenbrock; beta1=0.9, decay=0.1 | Completed; 10,000 local CPU updates; all histories verified; PDF reviewed | Attempt001-local | [001: Trajectory](030-2026-10-10-rosenbrock-adamw/observations/001-trajectory-geometry.md); Analysis010 |
 | [031](031-2026-10-10-rosenbrock-no-momentum-decay/README.md) | H009: exact Rosenbrock; beta1=0, decay=0.1 | Completed; 10,000 local CPU updates; all histories verified; PDF reviewed | Attempt001-local | [001: Trajectory](031-2026-10-10-rosenbrock-no-momentum-decay/observations/001-trajectory-geometry.md); Analysis010 |
+| [032](032-2026-10-10-rosenbrock-lr-1e-2/README.md) | H010: Rosenbrock momentum/no decay; LR1e-2 | Completed; 2,000 local CPU updates; all histories verified | Attempt001-local | [001: Trajectory](032-2026-10-10-rosenbrock-lr-1e-2/observations/001-trajectory-geometry.md); Analysis011 single figure |
+| [033](033-2026-10-10-rosenbrock-lr-1e-3/README.md) | H010: matched Rosenbrock momentum/no decay; LR1e-3 | Completed; 2,000 local CPU updates; all histories verified | Attempt001-local | [001: Trajectory](033-2026-10-10-rosenbrock-lr-1e-3/observations/001-trajectory-geometry.md); Analysis011 single figure |
+| [034](034-2026-10-10-rosenbrock-lr-1e-4/README.md) | H010: matched Rosenbrock momentum/no decay; LR1e-4 | Completed; 2,000 local CPU updates; all histories verified | Attempt001-local | [001: Trajectory](034-2026-10-10-rosenbrock-lr-1e-4/observations/001-trajectory-geometry.md); Analysis011 single figure |
 
-Next run: `032-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
+Next run: `035-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
 executed IDs and configurations; retry unchanged scientific inputs in a new
 attempt within the same run.
