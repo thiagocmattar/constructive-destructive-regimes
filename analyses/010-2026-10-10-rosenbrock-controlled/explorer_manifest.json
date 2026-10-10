@@ -1,0 +1,62 @@
+{
+  "source_histories": [
+    {
+      "run": "Run028",
+      "sha256": "6a151121e656ff7e812550a5e09a8d22f384fcc54326b9feab072e8cafd803b9"
+    },
+    {
+      "run": "Run029",
+      "sha256": "4f12e6be37cfaf3cae27417052b63740e6dd9899cd2e396fd9aaaaadcf543185"
+    },
+    {
+      "run": "Run030",
+      "sha256": "2ada4a853ac2e3bb3dcd0b98e6f2a06c05556448c1b950f794be7350a3dcfe2d"
+    },
+    {
+      "run": "Run031",
+      "sha256": "4099cae8b8dcf71dfd624b55ebbceb310464a7c7ca162472572d7e6b6927171d"
+    }
+  ],
+  "generator_sha256": "47bf1bea911669bd1fc229351ed8ae04ecb5a987e39ea147947746ddcb761b08",
+  "template_sha256": "c513a5c2ed4f232b6ce8b5a28f477e74076a1232b5ba0970dfeb4fd041f90978",
+  "html_sha256": "f6b909be6f53b8efe5a26ab48c640db7a037ebf13795de8a58fb2c8cfdf4d16e",
+  "size_bytes": 6527247,
+  "updates_per_condition": 10000,
+  "positions_per_condition": 10001,
+  "display_rounding": "8 significant digits; exact NPZ source retained",
+  "step_sampling": "none",
+  "contours": {
+    "full": {
+      "x": [
+        -1.5,
+        1.35
+      ],
+      "y": [
+        -0.35,
+        1.6
+      ],
+      "levels": [
+        0.001,
+        0.01,
+        0.1,
+        0.5,
+        1,
+        2,
+        5,
+        10,
+        25,
+        50,
+        100,
+        250,
+        500
+      ],
+      "mesh": [
+        500,
+        500
+      ]
+    }
+  },
+  "transition_zoom": "100x100 analytic mesh centered at selected post-point; halfwidth=max(0.002,4*displacement_norm); linearly interpolated contour crossings",
+  "external_dependencies": [],
+  "undefined_metric_representation": "null"
+}

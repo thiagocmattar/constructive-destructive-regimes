@@ -31,7 +31,11 @@
 | [025](025-2026-10-09-pythia14m-no-decay-intermediate-2/README.md) | H008: warmup-only LR0.000464158883; g/m/d diagnostics | Completed full pass; compact metrics verified; recoveries downloading | Attempt1; prior infrastructure calibrations preserved | Analysis009 |
 | [026](026-2026-10-09-pythia14m-no-decay-intermediate-3/README.md) | H008: warmup-only LR0.00215443469; g/m/d diagnostics | Completed full pass; compact metrics verified; recoveries downloading | Attempt1; prior infrastructure calibrations preserved | Analysis009 |
 | [027](027-2026-10-09-pythia14m-no-decay-intermediate-4/README.md) | H008: warmup-only LR0.00464158883; g/m/d diagnostics | Completed full pass; compact metrics verified; recoveries downloading | Attempt1; prior infrastructure calibrations preserved | Analysis009 |
+| [028](028-2026-10-10-rosenbrock-adam/README.md) | H009: exact Rosenbrock; beta1=0.9, decay=0 | Completed; 10,000 local CPU updates; all histories verified; PDF reviewed | Attempt001-local | [001: Trajectory](028-2026-10-10-rosenbrock-adam/observations/001-trajectory-geometry.md); Analysis010 |
+| [029](029-2026-10-10-rosenbrock-no-momentum/README.md) | H009: exact Rosenbrock; beta1=0, decay=0 | Completed; 10,000 local CPU updates; all histories verified; PDF reviewed | Attempt001-local | [001: Trajectory](029-2026-10-10-rosenbrock-no-momentum/observations/001-trajectory-geometry.md); Analysis010 |
+| [030](030-2026-10-10-rosenbrock-adamw/README.md) | H009: exact Rosenbrock; beta1=0.9, decay=0.1 | Completed; 10,000 local CPU updates; all histories verified; PDF reviewed | Attempt001-local | [001: Trajectory](030-2026-10-10-rosenbrock-adamw/observations/001-trajectory-geometry.md); Analysis010 |
+| [031](031-2026-10-10-rosenbrock-no-momentum-decay/README.md) | H009: exact Rosenbrock; beta1=0, decay=0.1 | Completed; 10,000 local CPU updates; all histories verified; PDF reviewed | Attempt001-local | [001: Trajectory](031-2026-10-10-rosenbrock-no-momentum-decay/observations/001-trajectory-geometry.md); Analysis010 |
 
-Next run: `028-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
+Next run: `032-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
 executed IDs and configurations; retry unchanged scientific inputs in a new
 attempt within the same run.

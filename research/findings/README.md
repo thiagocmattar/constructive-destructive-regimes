@@ -1,5 +1,17 @@
 # Consolidated findings
 
+[Analysis010's controlled Rosenbrock pilot](../../analyses/010-2026-10-10-rosenbrock-controlled/observations/001-controlled-results.md)
+adds four exact2D trajectories with matched start/LR/beta2/horizon. In this
+setup, first-moment memory lowers the final objective at both decay settings;
+decoupled decay raises it at both momentum settings. The lowest-loss trajectory
+has frequently negative adjacent momentum cosine, while decay gives positive
+late momentum alignment at a higher objective floor. No condition sustains the
+declared stationarity thresholds. [Exact temporal interaction](../../analyses/010-2026-10-10-rosenbrock-controlled/observations/003-temporal-interaction.md)
+remains positive in the lowest-loss raw history despite mostly negative adjacent
+cosines. These findings distinguish vector interaction from objective benefit;
+one deterministic start/function/LR/beta2 is not a universal, asymptotic or LLM
+result. Full histories, reviewed PDFs and linked step navigation are retained.
+
 Run001 has verified descriptive observations:
 [gradient evolution](../../runs/001-2026-10-03-pythia14m-adamw-gradient-baseline/observations/001-gradient-evolution.md)
 and [temporal interactions](../../runs/001-2026-10-03-pythia14m-adamw-gradient-baseline/observations/002-temporal-interactions.md).

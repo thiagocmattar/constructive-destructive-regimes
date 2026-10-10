@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Controlled Rosenbrock experiment</title>
+<style>
+:root { color-scheme:light dark; --bg:light-dark(#fcfcfd,#17191d); --fg:light-dark(#202734,#e6eaf0); --muted:light-dark(#5e6878,#acb6c6); --grid:light-dark(#d9dfe8,#424954); --line:light-dark(#2563a6,#78b8fa); --second:light-dark(#bd6314,#f0ae64); --third:light-dark(#268563,#79cbae); --contour:light-dark(#858d99,#838d9c); }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font:15px/1.5 system-ui,sans-serif; }
+main { max-width:1200px; margin:auto; padding:22px; }
+h1 { font-size:24px; font-weight:600; margin:0 0 6px; }
+p { margin:6px 0; }
+.muted { color:var(--muted); }
+.controls { display:flex; flex-wrap:wrap; align-items:end; gap:14px; margin:18px 0 10px; }
+label { display:flex; gap:6px; flex-direction:column; }
+label.check { flex-direction:row; align-items:center; }
+select,input,button { font:inherit; color:var(--fg); background:var(--bg); border:1px solid var(--grid); border-radius:4px; padding:7px 10px; }
+input[type=range] { padding:0; width:100%; }
+input[type=number] { width:110px; }
+input[type=checkbox] { accent-color:var(--line); }
+button:disabled { opacity:.4; }
+.step-row { display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:12px; }
+.detail { padding:8px 0; min-height:32px; font-variant-numeric:tabular-nums; }
+.charts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+figure { margin:0; min-width:0; }
+figcaption { margin:0 0 4px; font-weight:600; }
+canvas { display:block; width:100%; height:290px; touch-action:pan-y; }
+.legend { font-size:13px; color:var(--muted); min-height:22px; }
+details { margin-top:18px; }
+summary { font-weight:600; }
+.error { color:light-dark(#a01627,#fa94a1); }
+@media(max-width:720px) { main { padding:14px; } .charts { grid-template-columns:1fr; } h1 { font-size:21px; } .controls { gap:10px; } canvas { height:270px; } select { max-width:100%; } }
+@media(pointer:coarse) { button,select { min-height:44px; } }
+</style>
+</head>
+<body>
+<main id="rosenbrock-pilot">
+<h1>Controlled Rosenbrock experiment</h1>
+<p class="muted">Exact objective • shared start (−1.2, 1) • 10,000 updates • LR 0.01 • β₂ 0.95 • float64</p>
+<div class="controls">
+  <label>Condition<select id="condition" aria-label="Experiment condition"></select></label>
+  <label>Vector stream<select id="stream"><option value="raw">Raw gradient g</option><option value="momentum">Stored momentum m</option><option value="adaptive">Adaptive direction d</option><option value="displacement">Actual displacement u</option></select></label>
+  <label>Update<input id="update" type="number" min="0" max="10000" step="1" value="10000"></label>
+  <label class="check"><input type="checkbox" id="local-time">Nearby 100 updates</label>
+  <label class="check"><input type="checkbox" id="zoom">Zoom selected transition</label>
+</div>
+<div class="step-row"><button id="previous" type="button">Previous</button><input id="slider" type="range" min="0" max="10000" step="1" value="10000" aria-label="Optimizer update"><button id="next" type="button">Next</button></div>
+<p id="detail" class="detail" aria-live="polite">Loading recorded trajectories…</p>
+<div class="charts">
+ <figure><figcaption>Objective contours and trajectory</figcaption><canvas id="landscape" role="img" aria-label="Rosenbrock contours with starting point, selected transition, and global minimum"></canvas><div class="legend">Square: start • circle: selected point • cross: minimum • arrow: selected displacement</div></figure>
+ <figure><figcaption>Objective after update</figcaption><canvas id="loss" role="img" aria-label="Objective value on a logarithmic scale, with selected update"></canvas><div class="legend" id="loss-values"></div></figure>
+ <figure><figcaption>Adjacent alignment</figcaption><canvas id="cosine" role="img" aria-label="Raw and selected-stream adjacent cosine, unsmoothed"></canvas><div class="legend">Solid: selected stream • dashed: raw gradient • zero reference</div></figure>
+ <figure><figcaption>Individual vector norm</figcaption><canvas id="norm" role="img" aria-label="Selected vector stream L2 norm on a logarithmic scale"></canvas><div class="legend" id="norm-values"></div></figure>
+ <figure><figcaption>Cumulative A and B</figcaption><canvas id="cumulative" role="img" aria-label="Sum of vector norms and norm of vector sum on a logarithmic scale"></canvas><div class="legend">Solid: A = sum of norms • dashed: B = norm of sum</div></figure>
+ <figure><figcaption>Cumulative B/A</figcaption><canvas id="ratio" role="img" aria-label="Ratio of norm of sum to sum of norms"></canvas><div class="legend" id="ratio-values"></div></figure>
+ <figure><figcaption>Squared cumulative geometry</figcaption><canvas id="squared" role="img" aria-label="A squared, B squared, and their nonnegative difference"></canvas><div class="legend">Solid: A² • dashed: B² • dotted: A²−B² (triangle gap)</div></figure>
+ <figure><figcaption>Exact temporal interaction</figcaption><canvas id="interaction" role="img" aria-label="Signed all-pair interaction and lag-one interaction"></canvas><div class="legend">Solid: I = B²−Σ‖z‖² • dashed: L1 = 2Σ adjacent dot products</div></figure>
+</div>
+<p class="muted">Click or move across a time plot to inspect that recorded update; use “Nearby 100 updates” to resolve late oscillations. Every update is available.</p>
+<details><summary>Definitions, coverage, and interpretation</summary>
+<p>f(x,y) = (1−x)² + 100(y−x²)². The known global minimum is (1,1), f=0. All conditions use exact analytic gradients without clipping, ε=10⁻⁸, and the same fixed 10,000-update budget. β₁ is 0 or 0.9; weight decay is 0 or 0.1.</p>
+<p>At update t, g is evaluated at θ<sub>t−1</sub>; m is the uncorrected first moment after incorporating g; d includes bias correction and second-moment division, excluding LR and decay; u=θ<sub>t</sub>−θ<sub>t−1</sub> includes LR, decay, and descent sign. The selected point and loss are post-update. Adjacent cosine at t compares vectors t−1 and t. First-update cosine and zero denominators are undefined.</p>
+<p>A=Σ‖z‖, B=‖Σz‖. A²−B² is a nonnegative triangle gap; signed all-pair interaction is I=B²−Σ‖z‖². Neither cosine sign nor B/A alone establishes loss decrease or convergence.</p>
+<p>The declared convergence test requires f≤10⁻⁸ and post-update gradient norm≤10⁻⁴. Sustained convergence requires all final 100 updates to pass; no condition passes that test. One deterministic start, objective, LR, and β₂ do not establish an asymptotic or LLM result.</p>
+<p>Curves and selected values use eight significant digits for display; no steps are omitted. Exact float64 histories, verification, hashes, and publication PDFs accompany the experiment in the repository. Full-domain contours use a 500×500 analytic mesh; transition zoom recomputes analytic contours on a 100×100 mesh with linearly interpolated crossings. Null diagnostics remain undefined. There are no network dependencies.</p>
+</details>
+<p id="status" class="muted"></p>
+</main>
+<script id="recorded-data" type="application/octet-stream">__PAYLOAD__</script>
+<script>
+(async function () {
+ 'use strict';
+ const root=document.getElementById('rosenbrock-pilot');
+ const el=id=>root.querySelector('#'+id);
+ const text=(id,value)=>{el(id).textContent=value;};
+ try {
+  const binary=Uint8Array.from(atob(document.getElementById('recorded-data').textContent.trim()),c=>c.charCodeAt(0));
+  const decoded=new Blob([binary]).stream().pipeThrough(new DecompressionStream('gzip'));
+  const data=JSON.parse(await new Response(decoded).text());
+  const idx=Object.fromEntries(data.columns.map((name,index)=>[name,index]));
+  const color=name=>{const probe=document.createElement('span');probe.style.display='none';probe.style.color=`var(${name})`;root.appendChild(probe);const resolved=getComputedStyle(probe).color;probe.remove();return resolved;};
+  const get=(row,name)=>row[idx[name]];
+  const fmt=x=>x===null||!Number.isFinite(x)?'undefined':(Math.abs(x)<.001||Math.abs(x)>=10000?x.toExponential(4):x.toPrecision(6));
+  let condition=0, stream='raw', step=10000, hoverFrame=0;
+  data.runs.forEach((run,index)=>{const option=document.createElement('option');option.value=index;option.textContent=run.id+' · '+run.label;el('condition').appendChild(option);});
+  function context(id) {
+   const canvas=el(id), width=canvas.clientWidth, height=canvas.clientHeight, scale=window.devicePixelRatio||1;
+   canvas.width=Math.round(width*scale); canvas.height=Math.round(height*scale);
+   const ctx=canvas.getContext('2d');ctx.scale(scale,scale);ctx.clearRect(0,0,width,height);
+   ctx.font='12px system-ui';ctx.fillStyle=color('--fg');
+   return {canvas,ctx,width,height,left:76,right:width-14,top:16,bottom:height-47};
+  }
+  function domain(values,log=false,fixed=null) {
+   if(fixed)return fixed;
+   let lo=Infinity,hi=-Infinity;
+   for(const value of values){if(value!==null&&Number.isFinite(value)&&(!log||value>0)){lo=Math.min(lo,value);hi=Math.max(hi,value);}}
+   if(lo===Infinity)return log?[.1,1]:[0,1];
+   if(log){lo=Math.log10(lo);hi=Math.log10(hi);const pad=Math.max((hi-lo)*.06,.1);return [10**(lo-pad),10**(hi+pad)];}
+   const pad=Math.max((hi-lo)*.07,Math.abs(hi)*1e-6,1e-9);return [lo-pad,hi+pad];
+  }
+  function axes(p,xDomain,yDomain,xLabel,yLabel,log=false) {
+   const {ctx,left,right,top,bottom}=p;
+   const X=value=>left+(value-xDomain[0])/(xDomain[1]-xDomain[0])*(right-left);
+   const low=log?Math.log10(yDomain[0]):yDomain[0],high=log?Math.log10(yDomain[1]):yDomain[1];
+   const Y=value=>bottom-((log?Math.log10(value):value)-low)/(high-low)*(bottom-top);
+   ctx.strokeStyle=color('--grid');ctx.lineWidth=.7;ctx.fillStyle=color('--fg');
+   const ticks=p.width<400?3:4;
+   for(let i=0;i<=ticks;i++){
+    const xv=xDomain[0]+(xDomain[1]-xDomain[0])*i/ticks,x=X(xv);
+    ctx.beginPath();ctx.moveTo(x,top);ctx.lineTo(x,bottom);ctx.stroke();
+    ctx.textAlign=i===0?'left':i===ticks?'right':'center';const precision=Math.min(6,Math.max(2,Math.ceil(-Math.log10(xDomain[1]-xDomain[0]))+1));ctx.fillText(xLabel==='Optimizer update'?Math.round(xv).toLocaleString():xv.toFixed(precision),x,bottom+19);
+    const yv=log?10**(low+(high-low)*i/ticks):low+(high-low)*i/ticks,y=Y(yv);
+    ctx.beginPath();ctx.moveTo(left,y);ctx.lineTo(right,y);ctx.stroke();
+    ctx.textAlign='right';const tight=log?high-low<.02:(high-low)/Math.max(Math.abs(high),Math.abs(low),1e-20)<.001;const label=tight?yv.toPrecision(6):log?yv.toExponential(0):Math.abs(yv)>10000?yv.toExponential(1):Math.abs(yv)<.001&&yv!==0?yv.toExponential(1):yv.toFixed(Math.min(6,Math.max(2,Math.ceil(-Math.log10(high-low))+1)));
+    ctx.fillText(label,left-8,y+4);
+   }
+   ctx.strokeRect(left,top,right-left,bottom-top);
+   ctx.textAlign='center';ctx.fillText(xLabel,(left+right)/2,p.height-7);
+   ctx.save();ctx.translate(14,(top+bottom)/2);ctx.rotate(-Math.PI/2);ctx.fillText(yLabel,0,0);ctx.restore();
+   return {X,Y};
+  }
+  function drawLine(p,X,Y,points,stroke,dash=[]) {
+   const c=p.ctx;c.save();c.beginPath();c.rect(p.left,p.top,p.right-p.left,p.bottom-p.top);c.clip();c.strokeStyle=stroke;c.lineWidth=1.25;c.setLineDash(dash);c.beginPath();let active=false;
+   for(const [x,y] of points){if(y===null||!Number.isFinite(y)||!Number.isFinite(Y(y))){active=false;continue;}if(active)c.lineTo(X(x),Y(y));else{c.moveTo(X(x),Y(y));active=true;}}
+   c.stroke();c.restore();
+  }
+  function timePlot(id,series,yLabel,log=false,fixed=null) {
+   const p=context(id),local=el('local-time').checked,start=local?Math.max(0,step-50):0,end=local?Math.min(10000,step+50):10000;
+   const xDomain=[start,end>start?end:start+1],rows=data.runs[condition].rows.slice(start,end+1);
+   const values=series.flatMap(s=>rows.map(s.value));
+   const {X,Y}=axes(p,xDomain,domain(values,log,fixed),'Optimizer update',yLabel,log);
+   if(!log&&fixed&&fixed[0]<0){drawLine(p,X,Y,[[start,0],[end,0]],color('--contour'),[2,3]);}
+   series.forEach(s=>drawLine(p,X,Y,rows.map(row=>[get(row,'step'),s.value(row)]),color(s.color),s.dash));
+   drawLine(p,X,Y,[[step,domain(values,log,fixed)[0]],[step,domain(values,log,fixed)[1]]],color('--muted'),[3,3]);
+   p.canvas._plot={left:p.left,right:p.right,start,end};
+   const row=data.runs[condition].rows[step];
+   for(const s of series){const y=s.value(row);if(y!==null&&Number.isFinite(Y(y))){p.ctx.beginPath();p.ctx.arc(X(step),Y(y),3,0,2*Math.PI);p.ctx.fillStyle=color(s.color);p.ctx.fill();}}
+  }
+  function localContours(rows) {
+   const current=rows[step],previous=rows[Math.max(0,step-1)],x=get(current,'x'),y=get(current,'y');
+   const half=Math.max(.002,4*Math.hypot(x-get(previous,'x'),y-get(previous,'y')));
+   const view={x:[x-half,x+half],y:[y-half,y+half],paths:[]},size=100;
+   const f=(a,b)=>(1-a)**2+100*(b-a*a)**2;
+   const xs=Array.from({length:size},(_,i)=>view.x[0]+i*(2*half)/(size-1));
+   const ys=Array.from({length:size},(_,i)=>view.y[0]+i*(2*half)/(size-1));
+   const grid=ys.map(b=>xs.map(a=>f(a,b))),all=grid.flat(),lo=Math.min(...all),hi=Math.max(...all);
+   const levels=[];for(let power=Math.floor(Math.log10(Math.max(lo,1e-12)))-1;power<=Math.ceil(Math.log10(hi));power++)for(const factor of [1,3]){const level=factor*10**power;if(level>lo&&level<hi)levels.push(level);}
+   for(const level of levels)for(let j=0;j<size-1;j++)for(let i=0;i<size-1;i++){
+    const corners=[[xs[i],ys[j],grid[j][i]],[xs[i+1],ys[j],grid[j][i+1]],[xs[i+1],ys[j+1],grid[j+1][i+1]],[xs[i],ys[j+1],grid[j+1][i]]],cross=[];
+    for(let edge=0;edge<4;edge++){const a=corners[edge],b=corners[(edge+1)%4];if((a[2]<level)!==(b[2]<level)){const r=(level-a[2])/(b[2]-a[2]);cross.push([a[0]+r*(b[0]-a[0]),a[1]+r*(b[1]-a[1])]);}}
+    if(cross.length===2)view.paths.push(cross);
+    else if(cross.length===4){const center=f((xs[i]+xs[i+1])/2,(ys[j]+ys[j+1])/2);const pairs=(corners[0][2]<level)===(center<level)?[[0,1],[2,3]]:[[0,3],[1,2]];for(const pair of pairs)view.paths.push(pair.map(index=>cross[index]));}
+   }
+   return view;
+  }
+  function landscape() {
+   const rows=data.runs[condition].rows,p=context('landscape'),zoom=el('zoom').checked,view=zoom?localContours(rows):data.contours.full;
+   // Equal units on both axes; fit the declared contour domain inside the canvas.
+   const xr=view.x[1]-view.x[0],yr=view.y[1]-view.y[0],unit=Math.min((p.right-p.left)/xr,(p.bottom-p.top)/yr);
+   const pw=xr*unit,ph=yr*unit;p.left+=(p.right-p.left-pw)/2;p.right=p.left+pw;p.top+=(p.bottom-p.top-ph)/2;p.bottom=p.top+ph;
+   const {X,Y}=axes(p,view.x,view.y,'x coordinate','y coordinate');
+   view.paths.forEach(path=>drawLine(p,X,Y,path,color('--contour')));
+   drawLine(p,X,Y,rows.map(r=>[get(r,'x'),get(r,'y')]),color('--grid'));
+   drawLine(p,X,Y,rows.slice(0,step+1).map(r=>[get(r,'x'),get(r,'y')]),color('--line'));
+   const c=p.ctx;const mark=(x,y,shape)=>{if(x<view.x[0]||x>view.x[1]||y<view.y[0]||y>view.y[1])return;c.strokeStyle=color('--fg');c.fillStyle=color('--line');c.lineWidth=1.5;c.beginPath();const px=X(x),py=Y(y);if(shape==='square')c.rect(px-4,py-4,8,8);else if(shape==='cross'){c.moveTo(px-6,py);c.lineTo(px+6,py);c.moveTo(px,py-6);c.lineTo(px,py+6);}else c.arc(px,py,4,0,2*Math.PI);if(shape==='circle')c.fill();c.stroke();};
+   mark(-1.2,1,'square');mark(1,1,'cross');const row=rows[step];mark(get(row,'x'),get(row,'y'),'circle');
+   if(step>0){const previous=rows[step-1],x0=get(previous,'x'),y0=get(previous,'y'),x1=get(row,'x'),y1=get(row,'y');
+    if([x0,x1].every(x=>x>=view.x[0]&&x<=view.x[1])&&[y0,y1].every(y=>y>=view.y[0]&&y<=view.y[1])){
+     const dx=X(x1)-X(x0),dy=Y(y1)-Y(y0),angle=Math.atan2(dy,dx);
+     c.strokeStyle=color('--second');c.lineWidth=2;c.beginPath();c.moveTo(X(x0),Y(y0));c.lineTo(X(x1),Y(y1));c.moveTo(X(x1)-5*Math.cos(angle-.5),Y(y1)-5*Math.sin(angle-.5));c.lineTo(X(x1),Y(y1));c.lineTo(X(x1)-5*Math.cos(angle+.5),Y(y1)-5*Math.sin(angle+.5));c.stroke();
+    }
+   }
+  }
+  function draw() {
+   el('slider').value=step;el('update').value=step;el('previous').disabled=step===0;el('next').disabled=step===10000;
+   const run=data.runs[condition],row=run.rows[step],prefix=stream+'_';
+   text('detail',`Update ${step.toLocaleString()} · (x, y) = (${fmt(get(row,'x'))}, ${fmt(get(row,'y'))}) · f = ${fmt(get(row,'loss'))} · ${stream} cosine = ${fmt(get(row,prefix+'cosine'))}`);
+   text('loss-values',`Selected f: ${fmt(get(row,'loss'))} · Δf: ${step?fmt(get(row,'loss')-get(run.rows[step-1],'loss')):'undefined'} · ‖∇f(θₜ)‖: ${fmt(get(row,'gradient_norm'))}`);
+   text('norm-values',`Selected ‖z‖: ${fmt(get(row,prefix+'norm'))} · m/g: ${fmt(get(row,'momentum_to_raw_norm_ratio'))} · d/g: ${fmt(get(row,'adaptive_to_raw_norm_ratio'))} · d/m: ${fmt(get(row,'adaptive_to_momentum_norm_ratio'))}`);
+   text('ratio-values',`A: ${fmt(get(row,prefix+'A'))} · B: ${fmt(get(row,prefix+'B'))} · B/A: ${fmt(get(row,prefix+'ratio'))}`);
+   landscape();
+   const line=(name,colour='--line',dash=[])=>({value:r=>get(r,name),color:colour,dash});
+   timePlot('loss',[line('loss')],'Objective f (log)',true);
+   timePlot('cosine',[line(prefix+'cosine'),...(stream==='raw'?[]:[line('raw_cosine','--second',[4,3])])],'Cosine (dimensionless)',false,[-1.05,1.05]);
+   timePlot('norm',[line(prefix+'norm')],'L2 norm (log)',true);
+   timePlot('cumulative',[line(prefix+'A'),line(prefix+'B','--second',[4,3])],'Cumulative L2 norm (log)',true);
+   timePlot('ratio',[line(prefix+'ratio')],'B/A (dimensionless)',false,[-.02,1.02]);
+   const squared=(key,colour,dash=[])=>({value:r=>{const value=get(r,prefix+key);return value===null?null:value*value;},color:colour,dash});
+   timePlot('squared',[squared('A','--line'),squared('B','--second',[4,3]),{value:r=>{const a=get(r,prefix+'A'),b=get(r,prefix+'B');return a===null||b===null?null:a*a-b*b;},color:'--third',dash:[1,3]}],'Squared norm (log)',true);
+   timePlot('interaction',[line(prefix+'all_pair'),line(prefix+'lag_one','--second',[4,3])],'Signed squared norm');
+   text('status',`${run.id} · β₁=${run.beta1} · decay=${run.decay} · complete recorded history · first cosine undefined · unsmoothed time plots`);
+   root.dataset.ready='true';root.dataset.step=String(step);root.dataset.condition=String(condition);root.dataset.stream=stream;
+  }
+  const changeStep=value=>{step=Math.max(0,Math.min(10000,Math.round(Number(value)||0)));draw();};
+  el('condition').addEventListener('change',()=>{condition=Number(el('condition').value);draw();});
+  el('stream').addEventListener('change',()=>{stream=el('stream').value;draw();});
+  el('slider').addEventListener('input',()=>changeStep(el('slider').value));
+  el('update').addEventListener('change',()=>changeStep(el('update').value));
+  el('previous').addEventListener('click',()=>changeStep(step-1));
+  el('next').addEventListener('click',()=>changeStep(step+1));
+  el('local-time').addEventListener('change',draw);el('zoom').addEventListener('change',draw);
+  root.querySelectorAll('canvas').forEach(canvas=>{if(canvas.id==='landscape')return;
+   const inspect=event=>{const plot=canvas._plot;if(!plot)return;const x=event.clientX-canvas.getBoundingClientRect().left;if(x<plot.left||x>plot.right)return;const selected=Math.round(plot.start+(x-plot.left)/(plot.right-plot.left)*(plot.end-plot.start));if(selected===step)return;cancelAnimationFrame(hoverFrame);hoverFrame=requestAnimationFrame(()=>changeStep(selected));};
+   canvas.addEventListener('click',inspect);canvas.addEventListener('pointermove',event=>{if(event.pointerType==='mouse'&&!el('local-time').checked)inspect(event);});
+  });
+  new ResizeObserver(()=>draw()).observe(root);
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change',draw);
+  draw();
+ } catch(error) { text('detail','Unable to load the recorded data: '+error.message);el('detail').classList.add('error');root.dataset.error=String(error); }
+})();
+</script>
+</body>
+</html>

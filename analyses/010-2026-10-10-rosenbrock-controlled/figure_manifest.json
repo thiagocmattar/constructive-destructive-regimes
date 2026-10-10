@@ -1,0 +1,58 @@
+{
+  "generator_sha256": "17e2542cccef12a6433a1c8faa00af9a0c078b57a2d98b8392959d1244e88138",
+  "source_histories": [
+    {
+      "run": "Run028",
+      "sha256": "6a151121e656ff7e812550a5e09a8d22f384fcc54326b9feab072e8cafd803b9"
+    },
+    {
+      "run": "Run029",
+      "sha256": "4f12e6be37cfaf3cae27417052b63740e6dd9899cd2e396fd9aaaaadcf543185"
+    },
+    {
+      "run": "Run030",
+      "sha256": "2ada4a853ac2e3bb3dcd0b98e6f2a06c05556448c1b950f794be7350a3dcfe2d"
+    },
+    {
+      "run": "Run031",
+      "sha256": "4099cae8b8dcf71dfd624b55ebbceb310464a7c7ca162472572d7e6b6927171d"
+    }
+  ],
+  "coverage": "every update 1..10000, objective positions 0..10000",
+  "cosine_smoothing": "trailing 100 valid adjacent pairs",
+  "contours": "analytic f on 500x500 meshes; exact trajectories, no decimation",
+  "figures": [
+    {
+      "path": "runs/028-2026-10-10-rosenbrock-adam/figures/trajectory_geometry.pdf",
+      "sha256": "e360a7aabedb9c02cba09977ce4895cbc1e1c79c15add62be9772da4fec99beb"
+    },
+    {
+      "path": "runs/029-2026-10-10-rosenbrock-no-momentum/figures/trajectory_geometry.pdf",
+      "sha256": "e6468ed4b52da38b078d4b3e62080392e492b55523bc0ece3acad6acdb878264"
+    },
+    {
+      "path": "runs/030-2026-10-10-rosenbrock-adamw/figures/trajectory_geometry.pdf",
+      "sha256": "f387b6708a8a360c52aead5f267f9e17e298a87804dd0c6c0dae50b9cb4399bb"
+    },
+    {
+      "path": "runs/031-2026-10-10-rosenbrock-no-momentum-decay/figures/trajectory_geometry.pdf",
+      "sha256": "e8a9d62767ea63f1993b6af1b2fa15a0af641bc10fb749754c0cc60011bfc312"
+    },
+    {
+      "path": "analyses/010-2026-10-10-rosenbrock-controlled/figures/controlled_comparison.pdf",
+      "sha256": "64cc2754cd2819dba49b3c742a2cda8ad6d675dd5f2d5e7b374897ee3219c838"
+    },
+    {
+      "path": "analyses/010-2026-10-10-rosenbrock-controlled/figures/squared_geometry.pdf",
+      "sha256": "276c42b91b4566c4352c14323dd57f4bc15c226bb731ab7aa06c2bccbbf99499"
+    },
+    {
+      "path": "analyses/010-2026-10-10-rosenbrock-controlled/figures/exact_temporal_interaction.pdf",
+      "sha256": "6c680b70f653f0e44ff4f3b29f0538b095a0784fd4566a1e82c18f7238d8a700"
+    },
+    {
+      "path": "analyses/010-2026-10-10-rosenbrock-controlled/figures/norm_ratios.pdf",
+      "sha256": "fea88cb8df6864597a7bdd5725c03ae1b447e6ce142972ab84db409490eba04e"
+    }
+  ]
+}

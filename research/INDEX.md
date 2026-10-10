@@ -2,6 +2,18 @@
 
 ## Current state
 
+[Analysis010: controlled Rosenbrock](../analyses/010-2026-10-10-rosenbrock-controlled/README.md)
+completed four deterministic local CPU trajectories (Runs028-031),10,000 updates
+each, varying momentum beta1=0/0.9 and decoupled decay=0/0.1 at matched
+LR0.01/beta2=0.95/start(-1.2,1). All Analysis009 g/m/d metrics plus actual
+displacements and exact temporal sums are retained. Every update/replay/hash
+passed; eight PDFs and an offline linked step explorer passed visual/browser QA.
+Final losses in run order are3.452e-6/0.02245/0.0009731/0.08264. None meets the
+final100 sustained stationarity criterion. Lower loss with mostly negative
+momentum cosine contrasts with the decay condition's positive late momentum
+alignment; no alignment/convergence proxy or LLM transfer is established.
+Raw histories17.13MB retained locally; no new cloud resources or billing.
+
 [Analysis009 completed metric comparison](../analyses/009-2026-10-09-intermediate-lr/complete-seven-lr/README.md)
 adds four intermediate warmup-only14M LR points (Runs024-027). All four completed
 712 updates/1.492B input tokens and full validation at18:36-18:37 UTC, with zero
@@ -168,4 +180,4 @@ SGD remains deferred. Original manuscript assets are preserved.
 - [Surgical changes proposal](../manuscript/2026-10-07-surgical-changes-proposal/README.md):
   evidence, draft changes, and proposed momentum/LR experiments; planning only.
 
-Next run: 028; analysis: 010; hypothesis: H009. Preserve executed inputs and raw evidence.
+Next run: 032; analysis: 011; hypothesis: H010. Preserve executed inputs and raw evidence.
