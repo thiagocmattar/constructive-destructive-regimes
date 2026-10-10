@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-10-10T10:38:34.594335+00:00",
+  "generated_at": "2026-10-10T10:42:19.362185+00:00",
   "source_comparison_sha256": "a02a1ba7ace7a7011063767e6e7fb1c25548be0a12be06b6dad6826e5e7b2739",
-  "generator_sha256": "8a15b4d05aedecfce88b36e87d5778bee854f37e76de7a2c9590a8061c6bdcad",
+  "generator_sha256": "893caca58358e278cc0583f7e506748c678fc33b470a247adb59a7f8237e3863",
   "helper_sha256": "9ec4df3bd5fb1564cdabad51a06ec494e4a962fbc74f8a0498a146c9056b7946",
   "value_helper_sha256": "c129fdd8c2b9f7b0945dd87fcb2b90da2b16ae3f8498ccf3c85f59b5f6ca927b",
-  "figure_sha256": "ce50e71d74962a2b09f25f7fd168e34989d75f765458e03143e28dd33f8384b5",
+  "figure_sha256": "5ed4ab7373f6a529049af1c13769df10273a5e80418b95031dd7b23e0b5fc98c",
   "palette": {
     "name": "plasma_r",
     "normalization": "log10(peak_lr)",
@@ -85,38 +85,39 @@
   "partial_update_retained": true,
   "smoothing": "none",
   "y_scales": [
-    "linear",
-    "linear",
-    "linear",
-    "linear",
-    "linear",
-    "linear"
+    "log",
+    "log",
+    "log",
+    "log",
+    "log",
+    "log"
   ],
-  "y_limits_policy": "independent per panel, zero lower bound, automatic upper bound",
+  "y_limits_policy": "independent logarithmic range per panel, automatic positive limits",
+  "log_zero_policy": "mask nonpositive values in display; preserve exact values in series; no epsilon replacement",
   "y_limits_row_major": [
     [
-      0.0,
-      3946495.876320036
+      1.6277003826824457,
+      7551682.131321167
     ],
     [
-      0.0,
-      113726.81691417082
+      0.004449037103058973,
+      243448.5992388938
     ],
     [
-      0.0,
-      97051.9140781042
+      1.9590016749457515,
+      154303.76568343502
     ],
     [
-      0.0,
-      95197.71917781669
+      0.0044887750793860355,
+      201980.35111831746
     ],
     [
-      0.0,
-      3938653.7788989185
+      0.005565273431214835,
+      9875781.208660768
     ],
     [
-      0.0,
-      18529.097736354142
+      8.524634791728653e-06,
+      49009.86496760907
     ]
   ],
   "updates": [
@@ -5133,6 +5134,22 @@
           "B_squared": 90708.36401526433,
           "A_squared_minus_B_squared": 17691.377740148353
         }
+      },
+      "log_masked_updates": {
+        "raw": {
+          "A_squared": [],
+          "B_squared": [],
+          "A_squared_minus_B_squared": [
+            1
+          ]
+        },
+        "momentum": {
+          "A_squared": [],
+          "B_squared": [],
+          "A_squared_minus_B_squared": [
+            1
+          ]
+        }
       }
     },
     "024": {
@@ -9434,6 +9451,22 @@
           "A_squared": 41831.62529070297,
           "B_squared": 28740.515550317235,
           "A_squared_minus_B_squared": 13091.109740385735
+        }
+      },
+      "log_masked_updates": {
+        "raw": {
+          "A_squared": [],
+          "B_squared": [],
+          "A_squared_minus_B_squared": [
+            1
+          ]
+        },
+        "momentum": {
+          "A_squared": [],
+          "B_squared": [],
+          "A_squared_minus_B_squared": [
+            1
+          ]
         }
       }
     },
@@ -13737,6 +13770,22 @@
           "B_squared": 13576.390647657821,
           "A_squared_minus_B_squared": 9302.518676396101
         }
+      },
+      "log_masked_updates": {
+        "raw": {
+          "A_squared": [],
+          "B_squared": [],
+          "A_squared_minus_B_squared": [
+            1
+          ]
+        },
+        "momentum": {
+          "A_squared": [],
+          "B_squared": [],
+          "A_squared_minus_B_squared": [
+            1
+          ]
+        }
       }
     },
     "021": {
@@ -18038,6 +18087,22 @@
           "A_squared": 21706.652782744048,
           "B_squared": 14957.969714295572,
           "A_squared_minus_B_squared": 6748.683068448476
+        }
+      },
+      "log_masked_updates": {
+        "raw": {
+          "A_squared": [],
+          "B_squared": [],
+          "A_squared_minus_B_squared": [
+            1
+          ]
+        },
+        "momentum": {
+          "A_squared": [],
+          "B_squared": [],
+          "A_squared_minus_B_squared": [
+            1
+          ]
         }
       }
     },
@@ -22341,6 +22406,22 @@
           "B_squared": 20516.474012865005,
           "A_squared_minus_B_squared": 4515.043635009984
         }
+      },
+      "log_masked_updates": {
+        "raw": {
+          "A_squared": [],
+          "B_squared": [],
+          "A_squared_minus_B_squared": [
+            1
+          ]
+        },
+        "momentum": {
+          "A_squared": [],
+          "B_squared": [],
+          "A_squared_minus_B_squared": [
+            1
+          ]
+        }
       }
     },
     "027": {
@@ -26643,6 +26724,22 @@
           "B_squared": 15411.799639365963,
           "A_squared_minus_B_squared": 3104.330442684466
         }
+      },
+      "log_masked_updates": {
+        "raw": {
+          "A_squared": [],
+          "B_squared": [],
+          "A_squared_minus_B_squared": [
+            1
+          ]
+        },
+        "momentum": {
+          "A_squared": [],
+          "B_squared": [],
+          "A_squared_minus_B_squared": [
+            1
+          ]
+        }
       }
     },
     "023": {
@@ -30944,6 +31041,22 @@
           "A_squared": 7804.361747452649,
           "B_squared": 3329.0859825490743,
           "A_squared_minus_B_squared": 4475.275764903575
+        }
+      },
+      "log_masked_updates": {
+        "raw": {
+          "A_squared": [],
+          "B_squared": [],
+          "A_squared_minus_B_squared": [
+            1
+          ]
+        },
+        "momentum": {
+          "A_squared": [],
+          "B_squared": [],
+          "A_squared_minus_B_squared": [
+            1
+          ]
         }
       }
     }

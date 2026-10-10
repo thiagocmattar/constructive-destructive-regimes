@@ -41,7 +41,7 @@ Momentum raises B/A primarily by reducing A; B decreases in all four new runs. T
 
 - [Loss, raw ratio, smoothed alignment and norms](figures/loss_ratio_alignment_norms.pdf):3x2, all seven LRs with the same reversed-plasma colors. Panels(a)-(f): training loss; raw B/A; raw adjacent cosine with a50-update arithmetic mean; momentum cosine with a25-update arithmetic mean; raw norms with a10-update arithmetic mean on log Y; unsmoothed momentum norms on linear Y. [Full reduction/coverage/caption](observations/003-loss-ratio-smoothed-alignment.md). Generator: `../11_plot_loss_ratio_alignment.py`.
 
-- [Squared cumulative geometry](figures/squared_cumulative_geometry.pdf):3x2; columns are raw gradients and momentum; rows are A squared, B squared and A squared minus B squared. All seven LRs use the same palette, with independent linear Y scales. [Definitions, caption and verification](observations/005-squared-cumulative-geometry.md); generator: `../13_plot_squared_geometry.py`.
+- [Squared cumulative geometry](figures/squared_cumulative_geometry.pdf):3x2; columns are raw gradients and momentum; rows are A squared, B squared and A squared minus B squared. All seven LRs use the same palette, with independent logarithmic Y scales on all six panels. Initial zero differences are omitted from log display and retained in data. [Definitions, caption and verification](observations/005-squared-cumulative-geometry.md); generator: `../13_plot_squared_geometry.py`.
 
 ## Sources, coverage, uncertainty and reproducibility
 

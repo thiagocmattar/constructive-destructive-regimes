@@ -32,7 +32,7 @@ def main():
         assert to_hex(run["color"]) == colors[run["id"]]
         data = {"lr": run["lr"], "hardware": run["hardware"],
                 "color": to_hex(run["color"]), "line_style": run["hardware_style"],
-                "series": {}, "terminal_update_712": {}}
+                "series": {}, "terminal_update_712": {}, "log_masked_updates": {}}
         for col, stream in enumerate(("raw", "momentum")):
             A = helpers.plots.values(run["events"], stream, "cumulative_norm_sum")
             B = helpers.plots.values(run["events"], stream, helpers.plots.STREAMS[stream][2])
@@ -44,20 +44,24 @@ def main():
                                     ls=run["hardware_style"], lw=1.8)
             data["series"][stream] = {key: values[:711].tolist() for key, values in series.items()}
             data["terminal_update_712"][stream] = {key: float(values[-1]) for key, values in series.items()}
+            data["log_masked_updates"][stream] = {
+                key: (np.flatnonzero(values[:711] <= 0) + 1).tolist() for key, values in series.items()
+            }
         plotted[run["id"]] = data
     for row, label in enumerate(LABELS):
         for col, stream in enumerate(("Raw-gradient g", "Momentum m")):
             ax = axes[row, col]
             ax.set_title(f"({'abcdef'[2*row+col]}) {stream}: {label}")
-            ax.set_ylabel("Squared norm")
-            ax.set_ylim(0, None)
-            ax.ticklabel_format(axis="y", style="sci", scilimits=(0, 0), useMathText=True)
+            ax.set_ylabel("Squared norm (log scale)")
+            ax.set_yscale("log", nonpositive="mask")
+            ax.grid(which="minor", alpha=.08)
     helpers.plots.format_axes(axes)
     fig.suptitle("Pythia-14M: squared cumulative geometry across learning rates", fontsize=17, y=.988)
     helpers.legend(fig, rows, hardware_style=True, y=.965)
     fig.text(.5, .026,
              r"$A_t=(\sum_{s=1}^{t}\|v_s\|)$; $B_t=\|\sum_{s=1}^{t}v_s\|$. Rows: $A_t^2$, $B_t^2$, $A_t^2-B_t^2$."
-             "\nUnsmoothed curves; independent linear Y scales. Columns: raw g before clipping; stored Adam momentum m before preconditioning."
+             "\nUnsmoothed curves; independent logarithmic Y scales; zero differences at update 1 are omitted from log display."
+             "\nColumns: raw g before clipping; stored Adam momentum m before preconditioning."
              "\nUpdates 1-711 shown; partial update 712 retained in results. Same frozen initialization/order; seed 1234."
              "\nS = Spark, R = RTX4090; hardware differs across groups. Momentum uses clipped gradients; LR also scales AdamW decay.",
              ha="center", fontsize=9)
@@ -78,8 +82,9 @@ def main():
                         "A_squared": "(sum of vector norms)^2; not sum of squared norms",
                         "A_squared_minus_B_squared": "squared deficit relative to aligned accumulation; not signed total interaction J"},
         "source_updates": 712, "displayed_updates": [1, 711], "partial_update_retained": True,
-        "smoothing": "none", "y_scales": ["linear"]*6,
-        "y_limits_policy": "independent per panel, zero lower bound, automatic upper bound",
+        "smoothing": "none", "y_scales": ["log"]*6,
+        "y_limits_policy": "independent logarithmic range per panel, automatic positive limits",
+        "log_zero_policy": "mask nonpositive values in display; preserve exact values in series; no epsilon replacement",
         "y_limits_row_major": limits, "updates": x.tolist(), "runs": plotted,
     }
     (OUT / (NAME + "_data.json")).write_text(json.dumps(metadata, indent=2, allow_nan=False)+"\n", encoding="utf-8")

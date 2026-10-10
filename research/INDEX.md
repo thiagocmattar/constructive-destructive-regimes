@@ -11,7 +11,7 @@ The combined raw-norm panel(e) is logarithmic; a new2x2 cumulative LR overlay
 uses reversed plasma, with darker colors for larger LR. A new3x2 loss/raw-B/A/
 alignment/norm view uses a50-update raw-cosine mean and10-update raw-norm mean.
 A3x2 squared-geometry view compares A squared, B squared and their difference
-for raw gradients and stored momentum, with independent linear Y scales.
+for raw gradients and stored momentum, with independent logarithmic Y scales.
 New validation losses are5.600857/5.237702/4.410370/4.318091 in increasing LR
 order; LR0.00464159 is best among the four new hardware-matched conditions.
 Its late momentum cosine0.852 is below0.956 atLR0.00215443, which has worse loss.
