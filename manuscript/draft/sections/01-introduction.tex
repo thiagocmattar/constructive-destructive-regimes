@@ -1,0 +1,72 @@
+\section{Introduction}
+
+Neural scaling laws have ushered in new paradigms for interpreting deep learning dynamics. By establishing that performance gains follow predictable behavior relative to model size, dataset scale, and compute, stochastic optimization methods have been pushed toward increasingly extended training horizons while operating under tight efficiency constraints~\cite{hestness2017deep, kaplan2020scaling, henighan2020scaling, hoffmann2022chinchilla}. In this regime, optimization stability becomes an important practical requirement, since unstable training may result on slow convergence and high sensitivity to hyperparameter choices. In practice, stability is often maintained through a set of heuristics, such as momentum, batch-size scaling, normalization, and learning-rate schedules~\cite{goyal2017accurate, smith2017cyclical, loshchilov2016sgdr, ioffe2015batch, krogh1991simple}. Yet, despite their effectiveness, it is not fully understood why these mechanisms work, and under what conditions they fail.
+% Yet, despite their effectiveness, there is still no fully satisfactory account of why these mechanisms help to stabilize the optimization trajectory, and under what conditions they fail.
+
+Training becomes unstable when updates are too large relative to sharp directions of the loss landscape, so that they overshoot rather than converge towards a minimum~\cite{polyak1964methods, bertsekas1997nonlinear}. Stochastic extensions, such as the break-even point framework, argue that instability depends jointly on sharpness and curvature variance, particularly during an early phase in which learning rate and batch size strongly shape further trajectory~\cite{jastrzebski2020break}. In contrast, however, the Edge-of-Stability literature has shown that deep networks often continue to make progress near, or even beyond, the nominal sharpness threshold, suggesting that curvature alone is not a sufficient explanation~\cite{cohen2021edge, arora2022understanding, damian2023self}. Such works provide an important geometric interpretation of training dynamics, but leave a central gap: they are fundamentally local. Current approaches describe potential gain at a point, but do not directly explain how the update produced by one mini-batch interacts with the next---whether successive steps reinforce previous progress, decorrelate into noise, or partially overwrite one another. As a result, two training runs may exhibit similar statistics while following very different optimization paths, with one remaining smooth and coherent and the other becoming unstable. Moreover, the metrics that underlie these analysis, such as leading Hessian eigenvalues or gradient-noise covariance, are impractical to estimate online at the scale of modern training. 
+
+To narrow this gap, we focus on the stability of multiple steps of the optimization trajectory. We argue that stable training is not defined only by reaching a low-loss solution, but also by whether parameter updates accumulate smoothly, coherently, and incrementally over time, without excessive oscillation or abrupt spikes. This shifts the central question from whether a single step is locally stable to what makes a full SGD trajectory stable. Our central claim is that stochastic learning involves an inherent trade-off between incorporating new information (signal) and overwriting previously learned structure (interference). We argue that this trade-off is not specific to catastrophic forgetting in non-i.i.d.\ or continual learning settings \cite{french1999catastrophic}; it arises even under standard i.i.d.\ sampling and is controlled by the successive interactions among gradients from different mini-batches. 
+
+The intuition is that, when a network already stores many concepts in its weights, back-propagating the error to those weights using a new mini-batch necessarily modifies previously learned structure. If the new gradients align with past updates, the change reinforces existing representations; if they do not, it partially overwrites them. When gradients interfere destructively, successive updates partially undo one another, leading to oscillatory parameter trajectories, a reduced effective step size, and slower convergence.
+
+We make this clearer through a finite-time decomposition of parameter growth under mini-batch SGD, isolating initialization effects, gradient signal, and cross-step interference. 
+This decomposition also provides a mechanistic lens for optimization heuristics such as momentum and weight decay, foundational elements of modern training methods \cite{kingma2014adam, jordan2024muon, loshchilov2017decoupled}. Through our proposed framework, we can show that plain SGD often operates in a destructive-interference regime, momentum shifts training toward constructive accumulation, and weight decay introduces a short term memory bias that further improves robustness across learning rates. To make the signal--interference framework practical, we also derive an approximation based on the cosine similarity between consecutive mini-batch gradients, (\(\rho_t\)), which can be computed in an online setting.
+
+% %---------
+% % Equações e diagnóstico removidos
+% {\color{red}
+% We formalize this trade-off through a finite-time decomposition of parameter growth under mini-batch SGD. Let \(\theta_t \in \mathbb{R}^d\) denote the parameters at iteration \(t\), and let each mini-batch at step \(t\) contain \(m\) samples indexed by \(i=1,\dots,m\). Making all the sample-step gradients \(g_i^{(t)}\) explicit shows that the final parameter norm depends not only on gradient strength, but also on gradient interactions within each batch and across time
+% \begin{equation}
+% \begin{aligned}
+% \|\theta_T\|^{2}
+% &= \|\theta_0\|^{2} - \underbrace{2\,\frac{\eta}{m}\sum_{t,i}\theta_0^{\top}g_i^{(t)}}_{\displaystyle C}
+% \;\;
+% +\;
+% \frac{\eta^{2}}{m^{2}}\underbrace{\sum_{t=0}^{T-1}\sum_{i=1}^{m}
+%             \|g_i^{(t)}\|^{2}}_{\displaystyle S_1}
+% \;\; \\
+% &+\;
+% \frac{\eta^{2}}{m^{2}}\underbrace{\sum_{t=0}^{T-1}\sum_{i=1}^{m}
+%             \sum_{\substack{j=1\\ j\neq i}}^{m}
+%             g_i^{(t)\top} g_j^{(t)}}_{\displaystyle S_2}
+% \;\;\\
+% &+\;
+% \frac{\eta^{2}}{m^{2}}\underbrace{\sum_{t=0}^{T-1}\sum_{u=0}^{t-1}
+%             \sum_{i=1}^{m}\sum_{j=1}^{m}
+%             2\,g_i^{(t)\top} g_j^{(u)}}_{\displaystyle S_3}\; .
+% \end{aligned}
+% \label{eq:thetaT_full_intro_rewrite}
+% \end{equation}
+% Here, \(C\) is the initialization--trajectory alignment, \(S_1\) the per-sample gradient energy, \(S_2\) the intra-batch alignment, and \(S_3\) the cross-step interaction. Thus, \(S_1+S_2\) captures the gradient signal contributed by each batch, while \(S_3\) captures whether that signal accumulates constructively or is partially overwritten over time. We link this signal--interference decomposition to loss reduction through a two-step approximation (Eq.~\eqref{eq:two_step_loss_interference}).
+
+% Equation \ref{eq:thetaT_full_intro_rewrite}, however, is not tractable at scale, as it requires access to all gradient interactions. Assuming that temporal correlations are primarily local, we obtain an approximation that could be tracked online on practical training pipelines. In particular, letting $G_{B_t} := \frac{1}{m}\sum_{i=1}^m g_i^{(t)}$ denote the mini-batch mean gradient, the terminal norm can be approximated as
+% \begin{equation}
+% \begin{aligned}
+% \|\theta_T\|^2
+% &\approx
+% \|\theta_0\|^2 
+% \;-\; 2\eta \sum_{t=0}^{T-1}\theta_0^{\top} G_{B_t} \\
+% &\quad +\; \eta^2
+% \sum_{t=0}^{T-1}
+% \left(
+% \underbrace{\|G_{B_t}\|^2}_{S_1 + S_2}
+% +
+% \underbrace{2\,\rho_t \,\|G_{B_{t-1}}\|\,\|G_{B_t}\|}_{S_3}
+% \right),
+% \end{aligned}
+% \label{eq:corr}
+% \end{equation}
+% where $\rho_t$ denotes the cosine similarity between consecutive mini-batch gradients.}
+
+% Although tracking consecutive-gradient alignment is not itself new \cite{xing2018walk}, our contribution is to place $\rho_t$ within the signal--interference decomposition and show that it directly governs the cross-step term $S_3$, thereby linking short-horizon gradient coherence to trajectory stability and loss reduction (Eq.~\eqref{eq:two_step_loss_interference}). In particular, $\rho_t>0$ corresponds to constructive accumulation, $\rho_t<0$ to destructive interference and oscillatory behavior, and $\rho_t\approx 0$ to random drift. Consistent with this picture, Figure~\ref{fig:traj_decomp} illustrates the trade-off: plain SGD operates in a destructive-interference regime (\(S_3/(S_1+S_2)<0\)), whereas momentum shifts it toward constructive accumulation (\(S_3/(S_1+S_2)>0\)), which is associated with lower loss; adding weight decay further improves robustness across a broader range of learning rates.
+% %------------------
+In summary, our main contributions are:
+
+\begin{itemize}
+    \item Description of the signal--interference trade-off in stochastic optimization and its implications for SGD trajectory stability and loss reduction;
+    \item Presentation of a practical tool that enables online diagnostic of trajectory coherence through the consecutive-gradient cosine similarity $\rho_t$;
+    \item Presentation of empirical evidence that final performance is strongly linked to the signal--interference trade-off, and that momentum and weight decay systematically shift cross-step interactions toward faster and more stable regimes;
+    \item Presentation of controlled experiments showing that batch representativeness is a primary driver of cross-step coherence, where disrupting it collapses $\rho_t$ and induces drift-like dynamics even at large batch sizes.
+\end{itemize}   
+
+The remainder of the paper is organized as follows. Section~2 reviews the main existing frameworks for stability analysis. Section~3  introduces the signal--interference trade-off, together with the tractable diagnostic based on consecutive-gradient cosine similarity. Section~4 studies stability control mechanisms---plain SGD, momentum, and weight decay---under the lens of the proposed trade-off and supports the analysis with ablations over learning rates and batch sizes, as well as experiments isolating the role of batch representativeness. Section~5 concludes and discusses interference-aware directions for future algorithm design.

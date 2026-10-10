@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "run_id": "015",
+  "name": "pythia70m-lr-hold-seed1235",
+  "model": {
+    "architecture": "EleutherAI/pythia-70m-deduped",
+    "revision": "e93a9faa9c77e5d09219f6c868bfc7a1bd65593c",
+    "initialization": "random_small_init_wang_init",
+    "activation": "gelu",
+    "initial_parameter_sha256": "f55a2cc7274971a0faa9619df11ea526bd932f891ec0b5d08db4480b7979f52e",
+    "expected_architecture": {
+      "vocab_size": 50304,
+      "num_hidden_layers": 6,
+      "hidden_size": 512,
+      "intermediate_size": 2048,
+      "num_attention_heads": 8,
+      "max_position_embeddings": 2048,
+      "rotary_pct": 0.25,
+      "hidden_act": "gelu",
+      "layer_norm_eps": 1e-05,
+      "use_parallel_residual": true,
+      "attention_bias": true,
+      "tie_word_embeddings": false
+    },
+    "parameter_count": 70426624
+  },
+  "data": {
+    "dataset": "JeanKaddour/minipile",
+    "revision": "18ad1b0c701eaa0de03d3cecfdd769cbc70ffbd0",
+    "tokenizer_revision": "7386d9a4ae45aef494a6e704910394def3037fc5",
+    "sequence_length": 2048,
+    "train_sha256": "da82a2ea2e0080c7fd681c7a93b07d3d9ff3d5357a8640895a82d536a1eaf97c",
+    "validation_sha256": "51cd758fda72f14383da30c358a895d0223c0d1d80b31455d2d842c3656d0451",
+    "coverage": "every_complete_block_once_plus_short_tail",
+    "loss_reduction": "mean_over_supervised_next_token_targets_in_actual_update",
+    "tokenizer": "EleutherAI/pythia-14m-deduped"
+  },
+  "seeds": {
+    "model": 1235,
+    "data_order": 1235
+  },
+  "training": {
+    "optimizer": "adamw",
+    "peak_learning_rate": 0.001,
+    "minimum_learning_rate": 0.0001,
+    "warmup_fraction": 0.01,
+    "learning_rate_semantics": "gpt_neox_v1_pre_step",
+    "adamw_betas": [
+      0.9,
+      0.95
+    ],
+    "adamw_eps": 1e-08,
+    "weight_decay": 0.1,
+    "weight_decay_exclusions": [
+      "bias",
+      "layer_norm"
+    ],
+    "gradient_clip_norm": 1.0,
+    "effective_batch_sequences": 1024,
+    "micro_batch_size": 4,
+    "precision": "float16_dynamic",
+    "parameter_dtype": "float32",
+    "initial_loss_scale": 4096,
+    "loss_scale_growth_interval": 1000,
+    "loss_scale_hysteresis": 2,
+    "minimum_loss_scale": 1,
+    "maximum_overflow_retries": 32
+  },
+  "measurements": {
+    "vectors": [
+      "raw_unscaled_batch_gradient",
+      "adam_bias_corrected_preconditioned_direction"
+    ],
+    "raw_capture": "after_accumulation_unscaling_before_clipping",
+    "adaptive_capture": "after_optimizer_step_from_actual_updated_FP32_moments",
+    "adaptive_formula": "(m_t/(1-beta1**t))/(sqrt(v_t/(1-beta2**t))+epsilon)",
+    "adaptive_excludes": [
+      "learning_rate",
+      "weight_decay",
+      "parameter_subtraction_rounding"
+    ],
+    "adaptive_moment_input": "globally_clipped_gradient",
+    "adaptive_direction_dtype": "float64_from_FP32_moments",
+    "previous_raw_dtype": "float32",
+    "previous_adaptive_dtype": "float64",
+    "cumulative_dtype": "float64",
+    "reductions_dtype": "float64",
+    "every_update": true,
+    "ratio": "norm_of_cumulative_sum_over_cumulative_sum_of_norms",
+    "undefined": "null_with_reason",
+    "norm_comparison": "raw_norm, adaptive_norm, adaptive_norm/raw_norm"
+  },
+  "validation": {
+    "batch_size": 4,
+    "initial": true,
+    "final": true,
+    "include_tail": true,
+    "updates": [
+      356,
+      445,
+      534,
+      623,
+      712
+    ]
+  },
+  "checkpoints": {
+    "parent_immutable": true,
+    "recovery_updates": [
+      534,
+      712
+    ]
+  },
+  "execution": {
+    "provider": "runpod",
+    "workers": 1,
+    "cohort_workers": 6,
+    "maximum_hours": 2,
+    "cohort_maximum_total_usd": 15,
+    "container_gb": 60,
+    "persistent_gb": 40,
+    "retrieval_margin_seconds": 1200,
+    "monitoring_interval_seconds": 60,
+    "gpu": "NVIDIA GeForce RTX 5090"
+  },
+  "matched_reference_run": "004",
+  "hypothesis": "H004",
+  "resume": {
+    "parent_run": "007-2026-10-04-pythia70m-seed1235",
+    "parent_attempt": "attempt-01",
+    "parent_checkpoint": "full-pass/checkpoints/midpoint",
+    "junction_update": 356,
+    "full_updates": 712,
+    "schedule": "hold",
+    "remote_checkpoint": "/workspace/parent-checkpoint",
+    "parent_config_sha256": "4ef7d7a96f36c9a169a0f980b2a868d24b8902821f0275eed18b2858c3bcdbec",
+    "checkpoint_sha256": {
+      "recovery.pt": "2c067b233361afeea91144c4ab0e832a3eb086b48d4a9e73245c4e6a316d3ee3",
+      "model/config.json": "ea9514964716d9ff928ab2104a872f9aad3ece5170423b63bb58d23ba6b79a41",
+      "model/generation_config.json": "96501de01f744e56833741d26ffa4c1783a54c8d8c82725725a26118c84b5578",
+      "model/model.safetensors": "da21f34721cb8ff9281c9fa46a915963f297ff4f72f775392d4fc4e1bbbc963c"
+    },
+    "order_sha256": "018093eb5fd790dee76cf8a1209d40c001d11d8a20fa954593efacd9f675ce6c",
+    "validation_updates": [
+      445,
+      534,
+      623,
+      712
+    ]
+  }
+}

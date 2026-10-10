@@ -1,0 +1,33 @@
+{
+  "monitoring_interruption": {
+    "first_failed_snapshot_utc": "2026-10-04T10:22:48.972467+00:00",
+    "recovered_read_utc": "2026-10-04T10:25:32Z",
+    "affected_runs": [
+      "005",
+      "006",
+      "007",
+      "008",
+      "009",
+      "010"
+    ],
+    "symptom": "All six direct SSH connections timed out simultaneously",
+    "fresh_provider_state": "All six RUNNING with active GPU utilization 74-94 percent",
+    "fresh_training_logs": "All six resumed successful status reads and had advanced updates without restart",
+    "scientific_inputs_or_training_processes_changed": false,
+    "cause": "Transient monitoring connectivity interruption; root cause not confirmed."
+  },
+  "post_training_packaging": {
+    "runs": [
+      "005",
+      "008"
+    ],
+    "observed_utc": "2026-10-04T11:03:00Z",
+    "symptom": "Frozen archive script stopped at nvidia-smi hardware query after completed/verified training; NVML returned Unknown Error on both workers sharing a host.",
+    "cause": "NVML initialization failure confirmed; underlying provider/driver cause unknown. Earlier suspicion of shell detachment was ruled out by bash trace.",
+    "recovery": "Preserve original script and hardware-query failure text; derive archive script omitting only the redundant nvidia-smi query, use environment/calibration GPU records captured during training, then apply the unchanged inventory and CPU verification.",
+    "scientific_inputs_changed": false,
+    "training_restarted": false,
+    "evidence": "Both recovery archive processes were observed compressing at 11:03 UTC; run005 ARCHIVE_READY at 11:04 UTC. Full download acceptance is required before cleanup.",
+    "final_acceptance": "Both 14M archives accepted locally at 11:06 UTC: all 55 files, source identities, initial tensor hashes and independent geometry checks passed; workers removed at 11:07 UTC."
+  }
+}

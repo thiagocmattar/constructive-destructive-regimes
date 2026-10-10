@@ -1,0 +1,21 @@
+{
+  "model_revision": "b7782556ba7adfb4730d9bda7d12aa44d88fa132",
+  "reference_run": "003-2026-10-03-pythia31m-adamw-scale",
+  "platform": "win32",
+  "initialization": {
+    "ordinary": "small_init",
+    "residual_output": "wang_init",
+    "small_init_std": 0.03952847075210474,
+    "wang_init_std": 0.020833333333333332,
+    "rng_note": "Transformers module traversal; not GPT-NeoX-bitwise draw order",
+    "ordinary_weight_elements": 28508160,
+    "residual_output_weight_elements": 1966080,
+    "bias_elements_zeroed": 13824,
+    "normalization_elements_initialized": 6656
+  },
+  "initial_parameter_sha256": "189a3f6017eff4c1816430d30001eb4dc88487495a1e3ec419a99e4e7323e55f",
+  "parameters": 30494720,
+  "pretrained_weights_loaded": false,
+  "execution_platform_identity_pending": true,
+  "order_sha256": "018093eb5fd790dee76cf8a1209d40c001d11d8a20fa954593efacd9f675ce6c"
+}

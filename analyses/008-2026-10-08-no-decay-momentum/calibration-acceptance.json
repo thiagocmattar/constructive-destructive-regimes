@@ -1,0 +1,51 @@
+{
+  "accepted": true,
+  "runs": [
+    {
+      "run": "021-2026-10-08-pythia14m-no-decay-base",
+      "seconds_per_update": 25.147171980992425,
+      "verified_compact_files": 8,
+      "verification": {
+        "verified": true,
+        "scope": "smoke_calibration",
+        "completed_updates": 3,
+        "all_three_streams_reconstructed": true,
+        "stored_m_matches_actual_exp_avg": true,
+        "initial_tensors_match_run002": true,
+        "max_raw_norm_vs_clip_relative_error": 8.168394419840221e-08,
+        "overflow_retries": 0
+      }
+    },
+    {
+      "run": "022-2026-10-08-pythia14m-no-decay-small",
+      "seconds_per_update": 25.19328700902406,
+      "verified_compact_files": 8,
+      "verification": {
+        "verified": true,
+        "scope": "smoke_calibration",
+        "completed_updates": 3,
+        "all_three_streams_reconstructed": true,
+        "stored_m_matches_actual_exp_avg": true,
+        "initial_tensors_match_run002": true,
+        "max_raw_norm_vs_clip_relative_error": 3.192454919802473e-08,
+        "overflow_retries": 0
+      }
+    },
+    {
+      "run": "023-2026-10-08-pythia14m-no-decay-large",
+      "seconds_per_update": 25.197295766993193,
+      "verified_compact_files": 8,
+      "verification": {
+        "verified": true,
+        "scope": "smoke_calibration",
+        "completed_updates": 3,
+        "all_three_streams_reconstructed": true,
+        "stored_m_matches_actual_exp_avg": true,
+        "initial_tensors_match_run002": true,
+        "max_raw_norm_vs_clip_relative_error": 5.4085993343264343e-08,
+        "overflow_retries": 0
+      }
+    }
+  ],
+  "projected_cohort_training_hours": 14.92507924292994
+}

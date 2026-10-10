@@ -1,0 +1,153 @@
+{
+  "reviewed_at": "2026-10-04T11:29:20.269914+00:00",
+  "status": "complete",
+  "script_sha256": "1406b21d0855be696b06bc35f26e1cff3dd87ddd733c857ef6474b0081d524c8",
+  "reduction_and_generating_script_hashes_match": true,
+  "source_metadata_and_event_files_rechecked": 54,
+  "figure_data_rows": 6408,
+  "updates_per_run": 712,
+  "new_run_acceptance_and_cleanup": [
+    {
+      "run_id": "005",
+      "retrieval_receipt_sha256": "84aa19ab3229d0b3a49bb0e61c2c53345fb31f1d188349dea23719a745721ceb",
+      "files": 55,
+      "bytes": 2141363919,
+      "archive_bytes": 1525674349,
+      "archive_sha256": "00d03a0be91769f8b0ae041f22de042322a5ee7fcf2db613e6bb3f45be1c0822",
+      "closeout_sha256": "f4d48524b21a048cd2a24a2f099b43e966b907fde8f462c6f833d22d72351222",
+      "cost_usd_provisional": 1.5828399768518515
+    },
+    {
+      "run_id": "006",
+      "retrieval_receipt_sha256": "b9ee122a7ef6bf72c15e58fc6cc9468d3ac11b75a4b89fdb37d3b9c66820c091",
+      "files": 55,
+      "bytes": 4638273498,
+      "archive_bytes": 3303559228,
+      "archive_sha256": "446dcf7a13a3438cf009a255965ddfbcb4d694ed03c0dacb674931086fcf961c",
+      "closeout_sha256": "d0f424420757c7d4bfd882fdde564d874fbcc8e5e97b28df375f2246e61b0ab7",
+      "cost_usd_provisional": 1.548926937037037
+    },
+    {
+      "run_id": "007",
+      "retrieval_receipt_sha256": "b0b6269948a1dc9327e3738a28098e5fd7998b5e933d21af0dfa7dba64039b20",
+      "files": 55,
+      "bytes": 10707923748,
+      "archive_bytes": 7622143235,
+      "archive_sha256": "8b1261d8c2defe42e640ddd7765641f9580433867d22f213a2edc8a213141f88",
+      "closeout_sha256": "81bafc1072477fab5eb3f7d1f0ec6e9b7c8577a29a48799a9633d03c7232f232",
+      "cost_usd_provisional": 1.9269438078703705
+    },
+    {
+      "run_id": "008",
+      "retrieval_receipt_sha256": "f94aedc6bcca1504a47d2ba842e38086f0517e89cd450d85c229ebbb2b8582e2",
+      "files": 55,
+      "bytes": 2141364285,
+      "archive_bytes": 1525631918,
+      "archive_sha256": "7c2c43c22e540c503cd686934b7e54d723c8d6a0da2ec91c20e810f937529c5a",
+      "closeout_sha256": "7082bb09d952a4deeda5a36cfda40bea773cba9c60be86ac6c09b768bb3b768a",
+      "cost_usd_provisional": 1.5826631808641975
+    },
+    {
+      "run_id": "009",
+      "retrieval_receipt_sha256": "e880299187c11f65d34da13f1f361dfd8daa39897ac17908ba0ba748a87b586c",
+      "files": 55,
+      "bytes": 4638274133,
+      "archive_bytes": 3304117389,
+      "archive_sha256": "989fa07180b692df94f3f6576e4624725bc36eacc7574efc3f45306aee0b9038",
+      "closeout_sha256": "5356a7d068103c72e66cd101241f22fb10bf774180352be3a1847d8ad52b7a7b",
+      "cost_usd_provisional": 1.548739544444444
+    },
+    {
+      "run_id": "010",
+      "retrieval_receipt_sha256": "87fcd5033ecb101ecaa7a73006c42588d787260516602615d45ff0c0e85218bb",
+      "files": 55,
+      "bytes": 10707923686,
+      "archive_bytes": 7624296824,
+      "archive_sha256": "eeae6cfe8ce34e03eeb8cc349c215104c1b33ea4a302ec1635164d5f697c2452",
+      "closeout_sha256": "7cbaa88566d27beb379d7a71b784cd4f5584654346c6a44561d470d3ebebe3af",
+      "cost_usd_provisional": 1.922439414197531
+    }
+  ],
+  "main_plot_updates": "1-711; final partial update712 retained in raw data, CSV and full statistics",
+  "publication_pdf_qa": {
+    "checked_at": "2026-10-04T11:28:14.699367+00:00",
+    "count": 4,
+    "all_single_page_text_bounds_ok": true,
+    "all_visually_inspected": true,
+    "renderer": "Poppler pdftoppm, 110 DPI; PyMuPDF text bounds",
+    "script_sha256": "a69497a18fa222e2a500c4692d75da054a9d3cd550c2e6b547167ab44ffae35f",
+    "figures": [
+      {
+        "file": "cumulative_across_seeds.pdf",
+        "pages": 1,
+        "text_spans": 59,
+        "text_within_page": true,
+        "sha256": "d2f2bb50cad081315cd54755c14a76cf6eddb1686077e8833c42dd49631fa70e",
+        "render": "scratch/qa-cumulative_across_seeds.png"
+      },
+      {
+        "file": "geometry_across_seeds.pdf",
+        "pages": 1,
+        "text_spans": 87,
+        "text_within_page": true,
+        "sha256": "a30daeaa42e082b33abc7feadca4578ec225c1b28721c6669c8f548b863837ed",
+        "render": "scratch/qa-geometry_across_seeds.png"
+      },
+      {
+        "file": "norm_ratio_across_seeds.pdf",
+        "pages": 1,
+        "text_spans": 19,
+        "text_within_page": true,
+        "sha256": "f58f3393b351cf69d0bb52407b09167328e7065fc57bdf9c8a732ed0634b79df",
+        "render": "scratch/qa-norm_ratio_across_seeds.png"
+      },
+      {
+        "file": "scale_summary_across_seeds.pdf",
+        "pages": 1,
+        "text_spans": 80,
+        "text_within_page": true,
+        "sha256": "5084ecf134b2d1fe65398ae9100c7701ce0f235254a7ea7e0d2e8a4531f32a6e",
+        "render": "scratch/qa-scale_summary_across_seeds.png"
+      }
+    ],
+    "inspected_at": "2026-10-04T11:28:39.310175+00:00",
+    "visual_observation": "All four Poppler renders inspected: readable labels and legends, no overlapping/clipped text, coherent stream/model colors, correct log axes, final partial batch omitted from evolution only, undefined first cosine preserved."
+  },
+  "primary_replication_counts": [
+    {
+      "stream": "raw",
+      "metric": "median_adjacent_cosine",
+      "new_seed_blocks_matching": 2,
+      "all_seed_blocks_matching": 3
+    },
+    {
+      "stream": "raw",
+      "metric": "R",
+      "new_seed_blocks_matching": 2,
+      "all_seed_blocks_matching": 3
+    },
+    {
+      "stream": "adaptive",
+      "metric": "median_adjacent_cosine",
+      "new_seed_blocks_matching": 2,
+      "all_seed_blocks_matching": 3
+    },
+    {
+      "stream": "adaptive",
+      "metric": "R",
+      "new_seed_blocks_matching": 2,
+      "all_seed_blocks_matching": 3
+    }
+  ],
+  "validation_coverage": "All 500 documents, packed tail included, target-token weighted",
+  "test_record": "Reused unchanged scientific implementation: 27 CPU checks previously passed; 5 CUDA fused-Adam checks passed on each of six workers; independent CPU acceptance on all archives.",
+  "estimated_new_cohort_cost_usd": 10.112552861265431,
+  "cost_provisional": true,
+  "retained_task_cloud_storage_gb": 0,
+  "unrelated_resources_preserved": true,
+  "manuscript_preservation": {
+    "draft_files_unchanged": 22,
+    "archive_sha256": "185580d6a356ea5ad27794ab3c54b3983e3ee4d616dfd9dad0d72a15f0d1819c"
+  },
+  "scientific_limit": "Three seed blocks provide descriptive replication, not a predictive scaling law or causal conclusion."
+}

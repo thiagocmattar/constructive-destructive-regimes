@@ -1,0 +1,33 @@
+{
+  "pod_id": "64aa1by0fk9p67",
+  "attempt": "attempt-02",
+  "archive_bytes": 4811553395,
+  "archive_sha256": "63da75f9fcb986668a2b782bf2f4719e6dc11f3cdee869e166a5725786f51850",
+  "verified": true,
+  "files": 66,
+  "total_bytes": 6720108960,
+  "errors": [],
+  "scientific_verification": {
+    "verified": true,
+    "updates": 712,
+    "training_input_tokens": 1491711416,
+    "final_validation_loss": 4.624931108876793,
+    "final_raw_cumulative_norm": 97.89732516869402,
+    "final_adaptive_cumulative_norm": 791216.5523884003,
+    "final_raw_ratio": 0.3220199501245544,
+    "final_adaptive_ratio": 0.6593872991096149,
+    "final_adaptive_norm": 1599.5448918812392,
+    "temporal_verified": true,
+    "temporal_calibration": {
+      "completed_updates": 712,
+      "exact_pairs": 970,
+      "mean_sketch_cosine_rmse": 0.004105740828367407,
+      "mean_sketch_cosine_max_abs_error": 0.014455025132814492,
+      "qualified": true
+    }
+  },
+  "frozen_sources_match": true,
+  "reference_order_matches": true,
+  "verified_initial_checkpoint_parameter_sha256": "1c70c690c266e0900159a608404f3f27700eb0754daea9f65b5a599e1e64f3c8",
+  "accepted_at": "2026-10-04T17:09:15.066692+00:00"
+}

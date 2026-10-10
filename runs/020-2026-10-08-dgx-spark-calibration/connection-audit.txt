@@ -1,0 +1,42 @@
+Thu Oct  8 08:45:37 PM UTC 2026
+spark-2277
+Linux spark-2277 7.0.0-1019-nvidia #19~24.04.2-Ubuntu SMP PREEMPT_DYNAMIC Sun Sep  6 18:35:11 UTC 2 aarch64 aarch64 aarch64 GNU/Linux
+ 17:45:37 up 4 days,  9:58,  3 users,  load average: 0.82, 0.36, 0.15
+Thu Oct  8 17:45:37 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GB10                    On  |   0000000F:01:00.0 Off |                  N/A |
+| N/A   50C    P0             32W /  N/A  | Not Supported          |     94%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            2679      G   /usr/lib/xorg/Xorg                       18MiB |
+|    0   N/A  N/A            3030      G   /usr/bin/gnome-shell                      6MiB |
+|    0   N/A  N/A           44199      C   ...on-2026-10-08/venv/bin/python       6242MiB |
++-----------------------------------------------------------------------------------------+
+               total        used        free      shared  buff/cache   available
+Mem:     130661138432 11158261760 112206249984    56598528  8522395648 119502876672
+Swap:    17179865088           0 17179865088
+Filesystem         1B-blocks        Used     Available Use% Mounted on
+/dev/nvme0n1p2 4031871553536 53144592384 3773886111744   2% /
+{"model": "14m", "update": 1, "update_seconds": 25.260659130988643, "loss": 11.034954525530338, "tokens_per_second": 83020.47817221476, "diagnostic_seconds": 0.05643220094498247, "overflow_retries": 0}
+{"model": "14m", "update": 2, "update_seconds": 25.138404393044766, "loss": 11.035699028521776, "tokens_per_second": 83424.22880985378, "diagnostic_seconds": 0.03566788695752621, "overflow_retries": 0}
+{
+  "run_id": "020",
+  "scope": "calibration_only",
+  "status": "running",
+  "planned_updates_per_model": 3,
+  "completed_updates": 2,
+  "current_model": "14m"
+}
+

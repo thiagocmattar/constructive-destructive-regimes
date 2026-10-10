@@ -1,0 +1,8 @@
+{
+  "run_id": "020",
+  "scope": "calibration_only",
+  "status": "failed",
+  "planned_updates_per_model": 3,
+  "completed_updates": 0,
+  "error": "Traceback (most recent call last):\n  File \"/home/tcml-spark/experiments/constructive-destructive-regimes/spark-calibration-2026-10-08/runs/020-2026-10-08-dgx-spark-calibration/01_calibrate.py\", line 66, in main\n    model, metadata = build_model(config, recipe_dir, device)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/tcml-spark/experiments/constructive-destructive-regimes/spark-calibration-2026-10-08/src/baseline/training.py\", line 163, in build_model\n    initialization = apply_pythia_initialization(model, expected_architecture=config[\"model\"][\"expected_architecture\"], torch=torch)\n                                                                              ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\nKeyError: 'expected_architecture'\n"
+}

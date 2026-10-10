@@ -1,0 +1,49 @@
+{
+  "matched_scientific_factors": true,
+  "initial_checkpoint_parameters_identical": true,
+  "initial_parameter_sha256": "0e9f77f965f45df79b5dc696256e011dc08ab2d34fb07c53fd4fed9be6b8b6bc",
+  "source_event_hashes": {
+    "run001": "ec6aec5633aed84285976934720d8b3040c1227c0d45e0fb0eb48b2921a0c6ac",
+    "run002": "be690ae5d984799fc493bab330f535c7ed2f17cc5b406c56501bb6ce352b1f77"
+  },
+  "raw_stream_agreement": {
+    "loss": {
+      "defined_pairs": 712,
+      "median_absolute_difference": 0.0012463806197047234,
+      "maximum_absolute_difference": 0.033603111281991005,
+      "last_absolute_difference": 0.0008880642784507842
+    },
+    "gradient_norm": {
+      "defined_pairs": 712,
+      "median_absolute_difference": 0.02483407252080294,
+      "maximum_absolute_difference": 0.7470470114571879,
+      "last_absolute_difference": 0.023586231512736644
+    },
+    "adjacent_cosine": {
+      "defined_pairs": 711,
+      "median_absolute_difference": 0.09549171727955355,
+      "maximum_absolute_difference": 1.0975706927937476,
+      "last_absolute_difference": 0.01483862319572081
+    },
+    "cumulative_norm_sum": {
+      "defined_pairs": 712,
+      "median_absolute_difference": 1.972143405346344,
+      "maximum_absolute_difference": 3.0210172679861955,
+      "last_absolute_difference": 2.311594293965811
+    },
+    "cumulative_gradient_norm": {
+      "defined_pairs": 712,
+      "median_absolute_difference": 0.09985727165629044,
+      "maximum_absolute_difference": 0.1600116121226307,
+      "last_absolute_difference": 0.13356361224057878
+    },
+    "cumulative_ratio": {
+      "defined_pairs": 712,
+      "median_absolute_difference": 0.002804352108670305,
+      "maximum_absolute_difference": 0.006875030781025637,
+      "last_absolute_difference": 0.002836796042610057
+    }
+  },
+  "validation_loss_absolute_difference": 0.0005707156340450936,
+  "interpretation": "Matched recipe and initial weights; numerical replay differences are descriptive, not a bitwise-determinism claim."
+}

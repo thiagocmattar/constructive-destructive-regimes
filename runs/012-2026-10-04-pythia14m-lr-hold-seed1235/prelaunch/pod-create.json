@@ -1,0 +1,32 @@
+{
+  "id": "tez2okhs32nbaf",
+  "name": "cd-run012-lr-first-test",
+  "status": "RUNNING",
+  "cost": 0.99,
+  "createdAt": "2026-10-04T12:16:02.175Z",
+  "image": "runpod/pytorch@sha256:0a360022e8de4375af99430f84e8b38951acc397252163a37ceac7204d01be35",
+  "cloud": "SECURE",
+  "gpu": {
+    "count": 1,
+    "id": "NVIDIA GeForce RTX 5090",
+    "memory": 125,
+    "vcpuCount": 16
+  },
+  "disk": 60,
+  "mounts": {
+    "persistent": {
+      "path": "/workspace",
+      "size": 40
+    }
+  },
+  "ssh": {
+    "direct": null,
+    "proxy": {
+      "command": "ssh tez2okhs32nbaf-644124ef@ssh.runpod.io",
+      "host": "ssh.runpod.io",
+      "port": 22,
+      "username": "tez2okhs32nbaf-644124ef"
+    }
+  },
+  "cudaVersion": "13.0"
+}

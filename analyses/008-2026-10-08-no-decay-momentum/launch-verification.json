@@ -1,0 +1,38 @@
+{
+  "recorded_at": "2026-10-08T22:05:59.642847+00:00",
+  "authorized": "User explicitly requested all three full runs on owned DGX Spark",
+  "queue_started_at": "2026-10-08T21:58:41.595458+00:00",
+  "remote_queue_pid_at_launch": 49984,
+  "local_controller_pid_at_launch": 33180,
+  "remote_root": "~/experiments/constructive-destructive-regimes/no-decay-2026-10-08",
+  "source_inventory_files_locally_verified": 24,
+  "source_inventory_sha256": "ec194dc2b8e3be74c644627777c045701ed18ec8d7aabe00aad9586a2378a148",
+  "packet_identity": {
+    "bytes": 53037524,
+    "sha256": "5eaa997aba258c8e2083a3ceec79b77ac2bb66e82734b7dde9637d7d1bcb35cb"
+  },
+  "focused_tests": {
+    "command": "python -m pytest tests/test_adam_momentum.py tests/test_run002_adaptive.py tests/test_scale_contract.py tests/test_continuation.py -q",
+    "passed": 13,
+    "elapsed_seconds": 9.22
+  },
+  "calibration_acceptance_sha256": "0a3b1473c554411ad4633950028685c0d270e86afc1016ab9bdfdbe640ed8be6",
+  "calibration_scope": "3 accepted updates per condition, timing/mechanics only",
+  "latest_launch_review_snapshot": {
+    "timestamp": "2026-10-08T22:05:54.108434+00:00",
+    "run": "021",
+    "update": 16,
+    "learning_rate": 0.001,
+    "overflow_retries": 0,
+    "momentum_fields_present": true
+  },
+  "limits": {
+    "hours_per_run": 8,
+    "aggregate_training_hours": 24,
+    "new_remote_storage_allowance_gb": 40,
+    "cloud_gpu_cost_usd": 0
+  },
+  "retention": "Remote checkpoints, inputs and outputs retained; verified local retrieval automated",
+  "plot_layout_smoke_review": "Both raw/adaptive and momentum calibration PDFs rendered and visually inspected; actual full-pass visual review pending",
+  "status_at_record": "running"
+}

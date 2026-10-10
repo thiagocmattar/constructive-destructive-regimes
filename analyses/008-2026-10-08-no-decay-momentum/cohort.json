@@ -1,0 +1,24 @@
+{
+  "runs": [
+    {
+      "run_id": "021",
+      "run": "021-2026-10-08-pythia14m-no-decay-base",
+      "condition": "base",
+      "peak_lr": 0.001
+    },
+    {
+      "run_id": "022",
+      "run": "022-2026-10-08-pythia14m-no-decay-small",
+      "condition": "small",
+      "peak_lr": 0.0001
+    },
+    {
+      "run_id": "023",
+      "run": "023-2026-10-08-pythia14m-no-decay-large",
+      "condition": "large",
+      "peak_lr": 0.01
+    }
+  ],
+  "status": "prepared",
+  "scope": "full_pass_no_decay_momentum"
+}

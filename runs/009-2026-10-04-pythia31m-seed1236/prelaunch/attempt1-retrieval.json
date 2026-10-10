@@ -1,0 +1,38 @@
+{
+  "pod_id": "3ppur3ockbh9wl",
+  "attempt": "attempt-01",
+  "archive_bytes": 3304117389,
+  "archive_sha256": "989fa07180b692df94f3f6576e4624725bc36eacc7574efc3f45306aee0b9038",
+  "verified": true,
+  "files": 55,
+  "total_bytes": 4638274133,
+  "errors": [],
+  "scientific_verification": {
+    "verified": true,
+    "updates": 712,
+    "training_input_tokens": 1491711416,
+    "final_validation_loss": 4.522797383559328,
+    "final_raw_cumulative_norm": 99.07118758494231,
+    "final_adaptive_cumulative_norm": 801456.0207736742,
+    "final_raw_ratio": 0.31522439226550414,
+    "final_adaptive_ratio": 0.6636471946110711,
+    "final_adaptive_norm": 1576.426720318652
+  },
+  "frozen_source_copies_match": {
+    "source\\00_setup_remote.sh": true,
+    "source\\02_train.py": true,
+    "source\\03_verify.py": true,
+    "source\\config.json": true,
+    "source\\model_config.json": true,
+    "source\\baseline\\adam_diagnostics.py": true,
+    "source\\baseline\\data_protocol.py": true,
+    "source\\baseline\\gradient_geometry.py": true,
+    "source\\baseline\\initialization.py": true,
+    "source\\baseline\\recipe.py": true,
+    "source\\baseline\\training.py": true,
+    "source\\baseline\\__init__.py": true
+  },
+  "initial_checkpoint_parameter_sha256": "dd1dd9fac2106c0438d558760a162cbc2714939725f322d7f29909c84431f2f4",
+  "max_raw_norm_relative_error_vs_independent_clip_norm": 1.57337929713045e-07,
+  "accepted_at": "2026-10-04T11:05:10.282481+00:00"
+}

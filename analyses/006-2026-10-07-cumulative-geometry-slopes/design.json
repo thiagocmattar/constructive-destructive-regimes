@@ -1,0 +1,28 @@
+{
+  "analysis_id": "006",
+  "hypothesis_id": "H006",
+  "status_at_design": "exploratory reanalysis of existing Run002; no new training",
+  "user_hypothesis": "The inclinations of cumulative A and B become equal; a zero slope of cumulative B/A tracks loss convergence and indicates that no additional information is stored because new gradient contributions are destroyed.",
+  "comparison": "Within the same seed1234 Pythia14M AdamW trajectory, compare raw gradients and bias-corrected preconditioned Adam directions.",
+  "source_run": "002-2026-10-03-pythia14m-adamw-adaptive-geometry",
+  "source_attempt": "attempt-02",
+  "primary_updates": [1, 711],
+  "retained_updates": [1, 712],
+  "primary_exclusion": "Final update712 has311 sequences instead of1024; preserve it in numerical data and full-pass sensitivity.",
+  "slope_coordinate": "accepted optimizer updates; norm units per update, not rendered line angles",
+  "primary_derivatives": "exact backward differences of recorded A, B and B/A; A0=B0=0; initial ratio derivative undefined",
+  "smoothing": "trailing31-update means for norm differences and trailing31-point least-squares slopes for ratio and training loss; complete windows only",
+  "sensitivity_windows": [15, 31, 61],
+  "terminal_windows": [32, 64, 100, 128],
+  "summary_intervals": [[1, 178], [179, 356], [357, 534], [535, 711]],
+  "ratio_minimum_check": "Use a centered61-update window around each stream's observed minimum within1-711; descriptive and selected after seeing the source figure.",
+  "loss": "Recorded supervised-token-mean training loss on changing batches; initial/final full fixed validation only.",
+  "decision_scope": {
+    "equal_absolute_slopes": "Compare mean backward differences and least-squares slopes of A and B within the declared intervals.",
+    "ratio_plateau": "Compare the ratio slope and the marginal slope ratio DeltaB/DeltaA against historical B/A; no fitted plateau threshold or significance test.",
+    "convergence": "Describe late training-loss trends and smoothing sensitivity; cannot establish asymptotic convergence from a finite pass with only two fixed-validation evaluations.",
+    "information_storage": "Not directly measured; distinguish geometric cancellation from loss change, parameter motion, and information stored by the model."
+  },
+  "uncertainty": "One seed, one correlated trajectory; window/smoothing sensitivity is not a confidence interval.",
+  "execution": "Local CPU reduction and plotting only; source artifacts read-only."
+}

@@ -1,0 +1,18 @@
+Preflight only; no scientific training was started.
+CUDA fused optimizer audit, 2026-10-03, Torch 2.11.0+cu128, RTX 4090.
+F...F
+FAIL: test_matches_independent_moments_and_actual_update_without_decay
+Mismatched elements: 1 / 2 (50.0%)
+Greatest absolute difference: 6.503748203878779e-08 at index (1,) (up to 1e-08 allowed)
+Greatest relative difference: 2.638812301573467e-07 at index (1,) (up to 2e-07 allowed)
+FAIL: test_zero_learning_rate_still_updates_moments_and_direction
+Mismatched elements: 2 / 2 (100.0%)
+Greatest absolute difference: 6.673283876379443e-06 at index (1,) (up to 1e-08 allowed)
+Greatest relative difference: 6.673283876379443e-06 at index (1,) (up to 2e-07 allowed)
+Ran 5 tests in 19.722s
+FAILED (failures=2)
+
+The zero-LR test had used default betas (0.9, 0.999), unlike production (0.9, 0.95).
+It now uses production betas. Ideal FP64 recurrence comparisons allow 1e-6
+relative tolerance for actual fused FP32 moment arithmetic. Actual-parameter-delta
+checks retain their original tolerances. No training or measurement source changed.

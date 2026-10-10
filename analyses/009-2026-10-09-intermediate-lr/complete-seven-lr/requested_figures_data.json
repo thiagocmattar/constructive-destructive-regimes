@@ -1,0 +1,113 @@
+{
+  "source_comparison_sha256": "a02a1ba7ace7a7011063767e6e7fb1c25548be0a12be06b6dad6826e5e7b2739",
+  "generator_sha256": "9ec4df3bd5fb1564cdabad51a06ec494e4a962fbc74f8a0498a146c9056b7946",
+  "helper_sha256": "c129fdd8c2b9f7b0945dd87fcb2b90da2b16ae3f8498ccf3c85f59b5f6ca927b",
+  "coverage": {
+    "source_updates": 712,
+    "displayed_updates": [
+      1,
+      711
+    ],
+    "partial_update_retained": true
+  },
+  "palette": {
+    "name": "plasma_r",
+    "normalization": "log10(peak_lr)",
+    "colormap_range": [
+      0.1,
+      0.95
+    ],
+    "monotonically_decreasing_CIELAB_lightness_verified": true,
+    "conditions": [
+      {
+        "id": "022",
+        "lr": 0.0001,
+        "color": "#fcce25",
+        "CIELAB_L_star": 84.5914362864026
+      },
+      {
+        "id": "024",
+        "lr": 0.00021544346900318845,
+        "color": "#f9983e",
+        "CIELAB_L_star": 71.55134581082696
+      },
+      {
+        "id": "025",
+        "lr": 0.00046415888336127773,
+        "color": "#e4695e",
+        "CIELAB_L_star": 59.28941858213152
+      },
+      {
+        "id": "021",
+        "lr": 0.001,
+        "color": "#c5407e",
+        "CIELAB_L_star": 48.23617416579134
+      },
+      {
+        "id": "026",
+        "lr": 0.0021544346900318843,
+        "color": "#9c179e",
+        "CIELAB_L_star": 38.06771826977279
+      },
+      {
+        "id": "027",
+        "lr": 0.004641588833612777,
+        "color": "#6700a8",
+        "CIELAB_L_star": 28.697058359403307
+      },
+      {
+        "id": "023",
+        "lr": 0.01,
+        "color": "#2a0593",
+        "CIELAB_L_star": 18.862500728650915
+      }
+    ]
+  },
+  "figures": {
+    "metrics_by_learning_rate.pdf": {
+      "sha256": "70722aeccd17d51285f96c1bd1c7cb084afa89b21202ceae4ef56b8e52a63bab",
+      "generated_at": "2026-10-09T19:22:41.399044+00:00",
+      "layout": [
+        3,
+        2
+      ],
+      "y_scales": [
+        "linear",
+        "linear",
+        "linear",
+        "linear",
+        "log",
+        "linear"
+      ]
+    },
+    "geometry_across_learning_rates.pdf": {
+      "sha256": "54f8b4d7cf191afbd64f87c943ffcaf389effd298d5b4a69be50308db45ff664",
+      "generated_at": "2026-10-09T19:38:37.670334+00:00",
+      "layout": [
+        2,
+        2
+      ],
+      "y_scales": [
+        "linear",
+        "linear",
+        "linear",
+        "linear"
+      ],
+      "generator_sha256": "9ec4df3bd5fb1564cdabad51a06ec494e4a962fbc74f8a0498a146c9056b7946",
+      "y_limits_policy": [
+        "zero lower bound; automatic upper bound",
+        "zero lower bound; automatic upper bound",
+        "fixed 0-1.05",
+        "automatic displayed-curve range with 5% padding"
+      ],
+      "momentum_ratio_y_limits": [
+        0.6362958240784901,
+        1.0173192464724528
+      ],
+      "momentum_ratio_displayed_data_range": [
+        0.6536150705509429,
+        1.0
+      ]
+    }
+  }
+}

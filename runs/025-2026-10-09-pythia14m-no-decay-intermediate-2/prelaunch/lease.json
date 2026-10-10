@@ -1,0 +1,31 @@
+{
+  "pod_id": "mtd2dlb7w1mslf",
+  "volume_id": "mja1prpve4",
+  "created_at": "2026-10-09T16:50:52.851Z",
+  "gpu_type": "NVIDIA GeForce RTX 4090",
+  "gpu_count": 2,
+  "price_per_hour": 1.78,
+  "data_center": "EU-RO-1",
+  "image": "runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404",
+  "template_source": "live official runpod-torch-v280 catalog",
+  "network_size_gb": 60,
+  "user_authorization": "Explicit approval of compute and temporary storage up to USD15; alternative GPUs explicitly authorized",
+  "deadline_epoch": 1791577800.0,
+  "deadline_utc": "2026-10-09T20:30:00+00:00",
+  "maximum_cohort_cost_usd": 15,
+  "retrieval_margin_seconds": 600,
+  "deadline_action": "stop_compute_preserve_network_evidence",
+  "maximum_worker_hours": 4,
+  "maximum_gpu_cost_usd": 12.541053783284294,
+  "maximum_storage_cost_usd_4h": 0.06,
+  "retrieval_planning_allowance_seconds": 3600,
+  "revision_reason": "Additional RTX4090 capacity to halve training time while staying within the approved USD15 cap",
+  "pod_ids": [
+    "mtd2dlb7w1mslf",
+    "kykdwoonqs0z9s"
+  ],
+  "fleet_price_per_hour": 3.56,
+  "maximum_storage_cost_usd": 0.15,
+  "maximum_total_estimated_usd": 12.691053783284294,
+  "production_concurrency": "four independent processes, one per GPU across two workers"
+}

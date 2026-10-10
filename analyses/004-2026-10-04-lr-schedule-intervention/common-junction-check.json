@@ -1,0 +1,32 @@
+{
+  "verified": true,
+  "scope": "Common first-batch scalar diagnostics at global357; not equality of full gradient vectors",
+  "models": {
+    "14M": {
+      "common_batch_indices_sha256": "563240512ada61951e6539782ab339bf9a33c58caba9a4222fd3893324598424",
+      "max_absolute_range": {
+        "loss": 0.0,
+        "gradient_norm": 2.926328083185936e-07,
+        "adjacent_cosine": 5.501965673615494e-07,
+        "cumulative_ratio": 5.010135084582146e-10
+      }
+    },
+    "70M": {
+      "common_batch_indices_sha256": "563240512ada61951e6539782ab339bf9a33c58caba9a4222fd3893324598424",
+      "max_absolute_range": {
+        "loss": 0.0,
+        "gradient_norm": 5.96029371968676e-08,
+        "adjacent_cosine": 1.9096364849841008e-07,
+        "cumulative_ratio": 1.2811468552698102e-10
+      }
+    }
+  },
+  "source_sha256": {
+    "011-2026-10-04-pythia14m-lr-original-seed1235": "ee2c8a28ad5c5781aacc9815d88ed43f02f5ba0f3078002999ba7e294ae041cb",
+    "012-2026-10-04-pythia14m-lr-hold-seed1235": "b176316fd7d0995206e2254e051a71c52899b909bb6ef775e89c83842c33883b",
+    "013-2026-10-04-pythia14m-lr-accelerated-seed1235": "e37cd07eba44b689a7446d3aaa70ccb5ccea93a4f4e7ba168fe9d18cbb00c761",
+    "014-2026-10-04-pythia70m-lr-original-seed1235": "d97be21a5dd1fcf957eb68d023ec4424cf1fd6f6b67a6274817923d3538ec8f4",
+    "015-2026-10-04-pythia70m-lr-hold-seed1235": "b265381b95943fe8ae58f77f37f2814535ac291d2c6e10d4fd9b4254ee1b75eb",
+    "016-2026-10-04-pythia70m-lr-accelerated-seed1235": "8385e9898b54c12fd4833dca9ff18cabea3039a14eacaf4cda97db69449bbf28"
+  }
+}

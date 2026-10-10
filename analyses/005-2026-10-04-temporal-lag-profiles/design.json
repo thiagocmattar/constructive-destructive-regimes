@@ -1,0 +1,28 @@
+{
+  "hypothesis": "H005",
+  "user_authorized_launch": true,
+  "single_seed": 1235,
+  "models": [
+    "14M",
+    "31M",
+    "70M"
+  ],
+  "varying": "model size and temporal window/lag",
+  "matched": "recipe/cache/order/seed/updates/projection family and dimension/window boundaries",
+  "questions": [
+    "Early monotone decay?",
+    "Middle damped/alternating oscillation?",
+    "Late loss of correlation?"
+  ],
+  "exploratory_expectations": true,
+  "claim_scope": "phase-dependent raw temporal gradient alignment",
+  "scope_excludes": [
+    "stability",
+    "causal learning benefit",
+    "actual AdamW displacement"
+  ],
+  "window_length": 128,
+  "primary_max_lag": 64,
+  "secondary_max_lag": 127,
+  "projection_uncertainty": "four map profiles and exact pair calibration, not training-seed uncertainty"
+}

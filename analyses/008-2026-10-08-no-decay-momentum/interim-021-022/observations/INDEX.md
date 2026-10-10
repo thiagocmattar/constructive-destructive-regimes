@@ -1,0 +1,3 @@
+- [001: Completed two-run comparison](001-two-run-comparison.md)
+- [002: Simplified comparison layouts](002-simplified-layouts.md)
+- [003: Raw alignment and norm separation](003-loss-alignment-norms.md)

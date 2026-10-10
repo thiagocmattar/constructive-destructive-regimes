@@ -1,0 +1,88 @@
+{
+  "scope": "smoke_calibration",
+  "completed_updates": 3,
+  "full_updates": 712,
+  "completed_sequences": 3072,
+  "planned_sequences": 728375,
+  "completed_input_tokens": 6291456,
+  "completed_supervised_tokens": 6288384,
+  "train_token_count": 1491711416,
+  "all_training_tokens_covered": false,
+  "repeated_sequences": 0,
+  "initial_validation": {
+    "loss": 11.032735605709835,
+    "supervised_tokens": 693329,
+    "input_tokens": 693668,
+    "sequences": 339,
+    "seconds": 6.7843603398650885,
+    "short_tail_included": true
+  },
+  "final_validation": {
+    "loss": 10.705098604280748,
+    "supervised_tokens": 693329,
+    "input_tokens": 693668,
+    "sequences": 339,
+    "seconds": 4.096391151193529,
+    "short_tail_included": true
+  },
+  "last_update": {
+    "event": "update",
+    "update": 3,
+    "gradient_step": 2,
+    "learning_rate": 0.0002808988764044944,
+    "update_seconds": 30.639511053916067,
+    "tokens_per_second": 68446.00086175204,
+    "cumulative_input_tokens": 6291456,
+    "cumulative_supervised_tokens": 6288384,
+    "remaining_training_seconds": 0.0,
+    "loss": 10.889202423393726,
+    "supervised_tokens": 2096128,
+    "sequences": 1024,
+    "input_tokens": 2097152,
+    "diagnostic_seconds": 0.1550568458624184,
+    "raw_diagnostic_seconds": 0.04667070973664522,
+    "adaptive_diagnostic_seconds": 0.10838613612577319,
+    "adaptive": {
+      "adjacent_cosine": 0.8974907629669678,
+      "adjacent_cosine_undefined_reason": null,
+      "cumulative_norm_sum": 9592.378555724441,
+      "cumulative_ratio": 0.9443325506462453,
+      "cumulative_ratio_undefined_reason": null,
+      "direction_norm": 2858.9990443846095,
+      "cumulative_direction_norm": 9058.395308291609
+    },
+    "adaptive_to_raw_norm_ratio": 1770.6034882538472,
+    "adaptive_to_raw_norm_ratio_undefined_reason": null,
+    "gradient_clip_returned_norm": 1.6147031784057617,
+    "overflow_retries": 0,
+    "loss_scale_previous": 4096.0,
+    "loss_scale": 4096.0,
+    "loss_scale_action": "hold",
+    "loss_scale_growth_tracker": 3,
+    "loss_scale_hysteresis_tracker": 2,
+    "gradient_norm": 1.614703158189374,
+    "adjacent_cosine": 0.943413001991264,
+    "adjacent_cosine_undefined_reason": null,
+    "cumulative_norm_sum": 5.224065137705223,
+    "cumulative_gradient_norm": 5.159952278901923,
+    "cumulative_ratio": 0.9877274005753569,
+    "cumulative_ratio_undefined_reason": null,
+    "peak_cuda_allocated_bytes": 5850733056,
+    "peak_cuda_reserved_bytes": 6320816128
+  },
+  "optimizer_step_seconds": [
+    31.452581002376974,
+    30.639511053916067
+  ],
+  "full_validation_seconds": [
+    6.7843603398650885,
+    4.096391151193529
+  ],
+  "diagnostic_seconds_per_update": [
+    0.4809293271973729,
+    0.15704420721158385,
+    0.1550568458624184
+  ],
+  "checkpoint_seconds": 8.435441021807492,
+  "order_sha256": "48945f9c8a48023611d5034e7a07fa693a652e327e88a265a08e062bfda2dcb5"
+}

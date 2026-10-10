@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "template_only": true,
+  "name": null,
+  "hypothesis_ids": [],
+  "model": {"architecture": null, "revision": null, "initialization": null},
+  "data": {
+    "dataset": "JeanKaddour/minipile",
+    "revision": null,
+    "tokenizer": null,
+    "tokenizer_revision": null,
+    "preprocessing": null,
+    "sequence_length": null,
+    "sample_unit": null,
+    "loss_reduction": null,
+    "validation_coverage": null
+  },
+  "seeds": {"model": null, "data_order": null, "replicates": []},
+  "training": {
+    "optimizer": null,
+    "optimizer_options": null,
+    "learning_rate_schedule": null,
+    "clipping": null,
+    "weight_decay": null,
+    "precision": null,
+    "microbatch": null,
+    "gradient_accumulation": null,
+    "world_size": null,
+    "max_updates": null,
+    "token_budget": null
+  },
+  "measurements": {"contracts": [], "cadence": null, "coverage": null},
+  "artifacts": {"checkpoint_schedule": null, "resume_state": null, "transfer_files": []},
+  "execution": {"location": null, "maximum_hours": null, "maximum_total_cost": null}
+}

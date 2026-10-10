@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "recorded_on": "2026-10-03",
+  "scope": "research-workflow bootstrap, not scientific execution",
+  "unit_tests": {"command": "python -m unittest discover -s tests -v", "passed": 10},
+  "cli_checks": [
+    "ETC arithmetic command succeeded",
+    "terminal monitor tolerated an unfinished final event",
+    "artifact inventory creation and strict verification succeeded",
+    "corrupted transfer was rejected with exit code 1"
+  ],
+  "documentation": {"broken_relative_markdown_links": 0},
+  "manuscript": {"extracted_files": 22, "initial_archive_byte_identity_verified": true},
+  "registries": {"hypotheses": 0, "runs": 0, "analyses": 0, "new_findings": 0},
+  "runpod": {"read_only_mcp_query_succeeded": true, "resources_created": 0},
+  "git": {"initialized": true, "remote_configured": false, "initial_commit": false},
+  "limits": [
+    "Scientific measurement contracts and training implementation are deferred",
+    "No dataset/cache/model weights downloaded or verified",
+    "No training experiment or billable preflight performed",
+    "No manuscript content edits or LaTeX compile performed",
+    "SSH/SCP commands are available; remote transport was not exercised"
+  ]
+}

@@ -1,0 +1,435 @@
+{
+  "hypotheses": [
+    "H003",
+    "H004"
+  ],
+  "scope": "Exploratory replication audit of completed logs",
+  "script_sha256": "11bc8e1fbb497a8737f95187c8dff0d45c1617c3aac7077fd9250622eff0f824",
+  "source_analysis": "analyses/002-2026-10-04-scale-seed-replication",
+  "source_analysis_hashes": {
+    "results.json": "4dcc899b5572c97e40345ba871af8445632ba1c2d83568ecdd36760094136a79",
+    "figure_data.csv": "9829a9fb4fbdb463e295a19c28f0274a27092d2b286f3d60d2f51208c379feea",
+    "generation.json": "33a7a02fbb12ce9a812be1f191240828422340c0994ba02db9eb26c34f610482"
+  },
+  "run_source_hashes": {
+    "runs/002-2026-10-03-pythia14m-adamw-adaptive-geometry/artifacts/attempt-02/full-pass/events.jsonl": "be690ae5d984799fc493bab330f535c7ed2f17cc5b406c56501bb6ce352b1f77",
+    "runs/002-2026-10-03-pythia14m-adamw-adaptive-geometry/artifacts/attempt-02/full-pass/summary.json": "622dd98251cd17cacd25d22adc2457efb5da35399f3aea8f1bff2db6466257d3",
+    "runs/002-2026-10-03-pythia14m-adamw-adaptive-geometry/artifacts/attempt-02/full-pass/resolved_config.json": "c09dc41e810ecb94e90235ecd04bbf08056b2087ac6ac7159cab05bfb1ebea54",
+    "runs/002-2026-10-03-pythia14m-adamw-adaptive-geometry/artifacts/attempt-02/full-pass/input_identity.json": "6072000a08578f032e43b0049ab1f796893f828793e6b8155f6cb300bb626d8c",
+    "runs/002-2026-10-03-pythia14m-adamw-adaptive-geometry/artifacts/attempt-02/full-pass/environment.json": "af83762de31765023f110787838777337fc1851738172f082dda5be6c8edb94e",
+    "runs/002-2026-10-03-pythia14m-adamw-adaptive-geometry/artifacts/attempt-02/full-pass/verification.json": "5974d957fb08b5a1551bd0f9fb33ad0bd707c373f1ac0eead42b986c99a45115",
+    "runs/002-2026-10-03-pythia14m-adamw-adaptive-geometry/prelaunch/attempt2-retrieval.json": "89f6f3772a212c0c80be28775946c775f0f67635461fe613f34eec1d50872b98",
+    "runs/003-2026-10-03-pythia31m-adamw-scale/artifacts/attempt-01/full-pass/events.jsonl": "00f4232954b7fd99f5a4e2a85b7032c334eb1a1f99846317b1070205fe0a015d",
+    "runs/003-2026-10-03-pythia31m-adamw-scale/artifacts/attempt-01/full-pass/summary.json": "ce6b86bf56eab7d3101212019d1ea9fbf3e9939d6491158ac09b51b437036981",
+    "runs/003-2026-10-03-pythia31m-adamw-scale/artifacts/attempt-01/full-pass/resolved_config.json": "13fe1861699280d7b61c11088405eef4dc38cee5e00de8892ca3f995656ce71c",
+    "runs/003-2026-10-03-pythia31m-adamw-scale/artifacts/attempt-01/full-pass/input_identity.json": "6072000a08578f032e43b0049ab1f796893f828793e6b8155f6cb300bb626d8c",
+    "runs/003-2026-10-03-pythia31m-adamw-scale/artifacts/attempt-01/full-pass/environment.json": "6d1166b82612ca17098d71ad6623e4fabcd283957ba5fac811fc7cf2d3c6e3ba",
+    "runs/003-2026-10-03-pythia31m-adamw-scale/artifacts/attempt-01/full-pass/verification.json": "011e4dee19fcc4520db47d67821732dec83f4bde9c9ba772c0b58a76787c6bd5",
+    "runs/003-2026-10-03-pythia31m-adamw-scale/prelaunch/attempt1-retrieval.json": "69f291314cf6d1a6d979ffbc6ebeffa520fea075901b072ea8ddd1c039653895",
+    "runs/004-2026-10-03-pythia70m-adamw-scale/artifacts/attempt-01/full-pass/events.jsonl": "344a4242b61cc5c533a9cb83855038a78f5798f7e17ed6aa9c2a2de403c9fd0a",
+    "runs/004-2026-10-03-pythia70m-adamw-scale/artifacts/attempt-01/full-pass/summary.json": "743721abf6d957467726d84499bc0e61fa0a06e05d6815259106b18698972437",
+    "runs/004-2026-10-03-pythia70m-adamw-scale/artifacts/attempt-01/full-pass/resolved_config.json": "cf27cd1727fd8894f52f82337f14c7f2081e6bb9edff9ff5382b5e36e6885c89",
+    "runs/004-2026-10-03-pythia70m-adamw-scale/artifacts/attempt-01/full-pass/input_identity.json": "6072000a08578f032e43b0049ab1f796893f828793e6b8155f6cb300bb626d8c",
+    "runs/004-2026-10-03-pythia70m-adamw-scale/artifacts/attempt-01/full-pass/environment.json": "e72d3afe60fbb32d96c2a19b68cf20757adb34cfad301c06e0eb564162296451",
+    "runs/004-2026-10-03-pythia70m-adamw-scale/artifacts/attempt-01/full-pass/verification.json": "77d7f2d48775c74c47b90a8dbff68840ddf5e2fa99aa840fe4a3a6d253bde76c",
+    "runs/004-2026-10-03-pythia70m-adamw-scale/prelaunch/attempt1-retrieval.json": "05029f502751fd6211363d2742c3f2aba165d28eef22f164474ba3c04812eb0e",
+    "runs/005-2026-10-04-pythia14m-seed1235/artifacts/attempt-01/full-pass/events.jsonl": "ff8f7efdc1d330cf5284a64c3b7811878d557abfca3c04384be35606412d6a5f",
+    "runs/005-2026-10-04-pythia14m-seed1235/artifacts/attempt-01/full-pass/summary.json": "be17ed724b0e3be9923e9886bf0d71821d60bed910847acdc46a7e6bf65cb8ba",
+    "runs/005-2026-10-04-pythia14m-seed1235/artifacts/attempt-01/full-pass/resolved_config.json": "c50dab873ac9ea54e92810ae81e5fefad0c12a9c9921306fc6db6ad1fc874b23",
+    "runs/005-2026-10-04-pythia14m-seed1235/artifacts/attempt-01/full-pass/input_identity.json": "b3583b631776e670002e9c059582fcda1f399a3ec83595472e966a9703eb9e76",
+    "runs/005-2026-10-04-pythia14m-seed1235/artifacts/attempt-01/full-pass/environment.json": "0b4bce74d3e58d7d5674b91a7945af7084f03e26d2716b17f32a88c60da666fd",
+    "runs/005-2026-10-04-pythia14m-seed1235/artifacts/attempt-01/full-pass/verification.json": "ec91d17ba04c25bdb8cb731a69a866ae8563761164fe0de5518b8d65d05d8cf2",
+    "runs/005-2026-10-04-pythia14m-seed1235/prelaunch/attempt1-retrieval.json": "84aa19ab3229d0b3a49bb0e61c2c53345fb31f1d188349dea23719a745721ceb",
+    "runs/006-2026-10-04-pythia31m-seed1235/artifacts/attempt-01/full-pass/events.jsonl": "04cbe1f1caaf7545d918a181c8067a71533453efb888acb8c022509a7b5ebbeb",
+    "runs/006-2026-10-04-pythia31m-seed1235/artifacts/attempt-01/full-pass/summary.json": "dc45cd5f97593927bfece87090cad24da70832b8c992f2999f0423866ba634d9",
+    "runs/006-2026-10-04-pythia31m-seed1235/artifacts/attempt-01/full-pass/resolved_config.json": "a83474d910cca0d1a0fd49be30d6f1b449756a0ee030166cee4f89507c119f2a",
+    "runs/006-2026-10-04-pythia31m-seed1235/artifacts/attempt-01/full-pass/input_identity.json": "b3583b631776e670002e9c059582fcda1f399a3ec83595472e966a9703eb9e76",
+    "runs/006-2026-10-04-pythia31m-seed1235/artifacts/attempt-01/full-pass/environment.json": "1b2cda4e1fbe894cc3a7726aae6a0d807d7903ee1c9a91e416d3d90dd9a08cc2",
+    "runs/006-2026-10-04-pythia31m-seed1235/artifacts/attempt-01/full-pass/verification.json": "c70cc052304e842d3a069c0c138511b36a127ffbcd9619d46c302850fe5afc19",
+    "runs/006-2026-10-04-pythia31m-seed1235/prelaunch/attempt1-retrieval.json": "b9ee122a7ef6bf72c15e58fc6cc9468d3ac11b75a4b89fdb37d3b9c66820c091",
+    "runs/007-2026-10-04-pythia70m-seed1235/artifacts/attempt-01/full-pass/events.jsonl": "299e270e6925ace59193c0e66beacc5a58f54091733e829014b5585b5bd8dc8d",
+    "runs/007-2026-10-04-pythia70m-seed1235/artifacts/attempt-01/full-pass/summary.json": "599799843da2bf7f49527d884d65a1db281ca73092be7de2c564e08ac0b8131e",
+    "runs/007-2026-10-04-pythia70m-seed1235/artifacts/attempt-01/full-pass/resolved_config.json": "58d39a2b754a1c302d52253a300ed4880d3cf5a9d333865b36fd16b9f8d9a66f",
+    "runs/007-2026-10-04-pythia70m-seed1235/artifacts/attempt-01/full-pass/input_identity.json": "b3583b631776e670002e9c059582fcda1f399a3ec83595472e966a9703eb9e76",
+    "runs/007-2026-10-04-pythia70m-seed1235/artifacts/attempt-01/full-pass/environment.json": "03bfd59a1926ba60b3a1612e331840fca0cf0c29a0282f18737d20621eb89c51",
+    "runs/007-2026-10-04-pythia70m-seed1235/artifacts/attempt-01/full-pass/verification.json": "0088ca648cff72fbce5a21857425dcd3992350df5af5c70a1314d27a9493adab",
+    "runs/007-2026-10-04-pythia70m-seed1235/prelaunch/attempt1-retrieval.json": "b0b6269948a1dc9327e3738a28098e5fd7998b5e933d21af0dfa7dba64039b20",
+    "runs/008-2026-10-04-pythia14m-seed1236/artifacts/attempt-01/full-pass/events.jsonl": "0236fda49f7eee499ebedefb4f6d0bac61b9f27e9627d0d14080e3d33218246d",
+    "runs/008-2026-10-04-pythia14m-seed1236/artifacts/attempt-01/full-pass/summary.json": "f25b5996573c24faa3e8f66c35c53febe0760c772e95e86eb59f7ba78914fbf8",
+    "runs/008-2026-10-04-pythia14m-seed1236/artifacts/attempt-01/full-pass/resolved_config.json": "41be519b4cc05c946bdfacd9f057c8e3379b8f44aec78d5f919d1beb5de423af",
+    "runs/008-2026-10-04-pythia14m-seed1236/artifacts/attempt-01/full-pass/input_identity.json": "cc50c1aeccb6925ad547774cec034000666510488dd17c41c92eb8a335778607",
+    "runs/008-2026-10-04-pythia14m-seed1236/artifacts/attempt-01/full-pass/environment.json": "4f85ae5f048e4c4b9b2754318e9826c318d87e377b0f4177e6a374d8edc5967c",
+    "runs/008-2026-10-04-pythia14m-seed1236/artifacts/attempt-01/full-pass/verification.json": "faca112426d1162576d9c3a033e522950641e1deee6dc293146f9fe015fc9e26",
+    "runs/008-2026-10-04-pythia14m-seed1236/prelaunch/attempt1-retrieval.json": "f94aedc6bcca1504a47d2ba842e38086f0517e89cd450d85c229ebbb2b8582e2",
+    "runs/009-2026-10-04-pythia31m-seed1236/artifacts/attempt-01/full-pass/events.jsonl": "858d6b8c0de642892435ae165f3cf0441522735f73c28f6417bdbcafef54318e",
+    "runs/009-2026-10-04-pythia31m-seed1236/artifacts/attempt-01/full-pass/summary.json": "f3e8cb8c274cdf5b35e1fe2b5f478a1d858a78d3442351a84e7a9f14d1800b5e",
+    "runs/009-2026-10-04-pythia31m-seed1236/artifacts/attempt-01/full-pass/resolved_config.json": "bb97b5e955755c112bacad49848ae5cb5f215aea039af41b773f588d76f998dd",
+    "runs/009-2026-10-04-pythia31m-seed1236/artifacts/attempt-01/full-pass/input_identity.json": "cc50c1aeccb6925ad547774cec034000666510488dd17c41c92eb8a335778607",
+    "runs/009-2026-10-04-pythia31m-seed1236/artifacts/attempt-01/full-pass/environment.json": "be2651bcca64679023c317a389379384fdc04ef88801b7ee0a2b489f04723c02",
+    "runs/009-2026-10-04-pythia31m-seed1236/artifacts/attempt-01/full-pass/verification.json": "8b98f1259454c3ed192ebe259d115ae9efebaf042af4f8a1a396d317dbd61469",
+    "runs/009-2026-10-04-pythia31m-seed1236/prelaunch/attempt1-retrieval.json": "e880299187c11f65d34da13f1f361dfd8daa39897ac17908ba0ba748a87b586c",
+    "runs/010-2026-10-04-pythia70m-seed1236/artifacts/attempt-01/full-pass/events.jsonl": "6cbfb714f1d284332fca8fdf660839d3db309d6a819b2a163420de8adb52afeb",
+    "runs/010-2026-10-04-pythia70m-seed1236/artifacts/attempt-01/full-pass/summary.json": "f862a988c3cb82c8b257075a00897ea03d23b80ac7ee5ad8861a37c8c676f3a8",
+    "runs/010-2026-10-04-pythia70m-seed1236/artifacts/attempt-01/full-pass/resolved_config.json": "7b8ab871b3062a176dcbfed8ab1987077e176dfea906c8485507e183c6d794e1",
+    "runs/010-2026-10-04-pythia70m-seed1236/artifacts/attempt-01/full-pass/input_identity.json": "cc50c1aeccb6925ad547774cec034000666510488dd17c41c92eb8a335778607",
+    "runs/010-2026-10-04-pythia70m-seed1236/artifacts/attempt-01/full-pass/environment.json": "24bff2f8d95c0b51c0f5b7364d5cf51e3b6615a679a21d470442c62c7323e7e5",
+    "runs/010-2026-10-04-pythia70m-seed1236/artifacts/attempt-01/full-pass/verification.json": "067700affde4e4d7464f7b05c05c22d01d4ee3be3600f5c7633999b0d7230cbb",
+    "runs/010-2026-10-04-pythia70m-seed1236/prelaunch/attempt1-retrieval.json": "87fcd5033ecb101ecaa7a73006c42588d787260516602615d45ff0c0e85218bb"
+  },
+  "statistics": [
+    {
+      "size": "14M",
+      "seed": 1234,
+      "negative_pairs": 350,
+      "defined_pairs": 711,
+      "negative_fraction_F": 0.49226441631504925,
+      "unconditional_intensity_D": 0.16056109047772857,
+      "conditional_negative_magnitude_M": 0.3261683866561858,
+      "raw_median_cosine": 0.007220274217490398,
+      "raw_terminal_R": 0.3371318366068217,
+      "final_validation_loss": 5.182391677010039,
+      "raw_energy_E": 166.0254280880278,
+      "raw_resultant_squared_B2": 11601.245961555132,
+      "raw_all_pair_interaction_J": 11435.220533467105,
+      "raw_lag_one_interaction_L": 3.3442709029334736,
+      "lag_one_relative_error": -0.9854007319944575,
+      "floor_preceded_full_batch_pairs": {
+        "updates": [
+          576,
+          711
+        ],
+        "defined_pairs": 136,
+        "median_cosine": 0.36020298906649884,
+        "negative_fraction": 0.029411764705882353
+      }
+    },
+    {
+      "size": "31M",
+      "seed": 1234,
+      "negative_pairs": 405,
+      "defined_pairs": 711,
+      "negative_fraction_F": 0.569620253164557,
+      "unconditional_intensity_D": 0.17534173823485877,
+      "conditional_negative_magnitude_M": 0.3078221626789743,
+      "raw_median_cosine": -0.08625160942530179,
+      "raw_terminal_R": 0.33075149244406893,
+      "final_validation_loss": 4.611768352157314,
+      "raw_energy_E": 160.06882986310544,
+      "raw_resultant_squared_B2": 10241.915550807867,
+      "raw_all_pair_interaction_J": 10081.846720944763,
+      "raw_lag_one_interaction_L": -4.8198588095558,
+      "lag_one_relative_error": -0.9848418032463366,
+      "floor_preceded_full_batch_pairs": {
+        "updates": [
+          576,
+          711
+        ],
+        "defined_pairs": 136,
+        "median_cosine": 0.15598698995169652,
+        "negative_fraction": 0.19117647058823528
+      }
+    },
+    {
+      "size": "70M",
+      "seed": 1234,
+      "negative_pairs": 481,
+      "defined_pairs": 711,
+      "negative_fraction_F": 0.6765119549929677,
+      "unconditional_intensity_D": 0.20019247527440354,
+      "conditional_negative_magnitude_M": 0.2959186069024967,
+      "raw_median_cosine": -0.16056599144827324,
+      "raw_terminal_R": 0.30938023389185676,
+      "final_validation_loss": 4.063201078517274,
+      "raw_energy_E": 171.03770911629556,
+      "raw_resultant_squared_B2": 8881.837850778553,
+      "raw_all_pair_interaction_J": 8710.800141662257,
+      "raw_lag_one_interaction_L": 1.681282067279458,
+      "lag_one_relative_error": -0.9805536878644507,
+      "floor_preceded_full_batch_pairs": {
+        "updates": [
+          576,
+          711
+        ],
+        "defined_pairs": 136,
+        "median_cosine": -0.0034266207145488645,
+        "negative_fraction": 0.5220588235294118
+      }
+    },
+    {
+      "size": "14M",
+      "seed": 1235,
+      "negative_pairs": 357,
+      "defined_pairs": 711,
+      "negative_fraction_F": 0.5021097046413502,
+      "unconditional_intensity_D": 0.15753047582869514,
+      "conditional_negative_magnitude_M": 0.31373716614622477,
+      "raw_median_cosine": -0.003979377537259749,
+      "raw_terminal_R": 0.3448906056923606,
+      "final_validation_loss": 5.182015651441844,
+      "raw_energy_E": 163.9278444227329,
+      "raw_resultant_squared_B2": 12079.792118674837,
+      "raw_all_pair_interaction_J": 11915.864274252104,
+      "raw_lag_one_interaction_L": 8.888208687049472,
+      "lag_one_relative_error": -0.9856937891470321,
+      "floor_preceded_full_batch_pairs": {
+        "updates": [
+          576,
+          711
+        ],
+        "defined_pairs": 136,
+        "median_cosine": 0.3407205749540746,
+        "negative_fraction": 0.0
+      }
+    },
+    {
+      "size": "31M",
+      "seed": 1235,
+      "negative_pairs": 379,
+      "defined_pairs": 711,
+      "negative_fraction_F": 0.5330520393811533,
+      "unconditional_intensity_D": 0.1643493763054565,
+      "conditional_negative_magnitude_M": 0.30831769539097514,
+      "raw_median_cosine": -0.03306462057056674,
+      "raw_terminal_R": 0.3247711715324412,
+      "final_validation_loss": 4.617402575555352,
+      "raw_energy_E": 157.57441407113583,
+      "raw_resultant_squared_B2": 9600.900329975599,
+      "raw_all_pair_interaction_J": 9443.325915904463,
+      "raw_lag_one_interaction_L": 2.9460823733908157,
+      "lag_one_relative_error": -0.9832806829643512,
+      "floor_preceded_full_batch_pairs": {
+        "updates": [
+          576,
+          711
+        ],
+        "defined_pairs": 136,
+        "median_cosine": 0.26272458345260974,
+        "negative_fraction": 0.051470588235294115
+      }
+    },
+    {
+      "size": "70M",
+      "seed": 1235,
+      "negative_pairs": 459,
+      "defined_pairs": 711,
+      "negative_fraction_F": 0.6455696202531646,
+      "unconditional_intensity_D": 0.18503025880269627,
+      "conditional_negative_magnitude_M": 0.2866154989296668,
+      "raw_median_cosine": -0.1112526587800156,
+      "raw_terminal_R": 0.30866977137027235,
+      "final_validation_loss": 4.058427325733528,
+      "raw_energy_E": 168.4319402776345,
+      "raw_resultant_squared_B2": 8703.55445879493,
+      "raw_all_pair_interaction_J": 8535.122518517295,
+      "raw_lag_one_interaction_L": 4.5775562258899605,
+      "lag_one_relative_error": -0.9801219723134267,
+      "floor_preceded_full_batch_pairs": {
+        "updates": [
+          576,
+          711
+        ],
+        "defined_pairs": 136,
+        "median_cosine": -0.022586662802012866,
+        "negative_fraction": 0.5441176470588235
+      }
+    },
+    {
+      "size": "14M",
+      "seed": 1236,
+      "negative_pairs": 348,
+      "defined_pairs": 711,
+      "negative_fraction_F": 0.48945147679324896,
+      "unconditional_intensity_D": 0.16568651739215262,
+      "conditional_negative_magnitude_M": 0.33851469501672565,
+      "raw_median_cosine": 0.013477951282730077,
+      "raw_terminal_R": 0.3324703713288353,
+      "final_validation_loss": 5.164867154806001,
+      "raw_energy_E": 166.1666351007984,
+      "raw_resultant_squared_B2": 11482.646625122316,
+      "raw_all_pair_interaction_J": 11316.479990021517,
+      "raw_lag_one_interaction_L": -1.732010936854632,
+      "lag_one_relative_error": -0.9856797278944225,
+      "floor_preceded_full_batch_pairs": {
+        "updates": [
+          576,
+          711
+        ],
+        "defined_pairs": 136,
+        "median_cosine": 0.30491351065891764,
+        "negative_fraction": 0.014705882352941176
+      }
+    },
+    {
+      "size": "31M",
+      "seed": 1236,
+      "negative_pairs": 459,
+      "defined_pairs": 711,
+      "negative_fraction_F": 0.6455696202531646,
+      "unconditional_intensity_D": 0.19539476070733267,
+      "conditional_negative_magnitude_M": 0.3026703156054761,
+      "raw_median_cosine": -0.1212422161006984,
+      "raw_terminal_R": 0.31522439226550414,
+      "final_validation_loss": 4.522797383559328,
+      "raw_energy_E": 167.26624823803851,
+      "raw_resultant_squared_B2": 9815.100209490824,
+      "raw_all_pair_interaction_J": 9647.833961252785,
+      "raw_lag_one_interaction_L": -17.06178667113037,
+      "lag_one_relative_error": -0.9846965941904836,
+      "floor_preceded_full_batch_pairs": {
+        "updates": [
+          576,
+          711
+        ],
+        "defined_pairs": 136,
+        "median_cosine": 0.07935846146479575,
+        "negative_fraction": 0.38235294117647056
+      }
+    },
+    {
+      "size": "70M",
+      "seed": 1236,
+      "negative_pairs": 485,
+      "defined_pairs": 711,
+      "negative_fraction_F": 0.6821378340365682,
+      "unconditional_intensity_D": 0.19754682422462494,
+      "conditional_negative_magnitude_M": 0.2895995711829038,
+      "raw_median_cosine": -0.1294040593988611,
+      "raw_terminal_R": 0.2966798518525168,
+      "final_validation_loss": 4.029232269346635,
+      "raw_energy_E": 176.79704058136662,
+      "raw_resultant_squared_B2": 8224.001716749939,
+      "raw_all_pair_interaction_J": 8047.204676168572,
+      "raw_lag_one_interaction_L": -3.9885019007549367,
+      "lag_one_relative_error": -0.9789872929709329,
+      "floor_preceded_full_batch_pairs": {
+        "updates": [
+          576,
+          711
+        ],
+        "defined_pairs": 136,
+        "median_cosine": -0.021866200388331643,
+        "negative_fraction": 0.5441176470588235
+      }
+    }
+  ],
+  "strict_size_orderings": [
+    {
+      "seed": 1234,
+      "negative_fraction_F": true,
+      "unconditional_intensity_D": true,
+      "conditional_negative_magnitude_M": true,
+      "raw_median_cosine": true,
+      "raw_terminal_R": true,
+      "final_validation_loss": true
+    },
+    {
+      "seed": 1235,
+      "negative_fraction_F": true,
+      "unconditional_intensity_D": true,
+      "conditional_negative_magnitude_M": true,
+      "raw_median_cosine": true,
+      "raw_terminal_R": true,
+      "final_validation_loss": true
+    },
+    {
+      "seed": 1236,
+      "negative_fraction_F": true,
+      "unconditional_intensity_D": true,
+      "conditional_negative_magnitude_M": true,
+      "raw_median_cosine": true,
+      "raw_terminal_R": true,
+      "final_validation_loss": true
+    }
+  ],
+  "all_nine_all_pair_interactions_positive": true,
+  "checkpoint_inventory": [
+    {
+      "size": "14M",
+      "seed": 1234,
+      "path": "runs/002-2026-10-03-pythia14m-adamw-adaptive-geometry/artifacts/attempt-02/full-pass/checkpoints/midpoint",
+      "files_bytes": {
+        "recovery.pt": 506606959,
+        "model/config.json": 1055,
+        "model/generation_config.json": 196,
+        "model/model.safetensors": 56279344
+      },
+      "scope": "Presence/size inventory only; resume mechanics not tested"
+    },
+    {
+      "size": "70M",
+      "seed": 1234,
+      "path": "runs/004-2026-10-03-pythia70m-adamw-scale/artifacts/attempt-01/full-pass/checkpoints/midpoint",
+      "files_bytes": {
+        "recovery.pt": 2535528687,
+        "model/config.json": 1056,
+        "model/generation_config.json": 196,
+        "model/model.safetensors": 281715176
+      },
+      "scope": "Presence/size inventory only; resume mechanics not tested"
+    },
+    {
+      "size": "14M",
+      "seed": 1235,
+      "path": "runs/005-2026-10-04-pythia14m-seed1235/artifacts/attempt-01/full-pass/checkpoints/midpoint",
+      "files_bytes": {
+        "recovery.pt": 506606895,
+        "model/config.json": 1055,
+        "model/generation_config.json": 196,
+        "model/model.safetensors": 56279344
+      },
+      "scope": "Presence/size inventory only; resume mechanics not tested"
+    },
+    {
+      "size": "70M",
+      "seed": 1235,
+      "path": "runs/007-2026-10-04-pythia70m-seed1235/artifacts/attempt-01/full-pass/checkpoints/midpoint",
+      "files_bytes": {
+        "recovery.pt": 2535528687,
+        "model/config.json": 1056,
+        "model/generation_config.json": 196,
+        "model/model.safetensors": 281715176
+      },
+      "scope": "Presence/size inventory only; resume mechanics not tested"
+    },
+    {
+      "size": "14M",
+      "seed": 1236,
+      "path": "runs/008-2026-10-04-pythia14m-seed1236/artifacts/attempt-01/full-pass/checkpoints/midpoint",
+      "files_bytes": {
+        "recovery.pt": 506607023,
+        "model/config.json": 1055,
+        "model/generation_config.json": 196,
+        "model/model.safetensors": 56279344
+      },
+      "scope": "Presence/size inventory only; resume mechanics not tested"
+    },
+    {
+      "size": "70M",
+      "seed": 1236,
+      "path": "runs/010-2026-10-04-pythia70m-seed1236/artifacts/attempt-01/full-pass/checkpoints/midpoint",
+      "files_bytes": {
+        "recovery.pt": 2535528751,
+        "model/config.json": 1056,
+        "model/generation_config.json": 196,
+        "model/model.safetensors": 281715176
+      },
+      "scope": "Presence/size inventory only; resume mechanics not tested"
+    }
+  ],
+  "coverage": {
+    "updates_per_run": 712,
+    "defined_pairs_per_run": 711,
+    "rows": 6408,
+    "floor_segment": "576-711; final partial update712 excluded only from phase summary",
+    "replicate_unit": "Three seed blocks; initialization and data-order seed co-vary",
+    "validation": "Original full 500-document validation, token weighted, including tail"
+  },
+  "verification": {
+    "source_and_receipt_hashes_checked": 63,
+    "csv_matches_analysis002_summaries": true,
+    "factorization_D_equals_F_times_M": true,
+    "protected_files_unchanged": 53,
+    "new_training_runs": 0,
+    "cloud_calls": 0
+  }
+}

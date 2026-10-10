@@ -1,0 +1,36 @@
+{
+  "pod_id": "8t9ep4a5vf1fxf",
+  "attempt": "attempt-01",
+  "archive_bytes": 2316973188,
+  "archive_sha256": "960f9275c39d642931d93d6d7e0573b78a8d76377c3a004d1f23e05a9383925d",
+  "verified": true,
+  "files": 66,
+  "total_bytes": 3303288005,
+  "errors": [],
+  "scientific_verification": {
+    "verified": true,
+    "updates": 712,
+    "training_input_tokens": 1491711416,
+    "final_validation_loss": 5.182231983148177,
+    "final_raw_cumulative_norm": 109.91816939313702,
+    "final_adaptive_cumulative_norm": 669187.2214888396,
+    "final_raw_ratio": 0.3450638738437486,
+    "final_adaptive_ratio": 0.7052874701725604,
+    "final_adaptive_norm": 1154.381403674497,
+    "temporal_verified": true,
+    "temporal_calibration": {
+      "completed_updates": 712,
+      "exact_pairs": 970,
+      "mean_sketch_cosine_rmse": 0.004439683253758747,
+      "mean_sketch_cosine_max_abs_error": 0.018492342269864848,
+      "qualified": true
+    }
+  },
+  "frozen_sources_match": true,
+  "reference_order_matches": true,
+  "resolved_config_semantically_matches": true,
+  "frozen_input_config_sha256": "b716c17c01b9a428bdceb33abea5ad4e9fd66717b63c40d5cc9ec86f2ed82f76",
+  "resolved_config_sha256": "4e0ee88b1d8bdd324e8fd46e7cdd535bfb56a7ccb0c0c9bdc1ff5735e636e190",
+  "verified_initial_checkpoint_parameter_sha256": "ec9c1dc3aec50d68deb082aededf08b7361fff56195923d73acac97febaa83b1",
+  "accepted_at": "2026-10-04T17:18:47.122351+00:00"
+}

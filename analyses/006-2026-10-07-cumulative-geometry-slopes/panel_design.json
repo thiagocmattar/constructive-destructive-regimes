@@ -1,0 +1,17 @@
+{
+  "extension": "User-requested per-step training-loss difference versus geometry slopes",
+  "analysis_id": "006",
+  "layout": {"rows": ["slope of A", "slope of B", "slope of cumulative B/A"], "columns": ["raw gradients", "Adam adaptive directions"]},
+  "plot": "Scatter grid; x is geometric backward difference, y is L_t-L_(t-1); color is optimizer update",
+  "alignment": "Pair loss difference ending at t with geometric increment ending at t. Recorded loss_t precedes update_t, so this is contemporaneous association, not attribution of loss improvement to update_t.",
+  "smoothing": "None",
+  "axis_scales": "Linear loss/A/B axes; symmetric logarithmic x-axis for ratio differences, linear threshold1e-4, identical across columns",
+  "display_updates": [2, 711],
+  "display_points_per_panel": 710,
+  "retained_updates": [1, 712],
+  "first_loss_difference": "Undefined; no prior changing-batch training-loss record",
+  "tail": "Update712 retained in CSV, excluded from figure because its batch is smaller",
+  "loss_meaning": "Difference between two supervised-token-mean losses on consecutive, different training batches",
+  "source": "Verified Analysis006 curve_data.csv and original Run002 attempt02 events",
+  "uncertainty": "One seed; no smoothing, fitted regression or independent-replicate uncertainty"
+}

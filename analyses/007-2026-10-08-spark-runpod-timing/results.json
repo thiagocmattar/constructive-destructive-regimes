@@ -1,0 +1,346 @@
+{
+  "scope": "operational_timing_comparison",
+  "runs": [
+    {
+      "run": "002-2026-10-03-pythia14m-adamw-adaptive-geometry",
+      "size": "14m",
+      "gpu": "NVIDIA GeForce RTX 4090",
+      "seed": 1234,
+      "post_warmup_full_updates": 710,
+      "mean_seconds_per_update": 6.8215127055546345,
+      "actual_execution_minutes": 81.44085243333333,
+      "spark_seconds_per_update": 25.13645149403601,
+      "spark_to_cloud_update_time_ratio": 3.6848793777907725
+    },
+    {
+      "run": "003-2026-10-03-pythia31m-adamw-scale",
+      "size": "31m",
+      "gpu": "NVIDIA GeForce RTX 4090",
+      "seed": 1234,
+      "post_warmup_full_updates": 710,
+      "mean_seconds_per_update": 7.86519494421098,
+      "actual_execution_minutes": 93.88599961666667,
+      "spark_seconds_per_update": 28.678089653985808,
+      "spark_to_cloud_update_time_ratio": 3.6462020150045666
+    },
+    {
+      "run": "004-2026-10-03-pythia70m-adamw-scale",
+      "size": "70m",
+      "gpu": "NVIDIA GeForce RTX 4090",
+      "seed": 1234,
+      "post_warmup_full_updates": 710,
+      "mean_seconds_per_update": 11.088492160333766,
+      "actual_execution_minutes": 132.25007951666666,
+      "spark_seconds_per_update": 38.26629743701778,
+      "spark_to_cloud_update_time_ratio": 3.4509919729127496
+    },
+    {
+      "run": "005-2026-10-04-pythia14m-seed1235",
+      "size": "14m",
+      "gpu": "NVIDIA GeForce RTX 5090",
+      "seed": 1235,
+      "post_warmup_full_updates": 710,
+      "mean_seconds_per_update": 5.844834541532327,
+      "actual_execution_minutes": 70.32499045,
+      "spark_seconds_per_update": 25.13645149403601,
+      "spark_to_cloud_update_time_ratio": 4.300626701307107
+    },
+    {
+      "run": "006-2026-10-04-pythia31m-seed1235",
+      "size": "31m",
+      "gpu": "NVIDIA GeForce RTX 5090",
+      "seed": 1235,
+      "post_warmup_full_updates": 710,
+      "mean_seconds_per_update": 6.2800113355130955,
+      "actual_execution_minutes": 75.24242848333333,
+      "spark_seconds_per_update": 28.678089653985808,
+      "spark_to_cloud_update_time_ratio": 4.566566542931682
+    },
+    {
+      "run": "007-2026-10-04-pythia70m-seed1235",
+      "size": "70m",
+      "gpu": "NVIDIA GeForce RTX 5090",
+      "seed": 1235,
+      "post_warmup_full_updates": 710,
+      "mean_seconds_per_update": 7.952309754659234,
+      "actual_execution_minutes": 94.75630265,
+      "spark_seconds_per_update": 38.26629743701778,
+      "spark_to_cloud_update_time_ratio": 4.811972699453474
+    },
+    {
+      "run": "008-2026-10-04-pythia14m-seed1236",
+      "size": "14m",
+      "gpu": "NVIDIA GeForce RTX 5090",
+      "seed": 1236,
+      "post_warmup_full_updates": 710,
+      "mean_seconds_per_update": 5.797594514556379,
+      "actual_execution_minutes": 69.70697298333333,
+      "spark_seconds_per_update": 25.13645149403601,
+      "spark_to_cloud_update_time_ratio": 4.335669117756401
+    },
+    {
+      "run": "009-2026-10-04-pythia31m-seed1236",
+      "size": "31m",
+      "gpu": "NVIDIA GeForce RTX 5090",
+      "seed": 1236,
+      "post_warmup_full_updates": 710,
+      "mean_seconds_per_update": 6.380828782995428,
+      "actual_execution_minutes": 76.33975313333333,
+      "spark_seconds_per_update": 28.678089653985808,
+      "spark_to_cloud_update_time_ratio": 4.4944145391287424
+    },
+    {
+      "run": "010-2026-10-04-pythia70m-seed1236",
+      "size": "70m",
+      "gpu": "NVIDIA GeForce RTX 5090",
+      "seed": 1236,
+      "post_warmup_full_updates": 710,
+      "mean_seconds_per_update": 8.000374377721133,
+      "actual_execution_minutes": 95.3134492,
+      "spark_seconds_per_update": 38.26629743701778,
+      "spark_to_cloud_update_time_ratio": 4.7830633455828035
+    }
+  ],
+  "sources": [
+    {
+      "path": "runs/020-2026-10-08-dgx-spark-calibration/artifacts/attempt-02/summary.json",
+      "bytes": 40173,
+      "sha256": "3d6558b382206e8ac9216b2b9415ded31b525ca093be3c28d3cb6e0a7caf80db"
+    },
+    {
+      "path": "runs/020-2026-10-08-dgx-spark-calibration/recipes/14m/config.json",
+      "bytes": 3127,
+      "sha256": "69049495bc5e366a4f0956d3747779d6e9134886a9c545df6db56ef877c8d78e"
+    },
+    {
+      "path": "runs/002-2026-10-03-pythia14m-adamw-adaptive-geometry/artifacts/attempt-02/full-pass/summary.json",
+      "bytes": 37511,
+      "sha256": "622dd98251cd17cacd25d22adc2457efb5da35399f3aea8f1bff2db6466257d3"
+    },
+    {
+      "path": "runs/002-2026-10-03-pythia14m-adamw-adaptive-geometry/artifacts/attempt-02/full-pass/environment.json",
+      "bytes": 6548,
+      "sha256": "af83762de31765023f110787838777337fc1851738172f082dda5be6c8edb94e"
+    },
+    {
+      "path": "runs/002-2026-10-03-pythia14m-adamw-adaptive-geometry/artifacts/attempt-02/full-pass/manifest.json",
+      "bytes": 573,
+      "sha256": "98e186b8c1384cb2fdadf91d3d650939c66258ee9b820340ba7d7b859bfdc06e"
+    },
+    {
+      "path": "runs/002-2026-10-03-pythia14m-adamw-adaptive-geometry/config.json",
+      "bytes": 3127,
+      "sha256": "69049495bc5e366a4f0956d3747779d6e9134886a9c545df6db56ef877c8d78e"
+    },
+    {
+      "path": "runs/002-2026-10-03-pythia14m-adamw-adaptive-geometry/artifacts/attempt-02/full-pass/events.jsonl",
+      "bytes": 1142734,
+      "sha256": "be690ae5d984799fc493bab330f535c7ed2f17cc5b406c56501bb6ce352b1f77"
+    },
+    {
+      "path": "runs/003-2026-10-03-pythia31m-adamw-scale/artifacts/attempt-01/full-pass/summary.json",
+      "bytes": 37347,
+      "sha256": "ce6b86bf56eab7d3101212019d1ea9fbf3e9939d6491158ac09b51b437036981"
+    },
+    {
+      "path": "runs/003-2026-10-03-pythia31m-adamw-scale/artifacts/attempt-01/full-pass/environment.json",
+      "bytes": 6452,
+      "sha256": "6d1166b82612ca17098d71ad6623e4fabcd283957ba5fac811fc7cf2d3c6e3ba"
+    },
+    {
+      "path": "runs/003-2026-10-03-pythia31m-adamw-scale/artifacts/attempt-01/full-pass/manifest.json",
+      "bytes": 572,
+      "sha256": "4e85742e6f419f1f37155d4e90e0879e43594629a0fab6b7936b49f459fda2cd"
+    },
+    {
+      "path": "runs/003-2026-10-03-pythia31m-adamw-scale/config.json",
+      "bytes": 3713,
+      "sha256": "66f7ad36d47aff5a0a5f4f80f52abb38f2a3bbffc67f1f68f834826b30176a3f"
+    },
+    {
+      "path": "runs/003-2026-10-03-pythia31m-adamw-scale/artifacts/attempt-01/full-pass/events.jsonl",
+      "bytes": 1142732,
+      "sha256": "00f4232954b7fd99f5a4e2a85b7032c334eb1a1f99846317b1070205fe0a015d"
+    },
+    {
+      "path": "runs/004-2026-10-03-pythia70m-adamw-scale/artifacts/attempt-01/full-pass/summary.json",
+      "bytes": 37673,
+      "sha256": "743721abf6d957467726d84499bc0e61fa0a06e05d6815259106b18698972437"
+    },
+    {
+      "path": "runs/004-2026-10-03-pythia70m-adamw-scale/artifacts/attempt-01/full-pass/environment.json",
+      "bytes": 6453,
+      "sha256": "e72d3afe60fbb32d96c2a19b68cf20757adb34cfad301c06e0eb564162296451"
+    },
+    {
+      "path": "runs/004-2026-10-03-pythia70m-adamw-scale/artifacts/attempt-01/full-pass/manifest.json",
+      "bytes": 572,
+      "sha256": "fa7b559827f6888ffae11773c03ecc39a38e6ac68fe9d41034aa6f28de8924d4"
+    },
+    {
+      "path": "runs/004-2026-10-03-pythia70m-adamw-scale/config.json",
+      "bytes": 3713,
+      "sha256": "4b032a405d5328408104259a3021619f97f5c09d54aeb22d64565253ba879a0e"
+    },
+    {
+      "path": "runs/004-2026-10-03-pythia70m-adamw-scale/artifacts/attempt-01/full-pass/events.jsonl",
+      "bytes": 1143568,
+      "sha256": "344a4242b61cc5c533a9cb83855038a78f5798f7e17ed6aa9c2a2de403c9fd0a"
+    },
+    {
+      "path": "runs/005-2026-10-04-pythia14m-seed1235/artifacts/attempt-01/full-pass/summary.json",
+      "bytes": 37356,
+      "sha256": "be17ed724b0e3be9923e9886bf0d71821d60bed910847acdc46a7e6bf65cb8ba"
+    },
+    {
+      "path": "runs/005-2026-10-04-pythia14m-seed1235/artifacts/attempt-01/full-pass/environment.json",
+      "bytes": 6449,
+      "sha256": "0b4bce74d3e58d7d5674b91a7945af7084f03e26d2716b17f32a88c60da666fd"
+    },
+    {
+      "path": "runs/005-2026-10-04-pythia14m-seed1235/artifacts/attempt-01/full-pass/manifest.json",
+      "bytes": 572,
+      "sha256": "8b8187130602dde5d714fa994ae76f3f46b319890ea3288a7d93ae264d3554e6"
+    },
+    {
+      "path": "runs/005-2026-10-04-pythia14m-seed1235/config.json",
+      "bytes": 3661,
+      "sha256": "cdc8a101453a0261902ad887ed48a8dc76ffe95783cd314aff99e0e4ceb34209"
+    },
+    {
+      "path": "runs/005-2026-10-04-pythia14m-seed1235/artifacts/attempt-01/full-pass/events.jsonl",
+      "bytes": 1142492,
+      "sha256": "ff8f7efdc1d330cf5284a64c3b7811878d557abfca3c04384be35606412d6a5f"
+    },
+    {
+      "path": "runs/006-2026-10-04-pythia31m-seed1235/artifacts/attempt-01/full-pass/summary.json",
+      "bytes": 37381,
+      "sha256": "dc45cd5f97593927bfece87090cad24da70832b8c992f2999f0423866ba634d9"
+    },
+    {
+      "path": "runs/006-2026-10-04-pythia31m-seed1235/artifacts/attempt-01/full-pass/environment.json",
+      "bytes": 6452,
+      "sha256": "1b2cda4e1fbe894cc3a7726aae6a0d807d7903ee1c9a91e416d3d90dd9a08cc2"
+    },
+    {
+      "path": "runs/006-2026-10-04-pythia31m-seed1235/artifacts/attempt-01/full-pass/manifest.json",
+      "bytes": 573,
+      "sha256": "9358a5b57fe5c6020f7dcea4b64d0fc2b0e3c6554e7ecf9542a895944fd3f4d8"
+    },
+    {
+      "path": "runs/006-2026-10-04-pythia31m-seed1235/config.json",
+      "bytes": 3713,
+      "sha256": "987963652ae987834488facaed0a7afe8399626b5c7fd5bf406f9d19715e7478"
+    },
+    {
+      "path": "runs/006-2026-10-04-pythia31m-seed1235/artifacts/attempt-01/full-pass/events.jsonl",
+      "bytes": 1142518,
+      "sha256": "04cbe1f1caaf7545d918a181c8067a71533453efb888acb8c022509a7b5ebbeb"
+    },
+    {
+      "path": "runs/007-2026-10-04-pythia70m-seed1235/artifacts/attempt-01/full-pass/summary.json",
+      "bytes": 37283,
+      "sha256": "599799843da2bf7f49527d884d65a1db281ca73092be7de2c564e08ac0b8131e"
+    },
+    {
+      "path": "runs/007-2026-10-04-pythia70m-seed1235/artifacts/attempt-01/full-pass/environment.json",
+      "bytes": 6453,
+      "sha256": "03bfd59a1926ba60b3a1612e331840fca0cf0c29a0282f18737d20621eb89c51"
+    },
+    {
+      "path": "runs/007-2026-10-04-pythia70m-seed1235/artifacts/attempt-01/full-pass/manifest.json",
+      "bytes": 573,
+      "sha256": "8eca664af2671b2a55c0eb785646aacabf9d50d150e03517addb97e6808ebaf8"
+    },
+    {
+      "path": "runs/007-2026-10-04-pythia70m-seed1235/config.json",
+      "bytes": 3713,
+      "sha256": "4ef7d7a96f36c9a169a0f980b2a868d24b8902821f0275eed18b2858c3bcdbec"
+    },
+    {
+      "path": "runs/007-2026-10-04-pythia70m-seed1235/artifacts/attempt-01/full-pass/events.jsonl",
+      "bytes": 1142981,
+      "sha256": "299e270e6925ace59193c0e66beacc5a58f54091733e829014b5585b5bd8dc8d"
+    },
+    {
+      "path": "runs/008-2026-10-04-pythia14m-seed1236/artifacts/attempt-01/full-pass/summary.json",
+      "bytes": 37382,
+      "sha256": "f25b5996573c24faa3e8f66c35c53febe0760c772e95e86eb59f7ba78914fbf8"
+    },
+    {
+      "path": "runs/008-2026-10-04-pythia14m-seed1236/artifacts/attempt-01/full-pass/environment.json",
+      "bytes": 6449,
+      "sha256": "4f85ae5f048e4c4b9b2754318e9826c318d87e377b0f4177e6a374d8edc5967c"
+    },
+    {
+      "path": "runs/008-2026-10-04-pythia14m-seed1236/artifacts/attempt-01/full-pass/manifest.json",
+      "bytes": 572,
+      "sha256": "ef3383d0702996d839622d6e1aa3b3150781fea786c4fa8c90509970a4e89d6f"
+    },
+    {
+      "path": "runs/008-2026-10-04-pythia14m-seed1236/config.json",
+      "bytes": 3661,
+      "sha256": "a180962c2543a40be01aa9721febbae4516c696d67ab1ab9a688508a078dcc97"
+    },
+    {
+      "path": "runs/008-2026-10-04-pythia14m-seed1236/artifacts/attempt-01/full-pass/events.jsonl",
+      "bytes": 1142440,
+      "sha256": "0236fda49f7eee499ebedefb4f6d0bac61b9f27e9627d0d14080e3d33218246d"
+    },
+    {
+      "path": "runs/009-2026-10-04-pythia31m-seed1236/artifacts/attempt-01/full-pass/summary.json",
+      "bytes": 37380,
+      "sha256": "f3e8cb8c274cdf5b35e1fe2b5f478a1d858a78d3442351a84e7a9f14d1800b5e"
+    },
+    {
+      "path": "runs/009-2026-10-04-pythia31m-seed1236/artifacts/attempt-01/full-pass/environment.json",
+      "bytes": 6452,
+      "sha256": "be2651bcca64679023c317a389379384fdc04ef88801b7ee0a2b489f04723c02"
+    },
+    {
+      "path": "runs/009-2026-10-04-pythia31m-seed1236/artifacts/attempt-01/full-pass/manifest.json",
+      "bytes": 572,
+      "sha256": "d0c9b05e04870270f4973529a62bd3e379d9ddcf34fd42920eadde41303665a1"
+    },
+    {
+      "path": "runs/009-2026-10-04-pythia31m-seed1236/config.json",
+      "bytes": 3713,
+      "sha256": "e7a4f9a3798d7d481600150332169a90e5b33c8f0bb3e292dc716654be6da4c2"
+    },
+    {
+      "path": "runs/009-2026-10-04-pythia31m-seed1236/artifacts/attempt-01/full-pass/events.jsonl",
+      "bytes": 1142652,
+      "sha256": "858d6b8c0de642892435ae165f3cf0441522735f73c28f6417bdbcafef54318e"
+    },
+    {
+      "path": "runs/010-2026-10-04-pythia70m-seed1236/artifacts/attempt-01/full-pass/summary.json",
+      "bytes": 37058,
+      "sha256": "f862a988c3cb82c8b257075a00897ea03d23b80ac7ee5ad8861a37c8c676f3a8"
+    },
+    {
+      "path": "runs/010-2026-10-04-pythia70m-seed1236/artifacts/attempt-01/full-pass/environment.json",
+      "bytes": 6453,
+      "sha256": "24bff2f8d95c0b51c0f5b7364d5cf51e3b6615a679a21d470442c62c7323e7e5"
+    },
+    {
+      "path": "runs/010-2026-10-04-pythia70m-seed1236/artifacts/attempt-01/full-pass/manifest.json",
+      "bytes": 572,
+      "sha256": "b4c29a02f9eb9689e7b9fcd1be0c912dd405206d1d53df75dc2ee7835bc123cc"
+    },
+    {
+      "path": "runs/010-2026-10-04-pythia70m-seed1236/config.json",
+      "bytes": 3713,
+      "sha256": "fd7d48755de908b02ef27017ea289c39f32af029c825af0b0a6aa9a66e8c9aa9"
+    },
+    {
+      "path": "runs/010-2026-10-04-pythia70m-seed1236/artifacts/attempt-01/full-pass/events.jsonl",
+      "bytes": 1142879,
+      "sha256": "6cbfb714f1d284332fca8fdf660839d3db309d6a819b2a163420de8adb52afeb"
+    }
+  ],
+  "spark_projected_hours": {
+    "14m": 4.96906509939837,
+    "31m": 5.67326841528873,
+    "70m": 7.565125488359436
+  }
+}

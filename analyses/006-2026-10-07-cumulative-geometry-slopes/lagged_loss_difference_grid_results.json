@@ -1,0 +1,213 @@
+{
+  "design_sha256": "9c502331a56186ad05911a8b0b9416c7dcee0028f8b4a1d1cccb5916e36e80d7",
+  "script_sha256": "6f2bfce477bd996d4a733c1e08b2af9c48bb72da554ce3929ab37f0bec3802b0",
+  "sources_before": {
+    "analyses/006-2026-10-07-cumulative-geometry-slopes/curve_data.csv": "0ae08b691b12d768b4526b446cfa98d78c3e94bbda73a468913424d3de096857",
+    "analyses/006-2026-10-07-cumulative-geometry-slopes/results.json": "d0e785f5ff31fe59f918a373809e3115bd753213999fc8282ccf1fd89cc28c86",
+    "runs/002-2026-10-03-pythia14m-adamw-adaptive-geometry/artifacts/attempt-02/full-pass/events.jsonl": "be690ae5d984799fc493bab330f535c7ed2f17cc5b406c56501bb6ce352b1f77",
+    "analyses/006-2026-10-07-cumulative-geometry-slopes/loss_difference_grid_data.csv": "31c44d8d4aa314f637bec41023b9254de406ee91a5e3b003fcc9923be3021baa",
+    "analyses/006-2026-10-07-cumulative-geometry-slopes/loss_difference_grid_results.json": "44750dc40161b0846731af01d356c5cc535d59d60a9ed89a6af8c20e05039294",
+    "analyses/006-2026-10-07-cumulative-geometry-slopes/figures/cumulative_slopes.pdf": "f5dcca32d6ea7d18588bfe64c0f3fa7200171ed47a368b883b1b0a339ee9be3f",
+    "analyses/006-2026-10-07-cumulative-geometry-slopes/figures/loss_difference_vs_slopes.pdf": "43c272c8d9b5d01f1e9c661b6db12809caba13b8d4d9ad0a20df39b4db22cb98",
+    "analyses/006-2026-10-07-cumulative-geometry-slopes/figures/ratio_slope_and_loss.pdf": "216dadbcbff74eadf931f39164d203fb1b5785b7a9715b174c1176f04a5d6e99"
+  },
+  "sources_after": {
+    "analyses/006-2026-10-07-cumulative-geometry-slopes/curve_data.csv": "0ae08b691b12d768b4526b446cfa98d78c3e94bbda73a468913424d3de096857",
+    "analyses/006-2026-10-07-cumulative-geometry-slopes/results.json": "d0e785f5ff31fe59f918a373809e3115bd753213999fc8282ccf1fd89cc28c86",
+    "runs/002-2026-10-03-pythia14m-adamw-adaptive-geometry/artifacts/attempt-02/full-pass/events.jsonl": "be690ae5d984799fc493bab330f535c7ed2f17cc5b406c56501bb6ce352b1f77",
+    "analyses/006-2026-10-07-cumulative-geometry-slopes/loss_difference_grid_data.csv": "31c44d8d4aa314f637bec41023b9254de406ee91a5e3b003fcc9923be3021baa",
+    "analyses/006-2026-10-07-cumulative-geometry-slopes/loss_difference_grid_results.json": "44750dc40161b0846731af01d356c5cc535d59d60a9ed89a6af8c20e05039294",
+    "analyses/006-2026-10-07-cumulative-geometry-slopes/figures/cumulative_slopes.pdf": "f5dcca32d6ea7d18588bfe64c0f3fa7200171ed47a368b883b1b0a339ee9be3f",
+    "analyses/006-2026-10-07-cumulative-geometry-slopes/figures/loss_difference_vs_slopes.pdf": "43c272c8d9b5d01f1e9c661b6db12809caba13b8d4d9ad0a20df39b4db22cb98",
+    "analyses/006-2026-10-07-cumulative-geometry-slopes/figures/ratio_slope_and_loss.pdf": "216dadbcbff74eadf931f39164d203fb1b5785b7a9715b174c1176f04a5d6e99"
+  },
+  "previous_evidence_unchanged": true,
+  "data_rows": 2136,
+  "lags": {
+    "2": {
+      "display_updates": [
+        3,
+        711
+      ],
+      "points_per_panel": 709,
+      "loss_difference_range": [
+        -0.33176639676094055,
+        0.09468105062842369
+      ],
+      "panels": {
+        "raw_A": {
+          "points": 709,
+          "x_range": [
+            0.4148613330591573,
+            3.415511070743534
+          ]
+        },
+        "raw_B": {
+          "points": 709,
+          "x_range": [
+            0.06271919388241542,
+            3.3513986323300227
+          ]
+        },
+        "raw_ratio": {
+          "points": 709,
+          "x_range": [
+            -0.13730724697967434,
+            0.012115588579964087
+          ]
+        },
+        "adaptive_A": {
+          "points": 709,
+          "x_range": [
+            2451.196496548364,
+            6018.9000300359285
+          ]
+        },
+        "adaptive_B": {
+          "points": 709,
+          "x_range": [
+            904.1974653865691,
+            5484.91688650939
+          ]
+        },
+        "adaptive_ratio": {
+          "points": 709,
+          "x_range": [
+            -0.055667434528229864,
+            0.0012493506720699932
+          ]
+        }
+      },
+      "pdf": "figures/loss_difference_vs_slopes_lag02.pdf",
+      "preview": "scratch/loss_difference_vs_slopes_lag02_pdf.png"
+    },
+    "5": {
+      "display_updates": [
+        6,
+        711
+      ],
+      "points_per_panel": 706,
+      "loss_difference_range": [
+        -0.7066759839653969,
+        0.10486238915473223
+      ],
+      "panels": {
+        "raw_A": {
+          "points": 706,
+          "x_range": [
+            1.1462071096904722,
+            6.4897214691630065
+          ]
+        },
+        "raw_B": {
+          "points": 706,
+          "x_range": [
+            0.23584645414639738,
+            4.833347649466451
+          ]
+        },
+        "raw_ratio": {
+          "points": 706,
+          "x_range": [
+            -0.24709286032319577,
+            0.029616875885914218
+          ]
+        },
+        "adaptive_A": {
+          "points": 706,
+          "x_range": [
+            6135.366510451422,
+            13245.669532269047
+          ]
+        },
+        "adaptive_B": {
+          "points": 706,
+          "x_range": [
+            2264.962869936535,
+            11380.186388354843
+          ]
+        },
+        "adaptive_ratio": {
+          "points": 706,
+          "x_range": [
+            -0.11091424257422666,
+            0.0030929331049289743
+          ]
+        }
+      },
+      "pdf": "figures/loss_difference_vs_slopes_lag05.pdf",
+      "preview": "scratch/loss_difference_vs_slopes_lag05_pdf.png"
+    },
+    "20": {
+      "display_updates": [
+        21,
+        711
+      ],
+      "points_per_panel": 691,
+      "loss_difference_range": [
+        -2.332696598023176,
+        0.08804327249526978
+      ],
+      "panels": {
+        "raw_A": {
+          "points": 691,
+          "x_range": [
+            5.295601209503857,
+            19.155197158752394
+          ]
+        },
+        "raw_B": {
+          "points": 691,
+          "x_range": [
+            1.2191755435153482,
+            14.263774304177725
+          ]
+        },
+        "raw_ratio": {
+          "points": 691,
+          "x_range": [
+            -0.23332765300970193,
+            0.08332584038769064
+          ]
+        },
+        "adaptive_A": {
+          "points": 691,
+          "x_range": [
+            24563.209619340138,
+            42051.74972155755
+          ]
+        },
+        "adaptive_B": {
+          "points": 691,
+          "x_range": [
+            9323.794758867502,
+            33594.92393490343
+          ]
+        },
+        "adaptive_ratio": {
+          "points": 691,
+          "x_range": [
+            -0.18535415567195723,
+            0.012317116131149497
+          ]
+        }
+      },
+      "pdf": "figures/loss_difference_vs_slopes_lag20.pdf",
+      "preview": "scratch/loss_difference_vs_slopes_lag20_pdf.png"
+    }
+  },
+  "checks": {
+    "source_levels_match": true,
+    "same_lag_for_all_variables": true,
+    "lag_changes_equal_sums_of_single_step_changes": true,
+    "undefined_initial_differences_blank": true,
+    "scatter_coordinates_match": true,
+    "each_pdf_one_page": true
+  },
+  "outputs_sha256": {
+    "figures/loss_difference_vs_slopes_lag02.pdf": "b4f22ba10cdc35bc77fc4bf422dd44fb697f41893a775bc76221f07d30a6d6c5",
+    "figures/loss_difference_vs_slopes_lag05.pdf": "555c21ae39a356beb5f5ffc0877415af9f3ab4471a753443d3f75befa58b647e",
+    "figures/loss_difference_vs_slopes_lag20.pdf": "133d7c05cc8f31719f87d22a48c375d03afcb0a65146d3c3ee42268e4f27a916",
+    "lagged_loss_difference_grid_data.csv": "314e61ac37c04ff49aaf71f1c5aff6a8ab1cfa062a169350b0dbe1b4644ec883"
+  }
+}

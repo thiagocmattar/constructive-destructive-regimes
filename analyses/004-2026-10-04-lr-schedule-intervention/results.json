@@ -1,0 +1,1209 @@
+{
+  "hypothesis": "H004",
+  "scope": "Exploratory single-seed intervention conditional on a fixed trained prefix",
+  "seed": 1235,
+  "source": [
+    {
+      "run": "011-2026-10-04-pythia14m-lr-original-seed1235",
+      "events_sha256": "b9a748f4c55509f51b329aebc31cb737b3ab4e050bd382b91d56b754898d59cc",
+      "parent_run": "005-2026-10-04-pythia14m-seed1235",
+      "parent_events_sha256": "ff8f7efdc1d330cf5284a64c3b7811878d557abfca3c04384be35606412d6a5f",
+      "parent_summary_sha256": "be17ed724b0e3be9923e9886bf0d71821d60bed910847acdc46a7e6bf65cb8ba",
+      "archive_sha256": "5a05a0176eeef311af06912a2a359128f77e06abf9e20dff96ab6cb1e2a5af02",
+      "acceptance_sha256": "2bd060d0a3cb76b93be101aef26831e3e9ddc25620047b24002831ad7188b96c"
+    },
+    {
+      "run": "012-2026-10-04-pythia14m-lr-hold-seed1235",
+      "events_sha256": "63155f0d702c28058d226f3e0e1c3f5fc3ecf1e49ce3ae68296f89ee5619c250",
+      "parent_run": "005-2026-10-04-pythia14m-seed1235",
+      "parent_events_sha256": "ff8f7efdc1d330cf5284a64c3b7811878d557abfca3c04384be35606412d6a5f",
+      "parent_summary_sha256": "be17ed724b0e3be9923e9886bf0d71821d60bed910847acdc46a7e6bf65cb8ba",
+      "archive_sha256": "f832a96e8cd0f49eed1cda690ff2c8e536fecb9c421ad5fac5428bdedfaabe41",
+      "acceptance_sha256": "811b14daeeb2c8b9b7b8ed1de620a13a6892d641c8fd082eac7e2aa8eda0d3f2"
+    },
+    {
+      "run": "013-2026-10-04-pythia14m-lr-accelerated-seed1235",
+      "events_sha256": "87932b42e4cf368b441cc1ae19d6c83ebb5cf6af739de55b92f1dd1c40c5679d",
+      "parent_run": "005-2026-10-04-pythia14m-seed1235",
+      "parent_events_sha256": "ff8f7efdc1d330cf5284a64c3b7811878d557abfca3c04384be35606412d6a5f",
+      "parent_summary_sha256": "be17ed724b0e3be9923e9886bf0d71821d60bed910847acdc46a7e6bf65cb8ba",
+      "archive_sha256": "2ce4a0ea34de3720bb917d91c4ac75796fd9943db64d61740fed27faf2ce10b3",
+      "acceptance_sha256": "d09b6374b6d5e41c7eb667308e626a93a1ad383a86b2e0c09f1a00449567db37"
+    },
+    {
+      "run": "014-2026-10-04-pythia70m-lr-original-seed1235",
+      "events_sha256": "c11408448c1ebf983f4e2829f93d49ea987ed0a79f37e1cb231225db318f00e7",
+      "parent_run": "007-2026-10-04-pythia70m-seed1235",
+      "parent_events_sha256": "299e270e6925ace59193c0e66beacc5a58f54091733e829014b5585b5bd8dc8d",
+      "parent_summary_sha256": "599799843da2bf7f49527d884d65a1db281ca73092be7de2c564e08ac0b8131e",
+      "archive_sha256": "ab2fac0db6d1a264b27159cc565ee2be909d8a817c8a7849e4dadb48b7ede60c",
+      "acceptance_sha256": "692d4f7ed5f623da2b6ea9c526a7e2f26eb60c1950c235a0428a74133a6e49cb"
+    },
+    {
+      "run": "015-2026-10-04-pythia70m-lr-hold-seed1235",
+      "events_sha256": "4f181961d61ed4b7a3e2b7acc16e076135c321c6a799a416a10edfce3668774b",
+      "parent_run": "007-2026-10-04-pythia70m-seed1235",
+      "parent_events_sha256": "299e270e6925ace59193c0e66beacc5a58f54091733e829014b5585b5bd8dc8d",
+      "parent_summary_sha256": "599799843da2bf7f49527d884d65a1db281ca73092be7de2c564e08ac0b8131e",
+      "archive_sha256": "4a5023cd4cc21c72fef98589f5f7202205d740b49ad162ac0fd629a9dc488259",
+      "acceptance_sha256": "30b6dc094c77b4fe325f9a0c052dd6540839f2dc7a4d2f61a663b48d556fbda2"
+    },
+    {
+      "run": "016-2026-10-04-pythia70m-lr-accelerated-seed1235",
+      "events_sha256": "fe579c0086e4ef00da23241c9c099ce5d7790e917ed7e90111b8cc396790b8ff",
+      "parent_run": "007-2026-10-04-pythia70m-seed1235",
+      "parent_events_sha256": "299e270e6925ace59193c0e66beacc5a58f54091733e829014b5585b5bd8dc8d",
+      "parent_summary_sha256": "599799843da2bf7f49527d884d65a1db281ca73092be7de2c564e08ac0b8131e",
+      "archive_sha256": "5655662e3c5b5e26edcf0066010c0f667392eec6acef70dc23648a141caf9978",
+      "acceptance_sha256": "2d325184de8c11c7d7d2fc2860941f529fc897ff654c3d3920f9f6048ba5bf7f"
+    }
+  ],
+  "script_sha256": "4f82b2928f7a7233772240e14f7db5866ee60c321796499a755a1d0a2fecdb36",
+  "primary_pairs": [
+    358,
+    712
+  ],
+  "smoothing": "Centered equal-update mean31; full windows; curves exclude partial update712",
+  "statistics": "Unsmoothed cosines; equal pair weights. Aggregate training and validation loss are target-token weighted",
+  "recovery_contract": "First31 consecutive strictly positive full centered means using only pairs358-711; retrospective and nonpermanent; widths15/31/61",
+  "records": [
+    {
+      "run": "011-2026-10-04-pythia14m-lr-original-seed1235",
+      "size": "14M",
+      "variant": "original",
+      "seed": 1235,
+      "parent_run": "005-2026-10-04-pythia14m-seed1235",
+      "parent_local": "runs/005-2026-10-04-pythia14m-seed1235/artifacts/attempt-01/full-pass/checkpoints/midpoint",
+      "parent_packet": "cache/runpod/parent-14m-seed1235.tar.gz",
+      "validation": [
+        {
+          "timestamp": "2026-10-04T12:32:34.135777+00:00",
+          "event": "validation",
+          "update": 356,
+          "loss": 5.402301903419572,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 1.2028232099983143,
+          "short_tail_included": true
+        },
+        {
+          "timestamp": "2026-10-04T12:41:28.207458+00:00",
+          "event": "validation",
+          "update": 445,
+          "loss": 5.298231076060733,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 0.8648718340118648,
+          "short_tail_included": true
+        },
+        {
+          "timestamp": "2026-10-04T12:50:31.349320+00:00",
+          "event": "validation",
+          "update": 534,
+          "loss": 5.251352474444297,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 0.8511896729905857,
+          "short_tail_included": true
+        },
+        {
+          "timestamp": "2026-10-04T12:59:36.827369+00:00",
+          "event": "validation",
+          "update": 623,
+          "loss": 5.223321143570079,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 0.8676507490017684,
+          "short_tail_included": true
+        },
+        {
+          "timestamp": "2026-10-04T13:08:17.297277+00:00",
+          "event": "validation",
+          "update": 712,
+          "loss": 5.182014485720386,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 0.8700636430003215,
+          "short_tail_included": true
+        }
+      ],
+      "primary": {
+        "first_update": 358,
+        "last_update": 712,
+        "pairs": 355,
+        "F_negative_frequency": 0.3183098591549296,
+        "D_unconditional_negative_intensity": 0.06807789271961581,
+        "M_conditional_negative_magnitude": 0.21387302580056292,
+        "median_raw_cosine": 0.1940552421622686,
+        "mean_raw_cosine": 0.13067326242271043,
+        "training_loss_token_weighted": 5.302675908277294
+      },
+      "full_batches_only_sensitivity": {
+        "first_update": 358,
+        "last_update": 711,
+        "pairs": 354,
+        "F_negative_frequency": 0.3163841807909605,
+        "D_unconditional_negative_intensity": 0.06742877192447186,
+        "M_conditional_negative_magnitude": 0.2131230826898485,
+        "median_raw_cosine": 0.19466114979530802,
+        "mean_raw_cosine": 0.1318838271589344,
+        "training_loss_token_weighted": 5.302744131164341
+      },
+      "phases": [
+        {
+          "first_update": 358,
+          "last_update": 445,
+          "pairs": 88,
+          "F_negative_frequency": 0.8295454545454546,
+          "D_unconditional_negative_intensity": 0.2133510242591276,
+          "M_conditional_negative_magnitude": 0.2571902758192223,
+          "median_raw_cosine": -0.20859988260668644,
+          "mean_raw_cosine": -0.20265372998511963,
+          "training_loss_token_weighted": 5.389542454366826
+        },
+        {
+          "first_update": 446,
+          "last_update": 534,
+          "pairs": 89,
+          "F_negative_frequency": 0.4157303370786517,
+          "D_unconditional_negative_intensity": 0.05630959040632072,
+          "M_conditional_negative_magnitude": 0.13544739313952822,
+          "median_raw_cosine": 0.028543622542997006,
+          "mean_raw_cosine": 0.05665105221756854,
+          "training_loss_token_weighted": 5.308085390858436
+        },
+        {
+          "first_update": 535,
+          "last_update": 623,
+          "pairs": 89,
+          "F_negative_frequency": 0.011235955056179775,
+          "D_unconditional_negative_intensity": 0.0006772072402059392,
+          "M_conditional_negative_magnitude": 0.06027144437832859,
+          "median_raw_cosine": 0.348202118544997,
+          "mean_raw_cosine": 0.33467907496882165,
+          "training_loss_token_weighted": 5.272036282659582
+        },
+        {
+          "first_update": 624,
+          "last_update": 712,
+          "pairs": 89,
+          "F_negative_frequency": 0.02247191011235955,
+          "D_unconditional_negative_intensity": 0.0036060313496573976,
+          "M_conditional_negative_magnitude": 0.1604683950597542,
+          "median_raw_cosine": 0.3445855568591019,
+          "mean_raw_cosine": 0.3302714053838651,
+          "training_loss_token_weighted": 5.241537024054355
+        }
+      ],
+      "original_floor_phase": {
+        "first_update": 576,
+        "last_update": 711,
+        "pairs": 136,
+        "F_negative_frequency": 0.007352941176470588,
+        "D_unconditional_negative_intensity": 0.00016963335234509167,
+        "M_conditional_negative_magnitude": 0.023070135918932467,
+        "median_raw_cosine": 0.34808303333072027,
+        "mean_raw_cosine": 0.3450233009984306,
+        "training_loss_token_weighted": 5.249489408876637
+      },
+      "recovery": {
+        "15": {
+          "first_center_update": 472,
+          "last_held_center_update": 502,
+          "later_negative_mean": false
+        },
+        "31": {
+          "first_center_update": 467,
+          "last_held_center_update": 497,
+          "later_negative_mean": false
+        },
+        "61": {
+          "first_center_update": 471,
+          "last_held_center_update": 501,
+          "later_negative_mean": false
+        }
+      },
+      "terminal_validation_loss": 5.182014485720386,
+      "terminal_training_loss_last31_token_weighted": 5.232959052624375,
+      "terminal_raw_B_over_A_including_parent_prefix": 0.3448642424743213,
+      "terminal_adaptive_B_over_A_including_parent_prefix": 0.7052444862123063,
+      "archived_parent_primary": {
+        "first_update": 358,
+        "last_update": 712,
+        "pairs": 355,
+        "F_negative_frequency": 0.3183098591549296,
+        "D_unconditional_negative_intensity": 0.06863336941564527,
+        "M_conditional_negative_magnitude": 0.2156181074562307,
+        "median_raw_cosine": 0.1982396952828286,
+        "mean_raw_cosine": 0.12996114818353827,
+        "training_loss_token_weighted": 5.302653716945637
+      },
+      "control_vs_archive_primary_difference": {
+        "F_negative_frequency": 0.0,
+        "D_unconditional_negative_intensity": -0.0005554766960294555,
+        "M_conditional_negative_magnitude": -0.0017450816556677795,
+        "median_raw_cosine": -0.004184453120559983
+      },
+      "control_vs_archive_terminal_validation_difference": -1.1657214580296227e-06,
+      "original_vs_archived_parent": {
+        "loss": {
+          "mean_absolute_error": 0.0005561838980954841,
+          "maximum_absolute_error": 0.004463242366909981
+        },
+        "adjacent_cosine": {
+          "mean_absolute_error": 0.03915316854155311,
+          "maximum_absolute_error": 0.35475107230546965
+        },
+        "gradient_norm": {
+          "mean_absolute_error": 0.010894047462887118,
+          "maximum_absolute_error": 0.18376962101119798
+        },
+        "cumulative_ratio": {
+          "mean_absolute_error": 7.951337780960695e-05,
+          "maximum_absolute_error": 0.0005338954342531954
+        }
+      }
+    },
+    {
+      "run": "012-2026-10-04-pythia14m-lr-hold-seed1235",
+      "size": "14M",
+      "variant": "hold",
+      "seed": 1235,
+      "parent_run": "005-2026-10-04-pythia14m-seed1235",
+      "parent_local": "runs/005-2026-10-04-pythia14m-seed1235/artifacts/attempt-01/full-pass/checkpoints/midpoint",
+      "parent_packet": "cache/runpod/parent-14m-seed1235.tar.gz",
+      "validation": [
+        {
+          "timestamp": "2026-10-04T12:32:04.719048+00:00",
+          "event": "validation",
+          "update": 356,
+          "loss": 5.402301903419572,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 1.194135036028456,
+          "short_tail_included": true
+        },
+        {
+          "timestamp": "2026-10-04T12:48:07.978088+00:00",
+          "event": "validation",
+          "update": 445,
+          "loss": 5.291773703907198,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 0.9229653709917329,
+          "short_tail_included": true
+        },
+        {
+          "timestamp": "2026-10-04T13:05:36.170142+00:00",
+          "event": "validation",
+          "update": 534,
+          "loss": 5.213111917828849,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 0.8114880719804205,
+          "short_tail_included": true
+        },
+        {
+          "timestamp": "2026-10-04T13:22:13.278641+00:00",
+          "event": "validation",
+          "update": 623,
+          "loss": 5.148571439227595,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 0.8942921559792012,
+          "short_tail_included": true
+        },
+        {
+          "timestamp": "2026-10-04T13:38:30.743932+00:00",
+          "event": "validation",
+          "update": 712,
+          "loss": 5.067428711292225,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 0.9371344690443948,
+          "short_tail_included": true
+        }
+      ],
+      "primary": {
+        "first_update": 358,
+        "last_update": 712,
+        "pairs": 355,
+        "F_negative_frequency": 0.9690140845070423,
+        "D_unconditional_negative_intensity": 0.36203962591994804,
+        "M_conditional_negative_magnitude": 0.37361647442320217,
+        "median_raw_cosine": -0.3581510242135213,
+        "mean_raw_cosine": -0.3600999583171106,
+        "training_loss_token_weighted": 5.252987935591494
+      },
+      "full_batches_only_sensitivity": {
+        "first_update": 358,
+        "last_update": 711,
+        "pairs": 354,
+        "F_negative_frequency": 0.9689265536723164,
+        "D_unconditional_negative_intensity": 0.3623777459711315,
+        "M_conditional_negative_magnitude": 0.3739991897194768,
+        "median_raw_cosine": -0.35851644642221336,
+        "mean_raw_cosine": -0.36043259908128045,
+        "training_loss_token_weighted": 5.253128417009898
+      },
+      "phases": [
+        {
+          "first_update": 358,
+          "last_update": 445,
+          "pairs": 88,
+          "F_negative_frequency": 0.9772727272727273,
+          "D_unconditional_negative_intensity": 0.35881366906277934,
+          "M_conditional_negative_magnitude": 0.3671581729944719,
+          "median_raw_cosine": -0.36247902350177963,
+          "mean_raw_cosine": -0.3563273315344672,
+          "training_loss_token_weighted": 5.387256615699946
+        },
+        {
+          "first_update": 446,
+          "last_update": 534,
+          "pairs": 89,
+          "F_negative_frequency": 0.9662921348314607,
+          "D_unconditional_negative_intensity": 0.3538525932247411,
+          "M_conditional_negative_magnitude": 0.36619628833723206,
+          "median_raw_cosine": -0.35273860582901845,
+          "mean_raw_cosine": -0.35162071953741236,
+          "training_loss_token_weighted": 5.285713621373341
+        },
+        {
+          "first_update": 535,
+          "last_update": 623,
+          "pairs": 89,
+          "F_negative_frequency": 0.9438202247191011,
+          "D_unconditional_negative_intensity": 0.3444721299186618,
+          "M_conditional_negative_magnitude": 0.3649764233662012,
+          "median_raw_cosine": -0.341943056921938,
+          "mean_raw_cosine": -0.3415003426729872,
+          "training_loss_token_weighted": 5.209191355383379
+        },
+        {
+          "first_update": 624,
+          "last_update": 712,
+          "pairs": 89,
+          "F_negative_frequency": 0.9887640449438202,
+          "D_unconditional_negative_intensity": 0.3909838647673494,
+          "M_conditional_negative_magnitude": 0.39542686323061477,
+          "median_raw_cosine": -0.4120135088127846,
+          "mean_raw_cosine": -0.3909090504586022,
+          "training_loss_token_weighted": 5.130338861144327
+        }
+      ],
+      "original_floor_phase": {
+        "first_update": 576,
+        "last_update": 711,
+        "pairs": 136,
+        "F_negative_frequency": 0.9779411764705882,
+        "D_unconditional_negative_intensity": 0.37467841479465297,
+        "M_conditional_negative_magnitude": 0.38312980760956994,
+        "median_raw_cosine": -0.37715116552987094,
+        "mean_raw_cosine": -0.37378128478146766,
+        "training_loss_token_weighted": 5.151426565559471
+      },
+      "recovery": {
+        "15": {
+          "first_center_update": null,
+          "last_held_center_update": null,
+          "later_negative_mean": null
+        },
+        "31": {
+          "first_center_update": null,
+          "last_held_center_update": null,
+          "later_negative_mean": null
+        },
+        "61": {
+          "first_center_update": null,
+          "last_held_center_update": null,
+          "later_negative_mean": null
+        }
+      },
+      "terminal_validation_loss": 5.067428711292225,
+      "terminal_training_loss_last31_token_weighted": 5.105861935824257,
+      "terminal_raw_B_over_A_including_parent_prefix": 0.2663343580824081,
+      "terminal_adaptive_B_over_A_including_parent_prefix": 0.6926211930256482
+    },
+    {
+      "run": "013-2026-10-04-pythia14m-lr-accelerated-seed1235",
+      "size": "14M",
+      "variant": "accelerated",
+      "seed": 1235,
+      "parent_run": "005-2026-10-04-pythia14m-seed1235",
+      "parent_local": "runs/005-2026-10-04-pythia14m-seed1235/artifacts/attempt-01/full-pass/checkpoints/midpoint",
+      "parent_packet": "cache/runpod/parent-14m-seed1235.tar.gz",
+      "validation": [
+        {
+          "timestamp": "2026-10-04T12:28:58.679407+00:00",
+          "event": "validation",
+          "update": 356,
+          "loss": 5.402301903419572,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 1.1162707170005888,
+          "short_tail_included": true
+        },
+        {
+          "timestamp": "2026-10-04T12:37:09.016817+00:00",
+          "event": "validation",
+          "update": 445,
+          "loss": 5.314736132964409,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 0.8498889160036924,
+          "short_tail_included": true
+        },
+        {
+          "timestamp": "2026-10-04T12:45:17.585901+00:00",
+          "event": "validation",
+          "update": 534,
+          "loss": 5.286154710202262,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 0.8479367190011544,
+          "short_tail_included": true
+        },
+        {
+          "timestamp": "2026-10-04T12:53:44.814942+00:00",
+          "event": "validation",
+          "update": 623,
+          "loss": 5.2605418993847985,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 0.8539849000007962,
+          "short_tail_included": true
+        },
+        {
+          "timestamp": "2026-10-04T13:01:58.721473+00:00",
+          "event": "validation",
+          "update": 712,
+          "loss": 5.217632993573656,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 0.8520616309979232,
+          "short_tail_included": true
+        }
+      ],
+      "primary": {
+        "first_update": 358,
+        "last_update": 712,
+        "pairs": 355,
+        "F_negative_frequency": 0.11267605633802817,
+        "D_unconditional_negative_intensity": 0.022166869339989223,
+        "M_conditional_negative_magnitude": 0.19673096539240437,
+        "median_raw_cosine": 0.330620524356861,
+        "mean_raw_cosine": 0.27967487688968723,
+        "training_loss_token_weighted": 5.331243213671058
+      },
+      "full_batches_only_sensitivity": {
+        "first_update": 358,
+        "last_update": 711,
+        "pairs": 354,
+        "F_negative_frequency": 0.11016949152542373,
+        "D_unconditional_negative_intensity": 0.02133083830117359,
+        "M_conditional_negative_magnitude": 0.19361837842603719,
+        "median_raw_cosine": 0.3307906677738466,
+        "mean_raw_cosine": 0.2813635682285867,
+        "training_loss_token_weighted": 5.331302805703744
+      },
+      "phases": [
+        {
+          "first_update": 358,
+          "last_update": 445,
+          "pairs": 88,
+          "F_negative_frequency": 0.4318181818181818,
+          "D_unconditional_negative_intensity": 0.0856160297892881,
+          "M_conditional_negative_magnitude": 0.19826870056466714,
+          "median_raw_cosine": 0.04102462890746691,
+          "mean_raw_cosine": 0.025754215266544502,
+          "training_loss_token_weighted": 5.3932122514816
+        },
+        {
+          "first_update": 446,
+          "last_update": 534,
+          "pairs": 89,
+          "F_negative_frequency": 0.0,
+          "D_unconditional_negative_intensity": 0.0,
+          "M_conditional_negative_magnitude": null,
+          "median_raw_cosine": 0.4120778410813288,
+          "mean_raw_cosine": 0.4091248529912115,
+          "training_loss_token_weighted": 5.33633833562725
+        },
+        {
+          "first_update": 535,
+          "last_update": 623,
+          "pairs": 89,
+          "F_negative_frequency": 0.0,
+          "D_unconditional_negative_intensity": 0.0,
+          "M_conditional_negative_magnitude": null,
+          "median_raw_cosine": 0.35185001049189646,
+          "mean_raw_cosine": 0.3521376276077975,
+          "training_loss_token_weighted": 5.31370280408876
+        },
+        {
+          "first_update": 624,
+          "last_update": 712,
+          "pairs": 89,
+          "F_negative_frequency": 0.02247191011235955,
+          "D_unconditional_negative_intensity": 0.003764359485829457,
+          "M_conditional_negative_magnitude": 0.16751399711941084,
+          "median_raw_cosine": 0.36196039424105775,
+          "mean_raw_cosine": 0.32882977055136225,
+          "training_loss_token_weighted": 5.282030577038373
+        }
+      ],
+      "original_floor_phase": {
+        "first_update": 576,
+        "last_update": 711,
+        "pairs": 136,
+        "F_negative_frequency": 0.007352941176470588,
+        "D_unconditional_negative_intensity": 0.0001243098320448465,
+        "M_conditional_negative_magnitude": 0.016906137158099126,
+        "median_raw_cosine": 0.3539623306564247,
+        "mean_raw_cosine": 0.33956191366513644,
+        "training_loss_token_weighted": 5.290473096880733
+      },
+      "recovery": {
+        "15": {
+          "first_center_update": 399,
+          "last_held_center_update": 429,
+          "later_negative_mean": false
+        },
+        "31": {
+          "first_center_update": 402,
+          "last_held_center_update": 432,
+          "later_negative_mean": false
+        },
+        "61": {
+          "first_center_update": 399,
+          "last_held_center_update": 429,
+          "later_negative_mean": false
+        }
+      },
+      "terminal_validation_loss": 5.217632993573656,
+      "terminal_training_loss_last31_token_weighted": 5.2728518074114135,
+      "terminal_raw_B_over_A_including_parent_prefix": 0.3629466003608996,
+      "terminal_adaptive_B_over_A_including_parent_prefix": 0.7098959494529747
+    },
+    {
+      "run": "014-2026-10-04-pythia70m-lr-original-seed1235",
+      "size": "70M",
+      "variant": "original",
+      "seed": 1235,
+      "parent_run": "007-2026-10-04-pythia70m-seed1235",
+      "parent_local": "runs/007-2026-10-04-pythia70m-seed1235/artifacts/attempt-01/full-pass/checkpoints/midpoint",
+      "parent_packet": "cache/runpod/parent-70m-seed1235.tar.gz",
+      "validation": [
+        {
+          "timestamp": "2026-10-04T12:36:58.299159+00:00",
+          "event": "validation",
+          "update": 356,
+          "loss": 4.486190033191719,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 1.3103972836397588,
+          "short_tail_included": true
+        },
+        {
+          "timestamp": "2026-10-04T12:48:30.022272+00:00",
+          "event": "validation",
+          "update": 445,
+          "loss": 4.2573423248221385,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 0.8929873569868505,
+          "short_tail_included": true
+        },
+        {
+          "timestamp": "2026-10-04T12:59:59.914420+00:00",
+          "event": "validation",
+          "update": 534,
+          "loss": 4.16972718182552,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 0.8896750039421022,
+          "short_tail_included": true
+        },
+        {
+          "timestamp": "2026-10-04T13:11:39.312229+00:00",
+          "event": "validation",
+          "update": 623,
+          "loss": 4.113077709287834,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 0.8908530799672008,
+          "short_tail_included": true
+        },
+        {
+          "timestamp": "2026-10-04T13:23:05.201080+00:00",
+          "event": "validation",
+          "update": 712,
+          "loss": 4.055890218512298,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 0.8900401438586414,
+          "short_tail_included": true
+        }
+      ],
+      "primary": {
+        "first_update": 358,
+        "last_update": 712,
+        "pairs": 355,
+        "F_negative_frequency": 0.6816901408450704,
+        "D_unconditional_negative_intensity": 0.15905429532993381,
+        "M_conditional_negative_magnitude": 0.23332344976085329,
+        "median_raw_cosine": -0.10856431051399207,
+        "mean_raw_cosine": -0.11816681194608758,
+        "training_loss_token_weighted": 4.098517858287213
+      },
+      "full_batches_only_sensitivity": {
+        "first_update": 358,
+        "last_update": 711,
+        "pairs": 354,
+        "F_negative_frequency": 0.6836158192090396,
+        "D_unconditional_negative_intensity": 0.15950360124894492,
+        "M_conditional_negative_magnitude": 0.23332344976085329,
+        "median_raw_cosine": -0.10962955302840383,
+        "mean_raw_cosine": -0.11874878998309056,
+        "training_loss_token_weighted": 4.098622504779596
+      },
+      "phases": [
+        {
+          "first_update": 358,
+          "last_update": 445,
+          "pairs": 88,
+          "F_negative_frequency": 0.9659090909090909,
+          "D_unconditional_negative_intensity": 0.3044859672790825,
+          "M_conditional_negative_magnitude": 0.31523253083010894,
+          "median_raw_cosine": -0.301952185170943,
+          "mean_raw_cosine": -0.3017190095443723,
+          "training_loss_token_weighted": 4.26038841070311
+        },
+        {
+          "first_update": 446,
+          "last_update": 534,
+          "pairs": 89,
+          "F_negative_frequency": 0.8089887640449438,
+          "D_unconditional_negative_intensity": 0.19494663447976993,
+          "M_conditional_negative_magnitude": 0.24097570095416002,
+          "median_raw_cosine": -0.19438365523916337,
+          "mean_raw_cosine": -0.17853944735976363,
+          "training_loss_token_weighted": 4.104130541717403
+        },
+        {
+          "first_update": 535,
+          "last_update": 623,
+          "pairs": 89,
+          "F_negative_frequency": 0.38202247191011235,
+          "D_unconditional_negative_intensity": 0.05284508702475868,
+          "M_conditional_negative_magnitude": 0.13832978662363302,
+          "median_raw_cosine": 0.057126657978625435,
+          "mean_raw_cosine": 0.051524460132479945,
+          "training_loss_token_weighted": 4.034680439300542
+        },
+        {
+          "first_update": 624,
+          "last_update": 712,
+          "pairs": 89,
+          "F_negative_frequency": 0.5730337078651685,
+          "D_unconditional_negative_intensity": 0.08557355626588972,
+          "M_conditional_negative_magnitude": 0.14933424524831737,
+          "median_raw_cosine": -0.04359806898852155,
+          "mean_raw_cosine": -0.04599563525537177,
+          "training_loss_token_weighted": 3.9958875651141024
+        }
+      ],
+      "original_floor_phase": {
+        "first_update": 576,
+        "last_update": 711,
+        "pairs": 136,
+        "F_negative_frequency": 0.5073529411764706,
+        "D_unconditional_negative_intensity": 0.07784957635767445,
+        "M_conditional_negative_magnitude": 0.15344264325570614,
+        "median_raw_cosine": -0.0021583670518988394,
+        "mean_raw_cosine": -0.013669388151081714,
+        "training_loss_token_weighted": 4.004927546748043
+      },
+      "recovery": {
+        "15": {
+          "first_center_update": 544,
+          "last_held_center_update": 574,
+          "later_negative_mean": true
+        },
+        "31": {
+          "first_center_update": 538,
+          "last_held_center_update": 568,
+          "later_negative_mean": true
+        },
+        "61": {
+          "first_center_update": 540,
+          "last_held_center_update": 570,
+          "later_negative_mean": true
+        }
+      },
+      "terminal_validation_loss": 4.055890218512298,
+      "terminal_training_loss_last31_token_weighted": 3.985232903921369,
+      "terminal_raw_B_over_A_including_parent_prefix": 0.3085327944753779,
+      "terminal_adaptive_B_over_A_including_parent_prefix": 0.6092740569990329,
+      "archived_parent_primary": {
+        "first_update": 358,
+        "last_update": 712,
+        "pairs": 355,
+        "F_negative_frequency": 0.676056338028169,
+        "D_unconditional_negative_intensity": 0.16186634139298833,
+        "M_conditional_negative_magnitude": 0.23942729664379522,
+        "median_raw_cosine": -0.1112526587800156,
+        "mean_raw_cosine": -0.11312833726144637,
+        "training_loss_token_weighted": 4.098436493814858
+      },
+      "control_vs_archive_primary_difference": {
+        "F_negative_frequency": 0.005633802816901401,
+        "D_unconditional_negative_intensity": -0.0028120460630545185,
+        "M_conditional_negative_magnitude": -0.006103846882941938,
+        "median_raw_cosine": 0.0026883482660235297
+      },
+      "control_vs_archive_terminal_validation_difference": -0.0025371072212303503,
+      "original_vs_archived_parent": {
+        "loss": {
+          "mean_absolute_error": 0.0022087397762391285,
+          "maximum_absolute_error": 0.01835132297128439
+        },
+        "adjacent_cosine": {
+          "mean_absolute_error": 0.12510122178989125,
+          "maximum_absolute_error": 0.7579745962639178
+        },
+        "gradient_norm": {
+          "mean_absolute_error": 0.02627343470692373,
+          "maximum_absolute_error": 0.18098102436840197
+        },
+        "cumulative_ratio": {
+          "mean_absolute_error": 0.00015446319999295178,
+          "maximum_absolute_error": 0.0008663294300049751
+        }
+      }
+    },
+    {
+      "run": "015-2026-10-04-pythia70m-lr-hold-seed1235",
+      "size": "70M",
+      "variant": "hold",
+      "seed": 1235,
+      "parent_run": "007-2026-10-04-pythia70m-seed1235",
+      "parent_local": "runs/007-2026-10-04-pythia70m-seed1235/artifacts/attempt-01/full-pass/checkpoints/midpoint",
+      "parent_packet": "cache/runpod/parent-70m-seed1235.tar.gz",
+      "validation": [
+        {
+          "timestamp": "2026-10-04T12:33:30.832039+00:00",
+          "event": "validation",
+          "update": 356,
+          "loss": 4.486190033191719,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 1.291039187926799,
+          "short_tail_included": true
+        },
+        {
+          "timestamp": "2026-10-04T12:45:08.797951+00:00",
+          "event": "validation",
+          "update": 445,
+          "loss": 4.261405606027466,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 0.899639155017212,
+          "short_tail_included": true
+        },
+        {
+          "timestamp": "2026-10-04T12:56:48.750157+00:00",
+          "event": "validation",
+          "update": 534,
+          "loss": 4.120305089641253,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 0.899854940129444,
+          "short_tail_included": true
+        },
+        {
+          "timestamp": "2026-10-04T13:08:38.143819+00:00",
+          "event": "validation",
+          "update": 623,
+          "loss": 4.0458676071028234,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 0.9113099728710949,
+          "short_tail_included": true
+        },
+        {
+          "timestamp": "2026-10-04T13:20:14.850923+00:00",
+          "event": "validation",
+          "update": 712,
+          "loss": 3.9845693924336976,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 0.9108918618876487,
+          "short_tail_included": true
+        }
+      ],
+      "primary": {
+        "first_update": 358,
+        "last_update": 712,
+        "pairs": 355,
+        "F_negative_frequency": 0.9295774647887324,
+        "D_unconditional_negative_intensity": 0.32011993450089865,
+        "M_conditional_negative_magnitude": 0.3443714446903607,
+        "median_raw_cosine": -0.3112423923174234,
+        "mean_raw_cosine": -0.31455771041481034,
+        "training_loss_token_weighted": 4.06147781754421
+      },
+      "full_batches_only_sensitivity": {
+        "first_update": 358,
+        "last_update": 711,
+        "pairs": 354,
+        "F_negative_frequency": 0.9293785310734464,
+        "D_unconditional_negative_intensity": 0.3199970391902088,
+        "M_conditional_negative_magnitude": 0.34431292362715477,
+        "median_raw_cosine": -0.31034909167175817,
+        "mean_raw_cosine": -0.3144191026067022,
+        "training_loss_token_weighted": 4.061636117097558
+      },
+      "phases": [
+        {
+          "first_update": 358,
+          "last_update": 445,
+          "pairs": 88,
+          "F_negative_frequency": 0.9318181818181818,
+          "D_unconditional_negative_intensity": 0.3038848729541186,
+          "M_conditional_negative_magnitude": 0.32612035146295654,
+          "median_raw_cosine": -0.2783190019748622,
+          "mean_raw_cosine": -0.29710692208337536,
+          "training_loss_token_weighted": 4.263828804991632
+        },
+        {
+          "first_update": 446,
+          "last_update": 534,
+          "pairs": 89,
+          "F_negative_frequency": 0.9775280898876404,
+          "D_unconditional_negative_intensity": 0.3673005478064452,
+          "M_conditional_negative_magnitude": 0.3757442385606164,
+          "median_raw_cosine": -0.37429706676146757,
+          "mean_raw_cosine": -0.3652536518614983,
+          "training_loss_token_weighted": 4.091104385118639
+        },
+        {
+          "first_update": 535,
+          "last_update": 623,
+          "pairs": 89,
+          "F_negative_frequency": 0.9101123595505618,
+          "D_unconditional_negative_intensity": 0.3328777661929208,
+          "M_conditional_negative_magnitude": 0.3657545826070364,
+          "median_raw_cosine": -0.3516762944492928,
+          "mean_raw_cosine": -0.32498084175060243,
+          "training_loss_token_weighted": 3.986238443130481
+        },
+        {
+          "first_update": 624,
+          "last_update": 712,
+          "pairs": 89,
+          "F_negative_frequency": 0.898876404494382,
+          "D_unconditional_negative_intensity": 0.2762341346282361,
+          "M_conditional_negative_magnitude": 0.30731047477391255,
+          "median_raw_cosine": -0.26529250777404423,
+          "mean_raw_cosine": -0.27069334969037845,
+          "training_loss_token_weighted": 3.905794774154412
+        }
+      ],
+      "original_floor_phase": {
+        "first_update": 576,
+        "last_update": 711,
+        "pairs": 136,
+        "F_negative_frequency": 0.8897058823529411,
+        "D_unconditional_negative_intensity": 0.29074311074329273,
+        "M_conditional_negative_magnitude": 0.32678564513295716,
+        "median_raw_cosine": -0.28696355476369106,
+        "mean_raw_cosine": -0.28292968404356833,
+        "training_loss_token_weighted": 3.9262554710320035
+      },
+      "recovery": {
+        "15": {
+          "first_center_update": null,
+          "last_held_center_update": null,
+          "later_negative_mean": null
+        },
+        "31": {
+          "first_center_update": null,
+          "last_held_center_update": null,
+          "later_negative_mean": null
+        },
+        "61": {
+          "first_center_update": null,
+          "last_held_center_update": null,
+          "later_negative_mean": null
+        }
+      },
+      "terminal_validation_loss": 3.9845693924336976,
+      "terminal_training_loss_last31_token_weighted": 3.8816280312407274,
+      "terminal_raw_B_over_A_including_parent_prefix": 0.25995197518814106,
+      "terminal_adaptive_B_over_A_including_parent_prefix": 0.5824377132516538
+    },
+    {
+      "run": "016-2026-10-04-pythia70m-lr-accelerated-seed1235",
+      "size": "70M",
+      "variant": "accelerated",
+      "seed": 1235,
+      "parent_run": "007-2026-10-04-pythia70m-seed1235",
+      "parent_local": "runs/007-2026-10-04-pythia70m-seed1235/artifacts/attempt-01/full-pass/checkpoints/midpoint",
+      "parent_packet": "cache/runpod/parent-70m-seed1235.tar.gz",
+      "validation": [
+        {
+          "timestamp": "2026-10-04T12:37:39.173449+00:00",
+          "event": "validation",
+          "update": 356,
+          "loss": 4.486190033191719,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 1.2983028110029409,
+          "short_tail_included": true
+        },
+        {
+          "timestamp": "2026-10-04T12:50:15.942060+00:00",
+          "event": "validation",
+          "update": 445,
+          "loss": 4.2745994533798575,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 0.9848008080007276,
+          "short_tail_included": true
+        },
+        {
+          "timestamp": "2026-10-04T13:02:47.656419+00:00",
+          "event": "validation",
+          "update": 534,
+          "loss": 4.2148560441152805,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 1.0334821580036078,
+          "short_tail_included": true
+        },
+        {
+          "timestamp": "2026-10-04T13:15:31.533510+00:00",
+          "event": "validation",
+          "update": 623,
+          "loss": 4.162333598409478,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 0.9859826449974207,
+          "short_tail_included": true
+        },
+        {
+          "timestamp": "2026-10-04T13:27:58.378226+00:00",
+          "event": "validation",
+          "update": 712,
+          "loss": 4.1041633738881265,
+          "supervised_tokens": 693329,
+          "input_tokens": 693668,
+          "sequences": 339,
+          "seconds": 0.9675855359964771,
+          "short_tail_included": true
+        }
+      ],
+      "primary": {
+        "first_update": 358,
+        "last_update": 712,
+        "pairs": 355,
+        "F_negative_frequency": 0.5154929577464789,
+        "D_unconditional_negative_intensity": 0.09809426013407899,
+        "M_conditional_negative_magnitude": 0.19029214397594552,
+        "median_raw_cosine": -0.0064957462676957,
+        "mean_raw_cosine": -0.012929823255289801,
+        "training_loss_token_weighted": 4.133408789170147
+      },
+      "full_batches_only_sensitivity": {
+        "first_update": 358,
+        "last_update": 711,
+        "pairs": 354,
+        "F_negative_frequency": 0.5169491525423728,
+        "D_unconditional_negative_intensity": 0.09837136256383627,
+        "M_conditional_negative_magnitude": 0.19029214397594552,
+        "median_raw_cosine": -0.007496269532164217,
+        "mean_raw_cosine": -0.013260262865806782,
+        "training_loss_token_weighted": 4.133501662520197
+      },
+      "phases": [
+        {
+          "first_update": 358,
+          "last_update": 445,
+          "pairs": 88,
+          "F_negative_frequency": 0.8181818181818182,
+          "D_unconditional_negative_intensity": 0.17842991890978682,
+          "M_conditional_negative_magnitude": 0.21808101200085053,
+          "median_raw_cosine": -0.13723842359389915,
+          "mean_raw_cosine": -0.15525774853714627,
+          "training_loss_token_weighted": 4.26137943379581
+        },
+        {
+          "first_update": 446,
+          "last_update": 534,
+          "pairs": 89,
+          "F_negative_frequency": 0.1797752808988764,
+          "D_unconditional_negative_intensity": 0.021625561339954386,
+          "M_conditional_negative_magnitude": 0.12029218495349628,
+          "median_raw_cosine": 0.20967795457581806,
+          "mean_raw_cosine": 0.17247555660243516,
+          "training_loss_token_weighted": 4.138990960962903
+        },
+        {
+          "first_update": 535,
+          "last_update": 623,
+          "pairs": 89,
+          "F_negative_frequency": 0.449438202247191,
+          "D_unconditional_negative_intensity": 0.0914766991549174,
+          "M_conditional_negative_magnitude": 0.20353565561969117,
+          "median_raw_cosine": 0.03354575788273421,
+          "mean_raw_cosine": -0.01284015495141299,
+          "training_loss_token_weighted": 4.088482323081724
+        },
+        {
+          "first_update": 624,
+          "last_update": 712,
+          "pairs": 89,
+          "F_negative_frequency": 0.6179775280898876,
+          "D_unconditional_negative_intensity": 0.10174750898306975,
+          "M_conditional_negative_magnitude": 0.16464596908169465,
+          "median_raw_cosine": -0.04222320831628402,
+          "mean_raw_cosine": -0.057696136306741315,
+          "training_loss_token_weighted": 4.045532538721905
+        }
+      ],
+      "original_floor_phase": {
+        "first_update": 576,
+        "last_update": 711,
+        "pairs": 136,
+        "F_negative_frequency": 0.6029411764705882,
+        "D_unconditional_negative_intensity": 0.10927551901572506,
+        "M_conditional_negative_magnitude": 0.18123744617242205,
+        "median_raw_cosine": -0.04317194132596003,
+        "mean_raw_cosine": -0.06074670636280682,
+        "training_loss_token_weighted": 4.056002278873861
+      },
+      "recovery": {
+        "15": {
+          "first_center_update": 434,
+          "last_held_center_update": 464,
+          "later_negative_mean": true
+        },
+        "31": {
+          "first_center_update": 437,
+          "last_held_center_update": 467,
+          "later_negative_mean": true
+        },
+        "61": {
+          "first_center_update": 431,
+          "last_held_center_update": 461,
+          "later_negative_mean": true
+        }
+      },
+      "terminal_validation_loss": 4.1041633738881265,
+      "terminal_training_loss_last31_token_weighted": 4.03326702098667,
+      "terminal_raw_B_over_A_including_parent_prefix": 0.32170649472875895,
+      "terminal_adaptive_B_over_A_including_parent_prefix": 0.6159088533002589
+    }
+  ],
+  "contrasts": [
+    {
+      "model": "14M",
+      "schedule": "hold",
+      "reference": "original",
+      "delta_F": 0.6507042253521127,
+      "delta_D": 0.29396173320033225,
+      "delta_M": 0.15974344862263926,
+      "delta_median_raw_cosine": -0.5522062663757898,
+      "delta_terminal_validation_loss": -0.11458577442816154
+    },
+    {
+      "model": "14M",
+      "schedule": "accelerated",
+      "reference": "original",
+      "delta_F": -0.2056338028169014,
+      "delta_D": -0.04591102337962659,
+      "delta_M": -0.01714206040815855,
+      "delta_median_raw_cosine": 0.1365652821945924,
+      "delta_terminal_validation_loss": 0.03561850785327003
+    },
+    {
+      "model": "70M",
+      "schedule": "hold",
+      "reference": "original",
+      "delta_F": 0.24788732394366197,
+      "delta_D": 0.16106563917096484,
+      "delta_M": 0.1110479949295074,
+      "delta_median_raw_cosine": -0.20267808180343133,
+      "delta_terminal_validation_loss": -0.07132082607860024
+    },
+    {
+      "model": "70M",
+      "schedule": "accelerated",
+      "reference": "original",
+      "delta_F": -0.16619718309859155,
+      "delta_D": -0.06096003519585483,
+      "delta_M": -0.04303130578490777,
+      "delta_median_raw_cosine": 0.10206856424629637,
+      "delta_terminal_validation_loss": 0.04827315537582866
+    }
+  ],
+  "figures": [
+    {
+      "path": "analyses/004-2026-10-04-lr-schedule-intervention/figures/loss_and_raw_cosine_14m.pdf",
+      "sha256": "3e9dd2b7f18c1909270b15c36fe6ebfd13fdeeb3a66ee2d60cf2ac0b9adc20ca",
+      "text_bounds_ok": true
+    },
+    {
+      "path": "analyses/004-2026-10-04-lr-schedule-intervention/figures/loss_and_raw_cosine_70m.pdf",
+      "sha256": "09246b4e018f677612b2463f37614eaf058d3739644f6e911197efaeeb934bca",
+      "text_bounds_ok": true
+    },
+    {
+      "path": "analyses/004-2026-10-04-lr-schedule-intervention/figures/schedule_and_validation.pdf",
+      "sha256": "694e504491b8be759bbb593327284886c9dc0b44949873dc29670b0680ff25a8",
+      "text_bounds_ok": true
+    }
+  ],
+  "verification": {
+    "all_batches_matched": true,
+    "all_schedules_match_formulas": true,
+    "first_gradient_and_validation_matched": true
+  },
+  "limits": [
+    "One seed, no cross-seed uncertainty or p-values",
+    "GPU numerical variation; control is a new replay",
+    "LR also changes AdamW shrinkage",
+    "Alignment sign does not establish convergence, stability or loss mediation"
+  ]
+}

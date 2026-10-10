@@ -1,0 +1,185 @@
+{
+  "verified": true,
+  "scientific_metric_coverage_verified": true,
+  "compact_metric_files_verified": 36,
+  "original_outputs_preserved": true,
+  "recovery_retrieval_status": "in_progress",
+  "pdfs": {
+    "metrics_by_learning_rate.pdf": {
+      "pages": 1,
+      "bytes": 332340,
+      "sha256": "70722aeccd17d51285f96c1bd1c7cb084afa89b21202ceae4ef56b8e52a63bab",
+      "generator_sha256": "36bd39033aa36c75dfc5ef376aa0307ab40250b51c35aabf8f77eea61a2a9074",
+      "source_comparison_sha256": "a02a1ba7ace7a7011063767e6e7fb1c25548be0a12be06b6dad6826e5e7b2739",
+      "y_scales": [
+        "linear",
+        "linear",
+        "linear",
+        "linear",
+        "log",
+        "linear"
+      ],
+      "visual_review": "Latest110dpi Poppler render inspected: no clipping/overlap; curves/legends legible",
+      "renders_sha256": [
+        "526108906ccd3335f84b0eee325870fa1c4c64cf34a230cadf942d607077e226"
+      ]
+    },
+    "geometry_within_learning_rate.pdf": {
+      "pages": 2,
+      "bytes": 119767,
+      "sha256": "3bf05c0d652da7703ee60489fe5158d481b5c4ea1e11ff81bb0f38c1cd4ba47c",
+      "visual_review": "Latest Poppler renders inspected: no clipping, overlap or missing labels",
+      "renders_sha256": [
+        "fffbdab179d5fd0c96de194817b6a36c1209bf352bc64cd1091e565b3cd520df",
+        "1b0b1f04abb358987ce8424f3661a48c7a29e40543fe144cbec9dd20c5b4b194"
+      ]
+    },
+    "geometry_across_learning_rates.pdf": {
+      "pages": 1,
+      "bytes": 105849,
+      "sha256": "54f8b4d7cf191afbd64f87c943ffcaf389effd298d5b4a69be50308db45ff664",
+      "generator_sha256": "9ec4df3bd5fb1564cdabad51a06ec494e4a962fbc74f8a0498a146c9056b7946",
+      "source_comparison_sha256": "a02a1ba7ace7a7011063767e6e7fb1c25548be0a12be06b6dad6826e5e7b2739",
+      "y_scales": [
+        "linear",
+        "linear",
+        "linear",
+        "linear"
+      ],
+      "momentum_ratio_y_limits": [
+        0.6362958240784901,
+        1.0173192464724528
+      ],
+      "momentum_ratio_displayed_data_range": [
+        0.6536150705509429,
+        1.0
+      ],
+      "curve_coverage_verified": true,
+      "other_pdfs_unchanged_verified": true,
+      "visual_review": "Latest110dpi Poppler render inspected: all curves within bounds; legends and labels legible; no clipping or overlap",
+      "renders_sha256": [
+        "73ab815c53ee7cfa11b9ec5b2f07f5c48da6d47cf0b98590354980d1255d824f"
+      ]
+    },
+    "loss_ratio_alignment_norms.pdf": {
+      "pages": 1,
+      "bytes": 258660,
+      "sha256": "268e60d70e462edca82e7bb00ec98e8587b0a1983ad27031f3fd27f0bd0ffa93",
+      "generator_sha256": "1334e7ccef2a85a602678dbc24ab1bb8747763822f97ad6d4d0c7cc2e09df0a9",
+      "source_comparison_sha256": "a02a1ba7ace7a7011063767e6e7fb1c25548be0a12be06b6dad6826e5e7b2739",
+      "y_scales": [
+        "linear",
+        "linear",
+        "linear",
+        "linear",
+        "log",
+        "linear"
+      ],
+      "smoothing": {
+        "training_loss": "trailing25 token-weighted arithmetic mean",
+        "raw_B_over_A": "none",
+        "raw_adjacent_cosine": "trailing50 arithmetic mean",
+        "momentum_adjacent_cosine": "trailing25 arithmetic mean",
+        "raw_vector_norm": "trailing10 arithmetic mean before log display",
+        "momentum_vector_norm": "none",
+        "window_policy": "available prefix including current update; omit nonfinite first cosine"
+      },
+      "rolling_mean_placement_checked_at_update": 400,
+      "visual_review": "Latest110dpi Poppler render inspected: all six panels/legends/captions legible; no clipping or overlap",
+      "renders_sha256": [
+        "69e3431d0fa4aa6db478f1bd7f1c5b8076da2c29fdf6dc9d39cddfdedea9ca45"
+      ]
+    }
+  },
+  "script_sha256": "5fcbdb34c0c86bacbba207fffa74acacbba57c24793c4ecf5ed9f7f20f6c65e7",
+  "figure_revision_history": [
+    {
+      "figure": "metrics_by_learning_rate.pdf",
+      "previous": {
+        "pages": 1,
+        "bytes": 328976,
+        "sha256": "f42745eedc4ed2a5294017b33f7c7054c62fc0bb426cb6c8543cfd027b56a77d",
+        "visual_review": "Latest Poppler renders inspected: no clipping, overlap or missing labels",
+        "renders_sha256": [
+          "48dc76b07541329ff0328c7e66b6c63f68256cf9c07226d2c4f43509bc6f932a"
+        ]
+      },
+      "revision": "Panel (e) logarithmic; sequential LR palette; generator10_plot_lr_geometry.py"
+    },
+    {
+      "figure": "geometry_across_learning_rates.pdf",
+      "previous": {
+        "pages": 1,
+        "bytes": 102662,
+        "sha256": "e421d1cada67cc91e410734910e42c1310e5398b34311b11c545d435f416fa6e",
+        "generator_sha256": "36bd39033aa36c75dfc5ef376aa0307ab40250b51c35aabf8f77eea61a2a9074",
+        "source_comparison_sha256": "a02a1ba7ace7a7011063767e6e7fb1c25548be0a12be06b6dad6826e5e7b2739",
+        "y_scales": [
+          "linear",
+          "linear",
+          "linear",
+          "linear"
+        ],
+        "visual_review": "Latest110dpi Poppler render inspected: no clipping/overlap; curves/legends legible",
+        "renders_sha256": [
+          "59b5792c29f117195335229b25c3e034af55aae75651e33989f1f282398d5caa"
+        ]
+      },
+      "revision": "Panel (d) momentum B/A automatically fits all displayed curves with 5% vertical padding; other panels unchanged"
+    }
+  ],
+  "palette_lightness_verified": {
+    "name": "plasma_r",
+    "normalization": "log10(peak_lr)",
+    "colormap_range": [
+      0.1,
+      0.95
+    ],
+    "monotonically_decreasing_CIELAB_lightness_verified": true,
+    "conditions": [
+      {
+        "id": "022",
+        "lr": 0.0001,
+        "color": "#fcce25",
+        "CIELAB_L_star": 84.5914362864026
+      },
+      {
+        "id": "024",
+        "lr": 0.00021544346900318845,
+        "color": "#f9983e",
+        "CIELAB_L_star": 71.55134581082696
+      },
+      {
+        "id": "025",
+        "lr": 0.00046415888336127773,
+        "color": "#e4695e",
+        "CIELAB_L_star": 59.28941858213152
+      },
+      {
+        "id": "021",
+        "lr": 0.001,
+        "color": "#c5407e",
+        "CIELAB_L_star": 48.23617416579134
+      },
+      {
+        "id": "026",
+        "lr": 0.0021544346900318843,
+        "color": "#9c179e",
+        "CIELAB_L_star": 38.06771826977279
+      },
+      {
+        "id": "027",
+        "lr": 0.004641588833612777,
+        "color": "#6700a8",
+        "CIELAB_L_star": 28.697058359403307
+      },
+      {
+        "id": "023",
+        "lr": 0.01,
+        "color": "#2a0593",
+        "CIELAB_L_star": 18.862500728650915
+      }
+    ]
+  },
+  "last_figure_revision_at": "2026-10-09T19:39:11.412873+00:00"
+}

@@ -1,0 +1,53 @@
+{
+  "actions": [
+    "stop",
+    "restart",
+    "terminate"
+  ],
+  "args": "",
+  "cloud": "COMMUNITY",
+  "cost": 0.69,
+  "createdAt": "2026-10-04T14:44:49.9Z",
+  "cudaVersion": "13.1",
+  "dataCenterId": null,
+  "disk": 60,
+  "env": {
+    "PUBLIC_KEY": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIJ0xkrvbGJtR3vVxl+x6Hy/0HNATqiF0xTBupoZEGpS thiagocmattar@gmail.com"
+  },
+  "globalNetworking": {
+    "enabled": false
+  },
+  "gpu": {
+    "count": 1,
+    "id": "NVIDIA GeForce RTX 5090",
+    "memory": 107,
+    "vcpuCount": 54
+  },
+  "id": "g31dyiakb4rhv4",
+  "image": "runpod/pytorch@sha256:0a360022e8de4375af99430f84e8b38951acc397252163a37ceac7204d01be35",
+  "locked": false,
+  "mounts": {
+    "persistent": {
+      "path": "/workspace",
+      "size": 40
+    }
+  },
+  "name": "cd-run018-temporal-lag",
+  "ports": [
+    "22/tcp"
+  ],
+  "registry": null,
+  "runtime": null,
+  "ssh": {
+    "direct": null,
+    "proxy": {
+      "command": "ssh g31dyiakb4rhv4-64411fd1@ssh.runpod.io",
+      "host": "ssh.runpod.io",
+      "port": 22,
+      "username": "g31dyiakb4rhv4-64411fd1"
+    }
+  },
+  "startedAt": "2026-10-04T14:44:49.889Z",
+  "status": "RUNNING",
+  "template": null
+}

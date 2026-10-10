@@ -1,0 +1,73 @@
+{
+  "scope": "smoke_calibration",
+  "completed_updates": 2,
+  "full_updates": 712,
+  "completed_sequences": 2048,
+  "planned_sequences": 728375,
+  "completed_input_tokens": 4194304,
+  "completed_supervised_tokens": 4192256,
+  "train_token_count": 1491711416,
+  "all_training_tokens_covered": false,
+  "repeated_sequences": 0,
+  "initial_validation": {
+    "loss": 11.032735605709835,
+    "supervised_tokens": 693329,
+    "input_tokens": 693668,
+    "sequences": 339,
+    "seconds": 1.048326944001019,
+    "short_tail_included": true
+  },
+  "final_validation": {
+    "loss": 10.88824993939005,
+    "supervised_tokens": 693329,
+    "input_tokens": 693668,
+    "sequences": 339,
+    "seconds": 0.8310706509510055,
+    "short_tail_included": true
+  },
+  "last_update": {
+    "event": "update",
+    "update": 2,
+    "gradient_step": 1,
+    "learning_rate": 0.0001404494382022472,
+    "update_seconds": 6.829637250048108,
+    "tokens_per_second": 307066.38189096027,
+    "cumulative_input_tokens": 4194304,
+    "cumulative_supervised_tokens": 4192256,
+    "remaining_training_seconds": 0.0,
+    "loss": 11.035696860402822,
+    "supervised_tokens": 2096128,
+    "sequences": 1024,
+    "input_tokens": 2097152,
+    "diagnostic_seconds": 0.007027646992355585,
+    "gradient_clip_returned_norm": 1.800808072090149,
+    "overflow_retries": 0,
+    "loss_scale_previous": 4096.0,
+    "loss_scale": 4096.0,
+    "loss_scale_action": "hold",
+    "loss_scale_growth_tracker": 2,
+    "loss_scale_hysteresis_tracker": 2,
+    "gradient_norm": 1.8008080211448572,
+    "adjacent_cosine": 0.9977502832726138,
+    "adjacent_cosine_undefined_reason": null,
+    "cumulative_norm_sum": 3.609362000781442,
+    "cumulative_gradient_norm": 3.607331428429227,
+    "cumulative_ratio": 0.9994374151576442,
+    "cumulative_ratio_undefined_reason": null,
+    "peak_cuda_allocated_bytes": 5621979648,
+    "peak_cuda_reserved_bytes": 6090129408
+  },
+  "optimizer_step_seconds": [
+    6.829637250048108
+  ],
+  "full_validation_seconds": [
+    1.048326944001019,
+    0.8310706509510055
+  ],
+  "diagnostic_seconds_per_update": [
+    0.030875817988999188,
+    0.007027646992355585
+  ],
+  "checkpoint_seconds": 0.7877982000354677,
+  "order_sha256": "48945f9c8a48023611d5034e7a07fa693a652e327e88a265a08e062bfda2dcb5"
+}

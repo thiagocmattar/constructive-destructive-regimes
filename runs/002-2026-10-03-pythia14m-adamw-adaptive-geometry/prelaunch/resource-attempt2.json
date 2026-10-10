@@ -1,0 +1,53 @@
+{
+  "actions": [
+    "stop",
+    "restart",
+    "terminate"
+  ],
+  "args": "",
+  "cloud": "SECURE",
+  "cost": 0.74,
+  "createdAt": "2026-10-03T21:52:25.44Z",
+  "cudaVersion": "12.8",
+  "dataCenterId": "EU-RO-1",
+  "disk": 40,
+  "env": {
+    "PUBLIC_KEY": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIJ0xkrvbGJtR3vVxl+x6Hy/0HNATqiF0xTBupoZEGpS thiagocmattar@gmail.com"
+  },
+  "globalNetworking": {
+    "enabled": false
+  },
+  "gpu": {
+    "count": 1,
+    "id": "NVIDIA GeForce RTX 4090",
+    "memory": 61,
+    "vcpuCount": 16
+  },
+  "id": "9tw9vb6d8m4mg4",
+  "image": "runpod/pytorch@sha256:0a360022e8de4375af99430f84e8b38951acc397252163a37ceac7204d01be35",
+  "locked": false,
+  "mounts": {
+    "persistent": {
+      "path": "/workspace",
+      "size": 30
+    }
+  },
+  "name": "cdr-run002-adaptive-geometry-attempt02",
+  "ports": [
+    "22/tcp"
+  ],
+  "registry": null,
+  "runtime": null,
+  "ssh": {
+    "direct": null,
+    "proxy": {
+      "command": "ssh 9tw9vb6d8m4mg4-644111ab@ssh.runpod.io",
+      "host": "ssh.runpod.io",
+      "port": 22,
+      "username": "9tw9vb6d8m4mg4-644111ab"
+    }
+  },
+  "startedAt": "2026-10-03T21:52:25.436Z",
+  "status": "RUNNING",
+  "template": null
+}

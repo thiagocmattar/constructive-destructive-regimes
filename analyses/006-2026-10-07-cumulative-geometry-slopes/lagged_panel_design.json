@@ -1,0 +1,19 @@
+{
+  "extension": "User-requested matched-lag versions of the existing 3x2 scatter grid",
+  "analysis_id": "006",
+  "lags": [2, 5, 20],
+  "clarification": "User confirmed lagged differences matching the current figure, not logarithmic differences.",
+  "difference": "f_t-f_(t-k), with the same k and endpoints for every x and y variable",
+  "y": "training_loss_t-training_loss_(t-k)",
+  "rows": ["A_t-A_(t-k)", "B_t-B_(t-k)", "(B/A)_t-(B/A)_(t-k)"],
+  "columns": ["raw gradients", "Adam adaptive directions"],
+  "normalization": "No division by lag; these are k-update changes, not average per-update slopes",
+  "smoothing": "None; no fitted regression",
+  "display": "All valid pairs ending at updates k+1 through711; 709/706/691 points per panel for k2/5/20",
+  "retention": "All712 original rows for each lag retained; undefined initial differences blank; smaller update712 excluded from figures only",
+  "axis_scales": "Linear A/B and loss axes; ratio-change x-axes symmetric log, threshold1e-4. Within each PDF, y limits shared across all six panels and ratio x limits shared across columns. Numeric limits may differ across lags.",
+  "color": "Common optimizer-update color normalization2-711; color identifies pair endpoint",
+  "alignment": "Both differences end at t and begin at t-k. Loss is measured before the indexed optimizer update and on changing batches; associations are not causal step-effect estimates.",
+  "source": "Verified Analysis006 curve_data.csv and original Run002 attempt02 events",
+  "uncertainty": "One seed, overlapping lagged pairs, no independent-replicate confidence interval"
+}

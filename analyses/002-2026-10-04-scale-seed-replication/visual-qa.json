@@ -1,0 +1,44 @@
+{
+  "checked_at": "2026-10-04T11:28:14.699367+00:00",
+  "count": 4,
+  "all_single_page_text_bounds_ok": true,
+  "all_visually_inspected": true,
+  "renderer": "Poppler pdftoppm, 110 DPI; PyMuPDF text bounds",
+  "script_sha256": "a69497a18fa222e2a500c4692d75da054a9d3cd550c2e6b547167ab44ffae35f",
+  "figures": [
+    {
+      "file": "cumulative_across_seeds.pdf",
+      "pages": 1,
+      "text_spans": 59,
+      "text_within_page": true,
+      "sha256": "d2f2bb50cad081315cd54755c14a76cf6eddb1686077e8833c42dd49631fa70e",
+      "render": "scratch/qa-cumulative_across_seeds.png"
+    },
+    {
+      "file": "geometry_across_seeds.pdf",
+      "pages": 1,
+      "text_spans": 87,
+      "text_within_page": true,
+      "sha256": "a30daeaa42e082b33abc7feadca4578ec225c1b28721c6669c8f548b863837ed",
+      "render": "scratch/qa-geometry_across_seeds.png"
+    },
+    {
+      "file": "norm_ratio_across_seeds.pdf",
+      "pages": 1,
+      "text_spans": 19,
+      "text_within_page": true,
+      "sha256": "f58f3393b351cf69d0bb52407b09167328e7065fc57bdf9c8a732ed0634b79df",
+      "render": "scratch/qa-norm_ratio_across_seeds.png"
+    },
+    {
+      "file": "scale_summary_across_seeds.pdf",
+      "pages": 1,
+      "text_spans": 80,
+      "text_within_page": true,
+      "sha256": "5084ecf134b2d1fe65398ae9100c7701ce0f235254a7ea7e0d2e8a4531f32a6e",
+      "render": "scratch/qa-scale_summary_across_seeds.png"
+    }
+  ],
+  "inspected_at": "2026-10-04T11:28:39.310175+00:00",
+  "visual_observation": "All four Poppler renders inspected: readable labels and legends, no overlapping/clipped text, coherent stream/model colors, correct log axes, final partial batch omitted from evolution only, undefined first cosine preserved."
+}

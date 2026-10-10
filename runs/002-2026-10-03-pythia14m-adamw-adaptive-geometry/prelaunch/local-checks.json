@@ -1,0 +1,16 @@
+{
+  "tests": 25,
+  "status": "passed",
+  "command": "python -m unittest discover -s tests -v",
+  "independent_checks": [
+    "multi-step analytic Adam moments",
+    "actual parameter delta excluding decay",
+    "group ordering",
+    "clipped moment input",
+    "epsilon placement",
+    "zero-LR moment advance",
+    "FP64 prefix geometry and recovery",
+    "zero denominators"
+  ],
+  "syntax": "all Run002 Python parses"
+}

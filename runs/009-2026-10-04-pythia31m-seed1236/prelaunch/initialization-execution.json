@@ -1,0 +1,19 @@
+{
+  "initial_parameter_sha256": "dd1dd9fac2106c0438d558760a162cbc2714939725f322d7f29909c84431f2f4",
+  "parameters": 30494720,
+  "platform": "linux",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.12.1",
+  "initialization": {
+    "ordinary": "small_init",
+    "residual_output": "wang_init",
+    "small_init_std": 0.03952847075210474,
+    "wang_init_std": 0.020833333333333332,
+    "rng_note": "Transformers module traversal; not GPT-NeoX-bitwise draw order",
+    "ordinary_weight_elements": 28508160,
+    "residual_output_weight_elements": 1966080,
+    "bias_elements_zeroed": 13824,
+    "normalization_elements_initialized": 6656
+  },
+  "optimizer_steps": 0
+}

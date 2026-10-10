@@ -1,0 +1,20 @@
+{
+  "qualified": true,
+  "updates": 3,
+  "global_updates": [
+    357,
+    359
+  ],
+  "median_complete_update_seconds": 5.995800329495978,
+  "peak_cuda_allocated_bytes": 5850143232,
+  "common_first_gradient_and_batch_verified": true,
+  "original_replay_max_absolute_scalar_error": 0.00019778458064872995,
+  "original_replay_max_absolute_error_by_metric": {
+    "loss": 4.785135388374329e-06,
+    "gradient_norm": 1.6524627193259533e-06,
+    "adjacent_cosine": 0.00019778458064872995,
+    "cumulative_ratio": 1.1349949585737207e-07
+  },
+  "replay_note": "Numerically close three-step replay, not bitwise equivalence; Run011 strict gate failure and repeat are retained",
+  "estimate_note": "Two warmed samples; mechanics, not scientific evidence"
+}

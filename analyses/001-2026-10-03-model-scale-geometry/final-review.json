@@ -1,0 +1,65 @@
+{
+  "reviewed_at": "2026-10-04T03:33:52.201207+00:00",
+  "status": "complete",
+  "reduction_and_generating_script_hashes_match": true,
+  "source_metadata_and_event_files_rechecked": 18,
+  "figure_data_rows": 2136,
+  "updates_per_model": 712,
+  "main_plot_updates": "1-711; final partial update retained in raw data and full statistics",
+  "new_run_acceptance_and_cleanup": [
+    {
+      "run_id": "003",
+      "retrieval_receipt": "runs/003-2026-10-03-pythia31m-adamw-scale/prelaunch/attempt1-retrieval.json",
+      "receipt_sha256": "69f291314cf6d1a6d979ffbc6ebeffa520fea075901b072ea8ddd1c039653895",
+      "files": 55,
+      "bytes": 4638274006,
+      "archive_bytes": 3304214932,
+      "archive_sha256": "eb98d72cbb58fbc3182456bb0a4b14d83e20dc7e77e45d000d1bcf1a7b372acd",
+      "test_record": {
+        "unittest": "27 passed",
+        "cuda_fused_adam_checks": "5 passed on owned worker",
+        "source_inventory": "all remote source hashes matched after Linux initial-weight identity was pinned",
+        "compressed_train_bytes": 2251458684,
+        "compressed_train_sha256": "059a867ab870a62fe21141360c970f6547fec0c7ef810cbdb70e663b3ad39553",
+        "initialization_note": "Frozen 14M initialization and refactored function produce identical tensors on this host. Windows preflight hashes differ from Linux; execution-platform hashes resolved before optimizer steps.",
+        "setup_retry": "Initial shell script had CRLF and failed before environment installation. Normalized LF and restarted setup on the same worker; no scientific steps occurred."
+      },
+      "closeout_record": "runs/003-2026-10-03-pythia31m-adamw-scale/prelaunch/closeout.json",
+      "closeout_sha256": "ebbd8bdbd64592771276f85f2890d78e9be45ac09e74adbf1d018a6cd7a1d24c"
+    },
+    {
+      "run_id": "004",
+      "retrieval_receipt": "runs/004-2026-10-03-pythia70m-adamw-scale/prelaunch/attempt1-retrieval.json",
+      "receipt_sha256": "05029f502751fd6211363d2742c3f2aba165d28eef22f164474ba3c04812eb0e",
+      "files": 55,
+      "bytes": 10707925449,
+      "archive_bytes": 7625409256,
+      "archive_sha256": "dda3f584578b9aa3ce789bb259c9a13b7e9d37d7296da43751ffc5b6b20bd1a9",
+      "test_record": {
+        "unittest": "27 passed",
+        "cuda_fused_adam_checks": "5 passed on owned worker",
+        "source_inventory": "all remote source hashes matched after Linux initial-weight identity was pinned",
+        "compressed_train_bytes": 2251458684,
+        "compressed_train_sha256": "059a867ab870a62fe21141360c970f6547fec0c7ef810cbdb70e663b3ad39553",
+        "initialization_note": "Frozen 14M initialization and refactored function produce identical tensors on this host. Windows preflight hashes differ from Linux; execution-platform hashes resolved before optimizer steps.",
+        "setup_retry": "Initial shell script had CRLF and failed before environment installation. Normalized LF and restarted setup on the same worker; no scientific steps occurred."
+      },
+      "closeout_record": "runs/004-2026-10-03-pythia70m-adamw-scale/prelaunch/closeout.json",
+      "closeout_sha256": "78d4531f40f5cb1056467cf6041b98997a010ceda9f7c28a58e70a53bf96698c"
+    }
+  ],
+  "publication_pdf_qa": {
+    "count": 10,
+    "single_page_text_bounds_ok": true,
+    "visual_inspection": "All ten figures inspected before handoff; see visual-qa.json"
+  },
+  "manuscript_preservation": {
+    "draft_files_unchanged": 22,
+    "archive_sha256": "185580d6a356ea5ad27794ab3c54b3983e3ee4d616dfd9dad0d72a15f0d1819c"
+  },
+  "estimated_cohort_cost_usd": 3.3296549845679007,
+  "cost_provisional": true,
+  "retained_task_cloud_storage_gb": 0,
+  "unrelated_resources_preserved": true,
+  "scientific_limit": "One seed and three sizes support descriptive ordering, not a validated predictive scaling law."
+}

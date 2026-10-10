@@ -1,0 +1,37 @@
+# Run registry
+
+`000-template/` is a template, not Run 000.
+
+| Run | Question / hypotheses | Status | Attempts | Observations |
+| --- | --- | --- | --- | --- |
+| [001](001-2026-10-03-pythia14m-adamw-gradient-baseline/README.md) | AdamW full-pass adjacent/cumulative raw-gradient geometry | Completed; 712 updates; retrieved/verified; cloud closed | Native failure; cloud 1–3 removed; 4 completed | [001: Evolution](001-2026-10-03-pythia14m-adamw-gradient-baseline/observations/001-gradient-evolution.md), [002: Temporal interactions](001-2026-10-03-pythia14m-adamw-gradient-baseline/observations/002-temporal-interactions.md) |
+| [002](002-2026-10-03-pythia14m-adamw-adaptive-geometry/README.md) | H001: adaptive Adam direction versus raw-gradient geometry and norms | Completed; 712 updates; retrieved/verified; cloud closed | Attempt 1 calibration retired/retrieved; attempt 2 completed/retrieved | [001: Paired comparison](002-2026-10-03-pythia14m-adamw-adaptive-geometry/observations/001-adaptive-comparison.md) |
+| [003](003-2026-10-03-pythia31m-adamw-scale/README.md) | H002: 31M raw/adaptive geometry versus scale | Completed; retrieved/verified; cloud closed | Attempt 1 full pass | [001: Geometry](003-2026-10-03-pythia31m-adamw-scale/observations/001-gradient-geometry.md) |
+| [004](004-2026-10-03-pythia70m-adamw-scale/README.md) | H002: 70M raw/adaptive geometry versus scale | Completed; retrieved/verified; cloud closed | Attempt 1 full pass | [001: Geometry](004-2026-10-03-pythia70m-adamw-scale/observations/001-gradient-geometry.md) |
+| [005](005-2026-10-04-pythia14m-seed1235/README.md) | H002: 14M, seed 1235 replication | Completed; 712 updates; verified; cloud closed | Attempt 1 | [001: Geometry](005-2026-10-04-pythia14m-seed1235/observations/001-seed-geometry.md) |
+| [006](006-2026-10-04-pythia31m-seed1235/README.md) | H002: 31M, seed 1235 replication | Completed; 712 updates; verified; cloud closed | Attempt 1 | [001: Geometry](006-2026-10-04-pythia31m-seed1235/observations/001-seed-geometry.md) |
+| [007](007-2026-10-04-pythia70m-seed1235/README.md) | H002: 70M, seed 1235 replication | Completed; 712 updates; verified; cloud closed | Attempt 1 | [001: Geometry](007-2026-10-04-pythia70m-seed1235/observations/001-seed-geometry.md) |
+| [008](008-2026-10-04-pythia14m-seed1236/README.md) | H002: 14M, seed 1236 replication | Completed; 712 updates; verified; cloud closed | Attempt 1 | [001: Geometry](008-2026-10-04-pythia14m-seed1236/observations/001-seed-geometry.md) |
+| [009](009-2026-10-04-pythia31m-seed1236/README.md) | H002: 31M, seed 1236 replication | Completed; 712 updates; verified; cloud closed | Attempt 1 | [001: Geometry](009-2026-10-04-pythia31m-seed1236/observations/001-seed-geometry.md) |
+| [010](010-2026-10-04-pythia70m-seed1236/README.md) | H002: 70M, seed 1236 replication | Completed; 712 updates; verified; cloud closed | Attempt 1 | [001: Geometry](010-2026-10-04-pythia70m-seed1236/observations/001-seed-geometry.md) |
+| [011](011-2026-10-04-pythia14m-lr-original-seed1235/README.md) | H004: 14M original LR, seed1235 midpoint continuation | Completed; retrieved/verified; cloud closed | Attempt1 | Analysis004 |
+| [012](012-2026-10-04-pythia14m-lr-hold-seed1235/README.md) | H004: 14M hold LR, seed1235 midpoint continuation | Completed; retrieved/verified; cloud closed | Attempt1 | Analysis004 |
+| [013](013-2026-10-04-pythia14m-lr-accelerated-seed1235/README.md) | H004: 14M accelerated LR, seed1235 midpoint continuation | Completed; retrieved/verified; cloud closed | Attempt1 | Analysis004 |
+| [014](014-2026-10-04-pythia70m-lr-original-seed1235/README.md) | H004: 70M original LR, seed1235 midpoint continuation | Completed; retrieved/verified; cloud closed | Attempt1 | Analysis004 |
+| [015](015-2026-10-04-pythia70m-lr-hold-seed1235/README.md) | H004: 70M hold LR, seed1235 midpoint continuation | Completed; retrieved/verified; cloud closed | Attempt1 | Analysis004 |
+| [016](016-2026-10-04-pythia70m-lr-accelerated-seed1235/README.md) | H004: 70M accelerated LR, seed1235 midpoint continuation | Completed; retrieved/verified; cloud closed | Attempt1 | Analysis004 |
+| [017](017-2026-10-04-pythia14m-temporal-sketch-seed1235/README.md) | H005: 14M temporal sketch, seed1235 | Completed; 712 updates; retrieved/verified; cloud closed | Attempt1 | Analysis005 |
+| [018](018-2026-10-04-pythia31m-temporal-sketch-seed1235/README.md) | H005: 31M temporal sketch, seed1235 | Completed; 712 updates; retrieved/verified; cloud closed | Attempt2 | Analysis005 |
+| [019](019-2026-10-04-pythia70m-temporal-sketch-seed1235/README.md) | H005: 70M temporal sketch, seed1235 | Completed; 712 updates; retrieved/verified; cloud closed | Attempt2 | Analysis005 |
+| [020](020-2026-10-08-dgx-spark-calibration/README.md) | DGX Spark SSH/runtime readiness and 14M/31M/70M full-pass ETC | Completed calibration only; nine updates; compact evidence verified; GPU idle | Attempt1 config compatibility failure before updates; attempt2 completed | [Timing report](020-2026-10-08-dgx-spark-calibration/REPORT.md); approximately 5.0/5.7/7.6 h per pass |
+| [021](021-2026-10-08-pythia14m-no-decay-base/README.md) | H007: 14M warmup-only LR 1e-3; raw/momentum/adaptive geometry | Completed; 712 updates; retrieved/verified; PDFs reviewed; remote retained | Attempt1 | [001: Three streams](021-2026-10-08-pythia14m-no-decay-base/observations/001-three-stream-geometry.md); Analysis008 final comparison complete |
+| [022](022-2026-10-08-pythia14m-no-decay-small/README.md) | H007: matched warmup-only LR 1e-4 | Completed; 712 updates; retrieved/verified; PDFs reviewed; remote retained | Attempt1 | [001: Three streams](022-2026-10-08-pythia14m-no-decay-small/observations/001-three-stream-geometry.md); Analysis008 final comparison complete |
+| [023](023-2026-10-08-pythia14m-no-decay-large/README.md) | H007: matched warmup-only LR 1e-2 | Completed; 712 updates; retrieved/verified; PDFs reviewed; remote retained | Attempt1 | [001: Three streams](023-2026-10-08-pythia14m-no-decay-large/observations/001-three-stream-geometry.md); Analysis008 final comparison complete |
+| [024](024-2026-10-09-pythia14m-no-decay-intermediate-1/README.md) | H008: warmup-only LR0.000215443469; g/m/d diagnostics | Completed full pass; compact metrics verified; recoveries downloading | Attempt1; prior infrastructure calibrations preserved | Analysis009 |
+| [025](025-2026-10-09-pythia14m-no-decay-intermediate-2/README.md) | H008: warmup-only LR0.000464158883; g/m/d diagnostics | Completed full pass; compact metrics verified; recoveries downloading | Attempt1; prior infrastructure calibrations preserved | Analysis009 |
+| [026](026-2026-10-09-pythia14m-no-decay-intermediate-3/README.md) | H008: warmup-only LR0.00215443469; g/m/d diagnostics | Completed full pass; compact metrics verified; recoveries downloading | Attempt1; prior infrastructure calibrations preserved | Analysis009 |
+| [027](027-2026-10-09-pythia14m-no-decay-intermediate-4/README.md) | H008: warmup-only LR0.00464158883; g/m/d diagnostics | Completed full pass; compact metrics verified; recoveries downloading | Attempt1; prior infrastructure calibrations preserved | Analysis009 |
+
+Next run: `028-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
+executed IDs and configurations; retry unchanged scientific inputs in a new
+attempt within the same run.

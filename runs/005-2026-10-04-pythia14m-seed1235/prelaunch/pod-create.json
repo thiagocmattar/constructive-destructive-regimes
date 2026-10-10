@@ -1,0 +1,53 @@
+{
+  "actions": [
+    "stop",
+    "restart",
+    "terminate"
+  ],
+  "args": "",
+  "cloud": "SECURE",
+  "cost": 0.99,
+  "createdAt": "2026-10-04T09:32:57.85Z",
+  "cudaVersion": "12.8",
+  "dataCenterId": "EUR-NO-1",
+  "disk": 60,
+  "env": {
+    "PUBLIC_KEY": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIJ0xkrvbGJtR3vVxl+x6Hy/0HNATqiF0xTBupoZEGpS thiagocmattar@gmail.com"
+  },
+  "globalNetworking": {
+    "enabled": false
+  },
+  "gpu": {
+    "count": 1,
+    "id": "NVIDIA GeForce RTX 5090",
+    "memory": 117,
+    "vcpuCount": 15
+  },
+  "id": "n7shm3k3ds8oxf",
+  "image": "runpod/pytorch@sha256:0a360022e8de4375af99430f84e8b38951acc397252163a37ceac7204d01be35",
+  "locked": false,
+  "mounts": {
+    "persistent": {
+      "path": "/workspace",
+      "size": 40
+    }
+  },
+  "name": "cd-run005-seed-replication",
+  "ports": [
+    "22/tcp"
+  ],
+  "registry": null,
+  "runtime": null,
+  "ssh": {
+    "direct": null,
+    "proxy": {
+      "command": "ssh n7shm3k3ds8oxf-64411d9f@ssh.runpod.io",
+      "host": "ssh.runpod.io",
+      "port": 22,
+      "username": "n7shm3k3ds8oxf-64411d9f"
+    }
+  },
+  "startedAt": "2026-10-04T09:32:57.845Z",
+  "status": "RUNNING",
+  "template": null
+}

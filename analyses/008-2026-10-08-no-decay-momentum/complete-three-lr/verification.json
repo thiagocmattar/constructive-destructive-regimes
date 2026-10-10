@@ -1,0 +1,105 @@
+{
+  "reviewed_at": "2026-10-09T13:39:00.989780+00:00",
+  "visual_review": "passed; independent linear geometry revision visually checked; other four reviewed PDFs unchanged",
+  "pdfs": {
+    "metrics_by_learning_rate.pdf": {
+      "bytes": 182223,
+      "sha256": "bdad8d761504d90941e9e3bd9d72e6f51b56244293e3ac252e7f2dd74a83022b",
+      "pages": 1,
+      "visual_review": "passed; latest Poppler render inspected; labels, legends and margins readable"
+    },
+    "geometry_within_learning_rate.pdf": {
+      "bytes": 61047,
+      "sha256": "f3beafb3fdc47d559d7cb05c7d11586e540b40b6baaafc4f92d41f12ec028332",
+      "pages": 1,
+      "visual_review": "passed; latest Poppler render inspected; first row linear with three independent y-ranges; B/A row linear; labels and legends readable",
+      "reviewed_at": "2026-10-09T13:39:00.989780+00:00",
+      "plot_script_sha256": "49b2109eaf3eb563fdae79ebd62f5b84ec706873580f1607ae4e68552ea823ea",
+      "plot_metadata_sha256": "02bbaefc01ee5c0a5e6f606f5f02659d73d04ad350d8126cfd63070660ab2aac",
+      "first_row_y_limits_by_run": {
+        "021": [
+          0,
+          530.9551217567059
+        ],
+        "022": [
+          0,
+          540.2146830961102
+        ],
+        "023": [
+          0,
+          2055.024724764277
+        ]
+      },
+      "previous_log_version": {
+        "bytes": 81450,
+        "sha256": "b2d0c874e297a4fef6145b9d7ec5608456767a725d4cbf38f6b44d802276d457"
+      },
+      "previous_shared_linear_version": {
+        "bytes": 57944,
+        "sha256": "114095bc045eef49b1a1e62c8e7850918040de08eefaee36ad177db015d7350f"
+      }
+    },
+    "loss_alignment_norms.pdf": {
+      "bytes": 158703,
+      "sha256": "727ef851c8f118107bd0e8c63b5dca61bc435cf867038aa2b4f4fe0cedcd7bbc",
+      "pages": 1,
+      "visual_review": "passed; latest Poppler render inspected; labels, legends and margins readable"
+    },
+    "checkpoint_lag_profiles.pdf": {
+      "bytes": 47200,
+      "sha256": "184f2966329d567d0e5fd64b26d2b52ec42a85f2274f68d8a8ab0a6595a04ab9",
+      "pages": 1,
+      "visual_review": "passed; latest Poppler render inspected; labels, legends and margins readable"
+    },
+    "checkpoint_cosine_matrices.pdf": {
+      "bytes": 81486,
+      "sha256": "5280d4efcf5ae80ab015b00bbbecf75f50c657a20883694b80cbffd315f58291",
+      "pages": 1,
+      "visual_review": "passed; latest Poppler render inspected; labels, legends and margins readable"
+    }
+  },
+  "source_checks": {
+    "021": {
+      "files_verified": 48,
+      "bytes": 7206441872,
+      "inventory_sha256": "8753bcb0e3b072fa9fd6d8ea40bade372a5de679e71e004793052fc2a4a8fd8a",
+      "full_pass_verified": true,
+      "all_712_event_reductions_independently_checked": true
+    },
+    "022": {
+      "files_verified": 48,
+      "bytes": 7206441588,
+      "inventory_sha256": "004b6644e383ecdef50f12fd75db0774f08ff8338989d2ff79bbbe6dee5d309d",
+      "full_pass_verified": true,
+      "all_712_event_reductions_independently_checked": true
+    },
+    "023": {
+      "files_verified": 48,
+      "bytes": 7206441702,
+      "inventory_sha256": "1277b4e7f94de3bd07c8dccf63992f3e88f7531229546a473408c98623325209",
+      "full_pass_verified": true,
+      "all_712_event_reductions_independently_checked": true
+    }
+  },
+  "independent_new_longest_lag_checks": {
+    "raw": {
+      "cosine": 0.3276411279475904,
+      "absolute_error": 2.1094237467877974e-15
+    },
+    "momentum": {
+      "cosine": 0.1120240937978477,
+      "absolute_error": 2.636779683484747e-16
+    },
+    "adaptive": {
+      "cosine": 0.05510861651299416,
+      "absolute_error": 6.938893903907228e-18
+    }
+  },
+  "checkpoint_pair_rows": 189,
+  "previous_six_interim_pdfs_preserved": true,
+  "frozen_scientific_files_unchanged": 24,
+  "documentation_links": "passed",
+  "script_sha256": "2a964917910a7868bd53802b1b75e8cf3db273f10d56fd7b092d7b74555d47c5",
+  "data_sha256": "b631551121647e7653b59b6fe6b70855881c9d1b7efa978d48cefb3e923b847c",
+  "limitations": "One matched seed; clipping differs by LR; sparse checkpoint profiles only; EMA clipped-B reconstruction ignores FP32 recurrence rounding"
+}

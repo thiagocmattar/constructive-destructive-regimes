@@ -1,0 +1,35 @@
+{
+  "checked_at": "2026-10-04T09:45:08.022731+00:00",
+  "workers": 6,
+  "actual_gpu_type": "NVIDIA GeForce RTX 5090",
+  "price_per_gpu_hour": 0.99,
+  "cloud": "SECURE",
+  "maximum_hours_per_worker": 4,
+  "maximum_cohort_usd": 25,
+  "container_gb_per_worker": 60,
+  "persistent_gb_per_worker": 40,
+  "network_volumes": 0,
+  "six_gpu_optimizer_audits": "5 checks passed on each worker",
+  "initialization_and_data_order_seeds": [
+    1235,
+    1236
+  ],
+  "paired_sizes": [
+    "14M",
+    "31M",
+    "70M"
+  ],
+  "source_files_frozen_before_calibration": true,
+  "all_calibrations_qualified": true,
+  "estimated_cohort_handoff_utc": "2026-10-04T11:40:00Z",
+  "estimate_qualification": "Early extrapolation from two warmed samples per worker; refreshed throughout training",
+  "cleanup": "Download, SHA/size and scientific verification, then delete only these six Pods and their volumes.",
+  "storage_pricing": {
+    "source": "https://docs.runpod.io/pods/storage/types",
+    "checked_on": "2026-10-04",
+    "container_usd_per_gb_month": 0.1,
+    "running_persistent_usd_per_gb_month": 0.1,
+    "estimate_month_hours": 720
+  },
+  "maximum_aggregate_estimated_gpu_and_running_storage_usd": 24.093333333333334
+}

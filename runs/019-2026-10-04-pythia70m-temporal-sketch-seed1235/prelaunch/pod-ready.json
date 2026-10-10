@@ -1,0 +1,86 @@
+{
+  "actions": [
+    "stop",
+    "restart",
+    "terminate"
+  ],
+  "args": "",
+  "cloud": "SECURE",
+  "cost": 0.74,
+  "createdAt": "2026-10-04T14:59:44.132Z",
+  "cudaVersion": "13.2",
+  "dataCenterId": "EU-CZ-1",
+  "disk": 60,
+  "env": {
+    "PUBLIC_KEY": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIJ0xkrvbGJtR3vVxl+x6Hy/0HNATqiF0xTBupoZEGpS thiagocmattar@gmail.com"
+  },
+  "globalNetworking": {
+    "enabled": false
+  },
+  "gpu": {
+    "count": 1,
+    "id": "NVIDIA GeForce RTX 4090",
+    "memory": 125,
+    "vcpuCount": 32
+  },
+  "id": "azw1s0p0ciy1c4",
+  "image": "runpod/pytorch@sha256:0a360022e8de4375af99430f84e8b38951acc397252163a37ceac7204d01be35",
+  "locked": false,
+  "mounts": {
+    "persistent": {
+      "path": "/workspace",
+      "size": 40
+    }
+  },
+  "name": "cd-run019-temporal-lag-retry",
+  "ports": [
+    "22/tcp"
+  ],
+  "registry": null,
+  "runtime": {
+    "cpu": {
+      "util": 0
+    },
+    "gpus": [
+      {
+        "memoryUtil": 0,
+        "util": 0
+      }
+    ],
+    "memory": {
+      "util": 0
+    },
+    "ports": [
+      {
+        "ip": "100.65.11.57",
+        "private": 19123,
+        "public": 60180,
+        "type": "http"
+      },
+      {
+        "ip": "213.192.2.71",
+        "private": 22,
+        "public": 40166,
+        "type": "tcp"
+      }
+    ],
+    "uptime": 33
+  },
+  "ssh": {
+    "direct": {
+      "command": "ssh root@213.192.2.71 -p 40166",
+      "host": "213.192.2.71",
+      "port": 40166,
+      "username": "root"
+    },
+    "proxy": {
+      "command": "ssh azw1s0p0ciy1c4-64410b39@ssh.runpod.io",
+      "host": "ssh.runpod.io",
+      "port": 22,
+      "username": "azw1s0p0ciy1c4-64410b39"
+    }
+  },
+  "startedAt": "2026-10-04T14:59:44.127Z",
+  "status": "RUNNING",
+  "template": null
+}

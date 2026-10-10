@@ -1,0 +1,32 @@
+{
+  "id": "zxdxsdwzk3xmj3",
+  "name": "cd-run013-lr-first-test",
+  "status": "RUNNING",
+  "cost": 0.99,
+  "createdAt": "2026-10-04T12:16:58.65Z",
+  "image": "runpod/pytorch@sha256:0a360022e8de4375af99430f84e8b38951acc397252163a37ceac7204d01be35",
+  "cloud": "SECURE",
+  "gpu": {
+    "count": 1,
+    "id": "NVIDIA GeForce RTX 5090",
+    "memory": 62,
+    "vcpuCount": 16
+  },
+  "disk": 60,
+  "mounts": {
+    "persistent": {
+      "path": "/workspace",
+      "size": 40
+    }
+  },
+  "ssh": {
+    "direct": null,
+    "proxy": {
+      "command": "ssh zxdxsdwzk3xmj3-644124f3@ssh.runpod.io",
+      "host": "ssh.runpod.io",
+      "port": 22,
+      "username": "zxdxsdwzk3xmj3-644124f3"
+    }
+  },
+  "cudaVersion": "13.2"
+}

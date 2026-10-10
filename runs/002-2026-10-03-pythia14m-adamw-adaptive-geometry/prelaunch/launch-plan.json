@@ -1,0 +1,34 @@
+{
+  "status": "verified_preparation",
+  "authorization": "User explicitly requests new matched experiment, adaptive direction only, and preapproves launch through results while away.",
+  "timestamp_utc": "2026-10-03T21:10:25.343262+00:00",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "gpu_count": 1,
+  "cloud": "SECURE",
+  "live_gpu_usd_per_hour": 0.74,
+  "image": "runpod/pytorch@sha256:0a360022e8de4375af99430f84e8b38951acc397252163a37ceac7204d01be35",
+  "container_disk_gb": 40,
+  "pod_volume_gb": 30,
+  "network_volume": null,
+  "maximum_hours": 3,
+  "maximum_total_usd": 3,
+  "maximum_gpu_usd": 2.22,
+  "maximum_running_storage_usd": 0.028767123287671233,
+  "storage_rate_source": "https://docs.runpod.io/pods/storage/types",
+  "etc_minutes_historical_qualified": [
+    90,
+    110
+  ],
+  "etc_basis": "Run001 training 81m44s; new setup/diagnostics/transfer not yet calibrated",
+  "current_tests_passed": 25,
+  "deadline_guard": "Windows detached controller process stops the exact owned Pod; depends on controller power and network; not provider enforced",
+  "monitor_interval_seconds": 60,
+  "warnings": [
+    "nonfinite loss/vectors",
+    "no progress for 10 minutes",
+    "GPU/disk exhaustion",
+    "projected deadline/cost overrun"
+  ],
+  "retrieve_margin_seconds": 900,
+  "cleanup": "Verify all local artifact sizes and SHA256 before deleting owned Pod; preserve unrelated account resources."
+}

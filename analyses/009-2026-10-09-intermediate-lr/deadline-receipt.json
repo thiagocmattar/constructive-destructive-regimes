@@ -1,0 +1,24 @@
+{
+  "pod_ids": [
+    "mtd2dlb7w1mslf",
+    "kykdwoonqs0z9s"
+  ],
+  "action": "stop",
+  "deadline_epoch": 1791577800.0,
+  "checked_epoch": 1791577802.9388237,
+  "results": [
+    {
+      "pod_id": "mtd2dlb7w1mslf",
+      "returncode": 0,
+      "stdout": "{\n  \"containerDiskInGb\": 50,\n  \"costPerHr\": 1.78,\n  \"createdAt\": \"2026-10-09 16:50:52.851 +0000 UTC\",\n  \"desiredStatus\": \"EXITED\",\n  \"env\": {\n    \"PUBLIC_KEY\": \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIJ0xkrvbGJtR3vVxl+x6Hy/0HNATqiF0xTBupoZEGpS thiagocmattar@gmail.com\\nssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD1EW4KhX3rw6xzQQr8w4TGfogXLkeUYiWZWuOUDKsCcwoJiu0W30YRR4oVb/nXNl5xi0tweALXQIU/16HE1kL6OMxddM84aOgt9n5kYJa+l9zsonFf8hMihgUd3hgYyy2rZ7RjRvOgjj0UsJ9o6UDbwzl1d1ErqvfgaaTDKmq3KFjrfnC6frGeihqi5E4YGd92b8u8QcrvR2/jYCIFdu42PFuRV246btPu7Am2OIwq8PnqUXQhWppGlOG4Zlo6mwwSSn9jTanXtcgD1sBaITXBRSuXuxxx/LL48f4ZHTslNPuimINsJTBWioiKZ7/9qwMLcnAJwXMCXYl0fB7aIWAL runpodctl-ssh-key\"\n  },\n  \"gpuCount\": 2,\n  \"id\": \"mtd2dlb7w1mslf\",\n  \"imageName\": \"runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404\",\n  \"lastStatusChange\": \"Exited by user: Fri Oct 09 2026 20:30:20 GMT+0000 (Coordinated Universal Time)\",\n  \"memoryInGb\": 123,\n  \"name\": \"cdr-analysis009-lr024-027\",\n  \"networkVolumeId\": \"mja1prpve4\",\n  \"ports\": [\n    \"22/tcp\"\n  ],\n  \"vcpuCount\": 32,\n  \"volumeInGb\": 0,\n  \"volumeMountPath\": \"/workspace\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "pod_id": "kykdwoonqs0z9s",
+      "returncode": 0,
+      "stdout": "{\n  \"containerDiskInGb\": 50,\n  \"costPerHr\": 1.78,\n  \"createdAt\": \"2026-10-09 17:06:23.22 +0000 UTC\",\n  \"desiredStatus\": \"EXITED\",\n  \"env\": {\n    \"PUBLIC_KEY\": \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIJ0xkrvbGJtR3vVxl+x6Hy/0HNATqiF0xTBupoZEGpS thiagocmattar@gmail.com\\nssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD1EW4KhX3rw6xzQQr8w4TGfogXLkeUYiWZWuOUDKsCcwoJiu0W30YRR4oVb/nXNl5xi0tweALXQIU/16HE1kL6OMxddM84aOgt9n5kYJa+l9zsonFf8hMihgUd3hgYyy2rZ7RjRvOgjj0UsJ9o6UDbwzl1d1ErqvfgaaTDKmq3KFjrfnC6frGeihqi5E4YGd92b8u8QcrvR2/jYCIFdu42PFuRV246btPu7Am2OIwq8PnqUXQhWppGlOG4Zlo6mwwSSn9jTanXtcgD1sBaITXBRSuXuxxx/LL48f4ZHTslNPuimINsJTBWioiKZ7/9qwMLcnAJwXMCXYl0fB7aIWAL runpodctl-ssh-key\"\n  },\n  \"gpuCount\": 2,\n  \"id\": \"kykdwoonqs0z9s\",\n  \"imageName\": \"runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404\",\n  \"lastStatusChange\": \"Exited by user: Fri Oct 09 2026 20:30:21 GMT+0000 (Coordinated Universal Time)\",\n  \"memoryInGb\": 123,\n  \"name\": \"cdr-analysis009-lr026-027\",\n  \"networkVolumeId\": \"mja1prpve4\",\n  \"ports\": [\n    \"22/tcp\"\n  ],\n  \"vcpuCount\": 32,\n  \"volumeInGb\": 0,\n  \"volumeMountPath\": \"/workspace\"\n}\n",
+      "stderr": ""
+    }
+  ],
+  "network_evidence_preserved": "mja1prpve4"
+}

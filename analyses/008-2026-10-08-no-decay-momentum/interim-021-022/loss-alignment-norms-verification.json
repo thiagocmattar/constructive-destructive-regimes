@@ -1,0 +1,31 @@
+{
+  "reviewed_at": "2026-10-09T10:34:36.180737+00:00",
+  "visual_review": "passed; latest Poppler render inspected, four panels and annotations readable with no clipping or overlaps",
+  "pdf": {
+    "path": "figures/loss_alignment_norms.pdf",
+    "bytes": 124418,
+    "sha256": "f5affa2cfad2fd9bf9089f698290e3731ea68a98c45e539081948eafec7c2bd1",
+    "pages": 1
+  },
+  "script_sha256": "8e5cf996d3627a8613d02a200e2e6b12754aa52b92a1a295444e6f429a923e95",
+  "helper_sha256": "c129fdd8c2b9f7b0945dd87fcb2b90da2b16ae3f8498ccf3c85f59b5f6ca927b",
+  "figure_data_sha256": "9167fe292330ce21c96642e6fdcbf3e86e3820cfe7c40a0074c94238351c7b94",
+  "checks": {
+    "021": {
+      "first_negative_raw_pair": 54,
+      "raw_norm_fluctuation_fold_change": 5.7984360460353495,
+      "event_windows_independently_recomputed": true,
+      "all_712_records_unchanged": true
+    },
+    "022": {
+      "first_negative_raw_pair": 385,
+      "raw_norm_fluctuation_fold_change": 2.5159129806143232,
+      "event_windows_independently_recomputed": true,
+      "all_712_records_unchanged": true
+    }
+  },
+  "frozen_scientific_files_unchanged": 24,
+  "local_document_links": "passed",
+  "shading": "Time after first negative unsmoothed raw pair; later positive pairs remain inside shaded interval",
+  "interpretation": "Direct event marker, not a criterion for exact onset of norm separation or a gradient-noise variance estimate"
+}

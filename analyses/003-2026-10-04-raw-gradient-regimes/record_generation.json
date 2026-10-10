@@ -1,0 +1,132 @@
+{
+  "analysis": "003",
+  "status": "complete",
+  "hypothesis": "H003",
+  "source_runs": [
+    "001 replay sensitivity",
+    "002",
+    "003",
+    "004",
+    "005",
+    "006",
+    "007",
+    "008",
+    "009",
+    "010"
+  ],
+  "reproduction": "Core CSV and both original PDFs unchanged; schedule CSV/JSON/new PDF reproduced with identical SHA-256",
+  "visual_review": "All three final PDF renders inspected; text bounds verified",
+  "running_replications": "No cloud calls, training, or edits to Runs005-010/Analysis002; cohort now completed",
+  "manuscript": "Supplied assets and editable draft unchanged; proposed restricted claim in REPORT.md",
+  "outputs": {
+    "01_analyze.py": {
+      "bytes": 13100,
+      "sha256": "55058e0af1f228643674b9cef5a0c020988a3517092abe4ad0730037c199cd0d"
+    },
+    "02_verify.py": {
+      "bytes": 6916,
+      "sha256": "6f902823f76090e790c5855464d2adea80d3096ccf36fa6990c81e3916a645d2"
+    },
+    "03_schedule.py": {
+      "bytes": 9390,
+      "sha256": "9689f0c7ec8c36ec5f67a96307d51c97ac6883375d1699c9997792544f3499a5"
+    },
+    "04_replication_check.py": {
+      "bytes": 6735,
+      "sha256": "11bc8e1fbb497a8737f95187c8dff0d45c1617c3aac7077fd9250622eff0f824"
+    },
+    "figure_data.csv": {
+      "bytes": 437131,
+      "sha256": "efbe8f0b46ae9f4a514832b993ec35df04bab93b45c059333accea6ab874785d"
+    },
+    "figures/loss_and_raw_cosine.pdf": {
+      "bytes": 78952,
+      "sha256": "f5954a114230e2464c5d93b5abcb507471a7e474965e1bd0c5e1127d115e1fdb"
+    },
+    "figures/negative_alignment.pdf": {
+      "bytes": 58572,
+      "sha256": "6ae33d38cbde71f6eb55f84f67e741341e65d934f145b5a333f8a46151407c9f"
+    },
+    "figures/schedule_and_raw_cosine.pdf": {
+      "bytes": 84481,
+      "sha256": "18f18e2c28a4207c5d3df618e3422a8858959c533357bf7041cc0b82fdd52104"
+    },
+    "observations/001-raw-gradient-regimes.md": {
+      "bytes": 9903,
+      "sha256": "3cdc6b4d8b4ade769666db0af15b2447535f77c1181c78ffc5c6f0765f9a904c"
+    },
+    "observations/002-schedule-and-recovery.md": {
+      "bytes": 8392,
+      "sha256": "81f0637408489b242e5f77c7e1969f895d64d3493d0b0fc7dc8e5d05c1b1e260"
+    },
+    "observations/003-replicated-conclusions.md": {
+      "bytes": 4694,
+      "sha256": "f0877dd3575d67a7ce800cd681f0764e2db645db6f0ef0d1fbb4d0d30e5bf91b"
+    },
+    "observations/INDEX.md": {
+      "bytes": 827,
+      "sha256": "a6307e18c0eca42f2fb0b8c5f49a7b31adb2ebfeac46ae9233e6b60d9fd04202"
+    },
+    "protected_inputs.json": {
+      "bytes": 6598,
+      "sha256": "27d8d359c98c6011988048d114581c8b2b737436deed6293f0f82062e5646f50"
+    },
+    "README.md": {
+      "bytes": 7033,
+      "sha256": "cfac87cc85ad03e3172f0a77f81b88302c180fb1e4ec082e252a8890aa8b2235"
+    },
+    "replication_check.json": {
+      "bytes": 23612,
+      "sha256": "f9747c2b94bcf11fc73def72e9a46317eda53c1f28160047fa541c834733ff2b"
+    },
+    "REPORT.md": {
+      "bytes": 9942,
+      "sha256": "3c047c9657d8fb7e36fcb521e4c5a621427ceda928bf63cc4572ce5682962ec1"
+    },
+    "results.json": {
+      "bytes": 31049,
+      "sha256": "ce6eaaa0e9df9348e01acb46f2d663936233367f7293f897a36ec7026f048ced"
+    },
+    "schedule_data.csv": {
+      "bytes": 236239,
+      "sha256": "df847b952f4a6269e623f68e8d7ed457f3c4f7468a3f52f6ed71f750bb4743b8"
+    },
+    "SCHEDULE_EXPERIMENT.md": {
+      "bytes": 10444,
+      "sha256": "9e7597b1661ae1280de3c083268977463f08b53ca670be889cd7ee9edde87a74"
+    },
+    "schedule_results.json": {
+      "bytes": 25781,
+      "sha256": "3ffa258a902029ade6c1f6ddeaa862ab2dee2e2cf2619a325b44db7761ce21b7"
+    },
+    "verification.json": {
+      "bytes": 1449,
+      "sha256": "ecb4bbd65ddab205d730de9fff6e3c0209283f07013a8bb818c29b95f342d0f6"
+    },
+    "runpod_price_snapshot.json": {
+      "bytes": 3433,
+      "sha256": "8dd3358efb8f5a6c9a16d85350986e91fb7fd6a072ec99bde427aea90cfcdb75"
+    }
+  },
+  "hypotheses": [
+    "H003",
+    "H004"
+  ],
+  "verification": "Previously passed five core and three schedule mathematics tests retained; replication aggregation checks passed; 53 protected files unchanged",
+  "source_analysis002": "Completed evidence read-only; 63 source/receipt hashes verified",
+  "recommended_experiment": "Design only: 14M/70M x three seeds x original/held/accelerated LR after update356; 18 continuations",
+  "replication_verification": {
+    "source_and_receipt_hashes_checked": 63,
+    "csv_matches_analysis002_summaries": true,
+    "factorization_D_equals_F_times_M": true,
+    "protected_files_unchanged": 53,
+    "new_training_runs": 0,
+    "cloud_calls": 0
+  },
+  "record_links_checked": 53,
+  "new_training_runs": 0,
+  "cloud_calls": 0,
+  "subsequent_intervention": "Analysis004 completed the user-selected first seed1235; the other seeds remain deferred. Original Analysis003 reductions/figures and source evidence are unchanged.",
+  "planning_price_read": "runpod_price_snapshot.json records the subsequent read-only Runpod catalog query for the ETC question; original reduction work made no cloud calls.",
+  "cloud_calls_scope": "Original scientific reduction and replication generation only; subsequent read-only catalog snapshot is separate; new execution belongs to Analysis004"
+}

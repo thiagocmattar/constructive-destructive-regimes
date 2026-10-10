@@ -1,0 +1,73 @@
+{
+  "passed": true,
+  "source_evidence_unchanged": true,
+  "csv_rows": 712,
+  "synthetic_cases": {
+    "aligned": {
+      "A": [
+        1.0,
+        3.0,
+        6.0
+      ],
+      "B": [
+        1.0,
+        3.0,
+        6.0
+      ],
+      "ratio": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "alternating": {
+      "A": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "B": [
+        1.0,
+        0.0,
+        1.0
+      ],
+      "ratio": [
+        1.0,
+        0.0,
+        0.3333333333333333
+      ]
+    },
+    "flat_half_ratio_with_growing_B": {
+      "A": [
+        1.9999999999999998,
+        3.9999999999999996,
+        6.0
+      ],
+      "B": [
+        1.9999999999999998,
+        2.0,
+        3.0
+      ],
+      "ratio": [
+        1.0,
+        0.5000000000000001,
+        0.5
+      ]
+    },
+    "aligned_SGD_constant_ratio_and_decreasing_loss": {
+      "constant_ratio": 1.0,
+      "losses": [
+        0.5,
+        0.125,
+        0.03125,
+        0.0078125,
+        0.001953125
+      ]
+    }
+  },
+  "pdf_renders": [
+    "scratch/cumulative_slopes_pdf.png",
+    "scratch/ratio_slope_and_loss_pdf.png"
+  ],
+  "verification_script_sha256": "67eaa2ae4c3d5a35b59f35d96ec04b0e758540dc8302777b4634f96ad15e5d69"
+}

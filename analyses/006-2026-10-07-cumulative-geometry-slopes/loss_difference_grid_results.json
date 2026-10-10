@@ -1,0 +1,74 @@
+{
+  "design_sha256": "bb5a96792b53e4949530d8989a18d01ddc9826738db233c41dc3ff3f06899151",
+  "script_sha256": "5ddb4a618b338e5f5230104917284bb26697f25c266881b9a1d9ef4f934bc44d",
+  "source_hashes_before": {
+    "analyses/006-2026-10-07-cumulative-geometry-slopes/curve_data.csv": "0ae08b691b12d768b4526b446cfa98d78c3e94bbda73a468913424d3de096857",
+    "analyses/006-2026-10-07-cumulative-geometry-slopes/results.json": "d0e785f5ff31fe59f918a373809e3115bd753213999fc8282ccf1fd89cc28c86",
+    "runs/002-2026-10-03-pythia14m-adamw-adaptive-geometry/artifacts/attempt-02/full-pass/events.jsonl": "be690ae5d984799fc493bab330f535c7ed2f17cc5b406c56501bb6ce352b1f77"
+  },
+  "source_hashes_after": {
+    "analyses/006-2026-10-07-cumulative-geometry-slopes/curve_data.csv": "0ae08b691b12d768b4526b446cfa98d78c3e94bbda73a468913424d3de096857",
+    "analyses/006-2026-10-07-cumulative-geometry-slopes/results.json": "d0e785f5ff31fe59f918a373809e3115bd753213999fc8282ccf1fd89cc28c86",
+    "runs/002-2026-10-03-pythia14m-adamw-adaptive-geometry/artifacts/attempt-02/full-pass/events.jsonl": "be690ae5d984799fc493bab330f535c7ed2f17cc5b406c56501bb6ce352b1f77"
+  },
+  "sources_unchanged": true,
+  "retained_rows": 712,
+  "finite_loss_differences": 711,
+  "display_updates": [
+    2,
+    711
+  ],
+  "points_per_panel": 710,
+  "panels": {
+    "raw": {
+      "A": {
+        "points": 710,
+        "minimum": 0.17826023158644233,
+        "maximum": 1.8008080310044179
+      },
+      "B": {
+        "points": 710,
+        "minimum": -0.017548745238954666,
+        "maximum": 1.7987774579325781
+      },
+      "ratio": {
+        "points": 710,
+        "minimum": -0.07250122830647565,
+        "maximum": 0.006121299173601713
+      }
+    },
+    "adaptive": {
+      "A": {
+        "points": 710,
+        "minimum": 1224.7931049150648,
+        "maximum": 3159.9004462867542
+      },
+      "B": {
+        "points": 710,
+        "minimum": 452.02784316739417,
+        "maximum": 2901.270125602805
+      },
+      "ratio": {
+        "points": 710,
+        "minimum": -0.03841017939576197,
+        "maximum": 0.0006310211809287258
+      }
+    }
+  },
+  "loss_difference_display_range": [
+    -0.18527229130268097,
+    0.10335642658174038
+  ],
+  "checks": {
+    "source_slopes_match": true,
+    "loss_matches_events": true,
+    "loss_difference_telescoping": true,
+    "scatter_coordinates_match": true,
+    "one_pdf_page": true
+  },
+  "outputs_sha256": {
+    "figures/loss_difference_vs_slopes.pdf": "43c272c8d9b5d01f1e9c661b6db12809caba13b8d4d9ad0a20df39b4db22cb98",
+    "loss_difference_grid_data.csv": "31c44d8d4aa314f637bec41023b9254de406ee91a5e3b003fcc9923be3021baa"
+  },
+  "pdf_preview": "scratch/loss_difference_vs_slopes_pdf.png"
+}

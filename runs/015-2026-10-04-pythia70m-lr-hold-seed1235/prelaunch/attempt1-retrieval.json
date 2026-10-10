@@ -1,0 +1,47 @@
+{
+  "pod_id": "perswwtghlktcb",
+  "attempt": "attempt-01",
+  "archive_bytes": 4934418816,
+  "archive_sha256": "4a5023cd4cc21c72fef98589f5f7202205d740b49ad162ac0fd629a9dc488259",
+  "verified": true,
+  "files": 39,
+  "total_bytes": 5635249755,
+  "errors": [],
+  "scientific_verification": {
+    "verified": true,
+    "updates": 356,
+    "global_updates": [
+      357,
+      712
+    ],
+    "training_input_tokens": 1491711416,
+    "continuation_input_tokens": 745125304,
+    "final_validation_loss": 3.9845693924336976,
+    "validation_updates": [
+      356,
+      445,
+      534,
+      623,
+      712
+    ],
+    "full_validation_supervised_tokens": 693329,
+    "terminal_state_checked_independently": true
+  },
+  "frozen_source_copies_match": {
+    "source/00_setup_remote.sh": true,
+    "source/02_train.py": true,
+    "source/03_verify.py": true,
+    "source/config.json": true,
+    "source/model_config.json": true,
+    "source/baseline/adam_diagnostics.py": true,
+    "source/baseline/continuation.py": true,
+    "source/baseline/data_protocol.py": true,
+    "source/baseline/gradient_geometry.py": true,
+    "source/baseline/initialization.py": true,
+    "source/baseline/recipe.py": true,
+    "source/baseline/training.py": true,
+    "source/baseline/__init__.py": true
+  },
+  "parent_identity_verified": true,
+  "accepted_at": "2026-10-04T13:29:09.729456+00:00"
+}
