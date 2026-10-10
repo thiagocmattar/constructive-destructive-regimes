@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "run_id": "Run035",
+  "hypothesis": "H011",
+  "label": "Momentum, weight decay 0.1; LR 1e-2",
+  "objective": {
+    "name": "Rosenbrock",
+    "dimension": 2,
+    "a": 1.0,
+    "b": 100.0
+  },
+  "initial_point": [
+    -1.2,
+    1.0
+  ],
+  "updates": 2000,
+  "learning_rate": 0.01,
+  "betas": [
+    0.9,
+    0.95
+  ],
+  "epsilon": 1e-08,
+  "weight_decay": 0.1,
+  "schedule": "constant from update 1",
+  "precision": "float64",
+  "device": "CPU",
+  "gradient": "exact analytic, full 2D objective, no clipping",
+  "seed": null,
+  "progress_every": 200,
+  "history_every": 1,
+  "convergence": {
+    "objective_at_most": 1e-08,
+    "gradient_norm_at_most": 0.0001,
+    "sustained_updates": 100
+  },
+  "stopping": "fixed update budget, no threshold early stopping"
+}

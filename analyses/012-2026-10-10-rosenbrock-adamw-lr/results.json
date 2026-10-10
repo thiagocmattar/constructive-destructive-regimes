@@ -1,0 +1,168 @@
+{
+  "updates_per_run": 2000,
+  "weight_decay": 0.1,
+  "initial_loss": 24.2,
+  "conditions": [
+    {
+      "run_id": "Run035",
+      "directory": "runs/035-2026-10-10-rosenbrock-adamw-lr-1e-2",
+      "learning_rate": 0.01,
+      "lr_label": "1e-2",
+      "final_loss": 0.00104246819099545,
+      "final_point": [
+        0.9692387828337957,
+        0.9404047142162574
+      ],
+      "final_gradient_norm": 0.48340834796796217,
+      "minimum_loss": 0.0009267883103191847,
+      "minimum_loss_update": 1289,
+      "first_convergence_threshold_update": null,
+      "final_100_updates_meet_threshold": false,
+      "loss_increase_fraction": 0.429,
+      "late_loss_min": 0.0009267883103191847,
+      "late_loss_max": 0.0010670188421421124,
+      "late_loss_median": 0.0009912181670972025,
+      "elapsed_seconds": 0.059104799991473556,
+      "history_sha256": "f0ada658378f86c5f2ac13cf0bbf3c6d6b50a66cdba7e67e17c5614ab7c8951f",
+      "streams": {
+        "raw": {
+          "A": 3641.773357083085,
+          "B": 1455.38659710041,
+          "B_over_A": 0.3996367852682948,
+          "negative_cosine_fraction": 0.6663331665832917,
+          "late_median_cosine": -0.9850604522701836,
+          "cosine_defined_pairs": 1999,
+          "norm_updates": 2000
+        },
+        "momentum": {
+          "A": 2278.8800867772547,
+          "B": 1455.2619512141653,
+          "B_over_A": 0.6385864529064216,
+          "negative_cosine_fraction": 0.00400200100050025,
+          "late_median_cosine": 0.6322840386601014,
+          "cosine_defined_pairs": 1999,
+          "norm_updates": 2000
+        }
+      }
+    },
+    {
+      "run_id": "Run036",
+      "directory": "runs/036-2026-10-10-rosenbrock-adamw-lr-midpoint",
+      "learning_rate": 0.0031622776601683794,
+      "lr_label": "3.1622776601683794e-3",
+      "final_loss": 0.00011559894864348962,
+      "final_point": [
+        0.9896467290487194,
+        0.9796906264065683
+      ],
+      "final_gradient_norm": 0.14738690124380005,
+      "minimum_loss": 0.00010525981407687656,
+      "minimum_loss_update": 1514,
+      "first_convergence_threshold_update": null,
+      "final_100_updates_meet_threshold": false,
+      "loss_increase_fraction": 0.27,
+      "late_loss_min": 0.00010525981407687656,
+      "late_loss_max": 0.00026636951899141145,
+      "late_loss_median": 0.00011331845461259044,
+      "elapsed_seconds": 0.05874980008229613,
+      "history_sha256": "4058e3c1bd7fd85ad75da8459e8c7e51eeb1ac6162133090bd6535f737025bbc",
+      "streams": {
+        "raw": {
+          "A": 6760.992418084405,
+          "B": 5369.407499719142,
+          "B_over_A": 0.7941744595596602,
+          "negative_cosine_fraction": 0.4497248624312156,
+          "late_median_cosine": -0.9835364012498833,
+          "cosine_defined_pairs": 1999,
+          "norm_updates": 2000
+        },
+        "momentum": {
+          "A": 6425.273264245821,
+          "B": 5369.351795770387,
+          "B_over_A": 0.835661235709424,
+          "negative_cosine_fraction": 0.0,
+          "late_median_cosine": 0.669166269316507,
+          "cosine_defined_pairs": 1999,
+          "norm_updates": 2000
+        }
+      }
+    },
+    {
+      "run_id": "Run037",
+      "directory": "runs/037-2026-10-10-rosenbrock-adamw-lr-1e-3",
+      "learning_rate": 0.001,
+      "lr_label": "1e-3",
+      "final_loss": 0.23411186475444315,
+      "final_point": [
+        0.5161489459516245,
+        0.26639481773201285
+      ],
+      "final_gradient_norm": 0.9646270310157175,
+      "minimum_loss": 0.23411186475444315,
+      "minimum_loss_update": 2000,
+      "first_convergence_threshold_update": null,
+      "final_100_updates_meet_threshold": false,
+      "loss_increase_fraction": 0.0,
+      "late_loss_min": 0.23411186475444315,
+      "late_loss_max": 2.2618585399311213,
+      "late_loss_median": 0.9264272048027369,
+      "elapsed_seconds": 0.057690300047397614,
+      "history_sha256": "9590771743e9625db7b1c7d21cc1ff87760b65928b4e7959e7d2d03c2524304f",
+      "streams": {
+        "raw": {
+          "A": 19798.37302495272,
+          "B": 16828.72243440675,
+          "B_over_A": 0.8500053218108783,
+          "negative_cosine_fraction": 0.0,
+          "late_median_cosine": 0.9999972902726056,
+          "cosine_defined_pairs": 1999,
+          "norm_updates": 2000
+        },
+        "momentum": {
+          "A": 19751.39727501873,
+          "B": 16820.09077981488,
+          "B_over_A": 0.8515899176960344,
+          "negative_cosine_fraction": 0.0,
+          "late_median_cosine": 0.9999999680246241,
+          "cosine_defined_pairs": 1999,
+          "norm_updates": 2000
+        }
+      }
+    }
+  ],
+  "matched_endpoint_comparisons": [
+    {
+      "run_id": "Run032",
+      "decay_run_id": "Run035",
+      "directory": "runs\\032-2026-10-10-rosenbrock-lr-1e-2",
+      "history_sha256": "719992f4d90418a4a03b881e58989147e611c6a6be60e008a23ff338155fb9a4",
+      "matched_except_decay": true,
+      "learning_rate": 0.01,
+      "no_decay_final_loss": 0.0001413483391301838,
+      "decay_final_loss": 0.00104246819099545,
+      "final_loss_difference": 0.0009011198518652663,
+      "no_decay_momentum_negative_fraction": 0.6533266633316658,
+      "decay_momentum_negative_fraction": 0.00400200100050025,
+      "no_decay_momentum_late_median": -0.9999999057932998,
+      "decay_momentum_late_median": 0.6322840386601014,
+      "control_summary_sha256": "f11bbe6b720b70b35802e7a97fd52ff45258f819aa48f4c7d8c90674148f8369"
+    },
+    {
+      "run_id": "Run033",
+      "decay_run_id": "Run037",
+      "directory": "runs\\033-2026-10-10-rosenbrock-lr-1e-3",
+      "history_sha256": "2de7eb970b6832d53a5edbc8dbc112eaa1819ce5331b01b01617727c208005e0",
+      "matched_except_decay": true,
+      "learning_rate": 0.001,
+      "no_decay_final_loss": 0.3254126307459666,
+      "decay_final_loss": 0.23411186475444315,
+      "final_loss_difference": -0.09130076599152345,
+      "no_decay_momentum_negative_fraction": 0.0,
+      "decay_momentum_negative_fraction": 0.0,
+      "no_decay_momentum_late_median": 0.9999999698792298,
+      "decay_momentum_late_median": 0.9999999680246241,
+      "control_summary_sha256": "ec33b93a977f547a705472d268966deb958131c95a464e845bf6b01c90be6e51"
+    }
+  ],
+  "raw_storage_bytes": 2906275
+}

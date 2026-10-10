@@ -2,6 +2,15 @@
 
 ## Current state
 
+[Analysis012: Rosenbrock with weight decay](../analyses/012-2026-10-10-rosenbrock-adamw-lr/README.md)
+completed Runs035-037: weight decay 0.1, LR 1e-2/0.003162277660/1e-3,
+2,000 updates each. Final losses 0.001042468/0.000115599/0.234112; the
+midpoint is lowest in this cohort. At 1e-2, decay raises final loss versus
+the matched no-decay control despite mostly positive momentum cosine;
+at 1e-3 it lowers final loss. All fail stationarity. One unsmoothed nine-panel
+PDF is reviewed; all replay/optimizer/hash checks pass, including the Run030
+prefix. Raw histories 2.91 MB retained locally; no cloud resources or billing.
+
 [Analysis011: Rosenbrock learning rates](../analyses/011-2026-10-10-rosenbrock-lr/README.md)
 completed the requested momentum/no-decay refinement: LR 1e-2/1e-3/1e-4,
 2,000 updates each (Runs032-034). Final losses 0.000141348/0.325413/4.138634;
@@ -190,4 +199,4 @@ SGD remains deferred. Original manuscript assets are preserved.
 - [Surgical changes proposal](../manuscript/2026-10-07-surgical-changes-proposal/README.md):
   evidence, draft changes, and proposed momentum/LR experiments; planning only.
 
-Next run: 035; analysis: 012; hypothesis: H011. Preserve executed inputs and raw evidence.
+Next run: 038; analysis: 013; hypothesis: H012. Preserve executed inputs and raw evidence.

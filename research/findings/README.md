@@ -1,5 +1,14 @@
 # Consolidated findings
 
+[Analysis012's AdamW LR comparison](../../analyses/012-2026-10-10-rosenbrock-adamw-lr/observations/001-learning-rate-comparison.md)
+adds weight decay 0.1 and the geometric midpoint to the 2,000-update Rosenbrock
+setup. The midpoint has the lowest final objective of the new decay cohort.
+At matched LR 1e-2, decay increases final loss while greatly reducing negative
+adjacent momentum pairs; at 1e-3 it reduces final loss. Thus positive momentum
+alignment does not uniformly order objective outcomes, and the finite-horizon
+decay response depends on LR here. All conditions fail joint stationarity.
+Three deterministic paths; no no-decay midpoint control or general/LLM result.
+
 [Analysis011's three-LR Rosenbrock comparison](../../analyses/011-2026-10-10-rosenbrock-lr/observations/001-learning-rate-comparison.md)
 holds momentum/no decay fixed for 2,000 updates at LR 1e-2/1e-3/1e-4. Final
 loss is 0.000141348/0.325413/4.138634. The fastest valley traversal has frequent

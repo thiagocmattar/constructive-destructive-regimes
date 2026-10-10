@@ -38,7 +38,10 @@
 | [032](032-2026-10-10-rosenbrock-lr-1e-2/README.md) | H010: Rosenbrock momentum/no decay; LR1e-2 | Completed; 2,000 local CPU updates; all histories verified | Attempt001-local | [001: Trajectory](032-2026-10-10-rosenbrock-lr-1e-2/observations/001-trajectory-geometry.md); Analysis011 single figure |
 | [033](033-2026-10-10-rosenbrock-lr-1e-3/README.md) | H010: matched Rosenbrock momentum/no decay; LR1e-3 | Completed; 2,000 local CPU updates; all histories verified | Attempt001-local | [001: Trajectory](033-2026-10-10-rosenbrock-lr-1e-3/observations/001-trajectory-geometry.md); Analysis011 single figure |
 | [034](034-2026-10-10-rosenbrock-lr-1e-4/README.md) | H010: matched Rosenbrock momentum/no decay; LR1e-4 | Completed; 2,000 local CPU updates; all histories verified | Attempt001-local | [001: Trajectory](034-2026-10-10-rosenbrock-lr-1e-4/observations/001-trajectory-geometry.md); Analysis011 single figure |
+| [035](035-2026-10-10-rosenbrock-adamw-lr-1e-2/README.md) | H011: Rosenbrock momentum/weight decay 0.1; LR 1e-2 | Completed; 2,000 local CPU updates; verified | Attempt001-local | [001: Trajectory](035-2026-10-10-rosenbrock-adamw-lr-1e-2/observations/001-trajectory-geometry.md); Analysis012 single figure |
+| [036](036-2026-10-10-rosenbrock-adamw-lr-midpoint/README.md) | H011: matched AdamW; geometric LR midpoint 0.003162277660 | Completed; 2,000 local CPU updates; verified | Attempt001-local | [001: Trajectory](036-2026-10-10-rosenbrock-adamw-lr-midpoint/observations/001-trajectory-geometry.md); Analysis012 single figure |
+| [037](037-2026-10-10-rosenbrock-adamw-lr-1e-3/README.md) | H011: matched AdamW; LR 1e-3 | Completed; 2,000 local CPU updates; verified | Attempt001-local | [001: Trajectory](037-2026-10-10-rosenbrock-adamw-lr-1e-3/observations/001-trajectory-geometry.md); Analysis012 single figure |
 
-Next run: `035-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
+Next run: `038-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
 executed IDs and configurations; retry unchanged scientific inputs in a new
 attempt within the same run.

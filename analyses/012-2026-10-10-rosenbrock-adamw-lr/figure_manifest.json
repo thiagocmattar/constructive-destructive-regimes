@@ -1,0 +1,53 @@
+{
+  "figure": "analyses\\012-2026-10-10-rosenbrock-adamw-lr\\figures\\rosenbrock_learning_rates.pdf",
+  "sha256": "483859e5e12f9eee2043fe155c5d3869f2f7f88b4b0b08e5793f0f533ddab8ba",
+  "script": "analyses\\012-2026-10-10-rosenbrock-adamw-lr\\02_plot.py",
+  "script_sha256": "e199594010464a42495921cec875b856ee9d3ca7fbc8a51c632c1264d44260c9",
+  "plot_implementation": "src\\controlled\\rosenbrock_plot.py",
+  "plot_implementation_sha256": "0236358f280c0137c7c5ae08d24eb60a4dd05ac1c1c92d89fea36aa8df68fcaa",
+  "title": "Rosenbrock \u00b7 AdamW with momentum, weight decay 0.1",
+  "sources": [
+    {
+      "run_id": "Run035",
+      "directory": "runs/035-2026-10-10-rosenbrock-adamw-lr-1e-2",
+      "learning_rate": 0.01,
+      "lr_label": "1e-2",
+      "history_sha256": "f0ada658378f86c5f2ac13cf0bbf3c6d6b50a66cdba7e67e17c5614ab7c8951f",
+      "config_sha256": "48371312175174866981f6096a5e54e368d090abb2deb088e2f7009f77acb51b"
+    },
+    {
+      "run_id": "Run036",
+      "directory": "runs/036-2026-10-10-rosenbrock-adamw-lr-midpoint",
+      "learning_rate": 0.0031622776601683794,
+      "lr_label": "3.1622776601683794e-3",
+      "history_sha256": "4058e3c1bd7fd85ad75da8459e8c7e51eeb1ac6162133090bd6535f737025bbc",
+      "config_sha256": "642079206f112ab1ccc68878153d087bdf583b70dc786b4573c9e1d582d2ba41"
+    },
+    {
+      "run_id": "Run037",
+      "directory": "runs/037-2026-10-10-rosenbrock-adamw-lr-1e-3",
+      "learning_rate": 0.001,
+      "lr_label": "1e-3",
+      "history_sha256": "9590771743e9625db7b1c7d21cc1ff87760b65928b4e7959e7d2d03c2524304f",
+      "config_sha256": "c134836b970813470400e4e1980121d35f6eb55268f0648cf834a324cac6372b"
+    }
+  ],
+  "panels": 9,
+  "dimensions_inches": [
+    16,
+    23
+  ],
+  "updates_per_run": 2000,
+  "smoothing": null,
+  "thinning": null,
+  "trajectory_domain": [
+    -1.4,
+    1.22,
+    -0.15,
+    1.48
+  ],
+  "adjacent_cosine_rendering": "one point per defined pair; no connecting lines",
+  "ratio_orientation": "B/A",
+  "zero_A": "undefined",
+  "first_cosine": "undefined"
+}
