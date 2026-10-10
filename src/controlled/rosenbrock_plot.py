@@ -33,7 +33,9 @@ def rolling_cosine(values, width):
 
 
 def plot(here, *, title, labels, colors=COLORS, styles=STYLES,
-         cosine_window=1, norm_scale="log", trajectory_turns=None):
+         cosine_window=1, norm_scale="log", trajectory_turns=None,
+         cohort_entries=None, figure_stem="rosenbrock_learning_rates", noise_sigma=None,
+         trajectory_domain=None):
     if not isinstance(cosine_window, int) or cosine_window < 1:
         raise ValueError("cosine_window must be a positive integer")
     if norm_scale not in {"log", "linear"}:
@@ -41,7 +43,7 @@ def plot(here, *, title, labels, colors=COLORS, styles=STYLES,
     HERE = Path(here)
     COLORS, STYLES, LABELS = colors, styles, labels
     figure_title = title
-    cohort = json.loads((HERE / "cohort.json").read_text())
+    cohort = cohort_entries if cohort_entries is not None else json.loads((HERE / "cohort.json").read_text())
     histories, sources = [], []
     for entry in cohort:
         run_dir = ROOT / entry["directory"]
@@ -85,7 +87,7 @@ def plot(here, *, title, labels, colors=COLORS, styles=STYLES,
                       else "Optimization trajectory · learning rate"),
                title_fontsize=10)
 
-    bounds = (-1.4, 1.22, -0.15, 1.48)
+    bounds = tuple(trajectory_domain) if trajectory_domain is not None else (-1.4, 1.22, -0.15, 1.48)
     start = histories[0]["theta"][0]
     for result in histories:
         np.testing.assert_array_equal(result["theta"][0], start)
@@ -159,6 +161,11 @@ def plot(here, *, title, labels, colors=COLORS, styles=STYLES,
     if cosine_window > 1:
         titles[1] = f"(c) Raw-gradient cosine: {cosine_window}-step trailing mean"
         titles[2] = f"(d) Momentum cosine: {cosine_window}-step trailing mean"
+    if noise_sigma is not None:
+        titles[1] = titles[1].replace("Raw-gradient", "Noisy-gradient")
+        titles[3] = "(e) Noisy-gradient and momentum vector norms"
+        titles[4] = "(f) A and B for noisy raw gradients"
+        titles[6] = "(h) B/A for noisy raw gradients"
     if norm_scale == "linear":
         quantities[3:6] = ["Euclidean norm", "Cumulative norm", "Cumulative norm"]
     for ax, title, label in zip(axes, titles, quantities):
@@ -221,15 +228,22 @@ def plot(here, *, title, labels, colors=COLORS, styles=STYLES,
     if turns:
         momentum_note += "  Diamonds and LR-colored dashed vertical lines mark the first y-turn."
     fig.text(0.09, 0.032, momentum_note, fontsize=10)
-    fig.text(0.09, 0.023, r"Vectors at update $t$ use $g_t=\nabla f(x_{t-1},y_{t-1})$; loss uses $(x_t,y_t)$.  First adjacent cosines are undefined.  B/A is undefined if A = 0.", fontsize=10)
-    destination = HERE / "figures/rosenbrock_learning_rates.pdf"
+    if noise_sigma is not None:
+        context = "Reused deterministic controls." if noise_sigma == 0 else "Noise seed: 1234."
+        indexing_note = (r"$g_t=\nabla f(x_{t-1},y_{t-1})+\xi_t$, $\xi_t\sim\mathcal{N}(0,\sigma^2 I_2)$; loss is exact.  "
+                         + context + "  First cosine and B/A at A = 0 are undefined.")
+    else:
+        indexing_note = r"Vectors at update $t$ use $g_t=\nabla f(x_{t-1},y_{t-1})$; loss uses $(x_t,y_t)$.  First adjacent cosines are undefined.  B/A is undefined if A = 0."
+    fig.text(0.09, 0.023, indexing_note, fontsize=10)
+    destination = HERE / f"figures/{figure_stem}.pdf"
     destination.parent.mkdir(exist_ok=True)
     scratch = HERE / "scratch"
     scratch.mkdir(exist_ok=True)
     fig.savefig(destination)
-    fig.savefig(scratch / "rosenbrock_learning_rates.png", dpi=130)
+    fig.savefig(scratch / f"{figure_stem}.png", dpi=130)
     plt.close(fig)
-    write_json(HERE / "figure_manifest.json", {
+    manifest_name = "figure_manifest.json" if figure_stem == "rosenbrock_learning_rates" else f"figure_manifest_{figure_stem}.json"
+    write_json(HERE / manifest_name, {
         "figure": str(destination.relative_to(ROOT)), "sha256": sha256(destination),
         "script": str((HERE / "02_plot.py").relative_to(ROOT)), "script_sha256": sha256(HERE / "02_plot.py"),
         "plot_implementation": str(Path(__file__).relative_to(ROOT)), "plot_implementation_sha256": sha256(Path(__file__)),
@@ -240,6 +254,7 @@ def plot(here, *, title, labels, colors=COLORS, styles=STYLES,
                       if cosine_window > 1 else None),
         "thinning": None, "trajectory_domain": list(bounds), "initial_point": start.tolist(),
         "trajectory_turns": trajectory_turns, "vertical_reference_lines": reference_lines,
+        "noise_sigma": noise_sigma,
         "y_scales": {panel: ax.get_yscale() for panel, ax in zip("bcdefghi", axes)},
         "adjacent_cosine_rendering": ("connected trailing means; complete finite windows only"
                                       if cosine_window > 1 else "one point per defined pair; no connecting lines"),

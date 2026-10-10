@@ -1,0 +1,90 @@
+{
+  "figure": "analyses\\014-2026-10-10-rosenbrock-gradient-noise\\figures\\rosenbrock_sigma_0.pdf",
+  "sha256": "f6580810460244ed05814746a617520eab43f1ce90e7df53240ef5c0fec63fda",
+  "script": "analyses\\014-2026-10-10-rosenbrock-gradient-noise\\02_plot.py",
+  "script_sha256": "2bd8897ff7bb18059b3c2ccaaf237da7af46fd0987fd4d0c939fd53a72f324cd",
+  "plot_implementation": "src\\controlled\\rosenbrock_plot.py",
+  "plot_implementation_sha256": "a5dd30cd61bdac5ce1c3be93ce49619113c75ebb48a14a73450ef0032a29c652",
+  "title": "Rosenbrock \u00b7 AdamW noisy gradients \u00b7 \u03c3 = 0, weight decay 0.1",
+  "sources": [
+    {
+      "run_id": "Run038",
+      "directory": "runs/038-2026-10-10-rosenbrock-adamw-new-start-lr-1e-2",
+      "sigma": 0.0,
+      "sigma_label": "0",
+      "learning_rate": 0.01,
+      "lr_label": "1e-2",
+      "control_directory": "runs/038-2026-10-10-rosenbrock-adamw-new-start-lr-1e-2",
+      "reused": true,
+      "history_sha256": "01557b3d9ce17d27e1f0abefc1ffea93e15c04d4cdd176e8ddc3aea95567355d",
+      "config_sha256": "24432dc281008751cc85d75d1ed88fc7c8a3cdf445e7d19a89bc01e0538c4c8b"
+    },
+    {
+      "run_id": "Run039",
+      "directory": "runs/039-2026-10-10-rosenbrock-adamw-new-start-lr-midpoint",
+      "sigma": 0.0,
+      "sigma_label": "0",
+      "learning_rate": 0.0031622776601683794,
+      "lr_label": "midpoint",
+      "control_directory": "runs/039-2026-10-10-rosenbrock-adamw-new-start-lr-midpoint",
+      "reused": true,
+      "history_sha256": "9bd29eedad165de26837d39141758df55904abf3b8deeb51c305131e95491828",
+      "config_sha256": "b48ffe46cb40c59f2183f4467297115c01a3cc15909ff4eecf02dccc8630eb6e"
+    },
+    {
+      "run_id": "Run040",
+      "directory": "runs/040-2026-10-10-rosenbrock-adamw-new-start-lr-1e-3",
+      "sigma": 0.0,
+      "sigma_label": "0",
+      "learning_rate": 0.001,
+      "lr_label": "1e-3",
+      "control_directory": "runs/040-2026-10-10-rosenbrock-adamw-new-start-lr-1e-3",
+      "reused": true,
+      "history_sha256": "84b001c8f3b39b9e0d95d19ad826e8c35d08a2f600d8507e0764c04fda30c2f4",
+      "config_sha256": "689c98f766120bffab7a34c73158e1354313c2d3fb10a18e906249665fb5417d"
+    }
+  ],
+  "panels": 9,
+  "dimensions_inches": [
+    16,
+    23
+  ],
+  "updates_per_run": 2000,
+  "smoothing": {
+    "panels": [
+      "c",
+      "d"
+    ],
+    "method": "trailing arithmetic mean",
+    "window_updates": 100,
+    "minimum_valid_values": 100
+  },
+  "thinning": null,
+  "trajectory_domain": [
+    -1.4,
+    1.22,
+    -0.15,
+    1.48
+  ],
+  "initial_point": [
+    0.0,
+    1.0
+  ],
+  "trajectory_turns": null,
+  "vertical_reference_lines": [],
+  "noise_sigma": 0.0,
+  "y_scales": {
+    "b": "log",
+    "c": "linear",
+    "d": "linear",
+    "e": "linear",
+    "f": "linear",
+    "g": "linear",
+    "h": "linear",
+    "i": "linear"
+  },
+  "adjacent_cosine_rendering": "connected trailing means; complete finite windows only",
+  "ratio_orientation": "B/A",
+  "zero_A": "undefined",
+  "first_cosine": "undefined"
+}

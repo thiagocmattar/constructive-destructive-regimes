@@ -1,0 +1,1038 @@
+{
+  "conditions": [
+    {
+      "run_id": "Run038",
+      "directory": "runs/038-2026-10-10-rosenbrock-adamw-new-start-lr-1e-2",
+      "sigma": 0.0,
+      "sigma_label": "0",
+      "learning_rate": 0.01,
+      "lr_label": "1e-2",
+      "control_directory": "runs/038-2026-10-10-rosenbrock-adamw-new-start-lr-1e-2",
+      "reused": true,
+      "history_sha256": "01557b3d9ce17d27e1f0abefc1ffea93e15c04d4cdd176e8ddc3aea95567355d",
+      "final_loss": 0.0009722630595963418,
+      "final_point": [
+        0.9693563324802891,
+        0.9402281427300229
+      ],
+      "final_gradient_norm": 0.30724897006034635,
+      "first_convergence_threshold_update": null,
+      "final_100_updates_meet_threshold": false,
+      "late_loss_median": 0.0009910590606945207,
+      "late_loss_min": 0.0009267890787629013,
+      "late_loss_max": 0.0010670203524199085,
+      "loss_increase_fraction": 0.4435,
+      "streams": {
+        "raw": {
+          "final_A": 9016.680425456021,
+          "final_B": 7414.5097244681865,
+          "final_B_over_A": 0.8223103597567278,
+          "negative_cosine_fraction": 0.6988494247123562,
+          "late_mean_cosine": -0.6588024769591907,
+          "late_median_cosine": -0.9850801456312778,
+          "late_mean_norm": 0.32275885221495687,
+          "final_energy": 1171013.7432348933,
+          "final_all_pair": 53803940.71099841,
+          "final_lag_one": 2300118.108584079,
+          "defined_pairs": 1999
+        },
+        "momentum": {
+          "final_A": 8051.030365940661,
+          "final_B": 7414.595395328403,
+          "final_B_over_A": 0.9209498732852067,
+          "negative_cosine_fraction": 0.005502751375687844,
+          "late_mean_cosine": 0.6416643981459801,
+          "late_median_cosine": 0.6309520952642942,
+          "late_mean_norm": 0.038189105379026145,
+          "final_energy": 946991.6267401759,
+          "final_all_pair": 54029233.24968499,
+          "final_lag_one": 1891494.1180616806,
+          "defined_pairs": 1999
+        }
+      },
+      "noise": {}
+    },
+    {
+      "run_id": "Run039",
+      "directory": "runs/039-2026-10-10-rosenbrock-adamw-new-start-lr-midpoint",
+      "sigma": 0.0,
+      "sigma_label": "0",
+      "learning_rate": 0.0031622776601683794,
+      "lr_label": "midpoint",
+      "control_directory": "runs/039-2026-10-10-rosenbrock-adamw-new-start-lr-midpoint",
+      "reused": true,
+      "history_sha256": "9bd29eedad165de26837d39141758df55904abf3b8deeb51c305131e95491828",
+      "final_loss": 0.00011795811865859671,
+      "final_point": [
+        0.9896366979357687,
+        0.9797057568065426
+      ],
+      "final_gradient_norm": 0.1628921313015886,
+      "first_convergence_threshold_update": null,
+      "final_100_updates_meet_threshold": false,
+      "late_loss_median": 0.00011189108274105576,
+      "late_loss_min": 0.00010525967067664174,
+      "late_loss_max": 0.00011965979275317555,
+      "loss_increase_fraction": 0.3625,
+      "streams": {
+        "raw": {
+          "final_A": 25112.309187094714,
+          "final_B": 23907.220011849622,
+          "final_B_over_A": 0.9520120126641165,
+          "negative_cosine_fraction": 0.5967983991995998,
+          "late_mean_cosine": -0.6579909255644913,
+          "late_median_cosine": -0.9843791993664659,
+          "late_mean_norm": 0.1051924371354965,
+          "final_energy": 3633371.455411103,
+          "final_all_pair": 567921797.2395719,
+          "final_lag_one": 7226341.79714154,
+          "defined_pairs": 1999
+        },
+        "momentum": {
+          "final_A": 24871.790113755025,
+          "final_B": 23907.275505325415,
+          "final_B_over_A": 0.9612205392527738,
+          "negative_cosine_fraction": 0.0,
+          "late_mean_cosine": 0.6581966248994557,
+          "late_median_cosine": 0.6489223298194932,
+          "late_mean_norm": 0.012682614501283388,
+          "final_energy": 3428578.961808247,
+          "final_all_pair": 568129243.1257243,
+          "final_lag_one": 6854882.451388311,
+          "defined_pairs": 1999
+        }
+      },
+      "noise": {}
+    },
+    {
+      "run_id": "Run040",
+      "directory": "runs/040-2026-10-10-rosenbrock-adamw-new-start-lr-1e-3",
+      "sigma": 0.0,
+      "sigma_label": "0",
+      "learning_rate": 0.001,
+      "lr_label": "1e-3",
+      "control_directory": "runs/040-2026-10-10-rosenbrock-adamw-new-start-lr-1e-3",
+      "reused": true,
+      "history_sha256": "84b001c8f3b39b9e0d95d19ad826e8c35d08a2f600d8507e0764c04fda30c2f4",
+      "final_loss": 1.1047135695278591e-05,
+      "final_point": [
+        0.9966943578112849,
+        0.9933650213077523
+      ],
+      "final_gradient_norm": 0.009983228941723933,
+      "first_convergence_threshold_update": null,
+      "final_100_updates_meet_threshold": false,
+      "late_loss_median": 2.9398186216371925e-05,
+      "late_loss_min": 1.099278711084565e-05,
+      "late_loss_max": 0.04716181041584069,
+      "loss_increase_fraction": 0.1315,
+      "streams": {
+        "raw": {
+          "final_A": 76771.07775281776,
+          "final_B": 74202.92275999753,
+          "final_B_over_A": 0.9665478840731011,
+          "negative_cosine_fraction": 0.25012506253126565,
+          "late_mean_cosine": -0.006124769065317935,
+          "late_median_cosine": -0.010044368551848759,
+          "late_mean_norm": 0.07211689841501742,
+          "final_energy": 11296356.148571875,
+          "final_all_pair": 5494777389.977587,
+          "final_lag_one": 22552598.477367364,
+          "defined_pairs": 1999
+        },
+        "momentum": {
+          "final_A": 76726.45966733934,
+          "final_B": 74202.91424467786,
+          "final_B_over_A": 0.9671098414601332,
+          "negative_cosine_fraction": 0.0,
+          "late_mean_cosine": 0.8359464771270397,
+          "late_median_cosine": 0.9830259288792436,
+          "late_mean_norm": 0.056867029721286606,
+          "final_energy": 11101167.020270891,
+          "final_all_pair": 5494971315.382745,
+          "final_lag_one": 22200165.27243003,
+          "defined_pairs": 1999
+        }
+      },
+      "noise": {}
+    },
+    {
+      "run_id": "Run041",
+      "directory": "runs/041-2026-10-10-rosenbrock-noise-sigma-1e-2-lr-1e-2",
+      "sigma": 0.01,
+      "sigma_label": "1e-2",
+      "learning_rate": 0.01,
+      "lr_label": "1e-2",
+      "control_directory": "runs/038-2026-10-10-rosenbrock-adamw-new-start-lr-1e-2",
+      "reused": false,
+      "history_sha256": "38c388591f67e642998bdaf6490de986d696fa3e1fecb26f1c69abb29bb301c8",
+      "final_loss": 0.001104936266200493,
+      "final_point": [
+        0.968648422376302,
+        0.9371751628645456
+      ],
+      "final_gradient_norm": 0.4268953201385867,
+      "first_convergence_threshold_update": null,
+      "final_100_updates_meet_threshold": false,
+      "late_loss_median": 0.001109916271691924,
+      "late_loss_min": 0.0007454674328458016,
+      "late_loss_max": 0.0018513376679454574,
+      "loss_increase_fraction": 0.433,
+      "streams": {
+        "raw": {
+          "final_A": 9036.090209460393,
+          "final_B": 7415.021747245582,
+          "final_B_over_A": 0.8206006774348464,
+          "negative_cosine_fraction": 0.6578289144572286,
+          "late_mean_cosine": -0.5204746050328368,
+          "late_median_cosine": -0.9695395121216155,
+          "late_mean_norm": 0.33884838569640485,
+          "final_energy": 1171056.4794311163,
+          "final_all_pair": 53811491.03269382,
+          "final_lag_one": 2300146.000514448,
+          "defined_pairs": 1999
+        },
+        "momentum": {
+          "final_A": 8054.658682047124,
+          "final_B": 7414.80854490498,
+          "final_B_over_A": 0.9205614834346373,
+          "negative_cosine_fraction": 0.03551775887943972,
+          "late_mean_cosine": 0.6609366794787107,
+          "late_median_cosine": 0.7555569025683215,
+          "late_mean_norm": 0.042289731315494294,
+          "final_energy": 946994.998861241,
+          "final_all_pair": 54032390.75873467,
+          "final_lag_one": 1891500.4227148255,
+          "defined_pairs": 1999
+        }
+      },
+      "noise": {
+        "empirical_mean": [
+          8.469308500760492e-05,
+          -0.0003077307583667359
+        ],
+        "empirical_covariance": [
+          [
+            9.859946286980535e-05,
+            -1.901963480185841e-06
+          ],
+          [
+            -1.901963480185841e-06,
+            0.00010340211278146118
+          ]
+        ],
+        "final_B_squared": 0.407484553172287,
+        "final_energy": 0.40400489200346834,
+        "ensemble_expectation_final_B_squared_and_energy": 0.4,
+        "final_prefix_cross": -9363.22910938547,
+        "final_temporal_cross": -9380.70564080447
+      }
+    },
+    {
+      "run_id": "Run042",
+      "directory": "runs/042-2026-10-10-rosenbrock-noise-sigma-1e-2-lr-midpoint",
+      "sigma": 0.01,
+      "sigma_label": "1e-2",
+      "learning_rate": 0.0031622776601683794,
+      "lr_label": "midpoint",
+      "control_directory": "runs/039-2026-10-10-rosenbrock-adamw-new-start-lr-midpoint",
+      "reused": false,
+      "history_sha256": "795793be4314222cddcc6315994c49892464928ff5f0d10058a9efa860a0e697",
+      "final_loss": 0.00013482554257756413,
+      "final_point": [
+        0.9890259232585135,
+        0.9785516867118286
+      ],
+      "final_gradient_norm": 0.18803752747661034,
+      "first_convergence_threshold_update": null,
+      "final_100_updates_meet_threshold": false,
+      "late_loss_median": 0.00014702496530371255,
+      "late_loss_min": 6.834780638398646e-05,
+      "late_loss_max": 0.00024596692761736435,
+      "loss_increase_fraction": 0.338,
+      "streams": {
+        "raw": {
+          "final_A": 25130.307008482607,
+          "final_B": 23907.224201720044,
+          "final_B_over_A": 0.9513303674981083,
+          "negative_cosine_fraction": 0.5102551275637819,
+          "late_mean_cosine": -0.37049211267821397,
+          "late_median_cosine": -0.9271881304789764,
+          "late_mean_norm": 0.11897900573518855,
+          "final_energy": 3633399.032436308,
+          "final_all_pair": 567921969.9988724,
+          "final_lag_one": 7226381.839582579,
+          "defined_pairs": 1999
+        },
+        "momentum": {
+          "final_A": 24875.070731883854,
+          "final_B": 23907.257366307687,
+          "final_B_over_A": 0.9610930406587482,
+          "negative_cosine_fraction": 0.05252626313156578,
+          "late_mean_cosine": 0.6599974949895434,
+          "late_median_cosine": 0.8052919328219721,
+          "late_mean_norm": 0.015778098967027282,
+          "final_energy": 3428591.3705959637,
+          "final_all_pair": 568128363.4082773,
+          "final_lag_one": 6854907.1004528375,
+          "defined_pairs": 1999
+        }
+      },
+      "noise": {
+        "empirical_mean": [
+          8.469308500760492e-05,
+          -0.0003077307583667359
+        ],
+        "empirical_covariance": [
+          [
+            9.859946286980535e-05,
+            -1.901963480185841e-06
+          ],
+          [
+            -1.901963480185841e-06,
+            0.00010340211278146118
+          ]
+        ],
+        "final_B_squared": 0.407484553172287,
+        "final_energy": 0.40400489200346834,
+        "ensemble_expectation_final_B_squared_and_energy": 0.4,
+        "final_prefix_cross": -30093.912194755827,
+        "final_temporal_cross": -30119.62902354814
+      }
+    },
+    {
+      "run_id": "Run043",
+      "directory": "runs/043-2026-10-10-rosenbrock-noise-sigma-1e-2-lr-1e-3",
+      "sigma": 0.01,
+      "sigma_label": "1e-2",
+      "learning_rate": 0.001,
+      "lr_label": "1e-3",
+      "control_directory": "runs/040-2026-10-10-rosenbrock-adamw-new-start-lr-1e-3",
+      "reused": false,
+      "history_sha256": "c5c44f448a498b710319a959e667e29fac3c934bb5aeb1405c28afc33626ef20",
+      "final_loss": 2.0010786276283516e-05,
+      "final_point": [
+        0.9955308742859084,
+        0.9910623047494178
+      ],
+      "final_gradient_norm": 0.004066394938873764,
+      "first_convergence_threshold_update": null,
+      "final_100_updates_meet_threshold": false,
+      "late_loss_median": 0.0001226338052077711,
+      "late_loss_min": 1.1447990424274999e-05,
+      "late_loss_max": 0.04727722774826763,
+      "loss_increase_fraction": 0.121,
+      "streams": {
+        "raw": {
+          "final_A": 76784.54247234322,
+          "final_B": 74205.80521694153,
+          "final_B_over_A": 0.966415932525345,
+          "negative_cosine_fraction": 0.16808404202101052,
+          "late_mean_cosine": 0.3100011683091535,
+          "late_median_cosine": 0.8267345854439263,
+          "late_mean_norm": 0.08579234175547373,
+          "final_energy": 11296360.1350936,
+          "final_all_pair": 5495205167.759573,
+          "final_lag_one": 22552602.721274886,
+          "defined_pairs": 1999
+        },
+        "momentum": {
+          "final_A": 76728.64856622269,
+          "final_B": 74205.7947650646,
+          "final_B_over_A": 0.967119793606417,
+          "negative_cosine_fraction": 0.018009004502251125,
+          "late_mean_cosine": 0.8519274928766588,
+          "late_median_cosine": 0.9905590169734657,
+          "late_mean_norm": 0.05936142077526434,
+          "final_energy": 11101162.449112246,
+          "final_all_pair": 5495398814.265776,
+          "final_lag_one": 22200156.035035796,
+          "defined_pairs": 1999
+        }
+      },
+      "noise": {
+        "empirical_mean": [
+          8.469308500760492e-05,
+          -0.0003077307583667359
+        ],
+        "empirical_covariance": [
+          [
+            9.859946286980535e-05,
+            -1.901963480185841e-06
+          ],
+          [
+            -1.901963480185841e-06,
+            0.00010340211278146118
+          ]
+        ],
+        "final_B_squared": 0.407484553172287,
+        "final_energy": 0.40400489200346834,
+        "ensemble_expectation_final_B_squared_and_energy": 0.4,
+        "final_prefix_cross": -93537.1659227835,
+        "final_temporal_cross": -93541.00699412725
+      }
+    },
+    {
+      "run_id": "Run044",
+      "directory": "runs/044-2026-10-10-rosenbrock-noise-sigma-1e-1-lr-1e-2",
+      "sigma": 0.1,
+      "sigma_label": "1e-1",
+      "learning_rate": 0.01,
+      "lr_label": "1e-2",
+      "control_directory": "runs/038-2026-10-10-rosenbrock-adamw-new-start-lr-1e-2",
+      "reused": false,
+      "history_sha256": "5942002dfeebff0d84d2aaa383d69c0cc8ae0831397b6bd5790d87bbdbe27ae8",
+      "final_loss": 0.0014149898455115314,
+      "final_point": [
+        0.9638171775585571,
+        0.9279149935151185
+      ],
+      "final_gradient_norm": 0.38393260662392115,
+      "first_convergence_threshold_update": null,
+      "final_100_updates_meet_threshold": false,
+      "late_loss_median": 0.002238163926345414,
+      "late_loss_min": 0.00047340967119641317,
+      "late_loss_max": 0.004484594443947098,
+      "loss_increase_fraction": 0.4275,
+      "streams": {
+        "raw": {
+          "final_A": 9329.02700137215,
+          "final_B": 7411.606036665614,
+          "final_B_over_A": 0.7944672081638832,
+          "negative_cosine_fraction": 0.4822411205602801,
+          "late_mean_cosine": -0.1122107422891415,
+          "late_median_cosine": -0.49193911278954283,
+          "late_mean_norm": 0.5100624372081638,
+          "final_energy": 1171499.9707083441,
+          "final_all_pair": 53760404.07202983,
+          "final_lag_one": 2300527.085556684,
+          "defined_pairs": 1999
+        },
+        "momentum": {
+          "final_A": 8099.2025965969915,
+          "final_B": 7411.4241772384485,
+          "final_B_over_A": 0.9150807241632004,
+          "negative_cosine_fraction": 0.096048024012006,
+          "late_mean_cosine": 0.6102939786781413,
+          "late_median_cosine": 0.8215572724584311,
+          "late_mean_norm": 0.06857991976532278,
+          "final_energy": 947032.7784377938,
+          "final_all_pair": 53982175.55651682,
+          "final_lag_one": 1891571.4757983768,
+          "defined_pairs": 1999
+        }
+      },
+      "noise": {
+        "empirical_mean": [
+          0.0008469308500760493,
+          -0.003077307583667359
+        ],
+        "empirical_covariance": [
+          [
+            0.009859946286980533,
+            -0.00019019634801858412
+          ],
+          [
+            -0.00019019634801858412,
+            0.01034021127814612
+          ]
+        ],
+        "final_B_squared": 40.748455317228704,
+        "final_energy": 40.400489200346826,
+        "ensemble_expectation_final_B_squared_and_energy": 40.00000000000001,
+        "final_prefix_cross": -93595.82482245036,
+        "final_temporal_cross": -93777.61061489298
+      }
+    },
+    {
+      "run_id": "Run045",
+      "directory": "runs/045-2026-10-10-rosenbrock-noise-sigma-1e-1-lr-midpoint",
+      "sigma": 0.1,
+      "sigma_label": "1e-1",
+      "learning_rate": 0.0031622776601683794,
+      "lr_label": "midpoint",
+      "control_directory": "runs/039-2026-10-10-rosenbrock-adamw-new-start-lr-midpoint",
+      "reused": false,
+      "history_sha256": "31dd19be9c230f5be7ff899547d9ee74016d3bcae5fb919cdbbc60b6f4e76fc9",
+      "final_loss": 0.0004115918811373463,
+      "final_point": [
+        0.9810881694290153,
+        0.9632683976205337
+      ],
+      "final_gradient_norm": 0.35758707971781,
+      "first_convergence_threshold_update": null,
+      "final_100_updates_meet_threshold": false,
+      "late_loss_median": 0.0007724722798790483,
+      "late_loss_min": 0.00015605740295129662,
+      "late_loss_max": 0.0014661014799827266,
+      "loss_increase_fraction": 0.3295,
+      "streams": {
+        "raw": {
+          "final_A": 25411.19756282207,
+          "final_B": 23904.503736717634,
+          "final_B_over_A": 0.9407074844709873,
+          "negative_cosine_fraction": 0.3166583291645823,
+          "late_mean_cosine": 0.1538403978214468,
+          "late_median_cosine": 0.41771290065494915,
+          "late_mean_norm": 0.3033773302944128,
+          "final_energy": 3633749.128175215,
+          "final_all_pair": 567791549.7705721,
+          "final_lag_one": 7226872.003938282,
+          "defined_pairs": 1999
+        },
+        "momentum": {
+          "final_A": 24927.50347860511,
+          "final_B": 23904.616309482743,
+          "final_B_over_A": 0.9589655189497698,
+          "negative_cosine_fraction": 0.06653326663331666,
+          "late_mean_cosine": 0.662451608846108,
+          "late_median_cosine": 0.8992919656229861,
+          "late_mean_norm": 0.04737966910164865,
+          "final_energy": 3428718.610332158,
+          "final_all_pair": 568001962.2932562,
+          "final_lag_one": 6855159.103468925,
+          "defined_pairs": 1999
+        }
+      },
+      "noise": {
+        "empirical_mean": [
+          0.0008469308500760493,
+          -0.003077307583667359
+        ],
+        "empirical_covariance": [
+          [
+            0.009859946286980533,
+            -0.00019019634801858412
+          ],
+          [
+            -0.00019019634801858412,
+            0.01034021127814612
+          ]
+        ],
+        "final_B_squared": 40.748455317228704,
+        "final_energy": 40.400489200346826,
+        "ensemble_expectation_final_B_squared_and_energy": 40.00000000000001,
+        "final_prefix_cross": -300885.67937684734,
+        "final_temporal_cross": -301144.1364482477
+      }
+    },
+    {
+      "run_id": "Run046",
+      "directory": "runs/046-2026-10-10-rosenbrock-noise-sigma-1e-1-lr-1e-3",
+      "sigma": 0.1,
+      "sigma_label": "1e-1",
+      "learning_rate": 0.001,
+      "lr_label": "1e-3",
+      "control_directory": "runs/040-2026-10-10-rosenbrock-adamw-new-start-lr-1e-3",
+      "reused": false,
+      "history_sha256": "f6c9eb94f50e1287eb3390149ff36142d6ceeda5f56db957989f6661335b80f2",
+      "final_loss": 0.0005172200452051057,
+      "final_point": [
+        0.9773761859773737,
+        0.9554962236625093
+      ],
+      "final_gradient_norm": 0.14365478605123366,
+      "first_convergence_threshold_update": null,
+      "final_100_updates_meet_threshold": false,
+      "late_loss_median": 0.00407296432188657,
+      "late_loss_min": 0.0004633196169828611,
+      "late_loss_max": 0.051052718363724874,
+      "loss_increase_fraction": 0.084,
+      "streams": {
+        "raw": {
+          "final_A": 76912.61953613172,
+          "final_B": 74209.50459556331,
+          "final_B_over_A": 0.9648547279123869,
+          "negative_cosine_fraction": 0.14607303651825912,
+          "late_mean_cosine": 0.3421624517695932,
+          "late_median_cosine": 0.643434914299633,
+          "late_mean_norm": 0.20837983312594507,
+          "final_energy": 11296472.393516613,
+          "final_all_pair": 5495754099.925416,
+          "final_lag_one": 22552726.415496226,
+          "defined_pairs": 1999
+        },
+        "momentum": {
+          "final_A": 76766.07346010611,
+          "final_B": 74209.50883963113,
+          "final_B_over_A": 0.9666966863714401,
+          "negative_cosine_fraction": 0.0030015007503751876,
+          "late_mean_cosine": 0.9381225645183098,
+          "late_median_cosine": 0.9882019623339082,
+          "late_mean_norm": 0.09795998341473995,
+          "final_energy": 11101158.524157662,
+          "final_all_pair": 5495950043.695134,
+          "final_lag_one": 22200146.89420944,
+          "defined_pairs": 1999
+        }
+      },
+      "noise": {
+        "empirical_mean": [
+          0.0008469308500760493,
+          -0.003077307583667359
+        ],
+        "empirical_covariance": [
+          [
+            0.009859946286980533,
+            -0.00019019634801858412
+          ],
+          [
+            -0.00019019634801858412,
+            0.01034021127814612
+          ]
+        ],
+        "final_B_squared": 40.748455317228704,
+        "final_energy": 40.400489200346826,
+        "ensemble_expectation_final_B_squared_and_energy": 40.00000000000001,
+        "final_prefix_cross": -935391.3668382966,
+        "final_temporal_cross": -935430.0138083433
+      }
+    },
+    {
+      "run_id": "Run047",
+      "directory": "runs/047-2026-10-10-rosenbrock-noise-sigma-1-lr-1e-2",
+      "sigma": 1.0,
+      "sigma_label": "1",
+      "learning_rate": 0.01,
+      "lr_label": "1e-2",
+      "control_directory": "runs/038-2026-10-10-rosenbrock-adamw-new-start-lr-1e-2",
+      "reused": false,
+      "history_sha256": "879a403f36363c33d703c64831d140f06b3be5eab4d3cae5717388c276805076",
+      "final_loss": 0.008512326121486977,
+      "final_point": [
+        0.911338777161012,
+        0.8330908433707029
+      ],
+      "final_gradient_norm": 1.2197565156257462,
+      "first_convergence_threshold_update": null,
+      "final_100_updates_meet_threshold": false,
+      "late_loss_median": 0.015407850463034868,
+      "late_loss_min": 0.003775418571552712,
+      "late_loss_max": 0.03921619869155983,
+      "loss_increase_fraction": 0.4545,
+      "streams": {
+        "raw": {
+          "final_A": 11838.204535805433,
+          "final_B": 7364.416223245484,
+          "final_B_over_A": 0.6220889494662235,
+          "negative_cosine_fraction": 0.3486743371685843,
+          "late_mean_cosine": 0.21213175836282774,
+          "late_median_cosine": 0.4782847885133937,
+          "late_mean_norm": 1.8930054723105818,
+          "final_energy": 1180654.0486059512,
+          "final_all_pair": 53053972.26059533,
+          "final_lag_one": 2307917.171231744,
+          "defined_pairs": 1999
+        },
+        "momentum": {
+          "final_A": 8555.871234719438,
+          "final_B": 7363.788374830592,
+          "final_B_over_A": 0.8606707806621243,
+          "negative_cosine_fraction": 0.07603801900950476,
+          "late_mean_cosine": 0.7171188089353869,
+          "late_median_cosine": 0.9243422583684922,
+          "late_mean_norm": 0.3372170999486732,
+          "final_energy": 947925.7924144359,
+          "final_all_pair": 53277453.43687574,
+          "final_lag_one": 1893265.7027463918,
+          "defined_pairs": 1999
+        }
+      },
+      "noise": {
+        "empirical_mean": [
+          0.008469308500760466,
+          -0.030773075836673592
+        ],
+        "empirical_covariance": [
+          [
+            0.9859946286980537,
+            -0.01901963480185839
+          ],
+          [
+            -0.01901963480185839,
+            1.034021127814612
+          ]
+        ],
+        "final_B_squared": 4074.84553172287,
+        "final_energy": 4040.048920034683,
+        "ensemble_expectation_final_B_squared_and_energy": 4000.0,
+        "final_prefix_cross": -932079.2275752584,
+        "final_temporal_cross": -933815.6802130936
+      }
+    },
+    {
+      "run_id": "Run048",
+      "directory": "runs/048-2026-10-10-rosenbrock-noise-sigma-1-lr-midpoint",
+      "sigma": 1.0,
+      "sigma_label": "1",
+      "learning_rate": 0.0031622776601683794,
+      "lr_label": "midpoint",
+      "control_directory": "runs/039-2026-10-10-rosenbrock-adamw-new-start-lr-midpoint",
+      "reused": false,
+      "history_sha256": "94cb1c9e7bf4eb17e328a8981b79f97ee56f644e79cba3e5e7e0cfdfcfdfe87a",
+      "final_loss": 0.012598463325143094,
+      "final_point": [
+        0.8914790732717636,
+        0.7976014198748798
+      ],
+      "final_gradient_norm": 1.3653931329528686,
+      "first_convergence_threshold_update": null,
+      "final_100_updates_meet_threshold": false,
+      "late_loss_median": 0.017595706527469113,
+      "late_loss_min": 0.010297292598343423,
+      "late_loss_max": 0.03298374010327929,
+      "loss_increase_fraction": 0.3715,
+      "streams": {
+        "raw": {
+          "final_A": 27582.149475997616,
+          "final_B": 23823.185177070303,
+          "final_B_over_A": 0.8637174995299617,
+          "negative_cosine_fraction": 0.3551775887943972,
+          "late_mean_cosine": 0.14408460062395376,
+          "late_median_cosine": 0.30332902517901394,
+          "late_mean_norm": 1.5628604754168423,
+          "final_energy": 3642142.3034235183,
+          "final_all_pair": 563902009.6775587,
+          "final_lag_one": 7234796.332795765,
+          "defined_pairs": 1999
+        },
+        "momentum": {
+          "final_A": 25422.080838131078,
+          "final_B": 23824.366067206236,
+          "final_B_over_A": 0.9371524785442269,
+          "negative_cosine_fraction": 0.03501750875437719,
+          "late_mean_cosine": 0.8054727842690087,
+          "late_median_cosine": 0.9591890962690198,
+          "late_mean_norm": 0.346280413469152,
+          "final_energy": 3431177.0935460874,
+          "final_all_pair": 564169241.4107019,
+          "final_lag_one": 6860010.075836906,
+          "defined_pairs": 1999
+        }
+      },
+      "noise": {
+        "empirical_mean": [
+          0.008469308500760466,
+          -0.030773075836673592
+        ],
+        "empirical_covariance": [
+          [
+            0.9859946286980537,
+            -0.01901963480185839
+          ],
+          [
+            -0.01901963480185839,
+            1.034021127814612
+          ]
+        ],
+        "final_B_squared": 4074.84553172287,
+        "final_energy": 4040.048920034683,
+        "ensemble_expectation_final_B_squared_and_energy": 4000.0,
+        "final_prefix_cross": -3000237.8562066527,
+        "final_temporal_cross": -3002811.2873065462
+      }
+    },
+    {
+      "run_id": "Run049",
+      "directory": "runs/049-2026-10-10-rosenbrock-noise-sigma-1-lr-1e-3",
+      "sigma": 1.0,
+      "sigma_label": "1",
+      "learning_rate": 0.001,
+      "lr_label": "1e-3",
+      "control_directory": "runs/040-2026-10-10-rosenbrock-adamw-new-start-lr-1e-3",
+      "reused": false,
+      "history_sha256": "838004d833c9e0bcbe09df9f86072a4c6efce97812e255c3d97bdb109d327cbe",
+      "final_loss": 0.04135830447215733,
+      "final_point": [
+        0.7972666554938274,
+        0.6340294533380612
+      ],
+      "final_gradient_norm": 0.3380709643791228,
+      "first_convergence_threshold_update": null,
+      "final_100_updates_meet_threshold": false,
+      "late_loss_median": 0.06181117041256023,
+      "late_loss_min": 0.04101880097552445,
+      "late_loss_max": 0.10625424344705216,
+      "loss_increase_fraction": 0.133,
+      "streams": {
+        "raw": {
+          "final_A": 78455.44208236609,
+          "final_B": 74136.73271428511,
+          "final_B_over_A": 0.9449533486339036,
+          "negative_cosine_fraction": 0.2971485742871436,
+          "late_mean_cosine": 0.08354660598831658,
+          "late_median_cosine": 0.1674745757260423,
+          "late_mean_norm": 1.3737149478914852,
+          "final_energy": 11304025.014249014,
+          "final_all_pair": 5484951112.535104,
+          "final_lag_one": 22559541.189670034,
+          "defined_pairs": 1999
+        },
+        "momentum": {
+          "final_A": 77179.11807558227,
+          "final_B": 74138.01584706153,
+          "final_B_over_A": 0.9605968258727372,
+          "negative_cosine_fraction": 0.008504252126063032,
+          "late_mean_cosine": 0.906363965367945,
+          "late_median_cosine": 0.9798817388513397,
+          "late_mean_norm": 0.42761459799384094,
+          "final_energy": 11104050.601953913,
+          "final_all_pair": 5485341343.137193,
+          "final_lag_one": 22205879.242241234,
+          "defined_pairs": 1999
+        }
+      },
+      "noise": {
+        "empirical_mean": [
+          0.008469308500760466,
+          -0.030773075836673592
+        ],
+        "empirical_covariance": [
+          [
+            0.9859946286980537,
+            -0.01901963480185839
+          ],
+          [
+            -0.01901963480185839,
+            1.034021127814612
+          ]
+        ],
+        "final_B_squared": 4074.84553172287,
+        "final_energy": 4040.048920034683,
+        "ensemble_expectation_final_B_squared_and_energy": 4000.0,
+        "final_prefix_cross": -9348292.084857354,
+        "final_temporal_cross": -9348693.047515381
+      }
+    },
+    {
+      "run_id": "Run050",
+      "directory": "runs/050-2026-10-10-rosenbrock-noise-sigma-10-lr-1e-2",
+      "sigma": 10.0,
+      "sigma_label": "10",
+      "learning_rate": 0.01,
+      "lr_label": "1e-2",
+      "control_directory": "runs/038-2026-10-10-rosenbrock-adamw-new-start-lr-1e-2",
+      "reused": false,
+      "history_sha256": "4c7471cdb8aa3b42290114ca9a7e4be59fa94af09015b65aded5cc7f9e2a1f10",
+      "final_loss": 0.11738595072406453,
+      "final_point": [
+        0.6655255100850812,
+        0.43549940402435006
+      ],
+      "final_gradient_norm": 1.9786225038392502,
+      "first_convergence_threshold_update": null,
+      "final_100_updates_meet_threshold": false,
+      "late_loss_median": 0.14473962439307753,
+      "late_loss_min": 0.06780596004477647,
+      "late_loss_max": 0.35159922315220415,
+      "loss_increase_fraction": 0.475,
+      "streams": {
+        "raw": {
+          "final_A": 33736.78260716215,
+          "final_B": 7512.428743829731,
+          "final_B_over_A": 0.222677687772007,
+          "negative_cosine_fraction": 0.4607303651825913,
+          "late_mean_cosine": 0.030792424809367013,
+          "late_median_cosine": 0.05119734363481306,
+          "late_mean_norm": 13.283454516944326,
+          "final_energy": 1644895.0565201032,
+          "final_all_pair": 54791690.57459904,
+          "final_lag_one": 2408758.35981315,
+          "defined_pairs": 1999
+        },
+        "momentum": {
+          "final_A": 13473.251134448137,
+          "final_B": 7515.3820035994895,
+          "final_B_over_A": 0.5578001870969592,
+          "negative_cosine_fraction": 0.04752376188094047,
+          "late_mean_cosine": 0.8221898063029491,
+          "late_median_cosine": 0.9549427290204113,
+          "late_mean_norm": 2.9444583075463564,
+          "final_energy": 993115.461072004,
+          "final_all_pair": 55487851.198955074,
+          "final_lag_one": 1978985.1630754902,
+          "defined_pairs": 1999
+        }
+      },
+      "noise": {
+        "empirical_mean": [
+          0.08469308500760472,
+          -0.3077307583667358
+        ],
+        "empirical_covariance": [
+          [
+            98.59946286980534,
+            -1.901963480185838
+          ],
+          [
+            -1.901963480185838,
+            103.4021127814612
+          ]
+        ],
+        "final_B_squared": 407484.5531722869,
+        "final_energy": 404004.89200346725,
+        "ensemble_expectation_final_B_squared_and_energy": 400000.0,
+        "final_prefix_cross": -9976666.076626511,
+        "final_temporal_cross": -9996675.618565287
+      }
+    },
+    {
+      "run_id": "Run051",
+      "directory": "runs/051-2026-10-10-rosenbrock-noise-sigma-10-lr-midpoint",
+      "sigma": 10.0,
+      "sigma_label": "10",
+      "learning_rate": 0.0031622776601683794,
+      "lr_label": "midpoint",
+      "control_directory": "runs/039-2026-10-10-rosenbrock-adamw-new-start-lr-midpoint",
+      "reused": false,
+      "history_sha256": "a59c5d3d4e90f3e39bbf96e61b6cb7ea4d265a094e6cc174e53a1ce73c140633",
+      "final_loss": 0.13555497639246333,
+      "final_point": [
+        0.6336378473879619,
+        0.405148975209879
+      ],
+      "final_gradient_norm": 1.8120829444907958,
+      "first_convergence_threshold_update": null,
+      "final_100_updates_meet_threshold": false,
+      "late_loss_median": 0.14858806793137128,
+      "late_loss_min": 0.12629669177192537,
+      "late_loss_max": 0.22504456338479695,
+      "loss_increase_fraction": 0.444,
+      "streams": {
+        "raw": {
+          "final_A": 48241.15788114648,
+          "final_B": 24221.95066979203,
+          "final_B_over_A": 0.5021013535676019,
+          "negative_cosine_fraction": 0.45522761380690346,
+          "late_mean_cosine": -0.009607915527507614,
+          "late_median_cosine": -0.021929411235195387,
+          "late_mean_norm": 12.766360406828836,
+          "final_energy": 4122832.187232997,
+          "final_all_pair": 582580062.0626056,
+          "final_lag_one": 7378864.919342868,
+          "defined_pairs": 1999
+        },
+        "momentum": {
+          "final_A": 30421.77747514465,
+          "final_B": 24238.08172554573,
+          "final_B_over_A": 0.7967345677072567,
+          "negative_cosine_fraction": 0.04552276138069034,
+          "late_mean_cosine": 0.8106082179710524,
+          "late_median_cosine": 0.9661262020502912,
+          "late_mean_norm": 2.8806267317784817,
+          "final_energy": 3516929.5327378507,
+          "final_all_pair": 583967676.201496,
+          "final_lag_one": 7027116.860071168,
+          "defined_pairs": 1999
+        }
+      },
+      "noise": {
+        "empirical_mean": [
+          0.08469308500760472,
+          -0.3077307583667358
+        ],
+        "empirical_covariance": [
+          [
+            98.59946286980534,
+            -1.901963480185838
+          ],
+          [
+            -1.901963480185838,
+            103.4021127814612
+          ]
+        ],
+        "final_B_squared": 407484.5531722869,
+        "final_energy": 404004.89200346725,
+        "ensemble_expectation_final_B_squared_and_energy": 400000.0,
+        "final_prefix_cross": -31180453.331799567,
+        "final_temporal_cross": -31207252.64714736
+      }
+    },
+    {
+      "run_id": "Run052",
+      "directory": "runs/052-2026-10-10-rosenbrock-noise-sigma-10-lr-1e-3",
+      "sigma": 10.0,
+      "sigma_label": "10",
+      "learning_rate": 0.001,
+      "lr_label": "1e-3",
+      "control_directory": "runs/040-2026-10-10-rosenbrock-adamw-new-start-lr-1e-3",
+      "reused": false,
+      "history_sha256": "ac84c87273a6114247af706b9567fc90425e36188604035d20e57b719e9c1ca0",
+      "final_loss": 0.1485859553394062,
+      "final_point": [
+        0.6194550221552653,
+        0.37758329074019875
+      ],
+      "final_gradient_norm": 1.4446793022286668,
+      "first_convergence_threshold_update": null,
+      "final_100_updates_meet_threshold": false,
+      "late_loss_median": 0.15285317807611618,
+      "late_loss_min": 0.14542350268103774,
+      "late_loss_max": 0.1703033120665016,
+      "loss_increase_fraction": 0.306,
+      "streams": {
+        "raw": {
+          "final_A": 96119.90981217702,
+          "final_B": 75954.2061874615,
+          "final_B_over_A": 0.7902026368509887,
+          "negative_cosine_fraction": 0.3601800900450225,
+          "late_mean_cosine": -0.03425470251579732,
+          "late_median_cosine": -0.08665068809842347,
+          "late_mean_norm": 12.588058865599345,
+          "final_energy": 11894137.978952635,
+          "final_all_pair": 5757147299.588463,
+          "final_lag_one": 22925818.234559834,
+          "defined_pairs": 1999
+        },
+        "momentum": {
+          "final_A": 82639.05519157976,
+          "final_B": 75969.71347994955,
+          "final_B_over_A": 0.9192955232103167,
+          "negative_cosine_fraction": 0.03701850925462731,
+          "late_mean_cosine": 0.8134537109464713,
+          "late_median_cosine": 0.9628850250295684,
+          "late_mean_norm": 2.832039447636923,
+          "final_energy": 11306159.805075265,
+          "final_all_pair": 5760091206.420553,
+          "final_lag_one": 22605776.36737787,
+          "defined_pairs": 1999
+        }
+      },
+      "noise": {
+        "empirical_mean": [
+          0.08469308500760472,
+          -0.3077307583667358
+        ],
+        "empirical_covariance": [
+          [
+            98.59946286980534,
+            -1.901963480185838
+          ],
+          [
+            -1.901963480185838,
+            103.4021127814612
+          ]
+        ],
+        "final_B_squared": 407484.5531722869,
+        "final_energy": 404004.89200346725,
+        "ensemble_expectation_final_B_squared_and_energy": 400000.0,
+        "final_prefix_cross": -96961455.37133192,
+        "final_temporal_cross": -96970765.55089723
+      }
+    }
+  ],
+  "seed": 1234,
+  "sigmas": [
+    0.0,
+    0.01,
+    0.1,
+    1.0,
+    10.0
+  ],
+  "updates_per_run": 2000,
+  "new_updates": 24000,
+  "raw_storage_bytes": 18632620,
+  "new_execution_seconds": 0.8064923003548756,
+  "reduction_script_sha256": "79bcce1e0b02475d0d50542c748dc1d29b8e49146e13e18872ff53daba345c1a",
+  "uncertainty": "One matched realization; no confidence intervals"
+}

@@ -1,0 +1,37 @@
+{
+  "run_id": "Run051",
+  "attempt": "001-local",
+  "status": "completed",
+  "started_utc": "2026-10-10T23:41:07.813673+00:00",
+  "source": "src\\controlled\\stochastic_rosenbrock.py",
+  "source_sha256": "50da502c83b7fda46d16978fba842242ba2d88d84c53c1bd339cf22220d31dcb",
+  "dependencies": [
+    {
+      "path": "src\\controlled\\rosenbrock.py",
+      "sha256": "deb6f05c631feac3ceb05678462a2443a9a71ca414345148d40fb33127633506"
+    },
+    {
+      "path": "src\\controlled\\noise_geometry.py",
+      "sha256": "f454ef0d1e071463e5a19d49e7cf775cac607af2125ca80b8e0ad074adc8f67e"
+    }
+  ],
+  "config_sha256": "0910a41fad158c3646b755f73d641dfe2386ce157eb4731f2c1e83951942dff0",
+  "execution": "local CPU / NumPy float64",
+  "command": [
+    "analyses/014-2026-10-10-rosenbrock-gradient-noise/00_execute.py"
+  ],
+  "environment": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "numpy": "2.5.0",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "noise": {
+    "sigma": 10.0,
+    "seed": 1234,
+    "generator": "NumPy PCG64",
+    "distribution": "independent standard normal, shape (2000,2), scaled by sigma"
+  },
+  "completed_utc": "2026-10-10T23:41:07.906178+00:00",
+  "completed_updates": 2000,
+  "verification_sha256": "45bdcdd54e88661ec56c538fc6a02c350e70bb48a99493b78fcec067cc2b6e73"
+}

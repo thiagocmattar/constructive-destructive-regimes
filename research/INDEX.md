@@ -2,6 +2,17 @@
 
 ## Current state
 
+[Analysis014: Rosenbrock gradient noise](../analyses/014-2026-10-10-rosenbrock-gradient-noise/README.md)
+completed Runs041-052: sigma0.01/0.1/1/10, three LRs, one paired seed1234,
+2,000 updates each; sigma0 reuses038-040. Final loss rises and raw full-prefix
+B/A falls with sigma at every LR in this realization. At sigma10 raw late mean
+cosine is near0, momentum0.81-0.82, despite higher loss. All fail joint
+stationarity; exact identities retain realized signal/noise cross terms.
+All 24,000 new updates pass replay/independent optimizer/hash checks; five
+navigation PDFs, five identity PDFs, a sweep PDF and a 5x3 norm grid pass review.
+New raw histories18.63 MB retained locally; no cloud resources or billing.
+One paired realization supplies no ensemble uncertainty or general noise law.
+
 [Analysis013: Rosenbrock from (0,1)](../analyses/013-2026-10-10-rosenbrock-adamw-new-start/README.md)
 completed Runs038-040 with Analysis012's exact recipe, changing only the start.
 Final losses at LR 1e-2/midpoint/1e-3 are 0.000972263/0.000117958/0.0000110471;
@@ -209,4 +220,4 @@ SGD remains deferred. Original manuscript assets are preserved.
 - [Surgical changes proposal](../manuscript/2026-10-07-surgical-changes-proposal/README.md):
   evidence, draft changes, and proposed momentum/LR experiments; planning only.
 
-Next run: 041; analysis: 014; hypothesis: H013. Preserve executed inputs and raw evidence.
+Next run: 053; analysis: 015; hypothesis: H014. Preserve executed inputs and raw evidence.

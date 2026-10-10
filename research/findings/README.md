@@ -1,5 +1,16 @@
 # Consolidated findings
 
+[Analysis014's Gaussian gradient-noise sweep](../../analyses/014-2026-10-10-rosenbrock-gradient-noise/observations/006-sigma-comparison.md)
+keeps Rosenbrock, AdamW decay0.1, start(0,1), three LRs and 2,000 updates,
+with sigma0/0.01/0.1/1/10 and one shared seed1234. In this realization, final
+loss increases and raw full-prefix B/A decreases with sigma at each LR; the
+lowest-loss LR changes with noise level. At sigma10 late raw cosine averages
+are near zero while momentum remains0.81-0.82, with much higher objective.
+Squared-sum identities still hold pathwise, including realized signal/noise
+cross terms; noise-only expected energy/squared sum is not a pathwise equality.
+All paths fail joint stationarity. One paired realization does not establish
+an ensemble noise law, sampling uncertainty, causal alignment benefit or LLM transfer.
+
 [Analysis013's new-start comparison](../../analyses/013-2026-10-10-rosenbrock-adamw-new-start/observations/001-initial-point-comparison.md)
 changes only the Rosenbrock AdamW start to (0,1), with the same three LRs,
 decay 0.1 and 2,000 updates. Smallest LR 1e-3 now has the lowest final loss,
