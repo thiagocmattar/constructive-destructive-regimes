@@ -1,0 +1,117 @@
+{
+  "mechanics": {
+    "objective_gradient_points": 40,
+    "analytic_scipy_autograd_finite_difference": "passed",
+    "geometry_aligned_opposite_orthogonal_zero": "passed",
+    "independent_reference": "torch.optim.AdamW"
+  },
+  "matched_lr_contract": true,
+  "initial_point": [
+    0.0,
+    1.0
+  ],
+  "runs": [
+    {
+      "run_id": "Run038",
+      "passed": true,
+      "verified_utc": "2026-10-10T23:24:27.737284+00:00",
+      "updates": 2000,
+      "history_sha256": "01557b3d9ce17d27e1f0abefc1ffea93e15c04d4cdd176e8ddc3aea95567355d",
+      "inventory_sha256": "e71e86a1fd593fa38048495c189a38ddd59938e600f65d11dfd92509dc2a11ca",
+      "source_sha256": "deb6f05c631feac3ceb05678462a2443a9a71ca414345148d40fb33127633506",
+      "config_sha256": "24432dc281008751cc85d75d1ed88fc7c8a3cdf445e7d19a89bc01e0538c4c8b",
+      "full_exact_replay": true,
+      "torch_fixed_gradient_updates": 2000,
+      "torch_max_point_absolute_error": 1.1102230246251565e-16,
+      "all_stream_prefixes_and_coverage": true,
+      "optimizer_delta_and_telescoping": true,
+      "exact_prefix_momentum_identity": true,
+      "scipy_objective_and_raw_gradient": true,
+      "sizes_and_sha256": true,
+      "torch_version": "2.11.0+cu128"
+    },
+    {
+      "run_id": "Run039",
+      "passed": true,
+      "verified_utc": "2026-10-10T23:24:28.027210+00:00",
+      "updates": 2000,
+      "history_sha256": "9bd29eedad165de26837d39141758df55904abf3b8deeb51c305131e95491828",
+      "inventory_sha256": "371f331ce75b2aa102cdb2aae56cb291f66d8eea65193d219a79076f6f94a8c9",
+      "source_sha256": "deb6f05c631feac3ceb05678462a2443a9a71ca414345148d40fb33127633506",
+      "config_sha256": "b48ffe46cb40c59f2183f4467297115c01a3cc15909ff4eecf02dccc8630eb6e",
+      "full_exact_replay": true,
+      "torch_fixed_gradient_updates": 2000,
+      "torch_max_point_absolute_error": 3.3306690738754696e-16,
+      "all_stream_prefixes_and_coverage": true,
+      "optimizer_delta_and_telescoping": true,
+      "exact_prefix_momentum_identity": true,
+      "scipy_objective_and_raw_gradient": true,
+      "sizes_and_sha256": true,
+      "torch_version": "2.11.0+cu128"
+    },
+    {
+      "run_id": "Run040",
+      "passed": true,
+      "verified_utc": "2026-10-10T23:24:28.316128+00:00",
+      "updates": 2000,
+      "history_sha256": "84b001c8f3b39b9e0d95d19ad826e8c35d08a2f600d8507e0764c04fda30c2f4",
+      "inventory_sha256": "61e08ca6f90d7074f670a8415256e8cc9c6fa1084ad481534025bed3dde7ec0b",
+      "source_sha256": "deb6f05c631feac3ceb05678462a2443a9a71ca414345148d40fb33127633506",
+      "config_sha256": "689c98f766120bffab7a34c73158e1354313c2d3fb10a18e906249665fb5417d",
+      "full_exact_replay": true,
+      "torch_fixed_gradient_updates": 2000,
+      "torch_max_point_absolute_error": 5.551115123125783e-17,
+      "all_stream_prefixes_and_coverage": true,
+      "optimizer_delta_and_telescoping": true,
+      "exact_prefix_momentum_identity": true,
+      "scipy_objective_and_raw_gradient": true,
+      "sizes_and_sha256": true,
+      "torch_version": "2.11.0+cu128"
+    }
+  ],
+  "initial_point_controls": [
+    {
+      "run_id": "Run035",
+      "new_run_id": "Run038",
+      "directory": "runs/035-2026-10-10-rosenbrock-adamw-lr-1e-2",
+      "initial_point": [
+        -1.2,
+        1.0
+      ],
+      "history_sha256": "f0ada658378f86c5f2ac13cf0bbf3c6d6b50a66cdba7e67e17c5614ab7c8951f",
+      "config_sha256": "48371312175174866981f6096a5e54e368d090abb2deb088e2f7009f77acb51b",
+      "summary_sha256": "a03e686e2bc91802763b1de7435a0d45785ce02db40bd4a8fecca6184be55771",
+      "matched_except_initial_point": true
+    },
+    {
+      "run_id": "Run036",
+      "new_run_id": "Run039",
+      "directory": "runs/036-2026-10-10-rosenbrock-adamw-lr-midpoint",
+      "initial_point": [
+        -1.2,
+        1.0
+      ],
+      "history_sha256": "4058e3c1bd7fd85ad75da8459e8c7e51eeb1ac6162133090bd6535f737025bbc",
+      "config_sha256": "642079206f112ab1ccc68878153d087bdf583b70dc786b4573c9e1d582d2ba41",
+      "summary_sha256": "568d8a775d2a8e367633911636590ba2ae57109792c3ba5498189b38c9894fe8",
+      "matched_except_initial_point": true
+    },
+    {
+      "run_id": "Run037",
+      "new_run_id": "Run040",
+      "directory": "runs/037-2026-10-10-rosenbrock-adamw-lr-1e-3",
+      "initial_point": [
+        -1.2,
+        1.0
+      ],
+      "history_sha256": "9590771743e9625db7b1c7d21cc1ff87760b65928b4e7959e7d2d03c2524304f",
+      "config_sha256": "c134836b970813470400e4e1980121d35f6eb55268f0648cf834a324cac6372b",
+      "summary_sha256": "862ab0fcf6c0cda2ec8eaf523783a88a8535f854815a2a87b2d6c21c84226fc6",
+      "matched_except_initial_point": true
+    }
+  ],
+  "independent_checks_source": "analyses\\010-2026-10-10-rosenbrock-controlled\\01_verify.py",
+  "independent_checks_sha256": "df333b9551d51bad51369e0586c93b2e2d2f80aff536f8df8501684f3574f4df",
+  "passed": true,
+  "B_over_A_matches_recorded_metric": true
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "run_id": "Run040",
+  "attempt": "001-local",
+  "status": "completed",
+  "started_utc": "2026-10-10T23:24:24.629384+00:00",
+  "config_sha256": "689c98f766120bffab7a34c73158e1354313c2d3fb10a18e906249665fb5417d",
+  "source_sha256": "deb6f05c631feac3ceb05678462a2443a9a71ca414345148d40fb33127633506",
+  "source": "src/controlled/rosenbrock.py",
+  "initial_point_sha256": "fc62429c3e69001d65972cdeb94fb9aa18a7d9c16bc449e1e474e7e41bb95a7d",
+  "execution": "local CPU / NumPy float64",
+  "command": [
+    "runs/040-2026-10-10-rosenbrock-adamw-new-start-lr-1e-3/01_run.py"
+  ],
+  "environment": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "numpy": "2.5.0",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "required_outputs": [
+    "history.npz",
+    "summary.json",
+    "final_state.json"
+  ],
+  "completed_utc": "2026-10-10T23:24:24.770308+00:00",
+  "completed_updates": 2000,
+  "verification_sha256": "038c15a6cfd9bf2b6a4785baeed116f3728a882bc463a302b77d652721ba9781"
+}

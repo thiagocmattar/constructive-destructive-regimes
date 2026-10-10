@@ -76,6 +76,17 @@ def plot(here, *, title, labels, colors=COLORS, styles=STYLES,
                title_fontsize=10)
 
     bounds = (-1.4, 1.22, -0.15, 1.48)
+    start = histories[0]["theta"][0]
+    for result in histories:
+        np.testing.assert_array_equal(result["theta"][0], start)
+    # Retain the existing landscape domain, expanding only to include full paths.
+    all_points = np.concatenate([result["theta"] for result in histories])
+    low, high = all_points.min(axis=0), all_points.max(axis=0)
+    padding = 0.1 * np.maximum(high - low, 1)
+    bounds = (low[0] - padding[0] if low[0] < bounds[0] else bounds[0],
+              high[0] + padding[0] if high[0] > bounds[1] else bounds[1],
+              low[1] - padding[1] if low[1] < bounds[2] else bounds[2],
+              high[1] + padding[1] if high[1] > bounds[3] else bounds[3])
     x = np.linspace(bounds[0], bounds[1], 700)
     y = np.linspace(bounds[2], bounds[3], 550)
     xx, yy = np.meshgrid(x, y)
@@ -97,10 +108,11 @@ def plot(here, *, title, labels, colors=COLORS, styles=STYLES,
         begin, end = 550, 700
         landscape.annotate("", xy=point[end], xytext=point[begin],
                            arrowprops=dict(arrowstyle="-|>", color=color, lw=1.8, mutation_scale=16), zorder=5)
-    landscape.scatter(-1.2, 1, marker="s", s=100, color="#202A35", edgecolor="white", linewidth=1, zorder=8)
+    landscape.scatter(*start, marker="s", s=100, color="#202A35", edgecolor="white", linewidth=1, zorder=8)
     landscape.scatter(1, 1, marker="*", s=150, color="#E9B949", edgecolor="#202A35", linewidth=0.8, zorder=9)
     annotation = dict(fontsize=11, color="#202A35", bbox=dict(facecolor="white", alpha=0.92, edgecolor="none", pad=2))
-    landscape.annotate("Start (−1.2, 1)", xy=(-1.2, 1), xytext=(-1.30, 0.72),
+    landscape.annotate(f"Start ({start[0]:g}, {start[1]:g})", xy=start, xytext=(0.06, 0.42),
+                       textcoords="axes fraction",
                        arrowprops=dict(arrowstyle="-", color="#566474"), **annotation)
     landscape.annotate("Optimum (1, 1)", xy=(1, 1), xytext=(0.55, 1.32),
                        arrowprops=dict(arrowstyle="-", color="#566474"), **annotation)
@@ -198,7 +210,7 @@ def plot(here, *, title, labels, colors=COLORS, styles=STYLES,
         "smoothing": (dict(panels=["c", "d"], method="trailing arithmetic mean",
                            window_updates=cosine_window, minimum_valid_values=cosine_window)
                       if cosine_window > 1 else None),
-        "thinning": None, "trajectory_domain": list(bounds),
+        "thinning": None, "trajectory_domain": list(bounds), "initial_point": start.tolist(),
         "y_scales": {panel: ax.get_yscale() for panel, ax in zip("bcdefghi", axes)},
         "adjacent_cosine_rendering": ("connected trailing means; complete finite windows only"
                                       if cosine_window > 1 else "one point per defined pair; no connecting lines"),

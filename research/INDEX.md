@@ -2,6 +2,15 @@
 
 ## Current state
 
+[Analysis013: Rosenbrock from (0,1)](../analyses/013-2026-10-10-rosenbrock-adamw-new-start/README.md)
+completed Runs038-040 with Analysis012's exact recipe, changing only the start.
+Final losses at LR 1e-2/midpoint/1e-3 are 0.000972263/0.000117958/0.0000110471;
+the smallest LR now has the lowest final objective, versus the prior midpoint.
+Its raw negative-pair fraction rises from zero to 25.01% despite much lower loss.
+All fail joint stationarity. Three matched old/new pairs, replay/optimizer/
+geometry/hash checks and the same styled nine-panel PDF are verified and reviewed.
+Raw histories 2.84 MB retained locally; no cloud resources or billing.
+
 [Analysis012: Rosenbrock with weight decay](../analyses/012-2026-10-10-rosenbrock-adamw-lr/README.md)
 completed Runs035-037: weight decay 0.1, LR 1e-2/0.003162277660/1e-3,
 2,000 updates each. Final losses 0.001042468/0.000115599/0.234112; the
@@ -199,4 +208,4 @@ SGD remains deferred. Original manuscript assets are preserved.
 - [Surgical changes proposal](../manuscript/2026-10-07-surgical-changes-proposal/README.md):
   evidence, draft changes, and proposed momentum/LR experiments; planning only.
 
-Next run: 038; analysis: 013; hypothesis: H012. Preserve executed inputs and raw evidence.
+Next run: 041; analysis: 014; hypothesis: H013. Preserve executed inputs and raw evidence.

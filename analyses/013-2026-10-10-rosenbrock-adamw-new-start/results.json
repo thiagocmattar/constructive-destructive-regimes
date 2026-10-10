@@ -1,0 +1,352 @@
+{
+  "initial_point": [
+    0.0,
+    1.0
+  ],
+  "updates_per_run": 2000,
+  "weight_decay": 0.1,
+  "initial_loss": 101.0,
+  "conditions": [
+    {
+      "run_id": "Run038",
+      "directory": "runs/038-2026-10-10-rosenbrock-adamw-new-start-lr-1e-2",
+      "learning_rate": 0.01,
+      "lr_label": "0.01",
+      "control_directory": "runs/035-2026-10-10-rosenbrock-adamw-lr-1e-2",
+      "initial_loss": 101.0,
+      "final_loss": 0.0009722630595963418,
+      "final_point": [
+        0.9693563324802891,
+        0.9402281427300229
+      ],
+      "final_gradient_norm": 0.30724897006034635,
+      "minimum_observed_loss": 0.0009267890787629013,
+      "minimum_loss_update": 1654,
+      "first_convergence_threshold_update": null,
+      "final_100_updates_meet_threshold": false,
+      "loss_increase_fraction": 0.4435,
+      "late_loss_min": 0.0009267890787629013,
+      "late_loss_max": 0.0010670203524199085,
+      "late_loss_median": 0.0009910590606945207,
+      "elapsed_seconds": 0.06299020000733435,
+      "history_sha256": "01557b3d9ce17d27e1f0abefc1ffea93e15c04d4cdd176e8ddc3aea95567355d",
+      "streams": {
+        "raw": {
+          "A": 9016.680425456021,
+          "B": 7414.5097244681865,
+          "B_over_A": 0.8223103597567278,
+          "negative_cosine_fraction": 0.6988494247123562,
+          "late_median_cosine": -0.9850801456312778,
+          "cosine_defined_pairs": 1999,
+          "norm_updates": 2000
+        },
+        "momentum": {
+          "A": 8051.030365940661,
+          "B": 7414.595395328403,
+          "B_over_A": 0.9209498732852067,
+          "negative_cosine_fraction": 0.005502751375687844,
+          "late_median_cosine": 0.6309520952642942,
+          "cosine_defined_pairs": 1999,
+          "norm_updates": 2000
+        }
+      }
+    },
+    {
+      "run_id": "Run039",
+      "directory": "runs/039-2026-10-10-rosenbrock-adamw-new-start-lr-midpoint",
+      "learning_rate": 0.0031622776601683794,
+      "lr_label": "0.0031622776601683794",
+      "control_directory": "runs/036-2026-10-10-rosenbrock-adamw-lr-midpoint",
+      "initial_loss": 101.0,
+      "final_loss": 0.00011795811865859671,
+      "final_point": [
+        0.9896366979357687,
+        0.9797057568065426
+      ],
+      "final_gradient_norm": 0.1628921313015886,
+      "minimum_observed_loss": 0.00010525967067664174,
+      "minimum_loss_update": 1469,
+      "first_convergence_threshold_update": null,
+      "final_100_updates_meet_threshold": false,
+      "loss_increase_fraction": 0.3625,
+      "late_loss_min": 0.00010525967067664174,
+      "late_loss_max": 0.00011965979275317555,
+      "late_loss_median": 0.00011189108274105576,
+      "elapsed_seconds": 0.06263180007226765,
+      "history_sha256": "9bd29eedad165de26837d39141758df55904abf3b8deeb51c305131e95491828",
+      "streams": {
+        "raw": {
+          "A": 25112.309187094714,
+          "B": 23907.220011849622,
+          "B_over_A": 0.9520120126641165,
+          "negative_cosine_fraction": 0.5967983991995998,
+          "late_median_cosine": -0.9843791993664659,
+          "cosine_defined_pairs": 1999,
+          "norm_updates": 2000
+        },
+        "momentum": {
+          "A": 24871.790113755025,
+          "B": 23907.275505325415,
+          "B_over_A": 0.9612205392527738,
+          "negative_cosine_fraction": 0.0,
+          "late_median_cosine": 0.6489223298194932,
+          "cosine_defined_pairs": 1999,
+          "norm_updates": 2000
+        }
+      }
+    },
+    {
+      "run_id": "Run040",
+      "directory": "runs/040-2026-10-10-rosenbrock-adamw-new-start-lr-1e-3",
+      "learning_rate": 0.001,
+      "lr_label": "0.001",
+      "control_directory": "runs/037-2026-10-10-rosenbrock-adamw-lr-1e-3",
+      "initial_loss": 101.0,
+      "final_loss": 1.1047135695278591e-05,
+      "final_point": [
+        0.9966943578112849,
+        0.9933650213077523
+      ],
+      "final_gradient_norm": 0.009983228941723933,
+      "minimum_observed_loss": 1.099278711084565e-05,
+      "minimum_loss_update": 1905,
+      "first_convergence_threshold_update": null,
+      "final_100_updates_meet_threshold": false,
+      "loss_increase_fraction": 0.1315,
+      "late_loss_min": 1.099278711084565e-05,
+      "late_loss_max": 0.04716181041584069,
+      "late_loss_median": 2.9398186216371925e-05,
+      "elapsed_seconds": 0.058162499917671084,
+      "history_sha256": "84b001c8f3b39b9e0d95d19ad826e8c35d08a2f600d8507e0764c04fda30c2f4",
+      "streams": {
+        "raw": {
+          "A": 76771.07775281776,
+          "B": 74202.92275999753,
+          "B_over_A": 0.9665478840731011,
+          "negative_cosine_fraction": 0.25012506253126565,
+          "late_median_cosine": -0.010044368551848759,
+          "cosine_defined_pairs": 1999,
+          "norm_updates": 2000
+        },
+        "momentum": {
+          "A": 76726.45966733934,
+          "B": 74202.91424467786,
+          "B_over_A": 0.9671098414601332,
+          "negative_cosine_fraction": 0.0,
+          "late_median_cosine": 0.9830259288792436,
+          "cosine_defined_pairs": 1999,
+          "norm_updates": 2000
+        }
+      }
+    }
+  ],
+  "initial_point_comparisons": [
+    {
+      "run_id": "Run035",
+      "new_run_id": "Run038",
+      "directory": "runs/035-2026-10-10-rosenbrock-adamw-lr-1e-2",
+      "initial_point": [
+        -1.2,
+        1.0
+      ],
+      "history_sha256": "f0ada658378f86c5f2ac13cf0bbf3c6d6b50a66cdba7e67e17c5614ab7c8951f",
+      "config_sha256": "48371312175174866981f6096a5e54e368d090abb2deb088e2f7009f77acb51b",
+      "summary_sha256": "a03e686e2bc91802763b1de7435a0d45785ce02db40bd4a8fecca6184be55771",
+      "matched_except_initial_point": true,
+      "learning_rate": 0.01,
+      "old_initial_loss": 24.199999999999996,
+      "old_final_loss": 0.00104246819099545,
+      "new_final_loss": 0.0009722630595963418,
+      "final_loss_difference": -7.020513139910833e-05,
+      "old_streams": {
+        "raw": {
+          "final_A": 3641.773357083085,
+          "final_B": 1455.38659710041,
+          "final_ratio": 0.3996367852682948,
+          "median_cosine": -0.9670877049035084,
+          "negative_cosine_fraction": 0.6663331665832917,
+          "late_median_cosine": -0.9850604522701836,
+          "negative_cosine_and_decreased_loss_count": 761,
+          "positive_cosine_and_increased_loss_count": 287,
+          "final_energy": 283798.4010506669,
+          "final_all_pair": 1834351.7459688443,
+          "final_lag_one": 508044.39507822494,
+          "final_beyond_lag_one": 1326307.3508906192
+        },
+        "momentum": {
+          "final_A": 2278.8800867772547,
+          "final_B": 1455.2619512141653,
+          "final_ratio": 0.6385864529064216,
+          "median_cosine": 0.7822463462487712,
+          "negative_cosine_fraction": 0.00400200100050025,
+          "late_median_cosine": 0.6322840386601014,
+          "negative_cosine_and_decreased_loss_count": 8,
+          "positive_cosine_and_increased_loss_count": 858,
+          "final_energy": 97846.90629207785,
+          "final_all_pair": 2019940.4403595815,
+          "final_lag_one": 193627.68416605165,
+          "final_beyond_lag_one": 1826312.7561935298
+        }
+      },
+      "new_streams": {
+        "raw": {
+          "A": 9016.680425456021,
+          "B": 7414.5097244681865,
+          "B_over_A": 0.8223103597567278,
+          "negative_cosine_fraction": 0.6988494247123562,
+          "late_median_cosine": -0.9850801456312778,
+          "cosine_defined_pairs": 1999,
+          "norm_updates": 2000
+        },
+        "momentum": {
+          "A": 8051.030365940661,
+          "B": 7414.595395328403,
+          "B_over_A": 0.9209498732852067,
+          "negative_cosine_fraction": 0.005502751375687844,
+          "late_median_cosine": 0.6309520952642942,
+          "cosine_defined_pairs": 1999,
+          "norm_updates": 2000
+        }
+      }
+    },
+    {
+      "run_id": "Run036",
+      "new_run_id": "Run039",
+      "directory": "runs/036-2026-10-10-rosenbrock-adamw-lr-midpoint",
+      "initial_point": [
+        -1.2,
+        1.0
+      ],
+      "history_sha256": "4058e3c1bd7fd85ad75da8459e8c7e51eeb1ac6162133090bd6535f737025bbc",
+      "config_sha256": "642079206f112ab1ccc68878153d087bdf583b70dc786b4573c9e1d582d2ba41",
+      "summary_sha256": "568d8a775d2a8e367633911636590ba2ae57109792c3ba5498189b38c9894fe8",
+      "matched_except_initial_point": true,
+      "learning_rate": 0.0031622776601683794,
+      "old_initial_loss": 24.199999999999996,
+      "old_final_loss": 0.00011559894864348962,
+      "new_final_loss": 0.00011795811865859671,
+      "final_loss_difference": 2.3591700151070908e-06,
+      "old_streams": {
+        "raw": {
+          "final_A": 6760.992418084405,
+          "final_B": 5369.407499719142,
+          "final_ratio": 0.7941744595596602,
+          "median_cosine": 0.9559907880873595,
+          "negative_cosine_fraction": 0.4497248624312156,
+          "late_median_cosine": -0.9835364012498833,
+          "negative_cosine_and_decreased_loss_count": 537,
+          "positive_cosine_and_increased_loss_count": 178,
+          "final_energy": 754474.7458477303,
+          "final_all_pair": 28076062.152192436,
+          "final_lag_one": 1453493.5006597657,
+          "final_beyond_lag_one": 26622568.651532672
+        },
+        "momentum": {
+          "final_A": 6425.273264245821,
+          "final_B": 5369.351795770387,
+          "final_ratio": 0.835661235709424,
+          "median_cosine": 0.9898847215709841,
+          "negative_cosine_fraction": 0.0,
+          "late_median_cosine": 0.669166269316507,
+          "negative_cosine_and_decreased_loss_count": 0,
+          "positive_cosine_and_increased_loss_count": 540,
+          "final_energy": 529263.6755746338,
+          "final_all_pair": 28300675.031168047,
+          "final_lag_one": 1056025.00584695,
+          "final_beyond_lag_one": 27244650.025321096
+        }
+      },
+      "new_streams": {
+        "raw": {
+          "A": 25112.309187094714,
+          "B": 23907.220011849622,
+          "B_over_A": 0.9520120126641165,
+          "negative_cosine_fraction": 0.5967983991995998,
+          "late_median_cosine": -0.9843791993664659,
+          "cosine_defined_pairs": 1999,
+          "norm_updates": 2000
+        },
+        "momentum": {
+          "A": 24871.790113755025,
+          "B": 23907.275505325415,
+          "B_over_A": 0.9612205392527738,
+          "negative_cosine_fraction": 0.0,
+          "late_median_cosine": 0.6489223298194932,
+          "cosine_defined_pairs": 1999,
+          "norm_updates": 2000
+        }
+      }
+    },
+    {
+      "run_id": "Run037",
+      "new_run_id": "Run040",
+      "directory": "runs/037-2026-10-10-rosenbrock-adamw-lr-1e-3",
+      "initial_point": [
+        -1.2,
+        1.0
+      ],
+      "history_sha256": "9590771743e9625db7b1c7d21cc1ff87760b65928b4e7959e7d2d03c2524304f",
+      "config_sha256": "c134836b970813470400e4e1980121d35f6eb55268f0648cf834a324cac6372b",
+      "summary_sha256": "862ab0fcf6c0cda2ec8eaf523783a88a8535f854815a2a87b2d6c21c84226fc6",
+      "matched_except_initial_point": true,
+      "learning_rate": 0.001,
+      "old_initial_loss": 24.199999999999996,
+      "old_final_loss": 0.23411186475444315,
+      "new_final_loss": 1.1047135695278591e-05,
+      "final_loss_difference": -0.23410081761874788,
+      "old_streams": {
+        "raw": {
+          "final_A": 19798.37302495272,
+          "final_B": 16828.72243440675,
+          "final_ratio": 0.8500053218108783,
+          "median_cosine": 0.9999986536093856,
+          "negative_cosine_fraction": 0.0,
+          "late_median_cosine": 0.9999972902726056,
+          "negative_cosine_and_decreased_loss_count": 0,
+          "positive_cosine_and_increased_loss_count": 0,
+          "final_energy": 2348558.0583687043,
+          "final_all_pair": 280857340.7159364,
+          "final_lag_one": 4642526.886437895,
+          "final_beyond_lag_one": 276214813.8294985
+        },
+        "momentum": {
+          "final_A": 19751.39727501873,
+          "final_B": 16820.09077981488,
+          "final_ratio": 0.8515899176960344,
+          "median_cosine": 0.9999999705021042,
+          "negative_cosine_fraction": 0.0,
+          "late_median_cosine": 0.9999999680246241,
+          "negative_cosine_and_decreased_loss_count": 0,
+          "positive_cosine_and_increased_loss_count": 0,
+          "final_energy": 2100796.4410304003,
+          "final_all_pair": 280814657.40018314,
+          "final_lag_one": 4198839.104813857,
+          "final_beyond_lag_one": 276615818.29536927
+        }
+      },
+      "new_streams": {
+        "raw": {
+          "A": 76771.07775281776,
+          "B": 74202.92275999753,
+          "B_over_A": 0.9665478840731011,
+          "negative_cosine_fraction": 0.25012506253126565,
+          "late_median_cosine": -0.010044368551848759,
+          "cosine_defined_pairs": 1999,
+          "norm_updates": 2000
+        },
+        "momentum": {
+          "A": 76726.45966733934,
+          "B": 74202.91424467786,
+          "B_over_A": 0.9671098414601332,
+          "negative_cosine_fraction": 0.0,
+          "late_median_cosine": 0.9830259288792436,
+          "cosine_defined_pairs": 1999,
+          "norm_updates": 2000
+        }
+      }
+    }
+  ],
+  "raw_storage_bytes": 2837664,
+  "reduction_script": "analyses\\013-2026-10-10-rosenbrock-adamw-new-start\\03_record.py",
+  "reduction_script_sha256": "96ca59865028ee6b5428aa7a9d0908bd29abc40216aad15d415dda38aaeea357"
+}

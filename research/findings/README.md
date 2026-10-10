@@ -1,5 +1,15 @@
 # Consolidated findings
 
+[Analysis013's new-start comparison](../../analyses/013-2026-10-10-rosenbrock-adamw-new-start/observations/001-initial-point-comparison.md)
+changes only the Rosenbrock AdamW start to (0,1), with the same three LRs,
+decay 0.1 and 2,000 updates. Smallest LR 1e-3 now has the lowest final loss,
+0.0000110471, versus 0.234112 at the old start; the midpoint was previously best.
+The improved small-LR path has 25.01% negative raw adjacent pairs versus zero
+previously, while momentum stays positive. Whole-prefix B/A remains high despite
+late negative raw means. The finite-budget ordering depends on initialization;
+no causal alignment benefit or general LR ranking follows. All three fail joint
+stationarity. Two selected deterministic starts supply no asymptotic/LLM result.
+
 [Analysis012's AdamW LR comparison](../../analyses/012-2026-10-10-rosenbrock-adamw-lr/observations/001-learning-rate-comparison.md)
 adds weight decay 0.1 and the geometric midpoint to the 2,000-update Rosenbrock
 setup. The midpoint has the lowest final objective of the new decay cohort.

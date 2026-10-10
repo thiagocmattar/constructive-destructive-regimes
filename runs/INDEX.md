@@ -41,7 +41,10 @@
 | [035](035-2026-10-10-rosenbrock-adamw-lr-1e-2/README.md) | H011: Rosenbrock momentum/weight decay 0.1; LR 1e-2 | Completed; 2,000 local CPU updates; verified | Attempt001-local | [001: Trajectory](035-2026-10-10-rosenbrock-adamw-lr-1e-2/observations/001-trajectory-geometry.md); Analysis012 single figure |
 | [036](036-2026-10-10-rosenbrock-adamw-lr-midpoint/README.md) | H011: matched AdamW; geometric LR midpoint 0.003162277660 | Completed; 2,000 local CPU updates; verified | Attempt001-local | [001: Trajectory](036-2026-10-10-rosenbrock-adamw-lr-midpoint/observations/001-trajectory-geometry.md); Analysis012 single figure |
 | [037](037-2026-10-10-rosenbrock-adamw-lr-1e-3/README.md) | H011: matched AdamW; LR 1e-3 | Completed; 2,000 local CPU updates; verified | Attempt001-local | [001: Trajectory](037-2026-10-10-rosenbrock-adamw-lr-1e-3/observations/001-trajectory-geometry.md); Analysis012 single figure |
+| [038](038-2026-10-10-rosenbrock-adamw-new-start-lr-1e-2/README.md) | H012: matched AdamW start(0,1); LR1e-2 | Completed; 2,000 local CPU updates; verified | Attempt001-local | [001: Trajectory](038-2026-10-10-rosenbrock-adamw-new-start-lr-1e-2/observations/001-trajectory-geometry.md); Analysis013 single figure |
+| [039](039-2026-10-10-rosenbrock-adamw-new-start-lr-midpoint/README.md) | H012: matched AdamW start(0,1); geometric LR midpoint | Completed; 2,000 local CPU updates; verified | Attempt001-local | [001: Trajectory](039-2026-10-10-rosenbrock-adamw-new-start-lr-midpoint/observations/001-trajectory-geometry.md); Analysis013 single figure |
+| [040](040-2026-10-10-rosenbrock-adamw-new-start-lr-1e-3/README.md) | H012: matched AdamW start(0,1); LR1e-3 | Completed; 2,000 local CPU updates; verified | Attempt001-local | [001: Trajectory](040-2026-10-10-rosenbrock-adamw-new-start-lr-1e-3/observations/001-trajectory-geometry.md); Analysis013 single figure |
 
-Next run: `038-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
+Next run: `041-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
 executed IDs and configurations; retry unchanged scientific inputs in a new
 attempt within the same run.

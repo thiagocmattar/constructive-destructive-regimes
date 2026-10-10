@@ -1,0 +1,79 @@
+{
+  "run_id": "Run039",
+  "updates": 2000,
+  "initial_loss": 101.0,
+  "final_loss": 0.00011795811865859671,
+  "minimum_observed_loss": 0.00010525967067664174,
+  "minimum_loss_update": 1469,
+  "final_point": [
+    0.9896366979357687,
+    0.9797057568065426
+  ],
+  "final_gradient_norm": 0.1628921313015886,
+  "final_distance_to_minimum": 0.02278715288204503,
+  "first_convergence_threshold_update": null,
+  "final_100_updates_meet_threshold": false,
+  "loss_increase_fraction": 0.3625,
+  "late_loss_median": 0.00011189108274105576,
+  "late_loss_min": 0.00010525967067664174,
+  "late_loss_max": 0.00011965979275317555,
+  "streams": {
+    "raw": {
+      "final_A": 25112.309187094714,
+      "final_B": 23907.220011849622,
+      "final_ratio": 0.9520120126641165,
+      "median_cosine": -0.9225581141424184,
+      "negative_cosine_fraction": 0.5967983991995998,
+      "late_median_cosine": -0.9843791993664659,
+      "negative_cosine_and_decreased_loss_count": 708,
+      "positive_cosine_and_increased_loss_count": 240,
+      "final_energy": 3633371.455411103,
+      "final_all_pair": 567921797.2395719,
+      "final_lag_one": 7226341.79714154,
+      "final_beyond_lag_one": 560695455.4424304
+    },
+    "momentum": {
+      "final_A": 24871.790113755025,
+      "final_B": 23907.275505325415,
+      "final_ratio": 0.9612205392527738,
+      "median_cosine": 0.882351255864197,
+      "negative_cosine_fraction": 0.0,
+      "late_median_cosine": 0.6489223298194932,
+      "negative_cosine_and_decreased_loss_count": 0,
+      "positive_cosine_and_increased_loss_count": 725,
+      "final_energy": 3428578.961808247,
+      "final_all_pair": 568129243.1257243,
+      "final_lag_one": 6854882.451388311,
+      "final_beyond_lag_one": 561274360.674336
+    },
+    "adaptive": {
+      "final_A": 754.8351043502688,
+      "final_B": 515.7582111832994,
+      "final_ratio": 0.6832726885791076,
+      "median_cosine": 0.8473489534997354,
+      "negative_cosine_fraction": 0.0,
+      "late_median_cosine": 0.5736354392941956,
+      "negative_cosine_and_decreased_loss_count": 0,
+      "positive_cosine_and_increased_loss_count": 725,
+      "final_energy": 612.6346648948469,
+      "final_all_pair": 265393.897738102,
+      "final_lag_one": 1191.6021859282912,
+      "final_beyond_lag_one": 264202.29555217375
+    },
+    "displacement": {
+      "final_A": 1.8902280643567877,
+      "final_B": 0.9898447606609873,
+      "final_ratio": 0.5236641965729223,
+      "median_cosine": -0.9900536795043682,
+      "negative_cosine_fraction": 0.5582791395697849,
+      "late_median_cosine": -0.9955107817205668,
+      "negative_cosine_and_decreased_loss_count": 633,
+      "positive_cosine_and_increased_loss_count": 242,
+      "final_energy": 0.005509344994687902,
+      "final_all_pair": 0.9742833052133192,
+      "final_lag_one": 0.010680013484488505,
+      "final_beyond_lag_one": 0.9636032917288306
+    }
+  },
+  "elapsed_seconds": 0.06263180007226765
+}

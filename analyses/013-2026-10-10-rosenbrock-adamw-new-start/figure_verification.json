@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "pages": 1,
+  "panels": 9,
+  "pdf_sha256": "91cbf18d2907df5e9d6ed4e410f78957e23b993c9603eee092c31fca18db5501",
+  "physical_dimensions_inches": [
+    16,
+    23
+  ],
+  "required_text_present": true,
+  "all_text_within_page": true,
+  "source_and_script_hashes": true,
+  "actual_initial_point_and_full_paths": true,
+  "rolling_means_against_direct_windows": true,
+  "rolling_coverage": [
+    {
+      "run_id": "Run038",
+      "stream": "raw",
+      "first_update": 101,
+      "displayed_means": 1900
+    },
+    {
+      "run_id": "Run038",
+      "stream": "momentum",
+      "first_update": 101,
+      "displayed_means": 1900
+    },
+    {
+      "run_id": "Run039",
+      "stream": "raw",
+      "first_update": 101,
+      "displayed_means": 1900
+    },
+    {
+      "run_id": "Run039",
+      "stream": "momentum",
+      "first_update": 101,
+      "displayed_means": 1900
+    },
+    {
+      "run_id": "Run040",
+      "stream": "raw",
+      "first_update": 101,
+      "displayed_means": 1900
+    },
+    {
+      "run_id": "Run040",
+      "stream": "momentum",
+      "first_update": 101,
+      "displayed_means": 1900
+    }
+  ],
+  "y_scales": {
+    "b": "log",
+    "c": "linear",
+    "d": "linear",
+    "e": "linear",
+    "f": "linear",
+    "g": "linear",
+    "h": "linear",
+    "i": "linear"
+  },
+  "render": "scratch/pdf_review.png",
+  "visual_review": "passed",
+  "visual_review_notes": "Reviewed the full PDF render: actual start (0, 1), full trajectories, optimum/final markers and legends are clear. All nine panels fit; cosine means and linear norm/A/B axes match the requested style."
+}
