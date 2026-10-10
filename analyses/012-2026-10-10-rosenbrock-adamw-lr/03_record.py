@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
 from src.controlled.rosenbrock import sha256, write_json
+from src.controlled.rosenbrock_plot import rolling_cosine
 
 
 def write_text(path, text):
@@ -92,7 +93,9 @@ optimizer arithmetic at every update, exact replay, all-stream prefixes and hash
 All positions/transitions and both coordinates are measured in float64.
 There are 1,999 defined adjacent pairs per displayed stream; update 1 is
 undefined. A=sum of norms, B=norm of vector sum; B/A uses positive observed A.
-No smoothing, thinning, stochastic replicates or uncertainty bands.
+Raw measurements and summary statistics use no smoothing or thinning.
+The comparison figure uses 100-step trailing means in its cosine panels and
+linear Y scales for norms/A/B; there are no stochastic replicates or uncertainty bands.
 
 The [comparison observation](../../../analyses/012-2026-10-10-rosenbrock-adamw-lr/observations/001-learning-rate-comparison.md)
 owns the [single figure](../../../analyses/012-2026-10-10-rosenbrock-adamw-lr/figures/rosenbrock_learning_rates.pdf),
@@ -122,6 +125,29 @@ objective/start/beta2/horizon supplies no asymptotic or LLM conclusion.
         assert sha256(folder / "config.json") == entry["config_sha256"]
     for key in ("script", "plot_implementation"):
         assert sha256(ROOT / manifest[key]) == manifest[key + "_sha256"]
+    assert manifest["smoothing"] == dict(panels=["c", "d"], method="trailing arithmetic mean",
+                                        window_updates=100, minimum_valid_values=100)
+    assert manifest["y_scales"] == {panel: ("log" if panel == "b" else "linear") for panel in "bcdefghi"}
+    rolling_coverage = []
+    for entry in cohort:
+        path = ROOT / entry["directory"] / "artifacts/attempts/001-local/history.npz"
+        with np.load(path, allow_pickle=False) as saved:
+            for stream in ("raw", "momentum"):
+                values = saved[stream + "_cosine"]
+                actual = rolling_cosine(values, 100)
+                expected = np.full_like(values, np.nan)
+                for i in range(99, len(values)):
+                    window = values[i - 99:i + 1]
+                    if np.isfinite(window).all():
+                        expected[i] = window.mean()
+                np.testing.assert_allclose(actual, expected, rtol=1e-13, atol=1e-14, equal_nan=True)
+                valid = np.flatnonzero(np.isfinite(actual))
+                assert len(valid) == 1900 and valid[0] + 1 == 101
+                rolling_coverage.append(dict(run_id=entry["run_id"], stream=stream,
+                                             first_update=101, displayed_means=1900))
+    assert np.isnan(rolling_cosine(np.full(120, np.nan), 100)).all()
+    opposed = np.tile([1., -1.], 60)
+    np.testing.assert_array_equal(rolling_cosine(opposed, 100)[99:], 0)
     pdf_path = ROOT / manifest["figure"]
     assert sha256(pdf_path) == manifest["sha256"]
     with fitz.open(pdf_path) as pdf:
@@ -130,14 +156,18 @@ objective/start/beta2/horizon supplies no asymptotic or LLM conclusion.
         np.testing.assert_allclose([page.rect.width, page.rect.height], [16 * 72, 23 * 72])
         text = page.get_text()
         for label in ("(a)", "(b)", "(c)", "(d)", "(e)", "(f)", "(g)", "(h)", "(i)",
-                      "Starting point", "Global optimum", "Final point", "weight decay 0.1", "B/A"):
+                      "Starting point", "Global optimum", "Final point", "weight decay 0.1", "B/A",
+                      "100-step trailing mean"):
             assert label in text, label
+        assert "log scale" not in text
         for block in page.get_text("blocks"):
             assert page.rect.contains(fitz.Rect(block[:4])), block[:4]
         page.get_pixmap(matrix=fitz.Matrix(1.2, 1.2), alpha=False).save(str(HERE / "scratch/pdf_review.png"))
     write_json(HERE / "figure_verification.json", dict(passed=True, pages=1, panels=9,
         pdf_sha256=sha256(pdf_path), physical_dimensions_inches=[16, 23],
         required_text_present=True, all_text_within_page=True, source_and_script_hashes=True,
+        rolling_means_against_direct_windows=True, rolling_coverage=rolling_coverage,
+        y_scales=manifest["y_scales"],
         render="scratch/pdf_review.png", visual_review="pending"))
     print(json.dumps(dict(raw_storage_bytes=report["raw_storage_bytes"], pdf_integrity="passed")))
 

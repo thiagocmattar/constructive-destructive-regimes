@@ -17,7 +17,9 @@ optimizer arithmetic at every update, exact replay, all-stream prefixes and hash
 All positions/transitions and both coordinates are measured in float64.
 There are 1,999 defined adjacent pairs per displayed stream; update 1 is
 undefined. A=sum of norms, B=norm of vector sum; B/A uses positive observed A.
-No smoothing, thinning, stochastic replicates or uncertainty bands.
+Raw measurements and summary statistics use no smoothing or thinning.
+The comparison figure uses 100-step trailing means in its cosine panels and
+linear Y scales for norms/A/B; there are no stochastic replicates or uncertainty bands.
 
 The [comparison observation](../../../analyses/012-2026-10-10-rosenbrock-adamw-lr/observations/001-learning-rate-comparison.md)
 owns the [single figure](../../../analyses/012-2026-10-10-rosenbrock-adamw-lr/figures/rosenbrock_learning_rates.pdf),

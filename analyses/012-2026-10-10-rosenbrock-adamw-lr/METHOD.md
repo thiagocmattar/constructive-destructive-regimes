@@ -40,12 +40,21 @@ At every prefix, A=sum ||z_s||, B=||sum z_s||; use B/A. A=0 gives undefined
 B/A; positive A with B=0 gives 0. First cosine and zero-norm adjacent pairs
 are undefined. Norm ratios and exact temporal sums remain captured as before.
 
-One figure: the same 16-by-23-inch full-domain contour/trajectory panel above
+Initial figure: the same 16-by-23-inch full-domain contour/trajectory panel above
 the four-row/two-column grid: loss, raw cosine, momentum cosine, raw/momentum
 norms, raw A and B, momentum A and B, raw B/A, momentum B/A. Every value is
 shown; no smoothing/thinning/zoom. Cosines are individual points, matching
 Analysis011 and making the comparison independent of the former 100-step
 averaging in Analysis010. Preserve common LR endpoint colors/line styles.
+
+Presentation revision after execution, explicitly requested by the user:
+panels (c,d) now show a trailing arithmetic mean over 100 consecutive updates,
+requiring 100 finite adjacent cosines. With update 1 undefined, the first
+displayed mean is at update 101 and uses pairs at updates 2..101. Each run/
+stream has 1,900 displayed means, with no partial windows or thinning.
+Panels (e,f,g) use linear Y axes; loss retains log Y and ratios retain linear
+Y. Only the figure reduction/presentation changes: raw histories, executed
+scientific inputs, unsmoothed summary statistics and comparisons are unchanged.
 
 Verify all updates against independent PyTorch AdamW, exact replay, SciPy/
 autograd/finite-difference objective/gradient, stream prefixes, momentum

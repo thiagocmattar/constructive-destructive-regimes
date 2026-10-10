@@ -19,7 +19,25 @@ COLORS = ("#0072B2", "#D55E00", "#8C4AA8")
 STYLES = ("-", (0, (7, 3)), (0, (2, 2)))
 
 
-def plot(here, *, title, labels, colors=COLORS, styles=STYLES):
+def rolling_cosine(values, width):
+    """Trailing mean requiring a complete window of finite adjacent cosines."""
+    values = np.asarray(values, dtype=np.float64)
+    result = np.full_like(values, np.nan)
+    if len(values) < width:
+        return result
+    finite = np.isfinite(values)
+    sums = np.convolve(np.where(finite, values, 0), np.ones(width), mode="valid")
+    counts = np.convolve(finite.astype(float), np.ones(width), mode="valid")
+    result[width - 1:] = np.where(counts == width, sums / width, np.nan)
+    return result
+
+
+def plot(here, *, title, labels, colors=COLORS, styles=STYLES,
+         cosine_window=1, norm_scale="log"):
+    if not isinstance(cosine_window, int) or cosine_window < 1:
+        raise ValueError("cosine_window must be a positive integer")
+    if norm_scale not in {"log", "linear"}:
+        raise ValueError("norm_scale must be log or linear")
     HERE = Path(here)
     COLORS, STYLES, LABELS = colors, styles, labels
     figure_title = title
@@ -109,14 +127,20 @@ def plot(here, *, title, labels, colors=COLORS, styles=STYLES):
     quantities = [r"$f(x_t,y_t)$", r"$\cos(g_{t-1},g_t)$", r"$\cos(m_{t-1},m_t)$",
                   "Euclidean norm (log scale)", "Cumulative norm (log scale)",
                   "Cumulative norm (log scale)", "$B_g/A_g$", "$B_m/A_m$"]
+    if cosine_window > 1:
+        titles[1] = f"(c) Raw-gradient cosine: {cosine_window}-step trailing mean"
+        titles[2] = f"(d) Momentum cosine: {cosine_window}-step trailing mean"
+    if norm_scale == "linear":
+        quantities[3:6] = ["Euclidean norm", "Cumulative norm", "Cumulative norm"]
     for ax, title, label in zip(axes, titles, quantities):
         ax.set_title(title, loc="left", pad=9)
         ax.set(xlim=(0, 2000), xlabel="Optimizer update t", ylabel=label)
         ax.xaxis.set_major_locator(MaxNLocator(5, integer=True))
         ax.grid(axis="y", color="#E2E7EC", linewidth=0.75)
         ax.set_axisbelow(True)
-    for index in (0, 3, 4, 5):
-        axes[index].set_yscale("log")
+    axes[0].set_yscale("log")
+    for ax in axes[3:6]:
+        ax.set_yscale(norm_scale)
     for ax in axes[1:3]:
         ax.set_ylim(-1.08, 1.08)
         ax.set_yticks([-1, -0.5, 0, 0.5, 1])
@@ -126,8 +150,12 @@ def plot(here, *, title, labels, colors=COLORS, styles=STYLES):
         updates = np.arange(1, 2001)
         axes[0].plot(np.arange(2001), result["loss"], color=color, ls=style, lw=1.5)
         for ax, stream in zip(axes[1:3], ("raw", "momentum")):
-            # Joining fast +1/-1 alternation creates an opaque curtain; show every pair as a point.
-            ax.scatter(updates, result[stream + "_cosine"], color=color, s=3, alpha=0.65, linewidths=0)
+            if cosine_window > 1:
+                ax.plot(updates, rolling_cosine(result[stream + "_cosine"], cosine_window),
+                        color=color, ls=style, lw=1.5)
+            else:
+                # Joining fast +1/-1 alternation creates an opaque curtain; show every pair as a point.
+                ax.scatter(updates, result[stream + "_cosine"], color=color, s=3, alpha=0.65, linewidths=0)
         for stream, quantity_style in (("raw", "-"), ("momentum", (0, (5, 3)))):
             axes[3].plot(updates, result[stream + "_norm"], color=color, ls=quantity_style, lw=1.2)
         for stream, norm_ax, ratio_ax in (("raw", axes[4], axes[6]), ("momentum", axes[5], axes[7])):
@@ -141,11 +169,18 @@ def plot(here, *, title, labels, colors=COLORS, styles=STYLES):
     for ax in axes[4:6]:
         ax.legend(handles=[Line2D([], [], color="#26313D", lw=1.5, label=r"$A=\sum_{s\leq t}\|z_s\|$"),
                            Line2D([], [], color="#26313D", ls=(0, (5, 3)), lw=1.5, label=r"$B=\|\sum_{s\leq t}z_s\|$")],
-                  frameon=True, framealpha=0.95, edgecolor="white", loc="lower right")
+                  frameon=True, framealpha=0.95, edgecolor="white",
+                  loc="center right" if norm_scale == "linear" else "lower right")
     for ax in axes[6:]:
         ax.set_ylim(0, 1.04)
         ax.axhline(1, color="#9CA7B2", lw=0.8)
-    fig.text(0.09, 0.037, r"$f(x,y)=(1-x)^2+100(y-x^2)^2$.  All updates shown; no smoothing.  $m_t$ is the stored, uncorrected first moment.", fontsize=11)
+    if norm_scale == "linear":
+        for ax in axes[3:6]:
+            ax.set_ylim(bottom=0)
+    cosine_note = (f"Panels (c,d): {cosine_window}-step trailing means; complete finite windows only. Other series unsmoothed."
+                   if cosine_window > 1 else "All updates shown; no smoothing.")
+    fig.text(0.09, 0.042, r"$f(x,y)=(1-x)^2+100(y-x^2)^2$.  " + cosine_note, fontsize=10)
+    fig.text(0.09, 0.032, r"$m_t$ is the stored, uncorrected first moment.", fontsize=10)
     fig.text(0.09, 0.023, r"Vectors at update $t$ use $g_t=\nabla f(x_{t-1},y_{t-1})$; loss uses $(x_t,y_t)$.  First adjacent cosines are undefined.  B/A is undefined if A = 0.", fontsize=10)
     destination = HERE / "figures/rosenbrock_learning_rates.pdf"
     destination.parent.mkdir(exist_ok=True)
@@ -160,7 +195,12 @@ def plot(here, *, title, labels, colors=COLORS, styles=STYLES):
         "plot_implementation": str(Path(__file__).relative_to(ROOT)), "plot_implementation_sha256": sha256(Path(__file__)),
         "title": figure_title,
         "sources": sources, "panels": 9, "dimensions_inches": [16, 23], "updates_per_run": 2000,
-        "smoothing": None, "thinning": None, "trajectory_domain": list(bounds),
-        "adjacent_cosine_rendering": "one point per defined pair; no connecting lines",
+        "smoothing": (dict(panels=["c", "d"], method="trailing arithmetic mean",
+                           window_updates=cosine_window, minimum_valid_values=cosine_window)
+                      if cosine_window > 1 else None),
+        "thinning": None, "trajectory_domain": list(bounds),
+        "y_scales": {panel: ax.get_yscale() for panel, ax in zip("bcdefghi", axes)},
+        "adjacent_cosine_rendering": ("connected trailing means; complete finite windows only"
+                                      if cosine_window > 1 else "one point per defined pair; no connecting lines"),
         "ratio_orientation": "B/A", "zero_A": "undefined", "first_cosine": "undefined"})
     print(destination)

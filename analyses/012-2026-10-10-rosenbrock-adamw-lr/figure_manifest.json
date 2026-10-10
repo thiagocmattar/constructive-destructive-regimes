@@ -1,10 +1,10 @@
 {
   "figure": "analyses\\012-2026-10-10-rosenbrock-adamw-lr\\figures\\rosenbrock_learning_rates.pdf",
-  "sha256": "483859e5e12f9eee2043fe155c5d3869f2f7f88b4b0b08e5793f0f533ddab8ba",
+  "sha256": "fe5c9029e285b69288b5ca4b0b7328f74ce29a5c639911ff3c48458994f3c162",
   "script": "analyses\\012-2026-10-10-rosenbrock-adamw-lr\\02_plot.py",
-  "script_sha256": "e199594010464a42495921cec875b856ee9d3ca7fbc8a51c632c1264d44260c9",
+  "script_sha256": "62a79a49d853e09215c57c2d9b7e1ea92002c0261ab2632706dff30b6ce734a1",
   "plot_implementation": "src\\controlled\\rosenbrock_plot.py",
-  "plot_implementation_sha256": "0236358f280c0137c7c5ae08d24eb60a4dd05ac1c1c92d89fea36aa8df68fcaa",
+  "plot_implementation_sha256": "99aa6b4a2cc39ee38f49255c6b0badeee1d8c22f5c062b0b7919e0731f99683f",
   "title": "Rosenbrock \u00b7 AdamW with momentum, weight decay 0.1",
   "sources": [
     {
@@ -38,7 +38,15 @@
     23
   ],
   "updates_per_run": 2000,
-  "smoothing": null,
+  "smoothing": {
+    "panels": [
+      "c",
+      "d"
+    ],
+    "method": "trailing arithmetic mean",
+    "window_updates": 100,
+    "minimum_valid_values": 100
+  },
   "thinning": null,
   "trajectory_domain": [
     -1.4,
@@ -46,7 +54,17 @@
     -0.15,
     1.48
   ],
-  "adjacent_cosine_rendering": "one point per defined pair; no connecting lines",
+  "y_scales": {
+    "b": "log",
+    "c": "linear",
+    "d": "linear",
+    "e": "linear",
+    "f": "linear",
+    "g": "linear",
+    "h": "linear",
+    "i": "linear"
+  },
+  "adjacent_cosine_rendering": "connected trailing means; complete finite windows only",
   "ratio_orientation": "B/A",
   "zero_A": "undefined",
   "first_cosine": "undefined"

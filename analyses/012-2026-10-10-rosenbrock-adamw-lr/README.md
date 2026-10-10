@@ -2,8 +2,10 @@
 
 Completed and verified, 2026-10-10. **[Open the single comparison figure](figures/rosenbrock_learning_rates.pdf).**
 Same layout and diagnostics as Analysis011: a large full-domain contour and
-trajectory panel above eight metric panels, all three LRs overlaid, no zoom,
-smoothing or thinning. Ratios are B/A. Adjacent cosines show individual pairs.
+trajectory panel above eight metric panels, all three LRs overlaid, no zoom
+or thinning. Panels (c,d) show 100-step trailing means of adjacent cosines;
+panels (e,f,g) use linear Y axes. Loss retains its log Y axis, and ratios are B/A.
+The first complete cosine window appears at update 101; other series are unsmoothed.
 
 AdamW with momentum, **weight decay 0.1**, betas (0.9,0.95), epsilon 1e-8,
 CPU float64, exact Rosenbrock f(x,y)=(1-x)^2+100(y-x^2)^2, start (-1.2,1),
@@ -57,7 +59,7 @@ point error; analytic objective/gradient, exact replay, geometry, decay
 displacement, denominator cases and file sizes/hashes pass. Run035 matches
 every saved array in the first 2,000 updates of Run030. The endpoint controls'
 config/source/history hashes are checked read-only. The 16-by-23-inch,
-single-page PDF passed integrity checks and visual review, with the same
+single-page PDF passed integrity checks, direct-window rolling-mean checks and visual review, with the same
 landscape domain and endpoint colors as Analysis011.
 
 Complete raw histories total 2,906,275 bytes and remain ignored locally;

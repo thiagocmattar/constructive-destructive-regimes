@@ -2,7 +2,7 @@
   "passed": true,
   "pages": 1,
   "panels": 9,
-  "pdf_sha256": "483859e5e12f9eee2043fe155c5d3869f2f7f88b4b0b08e5793f0f533ddab8ba",
+  "pdf_sha256": "fe5c9029e285b69288b5ca4b0b7328f74ce29a5c639911ff3c48458994f3c162",
   "physical_dimensions_inches": [
     16,
     23
@@ -10,7 +10,56 @@
   "required_text_present": true,
   "all_text_within_page": true,
   "source_and_script_hashes": true,
+  "rolling_means_against_direct_windows": true,
+  "rolling_coverage": [
+    {
+      "run_id": "Run035",
+      "stream": "raw",
+      "first_update": 101,
+      "displayed_means": 1900
+    },
+    {
+      "run_id": "Run035",
+      "stream": "momentum",
+      "first_update": 101,
+      "displayed_means": 1900
+    },
+    {
+      "run_id": "Run036",
+      "stream": "raw",
+      "first_update": 101,
+      "displayed_means": 1900
+    },
+    {
+      "run_id": "Run036",
+      "stream": "momentum",
+      "first_update": 101,
+      "displayed_means": 1900
+    },
+    {
+      "run_id": "Run037",
+      "stream": "raw",
+      "first_update": 101,
+      "displayed_means": 1900
+    },
+    {
+      "run_id": "Run037",
+      "stream": "momentum",
+      "first_update": 101,
+      "displayed_means": 1900
+    }
+  ],
+  "y_scales": {
+    "b": "log",
+    "c": "linear",
+    "d": "linear",
+    "e": "linear",
+    "f": "linear",
+    "g": "linear",
+    "h": "linear",
+    "i": "linear"
+  },
   "render": "scratch/pdf_review.png",
   "visual_review": "passed",
-  "review_notes": "Final PDF render is byte-identical to the visually reviewed page after correcting source EOF whitespace; full landscape, legends, all eight metrics, individual cosines and B/A confirmed."
+  "visual_review_notes": "Reviewed the full-page render: panels (c) and (d) show 100-step trailing means; panels (e), (f), and (g) have linear Y axes. Legends, labels, trajectories, and the smoothing note are readable without overlap."
 }
