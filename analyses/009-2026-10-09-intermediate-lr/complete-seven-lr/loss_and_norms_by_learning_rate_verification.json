@@ -1,12 +1,51 @@
 {
   "passed": true,
-  "figure_sha256": "2f8de1231075a8a10d52e0b1b8c8796a60de596b5235237f4401346a4feccdaa",
-  "data_sha256": "f73a187c2840c49e420fdd3b65033f764b1307612429fc3325ac51a539f6499e",
+  "figure_sha256": "918f2c7b752d03d31a1e33b21790ce446abbba79787a4535f5f74af55c9ac266",
+  "data_sha256": "7e48ca0bc20b11c3a4e229a5cde5374f4cbe8c41d4fc587e2fddedf6de8c39e9",
   "source_comparison_sha256": "a02a1ba7ace7a7011063767e6e7fb1c25548be0a12be06b6dad6826e5e7b2739",
   "all_21_series_equal_source": true,
   "loss_artist_unsmoothed": true,
-  "all_norm_artists_equal_source": true,
+  "raw_and_momentum_artists_equal_source": true,
   "source_and_displayed_updates": 712,
+  "all_raw_means_equal_direct_windows": true,
+  "smoothing_window": 10,
+  "fill_vertices": [
+    {
+      "run_id": "022",
+      "filled_updates": 712,
+      "vertices_equal_smoothed_raw_and_unsmoothed_momentum": true
+    },
+    {
+      "run_id": "024",
+      "filled_updates": 712,
+      "vertices_equal_smoothed_raw_and_unsmoothed_momentum": true
+    },
+    {
+      "run_id": "025",
+      "filled_updates": 712,
+      "vertices_equal_smoothed_raw_and_unsmoothed_momentum": true
+    },
+    {
+      "run_id": "021",
+      "filled_updates": 712,
+      "vertices_equal_smoothed_raw_and_unsmoothed_momentum": true
+    },
+    {
+      "run_id": "026",
+      "filled_updates": 712,
+      "vertices_equal_smoothed_raw_and_unsmoothed_momentum": true
+    },
+    {
+      "run_id": "027",
+      "filled_updates": 712,
+      "vertices_equal_smoothed_raw_and_unsmoothed_momentum": true
+    },
+    {
+      "run_id": "023",
+      "filled_updates": 712,
+      "vertices_equal_smoothed_raw_and_unsmoothed_momentum": true
+    }
+  ],
   "panels": 8,
   "norm_panels": 7,
   "common_log_norm_limits": [
@@ -17,7 +56,11 @@
   "all_points_within_axes": true,
   "page_text_and_bounds": true,
   "pages": 1,
-  "render_sha256": "14b5903a5f0f80da5df7e90ae30d74c7ca0d8cf12c7253dbe3fcdc5ebcd7ef9e",
+  "render_sha256": "3589b097150a8c4e561fb20c32dda2098da12ba887bb696bcff0d4f19e1cce60",
   "visual_review": "passed",
-  "visual_review_notes": "Rendered page inspected: eight panels; unsmoothed loss first; seven correctly ordered LR norm panels with common log Y; readable legends, hardware labels and tail markers; no clipped or overlapping text."
+  "original_measurements_unchanged": true,
+  "other_pdfs_unchanged": true,
+  "final_minimum_metrics_unchanged": true,
+  "poppler_render_sha256": "7c11169e8a7f69b15b924932b5b105dadad163b1fa8560382e30cc4019da8059",
+  "visual_review_notes": "PyMuPDF and Poppler renders inspected: all eight panels, faint raw traces, stronger trailing means, fill boundaries, labels, legends, shared norm scales and footer spacing are legible without clipping or overlap."
 }

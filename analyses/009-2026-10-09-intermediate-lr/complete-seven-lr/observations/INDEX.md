@@ -3,6 +3,6 @@
 - [003: Loss, raw ratio, smoothed alignment and vector norms](003-loss-ratio-smoothed-alignment.md)
 - [004: Implications for the manuscript and exact aggregate interference](004-implications-for-manuscript.md)
 - [005: Squared cumulative geometry for raw gradients and momentum](005-squared-cumulative-geometry.md)
-- [006: Unsmoothed loss and raw/momentum norms by learning rate](006-unsmoothed-loss-and-norms-by-lr.md)
+- [006: Loss, smoothed raw norms and momentum by learning rate](006-unsmoothed-loss-and-norms-by-lr.md)
 - [007: Final raw-gradient norm divided by its minimum](007-final-raw-norm-to-minimum.md)
 - [008: Revised metric: final raw-gradient norm minus its minimum](008-final-raw-norm-minus-minimum.md)

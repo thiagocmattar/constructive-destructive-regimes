@@ -64,9 +64,10 @@ uses reversed plasma, with darker colors for larger LR. A new3x2 loss/raw-B/A/
 alignment/norm view uses a50-update raw-cosine mean and10-update raw-norm mean.
 A3x2 squared-geometry view compares A squared, B squared and their difference
 for raw gradients and stored momentum, with independent logarithmic Y scales.
-The latest4x2 PDF shows unsmoothed training loss followed by one raw/momentum
-norm panel per LR, with common log Y limits and all712 updates including the
-marked partial final batch; source arrays and prior PDFs are preserved.
+The latest4x2 PDF shows unsmoothed training loss followed by one norm panel per
+LR: faint raw norms beneath a10-update mean, with fill to unsmoothed momentum.
+Common log Y limits and all712 updates include the marked partial final batch;
+source arrays, unsmoothed final/minimum metrics and other PDFs are preserved.
 The current LR-versus-norm metric subtracts the trajectory minimum from the
 final raw norm, using all712 updates: difference8.162 atLR0.01 versus0.978-2.085
 elsewhere. The partial endpoint is labeled; the earlier ratio evidence is retained.

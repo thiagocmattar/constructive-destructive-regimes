@@ -111,10 +111,13 @@ with color lightness decreasing as LR increases; numerical results are unchanged
 raw/momentum adjacent cosine, raw/momentum norms. Raw cosine uses a trailing50
 update mean; raw norms use a trailing10 update mean on logarithmic Y.
 
-14_plot_loss_norms_by_lr.py adds an unsmoothed4x2 figure: all seven training-loss
+14_plot_loss_norms_by_lr.py adds a4x2 figure: all seven unsmoothed training-loss
 curves first, then one raw-gradient/momentum norm panel per LR with common log Y
-limits. It displays all712 accepted updates and marks the partial final batch;
-the preceding figures and scientific inputs are preserved.
+limits. Raw norms appear faint beneath a trailing10-update arithmetic mean,
+with a fill between that mean and unsmoothed momentum. It displays all712
+accepted updates and marks the partial final batch; source measurements,
+scientific inputs and other PDFs are preserved. Final/minimum metrics continue
+to use unsmoothed raw norms.
 
 15_plot_raw_norm_final_to_minimum.py extracts final raw norm divided by its own
 trajectory minimum over all712 updates and plots it against LR. The highest LR
