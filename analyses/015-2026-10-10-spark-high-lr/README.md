@@ -1,6 +1,6 @@
 # Analysis 015: higher learning rates on DGX Spark
 
-Status: launched at2026-10-11 00:48:48 UTC on Spark; calibration then two full passes. [Launch verification](launch-verification.json) pins the detached queue and source packet. The user requested
+Status: terminal remote outcomes recorded; [results and figures](RESULTS.md) are ready. Local byte retrieval and final visual review are recorded separately. The user requested
 LR 0.02 and 0.04 on the owned DGX Spark and automatic results while away.
 Runs 053/054 are new matched Pythia-14M passes; completed Spark Run023 at
 LR 0.01 is the reference. H014 is exploratory, with no directional prediction.
