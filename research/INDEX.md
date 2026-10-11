@@ -2,6 +2,17 @@
 
 ## Current state
 
+<!-- analysis015:start -->
+[Analysis015: larger Spark learning rates](../analyses/015-2026-10-10-spark-high-lr/README.md)
+launched the authorized LR0.02/0.04 Runs053/054 at2026-10-11 00:48:48 UTC.
+Two sequential Pythia-14M full passes match completed Spark Run023 atLR0.01,
+including frozen initial tensors, seed1234 order, AdamW/clipping/batch/precision.
+Expect about10 hours training; each pass is bounded at8 hours. No cloud rental.
+Detached calibration/training/verification/plotting and hidden local byte-verified
+retrieval are configured. Two final PDF layouts passed local/remote rendering
+smokes; these are mechanics only. All failure evidence and recovery states remain.
+<!-- analysis015:end -->
+
 [Analysis014: Rosenbrock gradient noise](../analyses/014-2026-10-10-rosenbrock-gradient-noise/README.md)
 completed Runs041-052: sigma0.01/0.1/1/10, three LRs, one paired seed1234,
 2,000 updates each; sigma0 reuses038-040. Final loss rises and raw full-prefix

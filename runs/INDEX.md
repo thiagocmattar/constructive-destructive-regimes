@@ -56,7 +56,9 @@
 | [050](050-2026-10-10-rosenbrock-noise-sigma-10-lr-1e-2/README.md) | H013: Rosenbrock noisy gradients; sigma 10, LR 1e-2, seed1234 | Completed; 2,000 local updates; replay/optimizer/noise identities verified | Attempt001-local | [001: Noise geometry](050-2026-10-10-rosenbrock-noise-sigma-10-lr-1e-2/observations/001-noise-geometry.md); Analysis014 PDFs reviewed |
 | [051](051-2026-10-10-rosenbrock-noise-sigma-10-lr-midpoint/README.md) | H013: Rosenbrock noisy gradients; sigma 10, LR midpoint, seed1234 | Completed; 2,000 local updates; replay/optimizer/noise identities verified | Attempt001-local | [001: Noise geometry](051-2026-10-10-rosenbrock-noise-sigma-10-lr-midpoint/observations/001-noise-geometry.md); Analysis014 PDFs reviewed |
 | [052](052-2026-10-10-rosenbrock-noise-sigma-10-lr-1e-3/README.md) | H013: Rosenbrock noisy gradients; sigma 10, LR 1e-3, seed1234 | Completed; 2,000 local updates; replay/optimizer/noise identities verified | Attempt001-local | [001: Noise geometry](052-2026-10-10-rosenbrock-noise-sigma-10-lr-1e-3/observations/001-noise-geometry.md); Analysis014 PDFs reviewed |
+| [053](053-2026-10-10-pythia14m-high-lr-0p02/README.md) | H014: Spark warmup-only LR0.02; loss and g/m/d geometry | Launched on Spark; separate calibration then712-update full pass | Attempt01; detached queue | Analysis015; automatic figures/retrieval configured |
+| [054](054-2026-10-10-pythia14m-high-lr-0p04/README.md) | H014: matched Spark warmup-only LR0.04 | Queued on Spark after053; separate calibration then full pass | Attempt01; detached queue | Analysis015; automatic figures/retrieval configured |
 
-Next run: `053-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
+Next run: `055-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
 executed IDs and configurations; retry unchanged scientific inputs in a new
 attempt within the same run.
