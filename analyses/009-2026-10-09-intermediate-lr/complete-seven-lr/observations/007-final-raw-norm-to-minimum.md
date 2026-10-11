@@ -1,5 +1,9 @@
 # Observation007: final raw-gradient norm divided by its trajectory minimum
 
+The user subsequently revised the plotted metric to a difference; the current
+version is [Observation008](008-final-raw-norm-minus-minimum.md). This record
+preserves the earlier ratio reduction.
+
 Date: 2026-10-10. The user requested the metric from the unsmoothed
 [loss/norms-by-LR figure](../figures/loss_and_norms_by_learning_rate.pdf).
 For each learning rate, define the dimensionless ratio

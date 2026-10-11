@@ -3,7 +3,7 @@
 Status: all four full passes completed and passed scientific verification at
 2026-10-09 18:36-18:37 UTC. Each covered all712 updates and1.492B input tokens,
 with zero overflow retries. The36 completed compact metric files passed local
-size/SHA256 verification. [Seven-rate results and seven reviewed PDFs](complete-seven-lr/README.md)
+size/SHA256 verification. [Seven-rate results and eight reviewed PDFs](complete-seven-lr/README.md)
 are ready. The best new condition is LR0.004641588834, validation loss4.318091;
 LR0.002154434690 follows at4.410370. Recovery downloads and cloud cleanup remain
 in progress. The 18:45 UTC read found all GPUs idle at31-34 C.
@@ -120,3 +120,7 @@ the preceding figures and scientific inputs are preserved.
 trajectory minimum over all712 updates and plots it against LR. The highest LR
 has ratio77.60 versus5.90-11.29 for the others; the final partial batch is included
 and labeled. Full-precision values and source/output hashes are retained.
+
+The current user revision is16_plot_raw_norm_final_minus_minimum.py: final raw
+norm minus its trajectory minimum. The difference is8.162 atLR0.01 versus
+0.978-2.085 elsewhere, with the same712-update window and partial endpoint.
