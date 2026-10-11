@@ -1,0 +1,102 @@
+{
+  "generated_at": "2026-10-11T00:07:20.558842+00:00",
+  "generator_sha256": "5a71dfef4511668c10ab53ded64eada048124e83d985adf7b3d5ddf1c1e68651",
+  "source_plotted_data_sha256": "f73a187c2840c49e420fdd3b65033f764b1307612429fc3325ac51a539f6499e",
+  "source_comparison_sha256": "a02a1ba7ace7a7011063767e6e7fb1c25548be0a12be06b6dad6826e5e7b2739",
+  "source_pdf_sha256": "2f8de1231075a8a10d52e0b1b8c8796a60de596b5235237f4401346a4feccdaa",
+  "figure_sha256": "824edd539a1c10ddc9fe8ce899b3d10cc6981946e030a1e92b1067cb653c2d7a",
+  "csv_sha256": "d6f09abc3bb8b1a18567cfaec248b1d7b1d3ae10c560554da18a161f67606e73",
+  "metric": "||g_712|| / min_{1<=t<=712} ||g_t||",
+  "units": "dimensionless",
+  "raw_scope": "whole-model unscaled accumulated gradient before clipping",
+  "final_update": 712,
+  "minimum_window": [
+    1,
+    712
+  ],
+  "smoothing": null,
+  "minimum_tie_policy": "first update",
+  "zero_minimum_policy": "undefined; no epsilon; all observed minima are positive",
+  "partial_final_batch_included": true,
+  "x_scale": "log",
+  "y_scale": "linear",
+  "rows": [
+    {
+      "run_id": "022",
+      "peak_lr": 0.0001,
+      "hardware": "Spark",
+      "final_update": 712,
+      "final_raw_norm": 1.9491509674570906,
+      "minimum_raw_norm": 0.3300949804336137,
+      "minimum_update": 556,
+      "final_to_minimum": 5.904818561302206,
+      "color": "#fcce25"
+    },
+    {
+      "run_id": "024",
+      "peak_lr": 0.00021544346900318845,
+      "hardware": "Runpod RTX4090",
+      "final_update": 712,
+      "final_raw_norm": 2.3855401960735008,
+      "minimum_raw_norm": 0.30088247100883353,
+      "minimum_update": 283,
+      "final_to_minimum": 7.928478478905687,
+      "color": "#f9983e"
+    },
+    {
+      "run_id": "025",
+      "peak_lr": 0.00046415888336127773,
+      "hardware": "Runpod RTX4090",
+      "final_update": 712,
+      "final_raw_norm": 1.7976904953743797,
+      "minimum_raw_norm": 0.25889433888411817,
+      "minimum_update": 168,
+      "final_to_minimum": 6.943722690587804,
+      "color": "#e4695e"
+    },
+    {
+      "run_id": "021",
+      "peak_lr": 0.001,
+      "hardware": "Spark",
+      "final_update": 712,
+      "final_raw_norm": 1.6572517215226945,
+      "minimum_raw_norm": 0.18390932505022847,
+      "minimum_update": 82,
+      "final_to_minimum": 9.011243562935558,
+      "color": "#c5407e"
+    },
+    {
+      "run_id": "026",
+      "peak_lr": 0.0021544346900318843,
+      "hardware": "Runpod RTX4090",
+      "final_update": 712,
+      "final_raw_norm": 1.0996695407179136,
+      "minimum_raw_norm": 0.12189620766541152,
+      "minimum_update": 60,
+      "final_to_minimum": 9.021359743498802,
+      "color": "#9c179e"
+    },
+    {
+      "run_id": "027",
+      "peak_lr": 0.004641588833612777,
+      "hardware": "Runpod RTX4090",
+      "final_update": 712,
+      "final_raw_norm": 1.2057597062780252,
+      "minimum_raw_norm": 0.1068331252610595,
+      "minimum_update": 42,
+      "final_to_minimum": 11.286384287004685,
+      "color": "#6700a8"
+    },
+    {
+      "run_id": "023",
+      "peak_lr": 0.01,
+      "hardware": "Spark",
+      "final_update": 712,
+      "final_raw_norm": 8.268582710606607,
+      "minimum_raw_norm": 0.10655944901387664,
+      "minimum_update": 48,
+      "final_to_minimum": 77.59595969316466,
+      "color": "#2a0593"
+    }
+  ]
+}
