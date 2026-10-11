@@ -58,12 +58,15 @@ Raw histories17.13MB retained locally; no new cloud resources or billing.
 adds four intermediate warmup-only14M LR points (Runs024-027). All four completed
 712 updates/1.492B input tokens and full validation at18:36-18:37 UTC, with zero
 overflows and all g/m/d reconstruction checks passing. Their36 compact result
-files are retrieved/hashed; five seven-rate comparison PDFs passed visual review.
+files are retrieved/hashed; six seven-rate comparison PDFs passed visual review.
 The combined raw-norm panel(e) is logarithmic; a new2x2 cumulative LR overlay
 uses reversed plasma, with darker colors for larger LR. A new3x2 loss/raw-B/A/
 alignment/norm view uses a50-update raw-cosine mean and10-update raw-norm mean.
 A3x2 squared-geometry view compares A squared, B squared and their difference
 for raw gradients and stored momentum, with independent logarithmic Y scales.
+The latest4x2 PDF shows unsmoothed training loss followed by one raw/momentum
+norm panel per LR, with common log Y limits and all712 updates including the
+marked partial final batch; source arrays and prior PDFs are preserved.
 New validation losses are5.600857/5.237702/4.410370/4.318091 in increasing LR
 order; LR0.00464159 is best among the four new hardware-matched conditions.
 Its late momentum cosine0.852 is below0.956 atLR0.00215443, which has worse loss.
