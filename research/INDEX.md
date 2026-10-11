@@ -3,10 +3,15 @@
 ## Current state
 
 <!-- analysis015:start -->
-[Analysis015: larger Spark learning rates](../analyses/015-2026-10-10-spark-high-lr/RESULTS.md)
-Run053: completed, 712/712 updates; Run054: completed, 712/712 updates. Two figures are generated and byte verified locally; final visual
-review is pending. Matched Spark LR0.01 reference; one seed1234 and one pass.
-No numerical failure is masked or retried at a lower LR. No cloud rental.
+[Analysis015: larger Spark learning rates](../analyses/015-2026-10-10-spark-high-lr/observations/002-completed-results-and-review.md)
+completed Runs053/054 at LR0.02/0.04: 712 updates each, complete training and
+validation, zero overflows. Final validation6.63438/5.19195 versus matched
+Spark LR0.01 reference6.63649. Raw negative-pair fractions63.99%/62.59%;
+momentum remains positive, with lower full-prefix B/A than the reference.
+All120 retained files (15.88GB) are retrieved/hashed; both final PDFs pass
+visual review and independent scalar/coverage/source checks. One seed1234,
+one pass and LR-scaled decay limit interpretation. Training ETC0; Spark idle;
+recovery states retained locally and on Spark, outside Git. No cloud rental.
 <!-- analysis015:end -->
 
 [Analysis014: Rosenbrock gradient noise](../analyses/014-2026-10-10-rosenbrock-gradient-noise/README.md)
@@ -234,4 +239,4 @@ SGD remains deferred. Original manuscript assets are preserved.
 - [Surgical changes proposal](../manuscript/2026-10-07-surgical-changes-proposal/README.md):
   evidence, draft changes, and proposed momentum/LR experiments; planning only.
 
-Next run: 053; analysis: 015; hypothesis: H014. Preserve executed inputs and raw evidence.
+Next run: 055; analysis: 016; hypothesis: H015. Preserve executed inputs and raw evidence.

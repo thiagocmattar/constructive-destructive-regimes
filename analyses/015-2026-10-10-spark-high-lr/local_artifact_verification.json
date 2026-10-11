@@ -5,5 +5,39 @@
   "files_verified": 16,
   "plots_match_remote": true,
   "text_and_bounds_passed": true,
-  "final_visual_review": "pending_inspection"
+  "final_visual_review": "passed",
+  "reviewed_at": "2026-10-11T10:58:04.762130+00:00",
+  "visual_review_method": "Poppler 100 dpi render and model inspection of both complete pages",
+  "visual_review_notes": "Titles, panel labels, legends, trajectories, partial endpoint markers and footnotes readable; no overlap or clipping.",
+  "original_downloaded_payload_commit": "fb6435e",
+  "result_inventory_scope": "Original remote payload before local README/observation-index closeout edits; preserved in the original payload commit.",
+  "independent_local_scalar_and_summary_check": true,
+  "completed_runs": [
+    "053",
+    "054"
+  ],
+  "accepted_updates_per_run": 712,
+  "overflow_retries_per_run": 0,
+  "retrieved_files": 120,
+  "retrieved_bytes": 15876432449,
+  "frozen_sources_rechecked": true,
+  "review_record": "observations/002-completed-results-and-review.md",
+  "reviewed_figures": [
+    {
+      "path": "figures/loss_and_norms_by_learning_rate.pdf",
+      "pdf_sha256": "e1c787fae287d70be9a01423b995ea963aa7c1f897d5252444e06988b9dcc81b",
+      "renderer": "pdftoppm",
+      "resolution_dpi": 100,
+      "render_sha256": "0ba282106214e9825fc8bbad98baa8487d806da22ca903989c88859698076cc0",
+      "visual_review": "passed"
+    },
+    {
+      "path": "figures/training_dynamics.pdf",
+      "pdf_sha256": "67fdae8c69197b6e59308b8a6a757fc61413bd9ef07389df89034d529deb1a85",
+      "renderer": "pdftoppm",
+      "resolution_dpi": 100,
+      "render_sha256": "25d22fcc455951d3d496f7b2e4e252d5526bc1a237f5bf9c6ca74638f599cb63",
+      "visual_review": "passed"
+    }
+  ]
 }

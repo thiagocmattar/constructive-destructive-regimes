@@ -1,6 +1,10 @@
 # Analysis 015: higher learning rates on DGX Spark
 
-Status: terminal remote outcomes recorded; [results and figures](RESULTS.md) are ready. Local byte retrieval and final visual review are recorded separately. The user requested
+Status: complete; both runs finished712/712 updates with zero overflows. All
+outputs are retrieved/hashed and both PDFs passed final visual review.
+[Results and review](observations/002-completed-results-and-review.md) record
+validation losses6.63438/5.19195 at LR0.02/0.04 and the matched LR0.01 reference.
+Training ETC is zero. The user requested
 LR 0.02 and 0.04 on the owned DGX Spark and automatic results while away.
 Runs 053/054 are new matched Pythia-14M passes; completed Spark Run023 at
 LR 0.01 is the reference. H014 is exploratory, with no directional prediction.

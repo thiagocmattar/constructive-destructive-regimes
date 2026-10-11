@@ -1,1 +1,2 @@
 - [001: Higher learning rates](001-high-learning-rates.md)
+- [002: Completed results and final review](002-completed-results-and-review.md)
