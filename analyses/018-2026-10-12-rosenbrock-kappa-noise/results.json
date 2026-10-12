@@ -1,0 +1,839 @@
+{
+  "hypothesis": "H017",
+  "sources": [
+    {
+      "run_id": "Run038",
+      "directory": "runs/038-2026-10-10-rosenbrock-adamw-new-start-lr-1e-2",
+      "sigma": 0.0,
+      "sigma_label": "0",
+      "learning_rate": 0.01,
+      "lr_label": "1e-2",
+      "control_directory": "runs/038-2026-10-10-rosenbrock-adamw-new-start-lr-1e-2",
+      "reused": true,
+      "history_sha256": "01557b3d9ce17d27e1f0abefc1ffea93e15c04d4cdd176e8ddc3aea95567355d",
+      "history_bytes": 953222,
+      "config_sha256": "24432dc281008751cc85d75d1ed88fc7c8a3cdf445e7d19a89bc01e0538c4c8b",
+      "verification_sha256": "44b47afa1e1dde49653786ee25292714331f23602d6e5351eeb4903a4631e008",
+      "defined_pairs": 1999,
+      "complete_means": 1900,
+      "last100_pair_means": {
+        "gradient_only": 1.79018241572521,
+        "epsilon": 0.0,
+        "noise_corrected": 1.79018241572521,
+        "eta_directional": 9.03357129634426,
+        "optimizer_mismatch": -7.243397183939797,
+        "nonlinear_remainder": 8.303320747487482e-06
+      },
+      "mean100_ranges": {
+        "gradient_only": [
+          0.008080281037134332,
+          1.8613997736708165
+        ],
+        "epsilon": [
+          0.0,
+          0.0
+        ],
+        "noise_corrected": [
+          0.008080281037134332,
+          1.8613997736708165
+        ],
+        "eta_directional": [
+          0.1705445275835627,
+          9.185504347885452
+        ],
+        "optimizer_mismatch": [
+          -7.475574138841947,
+          -0.15865198082358795
+        ],
+        "nonlinear_remainder": [
+          -0.0019362551126839613,
+          0.0011516191984422474
+        ]
+      },
+      "derived_history": "analyses/018-2026-10-12-rosenbrock-kappa-noise/artifacts/Run038_kappa_noise.npz",
+      "derived_history_bytes": 151131,
+      "derived_history_sha256": "f6b2979efa28ec3a43a58f5b191e9911d4eb4016cd9e1ea6f325cae55088fccc",
+      "smallest_previous_raw_norm_squared": 0.0007775729853530004
+    },
+    {
+      "run_id": "Run039",
+      "directory": "runs/039-2026-10-10-rosenbrock-adamw-new-start-lr-midpoint",
+      "sigma": 0.0,
+      "sigma_label": "0",
+      "learning_rate": 0.0031622776601683794,
+      "lr_label": "midpoint",
+      "control_directory": "runs/039-2026-10-10-rosenbrock-adamw-new-start-lr-midpoint",
+      "reused": true,
+      "history_sha256": "9bd29eedad165de26837d39141758df55904abf3b8deeb51c305131e95491828",
+      "history_bytes": 936348,
+      "config_sha256": "b48ffe46cb40c59f2183f4467297115c01a3cc15909ff4eecf02dccc8630eb6e",
+      "verification_sha256": "52d69ac13756eb3458db076a3a73f4c3eb1737bc5f48bd922aeea25be9ba8d6b",
+      "defined_pairs": 1999,
+      "complete_means": 1900,
+      "last100_pair_means": {
+        "gradient_only": 1.7549708924232865,
+        "epsilon": 0.0,
+        "noise_corrected": 1.7549708924232865,
+        "eta_directional": 2.950438020568829,
+        "optimizer_mismatch": -1.195475928211598,
+        "nonlinear_remainder": 8.800066055369084e-06
+      },
+      "mean100_ranges": {
+        "gradient_only": [
+          0.003098607555045003,
+          1.898754956807141
+        ],
+        "epsilon": [
+          0.0,
+          0.0
+        ],
+        "noise_corrected": [
+          0.003098607555045003,
+          1.898754956807141
+        ],
+        "eta_directional": [
+          0.01495437602748102,
+          2.978553652966559
+        ],
+        "optimizer_mismatch": [
+          -1.2931694899335187,
+          -0.010953148742541432
+        ],
+        "nonlinear_remainder": [
+          -0.0015296507796671447,
+          0.0009257589074061924
+        ]
+      },
+      "derived_history": "analyses/018-2026-10-12-rosenbrock-kappa-noise/artifacts/Run039_kappa_noise.npz",
+      "derived_history_bytes": 152173,
+      "derived_history_sha256": "25c5a47a1157c2d045b1d0beea7e69cb688326b322192de58fa8bc30531443f0",
+      "smallest_previous_raw_norm_squared": 8.565112856675004e-05
+    },
+    {
+      "run_id": "Run040",
+      "directory": "runs/040-2026-10-10-rosenbrock-adamw-new-start-lr-1e-3",
+      "sigma": 0.0,
+      "sigma_label": "0",
+      "learning_rate": 0.001,
+      "lr_label": "1e-3",
+      "control_directory": "runs/040-2026-10-10-rosenbrock-adamw-new-start-lr-1e-3",
+      "reused": true,
+      "history_sha256": "84b001c8f3b39b9e0d95d19ad826e8c35d08a2f600d8507e0764c04fda30c2f4",
+      "history_bytes": 948094,
+      "config_sha256": "689c98f766120bffab7a34c73158e1354313c2d3fb10a18e906249665fb5417d",
+      "verification_sha256": "038c15a6cfd9bf2b6a4785baeed116f3728a882bc463a302b77d652721ba9781",
+      "defined_pairs": 1999,
+      "complete_means": 1900,
+      "last100_pair_means": {
+        "gradient_only": 1.747943866840917,
+        "epsilon": 0.0,
+        "noise_corrected": 1.747943866840917,
+        "eta_directional": 0.9273948378221146,
+        "optimizer_mismatch": 0.8205490439006862,
+        "nonlinear_remainder": -1.488188413506866e-08
+      },
+      "mean100_ranges": {
+        "gradient_only": [
+          0.0010308670782468664,
+          1.9313552441308202
+        ],
+        "epsilon": [
+          0.0,
+          0.0
+        ],
+        "noise_corrected": [
+          0.0010308670782468664,
+          1.9313552441308202
+        ],
+        "eta_directional": [
+          0.005747607623954408,
+          0.9566378146771735
+        ],
+        "optimizer_mismatch": [
+          -0.40989013965757853,
+          0.9892285008774365
+        ],
+        "nonlinear_remainder": [
+          -0.00032452170660014925,
+          0.00037253002266886254
+        ]
+      },
+      "derived_history": "analyses/018-2026-10-12-rosenbrock-kappa-noise/artifacts/Run040_kappa_noise.npz",
+      "derived_history_bytes": 151812,
+      "derived_history_sha256": "008a5ecf024253ccb93c7c3e67b3c2a2a8fe530b0d7238ae694954d091308640",
+      "smallest_previous_raw_norm_squared": 8.8305032385057e-06
+    },
+    {
+      "run_id": "Run041",
+      "directory": "runs/041-2026-10-10-rosenbrock-noise-sigma-1e-2-lr-1e-2",
+      "sigma": 0.01,
+      "sigma_label": "1e-2",
+      "learning_rate": 0.01,
+      "lr_label": "1e-2",
+      "control_directory": "runs/038-2026-10-10-rosenbrock-adamw-new-start-lr-1e-2",
+      "reused": false,
+      "history_sha256": "38c388591f67e642998bdaf6490de986d696fa3e1fecb26f1c69abb29bb301c8",
+      "history_bytes": 1533463,
+      "config_sha256": "76428518ff845363d4e5afd56d9655baad98fb1445e390b780c55f43a399fb22",
+      "verification_sha256": "2ed9dcfeed1e63bf0bda336c852edb441b009bc63549c8fb58c9d44b229ebced",
+      "defined_pairs": 1999,
+      "complete_means": 1900,
+      "last100_pair_means": {
+        "gradient_only": 1.5722518160669727,
+        "epsilon": 0.02749280777849554,
+        "noise_corrected": 1.5997446238454682,
+        "eta_directional": 8.989237631572632,
+        "optimizer_mismatch": -7.389641770002463,
+        "nonlinear_remainder": 0.0001487622752993839
+      },
+      "mean100_ranges": {
+        "gradient_only": [
+          0.008022250734919046,
+          2.037287465625857
+        ],
+        "epsilon": [
+          -0.016610230867931848,
+          0.037054618103956875
+        ],
+        "noise_corrected": [
+          0.008478871816172512,
+          2.0617115485893605
+        ],
+        "eta_directional": [
+          0.18889843074713306,
+          9.17129300735149
+        ],
+        "optimizer_mismatch": [
+          -7.783526901522229,
+          -0.17724952092164312
+        ],
+        "nonlinear_remainder": [
+          -0.0010134224506880057,
+          0.0020453851039961947
+        ]
+      },
+      "derived_history": "analyses/018-2026-10-12-rosenbrock-kappa-noise/artifacts/Run041_kappa_noise.npz",
+      "derived_history_bytes": 182009,
+      "derived_history_sha256": "b3fe987827197dbfba88570ccfcc374d30d4577cc6ddf15eba36088e021f3e58",
+      "smallest_previous_raw_norm_squared": 8.755920694516923e-05
+    },
+    {
+      "run_id": "Run042",
+      "directory": "runs/042-2026-10-10-rosenbrock-noise-sigma-1e-2-lr-midpoint",
+      "sigma": 0.01,
+      "sigma_label": "1e-2",
+      "learning_rate": 0.0031622776601683794,
+      "lr_label": "midpoint",
+      "control_directory": "runs/039-2026-10-10-rosenbrock-adamw-new-start-lr-midpoint",
+      "reused": false,
+      "history_sha256": "795793be4314222cddcc6315994c49892464928ff5f0d10058a9efa860a0e697",
+      "history_bytes": 1512571,
+      "config_sha256": "558a33003bf3568bb157e480002162bbdf351b4fb8cd3094049dc996f35c6d50",
+      "verification_sha256": "877933eaa256adcb4c2a4bd2bfe4d169f92690a6b3da36589c5f164f5ef89bc8",
+      "defined_pairs": 1999,
+      "complete_means": 1900,
+      "last100_pair_means": {
+        "gradient_only": 0.8612997009058836,
+        "epsilon": -0.01641813288185614,
+        "noise_corrected": 0.8448815680240277,
+        "eta_directional": 2.741786459878165,
+        "optimizer_mismatch": -1.8968620273382664,
+        "nonlinear_remainder": -4.286451587116836e-05
+      },
+      "mean100_ranges": {
+        "gradient_only": [
+          0.002437515514601518,
+          2.1617388509034967
+        ],
+        "epsilon": [
+          -0.13646296848714104,
+          0.09716862416191807
+        ],
+        "noise_corrected": [
+          0.002549434946356913,
+          2.1108022090856475
+        ],
+        "eta_directional": [
+          0.016202963953386086,
+          2.9733622890238705
+        ],
+        "optimizer_mismatch": [
+          -2.309497811487569,
+          -0.012079546511531309
+        ],
+        "nonlinear_remainder": [
+          -0.0010854317913725306,
+          0.001035383615047691
+        ]
+      },
+      "derived_history": "analyses/018-2026-10-12-rosenbrock-kappa-noise/artifacts/Run042_kappa_noise.npz",
+      "derived_history_bytes": 183893,
+      "derived_history_sha256": "439c6ce283060f1e73d63aff7817e2a2227a8a123dd631ccd5d81927a83f59dc",
+      "smallest_previous_raw_norm_squared": 4.961585126799474e-06
+    },
+    {
+      "run_id": "Run043",
+      "directory": "runs/043-2026-10-10-rosenbrock-noise-sigma-1e-2-lr-1e-3",
+      "sigma": 0.01,
+      "sigma_label": "1e-2",
+      "learning_rate": 0.001,
+      "lr_label": "1e-3",
+      "control_directory": "runs/040-2026-10-10-rosenbrock-adamw-new-start-lr-1e-3",
+      "reused": false,
+      "history_sha256": "c5c44f448a498b710319a959e667e29fac3c934bb5aeb1405c28afc33626ef20",
+      "history_bytes": 1529599,
+      "config_sha256": "015b1d53f501535220a852919e6597fec15098593dafe82c232ca756df9ea1cf",
+      "verification_sha256": "fed63cd25d0b55af449576f3b9bf117ee59e7174b3e0603dbb51dfb83e4ad9ec",
+      "defined_pairs": 1999,
+      "complete_means": 1900,
+      "last100_pair_means": {
+        "gradient_only": 1.5480701399183194,
+        "epsilon": -0.378454729186831,
+        "noise_corrected": 1.1696154107314884,
+        "eta_directional": 0.8774066772066067,
+        "optimizer_mismatch": 0.2921881447788422,
+        "nonlinear_remainder": 2.0588746039477388e-05
+      },
+      "mean100_ranges": {
+        "gradient_only": [
+          0.0010298251806887127,
+          1.7120942317873389
+        ],
+        "epsilon": [
+          -0.378454729186831,
+          0.13167116827510286
+        ],
+        "noise_corrected": [
+          0.0010308778676438955,
+          1.3609455008985076
+        ],
+        "eta_directional": [
+          0.006242734529399382,
+          0.9039217502623679
+        ],
+        "optimizer_mismatch": [
+          -0.4098752551714415,
+          0.47349674364797406
+        ],
+        "nonlinear_remainder": [
+          -0.00022382302262507643,
+          0.0004044657092809965
+        ]
+      },
+      "derived_history": "analyses/018-2026-10-12-rosenbrock-kappa-noise/artifacts/Run043_kappa_noise.npz",
+      "derived_history_bytes": 183981,
+      "derived_history_sha256": "567b5ff01d168b232a6aeb64e9ff056d08ade7764c0dcae1c34423cf57b30387",
+      "smallest_previous_raw_norm_squared": 1.7727941279090662e-06
+    },
+    {
+      "run_id": "Run044",
+      "directory": "runs/044-2026-10-10-rosenbrock-noise-sigma-1e-1-lr-1e-2",
+      "sigma": 0.1,
+      "sigma_label": "1e-1",
+      "learning_rate": 0.01,
+      "lr_label": "1e-2",
+      "control_directory": "runs/038-2026-10-10-rosenbrock-adamw-new-start-lr-1e-2",
+      "reused": false,
+      "history_sha256": "5942002dfeebff0d84d2aaa383d69c0cc8ae0831397b6bd5790d87bbdbe27ae8",
+      "history_bytes": 1547085,
+      "config_sha256": "345263cb128a5ed07cc71a2a92f3bae73575433d9c7829398750f185d2519608",
+      "verification_sha256": "6ec040272435fe33290473e1b16541b941e56dc325a137b77628b8c25d5cc173",
+      "defined_pairs": 1999,
+      "complete_means": 1900,
+      "last100_pair_means": {
+        "gradient_only": 1.3527016808803873,
+        "epsilon": -0.3124024460797605,
+        "noise_corrected": 1.0402992348006268,
+        "eta_directional": 7.908451558592828,
+        "optimizer_mismatch": -6.868290478081511,
+        "nonlinear_remainder": 0.0001381542893090346
+      },
+      "mean100_ranges": {
+        "gradient_only": [
+          0.012762863996005507,
+          2.228599996032417
+        ],
+        "epsilon": [
+          -0.40544679559834107,
+          0.14664709103979534
+        ],
+        "noise_corrected": [
+          0.012232447319220734,
+          2.1725671849038957
+        ],
+        "eta_directional": [
+          0.6890725725494257,
+          8.662767526069537
+        ],
+        "optimizer_mismatch": [
+          -7.762245828672008,
+          -0.653125055069945
+        ],
+        "nonlinear_remainder": [
+          -0.0005299993605679415,
+          0.0024071220782509277
+        ]
+      },
+      "derived_history": "analyses/018-2026-10-12-rosenbrock-kappa-noise/artifacts/Run044_kappa_noise.npz",
+      "derived_history_bytes": 183326,
+      "derived_history_sha256": "0c3886c07da28496a04be7531f3bb8ed3f72f522014d478afb402cf991409986",
+      "smallest_previous_raw_norm_squared": 0.00011531468297886682
+    },
+    {
+      "run_id": "Run045",
+      "directory": "runs/045-2026-10-10-rosenbrock-noise-sigma-1e-1-lr-midpoint",
+      "sigma": 0.1,
+      "sigma_label": "1e-1",
+      "learning_rate": 0.0031622776601683794,
+      "lr_label": "midpoint",
+      "control_directory": "runs/039-2026-10-10-rosenbrock-adamw-new-start-lr-midpoint",
+      "reused": false,
+      "history_sha256": "31dd19be9c230f5be7ff899547d9ee74016d3bcae5fb919cdbbc60b6f4e76fc9",
+      "history_bytes": 1529581,
+      "config_sha256": "f2ab4e825b12b9a5d42da5a5fee7ca8ced79f8bcc1b63b95b0ac055f99e6ea8b",
+      "verification_sha256": "3fec25d7c63c8d1ed6c4a042f4b91c31715efcc4b16a7844b174d6ce34093699",
+      "defined_pairs": 1999,
+      "complete_means": 1900,
+      "last100_pair_means": {
+        "gradient_only": 0.806380072135086,
+        "epsilon": -0.18390298301749766,
+        "noise_corrected": 0.6224770891175884,
+        "eta_directional": 2.28728964149328,
+        "optimizer_mismatch": -1.664834681451377,
+        "nonlinear_remainder": 2.2129075684552322e-05
+      },
+      "mean100_ranges": {
+        "gradient_only": [
+          -0.001964336729023428,
+          1.6431792592861296
+        ],
+        "epsilon": [
+          -0.7007367126477319,
+          0.09004668919165837
+        ],
+        "noise_corrected": [
+          -0.0019362558354462341,
+          1.0011928272752464
+        ],
+        "eta_directional": [
+          0.12820020761386297,
+          2.565310399153282
+        ],
+        "optimizer_mismatch": [
+          -2.271302003005331,
+          -0.11400522702185238
+        ],
+        "nonlinear_remainder": [
+          -0.00020768601880674187,
+          0.0005551438238567386
+        ]
+      },
+      "derived_history": "analyses/018-2026-10-12-rosenbrock-kappa-noise/artifacts/Run045_kappa_noise.npz",
+      "derived_history_bytes": 184154,
+      "derived_history_sha256": "e3e5220c629b4befd84d9e6f484ed7773745cfd6ab02138a066a992cfefd5d96",
+      "smallest_previous_raw_norm_squared": 0.00013911069388627926
+    },
+    {
+      "run_id": "Run046",
+      "directory": "runs/046-2026-10-10-rosenbrock-noise-sigma-1e-1-lr-1e-3",
+      "sigma": 0.1,
+      "sigma_label": "1e-1",
+      "learning_rate": 0.001,
+      "lr_label": "1e-3",
+      "control_directory": "runs/040-2026-10-10-rosenbrock-adamw-new-start-lr-1e-3",
+      "reused": false,
+      "history_sha256": "f6c9eb94f50e1287eb3390149ff36142d6ceeda5f56db957989f6661335b80f2",
+      "history_bytes": 1541780,
+      "config_sha256": "1a8be8c5521fd9c6305f422237508d255cb34fca198f33aa5e853abf8863fd87",
+      "verification_sha256": "a8ca415936869968d35f13692cc47ba014621a840921ff5b1376df19f7763960",
+      "defined_pairs": 1999,
+      "complete_means": 1900,
+      "last100_pair_means": {
+        "gradient_only": 0.8377406301203146,
+        "epsilon": -0.5899570076436843,
+        "noise_corrected": 0.24778362247663036,
+        "eta_directional": 0.6075240752919848,
+        "optimizer_mismatch": -0.3597817101515704,
+        "nonlinear_remainder": 4.125733621595645e-05
+      },
+      "mean100_ranges": {
+        "gradient_only": [
+          -0.05844294809406829,
+          0.9671540971818965
+        ],
+        "epsilon": [
+          -0.7392354023821944,
+          0.09673715459105398
+        ],
+        "noise_corrected": [
+          0.0010309810726758545,
+          0.3172303336141381
+        ],
+        "eta_directional": [
+          0.03499473334027153,
+          0.6806551811906851
+        ],
+        "optimizer_mismatch": [
+          -0.46708419669616597,
+          -0.029590462324054156
+        ],
+        "nonlinear_remainder": [
+          -7.56927892059622e-05,
+          0.00012891654432696598
+        ]
+      },
+      "derived_history": "analyses/018-2026-10-12-rosenbrock-kappa-noise/artifacts/Run046_kappa_noise.npz",
+      "derived_history_bytes": 183871,
+      "derived_history_sha256": "0753f8c3da6351a54cde5ae7d78e5a29b9e1eb9bb9d12f15bf29342b443ae8aa",
+      "smallest_previous_raw_norm_squared": 8.683345723007094e-05
+    },
+    {
+      "run_id": "Run047",
+      "directory": "runs/047-2026-10-10-rosenbrock-noise-sigma-1-lr-1e-2",
+      "sigma": 1.0,
+      "sigma_label": "1",
+      "learning_rate": 0.01,
+      "lr_label": "1e-2",
+      "control_directory": "runs/038-2026-10-10-rosenbrock-adamw-new-start-lr-1e-2",
+      "reused": false,
+      "history_sha256": "879a403f36363c33d703c64831d140f06b3be5eab4d3cae5717388c276805076",
+      "history_bytes": 1575227,
+      "config_sha256": "b39e065460b512eb402b24ad55a8085760571d7f39b0c18f42643779dc7580e3",
+      "verification_sha256": "ea8b9fa3e67118b6d64aaa58381554fecabb83cf0e34a051a14b83be757f2a1c",
+      "defined_pairs": 1999,
+      "complete_means": 1900,
+      "last100_pair_means": {
+        "gradient_only": 1.0210108323072082,
+        "epsilon": -0.7758001428464599,
+        "noise_corrected": 0.24521068946074803,
+        "eta_directional": 4.983701392888462,
+        "optimizer_mismatch": -4.7387044268457235,
+        "nonlinear_remainder": 0.000213723418010124
+      },
+      "mean100_ranges": {
+        "gradient_only": [
+          -0.19894680136698512,
+          1.1617084663932882
+        ],
+        "epsilon": [
+          -0.9066994591199122,
+          0.29812198324578043
+        ],
+        "noise_corrected": [
+          -0.008507076364730934,
+          0.40443453640527843
+        ],
+        "eta_directional": [
+          2.405964899360447,
+          6.238462696340966
+        ],
+        "optimizer_mismatch": [
+          -6.056388841854465,
+          -2.3410963695337177
+        ],
+        "nonlinear_remainder": [
+          -0.0007562161449828724,
+          0.0007753527820395843
+        ]
+      },
+      "derived_history": "analyses/018-2026-10-12-rosenbrock-kappa-noise/artifacts/Run047_kappa_noise.npz",
+      "derived_history_bytes": 183633,
+      "derived_history_sha256": "a838ecd0c344e61d1459d84a189e5ef9a64d06f5e82e63c3ff9569dabfa1a383",
+      "smallest_previous_raw_norm_squared": 0.004064099672488515
+    },
+    {
+      "run_id": "Run048",
+      "directory": "runs/048-2026-10-10-rosenbrock-noise-sigma-1-lr-midpoint",
+      "sigma": 1.0,
+      "sigma_label": "1",
+      "learning_rate": 0.0031622776601683794,
+      "lr_label": "midpoint",
+      "control_directory": "runs/039-2026-10-10-rosenbrock-adamw-new-start-lr-midpoint",
+      "reused": false,
+      "history_sha256": "94cb1c9e7bf4eb17e328a8981b79f97ee56f644e79cba3e5e7e0cfdfcfdfe87a",
+      "history_bytes": 1550553,
+      "config_sha256": "db13c8562cda81562a65c723d9c9073dde90463fd63002a3be6d96ac2c17391e",
+      "verification_sha256": "a9df4326a01039b34476565cd665480b84bee64c446a53c508b5fea57877cba0",
+      "defined_pairs": 1999,
+      "complete_means": 1900,
+      "last100_pair_means": {
+        "gradient_only": 0.9515292939257067,
+        "epsilon": -0.8800632386514708,
+        "noise_corrected": 0.07146605527423606,
+        "eta_directional": 1.4266978919875402,
+        "optimizer_mismatch": -1.3552473109718284,
+        "nonlinear_remainder": 1.5474258524484485e-05
+      },
+      "mean100_ranges": {
+        "gradient_only": [
+          0.004001005298643839,
+          1.4349412549069942
+        ],
+        "epsilon": [
+          -1.3608422669133666,
+          0.0014883126877027481
+        ],
+        "noise_corrected": [
+          -0.011776344081220564,
+          0.22671631039118437
+        ],
+        "eta_directional": [
+          0.6195335822441047,
+          1.891848345255064
+        ],
+        "optimizer_mismatch": [
+          -1.755137318754437,
+          -0.6155921869428024
+        ],
+        "nonlinear_remainder": [
+          -5.7320652800548786e-05,
+          0.00021208602730851835
+        ]
+      },
+      "derived_history": "analyses/018-2026-10-12-rosenbrock-kappa-noise/artifacts/Run048_kappa_noise.npz",
+      "derived_history_bytes": 183819,
+      "derived_history_sha256": "9e3abec180fc48c7f774833b467d7ccdbbeb0a2b0dd28939e4a278f5d31b3fb1",
+      "smallest_previous_raw_norm_squared": 0.00452772335903468
+    },
+    {
+      "run_id": "Run049",
+      "directory": "runs/049-2026-10-10-rosenbrock-noise-sigma-1-lr-1e-3",
+      "sigma": 1.0,
+      "sigma_label": "1",
+      "learning_rate": 0.001,
+      "lr_label": "1e-3",
+      "control_directory": "runs/040-2026-10-10-rosenbrock-adamw-new-start-lr-1e-3",
+      "reused": false,
+      "history_sha256": "838004d833c9e0bcbe09df9f86072a4c6efce97812e255c3d97bdb109d327cbe",
+      "history_bytes": 1547697,
+      "config_sha256": "a1574cec532490b0ea42d87a55224a2ab6c87d9811b703b06a50db7b8a94649d",
+      "verification_sha256": "51238a65c1432cc44ce84a8085d9ec977fadf79277075411f38bf6730fff3c8f",
+      "defined_pairs": 1999,
+      "complete_means": 1900,
+      "last100_pair_means": {
+        "gradient_only": 0.8691163970097171,
+        "epsilon": -0.8438378871073903,
+        "noise_corrected": 0.0252785099023271,
+        "eta_directional": 0.3441311242951606,
+        "optimizer_mismatch": -0.318855562784129,
+        "nonlinear_remainder": 2.9483912955135085e-06
+      },
+      "mean100_ranges": {
+        "gradient_only": [
+          -0.01848718499120042,
+          1.4648301546492808
+        ],
+        "epsilon": [
+          -1.4358523830815022,
+          0.05250048726464709
+        ],
+        "noise_corrected": [
+          0.0010328769396117246,
+          0.0449536132442009
+        ],
+        "eta_directional": [
+          0.18918294919837852,
+          0.43347379259159524
+        ],
+        "optimizer_mismatch": [
+          -0.40708134701410587,
+          -0.18802939279596437
+        ],
+        "nonlinear_remainder": [
+          -2.0687303846574546e-06,
+          3.494848665901252e-05
+        ]
+      },
+      "derived_history": "analyses/018-2026-10-12-rosenbrock-kappa-noise/artifacts/Run049_kappa_noise.npz",
+      "derived_history_bytes": 182990,
+      "derived_history_sha256": "104c3bac9b313b3339a628eba42c2b0ef32ef4fd3027bcd32268313831188e6d",
+      "smallest_previous_raw_norm_squared": 0.0034049038704708073
+    },
+    {
+      "run_id": "Run050",
+      "directory": "runs/050-2026-10-10-rosenbrock-noise-sigma-10-lr-1e-2",
+      "sigma": 10.0,
+      "sigma_label": "10",
+      "learning_rate": 0.01,
+      "lr_label": "1e-2",
+      "control_directory": "runs/038-2026-10-10-rosenbrock-adamw-new-start-lr-1e-2",
+      "reused": false,
+      "history_sha256": "4c7471cdb8aa3b42290114ca9a7e4be59fa94af09015b65aded5cc7f9e2a1f10",
+      "history_bytes": 1609847,
+      "config_sha256": "8726c230b7c89c602d796b3602c1eca8bcb7351dfb988240724f8a4185884f53",
+      "verification_sha256": "484390ee5b59ce626982fd12bc775e0bf219905b4ed851a42f3a7c88ed232b82",
+      "defined_pairs": 1999,
+      "complete_means": 1900,
+      "last100_pair_means": {
+        "gradient_only": 1.050158607005456,
+        "epsilon": -1.0315247683251743,
+        "noise_corrected": 0.01863383868028161,
+        "eta_directional": 2.620992506032718,
+        "optimizer_mismatch": -2.6024454432342736,
+        "nonlinear_remainder": 8.677588183723196e-05
+      },
+      "mean100_ranges": {
+        "gradient_only": [
+          0.27570331686553134,
+          1.6826472115517692
+        ],
+        "epsilon": [
+          -1.6576858074691063,
+          -0.23828222611132235
+        ],
+        "noise_corrected": [
+          -0.008890634804342695,
+          0.03911703082747471
+        ],
+        "eta_directional": [
+          1.6883877992480583,
+          3.5732104335776365
+        ],
+        "optimizer_mismatch": [
+          -3.5481287124246523,
+          -1.6793080344164357
+        ],
+        "nonlinear_remainder": [
+          -0.00015760581824542075,
+          0.0004878120697414208
+        ]
+      },
+      "derived_history": "analyses/018-2026-10-12-rosenbrock-kappa-noise/artifacts/Run050_kappa_noise.npz",
+      "derived_history_bytes": 183665,
+      "derived_history_sha256": "0b9f6b62206702acdd923444381c3e7982080df7396837add532a569f89b002b",
+      "smallest_previous_raw_norm_squared": 0.07589261708400032
+    },
+    {
+      "run_id": "Run051",
+      "directory": "runs/051-2026-10-10-rosenbrock-noise-sigma-10-lr-midpoint",
+      "sigma": 10.0,
+      "sigma_label": "10",
+      "learning_rate": 0.0031622776601683794,
+      "lr_label": "midpoint",
+      "control_directory": "runs/039-2026-10-10-rosenbrock-adamw-new-start-lr-midpoint",
+      "reused": false,
+      "history_sha256": "a59c5d3d4e90f3e39bbf96e61b6cb7ea4d265a094e6cc174e53a1ce73c140633",
+      "history_bytes": 1585217,
+      "config_sha256": "0910a41fad158c3646b755f73d641dfe2386ce157eb4731f2c1e83951942dff0",
+      "verification_sha256": "45bdcdd54e88661ec56c538fc6a02c350e70bb48a99493b78fcec067cc2b6e73",
+      "defined_pairs": 1999,
+      "complete_means": 1900,
+      "last100_pair_means": {
+        "gradient_only": 1.0718795429071657,
+        "epsilon": -1.0676178113019672,
+        "noise_corrected": 0.004261731605198556,
+        "eta_directional": 0.7006799993080677,
+        "optimizer_mismatch": -0.6964259943195152,
+        "nonlinear_remainder": 7.726616646092224e-06
+      },
+      "mean100_ranges": {
+        "gradient_only": [
+          -0.06392394683113402,
+          1.5623857463165545
+        ],
+        "epsilon": [
+          -1.5655548527969625,
+          0.08297537502979994
+        ],
+        "noise_corrected": [
+          -0.015113287768062677,
+          0.029850617571754973
+        ],
+        "eta_directional": [
+          0.6172922334657401,
+          1.0124201878398624
+        ],
+        "optimizer_mismatch": [
+          -1.0062932135876805,
+          -0.6133966359313263
+        ],
+        "nonlinear_remainder": [
+          -4.150994613645885e-05,
+          0.0001035128390826963
+        ]
+      },
+      "derived_history": "analyses/018-2026-10-12-rosenbrock-kappa-noise/artifacts/Run051_kappa_noise.npz",
+      "derived_history_bytes": 182979,
+      "derived_history_sha256": "f24b87ebbf8588d28e1aad08e935e5844cf1dc045bb76c1f1e8e33d66136e783",
+      "smallest_previous_raw_norm_squared": 0.013410807672342167
+    },
+    {
+      "run_id": "Run052",
+      "directory": "runs/052-2026-10-10-rosenbrock-noise-sigma-10-lr-1e-3",
+      "sigma": 10.0,
+      "sigma_label": "10",
+      "learning_rate": 0.001,
+      "lr_label": "1e-3",
+      "control_directory": "runs/040-2026-10-10-rosenbrock-adamw-new-start-lr-1e-3",
+      "reused": false,
+      "history_sha256": "ac84c87273a6114247af706b9567fc90425e36188604035d20e57b719e9c1ca0",
+      "history_bytes": 1570000,
+      "config_sha256": "782ebce3d4899243e68abb4979c5e03809bcd40f95cda01852af6f85081afadc",
+      "verification_sha256": "0244dff65a0b0c7b93e3d969c3addf8b0cc1d4473d086c2104b0acbf8c5ce1d6",
+      "defined_pairs": 1999,
+      "complete_means": 1900,
+      "last100_pair_means": {
+        "gradient_only": 1.095094111243169,
+        "epsilon": -1.0923963866237858,
+        "noise_corrected": 0.0026977246193831215,
+        "eta_directional": 0.21534234143491507,
+        "optimizer_mismatch": -0.21264554404528063,
+        "nonlinear_remainder": 9.272297486765417e-07
+      },
+      "mean100_ranges": {
+        "gradient_only": [
+          -0.06255829654379104,
+          1.388865388061303
+        ],
+        "epsilon": [
+          -1.3853035775175184,
+          0.07848618439113572
+        ],
+        "noise_corrected": [
+          -0.0012946529029369024,
+          0.017935423939428624
+        ],
+        "eta_directional": [
+          0.1893799362566127,
+          0.36039419974219766
+        ],
+        "optimizer_mismatch": [
+          -0.34853390514277083,
+          -0.1881547710658531
+        ],
+        "nonlinear_remainder": [
+          -4.6615970826372015e-06,
+          1.9956681105992515e-05
+        ]
+      },
+      "derived_history": "analyses/018-2026-10-12-rosenbrock-kappa-noise/artifacts/Run052_kappa_noise.npz",
+      "derived_history_bytes": 182547,
+      "derived_history_sha256": "360487235c44ae766ad9a2ed7f25fe9b216b15db6128d4f25916c473dc9351e9",
+      "smallest_previous_raw_norm_squared": 0.1892643387665786
+    }
+  ],
+  "runs": 15,
+  "defined_pairs": 29985,
+  "means_per_metric": 28500,
+  "scientific_inputs": {
+    "config_sha256": "fa480c5e45bfd2e4e428254f8d2e0bd195d5bc2f157d67dfa6734387d23ac69a",
+    "cohort_sha256": "81734bd45d7b62d532e152d78103f956dd3d111c01e64808ed9d79ef048b76ed",
+    "metric_sha256": "158a2f0b512e062a5a953a5b2b25cb953b58f3d1d7eb1be1871f63179bb478a1",
+    "reference_data_sha256": "c53e1c1136709c702fbd41daa13c0bb89474ee3ca79666f5110e3ff8cedd1ed7",
+    "formula_snapshot_sha256": "e689fd9ec071a431026b422aa345999730a3860bffa87ff05799721ebe2d8ddf"
+  },
+  "protected_reference_figures": [
+    {
+      "path": "analyses/017-2026-10-12-rosenbrock-kappa-identity/figures/rosenbrock_kappa_comparison.pdf",
+      "sha256": "03cb22a5788fbd338926269187231dbd2047faf2ff446f539b96cc793fe36562"
+    },
+    {
+      "path": "analyses/017-2026-10-12-rosenbrock-kappa-identity/figures/rosenbrock_kappa_diagnostics.pdf",
+      "sha256": "0c47a226fcaea425de20f03d244db1a051ea730bdbb33ce9ae864514ffcb8e4b"
+    },
+    {
+      "path": "analyses/017-2026-10-12-rosenbrock-kappa-identity/figures/rosenbrock_kappa_eta_overlay.pdf",
+      "sha256": "a5f0bbf9adbec9fa9780ebb999e3868b67d9b186537ef11a1f6bb2415ade4292"
+    }
+  ]
+}

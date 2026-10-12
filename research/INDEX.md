@@ -2,6 +2,17 @@
 
 ## Current state
 
+[Analysis018: eta-kappa with gradient noise](../analyses/018-2026-10-12-rosenbrock-kappa-noise/README.md)
+reuses immutable Runs038-052: sigma0/0.01/0.1/1/10, three LRs, one paired
+seed1234. The five-row overlay repeats the gradient-only quantity and includes
+the measured normalized noise term separately. At sigma10 final100 means
+1.050/1.072/1.095 become0.0186/0.00426/0.00270 with epsilon included.
+All29,985 pairs,28,500 full means per metric and30 plotted curves pass checks;
+both100/250-pair PDFs pass visual review. A separate250-pair version checks all52,500 plotted means. Noise correction removes the explicit difference,
+but AdamW update mismatch remains; no curvature-estimator or stability claim.
+Original PDFs preserved;2.66 MB derived histories retained locally outside Git.
+No new optimizer run, cloud resources or billing; one seed limits inference.
+
 [Analysis017: gradient-identity kappa](../analyses/017-2026-10-12-rosenbrock-kappa-identity/README.md)
 reuses immutable Rosenbrock Runs055-057, with noise epsilon0. Broad100-pair
 trends correlate with lambda_max (0.942/0.905/0.753), but amplitude differs;
@@ -249,4 +260,4 @@ SGD remains deferred. Original manuscript assets are preserved.
 - [Surgical changes proposal](../manuscript/2026-10-07-surgical-changes-proposal/README.md):
   evidence, draft changes, and proposed momentum/LR experiments; planning only.
 
-Next run: 055; analysis: 018; hypothesis: H017. Preserve executed inputs and raw evidence.
+Next run: 055; analysis: 019; hypothesis: H018. Preserve executed inputs and raw evidence.

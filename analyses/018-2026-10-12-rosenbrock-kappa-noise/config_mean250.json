@@ -1,0 +1,16 @@
+{
+  "smoothing_window": 250,
+  "source_config": "config.json",
+  "source_config_sha256": "fa480c5e45bfd2e4e428254f8d2e0bd195d5bc2f157d67dfa6734387d23ac69a",
+  "purpose": "Separate longer trailing-mean rendering; same unsmoothed pair metrics and optimizer paths",
+  "reduction": "Complete finite trailing arithmetic mean of 250 adjacent-pair values; first full mean t=251",
+  "complete_means_per_curve": 1750,
+  "undefined_prefix_updates": [
+    1,
+    250
+  ],
+  "figure": "figures/rosenbrock_kappa_eta_noise_overlay_mean250.pdf",
+  "source_script": "02_plot.py",
+  "source_script_sha256": "b13b65c562b38db8a755d43ff70671d46c051a3c90efc2153acda017e00765cc",
+  "axes": "Same layout/colors/linear-scale policy; bounds recomputed to cover all finite 250-pair means"
+}

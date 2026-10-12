@@ -21,5 +21,7 @@
 | [015](015-2026-10-10-spark-high-lr/README.md) | H014: stress higher warmup-only LR0.02/0.04 with loss and raw/momentum/adaptive geometry | Runs053/054; completed matched Spark reference023 atLR0.01 | Complete; both712-update passes verified/retrieved; two PDFs visually reviewed | [Results and review](015-2026-10-10-spark-high-lr/observations/002-completed-results-and-review.md); validation6.63438/5.19195 at LR0.02/0.04; no cloud rental |
 | [017](017-2026-10-12-rosenbrock-kappa-identity/README.md) | H016: gradient-identity kappa versus Hessian and separate eta-kappa overlay | Immutable Runs055-057; no new optimizer run | Complete; all5,997 pairs and5,700 full means checked; three PDFs reviewed; local only | [Observations](017-2026-10-12-rosenbrock-kappa-identity/observations/INDEX.md); normalized late means1.790/1.755/1.748; original comparison unchanged |
 
-Next analysis: `018-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
+| [018](018-2026-10-12-rosenbrock-kappa-noise/README.md) | H017: eta-kappa identity across Gaussian gradient noise, retaining realized epsilon | Immutable Runs038-052; five sigmas, three LRs, one paired seed | Complete; 29,985 pairs and28,500 means per metric checked; two PDFs (100/250 pairs) reviewed; no optimizer run | [001: Noise overlay](018-2026-10-12-rosenbrock-kappa-noise/observations/001-noise-overlay.md); gradient-only late sigma10 means1.050/1.072/1.095 versus corrected0.0186/0.00426/0.00270; original PDFs preserved |
+
+Next analysis: `019-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
 an analysis may use manuscript or external inputs without referencing a run.

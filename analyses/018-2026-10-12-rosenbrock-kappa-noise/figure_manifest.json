@@ -1,0 +1,678 @@
+{
+  "figure": "analyses/018-2026-10-12-rosenbrock-kappa-noise/figures/rosenbrock_kappa_eta_noise_overlay.pdf",
+  "sha256": "cfe630b4ebac23a51c21530ddc080aebc3de5d2dcdebe5ea5768368ccc8975a4",
+  "panels": 10,
+  "dimensions_inches": [
+    16,
+    18.5
+  ],
+  "script_sha256": "b13b65c562b38db8a755d43ff70671d46c051a3c90efc2153acda017e00765cc",
+  "metric_sha256": "158a2f0b512e062a5a953a5b2b25cb953b58f3d1d7eb1be1871f63179bb478a1",
+  "plot_data_sha256": "b81b76aa5502f116a9594a07203a587d8227249cac586ae0a2363ee8d21d5ad6",
+  "window": 100,
+  "thinning": null,
+  "left_common_y_scale": true,
+  "right_per_row_y_limits": true,
+  "rendered_series": [
+    {
+      "panel": [
+        0,
+        0
+      ],
+      "run_id": "Run038",
+      "metric": "gradient_only",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "40deb406fae2db01ccb2af824426c1499da0c0be477875700c6f84597562f39b",
+      "color": "#0072B2",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.35673734319794626,
+        2.3863905378633783
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        0,
+        0
+      ],
+      "run_id": "Run039",
+      "metric": "gradient_only",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "424ca07e3ad29d92010c597322c501302f47f83360fe62508b470ec0c1292bb0",
+      "color": "#8C4AA8",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.35673734319794626,
+        2.3863905378633783
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        0,
+        0
+      ],
+      "run_id": "Run040",
+      "metric": "gradient_only",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "20d7f73f72c315ca0afd43c3e6d449ad13b6d16b4a5ff0db5b902679609acdc9",
+      "color": "#D55E00",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.35673734319794626,
+        2.3863905378633783
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        0,
+        1
+      ],
+      "run_id": "Run038",
+      "metric": "noise_corrected",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "40deb406fae2db01ccb2af824426c1499da0c0be477875700c6f84597562f39b",
+      "color": "#0072B2",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.15442595016420588,
+        2.085781194295026
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        0,
+        1
+      ],
+      "run_id": "Run039",
+      "metric": "noise_corrected",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "424ca07e3ad29d92010c597322c501302f47f83360fe62508b470ec0c1292bb0",
+      "color": "#8C4AA8",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.15442595016420588,
+        2.085781194295026
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        0,
+        1
+      ],
+      "run_id": "Run040",
+      "metric": "noise_corrected",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "20d7f73f72c315ca0afd43c3e6d449ad13b6d16b4a5ff0db5b902679609acdc9",
+      "color": "#D55E00",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.15442595016420588,
+        2.085781194295026
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        1,
+        0
+      ],
+      "run_id": "Run041",
+      "metric": "gradient_only",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "04628e2c1678e47f3e12933759b1353989452d0c2454f18157426d02b2e2dcab",
+      "color": "#0072B2",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.35673734319794626,
+        2.3863905378633783
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        1,
+        0
+      ],
+      "run_id": "Run042",
+      "metric": "gradient_only",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "8cc5d58234057e6d995701490fb343492f1414e34d5221d89cd69d8b8a5174f8",
+      "color": "#8C4AA8",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.35673734319794626,
+        2.3863905378633783
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        1,
+        0
+      ],
+      "run_id": "Run043",
+      "metric": "gradient_only",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "63f57c238d49ff1e4e3d9b60bc8572b6584a72b7f78388eaa15d932b632a6bdf",
+      "color": "#D55E00",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.35673734319794626,
+        2.3863905378633783
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        1,
+        1
+      ],
+      "run_id": "Run041",
+      "metric": "noise_corrected",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "bb3ab4bcabcd04c56af653af21d688213e54854f9b3f5ab938ee44240e7433d3",
+      "color": "#0072B2",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.1687817064974403,
+        2.2795839155830877
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        1,
+        1
+      ],
+      "run_id": "Run042",
+      "metric": "noise_corrected",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "3ac66d10b34b448a70e6387356a1d841d0853ef65c1775e0847f6692780cbf09",
+      "color": "#8C4AA8",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.1687817064974403,
+        2.2795839155830877
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        1,
+        1
+      ],
+      "run_id": "Run043",
+      "metric": "noise_corrected",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "b9d38e6c00730f2c1d7046cd0a2f8fc57579a26397789e9542433f4b9461bb21",
+      "color": "#D55E00",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.1687817064974403,
+        2.2795839155830877
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        2,
+        0
+      ],
+      "run_id": "Run044",
+      "metric": "gradient_only",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "3f9a52831d8ab32cebc182280c6ad3d5f86b7586d44b277ef7ad69416e66a0bb",
+      "color": "#0072B2",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.35673734319794626,
+        2.3863905378633783
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        2,
+        0
+      ],
+      "run_id": "Run045",
+      "metric": "gradient_only",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "9921af49e261acbd8059e2b13c73340a9e4080c2516e3a2994228214dfe47cb1",
+      "color": "#8C4AA8",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.35673734319794626,
+        2.3863905378633783
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        2,
+        0
+      ],
+      "run_id": "Run046",
+      "metric": "gradient_only",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "dc5415e7ee048f7f7d7abfa30fa39f0c5dbae822a737d9b83f8ca2f32517365f",
+      "color": "#D55E00",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.35673734319794626,
+        2.3863905378633783
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        2,
+        1
+      ],
+      "run_id": "Run044",
+      "metric": "noise_corrected",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "441a7873d322a214a0e1fc303e0aa96f02a5c23360b2649f486bb936523288d0",
+      "color": "#0072B2",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.1758965310945936,
+        2.346527460163043
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        2,
+        1
+      ],
+      "run_id": "Run045",
+      "metric": "noise_corrected",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "adee0d2f82cfd07ff7152b143f7a0d393bacc7e6654e930ade5b2c8bcefba361",
+      "color": "#8C4AA8",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.1758965310945936,
+        2.346527460163043
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        2,
+        1
+      ],
+      "run_id": "Run046",
+      "metric": "noise_corrected",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "05879c9636291048750f9e89aa900fbdb251740c076de70edfe54930ba78e1eb",
+      "color": "#D55E00",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.1758965310945936,
+        2.346527460163043
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        3,
+        0
+      ],
+      "run_id": "Run047",
+      "metric": "gradient_only",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "66477373ca355f7a3bc53fb6a09c87d1f9edddeeefc4ab2a67e9157ec6a7b00a",
+      "color": "#0072B2",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.35673734319794626,
+        2.3863905378633783
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        3,
+        0
+      ],
+      "run_id": "Run048",
+      "metric": "gradient_only",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "bda08894cffc5589317ff15536b654cfdc3ab1e5b6e32715229f8c7d05baf82e",
+      "color": "#8C4AA8",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.35673734319794626,
+        2.3863905378633783
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        3,
+        0
+      ],
+      "run_id": "Run049",
+      "metric": "gradient_only",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "e51e9f560a2eca9fd74aec7f70891c8c42037fee0a2aea3b21b4bd316ce04a2a",
+      "color": "#D55E00",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.35673734319794626,
+        2.3863905378633783
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        3,
+        1
+      ],
+      "run_id": "Run047",
+      "metric": "noise_corrected",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "5eb2f25c170a8bcbe7f4e6291e683d845bb5f67120052a8ad03b53ed3ced1ac7",
+      "color": "#0072B2",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.04507321452014049,
+        0.43773140684419837
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        3,
+        1
+      ],
+      "run_id": "Run048",
+      "metric": "noise_corrected",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "77a2a29f73a40b6357921097681b9306be23bdbc8dee9abff6722600c5883ff6",
+      "color": "#8C4AA8",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.04507321452014049,
+        0.43773140684419837
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        3,
+        1
+      ],
+      "run_id": "Run049",
+      "metric": "noise_corrected",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "a4334cdfc7792b67e1612a2b9e4496545c4bf660321c095674a27183af824575",
+      "color": "#D55E00",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.04507321452014049,
+        0.43773140684419837
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        4,
+        0
+      ],
+      "run_id": "Run050",
+      "metric": "gradient_only",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "8e31a312a9656085043d8a024e53a03fb12f9f2ffe94e68e048398ec06536f5d",
+      "color": "#0072B2",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.35673734319794626,
+        2.3863905378633783
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        4,
+        0
+      ],
+      "run_id": "Run051",
+      "metric": "gradient_only",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "c41c35949aa0241ef0134986cde9282eee38c302f7c24273ffd3205b767207e3",
+      "color": "#8C4AA8",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.35673734319794626,
+        2.3863905378633783
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        4,
+        0
+      ],
+      "run_id": "Run052",
+      "metric": "gradient_only",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "9261fbacc0cc5a8a7ed97d99c1087661e4514ecd8df8e3a67c6b4d44fbca7107",
+      "color": "#D55E00",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.35673734319794626,
+        2.3863905378633783
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        4,
+        1
+      ],
+      "run_id": "Run050",
+      "metric": "noise_corrected",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "293a7e03e76b329a0538731857fcc00b1e69193ba9c87ab73d1f24343b856d3a",
+      "color": "#0072B2",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.019451713255705667,
+        0.0434554563151177
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        4,
+        1
+      ],
+      "run_id": "Run051",
+      "metric": "noise_corrected",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "691e0d8199a8a675742e5d6010502e0aa8d5fcbcaead2bb561b7b6e6ffe564dc",
+      "color": "#8C4AA8",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.019451713255705667,
+        0.0434554563151177
+      ],
+      "y_scale": "linear"
+    },
+    {
+      "panel": [
+        4,
+        1
+      ],
+      "run_id": "Run052",
+      "metric": "noise_corrected",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "bf10ac97e36b4a023b70d686f36c8e4af9239a4210793d54d4a9d2a34bf332ed",
+      "color": "#D55E00",
+      "xlim": [
+        0.0,
+        2000.0
+      ],
+      "ylim": [
+        -0.019451713255705667,
+        0.0434554563151177
+      ],
+      "y_scale": "linear"
+    }
+  ]
+}
