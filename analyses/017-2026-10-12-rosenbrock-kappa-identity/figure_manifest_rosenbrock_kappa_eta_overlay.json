@@ -1,0 +1,55 @@
+{
+  "figure": "analyses/017-2026-10-12-rosenbrock-kappa-identity/figures/rosenbrock_kappa_eta_overlay.pdf",
+  "sha256": "a5f0bbf9adbec9fa9780ebb999e3868b67d9b186537ef11a1f6bb2415ade4292",
+  "panels": 1,
+  "dimensions_inches": [
+    14,
+    7.5
+  ],
+  "script_sha256": "ee7fc6256a0523cd992e29297cc7260bf3de53edaf211b232e4e48870c3e3afc",
+  "metric_implementation_sha256": "3fbd1f72da82db129fa6e5f0103e019809975bcecd06118d89c885efa4da25bd",
+  "data_sha256": "c53e1c1136709c702fbd41daa13c0bb89474ee3ca79666f5110e3ff8cedd1ed7",
+  "smoothing_window": 100,
+  "first_finite_mean_update": 101,
+  "means_per_lr": 1900,
+  "vertical_reference_lines": [
+    {
+      "run_id": "Run055",
+      "update": 81
+    },
+    {
+      "run_id": "Run056",
+      "update": 228
+    },
+    {
+      "run_id": "Run057",
+      "update": 655
+    }
+  ],
+  "y_scale": "linear",
+  "thinning": null,
+  "original_comparison_sha256_unchanged": "03cb22a5788fbd338926269187231dbd2047faf2ff446f539b96cc793fe36562",
+  "rendered_series": [
+    {
+      "run_id": "Run055",
+      "learning_rate": 0.01,
+      "plotted_x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "plotted_y_sha256": "f2d3bec267f77d2c19f786e3acf5dd48b2f7d50871323bd4abb8c64598f10029",
+      "last100_pair_mean": 1.79018241572521
+    },
+    {
+      "run_id": "Run056",
+      "learning_rate": 0.0031622776601683794,
+      "plotted_x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "plotted_y_sha256": "1a7cfaad09743323d0142c922445f178006fe3dedcb1b0b90bb4c8d5cba9993e",
+      "last100_pair_mean": 1.7549708924232865
+    },
+    {
+      "run_id": "Run057",
+      "learning_rate": 0.001,
+      "plotted_x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "plotted_y_sha256": "68906cde70f11270b912abd8c88a5dcc0b96bb297676259331b8089bbfa96090",
+      "last100_pair_mean": 1.747943866840917
+    }
+  ]
+}

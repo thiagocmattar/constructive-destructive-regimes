@@ -1,0 +1,548 @@
+{
+  "figure": "analyses/017-2026-10-12-rosenbrock-kappa-identity/figures/rosenbrock_kappa_comparison.pdf",
+  "sha256": "03cb22a5788fbd338926269187231dbd2047faf2ff446f539b96cc793fe36562",
+  "sources": [
+    {
+      "run_id": "Run055",
+      "directory": "runs/055-2026-10-11-rosenbrock-hessian-lr-1e-2",
+      "learning_rate": 0.01,
+      "lr_label": "0.01",
+      "control_directory": "runs/038-2026-10-10-rosenbrock-adamw-new-start-lr-1e-2",
+      "history_sha256": "3b9d3fbea1cbac50179c42b8c4f89446f947c569cd877c3e38ba96f00240fda4",
+      "history_bytes": 1042137,
+      "config_sha256": "e5459019d1bb4b985565952ce2d0a6bdc548db47774adf6d3fb076c562045ffc",
+      "verification_sha256": "c9b71e638ce9dd26e79fffa9e77a2d7f9a3727222470da7538d7be30079515ea",
+      "defined_pairs": 1999,
+      "undefined_updates": [
+        1
+      ],
+      "pearson_proxy_lambda_raw": 0.4069332273162166,
+      "pearson_proxy_lambda_mean100": 0.9421752136901849,
+      "pearson_proxy_direction_raw": 0.45859260569327576,
+      "last100_pair_means": {
+        "kappa_proxy": 179.01824157252096,
+        "kappa_direction": 903.3571296344257,
+        "lambda_max": 953.6841900132915,
+        "optimizer_mismatch": -724.3397183939799,
+        "nonlinear_remainder": 0.0008303320747487486
+      },
+      "proxy_range": [
+        -1278.2083713959466,
+        707.1125551770342
+      ],
+      "outside_local_spectrum": 245,
+      "mean_absolute_proxy_minus_direction": 642.4138877024467,
+      "mean_absolute_proxy_minus_lambda": 734.1090371784524,
+      "derived_history": "analyses/017-2026-10-12-rosenbrock-kappa-identity/artifacts/Run055_kappa.npz",
+      "derived_history_bytes": 174137,
+      "derived_history_sha256": "3ac5114d6a77bfbc10ea4b012edbcd1836ca5834235751b89870480749103f2d",
+      "arrays": {
+        "updates": {
+          "shape": [
+            2000
+          ],
+          "sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d"
+        },
+        "kappa_proxy": {
+          "shape": [
+            2000
+          ],
+          "sha256": "d5e831029a8a163e9f984f810ce74e61ffffaf6c73141ec48ebcb79a8be69b19"
+        },
+        "kappa_direction": {
+          "shape": [
+            2000
+          ],
+          "sha256": "b9888971b80185cd1befeb427b5a0f21953d6633c47ebd799a081baa577073bc"
+        },
+        "optimizer_mismatch": {
+          "shape": [
+            2000
+          ],
+          "sha256": "4187ed6ebf4c9711609ae54ef6a4a9596d3a8803aa9e31bc7a892b70573cf9ac"
+        },
+        "nonlinear_remainder": {
+          "shape": [
+            2000
+          ],
+          "sha256": "4908303f61c5c661452efcaaa9d13b95b938455b0fad1bf2c85d951d53c83b5c"
+        },
+        "lambda_min": {
+          "shape": [
+            2000
+          ],
+          "sha256": "45fdc5fc013fda73908201f18fd6f037848874afda336c676bb528a98b984b86"
+        },
+        "lambda_max": {
+          "shape": [
+            2000
+          ],
+          "sha256": "8ba8dda6e7c3e7501f5d5b1dcfe5f62066099fc4f182abb65783c025408b68e2"
+        },
+        "proxy_minus_direction": {
+          "shape": [
+            2000
+          ],
+          "sha256": "87ebeee8ed78b264534eec592aa4ec59fbf298ac7d98d1910d2e5fe7c928c1f6"
+        },
+        "kappa_proxy_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "1f56ae35e3a6097ab4e88b56dd201975b40e7db12d42a66aa2af8ac41595981f"
+        },
+        "kappa_direction_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "9c8aff91bd4ca7653938c1209a802cd3a5ed44ef891700e3a187aba40709903d"
+        },
+        "lambda_min_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "ac0f8466c8bea7ddfc4bba61a5da1db4da2c426222998fffc06ead044498b7a7"
+        },
+        "lambda_max_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "88893d79888e26676652aa6bbc2ec6a3791bbbf4a5a0c8913b07aba341ae3918"
+        },
+        "proxy_minus_direction_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "54e16de25c19965bebd5825255a016ccd93b332472b57f96028f4e748cbe6a5d"
+        }
+      }
+    },
+    {
+      "run_id": "Run056",
+      "directory": "runs/056-2026-10-11-rosenbrock-hessian-lr-midpoint",
+      "learning_rate": 0.0031622776601683794,
+      "lr_label": "0.0031622776601683794",
+      "control_directory": "runs/039-2026-10-10-rosenbrock-adamw-new-start-lr-midpoint",
+      "history_sha256": "fb065358971a478c5d706183514e621d55874d382884e9bbb6e5eb8c238b31ea",
+      "history_bytes": 1024283,
+      "config_sha256": "113876a0bcaacda7b3dad17f3c0bc74887b3a2d0ea54837cf36b55a526685c16",
+      "verification_sha256": "994b251fba7402afbb3130db5e1ae1138ef164d368a7402ce8079cb6b6315eb1",
+      "defined_pairs": 1999,
+      "undefined_updates": [
+        1
+      ],
+      "pearson_proxy_lambda_raw": 0.507984978866538,
+      "pearson_proxy_lambda_mean100": 0.9054728305769487,
+      "pearson_proxy_direction_raw": 0.5771788130700234,
+      "last100_pair_means": {
+        "kappa_proxy": 554.9705247355922,
+        "kappa_direction": 933.0104240156222,
+        "lambda_max": 985.2857179676816,
+        "optimizer_mismatch": -378.0426821052593,
+        "nonlinear_remainder": 0.0027828252294899727
+      },
+      "proxy_range": [
+        -1196.7659616534693,
+        1772.948288552858
+      ],
+      "outside_local_spectrum": 326,
+      "mean_absolute_proxy_minus_direction": 382.94577633988473,
+      "mean_absolute_proxy_minus_lambda": 485.88217768499516,
+      "derived_history": "analyses/017-2026-10-12-rosenbrock-kappa-identity/artifacts/Run056_kappa.npz",
+      "derived_history_bytes": 175329,
+      "derived_history_sha256": "3ea60065d3c6e3b9d83ce6c7a07e390e01d7b5fa26d1698b2c7f3a3f4e0b6170",
+      "arrays": {
+        "updates": {
+          "shape": [
+            2000
+          ],
+          "sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d"
+        },
+        "kappa_proxy": {
+          "shape": [
+            2000
+          ],
+          "sha256": "89e479d36f748f4f1f75cf59cbfd5fc416a71c0ef6a1394854b8d7f3df3119e4"
+        },
+        "kappa_direction": {
+          "shape": [
+            2000
+          ],
+          "sha256": "f4743f4049e720aba3b22271df6ba0f219ef07963e65a6103115d3fb0e60a21b"
+        },
+        "optimizer_mismatch": {
+          "shape": [
+            2000
+          ],
+          "sha256": "9900a2043141287cc2142998e95090cc79f0f1087ce455fcd5dc399f6fb895f1"
+        },
+        "nonlinear_remainder": {
+          "shape": [
+            2000
+          ],
+          "sha256": "196101d90410dfc2f0035f80cfdc850539c2e1fd7e5286571569e24ea1b897f0"
+        },
+        "lambda_min": {
+          "shape": [
+            2000
+          ],
+          "sha256": "095154741596d053bb6483f7e8cf6db0d3ced5b72bcd4de14fdcf877c78356fc"
+        },
+        "lambda_max": {
+          "shape": [
+            2000
+          ],
+          "sha256": "e468bbdf145f9360d68ed31d6a6f25bea7a09c57de33499b380265584a185dca"
+        },
+        "proxy_minus_direction": {
+          "shape": [
+            2000
+          ],
+          "sha256": "3f78ee617c275d837902c6df3206d0895050489ed60237fb3188300ff1a8dfb0"
+        },
+        "kappa_proxy_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "b95bd3bcdbaff61752c9b6dd408784ef30064e66a1a1ef290ba47af078f9413d"
+        },
+        "kappa_direction_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "a50b54e9fc3bf08bd5e1ea7ff5fed8e718e6580290049643c46da63f8ff5daa9"
+        },
+        "lambda_min_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "26be043ff92888826ddc8e4c713e820079b1761d720f1bee3c9fdfa63017a202"
+        },
+        "lambda_max_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "9eac5aa9713a1cf3fb6e879a72e03c98584fee2fb4b6b0b304cc5ff241f9af29"
+        },
+        "proxy_minus_direction_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "61495ff2b77793734f27903b0ca7852fab8a1187915d86aa1a2e95bb928a95c0"
+        }
+      }
+    },
+    {
+      "run_id": "Run057",
+      "directory": "runs/057-2026-10-11-rosenbrock-hessian-lr-1e-3",
+      "learning_rate": 0.001,
+      "lr_label": "0.001",
+      "control_directory": "runs/040-2026-10-10-rosenbrock-adamw-new-start-lr-1e-3",
+      "history_sha256": "114dd625cc630c9c9c871a38d8d561cf8bd3aa0b029837d90c3fb0ec1989d217",
+      "history_bytes": 1039279,
+      "config_sha256": "2b114a5de180d096dde0edd586db03d5c092009a6a0ff34fbb7d2edde4449b97",
+      "verification_sha256": "e79eb435bffde5933f669325eaad68ce4c7c2844b0fcf11030c99279489071d7",
+      "defined_pairs": 1999,
+      "undefined_updates": [
+        1
+      ],
+      "pearson_proxy_lambda_raw": 0.5688440449255598,
+      "pearson_proxy_lambda_mean100": 0.7532202200528587,
+      "pearson_proxy_direction_raw": 0.7463300636936256,
+      "last100_pair_means": {
+        "kappa_proxy": 1747.9438668409168,
+        "kappa_direction": 927.3948378221148,
+        "lambda_max": 996.310036225155,
+        "optimizer_mismatch": 820.5490439006863,
+        "nonlinear_remainder": -1.4881884135069246e-05
+      },
+      "proxy_range": [
+        -3697.4714062198527,
+        5560.345734314911
+      ],
+      "outside_local_spectrum": 728,
+      "mean_absolute_proxy_minus_direction": 475.97022819780966,
+      "mean_absolute_proxy_minus_lambda": 681.7607717345419,
+      "derived_history": "analyses/017-2026-10-12-rosenbrock-kappa-identity/artifacts/Run057_kappa.npz",
+      "derived_history_bytes": 180578,
+      "derived_history_sha256": "1cd5c597eb6d2b3afbebfde6f76f56209738c4e15aa97c75bb9d6dfb717ff8d1",
+      "arrays": {
+        "updates": {
+          "shape": [
+            2000
+          ],
+          "sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d"
+        },
+        "kappa_proxy": {
+          "shape": [
+            2000
+          ],
+          "sha256": "5979888d3b0d9481879648d373e1a17315100915ea1c115a2b87e0debe06c065"
+        },
+        "kappa_direction": {
+          "shape": [
+            2000
+          ],
+          "sha256": "c0a054b597852a59c0554c08de5362fcde91eeac9beefc14e2c1088537d53f62"
+        },
+        "optimizer_mismatch": {
+          "shape": [
+            2000
+          ],
+          "sha256": "9d15fdff51f62484638008e2ba43b542b35e65b996d3999ed47b22e96cfba1cd"
+        },
+        "nonlinear_remainder": {
+          "shape": [
+            2000
+          ],
+          "sha256": "06d94376fd5fadc9b42ebb37f03d8299961bf5eb2915f5b811b32b7532a711cf"
+        },
+        "lambda_min": {
+          "shape": [
+            2000
+          ],
+          "sha256": "9a5d0a81f523ed78329fc9761d85fc24435f6335bb69e19d2c1d6a9341663aff"
+        },
+        "lambda_max": {
+          "shape": [
+            2000
+          ],
+          "sha256": "1cc42528b40974ed99d243d7f13c11651f0a7d4455cf3a9287d5a77264985484"
+        },
+        "proxy_minus_direction": {
+          "shape": [
+            2000
+          ],
+          "sha256": "9013e65e5ba535bc5e163ce81e7483439b7ab0f89c226c9f719b11ddf0a14bd5"
+        },
+        "kappa_proxy_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "00fa90377a30fe0573ef54a5642e8eef0bc33102baa94d19d9a0c81b25abdf10"
+        },
+        "kappa_direction_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "630152b2893bc5bb7dac4570d21767d1159f233e24a7c66d8389338b6c26a68a"
+        },
+        "lambda_min_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "39b95ca2824e74950698d46a475371195adfa3915ad0700401b916416500a39c"
+        },
+        "lambda_max_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "38be14e1383fac98610d80e60061ef0b542cda2a59eefc7aa3284457f9e62ce5"
+        },
+        "proxy_minus_direction_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "94df0c8be9af89f0a8416c1250a1d8d17b41d64327dbce859436443095b77127"
+        }
+      }
+    }
+  ],
+  "script_sha256": "671360aa98626d597bb0ccd4bc93251469035054481c691d405129b66786de30",
+  "metric_implementation_sha256": "3fbd1f72da82db129fa6e5f0103e019809975bcecd06118d89c885efa4da25bd",
+  "panels": 6,
+  "dimensions_inches": [
+    18,
+    11
+  ],
+  "smoothing_window": 100,
+  "rendered_series": [
+    {
+      "panel": "a",
+      "run_id": "Run055",
+      "field": "kappa_proxy",
+      "points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "d5e831029a8a163e9f984f810ce74e61ffffaf6c73141ec48ebcb79a8be69b19"
+    },
+    {
+      "panel": "a",
+      "run_id": "Run055",
+      "field": "lambda_max",
+      "points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "8ba8dda6e7c3e7501f5d5b1dcfe5f62066099fc4f182abb65783c025408b68e2"
+    },
+    {
+      "panel": "a",
+      "run_id": "Run055",
+      "field": "kappa_direction",
+      "points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "b9888971b80185cd1befeb427b5a0f21953d6633c47ebd799a081baa577073bc"
+    },
+    {
+      "panel": "b",
+      "run_id": "Run056",
+      "field": "kappa_proxy",
+      "points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "89e479d36f748f4f1f75cf59cbfd5fc416a71c0ef6a1394854b8d7f3df3119e4"
+    },
+    {
+      "panel": "b",
+      "run_id": "Run056",
+      "field": "lambda_max",
+      "points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "e468bbdf145f9360d68ed31d6a6f25bea7a09c57de33499b380265584a185dca"
+    },
+    {
+      "panel": "b",
+      "run_id": "Run056",
+      "field": "kappa_direction",
+      "points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "f4743f4049e720aba3b22271df6ba0f219ef07963e65a6103115d3fb0e60a21b"
+    },
+    {
+      "panel": "c",
+      "run_id": "Run057",
+      "field": "kappa_proxy",
+      "points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "5979888d3b0d9481879648d373e1a17315100915ea1c115a2b87e0debe06c065"
+    },
+    {
+      "panel": "c",
+      "run_id": "Run057",
+      "field": "lambda_max",
+      "points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "1cc42528b40974ed99d243d7f13c11651f0a7d4455cf3a9287d5a77264985484"
+    },
+    {
+      "panel": "c",
+      "run_id": "Run057",
+      "field": "kappa_direction",
+      "points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "c0a054b597852a59c0554c08de5362fcde91eeac9beefc14e2c1088537d53f62"
+    },
+    {
+      "panel": "d",
+      "run_id": "Run055",
+      "field": "kappa_proxy_mean100",
+      "points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "1f56ae35e3a6097ab4e88b56dd201975b40e7db12d42a66aa2af8ac41595981f"
+    },
+    {
+      "panel": "d",
+      "run_id": "Run055",
+      "field": "lambda_max_mean100",
+      "points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "88893d79888e26676652aa6bbc2ec6a3791bbbf4a5a0c8913b07aba341ae3918"
+    },
+    {
+      "panel": "d",
+      "run_id": "Run055",
+      "field": "kappa_direction_mean100",
+      "points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "9c8aff91bd4ca7653938c1209a802cd3a5ed44ef891700e3a187aba40709903d"
+    },
+    {
+      "panel": "e",
+      "run_id": "Run056",
+      "field": "kappa_proxy_mean100",
+      "points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "b95bd3bcdbaff61752c9b6dd408784ef30064e66a1a1ef290ba47af078f9413d"
+    },
+    {
+      "panel": "e",
+      "run_id": "Run056",
+      "field": "lambda_max_mean100",
+      "points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "9eac5aa9713a1cf3fb6e879a72e03c98584fee2fb4b6b0b304cc5ff241f9af29"
+    },
+    {
+      "panel": "e",
+      "run_id": "Run056",
+      "field": "kappa_direction_mean100",
+      "points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "a50b54e9fc3bf08bd5e1ea7ff5fed8e718e6580290049643c46da63f8ff5daa9"
+    },
+    {
+      "panel": "f",
+      "run_id": "Run057",
+      "field": "kappa_proxy_mean100",
+      "points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "00fa90377a30fe0573ef54a5642e8eef0bc33102baa94d19d9a0c81b25abdf10"
+    },
+    {
+      "panel": "f",
+      "run_id": "Run057",
+      "field": "lambda_max_mean100",
+      "points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "38be14e1383fac98610d80e60061ef0b542cda2a59eefc7aa3284457f9e62ce5"
+    },
+    {
+      "panel": "f",
+      "run_id": "Run057",
+      "field": "kappa_direction_mean100",
+      "points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "y_sha256": "630152b2893bc5bb7dac4570d21767d1159f233e24a7c66d8389338b6c26a68a"
+    }
+  ],
+  "vertical_reference_lines": [
+    {
+      "panel": "a",
+      "run_id": "Run055",
+      "update": 81
+    },
+    {
+      "panel": "b",
+      "run_id": "Run056",
+      "update": 228
+    },
+    {
+      "panel": "c",
+      "run_id": "Run057",
+      "update": 655
+    },
+    {
+      "panel": "d",
+      "run_id": "Run055",
+      "update": 81
+    },
+    {
+      "panel": "e",
+      "run_id": "Run056",
+      "update": 228
+    },
+    {
+      "panel": "f",
+      "run_id": "Run057",
+      "update": 655
+    }
+  ],
+  "y_scales": {
+    "a": "linear",
+    "b": "linear",
+    "c": "linear",
+    "d": "linear",
+    "e": "linear",
+    "f": "linear"
+  },
+  "thinning": null,
+  "reference_indexing": "H(theta[t-2]) at pair t",
+  "undefined_first_pair": true
+}

@@ -1,0 +1,16 @@
+{
+  "hypothesis": "H016",
+  "source_analysis": "analyses/016-2026-10-11-rosenbrock-hessian",
+  "formula_source": "manuscript/2026-10-11-restatement/problem.md",
+  "formula": "kappa_proxy[t] = (1 - rho[t] * norm(g[t]) / norm(g[t-1]) + epsilon[t]) / eta",
+  "epsilon": 0.0,
+  "epsilon_meaning": "normalized gradient-noise contribution, not AdamW numerical epsilon",
+  "gradient_stream": "raw exact objective gradient",
+  "pair_updates": [2, 2000],
+  "hessian_position_for_pair_t": "theta[t-2]",
+  "smoothing_window": 100,
+  "smoothing": "complete finite trailing arithmetic means applied after computing each diagnostic",
+  "undefined": "t=1 or either adjacent gradient norm is zero; no denominator floor",
+  "execution": "local postprocessing of immutable Run055-057 histories; no new optimizer trajectory",
+  "interpretation": "SGD-derived curvature proxy evaluated along AdamW, not an exact AdamW Hessian estimator"
+}

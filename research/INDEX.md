@@ -2,6 +2,16 @@
 
 ## Current state
 
+[Analysis017: gradient-identity kappa](../analyses/017-2026-10-12-rosenbrock-kappa-identity/README.md)
+reuses immutable Rosenbrock Runs055-057, with noise epsilon0. Broad100-pair
+trends correlate with lambda_max (0.942/0.905/0.753), but amplitude differs;
+the exact discrepancy separates AdamW step mismatch from nonlinear remainder.
+A separate eta-kappa overlay preserves the original comparison and shows late
+means1.790/1.755/1.748, with later transitions at smaller LR. All5,997 pairs,
+5,700 complete means and three PDFs pass numeric/source/array/layout review.
+No new optimizer trajectories, cloud resources or billing; this SGD-derived
+quantity is a proxy on AdamW, not a verified Hessian estimator or stability test.
+
 <!-- analysis015:start -->
 [Analysis015: larger Spark learning rates](../analyses/015-2026-10-10-spark-high-lr/observations/002-completed-results-and-review.md)
 completed Runs053/054 at LR0.02/0.04: 712 updates each, complete training and
@@ -239,4 +249,4 @@ SGD remains deferred. Original manuscript assets are preserved.
 - [Surgical changes proposal](../manuscript/2026-10-07-surgical-changes-proposal/README.md):
   evidence, draft changes, and proposed momentum/LR experiments; planning only.
 
-Next run: 055; analysis: 016; hypothesis: H015. Preserve executed inputs and raw evidence.
+Next run: 055; analysis: 018; hypothesis: H017. Preserve executed inputs and raw evidence.

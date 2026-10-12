@@ -1,0 +1,33 @@
+# Analysis017: Rosenbrock gradient-identity kappa
+
+Complete local postprocessing of immutable Runs055-057, retaining Analysis016's
+AdamW trajectories. The user requested the restatement's kappa identity and
+then a separate overlay of eta times kappa. Noise epsilon is zero; AdamW's
+numerical epsilon is separate. No new optimizer runs or cloud resources.
+
+- [New LR-scaled single-panel overlay](figures/rosenbrock_kappa_eta_overlay.pdf)
+- [Preserved six-panel Hessian comparison](figures/rosenbrock_kappa_comparison.pdf)
+- [Complete thirteen-panel diagnostics](figures/rosenbrock_kappa_diagnostics.pdf)
+- [Method](METHOD.md), [observations](observations/INDEX.md), [results](results.json)
+- [Scientific verification](verification.json), [figure verification](figure_verification.json)
+
+| LR | Raw Pearson vs lambda_max | 100-pair Pearson | Late proxy mean | Late exact directional mean | Late lambda_max mean | Late eta-proxy mean |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 0.01 | 0.406933 | 0.942175 | 179.018242 | 903.357130 | 953.684190 | 1.790182 |
+| 0.003162278 | 0.507985 | 0.905473 | 554.970525 | 933.010424 | 985.285718 | 1.754971 |
+| 0.001 | 0.568844 | 0.753220 | 1747.943867 | 927.394838 | 996.310036 | 1.747944 |
+
+Late means cover pair updates1901-2000. H references use theta[t-2]. The broad
+smoothed trend resembles lambda_max, but magnitude differs and the proxy can
+fall outside the local Hessian spectrum. LR scaling yields similar late
+dimensionless levels with different transition times; this is descriptive for
+one deterministic setup, not a curvature estimator or AdamW stability test.
+
+All5,997 adjacent pairs and5,700 full-window means are retained; no filtering
+or thinning. All source/formula/derived-array hashes, independent mathematics,
+gradient/Hessian reconstruction, exact discrepancy decomposition and actual
+plotted arrays pass. Final visual review: passed.
+Reproduce with00_compute.py,01_verify.py,02_plot.py,04_plot_eta_overlay.py,
+then03_record.py; --record-visual-review only after inspecting current PDF renders.
+Derived histories 530,044 bytes are ignored and locally
+retained; source histories reused without copying. No new run ID is allocated.
