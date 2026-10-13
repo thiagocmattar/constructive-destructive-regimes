@@ -57,19 +57,16 @@ initialization,
 Expanding its squared norm separates individual gradient magnitudes from their
 temporal interactions
 \begin{equation}
-  \boxed{\norm{\Delta_T}^2
+  \norm{\Delta_T}^2
   =\eta^2\sum_{t=1}^T\norm{g_t}^2
-   +2\eta^2\sum_{1\leq u<t\leq T}g_u^\top g_t.}
+   +2\eta^2\sum_{1\leq u<t\leq T}g_u^\top g_t.
   \label{eq:energy-interaction}
 \end{equation}
 The gradient-energy terms $\norm{g_t}^2$ are nonnegative. Each pairwise inner product
 $g_u^\top g_t$ can be
 positive, zero, or negative: aligned gradients reinforce their contribution to
-the sum, whereas opposing gradients cancel part of it. Gradient energy is not
-itself net displacement; the interaction term determines how much of this energy
-remains in the squared norm of the accumulated vector.
-
-For nonzero consecutive gradients, define their cosine similarity as
+the sum, whereas opposing gradients cancel part of it. 
+To practically measure the alignement of nonzero consecutive gradients, define their cosine similarity as
 \begin{equation}
   \rho_t:=\frac{g_{t-1}^\top g_t}{\norm{g_{t-1}}\norm{g_t}},
   \qquad t=2,\ldots,T.
@@ -91,11 +88,9 @@ longer-lag interactions can reinforce or offset these negative contributions.
 Thus, adjacent anti-alignment diagnoses a local interaction, while the complete
 double sum determines longer-term cumulative interaction. 
 
-\section{Curvature, gradient noise, and consecutive alignment}
+\subsection{Curvature, gradient noise, and consecutive alignment}
 
-\subsection{A local expansion along the SGD trajectory}
-
-Let $\Loss$ denote the full training objective. We write a stochastic gradient
+For mini-batch SGD, we explicitly incorporate stochastic gradient noise into the evolution of consecutive gradients and examine its contribution to their directional alignment. Let $\Loss$ denote the full training objective. We write a stochastic gradient
 as
 \begin{equation}
   g_t=\nabla\Loss(\theta_{t-1})+\xi_t,
@@ -113,12 +108,18 @@ where $r_t$ is the Taylor remainder. Neglecting $r_t$ recovers the first-order
 approximation. Taking the inner product with $g_{t-1}$ then gives
 \begin{equation}
 \rho_t\approx
-\frac{\norm{g_{t-1}}^2-\eta g_{t-1}^\top H_{t-1}g_{t-1}
-      +g_{t-1}^\top(\xi_t-\xi_{t-1})}
-     {\norm{g_{t-1}}\norm{g_t}}.
+\frac{
+\underbrace{\|g_{t-1}\|^2}_{\text{Gradient magnitude}}
+-
+\underbrace{\eta g_{t-1}^{\top}H_{t-1}g_{t-1}}_{\text{Curvature contribution}}
++
+\underbrace{g_{t-1}^{\top}(\xi_t-\xi_{t-1})}_{\text{Noise contribution}}
+}{
+\|g_{t-1}\|\|g_t\|
+}.
 \label{eq:rho-expanded}
 \end{equation}
-The numerator contains the preceding gradient energy, a curvature contribution,
+The numerator contains the preceding gradient energy, the curvature contribution,
 and the change in gradient noise. Positive curvature along the preceding
 gradient direction reduces its alignment with the next gradient. The noise
 difference can reinforce or oppose this effect on an individual step.
@@ -138,10 +139,7 @@ With these definitions, Eq.~\eqref{eq:rho-expanded} becomes
   \label{eq:rho-normalized}
 \end{equation}
 The norm ratio is positive, so the first-order sign prediction depends on
-$1-\eta\kappa_t+\varepsilon_t$ (Table~\ref{tab:sign}). A larger positive
-directional curvature favors reversal; noise shifts the corresponding boundary.
-These conditions describe alignment, not the separate question of whether an
-oscillation is damped or unstable.
+$1-\eta\kappa_t+\varepsilon_t$ (Table~\ref{tab:sign}). 
 
 \begin{table}[htbp]
 \centering
@@ -160,19 +158,19 @@ Negative & $\rho_t<0$ & $\eta\kappa_t>1+\varepsilon_t$\\
 \end{tabular}
 \end{table}
 
-The remainder matters near this boundary. In fact,
-Eq.~\eqref{eq:gradient-evolution} implies the exact relation
-\begin{equation}
-  \rho_t=\frac{\norm{g_{t-1}}}{\norm{g_t}}
-          (1-\eta\kappa_t+\varepsilon_t+\delta_t),
-  \qquad
-  \delta_t:=\frac{g_{t-1}^\top r_t}{\norm{g_{t-1}}^2}.
-  \label{eq:remainder}
-\end{equation}
-The first-order sign is reliable only to the extent that this omitted term does
-not change the numerator's sign.
+% The remainder matters near this boundary. In fact,
+% Eq.~\eqref{eq:gradient-evolution} implies the exact relation
+% \begin{equation}
+%   \rho_t=\frac{\norm{g_{t-1}}}{\norm{g_t}}
+%           (1-\eta\kappa_t+\varepsilon_t+\delta_t),
+%   \qquad
+%   \delta_t:=\frac{g_{t-1}^\top r_t}{\norm{g_{t-1}}^2}.
+%   \label{eq:remainder}
+% \end{equation}
+% The first-order sign is reliable only to the extent that this omitted term does
+% not change the numerator's sign.
 
-\subsection{Directional curvature and a gradient-derived secant}
+\subsubsection{Directional curvature}
 
 The quantity $\kappa_t$ is a Hessian Rayleigh quotient along the preceding
 stochastic gradient. If $H_{t-1}v_i=\lambda_i v_i$ in an orthonormal eigenbasis
@@ -192,8 +190,8 @@ Rearranging Eq.~\eqref{eq:rho-normalized} motivates the observable quantity
   :=1-\rho_t\frac{\norm{g_t}}{\norm{g_{t-1}}}+\varepsilon_t.
   \label{eq:kappa-estimate}
 \end{equation}
-Equation~\eqref{eq:remainder} shows that
-$\widehat\kappa_t=\kappa_t-\delta_t/\eta$. Consequently, it approximates the
+Equation~\eqref{eq:gradient-evolution} gives
+$\widehat\kappa_t=\kappa_t-g_{t-1}^\top r_t/(\eta\norm{g_{t-1}}^2)$. Consequently, it approximates the
 pointwise directional curvature when the Taylor remainder is small. For
 mini-batch gradients, the noise term requires additional information and cannot
 be recovered from adjacent cosine and norms alone.
@@ -207,56 +205,32 @@ gradient-only quantity is then exactly
 \label{eq:gd-proxy}
 \end{equation}
 It measures the change in the gradient projected onto its preceding direction.
-In exact-arithmetic GD, the fundamental theorem of calculus provides a finite-step
-curvature interpretation:
-\begin{equation}
-\widehat\kappa_t=
- \frac{g_{t-1}^\top\overline H_t g_{t-1}}{\norm{g_{t-1}}^2},
-\qquad
-\overline H_t=\int_0^1\nabla^2\Loss(\theta_{t-2}-s\eta g_{t-1})\,ds.
-\label{eq:integrated-hessian}
-\end{equation}
-The secant therefore samples curvature averaged along the preceding step. It
-equals the pointwise Rayleigh quotient on a quadratic objective, but need not
-equal either the local maximum eigenvalue or its finite-step average on a
-nonlinear trajectory.
 
-\subsection{The noise contribution under unbiased sampling}
+\subsubsection{Noise contribution}
 
-To isolate the stochastic term, assume fresh, conditionally unbiased mini-batch
-sampling with finite second moments. Let $\mathcal F_{t-1}$ contain the history
-through the preceding update, so that
-$\E[\xi_t\mid\mathcal F_{t-1}]=0$. Since $g_{t-1}$ is measurable with respect
-to this history,
+Under fresh, conditionally unbiased mini-batch sampling, we have
 \begin{equation}
   \E[g_{t-1}^\top\xi_t]=0.
   \label{eq:fresh-noise}
 \end{equation}
-The preceding gradient already contains $\xi_{t-1}$. Conditional unbiasedness
-at that earlier step removes its cross term with
-$\nabla\Loss(\theta_{t-2})$, giving
+But because \(g_{t-1}\) already contains the previous noise \(\xi_{t-1}\), 
 \begin{equation}
   \E[g_{t-1}^\top\xi_{t-1}]=\E[\norm{\xi_{t-1}}^2].
 \end{equation}
 Subtracting these two expectations yields
 \begin{equation}
-  \boxed{\E[g_{t-1}^\top(\xi_t-\xi_{t-1})]
-              =-\E[\norm{\xi_{t-1}}^2]\leq0.}
+  \E[g_{t-1}^\top(\xi_t-\xi_{t-1})]
+              =-\E[\norm{\xi_{t-1}}^2]\leq0.
   \label{eq:noise-expectation}
 \end{equation}
 Even unbiased noise therefore produces a nonpositive expected contribution to
-the unnormalized adjacent inner product in this decomposition. This identifies
-a mechanism that can reduce successive-gradient alignment without requiring
-large positive directional curvature. It is not a statement that the expected
-cosine must be negative: the total numerator has other contributions and the
-cosine denominator is random. Correlated sampling or sampling without the stated
-conditional unbiasedness need not satisfy this identity.
+the unnormalized adjacent inner product. It suggests a systematic mechanism through which stochastic gradient noise can reduce successive-gradient alignment, independently of the local directional curvature.
 
-\section{Normalized displacement and cumulative interference}
+\subsection{Normalized displacement and cumulative interference}
 
 Adjacent alignment concerns one pair of steps. To characterize accumulation
 over the complete trajectory, we compare the sum of gradient lengths with the
-length of their sum:
+length of their sum
 \begin{equation}
   A_T:=\sum_{t=1}^T\norm{g_t},
   \qquad B_T:=\norm{\sum_{t=1}^T g_t}.
@@ -270,31 +244,7 @@ we define
        =\frac{\norm{\Delta_T}}{\eta\sum_{t=1}^T\norm{g_t}}\in[0,1].}
   \label{eq:normalized-displacement}
 \end{equation}
-The triangle inequality gives this range. Values near one describe coherent
-accumulation; small values indicate that little of the accumulated step length
-remains as net parameter motion. A small ratio does not imply small absolute
-displacement, because the path length in its denominator can be large.
-
-Expanding $A_T^2$ and $B_T^2$ makes the connection to pairwise directional
-disagreement exact:
-\begin{equation}
- R_T^2=1-\frac{2\sum_{1\leq u<t\leq T}
-        (\norm{g_u}\norm{g_t}-g_u^\top g_t)}
-       {\left(\sum_{t=1}^T\norm{g_t}\right)^2}.
- \label{eq:interference-gap}
-\end{equation}
-Each difference in the numerator is nonnegative by Cauchy--Schwarz. This metric
-compares the observed sum with fully aligned accumulation of the same gradient
-lengths. It includes orthogonal and partially aligned pairs as well as opposing
-pairs; low $R_T$ does not require every interaction to be negative. Similarly,
-negative adjacent cosines do not determine the sign of the complete interaction
-term in Eq.~\eqref{eq:energy-interaction}.
-
-The normalized displacement measures the geometry of a trajectory, not its
-progress in objective value. Movement can cancel in a sharply curved direction
-while continuing to reduce the loss in other directions. The ratio also depends
-on the selected horizon: a full-prefix measurement includes the earlier aligned
-phase even after a later phase becomes strongly alternating.
+The numerator $B_T$ is the net displacement; the denominator $A_T$ is the total length of all SGD steps. This normalized displacement $R_T$ expresses how much of the accumulated step length remains as net motion of parameters after the gradient directions reinforce or cancel one another. 
 
 \section{Full-batch GD evidence on CIFAR-10}
 
