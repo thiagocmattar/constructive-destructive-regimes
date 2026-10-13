@@ -7,9 +7,9 @@ formal explanation, consistent terminology, defined assumptions, and a progressi
 from identities to mechanisms and observations. The supplied Markdown inputs and
 the existing main manuscript are preserved.
 
-Editable source: [gd-formulation.tex](../draft/restatement/gd-formulation.tex).
-The [build script](../draft/restatement/00_build.py) generates the
-[results table](../draft/restatement/gd-results.tex) from frozen Analysis019
+Editable source: [gd-formulation.tex](gd-formulation.tex).
+The [build script](00_build.py) generates the
+[results table](gd-results.tex) from frozen Analysis019
 results, compiles two LaTeX passes, checks equations and references, and renders
 every page. The [manifest](gd-formulation-manifest.json) records input, source,
 evidence, figure, PDF and render hashes and the completed visual review.
@@ -57,14 +57,14 @@ NumPy, Matplotlib, PyMuPDF, MiKTeX and Poppler:
 
 ```powershell
 python analyses/019-2026-10-13-cifar10-eos-lr/11_plot_gd_paper.py
-python manuscript/draft/restatement/00_build.py
+python manuscript/2026-10-11-restatement/00_build.py
 ```
 
 Inspect every current report-page render and the standalone figure render before
 recording review:
 
 ```powershell
-python manuscript/draft/restatement/00_build.py --accept-reviewed
+python manuscript/2026-10-11-restatement/00_build.py --accept-reviewed
 ```
 
 MiKTeX may need access to its user configuration/cache directories outside the

@@ -10,9 +10,9 @@ import fitz
 import numpy as np
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parents[2]
+ROOT = HERE.parents[1]
 ANALYSIS = ROOT / 'analyses/019-2026-10-13-cifar10-eos-lr'
-OUTPUT = ROOT / 'manuscript/2026-10-11-restatement'
+OUTPUT = HERE
 ARTIFACTS = ROOT / 'manuscript/artifacts/2026-10-11-restatement'
 
 

@@ -80,3 +80,7 @@ without claiming an executed intervention. All pages and the compact figure are
 rendered and reviewed; source/evidence/output hashes are retained. Original
 Markdown inputs and the existing main manuscript remain unchanged. No new
 training or cloud execution occurred.
+
+At the user's request, the report's editable TeX, generated table and builder
+are colocated directly in `manuscript/2026-10-11-restatement/`. Build intermediates
+remain in ignored `manuscript/artifacts/`; the delivered PDF is preserved.
