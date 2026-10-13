@@ -24,8 +24,9 @@ the unbiased-noise expectation, and full-prefix normalized displacement B/A.
 The empirical section uses only GD Runs059-062 from
 [Analysis019](../../analyses/019-2026-10-13-cifar10-eos-lr/README.md).
 It includes a compact publication figure and one results paragraph connecting
-alignment reversal, directional curvature, gradient norms, cumulative cancellation
-and loss reduction. The generated results table remains a separate source asset.
+the transition in consecutive-step interference to the curvature diagnostics,
+cumulative cancellation and unexplained gradient-norm growth. The generated
+results table remains a separate source asset.
 The figure is a presentation revision of all 24 original unsmoothed curves;
 source values, sampling and original figure bytes are unchanged. Its local
 [observation](../../analyses/019-2026-10-13-cifar10-eos-lr/observations/004-gd-paper-figure.md)

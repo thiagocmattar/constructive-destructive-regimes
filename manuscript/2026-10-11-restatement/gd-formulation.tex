@@ -278,23 +278,20 @@ and every 100 updates. Figure~\ref{fig:gd} shows all recorded values.
   \label{fig:gd}
 \end{figure}
 
-\subsection{Alignment reversal and the spectral regime}
+\clearpage
 
-Figure~\ref{fig:gd} shows that larger learning rates bring gradient reversal
-forward. At $\eta=0.004$, $\rho_t$ stays near one and
-$\eta\widehat\kappa_t$ near zero, even though $\eta\lambda_{\max}$ reaches
-$1.68$. At the three larger rates, $\rho_t$ approaches $-1$,
-$\eta\widehat\kappa_t$ fluctuates near two, and $\eta\lambda_{\max}$ settles
-near $2.07$. The value $\eta\widehat\kappa_t\approx2$ follows directly from
-Eq.~\eqref{eq:gd-proxy} when consecutive gradients have opposite directions
-and similar norms; this agreement does not make it a general estimator of
-maximum curvature. After reversal, gradient norms grow and fluctuate, while
-$B_T/A_T$ falls to $0.0105$--$0.0250$, compared with $0.7602$ at the smallest
-rate, indicating stronger cancellation relative to path length. Nevertheless,
-training loss continues to decrease, and final loss falls from $0.0969$ to
-$0.0195$ as $\eta$ increases from $0.004$ to $0.02$. In this matched,
-single-initialization comparison, stronger cancellation therefore coexists
-with greater loss reduction.
+Figure~\ref{fig:gd} shows that larger learning rates lead to an earlier
+transition from constructive to destructive interference between consecutive
+updates (panel~b). This transition is accompanied by a sharp rise and peak in
+the estimated directional curvature $\eta\widehat\kappa_t$ (panel~c), with
+$\eta\lambda_{\max}$ (panel~d) near the critical GD scale of two. The
+correspondence between these curvature diagnostics links the observed
+transition to the high-curvature spectral regime in these runs. The
+accompanying abrupt drop of $B_t/A_t$ toward zero (panel~e) shows that most of
+the accumulated path length is cancelled, leaving only a small fraction as
+net parameter displacement. Finally, gradient norms grow and fluctuate
+(panel~f), a behavior that our current formulation of alignment and
+displacement does not explain.
 
 \paragraph{TODO: an alignment-guided learning-rate intervention.}
 Test a schedule that halves the learning rate when consecutive-gradient cosine
