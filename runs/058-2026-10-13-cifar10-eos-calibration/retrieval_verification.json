@@ -1,0 +1,51 @@
+{
+  "status": "passed",
+  "utc": "2026-10-13T12:21:55.322410+00:00",
+  "archive_sha256": "cc92fb29ac9898b0db9a9c758be49404415954f0506407311919d0cb45e1f169",
+  "retrieved_files_verified": 20,
+  "retrieved_bytes": 126344771,
+  "states": {
+    "rtx/gd": {
+      "updates": 24,
+      "streams_checked": [
+        "raw",
+        "displacement"
+      ],
+      "exact_displacement_telescoping": "passed",
+      "optimizer_state_vectors": "passed"
+    },
+    "rtx/adam": {
+      "updates": 24,
+      "streams_checked": [
+        "raw",
+        "displacement",
+        "momentum",
+        "unbiased_momentum",
+        "adaptive"
+      ],
+      "exact_displacement_telescoping": "passed",
+      "optimizer_state_vectors": "passed"
+    },
+    "spark/gd": {
+      "updates": 24,
+      "streams_checked": [
+        "raw",
+        "displacement"
+      ],
+      "exact_displacement_telescoping": "passed",
+      "optimizer_state_vectors": "passed"
+    },
+    "spark/adam": {
+      "updates": 24,
+      "streams_checked": [
+        "raw",
+        "displacement",
+        "momentum",
+        "unbiased_momentum",
+        "adaptive"
+      ],
+      "exact_displacement_telescoping": "passed",
+      "optimizer_state_vectors": "passed"
+    }
+  }
+}

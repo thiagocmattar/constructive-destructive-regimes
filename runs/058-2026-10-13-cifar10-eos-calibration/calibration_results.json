@@ -1,0 +1,398 @@
+{
+  "utc": "2026-10-13T12:22:35.240525+00:00",
+  "purpose": "Calibration; projections, not completed training or convergence estimates",
+  "config_sha256": "d143efb56fcca678a563541f7c3766288e8e626e824fce56dad55bf2275798eb",
+  "devices": {
+    "rtx": {
+      "gd": {
+        "source_summary_sha256": "0b4b0f4997b4faf0fe461bc02417ae8b35376ba3dfaed72b8dc67b792f8de83e",
+        "environment": {
+          "utc": "2026-10-13T12:15:48.412295+00:00",
+          "python": "3.12.10",
+          "platform": "Windows-11-10.0.26200-SP0",
+          "torch": "2.11.0+cu128",
+          "cuda": "12.8",
+          "numpy": "2.5.0",
+          "scipy": "1.18.1",
+          "device": "cuda:0",
+          "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+          "gpu_total_bytes": 12820480000,
+          "matmul_precision": "highest",
+          "tf32": false
+        },
+        "measured_updates": 24,
+        "post_warmup_samples": 20,
+        "phases_seconds": {
+          "backward_seconds": {
+            "median": 0.005606000020634383,
+            "p90": 0.006822530017234385,
+            "minimum": 0.0040213000029325485,
+            "maximum": 0.008036200073547661
+          },
+          "optimizer_seconds": {
+            "median": 0.0002146500046364963,
+            "p90": 0.0003261699224822223,
+            "minimum": 0.00017220003064721823,
+            "maximum": 0.0003657999914139509
+          },
+          "diagnostic_seconds": {
+            "median": 0.002421049983240664,
+            "p90": 0.0028675399138592184,
+            "minimum": 0.0017728999955579638,
+            "maximum": 0.0030264999950304627
+          },
+          "test_seconds": {
+            "median": 0.0032208500197157264,
+            "p90": 0.003989409958012402,
+            "minimum": 0.0027428000466898084,
+            "maximum": 0.004275400075130165
+          },
+          "total_seconds": {
+            "median": 0.011505749949719757,
+            "p90": 0.012955149973277003,
+            "minimum": 0.010011799982748926,
+            "maximum": 0.014120000065304339
+          }
+        },
+        "memory": {
+          "peak_allocated_bytes": 269687808,
+          "peak_reserved_bytes": 287309824
+        },
+        "hessian_plain_seconds_initial": 0.9081667000427842,
+        "hessian_plain_seconds_at24": 0.4047577999299392,
+        "hessian_adam_preconditioned_seconds_at24": 0.0,
+        "hessian_hvp_calls": [
+          23,
+          23
+        ],
+        "minimum_checkpoint_bytes": 13145669,
+        "maximum_checkpoint_bytes": 23655067,
+        "diagnostics_fraction_of_update_median": 0.21042087598119869,
+        "scenarios_by_eigen_cadence": {
+          "100": {
+            "updates": 20000,
+            "post_initial_curvature_states": 200,
+            "measured_phase_projection_seconds": 312.36736628133804,
+            "p90_phase_projection_seconds": 341.35536675248295,
+            "planning_allowance_seconds": 642.8057199642062,
+            "projected_curvature_seconds": 81.85972668603063,
+            "projected_checkpoint_seconds": 0.39264060091227293
+          },
+          "20": {
+            "updates": 20000,
+            "post_initial_curvature_states": 1000,
+            "measured_phase_projection_seconds": 636.1736062252894,
+            "p90_phase_projection_seconds": 665.1616066964343,
+            "planning_allowance_seconds": 1614.2244397960603,
+            "projected_curvature_seconds": 405.665966629982,
+            "projected_checkpoint_seconds": 0.39264060091227293
+          },
+          "1": {
+            "updates": 20000,
+            "post_initial_curvature_states": 20000,
+            "measured_phase_projection_seconds": 8326.571804894134,
+            "p90_phase_projection_seconds": 8355.55980536528,
+            "planning_allowance_seconds": 24685.419035802595,
+            "projected_curvature_seconds": 8096.064165298827,
+            "projected_checkpoint_seconds": 0.39264060091227293
+          }
+        }
+      },
+      "adam": {
+        "source_summary_sha256": "becd0b8165385a332351cdf8b85701f58217014417b25868ee0b7690927973ac",
+        "environment": {
+          "utc": "2026-10-13T12:15:53.125019+00:00",
+          "python": "3.12.10",
+          "platform": "Windows-11-10.0.26200-SP0",
+          "torch": "2.11.0+cu128",
+          "cuda": "12.8",
+          "numpy": "2.5.0",
+          "scipy": "1.18.1",
+          "device": "cuda:0",
+          "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+          "gpu_total_bytes": 12820480000,
+          "matmul_precision": "highest",
+          "tf32": false
+        },
+        "measured_updates": 24,
+        "post_warmup_samples": 20,
+        "phases_seconds": {
+          "backward_seconds": {
+            "median": 0.006209850020240992,
+            "p90": 0.006665240018628538,
+            "minimum": 0.004495800007134676,
+            "maximum": 0.0077865999191999435
+          },
+          "optimizer_seconds": {
+            "median": 0.0009076499845832586,
+            "p90": 0.001079240010585636,
+            "minimum": 0.0005166999762877822,
+            "maximum": 0.0012128999223932624
+          },
+          "diagnostic_seconds": {
+            "median": 0.004586399998515844,
+            "p90": 0.0052829499240033325,
+            "minimum": 0.003517200006172061,
+            "maximum": 0.0054082999704405665
+          },
+          "test_seconds": {
+            "median": 0.003647750010713935,
+            "p90": 0.004411390016321093,
+            "minimum": 0.002808600082062185,
+            "maximum": 0.005340200033970177
+          },
+          "total_seconds": {
+            "median": 0.015280950057785958,
+            "p90": 0.017165190004743636,
+            "minimum": 0.01147789997048676,
+            "maximum": 0.01846839999780059
+          }
+        },
+        "memory": {
+          "peak_allocated_bytes": 358238208,
+          "peak_reserved_bytes": 392167424
+        },
+        "hessian_plain_seconds_initial": 0.531229899963364,
+        "hessian_plain_seconds_at24": 0.4509359000949189,
+        "hessian_adam_preconditioned_seconds_at24": 0.4120660999324173,
+        "hessian_hvp_calls": [
+          23,
+          23
+        ],
+        "minimum_checkpoint_bytes": 28910140,
+        "maximum_checkpoint_bytes": 60442275,
+        "diagnostics_fraction_of_update_median": 0.3001384063930619,
+        "scenarios_by_eigen_cadence": {
+          "100": {
+            "updates": 20000,
+            "post_initial_curvature_states": 200,
+            "measured_phase_projection_seconds": 479.7794390604831,
+            "p90_phase_projection_seconds": 517.4642379996367,
+            "planning_allowance_seconds": 1026.7186378389597,
+            "projected_curvature_seconds": 173.1316299054306,
+            "projected_checkpoint_seconds": 1.0288079993333668
+          },
+          "20": {
+            "updates": 20000,
+            "post_initial_curvature_states": 1000,
+            "measured_phase_projection_seconds": 1170.181039082352,
+            "p90_phase_projection_seconds": 1207.8658380215056,
+            "planning_allowance_seconds": 3097.9234379045665,
+            "projected_curvature_seconds": 863.5332299272995,
+            "projected_checkpoint_seconds": 1.0288079993333668
+          },
+          "1": {
+            "updates": 20000,
+            "post_initial_curvature_states": 20000,
+            "measured_phase_projection_seconds": 17567.21903960174,
+            "p90_phase_projection_seconds": 17604.903838540893,
+            "planning_allowance_seconds": 52289.03743946273,
+            "projected_curvature_seconds": 17260.571230446687,
+            "projected_checkpoint_seconds": 1.0288079993333668
+          }
+        }
+      }
+    },
+    "spark": {
+      "gd": {
+        "source_summary_sha256": "baf120628a3522af164f0fd06eaf552ded04867a5b6f2ec497e6ec3308628ea6",
+        "environment": {
+          "utc": "2026-10-13T12:20:18.251712+00:00",
+          "python": "3.12.3",
+          "platform": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+          "torch": "2.11.0+cu130",
+          "cuda": "13.0",
+          "numpy": "2.5.0",
+          "scipy": "1.18.1",
+          "device": "cuda:0",
+          "gpu": "NVIDIA GB10",
+          "gpu_total_bytes": 130661138432,
+          "matmul_precision": "highest",
+          "tf32": false
+        },
+        "measured_updates": 24,
+        "post_warmup_samples": 20,
+        "phases_seconds": {
+          "backward_seconds": {
+            "median": 0.008749321452341974,
+            "p90": 0.00955389104783535,
+            "minimum": 0.0073802819242700934,
+            "maximum": 0.010192745947279036
+          },
+          "optimizer_seconds": {
+            "median": 0.00016596901696175337,
+            "p90": 0.00018627139506861569,
+            "minimum": 0.00011345697566866875,
+            "maximum": 0.00019272102508693933
+          },
+          "diagnostic_seconds": {
+            "median": 0.0012259269715286791,
+            "p90": 0.0012645430397242308,
+            "minimum": 0.0011852869065478444,
+            "maximum": 0.0012781029799953103
+          },
+          "test_seconds": {
+            "median": 0.002671879483386874,
+            "p90": 0.002681912644766271,
+            "minimum": 0.0026330549735575914,
+            "maximum": 0.0026946390280500054
+          },
+          "total_seconds": {
+            "median": 0.012843296979553998,
+            "p90": 0.013623664365150036,
+            "minimum": 0.011321728932671249,
+            "maximum": 0.014319968991912901
+          }
+        },
+        "memory": {
+          "peak_allocated_bytes": 269980160,
+          "peak_reserved_bytes": 287309824
+        },
+        "hessian_plain_seconds_initial": 0.7425372189609334,
+        "hessian_plain_seconds_at24": 0.5557245969539508,
+        "hessian_adam_preconditioned_seconds_at24": 0.0,
+        "hessian_hvp_calls": [
+          23,
+          23
+        ],
+        "minimum_checkpoint_bytes": 13145669,
+        "maximum_checkpoint_bytes": 23655067,
+        "diagnostics_fraction_of_update_median": 0.09545266869405143,
+        "scenarios_by_eigen_cadence": {
+          "100": {
+            "updates": 20000,
+            "post_initial_curvature_states": 200,
+            "measured_phase_projection_seconds": 369.56113060202915,
+            "p90_phase_projection_seconds": 385.1684783139499,
+            "planning_allowance_seconds": 750.6853777243523,
+            "projected_curvature_seconds": 111.8874566097511,
+            "projected_checkpoint_seconds": 0.807734401198104
+          },
+          "20": {
+            "updates": 20000,
+            "post_initial_curvature_states": 1000,
+            "measured_phase_projection_seconds": 814.1408081651898,
+            "p90_phase_projection_seconds": 829.7481558771105,
+            "planning_allowance_seconds": 2084.4244104138343,
+            "projected_curvature_seconds": 556.4671341729118,
+            "projected_checkpoint_seconds": 0.807734401198104
+          },
+          "1": {
+            "updates": 20000,
+            "post_initial_curvature_states": 20000,
+            "measured_phase_projection_seconds": 11372.908150290255,
+            "p90_phase_projection_seconds": 11388.515498002176,
+            "planning_allowance_seconds": 33760.72643678903,
+            "projected_curvature_seconds": 11115.234476297977,
+            "projected_checkpoint_seconds": 0.807734401198104
+          }
+        }
+      },
+      "adam": {
+        "source_summary_sha256": "ed370f0fc28e94bf4d7df7491b184bb88a1ace630050dbca2e2ff1cc11ba53d6",
+        "environment": {
+          "utc": "2026-10-13T12:20:21.819197+00:00",
+          "python": "3.12.3",
+          "platform": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+          "torch": "2.11.0+cu130",
+          "cuda": "13.0",
+          "numpy": "2.5.0",
+          "scipy": "1.18.1",
+          "device": "cuda:0",
+          "gpu": "NVIDIA GB10",
+          "gpu_total_bytes": 130661138432,
+          "matmul_precision": "highest",
+          "tf32": false
+        },
+        "measured_updates": 24,
+        "post_warmup_samples": 20,
+        "phases_seconds": {
+          "backward_seconds": {
+            "median": 0.01387660694308579,
+            "p90": 0.014673009549733251,
+            "minimum": 0.01100490998942405,
+            "maximum": 0.014889268088154495
+          },
+          "optimizer_seconds": {
+            "median": 0.00045933848014101386,
+            "p90": 0.00048297898611053823,
+            "minimum": 0.0004134270129725337,
+            "maximum": 0.00048720301128923893
+          },
+          "diagnostic_seconds": {
+            "median": 0.002646022941917181,
+            "p90": 0.002675311069469899,
+            "minimum": 0.002624511020258069,
+            "maximum": 0.002680255100131035
+          },
+          "test_seconds": {
+            "median": 0.0026524385320954025,
+            "p90": 0.002673770219553262,
+            "minimum": 0.002593821962364018,
+            "maximum": 0.0031870580278337
+          },
+          "total_seconds": {
+            "median": 0.0196608153055422,
+            "p90": 0.02047081374330446,
+            "minimum": 0.016746094916015863,
+            "maximum": 0.020675700157880783
+          }
+        },
+        "memory": {
+          "peak_allocated_bytes": 358238208,
+          "peak_reserved_bytes": 392167424
+        },
+        "hessian_plain_seconds_initial": 0.781946622999385,
+        "hessian_plain_seconds_at24": 0.26961596601177007,
+        "hessian_adam_preconditioned_seconds_at24": 0.27262078295461833,
+        "hessian_hvp_calls": [
+          23,
+          23
+        ],
+        "minimum_checkpoint_bytes": 28910140,
+        "maximum_checkpoint_bytes": 60442275,
+        "diagnostics_fraction_of_update_median": 0.1345835816468553,
+        "scenarios_by_eigen_cadence": {
+          "100": {
+            "updates": 20000,
+            "post_initial_curvature_states": 200,
+            "measured_phase_projection_seconds": 505.8407823825255,
+            "p90_phase_projection_seconds": 522.0407511377707,
+            "planning_allowance_seconds": 923.3242264301516,
+            "projected_curvature_seconds": 109.22929641627707,
+            "projected_checkpoint_seconds": 3.3951798554044217
+          },
+          "20": {
+            "updates": 20000,
+            "post_initial_curvature_states": 1000,
+            "measured_phase_projection_seconds": 939.6301815556362,
+            "p90_phase_projection_seconds": 955.8301503108814,
+            "planning_allowance_seconds": 2224.692423949484,
+            "projected_curvature_seconds": 543.0186955893878,
+            "projected_checkpoint_seconds": 3.3951798554044217
+          },
+          "1": {
+            "updates": 20000,
+            "post_initial_curvature_states": 20000,
+            "measured_phase_projection_seconds": 11242.128411917016,
+            "p90_phase_projection_seconds": 11258.328380672261,
+            "planning_allowance_seconds": 33132.18711503362,
+            "projected_curvature_seconds": 10845.516925950767,
+            "projected_checkpoint_seconds": 3.3951798554044217
+          }
+        }
+      }
+    }
+  },
+  "default_eigen_cadence": 100,
+  "production_launched": false,
+  "limitations": [
+    "24 early updates; 20 retained timing samples per method/device",
+    "Only 2 plain Hessian solves and 1 Adam-preconditioned solve per method/device",
+    "Late eigenvalue clustering, ARPACK iteration growth and sustained thermals are unmeasured",
+    "Accuracy-goal stopping may occur earlier; the step at convergence is unknown",
+    "Planning allowance is a declared scenario, not a statistical confidence bound",
+    "PyTorch allocation/reservation excludes driver context, desktop applications and CPU ARPACK workspaces",
+    "No cloud rental; source/data/setup/download times are already spent and excluded from projection"
+  ]
+}

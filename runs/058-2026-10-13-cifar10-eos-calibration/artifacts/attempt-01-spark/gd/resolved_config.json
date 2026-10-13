@@ -1,0 +1,54 @@
+{
+  "run_id": "058",
+  "purpose": "Calibration only; no full scientific trajectory launched",
+  "dataset": "cifar10-first-5000",
+  "architecture": "fc-tanh-3072-200-200-10",
+  "loss": "mse",
+  "seed": 0,
+  "precision": "float32 parameters/gradients/moments; float64 diagnostic reductions",
+  "tf32": false,
+  "physical_batch_size": 1000,
+  "calibration_updates": 24,
+  "warmup_updates": 4,
+  "optimizers": {
+    "gd": {
+      "lr": 0.01,
+      "weight_decay": 0.0,
+      "momentum": 0.0
+    },
+    "adam": {
+      "lr": 0.0001,
+      "betas": [
+        0.9,
+        0.99
+      ],
+      "eps": 1e-07,
+      "weight_decay": 0.0
+    }
+  },
+  "eigenvalues": {
+    "k": 2,
+    "which": "LA",
+    "tolerance": 0.001,
+    "ncv": 20,
+    "maxiter": 200,
+    "residual_tolerance": 0.005,
+    "dataset_size": 5000
+  },
+  "proposed_production": {
+    "max_updates": 20000,
+    "accuracy_goal": 0.99,
+    "test_every": 1,
+    "eigen_every": 100,
+    "checkpoint_every": 1000,
+    "progress_every": 100,
+    "record_raw_history": false
+  },
+  "notes": [
+    "GD matches the official MLP/MSE demonstration; Adam LR is an exploratory proposal, not matched GD step magnitude.",
+    "Adam betas 0.9/0.99 and epsilon 1e-7 match the official adaptive-EOS README example, rather than its script beta2 default 0.995.",
+    "LA selects largest algebraic eigenvalues; original released utilities default to largest magnitude (LM). Both options are available.",
+    "Test loss and accuracy cover all 10000 standard test images; test data are not used for stopping.",
+    "No clipping, LR schedule, augmentation, additive gradient noise or weight decay."
+  ]
+}

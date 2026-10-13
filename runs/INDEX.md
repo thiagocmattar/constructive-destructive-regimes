@@ -58,7 +58,8 @@
 | [052](052-2026-10-10-rosenbrock-noise-sigma-10-lr-1e-3/README.md) | H013: Rosenbrock noisy gradients; sigma 10, LR 1e-3, seed1234 | Completed; 2,000 local updates; replay/optimizer/noise identities verified | Attempt001-local | [001: Noise geometry](052-2026-10-10-rosenbrock-noise-sigma-10-lr-1e-3/observations/001-noise-geometry.md); Analysis014 PDFs reviewed |
 | [053](053-2026-10-10-pythia14m-high-lr-0p02/README.md) | H014: Spark warmup-only LR0.02; loss and g/m/d geometry | Completed; 712/712 updates; zero overflows; outputs retrieved/hashed | Attempt01; detached queue | [Analysis015 results/review](../analyses/015-2026-10-10-spark-high-lr/observations/002-completed-results-and-review.md); two PDFs reviewed |
 | [054](054-2026-10-10-pythia14m-high-lr-0p04/README.md) | H014: matched Spark warmup-only LR0.04 | Completed; 712/712 updates; zero overflows; outputs retrieved/hashed | Attempt01; detached queue | [Analysis015 results/review](../analyses/015-2026-10-10-spark-high-lr/observations/002-completed-results-and-review.md); two PDFs reviewed |
+| [058](058-2026-10-13-cifar10-eos-calibration/README.md) | Calibration only: CIFAR-10 5k tanh MLP, GD/Adam, RTX/Spark, full geometry and Hessian spectra | Complete; 96 short updates; mathematical/state/hash checks pass; no production run | Attempt01-rtx / Attempt01-spark | [Setup, memory and ETC](058-2026-10-13-cifar10-eos-calibration/REPORT.md) |
 
-Next run: `055-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
+Next run: `059-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
 executed IDs and configurations; retry unchanged scientific inputs in a new
 attempt within the same run.

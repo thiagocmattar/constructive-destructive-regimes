@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "mathematics": [
+    "prefix/all-pair/zero-denominator/diagnostic-resume",
+    "MSE/CE full-gradient normalization including short final chunk",
+    "indefinite dense Hessian/HVP/LA eigenvalues/preconditioner/residual",
+    "actual Adam moments/bias correction/direction/displacement/optimizer resume",
+    "GD update matches raw gradient with float32 rounding"
+  ],
+  "artifacts": {
+    "runs\\058-2026-10-13-cifar10-eos-calibration\\artifacts\\attempt-01-rtx\\gd": {
+      "files_verified": 7,
+      "updates_verified": 24,
+      "curvature_states": 2
+    },
+    "runs\\058-2026-10-13-cifar10-eos-calibration\\artifacts\\attempt-01-rtx\\adam": {
+      "files_verified": 7,
+      "updates_verified": 24,
+      "curvature_states": 2
+    },
+    "runs\\058-2026-10-13-cifar10-eos-calibration\\artifacts\\attempt-01-spark\\gd": {
+      "files_verified": 7,
+      "updates_verified": 24,
+      "curvature_states": 2
+    },
+    "runs\\058-2026-10-13-cifar10-eos-calibration\\artifacts\\attempt-01-spark\\adam": {
+      "files_verified": 7,
+      "updates_verified": 24,
+      "curvature_states": 2
+    }
+  }
+}

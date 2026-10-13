@@ -2,6 +2,15 @@
 
 ## Current state
 
+[Run058: CIFAR-10 Edge of Stability calibration](../runs/058-2026-10-13-cifar10-eos-calibration/REPORT.md)
+implements the confirmed5k tanh MLP with GD/Adam and raw/m/mhat/adaptive/update
+geometry, kappa and ordinary/preconditioned Hessian spectra. Both owned GPUs
+pass96short updates, math/state/hash verification. For20kupdates and Hessians
+every100, early timings project5.2/8.0min on RTX5070Ti and6.2/8.4min on Spark;
+peak allocation<0.35GiB. Plan about30min for a pilot pair; late eigensolver
+cost/convergence remain unmeasured. No full trajectory/cloud rental launched;
+844MB local/696MB Spark evidence retained; GPU idle. Next run059.
+
 [Analysis018: eta-kappa with gradient noise](../analyses/018-2026-10-12-rosenbrock-kappa-noise/README.md)
 reuses immutable Runs038-052: sigma0/0.01/0.1/1/10, three LRs, one paired
 seed1234. The five-row overlay repeats the gradient-only quantity and includes
