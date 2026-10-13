@@ -1,0 +1,488 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx,booktabs,microtype}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Cross-step interference, directional curvature, and gradient descent},
+  pdfauthor={},pdfsubject={SGD formulation and full-batch CIFAR-10 GD evidence}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Loss}{\mathcal{L}}
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{3pt}
+\setlength{\abovedisplayskip}{9pt}
+\setlength{\belowdisplayskip}{9pt}
+\setlength{\textfloatsep}{16pt}
+\renewcommand{\arraystretch}{1.12}
+\emergencystretch=1em
+\title{Cross-step interference, directional curvature,\protect\\
+and gradient descent}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\vspace{-2em}
+\begin{abstract}
+We characterize cross-step interference through the accumulation of gradient
+directions along a training trajectory. For constant-step stochastic gradient
+descent, parameter displacement separates exactly into gradient energy and
+temporal interactions. A local expansion then connects consecutive-gradient
+alignment to directional curvature and changes in mini-batch gradient noise.
+We complement this adjacent diagnostic with normalized cumulative displacement,
+which measures the fraction of path length retained as net parameter motion.
+In a matched full-batch CIFAR-10 experiment, three learning rates develop
+nearly alternating gradients as the scaled maximum Hessian eigenvalue approaches
+the edge-of-stability region. A gradient-derived secant quantity approaches two,
+while normalized displacement falls sharply and loss continues to decrease over
+the training horizon. These observations connect local reversals to cumulative
+cancellation without identifying either diagnostic with a general stability
+criterion.
+\end{abstract}
+
+\section{An optimization perspective on cross-step interference}
+
+Training updates modify parameters shared by different examples and learned
+representations. This motivates the intuition that a new update can reinforce
+earlier changes or partially undo them. We study this interaction directly in
+parameter space, through the alignment and accumulation of successive gradients.
+The resulting geometry is observable without assigning semantic information to
+individual weights. Its connection to representation overwriting or forgetting
+requires separate evidence.
+
+From this optimization perspective, a trajectory can initially contain aligned
+gradients that accumulate coherently, then enter a regime of frequent directional
+reversals. Such reversals reduce the net motion retained from successive steps,
+even when the steps themselves remain large. They can coexist with decreasing
+loss over longer timescales. We therefore distinguish three questions: how
+gradients interact, what curvature contributes to their reorientation, and how
+much cumulative motion survives their cancellation. None of these questions
+alone determines whether loss oscillations decay, persist, or grow.
+
+\section{Parameter displacement under stochastic gradient descent}
+
+Let $\theta_t\in\mathbb{R}^p$ denote the parameters after update $t$, and let
+$g_t$ denote a mini-batch gradient evaluated at $\theta_{t-1}$. We consider
+constant-step SGD with learning rate $\eta>0$, without momentum, weight decay,
+or clipping:
+\begin{equation}
+  \theta_t=\theta_{t-1}-\eta g_t.
+  \label{eq:sgd}
+\end{equation}
+All norms below are Euclidean and include the full parameter vector. Full-batch
+GD is the special case in which every $g_t$ is the exact training-objective
+gradient. The displacement identities in this section hold pathwise, regardless
+of how the stochastic gradients are generated.
+
+After $T$ updates, summing Eq.~\eqref{eq:sgd} gives the displacement from
+initialization,
+\begin{equation}
+  \Delta_T:=\theta_T-\theta_0=-\eta\sum_{t=1}^T g_t.
+  \label{eq:displacement}
+\end{equation}
+Expanding its squared norm separates individual gradient magnitudes from their
+temporal interactions:
+\begin{equation}
+  \boxed{\norm{\Delta_T}^2
+  =\eta^2\sum_{t=1}^T\norm{g_t}^2
+   +2\eta^2\sum_{1\leq u<t\leq T}g_u^\top g_t.}
+  \label{eq:energy-interaction}
+\end{equation}
+The gradient-energy terms are nonnegative. Each pairwise inner product can be
+positive, zero, or negative: aligned gradients reinforce their contribution to
+the sum, whereas opposing gradients cancel part of it. Gradient energy is not
+itself net displacement; the interaction term determines how much of this energy
+remains in the squared norm of the accumulated vector. Measuring displacement
+relative to initialization also avoids an additional cross term involving
+$\theta_0$ that would appear in an expansion of $\norm{\theta_T}^2$.
+
+For nonzero consecutive gradients, define their cosine similarity as
+\begin{equation}
+  \rho_t:=\frac{g_{t-1}^\top g_t}{\norm{g_{t-1}}\norm{g_t}},
+  \qquad t=2,\ldots,T.
+  \label{eq:rho}
+\end{equation}
+Separating adjacent pairs from the remaining interactions yields
+\begin{equation}
+\begin{aligned}
+\norm{\Delta_T}^2={}&\eta^2\sum_{t=1}^T\norm{g_t}^2\\
+ &+2\eta^2\underbrace{\sum_{t=2}^T
+    \norm{g_{t-1}}\norm{g_t}\rho_t}_{\text{lag-one interaction}}\\
+ &+2\eta^2\underbrace{\sum_{t=3}^T\sum_{u=1}^{t-2}
+    g_u^\top g_t}_{\text{interaction beyond lag one}}.
+\end{aligned}
+\label{eq:lag-split}
+\end{equation}
+Negative $\rho_t$ contributes cancellation between consecutive updates. However,
+longer-lag interactions can reinforce or offset these negative contributions.
+Thus, adjacent anti-alignment diagnoses a local interaction, while the complete
+double sum determines cumulative interaction over the chosen horizon. We retain
+both terms rather than assume that lag one approximates the whole trajectory.
+
+\section{Curvature, gradient noise, and consecutive alignment}
+
+\subsection{A local expansion along the SGD trajectory}
+
+Let $\Loss$ denote the full training objective. We write a stochastic gradient
+as
+\begin{equation}
+  g_t=\nabla\Loss(\theta_{t-1})+\xi_t,
+  \label{eq:noise-model}
+\end{equation}
+where $\xi_t$ is the gradient estimation error. Suppose $\Loss$ is twice
+continuously differentiable along the step under consideration, and define
+$H_{t-1}:=\nabla^2\Loss(\theta_{t-2})$. Expanding the full gradient around
+$\theta_{t-2}$ and substituting the preceding SGD step gives
+\begin{equation}
+  g_t=(I-\eta H_{t-1})g_{t-1}+(\xi_t-\xi_{t-1})+r_t,
+  \label{eq:gradient-evolution}
+\end{equation}
+where $r_t$ is the Taylor remainder. Neglecting $r_t$ recovers the first-order
+approximation. Taking the inner product with $g_{t-1}$ then gives
+\begin{equation}
+\rho_t\approx
+\frac{\norm{g_{t-1}}^2-\eta g_{t-1}^\top H_{t-1}g_{t-1}
+      +g_{t-1}^\top(\xi_t-\xi_{t-1})}
+     {\norm{g_{t-1}}\norm{g_t}}.
+\label{eq:rho-expanded}
+\end{equation}
+The numerator contains the preceding gradient energy, a curvature contribution,
+and the change in gradient noise. Positive curvature along the preceding
+gradient direction reduces its alignment with the next gradient. The noise
+difference can reinforce or oppose this effect on an individual step.
+
+We normalize the curvature and noise terms by the preceding gradient energy:
+\begin{equation}
+  \kappa_t:=\frac{g_{t-1}^\top H_{t-1}g_{t-1}}{\norm{g_{t-1}}^2},
+  \qquad
+  \varepsilon_t:=\frac{g_{t-1}^\top(\xi_t-\xi_{t-1})}
+                            {\norm{g_{t-1}}^2}.
+  \label{eq:kappa-epsilon}
+\end{equation}
+With these definitions, Eq.~\eqref{eq:rho-expanded} becomes
+\begin{equation}
+  \boxed{\rho_t\approx\frac{\norm{g_{t-1}}}{\norm{g_t}}
+                   (1-\eta\kappa_t+\varepsilon_t).}
+  \label{eq:rho-normalized}
+\end{equation}
+The norm ratio is positive, so the first-order sign prediction depends on
+$1-\eta\kappa_t+\varepsilon_t$ (Table~\ref{tab:sign}). A larger positive
+directional curvature favors reversal; noise shifts the corresponding boundary.
+These conditions describe alignment, not the separate question of whether an
+oscillation is damped or unstable.
+
+\begin{table}[htbp]
+\centering
+\caption{Consecutive-gradient alignment predicted by the first-order model.
+The Taylor remainder is neglected; these are not exact sign equivalences for
+an arbitrary nonlinear step.}
+\label{tab:sign}
+\begin{tabular}{lll}
+\toprule
+Alignment & Cosine sign & First-order condition\\
+\midrule
+Positive & $\rho_t>0$ & $\eta\kappa_t<1+\varepsilon_t$\\
+Orthogonal & $\rho_t=0$ & $\eta\kappa_t=1+\varepsilon_t$\\
+Negative & $\rho_t<0$ & $\eta\kappa_t>1+\varepsilon_t$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The remainder matters near this boundary. In fact,
+Eq.~\eqref{eq:gradient-evolution} implies the exact relation
+\begin{equation}
+  \rho_t=\frac{\norm{g_{t-1}}}{\norm{g_t}}
+          (1-\eta\kappa_t+\varepsilon_t+\delta_t),
+  \qquad
+  \delta_t:=\frac{g_{t-1}^\top r_t}{\norm{g_{t-1}}^2}.
+  \label{eq:remainder}
+\end{equation}
+The first-order sign is reliable only to the extent that this omitted term does
+not change the numerator's sign.
+
+\subsection{Directional curvature and a gradient-derived secant}
+
+The quantity $\kappa_t$ is a Hessian Rayleigh quotient along the preceding
+stochastic gradient. If $H_{t-1}v_i=\lambda_i v_i$ in an orthonormal eigenbasis
+and $g_{t-1}=\sum_i a_i v_i$, then
+\begin{equation}
+  \kappa_t=\frac{\sum_i\lambda_i a_i^2}{\sum_i a_i^2}.
+  \label{eq:rayleigh}
+\end{equation}
+Thus, the gradient selects an eigenvalue-weighted average rather than the
+maximum eigenvalue. A sharp direction can exist without contributing much to
+the current gradient. This distinction is important when comparing alignment
+with the largest Hessian eigenvalue.
+
+Rearranging Eq.~\eqref{eq:rho-normalized} motivates the observable quantity
+\begin{equation}
+  \eta\widehat\kappa_t
+  :=1-\rho_t\frac{\norm{g_t}}{\norm{g_{t-1}}}+\varepsilon_t.
+  \label{eq:kappa-estimate}
+\end{equation}
+Equation~\eqref{eq:remainder} shows that
+$\widehat\kappa_t=\kappa_t-\delta_t/\eta$. Consequently, it approximates the
+pointwise directional curvature when the Taylor remainder is small. For
+mini-batch gradients, the noise term requires additional information and cannot
+be recovered from adjacent cosine and norms alone.
+
+For full-batch GD, $\xi_t=0$ and hence $\varepsilon_t=0$. The recorded
+gradient-only quantity is then exactly
+\begin{equation}
+\eta\widehat\kappa_t
+ =1-\rho_t\frac{\norm{g_t}}{\norm{g_{t-1}}}
+ =-\frac{g_{t-1}^\top(g_t-g_{t-1})}{\norm{g_{t-1}}^2}.
+\label{eq:gd-proxy}
+\end{equation}
+It measures the change in the gradient projected onto its preceding direction.
+In exact-arithmetic GD, the fundamental theorem of calculus provides a finite-step
+curvature interpretation:
+\begin{equation}
+\widehat\kappa_t=
+ \frac{g_{t-1}^\top\overline H_t g_{t-1}}{\norm{g_{t-1}}^2},
+\qquad
+\overline H_t=\int_0^1\nabla^2\Loss(\theta_{t-2}-s\eta g_{t-1})\,ds.
+\label{eq:integrated-hessian}
+\end{equation}
+The secant therefore samples curvature averaged along the preceding step. It
+equals the pointwise Rayleigh quotient on a quadratic objective, but need not
+equal either the local maximum eigenvalue or its finite-step average on a
+nonlinear trajectory.
+
+\subsection{The noise contribution under unbiased sampling}
+
+To isolate the stochastic term, assume fresh, conditionally unbiased mini-batch
+sampling with finite second moments. Let $\mathcal F_{t-1}$ contain the history
+through the preceding update, so that
+$\E[\xi_t\mid\mathcal F_{t-1}]=0$. Since $g_{t-1}$ is measurable with respect
+to this history,
+\begin{equation}
+  \E[g_{t-1}^\top\xi_t]=0.
+  \label{eq:fresh-noise}
+\end{equation}
+The preceding gradient already contains $\xi_{t-1}$. Conditional unbiasedness
+at that earlier step removes its cross term with
+$\nabla\Loss(\theta_{t-2})$, giving
+\begin{equation}
+  \E[g_{t-1}^\top\xi_{t-1}]=\E[\norm{\xi_{t-1}}^2].
+\end{equation}
+Subtracting these two expectations yields
+\begin{equation}
+  \boxed{\E[g_{t-1}^\top(\xi_t-\xi_{t-1})]
+              =-\E[\norm{\xi_{t-1}}^2]\leq0.}
+  \label{eq:noise-expectation}
+\end{equation}
+Even unbiased noise therefore produces a nonpositive expected contribution to
+the unnormalized adjacent inner product in this decomposition. This identifies
+a mechanism that can reduce successive-gradient alignment without requiring
+large positive directional curvature. It is not a statement that the expected
+cosine must be negative: the total numerator has other contributions and the
+cosine denominator is random. Correlated sampling or sampling without the stated
+conditional unbiasedness need not satisfy this identity.
+
+\section{Normalized displacement and cumulative interference}
+
+Adjacent alignment concerns one pair of steps. To characterize accumulation
+over the complete trajectory, we compare the sum of gradient lengths with the
+length of their sum:
+\begin{equation}
+  A_T:=\sum_{t=1}^T\norm{g_t},
+  \qquad B_T:=\norm{\sum_{t=1}^T g_t}.
+  \label{eq:ab}
+\end{equation}
+For Eq.~\eqref{eq:sgd}, $\eta A_T$ is the discrete path length and
+$\eta B_T=\norm{\Delta_T}$ is its endpoint displacement. Provided $A_T>0$,
+we define
+\begin{equation}
+  \boxed{R_T:=\frac{B_T}{A_T}
+       =\frac{\norm{\Delta_T}}{\eta\sum_{t=1}^T\norm{g_t}}\in[0,1].}
+  \label{eq:normalized-displacement}
+\end{equation}
+The triangle inequality gives this range. Values near one describe coherent
+accumulation; small values indicate that little of the accumulated step length
+remains as net parameter motion. A small ratio does not imply small absolute
+displacement, because the path length in its denominator can be large.
+
+Expanding $A_T^2$ and $B_T^2$ makes the connection to pairwise directional
+disagreement exact:
+\begin{equation}
+ R_T^2=1-\frac{2\sum_{1\leq u<t\leq T}
+        (\norm{g_u}\norm{g_t}-g_u^\top g_t)}
+       {\left(\sum_{t=1}^T\norm{g_t}\right)^2}.
+ \label{eq:interference-gap}
+\end{equation}
+Each difference in the numerator is nonnegative by Cauchy--Schwarz. This metric
+compares the observed sum with fully aligned accumulation of the same gradient
+lengths. It includes orthogonal and partially aligned pairs as well as opposing
+pairs; low $R_T$ does not require every interaction to be negative. Similarly,
+negative adjacent cosines do not determine the sign of the complete interaction
+term in Eq.~\eqref{eq:energy-interaction}.
+
+The normalized displacement measures the geometry of a trajectory, not its
+progress in objective value. Movement can cancel in a sharply curved direction
+while continuing to reduce the loss in other directions. The ratio also depends
+on the selected horizon: a full-prefix measurement includes the earlier aligned
+phase even after a later phase becomes strongly alternating.
+
+\section{Full-batch GD evidence on CIFAR-10}
+
+\subsection{Experimental setup and measurement}
+
+We examine the small CIFAR-10 squared-loss setting used in the released
+edge-of-stability experiments~\cite{cohen2021,eoscode}. Cohen et al. describe
+a regime in which the maximum training-loss Hessian eigenvalue remains near,
+and often slightly above, $2/\eta$, while short-term loss increases coexist
+with longer-term loss reduction~\cite{cohen2021}. Our experiment asks how the
+gradient secant and cumulative displacement behave alongside this spectral
+pattern.
+
+We use the first 5,000 CIFAR-10 training images and a fully connected
+$3072$--$200$--$200$--$10$ network with tanh hidden activations and biases
+($656{,}810$ parameters). Inputs are centered and standardized per input
+coordinate using the complete 50,000-image training split. For one-hot targets
+$y_i$ and network outputs $h_\theta(x_i)$, the objective is
+\begin{equation}
+  \Loss(\theta)=\frac{1}{2N}\sum_{i=1}^N
+                   \norm{h_\theta(x_i)-y_i}^2,
+  \qquad N=5000.
+\end{equation}
+There is no additional division by the number of classes. Four GD runs share
+the same frozen initialization from seed zero and use learning rates
+\[
+  \eta\in\{0.004,2/300,0.01,0.02\}.
+\]
+Each run completes 20,000 updates with no momentum, weight decay,
+clipping, augmentation, learning-rate schedule, or injected gradient noise.
+The full gradient accumulates five physical batches of 1,000 examples before
+each update. This is full-batch optimization, not mini-batch sampling.
+
+We record loss and raw-gradient diagnostics at every update. The largest
+algebraic Hessian eigenvalue is estimated on all 5,000 examples at initialization
+and every 100 updates, including the final state. Each returned eigenpair
+passes a relative residual check of at most $0.005$. We explicitly select the
+largest algebraic eigenvalue, rather than the largest magnitude; the fixed
+20,000-update horizon and frozen initialization are also declared choices of
+this reproduction. Parameter updates use FP32, with TF32 disabled and FP64
+diagnostic reductions. The displacement identities are stated in exact
+arithmetic; actual parameter displacements are separately audited for rounding.
+
+Figure~\ref{fig:gd} shows all recorded values without smoothing or temporal
+thinning. The first adjacent pair is defined at update two; an undefined first
+value is not replaced by zero. Loss and Hessian values are indexed by parameter
+state, while the gradient for update $t$ belongs to $\theta_{t-1}$. These labels
+are retained when comparing trends across the horizon. Hessian measurements are
+connected for display but remain 100-step samples.
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\linewidth]{../../../analyses/019-2026-10-13-cifar10-eos-lr/figures/cifar10_gd_diagnostics_paper.pdf}
+  \caption{Full-batch GD on CIFAR-10 with four matched learning rates.
+  (a) Training loss; (b) consecutive-gradient cosine;
+  (c) the gradient-derived quantity
+  $\eta\widehat\kappa_t=1-\rho_t\norm{g_t}/\norm{g_{t-1}}$;
+  (d) the scaled largest algebraic Hessian eigenvalue, with the dashed reference
+  at two; (e) full-prefix normalized displacement $B_t/A_t$; and
+  (f) raw-gradient norm on log Y. All curves are unsmoothed.
+  Hessians are measured every 100 updates; the other diagnostics are measured
+  every update. Larger learning rates enter the alternating-gradient regime
+  earlier. Loss decreases over the horizon while cumulative cancellation and
+  oscillatory gradient magnitudes increase.}
+  \label{fig:gd}
+\end{figure}
+
+\subsection{Alignment reversal and the spectral regime}
+
+At $\eta=0.004$, consecutive gradients remain almost parallel throughout the
+run. The gradient-derived $\eta\widehat\kappa_t$ remains close to zero, whereas
+$\eta\lambda_{\max}$ increases to approximately $1.68$. This separation is
+consistent with the distinction between gradient-direction curvature and
+maximum curvature; the secant is not a general estimator of the largest
+Hessian eigenvalue.
+
+The three larger rates show a different pattern. The first negative adjacent
+pair occurs at updates $9467$, $4565$, and $1156$ for $\eta=2/300$, $0.01$, and
+$0.02$, respectively. Their late cosine means are approximately $-0.999$,
+and their final scaled largest eigenvalues lie between $2.070$ and $2.077$.
+Thus, the alignment reversal moves earlier as the learning rate increases
+within this matched cohort. The loss develops short-term fluctuations but
+continues to decrease over the fixed horizon.
+
+In this alternating regime, $\eta\widehat\kappa_t$ fluctuates near two
+(Fig.~\ref{fig:gd}c). Equation~\eqref{eq:gd-proxy} explains this value directly:
+if $\rho_t\approx-1$ and consecutive gradient norms are similar, then
+$1-\rho_t\norm{g_t}/\norm{g_{t-1}}\approx2$. The secant therefore tracks the
+late edge-of-stability scale in these runs and supplies a directional
+description of the reversal. It does not follow the entire maximum-eigenvalue
+curve pointwise. Moreover, the coincidence near two is linked algebraically
+to the measured reversal; it is not an independent proof of stability.
+
+For a positive quadratic eigendirection of curvature $\lambda$, plain GD
+multiplies that component by $1-\eta\lambda$ at each step. Alignment reverses
+when $\eta\lambda>1$, while contraction requires $0<\eta\lambda<2$.
+The values one and two therefore describe different local questions:
+directional sign reversal and contraction of a fixed quadratic mode. The
+nonlinear training trajectory need not obey a frozen-quadratic stability
+interpretation globally.
+
+\input{gd-results.tex}
+\clearpage
+
+\subsection{Cumulative cancellation despite continued loss reduction}
+
+The adjacent reversal coincides with a sharp decline in normalized displacement
+(Fig.~\ref{fig:gd}e). At the horizon, $B_T/A_T$ is $0.7602$ for $\eta=0.004$,
+but only $0.0250$, $0.0148$, and $0.0105$ at the three larger rates. Hence,
+only about $2.50\%$, $1.48\%$, and $1.05\%$ of the accumulated path length
+remains as net displacement in these runs. This connects the local reversal
+diagnostic with substantial cumulative cancellation.
+
+Absolute displacement does not approach zero in this comparison. The audited
+endpoint distances from initialization are approximately $3.96$, $5.09$,
+$5.99$, and $7.70$, in increasing learning-rate order. At the same time, the
+corresponding path lengths are approximately $5.21$, $203.80$, $403.96$, and
+$732.59$. The small ratios arise because net motion is small relative to the
+much longer paths. The complete raw-gradient all-pair interaction also remains
+positive in all four runs, despite the strongly negative late adjacent pairs
+at the larger rates. Longer-lag interactions cannot therefore be omitted when
+interpreting Eq.~\eqref{eq:lag-split}.
+
+Raw-gradient norms fall during the early phase, then increase and fluctuate
+after the reversal at the larger learning rates (Fig.~\ref{fig:gd}f).
+Larger step lengths can then contribute little additional net motion because
+successive directions oppose one another. Oscillation across a curved basin is
+one possible interpretation, but the scalar diagnostics do not identify a
+spatial spiral or establish that mechanism. Neither a large gradient norm nor
+a small displacement ratio alone demonstrates loss instability.
+
+Finally, stronger cancellation does not imply slower convergence in this
+finite-horizon comparison. The final training loss decreases from $0.09688$ at
+$\eta=0.004$ to $0.01945$ at $\eta=0.02$. The geometric loss of net path
+efficiency coexists with greater training-loss reduction. These observations
+are based on one frozen initialization, a preselected learning-rate grid and
+a finite horizon; they do not establish a general optimizer ranking or a
+generalization result.
+
+\paragraph{TODO: an alignment-guided learning-rate intervention.}
+Test a schedule that halves the learning rate when consecutive-gradient cosine
+becomes negative, specifying the trigger and repeat rule before execution.
+Compare loss reduction at a matched update budget with fixed-rate controls.
+The intervention may restore positive alignment without improving convergence;
+these two outcomes must be evaluated separately.
+
+\begin{thebibliography}{9}
+\bibitem{cohen2021}
+J.~M.~Cohen, S.~Kaur, Y.~Li, J.~Z.~Kolter, and A.~Talwalkar.
+\newblock Gradient descent on neural networks typically occurs at the edge of
+stability.
+\newblock \emph{International Conference on Learning Representations}, 2021.
+\newblock \url{https://arxiv.org/abs/2103.00065}.
+
+\bibitem{eoscode}
+J.~M.~Cohen and collaborators.
+\newblock Released implementation of the edge-of-stability experiments,
+\texttt{github} branch.
+\newblock \url{https://github.com/locuslab/edge-of-stability/tree/github}.
+\end{thebibliography}
+\end{document}

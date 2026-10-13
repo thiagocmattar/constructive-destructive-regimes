@@ -1,0 +1,19 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{GD results at $T=20{,}000$. Bars average the last 1,000 recorded
+gradient-pair values; loss, maximum curvature and $R_T$ refer to the final
+state or full prefix. The last recorded gradient belongs to $\theta_{T-1}$;
+the final loss and Hessian belong to $\theta_T$. One initialization is used.}
+\label{tab:gd-results}
+\begin{tabular}{rrrrrr}
+\toprule
+$\eta$ & $\Loss(\theta_T)$ & $\overline\rho$ & $\overline{\eta\widehat\kappa}$ & $\eta\lambda_{\max}(\theta_T)$ & $R_T$\\
+\midrule
+$0.004$ & 0.09688 & 1.0000 & $4.35\times10^{-5}$ & 1.6767 & 0.7602\\
+$2/300$ & 0.05651 & -0.9989 & 1.9988 & 2.0762 & 0.0250\\
+$0.01$ & 0.03204 & -0.9987 & 1.9985 & 2.0702 & 0.0148\\
+$0.02$ & 0.01945 & -0.9985 & 1.9988 & 2.0773 & 0.0105\\
+\bottomrule
+\end{tabular}
+\end{table}

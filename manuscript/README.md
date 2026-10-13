@@ -32,3 +32,12 @@ organizes the advisor discussion around temporal interference and learning-rate
 interventions. It contains an evidence map, section-level changes, mathematical
 definitions, an experiment plan, and a focused literature comparison. It is a
 planning record; the draft, supplied reflections, and original assets are unchanged.
+
+## GD formulation report
+
+The [restatement report](2026-10-11-restatement/README.md) develops the supplied
+formulation in English through the empirical full-batch GD result, stopping
+before the optimizer extension. It follows the local writing-style guide and
+includes a compact publication view of Analysis019 GD evidence. Editable TeX
+and the builder are in `draft/restatement/`; the reviewed deliverable PDF and
+provenance are in `2026-10-11-restatement/`. The main manuscript is unchanged.

@@ -1,0 +1,270 @@
+{
+  "status": "passed",
+  "script": "11_plot_gd_paper.py",
+  "script_sha256": "c5261d3fd0cead41c3372983106ce23db25aad699eabe7c4b432eef654c4740c",
+  "figure": "figures/cifar10_gd_diagnostics_paper.pdf",
+  "sha256": "c8121f4cefc192c6c913a1aa224ef2f0c4ae49f0fc0a5af1ee79d925916e68c8",
+  "bytes": 831645,
+  "dimensions_inches": [
+    6.8,
+    5.65
+  ],
+  "panels": 6,
+  "curves": [
+    {
+      "run_id": "059",
+      "metric": "train_loss_with_final_state",
+      "points": 20001,
+      "finite_points": 20001,
+      "x_sha256": "4a4933d567a322e32416b5fcb0be9ae0626910d0d1913fc446e9294caa86252e",
+      "y_sha256": "00648656f8bb8ed250477b7c5800389afccfb3168c0752b4f2298940b21d69ac",
+      "smoothing": null
+    },
+    {
+      "run_id": "059",
+      "metric": "raw_cosine",
+      "points": 20000,
+      "finite_points": 19999,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "y_sha256": "9a270a80b38fddfd07c6047edb8c5c00a4dac158ccf0a8192809b8c1443edcd6",
+      "smoothing": null
+    },
+    {
+      "run_id": "059",
+      "metric": "eta_kappa_proxy",
+      "points": 20000,
+      "finite_points": 19999,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "y_sha256": "6ac35bc226421569a2fb41483935d34d16dd082179ccb426b86a91e38285500e",
+      "smoothing": null
+    },
+    {
+      "run_id": "059",
+      "metric": "eta_lambda_max",
+      "points": 201,
+      "finite_points": 201,
+      "x_sha256": "762848f460c6394cd4f7f9315adac17f462ffc9ad30efced7d0a81f94075c335",
+      "y_sha256": "e82a95177a71626d3b1dc1cedc2059d22c244868d951d83fd126e00106024529",
+      "smoothing": null
+    },
+    {
+      "run_id": "059",
+      "metric": "raw_B_over_A",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "y_sha256": "a60954a233616bec7ad2d74aff5daadc482ab485ef913c89b656a93555e48332",
+      "smoothing": null
+    },
+    {
+      "run_id": "059",
+      "metric": "raw_norm",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "y_sha256": "ce87a760e98dabe1ba6db1d6af472a68fb784577889919c037c70899e39784db",
+      "smoothing": null
+    },
+    {
+      "run_id": "060",
+      "metric": "train_loss_with_final_state",
+      "points": 20001,
+      "finite_points": 20001,
+      "x_sha256": "4a4933d567a322e32416b5fcb0be9ae0626910d0d1913fc446e9294caa86252e",
+      "y_sha256": "c535d427ca30cf80631a71ed2df2aebf7e34afbef8392b0ee5c702049c9a66fc",
+      "smoothing": null
+    },
+    {
+      "run_id": "060",
+      "metric": "raw_cosine",
+      "points": 20000,
+      "finite_points": 19999,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "y_sha256": "ce7d0d2a5163ca8813f19af0bd59f6ae03f30f5bd2a626ade21c7e433ba2044d",
+      "smoothing": null
+    },
+    {
+      "run_id": "060",
+      "metric": "eta_kappa_proxy",
+      "points": 20000,
+      "finite_points": 19999,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "y_sha256": "2f27b56d8407e32fd1a21fa10768ff62e95c5f863b6c5903ef0f0274e4fa348a",
+      "smoothing": null
+    },
+    {
+      "run_id": "060",
+      "metric": "eta_lambda_max",
+      "points": 201,
+      "finite_points": 201,
+      "x_sha256": "762848f460c6394cd4f7f9315adac17f462ffc9ad30efced7d0a81f94075c335",
+      "y_sha256": "2bc63671e44fdc304a0fa5560b52d20a71d33bf6fa2187ab07316bdceadd284c",
+      "smoothing": null
+    },
+    {
+      "run_id": "060",
+      "metric": "raw_B_over_A",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "y_sha256": "9b27e8808a41369b4efecb2aaef31403eb48b6f0a7fa8f86a929706df53649ec",
+      "smoothing": null
+    },
+    {
+      "run_id": "060",
+      "metric": "raw_norm",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "y_sha256": "e5cb782e38e0761c7fc1087364df0a1367bdc5ce6cd2df985cf37c354e7f8149",
+      "smoothing": null
+    },
+    {
+      "run_id": "061",
+      "metric": "train_loss_with_final_state",
+      "points": 20001,
+      "finite_points": 20001,
+      "x_sha256": "4a4933d567a322e32416b5fcb0be9ae0626910d0d1913fc446e9294caa86252e",
+      "y_sha256": "f73fa84853aec623f9ea9c1dff97d6a66f812a1971c6f83aaf6b82d2116947b5",
+      "smoothing": null
+    },
+    {
+      "run_id": "061",
+      "metric": "raw_cosine",
+      "points": 20000,
+      "finite_points": 19999,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "y_sha256": "172c1434a9c064258043864a65035932fb147828015ff948ae1b4447eb016971",
+      "smoothing": null
+    },
+    {
+      "run_id": "061",
+      "metric": "eta_kappa_proxy",
+      "points": 20000,
+      "finite_points": 19999,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "y_sha256": "d2c560a90717adb4902fc07601db804bb7f0d5ba0fecf1b48c0fb652fe8acdf3",
+      "smoothing": null
+    },
+    {
+      "run_id": "061",
+      "metric": "eta_lambda_max",
+      "points": 201,
+      "finite_points": 201,
+      "x_sha256": "762848f460c6394cd4f7f9315adac17f462ffc9ad30efced7d0a81f94075c335",
+      "y_sha256": "305382da7d80e4d6734f92d0672f6ea386796983a82d136f22c0a37b649a7c6f",
+      "smoothing": null
+    },
+    {
+      "run_id": "061",
+      "metric": "raw_B_over_A",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "y_sha256": "80dcbe053e4bd0789f3f887053638232083ee92b1c7aae5c46c4a27d7eb4502f",
+      "smoothing": null
+    },
+    {
+      "run_id": "061",
+      "metric": "raw_norm",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "y_sha256": "d00e0cc41ff6d2165ec6a8f13dafc74578d2814331922b637095b8784b7a1c2f",
+      "smoothing": null
+    },
+    {
+      "run_id": "062",
+      "metric": "train_loss_with_final_state",
+      "points": 20001,
+      "finite_points": 20001,
+      "x_sha256": "4a4933d567a322e32416b5fcb0be9ae0626910d0d1913fc446e9294caa86252e",
+      "y_sha256": "49c4b259ea7e3761b280b8f6b386e8d3ea131a463567794c715e3de1d6fb7bea",
+      "smoothing": null
+    },
+    {
+      "run_id": "062",
+      "metric": "raw_cosine",
+      "points": 20000,
+      "finite_points": 19999,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "y_sha256": "c9ce21adf3a186abc4729c578258ce6ef40c5d38a1847e778feb60c9f03face1",
+      "smoothing": null
+    },
+    {
+      "run_id": "062",
+      "metric": "eta_kappa_proxy",
+      "points": 20000,
+      "finite_points": 19999,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "y_sha256": "d0a5b294b9a41436ff99d5dd49af4c0d45025251d1c33d1b4df4a832c6c23656",
+      "smoothing": null
+    },
+    {
+      "run_id": "062",
+      "metric": "eta_lambda_max",
+      "points": 201,
+      "finite_points": 201,
+      "x_sha256": "762848f460c6394cd4f7f9315adac17f462ffc9ad30efced7d0a81f94075c335",
+      "y_sha256": "8855042950fa8b6a71ddff47fa9865d43f5189a1c9925c31a93e94d735473364",
+      "smoothing": null
+    },
+    {
+      "run_id": "062",
+      "metric": "raw_B_over_A",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "y_sha256": "5920c53712c740772b03c33f84c533a86dbf2d905cb85125974d8a146d59054c",
+      "smoothing": null
+    },
+    {
+      "run_id": "062",
+      "metric": "raw_norm",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "y_sha256": "2e212788f2bf1a863670e84acf0edfcb725d37196fe5836299c34d6c12a2340e",
+      "smoothing": null
+    }
+  ],
+  "smoothing": null,
+  "thinning": null,
+  "source_figure_sha256_unchanged": "3ffafae2acd75069517fb206bcdd66c293915108e87e1710255126deb20dc0ee",
+  "source_manifest_sha256": "8f350bc7f9e5964aa696ba918f72a6a89d577745e097441bcea763b775a58693",
+  "sources": [
+    {
+      "run_id": "059",
+      "learning_rate": 0.004,
+      "derived_path": "derived/Run059.npz",
+      "derived_sha256": "75bd519428b2b961686420e51d244f50c597cf8beb2efa915aeaa7853f176552",
+      "source_metrics_sha256": "b26bd47afdbe92c915d4973fc3aa07b546a68663216360e3c490d46ae1e730e0",
+      "source_curvature_sha256": "577d016029be4a4f996f3be5cdf82330bd75f0b00f461ba2acbe2ae61c98105f"
+    },
+    {
+      "run_id": "060",
+      "learning_rate": 0.006666666666666667,
+      "derived_path": "derived/Run060.npz",
+      "derived_sha256": "6ed094f68002ed8b8cd98bbd11923754633513d6237e3e719882364b060841a6",
+      "source_metrics_sha256": "edfdd1d708735bf40b793d1eb4cfc4de1ffa14a9f41ae6df79f49916d3024181",
+      "source_curvature_sha256": "f993ee690ed853f8684af61beb0863c50aa46346483a4b16744fa2231f91b848"
+    },
+    {
+      "run_id": "061",
+      "learning_rate": 0.01,
+      "derived_path": "derived/Run061.npz",
+      "derived_sha256": "1f9f0321111f7345c86b376d05fbef5564d2a9f7b2012aaa5dd498e64c95569e",
+      "source_metrics_sha256": "b1bdaa7bfc3fd9745a28c7fb2f9d545171bb70b4d0bea9a9e2ae5a7f340d1816",
+      "source_curvature_sha256": "e9d6a0219b13c3c3263e182247d7068b08fe33a94e539cf7efde8c14efac790b"
+    },
+    {
+      "run_id": "062",
+      "learning_rate": 0.02,
+      "derived_path": "derived/Run062.npz",
+      "derived_sha256": "22e6b7c64d8081a1d8bdeceda43f99c0c57178e9ad48e8c23f5f2140da3d883e",
+      "source_metrics_sha256": "c94770a13d0f6668a4e6f1be577239b472a0c105fc5e098d6901d2514e620243",
+      "source_curvature_sha256": "a0cd312d5948ce6a8ee2e350e9ea112c160070c468ff4625d5bce70ef55f7d1d"
+    }
+  ],
+  "caption": "Matched CIFAR-10 full-batch GD rates: unsmoothed loss, adjacent cosine, eta-kappa, eta*largest algebraic Hessian eigenvalue, full-prefix B/A and log raw-gradient norm. All updates and all 201 Hessian samples per run retained; no reduction changed."
+}

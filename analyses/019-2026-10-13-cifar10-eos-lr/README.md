@@ -98,6 +98,13 @@ cosine and eta-kappa show every defined adjacent pair. See [Observation002](obse
 [numeric checks](gd_figure_manifest.json) and
 [visual verification](gd_visual_verification.json).
 
+A compact [publication version](figures/cifar10_gd_diagnostics_paper.pdf) of
+the same 24 unsmoothed GD curves supports the
+[formulation report](../../manuscript/2026-10-11-restatement/README.md).
+See [Observation004](observations/004-gd-paper-figure.md) and its
+[array/figure manifest](gd_paper_figure_manifest.json). Generate it with script
+`11_plot_gd_paper.py`; the report builder renders and checks its layout.
+
 Adam counterparts: [full 20,000 updates](figures/cifar10_adam_diagnostics.pdf)
 and [first 2,000 updates](figures/cifar10_adam_diagnostics_early.pdf). Each uses
 ten panels, inserting momentum adjacent cosine, momentum B/A, momentum norm

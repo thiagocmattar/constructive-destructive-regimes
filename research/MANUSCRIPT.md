@@ -65,3 +65,18 @@ The user's subsequent notation feedback is incorporated: the mathematical
 proposal now starts directly with mini-batch SGD gradients and displacement,
 then treats Adam separately. Generic update and vector-sequence symbols have
 been removed.
+
+On 2026-10-13, the requested
+[GD formulation report](../manuscript/2026-10-11-restatement/README.md) turns
+the supplied formulation into an English LaTeX technical report, following the
+local style guide and stopping before Displacement under Adam. It retains the
+exact displacement and all-lag identities, qualifies the local curvature/noise
+approximation, and adds the unbiased-noise argument and gradient-secant
+interpretation. The empirical section draws on GD Runs059-062 and
+[Analysis019 Observation004](../analyses/019-2026-10-13-cifar10-eos-lr/observations/004-gd-paper-figure.md).
+It explicitly distinguishes path-relative cancellation from absolute displacement
+and loss reduction. The report retains the proposed alignment-guided LR TODO
+without claiming an executed intervention. All pages and the compact figure are
+rendered and reviewed; source/evidence/output hashes are retained. Original
+Markdown inputs and the existing main manuscript remain unchanged. No new
+training or cloud execution occurred.
