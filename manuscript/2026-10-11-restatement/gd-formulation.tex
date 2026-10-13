@@ -246,56 +246,22 @@ we define
 \end{equation}
 The numerator $B_T$ is the net displacement; the denominator $A_T$ is the total length of all SGD steps. This normalized displacement $R_T$ expresses how much of the accumulated step length remains as net motion of parameters after the gradient directions reinforce or cancel one another. 
 
-\section{Full-batch GD evidence on CIFAR-10}
-
-\subsection{Experimental setup and measurement}
+\subsection{Full-batch GD evidence on CIFAR-10}
 
 We examine the small CIFAR-10 squared-loss setting used in the released
-edge-of-stability experiments~\cite{cohen2021,eoscode}. Cohen et al. describe
-a regime in which the maximum training-loss Hessian eigenvalue remains near,
-and often slightly above, $2/\eta$, while short-term loss increases coexist
-with longer-term loss reduction~\cite{cohen2021}. Our experiment asks how the
-gradient secant and cumulative displacement behave alongside this spectral
-pattern.
-
-We use the first 5,000 CIFAR-10 training images and a fully connected
+edge-of-stability experiments~\cite{cohen2021,eoscode}. We use the first 5,000 CIFAR-10 training images and a fully connected
 $3072$--$200$--$200$--$10$ network with tanh hidden activations and biases
-($656{,}810$ parameters). Inputs are centered and standardized per input
-coordinate using the complete 50,000-image training split. For one-hot targets
-$y_i$ and network outputs $h_\theta(x_i)$, the objective is
-\begin{equation}
-  \Loss(\theta)=\frac{1}{2N}\sum_{i=1}^N
-                   \norm{h_\theta(x_i)-y_i}^2,
-  \qquad N=5000.
-\end{equation}
-There is no additional division by the number of classes. Four GD runs share
+($656{,}810$ parameters). Four GD runs share
 the same frozen initialization from seed zero and use learning rates
-\[
+\(
   \eta\in\{0.004,2/300,0.01,0.02\}.
-\]
+\)
 Each run completes 20,000 updates with no momentum, weight decay,
-clipping, augmentation, learning-rate schedule, or injected gradient noise.
-The full gradient accumulates five physical batches of 1,000 examples before
-each update. This is full-batch optimization, not mini-batch sampling.
+clipping, augmentation, learning-rate schedule, or injected gradient noise. We record loss and raw-gradient diagnostics at every update. The largest
+Hessian eigenvalue is estimated on all 5,000 examples at initialization
+and every 100 updates. Figure~\ref{fig:gd} shows all recorded values. 
 
-We record loss and raw-gradient diagnostics at every update. The largest
-algebraic Hessian eigenvalue is estimated on all 5,000 examples at initialization
-and every 100 updates, including the final state. Each returned eigenpair
-passes a relative residual check of at most $0.005$. We explicitly select the
-largest algebraic eigenvalue, rather than the largest magnitude; the fixed
-20,000-update horizon and frozen initialization are also declared choices of
-this reproduction. Parameter updates use FP32, with TF32 disabled and FP64
-diagnostic reductions. The displacement identities are stated in exact
-arithmetic; actual parameter displacements are separately audited for rounding.
-
-Figure~\ref{fig:gd} shows all recorded values without smoothing or temporal
-thinning. The first adjacent pair is defined at update two; an undefined first
-value is not replaced by zero. Loss and Hessian values are indexed by parameter
-state, while the gradient for update $t$ belongs to $\theta_{t-1}$. These labels
-are retained when comparing trends across the horizon. Hessian measurements are
-connected for display but remain 100-step samples.
-
-\begin{figure}[p]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=\linewidth]{../../analyses/019-2026-10-13-cifar10-eos-lr/figures/cifar10_gd_diagnostics_paper.pdf}
   \caption{Full-batch GD on CIFAR-10 with four matched learning rates.
@@ -314,75 +280,21 @@ connected for display but remain 100-step samples.
 
 \subsection{Alignment reversal and the spectral regime}
 
-At $\eta=0.004$, consecutive gradients remain almost parallel throughout the
-run. The gradient-derived $\eta\widehat\kappa_t$ remains close to zero, whereas
-$\eta\lambda_{\max}$ increases to approximately $1.68$. This separation is
-consistent with the distinction between gradient-direction curvature and
-maximum curvature; the secant is not a general estimator of the largest
-Hessian eigenvalue.
-
-The three larger rates show a different pattern. The first negative adjacent
-pair occurs at updates $9467$, $4565$, and $1156$ for $\eta=2/300$, $0.01$, and
-$0.02$, respectively. Their late cosine means are approximately $-0.999$,
-and their final scaled largest eigenvalues lie between $2.070$ and $2.077$.
-Thus, the alignment reversal moves earlier as the learning rate increases
-within this matched cohort. The loss develops short-term fluctuations but
-continues to decrease over the fixed horizon.
-
-In this alternating regime, $\eta\widehat\kappa_t$ fluctuates near two
-(Fig.~\ref{fig:gd}c). Equation~\eqref{eq:gd-proxy} explains this value directly:
-if $\rho_t\approx-1$ and consecutive gradient norms are similar, then
-$1-\rho_t\norm{g_t}/\norm{g_{t-1}}\approx2$. The secant therefore tracks the
-late edge-of-stability scale in these runs and supplies a directional
-description of the reversal. It does not follow the entire maximum-eigenvalue
-curve pointwise. Moreover, the coincidence near two is linked algebraically
-to the measured reversal; it is not an independent proof of stability.
-
-For a positive quadratic eigendirection of curvature $\lambda$, plain GD
-multiplies that component by $1-\eta\lambda$ at each step. Alignment reverses
-when $\eta\lambda>1$, while contraction requires $0<\eta\lambda<2$.
-The values one and two therefore describe different local questions:
-directional sign reversal and contraction of a fixed quadratic mode. The
-nonlinear training trajectory need not obey a frozen-quadratic stability
-interpretation globally.
-
-\input{gd-results.tex}
-\clearpage
-
-\subsection{Cumulative cancellation despite continued loss reduction}
-
-The adjacent reversal coincides with a sharp decline in normalized displacement
-(Fig.~\ref{fig:gd}e). At the horizon, $B_T/A_T$ is $0.7602$ for $\eta=0.004$,
-but only $0.0250$, $0.0148$, and $0.0105$ at the three larger rates. Hence,
-only about $2.50\%$, $1.48\%$, and $1.05\%$ of the accumulated path length
-remains as net displacement in these runs. This connects the local reversal
-diagnostic with substantial cumulative cancellation.
-
-Absolute displacement does not approach zero in this comparison. The audited
-endpoint distances from initialization are approximately $3.96$, $5.09$,
-$5.99$, and $7.70$, in increasing learning-rate order. At the same time, the
-corresponding path lengths are approximately $5.21$, $203.80$, $403.96$, and
-$732.59$. The small ratios arise because net motion is small relative to the
-much longer paths. The complete raw-gradient all-pair interaction also remains
-positive in all four runs, despite the strongly negative late adjacent pairs
-at the larger rates. Longer-lag interactions cannot therefore be omitted when
-interpreting Eq.~\eqref{eq:lag-split}.
-
-Raw-gradient norms fall during the early phase, then increase and fluctuate
-after the reversal at the larger learning rates (Fig.~\ref{fig:gd}f).
-Larger step lengths can then contribute little additional net motion because
-successive directions oppose one another. Oscillation across a curved basin is
-one possible interpretation, but the scalar diagnostics do not identify a
-spatial spiral or establish that mechanism. Neither a large gradient norm nor
-a small displacement ratio alone demonstrates loss instability.
-
-Finally, stronger cancellation does not imply slower convergence in this
-finite-horizon comparison. The final training loss decreases from $0.09688$ at
-$\eta=0.004$ to $0.01945$ at $\eta=0.02$. The geometric loss of net path
-efficiency coexists with greater training-loss reduction. These observations
-are based on one frozen initialization, a preselected learning-rate grid and
-a finite horizon; they do not establish a general optimizer ranking or a
-generalization result.
+Figure~\ref{fig:gd} shows that larger learning rates bring gradient reversal
+forward. At $\eta=0.004$, $\rho_t$ stays near one and
+$\eta\widehat\kappa_t$ near zero, even though $\eta\lambda_{\max}$ reaches
+$1.68$. At the three larger rates, $\rho_t$ approaches $-1$,
+$\eta\widehat\kappa_t$ fluctuates near two, and $\eta\lambda_{\max}$ settles
+near $2.07$. The value $\eta\widehat\kappa_t\approx2$ follows directly from
+Eq.~\eqref{eq:gd-proxy} when consecutive gradients have opposite directions
+and similar norms; this agreement does not make it a general estimator of
+maximum curvature. After reversal, gradient norms grow and fluctuate, while
+$B_T/A_T$ falls to $0.0105$--$0.0250$, compared with $0.7602$ at the smallest
+rate, indicating stronger cancellation relative to path length. Nevertheless,
+training loss continues to decrease, and final loss falls from $0.0969$ to
+$0.0195$ as $\eta$ increases from $0.004$ to $0.02$. In this matched,
+single-initialization comparison, stronger cancellation therefore coexists
+with greater loss reduction.
 
 \paragraph{TODO: an alignment-guided learning-rate intervention.}
 Test a schedule that halves the learning rate when consecutive-gradient cosine

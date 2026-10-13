@@ -23,8 +23,9 @@ longer-lag split, a local curvature/noise model of consecutive alignment,
 the unbiased-noise expectation, and full-prefix normalized displacement B/A.
 The empirical section uses only GD Runs059-062 from
 [Analysis019](../../analyses/019-2026-10-13-cifar10-eos-lr/README.md).
-It includes a compact publication figure and a table of final loss, late cosine,
-late gradient secant, final maximum curvature and final B/A.
+It includes a compact publication figure and one results paragraph connecting
+alignment reversal, directional curvature, gradient norms, cumulative cancellation
+and loss reduction. The generated results table remains a separate source asset.
 The figure is a presentation revision of all 24 original unsmoothed curves;
 source values, sampling and original figure bytes are unchanged. Its local
 [observation](../../analyses/019-2026-10-13-cifar10-eos-lr/observations/004-gd-paper-figure.md)
@@ -40,9 +41,8 @@ The mathematical and empirical wording makes these distinctions explicit:
 - Fresh conditionally unbiased noise has a nonpositive expected contribution to
   the unnormalized adjacent inner product. This does not determine the expected
   normalized cosine.
-- Small B/A means small net motion relative to path length. It does not imply
-  small absolute displacement or worse loss reduction. In this cohort the larger
-  learning rates have greater absolute displacement and lower final loss.
+- Small B/A means small net motion relative to path length. In this cohort,
+  stronger cancellation coexists with lower final loss at larger learning rates.
 - Oscillation across a basin is an interpretation; a spatial spiral and
   representation overwriting are not established by these scalar diagnostics.
 
