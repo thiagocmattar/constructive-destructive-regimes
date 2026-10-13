@@ -16,9 +16,10 @@ def main():
     parser.add_argument('--accept-reviewed', action='store_true', help='Record the agent visual review after inspecting current renders.')
     parser.add_argument('--gd-only', action='store_true')
     parser.add_argument('--simple-gd', action='store_true', help='Review the current six-panel GD figure.')
+    parser.add_argument('--simple-adam', action='store_true', help='Review both current ten-panel Adam figures.')
     args = parser.parse_args()
-    assert not (args.gd_only and args.simple_gd)
-    manifest_path = 'gd_figure_manifest.json' if args.simple_gd else ('scratch/gd_figure_manifest.json' if args.gd_only else 'figure_manifest.json')
+    assert sum([args.gd_only, args.simple_gd, args.simple_adam]) <= 1
+    manifest_path = 'adam_figure_manifest.json' if args.simple_adam else ('gd_figure_manifest.json' if args.simple_gd else ('scratch/gd_figure_manifest.json' if args.gd_only else 'figure_manifest.json'))
     manifest = json.loads((HERE / manifest_path).read_text())
     scratch = HERE / 'scratch/pdf-qa'
     scratch.mkdir(parents=True, exist_ok=True)
@@ -32,7 +33,8 @@ def main():
             assert len(pdf) == 1
             page = pdf[0]
             text = page.get_text()
-            assert 'CIFAR-10' in text and '20k' in text
+            horizon = '2k' if item.get('x_limits', [0, 20000])[1] == 2000 else '20k'
+            assert 'CIFAR-10' in text and horizon in text
             assert 'Unsmoothed' in text or 'unsmoothed' in text
             outside = []
             for block in page.get_text('dict')['blocks']:
@@ -66,7 +68,7 @@ def main():
                             'render_sha256': hashlib.sha256(render.read_bytes()).hexdigest()}
     result = {'status': 'passed' if args.accept_reviewed else 'awaiting_visual_review', 'figures': checks,
               'review': 'Agent inspected all current page renders for labels, legends, overlaps, clipping and readability.' if args.accept_reviewed else None}
-    destination = 'gd_visual_verification.json' if args.simple_gd else ('scratch/gd_visual_verification.json' if args.gd_only else 'visual_verification.json')
+    destination = 'adam_visual_verification.json' if args.simple_adam else ('gd_visual_verification.json' if args.simple_gd else ('scratch/gd_visual_verification.json' if args.gd_only else 'visual_verification.json'))
     (HERE / destination).write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
     print(json.dumps({'status': result['status'], 'figures': len(checks)}))
 

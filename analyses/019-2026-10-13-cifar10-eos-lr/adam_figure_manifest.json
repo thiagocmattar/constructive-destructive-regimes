@@ -1,0 +1,1446 @@
+{
+  "status": "passed",
+  "script": "10_plot_adam.py",
+  "script_sha256": "c002255de78e0526f6dcbe967a16385dbc4aeb39f72e0ad1fee5d17de1b2a2e0",
+  "shared_helper": "09_plot_gd.py",
+  "shared_helper_sha256": "200dc66f8979bedcc3594c3fe5f9e3730574c62fd95e8c4f6f4c1a2a1516e2a5",
+  "learning_rates": [
+    5e-05,
+    0.0001,
+    0.0002,
+    0.0004
+  ],
+  "dimensions_inches": [
+    14,
+    18
+  ],
+  "sources": [
+    {
+      "run_id": "063",
+      "learning_rate": 5e-05,
+      "derived_path": "derived/Run063.npz",
+      "derived_sha256": "568655f3a651fe731560fc1a10f84c9d6b9e5351ec65f644895c1eb7997c1f98",
+      "source_metrics_sha256": "21a4491f64c6d567a1aad76ede4669863b53bc5c560104724a70cdb9ff165890",
+      "source_curvature_sha256": "024d3deb800dbac8651febab7b87ee68aac84efc2c00516ddeda0e6d3b975ed7"
+    },
+    {
+      "run_id": "064",
+      "learning_rate": 0.0001,
+      "derived_path": "derived/Run064.npz",
+      "derived_sha256": "2c7706d5241d5cf47e10d83ab5b1a887cb9960a7946a868186bd3cac2f50d549",
+      "source_metrics_sha256": "27d637c053c3473c81c17550b2a998918c1b2dd11e8c73421238ac3b33ed9767",
+      "source_curvature_sha256": "8b4214f3cf6bcff2b5ab87a6d9bbf1a4ad9f70aa380f7f957f87a15b8aaa1eed"
+    },
+    {
+      "run_id": "065",
+      "learning_rate": 0.0002,
+      "derived_path": "derived/Run065.npz",
+      "derived_sha256": "1af71b0abb65297d2c700887e55f2328d89ec23fdceafa27a9391e128a4e8f50",
+      "source_metrics_sha256": "7e7e6b9834817e1dbcf89c8375eabc12b0af902cae022085e4757a27cedea646",
+      "source_curvature_sha256": "7249be7f22959f7494cd951db506d79025f670acf9a873aa47e7d20e80722bc4"
+    },
+    {
+      "run_id": "066",
+      "learning_rate": 0.0004,
+      "derived_path": "derived/Run066.npz",
+      "derived_sha256": "7d377f6f6593bbbccf0b2dfe6ee85fb413ed1061326d6a8cffd65317315c2b7d",
+      "source_metrics_sha256": "a8f17ee7d5a7e1046a75505d20a1d914370609b05b70bf1f307971a069685342",
+      "source_curvature_sha256": "501e8a6b334e87956c9fd659e7e2b4a257408321f1fccf6b9821e2398a9b5e12"
+    }
+  ],
+  "curves": [
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "063",
+      "panel": "(a) Unsmoothed training loss",
+      "metric": "train_loss_with_final_state",
+      "points": 20001,
+      "finite_points": 20001,
+      "x_sha256": "4a4933d567a322e32416b5fcb0be9ae0626910d0d1913fc446e9294caa86252e",
+      "source_y_sha256": "a2abb316ab792deb4d73c1f2ea75bceda140c19a27c972afcab2e842779979df",
+      "plotted_y_sha256": "a2abb316ab792deb4d73c1f2ea75bceda140c19a27c972afcab2e842779979df",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        0.0,
+        1.06
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "064",
+      "panel": "(a) Unsmoothed training loss",
+      "metric": "train_loss_with_final_state",
+      "points": 20001,
+      "finite_points": 20001,
+      "x_sha256": "4a4933d567a322e32416b5fcb0be9ae0626910d0d1913fc446e9294caa86252e",
+      "source_y_sha256": "7d1b6dd95efac576ff6a236f559fd7fc2e06b4ca748f72008cbc17e640403eed",
+      "plotted_y_sha256": "7d1b6dd95efac576ff6a236f559fd7fc2e06b4ca748f72008cbc17e640403eed",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        0.0,
+        1.06
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "065",
+      "panel": "(a) Unsmoothed training loss",
+      "metric": "train_loss_with_final_state",
+      "points": 20001,
+      "finite_points": 20001,
+      "x_sha256": "4a4933d567a322e32416b5fcb0be9ae0626910d0d1913fc446e9294caa86252e",
+      "source_y_sha256": "7736194a76ff56857c61b2032c68349b8f3f4644d4a6b506292b28f8a26efc87",
+      "plotted_y_sha256": "7736194a76ff56857c61b2032c68349b8f3f4644d4a6b506292b28f8a26efc87",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        0.0,
+        1.06
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "066",
+      "panel": "(a) Unsmoothed training loss",
+      "metric": "train_loss_with_final_state",
+      "points": 20001,
+      "finite_points": 20001,
+      "x_sha256": "4a4933d567a322e32416b5fcb0be9ae0626910d0d1913fc446e9294caa86252e",
+      "source_y_sha256": "aaf863824ea0e3550a42e0b816f89e18290a7dbdd84793f68ab3765957666606",
+      "plotted_y_sha256": "aaf863824ea0e3550a42e0b816f89e18290a7dbdd84793f68ab3765957666606",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        0.0,
+        1.06
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "063",
+      "panel": "(b) Raw-gradient adjacent cosine",
+      "metric": "raw_cosine",
+      "points": 20000,
+      "finite_points": 19900,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "137fb84c3c65e64d93cc370b503df6b90fe455b8e4cd806cbc2ad90d5004fa3f",
+      "plotted_y_sha256": "e8826dc5e0c43f82a9ad24cfc5ed963e2b0e6c5fc2c276471b124b2125c9303e",
+      "trailing_window": 100,
+      "y_scale": "linear",
+      "y_limits": [
+        -1.08,
+        1.08
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "064",
+      "panel": "(b) Raw-gradient adjacent cosine",
+      "metric": "raw_cosine",
+      "points": 20000,
+      "finite_points": 19900,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "7a06e355a3f4c86827509c18ea823164829196c6614a236ef3cd7aa0ce65d7db",
+      "plotted_y_sha256": "0e78115685dc658e6b6661a2e52d0a2bc27faf41bb4bc09dfceba67551b2537e",
+      "trailing_window": 100,
+      "y_scale": "linear",
+      "y_limits": [
+        -1.08,
+        1.08
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "065",
+      "panel": "(b) Raw-gradient adjacent cosine",
+      "metric": "raw_cosine",
+      "points": 20000,
+      "finite_points": 19900,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "174931e6860f14dffc69aaabf18f956fbbe2be4cc88ea07ea36c875e36130622",
+      "plotted_y_sha256": "c316290eebd6e92cfb05a9830b4f4131243ab761821417fd2a6d87dd14c1cc3c",
+      "trailing_window": 100,
+      "y_scale": "linear",
+      "y_limits": [
+        -1.08,
+        1.08
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "066",
+      "panel": "(b) Raw-gradient adjacent cosine",
+      "metric": "raw_cosine",
+      "points": 20000,
+      "finite_points": 19900,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "5313e0890e509b1f3201a395ac44ac4dc4e985273d8614bb1e2ad59986ea8f71",
+      "plotted_y_sha256": "3356ca55802e26008607004d62a0621057f98959ec65614cade019217fda9aec",
+      "trailing_window": 100,
+      "y_scale": "linear",
+      "y_limits": [
+        -1.08,
+        1.08
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "063",
+      "panel": "(c) Momentum adjacent cosine",
+      "metric": "unbiased_momentum_cosine",
+      "points": 20000,
+      "finite_points": 19900,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "cbb368a6fb75e8b02a59da061b2ad0dc21899dcf7fdde6774b697550d162147e",
+      "plotted_y_sha256": "e72a17bce489404659ee343ac27e3b429fd31b1c345de5110de3a460de2709f8",
+      "trailing_window": 100,
+      "y_scale": "linear",
+      "y_limits": [
+        -1.08,
+        1.08
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "064",
+      "panel": "(c) Momentum adjacent cosine",
+      "metric": "unbiased_momentum_cosine",
+      "points": 20000,
+      "finite_points": 19900,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "ac34cece83f6ef9413a19eeba984f8b1b15cedfe81a3a87b500779d22d2be25e",
+      "plotted_y_sha256": "d93a88f96dd609fc89b035b05c0638b9c6a42cbf059a4d6eb169ae6d01ffca2c",
+      "trailing_window": 100,
+      "y_scale": "linear",
+      "y_limits": [
+        -1.08,
+        1.08
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "065",
+      "panel": "(c) Momentum adjacent cosine",
+      "metric": "unbiased_momentum_cosine",
+      "points": 20000,
+      "finite_points": 19900,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "ac6f13e557b2dbc7bb139b0bdf881406b6691a77fabf3e4a2e1ae9a765b2dca1",
+      "plotted_y_sha256": "7d833972fe93db205a68c7520805eff1f4bf389342b1a24d32a0759f4ab7d4dc",
+      "trailing_window": 100,
+      "y_scale": "linear",
+      "y_limits": [
+        -1.08,
+        1.08
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "066",
+      "panel": "(c) Momentum adjacent cosine",
+      "metric": "unbiased_momentum_cosine",
+      "points": 20000,
+      "finite_points": 19900,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "c29f6ff34d66c296f35680aed7e332baeb4c0652fa66172e5926d231bfd2f12e",
+      "plotted_y_sha256": "ff4ecd94b3efc889f94f651869f413fadbc0794a66311b815a876e372744b031",
+      "trailing_window": 100,
+      "y_scale": "linear",
+      "y_limits": [
+        -1.08,
+        1.08
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "063",
+      "panel": "(d) $\\eta\\,\\widehat{\\kappa}_t$",
+      "metric": "eta_kappa_proxy",
+      "points": 20000,
+      "finite_points": 19900,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "9a2c9c235ef845137b569126aa52efbd503dbd4fca80d950d5c0d361c4a6fc98",
+      "plotted_y_sha256": "c4ec08c143e13a873423df4922b7354991a1f2532ef53ca71530177a8e08bda5",
+      "trailing_window": 100,
+      "y_scale": "linear",
+      "y_limits": [
+        -0.08,
+        2.3
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "064",
+      "panel": "(d) $\\eta\\,\\widehat{\\kappa}_t$",
+      "metric": "eta_kappa_proxy",
+      "points": 20000,
+      "finite_points": 19900,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "9d118eec97a2564c8cb6a545ad58f6825f68b391db53b305d833ab4441de587e",
+      "plotted_y_sha256": "9c69ab263dd6fdf0737197d5dcf51dffd185accdec9f9e8243a7d51811e75a56",
+      "trailing_window": 100,
+      "y_scale": "linear",
+      "y_limits": [
+        -0.08,
+        2.3
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "065",
+      "panel": "(d) $\\eta\\,\\widehat{\\kappa}_t$",
+      "metric": "eta_kappa_proxy",
+      "points": 20000,
+      "finite_points": 19900,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "d23ab0f2d87e44e635129691f116ec677d88a272531df4d3a84716d8e4b85c61",
+      "plotted_y_sha256": "41cc3553067c4c4ca08007b281f46cbf1adc91837f82aaa173eb70034fd6ccea",
+      "trailing_window": 100,
+      "y_scale": "linear",
+      "y_limits": [
+        -0.08,
+        2.3
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "066",
+      "panel": "(d) $\\eta\\,\\widehat{\\kappa}_t$",
+      "metric": "eta_kappa_proxy",
+      "points": 20000,
+      "finite_points": 19900,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "b8b673de0df512fefc565ef7e9a583dcd3dad2a85fad18f633dcb2064222dc9a",
+      "plotted_y_sha256": "e6e1418104754e40b5d162b5901c41ced9608cb9cd9f0dea6def3af92932a0b0",
+      "trailing_window": 100,
+      "y_scale": "linear",
+      "y_limits": [
+        -0.08,
+        2.3
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "063",
+      "panel": "(e) $\\eta\\,\\lambda_{\\max}$",
+      "metric": "eta_lambda_max",
+      "points": 201,
+      "finite_points": 201,
+      "x_sha256": "762848f460c6394cd4f7f9315adac17f462ffc9ad30efced7d0a81f94075c335",
+      "source_y_sha256": "71e4c5e2d39b5766d8d68ecc214a4b001e4274b2bec647eaf9ff3d90f4f245af",
+      "plotted_y_sha256": "71e4c5e2d39b5766d8d68ecc214a4b001e4274b2bec647eaf9ff3d90f4f245af",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        0.0,
+        0.1
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "064",
+      "panel": "(e) $\\eta\\,\\lambda_{\\max}$",
+      "metric": "eta_lambda_max",
+      "points": 201,
+      "finite_points": 201,
+      "x_sha256": "762848f460c6394cd4f7f9315adac17f462ffc9ad30efced7d0a81f94075c335",
+      "source_y_sha256": "2f181814943df5e597a4b17a5911230a8ef9188541782b9c614ec8c7aec9058e",
+      "plotted_y_sha256": "2f181814943df5e597a4b17a5911230a8ef9188541782b9c614ec8c7aec9058e",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        0.0,
+        0.1
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "065",
+      "panel": "(e) $\\eta\\,\\lambda_{\\max}$",
+      "metric": "eta_lambda_max",
+      "points": 201,
+      "finite_points": 201,
+      "x_sha256": "762848f460c6394cd4f7f9315adac17f462ffc9ad30efced7d0a81f94075c335",
+      "source_y_sha256": "68f60a69f01678e9bc2b3cfae1bbe546762f99984cfcee1504763cb8df6848b7",
+      "plotted_y_sha256": "68f60a69f01678e9bc2b3cfae1bbe546762f99984cfcee1504763cb8df6848b7",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        0.0,
+        0.1
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "066",
+      "panel": "(e) $\\eta\\,\\lambda_{\\max}$",
+      "metric": "eta_lambda_max",
+      "points": 201,
+      "finite_points": 201,
+      "x_sha256": "762848f460c6394cd4f7f9315adac17f462ffc9ad30efced7d0a81f94075c335",
+      "source_y_sha256": "87fe3430fdd0c5a987e4a6bfa7fe8bc51742f4813476d12b199f62c9f4933880",
+      "plotted_y_sha256": "87fe3430fdd0c5a987e4a6bfa7fe8bc51742f4813476d12b199f62c9f4933880",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        0.0,
+        0.1
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "063",
+      "panel": "(f) Raw-gradient cumulative displacement",
+      "metric": "raw_B_over_A",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "a5d96c51ee25ea853611773f1630090cf13b7b3d925bbfb47f8e4cee559e0eef",
+      "plotted_y_sha256": "a5d96c51ee25ea853611773f1630090cf13b7b3d925bbfb47f8e4cee559e0eef",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        -0.02,
+        1.04
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "064",
+      "panel": "(f) Raw-gradient cumulative displacement",
+      "metric": "raw_B_over_A",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "15e8f8f80335ca4f264fed13ffe54683e24625553492f0cca12c445de91514f4",
+      "plotted_y_sha256": "15e8f8f80335ca4f264fed13ffe54683e24625553492f0cca12c445de91514f4",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        -0.02,
+        1.04
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "065",
+      "panel": "(f) Raw-gradient cumulative displacement",
+      "metric": "raw_B_over_A",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "77ed41f88d65304852f6271799676a62c9b74b904c9ae920ffa5f31f32929c41",
+      "plotted_y_sha256": "77ed41f88d65304852f6271799676a62c9b74b904c9ae920ffa5f31f32929c41",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        -0.02,
+        1.04
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "066",
+      "panel": "(f) Raw-gradient cumulative displacement",
+      "metric": "raw_B_over_A",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "a1ec5a0bca03ef6905642040a914cb70ce3edb71de1edfc4d25cc04b6d87b976",
+      "plotted_y_sha256": "a1ec5a0bca03ef6905642040a914cb70ce3edb71de1edfc4d25cc04b6d87b976",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        -0.02,
+        1.04
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "063",
+      "panel": "(g) Momentum cumulative displacement",
+      "metric": "unbiased_momentum_B_over_A",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "796a4492531d41c6b9ca9c3b3eb346c0f691e587ff6f80abf786b8ecba9b1bd7",
+      "plotted_y_sha256": "796a4492531d41c6b9ca9c3b3eb346c0f691e587ff6f80abf786b8ecba9b1bd7",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        -0.02,
+        1.04
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "064",
+      "panel": "(g) Momentum cumulative displacement",
+      "metric": "unbiased_momentum_B_over_A",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "9b630b1f931d9fd8d9db5ce4382bea8f52e1b874f46e321747cdf520ed1d594b",
+      "plotted_y_sha256": "9b630b1f931d9fd8d9db5ce4382bea8f52e1b874f46e321747cdf520ed1d594b",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        -0.02,
+        1.04
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "065",
+      "panel": "(g) Momentum cumulative displacement",
+      "metric": "unbiased_momentum_B_over_A",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "bc83121d83fb7c82fb215a1381e8ad91e9314cb942abb210f544354ff3903121",
+      "plotted_y_sha256": "bc83121d83fb7c82fb215a1381e8ad91e9314cb942abb210f544354ff3903121",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        -0.02,
+        1.04
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "066",
+      "panel": "(g) Momentum cumulative displacement",
+      "metric": "unbiased_momentum_B_over_A",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "4c07a84d7c3082872dd09556547dcc9ce5298937bdee2c6a2dca07bec6320393",
+      "plotted_y_sha256": "4c07a84d7c3082872dd09556547dcc9ce5298937bdee2c6a2dca07bec6320393",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        -0.02,
+        1.04
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "063",
+      "panel": "(h) Raw-gradient norm",
+      "metric": "raw_norm",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "4b9181708d0a639b3b4eae8c3de39484ccde7be9614a84d952d1f52e7894793c",
+      "plotted_y_sha256": "4b9181708d0a639b3b4eae8c3de39484ccde7be9614a84d952d1f52e7894793c",
+      "trailing_window": null,
+      "y_scale": "log",
+      "y_limits": [
+        0.0015,
+        8.0
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "064",
+      "panel": "(h) Raw-gradient norm",
+      "metric": "raw_norm",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "7863a4a9f0ddfeea3536a3cfe4a63ed1af01e7b78a9916b91d6c982827c788ac",
+      "plotted_y_sha256": "7863a4a9f0ddfeea3536a3cfe4a63ed1af01e7b78a9916b91d6c982827c788ac",
+      "trailing_window": null,
+      "y_scale": "log",
+      "y_limits": [
+        0.0015,
+        8.0
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "065",
+      "panel": "(h) Raw-gradient norm",
+      "metric": "raw_norm",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "cc632e02f40fb7971d398217c2c77daa8b05a1c3591a18f63789b1d1c459c848",
+      "plotted_y_sha256": "cc632e02f40fb7971d398217c2c77daa8b05a1c3591a18f63789b1d1c459c848",
+      "trailing_window": null,
+      "y_scale": "log",
+      "y_limits": [
+        0.0015,
+        8.0
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "066",
+      "panel": "(h) Raw-gradient norm",
+      "metric": "raw_norm",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "30869f539d902ee9e3a57f421ef0d7d45d72a455c62b8fcdf74cef9eca56ef81",
+      "plotted_y_sha256": "30869f539d902ee9e3a57f421ef0d7d45d72a455c62b8fcdf74cef9eca56ef81",
+      "trailing_window": null,
+      "y_scale": "log",
+      "y_limits": [
+        0.0015,
+        8.0
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "063",
+      "panel": "(i) Momentum norm",
+      "metric": "unbiased_momentum_norm",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "4762adfb03a57662c70165c90869d7dbaf9db668d15fa1d806d90f65aaf1f431",
+      "plotted_y_sha256": "4762adfb03a57662c70165c90869d7dbaf9db668d15fa1d806d90f65aaf1f431",
+      "trailing_window": null,
+      "y_scale": "log",
+      "y_limits": [
+        0.0015,
+        8.0
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "064",
+      "panel": "(i) Momentum norm",
+      "metric": "unbiased_momentum_norm",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "41acfac1f4c0920f387165c3c7eb5edbbce7d870bf780b326aa0a82a4d3fc081",
+      "plotted_y_sha256": "41acfac1f4c0920f387165c3c7eb5edbbce7d870bf780b326aa0a82a4d3fc081",
+      "trailing_window": null,
+      "y_scale": "log",
+      "y_limits": [
+        0.0015,
+        8.0
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "065",
+      "panel": "(i) Momentum norm",
+      "metric": "unbiased_momentum_norm",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "a55fd754f347cb32d3043994aefaf59de035f7522a57c84760dbd2d4059b295a",
+      "plotted_y_sha256": "a55fd754f347cb32d3043994aefaf59de035f7522a57c84760dbd2d4059b295a",
+      "trailing_window": null,
+      "y_scale": "log",
+      "y_limits": [
+        0.0015,
+        8.0
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "066",
+      "panel": "(i) Momentum norm",
+      "metric": "unbiased_momentum_norm",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "1f3d4fc59ed8ae1db75b646eb999a15119555241b87738e14fbe42f70d740fa8",
+      "plotted_y_sha256": "1f3d4fc59ed8ae1db75b646eb999a15119555241b87738e14fbe42f70d740fa8",
+      "trailing_window": null,
+      "y_scale": "log",
+      "y_limits": [
+        0.0015,
+        8.0
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "063",
+      "panel": "(j) Gradient / momentum norm",
+      "metric": "raw_to_unbiased_momentum_norm_ratio",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "148d88c623a42ec30d4e5907c20b60ae672c315f151bbdc526cd677fc8f0662a",
+      "plotted_y_sha256": "148d88c623a42ec30d4e5907c20b60ae672c315f151bbdc526cd677fc8f0662a",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        0.0,
+        78.0
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "064",
+      "panel": "(j) Gradient / momentum norm",
+      "metric": "raw_to_unbiased_momentum_norm_ratio",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "ae9ce5cfcb6ccb3f69ef84f19b168189a35bfbc891d3847195e0965022678165",
+      "plotted_y_sha256": "ae9ce5cfcb6ccb3f69ef84f19b168189a35bfbc891d3847195e0965022678165",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        0.0,
+        78.0
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "065",
+      "panel": "(j) Gradient / momentum norm",
+      "metric": "raw_to_unbiased_momentum_norm_ratio",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "1be179878334110c0690ecd8806d99dbf2a6dde6704771a95cbfd37a2c12aa28",
+      "plotted_y_sha256": "1be179878334110c0690ecd8806d99dbf2a6dde6704771a95cbfd37a2c12aa28",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        0.0,
+        78.0
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics.pdf",
+      "run_id": "066",
+      "panel": "(j) Gradient / momentum norm",
+      "metric": "raw_to_unbiased_momentum_norm_ratio",
+      "points": 20000,
+      "finite_points": 20000,
+      "x_sha256": "4e0dc2a396bca1363dfb7851f39c3d2aa1fa2b64815059978d3d9d0db8627ae1",
+      "source_y_sha256": "264ff189bca3bd835a1caad9a9cbd06fa110c6314eab3e001b2af6882beadfb3",
+      "plotted_y_sha256": "264ff189bca3bd835a1caad9a9cbd06fa110c6314eab3e001b2af6882beadfb3",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        0.0,
+        78.0
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "063",
+      "panel": "(a) Unsmoothed training loss",
+      "metric": "train_loss_with_final_state",
+      "points": 2001,
+      "finite_points": 2001,
+      "x_sha256": "b833a6113b55b2396ffd0f69f47cc232e8cf5cb3d6e601caff363c17ea75afcf",
+      "source_y_sha256": "a21e0c7d0fbc1bc1f2751c13f9a349f05f66602bdbe5dc6bcd7ad6887ab222e5",
+      "plotted_y_sha256": "a21e0c7d0fbc1bc1f2751c13f9a349f05f66602bdbe5dc6bcd7ad6887ab222e5",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        0.0,
+        1.06
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "064",
+      "panel": "(a) Unsmoothed training loss",
+      "metric": "train_loss_with_final_state",
+      "points": 2001,
+      "finite_points": 2001,
+      "x_sha256": "b833a6113b55b2396ffd0f69f47cc232e8cf5cb3d6e601caff363c17ea75afcf",
+      "source_y_sha256": "be2a3723b9f6efbb90fade290c1f696d5c61ef9751151efc0b020c6f194eb993",
+      "plotted_y_sha256": "be2a3723b9f6efbb90fade290c1f696d5c61ef9751151efc0b020c6f194eb993",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        0.0,
+        1.06
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "065",
+      "panel": "(a) Unsmoothed training loss",
+      "metric": "train_loss_with_final_state",
+      "points": 2001,
+      "finite_points": 2001,
+      "x_sha256": "b833a6113b55b2396ffd0f69f47cc232e8cf5cb3d6e601caff363c17ea75afcf",
+      "source_y_sha256": "d5076e8ab2990dab035e28af24dc66863eb8ce9995a7ca80b80b6d2dff713fe4",
+      "plotted_y_sha256": "d5076e8ab2990dab035e28af24dc66863eb8ce9995a7ca80b80b6d2dff713fe4",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        0.0,
+        1.06
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "066",
+      "panel": "(a) Unsmoothed training loss",
+      "metric": "train_loss_with_final_state",
+      "points": 2001,
+      "finite_points": 2001,
+      "x_sha256": "b833a6113b55b2396ffd0f69f47cc232e8cf5cb3d6e601caff363c17ea75afcf",
+      "source_y_sha256": "8e6c9f2528177eeb0fc16e9c37108834f60c481f932e3bad578c30addca73230",
+      "plotted_y_sha256": "8e6c9f2528177eeb0fc16e9c37108834f60c481f932e3bad578c30addca73230",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        0.0,
+        1.06
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "063",
+      "panel": "(b) Raw-gradient adjacent cosine",
+      "metric": "raw_cosine",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "06637ccef26cd941fd0b3e918857e884e0037ac3b9df00827edeb156e2d09008",
+      "plotted_y_sha256": "e0b7aa4419c753ffc458c923602af72ef669107e2577ee9fb56146708fed3cb3",
+      "trailing_window": 100,
+      "y_scale": "linear",
+      "y_limits": [
+        -1.08,
+        1.08
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "064",
+      "panel": "(b) Raw-gradient adjacent cosine",
+      "metric": "raw_cosine",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "47ae8181a299f38309309e8e4f60c8be4f6f7be2bc1b6e46515f6c795ae7f2c0",
+      "plotted_y_sha256": "132d8b2eb1491ac34e283717f4b40fb2ad7bdccf3fe8a826070d86575e09cd01",
+      "trailing_window": 100,
+      "y_scale": "linear",
+      "y_limits": [
+        -1.08,
+        1.08
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "065",
+      "panel": "(b) Raw-gradient adjacent cosine",
+      "metric": "raw_cosine",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "db954ae81dece158f870dbe06d3b4ecb934987677398345bc3606ba0324cc62c",
+      "plotted_y_sha256": "525c60cfa8cb1660dd094c1757fd4ba8388647a359b8bfcb3efb9b91a80adb48",
+      "trailing_window": 100,
+      "y_scale": "linear",
+      "y_limits": [
+        -1.08,
+        1.08
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "066",
+      "panel": "(b) Raw-gradient adjacent cosine",
+      "metric": "raw_cosine",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "bd30fea7a7c6fb689a33067c65a15a8fb99ea2897ed60b87ec515801aec3bf97",
+      "plotted_y_sha256": "dc97500e48024dd4ef10b948be71d5e04569fdb5cc3ab4902e5c6c3f8cede90a",
+      "trailing_window": 100,
+      "y_scale": "linear",
+      "y_limits": [
+        -1.08,
+        1.08
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "063",
+      "panel": "(c) Momentum adjacent cosine",
+      "metric": "unbiased_momentum_cosine",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "226723794ab073570faef03731b6cefc853a8a7e9df4d5fe15b2eb074b872589",
+      "plotted_y_sha256": "8f971533ad6350de30863bed8e1bc1e0763cc1d48f81a45ffde542cfbf6cca09",
+      "trailing_window": 100,
+      "y_scale": "linear",
+      "y_limits": [
+        -1.08,
+        1.08
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "064",
+      "panel": "(c) Momentum adjacent cosine",
+      "metric": "unbiased_momentum_cosine",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "560b2d77c52c5a14d6c7cc19641b904e9413434881a5f5688ef87752cbdbb528",
+      "plotted_y_sha256": "cdbbfb3642df9cb13ff44a3cbda46c99ade88abc17fd253bbb13e78edadd723e",
+      "trailing_window": 100,
+      "y_scale": "linear",
+      "y_limits": [
+        -1.08,
+        1.08
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "065",
+      "panel": "(c) Momentum adjacent cosine",
+      "metric": "unbiased_momentum_cosine",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "a346e8e8fa8711b6a341dfea4d3a79e9f6a79a803cf097dda36dbb9cdd6e878a",
+      "plotted_y_sha256": "ff199f1fa24be4890893717e88fbfe92b40e4d639a98c13e7b8bf4e5b4866a8b",
+      "trailing_window": 100,
+      "y_scale": "linear",
+      "y_limits": [
+        -1.08,
+        1.08
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "066",
+      "panel": "(c) Momentum adjacent cosine",
+      "metric": "unbiased_momentum_cosine",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "c9c303d227a4198f67d338192eff2bec68135d83665905d8fd25b89454dcfc8e",
+      "plotted_y_sha256": "05d726629df31a2f000a5ac821222cc38ad3d874106f9c67e177c449f555a2f5",
+      "trailing_window": 100,
+      "y_scale": "linear",
+      "y_limits": [
+        -1.08,
+        1.08
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "063",
+      "panel": "(d) $\\eta\\,\\widehat{\\kappa}_t$",
+      "metric": "eta_kappa_proxy",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "ac2da3da7d7bafd14c9b90c99170fe6e60823346a70af28b69895e738c530090",
+      "plotted_y_sha256": "25a4044cc8422620c19b46e54d00527b7a0883d00e861fc164443d29ec13e1fc",
+      "trailing_window": 100,
+      "y_scale": "linear",
+      "y_limits": [
+        -0.08,
+        2.3
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "064",
+      "panel": "(d) $\\eta\\,\\widehat{\\kappa}_t$",
+      "metric": "eta_kappa_proxy",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "40121a2225f943ed0c9fe9e2bf015e48287bdd56b6ec914bab3e43238dbba17b",
+      "plotted_y_sha256": "1e6a0d5c59bd9688db92f46c5566081c6e2a7e572f42ded8aa539b9688ea3165",
+      "trailing_window": 100,
+      "y_scale": "linear",
+      "y_limits": [
+        -0.08,
+        2.3
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "065",
+      "panel": "(d) $\\eta\\,\\widehat{\\kappa}_t$",
+      "metric": "eta_kappa_proxy",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "76d3b4816c8f2a8043fbce22a36acd51802d911a61d2a796f5106a49ec637120",
+      "plotted_y_sha256": "0386367fc4e6bbd5426c1a7d8e4021128d363ba3c0d54361e889d7e3b3cbd2f6",
+      "trailing_window": 100,
+      "y_scale": "linear",
+      "y_limits": [
+        -0.08,
+        2.3
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "066",
+      "panel": "(d) $\\eta\\,\\widehat{\\kappa}_t$",
+      "metric": "eta_kappa_proxy",
+      "points": 2000,
+      "finite_points": 1900,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "5a35c03339e4d771de805070f5cc655e2a58c50d3f26cf83ce02fcfbeeaa0b8a",
+      "plotted_y_sha256": "bf41bf4612ae5c4e72d0a593ec2b59f60a538b5df76923dffee68596738f91d8",
+      "trailing_window": 100,
+      "y_scale": "linear",
+      "y_limits": [
+        -0.08,
+        2.3
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "063",
+      "panel": "(e) $\\eta\\,\\lambda_{\\max}$",
+      "metric": "eta_lambda_max",
+      "points": 21,
+      "finite_points": 21,
+      "x_sha256": "938ee4e05b2e8c545caf55a00e32e29e7c18f194dac4c586d1790c39aa1f9216",
+      "source_y_sha256": "7e527d8b6aaece9d6bd1f0dbec132c1061c15e2478437241881d7aec02170d15",
+      "plotted_y_sha256": "7e527d8b6aaece9d6bd1f0dbec132c1061c15e2478437241881d7aec02170d15",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        0.0,
+        0.1
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "064",
+      "panel": "(e) $\\eta\\,\\lambda_{\\max}$",
+      "metric": "eta_lambda_max",
+      "points": 21,
+      "finite_points": 21,
+      "x_sha256": "938ee4e05b2e8c545caf55a00e32e29e7c18f194dac4c586d1790c39aa1f9216",
+      "source_y_sha256": "0a8da2a4d3811126eff632ca6a728139125bb795a0d3ca1bdc0a6db285369585",
+      "plotted_y_sha256": "0a8da2a4d3811126eff632ca6a728139125bb795a0d3ca1bdc0a6db285369585",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        0.0,
+        0.1
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "065",
+      "panel": "(e) $\\eta\\,\\lambda_{\\max}$",
+      "metric": "eta_lambda_max",
+      "points": 21,
+      "finite_points": 21,
+      "x_sha256": "938ee4e05b2e8c545caf55a00e32e29e7c18f194dac4c586d1790c39aa1f9216",
+      "source_y_sha256": "818b211c2df6971e70e99a792434e98de2e40f308ca8ae6827b284e9058dd0fd",
+      "plotted_y_sha256": "818b211c2df6971e70e99a792434e98de2e40f308ca8ae6827b284e9058dd0fd",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        0.0,
+        0.1
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "066",
+      "panel": "(e) $\\eta\\,\\lambda_{\\max}$",
+      "metric": "eta_lambda_max",
+      "points": 21,
+      "finite_points": 21,
+      "x_sha256": "938ee4e05b2e8c545caf55a00e32e29e7c18f194dac4c586d1790c39aa1f9216",
+      "source_y_sha256": "c1ac7822952e3db730bcdcd77fc99af30ce137f5c960a6c226259423ae154e2d",
+      "plotted_y_sha256": "c1ac7822952e3db730bcdcd77fc99af30ce137f5c960a6c226259423ae154e2d",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        0.0,
+        0.1
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "063",
+      "panel": "(f) Raw-gradient cumulative displacement",
+      "metric": "raw_B_over_A",
+      "points": 2000,
+      "finite_points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "fdb514d6fea7e46797e320801b23cc4594acd2c62fad30d71511156f4eb7fac2",
+      "plotted_y_sha256": "fdb514d6fea7e46797e320801b23cc4594acd2c62fad30d71511156f4eb7fac2",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        -0.02,
+        1.04
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "064",
+      "panel": "(f) Raw-gradient cumulative displacement",
+      "metric": "raw_B_over_A",
+      "points": 2000,
+      "finite_points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "028c6dbb1eabd2161e4136198117b2e49e8342a15bbdd75532f7a6a0642de051",
+      "plotted_y_sha256": "028c6dbb1eabd2161e4136198117b2e49e8342a15bbdd75532f7a6a0642de051",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        -0.02,
+        1.04
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "065",
+      "panel": "(f) Raw-gradient cumulative displacement",
+      "metric": "raw_B_over_A",
+      "points": 2000,
+      "finite_points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "e6bf3fc5c160d2f91b0153ecaf93d80ba8fa5ff5e0cbdae22375a7268f5d0b44",
+      "plotted_y_sha256": "e6bf3fc5c160d2f91b0153ecaf93d80ba8fa5ff5e0cbdae22375a7268f5d0b44",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        -0.02,
+        1.04
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "066",
+      "panel": "(f) Raw-gradient cumulative displacement",
+      "metric": "raw_B_over_A",
+      "points": 2000,
+      "finite_points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "8611671995cd08a6598989d12f426833cc79b7b9aa5a48936af922edccf02384",
+      "plotted_y_sha256": "8611671995cd08a6598989d12f426833cc79b7b9aa5a48936af922edccf02384",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        -0.02,
+        1.04
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "063",
+      "panel": "(g) Momentum cumulative displacement",
+      "metric": "unbiased_momentum_B_over_A",
+      "points": 2000,
+      "finite_points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "f4038797004071142db39d0b25f8e8c089fa4b115904184a979c312bf024492b",
+      "plotted_y_sha256": "f4038797004071142db39d0b25f8e8c089fa4b115904184a979c312bf024492b",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        -0.02,
+        1.04
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "064",
+      "panel": "(g) Momentum cumulative displacement",
+      "metric": "unbiased_momentum_B_over_A",
+      "points": 2000,
+      "finite_points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "8a15dd255f7b4225bb138604da874b9b2e91ab6b9adc6fa84da5b2bb7c26936f",
+      "plotted_y_sha256": "8a15dd255f7b4225bb138604da874b9b2e91ab6b9adc6fa84da5b2bb7c26936f",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        -0.02,
+        1.04
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "065",
+      "panel": "(g) Momentum cumulative displacement",
+      "metric": "unbiased_momentum_B_over_A",
+      "points": 2000,
+      "finite_points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "9b3ec9995c2f9149c799ba78fb68fb25f1c8ce539fb141bbba2c3d9f0695ac3a",
+      "plotted_y_sha256": "9b3ec9995c2f9149c799ba78fb68fb25f1c8ce539fb141bbba2c3d9f0695ac3a",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        -0.02,
+        1.04
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "066",
+      "panel": "(g) Momentum cumulative displacement",
+      "metric": "unbiased_momentum_B_over_A",
+      "points": 2000,
+      "finite_points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "0c0a97e1963f7e43053e7986c18bfdc018295ab12a0a45d16c0a52aa5cbd38d8",
+      "plotted_y_sha256": "0c0a97e1963f7e43053e7986c18bfdc018295ab12a0a45d16c0a52aa5cbd38d8",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        -0.02,
+        1.04
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "063",
+      "panel": "(h) Raw-gradient norm",
+      "metric": "raw_norm",
+      "points": 2000,
+      "finite_points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "dd470ae6b5352acdbe70ade811fd2f5f001c7dc8e7cc169f6e92909a95970c04",
+      "plotted_y_sha256": "dd470ae6b5352acdbe70ade811fd2f5f001c7dc8e7cc169f6e92909a95970c04",
+      "trailing_window": null,
+      "y_scale": "log",
+      "y_limits": [
+        0.0015,
+        8.0
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "064",
+      "panel": "(h) Raw-gradient norm",
+      "metric": "raw_norm",
+      "points": 2000,
+      "finite_points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "6c1f946795f5dd0e8906eb6ed8170aa8d845b3e5b7491642052076fb98b5eda4",
+      "plotted_y_sha256": "6c1f946795f5dd0e8906eb6ed8170aa8d845b3e5b7491642052076fb98b5eda4",
+      "trailing_window": null,
+      "y_scale": "log",
+      "y_limits": [
+        0.0015,
+        8.0
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "065",
+      "panel": "(h) Raw-gradient norm",
+      "metric": "raw_norm",
+      "points": 2000,
+      "finite_points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "afe5199790fcdb717a088b325109a8f0860e12a02a37959055537c5a7cc6647e",
+      "plotted_y_sha256": "afe5199790fcdb717a088b325109a8f0860e12a02a37959055537c5a7cc6647e",
+      "trailing_window": null,
+      "y_scale": "log",
+      "y_limits": [
+        0.0015,
+        8.0
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "066",
+      "panel": "(h) Raw-gradient norm",
+      "metric": "raw_norm",
+      "points": 2000,
+      "finite_points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "443f6b1a3b4e5f44c02633df63bb7658a75f834b976b8015551fe09e3f5aecda",
+      "plotted_y_sha256": "443f6b1a3b4e5f44c02633df63bb7658a75f834b976b8015551fe09e3f5aecda",
+      "trailing_window": null,
+      "y_scale": "log",
+      "y_limits": [
+        0.0015,
+        8.0
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "063",
+      "panel": "(i) Momentum norm",
+      "metric": "unbiased_momentum_norm",
+      "points": 2000,
+      "finite_points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "2b72866fb085bebb10b7d55db2633fbf9423fd462f79c3b03179e5b52809f8f2",
+      "plotted_y_sha256": "2b72866fb085bebb10b7d55db2633fbf9423fd462f79c3b03179e5b52809f8f2",
+      "trailing_window": null,
+      "y_scale": "log",
+      "y_limits": [
+        0.0015,
+        8.0
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "064",
+      "panel": "(i) Momentum norm",
+      "metric": "unbiased_momentum_norm",
+      "points": 2000,
+      "finite_points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "3e0be2d3e2acc7aaa2acedd4ac6ea969de9ec52fa829861fd515266358ea003a",
+      "plotted_y_sha256": "3e0be2d3e2acc7aaa2acedd4ac6ea969de9ec52fa829861fd515266358ea003a",
+      "trailing_window": null,
+      "y_scale": "log",
+      "y_limits": [
+        0.0015,
+        8.0
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "065",
+      "panel": "(i) Momentum norm",
+      "metric": "unbiased_momentum_norm",
+      "points": 2000,
+      "finite_points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "4d0c686dbd432b94f8e6124273d7867ab34fd80fd05ea2e73cc909066b7c4745",
+      "plotted_y_sha256": "4d0c686dbd432b94f8e6124273d7867ab34fd80fd05ea2e73cc909066b7c4745",
+      "trailing_window": null,
+      "y_scale": "log",
+      "y_limits": [
+        0.0015,
+        8.0
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "066",
+      "panel": "(i) Momentum norm",
+      "metric": "unbiased_momentum_norm",
+      "points": 2000,
+      "finite_points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "d53c0312000c5963bd09f1375bc855726e1242f0251cdcbd4b8c072f569d6af1",
+      "plotted_y_sha256": "d53c0312000c5963bd09f1375bc855726e1242f0251cdcbd4b8c072f569d6af1",
+      "trailing_window": null,
+      "y_scale": "log",
+      "y_limits": [
+        0.0015,
+        8.0
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "063",
+      "panel": "(j) Gradient / momentum norm",
+      "metric": "raw_to_unbiased_momentum_norm_ratio",
+      "points": 2000,
+      "finite_points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "5e64d7ef4b50e0312d8cbbc0566e01d6a374fb3e109bae09669163c3c8326f93",
+      "plotted_y_sha256": "5e64d7ef4b50e0312d8cbbc0566e01d6a374fb3e109bae09669163c3c8326f93",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        0.0,
+        78.0
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "064",
+      "panel": "(j) Gradient / momentum norm",
+      "metric": "raw_to_unbiased_momentum_norm_ratio",
+      "points": 2000,
+      "finite_points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "aa5286f5947abe9050b67a708e3872f80e26f642284161ef52becf41be72616a",
+      "plotted_y_sha256": "aa5286f5947abe9050b67a708e3872f80e26f642284161ef52becf41be72616a",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        0.0,
+        78.0
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "065",
+      "panel": "(j) Gradient / momentum norm",
+      "metric": "raw_to_unbiased_momentum_norm_ratio",
+      "points": 2000,
+      "finite_points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "aa6bbde80c379d3c2f166d366a47c3e5bec8628e2d8081dad2b5815dd7ce7ccb",
+      "plotted_y_sha256": "aa6bbde80c379d3c2f166d366a47c3e5bec8628e2d8081dad2b5815dd7ce7ccb",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        0.0,
+        78.0
+      ]
+    },
+    {
+      "figure": "cifar10_adam_diagnostics_early.pdf",
+      "run_id": "066",
+      "panel": "(j) Gradient / momentum norm",
+      "metric": "raw_to_unbiased_momentum_norm_ratio",
+      "points": 2000,
+      "finite_points": 2000,
+      "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+      "source_y_sha256": "0fdea71c447c06e007e357ada0bf29fd471a542fe8549cdf379c298803bfaa38",
+      "plotted_y_sha256": "0fdea71c447c06e007e357ada0bf29fd471a542fe8549cdf379c298803bfaa38",
+      "trailing_window": null,
+      "y_scale": "linear",
+      "y_limits": [
+        0.0,
+        78.0
+      ]
+    }
+  ],
+  "figures": {
+    "cifar10_adam_diagnostics.pdf": {
+      "bytes": 3820606,
+      "sha256": "95a71ddb307bea9498abdf068f414466dcec1e35c570b20dc5353afd58fd2b9b",
+      "panels": 10,
+      "x_limits": [
+        0,
+        20000
+      ],
+      "caption": "Four matched Adam learning rates, states/updates 0..20000: unsmoothed linear loss; 100-pair raw/mhat adjacent cosine and eta-kappa; eta times ordinary lambda_max; full-prefix raw/mhat B/A; unsmoothed log raw/mhat norms; linear raw/mhat norm ratio."
+    },
+    "cifar10_adam_diagnostics_early.pdf": {
+      "bytes": 819590,
+      "sha256": "bdfcb1ae71c7ae16a3e6462f5184345861bece414a2007a6c3e144675ca7ebff",
+      "panels": 10,
+      "x_limits": [
+        0,
+        2000
+      ],
+      "caption": "Four matched Adam learning rates, states/updates 0..2000: unsmoothed linear loss; 100-pair raw/mhat adjacent cosine and eta-kappa; eta times ordinary lambda_max; full-prefix raw/mhat B/A; unsmoothed log raw/mhat norms; linear raw/mhat norm ratio."
+    }
+  },
+  "thinning": null,
+  "momentum": "Bias-corrected first moment mhat=m/(1-beta1^t), beta1=0.9; no second-moment division.",
+  "norm_ratio": "Raw gradient norm / bias-corrected momentum norm at matching update t; unsmoothed.",
+  "zero_denominator": "Undefined if mhat norm is zero; all 80,000 measured denominators are positive.",
+  "smoothing": "Only raw/mhat adjacent cosine and eta-kappa: complete 100-pair right-aligned means, first update 101.",
+  "unique_mean_values_checked": 238800,
+  "displayed_mean_values": 261600,
+  "curvature": "eta*largest algebraic eigenvalue of the ordinary objective Hessian; no preconditioning or division by 2.",
+  "kappa": "eta*kappa_hat=1-rho_t*norm(g_t)/norm(g_(t-1)); explicit noise term zero; trajectory proxy on Adam.",
+  "gd_pdf_sha256_unchanged": "0de226f705de4cfab35fe091e96d054b1d355e7d7146b85a1db623b74f1ebfa2",
+  "archive_manifest_sha256_unchanged": "637ca28ce97cdfdd0e2b1b8066813bce7325fd2c67e28a0eefd825297630ce77"
+}
