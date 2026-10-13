@@ -76,11 +76,21 @@ These are temporal sums of batch-mean gradients, not per-example gradient energy
 
 The [final Spark check](compute_closeout.json) records 0% GPU utilization and 45 C, with 1.930 GB in the task directory including transfer archives. Prepared inputs from Run058 remain in their separate frozen directory. No unrelated process or storage was changed.
 
-## Figures
+## Current GD figure
 
-- [cifar10_eos_comparison.pdf](figures/cifar10_eos_comparison.pdf): Matched GD/Adam learning-rate comparison: unsmoothed loss, full train/test accuracy,100-pair raw/update or mhat cosine, ordinary top 2 eigenvalues, optimizer-specific spectral reference, raw B/A, and 100-pair eta-kappa. No shared LR values or universal stability inference.
-- [cifar10_gd_geometry.pdf](figures/cifar10_gd_geometry.pdf): GD full-horizon scalar geometry with unsmoothed loss,100-pair cosine means, log vector norms and cumulative A/B, linear B/A. Adam separates stored m, bias-corrected mhat, adaptive d and actual displacement; GD has no momentum.
-- [cifar10_adam_geometry.pdf](figures/cifar10_adam_geometry.pdf): ADAM full-horizon scalar geometry with unsmoothed loss,100-pair cosine means, log vector norms and cumulative A/B, linear B/A. Adam separates stored m, bias-corrected mhat, adaptive d and actual displacement; GD has no momentum.
-- [loss_and_norms_by_learning_rate.pdf](figures/loss_and_norms_by_learning_rate.pdf): Unsmoothed loss followed by one panel per run, common log norm Y limits, faint original raw-gradient norms,10-update raw trailing means, and fill to unsmoothed mhat on Adam or actual-update norm/LR on GD.
+The requested six-panel GD-only view is [cifar10_gd_diagnostics.pdf](figures/cifar10_gd_diagnostics.pdf).
+Loss is unsmoothed on linear Y; cosine and eta-kappa use complete 100-pair
+trailing means; curvature is eta times lambda_max directly; raw B/A is linear
+and raw norms are unsmoothed on log Y. See
+[Observation002](observations/002-gd-six-panel.md),
+[numeric checks](gd_figure_manifest.json) and
+[visual verification](gd_visual_verification.json).
+
+## Archived detailed figures
+
+- [cifar10_eos_comparison.pdf](figures/archive/cifar10_eos_comparison.pdf): Matched GD/Adam learning-rate comparison: unsmoothed loss, full train/test accuracy,100-pair raw/update or mhat cosine, ordinary top 2 eigenvalues, optimizer-specific spectral reference, raw B/A, and 100-pair eta-kappa. No shared LR values or universal stability inference.
+- [cifar10_gd_geometry.pdf](figures/archive/cifar10_gd_geometry.pdf): GD full-horizon scalar geometry with unsmoothed loss,100-pair cosine means, log vector norms and cumulative A/B, linear B/A. Adam separates stored m, bias-corrected mhat, adaptive d and actual displacement; GD has no momentum.
+- [cifar10_adam_geometry.pdf](figures/archive/cifar10_adam_geometry.pdf): ADAM full-horizon scalar geometry with unsmoothed loss,100-pair cosine means, log vector norms and cumulative A/B, linear B/A. Adam separates stored m, bias-corrected mhat, adaptive d and actual displacement; GD has no momentum.
+- [loss_and_norms_by_learning_rate.pdf](figures/archive/loss_and_norms_by_learning_rate.pdf): Unsmoothed loss followed by one panel per run, common log norm Y limits, faint original raw-gradient norms,10-update raw trailing means, and fill to unsmoothed mhat on Adam or actual-update norm/LR on GD.
 
 The [observation](observations/001-learning-rate-sweep.md) records sources, reductions, captions, coverage and interpretation limits.
