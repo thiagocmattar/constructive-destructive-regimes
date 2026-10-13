@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "script": "10_plot_adam.py",
-  "script_sha256": "c002255de78e0526f6dcbe967a16385dbc4aeb39f72e0ad1fee5d17de1b2a2e0",
+  "script_sha256": "5a90dca992fb018510f3426a3597213a5b7cbf69f7a9dff31420ed374e23a72a",
   "shared_helper": "09_plot_gd.py",
   "shared_helper_sha256": "200dc66f8979bedcc3594c3fe5f9e3730574c62fd95e8c4f6f4c1a2a1516e2a5",
   "learning_rates": [
@@ -1352,9 +1352,9 @@
       "source_y_sha256": "5e64d7ef4b50e0312d8cbbc0566e01d6a374fb3e109bae09669163c3c8326f93",
       "plotted_y_sha256": "5e64d7ef4b50e0312d8cbbc0566e01d6a374fb3e109bae09669163c3c8326f93",
       "trailing_window": null,
-      "y_scale": "linear",
+      "y_scale": "log",
       "y_limits": [
-        0.0,
+        0.5,
         78.0
       ]
     },
@@ -1369,9 +1369,9 @@
       "source_y_sha256": "aa5286f5947abe9050b67a708e3872f80e26f642284161ef52becf41be72616a",
       "plotted_y_sha256": "aa5286f5947abe9050b67a708e3872f80e26f642284161ef52becf41be72616a",
       "trailing_window": null,
-      "y_scale": "linear",
+      "y_scale": "log",
       "y_limits": [
-        0.0,
+        0.5,
         78.0
       ]
     },
@@ -1386,9 +1386,9 @@
       "source_y_sha256": "aa6bbde80c379d3c2f166d366a47c3e5bec8628e2d8081dad2b5815dd7ce7ccb",
       "plotted_y_sha256": "aa6bbde80c379d3c2f166d366a47c3e5bec8628e2d8081dad2b5815dd7ce7ccb",
       "trailing_window": null,
-      "y_scale": "linear",
+      "y_scale": "log",
       "y_limits": [
-        0.0,
+        0.5,
         78.0
       ]
     },
@@ -1403,9 +1403,9 @@
       "source_y_sha256": "0fdea71c447c06e007e357ada0bf29fd471a542fe8549cdf379c298803bfaa38",
       "plotted_y_sha256": "0fdea71c447c06e007e357ada0bf29fd471a542fe8549cdf379c298803bfaa38",
       "trailing_window": null,
-      "y_scale": "linear",
+      "y_scale": "log",
       "y_limits": [
-        0.0,
+        0.5,
         78.0
       ]
     }
@@ -1419,17 +1419,19 @@
         0,
         20000
       ],
-      "caption": "Four matched Adam learning rates, states/updates 0..20000: unsmoothed linear loss; 100-pair raw/mhat adjacent cosine and eta-kappa; eta times ordinary lambda_max; full-prefix raw/mhat B/A; unsmoothed log raw/mhat norms; linear raw/mhat norm ratio."
+      "caption": "Four matched Adam learning rates, states/updates 0..20000: unsmoothed linear loss; 100-pair raw/mhat adjacent cosine and eta-kappa; eta times ordinary lambda_max; full-prefix raw/mhat B/A; unsmoothed log raw/mhat norms; linear raw/mhat norm ratio.",
+      "script_sha256": "c002255de78e0526f6dcbe967a16385dbc4aeb39f72e0ad1fee5d17de1b2a2e0"
     },
     "cifar10_adam_diagnostics_early.pdf": {
-      "bytes": 819590,
-      "sha256": "bdfcb1ae71c7ae16a3e6462f5184345861bece414a2007a6c3e144675ca7ebff",
+      "bytes": 830993,
+      "sha256": "2cc42131f723830cf7ced2faf0e30d377eae1bbcfb932646db23325e42fa4595",
       "panels": 10,
       "x_limits": [
         0,
         2000
       ],
-      "caption": "Four matched Adam learning rates, states/updates 0..2000: unsmoothed linear loss; 100-pair raw/mhat adjacent cosine and eta-kappa; eta times ordinary lambda_max; full-prefix raw/mhat B/A; unsmoothed log raw/mhat norms; linear raw/mhat norm ratio."
+      "script_sha256": "5a90dca992fb018510f3426a3597213a5b7cbf69f7a9dff31420ed374e23a72a",
+      "caption": "Four matched Adam learning rates, states/updates 0..2000: unsmoothed linear loss; 100-pair raw/mhat adjacent cosine and eta-kappa; eta times ordinary lambda_max; full-prefix raw/mhat B/A; unsmoothed log raw/mhat norms; log raw/mhat norm ratio."
     }
   },
   "thinning": null,
@@ -1442,5 +1444,6 @@
   "curvature": "eta*largest algebraic eigenvalue of the ordinary objective Hessian; no preconditioning or division by 2.",
   "kappa": "eta*kappa_hat=1-rho_t*norm(g_t)/norm(g_(t-1)); explicit noise term zero; trajectory proxy on Adam.",
   "gd_pdf_sha256_unchanged": "0de226f705de4cfab35fe091e96d054b1d355e7d7146b85a1db623b74f1ebfa2",
-  "archive_manifest_sha256_unchanged": "637ca28ce97cdfdd0e2b1b8066813bce7325fd2c67e28a0eefd825297630ce77"
+  "archive_manifest_sha256_unchanged": "637ca28ce97cdfdd0e2b1b8066813bce7325fd2c67e28a0eefd825297630ce77",
+  "full_pdf_sha256_unchanged": "95a71ddb307bea9498abdf068f414466dcec1e35c570b20dc5353afd58fd2b9b"
 }

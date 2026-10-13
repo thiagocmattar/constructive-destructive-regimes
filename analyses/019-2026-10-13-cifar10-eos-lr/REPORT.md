@@ -92,10 +92,11 @@ The Adam counterpart has separate [full-horizon](figures/cifar10_adam_diagnostic
 and [first-2,000-update](figures/cifar10_adam_diagnostics_early.pdf) views.
 Each uses ten panels in the requested order, including momentum adjacent cosine,
 momentum B/A, momentum norm and raw-gradient/momentum norm ratio. Momentum is
-bias-corrected mhat. Only the two norm panels use log Y; the norm ratio is raw/mhat
-and unsmoothed. Loss is unsmoothed and linear; both cosines and eta-kappa use
+bias-corrected mhat. The two norm panels use log Y; panel (j) also uses log Y
+in the early view. The norm ratio is raw/mhat and unsmoothed. Loss is unsmoothed
+and linear; both cosines and eta-kappa use
 complete 100-pair trailing means. Curvature remains eta times the ordinary
-lambda_max, without a GD threshold line. The two views share Y scales and
+lambda_max, without a GD threshold line. The two views share Y scales except (j) and
 preserve the same full-prefix/window statistics. No training results changed.
 See [Observation003](observations/003-adam-ten-panel.md),
 [numeric checks](adam_figure_manifest.json) and

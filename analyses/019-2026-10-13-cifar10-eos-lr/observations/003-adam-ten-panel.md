@@ -20,7 +20,8 @@ the largest algebraic eigenvalue of the ordinary objective Hessian; (f) raw
 full-prefix B/A; (g) momentum full-prefix B/A; (h) raw-gradient norm; (i)
 momentum norm; (j) raw-gradient norm divided by momentum norm. Cosines and
 eta-kappa use complete 100-pair trailing means; loss, norms, ratios and B/A
-are unsmoothed. Only panels (h) and (i) use log Y. Colors encode LR consistently.
+are unsmoothed. Panels (h) and (i) use log Y; panel (j) additionally uses log Y
+in the early view, per the user's subsequent request. Colors encode LR consistently.
 
 Sources: frozen Runs063-066 production `metrics.jsonl`, `curvature.jsonl`,
 `summary.json` and final evaluations, the [cohort](../cohort.json),
@@ -61,12 +62,17 @@ and Hessians belong to their explicitly named states. Ordinary Hessians cover
 201 full-horizon states or 21 early states, measured every 100 updates. Each
 mean panel displays 19,900 means per LR in the full view and 1,900 in the zoom.
 
-Visual reductions: the two figures have identical Y limits for each metric.
+Visual reductions: the two figures have identical Y limits for panels (a)-(i).
 Raw/momentum norms also share a common log range within each figure. Loss
 remains linear, with a range that preserves the highest early Adam loss spike;
 its Y range differs from the GD figure for this reason. Ordinary eta*lambda_max
-uses a smaller linear range than GD. The ratio remains linear and includes all
-observed spikes. No Y-range clipping of any displayed curve is allowed.
+uses a smaller linear range than GD. The ratio is linear in the full view and
+logarithmic in the early view, with early limits 0.5..78; all observed early
+ratios are positive and lie inside this range. No Y-range clipping of any
+displayed curve is allowed. This axis-only revision preserves all plotted
+X/Y arrays, reductions and the full-horizon PDF; only the early ratio axis and
+its scale note change. The generator's `--early-only` option records the
+unchanged full-figure hash and retains its original generation-script identity.
 
 Observation: the early view separates the raw cosine reversal from the later
 momentum cosine reversal. Momentum B/A remains larger than raw B/A at the

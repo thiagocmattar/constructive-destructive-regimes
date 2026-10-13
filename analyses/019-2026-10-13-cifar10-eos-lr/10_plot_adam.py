@@ -1,4 +1,5 @@
 """Full and early-step Adam counterparts of the six-panel GD figure."""
+import argparse
 from importlib import import_module
 import json
 from pathlib import Path
@@ -111,7 +112,11 @@ def draw(records, data, manifest, end, name):
         elif metric == 'eta_lambda_max':
             ax.set_ylim(0, .1)
         elif metric == 'raw_to_unbiased_momentum_norm_ratio':
-            ax.set_ylim(0, 78.)
+            if end == 2000:
+                ax.set_yscale('log')
+                ax.set_ylim(.5, 78.)
+            else:
+                ax.set_ylim(0, 78.)
         for record, color in zip(records, COLORS):
             x, raw, plotted = data[record['run_id']][metric]
             mask = x <= end
@@ -130,7 +135,8 @@ def draw(records, data, manifest, end, name):
                 'source_y_sha256': digest(raw[mask]), 'plotted_y_sha256': digest(plotted[mask]),
                 'trailing_window': window, 'y_scale': ax.get_yscale(), 'y_limits': [low, high]})
     fig.text(.075, .046, r'Momentum is bias-corrected: $\widehat m_t=m_t/(1-0.9^t)$. Cosines and $\eta\widehat\kappa$: 100-pair trailing means.', fontsize=10.5)
-    fig.text(.075, .029, 'Loss, norms and norm ratio are unsmoothed. Only norm panels use log Y; full and early views share Y scales.', fontsize=10.5)
+    scale_note = 'Norms and the ratio use log Y' if end == 2000 else 'Only norms use log Y'
+    fig.text(.075, .029, 'Loss, norms and norm ratio are unsmoothed. ' + scale_note + '; other panels use linear Y.', fontsize=10.5)
     fig.text(.075, .012, r'Ordinary Hessian every 100 steps. $\eta\widehat\kappa$ is a gradient trajectory proxy along Adam.', fontsize=10.5)
     assert len(fig.axes) == 10
     scratch = HERE / 'scratch'
@@ -141,13 +147,17 @@ def draw(records, data, manifest, end, name):
     destination = HERE / 'figures' / name
     pending.replace(destination)
     manifest['figures'][name] = {'bytes': destination.stat().st_size, 'sha256': sha256(destination),
-        'panels': 10, 'x_limits': [0, end],
+        'panels': 10, 'x_limits': [0, end], 'script_sha256': sha256(__file__),
         'caption': f'Four matched Adam learning rates, states/updates 0..{end}: unsmoothed linear loss; '
                    '100-pair raw/mhat adjacent cosine and eta-kappa; eta times ordinary lambda_max; '
-                   'full-prefix raw/mhat B/A; unsmoothed log raw/mhat norms; linear raw/mhat norm ratio.'}
+                   'full-prefix raw/mhat B/A; unsmoothed log raw/mhat norms; '
+                   + ('log' if end == 2000 else 'linear') + ' raw/mhat norm ratio.'}
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--early-only', action='store_true', help='Update only the early-step PDF; preserve the full-horizon figure.')
+    args = parser.parse_args()
     records, data, sources = load_data()
     gd_path = HERE / 'figures/cifar10_gd_diagnostics.pdf'
     gd_hash = sha256(gd_path)
@@ -168,11 +178,24 @@ def main():
                          'axes.titlesize': 13, 'axes.labelsize': 12, 'pdf.fonttype': 42,
                          'axes.spines.top': False, 'axes.spines.right': False,
                          'path.simplify': False, 'savefig.dpi': 180})
-    draw(records, data, manifest, 20000, 'cifar10_adam_diagnostics.pdf')
+    full_path = HERE / 'figures/cifar10_adam_diagnostics.pdf'
+    if args.early_only:
+        prior = json.loads((HERE / 'adam_figure_manifest.json').read_text())
+        assert sources == prior['sources']
+        full_item = dict(prior['figures'][full_path.name])
+        assert sha256(full_path) == full_item['sha256']
+        full_item.setdefault('script_sha256', prior['script_sha256'])
+        manifest['figures'][full_path.name] = full_item
+        manifest['curves'] = [c for c in prior['curves'] if c['figure'] == full_path.name]
+        manifest['full_pdf_sha256_unchanged'] = full_item['sha256']
+    else:
+        draw(records, data, manifest, 20000, full_path.name)
     draw(records, data, manifest, 2000, 'cifar10_adam_diagnostics_early.pdf')
     assert len(manifest['curves']) == 80
     assert sum(c['finite_points'] for c in manifest['curves'] if c['trailing_window']) == 261600
     assert sha256(gd_path) == gd_hash and sha256(HERE / 'archive_manifest.json') == archive_hash
+    if args.early_only:
+        assert sha256(full_path) == manifest['full_pdf_sha256_unchanged']
     write_json(HERE / 'adam_figure_manifest.json', manifest)
     print(json.dumps({'figures': list(manifest['figures']), 'curves_checked': 80,
                       'unique_means_checked': 238800, 'early_horizon': 2000}))
