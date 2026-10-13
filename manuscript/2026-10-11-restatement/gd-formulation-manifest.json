@@ -2,9 +2,9 @@
   "status": "passed",
   "scope": "English SGD formulation and empirical full-batch GD result; stops before Displacement under Adam.",
   "report": "manuscript/2026-10-11-restatement/gd-formulation.pdf",
-  "report_sha256": "1cedf6fe04e906c438a38f79ab536760b19141eb5ac85f36dfc0f2d64e9f1049",
+  "report_sha256": "1608c4373dbb11f35c9e93aa72bcbb88213c6c5da7dc8fe3c186aa349d9b6224",
   "latex_source": "manuscript/2026-10-11-restatement/gd-formulation.tex",
-  "latex_source_sha256": "85212acba7d9927fde01b0644047ae303e22f561849981d2cea7c99378fd43f7",
+  "latex_source_sha256": "45d84876eaf1549571908c5e36657b530d371f5818c72ad552d52426fb230953",
   "table_sha256": "133ff5b125426487c60f8679bf6b11b6eb3aa605b00dce45ddcebf5841a1ab15",
   "build_script_sha256": "7ce58209dd4cf1abf68a767cd305f64e6a845a9624a3bce33cbd240316a615a5",
   "inputs_sha256_unchanged": {
@@ -33,7 +33,7 @@
       ],
       "renderer": "Poppler",
       "render": "manuscript/artifacts/2026-10-11-restatement/report-page-01.png",
-      "render_sha256": "1ca12a022db4b83ad10f0f6b8b426f73e4ab3d3f397619ae24ca2d466d582278",
+      "render_sha256": "97f7403aea62d8cbad3adde67a3c08bc0955747c7468b07fd1086f94c98b5d82",
       "text_spans_outside_page": []
     },
     {
@@ -142,8 +142,15 @@
   ],
   "editorial_revision": {
     "section": "An optimization perspective on cross-step interference",
-    "style": "Five concise English working notes based on the user comments.",
-    "user_prepared_source_sha256": "8ef77096c9f94d0ab5b05abac250346f1d3d3d909db73ca40fd2f3a4a6d5bc09",
-    "all_source_bytes_outside_section_preserved": true
+    "style": "Four concise English paragraphs with combined learning/optimization interpretation and an intuitive overshooting example.",
+    "mechanisms": [
+      "adaptive optimization",
+      "momentum",
+      "gradient clipping",
+      "learning-rate schedules"
+    ],
+    "latest_user_source_before_polish_sha256": "251afdccfcce22cb90a02fdc4a4f27bdc0d7f40c6898e6ca19e87f52c8ef3937",
+    "all_source_bytes_outside_section_preserved": true,
+    "visual_review_method": "Page 1 inspected; pages 2-8 and the standalone figure match previously reviewed render hashes."
   }
 }

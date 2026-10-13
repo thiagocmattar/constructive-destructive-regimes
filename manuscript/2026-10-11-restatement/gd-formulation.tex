@@ -28,30 +28,27 @@ and gradient descent}
 
 \section{An optimization perspective on cross-step interference}
 
-\begin{description}
-\item[Motivation.] LLM training uses additional mechanisms to regulate
-optimization. We want to characterize the dynamics these mechanisms control.
+LLM training uses adaptive optimization, momentum, gradient clipping, and
+learning-rate schedules to control optimization and limit unwanted behavior,
+such as loss spikes and excessive oscillations. Our goal is to characterize
+the dynamics these mechanisms regulate.
 
-\item[Two-phase pattern.] We characterize two observed phases:
-\emph{constructive accumulation}, with aligned gradients and decreasing loss;
-and \emph{oscillatory interference}, with frequent gradient reversals and partial
-cancellation between successive updates. Loss can continue to decrease during
-the second phase.
+We characterize a transition between two observed phases. Initially, aligned
+gradients accumulate constructively as the loss falls. Later, gradients
+frequently reverse direction, so successive updates partially cancel. The loss
+can still decrease during this oscillatory phase.
 
-\item[Learning interpretation.] New mini-batches modify shared parameters.
-Our hypothesis is that these changes can reinforce existing representations or
-partially overwrite them.
+Each mini-batch modifies shared parameters, potentially reinforcing existing
+representations or changing what the network has already learned. Along the
+optimization path, a step may move toward the bottom of a loss valley but go
+too far; subsequent steps can then pull back and partly undo it. Repeated
+overshooting can produce back-and-forth motion while the overall loss declines.
+We study this cancellation as an optimization expression of interference.
+Its connection to representation overwriting remains a hypothesis.
 
-\item[Optimization interpretation.] A loss valley has relatively low curvature
-along it and higher curvature across it. Steps too large for the transverse
-curvature can overshoot, producing reversals while progress continues along
-the valley.
-
-\item[Connection.] Using SGD identities, we relate consecutive-gradient
-alignment to curvature and gradient noise, and cumulative cancellation to
-parameter displacement. This makes the optimization geometry of interference
-measurable.
-\end{description}
+Using SGD identities, we relate consecutive-gradient alignment to curvature and
+gradient noise, and cumulative cancellation to parameter displacement. These
+diagnostics describe how updates reinforce or undo one another.
 
 \section{Parameter displacement under stochastic gradient descent}
 
