@@ -25,41 +25,33 @@ and gradient descent}
 \begin{document}
 \maketitle
 \vspace{-2em}
-\begin{abstract}
-We characterize cross-step interference through the accumulation of gradient
-directions along a training trajectory. For constant-step stochastic gradient
-descent, parameter displacement separates exactly into gradient energy and
-temporal interactions. A local expansion then connects consecutive-gradient
-alignment to directional curvature and changes in mini-batch gradient noise.
-We complement this adjacent diagnostic with normalized cumulative displacement,
-which measures the fraction of path length retained as net parameter motion.
-In a matched full-batch CIFAR-10 experiment, three learning rates develop
-nearly alternating gradients as the scaled maximum Hessian eigenvalue approaches
-the edge-of-stability region. A gradient-derived secant quantity approaches two,
-while normalized displacement falls sharply and loss continues to decrease over
-the training horizon. These observations connect local reversals to cumulative
-cancellation without identifying either diagnostic with a general stability
-criterion.
-\end{abstract}
 
 \section{An optimization perspective on cross-step interference}
 
-Training updates modify parameters shared by different examples and learned
-representations. This motivates the intuition that a new update can reinforce
-earlier changes or partially undo them. We study this interaction directly in
-parameter space, through the alignment and accumulation of successive gradients.
-The resulting geometry is observable without assigning semantic information to
-individual weights. Its connection to representation overwriting or forgetting
-requires separate evidence.
+\begin{description}
+\item[Motivation.] LLM training uses additional mechanisms to regulate
+optimization. We want to characterize the dynamics these mechanisms control.
 
-From this optimization perspective, a trajectory can initially contain aligned
-gradients that accumulate coherently, then enter a regime of frequent directional
-reversals. Such reversals reduce the net motion retained from successive steps,
-even when the steps themselves remain large. They can coexist with decreasing
-loss over longer timescales. We therefore distinguish three questions: how
-gradients interact, what curvature contributes to their reorientation, and how
-much cumulative motion survives their cancellation. None of these questions
-alone determines whether loss oscillations decay, persist, or grow.
+\item[Two-phase pattern.] We characterize two observed phases:
+\emph{constructive accumulation}, with aligned gradients and decreasing loss;
+and \emph{oscillatory interference}, with frequent gradient reversals and partial
+cancellation between successive updates. Loss can continue to decrease during
+the second phase.
+
+\item[Learning interpretation.] New mini-batches modify shared parameters.
+Our hypothesis is that these changes can reinforce existing representations or
+partially overwrite them.
+
+\item[Optimization interpretation.] A loss valley has relatively low curvature
+along it and higher curvature across it. Steps too large for the transverse
+curvature can overshoot, producing reversals while progress continues along
+the valley.
+
+\item[Connection.] Using SGD identities, we relate consecutive-gradient
+alignment to curvature and gradient noise, and cumulative cancellation to
+parameter displacement. This makes the optimization geometry of interference
+measurable.
+\end{description}
 
 \section{Parameter displacement under stochastic gradient descent}
 
