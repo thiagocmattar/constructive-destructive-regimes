@@ -81,8 +81,8 @@ def main():
     manifest = {'status': 'passed', 'script': Path(__file__).name, 'script_sha256': sha256(__file__),
                 'panels': 6, 'learning_rates': [r['lr'] for r in records],
                 'dimensions_inches': [14, 11.5], 'thinning': None, 'curves': [], 'sources': [],
-                'mean_values_checked': 0,
-                'smoothing': 'Only cosine and eta-kappa: complete 100-pair trailing means, first at update 101.',
+                'mean_values_checked': 0, 'defined_pair_values_plotted': 0,
+                'smoothing': 'None. Cosine and eta-kappa show every defined pair, starting at update 2.',
                 'y_scales': ['linear', 'linear', 'linear', 'linear', 'linear', 'log'],
                 'kappa': 'eta*kappa_hat=1-rho_t*norm(g_t)/norm(g_(t-1)); explicit noise term zero.',
                 'coverage': 'Four GD runs; all 20k updates, loss states 0..20k, Hessian states 0..20k every 100.'}
@@ -99,8 +99,8 @@ def main():
                ncol=4, loc='upper center', bbox_to_anchor=(.5, .927), frameon=False, fontsize=12)
     definitions = [
         ('(a) Unsmoothed training loss', r'$f(\theta)$', 'train_loss_with_final_state', None),
-        ('(b) Raw-gradient adjacent cosine', r'$\rho_t$', 'raw_cosine', WINDOW),
-        (r'(c) $\eta\,\widehat{\kappa}_t$', r'$\eta\,\widehat{\kappa}_t$', 'eta_kappa_proxy', WINDOW),
+        ('(b) Raw-gradient adjacent cosine', r'$\rho_t$', 'raw_cosine', None),
+        (r'(c) $\eta\,\widehat{\kappa}_t$', r'$\eta\,\widehat{\kappa}_t$', 'eta_kappa_proxy', None),
         (r'(d) $\eta\,\lambda_{\max}$', r'$\eta\,\lambda_{\max}$', 'eta_lambda_max', None),
         ('(e) Raw-gradient cumulative displacement', r'$B_t/A_t$', 'raw_B_over_A', None),
         ('(f) Raw-gradient norm', r'$\|g_t\|_2$', 'raw_norm', None)]
@@ -156,7 +156,11 @@ def main():
             plotted = trailing_mean(raw) if window else raw
             if window:
                 manifest['mean_values_checked'] += int(np.isfinite(plotted).sum())
-            noisy = metric in ['train_loss_with_final_state', 'raw_norm']
+            if metric in ['raw_cosine', 'eta_kappa_proxy']:
+                assert np.isnan(plotted[0]) and np.isfinite(plotted[1:]).all()
+                assert x[1] == 2 and np.isfinite(plotted).sum() == 19999
+                manifest['defined_pair_values_plotted'] += 19999
+            noisy = metric in ['train_loss_with_final_state', 'raw_norm', 'raw_cosine', 'eta_kappa_proxy']
             line, = ax.plot(x, plotted, color=color, linewidth=1.25, alpha=.9 if noisy else 1.,
                             rasterized=noisy)
             np.testing.assert_array_equal(line.get_xdata(), x)
@@ -167,10 +171,10 @@ def main():
                                        'x_sha256': digest(x), 'source_y_sha256': digest(raw),
                                        'plotted_y_sha256': digest(plotted), 'trailing_window': window,
                                        'y_scale': ax.get_yscale()})
-    fig.text(.075, .047, 'Cosine and '+r'$\eta\widehat{\kappa}$'+': 100-pair trailing means. Loss and gradient norms: unsmoothed.', fontsize=10.5)
+    fig.text(.075, .047, 'All plotted series are unsmoothed. Cosine and '+r'$\eta\widehat{\kappa}$'+': every defined adjacent pair.', fontsize=10.5)
     fig.text(.075, .023, 'Gradient norms use log Y; all other panels use linear Y. Hessian measured every 100 steps.', fontsize=10.5)
     assert len(fig.axes) == 6 and len(manifest['curves']) == 24
-    assert manifest['mean_values_checked'] == 159200
+    assert manifest['mean_values_checked'] == 0 and manifest['defined_pair_values_plotted'] == 159992
     destination = HERE / 'figures/cifar10_gd_diagnostics.pdf'
     # Replace only a complete PDF; some Windows viewers allow rename but lock writes.
     scratch = HERE / 'scratch'
@@ -182,7 +186,7 @@ def main():
     manifest['figures'] = {destination.name: {'bytes': destination.stat().st_size,
         'sha256': sha256(destination),
         'caption': 'Four matched full-batch GD learning rates: (a) unsmoothed linear training loss; '
-                   '(b) raw adjacent cosine and (c) eta-kappa, both 100-pair trailing means; '
+                   '(b) raw adjacent cosine and (c) eta-kappa, both unsmoothed with 19,999 defined pairs per run; '
                    '(d) eta times largest algebraic Hessian eigenvalue; (e) full-prefix raw B/A; '
                    '(f) unsmoothed raw-gradient norm on log Y. All 20k updates are retained.'}}
     write_json(HERE / 'gd_figure_manifest.json', manifest)

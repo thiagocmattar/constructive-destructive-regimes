@@ -93,8 +93,8 @@ No unrelated Spark resources were managed.
 Current: [cifar10_gd_diagnostics.pdf](figures/cifar10_gd_diagnostics.pdf), a
 six-panel GD-only comparison of all four learning rates: unsmoothed linear
 training loss, adjacent cosine, eta-kappa, eta*lambda_max, full-prefix raw B/A,
-and unsmoothed log-scale raw-gradient norms. Cosine and eta-kappa use complete
-100-pair trailing means. See [Observation002](observations/002-gd-six-panel.md),
+and unsmoothed log-scale raw-gradient norms. All GD panels are unsmoothed;
+cosine and eta-kappa show every defined adjacent pair. See [Observation002](observations/002-gd-six-panel.md),
 [numeric checks](gd_figure_manifest.json) and
 [visual verification](gd_visual_verification.json).
 

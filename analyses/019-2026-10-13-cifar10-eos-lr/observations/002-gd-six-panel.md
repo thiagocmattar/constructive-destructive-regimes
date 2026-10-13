@@ -4,15 +4,16 @@ The user requested a simpler GD-only view and archival of the four detailed
 figures. This is a presentation revision of the completed experiment, using
 Runs059-062 without new training or changed scientific inputs. The dictated
 "unsmoothed trailing loss (ling Y scale)" is interpreted as unsmoothed training
-loss on linear Y. Cosine and eta-kappa retain the complete 100-pair trailing
-means used in the cited Analysis017 overlay and the original Analysis019 plots.
+loss on linear Y. The initial figure used complete 100-pair trailing means
+for cosine and eta-kappa. At the user's subsequent request, the current figure
+removes those means and shows both pair metrics unsmoothed.
 
 Figure: [cifar10_gd_diagnostics.pdf](../figures/cifar10_gd_diagnostics.pdf).
 
 Caption: Four matched full-batch GD learning rates (0.004, 2/300, 0.01, 0.02)
 on the same CIFAR-10 5k tanh MLP initialization. (a) Unsmoothed training loss,
 linear Y; (b) raw-gradient adjacent cosine and (c) learning-rate-scaled
-gradient-identity kappa, each a 100-pair trailing mean; (d) learning rate times
+gradient-identity kappa, each unsmoothed; (d) learning rate times
 the largest algebraic objective-Hessian eigenvalue, with the local GD reference
 2; (e) full-prefix raw-gradient cumulative displacement B/A; (f) unsmoothed
 raw-gradient norm, log Y. Colors identify the same learning rate in every panel.
@@ -27,12 +28,12 @@ remain outside Git; no dense gradient history is claimed.
 
 Reduction: define g_t at theta[t-1], rho_t = cosine(g_(t-1), g_t), and
 eta*kappa_hat_t = 1 - rho_t*||g_t||/||g_(t-1)||, with the explicit noise term
-zero. Compute this quantity before smoothing, as in
+zero, using the same per-pair identity as
 [Analysis017](../../017-2026-10-12-rosenbrock-kappa-identity/README.md).
-Both means use exactly the last 100 defined pairs and are right-aligned at
-update t. No partial windows, zero padding, averaging of separate factors, or
-temporal thinning is used. The undefined first pair remains undefined; the
-first mean is at update 101. B/A = ||sum_(s=1)^t g_s|| / sum_(s=1)^t ||g_s||
+No rolling mean, zero padding, averaging of separate factors, or temporal
+thinning is used. Each pair metric shows all 19,999 defined values per run,
+starting at update 2. The undefined first pair remains undefined.
+B/A = ||sum_(s=1)^t g_s|| / sum_(s=1)^t ||g_s||
 uses the entire prefix. Panel (d) multiplies lambda_max directly by eta, with
 no division by 2 and no preconditioning. Only the largest eigenvalue is shown.
 
@@ -55,15 +56,15 @@ Uncertainty and caveats: one frozen seed, finite horizon, no confidence bands.
 Curvature estimates use the complete 5k objective and pass iterative relative
 residual <= 0.005; they have only 100-step temporal resolution. The gradient
 quantity measures a directional secant along the trajectory, whereas the
-Hessian value is the largest algebraic eigenvalue. Mean cosine and mean kappa
-are distinct reductions, not an identity relating their separate means.
+Hessian value is the largest algebraic eigenvalue. The unsmoothed curves expose
+per-step variations that the original 100-pair trailing means suppressed.
 The dashed 2 is a local GD quadratic reference, not a global nonlinear
 stability guarantee. Loss, alignment and B/A alone do not certify convergence
 or generalization. See Observation001 for the unchanged data and optimizer setup.
 
 Generator and checks: [09_plot_gd.py](../09_plot_gd.py) records all 24 actual
-plotted arrays, checks kappa and B/A arithmetic, source hashes and 159,200
-trailing means against independent direct windows in
+plotted arrays, checks kappa and B/A arithmetic, source hashes, and all 159,992
+displayed finite pair values (two metrics, four runs) in
 [gd_figure_manifest.json](../gd_figure_manifest.json).
 [07_pdf_qa.py](../07_pdf_qa.py) with `--simple-gd` checks and renders the PDF;
 [gd_visual_verification.json](../gd_visual_verification.json) records the

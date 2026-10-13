@@ -79,8 +79,8 @@ The [final Spark check](compute_closeout.json) records 0% GPU utilization and 45
 ## Current GD figure
 
 The requested six-panel GD-only view is [cifar10_gd_diagnostics.pdf](figures/cifar10_gd_diagnostics.pdf).
-Loss is unsmoothed on linear Y; cosine and eta-kappa use complete 100-pair
-trailing means; curvature is eta times lambda_max directly; raw B/A is linear
+Loss, cosine and eta-kappa are unsmoothed on linear Y; both pair metrics show
+all 19,999 defined pairs per run. Curvature is eta times lambda_max directly; raw B/A is linear
 and raw norms are unsmoothed on log Y. See
 [Observation002](observations/002-gd-six-panel.md),
 [numeric checks](gd_figure_manifest.json) and
