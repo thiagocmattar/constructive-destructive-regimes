@@ -2,9 +2,9 @@
   "status": "passed",
   "scope": "English SGD formulation and empirical full-batch GD result; stops before Displacement under Adam.",
   "report": "manuscript/2026-10-11-restatement/gd-formulation.pdf",
-  "report_sha256": "1608c4373dbb11f35c9e93aa72bcbb88213c6c5da7dc8fe3c186aa349d9b6224",
+  "report_sha256": "0f6b9223e4b8dc8a87d2c963067f038ea250d668ca027f48b1b8cd6c9d322b41",
   "latex_source": "manuscript/2026-10-11-restatement/gd-formulation.tex",
-  "latex_source_sha256": "45d84876eaf1549571908c5e36657b530d371f5818c72ad552d52426fb230953",
+  "latex_source_sha256": "68f9638e527213bf0186eb45d34950e3ccff034b05747c21077a49bb2054085b",
   "table_sha256": "133ff5b125426487c60f8679bf6b11b6eb3aa605b00dce45ddcebf5841a1ab15",
   "build_script_sha256": "7ce58209dd4cf1abf68a767cd305f64e6a845a9624a3bce33cbd240316a615a5",
   "inputs_sha256_unchanged": {
@@ -33,7 +33,7 @@
       ],
       "renderer": "Poppler",
       "render": "manuscript/artifacts/2026-10-11-restatement/report-page-01.png",
-      "render_sha256": "97f7403aea62d8cbad3adde67a3c08bc0955747c7468b07fd1086f94c98b5d82",
+      "render_sha256": "55bd180f2c6ae3febeb5e90bc15950b8d6684575bb09879acf1617506b2e2351",
       "text_spans_outside_page": []
     },
     {
@@ -44,7 +44,7 @@
       ],
       "renderer": "Poppler",
       "render": "manuscript/artifacts/2026-10-11-restatement/report-page-02.png",
-      "render_sha256": "a5bf87f46660be7ce6817f3ae0143cce035270eb8e9b86e475e6df0fa8075d63",
+      "render_sha256": "c5ab9bca32caea0b08c60aaa5415e5666e9d7447b218df4301b168305c4f833a",
       "text_spans_outside_page": []
     },
     {
@@ -55,7 +55,7 @@
       ],
       "renderer": "Poppler",
       "render": "manuscript/artifacts/2026-10-11-restatement/report-page-03.png",
-      "render_sha256": "012be32d1c7c2b484fdee78ccfd589f3cf2be3f6cf2193d5252cc46a49f79993",
+      "render_sha256": "9abc5423d55a873adde6eed8bd963d038dd1529149b8929217409a3f359bc3f4",
       "text_spans_outside_page": []
     },
     {
@@ -66,7 +66,7 @@
       ],
       "renderer": "Poppler",
       "render": "manuscript/artifacts/2026-10-11-restatement/report-page-04.png",
-      "render_sha256": "5bef5e50ee08c85457382f821f0fe379da208d0656be3fad3473de2a46914e4c",
+      "render_sha256": "0695944c1e23f641df69adedf371e3f50626e38141d4e2a30a50d351272a6950",
       "text_spans_outside_page": []
     },
     {
@@ -77,7 +77,7 @@
       ],
       "renderer": "Poppler",
       "render": "manuscript/artifacts/2026-10-11-restatement/report-page-05.png",
-      "render_sha256": "f1759b1db9317dac145ab3cb672d8d2b6ed985c76825405bcf654af887cd2812",
+      "render_sha256": "e1033b7877466989d752260adb7159751b38bf6bdf5f14df4dc2ca3a72c187d3",
       "text_spans_outside_page": []
     },
     {
@@ -88,7 +88,7 @@
       ],
       "renderer": "Poppler",
       "render": "manuscript/artifacts/2026-10-11-restatement/report-page-06.png",
-      "render_sha256": "688daa9fc7dbd7b5e5136ccf5bdbebba594083ac8a733c45d98b805e8d37564f",
+      "render_sha256": "bfdd167c25b27511edaccb993534025f76ca0fc24aa895bda81a23bf2e81afb9",
       "text_spans_outside_page": []
     },
     {
@@ -99,7 +99,7 @@
       ],
       "renderer": "Poppler",
       "render": "manuscript/artifacts/2026-10-11-restatement/report-page-07.png",
-      "render_sha256": "f1febe295a3146dca5a418e639d843b680f825400870e4b72197f93e0b8ac6ab",
+      "render_sha256": "c3e871fcea313a1faa06fa243a04cc80fc28315ff8886e9bdf939d6920200663",
       "text_spans_outside_page": []
     },
     {
@@ -139,18 +139,5 @@
   "references": [
     "https://arxiv.org/abs/2103.00065",
     "https://github.com/locuslab/edge-of-stability/tree/github"
-  ],
-  "editorial_revision": {
-    "section": "An optimization perspective on cross-step interference",
-    "style": "Four concise English paragraphs with combined learning/optimization interpretation and an intuitive overshooting example.",
-    "mechanisms": [
-      "adaptive optimization",
-      "momentum",
-      "gradient clipping",
-      "learning-rate schedules"
-    ],
-    "latest_user_source_before_polish_sha256": "251afdccfcce22cb90a02fdc4a4f27bdc0d7f40c6898e6ca19e87f52c8ef3937",
-    "all_source_bytes_outside_section_preserved": true,
-    "visual_review_method": "Page 1 inspected; pages 2-8 and the standalone figure match previously reviewed render hashes."
-  }
+  ]
 }

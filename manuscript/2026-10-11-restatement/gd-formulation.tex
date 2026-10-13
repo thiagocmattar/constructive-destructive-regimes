@@ -26,29 +26,16 @@ and gradient descent}
 \maketitle
 \vspace{-2em}
 
-\section{An optimization perspective on cross-step interference}
+\section{Introduction}
 
-LLM training uses adaptive optimization, momentum, gradient clipping, and
-learning-rate schedules to control optimization and limit unwanted behavior,
-such as loss spikes and excessive oscillations. Our goal is to characterize
-the dynamics these mechanisms regulate.
+Training large language models (LLMs) relies on adaptive optimization, momentum, gradient clipping, and learning-rate schedules to stabilize learning and mitigate phenomena such as loss spikes and oscillatory updates. To better understand the dynamics these mechanisms regulate, we study how gradient alignment evolves over the course of training.
 
-We characterize a transition between two observed phases. Initially, aligned
-gradients accumulate constructively as the loss falls. Later, gradients
-frequently reverse direction, so successive updates partially cancel. The loss
-can still decrease during this oscillatory phase.
+We identify a transition between two distinct regimes. Early in training, successive gradients tend to align, allowing updates to accumulate constructively as the loss decreases. Later, gradient directions reverse more frequently, causing successive updates to partially cancel one another. Despite this increased cancellation, the loss can continue to decrease.
 
-Each mini-batch modifies shared parameters, potentially reinforcing existing
-representations or changing what the network has already learned. Along the
-optimization path, a step may move toward the bottom of a loss valley but go
-too far; subsequent steps can then pull back and partly undo it. Repeated
-overshooting can produce back-and-forth motion while the overall loss declines.
-We study this cancellation as an optimization expression of interference.
-Its connection to representation overwriting remains a hypothesis.
+Two complementary intuitions help explain this behavior. From the perspective of representation learning, each new mini-batch updates parameters that also encode previously learned information. Depending on its direction, an update may reinforce existing representations or partially undo earlier changes. From the perspective of optimization geometry, a step may overshoot the bottom of a loss valley, prompting subsequent steps to reverse direction and partially retrace the path. Both mechanisms can give rise to oscillatory parameter updates even as optimization continues to make progress.
 
-Using SGD identities, we relate consecutive-gradient alignment to curvature and
-gradient noise, and cumulative cancellation to parameter displacement. These
-diagnostics describe how updates reinforce or undo one another.
+We formalize these dynamics using identities for stochastic gradient descent (SGD), relating the alignment of consecutive gradients to curvature and gradient noise, and cumulative update cancellation to net parameter displacement. Building on these relations, we introduce scalable diagnostics for quantifying these dynamics and tracking the transition between constructive and oscillatory regimes during large-scale model training.
+
 
 \section{Parameter displacement under stochastic gradient descent}
 
