@@ -1,0 +1,33 @@
+{
+  "status": "complete",
+  "user_owned_spark": true,
+  "rented_cloud_resources": 0,
+  "training_etc_seconds": 0,
+  "gpu_utilization_percent": 0,
+  "gpu_temperature_celsius": 45,
+  "task_remote_retained_bytes": 1929598572,
+  "storage_allowance_bytes": 5000000000,
+  "retention": "Full scalar histories,recovery/final states and transfer archives retained locally/on Spark; prepared frozen calibration inputs retained separately.",
+  "probe_results": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "732c97",
+        "wall_time_seconds": 0.4270821,
+        "exit_code": 0,
+        "original_token_count": 23,
+        "output": "name, utilization.gpu [%], memory.used [MiB], temperature.gpu\nNVIDIA GB10, 0 %, [N/A], 45\n"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "cc5c60",
+        "wall_time_seconds": 0.7382213,
+        "exit_code": 0,
+        "original_token_count": 25,
+        "output": "1929598572\t/home/tcml-spark/experiments/constructive-destructive-regimes/cifar10-eos-lr-2026-10-13\n"
+      }
+    }
+  ]
+}

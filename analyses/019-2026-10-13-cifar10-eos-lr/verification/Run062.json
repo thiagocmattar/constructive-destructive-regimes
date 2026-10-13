@@ -1,0 +1,39 @@
+{
+  "run_id": "062",
+  "status": "passed",
+  "raw_updates_checked": 20000,
+  "test_evaluations_checked": 20000,
+  "eigenstates_checked": 201,
+  "eigenpairs_checked": 402,
+  "maximum_relative_eigenpair_residual": 0.0009847942274063826,
+  "eigensolver_retries": 0,
+  "hvp_calls": 8501,
+  "checkpoint": {
+    "exact_displacement_telescoping": "passed",
+    "gd_cumulative_fp32_update_rounding_max_abs": 1.3601079990599452e-06,
+    "independent_final_forward": {
+      "status": "passed",
+      "results": {
+        "train": {
+          "loss": 0.019452311456053972,
+          "accuracy": 1.0,
+          "examples": 5000
+        },
+        "test": {
+          "loss": 0.7080120263510465,
+          "accuracy": 0.29,
+          "examples": 10000
+        }
+      },
+      "loss_rtol": 5e-05,
+      "loss_atol": 2e-07,
+      "chunk_size": 512
+    }
+  },
+  "verified_transfer_files": 15,
+  "verified_transfer_bytes": 107512934,
+  "source_metrics_sha256": "c94770a13d0f6668a4e6f1be577239b472a0c105fc5e098d6901d2514e620243",
+  "source_curvature_sha256": "a0cd312d5948ce6a8ee2e350e9ea112c160070c468ff4625d5bce70ef55f7d1d",
+  "derived_sha256": "22e6b7c64d8081a1d8bdeceda43f99c0c57178e9ad48e8c23f5f2140da3d883e",
+  "derived_bytes": 4528698
+}

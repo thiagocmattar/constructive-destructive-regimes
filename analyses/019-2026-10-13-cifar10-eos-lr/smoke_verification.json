@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "mathematics": [
+    "prefix/all-pair/zero-denominator/diagnostic-resume",
+    "MSE/CE full-gradient normalization including short final chunk",
+    "indefinite dense Hessian/HVP/LA eigenvalues/preconditioner/residual",
+    "actual Adam moments/bias correction/direction/displacement/optimizer resume",
+    "GD update matches raw gradient with float32 rounding"
+  ],
+  "artifacts": {
+    "tmp\\cifar19-smoke": {
+      "files_verified": 6,
+      "updates_verified": 3,
+      "curvature_states": 2
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "run_id": "061",
+  "purpose": "User-authorized 20k fixed-update CIFAR-10 full-batch LR ablation",
+  "dataset": "cifar10-first-5000",
+  "architecture": "fc-tanh-3072-200-200-10",
+  "loss": "mse",
+  "seed": 0,
+  "precision": "float32 parameters/gradients/moments; float64 diagnostic reductions",
+  "tf32": false,
+  "physical_batch_size": 1000,
+  "calibration_updates": 24,
+  "warmup_updates": 4,
+  "optimizers": {
+    "gd": {
+      "lr": 0.01,
+      "weight_decay": 0.0,
+      "momentum": 0.0
+    },
+    "adam": {
+      "lr": 0.0001,
+      "betas": [
+        0.9,
+        0.99
+      ],
+      "eps": 1e-07,
+      "weight_decay": 0.0
+    }
+  },
+  "eigenvalues": {
+    "k": 2,
+    "which": "LA",
+    "tolerance": 0.001,
+    "ncv": 20,
+    "maxiter": 200,
+    "residual_tolerance": 0.005,
+    "dataset_size": 5000,
+    "fallback": {
+      "ncv": 60,
+      "maxiter": 400
+    }
+  },
+  "proposed_production": {
+    "max_updates": 20000,
+    "accuracy_goal": null,
+    "test_every": 1,
+    "eigen_every": 100,
+    "checkpoint_every": 1000,
+    "progress_every": 100,
+    "record_raw_history": false
+  },
+  "notes": [
+    "Only optimizer/LR vary within this eight-run cohort; one frozen seed0 initialization.",
+    "Fixed 20000 updates, with no accuracy stopping; no clipping, decay, schedule, augmentation or injected noise.",
+    "Largest algebraic top2 Hessian eigenvalues, residual-checked. Predeclared larger-Krylov retry does not change parameters/objective.",
+    "Adam additionally records the released code's P-preconditioned Hessian, with conventional D scaling.",
+    "Raw/m/mhat/adaptive/actual displacement streams remain distinct. Dense raw history disabled."
+  ],
+  "hypothesis": "H018",
+  "selected_optimizer": "gd"
+}

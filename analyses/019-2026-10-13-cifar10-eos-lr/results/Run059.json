@@ -1,0 +1,71 @@
+{
+  "run_id": "059",
+  "run": "059-2026-10-13-cifar10-eos-gd-lr-4e-3",
+  "optimizer": "gd",
+  "lr": 0.004,
+  "config_sha256": "401fd9cf7844ba21a80cb0152af2d1ebde9d7f2cf3868f0742fa512ddd690fdb",
+  "updates": 20000,
+  "final_train": {
+    "loss": 0.09687641906738281,
+    "accuracy": 0.9894,
+    "examples": 5000
+  },
+  "final_test": {
+    "loss": 0.5587034301757814,
+    "accuracy": 0.3299,
+    "examples": 10000
+  },
+  "elapsed_seconds": 280.6377930189483,
+  "memory": {
+    "peak_allocated_bytes": 269857792,
+    "peak_reserved_bytes": 287309824
+  },
+  "first_train_99_percent_update": null,
+  "minimum_observed_train_loss": 0.09687641906738281,
+  "streams": {
+    "raw": {
+      "norm": 0.04548773144837723,
+      "A": 1303.2739454345829,
+      "B": 990.7860785928033,
+      "B_over_A": 0.7602285628923711,
+      "energy": 126.54718489001844,
+      "all_pair": 981530.5063484146,
+      "lag_one": 246.79580141893697,
+      "beyond_lag_one": 981283.7105469956,
+      "negative_adjacent_fraction": 0.0,
+      "first_negative_adjacent_update": null,
+      "last_1000_negative_adjacent_fraction": 0.0,
+      "last_1000_cosine_mean": 0.9999999954255029,
+      "minimum_norm": 0.04548773144837723,
+      "final_minus_minimum_norm": 0.0
+    },
+    "displacement": {
+      "norm": 0.00018195099751044418,
+      "A": 5.213098449429651,
+      "B": 3.9631422369110183,
+      "B_over_A": 0.7602277753539477,
+      "energy": 0.002024756378487673,
+      "all_pair": 15.704471633609582,
+      "lag_one": 0.003948735067866482,
+      "beyond_lag_one": 15.700522898541715,
+      "negative_adjacent_fraction": 0.0,
+      "first_negative_adjacent_update": null,
+      "last_1000_negative_adjacent_fraction": 0.0,
+      "last_1000_cosine_mean": 0.9999998083448156,
+      "minimum_norm": 0.00018195099751044418,
+      "final_minus_minimum_norm": 0.0
+    }
+  },
+  "final_hessian": [
+    419.1861572265625,
+    415.163818359375
+  ],
+  "final_eta_lambda_max": 1.67674462890625,
+  "maximum_hessian_eigenvalue": 419.1861572265625,
+  "late_train_loss_mean": 0.10114186413958669,
+  "late_train_loss_std": 0.002496339024559309,
+  "last_1000_eta_lambda_max_mean": 1.6289642333984375,
+  "eta_kappa_last_1000_mean": 4.345810086761826e-05,
+  "fraction_spectral_samples_eta_lambda_above_2": 0.0,
+  "first_sampled_state_eta_lambda_above_2": null
+}

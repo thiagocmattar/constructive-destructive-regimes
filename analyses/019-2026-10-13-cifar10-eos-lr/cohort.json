@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-13T12:36:03.193997+00:00",
+  "analysis_id": "019",
+  "hypothesis": "H018",
+  "runs": [
+    {
+      "run_id": "059",
+      "run": "059-2026-10-13-cifar10-eos-gd-lr-4e-3",
+      "optimizer": "gd",
+      "lr": 0.004,
+      "config_sha256": "401fd9cf7844ba21a80cb0152af2d1ebde9d7f2cf3868f0742fa512ddd690fdb"
+    },
+    {
+      "run_id": "060",
+      "run": "060-2026-10-13-cifar10-eos-gd-lr-2-over-300",
+      "optimizer": "gd",
+      "lr": 0.006666666666666667,
+      "config_sha256": "edd086497ad93568d7bcab9a3772957a916266883f7e5938fd086a89f8ce0ae6"
+    },
+    {
+      "run_id": "061",
+      "run": "061-2026-10-13-cifar10-eos-gd-lr-1e-2",
+      "optimizer": "gd",
+      "lr": 0.01,
+      "config_sha256": "c41bea1e6ec3447c5e3156398f5904cebb956c2a24656d322f6f216660dc6134"
+    },
+    {
+      "run_id": "062",
+      "run": "062-2026-10-13-cifar10-eos-gd-lr-2e-2",
+      "optimizer": "gd",
+      "lr": 0.02,
+      "config_sha256": "9eebca0f2dd0c44e2b059f808a69cad4092843c31538250c0c0b06e232bab6d3"
+    },
+    {
+      "run_id": "063",
+      "run": "063-2026-10-13-cifar10-eos-adam-lr-5e-5",
+      "optimizer": "adam",
+      "lr": 5e-05,
+      "config_sha256": "2dfe4d77c3fb067fd053247d353086a1c87d262856a82db73d3b06ba288df700"
+    },
+    {
+      "run_id": "064",
+      "run": "064-2026-10-13-cifar10-eos-adam-lr-1e-4",
+      "optimizer": "adam",
+      "lr": 0.0001,
+      "config_sha256": "dde356d65983b060ee84ca904271c3055b87afbe177ccf637bf9e8996d4d0737"
+    },
+    {
+      "run_id": "065",
+      "run": "065-2026-10-13-cifar10-eos-adam-lr-2e-4",
+      "optimizer": "adam",
+      "lr": 0.0002,
+      "config_sha256": "49e1bc7cc7e0aec218165e3ac4c07608fb6000d283bc2efda43aefb2a4e2a61c"
+    },
+    {
+      "run_id": "066",
+      "run": "066-2026-10-13-cifar10-eos-adam-lr-4e-4",
+      "optimizer": "adam",
+      "lr": 0.0004,
+      "config_sha256": "1b1841d95c3b73b0147c83d451191e729f4f7fa5f36ffcc141c6c1cb6dba80d4"
+    }
+  ],
+  "authorization": "Use DGX Spark; ablate GD/Adam LR; user confirmed20k fixed updates per run",
+  "remote_root": "/home/tcml-spark/experiments/constructive-destructive-regimes/cifar10-eos-lr-2026-10-13",
+  "remote_inputs": "/home/tcml-spark/experiments/constructive-destructive-regimes/cifar-eos-calibration-2026-10-13/cache/cifar10-eos",
+  "remote_python": "/home/tcml-spark/experiments/constructive-destructive-regimes/spark-calibration-2026-10-08/venv/bin/python",
+  "remote_dependencies": "/home/tcml-spark/experiments/constructive-destructive-regimes/cifar-eos-calibration-2026-10-13/dependencies",
+  "input_manifest_sha256": "a5eea01295c437f42135294619765dea9d2ba7befc9f785a3936f7366f9144f0",
+  "initial_tensor_sha256": "8de1e7c880539f122aa840d5b7c28027310e82bd3ee4e753afef87fe0876a2da",
+  "limits": {
+    "queue_seconds": 14400,
+    "run_seconds": 2700,
+    "progress_seconds": 60,
+    "retained_storage_allowance_bytes": 5000000000
+  },
+  "calibration": {
+    "run_id": "058",
+    "projected_training_minutes": 58.36,
+    "qualified_allowance_minutes": 111.6,
+    "notes": "early24update samples; later eigenvalue clustering and iterations unmeasured; allow10min retrieval/plotting"
+  }
+}

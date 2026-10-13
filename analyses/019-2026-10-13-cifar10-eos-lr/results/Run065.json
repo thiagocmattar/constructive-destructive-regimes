@@ -1,0 +1,123 @@
+{
+  "run_id": "065",
+  "run": "065-2026-10-13-cifar10-eos-adam-lr-2e-4",
+  "optimizer": "adam",
+  "lr": 0.0002,
+  "config_sha256": "49e1bc7cc7e0aec218165e3ac4c07608fb6000d283bc2efda43aefb2a4e2a61c",
+  "updates": 20000,
+  "final_train": {
+    "loss": 0.0007075287103652955,
+    "accuracy": 1.0,
+    "examples": 5000
+  },
+  "final_test": {
+    "loss": 0.7615953918457031,
+    "accuracy": 0.2802,
+    "examples": 10000
+  },
+  "elapsed_seconds": 479.04671676899306,
+  "memory": {
+    "peak_allocated_bytes": 356637696,
+    "peak_reserved_bytes": 392167424
+  },
+  "first_train_99_percent_update": 311,
+  "minimum_observed_train_loss": 6.525294793391367e-05,
+  "streams": {
+    "raw": {
+      "norm": 0.3583616118987492,
+      "A": 16285.06322490562,
+      "B": 45.526882799427504,
+      "B_over_A": 0.002795622109087105,
+      "energy": 18615.484610686657,
+      "all_pair": -16542.78755325385,
+      "lag_one": -31359.637088972147,
+      "beyond_lag_one": 14816.849535718298,
+      "negative_adjacent_fraction": 0.976198809940497,
+      "first_negative_adjacent_update": 2,
+      "last_1000_negative_adjacent_fraction": 0.993,
+      "last_1000_cosine_mean": -0.8403822575564541,
+      "minimum_norm": 0.06390128516752676,
+      "final_minus_minimum_norm": 0.29446032673122247
+    },
+    "displacement": {
+      "norm": 0.0076082842033982955,
+      "A": 173.635367111605,
+      "B": 10.508443690090944,
+      "B_over_A": 0.06052018010441726,
+      "energy": 1.8455327777312283,
+      "all_pair": 108.58185601008095,
+      "lag_one": -2.1570884480393593,
+      "beyond_lag_one": 110.73894445812032,
+      "negative_adjacent_fraction": 0.9507475373768688,
+      "first_negative_adjacent_update": 208,
+      "last_1000_negative_adjacent_fraction": 0.99,
+      "last_1000_cosine_mean": -0.813958634903246,
+      "minimum_norm": 0.0015897347337260716,
+      "final_minus_minimum_norm": 0.006018549469672224
+    },
+    "momentum": {
+      "norm": 0.02150630545658991,
+      "A": 927.8146604254719,
+      "B": 45.52515980347306,
+      "B_over_A": 0.04906708391802776,
+      "energy": 62.12392516006536,
+      "all_pair": 2010.4162499716938,
+      "lag_one": -81.90102458247448,
+      "beyond_lag_one": 2092.3172745541683,
+      "negative_adjacent_fraction": 0.9606480324016201,
+      "first_negative_adjacent_update": 2,
+      "last_1000_negative_adjacent_fraction": 0.985,
+      "last_1000_cosine_mean": -0.8237554744544127,
+      "minimum_norm": 0.005391144425056194,
+      "final_minus_minimum_norm": 0.016115161031533716
+    },
+    "unbiased_momentum": {
+      "norm": 0.02150630545658991,
+      "A": 935.2345767609147,
+      "B": 46.9187844262174,
+      "B_over_A": 0.05016793175966142,
+      "energy": 73.62597390206825,
+      "all_pair": 2127.746358131792,
+      "lag_one": -73.44343525291285,
+      "beyond_lag_one": 2201.189793384705,
+      "negative_adjacent_fraction": 0.9606480324016201,
+      "first_negative_adjacent_update": 2,
+      "last_1000_negative_adjacent_fraction": 0.985,
+      "last_1000_cosine_mean": -0.8237554744544127,
+      "minimum_norm": 0.005391144425056194,
+      "final_minus_minimum_norm": 0.016115161031533716
+    },
+    "adaptive": {
+      "norm": 38.04142004531364,
+      "A": 868176.854075081,
+      "B": 52542.21957595299,
+      "B_over_A": 0.060520180109995284,
+      "energy": 46138321.08652384,
+      "all_pair": 2714546516.881134,
+      "lag_one": -53927213.82328559,
+      "beyond_lag_one": 2768473730.7044196,
+      "negative_adjacent_fraction": 0.9507475373768688,
+      "first_negative_adjacent_update": 208,
+      "last_1000_negative_adjacent_fraction": 0.99,
+      "last_1000_cosine_mean": -0.8139586355181335,
+      "minimum_norm": 7.948673649173703,
+      "final_minus_minimum_norm": 30.09274639613994
+    }
+  },
+  "final_hessian": [
+    121.459228515625,
+    120.336669921875
+  ],
+  "final_eta_lambda_max": 0.024291845703125002,
+  "maximum_hessian_eigenvalue": 467.9480285644531,
+  "late_train_loss_mean": 0.0009441139728223789,
+  "late_train_loss_std": 0.000679909616111763,
+  "last_1000_eta_lambda_max_mean": 0.02483207473754883,
+  "eta_kappa_last_1000_mean": 1.871216010947001,
+  "final_preconditioned_hessian": [
+    196215.453125,
+    192094.453125
+  ],
+  "final_eta_preconditioned_lambda_max": 39.243090625,
+  "fraction_spectral_samples_above_frozen_adam_reference_38": 0.645
+}

@@ -1,0 +1,39 @@
+{
+  "run_id": "066",
+  "status": "passed",
+  "raw_updates_checked": 20000,
+  "test_evaluations_checked": 20000,
+  "eigenstates_checked": 201,
+  "eigenpairs_checked": 802,
+  "maximum_relative_eigenpair_residual": 0.0009802739368751645,
+  "eigensolver_retries": 0,
+  "hvp_calls": 15816,
+  "checkpoint": {
+    "exact_displacement_telescoping": "passed",
+    "optimizer_vectors": "passed",
+    "independent_final_forward": {
+      "status": "passed",
+      "results": {
+        "train": {
+          "loss": 0.0006593870171162017,
+          "accuracy": 1.0,
+          "examples": 5000
+        },
+        "test": {
+          "loss": 0.7092397544334543,
+          "accuracy": 0.2835,
+          "examples": 10000
+        }
+      },
+      "loss_rtol": 5e-05,
+      "loss_atol": 2e-07,
+      "chunk_size": 512
+    }
+  },
+  "verified_transfer_files": 15,
+  "verified_transfer_bytes": 225627703,
+  "source_metrics_sha256": "a8f17ee7d5a7e1046a75505d20a1d914370609b05b70bf1f307971a069685342",
+  "source_curvature_sha256": "501e8a6b334e87956c9fd659e7e2b4a257408321f1fccf6b9821e2398a9b5e12",
+  "derived_sha256": "7d377f6f6593bbbccf0b2dfe6ee85fb413ed1061326d6a8cffd65317315c2b7d",
+  "derived_bytes": 10086363
+}

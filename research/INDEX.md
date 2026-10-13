@@ -2,6 +2,17 @@
 
 ## Current state
 
+[Analysis019: CIFAR-10 GD/Adam learning-rate sweep](../analyses/019-2026-10-13-cifar10-eos-lr/REPORT.md)
+completed Runs059-066 on Spark:20,000 fixed updates each,common5k tanh MLP
+initialization and full10k test evaluation. All160k rows and4,816 residual-checked
+ordinary/preconditioned eigenpairs pass source/scalar/state/forward checks; four
+PDFs pass array/render review. Final train losses GD0.09688,0.05651,0.03204,0.01945,
+Adam0.0007658,0.0008776,0.0007075,0.0006594 in increasing LR order. Actual training/diagnostics52.0min;
+ETC0,peak allocation<0.35GiB; all outputs retrieved/hashed,owned Spark idle.
+One frozen seed,no LR tuning; no global stability/convergence or alignment proxy
+claim. Full scalar/recovery evidence retained locally/on Spark; no cloud rental.
+Next Run067 / Analysis020 / H019.
+
 [Run058: CIFAR-10 Edge of Stability calibration](../runs/058-2026-10-13-cifar10-eos-calibration/REPORT.md)
 implements the confirmed5k tanh MLP with GD/Adam and raw/m/mhat/adaptive/update
 geometry, kappa and ordinary/preconditioned Hessian spectra. Both owned GPUs

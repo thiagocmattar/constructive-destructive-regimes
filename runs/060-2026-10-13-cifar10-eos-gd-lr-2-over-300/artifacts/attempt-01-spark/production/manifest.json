@@ -1,0 +1,71 @@
+{
+  "status": "complete",
+  "mode": "production",
+  "started_utc": "2026-10-13T12:41:56.485252+00:00",
+  "optimizer": "gd",
+  "start_step": 0,
+  "requested_updates": 20000,
+  "config_sha256": "edd086497ad93568d7bcab9a3772957a916266883f7e5938fd086a89f8ce0ae6",
+  "input_sha256": "a5eea01295c437f42135294619765dea9d2ba7befc9f785a3936f7366f9144f0",
+  "source_sha256": {
+    "train.py": "532d67c82c27076a573bdd6e2fe0b1156de414b3cb38db953f5237b7b9261f17",
+    "__init__.py": "4cfbf7fc078bcae86b6ddfcbb2a9d87619b6350302c07379b3f4df21fe7eb27c",
+    "verification.py": "a7a8959c5b3db757edbd752693b416d63446af9b6d388373ffe2b5ffc65d5e28",
+    "core.py": "c9fab65d551740149d7ff3a79e4b3af1e87ff5e7f3ba7c5cc62201f216434138"
+  },
+  "environment": {
+    "utc": "2026-10-13T12:41:56.485694+00:00",
+    "python": "3.12.3",
+    "platform": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+    "torch": "2.11.0+cu130",
+    "cuda": "13.0",
+    "numpy": "2.5.0",
+    "scipy": "1.18.1",
+    "device": "cuda:0",
+    "gpu": "NVIDIA GB10",
+    "gpu_total_bytes": 130661138432,
+    "matmul_precision": "highest",
+    "tf32": false
+  },
+  "initial_tensor_sha256": "8de1e7c880539f122aa840d5b7c28027310e82bd3ee4e753afef87fe0876a2da",
+  "train_examples": 5000,
+  "test_examples": 10000,
+  "history": "exact scalar prefixes; no dense histories",
+  "resume_checkpoint": null,
+  "completed_utc": "2026-10-13T12:47:33.010111+00:00",
+  "completed_updates": 20000,
+  "files": {
+    "initial.pt": {
+      "bytes": 13145669,
+      "sha256": "960a4db9d562375ba4ca9cf85ccdf1861ebe4f009986a94b7b76673c55e80327"
+    },
+    "summary.json": {
+      "bytes": 10182279,
+      "sha256": "72e68da42468e66d833294e0bf0f6f951c98de5538a5d2bbe467fa4c3b4215e0"
+    },
+    "final.pt": {
+      "bytes": 23655067,
+      "sha256": "612ee596880bd75448604ddecdd640177f28dc3431cee28b96a51408ac5bccc9"
+    },
+    "metrics.jsonl": {
+      "bytes": 36671738,
+      "sha256": "edfdd1d708735bf40b793d1eb4cfc4de1ffa14a9f41ae6df79f49916d3024181"
+    },
+    "events.jsonl": {
+      "bytes": 67591,
+      "sha256": "7d4102846b5e18a706f40f7fff39570fc81310b107a64239a22a790051069e60"
+    },
+    "resolved_config.json": {
+      "bytes": 1744,
+      "sha256": "c4196488f3d05f854ecc0b6fe224248f2c69b3291afeb74bf2e128962ed14542"
+    },
+    "recovery.pt": {
+      "bytes": 23655377,
+      "sha256": "116731347dffbe6ba808a5024a936735fa73891feb40efdc4c59f9f5b83d17b5"
+    },
+    "curvature.jsonl": {
+      "bytes": 103900,
+      "sha256": "f993ee690ed853f8684af61beb0863c50aa46346483a4b16744fa2231f91b848"
+    }
+  }
+}

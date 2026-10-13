@@ -23,7 +23,9 @@ questions alone do not create experimental commitments.
 
 | H017 | How does the eta-scaled gradient identity change with Rosenbrock Gaussian gradient noise sigma0/0.01/0.1/1/10, including its realized noise term? | Completed exploratory postprocessing; one paired seed | Runs038-052 reused; [Analysis018](../analyses/018-2026-10-12-rosenbrock-kappa-noise/README.md) | At sigma10 late gradient-only means1.050/1.072/1.095 become0.0186/0.00426/0.00270 when measured epsilon is added. AdamW mismatch persists versus directional curvature. All pairs/means and both100/250-pair PDFs reviewed; no ensemble law, validated curvature estimator or stability threshold |
 
-Next hypothesis: `H018`. Record the operational meaning,
+| H018 | How do full-batch CIFAR-10 loss and raw/m/mhat/adaptive/update geometry relate to ordinary/preconditioned Hessian curvature across GD/Adam learning rates? | Completed exploratory single-seed fixed-horizon comparison | Runs059-066; [Analysis019](../analyses/019-2026-10-13-cifar10-eos-lr/README.md) | All160k updates and4,816 eigenpairs verified; four PDFs reviewed. Final train losses GD0.09688,0.05651,0.03204,0.01945,Adam0.0007658,0.0008776,0.0007075,0.0006594 in increasing LR order. Fixed20k horizon,one frozen initialization,full5k/10k coverage; no universal stability/alignment proxy or optimized method ranking |
+
+Next hypothesis: `H019`. Record the operational meaning,
 comparison, support/refutation criteria, and scope in the corresponding run
 proposal. Suggested statuses: proposed, active, supported, unsupported,
 inconclusive, withdrawn. Preserve superseded interpretations instead of rewriting

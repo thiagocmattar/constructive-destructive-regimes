@@ -23,5 +23,7 @@
 
 | [018](018-2026-10-12-rosenbrock-kappa-noise/README.md) | H017: eta-kappa identity across Gaussian gradient noise, retaining realized epsilon | Immutable Runs038-052; five sigmas, three LRs, one paired seed | Complete; 29,985 pairs and28,500 means per metric checked; two PDFs (100/250 pairs) reviewed; no optimizer run | [001: Noise overlay](018-2026-10-12-rosenbrock-kappa-noise/observations/001-noise-overlay.md); gradient-only late sigma10 means1.050/1.072/1.095 versus corrected0.0186/0.00426/0.00270; original PDFs preserved |
 
-Next analysis: `019-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
+| [019](019-2026-10-13-cifar10-eos-lr/README.md) | H018: full-batch CIFAR-10 GD/Adam LR ablation and geometry versus Hessian spectra | Runs059-066; frozen Run058 inputs | Complete; eight20k-update Spark trajectories,160k rows and4,816 eigenpairs verified; four PDFs reviewed | [Results](019-2026-10-13-cifar10-eos-lr/REPORT.md), [observation](019-2026-10-13-cifar10-eos-lr/observations/001-learning-rate-sweep.md); one seed; no cloud rental |
+
+Next analysis: `020-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
 an analysis may use manuscript or external inputs without referencing a run.
