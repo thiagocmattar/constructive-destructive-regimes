@@ -1,10 +1,10 @@
 {
   "status": "passed",
   "script": "11_plot_gd_paper.py",
-  "script_sha256": "c5261d3fd0cead41c3372983106ce23db25aad699eabe7c4b432eef654c4740c",
+  "script_sha256": "a84fef8a157f0f47f72d21597806c05e42d78fdcf22b770d1568ae6a7557ea49",
   "figure": "figures/cifar10_gd_diagnostics_paper.pdf",
-  "sha256": "c8121f4cefc192c6c913a1aa224ef2f0c4ae49f0fc0a5af1ee79d925916e68c8",
-  "bytes": 831645,
+  "sha256": "40a226677576272f4fa50ae5a6d91863a993f5b9eaa09434f3976042db0777ea",
+  "bytes": 831742,
   "dimensions_inches": [
     6.8,
     5.65
@@ -266,5 +266,12 @@
       "source_curvature_sha256": "a0cd312d5948ce6a8ee2e350e9ea112c160070c468ff4625d5bce70ef55f7d1d"
     }
   ],
-  "caption": "Matched CIFAR-10 full-batch GD rates: unsmoothed loss, adjacent cosine, eta-kappa, eta*largest algebraic Hessian eigenvalue, full-prefix B/A and log raw-gradient norm. All updates and all 201 Hessian samples per run retained; no reduction changed."
+  "caption": "Matched CIFAR-10 full-batch GD rates: unsmoothed loss, adjacent cosine, eta-scaled directional curvature estimate, eta*largest algebraic Hessian eigenvalue, full-prefix B/A and log raw-gradient norm. All updates and all 201 Hessian samples per run retained; no reduction changed.",
+  "visual_review": {
+    "status": "passed",
+    "panel_c_title": "Directional curvature",
+    "render": "scratch/cifar10_gd_diagnostics_paper_title.png",
+    "render_sha256": "99ddb94b2269a969d702d319dc1d39894bd6ec486f0bbdccdf06bdd3c1190d39",
+    "review": "Inspected the full Poppler render: title, labels, legends and curves are legible without clipping or overlap. All 24 X/Y arrays are identical to the prior publication figure."
+  }
 }

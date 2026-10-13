@@ -38,7 +38,7 @@ def main():
     definitions = [
         ('(a) Training loss', r'$\mathcal{L}(\theta)$', 'train_loss_with_final_state'),
         ('(b) Adjacent alignment', r'$\rho_t$', 'raw_cosine'),
-        ('(c) Gradient secant', r'$\eta\widehat\kappa_t$', 'eta_kappa_proxy'),
+        ('(c) Directional curvature', r'$\eta\widehat\kappa_t$', 'eta_kappa_proxy'),
         ('(d) Maximum curvature', r'$\eta\lambda_{\max}$', 'eta_lambda_max'),
         ('(e) Normalized displacement', r'$B_t/A_t$', 'raw_B_over_A'),
         ('(f) Gradient norm', r'$\|g_t\|_2$', 'raw_norm')]
@@ -101,7 +101,7 @@ def main():
         'source_figure_sha256_unchanged': original_hash,
         'source_manifest_sha256': GD.sha256(HERE / 'gd_figure_manifest.json'),
         'sources': base['sources'],
-        'caption': 'Matched CIFAR-10 full-batch GD rates: unsmoothed loss, adjacent cosine, eta-kappa, '
+        'caption': 'Matched CIFAR-10 full-batch GD rates: unsmoothed loss, adjacent cosine, eta-scaled directional curvature estimate, '
                    'eta*largest algebraic Hessian eigenvalue, full-prefix B/A and log raw-gradient norm. '
                    'All updates and all 201 Hessian samples per run retained; no reduction changed.'})
     print(json.dumps({'figure': str(destination), 'curves_identical_to_original': 24}))
