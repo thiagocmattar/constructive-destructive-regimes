@@ -28,11 +28,12 @@ and gradient descent}
 
 \section{Introduction}
 
-Training large language models (LLMs) relies on adaptive optimization, momentum, gradient clipping, and learning-rate schedules to stabilize learning and mitigate phenomena such as loss spikes and oscillatory updates. To better understand the dynamics these mechanisms regulate, we study how gradient alignment evolves over the course of training.
+Training large language models (LLMs) relies on adaptive optimization, momentum, gradient clipping, learning-rate schedules and other heuristics to stabilize learning and mitigate phenomena such as loss spikes and oscillatory updates. Yet, despite their
+effectiveness, it is not fully understood why these mechanisms work, and under what conditions they fail.
 
-We identify a transition between two distinct regimes. Early in training, successive gradients tend to align, allowing updates to accumulate constructively as the loss decreases. Later, gradient directions reverse more frequently, causing successive updates to partially cancel one another. Despite this increased cancellation, the loss can continue to decrease.
+To address this gap, we identify a persistent behaviour of transition between two distinct learning regimes. Early in training, successive gradients tend to align, allowing updates to accumulate constructively as the loss decreases. Later, gradient directions reverse more frequently, causing successive updates to partially cancel one another. Despite this increased cancellation, the loss can continue to decrease.
 
-Two complementary intuitions help explain this behavior. From the perspective of representation learning, each new mini-batch updates parameters that also encode previously learned information. Depending on its direction, an update may reinforce existing representations or partially undo earlier changes. From the perspective of optimization geometry, a step may overshoot the bottom of a loss valley, prompting subsequent steps to reverse direction and partially retrace the path. Both mechanisms can give rise to oscillatory parameter updates even as optimization continues to make progress.
+Two complementary intuitions help explain this behavior. From the perspective of representation learning, each new mini-batch updates parameters that also encode previously learned structure. Depending on its direction, an update may reinforce existing representations or partially undo them. From the perspective of optimization geometry, a step may overshoot the bottom of a loss valley, prompting subsequent steps to reverse direction and partially retrace the path. Both mechanisms can give rise to oscillatory parameter updates even as optimization continues to make progress.
 
 We formalize these dynamics using identities for stochastic gradient descent (SGD), relating the alignment of consecutive gradients to curvature and gradient noise, and cumulative update cancellation to net parameter displacement. Building on these relations, we introduce scalable diagnostics for quantifying these dynamics and tracking the transition between constructive and oscillatory regimes during large-scale model training.
 
@@ -42,16 +43,11 @@ We formalize these dynamics using identities for stochastic gradient descent (SG
 Let $\theta_t\in\mathbb{R}^p$ denote the parameters after update $t$, and let
 $g_t$ denote a mini-batch gradient evaluated at $\theta_{t-1}$. We consider
 constant-step SGD with learning rate $\eta>0$, without momentum, weight decay,
-or clipping:
+or clipping
 \begin{equation}
   \theta_t=\theta_{t-1}-\eta g_t.
   \label{eq:sgd}
 \end{equation}
-All norms below are Euclidean and include the full parameter vector. Full-batch
-GD is the special case in which every $g_t$ is the exact training-objective
-gradient. The displacement identities in this section hold pathwise, regardless
-of how the stochastic gradients are generated.
-
 After $T$ updates, summing Eq.~\eqref{eq:sgd} gives the displacement from
 initialization,
 \begin{equation}
@@ -59,20 +55,19 @@ initialization,
   \label{eq:displacement}
 \end{equation}
 Expanding its squared norm separates individual gradient magnitudes from their
-temporal interactions:
+temporal interactions
 \begin{equation}
   \boxed{\norm{\Delta_T}^2
   =\eta^2\sum_{t=1}^T\norm{g_t}^2
    +2\eta^2\sum_{1\leq u<t\leq T}g_u^\top g_t.}
   \label{eq:energy-interaction}
 \end{equation}
-The gradient-energy terms are nonnegative. Each pairwise inner product can be
+The gradient-energy terms $\norm{g_t}^2$ are nonnegative. Each pairwise inner product
+$g_u^\top g_t$ can be
 positive, zero, or negative: aligned gradients reinforce their contribution to
 the sum, whereas opposing gradients cancel part of it. Gradient energy is not
 itself net displacement; the interaction term determines how much of this energy
-remains in the squared norm of the accumulated vector. Measuring displacement
-relative to initialization also avoids an additional cross term involving
-$\theta_0$ that would appear in an expansion of $\norm{\theta_T}^2$.
+remains in the squared norm of the accumulated vector.
 
 For nonzero consecutive gradients, define their cosine similarity as
 \begin{equation}
@@ -94,8 +89,7 @@ Separating adjacent pairs from the remaining interactions yields
 Negative $\rho_t$ contributes cancellation between consecutive updates. However,
 longer-lag interactions can reinforce or offset these negative contributions.
 Thus, adjacent anti-alignment diagnoses a local interaction, while the complete
-double sum determines cumulative interaction over the chosen horizon. We retain
-both terms rather than assume that lag one approximates the whole trajectory.
+double sum determines longer-term cumulative interaction. 
 
 \section{Curvature, gradient noise, and consecutive alignment}
 
