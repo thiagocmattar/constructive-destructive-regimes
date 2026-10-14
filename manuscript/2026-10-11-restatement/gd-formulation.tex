@@ -364,6 +364,56 @@ depends on $d_t$. Bias correction leaves $c_t$ unchanged but generally changes
 the cumulative ratio, so accumulation of $m_t$ and $\widehat m_t$ must be
 distinguished.
 
+\clearpage
+\section{Controlled Rosenbrock experiments}
+
+We compare three deterministic AdamW trajectories on
+$f(x,y)=(1-x)^2+100(y-x^2)^2$, whose minimum is $(1,1)$.
+All runs start at $(0,1)$ and perform 2,000 float64 updates at
+$\eta\in\{10^{-2},10^{-2.5},10^{-3}\}$, with
+$(\beta_1,\beta_2)=(0.9,0.95)$, $\epsilon=10^{-8}$, weight decay $0.1$,
+and exact gradients. With zero gradient noise, rearranging
+Eq.~\eqref{eq:momentum-alignment-model} gives the momentum estimate
+\begin{equation}
+\begin{aligned}
+  \eta\widehat\kappa_t^{(m)}
+  &:=a_t+\frac{1-c_t\norm{m_t}/\norm{m_{t-1}}}{1-\beta_1}\\
+  &=\frac{m_{t-1}^\top(g_{t-1}-g_t)}{\norm{m_{t-1}}^2}.
+\end{aligned}
+\label{eq:momentum-curvature-estimate}
+\end{equation}
+Both gradient-derived estimates follow the AdamW trajectory; adaptive updates,
+decay and finite-step effects prevent identifying them with $\lambda_{\max}$.
+All paths enter the curved valley and approach the minimum
+(Fig.~\ref{fig:rosenbrock-trajectories}). Larger learning rates reach
+raw-gradient reversal earlier, whereas momentum remains positively aligned
+on average (Fig.~\ref{fig:rosenbrock-diagnostics}). Cumulative $B/A$ stays high:
+late reversal therefore need not imply substantial cancellation over the
+full trajectory. The smallest learning rate attains the lowest final objective.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\linewidth]{../../analyses/017-2026-10-12-rosenbrock-kappa-identity/figures/rosenbrock_trajectories_paper.pdf}
+  \caption{Complete AdamW trajectories on Rosenbrock objective level curves.
+  The square and star mark the common start and global minimum; circles mark
+  final states. Arrows follow update order.}
+  \label{fig:rosenbrock-trajectories}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\linewidth]{../../analyses/017-2026-10-12-rosenbrock-kappa-identity/figures/rosenbrock_diagnostics_paper.pdf}
+  \caption{Rosenbrock diagnostics for the three learning rates.
+  (a) Objective; (b) raw-gradient and stored-momentum norms (log Y);
+  (c,d) adjacent cosines; (e) $\eta\lambda_{\max}$;
+  (f,g) gradient- and momentum-derived curvature estimates;
+  (h) full-prefix $B/A$, with raw gradients dashed.
+  Panels (c,d,f,g) use complete 100-pair trailing means, first defined at
+  update 101; other curves are unsmoothed. All 2,000 updates are retained.}
+  \label{fig:rosenbrock-diagnostics}
+\end{figure}
+\clearpage
+
 \begin{thebibliography}{9}
 \bibitem{cohen2021}
 J.~M.~Cohen, S.~Kaur, Y.~Li, J.~Z.~Kolter, and A.~Talwalkar.

@@ -92,3 +92,12 @@ and defines cumulative momentum accumulation as B/A. Bias correction preserves
 adjacent cosine but generally changes cumulative accumulation. Deterministic
 quadratic checks cover the momentum identity, adaptive displacement and this
 distinction. No new optimizer run or Adam empirical claim is introduced.
+
+The subsequent Rosenbrock results section reuses immutable Runs055-057, with
+a publication trajectory/contour figure and a separate eight-panel diagnostic
+figure recorded in Analysis017 Observation003. The momentum curvature estimate
+is the Eq.25 rearrangement with its tracking term, using stored m. All 5,997
+pairs, the decay/nonlinear-remainder decomposition and 22,800 complete means
+are checked; the original run inputs and previous PDFs are preserved.
+This is postprocessing of the existing AdamW trajectories, with no new run,
+cloud execution or claim that the estimates equal maximum Hessian curvature.

@@ -2,7 +2,8 @@
 
 The [English technical report](gd-formulation.pdf) develops the supplied
 `formulation.md` through the empirical full-batch GD result, followed by a compact
-section extending the identities to Adam momentum. The prose follows [writing-style.md](writing-style.md):
+section extending the identities to Adam momentum and controlled Rosenbrock
+results. The prose follows [writing-style.md](writing-style.md):
 formal explanation, consistent terminology, defined assumptions, and a progression
 from identities to mechanisms and observations. The supplied Markdown inputs and
 the existing main manuscript are preserved.
@@ -32,12 +33,19 @@ source values, sampling and original figure bytes are unchanged. Its local
 [observation](../../analyses/019-2026-10-13-cifar10-eos-lr/observations/004-gd-paper-figure.md)
 records sources, reductions, coverage and limitations. No new training occurred.
 
-The final section defines Adam's adaptive direction and exact displacement
+The Adam section defines the adaptive direction and exact displacement
 expansion, then derives consecutive-momentum alignment using stored first moments
 and a first-order curvature/noise model. Normalized momentum accumulation uses
 B/A consistently with SGD and is distinguished from actual Adam displacement.
 Bias correction preserves adjacent cosine but can change cumulative accumulation.
-This mathematical extension adds no empirical Adam result.
+The following Rosenbrock section reuses immutable Runs055-057 from Analysis017,
+with two new publication figures: complete trajectories on objective contours
+and an eight-panel diagnostic view. It includes the momentum-curvature estimate
+obtained by rearranging Eq.25 with its tracking term retained. Stored m is used
+throughout. Cosines and both projection estimates have complete 100-pair trailing
+means; other series are unsmoothed. Original figures and trajectories are preserved.
+The [local observation](../../analyses/017-2026-10-12-rosenbrock-kappa-identity/observations/003-manuscript-figures.md)
+records reductions and the AdamW decay/finite-step interpretation limits.
 
 The mathematical and empirical wording makes these distinctions explicit:
 
@@ -65,11 +73,20 @@ NumPy, Matplotlib, PyMuPDF, MiKTeX and Poppler:
 
 ```powershell
 python analyses/019-2026-10-13-cifar10-eos-lr/11_plot_gd_paper.py
+python analyses/017-2026-10-12-rosenbrock-kappa-identity/05_plot_paper.py
+```
+
+Inspect the two current Rosenbrock Poppler renders under Analysis017 `scratch/`,
+then record their review and build the manuscript:
+
+```powershell
+python analyses/017-2026-10-12-rosenbrock-kappa-identity/05_plot_paper.py --accept-reviewed
 python manuscript/2026-10-11-restatement/00_build.py
 ```
 
-Inspect every current report-page render and the standalone figure render before
-recording review:
+The builder checks that record plus PDF, script, source and derived-history hashes.
+Inspect every current report-page and standalone-figure render before recording
+the manuscript review:
 
 ```powershell
 python manuscript/2026-10-11-restatement/00_build.py --accept-reviewed

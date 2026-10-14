@@ -1,0 +1,516 @@
+{
+  "status": "passed",
+  "script": "05_plot_paper.py",
+  "script_sha256": "66bb1eb59cee63688f7c56711d33a0c16977cd3039863f90993e24a699efa0e8",
+  "metric_source_sha256": "3fbd1f72da82db129fa6e5f0103e019809975bcecd06118d89c885efa4da25bd",
+  "sources": [
+    {
+      "run_id": "Run055",
+      "directory": "runs/055-2026-10-11-rosenbrock-hessian-lr-1e-2",
+      "learning_rate": 0.01,
+      "lr_label": "0.01",
+      "control_directory": "runs/038-2026-10-10-rosenbrock-adamw-new-start-lr-1e-2",
+      "history_sha256": "3b9d3fbea1cbac50179c42b8c4f89446f947c569cd877c3e38ba96f00240fda4",
+      "history_bytes": 1042137,
+      "config_sha256": "e5459019d1bb4b985565952ce2d0a6bdc548db47774adf6d3fb076c562045ffc",
+      "verification_sha256": "c9b71e638ce9dd26e79fffa9e77a2d7f9a3727222470da7538d7be30079515ea"
+    },
+    {
+      "run_id": "Run056",
+      "directory": "runs/056-2026-10-11-rosenbrock-hessian-lr-midpoint",
+      "learning_rate": 0.0031622776601683794,
+      "lr_label": "0.0031622776601683794",
+      "control_directory": "runs/039-2026-10-10-rosenbrock-adamw-new-start-lr-midpoint",
+      "history_sha256": "fb065358971a478c5d706183514e621d55874d382884e9bbb6e5eb8c238b31ea",
+      "history_bytes": 1024283,
+      "config_sha256": "113876a0bcaacda7b3dad17f3c0bc74887b3a2d0ea54837cf36b55a526685c16",
+      "verification_sha256": "994b251fba7402afbb3130db5e1ae1138ef164d368a7402ce8079cb6b6315eb1"
+    },
+    {
+      "run_id": "Run057",
+      "directory": "runs/057-2026-10-11-rosenbrock-hessian-lr-1e-3",
+      "learning_rate": 0.001,
+      "lr_label": "0.001",
+      "control_directory": "runs/040-2026-10-10-rosenbrock-adamw-new-start-lr-1e-3",
+      "history_sha256": "114dd625cc630c9c9c871a38d8d561cf8bd3aa0b029837d90c3fb0ec1989d217",
+      "history_bytes": 1039279,
+      "config_sha256": "2b114a5de180d096dde0edd586db03d5c092009a6a0ff34fbb7d2edde4449b97",
+      "verification_sha256": "e79eb435bffde5933f669325eaad68ce4c7c2844b0fcf11030c99279489071d7"
+    }
+  ],
+  "source_results_sha256": "9ab51b5645c648ec3725fd358adb364e7562c48eb01602dfa6c817ae2d311e73",
+  "preserved_pdf_hashes": {
+    "figures/rosenbrock_kappa_comparison.pdf": "03cb22a5788fbd338926269187231dbd2047faf2ff446f539b96cc793fe36562",
+    "figures/rosenbrock_kappa_diagnostics.pdf": "0c47a226fcaea425de20f03d244db1a051ea730bdbb33ce9ae864514ffcb8e4b",
+    "figures/rosenbrock_kappa_eta_overlay.pdf": "a5f0bbf9adbec9fa9780ebb999e3868b67d9b186537ef11a1f6bb2415ade4292"
+  },
+  "momentum": "Stored uncorrected m_t; adaptive updates use mhat_t",
+  "gradient_noise": 0,
+  "weight_decay": 0.1,
+  "precision": "float64",
+  "pair_updates": "2..2000",
+  "curvature_state_clock": "theta[t] for panel e; theta[t-2] for decomposition of pair t",
+  "momentum_estimate": "a_t + (1-c_t*||m_t||/||m_(t-1)||)/(1-beta1) = m_(t-1)^T(g_(t-1)-g_t)/||m_(t-1)||^2",
+  "verification": {
+    "passed": true,
+    "pairs": 5997,
+    "checked_complete_means": 22800,
+    "raw_eta_overlay_arrays_identical": true,
+    "momentum_identity_and_decay_remainder_decomposition": true
+  },
+  "figures": {
+    "rosenbrock_trajectories_paper.pdf": {
+      "dimensions_inches": [
+        8.4,
+        5.9
+      ],
+      "domain": [
+        -0.12,
+        1.22,
+        0.22,
+        1.16
+      ],
+      "series": [
+        {
+          "run_id": "Run055",
+          "panel": "trajectory",
+          "metric": "theta",
+          "points": 2001,
+          "finite_points": 2001,
+          "x_sha256": "c514ce3d42e55a35a8fc61525289d5cee02fd431282bbd1f7ffa5b7d4078060d",
+          "y_sha256": "c8f8dbcad58d28922d5871e0f9b5951c30b650bab3d9ad91a6179c62290c69c2",
+          "linestyle": "-"
+        },
+        {
+          "run_id": "Run056",
+          "panel": "trajectory",
+          "metric": "theta",
+          "points": 2001,
+          "finite_points": 2001,
+          "x_sha256": "84de2f0a852e51317464737a4a7763d1c931b7d0e5391621a03501213934dff6",
+          "y_sha256": "f0ffca25dda4fd8fa513476ec975feeb13c63a4f655cb274bb1da7f42b3321cb",
+          "linestyle": "-"
+        },
+        {
+          "run_id": "Run057",
+          "panel": "trajectory",
+          "metric": "theta",
+          "points": 2001,
+          "finite_points": 2001,
+          "x_sha256": "61014d88bdc0fb7ded35b448613b27ecd9e8ac686d07b3adf050b61101419cbd",
+          "y_sha256": "a8d2a16474ca4a0031f2ccccd5238e6fdbd2e79468119c1ab99c4d1be16639db",
+          "linestyle": "-"
+        }
+      ],
+      "arrow_state_indices": [
+        {
+          "run_id": "Run055",
+          "from_state": 50,
+          "to_state": 55
+        },
+        {
+          "run_id": "Run055",
+          "from_state": 313,
+          "to_state": 318
+        },
+        {
+          "run_id": "Run055",
+          "from_state": 980,
+          "to_state": 985
+        },
+        {
+          "run_id": "Run056",
+          "from_state": 101,
+          "to_state": 106
+        },
+        {
+          "run_id": "Run056",
+          "from_state": 392,
+          "to_state": 397
+        },
+        {
+          "run_id": "Run056",
+          "from_state": 521,
+          "to_state": 526
+        },
+        {
+          "run_id": "Run057",
+          "from_state": 278,
+          "to_state": 283
+        },
+        {
+          "run_id": "Run057",
+          "from_state": 754,
+          "to_state": 759
+        },
+        {
+          "run_id": "Run057",
+          "from_state": 1054,
+          "to_state": 1059
+        }
+      ],
+      "all_trajectory_states": 2001,
+      "contours": [
+        0.001,
+        0.01,
+        0.1,
+        1.0,
+        10.0,
+        100.0
+      ],
+      "sha256": "c02af190304857bb13f7b1abcc8ed8f83658db19507aa6d69128446ec63e3177",
+      "bytes": 454414,
+      "visual_verification": {
+        "status": "passed",
+        "renderer": "Poppler",
+        "render": "scratch/rosenbrock_trajectories_paper_review.png",
+        "render_sha256": "3e6bbe43f37c049f33a47ea9c7416a1de02de1f1a2904775e3271c1e64d2c02c",
+        "text_spans_outside_page": [],
+        "review": "Inspected current Poppler render for labels, legends, contours, clipping, overlap and readable data-scaled axes."
+      }
+    },
+    "rosenbrock_diagnostics_paper.pdf": {
+      "dimensions_inches": [
+        8.4,
+        8.8
+      ],
+      "panels": 8,
+      "series": [
+        {
+          "run_id": "Run055",
+          "panel": "a",
+          "metric": "loss",
+          "points": 2001,
+          "finite_points": 2001,
+          "x_sha256": "b833a6113b55b2396ffd0f69f47cc232e8cf5cb3d6e601caff363c17ea75afcf",
+          "y_sha256": "8f0886fea233c7a02be04bae3a4c4cd044ddc55efc929b28954f5e776cf34a6a",
+          "linestyle": "-"
+        },
+        {
+          "run_id": "Run055",
+          "panel": "b",
+          "metric": "raw_norm",
+          "points": 2000,
+          "finite_points": 2000,
+          "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+          "y_sha256": "a3435bcaf1c0140622b15e4982f56eb3e88cbe4bf1725d9eb68eee3160ed8710",
+          "linestyle": "--"
+        },
+        {
+          "run_id": "Run055",
+          "panel": "b",
+          "metric": "momentum_norm",
+          "points": 2000,
+          "finite_points": 2000,
+          "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+          "y_sha256": "8a40a2a23fd5c536de19aebedc4afd235a4864d812d7c0117e2d3d36cb58c490",
+          "linestyle": "-"
+        },
+        {
+          "run_id": "Run055",
+          "panel": "c",
+          "metric": "raw_cosine_mean100",
+          "points": 2000,
+          "finite_points": 1900,
+          "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+          "y_sha256": "ad7b5a66b5a986776a2c3d3020951c73900de43f4b6c71f2ab39ebccdc94342d",
+          "linestyle": "-"
+        },
+        {
+          "run_id": "Run055",
+          "panel": "d",
+          "metric": "momentum_cosine_mean100",
+          "points": 2000,
+          "finite_points": 1900,
+          "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+          "y_sha256": "c05d0a31f82504fed27dfca3ce3164944023fb120cb239538892dcd40167b98d",
+          "linestyle": "-"
+        },
+        {
+          "run_id": "Run055",
+          "panel": "e",
+          "metric": "eta_lambda_max",
+          "points": 2001,
+          "finite_points": 2001,
+          "x_sha256": "b833a6113b55b2396ffd0f69f47cc232e8cf5cb3d6e601caff363c17ea75afcf",
+          "y_sha256": "fe882913ad21ca22c68357807ff44848b935fb4e51579f0d567f8aebce9527c5",
+          "linestyle": "-"
+        },
+        {
+          "run_id": "Run055",
+          "panel": "f",
+          "metric": "raw_eta_kappa_mean100",
+          "points": 2000,
+          "finite_points": 1900,
+          "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+          "y_sha256": "f2d3bec267f77d2c19f786e3acf5dd48b2f7d50871323bd4abb8c64598f10029",
+          "linestyle": "-"
+        },
+        {
+          "run_id": "Run055",
+          "panel": "g",
+          "metric": "momentum_eta_kappa_mean100",
+          "points": 2000,
+          "finite_points": 1900,
+          "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+          "y_sha256": "03b67885d1d89205280b7802b0c15cc710ce1b52365a2c2731e8f74c6628dcac",
+          "linestyle": "-"
+        },
+        {
+          "run_id": "Run055",
+          "panel": "h",
+          "metric": "raw_ratio",
+          "points": 2000,
+          "finite_points": 2000,
+          "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+          "y_sha256": "699cfee268fd6e02ae50127bd00ea3d4364cff044311fec926bb08f76c08f882",
+          "linestyle": "--"
+        },
+        {
+          "run_id": "Run055",
+          "panel": "h",
+          "metric": "momentum_ratio",
+          "points": 2000,
+          "finite_points": 2000,
+          "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+          "y_sha256": "6674d263dcad1f2ab1a87d7764416d310a69606aac336e1fbecc0c40d55caa8f",
+          "linestyle": "-"
+        },
+        {
+          "run_id": "Run056",
+          "panel": "a",
+          "metric": "loss",
+          "points": 2001,
+          "finite_points": 2001,
+          "x_sha256": "b833a6113b55b2396ffd0f69f47cc232e8cf5cb3d6e601caff363c17ea75afcf",
+          "y_sha256": "39c5546cb1e2b348eb43716877ed195b2c44e3654e2a1e65b02bf9d7dcbfab6b",
+          "linestyle": "-"
+        },
+        {
+          "run_id": "Run056",
+          "panel": "b",
+          "metric": "raw_norm",
+          "points": 2000,
+          "finite_points": 2000,
+          "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+          "y_sha256": "a10843556a277d36575fa2def53d2a2d6bcaccaa8de6707e2aaef7bd6227740a",
+          "linestyle": "--"
+        },
+        {
+          "run_id": "Run056",
+          "panel": "b",
+          "metric": "momentum_norm",
+          "points": 2000,
+          "finite_points": 2000,
+          "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+          "y_sha256": "026ba0ccb70506ce853087235b89308c55b3d5bbf33c815d281d1d26a6f58e35",
+          "linestyle": "-"
+        },
+        {
+          "run_id": "Run056",
+          "panel": "c",
+          "metric": "raw_cosine_mean100",
+          "points": 2000,
+          "finite_points": 1900,
+          "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+          "y_sha256": "e297cd73e8062bee20a969d8985523ecd9029fce2aca5c183dc8ced8c7b914f2",
+          "linestyle": "-"
+        },
+        {
+          "run_id": "Run056",
+          "panel": "d",
+          "metric": "momentum_cosine_mean100",
+          "points": 2000,
+          "finite_points": 1900,
+          "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+          "y_sha256": "d58c71d24577fe42f889746354c1505a17f8692c3b5c8d68aaf57434f32ec26b",
+          "linestyle": "-"
+        },
+        {
+          "run_id": "Run056",
+          "panel": "e",
+          "metric": "eta_lambda_max",
+          "points": 2001,
+          "finite_points": 2001,
+          "x_sha256": "b833a6113b55b2396ffd0f69f47cc232e8cf5cb3d6e601caff363c17ea75afcf",
+          "y_sha256": "df1a51a03b5c51a5bf64f53c03c760d86a95d742f218cbfb45552d70787423e9",
+          "linestyle": "-"
+        },
+        {
+          "run_id": "Run056",
+          "panel": "f",
+          "metric": "raw_eta_kappa_mean100",
+          "points": 2000,
+          "finite_points": 1900,
+          "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+          "y_sha256": "1a7cfaad09743323d0142c922445f178006fe3dedcb1b0b90bb4c8d5cba9993e",
+          "linestyle": "-"
+        },
+        {
+          "run_id": "Run056",
+          "panel": "g",
+          "metric": "momentum_eta_kappa_mean100",
+          "points": 2000,
+          "finite_points": 1900,
+          "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+          "y_sha256": "67a7ed75a361be82e7bba67989675997fd9df4bf48bec74082181c0d4ead7e9f",
+          "linestyle": "-"
+        },
+        {
+          "run_id": "Run056",
+          "panel": "h",
+          "metric": "raw_ratio",
+          "points": 2000,
+          "finite_points": 2000,
+          "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+          "y_sha256": "fef6204568d9a62024a9314344fb4085eac148a5372ea131045534760fb92d0d",
+          "linestyle": "--"
+        },
+        {
+          "run_id": "Run056",
+          "panel": "h",
+          "metric": "momentum_ratio",
+          "points": 2000,
+          "finite_points": 2000,
+          "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+          "y_sha256": "ca23dfc82fae0944ba0a6901cddcbeb6a641499246fd4f17239ee89db8cf6bb8",
+          "linestyle": "-"
+        },
+        {
+          "run_id": "Run057",
+          "panel": "a",
+          "metric": "loss",
+          "points": 2001,
+          "finite_points": 2001,
+          "x_sha256": "b833a6113b55b2396ffd0f69f47cc232e8cf5cb3d6e601caff363c17ea75afcf",
+          "y_sha256": "e931f90b8aaaadd85669b3872dd129a2f995889584dff87aed2776a03bdb7677",
+          "linestyle": "-"
+        },
+        {
+          "run_id": "Run057",
+          "panel": "b",
+          "metric": "raw_norm",
+          "points": 2000,
+          "finite_points": 2000,
+          "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+          "y_sha256": "01aa6077ada3483c2438342f4b16fd728c205949642506d80656dcba3d42b7b4",
+          "linestyle": "--"
+        },
+        {
+          "run_id": "Run057",
+          "panel": "b",
+          "metric": "momentum_norm",
+          "points": 2000,
+          "finite_points": 2000,
+          "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+          "y_sha256": "0f54103d26cb0779b81e4b29e61331887b5756cca18c82149b7ce545b5ba10d9",
+          "linestyle": "-"
+        },
+        {
+          "run_id": "Run057",
+          "panel": "c",
+          "metric": "raw_cosine_mean100",
+          "points": 2000,
+          "finite_points": 1900,
+          "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+          "y_sha256": "9503f37a7d2be075639811371f19375b4277a6c7bbf15240dca941c30305f317",
+          "linestyle": "-"
+        },
+        {
+          "run_id": "Run057",
+          "panel": "d",
+          "metric": "momentum_cosine_mean100",
+          "points": 2000,
+          "finite_points": 1900,
+          "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+          "y_sha256": "51f61ca6a755d801b9e6367dcd55e026a4a373d1eaa3ae4341b24d6a2bbc513e",
+          "linestyle": "-"
+        },
+        {
+          "run_id": "Run057",
+          "panel": "e",
+          "metric": "eta_lambda_max",
+          "points": 2001,
+          "finite_points": 2001,
+          "x_sha256": "b833a6113b55b2396ffd0f69f47cc232e8cf5cb3d6e601caff363c17ea75afcf",
+          "y_sha256": "706f908996e2f63d26caf4da62c7b0165da0eeaa750068a82b0e1306bb520549",
+          "linestyle": "-"
+        },
+        {
+          "run_id": "Run057",
+          "panel": "f",
+          "metric": "raw_eta_kappa_mean100",
+          "points": 2000,
+          "finite_points": 1900,
+          "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+          "y_sha256": "68906cde70f11270b912abd8c88a5dcc0b96bb297676259331b8089bbfa96090",
+          "linestyle": "-"
+        },
+        {
+          "run_id": "Run057",
+          "panel": "g",
+          "metric": "momentum_eta_kappa_mean100",
+          "points": 2000,
+          "finite_points": 1900,
+          "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+          "y_sha256": "2a48253d46169a997faaadacca3cac241b72d7c240cdbdb90ac343bf496da140",
+          "linestyle": "-"
+        },
+        {
+          "run_id": "Run057",
+          "panel": "h",
+          "metric": "raw_ratio",
+          "points": 2000,
+          "finite_points": 2000,
+          "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+          "y_sha256": "384a8a4b818e6d04f33e1ad543aa6fd14164835f002411bc341c4afe4c10bbce",
+          "linestyle": "--"
+        },
+        {
+          "run_id": "Run057",
+          "panel": "h",
+          "metric": "momentum_ratio",
+          "points": 2000,
+          "finite_points": 2000,
+          "x_sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d",
+          "y_sha256": "90b1fefa10cdb33a833753c9c0562381c8f20841ace057a890928927352f32ff",
+          "linestyle": "-"
+        }
+      ],
+      "y_scales": {
+        "a": "log",
+        "b": "log",
+        "c": "linear",
+        "d": "linear",
+        "e": "linear",
+        "f": "linear",
+        "g": "linear",
+        "h": "linear"
+      },
+      "ratio_y_limits": [
+        0.8098720849396988,
+        1.012438274817029
+      ],
+      "smoothing_panels": [
+        "c",
+        "d",
+        "f",
+        "g"
+      ],
+      "smoothing_window": 100,
+      "smoothing": "Full 100-pair trailing mean after forming each per-pair metric",
+      "thinning": null,
+      "sha256": "6161b4ec59de6b9bca706f5ae41612be052f8e9b6b613485bb5ed492e5e3fb41",
+      "bytes": 232266,
+      "visual_verification": {
+        "status": "passed",
+        "renderer": "Poppler",
+        "render": "scratch/rosenbrock_diagnostics_paper_review.png",
+        "render_sha256": "3dd501bf99be6c82f70113c624d4a244d9f09239d7a93f70ca1434b088b5a535",
+        "text_spans_outside_page": [],
+        "review": "Inspected current Poppler render for labels, legends, contours, clipping, overlap and readable data-scaled axes."
+      }
+    }
+  },
+  "results_sha256": "0b5bf2b7c2d3cbadf79ad7c46739c520e5a9178a2fbc52af68c0a0716f487745"
+}

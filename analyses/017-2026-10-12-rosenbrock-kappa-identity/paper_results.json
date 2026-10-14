@@ -1,0 +1,468 @@
+{
+  "runs": [
+    {
+      "run_id": "Run055",
+      "learning_rate": 0.01,
+      "final_point": [
+        0.9693563324802891,
+        0.9402281427300229
+      ],
+      "final_loss": 0.0009722630595963418,
+      "final_eta_lambda_max": 9.53119491261377,
+      "final_raw_ratio": 0.8223103597567278,
+      "final_momentum_ratio": 0.9209498732852067,
+      "late100": {
+        "raw_cosine": -0.6538640486170649,
+        "momentum_cosine": 0.6426852501136806,
+        "raw_eta_kappa": 1.79018241572521,
+        "momentum_eta_kappa": 5.617892705115899
+      },
+      "momentum_estimate_range": [
+        -4.295247181529466,
+        24.13089628694154
+      ],
+      "derived": "analyses/017-2026-10-12-rosenbrock-kappa-identity/artifacts/Run055_paper.npz",
+      "derived_sha256": "9c03c2de53ba1758e179d455698541ee453c57d6c66f3958673249f660be3d11",
+      "arrays": {
+        "state": {
+          "shape": [
+            2001
+          ],
+          "sha256": "b833a6113b55b2396ffd0f69f47cc232e8cf5cb3d6e601caff363c17ea75afcf"
+        },
+        "update": {
+          "shape": [
+            2000
+          ],
+          "sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d"
+        },
+        "theta": {
+          "shape": [
+            2001,
+            2
+          ],
+          "sha256": "17f47f5be1c7ae54ecd5d886d2f0d82f1085b8918e81c4946413be6e169ad1aa"
+        },
+        "loss": {
+          "shape": [
+            2001
+          ],
+          "sha256": "8f0886fea233c7a02be04bae3a4c4cd044ddc55efc929b28954f5e776cf34a6a"
+        },
+        "raw_norm": {
+          "shape": [
+            2000
+          ],
+          "sha256": "a3435bcaf1c0140622b15e4982f56eb3e88cbe4bf1725d9eb68eee3160ed8710"
+        },
+        "momentum_norm": {
+          "shape": [
+            2000
+          ],
+          "sha256": "8a40a2a23fd5c536de19aebedc4afd235a4864d812d7c0117e2d3d36cb58c490"
+        },
+        "raw_cosine": {
+          "shape": [
+            2000
+          ],
+          "sha256": "0245ed2e7e6a29fc0eb8ee2046c3808dd6a0e1ada2a9897925aa4e3c0776f872"
+        },
+        "momentum_cosine": {
+          "shape": [
+            2000
+          ],
+          "sha256": "5019ad8899f7adab0203012858e8b25b03b46d3fe11303989f07b7eb6744da55"
+        },
+        "eta_lambda_max": {
+          "shape": [
+            2001
+          ],
+          "sha256": "fe882913ad21ca22c68357807ff44848b935fb4e51579f0d567f8aebce9527c5"
+        },
+        "raw_eta_kappa": {
+          "shape": [
+            2000
+          ],
+          "sha256": "5adc447382958a3d80bbaa9a118eb98da67b58a28c0d4815d6af041db29844de"
+        },
+        "momentum_eta_kappa": {
+          "shape": [
+            2000
+          ],
+          "sha256": "149316b3874057d175b3b67f8c10a32f649ce80413c0d17e567e88b53df62fd9"
+        },
+        "raw_ratio": {
+          "shape": [
+            2000
+          ],
+          "sha256": "699cfee268fd6e02ae50127bd00ea3d4364cff044311fec926bb08f76c08f882"
+        },
+        "momentum_ratio": {
+          "shape": [
+            2000
+          ],
+          "sha256": "6674d263dcad1f2ab1a87d7764416d310a69606aac336e1fbecc0c40d55caa8f"
+        },
+        "momentum_tracking": {
+          "shape": [
+            2000
+          ],
+          "sha256": "02c5c5fecf0a0a801ad4b26488432d9f4c4cbe1531e247b26adf01d5e773fb53"
+        },
+        "momentum_eta_curvature": {
+          "shape": [
+            2000
+          ],
+          "sha256": "402c3d761de3ac7b3cca9f3fe0d77c2007b7b7465f67d1aa92c8bc7b3da62a70"
+        },
+        "momentum_eta_decay": {
+          "shape": [
+            2000
+          ],
+          "sha256": "e6b3e571ad7f41627f01cb7b00cd452b0e19efce8bf8eb42b16213765a15f2ed"
+        },
+        "momentum_nonlinear_remainder": {
+          "shape": [
+            2000
+          ],
+          "sha256": "434ef2a94b5e68a73eee62f1c93f778070d1fbc889ab514c300f7929555d336c"
+        },
+        "raw_cosine_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "ad7b5a66b5a986776a2c3d3020951c73900de43f4b6c71f2ab39ebccdc94342d"
+        },
+        "momentum_cosine_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "c05d0a31f82504fed27dfca3ce3164944023fb120cb239538892dcd40167b98d"
+        },
+        "raw_eta_kappa_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "f2d3bec267f77d2c19f786e3acf5dd48b2f7d50871323bd4abb8c64598f10029"
+        },
+        "momentum_eta_kappa_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "03b67885d1d89205280b7802b0c15cc710ce1b52365a2c2731e8f74c6628dcac"
+        }
+      },
+      "verification": "Source/reconstruction, Eq.25 inversion, decay/remainder decomposition and all rolling means passed."
+    },
+    {
+      "run_id": "Run056",
+      "learning_rate": 0.0031622776601683794,
+      "final_point": [
+        0.9896366979357687,
+        0.9797057568065426
+      ],
+      "final_loss": 0.00011795811865859671,
+      "final_eta_lambda_max": 3.114827524396764,
+      "final_raw_ratio": 0.9520120126641165,
+      "final_momentum_ratio": 0.9612205392527738,
+      "late100": {
+        "raw_cosine": -0.6521570059257242,
+        "momentum_cosine": 0.6628692868113064,
+        "raw_eta_kappa": 1.7549708924232865,
+        "momentum_eta_kappa": 5.167907810261495
+      },
+      "momentum_estimate_range": [
+        -4.424989841010888,
+        15.01930470785187
+      ],
+      "derived": "analyses/017-2026-10-12-rosenbrock-kappa-identity/artifacts/Run056_paper.npz",
+      "derived_sha256": "7c9728d2d0a73b418921a2c7c793d3a52e721d08d0746289d437540ed89df780",
+      "arrays": {
+        "state": {
+          "shape": [
+            2001
+          ],
+          "sha256": "b833a6113b55b2396ffd0f69f47cc232e8cf5cb3d6e601caff363c17ea75afcf"
+        },
+        "update": {
+          "shape": [
+            2000
+          ],
+          "sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d"
+        },
+        "theta": {
+          "shape": [
+            2001,
+            2
+          ],
+          "sha256": "4913bf33e5371132ca792c28fc9d18d157e2b2d7044791fd2a481b2ee7103570"
+        },
+        "loss": {
+          "shape": [
+            2001
+          ],
+          "sha256": "39c5546cb1e2b348eb43716877ed195b2c44e3654e2a1e65b02bf9d7dcbfab6b"
+        },
+        "raw_norm": {
+          "shape": [
+            2000
+          ],
+          "sha256": "a10843556a277d36575fa2def53d2a2d6bcaccaa8de6707e2aaef7bd6227740a"
+        },
+        "momentum_norm": {
+          "shape": [
+            2000
+          ],
+          "sha256": "026ba0ccb70506ce853087235b89308c55b3d5bbf33c815d281d1d26a6f58e35"
+        },
+        "raw_cosine": {
+          "shape": [
+            2000
+          ],
+          "sha256": "dd64937b6c88dd2a1682a37de6d94b0156a0acd7bc83acceda9aba5ebe67bb75"
+        },
+        "momentum_cosine": {
+          "shape": [
+            2000
+          ],
+          "sha256": "904fd66c08a39056ba1e896eeac357a3bd30b0d61b7e9fb551bfb7248cb4db5c"
+        },
+        "eta_lambda_max": {
+          "shape": [
+            2001
+          ],
+          "sha256": "df1a51a03b5c51a5bf64f53c03c760d86a95d742f218cbfb45552d70787423e9"
+        },
+        "raw_eta_kappa": {
+          "shape": [
+            2000
+          ],
+          "sha256": "34e7ee48a8b6fe280f6a52824f7136d5db6b2fc33acab9348a66de93bd512bb6"
+        },
+        "momentum_eta_kappa": {
+          "shape": [
+            2000
+          ],
+          "sha256": "ccb1503fa1521413110efc8f77bc9cd7332398b04e12cee94964043e483d74b6"
+        },
+        "raw_ratio": {
+          "shape": [
+            2000
+          ],
+          "sha256": "fef6204568d9a62024a9314344fb4085eac148a5372ea131045534760fb92d0d"
+        },
+        "momentum_ratio": {
+          "shape": [
+            2000
+          ],
+          "sha256": "ca23dfc82fae0944ba0a6901cddcbeb6a641499246fd4f17239ee89db8cf6bb8"
+        },
+        "momentum_tracking": {
+          "shape": [
+            2000
+          ],
+          "sha256": "ee55aed92b4f587a151ed9980958397dceb16dcd16783e11678c7794e7f35fd4"
+        },
+        "momentum_eta_curvature": {
+          "shape": [
+            2000
+          ],
+          "sha256": "6e246d086c8c4b590c937fc902761130e07d4f24ccdca1412cc9dc970d4eb0fb"
+        },
+        "momentum_eta_decay": {
+          "shape": [
+            2000
+          ],
+          "sha256": "959c9b352a1a7f7f6241476bcfbefafc044ac4d621740ade7d85611a84c628ef"
+        },
+        "momentum_nonlinear_remainder": {
+          "shape": [
+            2000
+          ],
+          "sha256": "d88529a76d1fa794749f93cfcb6ce6cd2bee344d447f9d3b4f46d7b466677f00"
+        },
+        "raw_cosine_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "e297cd73e8062bee20a969d8985523ecd9029fce2aca5c183dc8ced8c7b914f2"
+        },
+        "momentum_cosine_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "d58c71d24577fe42f889746354c1505a17f8692c3b5c8d68aaf57434f32ec26b"
+        },
+        "raw_eta_kappa_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "1a7cfaad09743323d0142c922445f178006fe3dedcb1b0b90bb4c8d5cba9993e"
+        },
+        "momentum_eta_kappa_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "67a7ed75a361be82e7bba67989675997fd9df4bf48bec74082181c0d4ead7e9f"
+        }
+      },
+      "verification": "Source/reconstruction, Eq.25 inversion, decay/remainder decomposition and all rolling means passed."
+    },
+    {
+      "run_id": "Run057",
+      "learning_rate": 0.001,
+      "final_point": [
+        0.9966943578112849,
+        0.9933650213077523
+      ],
+      "final_loss": 1.1047135695278591e-05,
+      "final_eta_lambda_max": 0.996329309331532,
+      "final_raw_ratio": 0.9665478840731011,
+      "final_momentum_ratio": 0.9671098414601332,
+      "late100": {
+        "raw_cosine": -0.668834383982368,
+        "momentum_cosine": 0.6584508977246852,
+        "raw_eta_kappa": 1.7479438668409173,
+        "momentum_eta_kappa": 5.118126479484754
+      },
+      "momentum_estimate_range": [
+        -4.462673013349761,
+        14.92841525979589
+      ],
+      "derived": "analyses/017-2026-10-12-rosenbrock-kappa-identity/artifacts/Run057_paper.npz",
+      "derived_sha256": "6ff145985649cf20802520488fd87f7aed27ee3c97842acc96adee82d5d95b97",
+      "arrays": {
+        "state": {
+          "shape": [
+            2001
+          ],
+          "sha256": "b833a6113b55b2396ffd0f69f47cc232e8cf5cb3d6e601caff363c17ea75afcf"
+        },
+        "update": {
+          "shape": [
+            2000
+          ],
+          "sha256": "77608827c9c2199cdd4dd32b03cd38a829da40340e969cfe2bcc7e881968e91d"
+        },
+        "theta": {
+          "shape": [
+            2001,
+            2
+          ],
+          "sha256": "82fd04eb6d0c922d63647241541d96a82bf2af6678aa61e69cc26d7d8bd3c6ee"
+        },
+        "loss": {
+          "shape": [
+            2001
+          ],
+          "sha256": "e931f90b8aaaadd85669b3872dd129a2f995889584dff87aed2776a03bdb7677"
+        },
+        "raw_norm": {
+          "shape": [
+            2000
+          ],
+          "sha256": "01aa6077ada3483c2438342f4b16fd728c205949642506d80656dcba3d42b7b4"
+        },
+        "momentum_norm": {
+          "shape": [
+            2000
+          ],
+          "sha256": "0f54103d26cb0779b81e4b29e61331887b5756cca18c82149b7ce545b5ba10d9"
+        },
+        "raw_cosine": {
+          "shape": [
+            2000
+          ],
+          "sha256": "715d2b9b4d6c0b3a19a228e5ff17e22e3da8de830c5c042738cd20ecdf06622b"
+        },
+        "momentum_cosine": {
+          "shape": [
+            2000
+          ],
+          "sha256": "6d86b4c7010a9bb66eb47932e06e0f44148a334705267d20cc43b1ae4fcb50bc"
+        },
+        "eta_lambda_max": {
+          "shape": [
+            2001
+          ],
+          "sha256": "706f908996e2f63d26caf4da62c7b0165da0eeaa750068a82b0e1306bb520549"
+        },
+        "raw_eta_kappa": {
+          "shape": [
+            2000
+          ],
+          "sha256": "d3d9af8049d6930493296c2dd50b39aa204aa9bd9962c5f8a2221ab283f6d3da"
+        },
+        "momentum_eta_kappa": {
+          "shape": [
+            2000
+          ],
+          "sha256": "462f3e6eaf43af1c6dcc4050e9d03903b920c694a7584ee23010957801828fc2"
+        },
+        "raw_ratio": {
+          "shape": [
+            2000
+          ],
+          "sha256": "384a8a4b818e6d04f33e1ad543aa6fd14164835f002411bc341c4afe4c10bbce"
+        },
+        "momentum_ratio": {
+          "shape": [
+            2000
+          ],
+          "sha256": "90b1fefa10cdb33a833753c9c0562381c8f20841ace057a890928927352f32ff"
+        },
+        "momentum_tracking": {
+          "shape": [
+            2000
+          ],
+          "sha256": "21319f714ccefebdacb7842895fb7889e19f6959422547eda449155d695dc81d"
+        },
+        "momentum_eta_curvature": {
+          "shape": [
+            2000
+          ],
+          "sha256": "70c15cc1517a93a638fb154d40ab4277c5cae6c2983cf3ba7c94b62fc570ba9f"
+        },
+        "momentum_eta_decay": {
+          "shape": [
+            2000
+          ],
+          "sha256": "223bbd7ed4e0fe572e9946cc2ffabd429ac33dae37eb4f687b6e59ae95b586a6"
+        },
+        "momentum_nonlinear_remainder": {
+          "shape": [
+            2000
+          ],
+          "sha256": "cb67e4bb00165b645a1ec74f4d28bc66daba0e06606af76732a1c7e43c7ae227"
+        },
+        "raw_cosine_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "9503f37a7d2be075639811371f19375b4277a6c7bbf15240dca941c30305f317"
+        },
+        "momentum_cosine_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "51f61ca6a755d801b9e6367dcd55e026a4a373d1eaa3ae4341b24d6a2bbc513e"
+        },
+        "raw_eta_kappa_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "68906cde70f11270b912abd8c88a5dcc0b96bb297676259331b8089bbfa96090"
+        },
+        "momentum_eta_kappa_mean100": {
+          "shape": [
+            2000
+          ],
+          "sha256": "2a48253d46169a997faaadacca3cac241b72d7c240cdbdb90ac343bf496da140"
+        }
+      },
+      "verification": "Source/reconstruction, Eq.25 inversion, decay/remainder decomposition and all rolling means passed."
+    }
+  ],
+  "no_new_optimizer_run": true,
+  "source_analysis": "Analysis017 / Analysis016, immutable Runs055-057"
+}

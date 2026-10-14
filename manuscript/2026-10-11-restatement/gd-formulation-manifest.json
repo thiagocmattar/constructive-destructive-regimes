@@ -1,12 +1,12 @@
 {
   "status": "passed",
-  "scope": "English SGD formulation, empirical full-batch GD result and compact Adam momentum extension; no Adam empirical results.",
+  "scope": "SGD formulation, full-batch CIFAR-10 GD evidence, Adam momentum extension and controlled Rosenbrock AdamW results.",
   "report": "manuscript/2026-10-11-restatement/gd-formulation.pdf",
-  "report_sha256": "b8fc2fb43528ced63bc5874a5f704fe12c555e33ddb789b3f1dd5ca534ffcf0a",
+  "report_sha256": "69b3088f69f0bcd7c3e43eca1e5bd6303b9f828f222f5be67ffde3cdca917d99",
   "latex_source": "manuscript/2026-10-11-restatement/gd-formulation.tex",
-  "latex_source_sha256": "155a9296bc8effc6207714793d582c0f5ab09119f692c715c9cf08b474e3d9ba",
+  "latex_source_sha256": "0401246fb57f340abd56ab289d862a0f86d514523d8d15da166213575953689e",
   "table_sha256": "133ff5b125426487c60f8679bf6b11b6eb3aa605b00dce45ddcebf5841a1ab15",
-  "build_script_sha256": "e0c399d36c87bd4fa841f1d2b77df5b35f4c832c040aa9e9d67345482f01f0ce",
+  "build_script_sha256": "dc1a2813de2abaf507971e070d5006c0cf9a2955234848d47af48dd45fbc615e",
   "inputs_sha256_unchanged": {
     "manuscript/2026-10-11-restatement/formulation.md": "439e9d4f4cbcedf4722a24b8507a628a18c06f2fd44d8a332088a3caf93bfd28",
     "manuscript/2026-10-11-restatement/writing-style.md": "2bde9643e2595d36a9b05660562ab8bd5f5d2defb6ff50e151551996cb7ac26a"
@@ -22,7 +22,8 @@
       "quadratic Adam momentum recurrence/model with explicit noise (four beta pairs)",
       "Adam adaptive-direction displacement identity",
       "momentum cosine invariance to bias correction",
-      "momentum accumulation B/A and its change under bias correction"
+      "momentum accumulation B/A and its change under bias correction",
+      "Eq.25 momentum-curvature inversion including tracking and noise"
     ]
   },
   "results_sha256": "dd269234cf9d9f9d909509e34aa03de0fa74e2f377286a4d676a9b157e546aa6",
@@ -103,7 +104,40 @@
       ],
       "renderer": "Poppler",
       "render": "manuscript/artifacts/2026-10-11-restatement/report-page-07.png",
-      "render_sha256": "fa4ccce205e5e13442f1d6dd142b34db8374969770002f842f7f2d2f2635d2ee",
+      "render_sha256": "19743887ba9c6ac51ec3dde48b2b508d0530ed4d9d1ead42159210676acb47f3",
+      "text_spans_outside_page": []
+    },
+    {
+      "page": 8,
+      "page_points": [
+        612.0,
+        792.0
+      ],
+      "renderer": "Poppler",
+      "render": "manuscript/artifacts/2026-10-11-restatement/report-page-08.png",
+      "render_sha256": "717fa0260afef9584b819b28556cff626188b9874b143442fb85db3a7eb69862",
+      "text_spans_outside_page": []
+    },
+    {
+      "page": 9,
+      "page_points": [
+        612.0,
+        792.0
+      ],
+      "renderer": "Poppler",
+      "render": "manuscript/artifacts/2026-10-11-restatement/report-page-09.png",
+      "render_sha256": "9c2cf33f34ba09db1f2306da45713bfda206263bfc8a98ce1d23abfaed924a1d",
+      "text_spans_outside_page": []
+    },
+    {
+      "page": 10,
+      "page_points": [
+        612.0,
+        792.0
+      ],
+      "renderer": "Poppler",
+      "render": "manuscript/artifacts/2026-10-11-restatement/report-page-10.png",
+      "render_sha256": "968149c72ce41d6026881952e370dd821f7dec581b6102bc46594c025625af04",
       "text_spans_outside_page": []
     }
   ],
@@ -121,6 +155,38 @@
     }
   ],
   "visual_review": "All report pages and the standalone figure inspected for layout, equations, captions, tables, clipping and references.",
+  "rosenbrock": {
+    "figure_manifest_sha256": "0dbf24e541527c50d6cdd7ab403a2913e639cf75644dc27304336a02d3da8200",
+    "results_sha256": "0b5bf2b7c2d3cbadf79ad7c46739c520e5a9178a2fbc52af68c0a0716f487745",
+    "figures": {
+      "analyses/017-2026-10-12-rosenbrock-kappa-identity/figures/rosenbrock_trajectories_paper.pdf": "c02af190304857bb13f7b1abcc8ed8f83658db19507aa6d69128446ec63e3177",
+      "analyses/017-2026-10-12-rosenbrock-kappa-identity/figures/rosenbrock_diagnostics_paper.pdf": "6161b4ec59de6b9bca706f5ae41612be052f8e9b6b613485bb5ed492e5e3fb41"
+    }
+  },
+  "rosenbrock_figure_pages": [
+    {
+      "page": 1,
+      "page_points": [
+        604.7999877929688,
+        424.79998779296875
+      ],
+      "renderer": "Poppler",
+      "render": "manuscript/artifacts/2026-10-11-restatement/rosenbrock-figure-1-page-01.png",
+      "render_sha256": "e1ca87b5a6c2225776d363b7fa4ccd3405aaecba9ed80943674fd77a379369aa",
+      "text_spans_outside_page": []
+    },
+    {
+      "page": 1,
+      "page_points": [
+        604.7999877929688,
+        633.5999755859375
+      ],
+      "renderer": "Poppler",
+      "render": "manuscript/artifacts/2026-10-11-restatement/rosenbrock-figure-2-page-01.png",
+      "render_sha256": "5bfcdf57f400093b1b6beb59b1e17a138a367c9cdb8e3e0f6ac301eb0be1cca8",
+      "text_spans_outside_page": []
+    }
+  ],
   "latex_checks": "Two passes; no overfull boxes, undefined references/citations or pending rerun.",
   "runs": [
     "059",
