@@ -23,8 +23,14 @@ Runs041-052 contain the 12 new trajectories. Each figure has three paths.
 
 The [sigma comparison PDF](figures/sigma_comparison.pdf) puts final/late loss,
 raw/momentum B/A and late adjacent cosine on the same noise-level axis.
+A compact serif [publication version](figures/sigma_comparison_paper.pdf) preserves
+all 90 original scalar values in a three-row, two-column layout. Its
+[observation](observations/008-paper-sigma-comparison.md) and
+[manifest](sigma_paper_manifest.json) document source and visual checks.
+Generate with `04_plot_sigma_paper.py`, inspect its Poppler render, then use
+`04_plot_sigma_paper.py --accept-reviewed` before rebuilding the manuscript.
 Full captions, sources, reductions and limits are in the
-[seven observations](observations/INDEX.md), especially the
+[observations](observations/INDEX.md), especially the
 [cross-sigma interpretation](observations/006-sigma-comparison.md).
 The final [5x3 norm grid](figures/gradient_momentum_norms_grid.pdf) has one LR
 per column, one sigma per row and both raw/momentum norms at every update,

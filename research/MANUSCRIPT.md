@@ -101,3 +101,9 @@ pairs, the decay/nonlinear-remainder decomposition and 22,800 complete means
 are checked; the original run inputs and previous PDFs are preserved.
 This is postprocessing of the existing AdamW trajectories, with no new run,
 cloud execution or claim that the estimates equal maximum Hessian curvature.
+
+The user also requested a brief noise-experiment statement and a publication
+version of Analysis014's sigma comparison. It preserves all 90 original scalars
+from the 15 paired conditions, with the same seed1234 and sigma0/0.01/0.1/1/10.
+Observation008 records source/plot/PDF checks and single-realization limits.
+No new noise draws or optimizer trajectories are generated.

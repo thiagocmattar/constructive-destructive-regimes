@@ -7,3 +7,4 @@
 - [005: sigma 10](005-sigma-10.md)
 - [006: Sigma comparison](006-sigma-comparison.md)
 - [007: Raw/momentum norm grid](007-norm-grid.md)
+- [008: Publication sigma-comparison view](008-paper-sigma-comparison.md)

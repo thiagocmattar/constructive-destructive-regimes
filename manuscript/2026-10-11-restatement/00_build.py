@@ -15,6 +15,7 @@ ANALYSIS = ROOT / 'analyses/019-2026-10-13-cifar10-eos-lr'
 OUTPUT = HERE
 ARTIFACTS = ROOT / 'manuscript/artifacts/2026-10-11-restatement'
 ROSENBROCK = ROOT / 'analyses/017-2026-10-12-rosenbrock-kappa-identity'
+NOISE = ROOT / 'analyses/014-2026-10-10-rosenbrock-gradient-noise'
 
 
 def sha256(path):
@@ -159,6 +160,24 @@ $\eta$ & $\Loss(\theta_T)$ & $\overline\rho$ & $\overline{\eta\widehat\kappa}$ &
     return rows
 
 
+def noise_evidence():
+    path = NOISE / 'sigma_paper_manifest.json'
+    record = json.loads(path.read_text())
+    assert record['status'] == 'passed' and record['verification']['passed']
+    assert record['visual_verification']['status'] == 'passed'
+    assert sha256(NOISE / record['script']) == record['script_sha256']
+    assert sha256(NOISE / 'results.json') == record['source_results_sha256']
+    assert sha256(NOISE / 'figures/sigma_comparison.pdf') == record['original_figure_sha256_unchanged']
+    for source in record['sources']:
+        folder = ROOT / source['directory']
+        assert sha256(folder / 'artifacts/attempts/001-local/history.npz') == source['history_sha256']
+        assert sha256(folder / 'config.json') == source['config_sha256']
+        assert sha256(folder / 'verification.json') == source['verification_sha256']
+    figure = NOISE / record['figure']
+    assert sha256(figure) == record['sha256']
+    return {'manifest_sha256': sha256(path), 'figure': figure.relative_to(ROOT).as_posix(), 'sha256': record['sha256']}
+
+
 def render(path, prefix):
     pages = []
     poppler = shutil.which('pdftoppm')
@@ -201,9 +220,10 @@ def main():
         assert sha256(ANALYSIS / 'figures/cifar10_gd_diagnostics_paper.pdf') == record['figure_sha256']
         assert sha256(ANALYSIS / 'gd_paper_figure_manifest.json') == record['figure_manifest_sha256']
         assert rosenbrock_evidence() == record['rosenbrock']
+        assert noise_evidence() == record['noise']
         for name, expected in record['inputs_sha256_unchanged'].items():
             assert sha256(ROOT / name) == expected
-        for page in record['report_pages'] + record['figure_pages'] + record['rosenbrock_figure_pages']:
+        for page in record['report_pages'] + record['figure_pages'] + record['rosenbrock_figure_pages'] + record['noise_figure_pages']:
             assert sha256(ROOT / page['render']) == page['render_sha256']
         record['status'] = 'passed'
         record['visual_review'] = 'All report pages and the standalone figure inspected for layout, equations, captions, tables, clipping and references.'
@@ -216,6 +236,7 @@ def main():
     math_checks = check_math()
     rows = result_table()
     rosenbrock = rosenbrock_evidence()
+    noise = noise_evidence()
     for attempt in [1, 2]:
         print(f'LaTeX pass {attempt}/2', flush=True)
         process = subprocess.run(['pdflatex', '--disable-installer', '-no-shell-escape',
@@ -239,6 +260,7 @@ def main():
         assert 'Extending the SGD formulation to momentum' in text and 'Adam' in text
         assert 'Consecutive-momentum alignment' in text and 'Normalized momentum accumulation' in text
         assert 'Controlled Rosenbrock experiments' in text
+        assert 'Gradient-estimation noise' in text
         assert '??' not in text
         assert 'TODO' in text and 'References' in text
     report_pages = render(destination, 'report')
@@ -247,9 +269,10 @@ def main():
     rosenbrock_pages = []
     for index, name in enumerate(rosenbrock['figures'], start=1):
         rosenbrock_pages.extend(render(ROOT / name, f'rosenbrock-figure-{index}'))
+    noise_pages = render(ROOT / noise['figure'], 'noise-figure')
     assert {p.relative_to(ROOT).as_posix(): sha256(p) for p in inputs} == input_hashes
     write_json(metadata, {'status': 'awaiting_visual_review',
-        'scope': 'SGD formulation, full-batch CIFAR-10 GD evidence, Adam momentum extension and controlled Rosenbrock AdamW results.',
+        'scope': 'SGD formulation, CIFAR-10 GD evidence, Adam momentum extension and deterministic/noisy Rosenbrock AdamW results.',
         'report': destination.relative_to(ROOT).as_posix(), 'report_sha256': sha256(destination),
         'latex_source': (HERE / 'gd-formulation.tex').relative_to(ROOT).as_posix(),
         'latex_source_sha256': sha256(HERE / 'gd-formulation.tex'),
@@ -259,6 +282,7 @@ def main():
         'figure_sha256': sha256(figure), 'figure_manifest_sha256': sha256(ANALYSIS / 'gd_paper_figure_manifest.json'),
         'report_pages': report_pages, 'figure_pages': figure_pages, 'visual_review': None,
         'rosenbrock': rosenbrock, 'rosenbrock_figure_pages': rosenbrock_pages,
+        'noise': noise, 'noise_figure_pages': noise_pages,
         'latex_checks': 'Two passes; no overfull boxes, undefined references/citations or pending rerun.',
         'runs': [r['run_id'] for r in rows], 'new_training': False,
         'references': ['https://arxiv.org/abs/2103.00065', 'https://github.com/locuslab/edge-of-stability/tree/github']})

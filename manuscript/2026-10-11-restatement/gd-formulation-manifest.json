@@ -1,12 +1,12 @@
 {
   "status": "passed",
-  "scope": "SGD formulation, full-batch CIFAR-10 GD evidence, Adam momentum extension and controlled Rosenbrock AdamW results.",
+  "scope": "SGD formulation, CIFAR-10 GD evidence, Adam momentum extension and deterministic/noisy Rosenbrock AdamW results.",
   "report": "manuscript/2026-10-11-restatement/gd-formulation.pdf",
-  "report_sha256": "69b3088f69f0bcd7c3e43eca1e5bd6303b9f828f222f5be67ffde3cdca917d99",
+  "report_sha256": "a8eda3bae673dd208fffd32b7b10053df64f1257a6ac8b403c5dc436eceada15",
   "latex_source": "manuscript/2026-10-11-restatement/gd-formulation.tex",
-  "latex_source_sha256": "0401246fb57f340abd56ab289d862a0f86d514523d8d15da166213575953689e",
+  "latex_source_sha256": "f5cd8c63ee830961a14059aab52d2e17dd8b2d1618640859da8f35c35173b2f8",
   "table_sha256": "133ff5b125426487c60f8679bf6b11b6eb3aa605b00dce45ddcebf5841a1ab15",
-  "build_script_sha256": "dc1a2813de2abaf507971e070d5006c0cf9a2955234848d47af48dd45fbc615e",
+  "build_script_sha256": "82eb66c2515426ec7630f18c4e57fd20958a15adc89b9958f7cd2c7cd5f55f93",
   "inputs_sha256_unchanged": {
     "manuscript/2026-10-11-restatement/formulation.md": "439e9d4f4cbcedf4722a24b8507a628a18c06f2fd44d8a332088a3caf93bfd28",
     "manuscript/2026-10-11-restatement/writing-style.md": "2bde9643e2595d36a9b05660562ab8bd5f5d2defb6ff50e151551996cb7ac26a"
@@ -137,7 +137,18 @@
       ],
       "renderer": "Poppler",
       "render": "manuscript/artifacts/2026-10-11-restatement/report-page-10.png",
-      "render_sha256": "968149c72ce41d6026881952e370dd821f7dec581b6102bc46594c025625af04",
+      "render_sha256": "0c489a323a64ef74e72fb78b9b8c4a2819309c5d70445dde13d45423de9a2be9",
+      "text_spans_outside_page": []
+    },
+    {
+      "page": 11,
+      "page_points": [
+        612.0,
+        792.0
+      ],
+      "renderer": "Poppler",
+      "render": "manuscript/artifacts/2026-10-11-restatement/report-page-11.png",
+      "render_sha256": "9363f2bdb075e6877a38956fce7757d706c3a4eece723a7403d44237c3e7527e",
       "text_spans_outside_page": []
     }
   ],
@@ -184,6 +195,24 @@
       "renderer": "Poppler",
       "render": "manuscript/artifacts/2026-10-11-restatement/rosenbrock-figure-2-page-01.png",
       "render_sha256": "5bfcdf57f400093b1b6beb59b1e17a138a367c9cdb8e3e0f6ac301eb0be1cca8",
+      "text_spans_outside_page": []
+    }
+  ],
+  "noise": {
+    "manifest_sha256": "c6573fb2d5d83f3187bf8c653b34b7133fd5b8fdbd876d22e8781e802cd7277c",
+    "figure": "analyses/014-2026-10-10-rosenbrock-gradient-noise/figures/sigma_comparison_paper.pdf",
+    "sha256": "a0128b7b7a8ce281c23dcef796a5d802aefb50560bea3b848c968826dde3bd57"
+  },
+  "noise_figure_pages": [
+    {
+      "page": 1,
+      "page_points": [
+        604.7999877929688,
+        496.79998779296875
+      ],
+      "renderer": "Poppler",
+      "render": "manuscript/artifacts/2026-10-11-restatement/noise-figure-page-01.png",
+      "render_sha256": "279c88081095af0884d1c6a31a8bb2f546ae6d55236a1cf50bbde9c4feba7c91",
       "text_spans_outside_page": []
     }
   ],

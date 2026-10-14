@@ -46,6 +46,10 @@ throughout. Cosines and both projection estimates have complete 100-pair trailin
 means; other series are unsmoothed. Original figures and trajectories are preserved.
 The [local observation](../../analyses/017-2026-10-12-rosenbrock-kappa-identity/observations/003-manuscript-figures.md)
 records reductions and the AdamW decay/finite-step interpretation limits.
+The brief noise subsection adds Gaussian error to the analytic gradient at
+sigma0/0.01/0.1/1/10 with one paired seed1234. A compact six-panel sigma comparison
+reuses all 90 original scalar values from Analysis014; see its
+[observation](../../analyses/014-2026-10-10-rosenbrock-gradient-noise/observations/008-paper-sigma-comparison.md).
 
 The mathematical and empirical wording makes these distinctions explicit:
 
@@ -74,13 +78,15 @@ NumPy, Matplotlib, PyMuPDF, MiKTeX and Poppler:
 ```powershell
 python analyses/019-2026-10-13-cifar10-eos-lr/11_plot_gd_paper.py
 python analyses/017-2026-10-12-rosenbrock-kappa-identity/05_plot_paper.py
+python analyses/014-2026-10-10-rosenbrock-gradient-noise/04_plot_sigma_paper.py
 ```
 
-Inspect the two current Rosenbrock Poppler renders under Analysis017 `scratch/`,
+Inspect the current Rosenbrock Poppler renders under Analysis017 and Analysis014 `scratch/`,
 then record their review and build the manuscript:
 
 ```powershell
 python analyses/017-2026-10-12-rosenbrock-kappa-identity/05_plot_paper.py --accept-reviewed
+python analyses/014-2026-10-10-rosenbrock-gradient-noise/04_plot_sigma_paper.py --accept-reviewed
 python manuscript/2026-10-11-restatement/00_build.py
 ```
 

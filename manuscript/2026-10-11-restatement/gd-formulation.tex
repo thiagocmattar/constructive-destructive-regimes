@@ -414,6 +414,29 @@ full trajectory. The smallest learning rate attains the lowest final objective.
 \end{figure}
 \clearpage
 
+\subsection{Gradient-estimation noise}
+
+We repeat the same setup with $g_t=\nabla f(\theta_{t-1})+\xi_t$, where
+$\xi_t\sim\mathcal N(0,\sigma^2 I_2)$ and
+$\sigma\in\{0,0.01,0.1,1,10\}$. One seed (1234) supplies shared
+standard-normal draws across noise levels and learning rates; $\sigma=0$
+is the deterministic control. In this paired realization, stronger noise
+raises the objective and reduces raw-gradient $B/A$, while momentum
+remains positively aligned on average (Fig.~\ref{fig:rosenbrock-noise}).
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\linewidth]{../../analyses/014-2026-10-10-rosenbrock-gradient-noise/figures/sigma_comparison_paper.pdf}
+  \caption{Gaussian gradient-noise sweep. (a) Final objective; (b) median
+  objective over the last 1,000 updates; (c,d) full-prefix $B/A$ for noisy
+  gradients and stored momentum; (e,f) mean unsmoothed adjacent cosine over
+  updates 1,001--2,000. Each marker is one trajectory; lines connect sampled
+  noise levels. Objective uses log Y; the $\sigma$ axis is symmetric log,
+  linear through $0.01$. One paired seed; no uncertainty bands.}
+  \label{fig:rosenbrock-noise}
+\end{figure}
+\clearpage
+
 \begin{thebibliography}{9}
 \bibitem{cohen2021}
 J.~M.~Cohen, S.~Kaur, Y.~Li, J.~Z.~Kolter, and A.~Talwalkar.
