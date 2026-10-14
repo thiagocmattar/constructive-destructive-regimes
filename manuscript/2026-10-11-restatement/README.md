@@ -1,8 +1,8 @@
 # GD formulation report
 
 The [English technical report](gd-formulation.pdf) develops the supplied
-`formulation.md` through the empirical full-batch GD result. It stops before
-**Displacement under Adam**. The prose follows [writing-style.md](writing-style.md):
+`formulation.md` through the empirical full-batch GD result, followed by a compact
+section extending the identities to Adam momentum. The prose follows [writing-style.md](writing-style.md):
 formal explanation, consistent terminology, defined assumptions, and a progression
 from identities to mechanisms and observations. The supplied Markdown inputs and
 the existing main manuscript are preserved.
@@ -31,6 +31,13 @@ The figure is a presentation revision of all 24 original unsmoothed curves;
 source values, sampling and original figure bytes are unchanged. Its local
 [observation](../../analyses/019-2026-10-13-cifar10-eos-lr/observations/004-gd-paper-figure.md)
 records sources, reductions, coverage and limitations. No new training occurred.
+
+The final section defines Adam's adaptive direction and exact displacement
+expansion, then derives consecutive-momentum alignment using stored first moments
+and a first-order curvature/noise model. Normalized momentum accumulation uses
+B/A consistently with SGD and is distinguished from actual Adam displacement.
+Bias correction preserves adjacent cosine but can change cumulative accumulation.
+This mathematical extension adds no empirical Adam result.
 
 The mathematical and empirical wording makes these distinctions explicit:
 
@@ -71,7 +78,8 @@ python manuscript/2026-10-11-restatement/00_build.py --accept-reviewed
 MiKTeX may need access to its user configuration/cache directories outside the
 repository. Automatic package installation and shell escape are disabled.
 The builder checks a deterministic quadratic/noise example and displacement
-identities, independently checks table values against retained NPZ arrays,
+identities, including the Adam momentum model and bias-correction distinction,
+independently checks table values against retained NPZ arrays,
 rejects unresolved references or overflowing LaTeX boxes, and confirms that
 the two supplied Markdown inputs remain byte-identical. These mechanics checks
 are distinct from the frozen experiment's empirical evidence.

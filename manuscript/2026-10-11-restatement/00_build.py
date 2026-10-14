@@ -1,4 +1,4 @@
-"""Build the requested GD-only report, preserve inputs, and render every page."""
+"""Build the SGD/GD report with its Adam momentum extension and render every page."""
 import argparse
 import hashlib
 import json
@@ -49,9 +49,54 @@ def check_math():
     np.testing.assert_allclose(b*b, np.sum(lengths**2)+2*interaction, rtol=1e-13)
     gap = sum(lengths[u]*lengths[t]-vectors[u] @ vectors[t] for t in range(len(vectors)) for u in range(t))
     np.testing.assert_allclose((b/a)**2, 1-2*gap/a**2, rtol=1e-13)
+    # On a quadratic, the supplied first-order momentum model is exact.
+    adam_eta, adam_epsilon = .03, 1e-3
+    noises = np.array([[.1, .2], [-.1, .2], [.3, -.1], [-.2, .1]])
+    for beta1 in [0., .9]:
+        for beta2 in [0., .99]:
+            theta = base.copy()
+            moment, variance = np.zeros(2), np.zeros(2)
+            directions, previous = [], None
+            for t, noise in enumerate(noises, start=1):
+                gradient = hessian @ theta + noise
+                old_moment = moment.copy()
+                moment = beta1*moment + (1-beta1)*gradient
+                variance = beta2*variance + (1-beta2)*gradient**2
+                corrected = moment/(1-beta1**t)
+                direction = corrected/(np.sqrt(variance/(1-beta2**t))+adam_epsilon)
+                if previous is not None:
+                    old_gradient, old_direction, old_xi = previous
+                    old_length, length = np.linalg.norm(old_moment), np.linalg.norm(moment)
+                    cosine = old_moment @ moment/(old_length*length)
+                    exact = (beta1*old_length**2+(1-beta1)*(old_moment @ gradient))/(old_length*length)
+                    np.testing.assert_allclose(cosine, exact, rtol=1e-13)
+                    np.testing.assert_allclose(gradient, old_gradient-adam_eta*hessian @ old_direction+noise-old_xi, rtol=1e-13)
+                    tracking = old_moment @ (old_gradient-old_moment)/old_length**2
+                    curvature = old_moment @ hessian @ old_direction/old_length**2
+                    noise_term = old_moment @ (noise-old_xi)/old_length**2
+                    predicted = old_length/length*(1+(1-beta1)*(tracking-adam_eta*curvature+noise_term))
+                    np.testing.assert_allclose(cosine, predicted, rtol=1e-13)
+                    old_corrected = old_moment/(1-beta1**(t-1))
+                    corrected_cosine = old_corrected @ corrected/(np.linalg.norm(old_corrected)*np.linalg.norm(corrected))
+                    np.testing.assert_allclose(cosine, corrected_cosine, rtol=1e-13)
+                directions.append(direction)
+                theta = theta-adam_eta*direction
+                previous = gradient, direction, noise
+            directions = np.array(directions)
+            pair_sum = sum(directions[u] @ directions[t] for t in range(len(directions)) for u in range(t))
+            np.testing.assert_allclose(np.linalg.norm(theta-base)**2,
+                adam_eta**2*(np.sum(directions**2)+2*pair_sum), rtol=1e-13)
+    cancelling = np.array([[1., 0.], [-1., 0.]])
+    corrected = cancelling/(1-.9**np.arange(1, 3))[:, None]
+    assert np.linalg.norm(cancelling.sum(axis=0)) == 0
+    corrected_ratio = np.linalg.norm(corrected.sum(axis=0))/np.linalg.norm(corrected, axis=1).sum()
+    assert 0 < corrected_ratio <= 1
     return {'status': 'passed', 'cases': ['displacement energy/interaction', 'normalized displacement gap',
         'quadratic SGD alignment with explicit noise', 'noise-corrected directional curvature',
-        'conditional-unbiased noise inner-product expectation (four exact outcomes)']}
+        'conditional-unbiased noise inner-product expectation (four exact outcomes)',
+        'quadratic Adam momentum recurrence/model with explicit noise (four beta pairs)',
+        'Adam adaptive-direction displacement identity', 'momentum cosine invariance to bias correction',
+        'momentum accumulation B/A and its change under bias correction']}
 
 
 def result_table():
@@ -161,14 +206,16 @@ def main():
     with fitz.open(destination) as pdf:
         text = '\n'.join(page.get_text() for page in pdf)
         assert 'Full-batch GD evidence on CIFAR-10' in text
-        assert 'Adam' not in text and '??' not in text
+        assert 'Extending the SGD formulation to momentum' in text and 'Adam' in text
+        assert 'Consecutive-momentum alignment' in text and 'Normalized momentum accumulation' in text
+        assert '??' not in text
         assert 'TODO' in text and 'References' in text
     report_pages = render(destination, 'report')
     figure = ANALYSIS / 'figures/cifar10_gd_diagnostics_paper.pdf'
     figure_pages = render(figure, 'figure')
     assert {p.relative_to(ROOT).as_posix(): sha256(p) for p in inputs} == input_hashes
     write_json(metadata, {'status': 'awaiting_visual_review',
-        'scope': 'English SGD formulation and empirical full-batch GD result; stops before Displacement under Adam.',
+        'scope': 'English SGD formulation, empirical full-batch GD result and compact Adam momentum extension; no Adam empirical results.',
         'report': destination.relative_to(ROOT).as_posix(), 'report_sha256': sha256(destination),
         'latex_source': (HERE / 'gd-formulation.tex').relative_to(ROOT).as_posix(),
         'latex_source_sha256': sha256(HERE / 'gd-formulation.tex'),

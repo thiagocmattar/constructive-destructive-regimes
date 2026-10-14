@@ -285,6 +285,85 @@ Compare loss reduction at a matched update budget with fixed-rate controls.
 The intervention may restore positive alignment without improving convergence;
 these two outcomes must be evaluated separately.
 
+\section{Extending the SGD formulation to momentum}
+
+For Adam with constant learning rate $\eta>0$ and no weight decay,
+\begin{equation}
+  \theta_t=\theta_{t-1}-\eta d_t,
+  \qquad d_t:=\frac{\widehat m_t}{\sqrt{\widehat v_t}+\epsilon},
+  \label{eq:adam-update}
+\end{equation}
+where the operations in $d_t$ are elementwise and
+\begin{equation}
+\begin{aligned}
+  m_t&=\beta_1m_{t-1}+(1-\beta_1)g_t,
+  &\widehat m_t&=\frac{m_t}{1-\beta_1^t},\\
+  v_t&=\beta_2v_{t-1}+(1-\beta_2)g_t^{\odot2},
+  &\widehat v_t&=\frac{v_t}{1-\beta_2^t}.
+\end{aligned}
+\label{eq:adam-moments}
+\end{equation}
+Here $m_0=v_0=0$, $\beta_1,\beta_2\in[0,1)$, and $\epsilon>0$.
+The displacement expansion becomes
+\begin{equation}
+  \norm{\Delta_T}^2=\eta^2\sum_{t=1}^T\norm{d_t}^2
+       +2\eta^2\sum_{1\leq u<t\leq T}d_u^\top d_t.
+  \label{eq:adam-displacement}
+\end{equation}
+Although $d_t$ determines parameter displacement, we study the stored first
+moment $m_t$ to separate temporal gradient coherence from adaptive
+preconditioning. Gradients still evolve along the actual Adam trajectory.
+
+\subsection{Consecutive-momentum alignment}
+
+For nonzero momentum norms and $t\geq2$, the recurrence gives the exact identity
+\begin{equation}
+  c_t:=\frac{m_{t-1}^\top m_t}{\norm{m_{t-1}}\norm{m_t}}
+  =\frac{\beta_1\norm{m_{t-1}}^2+(1-\beta_1)m_{t-1}^\top g_t}
+         {\norm{m_{t-1}}\norm{m_t}}.
+  \label{eq:momentum-cosine}
+\end{equation}
+Using the earlier gradient-noise notation, a first-order expansion along
+the Adam step, neglecting the Taylor remainder, yields
+\begin{equation}
+  g_t\approx g_{t-1}-\eta H_{t-1}d_{t-1}+(\xi_t-\xi_{t-1}).
+  \label{eq:adam-gradient-evolution}
+\end{equation}
+Define the momentum-tracking, curvature and noise contributions as
+\begin{equation}
+\begin{aligned}
+  a_t&:=\frac{m_{t-1}^\top(g_{t-1}-m_{t-1})}{\norm{m_{t-1}}^2},\\
+  \kappa_t^{(m)}&:=\frac{m_{t-1}^\top H_{t-1}d_{t-1}}{\norm{m_{t-1}}^2},\\
+  \varepsilon_t^{(m)}&:=\frac{m_{t-1}^\top(\xi_t-\xi_{t-1})}{\norm{m_{t-1}}^2}.
+\end{aligned}
+\label{eq:momentum-contributions}
+\end{equation}
+Substitution into Eq.~\eqref{eq:momentum-cosine} gives
+\begin{equation}
+  \boxed{c_t\approx\frac{\norm{m_{t-1}}}{\norm{m_t}}
+  \left[1+(1-\beta_1)
+  \left(a_t-\eta\kappa_t^{(m)}+\varepsilon_t^{(m)}\right)\right].}
+  \label{eq:momentum-alignment-model}
+\end{equation}
+The factor $1-\beta_1$ scales these contributions to alignment.
+Unlike SGD, $\kappa_t^{(m)}$ is generally not a Hessian Rayleigh quotient:
+$m_{t-1}$ and the preconditioned direction $d_{t-1}$ need not be parallel.
+
+\subsection{Normalized momentum accumulation}
+
+With $A_T^{(m)}:=\sum_{t=1}^T\norm{m_t}>0$ and
+$B_T^{(m)}:=\norm{\sum_{t=1}^T m_t}$, define
+\begin{equation}
+  \boxed{R_T^{(m)}:=\frac{B_T^{(m)}}{A_T^{(m)}}
+  =\frac{\norm{\sum_{t=1}^T m_t}}{\sum_{t=1}^T\norm{m_t}}\in[0,1].}
+  \label{eq:momentum-accumulation}
+\end{equation}
+Values near one indicate reinforcement; smaller values indicate cumulative
+cancellation. This describes momentum accumulation, while Adam displacement
+depends on $d_t$. Bias correction leaves $c_t$ unchanged but generally changes
+the cumulative ratio, so accumulation of $m_t$ and $\widehat m_t$ must be
+distinguished.
+
 \begin{thebibliography}{9}
 \bibitem{cohen2021}
 J.~M.~Cohen, S.~Kaur, Y.~Li, J.~Z.~Kolter, and A.~Talwalkar.

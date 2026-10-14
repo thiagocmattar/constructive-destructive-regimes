@@ -1,12 +1,12 @@
 {
   "status": "passed",
-  "scope": "English SGD formulation and empirical full-batch GD result; stops before Displacement under Adam.",
+  "scope": "English SGD formulation, empirical full-batch GD result and compact Adam momentum extension; no Adam empirical results.",
   "report": "manuscript/2026-10-11-restatement/gd-formulation.pdf",
-  "report_sha256": "e9712bc00ff1c313d63b498ea9ec2fcfa52db1d85a73205e3b15d59bcdfe360c",
+  "report_sha256": "b8fc2fb43528ced63bc5874a5f704fe12c555e33ddb789b3f1dd5ca534ffcf0a",
   "latex_source": "manuscript/2026-10-11-restatement/gd-formulation.tex",
-  "latex_source_sha256": "91f0817707902f13fab7227c718e63ce79a9950a6bf14e9ee768b69f19860454",
+  "latex_source_sha256": "155a9296bc8effc6207714793d582c0f5ab09119f692c715c9cf08b474e3d9ba",
   "table_sha256": "133ff5b125426487c60f8679bf6b11b6eb3aa605b00dce45ddcebf5841a1ab15",
-  "build_script_sha256": "7ce58209dd4cf1abf68a767cd305f64e6a845a9624a3bce33cbd240316a615a5",
+  "build_script_sha256": "e0c399d36c87bd4fa841f1d2b77df5b35f4c832c040aa9e9d67345482f01f0ce",
   "inputs_sha256_unchanged": {
     "manuscript/2026-10-11-restatement/formulation.md": "439e9d4f4cbcedf4722a24b8507a628a18c06f2fd44d8a332088a3caf93bfd28",
     "manuscript/2026-10-11-restatement/writing-style.md": "2bde9643e2595d36a9b05660562ab8bd5f5d2defb6ff50e151551996cb7ac26a"
@@ -18,7 +18,11 @@
       "normalized displacement gap",
       "quadratic SGD alignment with explicit noise",
       "noise-corrected directional curvature",
-      "conditional-unbiased noise inner-product expectation (four exact outcomes)"
+      "conditional-unbiased noise inner-product expectation (four exact outcomes)",
+      "quadratic Adam momentum recurrence/model with explicit noise (four beta pairs)",
+      "Adam adaptive-direction displacement identity",
+      "momentum cosine invariance to bias correction",
+      "momentum accumulation B/A and its change under bias correction"
     ]
   },
   "results_sha256": "dd269234cf9d9f9d909509e34aa03de0fa74e2f377286a4d676a9b157e546aa6",
@@ -88,7 +92,18 @@
       ],
       "renderer": "Poppler",
       "render": "manuscript/artifacts/2026-10-11-restatement/report-page-06.png",
-      "render_sha256": "bc99ab917d6b18828af48cddc1f76a1f4e28904ccf17a74b41b8b1c755ca6912",
+      "render_sha256": "7b53a03653dd8120d8fca5384b4985505d4f105a6249666645ece430592e8846",
+      "text_spans_outside_page": []
+    },
+    {
+      "page": 7,
+      "page_points": [
+        612.0,
+        792.0
+      ],
+      "renderer": "Poppler",
+      "render": "manuscript/artifacts/2026-10-11-restatement/report-page-07.png",
+      "render_sha256": "fa4ccce205e5e13442f1d6dd142b34db8374969770002f842f7f2d2f2635d2ee",
       "text_spans_outside_page": []
     }
   ],

@@ -84,3 +84,11 @@ training or cloud execution occurred.
 At the user's request, the report's editable TeX, generated table and builder
 are colocated directly in `manuscript/2026-10-11-restatement/`. Build intermediates
 remain in ignored `manuscript/artifacts/`; the delivered PDF is preserved.
+
+On 2026-10-14, the user extended this report with a compact Adam momentum
+section. It separates actual adaptive-direction displacement from stored
+first-moment alignment, retains the first-order curvature/noise approximation,
+and defines cumulative momentum accumulation as B/A. Bias correction preserves
+adjacent cosine but generally changes cumulative accumulation. Deterministic
+quadratic checks cover the momentum identity, adaptive displacement and this
+distinction. No new optimizer run or Adam empirical claim is introduced.
