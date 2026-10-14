@@ -1,0 +1,177 @@
+{
+  "status": "complete",
+  "mechanics_only": true,
+  "tasks": {
+    "mlp": {
+      "task": "mlp",
+      "status": "complete",
+      "environment": {
+        "utc": "2026-10-14T21:52:15.211256+00:00",
+        "python": "3.12.3",
+        "platform": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "numpy": "2.5.0",
+        "scipy": "1.18.1",
+        "device": "cuda:0",
+        "gpu": "NVIDIA GB10",
+        "gpu_total_bytes": 130661138432,
+        "matmul_precision": "highest",
+        "tf32": false
+      },
+      "parameter_count": 656810,
+      "objective_units": 5000,
+      "loss_units": 5000,
+      "inputs_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+      "physical": 1000,
+      "samples": [
+        {
+          "seconds": 0.21584222791716456,
+          "loss": 0.5967808837890626,
+          "norm": 2.3925844787806456
+        },
+        {
+          "seconds": 0.012715034070424736,
+          "loss": 0.5967808837890626,
+          "norm": 2.3925844787806456
+        }
+      ],
+      "hessian": {
+        "eigenvalues": [
+          76.72769927978516
+        ],
+        "relative_residuals": [
+          0.0002584629110060632
+        ],
+        "hvp_calls": 14,
+        "seconds": 0.2802830639993772,
+        "objective_units": 2500
+      },
+      "batch_unit_count": 32,
+      "batch_seconds": [
+        0.008240418042987585,
+        0.00168244494125247,
+        0.004732919973321259
+      ],
+      "memory": {
+        "peak_allocated_bytes": 266260992,
+        "peak_reserved_bytes": 276824064
+      },
+      "completed_utc": "2026-10-14T21:52:15.775051+00:00"
+    },
+    "resnet": {
+      "task": "resnet",
+      "status": "complete",
+      "environment": {
+        "utc": "2026-10-14T21:52:17.091873+00:00",
+        "python": "3.12.3",
+        "platform": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "numpy": "2.5.0",
+        "scipy": "1.18.1",
+        "device": "cuda:0",
+        "gpu": "NVIDIA GB10",
+        "gpu_total_bytes": 130661138432,
+        "matmul_precision": "highest",
+        "tf32": false
+      },
+      "parameter_count": 464250,
+      "objective_units": 50,
+      "loss_units": 50000,
+      "inputs_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+      "physical": 1000,
+      "samples": [
+        {
+          "seconds": 13.190638097003102,
+          "loss": 2.30956712890625,
+          "norm": 0.16304811863692598
+        },
+        {
+          "seconds": 12.74463305505924,
+          "loss": 2.30956712890625,
+          "norm": 0.16304811852355658
+        }
+      ],
+      "hessian": {
+        "eigenvalues": [
+          0.7986341118812561
+        ],
+        "relative_residuals": [
+          8.06083971838234e-06
+        ],
+        "hvp_calls": 20,
+        "seconds": 156.836736915051,
+        "objective_units": 5
+      },
+      "batch_unit_count": 1,
+      "batch_seconds": [
+        0.2654579470399767,
+        0.26568793097976595,
+        0.26427550194785
+      ],
+      "memory": {
+        "peak_allocated_bytes": 6328026624,
+        "peak_reserved_bytes": 7520387072
+      },
+      "completed_utc": "2026-10-14T21:55:20.691121+00:00"
+    },
+    "transformer": {
+      "task": "transformer",
+      "status": "complete",
+      "environment": {
+        "utc": "2026-10-14T21:55:22.106939+00:00",
+        "python": "3.12.3",
+        "platform": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "numpy": "2.5.0",
+        "scipy": "1.18.1",
+        "device": "cuda:0",
+        "gpu": "NVIDIA GB10",
+        "gpu_total_bytes": 130661138432,
+        "matmul_precision": "highest",
+        "tf32": false
+      },
+      "parameter_count": 13828478,
+      "objective_units": 59680,
+      "loss_units": 2088600,
+      "inputs_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+      "physical": 64,
+      "samples": [
+        {
+          "seconds": 30.817496837000363,
+          "loss": 10.729182719678409,
+          "norm": 1.289067120440712
+        },
+        {
+          "seconds": 30.729113172041252,
+          "loss": 10.729182719678409,
+          "norm": 1.289067120440712
+        }
+      ],
+      "hessian": {
+        "eigenvalues": [
+          2.5681686401367188
+        ],
+        "relative_residuals": [
+          0.001660207868553698
+        ],
+        "hvp_calls": 38,
+        "seconds": 165.977136394009,
+        "objective_units": 2500
+      },
+      "batch_unit_count": 32,
+      "batch_seconds": [
+        0.01889283093623817,
+        0.02070357999764383,
+        0.02001652494072914
+      ],
+      "memory": {
+        "peak_allocated_bytes": 2952227840,
+        "peak_reserved_bytes": 3193962496
+      },
+      "completed_utc": "2026-10-14T21:59:09.726695+00:00"
+    }
+  }
+}

@@ -191,26 +191,6 @@ gradient-only quantity is then exactly
 \end{equation}
 It measures the change in the gradient projected onto its preceding direction.
 
-\subsubsection{Noise contribution}
-
-Under fresh, conditionally unbiased mini-batch sampling, we have
-\begin{equation}
-  \E[g_{t-1}^\top\xi_t]=0.
-  \label{eq:fresh-noise}
-\end{equation}
-But because \(g_{t-1}\) already contains the previous noise \(\xi_{t-1}\), 
-\begin{equation}
-  \E[g_{t-1}^\top\xi_{t-1}]=\E[\norm{\xi_{t-1}}^2].
-\end{equation}
-Subtracting these two expectations yields
-\begin{equation}
-  \E[g_{t-1}^\top(\xi_t-\xi_{t-1})]
-              =-\E[\norm{\xi_{t-1}}^2]\leq0.
-  \label{eq:noise-expectation}
-\end{equation}
-Even unbiased noise therefore produces a nonpositive expected contribution to
-the unnormalized adjacent inner product. It suggests a systematic mechanism through which stochastic gradient noise can reduce successive-gradient alignment, independently of the local directional curvature.
-
 \subsection{Normalized displacement and cumulative interference}
 
 Adjacent alignment concerns one pair of steps. To characterize accumulation
@@ -284,6 +264,88 @@ becomes negative, specifying the trigger and repeat rule before execution.
 Compare loss reduction at a matched update budget with fixed-rate controls.
 The intervention may restore positive alignment without improving convergence;
 these two outcomes must be evaluated separately.
+
+\subsection{Noise contribution under mini-batch sampling}
+
+Under fresh, conditionally unbiased mini-batch sampling, we have
+\begin{equation}
+  \E[g_{t-1}^\top\xi_t]=0.
+  \label{eq:fresh-noise}
+\end{equation}
+But because \(g_{t-1}\) already contains the previous noise \(\xi_{t-1}\),
+\begin{equation}
+  \E[g_{t-1}^\top\xi_{t-1}]=\E[\norm{\xi_{t-1}}^2].
+\end{equation}
+Subtracting these two expectations yields
+\begin{equation}
+  \E[g_{t-1}^\top(\xi_t-\xi_{t-1})]
+              =-\E[\norm{\xi_{t-1}}^2]\leq0.
+  \label{eq:noise-expectation}
+\end{equation}
+Even unbiased noise therefore produces a nonpositive expected contribution to
+the unnormalized adjacent inner product. It suggests a systematic mechanism through which stochastic gradient noise can reduce successive-gradient alignment, independently of the local directional curvature.
+
+To isolate this sampling effect, fix the parameters and write
+$F=N^{-1}\sum_i\ell_i$, with unit gradients $h_i=\nabla\ell_i(\theta)$
+and complete objective gradient $\mu=\nabla F(\theta)$.
+For a uniform batch of $b$ objective units sampled without replacement,
+the gradient-noise variance is
+\begin{equation}
+  V_b:=\E\norm{g^{(b)}-\mu}^2
+  =\left(\frac1b-\frac1N\right)
+    \frac{\sum_{i=1}^N\norm{h_i-\mu}^2}{N-1}.
+  \label{eq:finite-population-noise}
+\end{equation}
+Two independently sampled gradients at these fixed parameters satisfy
+\begin{equation}
+  \E[(g^{(b)})^\top g'^{(b)}]=\norm{\mu}^2,
+  \qquad \E\norm{g^{(b)}}^2=\norm{\mu}^2+V_b.
+  \label{eq:frozen-noise-energy}
+\end{equation}
+Noise increases gradient energy without increasing the expected consecutive
+inner product. The expected cosine also depends on its random denominators;
+it is not the ratio of the expectations in Eq.~\eqref{eq:frozen-noise-energy}.
+For independent draws at fixed parameters with
+$0<\E\norm{g^{(b)}}<\infty$, the gradient accumulation ratio obeys
+\begin{equation}
+  \frac{B_T}{A_T}\xrightarrow[T\to\infty]{\mathrm{a.s.}}
+  \frac{\norm{\mu}}{\E\norm{g^{(b)}}},
+  \label{eq:frozen-accumulation-limit}
+\end{equation}
+Conditional Jensen's inequality for
+nested uniform batches shows that larger batches reduce
+$\E\norm{g^{(b)}}$. Smaller batches therefore reduce this long-sequence
+accumulation limit at fixed parameters. During SGD, batch size also changes
+the trajectory and signal gradient, so the same ordering need not hold.
+
+We isolate this sampling effect in three EOS settings: a tanh MLP on
+5,000 CIFAR-10 images, ResNet-32 on all 50,000 CIFAR-10 images, and the
+small word-level Transformer on the complete prepared WikiText-2 corpus.
+For each of three initializations, every batch condition uses 32 independent
+sequences of 128 gradient draws. We measure noise directly as
+$\xi=g^{(b)}-\mu$, using the complete objective gradient as the reference.
+ResNet samples whole fixed groups of 1,000 images to preserve its
+ghost-BatchNorm objective. No parameter updates are applied: $B/A$
+describes sampled gradient accumulation in this control, rather than actual
+parameter displacement.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{../../analyses/020-2026-10-14-eos-multitask/figures/eos_frozen_noise_comparison.pdf}
+  \caption{Real-data gradient-noise control at frozen initial parameters.
+  Columns show CIFAR-10/MLP, CIFAR-10/ResNet-32 and WikiText-2/Transformer.
+  Rows show mean adjacent cosine, accumulation $B/A$ over 128 draws, and
+  gradient-only projected change
+  $q=1-g_{t-1}^{\top}g_t/\norm{g_{t-1}}^2$.
+  The horizontal axis measures noise RMS relative to the complete-gradient
+  norm. Circles average three initializations; shading spans their range,
+  rather than a confidence interval. Squares mark the full-batch control.
+  The noise-corrected projected change is zero up to roundoff because the
+  parameters and signal gradient are fixed (dashed line). This separates
+  sampling-induced gradient changes from changes due to parameter motion.}
+  \label{fig:eos-frozen-noise}
+\end{figure}
+\clearpage
 
 \section{Extending the SGD formulation to momentum}
 

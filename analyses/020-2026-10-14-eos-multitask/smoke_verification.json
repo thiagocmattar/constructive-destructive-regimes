@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "scientific_evidence": false,
+  "results": [
+    {
+      "task": "mlp",
+      "status": "passed",
+      "updates": 3,
+      "noise_corrected_adjacent_pairs": 1,
+      "spectra": 3,
+      "maximum_update_identity_residual": 5.286026878212385e-07,
+      "peak_gpu_bytes": 322820096,
+      "smoke_manifest_sha256": "cd23c405386fc321dd3c36abfa254de5b8fec50437b293e720c851b4815cbbbd"
+    },
+    {
+      "task": "resnet",
+      "status": "passed",
+      "updates": 3,
+      "noise_corrected_adjacent_pairs": 1,
+      "spectra": 3,
+      "maximum_update_identity_residual": 1.3245110288840544e-06,
+      "peak_gpu_bytes": 6371385856,
+      "smoke_manifest_sha256": "7e172f9f994c87d4df821c198bf86273de5d8a154ecbbbe031ec7ae793075cb2"
+    },
+    {
+      "task": "transformer",
+      "status": "passed",
+      "updates": 3,
+      "noise_corrected_adjacent_pairs": 1,
+      "spectra": 3,
+      "maximum_update_identity_residual": 6.855724015150253e-06,
+      "peak_gpu_bytes": 2629235200,
+      "smoke_manifest_sha256": "fec7cf2fc17058f859ac1279b1c3f016e76e6f3dc62ce076797c993f664719c8"
+    }
+  ]
+}

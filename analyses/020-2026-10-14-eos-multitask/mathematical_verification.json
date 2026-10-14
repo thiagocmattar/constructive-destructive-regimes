@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "exact_mlp_per_example_gradient_energy": true,
+  "finite_population_batch_variance": true,
+  "stateless_ghost_bn_forward_parity": true,
+  "historical_lm_axis_token_weighting": true,
+  "padded_targets_excluded": true,
+  "calibration": "Run067 independent HVP/noise/accumulation checks passed",
+  "existing_mlp_full_gradient_bitwise_parity": true,
+  "production_source_sha256": {
+    "noise.py": "c94a139f40cd1e632ca4b68c15a0407cd2523e9ac8de0144d51a9a89b7eca6bb",
+    "production.py": "9cda7703e50d4f32d9e8c3118361c418b600a87e23b3f8d6b175b82e1482b6ce",
+    "task.py": "28a15439e22ec82e05da41497b2d6c9a33171f29a9e13413d8167804d124c6b0",
+    "train.py": "1861c3943197fd8555f0fc59ba10ab8caf4c64f165c5dd3c736c74cd5c707804",
+    "__init__.py": "b827b6bf61d01a83281bbff65204315279e6d343f962a1bbe4e52d5a7f67b86e"
+  }
+}

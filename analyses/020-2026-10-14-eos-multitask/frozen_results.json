@@ -1,0 +1,203 @@
+{
+  "status": "complete",
+  "conditions": [
+    {
+      "task": "mlp",
+      "batch_units": 5000,
+      "seeds": 3,
+      "relative_noise_rms_mean": 0.0,
+      "B_over_A_mean": 1.0,
+      "cosine_mean": 1.0,
+      "B_over_A_seed_range": [
+        0.9999999999999972,
+        1.0000000000000024
+      ],
+      "cosine_seed_range": [
+        1.0,
+        1.0000000000000002
+      ]
+    },
+    {
+      "task": "mlp",
+      "batch_units": 512,
+      "seeds": 3,
+      "relative_noise_rms_mean": 0.29264723854862873,
+      "B_over_A_mean": 0.9608340391971281,
+      "cosine_mean": 0.9223150071024796,
+      "B_over_A_seed_range": [
+        0.951910575184305,
+        0.9684630086188821
+      ],
+      "cosine_seed_range": [
+        0.9049991227339762,
+        0.937114136338018
+      ]
+    },
+    {
+      "task": "mlp",
+      "batch_units": 128,
+      "seeds": 3,
+      "relative_noise_rms_mean": 0.6099121333674123,
+      "B_over_A_mean": 0.8574718239870881,
+      "cosine_mean": 0.731452654945134,
+      "B_over_A_seed_range": [
+        0.8302020680714848,
+        0.881175122080369
+      ],
+      "cosine_seed_range": [
+        0.6843773695042632,
+        0.7732515423186235
+      ]
+    },
+    {
+      "task": "mlp",
+      "batch_units": 32,
+      "seeds": 3,
+      "relative_noise_rms_mean": 1.2315684975419012,
+      "B_over_A_mean": 0.6389118081319064,
+      "cosine_mean": 0.3983067809712591,
+      "B_over_A_seed_range": [
+        0.5960248054381839,
+        0.6774274482954716
+      ],
+      "cosine_seed_range": [
+        0.345714415137213,
+        0.44736996850307503
+      ]
+    },
+    {
+      "task": "resnet",
+      "batch_units": 50,
+      "seeds": 3,
+      "relative_noise_rms_mean": 0.0,
+      "B_over_A_mean": 1.0000000000000007,
+      "cosine_mean": 1.0,
+      "B_over_A_seed_range": [
+        0.9999999999999986,
+        1.0000000000000022
+      ],
+      "cosine_seed_range": [
+        1.0,
+        1.0000000000000002
+      ]
+    },
+    {
+      "task": "resnet",
+      "batch_units": 20,
+      "seeds": 3,
+      "relative_noise_rms_mean": 0.07041550456436162,
+      "B_over_A_mean": 0.9976100805447977,
+      "cosine_mean": 0.9951836085996848,
+      "B_over_A_seed_range": [
+        0.997098631292165,
+        0.9978963730776943
+      ],
+      "cosine_seed_range": [
+        0.9941744479516721,
+        0.9957683795396353
+      ]
+    },
+    {
+      "task": "resnet",
+      "batch_units": 5,
+      "seeds": 3,
+      "relative_noise_rms_mean": 0.17245472902314996,
+      "B_over_A_mean": 0.9859366260677703,
+      "cosine_mean": 0.971752623020773,
+      "B_over_A_seed_range": [
+        0.9830728025041072,
+        0.9874620688992839
+      ],
+      "cosine_seed_range": [
+        0.9659768916323659,
+        0.9748859562960378
+      ]
+    },
+    {
+      "task": "resnet",
+      "batch_units": 1,
+      "seeds": 3,
+      "relative_noise_rms_mean": 0.4026170127105479,
+      "B_over_A_mean": 0.92970862088041,
+      "cosine_mean": 0.8632306507744131,
+      "B_over_A_seed_range": [
+        0.9161211943562795,
+        0.9372059161492415
+      ],
+      "cosine_seed_range": [
+        0.8384739872724427,
+        0.877323746978328
+      ]
+    },
+    {
+      "task": "transformer",
+      "batch_units": 59680,
+      "seeds": 3,
+      "relative_noise_rms_mean": 0.0,
+      "B_over_A_mean": 1.0000000000000002,
+      "cosine_mean": 1.0,
+      "B_over_A_seed_range": [
+        0.9999999999999977,
+        1.0000000000000029
+      ],
+      "cosine_seed_range": [
+        0.9999999999999999,
+        1.0
+      ]
+    },
+    {
+      "task": "transformer",
+      "batch_units": 128,
+      "seeds": 3,
+      "relative_noise_rms_mean": 0.2675775533936653,
+      "B_over_A_mean": 0.9665216899899036,
+      "cosine_mean": 0.9336477497368819,
+      "B_over_A_seed_range": [
+        0.9644496906756521,
+        0.9688654462744759
+      ],
+      "cosine_seed_range": [
+        0.9295038611330846,
+        0.9382763701709185
+      ]
+    },
+    {
+      "task": "transformer",
+      "batch_units": 32,
+      "seeds": 3,
+      "relative_noise_rms_mean": 0.5350857025468488,
+      "B_over_A_mean": 0.883332775027312,
+      "cosine_mean": 0.7780722351610817,
+      "B_over_A_seed_range": [
+        0.8771350604358306,
+        0.8906045946255441
+      ],
+      "cosine_seed_range": [
+        0.7668119360773269,
+        0.7913438868460072
+      ]
+    },
+    {
+      "task": "transformer",
+      "batch_units": 8,
+      "seeds": 3,
+      "relative_noise_rms_mean": 1.0707377708947439,
+      "B_over_A_mean": 0.6869456941199156,
+      "cosine_mean": 0.46673518278194276,
+      "B_over_A_seed_range": [
+        0.6753972037799102,
+        0.6999572248833268
+      ],
+      "cosine_seed_range": [
+        0.4511263856851312,
+        0.4842053766074027
+      ]
+    }
+  ],
+  "source_results_sha256": "559da99809512cc4f381750300a87c336639081a036c05ac395e213c003ffa93",
+  "within_seed_replications": 32,
+  "sequence_length": 128,
+  "seeds": 3,
+  "parameter_updates": 0,
+  "scope": "Frozen initialization controls only; not training dynamics."
+}

@@ -106,3 +106,20 @@ independently checks table values against retained NPZ arrays,
 rejects unresolved references or overflowing LaTeX boxes, and confirms that
 the two supplied Markdown inputs remain byte-identical. These mechanics checks
 are distinct from the frozen experiment's empirical evidence.
+
+## Real-data gradient-noise control
+
+The noise contribution now follows normalized displacement and GD evidence.
+The report adds finite-population batch-gradient variance and the fixed-parameter
+accumulation limit, with a publication control figure from
+[Analysis020](../../analyses/020-2026-10-14-eos-multitask/REPORT.md).
+Three initializations per case and 32 independent 128-draw sequences isolate
+sampling effects on CIFAR-10/MLP, CIFAR-10/ResNet-32 and WikiText-2/Transformer.
+These are frozen-gradient measurements with no optimizer updates. The 500-update
+three-case GD/SGD training stage is running separately; its results are not yet
+included in this report.
+
+The builder also checks the completed Run068 source snapshots, raw artifact
+receipt, control figure and reductions. Regenerate that figure with
+`python analyses/020-2026-10-14-eos-multitask/06_plot_frozen.py`, inspect its current
+render, then use `--accept-reviewed` before building the report.

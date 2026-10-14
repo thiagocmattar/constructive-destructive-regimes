@@ -1,0 +1,41 @@
+{
+  "run_id": "076",
+  "hypothesis": "H019",
+  "task": "transformer",
+  "method": "gd",
+  "seed": 2,
+  "lr": 0.1,
+  "batch_units": null,
+  "updates": 500,
+  "horizon": "staged-500",
+  "physical": 64,
+  "noise_every": 100,
+  "variance_sample_units": 32,
+  "hessian_units": 2500,
+  "hessian_every": 100,
+  "checkpoint_every": 100,
+  "test_every": 500,
+  "retained_states": [
+    250
+  ],
+  "eigensolver": {
+    "k": 1,
+    "which": "LA",
+    "tolerance": 0.001,
+    "ncv": 12,
+    "maxiter": 200,
+    "residual_tolerance": 0.005,
+    "fallback": {
+      "ncv": 36,
+      "maxiter": 400
+    }
+  },
+  "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+  "notes": [
+    "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+    "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+    "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+    "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+    "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+  ]
+}

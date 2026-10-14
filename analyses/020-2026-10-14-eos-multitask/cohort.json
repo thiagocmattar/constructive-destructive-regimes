@@ -1,0 +1,1959 @@
+{
+  "analysis_id": "020",
+  "hypothesis": "H019",
+  "created_utc": "2026-10-14T22:41:31.877700+00:00",
+  "horizon": "staged-500",
+  "runs": [
+    {
+      "run_id": "061",
+      "kind": "reused_gd_prefix",
+      "task": "mlp",
+      "method": "gd",
+      "seed": 0,
+      "lr": 0.01,
+      "updates": 500,
+      "run": "061-2026-10-13-cifar10-eos-gd-lr-1e-2",
+      "output": "artifacts/attempt-01-spark/production",
+      "source": "verified immutable Analysis019 Run061"
+    },
+    {
+      "run_id": "069",
+      "run": "069-2026-10-14-eos-mlp-gd-full-seed1",
+      "kind": "new_training",
+      "task": "mlp",
+      "method": "gd",
+      "seed": 1,
+      "lr": 0.01,
+      "batch_units": null,
+      "updates": 500,
+      "estimated_seconds": 37.227271320240106,
+      "maximum_seconds": 1800,
+      "config": {
+        "run_id": "069",
+        "hypothesis": "H019",
+        "task": "mlp",
+        "method": "gd",
+        "seed": 1,
+        "lr": 0.01,
+        "batch_units": null,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 1000,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 5000,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "21a17c826e8f4f42264aa136853d060628399d709fbc0cde57e9498b44f5b0bc"
+    },
+    {
+      "run_id": "070",
+      "run": "070-2026-10-14-eos-mlp-gd-full-seed2",
+      "kind": "new_training",
+      "task": "mlp",
+      "method": "gd",
+      "seed": 2,
+      "lr": 0.01,
+      "batch_units": null,
+      "updates": 500,
+      "estimated_seconds": 37.227271320240106,
+      "maximum_seconds": 1800,
+      "config": {
+        "run_id": "070",
+        "hypothesis": "H019",
+        "task": "mlp",
+        "method": "gd",
+        "seed": 2,
+        "lr": 0.01,
+        "batch_units": null,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 1000,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 5000,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "06967a72ebabeeec2a9eea2cc95c51d015c05fb97c0320d616e4ae70fa65d851"
+    },
+    {
+      "run_id": "071",
+      "run": "071-2026-10-14-eos-resnet-gd-full-seed0",
+      "kind": "new_training",
+      "task": "resnet",
+      "method": "gd",
+      "seed": 0,
+      "lr": 0.2,
+      "batch_units": null,
+      "updates": 500,
+      "estimated_seconds": 7347.209265547455,
+      "maximum_seconds": 12355,
+      "config": {
+        "run_id": "071",
+        "hypothesis": "H019",
+        "task": "resnet",
+        "method": "gd",
+        "seed": 0,
+        "lr": 0.2,
+        "batch_units": null,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 1000,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 5,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "26c955af7cde6f59bc3893d6a42fd083a952f5a77b3c2887a151bd89c1d4d294"
+    },
+    {
+      "run_id": "072",
+      "run": "072-2026-10-14-eos-resnet-gd-full-seed1",
+      "kind": "new_training",
+      "task": "resnet",
+      "method": "gd",
+      "seed": 1,
+      "lr": 0.2,
+      "batch_units": null,
+      "updates": 500,
+      "estimated_seconds": 7347.209265547455,
+      "maximum_seconds": 12355,
+      "config": {
+        "run_id": "072",
+        "hypothesis": "H019",
+        "task": "resnet",
+        "method": "gd",
+        "seed": 1,
+        "lr": 0.2,
+        "batch_units": null,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 1000,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 5,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "4e0e9256ebcdbee638a451c45d49e6b6dfcf84703dc1e5208b609b9e4668784d"
+    },
+    {
+      "run_id": "073",
+      "run": "073-2026-10-14-eos-resnet-gd-full-seed2",
+      "kind": "new_training",
+      "task": "resnet",
+      "method": "gd",
+      "seed": 2,
+      "lr": 0.2,
+      "batch_units": null,
+      "updates": 500,
+      "estimated_seconds": 7347.209265547455,
+      "maximum_seconds": 12355,
+      "config": {
+        "run_id": "073",
+        "hypothesis": "H019",
+        "task": "resnet",
+        "method": "gd",
+        "seed": 2,
+        "lr": 0.2,
+        "batch_units": null,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 1000,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 5,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "28879714feb7952a765a4f3151ea699de9af34afcf1f97ea7187cf93485b3055"
+    },
+    {
+      "run_id": "074",
+      "run": "074-2026-10-14-eos-transformer-gd-full-seed0",
+      "kind": "new_training",
+      "task": "transformer",
+      "method": "gd",
+      "seed": 0,
+      "lr": 0.1,
+      "batch_units": null,
+      "updates": 500,
+      "estimated_seconds": 16403.2839609707,
+      "maximum_seconds": 26845,
+      "config": {
+        "run_id": "074",
+        "hypothesis": "H019",
+        "task": "transformer",
+        "method": "gd",
+        "seed": 0,
+        "lr": 0.1,
+        "batch_units": null,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 64,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 2500,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "a63954b875beb752ba3e3a1901761fe0320ba4bb2a0425c06d1737d9d1c47c43"
+    },
+    {
+      "run_id": "075",
+      "run": "075-2026-10-14-eos-transformer-gd-full-seed1",
+      "kind": "new_training",
+      "task": "transformer",
+      "method": "gd",
+      "seed": 1,
+      "lr": 0.1,
+      "batch_units": null,
+      "updates": 500,
+      "estimated_seconds": 16403.2839609707,
+      "maximum_seconds": 26845,
+      "config": {
+        "run_id": "075",
+        "hypothesis": "H019",
+        "task": "transformer",
+        "method": "gd",
+        "seed": 1,
+        "lr": 0.1,
+        "batch_units": null,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 64,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 2500,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "12457580a5d02976a73cc4f8313b4d35126af43f2d5b4dd2076edde9f7d6505b"
+    },
+    {
+      "run_id": "076",
+      "run": "076-2026-10-14-eos-transformer-gd-full-seed2",
+      "kind": "new_training",
+      "task": "transformer",
+      "method": "gd",
+      "seed": 2,
+      "lr": 0.1,
+      "batch_units": null,
+      "updates": 500,
+      "estimated_seconds": 16403.2839609707,
+      "maximum_seconds": 26845,
+      "config": {
+        "run_id": "076",
+        "hypothesis": "H019",
+        "task": "transformer",
+        "method": "gd",
+        "seed": 2,
+        "lr": 0.1,
+        "batch_units": null,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 64,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 2500,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "4f35200740e3b92ad4e06d82a1f32f147454cb8ee0a54401f75d6aa7ba876b89"
+    },
+    {
+      "run_id": "077",
+      "run": "077-2026-10-14-eos-mlp-sgd-b32-seed0",
+      "kind": "new_training",
+      "task": "mlp",
+      "method": "sgd",
+      "seed": 0,
+      "lr": 0.01,
+      "batch_units": 32,
+      "updates": 500,
+      "estimated_seconds": 31.063022802898196,
+      "maximum_seconds": 1800,
+      "config": {
+        "run_id": "077",
+        "hypothesis": "H019",
+        "task": "mlp",
+        "method": "sgd",
+        "seed": 0,
+        "lr": 0.01,
+        "batch_units": 32,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 1000,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 5000,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "9824050b2937614811a5740738290d32782d08f613c71c574ccf18f4252682e7"
+    },
+    {
+      "run_id": "078",
+      "run": "078-2026-10-14-eos-mlp-sgd-b32-seed1",
+      "kind": "new_training",
+      "task": "mlp",
+      "method": "sgd",
+      "seed": 1,
+      "lr": 0.01,
+      "batch_units": 32,
+      "updates": 500,
+      "estimated_seconds": 31.063022802898196,
+      "maximum_seconds": 1800,
+      "config": {
+        "run_id": "078",
+        "hypothesis": "H019",
+        "task": "mlp",
+        "method": "sgd",
+        "seed": 1,
+        "lr": 0.01,
+        "batch_units": 32,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 1000,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 5000,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "9bee100a201ddbe1d19c7c40473dadebb63e3f45822b0564f651f881e5f09c6f"
+    },
+    {
+      "run_id": "079",
+      "run": "079-2026-10-14-eos-mlp-sgd-b32-seed2",
+      "kind": "new_training",
+      "task": "mlp",
+      "method": "sgd",
+      "seed": 2,
+      "lr": 0.01,
+      "batch_units": 32,
+      "updates": 500,
+      "estimated_seconds": 31.063022802898196,
+      "maximum_seconds": 1800,
+      "config": {
+        "run_id": "079",
+        "hypothesis": "H019",
+        "task": "mlp",
+        "method": "sgd",
+        "seed": 2,
+        "lr": 0.01,
+        "batch_units": 32,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 1000,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 5000,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "52e30f4ac8a1478c9631eb7048af8a1a96846215f8bc1c13c1d877ecc3123960"
+    },
+    {
+      "run_id": "080",
+      "run": "080-2026-10-14-eos-mlp-sgd-b128-seed0",
+      "kind": "new_training",
+      "task": "mlp",
+      "method": "sgd",
+      "seed": 0,
+      "lr": 0.01,
+      "batch_units": 128,
+      "updates": 500,
+      "estimated_seconds": 31.18508712997427,
+      "maximum_seconds": 1800,
+      "config": {
+        "run_id": "080",
+        "hypothesis": "H019",
+        "task": "mlp",
+        "method": "sgd",
+        "seed": 0,
+        "lr": 0.01,
+        "batch_units": 128,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 1000,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 5000,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "6e1e555d408d85fe7eddae0f3a9448cdc31d6060d9e3c379379ae3f5d5fcb1cd"
+    },
+    {
+      "run_id": "081",
+      "run": "081-2026-10-14-eos-mlp-sgd-b128-seed1",
+      "kind": "new_training",
+      "task": "mlp",
+      "method": "sgd",
+      "seed": 1,
+      "lr": 0.01,
+      "batch_units": 128,
+      "updates": 500,
+      "estimated_seconds": 31.18508712997427,
+      "maximum_seconds": 1800,
+      "config": {
+        "run_id": "081",
+        "hypothesis": "H019",
+        "task": "mlp",
+        "method": "sgd",
+        "seed": 1,
+        "lr": 0.01,
+        "batch_units": 128,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 1000,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 5000,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "9256275924aef08aa5ee62e0e5a138560620622b4fbf8daaa0541dc7e53bd86d"
+    },
+    {
+      "run_id": "082",
+      "run": "082-2026-10-14-eos-mlp-sgd-b128-seed2",
+      "kind": "new_training",
+      "task": "mlp",
+      "method": "sgd",
+      "seed": 2,
+      "lr": 0.01,
+      "batch_units": 128,
+      "updates": 500,
+      "estimated_seconds": 31.18508712997427,
+      "maximum_seconds": 1800,
+      "config": {
+        "run_id": "082",
+        "hypothesis": "H019",
+        "task": "mlp",
+        "method": "sgd",
+        "seed": 2,
+        "lr": 0.01,
+        "batch_units": 128,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 1000,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 5000,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "aff052107acd9fa82f5b2c1e3d4f219435f3a6837e380fe7d5b59dcc81bf7bbe"
+    },
+    {
+      "run_id": "083",
+      "run": "083-2026-10-14-eos-mlp-sgd-b512-seed0",
+      "kind": "new_training",
+      "task": "mlp",
+      "method": "sgd",
+      "seed": 0,
+      "lr": 0.01,
+      "batch_units": 512,
+      "updates": 500,
+      "estimated_seconds": 31.673344438278583,
+      "maximum_seconds": 1800,
+      "config": {
+        "run_id": "083",
+        "hypothesis": "H019",
+        "task": "mlp",
+        "method": "sgd",
+        "seed": 0,
+        "lr": 0.01,
+        "batch_units": 512,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 1000,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 5000,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "6891f50eed1dd344f7b123f542ddd736eb14a129e00a9fc57071b0b5baad1970"
+    },
+    {
+      "run_id": "084",
+      "run": "084-2026-10-14-eos-mlp-sgd-b512-seed1",
+      "kind": "new_training",
+      "task": "mlp",
+      "method": "sgd",
+      "seed": 1,
+      "lr": 0.01,
+      "batch_units": 512,
+      "updates": 500,
+      "estimated_seconds": 31.673344438278583,
+      "maximum_seconds": 1800,
+      "config": {
+        "run_id": "084",
+        "hypothesis": "H019",
+        "task": "mlp",
+        "method": "sgd",
+        "seed": 1,
+        "lr": 0.01,
+        "batch_units": 512,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 1000,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 5000,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "aded68e718af0c896160981c97f2dc81808912ca4f07188e36038420b2e794b4"
+    },
+    {
+      "run_id": "085",
+      "run": "085-2026-10-14-eos-mlp-sgd-b512-seed2",
+      "kind": "new_training",
+      "task": "mlp",
+      "method": "sgd",
+      "seed": 2,
+      "lr": 0.01,
+      "batch_units": 512,
+      "updates": 500,
+      "estimated_seconds": 31.673344438278583,
+      "maximum_seconds": 1800,
+      "config": {
+        "run_id": "085",
+        "hypothesis": "H019",
+        "task": "mlp",
+        "method": "sgd",
+        "seed": 2,
+        "lr": 0.01,
+        "batch_units": 512,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 1000,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 5000,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "8e738385e3dfbc0ef6d3ab9c6ac2331bbaf643d97aa7c4dd2ab39592b65baf19"
+    },
+    {
+      "run_id": "086",
+      "run": "086-2026-10-14-eos-resnet-sgd-b1-seed0",
+      "kind": "new_training",
+      "task": "resnet",
+      "method": "sgd",
+      "seed": 0,
+      "lr": 0.2,
+      "batch_units": 1,
+      "updates": 500,
+      "estimated_seconds": 1331.7424635594944,
+      "maximum_seconds": 2730,
+      "config": {
+        "run_id": "086",
+        "hypothesis": "H019",
+        "task": "resnet",
+        "method": "sgd",
+        "seed": 0,
+        "lr": 0.2,
+        "batch_units": 1,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 1000,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 5,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "58318a51fe79884396ed6169c7dd87db2cab0fa795198eb2609fed2a0a0d543c"
+    },
+    {
+      "run_id": "087",
+      "run": "087-2026-10-14-eos-resnet-sgd-b1-seed1",
+      "kind": "new_training",
+      "task": "resnet",
+      "method": "sgd",
+      "seed": 1,
+      "lr": 0.2,
+      "batch_units": 1,
+      "updates": 500,
+      "estimated_seconds": 1331.7424635594944,
+      "maximum_seconds": 2730,
+      "config": {
+        "run_id": "087",
+        "hypothesis": "H019",
+        "task": "resnet",
+        "method": "sgd",
+        "seed": 1,
+        "lr": 0.2,
+        "batch_units": 1,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 1000,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 5,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "582345023d603fc0d70308da4276d3dfe9db990211b8692d4c2c83a0cdaa5bbf"
+    },
+    {
+      "run_id": "088",
+      "run": "088-2026-10-14-eos-resnet-sgd-b1-seed2",
+      "kind": "new_training",
+      "task": "resnet",
+      "method": "sgd",
+      "seed": 2,
+      "lr": 0.2,
+      "batch_units": 1,
+      "updates": 500,
+      "estimated_seconds": 1331.7424635594944,
+      "maximum_seconds": 2730,
+      "config": {
+        "run_id": "088",
+        "hypothesis": "H019",
+        "task": "resnet",
+        "method": "sgd",
+        "seed": 2,
+        "lr": 0.2,
+        "batch_units": 1,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 1000,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 5,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "022712f819890a87e4b6d00853a73b424d225dc670235c2f62a8fa8a6e87d152"
+    },
+    {
+      "run_id": "089",
+      "run": "089-2026-10-14-eos-resnet-sgd-b5-seed0",
+      "kind": "new_training",
+      "task": "resnet",
+      "method": "sgd",
+      "seed": 0,
+      "lr": 0.2,
+      "batch_units": 5,
+      "updates": 500,
+      "estimated_seconds": 1841.527785761864,
+      "maximum_seconds": 3546,
+      "config": {
+        "run_id": "089",
+        "hypothesis": "H019",
+        "task": "resnet",
+        "method": "sgd",
+        "seed": 0,
+        "lr": 0.2,
+        "batch_units": 5,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 1000,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 5,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "9a13b89bf96e7ae9e0bc7a1b461d46870b32c6e88cdf570dcf83f10e51df0a9b"
+    },
+    {
+      "run_id": "090",
+      "run": "090-2026-10-14-eos-resnet-sgd-b5-seed1",
+      "kind": "new_training",
+      "task": "resnet",
+      "method": "sgd",
+      "seed": 1,
+      "lr": 0.2,
+      "batch_units": 5,
+      "updates": 500,
+      "estimated_seconds": 1841.527785761864,
+      "maximum_seconds": 3546,
+      "config": {
+        "run_id": "090",
+        "hypothesis": "H019",
+        "task": "resnet",
+        "method": "sgd",
+        "seed": 1,
+        "lr": 0.2,
+        "batch_units": 5,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 1000,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 5,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "50c8f8baaeddc9e426df301f8156178ea726cb5211015661bb5b10ffc58202de"
+    },
+    {
+      "run_id": "091",
+      "run": "091-2026-10-14-eos-resnet-sgd-b5-seed2",
+      "kind": "new_training",
+      "task": "resnet",
+      "method": "sgd",
+      "seed": 2,
+      "lr": 0.2,
+      "batch_units": 5,
+      "updates": 500,
+      "estimated_seconds": 1841.527785761864,
+      "maximum_seconds": 3546,
+      "config": {
+        "run_id": "091",
+        "hypothesis": "H019",
+        "task": "resnet",
+        "method": "sgd",
+        "seed": 2,
+        "lr": 0.2,
+        "batch_units": 5,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 1000,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 5,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "e43669208598442a489e3cf4f2968c05f18258c3227a693464dbd0e29b22847e"
+    },
+    {
+      "run_id": "092",
+      "run": "092-2026-10-14-eos-resnet-sgd-b20-seed0",
+      "kind": "new_training",
+      "task": "resnet",
+      "method": "sgd",
+      "seed": 0,
+      "lr": 0.2,
+      "batch_units": 20,
+      "updates": 500,
+      "estimated_seconds": 3753.22274402075,
+      "maximum_seconds": 6605,
+      "config": {
+        "run_id": "092",
+        "hypothesis": "H019",
+        "task": "resnet",
+        "method": "sgd",
+        "seed": 0,
+        "lr": 0.2,
+        "batch_units": 20,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 1000,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 5,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "4378103dd93ccccdc5d539c691b1b71658a0a7e81ee8e9bb661e3fa308fc5679"
+    },
+    {
+      "run_id": "093",
+      "run": "093-2026-10-14-eos-resnet-sgd-b20-seed1",
+      "kind": "new_training",
+      "task": "resnet",
+      "method": "sgd",
+      "seed": 1,
+      "lr": 0.2,
+      "batch_units": 20,
+      "updates": 500,
+      "estimated_seconds": 3753.22274402075,
+      "maximum_seconds": 6605,
+      "config": {
+        "run_id": "093",
+        "hypothesis": "H019",
+        "task": "resnet",
+        "method": "sgd",
+        "seed": 1,
+        "lr": 0.2,
+        "batch_units": 20,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 1000,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 5,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "c7a9790aafe31df35760efcd58ce028fdeae174ab9b29de94becbfb487524482"
+    },
+    {
+      "run_id": "094",
+      "run": "094-2026-10-14-eos-resnet-sgd-b20-seed2",
+      "kind": "new_training",
+      "task": "resnet",
+      "method": "sgd",
+      "seed": 2,
+      "lr": 0.2,
+      "batch_units": 20,
+      "updates": 500,
+      "estimated_seconds": 3753.22274402075,
+      "maximum_seconds": 6605,
+      "config": {
+        "run_id": "094",
+        "hypothesis": "H019",
+        "task": "resnet",
+        "method": "sgd",
+        "seed": 2,
+        "lr": 0.2,
+        "batch_units": 20,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 1000,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 5,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "f7373104f54c5ace2489b00c0c5e756de23e29c8772e53f8abe0ef3dfd9ca1b9"
+    },
+    {
+      "run_id": "095",
+      "run": "095-2026-10-14-eos-transformer-sgd-b8-seed0",
+      "kind": "new_training",
+      "task": "transformer",
+      "method": "sgd",
+      "seed": 0,
+      "lr": 0.1,
+      "batch_units": 8,
+      "updates": 500,
+      "estimated_seconds": 1409.5363250502292,
+      "maximum_seconds": 2855,
+      "config": {
+        "run_id": "095",
+        "hypothesis": "H019",
+        "task": "transformer",
+        "method": "sgd",
+        "seed": 0,
+        "lr": 0.1,
+        "batch_units": 8,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 64,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 2500,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "a98d82484b78e3febdf0749b047e9b2c197e82ef6208cd9af8ad28449fec7878"
+    },
+    {
+      "run_id": "096",
+      "run": "096-2026-10-14-eos-transformer-sgd-b8-seed1",
+      "kind": "new_training",
+      "task": "transformer",
+      "method": "sgd",
+      "seed": 1,
+      "lr": 0.1,
+      "batch_units": 8,
+      "updates": 500,
+      "estimated_seconds": 1409.5363250502292,
+      "maximum_seconds": 2855,
+      "config": {
+        "run_id": "096",
+        "hypothesis": "H019",
+        "task": "transformer",
+        "method": "sgd",
+        "seed": 1,
+        "lr": 0.1,
+        "batch_units": 8,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 64,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 2500,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "80840d63aa8f74b5c1c872e36779d1f6b30dff384c8ca4a6dcfe3b5b01e81936"
+    },
+    {
+      "run_id": "097",
+      "run": "097-2026-10-14-eos-transformer-sgd-b8-seed2",
+      "kind": "new_training",
+      "task": "transformer",
+      "method": "sgd",
+      "seed": 2,
+      "lr": 0.1,
+      "batch_units": 8,
+      "updates": 500,
+      "estimated_seconds": 1409.5363250502292,
+      "maximum_seconds": 2855,
+      "config": {
+        "run_id": "097",
+        "hypothesis": "H019",
+        "task": "transformer",
+        "method": "sgd",
+        "seed": 2,
+        "lr": 0.1,
+        "batch_units": 8,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 64,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 2500,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "d957db80ae86ef7104d0d7e82bf24b5f2c6084ed58993c1bae099be66bdb7848"
+    },
+    {
+      "run_id": "098",
+      "run": "098-2026-10-14-eos-transformer-sgd-b32-seed0",
+      "kind": "new_training",
+      "task": "transformer",
+      "method": "sgd",
+      "seed": 0,
+      "lr": 0.1,
+      "batch_units": 32,
+      "updates": 500,
+      "estimated_seconds": 1415.715101157208,
+      "maximum_seconds": 2865,
+      "config": {
+        "run_id": "098",
+        "hypothesis": "H019",
+        "task": "transformer",
+        "method": "sgd",
+        "seed": 0,
+        "lr": 0.1,
+        "batch_units": 32,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 64,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 2500,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "c3bd3c9453b4a5f36c29a1164b417c0217a1a04f351a47118bbf52ccefff846f"
+    },
+    {
+      "run_id": "099",
+      "run": "099-2026-10-14-eos-transformer-sgd-b32-seed1",
+      "kind": "new_training",
+      "task": "transformer",
+      "method": "sgd",
+      "seed": 1,
+      "lr": 0.1,
+      "batch_units": 32,
+      "updates": 500,
+      "estimated_seconds": 1415.715101157208,
+      "maximum_seconds": 2865,
+      "config": {
+        "run_id": "099",
+        "hypothesis": "H019",
+        "task": "transformer",
+        "method": "sgd",
+        "seed": 1,
+        "lr": 0.1,
+        "batch_units": 32,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 64,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 2500,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "f07f270be2a73dee75ce7702c3a862f8bc89c7c3ad3c9aca54b86a971bd63967"
+    },
+    {
+      "run_id": "100",
+      "run": "100-2026-10-14-eos-transformer-sgd-b32-seed2",
+      "kind": "new_training",
+      "task": "transformer",
+      "method": "sgd",
+      "seed": 2,
+      "lr": 0.1,
+      "batch_units": 32,
+      "updates": 500,
+      "estimated_seconds": 1415.715101157208,
+      "maximum_seconds": 2865,
+      "config": {
+        "run_id": "100",
+        "hypothesis": "H019",
+        "task": "transformer",
+        "method": "sgd",
+        "seed": 2,
+        "lr": 0.1,
+        "batch_units": 32,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 64,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 2500,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "c1a2f4919013ab86322fef36f1e26696e1419e4aaf27b73e1d1a7b593f120b2b"
+    },
+    {
+      "run_id": "101",
+      "run": "101-2026-10-14-eos-transformer-sgd-b128-seed0",
+      "kind": "new_training",
+      "task": "transformer",
+      "method": "sgd",
+      "seed": 0,
+      "lr": 0.1,
+      "batch_units": 128,
+      "updates": 500,
+      "estimated_seconds": 1440.4302055851233,
+      "maximum_seconds": 2904,
+      "config": {
+        "run_id": "101",
+        "hypothesis": "H019",
+        "task": "transformer",
+        "method": "sgd",
+        "seed": 0,
+        "lr": 0.1,
+        "batch_units": 128,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 64,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 2500,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "1600a68e4aa7d4cb6ed31c6f33ab50e7a2e059016cf235b65b8a27798bbe4ca4"
+    },
+    {
+      "run_id": "102",
+      "run": "102-2026-10-14-eos-transformer-sgd-b128-seed1",
+      "kind": "new_training",
+      "task": "transformer",
+      "method": "sgd",
+      "seed": 1,
+      "lr": 0.1,
+      "batch_units": 128,
+      "updates": 500,
+      "estimated_seconds": 1440.4302055851233,
+      "maximum_seconds": 2904,
+      "config": {
+        "run_id": "102",
+        "hypothesis": "H019",
+        "task": "transformer",
+        "method": "sgd",
+        "seed": 1,
+        "lr": 0.1,
+        "batch_units": 128,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 64,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 2500,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "765c4324439ed4c226229e515131041d4bc67da0f5b4bf4b339d510ad115883c"
+    },
+    {
+      "run_id": "103",
+      "run": "103-2026-10-14-eos-transformer-sgd-b128-seed2",
+      "kind": "new_training",
+      "task": "transformer",
+      "method": "sgd",
+      "seed": 2,
+      "lr": 0.1,
+      "batch_units": 128,
+      "updates": 500,
+      "estimated_seconds": 1440.4302055851233,
+      "maximum_seconds": 2904,
+      "config": {
+        "run_id": "103",
+        "hypothesis": "H019",
+        "task": "transformer",
+        "method": "sgd",
+        "seed": 2,
+        "lr": 0.1,
+        "batch_units": 128,
+        "updates": 500,
+        "horizon": "staged-500",
+        "physical": 64,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 2500,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          250
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories."
+        ]
+      },
+      "config_sha256": "89daead253693d9f3b55a2c8f8522af272e4631c9fd85b96f26c7235d6902d4a"
+    }
+  ],
+  "estimated_hours": 29.217839572420125,
+  "qualified_hours": 40.90497540138817,
+  "hard_queue_seconds": 259200,
+  "remote_root": "/home/tcml-spark/experiments/constructive-destructive-regimes/eos-multitask-2026-10-14",
+  "remote_python": "/home/tcml-spark/experiments/constructive-destructive-regimes/spark-calibration-2026-10-08/venv/bin/python",
+  "remote_dependencies": "/home/tcml-spark/experiments/constructive-destructive-regimes/cifar-eos-calibration-2026-10-13/dependencies",
+  "remote_mlp_cache": "/home/tcml-spark/experiments/constructive-destructive-regimes/cifar-eos-calibration-2026-10-13/cache/cifar10-eos",
+  "remote_cache": "/home/tcml-spark/experiments/constructive-destructive-regimes/eos-multitask-2026-10-14/cache/eos-multitask",
+  "storage_allowance_bytes": 40000000000,
+  "cost": 0,
+  "owned_spark": true,
+  "dense_gradient_histories": false,
+  "next_run": 104,
+  "limitations": "One prespecified LR per task, three seeds; staged500 is a first-stage result, not a completed paper replication."
+}

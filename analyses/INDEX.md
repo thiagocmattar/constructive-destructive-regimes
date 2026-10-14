@@ -25,5 +25,7 @@
 
 | [019](019-2026-10-13-cifar10-eos-lr/README.md) | H018: full-batch CIFAR-10 GD/Adam LR ablation and geometry versus Hessian spectra | Runs059-066; frozen Run058 inputs | Complete; eight20k-update Spark trajectories,160k rows and4,816 eigenpairs verified; six-panel GD and ten-panel Adam full/early PDFs reviewed; four detailed PDFs archived | [Results](019-2026-10-13-cifar10-eos-lr/REPORT.md), [original observation](019-2026-10-13-cifar10-eos-lr/observations/001-learning-rate-sweep.md), [GD figure](019-2026-10-13-cifar10-eos-lr/observations/002-gd-six-panel.md), [Adam views](019-2026-10-13-cifar10-eos-lr/observations/003-adam-ten-panel.md); one seed; no cloud rental |
 
-Next analysis: `020-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
+| [020](020-2026-10-14-eos-multitask/README.md) | H019: EOS real-data cases, GD/SGD geometry, measured noise and sharpness | Calibration067, frozen control068, staged training069-103; reference061 | Control complete: 3 seeds/case,36 conditions,147,456 observations; training500-update stage running,29-41h ETC | [Report](020-2026-10-14-eos-multitask/REPORT.md), [control observation](020-2026-10-14-eos-multitask/observations/001-frozen-real-data-noise.md); no cloud rental; training results pending |
+
+Next analysis: `021-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
 an analysis may use manuscript or external inputs without referencing a run.

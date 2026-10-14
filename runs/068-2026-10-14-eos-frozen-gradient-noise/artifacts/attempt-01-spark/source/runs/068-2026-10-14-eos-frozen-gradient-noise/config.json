@@ -1,0 +1,46 @@
+{
+  "run_id": "068",
+  "hypothesis": "H019",
+  "type": "frozen initial-state real-data gradient sampling",
+  "tasks": [
+    "mlp",
+    "resnet",
+    "transformer"
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "sampling_seed": 20261014,
+  "batch_units": {
+    "mlp": [
+      32,
+      128,
+      512
+    ],
+    "resnet": [
+      1,
+      5,
+      20
+    ],
+    "transformer": [
+      8,
+      32,
+      128
+    ]
+  },
+  "replicates": 32,
+  "sequence_length": 128,
+  "full_batch_control": true,
+  "optimization_updates": 0,
+  "inputs_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+  "max_seconds": 5400,
+  "storage_allowance_bytes": 500000000,
+  "rental_cost": 0,
+  "owned_spark": true,
+  "precision": "FP32 model/gradient; FP64 reductions and accumulation; TF32 disabled",
+  "resnet_sampling": "whole fixed 1000-image ghost groups; full objective preserved",
+  "noise_measurement": "actual squared batch-gradient error against complete full-objective gradient",
+  "not_training_evidence": true
+}

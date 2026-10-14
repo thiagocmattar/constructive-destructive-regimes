@@ -56,3 +56,9 @@ manuscript/draft/bare_jrnl.pdf
 
 # Preserve the supplied source archive; it is not a disposable transfer archive.
 !manuscript/latex-zip.zip
+
+# Analysis020 retains raw calibration/noise evidence locally and on owned Spark.
+runs/067-2026-10-14-eos-multitask-calibration/artifacts/
+runs/068-2026-10-14-eos-frozen-gradient-noise/artifacts/
+analyses/020-2026-10-14-eos-multitask/local-controller.json
+runs/*-2026-10-14-eos-*/artifacts/

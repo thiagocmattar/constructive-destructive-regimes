@@ -1,6 +1,7 @@
 """Build the SGD/GD report with its Adam momentum extension and render every page."""
 import argparse
 import hashlib
+import itertools
 import json
 import shutil
 import subprocess
@@ -16,6 +17,7 @@ OUTPUT = HERE
 ARTIFACTS = ROOT / 'manuscript/artifacts/2026-10-11-restatement'
 ROSENBROCK = ROOT / 'analyses/017-2026-10-12-rosenbrock-kappa-identity'
 NOISE = ROOT / 'analyses/014-2026-10-10-rosenbrock-gradient-noise'
+EOS = ROOT / 'analyses/020-2026-10-14-eos-multitask'
 
 
 def sha256(path):
@@ -95,13 +97,26 @@ def check_math():
     assert np.linalg.norm(cancelling.sum(axis=0)) == 0
     corrected_ratio = np.linalg.norm(corrected.sum(axis=0))/np.linalg.norm(corrected, axis=1).sum()
     assert 0 < corrected_ratio <= 1
+    population = np.array([[1., 2.], [-.5, -1.], [.3, .2], [-.1, .5]])
+    mu = population.mean(axis=0)
+    covariance_trace = np.sum((population-mu)**2)/(len(population)-1)
+    mean_lengths = []
+    for batch_size in range(1, len(population)+1):
+        gradients = np.array([population[list(ids)].mean(axis=0)
+            for ids in itertools.combinations(range(len(population)), batch_size)])
+        variance = np.mean(np.sum((gradients-mu)**2, axis=1))
+        np.testing.assert_allclose(variance, (1/batch_size-1/len(population))*covariance_trace, atol=1e-14)
+        np.testing.assert_allclose(gradients.mean(axis=0), mu, atol=1e-14)
+        mean_lengths.append(np.linalg.norm(gradients,axis=1).mean())
+    assert np.all(np.diff(mean_lengths)<=1e-14)
     return {'status': 'passed', 'cases': ['displacement energy/interaction', 'normalized displacement gap',
         'quadratic SGD alignment with explicit noise', 'noise-corrected directional curvature',
         'conditional-unbiased noise inner-product expectation (four exact outcomes)',
         'quadratic Adam momentum recurrence/model with explicit noise (four beta pairs)',
         'Adam adaptive-direction displacement identity', 'momentum cosine invariance to bias correction',
         'momentum accumulation B/A and its change under bias correction',
-        'Eq.25 momentum-curvature inversion including tracking and noise']}
+        'Eq.25 momentum-curvature inversion including tracking and noise',
+        'finite-population batch-gradient variance and nested-batch Jensen ordering (all subsets)']}
 
 
 def rosenbrock_evidence():
@@ -178,6 +193,33 @@ def noise_evidence():
     return {'manifest_sha256': sha256(path), 'figure': figure.relative_to(ROOT).as_posix(), 'sha256': record['sha256']}
 
 
+def eos_frozen_evidence():
+    """Real-data sampling control is separate from pending training evidence."""
+    path = EOS / 'frozen_figure_manifest.json'
+    record = json.loads(path.read_text())
+    assert record['status'] == 'passed'
+    run = ROOT / 'runs/068-2026-10-14-eos-frozen-gradient-noise'
+    attempt = run / 'artifacts/attempt-01-spark'
+    result = attempt / 'production/results.json'
+    manifest = json.loads((attempt / 'production/manifest.json').read_text())
+    assert manifest['status'] == 'complete' and manifest['optimization_updates'] == 0
+    assert sha256(run / 'config.json') == manifest['config_sha256']
+    assert sha256(ROOT / 'cache/eos-multitask/inputs.json') == manifest['inputs_sha256']
+    assert json.loads((run / 'retrieval_verification.json').read_text())['status'] == 'passed'
+    assert sha256(result) == record['source_results_sha256']
+    assert sha256(EOS / '06_plot_frozen.py') == record['script_sha256']
+    for name, digest in manifest['source_sha256'].items():
+        snapshot = attempt / 'source' / name
+        assert sha256(snapshot if snapshot.exists() else ROOT / name) == digest
+    for item in json.loads((attempt / 'transfer_inventory.json').read_text())['files']:
+        assert sha256(attempt / item['path']) == item['sha256']
+    figure = EOS / 'figures/eos_frozen_noise_comparison.pdf'
+    assert sha256(figure) == record['pdf_sha256']
+    return {'manifest_sha256': sha256(path), 'figure': figure.relative_to(ROOT).as_posix(),
+        'sha256': record['pdf_sha256'], 'source_results_sha256': record['source_results_sha256'],
+        'run_id': '068', 'scope': 'three initializations; frozen real-data gradient sampling; no training updates'}
+
+
 def render(path, prefix):
     pages = []
     poppler = shutil.which('pdftoppm')
@@ -221,9 +263,10 @@ def main():
         assert sha256(ANALYSIS / 'gd_paper_figure_manifest.json') == record['figure_manifest_sha256']
         assert rosenbrock_evidence() == record['rosenbrock']
         assert noise_evidence() == record['noise']
+        assert eos_frozen_evidence() == record['eos_frozen']
         for name, expected in record['inputs_sha256_unchanged'].items():
             assert sha256(ROOT / name) == expected
-        for page in record['report_pages'] + record['figure_pages'] + record['rosenbrock_figure_pages'] + record['noise_figure_pages']:
+        for page in record['report_pages'] + record['figure_pages'] + record['rosenbrock_figure_pages'] + record['noise_figure_pages'] + record['eos_frozen_figure_pages']:
             assert sha256(ROOT / page['render']) == page['render_sha256']
         record['status'] = 'passed'
         record['visual_review'] = 'All report pages and the standalone figure inspected for layout, equations, captions, tables, clipping and references.'
@@ -237,6 +280,7 @@ def main():
     rows = result_table()
     rosenbrock = rosenbrock_evidence()
     noise = noise_evidence()
+    eos_frozen = eos_frozen_evidence()
     for attempt in [1, 2]:
         print(f'LaTeX pass {attempt}/2', flush=True)
         process = subprocess.run(['pdflatex', '--disable-installer', '-no-shell-escape',
@@ -270,9 +314,10 @@ def main():
     for index, name in enumerate(rosenbrock['figures'], start=1):
         rosenbrock_pages.extend(render(ROOT / name, f'rosenbrock-figure-{index}'))
     noise_pages = render(ROOT / noise['figure'], 'noise-figure')
+    eos_frozen_pages = render(ROOT / eos_frozen['figure'], 'eos-frozen-figure')
     assert {p.relative_to(ROOT).as_posix(): sha256(p) for p in inputs} == input_hashes
     write_json(metadata, {'status': 'awaiting_visual_review',
-        'scope': 'SGD formulation, CIFAR-10 GD evidence, Adam momentum extension and deterministic/noisy Rosenbrock AdamW results.',
+        'scope': 'SGD formulation, CIFAR-10 GD evidence, real-data frozen sampling control, Adam momentum extension and deterministic/noisy Rosenbrock AdamW results; three-case training results not yet included.',
         'report': destination.relative_to(ROOT).as_posix(), 'report_sha256': sha256(destination),
         'latex_source': (HERE / 'gd-formulation.tex').relative_to(ROOT).as_posix(),
         'latex_source_sha256': sha256(HERE / 'gd-formulation.tex'),
@@ -283,6 +328,7 @@ def main():
         'report_pages': report_pages, 'figure_pages': figure_pages, 'visual_review': None,
         'rosenbrock': rosenbrock, 'rosenbrock_figure_pages': rosenbrock_pages,
         'noise': noise, 'noise_figure_pages': noise_pages,
+        'eos_frozen': eos_frozen, 'eos_frozen_figure_pages': eos_frozen_pages,
         'latex_checks': 'Two passes; no overfull boxes, undefined references/citations or pending rerun.',
         'runs': [r['run_id'] for r in rows], 'new_training': False,
         'references': ['https://arxiv.org/abs/2103.00065', 'https://github.com/locuslab/edge-of-stability/tree/github']})

@@ -1,12 +1,12 @@
 {
   "status": "passed",
-  "scope": "SGD formulation, CIFAR-10 GD evidence, Adam momentum extension and deterministic/noisy Rosenbrock AdamW results.",
+  "scope": "SGD formulation, CIFAR-10 GD evidence, real-data frozen sampling control, Adam momentum extension and deterministic/noisy Rosenbrock AdamW results; three-case training results not yet included.",
   "report": "manuscript/2026-10-11-restatement/gd-formulation.pdf",
-  "report_sha256": "a8eda3bae673dd208fffd32b7b10053df64f1257a6ac8b403c5dc436eceada15",
+  "report_sha256": "686137d3991b81d1f4e978679a4b93a65d6d45e137407fe934148aa55ddcf8a1",
   "latex_source": "manuscript/2026-10-11-restatement/gd-formulation.tex",
-  "latex_source_sha256": "f5cd8c63ee830961a14059aab52d2e17dd8b2d1618640859da8f35c35173b2f8",
+  "latex_source_sha256": "f1f352969353401a24070113cbc11026726d91609f5f4ec66872e72e2b26f633",
   "table_sha256": "133ff5b125426487c60f8679bf6b11b6eb3aa605b00dce45ddcebf5841a1ab15",
-  "build_script_sha256": "82eb66c2515426ec7630f18c4e57fd20958a15adc89b9958f7cd2c7cd5f55f93",
+  "build_script_sha256": "f426a0cc144b505761f3682dc87f2756a1acad5b82799e4a44c026a0a842bb08",
   "inputs_sha256_unchanged": {
     "manuscript/2026-10-11-restatement/formulation.md": "439e9d4f4cbcedf4722a24b8507a628a18c06f2fd44d8a332088a3caf93bfd28",
     "manuscript/2026-10-11-restatement/writing-style.md": "2bde9643e2595d36a9b05660562ab8bd5f5d2defb6ff50e151551996cb7ac26a"
@@ -23,7 +23,8 @@
       "Adam adaptive-direction displacement identity",
       "momentum cosine invariance to bias correction",
       "momentum accumulation B/A and its change under bias correction",
-      "Eq.25 momentum-curvature inversion including tracking and noise"
+      "Eq.25 momentum-curvature inversion including tracking and noise",
+      "finite-population batch-gradient variance and nested-batch Jensen ordering (all subsets)"
     ]
   },
   "results_sha256": "dd269234cf9d9f9d909509e34aa03de0fa74e2f377286a4d676a9b157e546aa6",
@@ -60,7 +61,7 @@
       ],
       "renderer": "Poppler",
       "render": "manuscript/artifacts/2026-10-11-restatement/report-page-03.png",
-      "render_sha256": "2847e933b7fa80723c3a372e002d3ff75e3d6fe293543a5f73e049551fcb913c",
+      "render_sha256": "a90ade041c3bc7e322df0c68df1538e0950bb8b8ea76ebb1f7b09a607b4e9785",
       "text_spans_outside_page": []
     },
     {
@@ -71,7 +72,7 @@
       ],
       "renderer": "Poppler",
       "render": "manuscript/artifacts/2026-10-11-restatement/report-page-04.png",
-      "render_sha256": "974d3b19fbdd3c3e236b1f412f6b1d18f4ff33910608b23dfbc10d3cc4010fee",
+      "render_sha256": "6fa8b4a533be5e0db9ad4f41290772e585ffe4c058c85a5258791582b67535fb",
       "text_spans_outside_page": []
     },
     {
@@ -93,7 +94,7 @@
       ],
       "renderer": "Poppler",
       "render": "manuscript/artifacts/2026-10-11-restatement/report-page-06.png",
-      "render_sha256": "7b53a03653dd8120d8fca5384b4985505d4f105a6249666645ece430592e8846",
+      "render_sha256": "ccae73559a7d427cad2ba8f8a58d8bc76b29f6478c4afec251ad92141d881c3f",
       "text_spans_outside_page": []
     },
     {
@@ -104,7 +105,7 @@
       ],
       "renderer": "Poppler",
       "render": "manuscript/artifacts/2026-10-11-restatement/report-page-07.png",
-      "render_sha256": "19743887ba9c6ac51ec3dde48b2b508d0530ed4d9d1ead42159210676acb47f3",
+      "render_sha256": "b0fe1dde999340289c9d0d046dd6c9a3922ac29b578ba1c44ab3950308bfee43",
       "text_spans_outside_page": []
     },
     {
@@ -115,7 +116,7 @@
       ],
       "renderer": "Poppler",
       "render": "manuscript/artifacts/2026-10-11-restatement/report-page-08.png",
-      "render_sha256": "717fa0260afef9584b819b28556cff626188b9874b143442fb85db3a7eb69862",
+      "render_sha256": "8233037fb63ad1b7b5f6a8f257a6c1366a4f54a5b4957c597459d28cbb0cf3ab",
       "text_spans_outside_page": []
     },
     {
@@ -126,7 +127,7 @@
       ],
       "renderer": "Poppler",
       "render": "manuscript/artifacts/2026-10-11-restatement/report-page-09.png",
-      "render_sha256": "9c2cf33f34ba09db1f2306da45713bfda206263bfc8a98ce1d23abfaed924a1d",
+      "render_sha256": "5a44849efb72764713778524ef954060a6cd86f35c3f65bf04bbe29173fc9ecc",
       "text_spans_outside_page": []
     },
     {
@@ -137,7 +138,7 @@
       ],
       "renderer": "Poppler",
       "render": "manuscript/artifacts/2026-10-11-restatement/report-page-10.png",
-      "render_sha256": "0c489a323a64ef74e72fb78b9b8c4a2819309c5d70445dde13d45423de9a2be9",
+      "render_sha256": "1f93c58c6fb9ea8396c21e85eae9f3cad4a614b45cc8407133296e1bbb6eb58a",
       "text_spans_outside_page": []
     },
     {
@@ -148,7 +149,29 @@
       ],
       "renderer": "Poppler",
       "render": "manuscript/artifacts/2026-10-11-restatement/report-page-11.png",
-      "render_sha256": "9363f2bdb075e6877a38956fce7757d706c3a4eece723a7403d44237c3e7527e",
+      "render_sha256": "6410fea3641aac19ccbdd72b64d99334684f340fd948cc69a6b0d08caf598483",
+      "text_spans_outside_page": []
+    },
+    {
+      "page": 12,
+      "page_points": [
+        612.0,
+        792.0
+      ],
+      "renderer": "Poppler",
+      "render": "manuscript/artifacts/2026-10-11-restatement/report-page-12.png",
+      "render_sha256": "3a15076799ce590d48e6de8847e155a4a4be4b9e20b883cb506984ffbb071754",
+      "text_spans_outside_page": []
+    },
+    {
+      "page": 13,
+      "page_points": [
+        612.0,
+        792.0
+      ],
+      "renderer": "Poppler",
+      "render": "manuscript/artifacts/2026-10-11-restatement/report-page-13.png",
+      "render_sha256": "fbd8cc7fcd3a5ff335f7020bbe567de80c2a78025e6b75b738b02609902fdbdb",
       "text_spans_outside_page": []
     }
   ],
@@ -213,6 +236,27 @@
       "renderer": "Poppler",
       "render": "manuscript/artifacts/2026-10-11-restatement/noise-figure-page-01.png",
       "render_sha256": "279c88081095af0884d1c6a31a8bb2f546ae6d55236a1cf50bbde9c4feba7c91",
+      "text_spans_outside_page": []
+    }
+  ],
+  "eos_frozen": {
+    "manifest_sha256": "28bde181ec90479aa8ed51a6e847dc17c9fad96394922adb086c694fc13aa232",
+    "figure": "analyses/020-2026-10-14-eos-multitask/figures/eos_frozen_noise_comparison.pdf",
+    "sha256": "8feb832f973b03e0cf49233151bcbb3046b23845b891e3da9ba459604bd76057",
+    "source_results_sha256": "559da99809512cc4f381750300a87c336639081a036c05ac395e213c003ffa93",
+    "run_id": "068",
+    "scope": "three initializations; frozen real-data gradient sampling; no training updates"
+  },
+  "eos_frozen_figure_pages": [
+    {
+      "page": 1,
+      "page_points": [
+        604.7999877929688,
+        478.79998779296875
+      ],
+      "renderer": "Poppler",
+      "render": "manuscript/artifacts/2026-10-11-restatement/eos-frozen-figure-page-01.png",
+      "render_sha256": "108293e20d149a32063fd3627903afb5e087a5bc4b4028962e3844603b2065b1",
       "text_spans_outside_page": []
     }
   ],

@@ -1,0 +1,25 @@
+{
+  "task_order": [
+    "mlp",
+    "resnet",
+    "transformer"
+  ],
+  "physical_transformer_sequences": 64,
+  "full_gradient_timing_repetitions": 2,
+  "hessian_objective_units": {
+    "mlp": 2500,
+    "resnet": 5,
+    "transformer": 2500
+  },
+  "hessian": {
+    "k": 1,
+    "which": "LA",
+    "tolerance": 0.001,
+    "residual_tolerance": 0.005
+  },
+  "maximum_seconds_per_task": 2400,
+  "maximum_queue_seconds": 7200,
+  "rental_cost": 0,
+  "owned_spark": true,
+  "storage_allowance_bytes": 3000000000
+}

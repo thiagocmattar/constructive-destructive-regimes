@@ -25,7 +25,9 @@ questions alone do not create experimental commitments.
 
 | H018 | How do full-batch CIFAR-10 loss and raw/m/mhat/adaptive/update geometry relate to ordinary/preconditioned Hessian curvature across GD/Adam learning rates? | Completed exploratory single-seed fixed-horizon comparison | Runs059-066; [Analysis019](../analyses/019-2026-10-13-cifar10-eos-lr/README.md) | All160k updates and4,816 eigenpairs verified; four PDFs reviewed. Final train losses GD0.09688,0.05651,0.03204,0.01945,Adam0.0007658,0.0008776,0.0007075,0.0006594 in increasing LR order. Fixed20k horizon,one frozen initialization,full5k/10k coverage; no universal stability/alignment proxy or optimized method ranking |
 
-Next hypothesis: `H019`. Record the operational meaning,
+| H019 | How do GD/SGD projected gradient change, alignment, sharpness and displacement vary across three EOS cases; how does measured real-data batch noise affect accumulation? | Active; replicated frozen controls complete; moving-trajectory stage running | Runs067-103; reference061; [Analysis020](../analyses/020-2026-10-14-eos-multitask/PROTOCOL.md) | Three initializations and32 sampling repetitions/case; greater frozen noise lowers positive cosine and B/A in seed means; ResNet retains strong initial signal. Training interpretation pending; no universal EOS, stability, convergence or generalization claim |
+
+Next hypothesis: `H020`. Record the operational meaning,
 comparison, support/refutation criteria, and scope in the corresponding run
 proposal. Suggested statuses: proposed, active, supported, unsupported,
 inconclusive, withdrawn. Preserve superseded interpretations instead of rewriting

@@ -107,3 +107,15 @@ version of Analysis014's sigma comparison. It preserves all 90 original scalars
 from the 15 paired conditions, with the same seed1234 and sigma0/0.01/0.1/1/10.
 Observation008 records source/plot/PDF checks and single-realization limits.
 No new noise draws or optimizer trajectories are generated.
+
+On2026-10-14, the user requested real-data EOS extensions with robustness aimed
+at IEEE TNNLS. The report moves noise after normalized displacement, adds
+finite-population gradient variance and the fixed-parameter accumulation limit,
+and includes the three-seed [Run068 control](../analyses/020-2026-10-14-eos-multitask/observations/001-frozen-real-data-noise.md).
+The figure uses real sampled gradients on CIFAR-10/MLP, CIFAR-10/ResNet-32 and
+WikiText-2/Transformer, with32 independent128-draw sequences per condition.
+This is gradient accumulation without parameter updates, not SGD trajectory
+evidence. The first500-update three-case GD/SGD stage is running on owned Spark;
+its empirical comparisons remain pending. The 13-page report and standalone
+control figure are rendered and reviewed, with input/source/artifact hashes.
+Original supplied Markdown and earlier evidence remain unchanged.
