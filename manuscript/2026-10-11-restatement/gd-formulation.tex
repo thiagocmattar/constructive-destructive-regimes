@@ -17,8 +17,7 @@
 \setlength{\textfloatsep}{16pt}
 \renewcommand{\arraystretch}{1.12}
 \emergencystretch=1em
-\title{Cross-step interference, directional curvature,\protect\\
-and gradient descent}
+\title{Constructive and Destructive Training Regimes}
 \author{}
 \date{}
 
@@ -28,22 +27,20 @@ and gradient descent}
 
 \section{Introduction}
 
-Training large language models (LLMs) relies on adaptive optimization, momentum, gradient clipping, learning-rate schedules and other heuristics to stabilize learning and mitigate phenomena such as loss spikes and oscillatory updates. Yet, despite their
-effectiveness, it is not fully understood why these mechanisms work, and under what conditions they fail.
+Training large language models (LLMs) relies on adaptive optimization, momentum, gradient clipping, learning-rate schedules and other heuristics to stabilize learning and mitigate undesired behavior such as loss spikes and oscillatory updates. Yet, despite their effectiveness, it is not fully understood why these mechanisms work, and under what conditions they fail.
 
-To address this gap, we identify a persistent behaviour of transition between two distinct learning regimes. Early in training, successive gradients tend to align, allowing updates to accumulate constructively as the loss decreases. Later, gradient directions reverse more frequently, causing successive updates to partially cancel one another. Despite this increased cancellation, the loss can continue to decrease.
+To address this gap, we characterize a measurable, persistent behaviour of transition between two distinct learning regimes. Early in training, successive gradients tend to align, allowing updates to accumulate constructively as the loss decreases. Later, gradient directions reverse more frequently, causing successive updates to partially cancel one another. Despite this increased cancellation, the loss can continue to decrease.
 
-Two complementary intuitions help explain this behavior. From the perspective of representation learning, each new mini-batch updates parameters that also encode previously learned structure. Depending on its direction, an update may reinforce existing representations or partially undo them. From the perspective of optimization geometry, a step may overshoot the bottom of a loss valley, prompting subsequent steps to reverse direction and partially retrace the path. Both mechanisms can give rise to oscillatory parameter updates even as optimization continues to make progress.
+Two complementary intuitions help explain this behavior. From the perspective of representation learning, each new mini-batch updates parameters that encode previously learned structure. Depending on its direction, an update may reinforce existing representations or partially undo them. From optimization geometry, a step may overshoot the bottom of a loss valley, prompting subsequent steps to reverse direction and partially retrace the path. Both mechanisms can give rise to oscillatory parameter updates even as optimization continues to make progress.
 
-We formalize these dynamics using identities for stochastic gradient descent (SGD), relating the alignment of consecutive gradients to curvature and gradient noise, and cumulative update cancellation to net parameter displacement. Building on these relations, we introduce scalable diagnostics for quantifying these dynamics and tracking the transition between constructive and oscillatory regimes during large-scale model training.
+We formalize these dynamics using identities for stochastic gradient descent (SGD), connecting the alignment of consecutive gradients to curvature and gradient noise, and cumulative update cancellation to net parameter displacement. Building on these relations, we introduce scalable diagnostics to quantify and detect these dynamics and track the transition between constructive and oscillatory regimes during large-scale model training.
 
 
 \section{Parameter displacement under stochastic gradient descent}
 
 Let $\theta_t\in\mathbb{R}^p$ denote the parameters after update $t$, and let
 $g_t$ denote a mini-batch gradient evaluated at $\theta_{t-1}$. We consider
-constant-step SGD with learning rate $\eta>0$, without momentum, weight decay,
-or clipping
+a plain SGD with learning rate $\eta>0$, 
 \begin{equation}
   \theta_t=\theta_{t-1}-\eta g_t.
   \label{eq:sgd}
@@ -90,7 +87,7 @@ double sum determines longer-term cumulative interaction.
 
 \subsection{Curvature, gradient noise, and consecutive alignment}
 
-For mini-batch SGD, we explicitly incorporate stochastic gradient noise into the evolution of consecutive gradients and examine its contribution to their directional alignment. Let $\Loss$ denote the full training objective. We write a stochastic gradient
+For mini-batch SGD, we explicitly incorporate stochastic gradient noise and examine its contribution to their directional alignment. Let $\Loss$ denote the full training objective. We write a stochastic gradient
 as
 \begin{equation}
   g_t=\nabla\Loss(\theta_{t-1})+\xi_t,
@@ -119,12 +116,10 @@ approximation. Taking the inner product with $g_{t-1}$ then gives
 }.
 \label{eq:rho-expanded}
 \end{equation}
-The numerator contains the preceding gradient energy, the curvature contribution,
-and the change in gradient noise. Positive curvature along the preceding
+The numerator contains the preceding gradient energy, the curvature,
+and the gradient noise contributions. Positive curvature along the preceding
 gradient direction reduces its alignment with the next gradient. The noise
-difference can reinforce or oppose this effect on an individual step.
-
-We normalize the curvature and noise terms by the preceding gradient energy:
+difference can reinforce or oppose this effect on an individual step. We normalize the curvature and noise terms by the preceding gradient energy
 \begin{equation}
   \kappa_t:=\frac{g_{t-1}^\top H_{t-1}g_{t-1}}{\norm{g_{t-1}}^2},
   \qquad
@@ -143,9 +138,7 @@ $1-\eta\kappa_t+\varepsilon_t$ (Table~\ref{tab:sign}).
 
 \begin{table}[htbp]
 \centering
-\caption{Consecutive-gradient alignment predicted by the first-order model.
-The Taylor remainder is neglected; these are not exact sign equivalences for
-an arbitrary nonlinear step.}
+\caption{Consecutive-gradient alignment predicted by the first-order model.}
 \label{tab:sign}
 \begin{tabular}{lll}
 \toprule
@@ -181,22 +174,14 @@ and $g_{t-1}=\sum_i a_i v_i$, then
 \end{equation}
 Thus, the gradient selects an eigenvalue-weighted average rather than the
 maximum eigenvalue. A sharp direction can exist without contributing much to
-the current gradient. This distinction is important when comparing alignment
-with the largest Hessian eigenvalue.
-
-Rearranging Eq.~\eqref{eq:rho-normalized} motivates the observable quantity
+the current gradient. Rearranging Eq.~\eqref{eq:rho-normalized} motivates the observable quantity
 \begin{equation}
   \eta\widehat\kappa_t
   :=1-\rho_t\frac{\norm{g_t}}{\norm{g_{t-1}}}+\varepsilon_t.
   \label{eq:kappa-estimate}
 \end{equation}
-Equation~\eqref{eq:gradient-evolution} gives
-$\widehat\kappa_t=\kappa_t-g_{t-1}^\top r_t/(\eta\norm{g_{t-1}}^2)$. Consequently, it approximates the
-pointwise directional curvature when the Taylor remainder is small. For
-mini-batch gradients, the noise term requires additional information and cannot
-be recovered from adjacent cosine and norms alone.
-
-For full-batch GD, $\xi_t=0$ and hence $\varepsilon_t=0$. The recorded
+For mini-batch gradients, the noise term requires additional information and cannot
+be recovered from adjacent cosine and norms alone. For full-batch GD, $\xi_t=0$ and hence $\varepsilon_t=0$. The recorded
 gradient-only quantity is then exactly
 \begin{equation}
 \eta\widehat\kappa_t
