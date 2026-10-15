@@ -1,0 +1,20 @@
+% Generated from Analysis021 only after all 27 conditions pass verification.
+\begin{figure}[!p]
+\centering
+\includegraphics[width=\linewidth]{../../analyses/021-2026-10-15-eos-multitask-lr/figures/eos_multitask_learning_rates.pdf}
+\caption{Full-batch GD at three learning rates for each EOS task/model case.
+Rows show the unsmoothed training objective, measured sharpness
+$\eta\lambda_{\max}$, and estimated directional curvature
+$\eta\widehat\kappa_t=1-\rho_t\|g_t\|/\|g_{t-1}\|$.
+Thick curves are pointwise means of three initializations; faint curves show
+individual seeds. Initial tensors are matched across rates within each seed.
+All runs use 500 updates. Spectral markers occur every 100 updates; connecting
+lines are guides. Hessians use all 5,000 MLP images, the first five fixed
+1,000-image ResNet ghost groups, and 2,500 Transformer sequences, respectively.
+The latter two are subset Hessians. Dashed lines mark the quadratic GD
+reference $\eta\lambda_{\max}=2$ and the gradient-reversal boundary
+$\eta\widehat\kappa_t=1$. The gradient quantity is a finite-step estimate,
+and these references do not establish global stability. No temporal smoothing
+is applied.}
+\label{fig:eos-multitask-lr}
+\end{figure}

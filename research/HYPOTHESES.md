@@ -27,7 +27,9 @@ questions alone do not create experimental commitments.
 
 | H019 | How do GD/SGD projected gradient change, alignment, sharpness and displacement vary across three EOS cases; how does measured real-data batch noise affect accumulation? | Active; replicated frozen controls complete; moving-trajectory stage running | Runs067-103; reference061; [Analysis020](../analyses/020-2026-10-14-eos-multitask/PROTOCOL.md) | Three initializations and32 sampling repetitions/case; greater frozen noise lowers positive cosine and B/A in seed means; ResNet retains strong initial signal. Training interpretation pending; no universal EOS, stability, convergence or generalization claim |
 
-Next hypothesis: `H020`. Record the operational meaning,
+| H020 | How does constant GD learning rate change full-objective loss, measured maximum curvature and projected gradient change across the three EOS task/model cases? | Active; matched three-rate, three-seed sweep queued on owned Spark | Runs104-119 plus reused controls; [Analysis021](../analyses/021-2026-10-15-eos-multitask-lr/PROTOCOL.md) | 500-update first stage; subset Hessians for larger models; no universal or global-stability claim |
+
+Next hypothesis: `H021`. Record the operational meaning,
 comparison, support/refutation criteria, and scope in the corresponding run
 proposal. Suggested statuses: proposed, active, supported, unsupported,
 inconclusive, withdrawn. Preserve superseded interpretations instead of rewriting

@@ -107,6 +107,23 @@
 | [102](102-2026-10-14-eos-transformer-sgd-b128-seed1/README.md) | H019 transformer SGD, seed1, batch units128, LR0.1 | Launched in fixed500-update stage; current status in attempt manifest | Owned Spark, detached bounded queue | [Analysis020](../analyses/020-2026-10-14-eos-multitask/REPORT.md); pending cohort retrieval/analysis |
 | [103](103-2026-10-14-eos-transformer-sgd-b128-seed2/README.md) | H019 transformer SGD, seed2, batch units128, LR0.1 | Launched in fixed500-update stage; current status in attempt manifest | Owned Spark, detached bounded queue | [Analysis020](../analyses/020-2026-10-14-eos-multitask/REPORT.md); pending cohort retrieval/analysis |
 
-Next run: `104-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
+| [104](104-2026-10-15-eos-mlp-gd-lr-0.004-seed1/README.md) | H020 mlp full GD, LR0.004, seed1 | Queued; 500 fixed updates after Analysis020 | Owned Spark; matched LR comparison; no rental |
+| [105](105-2026-10-15-eos-mlp-gd-lr-0.004-seed2/README.md) | H020 mlp full GD, LR0.004, seed2 | Queued; 500 fixed updates after Analysis020 | Owned Spark; matched LR comparison; no rental |
+| [106](106-2026-10-15-eos-mlp-gd-lr-0.02-seed1/README.md) | H020 mlp full GD, LR0.02, seed1 | Queued; 500 fixed updates after Analysis020 | Owned Spark; matched LR comparison; no rental |
+| [107](107-2026-10-15-eos-mlp-gd-lr-0.02-seed2/README.md) | H020 mlp full GD, LR0.02, seed2 | Queued; 500 fixed updates after Analysis020 | Owned Spark; matched LR comparison; no rental |
+| [108](108-2026-10-15-eos-resnet-gd-lr-0.1-seed0/README.md) | H020 resnet full GD, LR0.1, seed0 | Queued; 500 fixed updates after Analysis020 | Owned Spark; matched LR comparison; no rental |
+| [109](109-2026-10-15-eos-resnet-gd-lr-0.1-seed1/README.md) | H020 resnet full GD, LR0.1, seed1 | Queued; 500 fixed updates after Analysis020 | Owned Spark; matched LR comparison; no rental |
+| [110](110-2026-10-15-eos-resnet-gd-lr-0.1-seed2/README.md) | H020 resnet full GD, LR0.1, seed2 | Queued; 500 fixed updates after Analysis020 | Owned Spark; matched LR comparison; no rental |
+| [111](111-2026-10-15-eos-resnet-gd-lr-0.4-seed0/README.md) | H020 resnet full GD, LR0.4, seed0 | Queued; 500 fixed updates after Analysis020 | Owned Spark; matched LR comparison; no rental |
+| [112](112-2026-10-15-eos-resnet-gd-lr-0.4-seed1/README.md) | H020 resnet full GD, LR0.4, seed1 | Queued; 500 fixed updates after Analysis020 | Owned Spark; matched LR comparison; no rental |
+| [113](113-2026-10-15-eos-resnet-gd-lr-0.4-seed2/README.md) | H020 resnet full GD, LR0.4, seed2 | Queued; 500 fixed updates after Analysis020 | Owned Spark; matched LR comparison; no rental |
+| [114](114-2026-10-15-eos-transformer-gd-lr-0.05-seed0/README.md) | H020 transformer full GD, LR0.05, seed0 | Queued; 500 fixed updates after Analysis020 | Owned Spark; matched LR comparison; no rental |
+| [115](115-2026-10-15-eos-transformer-gd-lr-0.05-seed1/README.md) | H020 transformer full GD, LR0.05, seed1 | Queued; 500 fixed updates after Analysis020 | Owned Spark; matched LR comparison; no rental |
+| [116](116-2026-10-15-eos-transformer-gd-lr-0.05-seed2/README.md) | H020 transformer full GD, LR0.05, seed2 | Queued; 500 fixed updates after Analysis020 | Owned Spark; matched LR comparison; no rental |
+| [117](117-2026-10-15-eos-transformer-gd-lr-0.2-seed0/README.md) | H020 transformer full GD, LR0.2, seed0 | Queued; 500 fixed updates after Analysis020 | Owned Spark; matched LR comparison; no rental |
+| [118](118-2026-10-15-eos-transformer-gd-lr-0.2-seed1/README.md) | H020 transformer full GD, LR0.2, seed1 | Queued; 500 fixed updates after Analysis020 | Owned Spark; matched LR comparison; no rental |
+| [119](119-2026-10-15-eos-transformer-gd-lr-0.2-seed2/README.md) | H020 transformer full GD, LR0.2, seed2 | Queued; 500 fixed updates after Analysis020 | Owned Spark; matched LR comparison; no rental |
+
+Next run: `120-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
 executed IDs and configurations; retry unchanged scientific inputs in a new
 attempt within the same run.

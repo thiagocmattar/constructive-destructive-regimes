@@ -2,6 +2,13 @@
 
 ## Current state
 
+[Analysis021: EOS full-batch GD learning-rate comparison](../analyses/021-2026-10-15-eos-multitask-lr/REPORT.md)
+queued 16 additional owned-Spark runs after Analysis020: three LRs and three
+seeds per case, matched 500 updates, 11 reused prefixes. Extra compute 38.73h;
+combined ETC about 56.5h (79 h allowance). The 3x3 figure and insertion after
+Table 1 are prepared and mechanically/layout checked; final results remain
+pending. No cloud rental or previous-run interruption.
+
 [Analysis020: EOS task and noise extension](../analyses/020-2026-10-14-eos-multitask/REPORT.md)
 completed owned-Spark calibration and three-seed frozen-gradient sampling on
 CIFAR-10/MLP, CIFAR-10/ResNet-32 and WikiText-2/Transformer. The control has36
@@ -20,7 +27,7 @@ Adam0.0007658,0.0008776,0.0007075,0.0006594 in increasing LR order. Actual train
 ETC0,peak allocation<0.35GiB; all outputs retrieved/hashed,owned Spark idle.
 One frozen seed,no LR tuning; no global stability/convergence or alignment proxy
 claim. Full scalar/recovery evidence retained locally/on Spark; no cloud rental.
-Next Run104 / Analysis021 / H020.
+Next Run120 / Analysis022 / H021.
 
 [Run058: CIFAR-10 Edge of Stability calibration](../runs/058-2026-10-13-cifar10-eos-calibration/REPORT.md)
 implements the confirmed5k tanh MLP with GD/Adam and raw/m/mhat/adaptive/update

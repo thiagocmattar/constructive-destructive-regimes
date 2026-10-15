@@ -27,5 +27,7 @@
 
 | [020](020-2026-10-14-eos-multitask/README.md) | H019: EOS real-data cases, GD/SGD geometry, measured noise and sharpness | Calibration067, frozen control068, staged training069-103; reference061 | Control complete: 3 seeds/case,36 conditions,147,456 observations; training500-update stage running,29-41h ETC | [Report](020-2026-10-14-eos-multitask/REPORT.md), [control observation](020-2026-10-14-eos-multitask/observations/001-frozen-real-data-noise.md); no cloud rental; training results pending |
 
-Next analysis: `021-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
+| [021](021-2026-10-15-eos-multitask-lr/README.md) | H020: three-LR full-GD comparison across the EOS cases | New 104-119; reused 059/061/062 and Analysis020 GD | Queued; 27 conditions, three seeds/rate, 500 updates; extra 38.73h compute | [Protocol](021-2026-10-15-eos-multitask-lr/PROTOCOL.md), [status](021-2026-10-15-eos-multitask-lr/REPORT.md); 3x3 paper figure and Table 1 insertion prepared; no rental |
+
+Next analysis: `022-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
 an analysis may use manuscript or external inputs without referencing a run.
