@@ -1,5 +1,10 @@
 # Execution and verification status
 
+Status update, 2026-10-15 10:18 UTC: the user requested a shorter plan. The
+additional LR queue is held before any new optimizer updates (see hold.json);
+its local monitor is stopped. Analysis020 continues unchanged. The launch and
+estimates below are historical, not a resumed execution authorization.
+
 The user requested a 3x3 full-batch GD figure with multiple learning rates in
 each task column, placed after Table 1 (`tab:sign`) in the restatement report.
 The current Analysis 020 cohort has only one learning rate per case. Additional

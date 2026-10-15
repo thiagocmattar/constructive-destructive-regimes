@@ -1,6 +1,6 @@
 # Analysis 021: full-batch GD learning rates across the EOS tasks
 
-Status: launched on 2026-10-15, waiting for the preceding Spark queue. The
+Status: held for replanning on 2026-10-15, before any new optimizer updates. The
 requested figure needs additional trajectories; it
 cannot be obtained by multiplying an existing trajectory by another learning
 rate. See [the protocol](PROTOCOL.md) for the frozen comparison and coverage.

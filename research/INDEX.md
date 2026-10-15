@@ -3,11 +3,11 @@
 ## Current state
 
 [Analysis021: EOS full-batch GD learning-rate comparison](../analyses/021-2026-10-15-eos-multitask-lr/REPORT.md)
-queued 16 additional owned-Spark runs after Analysis020: three LRs and three
+holds 16 additional owned-Spark runs for replanning: three LRs and three
 seeds per case, matched 500 updates, 11 reused prefixes. Extra compute 38.73h;
 combined ETC about 56.5h (79 h allowance). The 3x3 figure and insertion after
 Table 1 are prepared and mechanically/layout checked; final results remain
-pending. No cloud rental or previous-run interruption.
+pending; no new updates started. Analysis020 continues; no cloud rental.
 
 [Analysis020: EOS task and noise extension](../analyses/020-2026-10-14-eos-multitask/REPORT.md)
 completed owned-Spark calibration and three-seed frozen-gradient sampling on
