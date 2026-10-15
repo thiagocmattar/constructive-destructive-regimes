@@ -1,5 +1,10 @@
 # Analysis023: smallest-LR, 3,000-update Spark calibration
 
+**Latest instruction:** finish the active Run075 and the two agreed3k
+calibrations, retrieve/analyze the results, then wait for user review. Do not
+start any subsequent training. The finish-only override below supersedes the
+original predecessor-resume plan; scientific inputs remain unchanged.
+
 The user selected a first run at the smallest LR for each case, with3,000
 full-GD updates, on owned Spark. The earlier20k multi-seed expansion and
 Runpod spending proposal are not being launched. On October15 the user also
@@ -68,12 +73,15 @@ waits for the child to exit, verifies its terminal manifest and records its
 transfer inventory. It then replaces only the scheduler and executes120 then121
 sequentially. No active optimizer is paused and no jobs share GPU compute.
 
-After calibration, all unstarted Analysis020 conditions resume with their
-unchanged configs and run IDs. Completed/failed conditions are not replayed.
-A fresh72h infrastructure window excludes the priority hold from the old
-scheduler's timeout; the old scientific500-update horizons do not change.
-Analysis021's unstarted extra-LR sweep remains held. The drain has an8h bound;
-if it fails before adoption, the original admission process is resumed.
+The original plan would have resumed unstarted Analysis020 conditions after
+calibration. The user explicitly revoked that continuation on October15.
+The two old admission processes were terminated while their detached active
+training child continued normally. A verified finish-only supervisor now
+retains that child's terminal evidence and admits **only120 and121**. It has
+no path to execute the remaining020 conditions. Analysis020 Runs076-103 and
+Analysis021's extra-LR sweep remain held until the user reviews the results.
+The drain retains an8h bound; failure leaves subsequent admissions held.
+No executed condition is replayed, and no scientific config/horizon changes.
 
 The CPU-only Linux scheduling check passed before touching production:
 active child finishes; next admission is blocked; child/inventory survive;
@@ -87,8 +95,14 @@ Remote priority scheduler PID468139 was launched at11:36UTC October15.
 Initial verification found old admission PID426713 stopped, its active child
 still running, and the priority queue draining Run075. This is a verified
 waiting launch, not a claim that Run120 has already updated parameters.
+The later finish-only override replaced admission PIDs468139/426713 with
+supervisor474503. Live checks confirm both former processes are gone, active
+child456314 continues, and automatic predecessor resume is disabled. CPU-only
+success/failure checks verify that subsequent training stays held in both cases.
 See `launch.json`, `scheduling_verification.json`, `initial_status_verification.json`
-and the current attempt/queue manifests. A detached local controller polls
+plus `finish_only_policy.json`, `finish_only_verification.json`,
+`finish_only_live_verification.json` and the current attempt/queue manifests.
+A detached local controller polls
 every5min, retrieves terminal evidence, checks file sizes/SHA256, and runs
 numeric analysis automatically. No manuscript action or visual acceptance is
 automatic. Warning/failure states remain visible instead of dropping conditions.
@@ -100,7 +114,7 @@ Transformer3k: **38.7h additional compute**,54.2h planning allowance,60h hard
 compute bound. These are qualified extrapolations: changed LR and late
 eigensolver behavior are unmeasured. Add the active Run075's remaining roughly2h
 at launch. The expected calibration finish is therefore about41h from launch,
-not counting the pending020 jobs that resume afterwards. The MLP prefix is
+excluding pending020 jobs, which now stay held after calibration. The MLP prefix is
 already complete. This is owned compute with no cloud rental or storage bill.
 
 Allow12GB additional retained evidence on both Spark and local disk; preflight
@@ -110,11 +124,14 @@ machines. At completion report actual elapsed time, coverage, memory and
 transition/late-window summaries before choosing any larger grid or horizon.
 
 Scripts: `00_prepare.py` freezes the two new configs and source packet;
-`01_queue.py` handles the priority handoff and unchanged predecessor continuation;
+`01_queue.py` retains the qualified original scheduler and execution helpers;
 `02_launch.py` uploads, runs the CPU scheduling check and detaches;
 `03_verify_scheduling.py` tests admission/continuation on CPU fixtures;
 `04_collect.py` retrieves verified evidence; `05_reduce.py` verifies all used
 scalar identities and summaries; `06_controller.py` monitors/retrieves/reduces.
+`07_finish_only.py` is the active infrastructure override; `08_apply_finish_only.py`
+installs it without interrupting training; `09_verify_finish_only.py` checks
+its success/failure paths. The original deployed source packet is preserved.
 
 ## Available result
 

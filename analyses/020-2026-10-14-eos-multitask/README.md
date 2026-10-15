@@ -1,13 +1,19 @@
 # Analysis020: full-batch and stochastic gradient interference across EOS tasks
 
+**Current execution override (October15):** the user requested completion of
+active Run075 and Analysis023 Runs120/121 only, then review before further
+training. Remaining020 Runs076-103 stay held. Original configs and completed
+evidence are preserved; the finish-only supervisor in Analysis023 supersedes
+the earlier automatic queue continuation. No manuscript work is authorized now.
+
 Status: the replicated frozen-state noise control and the three-case seed0
 full-batch GD overview are complete, retrieved/hash verified and visually
 reviewed. The [new 3x3 figure](figures/eos_gd_overview_seed0.pdf) uses one LR
 per case and 500 updates, with loss, maximum curvature and directional curvature.
 It is included after Table1 in the restatement report. See the
 [observation](observations/002-gd-seed0-overview.md), [report](REPORT.md) and
-[protocol](PROTOCOL.md). Remaining Transformer seeds and the SGD stage continue
-on Spark; the additional Analysis021 learning-rate sweep remains held.
+[protocol](PROTOCOL.md). Active Run075 continues on Spark; the remaining
+Transformer seed and SGD stage are held, as is the Analysis021 LR sweep.
 
 The user selected CIFAR-10/tanh MLP, CIFAR-10/ResNet-32 and
 WikiText-2/Transformer, with robustness appropriate for a technical paper aimed

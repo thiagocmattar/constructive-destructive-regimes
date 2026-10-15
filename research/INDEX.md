@@ -5,11 +5,11 @@
 [Analysis023: smallest-LR3k calibration](../analyses/023-2026-10-15-eos-smallest-lr-calibration/README.md)
 launches owned-Spark priority runs120/121: ResNetLR0.1 and TransformerLR0.05,
 seed0,3000 updates, Hessians every100. The current075 finishes normally;
-then calibration precedes unchanged pending020 jobs. MLP Run059 first3k
+then only120/121 run; all pending020/021 training stays held for user review. MLP Run059 first3k
 is verified (loss0.5968->0.3365, B/A0.7941, no adjacent reversal).
 New compute38.7h,54.2h allowance; about41h including the active-run drain.
 Detached monitoring/retrieval/reduction deployed; no rental or manuscript edit.
-The broad cloud/grid proposal is deferred;021 remains held.
+Finish-only supervisor deployed and verified; no training after calibration without user review. The broad cloud/grid proposal is deferred.
 Next Run122 / Analysis024 / H021.
 
 [Analysis022: EOS long-horizon plan](../analyses/022-2026-10-15-eos-long-horizon-plan/README.md)
@@ -18,14 +18,14 @@ proposes MLP20k and ResNet/Transformer3k full-GD updates, three seeds/LR:
 Measured production costs project348.94 Spark GPU-hours before allowance.
 Two4090 cloud scenarios span55.6-109.3h at unmeasured4x-2x speedups;
 historical120h/USD220 cloud proposal was not launched; staged023 supersedes it.
-Analysis020 pending jobs resume after023;021 stays held. Next Run122 / Analysis024 / H021.
+Analysis020 pending jobs stay held after023, as requested by the user;021 stays held. Next Run122 / Analysis024 / H021.
 
 [Analysis021: EOS full-batch GD learning-rate comparison](../analyses/021-2026-10-15-eos-multitask-lr/REPORT.md)
 holds 16 additional owned-Spark runs for replanning: three LRs and three
 seeds per case, matched 500 updates, 11 reused prefixes. Extra compute 38.73h;
 combined ETC about 56.5h (79 h allowance). The 3x3 figure and insertion after
 Table 1 are prepared and mechanically/layout checked; final results remain
-pending; no new updates started. Analysis020 continues; no cloud rental.
+pending; no new updates started. Only075 and023 finish; later training held; no cloud rental.
 
 [Analysis020: EOS task and noise extension](../analyses/020-2026-10-14-eos-multitask/REPORT.md)
 completed owned-Spark calibration and three-seed frozen-gradient sampling on
@@ -35,7 +35,7 @@ The reviewed seed0 GD overview now covers all three cases at500 updates:
 loss, eta*lambda_max and eta*kappa_hat, with one existing LR per case.
 Runs061/071/074,73 retained files,1,497 adjacent pairs and18 spectra pass checks;
 the figure follows Table1 in the reviewed14-page report. Other Transformer seeds
-and SGD remain pending. Additional LR runs are held; no new training or rental.
+and SGD remain held for review. Only the agreed075/120/121 can finish; no later training or rental.
 
 [Analysis019: CIFAR-10 GD/Adam learning-rate sweep](../analyses/019-2026-10-13-cifar10-eos-lr/REPORT.md)
 completed Runs059-066 on Spark:20,000 fixed updates each,common5k tanh MLP

@@ -1,0 +1,101 @@
+{
+  "utc": "2026-10-15T12:37:39.947157+00:00",
+  "instruction": "Let the active run and the two 3000-step calibrations finish. Do not launch anything afterwards; present the results before deciding next steps.",
+  "allowed_new_run_ids": [
+    "120",
+    "121"
+  ],
+  "resume_predecessor": false,
+  "scientific_inputs_changed": false,
+  "replacement_script_sha256": "bddb1ae693f4285fdc77836ba47c5c23d80f2127f8c7198bcf16b2e2321003ed",
+  "previous_coordinator_pid": 468139,
+  "previous_admission_pid": 426713,
+  "predecessor_state_before": {
+    "status": "held_by_user_after_active_run",
+    "started_utc": "2026-10-14T22:48:42.723703+00:00",
+    "current_run": "075",
+    "runs": {
+      "061": {
+        "status": "reused_verified_source",
+        "updates": 500
+      },
+      "069": {
+        "status": "complete",
+        "started_utc": "2026-10-14T22:48:42.724540+00:00",
+        "task": "mlp",
+        "method": "gd",
+        "seed": 1,
+        "pid": 426758,
+        "completed_updates": 500,
+        "ended_utc": "2026-10-14T22:48:51.486112+00:00"
+      },
+      "070": {
+        "status": "complete",
+        "started_utc": "2026-10-14T22:48:51.535357+00:00",
+        "task": "mlp",
+        "method": "gd",
+        "seed": 2,
+        "pid": 426810,
+        "completed_updates": 500,
+        "ended_utc": "2026-10-14T22:49:01.702513+00:00"
+      },
+      "071": {
+        "status": "complete",
+        "started_utc": "2026-10-14T22:49:01.750090+00:00",
+        "task": "resnet",
+        "method": "gd",
+        "seed": 0,
+        "pid": 427042,
+        "completed_updates": 500,
+        "ended_utc": "2026-10-15T00:49:20.134341+00:00"
+      },
+      "072": {
+        "status": "complete",
+        "started_utc": "2026-10-15T00:49:20.161064+00:00",
+        "task": "resnet",
+        "method": "gd",
+        "seed": 1,
+        "pid": 433926,
+        "completed_updates": 500,
+        "ended_utc": "2026-10-15T02:48:52.257633+00:00"
+      },
+      "073": {
+        "status": "complete",
+        "started_utc": "2026-10-15T02:48:52.284505+00:00",
+        "task": "resnet",
+        "method": "gd",
+        "seed": 2,
+        "pid": 438598,
+        "completed_updates": 500,
+        "ended_utc": "2026-10-15T04:49:15.093622+00:00"
+      },
+      "074": {
+        "status": "complete",
+        "started_utc": "2026-10-15T04:49:15.129836+00:00",
+        "task": "transformer",
+        "method": "gd",
+        "seed": 0,
+        "pid": 444369,
+        "completed_updates": 500,
+        "ended_utc": "2026-10-15T09:16:05.059247+00:00"
+      },
+      "075": {
+        "status": "running",
+        "started_utc": "2026-10-15T09:16:05.738158+00:00",
+        "task": "transformer",
+        "method": "gd",
+        "seed": 1,
+        "pid": 456314
+      }
+    },
+    "automatic_resume": false,
+    "user_hold_utc": "2026-10-15T12:37:39.947157+00:00"
+  },
+  "queue_state_before": {
+    "status": "draining_predecessor_active_run",
+    "utc": "2026-10-15T12:37:32.201922+00:00",
+    "predecessor_run": "075",
+    "runs": {}
+  },
+  "active_child_pid": 456314
+}
