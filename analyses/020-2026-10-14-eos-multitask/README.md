@@ -44,12 +44,15 @@ selected the recommended bounded first stage and stated that assumption.
 The longer paper-length horizon remains a subsequent scientific/budget choice.
 Only the user-owned DGX Spark is authorized; no rented service is used.
 
-The detached local controller checks terminal status every five minutes,
+The detached local controller checks terminal status every thirty minutes,
 retrieves and verifies raw artifacts/checkpoints, and generates five publication
 figures when all runs pass. It leaves visual acceptance and empirical manuscript
 claims for review. Logs and active status are ignored; the remote queue survives
 SSH disconnection. A numerical/diagnostic failure is retained and stops automatic
 publication rather than silently dropping a condition.
+The user reduced polling frequency on October15; Windows polling subprocesses
+use `CREATE_NO_WINDOW` to suppress transient terminal windows. This changes
+only local monitoring, not remote training, diagnostics or admission policy.
 
 Publication figures: full-objective GD loss; GD cosine/projected change versus
 sharpness; GD displacement/norms; SGD batch-size trajectories; SGD noise summary;

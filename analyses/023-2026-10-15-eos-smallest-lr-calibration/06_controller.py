@@ -10,6 +10,8 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 sys.path.insert(0, str(ROOT))
 from src.cifar_eos.core import stamp, write_json
+POLL_SECONDS = 30 * 60
+WINDOW_FLAGS = getattr(subprocess, 'CREATE_NO_WINDOW', 0)
 
 
 def main():
@@ -21,16 +23,16 @@ def main():
             code = 'import pathlib,json; p=pathlib.Path('+repr(remote)+'); s=json.loads(p.read_text()); print(json.dumps(s))'
             args = ['ssh', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=15', 'tcml-spark@spark-2277.local',
                     shlex.join([cohort['remote_python'], '-c', code])]
-            state = json.loads(subprocess.check_output(args, text=True, timeout=30))
+            state = json.loads(subprocess.check_output(args, text=True, timeout=30, creationflags=WINDOW_FLAGS))
             event = dict(utc=stamp(), status=state['status'], current_run=state.get('current_run'),
                 predecessor_run=state.get('predecessor_run'),
                 completed_new_runs=sum(r['status']=='complete' for r in state['runs'].values()),
-                total_new_runs=2)
+                total_new_runs=2, poll_seconds=POLL_SECONDS)
             write_json(HERE / 'local-controller.json', event)
             with (HERE / 'monitoring.jsonl').open('a') as out: out.write(json.dumps(event)+'\n')
             if state['status'] == 'complete':
                 for script in ['04_collect.py', '05_reduce.py']:
-                    subprocess.run([sys.executable, str(HERE / script)], cwd=ROOT, check=True)
+                    subprocess.run([sys.executable, str(HERE / script)], cwd=ROOT, check=True, creationflags=WINDOW_FLAGS)
                 write_json(HERE / 'local-controller.json', dict(status='retrieved_and_numerically_verified', utc=stamp(),
                     manuscript_edits=False, results='results.json', note='No visual acceptance or manuscript changes performed.'))
                 return
@@ -39,7 +41,7 @@ def main():
                 return
         except Exception as error:
             write_json(HERE / 'local-controller.json', dict(status='retrying_read_or_requires_review', utc=stamp(), error=repr(error)))
-        time.sleep(300)
+        time.sleep(POLL_SECONDS)
     write_json(HERE / 'local-controller.json', dict(status='controller_deadline', utc=stamp()))
 
 

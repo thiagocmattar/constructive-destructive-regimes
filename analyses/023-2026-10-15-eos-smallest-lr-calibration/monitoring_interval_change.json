@@ -1,0 +1,50 @@
+{
+  "utc": "2026-10-15T21:08:17.921098+00:00",
+  "status": "verified_30_minute_monitors_running",
+  "poll_seconds": 1800,
+  "polling_child_creationflags": 134217728,
+  "remote_training_changed": false,
+  "automatic_training_resume": false,
+  "monitors": [
+    {
+      "analysis": "020-2026-10-14-eos-multitask",
+      "script": "09_controller.py",
+      "metadata": "controller_process.json",
+      "previous": {
+        "pid": 45480,
+        "status": "running",
+        "role": "bounded read-only monitoring; terminal retrieval and plotting; visual review remains pending",
+        "window": "hidden"
+      },
+      "previous_pid": 45480,
+      "new_pid": 31240,
+      "script_sha256": "b4d4866daf523a8476fd3e8883a57cabd13ba1248b9874a92d5f7427ecc1b015",
+      "verified_first_poll_utc": "2026-10-15T21:08:24.374597+00:00",
+      "verified_status": "held_by_user_pending_calibration_review"
+    },
+    {
+      "analysis": "023-2026-10-15-eos-smallest-lr-calibration",
+      "script": "06_controller.py",
+      "metadata": "controller_launch.json",
+      "previous": {
+        "status": "launched",
+        "pid": 47440,
+        "command": [
+          "C:\\Users\\thima\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\thima\\Documents\\Doutorado\\exps\\constructive-destructive-regimes\\analyses\\023-2026-10-15-eos-smallest-lr-calibration\\06_controller.py"
+        ],
+        "poll_seconds": 300,
+        "automatic": [
+          "verified retrieval",
+          "numeric reduction"
+        ],
+        "manuscript_edits": false
+      },
+      "previous_pid": 47440,
+      "new_pid": 16160,
+      "script_sha256": "535b714e08990851e57e052af85770d1fd5167f26b3fc30f4903fd4681473265",
+      "verified_first_poll_utc": "2026-10-15T21:08:24.375594+00:00",
+      "verified_status": "running"
+    }
+  ]
+}

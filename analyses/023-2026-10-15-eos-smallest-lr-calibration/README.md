@@ -103,9 +103,13 @@ See `launch.json`, `scheduling_verification.json`, `initial_status_verification.
 plus `finish_only_policy.json`, `finish_only_verification.json`,
 `finish_only_live_verification.json` and the current attempt/queue manifests.
 A detached local controller polls
-every5min, retrieves terminal evidence, checks file sizes/SHA256, and runs
+every30min, retrieves terminal evidence, checks file sizes/SHA256, and runs
 numeric analysis automatically. No manuscript action or visual acceptance is
 automatic. Warning/failure states remain visible instead of dropping conditions.
+On October15 the user requested fewer checks given the long ETC. Both local
+monitors were changed from5min to30min and their Windows SSH polling children
+use `CREATE_NO_WINDOW`. Only the local monitors restart; Spark training and the
+finish-only policy remain unchanged. Detection of completion can lag by30min.
 
 ## ETC and storage
 
