@@ -1,0 +1,17 @@
+{
+  "observed_utc_window": ["2026-10-15T11:22:12Z", "2026-10-15T11:24:42Z"],
+  "source": "Read-only SSH: Analysis020 remote queue_state.json, eos-multitask-2026-10-14 root on owned Spark",
+  "completed_500_update_runs": {
+    "resnet": [
+      {"run_id": "071", "started_utc": "2026-10-14T22:49:01.750090+00:00", "ended_utc": "2026-10-15T00:49:20.134341+00:00"},
+      {"run_id": "072", "started_utc": "2026-10-15T00:49:20.161064+00:00", "ended_utc": "2026-10-15T02:48:52.257633+00:00"},
+      {"run_id": "073", "started_utc": "2026-10-15T02:48:52.284505+00:00", "ended_utc": "2026-10-15T04:49:15.093622+00:00"}
+    ],
+    "transformer": [
+      {"run_id": "074", "started_utc": "2026-10-15T04:49:15.129836+00:00", "ended_utc": "2026-10-15T09:16:05.059247+00:00"}
+    ]
+  },
+  "scope": "Queue-level full run durations including training and scheduled diagnostics; setup/retrieval and longer-horizon behavior require an allowance.",
+  "live_queue_at_read": {"current_run": "075", "status": "running", "completed_new_runs": 6, "total_new_runs": 35},
+  "extra_lr_queue": "Analysis021 remains held; no new updates authorized by this planning record"
+}

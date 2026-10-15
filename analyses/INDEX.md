@@ -29,5 +29,7 @@
 
 | [021](021-2026-10-15-eos-multitask-lr/README.md) | H020: three-LR full-GD comparison across the EOS cases | New 104-119; reused 059/061/062 and Analysis020 GD | Held for replanning; 27 conditions, three seeds/rate, 500 updates; extra 38.73h compute | [Protocol](021-2026-10-15-eos-multitask-lr/PROTOCOL.md), [status](021-2026-10-15-eos-multitask-lr/REPORT.md); 3x3 paper figure and Table 1 insertion prepared; no rental |
 
-Next analysis: `022-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
+| [022](022-2026-10-15-eos-long-horizon-plan/README.md) | Model-specific EOS horizons and bounded compute plan | Reuses019/020; no new run allocated | Prospective: MLP20k, ResNet/Transformer3k, three seeds/LR; 30 conditions,26 new; cloud spending pending | [Plan](022-2026-10-15-eos-long-horizon-plan/README.md), [qualified costs](022-2026-10-15-eos-long-horizon-plan/estimate.json); 348.94 Spark GPU-hours; no rental |
+
+Next analysis: `023-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
 an analysis may use manuscript or external inputs without referencing a run.

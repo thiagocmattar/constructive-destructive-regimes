@@ -1,0 +1,170 @@
+{
+  "quoted_utc": "2026-10-15T11:22:12Z",
+  "provider": "Runpod",
+  "source": "MCP list-gpu-types; SECURE POD count=2 minCudaVersion=12.8",
+  "gpus": [
+    {
+      "availability": "LOW",
+      "community": true,
+      "cudaVersions": [
+        {
+          "available": true,
+          "version": "12.8"
+        },
+        {
+          "available": true,
+          "version": "13.0"
+        },
+        {
+          "available": true,
+          "version": "13.2"
+        },
+        {
+          "available": false,
+          "version": "13.3"
+        }
+      ],
+      "dataCenters": [
+        {
+          "availability": "LOW",
+          "id": "EUR-IS-1",
+          "name": "EUR-IS-1"
+        },
+        {
+          "availability": "LOW",
+          "id": "EUR-IS-2",
+          "name": "EUR-IS-2"
+        },
+        {
+          "availability": "LOW",
+          "id": "US-IL-1",
+          "name": "US-IL-1"
+        }
+      ],
+      "id": "NVIDIA GeForce RTX 4090",
+      "manufacturer": "NVIDIA",
+      "maxCount": {
+        "community": 8,
+        "secure": 8
+      },
+      "memory": 24,
+      "name": "RTX 4090",
+      "pool": "ADA_24",
+      "price": {
+        "community": 0.34,
+        "secure": 0.89,
+        "serverless": 1.1
+      },
+      "secure": true
+    },
+    {
+      "availability": "NONE",
+      "community": true,
+      "cudaVersions": [
+        {
+          "available": false,
+          "version": "12.8"
+        },
+        {
+          "available": false,
+          "version": "13.0"
+        },
+        {
+          "available": false,
+          "version": "13.1"
+        },
+        {
+          "available": false,
+          "version": "13.2"
+        },
+        {
+          "available": false,
+          "version": "13.3"
+        }
+      ],
+      "id": "NVIDIA GeForce RTX 5090",
+      "manufacturer": "NVIDIA",
+      "maxCount": {
+        "community": 8,
+        "secure": 8
+      },
+      "memory": 32,
+      "name": "RTX 5090",
+      "pool": "ADA_32_PRO",
+      "price": {
+        "community": 0.69,
+        "secure": 1.19,
+        "serverless": 1.58
+      },
+      "secure": true
+    },
+    {
+      "availability": "LOW",
+      "community": true,
+      "cudaVersions": [
+        {
+          "available": false,
+          "version": "12.8"
+        },
+        {
+          "available": true,
+          "version": "13.0"
+        },
+        {
+          "available": true,
+          "version": "13.2"
+        }
+      ],
+      "dataCenters": [
+        {
+          "availability": "LOW",
+          "id": "EUR-IS-2",
+          "name": "EUR-IS-2"
+        },
+        {
+          "availability": "LOW",
+          "id": "US-TX-4",
+          "name": "US-TX-4"
+        }
+      ],
+      "id": "NVIDIA L40S",
+      "manufacturer": "NVIDIA",
+      "maxCount": {
+        "community": 8,
+        "secure": 8
+      },
+      "memory": 48,
+      "name": "L40S",
+      "pool": "ADA_48_PRO",
+      "price": {
+        "community": 0.79,
+        "secure": 1.09,
+        "serverless": 1.75
+      },
+      "secure": true
+    }
+  ],
+  "selected_gpu": "NVIDIA GeForce RTX 4090",
+  "gpu_count": 2,
+  "usd_per_gpu_hour": 0.89,
+  "storage": {
+    "network_volume_gb": 100,
+    "network_usd_per_gb_month": 0.07,
+    "container_total_gb": 40,
+    "container_usd_per_gb_month": 0.1,
+    "month_hours": 720,
+    "network_retention_hours": 168,
+    "source": "https://docs.runpod.io/pods/pricing"
+  },
+  "limits": {
+    "maximum_fleet_wall_hours": 120,
+    "maximum_total_usd": 220
+  },
+  "availability_caveat": "LOW capacity is transient; re-query at launch. No reservation or provisioning performed.",
+  "account_preflight": {
+    "authenticated": true,
+    "pod_count": 4,
+    "unrelated_resources_untouched": true
+  },
+  "authorization_status": "awaiting_cloud_spending_decision"
+}

@@ -1,0 +1,22 @@
+{
+  "status": "prospective; no new runs allocated or launched",
+  "user_request_date": "2026-10-15",
+  "intent": "Replace 500-update pilot scope with model-specific, adequately observed GD regimes; Runpod is the intended interpretation of dictated Run/branch pod.",
+  "seeds": [0, 1, 2],
+  "optimizer": "plain full-batch GD; constant LR; no momentum, decay, clipping or schedule",
+  "cases": [
+    {"task": "mlp", "updates": 20000, "lrs": [0.004, 0.006666666666666667, 0.01, 0.02], "reused_complete_runs": 4, "objective_units_per_update": 5000, "unit": "images"},
+    {"task": "resnet", "updates": 3000, "lrs": [0.1, 0.2, 0.4], "reused_complete_runs": 0, "objective_units_per_update": 50000, "unit": "images"},
+    {"task": "transformer", "updates": 3000, "lrs": [0.05, 0.1, 0.2], "reused_complete_runs": 0, "objective_units_per_update": 2088600, "unit": "supervised target tokens"}
+  ],
+  "matched_within_case": ["initial tensors per seed", "data/cache/order", "objective reduction", "physical accumulation", "FP32 training, TF32 off, FP64 geometry", "horizon", "diagnostic cadence"],
+  "hessian_every_updates": 100,
+  "hessian_final_included": true,
+  "every_update": ["unsmoothed training objective", "raw gradient norm", "adjacent raw-gradient cosine", "eta*kappa_hat", "A", "B", "B/A", "energy", "lag-one and exact all-pair interference", "actual displacement and floating-point residual"],
+  "checkpoint_every_updates": 100,
+  "retained_checkpoints": [0, 500, 1000, 2000, 3000],
+  "mlp_retained_checkpoints": [0, 1000, 5000, 10000, 20000],
+  "new_executed_ids_required": true,
+  "cloud_launch_authorized": false,
+  "next_scientific_stage": "Complete and inspect existing 500-update SGD screen, then freeze the separate batch/noise protocol; no automatic full Cartesian LR x batch x seed x horizon expansion."
+}

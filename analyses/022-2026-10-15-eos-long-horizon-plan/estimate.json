@@ -1,0 +1,115 @@
+{
+  "status": "prospective_plan_arithmetic_verified",
+  "not_training_results": true,
+  "by_task": {
+    "mlp": {
+      "total_conditions": 12,
+      "new_conditions": 8,
+      "updates_per_condition": 20000,
+      "spark_hours_per_new_condition": 0.09043511715500144,
+      "new_spark_gpu_hours": 0.7234809372400115
+    },
+    "resnet": {
+      "total_conditions": 9,
+      "new_conditions": 9,
+      "updates_per_condition": 3000,
+      "spark_hours_per_new_condition": 12.007383298333334,
+      "new_spark_gpu_hours": 108.06644968500001
+    },
+    "transformer": {
+      "total_conditions": 9,
+      "new_conditions": 9,
+      "updates_per_condition": 3000,
+      "spark_hours_per_new_condition": 26.683215684999997,
+      "new_spark_gpu_hours": 240.14894116499994
+    }
+  },
+  "legacy_mlp_first_sign_changes": [
+    {
+      "run_id": "059",
+      "lr": 0.004,
+      "first_negative_adjacent_update": null,
+      "updates": 20000,
+      "elapsed_seconds": 280.6377930189483
+    },
+    {
+      "run_id": "060",
+      "lr": 0.006666666666666667,
+      "first_negative_adjacent_update": 9467,
+      "updates": 20000,
+      "elapsed_seconds": 336.32453669200186
+    },
+    {
+      "run_id": "061",
+      "lr": 0.01,
+      "first_negative_adjacent_update": 4565,
+      "updates": 20000,
+      "elapsed_seconds": 353.14831074804533
+    },
+    {
+      "run_id": "062",
+      "lr": 0.02,
+      "first_negative_adjacent_update": 1156,
+      "updates": 20000,
+      "elapsed_seconds": 332.1550465730252
+    }
+  ],
+  "new_spark_gpu_hours": 348.93887178724,
+  "spark_planning_hours_with_20_percent_allowance": 418.72664614468795,
+  "cloud_scenarios": [
+    {
+      "assumed_speedup_over_spark": 1,
+      "cloud_speedup_measured": false,
+      "workers": 2,
+      "scheduled_training_wall_hours": 178.77716253,
+      "planning_wall_hours": 216.532595036,
+      "planning_usd": 388.26431135872446,
+      "fits_120_hour_220_usd_limits": false
+    },
+    {
+      "assumed_speedup_over_spark": 2,
+      "cloud_speedup_measured": false,
+      "workers": 2,
+      "scheduled_training_wall_hours": 89.388581265,
+      "planning_wall_hours": 109.266297518,
+      "planning_usd": 196.73437790158445,
+      "fits_120_hour_220_usd_limits": true
+    },
+    {
+      "assumed_speedup_over_spark": 3,
+      "cloud_speedup_measured": false,
+      "workers": 2,
+      "scheduled_training_wall_hours": 59.59238751,
+      "planning_wall_hours": 73.510865012,
+      "planning_usd": 132.89106674920444,
+      "fits_120_hour_220_usd_limits": true
+    },
+    {
+      "assumed_speedup_over_spark": 4,
+      "cloud_speedup_measured": false,
+      "workers": 2,
+      "scheduled_training_wall_hours": 44.6942906325,
+      "planning_wall_hours": 55.633148759,
+      "planning_usd": 100.96941117301445,
+      "fits_120_hour_220_usd_limits": true
+    }
+  ],
+  "maximum_priced_usd": 215.89999999999998,
+  "initial_30_minute_two_gpu_compute_usd": 0.89,
+  "input_sha256": {
+    "analyses/020-2026-10-14-eos-multitask/gd_overview_seed0_results.json": "3a73fae9bbe1de5347f6f61b4629ebca5df2847de0f3bf5d5cc00b2f1e28d790",
+    "runs/067-2026-10-14-eos-multitask-calibration/calibration_results.json": "9b8f6d2576367a3018ec9bdc6b76d461ba63a8b779635235413b7fc4017f6752",
+    "analyses/019-2026-10-13-cifar10-eos-lr/results/Run059.json": "b4bd2d9d0af71812f7dc5c427b4a168a1f3f45827a82cee439f0d4e469d49bf2",
+    "analyses/019-2026-10-13-cifar10-eos-lr/results/Run060.json": "7185dabda24a678f1aa9a1f5eb5f5a2b7fa8787dfaaeffc23d3ea0d77234316d",
+    "analyses/019-2026-10-13-cifar10-eos-lr/results/Run061.json": "b446c92c08edc535aed66bdae1228e5fbb252143d3f36f6c055d6282db246c19",
+    "analyses/019-2026-10-13-cifar10-eos-lr/results/Run062.json": "0ef0764d893384115b5a79974b6ae87f25d6e0e48829aec5bb67924c208b189a",
+    "analyses/022-2026-10-15-eos-long-horizon-plan/design.json": "45de225781ee7b48aeb5bf26136e1afb3cef99b4eb8c70f2641ffb33946b2b4a",
+    "analyses/022-2026-10-15-eos-long-horizon-plan/pricing.json": "65cfb487ba2b5fb45e0af8cbcdca63c6cd03c7d23f6f15ee0cff2ac9f96bfc76",
+    "analyses/022-2026-10-15-eos-long-horizon-plan/timing_evidence.json": "1109aca2011216a784587fc45415f2a7b3f0422d2aaa31f1a77242bf37c50b32"
+  },
+  "limitations": [
+    "Long-horizon and late eigensolver costs are unmeasured for ResNet/Transformer.",
+    "Cloud speedup scenarios are assumptions, not measured throughput.",
+    "No paid compute or changed training inputs executed by this script."
+  ]
+}

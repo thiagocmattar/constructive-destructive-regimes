@@ -2,6 +2,14 @@
 
 ## Current state
 
+[Analysis022: EOS long-horizon plan](../analyses/022-2026-10-15-eos-long-horizon-plan/README.md)
+proposes MLP20k and ResNet/Transformer3k full-GD updates, three seeds/LR:
+30 conditions including four complete MLP runs;26 new trajectories.
+Measured production costs project348.94 Spark GPU-hours before allowance.
+Two4090 cloud scenarios span55.6-109.3h at unmeasured4x-2x speedups;
+proposed120h/USD220 ceiling awaits spending approval. No new run/rental;
+Analysis020 continues and021 stays held. Next Run120 / Analysis023 / H021.
+
 [Analysis021: EOS full-batch GD learning-rate comparison](../analyses/021-2026-10-15-eos-multitask-lr/REPORT.md)
 holds 16 additional owned-Spark runs for replanning: three LRs and three
 seeds per case, matched 500 updates, 11 reused prefixes. Extra compute 38.73h;
@@ -28,7 +36,7 @@ Adam0.0007658,0.0008776,0.0007075,0.0006594 in increasing LR order. Actual train
 ETC0,peak allocation<0.35GiB; all outputs retrieved/hashed,owned Spark idle.
 One frozen seed,no LR tuning; no global stability/convergence or alignment proxy
 claim. Full scalar/recovery evidence retained locally/on Spark; no cloud rental.
-Next Run120 / Analysis022 / H021.
+Next Run120 / Analysis023 / H021.
 
 [Run058: CIFAR-10 Edge of Stability calibration](../runs/058-2026-10-13-cifar10-eos-calibration/REPORT.md)
 implements the confirmed5k tanh MLP with GD/Adam and raw/m/mhat/adaptive/update
