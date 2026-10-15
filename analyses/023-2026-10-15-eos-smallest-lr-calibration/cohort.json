@@ -1,0 +1,157 @@
+{
+  "remote_python": "/home/tcml-spark/experiments/constructive-destructive-regimes/spark-calibration-2026-10-08/venv/bin/python",
+  "remote_dependencies": "/home/tcml-spark/experiments/constructive-destructive-regimes/cifar-eos-calibration-2026-10-13/dependencies",
+  "remote_cache": "/home/tcml-spark/experiments/constructive-destructive-regimes/eos-multitask-2026-10-14/cache/eos-multitask",
+  "remote_mlp_cache": "/home/tcml-spark/experiments/constructive-destructive-regimes/cifar-eos-calibration-2026-10-13/cache/cifar10-eos",
+  "analysis_id": "023",
+  "hypothesis": "H020",
+  "created_utc": "2026-10-15T11:36:08.556278+00:00",
+  "remote_root": "/home/tcml-spark/experiments/constructive-destructive-regimes/eos-smallest-lr-3k-2026-10-15",
+  "predecessor_root": "/home/tcml-spark/experiments/constructive-destructive-regimes/eos-multitask-2026-10-14",
+  "predecessor_analysis": "020-2026-10-14-eos-multitask",
+  "predecessor_queue_pid": 426713,
+  "drain_max_seconds": 28800,
+  "hard_queue_seconds": 216000,
+  "predecessor_continuation_seconds": 259200,
+  "owned_spark": true,
+  "rental_cost": 0,
+  "additional_storage_allowance_bytes": 12000000000,
+  "seeds": [
+    0
+  ],
+  "runs": [
+    {
+      "run_id": "059",
+      "run": "059-2026-10-13-cifar10-eos-gd-lr-4e-3",
+      "kind": "reused_gd_prefix",
+      "task": "mlp",
+      "method": "gd",
+      "seed": 0,
+      "lr": 0.004,
+      "updates": 3000,
+      "origin_analysis": "019"
+    },
+    {
+      "run_id": "120",
+      "run": "120-2026-10-15-eos-resnet-gd-smallest-lr-3k",
+      "kind": "new_training",
+      "task": "resnet",
+      "method": "gd",
+      "seed": 0,
+      "lr": 0.1,
+      "batch_units": null,
+      "updates": 3000,
+      "estimated_seconds": 43236.0,
+      "maximum_seconds": 66654,
+      "config": {
+        "run_id": "120",
+        "hypothesis": "H020",
+        "task": "resnet",
+        "method": "gd",
+        "seed": 0,
+        "lr": 0.1,
+        "batch_units": null,
+        "updates": 3000,
+        "horizon": "smallest-lr-3000-calibration",
+        "physical": 1000,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 5,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          500,
+          1000,
+          2000,
+          3000
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories.",
+          "Analysis023: user-requested smallest-LR seed0 calibration, 3000 fixed full-GD updates."
+        ]
+      },
+      "config_sha256": "18691e3dacbb62cb3b95eab7338e8b2ad3222e92fd766087e296c85e5977e692"
+    },
+    {
+      "run_id": "121",
+      "run": "121-2026-10-15-eos-transformer-gd-smallest-lr-3k",
+      "kind": "new_training",
+      "task": "transformer",
+      "method": "gd",
+      "seed": 0,
+      "lr": 0.05,
+      "batch_units": null,
+      "updates": 3000,
+      "estimated_seconds": 96084.0,
+      "maximum_seconds": 145926,
+      "config": {
+        "run_id": "121",
+        "hypothesis": "H020",
+        "task": "transformer",
+        "method": "gd",
+        "seed": 0,
+        "lr": 0.05,
+        "batch_units": null,
+        "updates": 3000,
+        "horizon": "smallest-lr-3000-calibration",
+        "physical": 64,
+        "noise_every": 100,
+        "variance_sample_units": 32,
+        "hessian_units": 2500,
+        "hessian_every": 100,
+        "checkpoint_every": 100,
+        "test_every": 500,
+        "retained_states": [
+          500,
+          1000,
+          2000,
+          3000
+        ],
+        "eigensolver": {
+          "k": 1,
+          "which": "LA",
+          "tolerance": 0.001,
+          "ncv": 12,
+          "maxiter": 200,
+          "residual_tolerance": 0.005,
+          "fallback": {
+            "ncv": 36,
+            "maxiter": 400
+          }
+        },
+        "input_manifest_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+        "notes": [
+          "Constant-step plain GD/SGD; no momentum, decay, clipping, schedule, augmentation or dropout.",
+          "Every raw adjacent pair and complete-prefix B/A recorded; noise-corrected adjacent pairs at sparse declared probes.",
+          "ResNet samples fixed1k ghost groups; Transformer samples fixed causal sequences with token-weighted unbiased gradients.",
+          "Largest algebraic Hessian eigenvalue; subset coverage explicit; fresh residual check.",
+          "Initial and retained/recovery/final states; RNG/diagnostics retained; no dense training-gradient histories.",
+          "Analysis023: user-requested smallest-LR seed0 calibration, 3000 fixed full-GD updates."
+        ]
+      },
+      "config_sha256": "154ced50dfd85d0c731c5509b746eaed371b7bc70c33513e08b66676f9e1b331"
+    }
+  ],
+  "estimated_hours": 38.7,
+  "qualified_hours": 54.18,
+  "next_run": 122,
+  "next_analysis": 24
+}

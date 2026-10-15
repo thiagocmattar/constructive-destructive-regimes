@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "utc": "2026-10-15T11:39:22.634110+00:00",
+  "runs": [
+    {
+      "task": "mlp",
+      "run_id": "059",
+      "lr": 0.004,
+      "seed": 0,
+      "updates": 3000,
+      "reused_prefix": true,
+      "initial_loss": 0.5967808663845062,
+      "loss_at_state_3000": 0.3365076333284378,
+      "first_negative_gradient_update": null,
+      "first_sustained_negative_100_pair_end_update": null,
+      "late_1000_cosine_mean": 0.9999999571503707,
+      "late_1000_q_mean": 4.374569342767398e-05,
+      "gradient_norm_at_state_2999": 0.06363647910510288,
+      "final_A": 299.40010701759945,
+      "final_B": 237.76667751644334,
+      "final_B_over_A": 0.7941435956215835,
+      "maximum_sampled_eta_lambda": 0.3168271484375,
+      "last_sampled_eta_lambda": 0.3168271484375,
+      "source_sha256": {
+        "metrics.jsonl": "b26bd47afdbe92c915d4973fc3aa07b546a68663216360e3c490d46ae1e730e0",
+        "curvature.jsonl": "577d016029be4a4f996f3be5cdf82330bd75f0b00f461ba2acbe2ae61c98105f",
+        "manifest.json": "a05368ff98b228924923e8a1e556461ee49ef24dcf442d0c4dc3bd26acd25e12"
+      },
+      "config_sha256": "401fd9cf7844ba21a80cb0152af2d1ebde9d7f2cf3868f0742fa512ddd690fdb"
+    }
+  ],
+  "script_sha256": "bc5102f11889289f5f79af308ae6e7d3d4e7e60b5cfe5d7319914f75cbbae18a",
+  "loader_sha256": "aa9a39fc11ca0af48464159558b23a026008ad051a0c599e7224afdcef57ef43",
+  "cohort_sha256": "aee0410a026c21a4f2ca55090ee08c71ab5154c751e6def606f240d2e78b8958",
+  "scope": "One seed per case; smallest-LR 3000-update calibration; no replication or universal stability claim.",
+  "checks": [
+    "Complete used-row coverage and undefined first adjacent pair",
+    "Exact recorded q identity",
+    "Prefix A/energy and B squared/all-pair identities",
+    "Lag-one sum and B/A",
+    "31 residual-checked spectral states per case",
+    "Frozen initial tensors and source/inventory hashes"
+  ],
+  "gradient_pairs": 2999,
+  "spectral_points": 31,
+  "temporal_smoothing": "none",
+  "manuscript_edits": false
+}

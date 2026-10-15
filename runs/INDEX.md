@@ -124,6 +124,9 @@
 | [118](118-2026-10-15-eos-transformer-gd-lr-0.2-seed1/README.md) | H020 transformer full GD, LR0.2, seed1 | Held for replanning; 500 fixed updates after Analysis020 | Owned Spark; matched LR comparison; no rental |
 | [119](119-2026-10-15-eos-transformer-gd-lr-0.2-seed2/README.md) | H020 transformer full GD, LR0.2, seed2 | Held for replanning; 500 fixed updates after Analysis020 | Owned Spark; matched LR comparison; no rental |
 
-Next run: `120-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
+| [120](120-2026-10-15-eos-resnet-gd-smallest-lr-3k/README.md) | H020 ResNet full GD, LR0.1, seed0,3000 updates | Priority queue launched; waiting for active075 to finish | Owned Spark; unchanged scientific implementation | [Analysis023](../analyses/023-2026-10-15-eos-smallest-lr-calibration/README.md); Hessians every100, full scalar geometry; no rental |
+| [121](121-2026-10-15-eos-transformer-gd-smallest-lr-3k/README.md) | H020 Transformer full GD, LR0.05, seed0,3000 updates | Queued after120 | Owned Spark; complete prepared corpus each update | [Analysis023](../analyses/023-2026-10-15-eos-smallest-lr-calibration/README.md); no manuscript edits |
+
+Next run: `122-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
 executed IDs and configurations; retry unchanged scientific inputs in a new
 attempt within the same run.

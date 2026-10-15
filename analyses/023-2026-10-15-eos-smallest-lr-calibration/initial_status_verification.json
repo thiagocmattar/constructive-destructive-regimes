@@ -1,0 +1,97 @@
+{
+  "handoff": {
+    "status": "draining_active_run",
+    "utc": "2026-10-15T11:37:02.011136+00:00",
+    "parent_pid": 426713,
+    "parent_command": "/home/tcml-spark/experiments/constructive-destructive-regimes/spark-calibration-2026-10-08/venv/bin/python /home/tcml-spark/experiments/constructive-destructive-regimes/eos-multitask-2026-10-14/analyses/020-2026-10-14-eos-multitask/03_queue.py ",
+    "predecessor_state_before": {
+      "status": "running",
+      "started_utc": "2026-10-14T22:48:42.723703+00:00",
+      "current_run": "075",
+      "runs": {
+        "061": {
+          "status": "reused_verified_source",
+          "updates": 500
+        },
+        "069": {
+          "status": "complete",
+          "started_utc": "2026-10-14T22:48:42.724540+00:00",
+          "task": "mlp",
+          "method": "gd",
+          "seed": 1,
+          "pid": 426758,
+          "completed_updates": 500,
+          "ended_utc": "2026-10-14T22:48:51.486112+00:00"
+        },
+        "070": {
+          "status": "complete",
+          "started_utc": "2026-10-14T22:48:51.535357+00:00",
+          "task": "mlp",
+          "method": "gd",
+          "seed": 2,
+          "pid": 426810,
+          "completed_updates": 500,
+          "ended_utc": "2026-10-14T22:49:01.702513+00:00"
+        },
+        "071": {
+          "status": "complete",
+          "started_utc": "2026-10-14T22:49:01.750090+00:00",
+          "task": "resnet",
+          "method": "gd",
+          "seed": 0,
+          "pid": 427042,
+          "completed_updates": 500,
+          "ended_utc": "2026-10-15T00:49:20.134341+00:00"
+        },
+        "072": {
+          "status": "complete",
+          "started_utc": "2026-10-15T00:49:20.161064+00:00",
+          "task": "resnet",
+          "method": "gd",
+          "seed": 1,
+          "pid": 433926,
+          "completed_updates": 500,
+          "ended_utc": "2026-10-15T02:48:52.257633+00:00"
+        },
+        "073": {
+          "status": "complete",
+          "started_utc": "2026-10-15T02:48:52.284505+00:00",
+          "task": "resnet",
+          "method": "gd",
+          "seed": 2,
+          "pid": 438598,
+          "completed_updates": 500,
+          "ended_utc": "2026-10-15T04:49:15.093622+00:00"
+        },
+        "074": {
+          "status": "complete",
+          "started_utc": "2026-10-15T04:49:15.129836+00:00",
+          "task": "transformer",
+          "method": "gd",
+          "seed": 0,
+          "pid": 444369,
+          "completed_updates": 500,
+          "ended_utc": "2026-10-15T09:16:05.059247+00:00"
+        },
+        "075": {
+          "status": "running",
+          "started_utc": "2026-10-15T09:16:05.738158+00:00",
+          "task": "transformer",
+          "method": "gd",
+          "seed": 1,
+          "pid": 456314
+        }
+      }
+    },
+    "scientific_inputs_changed": false
+  },
+  "queue": {
+    "status": "draining_predecessor_active_run",
+    "utc": "2026-10-15T11:37:32.013375+00:00",
+    "predecessor_run": "075",
+    "runs": {}
+  },
+  "parent_process_state": "T",
+  "active_child_process_state": "S",
+  "priority_log": ""
+}

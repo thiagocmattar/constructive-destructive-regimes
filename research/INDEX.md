@@ -2,13 +2,23 @@
 
 ## Current state
 
+[Analysis023: smallest-LR3k calibration](../analyses/023-2026-10-15-eos-smallest-lr-calibration/README.md)
+launches owned-Spark priority runs120/121: ResNetLR0.1 and TransformerLR0.05,
+seed0,3000 updates, Hessians every100. The current075 finishes normally;
+then calibration precedes unchanged pending020 jobs. MLP Run059 first3k
+is verified (loss0.5968->0.3365, B/A0.7941, no adjacent reversal).
+New compute38.7h,54.2h allowance; about41h including the active-run drain.
+Detached monitoring/retrieval/reduction deployed; no rental or manuscript edit.
+The broad cloud/grid proposal is deferred;021 remains held.
+Next Run122 / Analysis024 / H021.
+
 [Analysis022: EOS long-horizon plan](../analyses/022-2026-10-15-eos-long-horizon-plan/README.md)
 proposes MLP20k and ResNet/Transformer3k full-GD updates, three seeds/LR:
 30 conditions including four complete MLP runs;26 new trajectories.
 Measured production costs project348.94 Spark GPU-hours before allowance.
 Two4090 cloud scenarios span55.6-109.3h at unmeasured4x-2x speedups;
-proposed120h/USD220 ceiling awaits spending approval. No new run/rental;
-Analysis020 continues and021 stays held. Next Run120 / Analysis023 / H021.
+historical120h/USD220 cloud proposal was not launched; staged023 supersedes it.
+Analysis020 pending jobs resume after023;021 stays held. Next Run122 / Analysis024 / H021.
 
 [Analysis021: EOS full-batch GD learning-rate comparison](../analyses/021-2026-10-15-eos-multitask-lr/REPORT.md)
 holds 16 additional owned-Spark runs for replanning: three LRs and three
@@ -36,7 +46,7 @@ Adam0.0007658,0.0008776,0.0007075,0.0006594 in increasing LR order. Actual train
 ETC0,peak allocation<0.35GiB; all outputs retrieved/hashed,owned Spark idle.
 One frozen seed,no LR tuning; no global stability/convergence or alignment proxy
 claim. Full scalar/recovery evidence retained locally/on Spark; no cloud rental.
-Next Run120 / Analysis023 / H021.
+Next Run122 / Analysis024 / H021.
 
 [Run058: CIFAR-10 Edge of Stability calibration](../runs/058-2026-10-13-cifar10-eos-calibration/REPORT.md)
 implements the confirmed5k tanh MLP with GD/Adam and raw/m/mhat/adaptive/update

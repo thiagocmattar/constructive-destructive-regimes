@@ -1,5 +1,10 @@
 # EOS study: duration, replication and compute plan
 
+**Follow-up:** the user chose a staged3,000-update smallest-LR calibration on
+owned Spark instead of launching this larger grid or cloud proposal. See
+[Analysis023](../023-2026-10-15-eos-smallest-lr-calibration/README.md).
+The priced scenarios below remain planning history, not accepted spending.
+
 **Status: prospective design and verified cost arithmetic, not new training
 results.** Requested October 15, 2026. No cloud resources created or changed.
 Analysis020 continues; Analysis021's unstarted extra-LR queue remains held.
