@@ -1,0 +1,70 @@
+{
+  "status": "passed",
+  "script_sha256": "925f176945cc1196470da75892f4268a2c331f6704a4897f61dcdc8688f88aa4",
+  "loader_sha256": "aa9a39fc11ca0af48464159558b23a026008ad051a0c599e7224afdcef57ef43",
+  "cohort_sha256": "8c2a3f2a8fa9b84751bc66021b11700713b424c5d9a316e4d99f44b2d4aab5a1",
+  "pdf": "analyses/020-2026-10-14-eos-multitask/figures/eos_gd_overview_seed0.pdf",
+  "pdf_sha256": "0c2351096a1e3360eeaa43260a3d4ac5e6b4a46d9051f22f1c1b1055ecef8a70",
+  "render": "analyses/020-2026-10-14-eos-multitask/scratch/eos_gd_overview_seed0.png",
+  "render_sha256": "6caa4d6c5b779379bf923fc9233b49bfb37bbd465b03adccae10d1f31dd20a73",
+  "arrays": "analyses/020-2026-10-14-eos-multitask/derived/gd_overview_seed0_curves.npz",
+  "arrays_sha256": "bd9ec87441060c62148f355146f9dedf681847e157baa647d7c5f148f5ae05ca",
+  "results_sha256": "3a73fae9bbe1de5347f6f61b4629ebca5df2847de0f3bf5d5cc00b2f1e28d790",
+  "curves": [
+    {
+      "tag": "mlp_row0",
+      "points": 501,
+      "x_sha256": "145a872587ccca6a0ffeaee5abcea097514f12a247a39c2c9fd46c46a81850c2",
+      "y_sha256": "898eae5b868e5f773c9d8fce720526d2745b298da933b6ef76328efe577b16b9"
+    },
+    {
+      "tag": "mlp_row1",
+      "points": 6,
+      "x_sha256": "5a297e98c3f41cf05dcddca12f6423779f0c548db340a02dc5c1ccd663f290ae",
+      "y_sha256": "2eb024dc1053d11e29087ca518382908a61bc47043f135ec2eb37b43b6d888e4"
+    },
+    {
+      "tag": "mlp_row2",
+      "points": 499,
+      "x_sha256": "b711d0bc266043ea8de4bab9821dec5b6f10e40cf14dd7d3754fd05b8af1e8e3",
+      "y_sha256": "1c8b4c1ce06aec5efb36cd2d78e7ca3cabcf8b21251df6643c566a9776085f2d"
+    },
+    {
+      "tag": "resnet_row0",
+      "points": 501,
+      "x_sha256": "145a872587ccca6a0ffeaee5abcea097514f12a247a39c2c9fd46c46a81850c2",
+      "y_sha256": "0266f3fd8e4b2d1a23dc871ab525495bba68ec6e57f4275ea1d5a7b7362d32d3"
+    },
+    {
+      "tag": "resnet_row1",
+      "points": 6,
+      "x_sha256": "5a297e98c3f41cf05dcddca12f6423779f0c548db340a02dc5c1ccd663f290ae",
+      "y_sha256": "514efd464328ba090c047ef50b2c832e58a3601d002780ae544e06a8e8c2d9d9"
+    },
+    {
+      "tag": "resnet_row2",
+      "points": 499,
+      "x_sha256": "b711d0bc266043ea8de4bab9821dec5b6f10e40cf14dd7d3754fd05b8af1e8e3",
+      "y_sha256": "779fdb84b5a5b5c340784147aaaf0c1162535a4ea7b1fd1d5dc7ee765f0795f7"
+    },
+    {
+      "tag": "transformer_row0",
+      "points": 501,
+      "x_sha256": "145a872587ccca6a0ffeaee5abcea097514f12a247a39c2c9fd46c46a81850c2",
+      "y_sha256": "d25ef8fe7468561aa6658949ddbac7dcbbe2b42ba1afa0145fbb1cc3944925de"
+    },
+    {
+      "tag": "transformer_row1",
+      "points": 6,
+      "x_sha256": "5a297e98c3f41cf05dcddca12f6423779f0c548db340a02dc5c1ccd663f290ae",
+      "y_sha256": "00042938c7cfa009bc9054e469db5b5ae2abd35893bcc7b653428f3b2eb41d41"
+    },
+    {
+      "tag": "transformer_row2",
+      "points": 499,
+      "x_sha256": "b711d0bc266043ea8de4bab9821dec5b6f10e40cf14dd7d3754fd05b8af1e8e3",
+      "y_sha256": "4a56c0e58968ccde789c507d769b3e3ee56961ed746973179a8fb054b9be38dc"
+    }
+  ],
+  "visual_review": "Current Poppler render inspected: nine panels, dataset/model titles, LR/seed labels, unsmoothed traces, references and margins."
+}

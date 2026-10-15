@@ -3,7 +3,28 @@
 Status: source review, mathematical verification, all three production-shaped
 smokes and owned-Spark calibration complete. Run068 frozen-state control is
 complete, retrieved/hash verified, numerically checked and visually reviewed.
-The 500-update first GD/SGD stage is launched and running; its results remain pending. The longer paper-length horizon remains a subsequent decision. These control results are not a completed EOS/TNNLS reproduction.
+The 500-update seed0 GD trajectories for all three cases are complete and reviewed; remaining Transformer seeds and SGD results are pending. The longer paper-length horizon remains a subsequent decision. These control results are not a completed EOS/TNNLS reproduction.
+
+## First-stage GD figure now available
+
+The [reviewed 3x3 overview](figures/eos_gd_overview_seed0.pdf) uses complete
+seed0 GD trajectories at the existing learning rates: MLP0.01, ResNet0.2 and
+Transformer0.1, each for500 updates. Rows show unsmoothed full-objective loss,
+eta*lambda_max and unsmoothed eta*kappa_hat. This is a single-seed, single-LR
+comparison per case; it does not use the held additional LR sweep.
+
+Final losses are0.367796,1.405459 and7.070935, respectively. The first negative
+adjacent-gradient indices are absent within500 gradients for the MLP,109 for
+ResNet-32 and456 for the Transformer. Maximum sampled eta*lambda_max values
+are0.786679,3.426332 and2.141334. These are finite-horizon descriptive results;
+subset Hessians and the finite-step projected-change estimate differ.
+
+All73 retained files,1,497 gradient pairs,18 spectral measurements and3,018
+plotted values pass verification. The figure and14-page restatement report
+pass visual review; the figure follows Table1 (pages3 and4). See
+[observation002](observations/002-gd-seed0-overview.md) for sources, reductions,
+coverage and limitations. No new training was launched. The remaining
+Transformer seeds are running/queued and the SGD stage has not yet completed.
 
 ## What the original paper tests
 

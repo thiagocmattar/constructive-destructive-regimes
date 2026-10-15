@@ -1,0 +1,82 @@
+{
+  "status": "passed",
+  "scope": "Three complete seed0 GD trajectories; one LR per case; 500 updates.",
+  "runs": [
+    {
+      "run_id": "061",
+      "run": "061-2026-10-13-cifar10-eos-gd-lr-1e-2",
+      "task": "mlp",
+      "seed": 0,
+      "lr": 0.01,
+      "updates": 500,
+      "initial_loss": 0.5967808663845062,
+      "final_loss": 0.36779606342315674,
+      "initial_tensor_sha256": "8de1e7c880539f122aa840d5b7c28027310e82bd3ee4e753afef87fe0876a2da",
+      "maximum_measured_eta_lambda": 0.7866793823242187,
+      "q_min": 0.0005736523239454616,
+      "q_max": 0.4392160938814199,
+      "first_negative_adjacent_gradient_update": null,
+      "negative_adjacent_fraction": 0.0,
+      "source_sha256": {
+        "metrics.jsonl": "b1bdaa7bfc3fd9745a28c7fb2f9d545171bb70b4d0bea9a9e2ae5a7f340d1816",
+        "curvature.jsonl": "e9d6a0219b13c3c3263e182247d7068b08fe33a94e539cf7efde8c14efac790b",
+        "manifest.json": "8dd49cb28858dad22750fc9d7a393b96a3c6ac9b9fb1e26fa92ff99c9a973e2c"
+      },
+      "config_sha256": "c41bea1e6ec3447c5e3156398f5904cebb956c2a24656d322f6f216660dc6134",
+      "transfer_inventory_sha256": "2dc0d03d0826414aeae755591f12741cca9b64caed99162743bce8ef838f1bf1",
+      "verified_files": 15
+    },
+    {
+      "run_id": "071",
+      "run": "071-2026-10-14-eos-resnet-gd-full-seed0",
+      "task": "resnet",
+      "seed": 0,
+      "lr": 0.2,
+      "updates": 500,
+      "initial_loss": 2.30956712890625,
+      "final_loss": 1.4054587500000004,
+      "initial_tensor_sha256": "e2fd253c5c6e3cdfd75d255811f0d2bd4b59dae33702d6a981b517150a259dde",
+      "maximum_measured_eta_lambda": 3.4263320922851563,
+      "q_min": -0.00754992498809659,
+      "q_max": 2.5389162750714664,
+      "first_negative_adjacent_gradient_update": 109,
+      "negative_adjacent_fraction": 0.781563126252505,
+      "source_sha256": {
+        "metrics.jsonl": "58549d191ab74910a41195017dd2196e565bcd6da2295a6eea0446542578a6dc",
+        "curvature.jsonl": "577283cc0526a3a699447af27a57380327a6b94b5881e898aeab252b7292b70a",
+        "manifest.json": "1728cba0de0fbec13cc364cc03bafae785faa652270c0d1182c786f52dcd1509"
+      },
+      "config_sha256": "26c955af7cde6f59bc3893d6a42fd083a952f5a77b3c2887a151bd89c1d4d294",
+      "transfer_inventory_sha256": "375f49702a3f5c94cbb4a37ddb529a2db142147d8d42d187e6de4ac75d99280e",
+      "verified_files": 29
+    },
+    {
+      "run_id": "074",
+      "run": "074-2026-10-14-eos-transformer-gd-full-seed0",
+      "task": "transformer",
+      "seed": 0,
+      "lr": 0.1,
+      "updates": 500,
+      "initial_loss": 10.729182719678409,
+      "final_loss": 7.070934507097312,
+      "initial_tensor_sha256": "66989f8082f75709fa410366bb0d74498eb3298b37df2fa1b1e48f9552617513",
+      "maximum_measured_eta_lambda": 2.1413339614868163,
+      "q_min": -0.025357186533284892,
+      "q_max": 2.106745906459481,
+      "first_negative_adjacent_gradient_update": 456,
+      "negative_adjacent_fraction": 0.09018036072144289,
+      "source_sha256": {
+        "metrics.jsonl": "1c6e9836ff2ccae8dcc86a0746d7215b3d8c242564b2b6da4760620de43e0b09",
+        "curvature.jsonl": "a4199c5a99b9f59ff3a8906ef0f6f973b8a39e8dbeb9b237b2e4710c9b77d62a",
+        "manifest.json": "134fad44dcfefa8657348da5a7afed332c225dbf3adc493c8c5db48461593732"
+      },
+      "config_sha256": "a63954b875beb752ba3e3a1901761fe0320ba4bb2a0425c06d1737d9d1c47c43",
+      "transfer_inventory_sha256": "42eb3b98cc8b272cf61ccf1217b0ba0ef90acfb005c5f538b96e2501c9ce6d1e",
+      "verified_files": 29
+    }
+  ],
+  "gradient_pairs": 1497,
+  "spectral_points": 18,
+  "temporal_smoothing": "none",
+  "seed_aggregation": "none"
+}

@@ -3,6 +3,7 @@ import argparse
 import hashlib
 import itertools
 import json
+import re
 import shutil
 import subprocess
 from pathlib import Path
@@ -220,6 +221,43 @@ def eos_frozen_evidence():
         'run_id': '068', 'scope': 'three initializations; frozen real-data gradient sampling; no training updates'}
 
 
+
+def eos_gd_overview_evidence():
+    """Only the three complete seed0 trajectories support this first-stage view."""
+    marker = '\\input{../../analyses/020-2026-10-14-eos-multitask/gd-overview-seed0.tex}'
+    if marker not in (HERE / 'gd-formulation.tex').read_text():
+        return None
+    path = EOS / 'gd_overview_seed0_manifest.json'
+    record = json.loads(path.read_text())
+    assert record['status'] == 'passed'
+    assert sha256(EOS / '10_plot_gd_overview.py') == record['script_sha256']
+    assert sha256(EOS / '07_plot_training.py') == record['loader_sha256']
+    assert sha256(EOS / 'cohort.json') == record['cohort_sha256']
+    resultfile = EOS / 'gd_overview_seed0_results.json'
+    assert sha256(resultfile) == record['results_sha256']
+    results = json.loads(resultfile.read_text())
+    assert results['status'] == 'passed' and results['gradient_pairs'] == 1497 and results['spectral_points'] == 18
+    assert [r['run_id'] for r in results['runs']] == ['061', '071', '074']
+    for row in results['runs']:
+        assert row['seed'] == 0 and row['updates'] == 500
+        run = ROOT / 'runs' / row['run']
+        attempt = run / 'artifacts/attempt-01-spark'
+        assert sha256(run / 'config.json') == row['config_sha256']
+        assert sha256(attempt / 'transfer_inventory.json') == row['transfer_inventory_sha256']
+        for item in json.loads((attempt / 'transfer_inventory.json').read_text())['files']:
+            artifact = attempt / item['path']
+            assert artifact.resolve().is_relative_to(attempt.resolve())
+            assert artifact.stat().st_size == item['bytes'] and sha256(artifact) == item['sha256']
+        for name, digest in row['source_sha256'].items():
+            assert sha256(attempt / 'production' / name) == digest
+    for key in ['pdf', 'arrays']:
+        assert sha256(ROOT / record[key]) == record[key + '_sha256']
+    return {'manifest_sha256': sha256(path), 'figure': record['pdf'], 'sha256': record['pdf_sha256'],
+        'results_sha256': record['results_sha256'], 'run_ids': ['061', '071', '074'],
+        'include_sha256': sha256(EOS / 'gd-overview-seed0.tex'),
+        'scope': 'One complete seed0 GD trajectory per case; one LR each; 500 updates; unsmoothed.'}
+
+
 def render(path, prefix):
     pages = []
     poppler = shutil.which('pdftoppm')
@@ -264,9 +302,10 @@ def main():
         assert rosenbrock_evidence() == record['rosenbrock']
         assert noise_evidence() == record['noise']
         assert eos_frozen_evidence() == record['eos_frozen']
+        assert eos_gd_overview_evidence() == record.get('eos_gd_overview')
         for name, expected in record['inputs_sha256_unchanged'].items():
             assert sha256(ROOT / name) == expected
-        for page in record['report_pages'] + record['figure_pages'] + record['rosenbrock_figure_pages'] + record['noise_figure_pages'] + record['eos_frozen_figure_pages']:
+        for page in record['report_pages'] + record['figure_pages'] + record['rosenbrock_figure_pages'] + record['noise_figure_pages'] + record['eos_frozen_figure_pages'] + record.get('eos_gd_overview_figure_pages', []):
             assert sha256(ROOT / page['render']) == page['render_sha256']
         record['status'] = 'passed'
         record['visual_review'] = 'All report pages and the standalone figure inspected for layout, equations, captions, tables, clipping and references.'
@@ -281,6 +320,7 @@ def main():
     rosenbrock = rosenbrock_evidence()
     noise = noise_evidence()
     eos_frozen = eos_frozen_evidence()
+    eos_gd = eos_gd_overview_evidence()
     for attempt in [1, 2]:
         print(f'LaTeX pass {attempt}/2', flush=True)
         process = subprocess.run(['pdflatex', '--disable-installer', '-no-shell-escape',
@@ -307,6 +347,19 @@ def main():
         assert 'Gradient-estimation noise' in text
         assert '??' not in text
         assert 'TODO' in text and 'References' in text
+    overview_order = None
+    if eos_gd:
+        aux = (ARTIFACTS / 'gd-formulation.aux').read_text()
+        def label_page(label):
+            match = re.search(r'\\newlabel\{' + re.escape(label) + r'\}\{\{[^}]*\}\{(\d+)\}', aux)
+            assert match, label
+            return int(match.group(1))
+        table_page, figure_page = label_page('tab:sign'), label_page('fig:eos-gd-overview')
+        assert figure_page == table_page + 1, 'EOS overview must immediately follow the Table1 page.'
+        with fitz.open(destination) as document:
+            page_text = document[figure_page-1].get_text()
+            assert all('(' + letter + ')' in page_text for letter in 'abcdefghi')
+        overview_order = {'table_page': table_page, 'figure_page': figure_page, 'verified': True}
     report_pages = render(destination, 'report')
     figure = ANALYSIS / 'figures/cifar10_gd_diagnostics_paper.pdf'
     figure_pages = render(figure, 'figure')
@@ -315,9 +368,10 @@ def main():
         rosenbrock_pages.extend(render(ROOT / name, f'rosenbrock-figure-{index}'))
     noise_pages = render(ROOT / noise['figure'], 'noise-figure')
     eos_frozen_pages = render(ROOT / eos_frozen['figure'], 'eos-frozen-figure')
+    eos_gd_pages = render(ROOT / eos_gd['figure'], 'eos-gd-overview') if eos_gd else []
     assert {p.relative_to(ROOT).as_posix(): sha256(p) for p in inputs} == input_hashes
     write_json(metadata, {'status': 'awaiting_visual_review',
-        'scope': 'SGD formulation, CIFAR-10 GD evidence, real-data frozen sampling control, Adam momentum extension and deterministic/noisy Rosenbrock AdamW results; three-case training results not yet included.',
+        'scope': 'SGD formulation, CIFAR-10 GD evidence, real-data frozen sampling control, Adam momentum extension and deterministic/noisy Rosenbrock AdamW results; ' + ('single-seed three-case GD results (500 updates) included after Table1.' if eos_gd else 'three-case training results not yet included.'),
         'report': destination.relative_to(ROOT).as_posix(), 'report_sha256': sha256(destination),
         'latex_source': (HERE / 'gd-formulation.tex').relative_to(ROOT).as_posix(),
         'latex_source_sha256': sha256(HERE / 'gd-formulation.tex'),
@@ -329,6 +383,7 @@ def main():
         'rosenbrock': rosenbrock, 'rosenbrock_figure_pages': rosenbrock_pages,
         'noise': noise, 'noise_figure_pages': noise_pages,
         'eos_frozen': eos_frozen, 'eos_frozen_figure_pages': eos_frozen_pages,
+        'eos_gd_overview': eos_gd, 'eos_gd_overview_figure_pages': eos_gd_pages, 'eos_gd_overview_placement': overview_order,
         'latex_checks': 'Two passes; no overfull boxes, undefined references/citations or pending rerun.',
         'runs': [r['run_id'] for r in rows], 'new_training': False,
         'references': ['https://arxiv.org/abs/2103.00065', 'https://github.com/locuslab/edge-of-stability/tree/github']})

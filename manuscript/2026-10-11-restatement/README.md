@@ -22,7 +22,7 @@ Compilation intermediates and page renders remain in ignored
 The report develops constant-step SGD displacement, the exact lag-one and
 longer-lag split, a local curvature/noise model of consecutive alignment,
 the unbiased-noise expectation, and full-prefix normalized displacement B/A.
-The empirical section uses only GD Runs059-062 from
+The 20k-update CIFAR-10 empirical section uses GD Runs059-062 from
 [Analysis019](../../analyses/019-2026-10-13-cifar10-eos-lr/README.md).
 It includes a compact publication figure and one results paragraph connecting
 the transition in consecutive-step interference to the curvature diagnostics,
@@ -123,3 +123,18 @@ The builder also checks the completed Run068 source snapshots, raw artifact
 receipt, control figure and reductions. Regenerate that figure with
 `python analyses/020-2026-10-14-eos-multitask/06_plot_frozen.py`, inspect its current
 render, then use `--accept-reviewed` before building the report.
+
+## First-stage EOS overview
+
+A reviewed nine-panel figure now follows Table1 on the next page. It reuses
+complete seed0 GD trajectories from Analysis020:500 updates each, at LR0.01
+for CIFAR-10/MLP,0.2 for CIFAR-10/ResNet-32 and0.1 for WikiText-2/Transformer.
+Rows show loss, eta*lambda_max and eta*kappa_hat, without smoothing or seed
+averaging. The other Transformer seeds are not shown as incomplete prefixes.
+The additional multi-LR sweep remains held. See the
+[observation](../../analyses/020-2026-10-14-eos-multitask/observations/002-gd-seed0-overview.md).
+The builder checks the raw evidence and exact figure/include hashes and verifies
+that the figure follows the Table1 page. To regenerate this figure, run
+`analyses/020-2026-10-14-eos-multitask/10_plot_gd_overview.py`, inspect its current
+render, record `--accept-reviewed`, and rebuild this report. Its optional
+`--insert-manuscript` inserts only the requested include and is idempotent.

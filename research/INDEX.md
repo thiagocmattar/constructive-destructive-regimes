@@ -13,10 +13,11 @@ pending; no new updates started. Analysis020 continues; no cloud rental.
 completed owned-Spark calibration and three-seed frozen-gradient sampling on
 CIFAR-10/MLP, CIFAR-10/ResNet-32 and WikiText-2/Transformer. The control has36
 conditions and147,456 observations, retrieved/hashed, with a reviewed paper figure.
-Runs069-103 now execute the first500-update GD/SGD stage; ETC29-41h, hard limit72h,
-no rental. Three-case training results remain pending; the controller retrieves
-and plots terminal passing outputs. The report moves noise after normalized
-displacement and adds finite-population variance/frozen accumulation theory.
+The reviewed seed0 GD overview now covers all three cases at500 updates:
+loss, eta*lambda_max and eta*kappa_hat, with one existing LR per case.
+Runs061/071/074,73 retained files,1,497 adjacent pairs and18 spectra pass checks;
+the figure follows Table1 in the reviewed14-page report. Other Transformer seeds
+and SGD remain pending. Additional LR runs are held; no new training or rental.
 
 [Analysis019: CIFAR-10 GD/Adam learning-rate sweep](../analyses/019-2026-10-13-cifar10-eos-lr/REPORT.md)
 completed Runs059-066 on Spark:20,000 fixed updates each,common5k tanh MLP

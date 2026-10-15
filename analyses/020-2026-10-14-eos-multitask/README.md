@@ -1,11 +1,13 @@
 # Analysis020: full-batch and stochastic gradient interference across EOS tasks
 
-Status: calibration and the replicated frozen-state noise control are complete,
-retrieved/hash verified and visually reviewed. The first 500-update GD/SGD
-stage is running on owned Spark: 35 new runs plus one existing control prefix.
-See [first results and ETC](REPORT.md), [protocol](PROTOCOL.md) and
-[control figure](figures/eos_frozen_noise_comparison.pdf). Training results
-remain pending; a frozen sampling control is not a training reproduction.
+Status: the replicated frozen-state noise control and the three-case seed0
+full-batch GD overview are complete, retrieved/hash verified and visually
+reviewed. The [new 3x3 figure](figures/eos_gd_overview_seed0.pdf) uses one LR
+per case and 500 updates, with loss, maximum curvature and directional curvature.
+It is included after Table1 in the restatement report. See the
+[observation](observations/002-gd-seed0-overview.md), [report](REPORT.md) and
+[protocol](PROTOCOL.md). Remaining Transformer seeds and the SGD stage continue
+on Spark; the additional Analysis021 learning-rate sweep remains held.
 
 The user selected CIFAR-10/tanh MLP, CIFAR-10/ResNet-32 and
 WikiText-2/Transformer, with robustness appropriate for a technical paper aimed
@@ -13,7 +15,7 @@ at IEEE TNNLS. These are three task/architecture cases, using two real datasets.
 The original EOS paper also studies VGG-11 and synthetic regression/deep-linear
 tasks; it does not study ViT. See [source review](SOURCE_REVIEW.md).
 
-Full-batch GD will compare unsmoothed objective loss, adjacent raw-gradient
+Full-batch GD diagnostics compare unsmoothed objective loss, adjacent raw-gradient
 cosine, the observed gradient-difference proxy eta*kappa, ordinary Hessian
 sharpness eta*lambda_max, and complete-prefix normalized displacement B/A.
 Mini-batch SGD will vary effective batch size with constant learning rate and
