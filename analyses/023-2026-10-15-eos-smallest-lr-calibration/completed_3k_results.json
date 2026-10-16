@@ -1,0 +1,65 @@
+{
+  "status": "passed",
+  "scope": "Completed MLP/ResNet only; one LR and seed per case; 3000 GD updates.",
+  "runs": [
+    {
+      "run_id": "059",
+      "run": "059-2026-10-13-cifar10-eos-gd-lr-4e-3",
+      "task": "mlp",
+      "lr": 0.004,
+      "seed": 0,
+      "updates": 3000,
+      "initial_loss": 0.5967808663845062,
+      "loss_at_state_3000": 0.3365076333284378,
+      "first_negative_gradient_update": null,
+      "late_1000_cosine_mean": 0.9999999571503707,
+      "late_1000_q_mean": 4.374569342767398e-05,
+      "final_B_over_A": 0.7941435956215835,
+      "maximum_sampled_eta_lambda": 0.3168271484375,
+      "last_sampled_eta_lambda": 0.3168271484375,
+      "source_sha256": {
+        "metrics.jsonl": "b26bd47afdbe92c915d4973fc3aa07b546a68663216360e3c490d46ae1e730e0",
+        "curvature.jsonl": "577d016029be4a4f996f3be5cdf82330bd75f0b00f461ba2acbe2ae61c98105f",
+        "manifest.json": "a05368ff98b228924923e8a1e556461ee49ef24dcf442d0c4dc3bd26acd25e12"
+      },
+      "config_sha256": "401fd9cf7844ba21a80cb0152af2d1ebde9d7f2cf3868f0742fa512ddd690fdb",
+      "verified_files": 15,
+      "transfer_inventory_sha256": "5870227fb93662a76120eeef08366358b31eda60ba235d2edd1e862ed5fe724f"
+    },
+    {
+      "run_id": "120",
+      "run": "120-2026-10-15-eos-resnet-gd-smallest-lr-3k",
+      "task": "resnet",
+      "lr": 0.1,
+      "seed": 0,
+      "updates": 3000,
+      "initial_loss": 2.30956712890625,
+      "loss_at_state_3000": 0.48983840637207027,
+      "first_negative_gradient_update": 231,
+      "late_1000_cosine_mean": -0.9683846974357112,
+      "late_1000_q_mean": 1.97069939716022,
+      "final_B_over_A": 0.037374831556213156,
+      "maximum_sampled_eta_lambda": 3.461435699462891,
+      "last_sampled_eta_lambda": 3.2488494873046876,
+      "source_sha256": {
+        "metrics.jsonl": "73fba39ec0d4247adb98b4afa0f7c8e703230f6e3e9f3b7fb709f3c18804cb8b",
+        "curvature.jsonl": "f25ba4e672344321f58c887f1aaa9befbac1bb496d2d113ce5939c609fd6c943",
+        "manifest.json": "3a993c15613a450d97500ea9772cdbd4755ab50b94be2848636b8113132dbdf7"
+      },
+      "config_sha256": "18691e3dacbb62cb3b95eab7338e8b2ad3222e92fd766087e296c85e5977e692",
+      "verified_files": 32,
+      "transfer_inventory_sha256": "48ddfdc99294456af39225c0214d0b2854528e5e4f5cfe5a5547a7fe5800fd3f"
+    }
+  ],
+  "gradient_pairs": 5998,
+  "spectral_points": 62,
+  "temporal_smoothing": "none",
+  "seed_aggregation": "none",
+  "checks": [
+    "Full used-row and spectral coverage",
+    "Verified byte sizes and SHA256 inventories",
+    "Frozen initialization/config identities",
+    "Exact q and prefix geometry identities",
+    "Exact plotted arrays"
+  ]
+}

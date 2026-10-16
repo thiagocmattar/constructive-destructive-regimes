@@ -31,7 +31,7 @@
 
 | [022](022-2026-10-15-eos-long-horizon-plan/README.md) | Model-specific EOS horizons and bounded compute plan | Reuses019/020; no new run allocated | Prospective: MLP20k, ResNet/Transformer3k, three seeds/LR; 30 conditions,26 new; cloud spending pending | [Plan](022-2026-10-15-eos-long-horizon-plan/README.md), [qualified costs](022-2026-10-15-eos-long-horizon-plan/estimate.json); 348.94 Spark GPU-hours; no rental |
 
-| [023](023-2026-10-15-eos-smallest-lr-calibration/README.md) | Smallest-LR3k full-GD calibration on Spark | Reused Run059; new120/121, seed0 | Finish-only queue:075, then ResNet0.1/Transformer0.05 at3k; no subsequent training; MLP prefix verified | [Protocol/status](023-2026-10-15-eos-smallest-lr-calibration/README.md), [MLP result](023-2026-10-15-eos-smallest-lr-calibration/observations/001-mlp-3k-prefix.md); no rental or manuscript change |
+| [023](023-2026-10-15-eos-smallest-lr-calibration/README.md) | Smallest-LR3k full-GD calibration on Spark | Reused Run059; new120/121, seed0 | Completed MLP/ResNet3k PDF reviewed; 5998 pairs/62 spectra checked; Transformer running; no subsequent training | [Protocol/status](023-2026-10-15-eos-smallest-lr-calibration/README.md), [MLP result](023-2026-10-15-eos-smallest-lr-calibration/observations/001-mlp-3k-prefix.md); no rental or manuscript change |
 
 Next analysis: `024-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
 an analysis may use manuscript or external inputs without referencing a run.

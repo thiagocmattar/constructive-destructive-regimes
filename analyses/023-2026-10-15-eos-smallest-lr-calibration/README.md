@@ -139,6 +139,14 @@ its success/failure paths. The original deployed source packet is preserved.
 
 ## Available result
 
+The requested [two-column3k overview](figures/eos_gd_overview_completed_3k.pdf)
+now covers the completed MLP and ResNet cases, with unsmoothed loss,
+eta*lambda_max and eta*kappa_hat. Run120 is retrieved/hash verified; all5,998
+used pairs and62 spectra pass checks, and the current six-panel PDF passes
+visual review. See [observation003](observations/003-completed-3k-overview.md),
+`10_plot_completed_3k.py`, `completed_3k_results.json` and its figure manifest.
+The Transformer continues separately; no manuscript or reference-PDF change.
+
 The verified3k MLP prefix has loss0.596781 ->0.336508, late1k mean cosine
 0.999999957, B/A0.794144, and maximum sampled eta*lambda_max0.316827.
 No adjacent reversal occurs in this window. See

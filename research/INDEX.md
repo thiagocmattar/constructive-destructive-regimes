@@ -3,13 +3,14 @@
 ## Current state
 
 [Analysis023: smallest-LR3k calibration](../analyses/023-2026-10-15-eos-smallest-lr-calibration/README.md)
-launches owned-Spark priority runs120/121: ResNetLR0.1 and TransformerLR0.05,
-seed0,3000 updates, Hessians every100. The current075 finishes normally;
-then only120/121 run; all pending020/021 training stays held for user review. MLP Run059 first3k
-is verified (loss0.5968->0.3365, B/A0.7941, no adjacent reversal).
-New compute38.7h,54.2h allowance; about41h including the active-run drain.
-Detached monitoring/retrieval/reduction deployed; no rental or manuscript edit.
-Finish-only supervisor deployed and verified; no training after calibration without user review. The broad cloud/grid proposal is deferred.
+owns MLP LR0.004 (Run059 prefix), ResNetLR0.1 (Run120 complete) and
+TransformerLR0.05 (Run121 running), seed0 and3000 full-GD updates.
+The completed MLP/ResNet3k six-panel PDF is reviewed:47 retained files,
+5998 adjacent pairs and62 spectra pass hash/identity/array/render checks.
+Losses at3k are0.3365/0.4898; no MLP reversal, first ResNet negative pair231.
+The Transformer is excluded from this partial-cohort figure. Only121 continues;
+all later020/021 training stays held for review. No rental or manuscript edit.
+Local monitors poll every30min with hidden Windows SSH children.
 Next Run122 / Analysis024 / H021.
 
 [Analysis022: EOS long-horizon plan](../analyses/022-2026-10-15-eos-long-horizon-plan/README.md)
