@@ -141,8 +141,9 @@ its success/failure paths. The original deployed source packet is preserved.
 
 The requested [two-column3k overview](figures/eos_gd_overview_completed_3k.pdf)
 now covers the completed MLP and ResNet cases, with unsmoothed loss,
-eta*lambda_max and eta*kappa_hat. Run120 is retrieved/hash verified; all5,998
-used pairs and62 spectra pass checks, and the current six-panel PDF passes
+eta*lambda_max, eta*kappa_hat and raw-gradient norms on logarithmic Y axes.
+Run120 is retrieved/hash verified; all5,998 used pairs,62 spectra and6,000
+raw norms pass checks, and the current eight-panel PDF passes
 visual review. See [observation003](observations/003-completed-3k-overview.md),
 `10_plot_completed_3k.py`, `completed_3k_results.json` and its figure manifest.
 The Transformer continues separately; no manuscript or reference-PDF change.

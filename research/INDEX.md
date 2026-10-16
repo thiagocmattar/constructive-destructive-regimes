@@ -5,8 +5,8 @@
 [Analysis023: smallest-LR3k calibration](../analyses/023-2026-10-15-eos-smallest-lr-calibration/README.md)
 owns MLP LR0.004 (Run059 prefix), ResNetLR0.1 (Run120 complete) and
 TransformerLR0.05 (Run121 running), seed0 and3000 full-GD updates.
-The completed MLP/ResNet3k six-panel PDF is reviewed:47 retained files,
-5998 adjacent pairs and62 spectra pass hash/identity/array/render checks.
+The completed MLP/ResNet3k eight-panel PDF is reviewed:47 retained files,
+5998 adjacent pairs,62 spectra and6000 raw norms pass checks; norm Y axes are log.
 Losses at3k are0.3365/0.4898; no MLP reversal, first ResNet negative pair231.
 The Transformer is excluded from this partial-cohort figure. Only121 continues;
 all later020/021 training stays held for review. No rental or manuscript edit.

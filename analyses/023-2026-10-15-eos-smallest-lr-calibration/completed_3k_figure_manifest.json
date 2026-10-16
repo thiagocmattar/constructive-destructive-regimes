@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "script_sha256": "421ec403d466b62612a55c29a024713addd5a13d94d6cefc3af2da34142a1457",
+  "script_sha256": "ec049def95c9fcbf23b41a78afc3256fe069a7823668b0b1e0ae16c9ef4c1405",
   "loader_sha256": "aa9a39fc11ca0af48464159558b23a026008ad051a0c599e7224afdcef57ef43",
   "cohort_sha256": "aee0410a026c21a4f2ca55090ee08c71ab5154c751e6def606f240d2e78b8958",
   "curves": [
@@ -23,6 +23,12 @@
       "y_sha256": "44aadd478ad0b9597fdd6c7779ddb70a13456acf23e089e9146c21b7e676be2c"
     },
     {
+      "tag": "mlp_row3",
+      "points": 3000,
+      "x_sha256": "35357f51fa6e5db4360948a6b0165cb74b83465da81e3714cb335013fadef4ed",
+      "y_sha256": "a526c8dbb223e260cd4fe4e941adf44c3874dd989dd5b699e1f6eed6c595b4e6"
+    },
+    {
       "tag": "resnet_row0",
       "points": 3001,
       "x_sha256": "613f1a2e882fae2b540d0a7da475ce368be19f869c2396bae69128f62e21ca40",
@@ -39,15 +45,22 @@
       "points": 2999,
       "x_sha256": "e672b534f35a46008f7dd2feb778b7a9bae88b5d80c10b9b352e51e183043d34",
       "y_sha256": "13797f7589118286206b6db2593d1ccc764dbadec7f59a1088d344b464d73fc9"
+    },
+    {
+      "tag": "resnet_row3",
+      "points": 3000,
+      "x_sha256": "35357f51fa6e5db4360948a6b0165cb74b83465da81e3714cb335013fadef4ed",
+      "y_sha256": "0da42f53f1a6d10aa9794c8a576b9fcc1afff98edae2c216714ffe0091659bfc"
     }
   ],
-  "visual_review": "Current Poppler render inspected: two columns, six panels, readable LR/seed labels, unsmoothed curves, full/subset spectral labels, reference lines and margins.",
+  "gradient_norm_y_scale": "log",
+  "visual_review": "Current Poppler render inspected: two columns, eight panels, readable LR/seed labels, unsmoothed curves, logarithmic raw-gradient norms, full/subset spectral labels, reference lines and margins.",
   "pdf": "analyses/023-2026-10-15-eos-smallest-lr-calibration/figures/eos_gd_overview_completed_3k.pdf",
-  "pdf_sha256": "02e01a9a7b4399ab46d119061e66c2b7c9dfbb21ff7cb23b759badc53081d35b",
+  "pdf_sha256": "582a7ea0e7089e93d9ac36312e13a11f705cf0c654e2be7c4f7c4311680d60e6",
   "render": "analyses/023-2026-10-15-eos-smallest-lr-calibration/scratch/eos_gd_overview_completed_3k.png",
-  "render_sha256": "8a2e743b0cd2461a02e8e375889c3438694c417ad007bbaf1e8eb7aac7ab9d6e",
+  "render_sha256": "35638573f6d748dc430c8f110d19e2bfeff199d756814ddb6a72b77ac2745435",
   "arrays": "analyses/023-2026-10-15-eos-smallest-lr-calibration/derived/completed_3k_curves.npz",
-  "arrays_sha256": "60aa732d4a12d6e96b29590dedca00a63ac42e3bb7cc3fc8c11d65c91131ba17",
+  "arrays_sha256": "6d729bff1307b38e76069ad57f194a6b59190082d3a106868b355cecc5a7d748",
   "results": "analyses/023-2026-10-15-eos-smallest-lr-calibration/completed_3k_results.json",
-  "results_sha256": "b873ce2e58f322b2915f3fa497dd6c79fb1a0a3ca1a653339ea475d885ef69b1"
+  "results_sha256": "f9c019584a524c536676f59a1064082636923a6f4fc731406df5bce6b2b191f6"
 }
