@@ -1,0 +1,589 @@
+{
+  "script_sha256": "77a367eeb1650224f262bcdb19a1901487feab1d5e9e00da8b5f31238cd70010",
+  "sources": [
+    {
+      "run": "017-2026-10-04-pythia14m-temporal-sketch-seed1235",
+      "size": "14M",
+      "attempt": "attempt-01",
+      "receipt": {
+        "path": "runs/017-2026-10-04-pythia14m-temporal-sketch-seed1235/prelaunch/attempt-01-retrieval.json",
+        "bytes": 1459,
+        "sha256": "a4fdc0bf9a7cc9812a39cca43f555072397698097063432404ac2e723d48c301"
+      },
+      "files": [
+        {
+          "path": "runs/017-2026-10-04-pythia14m-temporal-sketch-seed1235/artifacts/attempt-01/full-pass/events.jsonl",
+          "bytes": 1201716,
+          "sha256": "8f0412c79dbd108b7c5725d735196b7e3c754e687a32033bfe650cf6100d4e8f"
+        },
+        {
+          "path": "runs/017-2026-10-04-pythia14m-temporal-sketch-seed1235/artifacts/attempt-01/full-pass/resolved_config.json",
+          "bytes": 5306,
+          "sha256": "4e0ee88b1d8bdd324e8fd46e7cdd535bfb56a7ccb0c0c9bdc1ff5735e636e190"
+        },
+        {
+          "path": "runs/017-2026-10-04-pythia14m-temporal-sketch-seed1235/artifacts/attempt-01/full-pass/input_identity.json",
+          "bytes": 1590,
+          "sha256": "b3583b631776e670002e9c059582fcda1f399a3ec83595472e966a9703eb9e76"
+        },
+        {
+          "path": "runs/017-2026-10-04-pythia14m-temporal-sketch-seed1235/artifacts/attempt-01/full-pass/summary.json",
+          "bytes": 36946,
+          "sha256": "9abbb9a2e385ab9f1e028b4e0134f37352d2dfb3d7be44d3c0a6298d7ca58ae0"
+        }
+      ],
+      "capture": {
+        "vectors": [
+          "raw_unscaled_batch_gradient",
+          "adam_bias_corrected_preconditioned_direction"
+        ],
+        "raw_capture": "after_accumulation_unscaling_before_clipping",
+        "adaptive_capture": "after_optimizer_step_from_actual_updated_FP32_moments",
+        "adaptive_formula": "(m_t/(1-beta1**t))/(sqrt(v_t/(1-beta2**t))+epsilon)",
+        "adaptive_excludes": [
+          "learning_rate",
+          "weight_decay",
+          "parameter_subtraction_rounding"
+        ],
+        "adaptive_moment_input": "globally_clipped_gradient",
+        "adaptive_direction_dtype": "float64_from_FP32_moments",
+        "previous_raw_dtype": "float32",
+        "previous_adaptive_dtype": "float64",
+        "cumulative_dtype": "float64",
+        "reductions_dtype": "float64",
+        "every_update": true,
+        "ratio": "norm_of_cumulative_sum_over_cumulative_sum_of_norms",
+        "undefined": "null_with_reason",
+        "norm_comparison": "raw_norm, adaptive_norm, adaptive_norm/raw_norm"
+      }
+    },
+    {
+      "run": "018-2026-10-04-pythia31m-temporal-sketch-seed1235",
+      "size": "31M",
+      "attempt": "attempt-02",
+      "receipt": {
+        "path": "runs/018-2026-10-04-pythia31m-temporal-sketch-seed1235/prelaunch/attempt-02-retrieval.json",
+        "bytes": 1212,
+        "sha256": "f27fe945242f5cd062df4e25f30962d0fdba4b616300c5924359326573b5f1ba"
+      },
+      "files": [
+        {
+          "path": "runs/018-2026-10-04-pythia31m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/events.jsonl",
+          "bytes": 1199536,
+          "sha256": "f955dceb5ac243f8b25c9b0224c6430635cd3e0ad402c017e5e27e4b7d6940aa"
+        },
+        {
+          "path": "runs/018-2026-10-04-pythia31m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/resolved_config.json",
+          "bytes": 5360,
+          "sha256": "e1a2bef684b5572813a00f4de34969bc81002ca028881d4444ff472e17b873a5"
+        },
+        {
+          "path": "runs/018-2026-10-04-pythia31m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/input_identity.json",
+          "bytes": 1590,
+          "sha256": "b3583b631776e670002e9c059582fcda1f399a3ec83595472e966a9703eb9e76"
+        },
+        {
+          "path": "runs/018-2026-10-04-pythia31m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/summary.json",
+          "bytes": 36399,
+          "sha256": "a3b6809bd522672da331dfd3dc9ffc74888b53a0c00942abb5e50a318d4a9812"
+        }
+      ],
+      "capture": {
+        "vectors": [
+          "raw_unscaled_batch_gradient",
+          "adam_bias_corrected_preconditioned_direction"
+        ],
+        "raw_capture": "after_accumulation_unscaling_before_clipping",
+        "adaptive_capture": "after_optimizer_step_from_actual_updated_FP32_moments",
+        "adaptive_formula": "(m_t/(1-beta1**t))/(sqrt(v_t/(1-beta2**t))+epsilon)",
+        "adaptive_excludes": [
+          "learning_rate",
+          "weight_decay",
+          "parameter_subtraction_rounding"
+        ],
+        "adaptive_moment_input": "globally_clipped_gradient",
+        "adaptive_direction_dtype": "float64_from_FP32_moments",
+        "previous_raw_dtype": "float32",
+        "previous_adaptive_dtype": "float64",
+        "cumulative_dtype": "float64",
+        "reductions_dtype": "float64",
+        "every_update": true,
+        "ratio": "norm_of_cumulative_sum_over_cumulative_sum_of_norms",
+        "undefined": "null_with_reason",
+        "norm_comparison": "raw_norm, adaptive_norm, adaptive_norm/raw_norm"
+      }
+    },
+    {
+      "run": "019-2026-10-04-pythia70m-temporal-sketch-seed1235",
+      "size": "70M",
+      "attempt": "attempt-02",
+      "receipt": {
+        "path": "runs/019-2026-10-04-pythia70m-temporal-sketch-seed1235/prelaunch/attempt-02-retrieval.json",
+        "bytes": 1462,
+        "sha256": "c388b9720614d83810a7b67120ed7b9e9ef0e7b18f6df4e81d138b3395240849"
+      },
+      "files": [
+        {
+          "path": "runs/019-2026-10-04-pythia70m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/events.jsonl",
+          "bytes": 1202678,
+          "sha256": "cede6f486ef58aef8f94f7efd9b901a7145539d2451a65d63d37bd8ff9ac5a3d"
+        },
+        {
+          "path": "runs/019-2026-10-04-pythia70m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/resolved_config.json",
+          "bytes": 5360,
+          "sha256": "690bf2804de9fabf4b60a2c14c68cf986ce314a9cdcd1d40469eb77484beac25"
+        },
+        {
+          "path": "runs/019-2026-10-04-pythia70m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/input_identity.json",
+          "bytes": 1590,
+          "sha256": "b3583b631776e670002e9c059582fcda1f399a3ec83595472e966a9703eb9e76"
+        },
+        {
+          "path": "runs/019-2026-10-04-pythia70m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/summary.json",
+          "bytes": 37382,
+          "sha256": "7939088cd85c7e841b3df2961895aff509f79f4037f916ab2d27c027a791a3a8"
+        }
+      ],
+      "capture": {
+        "vectors": [
+          "raw_unscaled_batch_gradient",
+          "adam_bias_corrected_preconditioned_direction"
+        ],
+        "raw_capture": "after_accumulation_unscaling_before_clipping",
+        "adaptive_capture": "after_optimizer_step_from_actual_updated_FP32_moments",
+        "adaptive_formula": "(m_t/(1-beta1**t))/(sqrt(v_t/(1-beta2**t))+epsilon)",
+        "adaptive_excludes": [
+          "learning_rate",
+          "weight_decay",
+          "parameter_subtraction_rounding"
+        ],
+        "adaptive_moment_input": "globally_clipped_gradient",
+        "adaptive_direction_dtype": "float64_from_FP32_moments",
+        "previous_raw_dtype": "float32",
+        "previous_adaptive_dtype": "float64",
+        "cumulative_dtype": "float64",
+        "reductions_dtype": "float64",
+        "every_update": true,
+        "ratio": "norm_of_cumulative_sum_over_cumulative_sum_of_norms",
+        "undefined": "null_with_reason",
+        "norm_comparison": "raw_norm, adaptive_norm, adaptive_norm/raw_norm"
+      }
+    }
+  ],
+  "reference_manifest": {
+    "path": "analyses/005-2026-10-04-temporal-lag-profiles/training_size_overlay_log_loss_diff_split_n5_n21_manifest.json",
+    "bytes": 10891,
+    "sha256": "0f8dfb88e9012a2d61f29f30bd8644925ef7f7d6839bbd443cf14c7c2e8521fe"
+  },
+  "preserved": {
+    "figures/cumulative_lag_interaction.pdf": "a83e399dc29c86d41de37fe7d9c1987e0d65220286a42550fdd397a697b58d87",
+    "figures/cumulative_lag_interaction_all_lags.pdf": "799bda6cc95c68f68b6d18dd1320fcfc02c82ec7a36d32cc571957abb55918ff",
+    "figures/lag_profiles.pdf": "2310780cc515d930c01717f4271003cafb4c4c7dc26d36676b53d3bc9fecf0c8",
+    "figures/lag_profiles_above_shuffled.pdf": "d32ebe23efdc78629824b1b5e87cfdd9b1650cc0fbe8718220dee74f54b276e7",
+    "figures/lag_profiles_fixed_origins.pdf": "98afc4712eea9c32eeee80a543d8ae3ccda520eec8295ea868b2bd5bc01393a4",
+    "figures/temporal_gram.pdf": "b03127aeca57237cc31293ac915f10914a7f34af5493b92e677faf4a632ec3f0",
+    "figures/training_overview.pdf": "5a628a51a9fec0390cb8828b48425274270d864d1c5717008fa1d1b23f7bf394",
+    "figures/training_size_overlay.pdf": "3ac34b7c1aabdca22beb0ba23c0ea5c46b8a819ebff2b658b631ad3af7b76fce",
+    "figures/training_size_overlay_log_loss_diff_n5_1_400.pdf": "f903742e270fbd9705e4e59d1616bb74d6e7801c5605a9f5b527987410942b94",
+    "figures/training_size_overlay_log_loss_diff_n5_split.pdf": "b3ef190d8081cbe0879887f95de34aaf204bc66641e2b0861859af34c37db833",
+    "figures/training_size_overlay_log_loss_diff_split_n5_n21.pdf": "264e38bc6ad05c0e0dbaea5fbc736a635e47dfce59f2254b98b310396de06608",
+    "figures/training_size_overlay_loss_diff_n5_1_400.pdf": "fd14b543818c10bab218410b4b6edbedbe69c48e3a14849c78a502c1f85e19b1",
+    "figures/training_size_overlay_raw_1_400.pdf": "0be49341246f5ef9df7610d5eef1d230fda10b6dd4ae8012d3fd565b7775460c",
+    "training_size_overlay_log_loss_diff_n5_1_400_data.csv": "91df042661dc685d640f87a78fb4e24c05ccc177e767df6e631a7e3237816685",
+    "training_size_overlay_log_loss_diff_split_n5_n21_manifest.json": "0f8dfb88e9012a2d61f29f30bd8644925ef7f7d6839bbd443cf14c7c2e8521fe",
+    "training_size_overlay_log_loss_diff_split_n5_n21_data.csv": "14da9be2dc2c74d21202d62b49ce45646cd40e65a338fec6c0e40160004edb5b",
+    "15_plot_split_windows.py": "f3cbfd1c0df358b5ca70c348c9bc774c1de7abcbe7148b26fe081e264a0d662e"
+  },
+  "curves": [
+    {
+      "size": "14M",
+      "metric": "log_loss_diff",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "smoothing_window": 5,
+      "finite_points": 95,
+      "minimum": -0.012479064812077743,
+      "maximum": -0.000961811055766093,
+      "arrays_sha256": "dad3e8421b28e31c2b4e57507f5f90fdb38718c66b9b3e37d43782a60cc5fef0"
+    },
+    {
+      "size": "14M",
+      "metric": "direction_change",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "smoothing_window": 5,
+      "finite_points": 95,
+      "minimum": 0.019113453190742268,
+      "maximum": 0.1695640043068529,
+      "arrays_sha256": "d0429448e3197cf6be442dd0ffa573ed9421f869f1fda2c824de362915babd05"
+    },
+    {
+      "size": "14M",
+      "metric": "adaptive_rho",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "smoothing_window": 5,
+      "finite_points": 95,
+      "minimum": 0.9040840050362953,
+      "maximum": 0.9860637774159396,
+      "arrays_sha256": "1876655a5f9422933a0d23b3099b7c6e00e1ebe05f6c7d6f7444bf048ae8b40b"
+    },
+    {
+      "size": "14M",
+      "metric": "adaptive_norm",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "smoothing_window": 5,
+      "finite_points": 96,
+      "minimum": 1287.8946678468922,
+      "maximum": 2905.858592987865,
+      "arrays_sha256": "089945524ca819b8894a622f1c258e1e716c6efd73dbdb9e469c66dcbeb7d456"
+    },
+    {
+      "size": "14M",
+      "metric": "log_loss_diff",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "smoothing_window": 21,
+      "finite_points": 301,
+      "minimum": -0.0023499922412947983,
+      "maximum": 0.00036307916003806644,
+      "arrays_sha256": "05350f83908d494d7964b997b46044df8a67d6e5061771a899c153c9b5e646f7"
+    },
+    {
+      "size": "14M",
+      "metric": "direction_change",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "smoothing_window": 21,
+      "finite_points": 301,
+      "minimum": 0.021507427134328107,
+      "maximum": 0.035975385225392224,
+      "arrays_sha256": "c76ba764628cdf43b3e21e6221e0b1b5f9dedb50f3f2506ccd42195feddf4b9b"
+    },
+    {
+      "size": "14M",
+      "metric": "adaptive_rho",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "smoothing_window": 21,
+      "finite_points": 301,
+      "minimum": 0.9642402455417596,
+      "maximum": 0.9779896567551724,
+      "arrays_sha256": "9b1401b4b2725130078f747b646a9a0b175fcc2ea6021cfcc385d40b74c9eb44"
+    },
+    {
+      "size": "14M",
+      "metric": "adaptive_norm",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "smoothing_window": 21,
+      "finite_points": 301,
+      "minimum": 1241.2042455945577,
+      "maximum": 1483.0083029540162,
+      "arrays_sha256": "6300cebbdf998b00730170eb50f141901e4f2c4b7d7a7483e207a702165b356f"
+    },
+    {
+      "size": "31M",
+      "metric": "log_loss_diff",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "smoothing_window": 5,
+      "finite_points": 95,
+      "minimum": -0.02232194501741516,
+      "maximum": -9.584278179937118e-05,
+      "arrays_sha256": "2825fc135dc00ea9812b29db8c02053113c5e671c588930697f637ec46a6f8bf"
+    },
+    {
+      "size": "31M",
+      "metric": "direction_change",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "smoothing_window": 5,
+      "finite_points": 95,
+      "minimum": 0.025395346016609224,
+      "maximum": 0.18019727745420247,
+      "arrays_sha256": "6bc2fc4146233f96f6727a5deb20119dead40a2a94be3e1de83b73da4e526eaa"
+    },
+    {
+      "size": "31M",
+      "metric": "adaptive_rho",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "smoothing_window": 5,
+      "finite_points": 95,
+      "minimum": 0.9031327038110484,
+      "maximum": 0.9739448854589485,
+      "arrays_sha256": "a9f6529bab110b7409fbcde063d449c3910e6b156aac0b5849f6ee1bf06dcb31"
+    },
+    {
+      "size": "31M",
+      "metric": "adaptive_norm",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "smoothing_window": 5,
+      "finite_points": 96,
+      "minimum": 1864.547173219552,
+      "maximum": 4202.582389065041,
+      "arrays_sha256": "3cd957e07a8b90c9b44c1f8a197aff3cdddf71e4dbbb97bc1d31cc9e3a5dba26"
+    },
+    {
+      "size": "31M",
+      "metric": "log_loss_diff",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "smoothing_window": 21,
+      "finite_points": 301,
+      "minimum": -0.002400714401782831,
+      "maximum": 0.00038993488162297757,
+      "arrays_sha256": "38eb940542675931e9c7fb68dad3dc7c82eb0236f11a41df573ec1bc45278819"
+    },
+    {
+      "size": "31M",
+      "metric": "direction_change",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "smoothing_window": 21,
+      "finite_points": 301,
+      "minimum": 0.031160818835292592,
+      "maximum": 0.055748625887073765,
+      "arrays_sha256": "9804e80a2f311bed123372eca8cfd18651774bb1d4024f3ef55d7cfd5c990ad0"
+    },
+    {
+      "size": "31M",
+      "metric": "adaptive_rho",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "smoothing_window": 21,
+      "finite_points": 301,
+      "minimum": 0.944892002952708,
+      "maximum": 0.9687874145900013,
+      "arrays_sha256": "64cb5f7abc7e2a6ae8b2afaeec677e388aff341c966888f718c233eff2bd2cbf"
+    },
+    {
+      "size": "31M",
+      "metric": "adaptive_norm",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "smoothing_window": 21,
+      "finite_points": 301,
+      "minimum": 1533.1600608553467,
+      "maximum": 1871.3467593519101,
+      "arrays_sha256": "0b7fd4053a4e1fa70d81cea3981557a1cf26aab8f2bf8323ab95721da568be72"
+    },
+    {
+      "size": "70M",
+      "metric": "log_loss_diff",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "smoothing_window": 5,
+      "finite_points": 95,
+      "minimum": -0.03501169801832491,
+      "maximum": 0.0006092795170878685,
+      "arrays_sha256": "ecb5d6e2b8a032c0ad58049f0724d4dbb4f27a2ab222a53a74364985c48877d0"
+    },
+    {
+      "size": "70M",
+      "metric": "direction_change",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "smoothing_window": 5,
+      "finite_points": 95,
+      "minimum": 0.034102200403986704,
+      "maximum": 0.19729657112890714,
+      "arrays_sha256": "53eeccf8c4e74f51a39b52c9eda159c1ea89515aaa5ed6367d3420779821ab3e"
+    },
+    {
+      "size": "70M",
+      "metric": "adaptive_rho",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "smoothing_window": 5,
+      "finite_points": 95,
+      "minimum": 0.8943447774901702,
+      "maximum": 0.9668182120287888,
+      "arrays_sha256": "69cae1a7e30ffd68f1d98f21f78c24b09b6bc2c1bd8732cb2881df9f9a8997b0"
+    },
+    {
+      "size": "70M",
+      "metric": "adaptive_norm",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "smoothing_window": 5,
+      "finite_points": 96,
+      "minimum": 2279.020866825002,
+      "maximum": 6234.084803844457,
+      "arrays_sha256": "98514184532d0ce7541dbcf92701f2e03363f5a20898adbe6d20eaf9798fc14e"
+    },
+    {
+      "size": "70M",
+      "metric": "log_loss_diff",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "smoothing_window": 21,
+      "finite_points": 301,
+      "minimum": -0.002591574822062002,
+      "maximum": 0.0002298767670748501,
+      "arrays_sha256": "30948e7bc8316fedf528d586eab380a19b661d6ebcb46987209f5200f2fb790e"
+    },
+    {
+      "size": "70M",
+      "metric": "direction_change",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "smoothing_window": 21,
+      "finite_points": 301,
+      "minimum": 0.05157996143589097,
+      "maximum": 0.08528047541555488,
+      "arrays_sha256": "3ab0b23636dc39ae57d640e6dd3ef2c6be801c0564e1830692cc1fc4a77775b8"
+    },
+    {
+      "size": "70M",
+      "metric": "adaptive_rho",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "smoothing_window": 21,
+      "finite_points": 301,
+      "minimum": 0.9145813801517224,
+      "maximum": 0.9491266962102739,
+      "arrays_sha256": "199785230f70e19c2b15c878a8c322e8429d0325ccb1eb65eaff0f66503753a8"
+    },
+    {
+      "size": "70M",
+      "metric": "adaptive_norm",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "smoothing_window": 21,
+      "finite_points": 301,
+      "minimum": 1977.6307218339155,
+      "maximum": 2308.1006018430226,
+      "arrays_sha256": "14bf2bffb7702e28a19c3cb99c12cd4243bc8d70f3e700c19ec8931bb26134a6"
+    }
+  ],
+  "output": {
+    "path": "analyses/005-2026-10-04-temporal-lag-profiles/figures/training_size_adam_direction_split_n5_n21.pdf",
+    "bytes": 117710,
+    "sha256": "49ab571db31bb989d44aa6613d3060dc69b4fe0dd85d08206cd3508aa34ed429"
+  },
+  "plot_data": {
+    "path": "analyses/005-2026-10-04-temporal-lag-profiles/training_size_adam_direction_split_n5_n21_data.csv",
+    "bytes": 112152,
+    "sha256": "bffd7642e3767621805175261f88721ae46500b6a4f8f7527310fc6544f586ba"
+  },
+  "columns": [
+    [
+      1,
+      100
+    ],
+    [
+      100,
+      400
+    ]
+  ],
+  "row_metrics": [
+    "log_loss_diff",
+    "direction_change",
+    "adaptive_rho",
+    "adaptive_norm"
+  ],
+  "smoothing_windows": [
+    5,
+    21
+  ],
+  "y_limits": "independent by column; narrow cosine Y ranges; log norm",
+  "direction_change_formula": "q_d[t] = 1 - rho_d[t] * norm_d[t] / norm_d[t-1]",
+  "direction_change_interpretation": "normalized projected direction change; no measured Hessian or SGD curvature claim",
+  "checks": {
+    "accepted_source_hashes_and_bytes": true,
+    "accepted_updates_per_model": 712,
+    "visible_updates_per_model": 400,
+    "full_batches_only": true,
+    "plotted_arrays": true,
+    "finite_plotted_points": 4755,
+    "independent_means_checked": 4755,
+    "loss_points_identical_to_raw_gradient_reference": 1188,
+    "log_loss_telescoping": true,
+    "csv_roundtrip": true,
+    "previous_figures_unchanged": true,
+    "smoothing_not_restarted_at_boundary": true,
+    "q_computed_before_smoothing": true
+  },
+  "visual_review": {
+    "passed": true,
+    "renderer": "Poppler pdftoppm",
+    "render_sha256": "cb9f52f90ac1b3956e673cc9419a0188ea7987f8eaa9050c5edf233330e8bbd3",
+    "inspection": "All eight panels, solid model colours, direction definitions, independent Y limits and smoothing notes are legible without overlap or clipping."
+  }
+}

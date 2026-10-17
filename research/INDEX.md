@@ -272,6 +272,9 @@ uses four metric rows and columns 1-100/100-400, independent Y limits and unchan
 The [column-smoothed revision](../analyses/005-2026-10-04-temporal-lag-profiles/observations/009-column-smoothing.md)
 uses complete N=5 means for every metric at updates 1-100 and N=21 at 100-400, starting from raw scalars.
 
+The [Adam-direction companion](../analyses/005-2026-10-04-temporal-lag-profiles/observations/010-adam-direction.md)
+uses saved d cosines/norms and projected direction change q_d, with identical loss means and N=5/N=21 windows.
+
 [Analysis004](../analyses/004-2026-10-04-lr-schedule-intervention/README.md) completed
 the first H004 intervention: seed1235,14M/70M, original/held/accelerated decay
 from update356. Faster decay reduces raw negativity and brings positive alignment
