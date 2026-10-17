@@ -236,3 +236,10 @@ checks pass with maximum absolute discrepancy 1.78e-15, including expectation
 cancellation, normalization failure, nonlinear remainder, and scalar moments.
 The 13-page working draft compiles with resolved references and no overfull
 boxes; changed pages are visually reviewed. No training evidence is added.
+
+At the author's request, the last two noise rewrites are rolled back. The
+subsection now contains only the expected inner-product noise contribution and
+the finite-population batch-size variance, with their short explanations.
+No text outside that subsection is changed by this rollback. The 12-page working
+draft compiles with resolved references and no overfull boxes; changed pages
+are visually reviewed. Earlier derivations remain in the revision history.
