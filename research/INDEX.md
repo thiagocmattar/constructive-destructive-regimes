@@ -263,6 +263,9 @@ shows all four raw variables with solid coloured curves; the earlier figure is p
 The [loss-difference variant](../analyses/005-2026-10-04-temporal-lag-profiles/observations/006-short-loss-difference.md)
 uses an N=5 trailing mean of signed adjacent loss changes; the other panels remain raw.
 
+The [log-loss-difference variant](../analyses/005-2026-10-04-temporal-lag-profiles/observations/007-log-loss-difference.md)
+uses N=5 means of ln(L_t/L_(t-1)), approximately fractional loss changes; other panels stay raw.
+
 [Analysis004](../analyses/004-2026-10-04-lr-schedule-intervention/README.md) completed
 the first H004 intervention: seed1235,14M/70M, original/held/accelerated decay
 from update356. Faster decay reduces raw negativity and brings positive alignment

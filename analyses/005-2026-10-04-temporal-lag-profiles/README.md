@@ -1,6 +1,11 @@
 # Analysis005: phase-dependent temporal raw-gradient alignment
 
-Latest: [1-400 overlay with short loss-difference mean](figures/training_size_overlay_loss_diff_n5_1_400.pdf).
+Latest: [1-400 overlay with log-loss differences](figures/training_size_overlay_log_loss_diff_n5_1_400.pdf).
+The loss panel uses an N=5 mean of ln(L_t/L_(t-1)), approximately relative loss
+change per update; other panels remain raw. See
+[observation007](observations/007-log-loss-difference.md).
+
+[1-400 overlay with short loss-difference mean](figures/training_size_overlay_loss_diff_n5_1_400.pdf).
 The loss panel uses mean(L_t-L_(t-1)) over N=5 updates; negative means falling
 loss. The other three panels remain unsmoothed. See
 [observation006](observations/006-short-loss-difference.md).
