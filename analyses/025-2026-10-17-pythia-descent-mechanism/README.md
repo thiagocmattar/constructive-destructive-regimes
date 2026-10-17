@@ -2,8 +2,8 @@
 
 Status: authorized on October17 with a USD25 aggregate cap and12h deadline.
 Two Secure RTX4090 workers and a new200GB network volume are allocated in
-EU-RO-1. Both remote mechanics suites pass; frozen inputs are staging before
-GPU qualification. See [execution record](execution.json). Spark jobs remain
+EU-RO-1. Both GPU calibrations passed; the two production queues are running.
+See [execution record](execution.json). Spark jobs remain
 untouched. No empirical mechanism result is available yet.
 
 H021 asks whether Adam coordinate preconditioning contributes to the model-size
@@ -175,8 +175,10 @@ Local tests cover quadratic D/P/R, independent moment/direction semantics,
 decay-group preservation, zero directions, token-weighted tail handling,
 diagnostic RNG/gradient/parameter/optimizer noninterference, exact stochastic
 recovery, and a complete tiny baseline/continuation/artifact-verification smoke.
-A smoke establishes mechanics only. The production-shaped paid GPU calibration
-is still pending and will precede the main queue.
+A smoke establishes mechanics only. The production-shaped paid GPU calibration passed on both workers before
+the main queue. Native Adam reconstruction controls passed; peak allocation
+was11.14GB. See the two worker [qualifications](calibration-worker0.json)
+and [timings](calibration-worker1.json).
 
 `02_worker.py` validates source/input hashes, runs a3-update largest-model
 calibration per worker, gates memory and refreshed ETC, then executes assigned
@@ -257,3 +259,19 @@ install lines, created the missing `.pytest_tmp` parent, and reran the unchanged
 remote tests:10 passed per worker. Failed/successful setup logs and recovery
 scripts are retained locally under ignored scratch with [hashes](setup_evidence.json).
 No model, optimizer, data, diagnostic or run-config input changed.
+
+## Measured launch qualification
+
+Both three-update70M calibrations completed; raw calibration inventories and
+local verification receipts are retained under Runs129/132. Native-update
+upper measurements were11.409/11.144s, and diagnostic overhead19.866/19.265s.
+Largest remaining queue projection was5.681h; applying the gate's30% allowance
+gives7.385h before retrieval. Smaller-model timing remains qualified by historical
+RTX4090 ratios, with live progress/ETC refreshed by the monitor. Both production
+runs have accepted updates; scientific conclusions await the complete cohort.
+
+The archive omitted empty `prelaunch` directories. The first worker launcher
+failed before invoking a model update; its logs/status were preserved. Creating
+the cohort directories and restarting the detached workers fixed the issue.
+`07_stage_and_launch.py` now creates those directories after extraction. Frozen
+scientific source, configs and input hashes stayed unchanged.

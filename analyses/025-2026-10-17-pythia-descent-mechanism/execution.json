@@ -1,5 +1,5 @@
 {
-  "status": "authorized_setup_in_progress",
+  "status": "production_queues_running",
   "authorization": {
     "user_message": "approved",
     "maximum_total_usd": 25,
@@ -84,5 +84,67 @@
       "passed": 10,
       "seconds": 5.2
     }
-  ]
+  ],
+  "inputs_verified_and_extracted": true,
+  "worker_pids": [
+    911,
+    438
+  ],
+  "infrastructure_retry": {
+    "failure": "Archive omitted empty prelaunch directories; worker could not write the calibration launch manifest",
+    "scientific_execution_started_before_retry": false,
+    "resolution": "Create cohort prelaunch directories and restart detached workers; unchanged sources, configs and inputs",
+    "evidence": [
+      {
+        "path": "scratch/launch-infrastructure-attempt01/worker-0.json",
+        "bytes": 363,
+        "sha256": "d72f580aae0d237a8c80a82a0705c482d77d7f9bde1a334a14e74abf79eece3f"
+      },
+      {
+        "path": "scratch/launch-infrastructure-attempt01/worker-0.log",
+        "bytes": 1160,
+        "sha256": "f5337ef69258c981229ee2f17ae84130a6600809b8f5f729e060e4cd269804f6"
+      },
+      {
+        "path": "scratch/launch-infrastructure-attempt01/worker-1.json",
+        "bytes": 363,
+        "sha256": "7a293ceb22a150069ad0ee59a9ebddf403a7f56df54b966cffe6b2d6060cae33"
+      },
+      {
+        "path": "scratch/launch-infrastructure-attempt01/worker-1.log",
+        "bytes": 1160,
+        "sha256": "178297850db5f7e6a2043df071915560d08121362174ace18178c6f7426672a4"
+      }
+    ]
+  },
+  "calibration": [
+    {
+      "training_update_seconds_upper": 11.409430529922247,
+      "probe_overhead_seconds_upper": 19.865926332771778,
+      "projected_remaining_seconds": 18820.58362418929,
+      "measured_peak_cuda_bytes": 11135465984,
+      "smaller_model_timing": "qualified historical RTX4090 ratios to measured largest-model native time",
+      "memory_limit_bytes": 23988096204.8,
+      "native_reconstruction_controls_passed": true,
+      "qualified": true
+    },
+    {
+      "training_update_seconds_upper": 11.14448880776763,
+      "probe_overhead_seconds_upper": 19.26452543400228,
+      "projected_remaining_seconds": 20449.5837818441,
+      "measured_peak_cuda_bytes": 11135465984,
+      "smaller_model_timing": "qualified historical RTX4090 ratios to measured largest-model native time",
+      "memory_limit_bytes": 23988096204.8,
+      "native_reconstruction_controls_passed": true,
+      "qualified": true
+    }
+  ],
+  "qualified_queue_hours_upper": 5.680439939401139,
+  "updated_at_epoch": 1792252580.5815592,
+  "observed_production_updates_at_launch": {
+    "129": 6,
+    "132": 7
+  },
+  "calibration_evidence_locally_hash_verified": true,
+  "storage_monitoring_note": "disk_free_gb from the underlying shared filesystem is not the task quota; this task has a 200 GB volume allocation"
 }

@@ -44,6 +44,13 @@ def main():
     program = f'''set -euo pipefail
 printf '%s  %s\\n' {shlex.quote(packet['sha256'])} /workspace/analysis025-inputs.tar | sha256sum -c
 tar -xf /workspace/analysis025-inputs.tar -C /workspace/constructive
+cd /workspace/constructive
+python3 - <<'H021_DIRECTORIES'
+import json
+from pathlib import Path
+for run in json.loads(Path('analyses/{HERE.name}/cohort.json').read_text()):
+    (Path('runs') / run['run'] / 'prelaunch').mkdir(parents=True, exist_ok=True)
+H021_DIRECTORIES
 '''
     print(ssh(first, lease, program, timeout=1800), flush=True)
     control.save(HERE / 'staging-status.json', dict(status='input_archive_verified_and_extracted', at_epoch=time.time(),

@@ -3,11 +3,11 @@
 ## Current state
 
 [Analysis025: Pythia descent mechanism](../analyses/025-2026-10-17-pythia-descent-mechanism/README.md)
-is prepared for Runpod:9 matched350-update baselines and18 norm-matched50-update
+is running on Runpod:9 matched350-update baselines and18 norm-matched50-update
 preconditioning ablations, with a shared training-disjoint probe and3 seed blocks.
 User approved USD25/12h. Two Secure RTX4090 workers and a new200GB volume
-are allocated in EU-RO-1; remote mechanics checks pass on both. Inputs are
-staging before paid GPU qualification. Spark work remains untouched.
+are in EU-RO-1. Both GPU calibrations passed; the two production queues
+are running. Retrieval, verification and cleanup are automatic. Spark is untouched.
 
 [Analysis024: one-initialization3k GD LR calibration](../analyses/024-2026-10-17-eos-gd-lr-calibration/README.md)
 launched on owned Spark October17: MLP0.004/0.02/0.04,
