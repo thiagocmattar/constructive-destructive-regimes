@@ -180,60 +180,88 @@ attributing every reversal to curvature or identifying it with a loss spike.
 \subsection{Noise Contribution under Mini-Batch Sampling}
 \label{subsec:sampling-noise}
 
-Equation~\eqref{eq:rho-normalized} shows how noise affects alignment. For
-fixed curvature and gradient-norm ratio, negative $\varepsilon_t$ lowers
-$\rho_t$, while positive $\varepsilon_t$ raises it. The effect on the
-curvature diagnostic has the opposite sign. Rearranging
-Eq.~\eqref{eq:kappa-estimate} gives
+To examine the average effect of noise, take expectations of
+Eq.~\eqref{eq:kappa-estimate}. Unless stated otherwise, expectations here
+are conditional on the starting parameters $\theta_{t-2}$, before drawing
+the preceding batch. Assume fresh, conditionally unbiased sampling, nonzero
+gradients, and finite expectations of the displayed ratios. Substituting
+Eq.~\eqref{eq:rho-normalized} gives
 \begin{equation}
 \begin{aligned}
-1-\rho_t\frac{\|g_t\|}{\|g_{t-1}\|}
- &=\eta\widehat\kappa_t-\varepsilon_t\\
- &\approx\eta\kappa_t-\varepsilon_t.
+\mathbb{E}[\eta\widehat\kappa_t]
+ &=1-\mathbb{E}\!\left[\rho_t\frac{\|g_t\|}{\|g_{t-1}\|}\right]
+     +\mathbb{E}[\varepsilon_t]\\
+ &\approx1-\bigl(1-\eta\mathbb{E}[\kappa_t]
+                 +\mathbb{E}[\varepsilon_t]\bigr)
+                 +\mathbb{E}[\varepsilon_t]\\
+ &=\eta\mathbb{E}[\kappa_t].
 \end{aligned}
-\label{eq:uncorrected-curvature}
+\label{eq:expected-corrected-curvature}
 \end{equation}
-Thus, negative $\varepsilon_t$ inflates the gradient-only curvature proxy.
-The $+\varepsilon_t$ correction in Eq.~\eqref{eq:kappa-estimate} removes this
-explicit noise contribution within the first-order approximation; it requires
-information about the noise beyond the observed gradients.
+The explicit noise terms cancel because the measured cosine and gradient
+norms already contain the noise contribution. The $+\varepsilon_t$ correction
+removes it within the first-order model. This requires information about the noise beyond the
+observed gradients. It does not remove noise from the updates, and noise can
+still change $\kappa_t$ by changing the gradient direction.
 
-Fresh, conditionally unbiased sampling makes the new noise $\xi_t$
-uncorrelated with $g_{t-1}$, but the preceding gradient contains its own noise
-$\xi_{t-1}$. With finite second moments,
+The variance effect is visible before this correction. Write
+$S:=\|\nabla\mathcal{L}(\theta_{t-2})\|^2$ for the squared full-gradient norm
+and $V:=\mathbb{E}\|\xi_{t-1}\|^2$ for the sampling variance. The new noise
+is uncorrelated with $g_{t-1}$, but the preceding gradient contains its own
+noise. Consequently,
 \begin{equation}
   \mathbb{E}[g_{t-1}^\top(\xi_t-\xi_{t-1})]
-  =-\mathbb{E}\|\xi_{t-1}\|^2\leq0.
+  =-V\leq0.
   \label{eq:noise-expectation}
 \end{equation}
-The noise-difference term therefore subtracts the preceding noise variance
-from the mean unnormalized inner product. This does not imply
-$\mathbb{E}[\varepsilon_t]\leq0$: its denominator
-$\|g_{t-1}\|^2$ is also random. The same distinction prevents inferring a
-universal trend in mean cosine or estimated curvature from this expectation.
-
-Batch size controls the variance of this sampling noise. For a uniform batch
-of $b$ examples drawn without replacement from $N>1$, the covariance defined
-in Eq.~\eqref{eq:grad_cov_def} gives
+This identity concerns the unnormalized inner product. Although
+$\mathbb{E}\|g_{t-1}\|^2=S+V$, the denominator in $\varepsilon_t$ is random,
+so its mean cannot generally be obtained by dividing
+Eq.~\eqref{eq:noise-expectation} by this mean squared norm. Under the
+additional approximation $\|g_{t-1}\|^2\approx S+V>0$ inside the expectation,
 \begin{equation}
-  \mathbb{E}[\|\xi_t\|^2\mid\theta_{t-1}]
-  =\frac{N-b}{b(N-1)}\,\mathrm{tr}\,\Sigma(\theta_{t-1}).
+  \mathbb{E}[\varepsilon_t]\approx-\frac{V}{S+V}.
+  \label{eq:expected-noise-approximation}
+\end{equation}
+Negative $\varepsilon_t$ lowers $\rho_t$ in Eq.~\eqref{eq:rho-normalized}
+for fixed curvature and gradient-norm ratio. It raises the gradient-only
+curvature proxy, whose mean under the same approximation is
+\begin{equation}
+  \mathbb{E}\!\left[1-\rho_t\frac{\|g_t\|}{\|g_{t-1}\|}\right]
+  \approx\eta\mathbb{E}[\kappa_t]+\frac{V}{S+V}.
+  \label{eq:expected-uncorrected-curvature}
+\end{equation}
+The fraction $V/(S+V)$ is the noise share of the mean squared gradient norm.
+It approaches one as noise dominates $S$. The total proxy also contains
+curvature, so it need not approach one. Adding
+$\varepsilon_t$ removes this explicit contribution again, as shown in
+Eq.~\eqref{eq:expected-corrected-curvature}. The denominator approximation is
+an additional assumption; it can fail when gradient norms fluctuate strongly
+or approach zero.
+
+Batch size controls $V$. For a uniform batch of $b$ examples drawn without
+replacement from $N>1$, Eq.~\eqref{eq:grad_cov_def} gives
+\begin{equation}
+  V=\frac{N-b}{b(N-1)}\,\mathrm{tr}\,\Sigma(\theta_{t-2}).
   \label{eq:finite-population-noise}
 \end{equation}
-At the same parameters, smaller batches increase this variance; full-batch
-sampling removes it. This changes the noise in the diagnostic without requiring
-any change in the Hessian.
+At the same parameters, smaller batches increase this variance and the
+approximate noise contribution $V/(S+V)$; full-batch sampling removes it.
 
-When successive gradient norms are similar, the gradient-only proxy in
-Eq.~\eqref{eq:uncorrected-curvature} is approximately $1-\rho_t$. If sampling
-noise makes consecutive directions nearly unrelated, $\rho_t$ approaches zero
-and this proxy approaches one. This explains a possible value near one without
-establishing that the actual $\eta\kappa_t$ is near a reversal threshold.
-More noise does not universally pull either quantity toward one. Noisy updates
-can also make the loss fluctuate, but a reduction in directional agreement
-does not establish greater or lesser training stability. Loss changes also
-depend on the learning rate and curvature, as shown in
-Section~\ref{subsec:loss-connection}.
+Correcting the diagnostic does not stabilize the trajectory. As a local
+illustration, consider a scalar quadratic loss with curvature $h>0$. Let
+$x_t$ be the parameter error relative to its minimum, with independent
+additive noise of constant variance $V$. Then
+\begin{equation}
+  \mathbb{E}[x_t^2\mid x_{t-1}]
+  =(1-\eta h)^2x_{t-1}^2+\eta^2V.
+  \label{eq:additive-noise-stability}
+\end{equation}
+For $0<\eta h<2$, the deterministic term contracts, while noise adds variance
+and raises the long-run fluctuation level. Thus, the explicit noise terms in
+the estimate can cancel even as training becomes noisier. State-dependent SGD
+noise requires analyzing its interaction with curvature; the loss relations in
+Section~\ref{subsec:loss-connection} provide a complementary view.
 
 \subsection{Normalized Displacement and Cumulative Interference}
 

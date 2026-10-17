@@ -221,3 +221,18 @@ B/A is introduced where that ratio is discussed. Forty-two deterministic
 enumeration and counterexample checks pass, and the 13-page working draft
 compiles with resolved references and no overfull boxes. Changed pages are
 visually reviewed. These checks add no training evidence.
+
+The approved expectation analysis is now explicit in the noise subsection.
+Taking expectations of the corrected curvature estimate and substituting the
+cosine relation displays cancellation of its signed epsilon contributions.
+The variance-based approximation uses squared full-gradient norm S and sampling
+variance V, with the random denominator replaced by S+V as an additional
+assumption. This gives an upward V/(S+V) contribution to the gradient-only proxy,
+not a universal attraction of total curvature to one. The exact finite-population
+variance and a scalar quadratic recurrence distinguish correcting the diagnostic
+from removing fluctuations in the trajectory; the latter illustration assumes
+independent additive noise with constant variance. Sixty-seven deterministic
+checks pass with maximum absolute discrepancy 1.78e-15, including expectation
+cancellation, normalization failure, nonlinear remainder, and scalar moments.
+The 13-page working draft compiles with resolved references and no overfull
+boxes; changed pages are visually reviewed. No training evidence is added.
