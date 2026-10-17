@@ -188,3 +188,14 @@ practical intuition and diagnostic purpose. The formulas are unchanged, and the
 13-page draft compiles with resolved references and no overfull boxes. Reflowed
 pages are visually reviewed; the previous source and PDF are retained in ignored
 `manuscript/artifacts/draft/`.
+
+The directional-curvature and noise definitions are now separate numbered
+equations, each followed immediately by its own explanation. Curvature is
+introduced through how the loss bends along the preceding gradient direction;
+the interpretation centers on eta*kappa as the curvature effect over one
+update. Short sentences explain the noiseless first-order alignment boundary
+at one. Epsilon is explained through whether changing sampling noise favors
+the preceding direction or opposition, shifting that boundary to 1+epsilon.
+The component/projection wording in these explanations is removed. Definitions
+are algebraically unchanged. The 13-page draft compiles with resolved references
+and no overfull boxes; changed pages are rendered and visually reviewed.

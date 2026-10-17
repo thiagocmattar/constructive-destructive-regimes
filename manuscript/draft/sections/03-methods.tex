@@ -91,23 +91,32 @@ SGD update yields
 \end{equation}
 where $r_t$ is the Taylor remainder. Taking the inner product with $g_{t-1}$
 separates the squared norm of the preceding gradient, the curvature
-contribution, and the change in gradient noise. Normalize the latter two terms
-by $\|g_{t-1}\|^2$:
+contribution, and the change in gradient noise. For nonzero $g_{t-1}$, first
+define the directional curvature:
 \begin{equation}
-\begin{aligned}
-  \kappa_t&:=\frac{g_{t-1}^\top H_{t-1}g_{t-1}}{\|g_{t-1}\|^2},\\
-  \varepsilon_t&:=\frac{g_{t-1}^\top(\xi_t-\xi_{t-1})}
-                            {\|g_{t-1}\|^2}.
-\end{aligned}
-\label{eq:kappa-epsilon}
+  \kappa_t:=\frac{g_{t-1}^\top H_{t-1}g_{t-1}}{\|g_{t-1}\|^2}.
+  \label{eq:kappa}
 \end{equation}
-Curvature describes how the gradient changes as the parameters move. Here
-$H_{t-1}g_{t-1}$ gives the local gradient response along the preceding gradient
-direction, and the projection in $\kappa_t$ retains the component along that
-same line. Since the SGD step is $-\eta g_{t-1}$, positive $\kappa_t$ reduces
-the full gradient's component along $g_{t-1}$; a large enough change can
-reverse that component. Thus, $\kappa_t$ describes curvature encountered along
-the step being taken, while other directions can behave differently.
+Curvature describes how the gradient changes as the parameters move. Here,
+$\kappa_t$ measures how strongly the loss bends along the preceding gradient
+direction. Its effect over one update also depends on the learning rate, so
+we interpret the product $\eta\kappa_t$. Ignoring noise and the Taylor
+remainder, nonzero consecutive gradients are positively aligned when
+$\eta\kappa_t<1$. At $\eta\kappa_t=1$, they are orthogonal. Above one,
+they are negatively aligned. The same curvature can therefore produce
+different directional behavior at different learning rates.
+
+Next, define the contribution from the change in sampling noise:
+\begin{equation}
+  \varepsilon_t:=\frac{g_{t-1}^\top(\xi_t-\xi_{t-1})}
+                            {\|g_{t-1}\|^2}.
+  \label{eq:epsilon}
+\end{equation}
+This term describes how changing mini-batch noise affects agreement with the
+preceding gradient. Positive $\varepsilon_t$ favors the preceding direction;
+negative $\varepsilon_t$ favors opposition. Sampling noise can therefore
+counteract or strengthen the curvature effect on an individual update. For
+full-batch GD, there is no sampling noise and $\varepsilon_t=0$.
 
 Neglecting the Taylor remainder gives the first-order relation
 \begin{equation}
@@ -115,14 +124,13 @@ Neglecting the Taylor remainder gives the first-order relation
                    (1-\eta\kappa_t+\varepsilon_t).}
   \label{eq:rho-normalized}
 \end{equation}
-Positive curvature reduces the next gradient's component along the preceding
-gradient direction. The noise difference can reinforce or oppose that
-effect on an individual step. Since the norm ratio is positive, the first-order
-model predicts positive alignment when $\eta\kappa_t<1+\varepsilon_t$,
-orthogonality at equality, and negative alignment when
-$\eta\kappa_t>1+\varepsilon_t$. The omitted projection
-$g_{t-1}^\top r_t$ can shift the sign boundary, particularly when the
-first-order numerator is close to zero.
+The norm ratio is positive, so the sign of $\rho_t$ is set by
+$1-\eta\kappa_t+\varepsilon_t$ in this model. Sampling noise shifts the
+reversal boundary to $\eta\kappa_t=1+\varepsilon_t$. Below this boundary,
+the gradients are positively aligned. At equality, they are orthogonal.
+Above it, they are negatively aligned. The omitted term $g_{t-1}^\top r_t$
+can shift this boundary, particularly when the first-order expression is close
+to zero.
 
 Rearranging Eq.~\eqref{eq:rho-normalized} motivates the quantity
 \begin{equation}
