@@ -89,10 +89,23 @@ SGD update yields
   g_t=(I-\eta H_{t-1})g_{t-1}+(\xi_t-\xi_{t-1})+r_t,
   \label{eq:gradient-evolution}
 \end{equation}
-where $r_t$ is the Taylor remainder. Taking the inner product with $g_{t-1}$
-separates the squared norm of the preceding gradient, the curvature
-contribution, and the change in gradient noise. For nonzero $g_{t-1}$, first
-define the directional curvature:
+where $r_t$ is the Taylor remainder. To compare the next gradient with its
+predecessor, multiply both sides by $g_{t-1}^\top$. Distributing
+$I-\eta H_{t-1}$ gives
+\begin{equation}
+\begin{aligned}
+g_{t-1}^\top g_t
+ ={}&g_{t-1}^\top(I-\eta H_{t-1})g_{t-1}\\
+    &+g_{t-1}^\top(\xi_t-\xi_{t-1})+g_{t-1}^\top r_t\\
+ ={}&\|g_{t-1}\|^2-\eta g_{t-1}^\top H_{t-1}g_{t-1}\\
+    &+g_{t-1}^\top(\xi_t-\xi_{t-1})+g_{t-1}^\top r_t.
+\end{aligned}
+\label{eq:gradient-inner-product}
+\end{equation}
+The identity term gives $g_{t-1}^\top I g_{t-1}=\|g_{t-1}\|^2$.
+The remaining terms show the changes due to curvature, sampling noise, and
+the Taylor remainder. For nonzero $g_{t-1}$, we compare the curvature and
+noise terms with this squared norm. First, define the directional curvature:
 \begin{equation}
   \kappa_t:=\frac{g_{t-1}^\top H_{t-1}g_{t-1}}{\|g_{t-1}\|^2}.
   \label{eq:kappa}
@@ -118,7 +131,9 @@ negative $\varepsilon_t$ favors opposition. Sampling noise can therefore
 counteract or strengthen the curvature effect on an individual update. For
 full-batch GD, there is no sampling noise and $\varepsilon_t=0$.
 
-Neglecting the Taylor remainder gives the first-order relation
+Substituting these definitions into Eq.~\eqref{eq:gradient-inner-product} and
+dividing by $\|g_{t-1}\|\|g_t\|$ gives, after neglecting the Taylor remainder,
+the first-order relation
 \begin{equation}
   \boxed{\rho_t\approx\frac{\|g_{t-1}\|}{\|g_t\|}
                    (1-\eta\kappa_t+\varepsilon_t).}
@@ -177,7 +192,7 @@ contains its own noise $\xi_{t-1}$. Consequently, assuming finite second moments
 \label{eq:noise-expectation}
 \end{equation}
 Even zero-mean sampling noise therefore contributes a nonpositive term to the
-unnormalized adjacent inner product in Eq.~\eqref{eq:gradient-evolution}.
+unnormalized adjacent inner product in Eq.~\eqref{eq:gradient-inner-product}.
 This identifies a sampling contribution that can accompany the curvature
 effect in the alignment diagnostic.
 

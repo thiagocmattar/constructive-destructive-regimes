@@ -199,3 +199,11 @@ the preceding direction or opposition, shifting that boundary to 1+epsilon.
 The component/projection wording in these explanations is removed. Definitions
 are algebraically unchanged. The 13-page draft compiles with resolved references
 and no overfull boxes; changed pages are rendered and visually reviewed.
+
+An explicit inner-product step now follows gradient evolution: left multiplication
+by the preceding gradient transpose is shown before distributing the identity
+and Hessian terms. The text explains the resulting squared norm and the
+normalizations leading to kappa, epsilon, and consecutive cosine. The noise
+discussion points directly to the new scalar equation. The 13-page draft
+compiles with resolved references and no overfull boxes; changed pages are
+rendered and visually reviewed. No scientific definition or assumption changes.
