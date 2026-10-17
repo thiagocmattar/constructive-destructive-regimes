@@ -1,0 +1,146 @@
+{
+  "script_sha256": "e188830a620dae6461a1fe9c4a4d4726e89c78413332137bc79ac35f6b0401fb",
+  "source_manifest_sha256": "6b7fde3957003b2f0a8950b2801a66d1c2905be2c696307693ab87297812dec9",
+  "source_csv_sha256": "d327677b25c47f3e0e687ea41454876a46f3e7b0effb16b7802b247301762307",
+  "preserved": {
+    "training_overview_data.csv": "d327677b25c47f3e0e687ea41454876a46f3e7b0effb16b7802b247301762307",
+    "training_overview_results.json": "58656b27cc05725eac30a7814e02ba56cea545a4842faf2f8e3665bc456a6caa",
+    "training_overview_manifest.json": "6b7fde3957003b2f0a8950b2801a66d1c2905be2c696307693ab87297812dec9",
+    "results.json": "a5751f03b9a136107094b3e559790d0305ec2b0279602ed2abca8a46bdcd579a",
+    "artifact_validation.json": "b7a95374d4b2f9b5e8055088eff06f33376d20c4871707540b25fb1c680122a0",
+    "figures/cumulative_lag_interaction.pdf": "a83e399dc29c86d41de37fe7d9c1987e0d65220286a42550fdd397a697b58d87",
+    "figures/cumulative_lag_interaction_all_lags.pdf": "799bda6cc95c68f68b6d18dd1320fcfc02c82ec7a36d32cc571957abb55918ff",
+    "figures/lag_profiles.pdf": "2310780cc515d930c01717f4271003cafb4c4c7dc26d36676b53d3bc9fecf0c8",
+    "figures/lag_profiles_above_shuffled.pdf": "d32ebe23efdc78629824b1b5e87cfdd9b1650cc0fbe8718220dee74f54b276e7",
+    "figures/lag_profiles_fixed_origins.pdf": "98afc4712eea9c32eeee80a543d8ae3ccda520eec8295ea868b2bd5bc01393a4",
+    "figures/temporal_gram.pdf": "b03127aeca57237cc31293ac915f10914a7f34af5493b92e677faf4a632ec3f0",
+    "figures/training_overview.pdf": "5a628a51a9fec0390cb8828b48425274270d864d1c5717008fa1d1b23f7bf394"
+  },
+  "outputs": {
+    "figures/training_size_overlay.pdf": {
+      "bytes": 147591,
+      "sha256": "4cc80b10bd6162aa98a6528121748f381b14be9eb3fc1c2530bef9ca67d89b00"
+    },
+    "training_size_overlay_data.csv": {
+      "bytes": 177731,
+      "sha256": "174ec75542c3b9efa38fe410b820f41d1b63edaf2d933e3b4a9b1bac504efe89"
+    },
+    "training_size_overlay_results.json": {
+      "bytes": 4426,
+      "sha256": "b1cab3c5122113e659a8afc3bcc76a1a6e60230392a4f095453a3a2df13c0a23"
+    }
+  },
+  "curves": [
+    {
+      "size": "14M",
+      "metric": "loss",
+      "first_update": 20,
+      "last_update": 711,
+      "points": 692,
+      "arrays_sha256": "73e8addbd1b823bcb27680f395008885d3e8d7c37e646988d3d183075b08868f"
+    },
+    {
+      "size": "14M",
+      "metric": "eta_kappa_proxy",
+      "first_update": 21,
+      "last_update": 711,
+      "points": 691,
+      "arrays_sha256": "4c4fcdbcf57204126c41e260969cc7e8e503edae6e85206daf5d29ce68795441"
+    },
+    {
+      "size": "14M",
+      "metric": "rho",
+      "first_update": 21,
+      "last_update": 711,
+      "points": 691,
+      "arrays_sha256": "7f97fd9e648bc3a333ac4003b089ee287bb9c8ecb3e69b600a2794b7833cba84"
+    },
+    {
+      "size": "14M",
+      "metric": "raw_gradient_norm",
+      "first_update": 20,
+      "last_update": 711,
+      "points": 692,
+      "arrays_sha256": "13e2ba7685820328460beddd6d44f766769fc4860901ef93904e20ee80d5ade3"
+    },
+    {
+      "size": "31M",
+      "metric": "loss",
+      "first_update": 20,
+      "last_update": 711,
+      "points": 692,
+      "arrays_sha256": "dfda4af6b7a67dee8e40a2c40509e57b85b2e659e25a923496f7820dbb1fdcb0"
+    },
+    {
+      "size": "31M",
+      "metric": "eta_kappa_proxy",
+      "first_update": 21,
+      "last_update": 711,
+      "points": 691,
+      "arrays_sha256": "8355e2f1c1452adca9dc6392e6e0bb2f96a59b996d770ce68175ac371da23854"
+    },
+    {
+      "size": "31M",
+      "metric": "rho",
+      "first_update": 21,
+      "last_update": 711,
+      "points": 691,
+      "arrays_sha256": "aeadc03134740db4e9079893a27457eaa6a35bbd9a3498f85a9c8d857057853d"
+    },
+    {
+      "size": "31M",
+      "metric": "raw_gradient_norm",
+      "first_update": 20,
+      "last_update": 711,
+      "points": 692,
+      "arrays_sha256": "5718a2b66544a4671121a96b6805a2e8b60735dc2b0400b18b9369f7ee58579d"
+    },
+    {
+      "size": "70M",
+      "metric": "loss",
+      "first_update": 20,
+      "last_update": 711,
+      "points": 692,
+      "arrays_sha256": "c14e6a616a0a552de008e5309ae4304dcd002f0a5ce0b8b39ed25c392c7fd180"
+    },
+    {
+      "size": "70M",
+      "metric": "eta_kappa_proxy",
+      "first_update": 21,
+      "last_update": 711,
+      "points": 691,
+      "arrays_sha256": "2bc9dc8d5901c0e3b008794730d7958d1a0d443f2899a6549bac277969df5c47"
+    },
+    {
+      "size": "70M",
+      "metric": "rho",
+      "first_update": 21,
+      "last_update": 711,
+      "points": 691,
+      "arrays_sha256": "d9e4fe1c12cbe3c298d0f553092ee972820a9b9f76723c33fda0fa93e8213aac"
+    },
+    {
+      "size": "70M",
+      "metric": "raw_gradient_norm",
+      "first_update": 20,
+      "last_update": 711,
+      "points": 692,
+      "arrays_sha256": "3c9b10eba89f747c254427e0e5bffb8b110422e09795b85fc24280eb4c000d3d"
+    }
+  ],
+  "checks": {
+    "original_sources_verified": true,
+    "update712_excluded_before_smoothing": true,
+    "independent_means_checked": 8298,
+    "plotted_arrays": true,
+    "csv_roundtrip": true,
+    "raw_identity_pairs": 2130,
+    "original_outputs_unchanged": true
+  },
+  "visual_review": {
+    "passed": true,
+    "renderer": "Poppler pdftoppm",
+    "render_sha256": "b5b45e3967c7cd209b8c0f57ba1aef598c3ecf54db5f9bdacb24dfef1a993be6",
+    "inspection": "All four panels, model overlays, legend, log-norm ticks and notes are legible; no clipping or overlap."
+  }
+}

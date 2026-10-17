@@ -1,5 +1,11 @@
 # Analysis005: phase-dependent temporal raw-gradient alignment
 
+Latest: [smoothed 2x2 model-size overlay](figures/training_size_overlay.pdf).
+Each variable overlays 14M/31M/70M using complete 20-update trailing means;
+Update 712 is excluded before smoothing. [Observation004](observations/004-smoothed-size-overlay.md)
+compares early loss changes and norms: larger first-10 loss drops coincide with
+larger norms, but norm ordering is not monotonic over the first 50 updates.
+
 October 17 follow-up: [training overview](figures/training_overview.pdf), with
 three model-size columns and four rows: loss, eta*kappa_hat proxy, rho and raw
 gradient norms. All 712 updates per size are retained; no new training is needed.

@@ -1,0 +1,127 @@
+{
+  "smoothing": "complete 20-update trailing arithmetic mean of each raw scalar",
+  "excluded_update": 712,
+  "included_updates": [
+    1,
+    711
+  ],
+  "finite_plotted_points": 8298,
+  "comparison": "Same tokens/order/AdamW recipe; architecture-specific tensors; seed1235",
+  "cohort": [
+    {
+      "size": "14M",
+      "run": "017",
+      "windows": {
+        "10": {
+          "first_update": 1,
+          "last_update": 10,
+          "loss_start": 11.02303921058774,
+          "loss_end": 10.01493065804243,
+          "loss_drop": 1.008108552545309,
+          "average_loss_drop_per_update": 0.11201206139392322,
+          "ols_loss_slope": -0.11865347967003334,
+          "mean_raw_gradient_norm": 1.1499697676033747
+        },
+        "50": {
+          "first_update": 1,
+          "last_update": 50,
+          "loss_start": 11.02303921058774,
+          "loss_end": 7.497090384364128,
+          "loss_drop": 3.525948826223612,
+          "average_loss_drop_per_update": 0.07195813931068595,
+          "ols_loss_slope": -0.07230055609590522,
+          "mean_raw_gradient_norm": 0.7593042189195575
+        },
+        "100": {
+          "first_update": 1,
+          "last_update": 100,
+          "loss_start": 11.02303921058774,
+          "loss_end": 6.571797877550125,
+          "loss_drop": 4.451241333037615,
+          "average_loss_drop_per_update": 0.04496203366704662,
+          "ols_loss_slope": -0.03910213141496729,
+          "mean_raw_gradient_norm": 0.54996838584432
+        }
+      },
+      "loss_at_update711": 5.232806041836739,
+      "full_batch_negative_pair_fraction": 0.5
+    },
+    {
+      "size": "31M",
+      "run": "018",
+      "windows": {
+        "10": {
+          "first_update": 1,
+          "last_update": 10,
+          "loss_start": 11.007336776703596,
+          "loss_end": 9.251219268888235,
+          "loss_drop": 1.756117507815361,
+          "average_loss_drop_per_update": 0.1951241675350401,
+          "ols_loss_slope": -0.2007553038949318,
+          "mean_raw_gradient_norm": 1.5252567554150973
+        },
+        "50": {
+          "first_update": 1,
+          "last_update": 50,
+          "loss_start": 11.007336776703596,
+          "loss_end": 6.833874797448516,
+          "loss_drop": 4.17346197925508,
+          "average_loss_drop_per_update": 0.08517269345418531,
+          "ols_loss_slope": -0.07708786334766425,
+          "mean_raw_gradient_norm": 0.6862766821279307
+        },
+        "100": {
+          "first_update": 1,
+          "last_update": 100,
+          "loss_start": 11.007336776703596,
+          "loss_end": 6.073676189407706,
+          "loss_drop": 4.93366058729589,
+          "average_loss_drop_per_update": 0.04983495542723121,
+          "ols_loss_slope": -0.03661453267710853,
+          "mean_raw_gradient_norm": 0.5086664480234191
+        }
+      },
+      "loss_at_update711": 4.615384363569319,
+      "full_batch_negative_pair_fraction": 0.5591549295774648
+    },
+    {
+      "size": "70M",
+      "run": "019",
+      "windows": {
+        "10": {
+          "first_update": 1,
+          "last_update": 10,
+          "loss_start": 10.982760112732649,
+          "loss_end": 8.351167125627398,
+          "loss_drop": 2.6315929871052504,
+          "average_loss_drop_per_update": 0.2923992207894723,
+          "ols_loss_slope": -0.30262377211316055,
+          "mean_raw_gradient_norm": 1.7909410663952154
+        },
+        "50": {
+          "first_update": 1,
+          "last_update": 50,
+          "loss_start": 10.982760112732649,
+          "loss_end": 6.505919441580772,
+          "loss_drop": 4.4768406711518764,
+          "average_loss_drop_per_update": 0.09136409532963014,
+          "ols_loss_slope": -0.07081544592100035,
+          "mean_raw_gradient_norm": 0.7723837841706357
+        },
+        "100": {
+          "first_update": 1,
+          "last_update": 100,
+          "loss_start": 10.982760112732649,
+          "loss_end": 5.7915271650999784,
+          "loss_drop": 5.19123294763267,
+          "average_loss_drop_per_update": 0.052436696440734044,
+          "ols_loss_slope": -0.033330722558615224,
+          "mean_raw_gradient_norm": 0.5650289117181903
+        }
+      },
+      "loss_at_update711": 3.9662566324695945,
+      "full_batch_negative_pair_fraction": 0.6591549295774648
+    }
+  ],
+  "training_launched": false
+}
