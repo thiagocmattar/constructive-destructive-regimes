@@ -1,0 +1,152 @@
+{
+  "utc": "2026-10-17T11:54:09.273581+00:00",
+  "queue": {
+    "status": "complete",
+    "started_utc": "2026-10-15T13:41:58.924877+00:00",
+    "runs": {
+      "059": {
+        "status": "reused_verified_source",
+        "updates": 3000
+      },
+      "120": {
+        "status": "complete",
+        "started_utc": "2026-10-15T13:41:58.925582+00:00",
+        "task": "resnet",
+        "method": "gd",
+        "seed": 0,
+        "pid": 479761,
+        "completed_updates": 3000,
+        "ended_utc": "2026-10-16T01:42:27.336364+00:00"
+      },
+      "121": {
+        "status": "complete",
+        "started_utc": "2026-10-16T01:42:27.404136+00:00",
+        "task": "transformer",
+        "method": "gd",
+        "seed": 0,
+        "pid": 521476,
+        "completed_updates": 3000,
+        "ended_utc": "2026-10-17T04:05:20.546817+00:00"
+      }
+    },
+    "resume_predecessor": false,
+    "resumed_or_started_utc": "2026-10-15T13:41:58.924880+00:00",
+    "current_run": null,
+    "completed_utc": "2026-10-17T04:05:21.877783+00:00",
+    "elapsed_this_scheduler_seconds": 138202.95291015692
+  },
+  "finish_only": {
+    "status": "no_further_training_authorized",
+    "utc": "2026-10-17T04:05:21.887267+00:00",
+    "allowed_new_run_ids": [
+      "120",
+      "121"
+    ],
+    "resume_predecessor": false,
+    "next_action": "Retrieve and analyze completed calibration; await user review."
+  },
+  "old_queue_status": "held_by_user_pending_calibration_review",
+  "120": {
+    "status": "complete",
+    "started_utc": "2026-10-15T13:42:00.699940+00:00",
+    "completed_utc": "2026-10-16T01:42:26.696261+00:00",
+    "completed_updates": 3000,
+    "summary": {
+      "completed_updates": 3000,
+      "elapsed_seconds": 43220.448383184965,
+      "final_train": {
+        "loss": 0.48983840637207027,
+        "loss_units": 50000,
+        "objective_units": 50
+      },
+      "final_test": {
+        "loss": 0.9657249206542968,
+        "loss_units": 10000,
+        "objective_units": 10
+      },
+      "memory": {
+        "peak_allocated_bytes": 6361997312,
+        "peak_reserved_bytes": 7587495936
+      },
+      "final_tensor_sha256": "7731c4135c6580e9859f38be1ea6d19ff7ad02a29ff390c0d7ca434b8e0b0e70",
+      "final_raw_geometry": {
+        "norm": 2.0338818966983685,
+        "A": 3727.896316379372,
+        "B": 139.32949688370653,
+        "B_over_A": 0.037374831556213156,
+        "cosine": -0.9656403639643383,
+        "cosine_undefined_reason": null,
+        "ratio_undefined_reason": null,
+        "energy": 5665.344186968954,
+        "all_pair": 13747.364514897834,
+        "lag_one": -10763.796726042148,
+        "beyond_lag_one": 24511.161240939982,
+        "A_squared": 13897210.94567489,
+        "B_squared": 19412.708701866788,
+        "triangle_gap": 13877798.236973023
+      }
+    }
+  },
+  "121": {
+    "status": "complete",
+    "started_utc": "2026-10-16T01:42:28.865958+00:00",
+    "completed_utc": "2026-10-17T04:05:18.727299+00:00",
+    "completed_updates": 3000,
+    "summary": {
+      "completed_updates": 3000,
+      "elapsed_seconds": 94955.23333987291,
+      "final_train": {
+        "loss": 6.630096961210181,
+        "loss_units": 2088600,
+        "objective_units": 59680
+      },
+      "final_test": {
+        "loss": 6.365133783693496,
+        "loss_units": 245550,
+        "objective_units": 7020
+      },
+      "memory": {
+        "peak_allocated_bytes": 3947503616,
+        "peak_reserved_bytes": 4129292288
+      },
+      "final_tensor_sha256": "7de0f5466d53e5ec09685fbbb65420d64c932e46cd91c9bb515012f0e93548fd",
+      "final_raw_geometry": {
+        "norm": 0.051622370981353596,
+        "A": 313.3736221441081,
+        "B": 226.36510220417082,
+        "B_over_A": 0.72234893497218,
+        "cosine": 0.9999879923752327,
+        "cosine_undefined_reason": null,
+        "ratio_undefined_reason": null,
+        "energy": 82.41671340802252,
+        "all_pair": 51158.74278249668,
+        "lag_one": 162.93437673438734,
+        "beyond_lag_one": 50995.80840576229,
+        "A_squared": 98203.02705571822,
+        "B_squared": 51241.1594959047,
+        "triangle_gap": 46961.86755981352
+      }
+    }
+  },
+  "gpu_util_temp_power_csv": "0, 34, 4.57",
+  "gpu_compute_processes": "",
+  "supervisor_process_state": null,
+  "status": "passed_remote_completion_and_idle_check",
+  "local_integrity_status": "passed",
+  "verified_files": 79,
+  "retained_bytes_all_three_evidence_inventories": 3231509850,
+  "gradient_pairs": 8997,
+  "spectral_states": 93,
+  "local_monitor_cleanup": [
+    {
+      "analysis": "020-2026-10-14-eos-multitask",
+      "pid": 31240,
+      "action": "stopped_completed_or_obsolete_local_monitor"
+    },
+    {
+      "analysis": "023-2026-10-15-eos-smallest-lr-calibration",
+      "pid": 16160,
+      "action": "already_exited"
+    }
+  ]
+}

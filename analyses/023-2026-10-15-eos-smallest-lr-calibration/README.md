@@ -1,5 +1,13 @@
 # Analysis023: smallest-LR, 3,000-update Spark calibration
 
+**Complete:** Transformer training finished October17 at01:05 Sao Paulo time;
+automatic retrieval and numerical verification finished at01:10. All three
+calibration cases cover3,000 updates (MLP reuses Run059's prefix). Training ETC
+is zero. The final idle check found no GPU compute processes,0% utilization,
+34C and4.57W. All subsequent020/021 training remains held for user review.
+The completed local monitor exited; the obsolete020 monitor was stopped.
+No further training, cloud rental or manuscript change was performed.
+
 **Latest instruction:** finish the active Run075 and the two agreed3k
 calibrations, retrieve/analyze the results, then wait for user review. Do not
 start any subsequent training. The finish-only override below supersedes the
@@ -96,8 +104,8 @@ Initial verification found old admission PID426713 stopped, its active child
 still running, and the priority queue draining Run075. This is a verified
 waiting launch, not a claim that Run120 has already updated parameters.
 The later finish-only override replaced admission PIDs468139/426713 with
-supervisor474503. Live checks confirm both former processes are gone, active
-child456314 continues, and automatic predecessor resume is disabled. CPU-only
+supervisor474503. At installation, live checks confirmed both former processes
+were gone, active child456314 continued, and automatic predecessor resume was disabled. CPU-only
 success/failure checks verify that subsequent training stays held in both cases.
 See `launch.json`, `scheduling_verification.json`, `initial_status_verification.json`
 plus `finish_only_policy.json`, `finish_only_verification.json`,
@@ -110,6 +118,8 @@ On October15 the user requested fewer checks given the long ETC. Both local
 monitors were changed from5min to30min and their Windows SSH polling children
 use `CREATE_NO_WINDOW`. Only the local monitors restart; Spark training and the
 finish-only policy remain unchanged. Detection of completion can lag by30min.
+Both local monitors are now closed after verified calibration completion;
+the held queues have no automatic admission path.
 
 ## ETC and storage
 
@@ -120,6 +130,14 @@ eigensolver behavior are unmeasured. Add the active Run075's remaining roughly2h
 at launch. The expected calibration finish is therefore about41h from launch,
 excluding pending020 jobs, which now stay held after calibration. The MLP prefix is
 already complete. This is owned compute with no cloud rental or storage bill.
+
+Actual new training/diagnostics took12h00m for ResNet and26h23m for Transformer,
+38h23m combined. Including the active075 drain and infrastructure overhead,
+the priority queue finished about40h29m after its original launch. Automatic
+retrieval/reduction finished about5min after training. Raw new-run evidence is
+3,123,771,806bytes locally and on Spark; the referenced full MLP inventory brings
+all three evidence inventories to3,231,509,850bytes. Verified transfer archives
+were removed; recovery/final states remain outside Git on both machines.
 
 Allow12GB additional retained evidence on both Spark and local disk; preflight
 found3.7TB remote and219GB local free. Transfer archives are removed only after
@@ -139,6 +157,17 @@ its success/failure paths. The original deployed source packet is preserved.
 
 ## Available result
 
+The complete three-case numeric result is [results.json](results.json), with
+[observation002](observations/002-three-case-3k.md), verified transfer receipts
+and [completion/idle verification](completion_verification.json). All79
+retained files were checked again by byte size/SHA256;8,997 adjacent pairs and
+93 spectral states pass their declared checks. MLP/ResNet/Transformer losses at
+state3000 are0.336508/0.489838/6.630097. Final1k mean raw cosines are about
+1/-0.968385/0.999995; final B/A values are0.794144/0.037375/0.722349.
+No negative adjacent pair occurs for the MLP or Transformer in this window;
+the ResNet first crosses at gradient update231. These are single-seed
+calibrations, not a replicated LR sweep or an asymptotic stability result.
+
 The requested [two-column3k overview](figures/eos_gd_overview_completed_3k.pdf)
 now covers the completed MLP and ResNet cases, with unsmoothed loss,
 eta*lambda_max, eta*kappa_hat and raw-gradient norms on logarithmic Y axes.
@@ -146,7 +175,8 @@ Run120 is retrieved/hash verified; all5,998 used pairs,62 spectra and6,000
 raw norms pass checks, and the current eight-panel PDF passes
 visual review. See [observation003](observations/003-completed-3k-overview.md),
 `10_plot_completed_3k.py`, `completed_3k_results.json` and its figure manifest.
-The Transformer continues separately; no manuscript or reference-PDF change.
+The Transformer is now complete but remains outside this two-case figure;
+the existing PDF and manuscript are unchanged by the completion closeout.
 
 The verified3k MLP prefix has loss0.596781 ->0.336508, late1k mean cosine
 0.999999957, B/A0.794144, and maximum sampled eta*lambda_max0.316827.

@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "runs": [
+    {
+      "run": "059-2026-10-13-cifar10-eos-gd-lr-4e-3",
+      "status": "passed",
+      "files": 15,
+      "inventory_sha256": "5870227fb93662a76120eeef08366358b31eda60ba235d2edd1e862ed5fe724f",
+      "source_analysis": "019"
+    },
+    {
+      "status": "passed",
+      "run": "120-2026-10-15-eos-resnet-gd-smallest-lr-3k",
+      "files": 32,
+      "retained_bytes": 106359542,
+      "inventory_sha256": "48ddfdc99294456af39225c0214d0b2854528e5e4f5cfe5a5547a7fe5800fd3f",
+      "archive": {
+        "bytes": 106444800,
+        "sha256": "423bed7e1cf9d7db96dde2a953e5cc6116aa2aeb96e0bee68d0187ea0c3908b3",
+        "path": "/home/tcml-spark/experiments/constructive-destructive-regimes/eos-smallest-lr-3k-2026-10-15/runs/120-2026-10-15-eos-resnet-gd-smallest-lr-3k/artifacts/retrieval.tar",
+        "retained": false,
+        "note": "Verified temporary archives removed; raw artifacts and source snapshots retained."
+      }
+    },
+    {
+      "status": "passed",
+      "run": "121-2026-10-15-eos-transformer-gd-smallest-lr-3k",
+      "files": 32,
+      "retained_bytes": 3017412264,
+      "inventory_sha256": "e971abee17a7fe28fd92bbb6bd8dde26d3511379628f7fb3e0bfd8a2a7a1e466",
+      "archive": {
+        "bytes": 3017492480,
+        "sha256": "07fbae2a24c14bafa9a63a2c8b365ebdb1cb1538891ad12ed5e5f7caabc70a93",
+        "path": "/home/tcml-spark/experiments/constructive-destructive-regimes/eos-smallest-lr-3k-2026-10-15/runs/121-2026-10-15-eos-transformer-gd-smallest-lr-3k/artifacts/retrieval.tar",
+        "retained": false,
+        "note": "Verified temporary archives removed; raw artifacts and source snapshots retained."
+      }
+    }
+  ]
+}
