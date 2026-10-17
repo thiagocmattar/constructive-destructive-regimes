@@ -1,4 +1,4 @@
-\section{Stability Analysis of SGD}
+\section{Background: Stability Analysis of SGD}
 
 Intuitively, stable optimization occurs when updates reinforce each other and gradually shift parameters toward a point of minimum loss. Instability therefore arises when updates overshoot, oscillate, or partially undo the progress made by previous steps~\cite{polyak1964methods, bertsekas1997nonlinear}. Understanding this behavior requires examining the mechanisms that govern how updates evolve from one iteration to the next. Two factors have traditionally played a central role in explaining these dynamics: the \textit{local curvature} of the loss landscape and the \textit{stochasticity} introduced by mini-batch sampling.
 
@@ -6,40 +6,40 @@ Intuitively, stable optimization occurs when updates reinforce each other and gr
 
 Training can be interpreted as a discrete-time dynamical system in which the local curvature of the loss function determines the stability of the updates~\cite{polyak1964methods, bertsekas1997nonlinear}. The curvature indicates how sensitive the loss is to parameter changes in different directions: when curvature is small, updates tend to produce smooth descent toward a minimum, whereas in directions of high curvature the same step can overshoot the minimum and induce oscillatory behavior~\cite{polyak1964methods, bertsekas1997nonlinear, foret2021sharpness}. For this reason, classical analyses of gradient descent relate stability to the spectrum of the Hessian of the loss function, whose eigenvalues quantify directional curvature and indicate how sensitive optimization is to the choice of learning rate~\cite{polyak1964methods, bertsekas1997nonlinear}.
 
-Under this view, mini-batch SGD can be written as the time-varying map
+Under this view, let $\theta_t\in\mathbb{R}^p$ denote the parameters after update $t$, and let $g_t$ denote a mini-batch gradient evaluated at $\theta_{t-1}$. For a constant learning rate $\eta>0$, mini-batch SGD can be written as the time-varying map
 \begin{equation}
-\theta_{t+1} 
+\theta_t
 = 
-\Phi_t(\theta_t)
+\Phi_t(\theta_{t-1})
 :=
-\theta_t - \eta \, G_{B_t}(\theta_t),
+\theta_{t-1} - \eta \, g_t,
 \label{eq:sgd_map_stability}
 \end{equation}
-where $G_{B_t}$ is the stochastic gradient associated with the batch $B_t$. Local trajectory stability is governed by the Jacobian of this update map,
+where $g_t:=\nabla\mathcal{L}_{B_t}(\theta_{t-1})$ and $\mathcal{L}_{B_t}$ is the loss averaged over mini-batch $B_t$. Local trajectory stability is governed by the Jacobian of this update map,
 \begin{equation}
-J_{B_t}
-\approx
-I - \eta\, H_{B_t}(\theta_t),
+J_t
+=
+I - \eta\, H_{B_t}(\theta_{t-1}),
 \label{eq:jacobian_sgd}
 \end{equation}
-in which $H_{B_t}(\theta_t)$ is the mini-batch Hessian. In full-batch gradient descent, $H_{B_t}$ becomes $H_t=\nabla^2\mathcal{L}(\theta_t)$ and $J_t=I-\eta H_t$. 
+in which $H_{B_t}(\theta_{t-1}):=\nabla^2\mathcal{L}_{B_t}(\theta_{t-1})$ is the mini-batch Hessian. In full-batch gradient descent, it becomes $H_t:=\nabla^2\mathcal{L}(\theta_{t-1})$ and $J_t=I-\eta H_t$.
 
 Then, consider a small perturbation \(e_t\) around the parameters at the current step $t$. Under the local linearization of the update map, this perturbation evolves as
 \[
-e_{t+1} \approx J_t e_t \approx (I-\eta H_t)e_t,
+e_t \approx J_t e_{t-1} = (I-\eta H_t)e_{t-1},
 \]
-where here \(H_t=\nabla^2\mathcal{L}(\theta_t)\) denotes the Hessian of the full loss. For mini-batch SGD, one may analogously consider the mini-batch Hessian \(H_{B_t}\), but the classical stability condition below is exact in the deterministic full-batch. In a locally quadratic regime near a minimum, the Hessian is approximately constant and admits eigenpairs \((\lambda_k,v_k)\). Decomposing the perturbation as \(e_t=\sum_k \delta_t^{(k)} v_k\), each eigendirection evolves independently according to
+where here \(H_t=\nabla^2\mathcal{L}(\theta_{t-1})\) denotes the Hessian of the full loss. For mini-batch SGD, one may analogously consider the mini-batch Hessian \(H_{B_t}\), but the classical stability condition below is exact in the deterministic full-batch. In a locally quadratic regime near a minimum, the Hessian is approximately constant and admits eigenpairs \((\lambda_i,v_i)\). Decomposing the perturbation as \(e_t=\sum_i \delta_t^{(i)} v_i\), each eigendirection evolves independently according to
 \[
-\delta_{t+1}^{(k)}=(1-\eta\lambda_k)\,\delta_t^{(k)}.
+\delta_t^{(i)}=(1-\eta\lambda_i)\,\delta_{t-1}^{(i)}.
 \]
-Thus, the factor \(1-\eta\lambda_k\) determines whether perturbations along direction \(v_k\) decay or grow. A classical necessary and sufficient condition for linear stability is
+Thus, the factor \(1-\eta\lambda_i\) determines whether perturbations along direction \(v_i\) decay or grow. A classical necessary and sufficient condition for linear stability is
 \begin{equation}
-\max_k |1-\eta\lambda_k| < 1
+\max_i |1-\eta\lambda_i| < 1
 \; \Leftrightarrow \;
 \eta\,\lambda_{\max}(H_t) < 2,
 \label{eq:quad_stability_condition}
 \end{equation}
-which means that all perturbation components contract over time~\cite{polyak1964methods, bertsekas1997nonlinear}. In other words, if \(0<\eta\lambda_k<1\), the perturbation decays monotonically along \(v_k\); if \(1<\eta\lambda_k<2\), it alternates sign while shrinking, producing oscillations around the minimum; and if \(\eta\lambda_k>2\), it alternates sign while growing, leading to divergence. In over-parameterized networks, however, the Hessian spectrum is typically highly anisotropic, with a small number of outlier directions carrying most of the sharpness, while the bulk remains near zero~\cite{sagun2017hessian, ghorbani2019density}. Although this suggests monitoring \(\lambda_{\max}(H_{t})\) as a stability diagnostic, estimating leading Hessian eigenvalues online in large neural networks is computationally expensive, and mini-batch estimates provide only noisy, pointwise proxies of the local geometry.
+which means that all perturbation components contract over time~\cite{polyak1964methods, bertsekas1997nonlinear}. In other words, if \(0<\eta\lambda_i<1\), the perturbation decays monotonically along \(v_i\); if \(1<\eta\lambda_i<2\), it alternates sign while shrinking, producing oscillations around the minimum; and if \(\eta\lambda_i>2\), it alternates sign while growing, leading to divergence. In over-parameterized networks, however, the Hessian spectrum is typically highly anisotropic, with a small number of outlier directions carrying most of the sharpness, while the bulk remains near zero~\cite{sagun2017hessian, ghorbani2019density}. Although this suggests monitoring \(\lambda_{\max}(H_{t})\) as a stability diagnostic, estimating leading Hessian eigenvalues online in large neural networks is computationally expensive, and mini-batch estimates provide only noisy, pointwise proxies of the local geometry.
 
 
 \subsection{Mini-Batch Stochasticity}
@@ -48,32 +48,32 @@ which means that all perturbation components contract over time~\cite{polyak1964
 % In SGD, each update is computed from a subset of the data and therefore provides only a noisy estimate of the full gradient~\cite{mandt2017sgd, hu2019diffusion}. As a result, consecutive mini-batches can induce different update directions, causing the optimization trajectory to fluctuate from one step to the next~\cite{jastrzebski2018three, smith2018bayesian}. The magnitude and structure of this stochasticity depend on the batch size, and they interact with the local geometry of the loss landscape to shape the overall training dynamics~\cite{mandt2017sgd, hu2019diffusion, jastrzebski2018three}. A standard way to formalize this effect is through the covariance of mini-batch gradient noise around the full gradient. However, this quantity is difficult to estimate in practice, since computing it exactly requires access to the full gradient at each optimization step.
 
 % Stochastic optimization adds a second geometric object: the noise covariance. 
-A complementary line of work studies SGD through the lens of stochastic optimization, interpreting the mini-batch gradient as a noisy approximation of the full gradient computed over the entire dataset \cite{mandt2017sgd, hu2019diffusion, mandt2017stochastic, jastrzebski2018three}. In this sense, each SGD step combines a deterministic descent component with a zero-mean random fluctuation induced by sampling, which covariance provides information about how noise is distributed across parameter-space directions and how it may affect trajectory stability. Formally, we write the mini-batch gradient as
+A complementary line of work studies SGD through the lens of stochastic optimization, interpreting the mini-batch gradient as a noisy approximation of the full gradient computed over the entire dataset \cite{mandt2017sgd, hu2019diffusion, mandt2017stochastic, jastrzebski2018three}. In this sense, each SGD step combines a deterministic descent component with a zero-mean random fluctuation induced by sampling, which covariance provides information about how noise is distributed across parameter-space directions and how it may affect trajectory stability. Formally, under fresh, conditionally unbiased sampling, we write the mini-batch gradient as
 
 \begin{equation}
 \begin{aligned}
-G_{B_t}(\theta_t)
-&= \nabla\mathcal{L}(\theta_t) + \xi_t,\\
-\mathbb{E}[\xi_t\mid \theta_t]
+g_t
+&= \nabla\mathcal{L}(\theta_{t-1}) + \xi_t,\\
+\mathbb{E}[\xi_t\mid \theta_{t-1}]
 &= 0,\\
-\mathrm{Cov}(\xi_t\mid \theta_t)
-&\approx \frac{1}{m}\,\Sigma(\theta_t),
+\mathrm{Cov}(\xi_t\mid \theta_{t-1})
+&\approx \frac{1}{b}\,\Sigma(\theta_{t-1}),
 \end{aligned}
 \label{eq:sgd_noise_decomposition}
 \end{equation}
-where \(\xi_t\) is the sampling noise and \(\Sigma(\theta_t)\) denotes the covariance matrix of per-sample gradients around the full gradient. Writing \(g_i^{(t)}:=\nabla\ell(\theta_t;x_i,y_i)\) and the full gradient vector as \(g^{(t)}:=\frac{1}{N}\sum_{i=1}^N g_i^{(t)}=\nabla\mathcal{L}(\theta_t)\), the covariance matrix is
+where \(\xi_t\) is the sampling noise, $b:=|B_t|$ is the batch size, and \(\Sigma(\theta_{t-1})\) denotes the covariance matrix of per-sample gradients around the full gradient. At the current parameters, write \(h_i:=\nabla\ell_i(\theta_{t-1})\), where $\ell_i$ is the loss for sample $i$, and \(\mu:=\frac{1}{N}\sum_{i=1}^N h_i=\nabla\mathcal{L}(\theta_{t-1})\), where $N$ is the dataset size. The covariance matrix is
 \begin{equation}
-\Sigma(\theta_t)
+\Sigma(\theta_{t-1})
 :=
 \frac{1}{N}\sum_{i=1}^{N}
-\bigl(g_i^{(t)}-g^{(t)}\bigr)\bigl(g_i^{(t)}-g^{(t)}\bigr)^{\top},
+\bigl(h_i-\mu\bigr)\bigl(h_i-\mu\bigr)^{\top},
 \label{eq:grad_cov_def}
 \end{equation}
-and the scalar dispersion of per-sample gradients around the full gradient is given by the trace of \(\Sigma(\theta_t)\)
+and the scalar dispersion of per-sample gradients around the full gradient is given by the trace of \(\Sigma(\theta_{t-1})\)
 \[
-\mathrm{tr} (\Sigma(\theta_t))=\frac{1}{N}\sum_{i=1}^{N}\|g_i^{(t)}-g^{(t)}\|^2.
+\mathrm{tr} (\Sigma(\theta_{t-1}))=\frac{1}{N}\sum_{i=1}^{N}\|h_i-\mu\|^2.
 \]
-This makes clear why $\Sigma(\theta_t)$ is generally not a viable online diagnostic: computing it requires access to the full gradient $g^{(t)}$ and all per-sample gradients $\{g_i^{(t)}\}_{i=1}^N$ at each training step, which is impractical and incurs at least a full-pass cost per step.
+This makes clear why $\Sigma(\theta_{t-1})$ is generally not a viable online diagnostic: computing it requires access to the full gradient $\mu$ and all per-sample gradients $\{h_i\}_{i=1}^N$ at each training step, which is impractical and incurs at least a full-pass cost per step.
 
 \subsection{Curvature--Noise Interaction}
 
@@ -81,15 +81,15 @@ This makes clear why $\Sigma(\theta_t)$ is generally not a viable online diagnos
 
 The \emph{break-even point} framework of Jastrzebski et al.~\cite{jastrzebski2020break} is an attempt to extend the classical curvature-based stability condition to SGD. The central idea is to analyze stability along the sharpest direction of the loss landscape while explicitly accounting for mini-batch stochasticity. More precisely, the framework proposes a one-dimensional necessary-and-sufficient condition for SGD stability at iteration \(t\),
 \begin{equation}
-(1 - \eta \lambda_{\max}(H_t))^2 + s_t^2 \frac{\eta^2(N-m)}{m(N-1)} \;\le\; 1,
+(1 - \eta \lambda_{\max}(H_t))^2 + s_t^2 \frac{\eta^2(N-b)}{b(N-1)} \;\le\; 1,
 \label{eq:break_even_condition}
 \end{equation}
-where \(\lambda_{\max}(H_t)\) is the top Hessian eigenvalue, \(N\) is the dataset size, \(m\) is the batch size, and \(s_t^2\) denotes the variance across training examples of the curvature measured along the leading Hessian direction. Large \(s_t^2\) means different mini-batches see substantially different local curvature, while small \(s_t^2\) means they see similar curvature. In this sense, Eq.~\eqref{eq:break_even_condition} can be read as a stochastic extension of the deterministic stability condition in Eq.~\eqref{eq:quad_stability_condition}, so that the first term captures curvature-induced amplification, while the second captures the destabilizing effect of mini-batch stochasticity.
+where \(\lambda_{\max}(H_t)\) is the top Hessian eigenvalue, \(N\) is the dataset size, \(b\) is the batch size, and \(s_t^2\) denotes the variance across training examples of the curvature measured along the leading Hessian direction. Large \(s_t^2\) means different mini-batches see substantially different local curvature, while small \(s_t^2\) means they see similar curvature. In this sense, Eq.~\eqref{eq:break_even_condition} can be read as a stochastic extension of the deterministic stability condition in Eq.~\eqref{eq:quad_stability_condition}, so that the first term captures curvature-induced amplification, while the second captures the destabilizing effect of mini-batch stochasticity.
 
 Under this definition, the break-even point is defined as the first iteration at which the left-hand side of Eq.~\eqref{eq:break_even_condition} reaches \(1\). Intuitively, it marks the end of an early phase during which the choice of learning rate and batch size can strongly shape the later optimization trajectory. In this sense, a central conjecture of this framework is that, prior to this point, hyperparameters largely determine the maximum curvature and stochasticity levels encountered later in training, thereby setting the regime in which the subsequent dynamics unfold.
 
 % algo como "Apesar da análise local facilitar a interpretação e o tratamento matemático da estabilidade dos algoritmos de otimização, essa abordagem tem fraquezas bem conhecidas. Em especial, ...
 Although the local analysis simplifies both the interpretation and the mathematical treatment of the stability problem, it is subject to well-known limitations. For instance, the Edge-of-Stability (EoS) phenomenon challenges the local-quadratic picture even in deterministic gradient descent (GD). Across architectures and tasks, full-batch GD often exhibits progressive sharpening, with the largest eigenvalue of the Hessian, $\lambda_{\max}(H_t)$, rising until it hovers near (and sometimes above) the nominal threshold $2/\eta$ (Eq.~\ref{eq:quad_stability_condition}), while optimization continues to make progress despite short-term non-monotonicity~\cite{cohen2021edge, arora2022understanding, damian2023self}. Thus, successful training can coexist with local linear instability for extended periods, indicating that sharpness alone does not fully explain and determine trajectory-level behavior.
 
-Together, these results clarify both the value and the limitation of curvature--noise interaction criteria. Quantities such as the leading Hessian eigenvalue $\lambda_{\max}(H_t)$, the gradient-noise covariance $\Sigma(\theta_t)$, and related one-step stability conditions provide a pointwise description of local amplification potential, often along a dominant direction. In practice, however, these quantities are difficult to estimate online during training, especially in large neural networks. More fundamentally, even when they are available, they fail to describe the real training dynamics, as shown by the EoS phenomenon. It could be argued that this is mainly due to the strictly local validity of the discussed frameworks, which makes it difficult to extrapolate the analyses to the full optimization trajectory. A more comprehensive analysis should explain, for instance, how sequential gradient steps interact to amplify or cancel each other's effects. That interaction can be decisive for trajectory stability: two runs may exhibit similar sharpness and similar noise levels, yet follow very different optimization paths because successive updates may either reinforce one another or partially overwrite previous progress. Therefore, we argue that stability is fundamentally a property of the \textit{training trajectory}: it reflects how successive parameter updates interact and accumulate over time.
+Together, these results clarify both the value and the limitation of curvature--noise interaction criteria. Quantities such as the leading Hessian eigenvalue $\lambda_{\max}(H_t)$, the gradient-noise covariance $\Sigma(\theta_{t-1})$, and related one-step stability conditions provide a pointwise description of local amplification potential, often along a dominant direction. In practice, however, these quantities are difficult to estimate online during training, especially in large neural networks. More fundamentally, even when they are available, they fail to describe the real training dynamics, as shown by the EoS phenomenon. It could be argued that this is mainly due to the strictly local validity of the discussed frameworks, which makes it difficult to extrapolate the analyses to the full optimization trajectory. A more comprehensive analysis should explain, for instance, how sequential gradient steps interact to amplify or cancel each other's effects. That interaction can be decisive for trajectory stability: two runs may exhibit similar sharpness and similar noise levels, yet follow very different optimization paths because successive updates may either reinforce one another or partially overwrite previous progress. Therefore, we argue that stability is fundamentally a property of the \textit{training trajectory}: it reflects how successive parameter updates interact and accumulate over time.
 
