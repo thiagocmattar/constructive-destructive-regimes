@@ -1,0 +1,209 @@
+[
+  {
+    "run": "127-2026-10-17-pythia14m-descent-baseline-seed1234",
+    "size": "14M",
+    "seed": 1234,
+    "condition": "baseline",
+    "reference": "002-2026-10-03-pythia14m-adamw-adaptive-geometry"
+  },
+  {
+    "run": "128-2026-10-17-pythia31m-descent-baseline-seed1234",
+    "size": "31M",
+    "seed": 1234,
+    "condition": "baseline",
+    "reference": "003-2026-10-03-pythia31m-adamw-scale"
+  },
+  {
+    "run": "129-2026-10-17-pythia70m-descent-baseline-seed1234",
+    "size": "70M",
+    "seed": 1234,
+    "condition": "baseline",
+    "reference": "004-2026-10-03-pythia70m-adamw-scale"
+  },
+  {
+    "run": "130-2026-10-17-pythia14m-descent-baseline-seed1235",
+    "size": "14M",
+    "seed": 1235,
+    "condition": "baseline",
+    "reference": "005-2026-10-04-pythia14m-seed1235"
+  },
+  {
+    "run": "131-2026-10-17-pythia31m-descent-baseline-seed1235",
+    "size": "31M",
+    "seed": 1235,
+    "condition": "baseline",
+    "reference": "006-2026-10-04-pythia31m-seed1235"
+  },
+  {
+    "run": "132-2026-10-17-pythia70m-descent-baseline-seed1235",
+    "size": "70M",
+    "seed": 1235,
+    "condition": "baseline",
+    "reference": "007-2026-10-04-pythia70m-seed1235"
+  },
+  {
+    "run": "133-2026-10-17-pythia14m-descent-baseline-seed1236",
+    "size": "14M",
+    "seed": 1236,
+    "condition": "baseline",
+    "reference": "008-2026-10-04-pythia14m-seed1236"
+  },
+  {
+    "run": "134-2026-10-17-pythia31m-descent-baseline-seed1236",
+    "size": "31M",
+    "seed": 1236,
+    "condition": "baseline",
+    "reference": "009-2026-10-04-pythia31m-seed1236"
+  },
+  {
+    "run": "135-2026-10-17-pythia70m-descent-baseline-seed1236",
+    "size": "70M",
+    "seed": 1236,
+    "condition": "baseline",
+    "reference": "010-2026-10-04-pythia70m-seed1236"
+  },
+  {
+    "run": "136-2026-10-17-pythia14m-no-precond-fork175-seed1234",
+    "size": "14M",
+    "seed": 1234,
+    "condition": "norm_matched_no_preconditioning",
+    "parent": "127-2026-10-17-pythia14m-descent-baseline-seed1234",
+    "junction": 175
+  },
+  {
+    "run": "137-2026-10-17-pythia14m-no-precond-fork225-seed1234",
+    "size": "14M",
+    "seed": 1234,
+    "condition": "norm_matched_no_preconditioning",
+    "parent": "127-2026-10-17-pythia14m-descent-baseline-seed1234",
+    "junction": 225
+  },
+  {
+    "run": "138-2026-10-17-pythia31m-no-precond-fork175-seed1234",
+    "size": "31M",
+    "seed": 1234,
+    "condition": "norm_matched_no_preconditioning",
+    "parent": "128-2026-10-17-pythia31m-descent-baseline-seed1234",
+    "junction": 175
+  },
+  {
+    "run": "139-2026-10-17-pythia31m-no-precond-fork225-seed1234",
+    "size": "31M",
+    "seed": 1234,
+    "condition": "norm_matched_no_preconditioning",
+    "parent": "128-2026-10-17-pythia31m-descent-baseline-seed1234",
+    "junction": 225
+  },
+  {
+    "run": "140-2026-10-17-pythia70m-no-precond-fork175-seed1234",
+    "size": "70M",
+    "seed": 1234,
+    "condition": "norm_matched_no_preconditioning",
+    "parent": "129-2026-10-17-pythia70m-descent-baseline-seed1234",
+    "junction": 175
+  },
+  {
+    "run": "141-2026-10-17-pythia70m-no-precond-fork225-seed1234",
+    "size": "70M",
+    "seed": 1234,
+    "condition": "norm_matched_no_preconditioning",
+    "parent": "129-2026-10-17-pythia70m-descent-baseline-seed1234",
+    "junction": 225
+  },
+  {
+    "run": "142-2026-10-17-pythia14m-no-precond-fork175-seed1235",
+    "size": "14M",
+    "seed": 1235,
+    "condition": "norm_matched_no_preconditioning",
+    "parent": "130-2026-10-17-pythia14m-descent-baseline-seed1235",
+    "junction": 175
+  },
+  {
+    "run": "143-2026-10-17-pythia14m-no-precond-fork225-seed1235",
+    "size": "14M",
+    "seed": 1235,
+    "condition": "norm_matched_no_preconditioning",
+    "parent": "130-2026-10-17-pythia14m-descent-baseline-seed1235",
+    "junction": 225
+  },
+  {
+    "run": "144-2026-10-17-pythia31m-no-precond-fork175-seed1235",
+    "size": "31M",
+    "seed": 1235,
+    "condition": "norm_matched_no_preconditioning",
+    "parent": "131-2026-10-17-pythia31m-descent-baseline-seed1235",
+    "junction": 175
+  },
+  {
+    "run": "145-2026-10-17-pythia31m-no-precond-fork225-seed1235",
+    "size": "31M",
+    "seed": 1235,
+    "condition": "norm_matched_no_preconditioning",
+    "parent": "131-2026-10-17-pythia31m-descent-baseline-seed1235",
+    "junction": 225
+  },
+  {
+    "run": "146-2026-10-17-pythia70m-no-precond-fork175-seed1235",
+    "size": "70M",
+    "seed": 1235,
+    "condition": "norm_matched_no_preconditioning",
+    "parent": "132-2026-10-17-pythia70m-descent-baseline-seed1235",
+    "junction": 175
+  },
+  {
+    "run": "147-2026-10-17-pythia70m-no-precond-fork225-seed1235",
+    "size": "70M",
+    "seed": 1235,
+    "condition": "norm_matched_no_preconditioning",
+    "parent": "132-2026-10-17-pythia70m-descent-baseline-seed1235",
+    "junction": 225
+  },
+  {
+    "run": "148-2026-10-17-pythia14m-no-precond-fork175-seed1236",
+    "size": "14M",
+    "seed": 1236,
+    "condition": "norm_matched_no_preconditioning",
+    "parent": "133-2026-10-17-pythia14m-descent-baseline-seed1236",
+    "junction": 175
+  },
+  {
+    "run": "149-2026-10-17-pythia14m-no-precond-fork225-seed1236",
+    "size": "14M",
+    "seed": 1236,
+    "condition": "norm_matched_no_preconditioning",
+    "parent": "133-2026-10-17-pythia14m-descent-baseline-seed1236",
+    "junction": 225
+  },
+  {
+    "run": "150-2026-10-17-pythia31m-no-precond-fork175-seed1236",
+    "size": "31M",
+    "seed": 1236,
+    "condition": "norm_matched_no_preconditioning",
+    "parent": "134-2026-10-17-pythia31m-descent-baseline-seed1236",
+    "junction": 175
+  },
+  {
+    "run": "151-2026-10-17-pythia31m-no-precond-fork225-seed1236",
+    "size": "31M",
+    "seed": 1236,
+    "condition": "norm_matched_no_preconditioning",
+    "parent": "134-2026-10-17-pythia31m-descent-baseline-seed1236",
+    "junction": 225
+  },
+  {
+    "run": "152-2026-10-17-pythia70m-no-precond-fork175-seed1236",
+    "size": "70M",
+    "seed": 1236,
+    "condition": "norm_matched_no_preconditioning",
+    "parent": "135-2026-10-17-pythia70m-descent-baseline-seed1236",
+    "junction": 175
+  },
+  {
+    "run": "153-2026-10-17-pythia70m-no-precond-fork225-seed1236",
+    "size": "70M",
+    "seed": 1236,
+    "condition": "norm_matched_no_preconditioning",
+    "parent": "135-2026-10-17-pythia70m-descent-baseline-seed1236",
+    "junction": 225
+  }
+]

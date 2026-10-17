@@ -2,6 +2,12 @@
 
 ## Current state
 
+[Analysis025: Pythia descent mechanism](../analyses/025-2026-10-17-pythia-descent-mechanism/README.md)
+is prepared for Runpod:9 matched350-update baselines and18 norm-matched50-update
+preconditioning ablations, with a shared training-disjoint probe and3 seed blocks.
+Local mathematics/recovery/integration checks pass; spending approval pending.
+No cloud resources created and no Spark work touched.
+
 [Analysis024: one-initialization3k GD LR calibration](../analyses/024-2026-10-17-eos-gd-lr-calibration/README.md)
 launched on owned Spark October17: MLP0.004/0.02/0.04,
 ResNet0.025/0.05/0.1 and Transformer0.05/0.1/0.2, seed0 and3000 updates.
@@ -15,7 +21,7 @@ All diagnostics and100-step spectra retained; larger-model Hessians remain subse
 Hidden30min monitoring retrieves/verifies terminal results;15GB storage allowance
 on both machines, no rental. Old020/021 queues stay held; no manuscript edit.
 Rates are calibrated on one initialization, without an initialization-robustness claim.
-Next Run127 / Analysis025 / H021.
+Next Run154 / Analysis026 / H022.
 
 [Analysis023: smallest-LR3k calibration](../analyses/023-2026-10-15-eos-smallest-lr-calibration/README.md)
 completed MLP LR0.004 (Run059 prefix), ResNetLR0.1 (Run120) and
@@ -30,7 +36,7 @@ PDF now includes Transformer: three columns, four rows,27093 exact plotted point
 All eight previous MLP/ResNet curves are unchanged; only the norm row is log Y.
 All later020/021 training stays held for review. No rental or manuscript edit.
 Single-seed calibrations do not establish universal LR or stability effects.
-Next Run127 / Analysis025 / H021.
+Next Run154 / Analysis026 / H022.
 
 [Analysis022: EOS long-horizon plan](../analyses/022-2026-10-15-eos-long-horizon-plan/README.md)
 proposes MLP20k and ResNet/Transformer3k full-GD updates, three seeds/LR:
@@ -38,7 +44,7 @@ proposes MLP20k and ResNet/Transformer3k full-GD updates, three seeds/LR:
 Measured production costs project348.94 Spark GPU-hours before allowance.
 Two4090 cloud scenarios span55.6-109.3h at unmeasured4x-2x speedups;
 historical120h/USD220 cloud proposal was not launched; staged023 supersedes it.
-Analysis020 pending jobs stay held after023, as requested by the user;021 stays held. Next Run127 / Analysis025 / H021.
+Analysis020 pending jobs stay held after023, as requested by the user;021 stays held. Next Run154 / Analysis026 / H022.
 
 [Analysis021: EOS full-batch GD learning-rate comparison](../analyses/021-2026-10-15-eos-multitask-lr/REPORT.md)
 holds 16 additional owned-Spark runs for replanning: three LRs and three
@@ -66,7 +72,7 @@ Adam0.0007658,0.0008776,0.0007075,0.0006594 in increasing LR order. Actual train
 ETC0,peak allocation<0.35GiB; all outputs retrieved/hashed,owned Spark idle.
 One frozen seed,no LR tuning; no global stability/convergence or alignment proxy
 claim. Full scalar/recovery evidence retained locally/on Spark; no cloud rental.
-Next Run127 / Analysis025 / H021.
+Next Run154 / Analysis026 / H022.
 
 [Run058: CIFAR-10 Edge of Stability calibration](../runs/058-2026-10-13-cifar10-eos-calibration/REPORT.md)
 implements the confirmed5k tanh MLP with GD/Adam and raw/m/mhat/adaptive/update

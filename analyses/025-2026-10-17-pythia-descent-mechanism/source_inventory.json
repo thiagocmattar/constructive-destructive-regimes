@@ -1,0 +1,574 @@
+{
+  "files": [
+    {
+      "path": "src/baseline/__init__.py",
+      "bytes": 75,
+      "sha256": "cde5082a52c33b988f94b58113257321306ba338775018c4c5dfde305d9438b8"
+    },
+    {
+      "path": "src/baseline/adam_diagnostics.py",
+      "bytes": 2060,
+      "sha256": "b2e519f121bf12498a8f908b564785079ed2967d86352ac5615fe1abb8b07657"
+    },
+    {
+      "path": "src/baseline/causal_training.py",
+      "bytes": 17058,
+      "sha256": "8a7d3a4aabb819ac9a9e89adc323b557b3d095eb9e614b4d09f4f4a17f126765"
+    },
+    {
+      "path": "src/baseline/continuation.py",
+      "bytes": 12759,
+      "sha256": "7f4969feb7267ae2f293aeb752f4b519e9e036edffb670c5d2f6b055ec79afbd"
+    },
+    {
+      "path": "src/baseline/data_protocol.py",
+      "bytes": 2442,
+      "sha256": "f2e08209275c4f1ab13a568b93a97ca8b8c72cd86f63d1b1208db0dabff03d0d"
+    },
+    {
+      "path": "src/baseline/descent_diagnostics.py",
+      "bytes": 9213,
+      "sha256": "b9ab74f28e69592cec6203ec2828602ac1e7808e63026b1192f9511dfbf1aa73"
+    },
+    {
+      "path": "src/baseline/gradient_geometry.py",
+      "bytes": 4689,
+      "sha256": "bb2abf2ccb33dfa376b8cfb5f69056ef695d4c24c604ff92623456bb879324db"
+    },
+    {
+      "path": "src/baseline/initialization.py",
+      "bytes": 5167,
+      "sha256": "32aab0ff63b2da305cd83a0264960c3e3970d18deea8dba055998ffdba1f98b7"
+    },
+    {
+      "path": "src/baseline/momentum_diagnostics.py",
+      "bytes": 1709,
+      "sha256": "8a1b0c1c92dc96eefb4b5c67dd616db6bfa4b9b6b5ccd3e641ffac419aa5a882"
+    },
+    {
+      "path": "src/baseline/recipe.py",
+      "bytes": 6800,
+      "sha256": "63f85e2d83142347914772f70d7008123614234c200d943c188fe90330e4451c"
+    },
+    {
+      "path": "src/baseline/temporal_sketch.py",
+      "bytes": 8589,
+      "sha256": "02fdc42d40278a4b418a4b7e79ba4d8f93dc25ebcca3dd01e19bfcbf9189274e"
+    },
+    {
+      "path": "src/baseline/training.py",
+      "bytes": 20819,
+      "sha256": "5eccb47d6639940ae30d29fc3530620bbd3463b28aba758d8e60fac246f4fb2c"
+    },
+    {
+      "path": "tools/artifact_inventory.py",
+      "bytes": 4906,
+      "sha256": "b8fcccad1f3b6b0566d544daa27d75a9b120be1bdedb7191f78f9277f964e27e"
+    },
+    {
+      "path": "tests/test_descent_diagnostics.py",
+      "bytes": 12009,
+      "sha256": "adc0cc4f867e4688a163b335b47a7e269d10c25837d912c2a949ee2e0b6bab15"
+    },
+    {
+      "path": "tests/test_causal_control.py",
+      "bytes": 2883,
+      "sha256": "c3609c0d32d80a53001fed201f6417792734d82a0492351b06a5c089b293dd13"
+    },
+    {
+      "path": "analyses/025-2026-10-17-pythia-descent-mechanism/00_prepare.py",
+      "bytes": 8445,
+      "sha256": "58176abd05e4834e0935ae7cda36c28158f7c0ad68049af048395a3da4412f73"
+    },
+    {
+      "path": "analyses/025-2026-10-17-pythia-descent-mechanism/01_package.py",
+      "bytes": 3887,
+      "sha256": "1f434e6800b7b1a4e4298eaa21a177a175bed88f504465f28c880af236bbce8b"
+    },
+    {
+      "path": "analyses/025-2026-10-17-pythia-descent-mechanism/02_worker.py",
+      "bytes": 7668,
+      "sha256": "3510e4734ccb71e6d7398630662131fd10597a091f1aa5d3f7d75e1d430ed8f0"
+    },
+    {
+      "path": "analyses/025-2026-10-17-pythia-descent-mechanism/03_verify.py",
+      "bytes": 6392,
+      "sha256": "d0c550edd31063a9bdd603cfda8a178bf152e48636ea6cb85afb048588457442"
+    },
+    {
+      "path": "analyses/025-2026-10-17-pythia-descent-mechanism/04_control.py",
+      "bytes": 9991,
+      "sha256": "3bdb7953d964d45b78618b16d4ee54d876665aad33a8ffb6c579e29b6a887def"
+    },
+    {
+      "path": "analyses/025-2026-10-17-pythia-descent-mechanism/05_plan.py",
+      "bytes": 3140,
+      "sha256": "4c1c528c1956e8814099fe8b9767ebb28d2de3d06f0f53e0e39b9549cac9db9f"
+    },
+    {
+      "path": "analyses/025-2026-10-17-pythia-descent-mechanism/06_preflight.py",
+      "bytes": 4515,
+      "sha256": "d7dfe802d87d8b1556d74280a36375cbdf69015c0af210b13faf9af0e0940a6d"
+    },
+    {
+      "path": "analyses/025-2026-10-17-pythia-descent-mechanism/setup.sh",
+      "bytes": 802,
+      "sha256": "f19b67d884d10d1e5e79fc5411d6b4eb3826b2593e24dceddee2ad2a427a7696"
+    },
+    {
+      "path": "analyses/025-2026-10-17-pythia-descent-mechanism/README.md",
+      "bytes": 15178,
+      "sha256": "618609468d6ca3b3a24a24c60dce90fed478999b8edfdb196b643f6d7006a60d"
+    },
+    {
+      "path": "analyses/025-2026-10-17-pythia-descent-mechanism/design.json",
+      "bytes": 887,
+      "sha256": "c762de85b7a610cb1612117196c53cb87673dc636c5ab6e2160f95c5429a71b3"
+    },
+    {
+      "path": "analyses/025-2026-10-17-pythia-descent-mechanism/cohort.json",
+      "bytes": 6315,
+      "sha256": "57da55c861091fcb2a78354e27c9fa76c45834f1649324e9a6aadf4973da01c7"
+    },
+    {
+      "path": "analyses/025-2026-10-17-pythia-descent-mechanism/probe.json",
+      "bytes": 1793,
+      "sha256": "8a52f4e0f3e793277956cddf3ac6df6b35c5bcf39593af8ee2ab16fbde24863c"
+    },
+    {
+      "path": "analyses/025-2026-10-17-pythia-descent-mechanism/initial_sources.json",
+      "bytes": 4614,
+      "sha256": "8772c8700ca674dcd16ad1ca5a7110cfc16d7e512d12005b2905bc7682392685"
+    },
+    {
+      "path": "analyses/025-2026-10-17-pythia-descent-mechanism/input_packet.json",
+      "bytes": 5666,
+      "sha256": "4d2db6f36a1ced46f999645e31b875f6a60fe8d0be63124345b8adfcfca0d6c0"
+    },
+    {
+      "path": "analyses/025-2026-10-17-pythia-descent-mechanism/worker_plan.json",
+      "bytes": 2548,
+      "sha256": "bf517e9e626d4c99f83acb9eef7cd447e7ce780512f17e7c9bd915ed486fb753"
+    },
+    {
+      "path": "analyses/025-2026-10-17-pythia-descent-mechanism/launch_plan.json",
+      "bytes": 1641,
+      "sha256": "b8e220e6163285d89cf50feb7188d98982b5ad74e2f9edd7e8bd7367bcdda255"
+    },
+    {
+      "path": "analyses/025-2026-10-17-pythia-descent-mechanism/live_price.json",
+      "bytes": 3761,
+      "sha256": "6ef674f38d4b55d79cfd2451a756c28badc36f79e9d128e5155c70f5e9eb84eb"
+    },
+    {
+      "path": "analyses/025-2026-10-17-pythia-descent-mechanism/historical_timing.json",
+      "bytes": 2403,
+      "sha256": "ff30e93c6ba0f7677a18291450ec5796304cd0d6d6475246a0b2baa2645428c1"
+    },
+    {
+      "path": "runs/127-2026-10-17-pythia14m-descent-baseline-seed1234/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/127-2026-10-17-pythia14m-descent-baseline-seed1234/config.json",
+      "bytes": 4546,
+      "sha256": "ffafb88b1775eaedb85fea3394e69ccc08d4fdf513b2c8137fc704f3afd496d8"
+    },
+    {
+      "path": "runs/127-2026-10-17-pythia14m-descent-baseline-seed1234/model_config.json",
+      "bytes": 595,
+      "sha256": "5536386c1709fd29d9617fca802bb8f592071ac279f772b5c63a6be3db3488e2"
+    },
+    {
+      "path": "runs/128-2026-10-17-pythia31m-descent-baseline-seed1234/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/128-2026-10-17-pythia31m-descent-baseline-seed1234/config.json",
+      "bytes": 5041,
+      "sha256": "4f5fa9c9a1e44a802cbef802381da3168640f06551182a8626b4d976c9cb18d5"
+    },
+    {
+      "path": "runs/128-2026-10-17-pythia31m-descent-baseline-seed1234/model_config.json",
+      "bytes": 596,
+      "sha256": "3a6bc92e94cd3dca46e2a3eef81a8ebb17185ffb4d5ad16bb01fd67021ccd5b6"
+    },
+    {
+      "path": "runs/129-2026-10-17-pythia70m-descent-baseline-seed1234/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/129-2026-10-17-pythia70m-descent-baseline-seed1234/config.json",
+      "bytes": 5041,
+      "sha256": "499356a52c58df05c1b054a73caf010770e7cadb0b44046ca9071c3d69b7ba89"
+    },
+    {
+      "path": "runs/129-2026-10-17-pythia70m-descent-baseline-seed1234/model_config.json",
+      "bytes": 567,
+      "sha256": "002050231a9b1ec3ac77aa6b9b3bbdc4d923f4068a7dd33b8da72a9bd6ad9a43"
+    },
+    {
+      "path": "runs/130-2026-10-17-pythia14m-descent-baseline-seed1235/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/130-2026-10-17-pythia14m-descent-baseline-seed1235/config.json",
+      "bytes": 4990,
+      "sha256": "45c924d582b291f734bdadd988f5934ee54da45ef31e596acb6c3b6424a3a617"
+    },
+    {
+      "path": "runs/130-2026-10-17-pythia14m-descent-baseline-seed1235/model_config.json",
+      "bytes": 595,
+      "sha256": "5536386c1709fd29d9617fca802bb8f592071ac279f772b5c63a6be3db3488e2"
+    },
+    {
+      "path": "runs/131-2026-10-17-pythia31m-descent-baseline-seed1235/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/131-2026-10-17-pythia31m-descent-baseline-seed1235/config.json",
+      "bytes": 5041,
+      "sha256": "248699c9a027634dc50b607c04f2555b017f150b4e8bacb03fcc418137fd4409"
+    },
+    {
+      "path": "runs/131-2026-10-17-pythia31m-descent-baseline-seed1235/model_config.json",
+      "bytes": 596,
+      "sha256": "3a6bc92e94cd3dca46e2a3eef81a8ebb17185ffb4d5ad16bb01fd67021ccd5b6"
+    },
+    {
+      "path": "runs/132-2026-10-17-pythia70m-descent-baseline-seed1235/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/132-2026-10-17-pythia70m-descent-baseline-seed1235/config.json",
+      "bytes": 5041,
+      "sha256": "7522e1c2787299bebec43056002c6bb8a3c6a37d02092a8c7eb2579faf3de434"
+    },
+    {
+      "path": "runs/132-2026-10-17-pythia70m-descent-baseline-seed1235/model_config.json",
+      "bytes": 567,
+      "sha256": "002050231a9b1ec3ac77aa6b9b3bbdc4d923f4068a7dd33b8da72a9bd6ad9a43"
+    },
+    {
+      "path": "runs/133-2026-10-17-pythia14m-descent-baseline-seed1236/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/133-2026-10-17-pythia14m-descent-baseline-seed1236/config.json",
+      "bytes": 4990,
+      "sha256": "4f9ee2caa63c01ea429a204f72bd5ce167481f0846ef5e25ed9ae7193ea625eb"
+    },
+    {
+      "path": "runs/133-2026-10-17-pythia14m-descent-baseline-seed1236/model_config.json",
+      "bytes": 595,
+      "sha256": "5536386c1709fd29d9617fca802bb8f592071ac279f772b5c63a6be3db3488e2"
+    },
+    {
+      "path": "runs/134-2026-10-17-pythia31m-descent-baseline-seed1236/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/134-2026-10-17-pythia31m-descent-baseline-seed1236/config.json",
+      "bytes": 5041,
+      "sha256": "466d14947cb8508b57901209d63386c656a0e2d2b3a31f69a1da7338e5ce41be"
+    },
+    {
+      "path": "runs/134-2026-10-17-pythia31m-descent-baseline-seed1236/model_config.json",
+      "bytes": 596,
+      "sha256": "3a6bc92e94cd3dca46e2a3eef81a8ebb17185ffb4d5ad16bb01fd67021ccd5b6"
+    },
+    {
+      "path": "runs/135-2026-10-17-pythia70m-descent-baseline-seed1236/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/135-2026-10-17-pythia70m-descent-baseline-seed1236/config.json",
+      "bytes": 5041,
+      "sha256": "761bb6e00734f227f6ae901557518db12a98911dcf33c71490f9663253b1c0fe"
+    },
+    {
+      "path": "runs/135-2026-10-17-pythia70m-descent-baseline-seed1236/model_config.json",
+      "bytes": 567,
+      "sha256": "002050231a9b1ec3ac77aa6b9b3bbdc4d923f4068a7dd33b8da72a9bd6ad9a43"
+    },
+    {
+      "path": "runs/136-2026-10-17-pythia14m-no-precond-fork175-seed1234/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/136-2026-10-17-pythia14m-no-precond-fork175-seed1234/config.json",
+      "bytes": 4992,
+      "sha256": "39ec84d0ea50c7b5a6e0a6da4b1d2c2a98f2a445b0c53bb5ad0dd469e747a74e"
+    },
+    {
+      "path": "runs/136-2026-10-17-pythia14m-no-precond-fork175-seed1234/model_config.json",
+      "bytes": 595,
+      "sha256": "5536386c1709fd29d9617fca802bb8f592071ac279f772b5c63a6be3db3488e2"
+    },
+    {
+      "path": "runs/137-2026-10-17-pythia14m-no-precond-fork225-seed1234/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/137-2026-10-17-pythia14m-no-precond-fork225-seed1234/config.json",
+      "bytes": 4992,
+      "sha256": "8a5b2e3c578326e3cde2ec61ae5367414febb02a7f52979e41a9828a62d780ee"
+    },
+    {
+      "path": "runs/137-2026-10-17-pythia14m-no-precond-fork225-seed1234/model_config.json",
+      "bytes": 595,
+      "sha256": "5536386c1709fd29d9617fca802bb8f592071ac279f772b5c63a6be3db3488e2"
+    },
+    {
+      "path": "runs/138-2026-10-17-pythia31m-no-precond-fork175-seed1234/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/138-2026-10-17-pythia31m-no-precond-fork175-seed1234/config.json",
+      "bytes": 5487,
+      "sha256": "f0e5e0e6baff939c0710a4eae44b05c15c63ccfea35891b55b368b2cf39448b7"
+    },
+    {
+      "path": "runs/138-2026-10-17-pythia31m-no-precond-fork175-seed1234/model_config.json",
+      "bytes": 596,
+      "sha256": "3a6bc92e94cd3dca46e2a3eef81a8ebb17185ffb4d5ad16bb01fd67021ccd5b6"
+    },
+    {
+      "path": "runs/139-2026-10-17-pythia31m-no-precond-fork225-seed1234/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/139-2026-10-17-pythia31m-no-precond-fork225-seed1234/config.json",
+      "bytes": 5487,
+      "sha256": "00a539bd9dac3431f79c16797384db213c1a2bdd78840d1977fca43c9c1a5d3d"
+    },
+    {
+      "path": "runs/139-2026-10-17-pythia31m-no-precond-fork225-seed1234/model_config.json",
+      "bytes": 596,
+      "sha256": "3a6bc92e94cd3dca46e2a3eef81a8ebb17185ffb4d5ad16bb01fd67021ccd5b6"
+    },
+    {
+      "path": "runs/140-2026-10-17-pythia70m-no-precond-fork175-seed1234/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/140-2026-10-17-pythia70m-no-precond-fork175-seed1234/config.json",
+      "bytes": 5487,
+      "sha256": "0f0c3ab4d8a7cd9c6f5f281bfbb261f1a9762e1e346fd688290a876eb7b45f2e"
+    },
+    {
+      "path": "runs/140-2026-10-17-pythia70m-no-precond-fork175-seed1234/model_config.json",
+      "bytes": 567,
+      "sha256": "002050231a9b1ec3ac77aa6b9b3bbdc4d923f4068a7dd33b8da72a9bd6ad9a43"
+    },
+    {
+      "path": "runs/141-2026-10-17-pythia70m-no-precond-fork225-seed1234/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/141-2026-10-17-pythia70m-no-precond-fork225-seed1234/config.json",
+      "bytes": 5487,
+      "sha256": "7812a93be992f7b0999f76211f1dbd3eab2bf14cc183e930034317ee3ed9114c"
+    },
+    {
+      "path": "runs/141-2026-10-17-pythia70m-no-precond-fork225-seed1234/model_config.json",
+      "bytes": 567,
+      "sha256": "002050231a9b1ec3ac77aa6b9b3bbdc4d923f4068a7dd33b8da72a9bd6ad9a43"
+    },
+    {
+      "path": "runs/142-2026-10-17-pythia14m-no-precond-fork175-seed1235/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/142-2026-10-17-pythia14m-no-precond-fork175-seed1235/config.json",
+      "bytes": 5436,
+      "sha256": "c494a54340ad542892887fc45cf5b287fb1f87a48c80cce48deadee150598ce8"
+    },
+    {
+      "path": "runs/142-2026-10-17-pythia14m-no-precond-fork175-seed1235/model_config.json",
+      "bytes": 595,
+      "sha256": "5536386c1709fd29d9617fca802bb8f592071ac279f772b5c63a6be3db3488e2"
+    },
+    {
+      "path": "runs/143-2026-10-17-pythia14m-no-precond-fork225-seed1235/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/143-2026-10-17-pythia14m-no-precond-fork225-seed1235/config.json",
+      "bytes": 5436,
+      "sha256": "0733560ad1b882ecd9dc8bfaf5436a6dd7266f79a0cf9fe68477e8ed386e2554"
+    },
+    {
+      "path": "runs/143-2026-10-17-pythia14m-no-precond-fork225-seed1235/model_config.json",
+      "bytes": 595,
+      "sha256": "5536386c1709fd29d9617fca802bb8f592071ac279f772b5c63a6be3db3488e2"
+    },
+    {
+      "path": "runs/144-2026-10-17-pythia31m-no-precond-fork175-seed1235/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/144-2026-10-17-pythia31m-no-precond-fork175-seed1235/config.json",
+      "bytes": 5487,
+      "sha256": "9576a0c48642559c2b907565efa3d820d234ea6c39891d0b22c56f8480533331"
+    },
+    {
+      "path": "runs/144-2026-10-17-pythia31m-no-precond-fork175-seed1235/model_config.json",
+      "bytes": 596,
+      "sha256": "3a6bc92e94cd3dca46e2a3eef81a8ebb17185ffb4d5ad16bb01fd67021ccd5b6"
+    },
+    {
+      "path": "runs/145-2026-10-17-pythia31m-no-precond-fork225-seed1235/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/145-2026-10-17-pythia31m-no-precond-fork225-seed1235/config.json",
+      "bytes": 5487,
+      "sha256": "a99add5cbfc94e35091bf59aceeb4b8239f4b1043522b3cbc6366e23dd57e689"
+    },
+    {
+      "path": "runs/145-2026-10-17-pythia31m-no-precond-fork225-seed1235/model_config.json",
+      "bytes": 596,
+      "sha256": "3a6bc92e94cd3dca46e2a3eef81a8ebb17185ffb4d5ad16bb01fd67021ccd5b6"
+    },
+    {
+      "path": "runs/146-2026-10-17-pythia70m-no-precond-fork175-seed1235/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/146-2026-10-17-pythia70m-no-precond-fork175-seed1235/config.json",
+      "bytes": 5487,
+      "sha256": "321f5df251ba316bd5da83622bf61ee4fbab90149a7733f4ec9eed143052a0ee"
+    },
+    {
+      "path": "runs/146-2026-10-17-pythia70m-no-precond-fork175-seed1235/model_config.json",
+      "bytes": 567,
+      "sha256": "002050231a9b1ec3ac77aa6b9b3bbdc4d923f4068a7dd33b8da72a9bd6ad9a43"
+    },
+    {
+      "path": "runs/147-2026-10-17-pythia70m-no-precond-fork225-seed1235/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/147-2026-10-17-pythia70m-no-precond-fork225-seed1235/config.json",
+      "bytes": 5487,
+      "sha256": "e4b9eea7227edf9f10af498a7f55f68223d6e70e83b08704d188235fdb359fc8"
+    },
+    {
+      "path": "runs/147-2026-10-17-pythia70m-no-precond-fork225-seed1235/model_config.json",
+      "bytes": 567,
+      "sha256": "002050231a9b1ec3ac77aa6b9b3bbdc4d923f4068a7dd33b8da72a9bd6ad9a43"
+    },
+    {
+      "path": "runs/148-2026-10-17-pythia14m-no-precond-fork175-seed1236/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/148-2026-10-17-pythia14m-no-precond-fork175-seed1236/config.json",
+      "bytes": 5436,
+      "sha256": "ce47c9cd8bcc277a75a592326c77b1f51355d39ca1d521293ee2e53ee656db9b"
+    },
+    {
+      "path": "runs/148-2026-10-17-pythia14m-no-precond-fork175-seed1236/model_config.json",
+      "bytes": 595,
+      "sha256": "5536386c1709fd29d9617fca802bb8f592071ac279f772b5c63a6be3db3488e2"
+    },
+    {
+      "path": "runs/149-2026-10-17-pythia14m-no-precond-fork225-seed1236/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/149-2026-10-17-pythia14m-no-precond-fork225-seed1236/config.json",
+      "bytes": 5436,
+      "sha256": "c6f685099f7be618a1dc2c5cb5239380029d642e8fe70e728c1ea5422da712e5"
+    },
+    {
+      "path": "runs/149-2026-10-17-pythia14m-no-precond-fork225-seed1236/model_config.json",
+      "bytes": 595,
+      "sha256": "5536386c1709fd29d9617fca802bb8f592071ac279f772b5c63a6be3db3488e2"
+    },
+    {
+      "path": "runs/150-2026-10-17-pythia31m-no-precond-fork175-seed1236/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/150-2026-10-17-pythia31m-no-precond-fork175-seed1236/config.json",
+      "bytes": 5487,
+      "sha256": "24ec7360b6f420a4ebf1612afdbdc2b5ac7be7dac2af93aa0bd290feddf5053e"
+    },
+    {
+      "path": "runs/150-2026-10-17-pythia31m-no-precond-fork175-seed1236/model_config.json",
+      "bytes": 596,
+      "sha256": "3a6bc92e94cd3dca46e2a3eef81a8ebb17185ffb4d5ad16bb01fd67021ccd5b6"
+    },
+    {
+      "path": "runs/151-2026-10-17-pythia31m-no-precond-fork225-seed1236/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/151-2026-10-17-pythia31m-no-precond-fork225-seed1236/config.json",
+      "bytes": 5487,
+      "sha256": "bbebc7cb364b77626f4b4f02ade5f0bd08409cbbd275f88a34ad6a66ef84a634"
+    },
+    {
+      "path": "runs/151-2026-10-17-pythia31m-no-precond-fork225-seed1236/model_config.json",
+      "bytes": 596,
+      "sha256": "3a6bc92e94cd3dca46e2a3eef81a8ebb17185ffb4d5ad16bb01fd67021ccd5b6"
+    },
+    {
+      "path": "runs/152-2026-10-17-pythia70m-no-precond-fork175-seed1236/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/152-2026-10-17-pythia70m-no-precond-fork175-seed1236/config.json",
+      "bytes": 5487,
+      "sha256": "d937a5f29581a7971747e41a368ffcae378086491f9856af40cfdd17f18fc6e5"
+    },
+    {
+      "path": "runs/152-2026-10-17-pythia70m-no-precond-fork175-seed1236/model_config.json",
+      "bytes": 567,
+      "sha256": "002050231a9b1ec3ac77aa6b9b3bbdc4d923f4068a7dd33b8da72a9bd6ad9a43"
+    },
+    {
+      "path": "runs/153-2026-10-17-pythia70m-no-precond-fork225-seed1236/02_train.py",
+      "bytes": 191,
+      "sha256": "6267581a55af2fd49f42d37b62159ffabe91f558c9bf492d808d72669b9753d6"
+    },
+    {
+      "path": "runs/153-2026-10-17-pythia70m-no-precond-fork225-seed1236/config.json",
+      "bytes": 5487,
+      "sha256": "d076c03cc83eb9be910d7a952d217cbb66fc8be0f78e76c0c1eabe0ffcc987cc"
+    },
+    {
+      "path": "runs/153-2026-10-17-pythia70m-no-precond-fork225-seed1236/model_config.json",
+      "bytes": 567,
+      "sha256": "002050231a9b1ec3ac77aa6b9b3bbdc4d923f4068a7dd33b8da72a9bd6ad9a43"
+    }
+  ]
+}

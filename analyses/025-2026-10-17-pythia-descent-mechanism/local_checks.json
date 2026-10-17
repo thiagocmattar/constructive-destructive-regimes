@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "passed_tests": 21,
+  "coverage": [
+    "quadratic descent identity",
+    "actual FP32 moments and decay groups",
+    "fixed-probe token weighting and tail",
+    "RNG/gradient/parameter/optimizer noninterference",
+    "checkpoint clocks/data position and stochastic resume",
+    "complete baseline/continuation/artifact smoke",
+    "resource attribution and deletion confirmation",
+    "inventory traversal rejection",
+    "embedded SSH status syntax"
+  ],
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "source_sha256": {
+    "tests/test_descent_diagnostics.py": "adc0cc4f867e4688a163b335b47a7e269d10c25837d912c2a949ee2e0b6bab15",
+    "tests/test_causal_control.py": "c3609c0d32d80a53001fed201f6417792734d82a0492351b06a5c089b293dd13",
+    "src/baseline/causal_training.py": "8a7d3a4aabb819ac9a9e89adc323b557b3d095eb9e614b4d09f4f4a17f126765",
+    "src/baseline/descent_diagnostics.py": "b9ab74f28e69592cec6203ec2828602ac1e7808e63026b1192f9511dfbf1aa73"
+  },
+  "gpu_calibration": "not executed; requires spending limit"
+}

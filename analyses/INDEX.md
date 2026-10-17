@@ -35,5 +35,9 @@
 
 | [024](024-2026-10-17-eos-gd-lr-calibration/README.md) | One-initialization3k GD LR calibration | Nine conditions; reused059/062/120/121; new122-126 | Run122 complete/verified; MLP three-LR PDF reviewed;5/9 conditions available; expected76.81h, qualified92.18h, cap120h | [Protocol/status](024-2026-10-17-eos-gd-lr-calibration/README.md); old queues held; no rental or manuscript edit |
 
-Next analysis: `025-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
+| Analysis | Question | Source runs / other inputs | Status | Observations / figures |
+| --- | --- | --- | --- | --- |
+| [025](025-2026-10-17-pythia-descent-mechanism/README.md) | H021 Pythia descent mechanism: fixed probe, direction substitutions and norm-matched preconditioning ablation | Runs127-153; 3 sizes x3 seed blocks | Prepared/tested; cloud spending approval pending; no rental started | [Contract and launch packet](025-2026-10-17-pythia-descent-mechanism/README.md) |
+
+Next analysis: `026-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
 an analysis may use manuscript or external inputs without referencing a run.

@@ -29,7 +29,11 @@ questions alone do not create experimental commitments.
 
 | H020 | How does constant GD learning rate change full-objective loss, measured maximum curvature and projected gradient change across the three EOS task/model cases? | Active; single-initialization3k LR calibration launched; old broad sweeps held | Runs122-126 plus reused059/062/120/121; [Analysis024](../analyses/024-2026-10-17-eos-gd-lr-calibration/README.md); prior [Analysis023](../analyses/023-2026-10-15-eos-smallest-lr-calibration/README.md) | Three LRs per case,3000 updates,one frozen seed0; rates informed by prior calibration; subset Hessians for larger models; no initialization-robustness or global-stability claim |
 
-Next hypothesis: `H021`. Record the operational meaning,
+| ID | Question / hypothesis | Status | Runs / analyses | Evidence / limits |
+| --- | --- | --- | --- | --- |
+| H021 | Does Adam coordinate preconditioning contribute to Pythia's model-size loss-rate separation, after controlling adaptive-step norm? | Prepared; execution spending limit pending | [Analysis025](../analyses/025-2026-10-17-pythia-descent-mechanism/README.md), Runs127-153 | Fixed-probe D/P/residual, same-state direction substitutions and paired50-update ablations; 3 sizes x3 seed blocks; no mechanism established |
+
+Next hypothesis: `H022`. Record the operational meaning,
 comparison, support/refutation criteria, and scope in the corresponding run
 proposal. Suggested statuses: proposed, active, supported, unsupported,
 inconclusive, withdrawn. Preserve superseded interpretations instead of rewriting

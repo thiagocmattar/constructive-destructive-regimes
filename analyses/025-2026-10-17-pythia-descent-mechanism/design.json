@@ -1,0 +1,39 @@
+{
+  "hypothesis": "H021",
+  "sizes": [
+    "14M",
+    "31M",
+    "70M"
+  ],
+  "seed_blocks": [
+    1234,
+    1235,
+    1236
+  ],
+  "seeds_note": "initialization and data-order seed co-vary; match within each size block",
+  "baselines": 9,
+  "continuation_branches": 18,
+  "baseline_updates": 350,
+  "branch_updates": 50,
+  "branch_junctions": [
+    175,
+    225
+  ],
+  "original_schedule_updates": 712,
+  "one_step_candidates": [
+    "native_adamw",
+    "adam",
+    "momentum",
+    "current_preconditioned",
+    "gradient",
+    "adam_scale_0.5",
+    "adam_scale_2"
+  ],
+  "primary_continuation": "remove coordinate preconditioning while matching unmodified parent's adaptive-step norm schedule; decay unchanged",
+  "probe_sha256": "8a52f4e0f3e793277956cddf3ac6df6b35c5bcf39593af8ee2ab16fbde24863c",
+  "run_ids": [
+    127,
+    153
+  ],
+  "status": "prepared_pending_spending_approval"
+}
