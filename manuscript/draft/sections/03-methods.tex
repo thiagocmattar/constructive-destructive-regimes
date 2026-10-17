@@ -1,296 +1,201 @@
-\section{The Signal-Interference Trade-off}
+\section{Parameter Displacement under Stochastic Gradient Descent}
+\label{sec:displacement}
 
-To account for the cumulative effects of the training trajectory in the stability analysis of SGD, we propose a decomposition of the parameter vector magnitude into interpretable terms that quantify both the energy of the updates and the alignment between gradients, measured both within individual batches and across successive batches.
+The practical monitoring strategies reviewed above motivate diagnostics that
+can be computed from gradients already available during training. We develop
+such a description by relating parameter displacement to gradient magnitudes
+and directional interactions. The resulting quantities characterize how steps
+reinforce or cancel one another, and connect changes in consecutive-gradient
+alignment to directional curvature and gradient noise.
 
-In this sense, consider a neural network \( y = f(\mathbf{x}, \theta) \) with parameters \(\theta \in \mathbb{R}^d\). Let \(\mathcal{L}(\theta)\) be the loss function defined over the training dataset
-\(D = \{(x_i, y_i)\}_{i=1}^N,\)
-where \(N\) is the total number of samples. The standard gradient descent update rule is
-\[\theta_{t+1} = \theta_t - \eta \; \nabla\mathcal{L}(\theta_t),\]
-where \(\eta > 0\) is the learning rate, and \(\nabla\mathcal{L}(\theta_t)\) is the gradient of the loss with respect to \(\theta\) at iteration \(t\). Let \(B_t \subset D\) be a mini-batch of size \(m = |B_t|\) at each iteration \(t\). The mini-batch gradient is defined as
-\[G_{B_t}(\theta_t) = \frac{1}{m}\sum_{i=1}^m g_i^{(t)},\]
-where
-\(g_i^{(t)} = \nabla\ell(\theta_t; x_i, y_i)\)
-is the gradient of the loss for the \(i\)-th sample in batch \(B_t\) at iteration \(t\). The parameter update rule using the mini-batch gradient becomes
-\[\theta_{t+1} = \theta_t - \eta \, G_{B_t}.\]
-%
-If the training dataset is uniformly distributed across mini-batches with $m$ samples, then one epoch consists of \(\frac{N}{m}\) iterations, covering the entire dataset once. Training for \(k\) epochs involves a total of \(T = k \times \frac{N}{m}\) iterations. After \(T\) iterations, the final parameter vector \(\theta_T\) is given by
+Consider the plain SGD update in Eq.~\eqref{eq:sgd_map_stability}, with constant
+learning rate $\eta>0$. As before, $\theta_t\in\mathbb{R}^p$ denotes the
+parameters after update $t$, and $g_t$ is the mean mini-batch gradient evaluated
+at $\theta_{t-1}$. Summing the updates gives the displacement from initialization,
 \begin{equation}
-\theta_T = \theta_0 - \eta\sum_{t=0}^{T-1} G_{B_t}.
-\label{eq:final_theta_expression}
+  \Delta_T:=\theta_T-\theta_0=-\eta\sum_{t=1}^T g_t.
+  \label{eq:displacement}
 \end{equation}
-where \(\theta_0\) represents the parameters on initialization. Equation~\ref{eq:final_theta_expression} shows that the final parameter vector is obtained by accumulating gradient updates along the optimization trajectory. In deep learning, the magnitude and growth of the weight vector are closely related to the convergence behavior of the model \cite{lyu2020gradient,ji2020gradient}. This motivates analyzing the evolution of the parameter norm during training. Thus, taking the squared norm of \(\theta_T\), we can derive the following expression 
-
+Expanding its squared norm separates individual gradient magnitudes from their
+temporal interactions:
 \begin{equation}
 \begin{aligned}
-\|\theta_T\|^2 
-&= \Bigl\| \theta_0 - \eta \sum_{t=0}^{T-1} G_{B_t} \Bigr\|^2 \\
-&= \|\theta_0\|^{2}
-- 2\eta \sum_{t=0}^{T-1}\theta_0^{\top} G_{B_t}
-+ \eta^{2}
-\Bigl\|\sum_{t=0}^{T-1} G_{B_t}\Bigr\|^{2}.
-\label{eq:norm_split_terms}
+  \|\Delta_T\|^2
+  ={}&\eta^2\sum_{t=1}^T\|g_t\|^2\\
+     &+2\eta^2\sum_{1\leq u<t\leq T}g_u^\top g_t.
 \end{aligned}
+\label{eq:energy-interaction}
 \end{equation}
-This gives us three terms: (i) the norm of the parameters on initialization, (ii) the cross-alignment term between weight initialization and gradient trajectory, and (iii) the gradient trajectory. Let's call (ii) the \emph{initialization-trajectory alignment}
+The gradient-energy terms are nonnegative. Positive inner products reinforce
+the accumulated displacement, whereas negative inner products cancel part of
+it. This identity concerns displacement from initialization, rather than the
+absolute parameter norm or the change in the training objective.
+
+For nonzero consecutive gradients, define their cosine similarity as
 \begin{equation}
-C
-:=
--2\eta \sum_{t=0}^{T-1}\theta_0^{\top} G_{B_t}.
+  \rho_t:=\frac{g_{t-1}^\top g_t}{\|g_{t-1}\|\|g_t\|},
+  \qquad t=2,\ldots,T.
+  \label{eq:rho}
 \end{equation}
-$C$ captures the alignment between the network initial parameters $\theta_0$ and the cumulative gradient trajectory. The last term \(\eta^{2} \Bigl\|\sum_{t=0}^{T-1} G_{B_t}\Bigr\|^{2}\) gives the norm contribution of the gradient over all iterations (trajectory). As \(G_{B_t} = \frac{1}{m}\sum_{i=1}^{m} g_i^{(t)}\), this term can be expanded as follows
-
-%Replacing \(G_{B_t}\) by \(\frac{1}{m}\sum_{i=1}^m g_i^{(t)},\) and expanding the cumulative gradient term gives
-
+Separating adjacent pairs from longer-lag interactions gives the exact relation
 \begin{equation}
 \begin{aligned}
-\Bigl\|\sum_{t=0}^{T-1}\sum_{i=1}^{m} g_i^{(t)}\Bigr\|^{2}
-&=
-\sum_{t=0}^{T-1}\sum_{i=1}^{m}
-\sum_{u=0}^{T-1}\sum_{j=1}^{m}
-      g_i^{(t)\top} g_j^{(u)}
-\\[6pt]
-&=
-\underbrace{\sum_{t=0}^{T-1}\sum_{i=1}^{m}
-            \|g_i^{(t)}\|^{2}}_{\displaystyle S_1}
-\;\; \\ 
-&+\;
-\underbrace{\sum_{t=0}^{T-1}\sum_{i=1}^{m}
-            \sum_{\substack{j=1\\ j\neq i}}^{m}
-            g_i^{(t)\top} g_j^{(t)}}_{\displaystyle S_2}
-\;\;\\
-&+\;
-\underbrace{\sum_{t=0}^{T-1}\sum_{u=0}^{t-1}
-            \sum_{i=1}^{m}\sum_{j=1}^{m}
-            2\,g_i^{(t)\top} g_j^{(u)}}_{\displaystyle S_3}\; .
+\|\Delta_T\|^2={}&\eta^2\sum_{t=1}^T\|g_t\|^2\\
+ &+2\eta^2\underbrace{\sum_{t=2}^T
+    \|g_{t-1}\|\|g_t\|\rho_t}_{\text{lag-one interaction}}\\
+ &+2\eta^2\underbrace{\sum_{t=3}^T\sum_{u=1}^{t-2}
+    g_u^\top g_t}_{\text{interaction beyond lag one}}.
 \end{aligned}
-\label{eq:s_def}
+\label{eq:lag-split}
 \end{equation}
-%
-The summation above lists every inner product between two sample–level gradients $g_i^{(t)}$ and $g_j^{(u)}$ collected during training.  We partition those index pairs into three sets:
+Positive $\rho_t$ indicates constructive interaction between the two adjacent
+SGD steps; negative $\rho_t$ indicates partial cancellation. Persistent sign
+patterns therefore provide a diagnostic of transitions between locally
+reinforcing and alternating-gradient regimes. Longer-lag interactions remain
+in Eq.~\eqref{eq:lag-split}: adjacent anti-alignment does not determine the sign
+of the complete temporal sum. No assumption that these other interactions
+vanish is needed to measure or interpret $\rho_t$.
 
-\begin{itemize}
-\item $S_1$ \textbf{(per–sample gradient energy)} gathers the diagonal terms where the two indices coincide $(t=u,\;i=j)$.  It therefore measures the total magnitude of every individual sample gradient over all iterations. 
+\subsection{Curvature, Gradient Noise, and Consecutive Alignment}
 
-\item $S_2$ \textbf{(intra‑batch alignment)} retains the pairs drawn \emph{within the same iteration} but from \emph{different} samples $(t=u,\; i\neq j)$. It therefore measures how gradients from different examples in the same mini-batch interact. It quantifies the degree of directional alignment between these gradients, reflecting the semantic similarity between samples. For instance, when a batch contains images with similar content or class labels, their corresponding gradients tend to align, resulting in a positive \(S_2\). This constructive alignment reinforces learning by increasing the effective step size. Conversely, a negative \(S_2\) indicates conflicting gradients—often arising from uncorrelated or contradictory samples—leading to partial signal cancellation within the batch.
-
-\item $S_3$ \textbf{(cross‑step interference)} collects all gradient inner products across different training iterations $(t \neq u)$. It measures how gradients from earlier batches align or interfere with gradients from later ones. A large positive $S_3$ indicates that successive mini-batches produce correlated gradient directions, leading to a coherent trajectory in parameter space and more efficient accumulation of learning signal. This should occur when consecutive batches contain similar samples whose gradients reinforce each other. In contrast, when the content of consecutive batches is uncorrelated, gradient directions tend to decorrelate, causing $S_3$ to shrink. At the other extreme, $S_3 < 0$ implies destructive interference, in which updates from one batch partially undo progress made by earlier batches, leading to oscillatory or unstable learning dynamics. 
-
-\end{itemize}
-Together, we obtain the final norm decomposition
+To interpret the observed alignment, use the gradient-noise decomposition in
+Eq.~\eqref{eq:sgd_noise_decomposition},
+$g_t=\nabla\mathcal{L}(\theta_{t-1})+\xi_t$.
+Suppose the full objective $\mathcal{L}$ is twice continuously differentiable
+along the preceding step, and write
+$H_{t-1}:=\nabla^2\mathcal{L}(\theta_{t-2})$.
+Expanding the full gradient around $\theta_{t-2}$ and substituting the preceding
+SGD update yields
 \begin{equation}
-\boxed{%
-\;
-\|\theta_T\|^{2}
-\;=\;
-\|\theta_0\|^{2}
-\;+\;
-C
-\;+\;
-\frac{\eta^{2}}{m^{2}}\bigl(S_1 + S_2 + S_3\bigr).
-\;}
-\label{eq:thetaT_full}
+  g_t=(I-\eta H_{t-1})g_{t-1}+(\xi_t-\xi_{t-1})+r_t,
+  \label{eq:gradient-evolution}
 \end{equation}
-%
-Equation ~\ref{eq:thetaT_full} explains the magnitude of the parameter vector at any training step, as the result of three conceptually distinct terms: (i) the baseline magnitude $\|\theta_0\|^{2}$ inherited from whatever initialization or pre‑training we choose; (ii) the alignment term $C$, which rewards or penalizes that initialization depending on how well it already points in the eventual descent direction; and (iii) the learning‑rate to batch-size scaled aggregate $(S_{1}+S_{2}+S_{3})$, whose geometry tracks how stochastic gradients accumulate, through their individual strength, their coherence inside each batch, and their persistence across time.  
-
-%Observation
-
-\subsection{Practical Perspective}
-
-While the decomposition in Eq.~\ref{eq:thetaT_full} is exact, it is not directly tractable in practice for large models. Computing all the trajectory terms requires storing and evaluating inner products between all sample-level gradients across all training steps, which is infeasible at scale. To obtain a practical diagnostic, we assume that gradient dependence is dominated by interactions between consecutive mini-batches. In particular, we approximate cross-step interactions as negligible beyond one iteration, i.e. \(G_{B_t}^{\top} G_{B_u} \approx 0\) for \(|t-u|>1\). With this simplification, $\|\theta_T\|^2$ can be approximated as
-
+where $r_t$ is the Taylor remainder. Taking the inner product with $g_{t-1}$
+separates the preceding gradient energy, the curvature contribution, and the
+change in gradient noise. Normalize the latter two terms by the preceding
+gradient energy:
 \begin{equation}
 \begin{aligned}
-\|\theta_T\|^2
-&\approx
-\|\theta_0\|^2 
-+ C \\
-&+
-\underbrace{\eta^2 \sum_{t=0}^{T-1} \|G_{B_t}\|^2 }_{\displaystyle S_1 + S_2}
-+ 
-\underbrace{2\eta^2 \sum_{t=1}^{T-1} G_{B_{t-1}}^{\top} G_{B_{t}}}_{\displaystyle S_3},
+  \kappa_t&:=\frac{g_{t-1}^\top H_{t-1}g_{t-1}}{\|g_{t-1}\|^2},\\
+  \varepsilon_t&:=\frac{g_{t-1}^\top(\xi_t-\xi_{t-1})}
+                            {\|g_{t-1}\|^2}.
 \end{aligned}
-\label{eq:norm_with_correlation}
+\label{eq:kappa-epsilon}
 \end{equation}
-The first term corresponds to the accumulated gradient energy and intra-batch alignment ($S_1+S_2$), while the second term captures cross-step interference ($S_3$). To make this interaction interpretable, we rewrite the inner product between consecutive gradients using cosine similarity,
+Neglecting the Taylor remainder gives the first-order relation
 \begin{equation}
-\rho_t
-=
-\frac{G_{B_{t-1}}^{\top} G_{B_t}}
-{\|G_{B_{t-1}}\|\,\|G_{B_t}\|}.
-\label{eq:rho}
+  \boxed{\rho_t\approx\frac{\|g_{t-1}\|}{\|g_t\|}
+                   (1-\eta\kappa_t+\varepsilon_t).}
+  \label{eq:rho-normalized}
 \end{equation}
-Substituting back into Eq.~\ref{eq:norm_with_correlation} yields the approximation
+Positive curvature along the preceding gradient direction reduces its alignment
+with the next gradient. The noise difference can reinforce or oppose that
+effect on an individual step. Since the norm ratio is positive, the first-order
+sign prediction depends on $1-\eta\kappa_t+\varepsilon_t$
+(Table~\ref{tab:alignment-sign}). The omitted projection
+$g_{t-1}^\top r_t$ can shift the sign boundary, particularly when the
+first-order numerator is close to zero.
+
+\begin{table}[t]
+\centering
+\caption{Consecutive-gradient alignment in the first-order model.}
+\label{tab:alignment-sign}
+\begin{tabular}{lll}
+\toprule
+Alignment & Cosine sign & First-order condition\\
+\midrule
+Positive & $\rho_t>0$ & $\eta\kappa_t<1+\varepsilon_t$\\
+Orthogonal & $\rho_t=0$ & $\eta\kappa_t=1+\varepsilon_t$\\
+Negative & $\rho_t<0$ & $\eta\kappa_t>1+\varepsilon_t$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Directional curvature from gradient observations}
+The quantity $\kappa_t$ is a Hessian Rayleigh quotient along the preceding
+stochastic gradient. If $H_{t-1}v_i=\lambda_i v_i$ in an orthonormal eigenbasis
+and $g_{t-1}=\sum_i a_i v_i$, then
 \begin{equation}
-\begin{aligned}
-\|\theta_T\|^2
-&\approx
-\|\theta_0\|^2 
-+ C \\
-&+
-\underbrace{\eta^2
-\sum_{t=0}^{T-1}
-\|G_{B_t}\|^2}_{\displaystyle S_1 + S_2}
-+
-\underbrace{2\eta^2\sum_{t=0}^{T-1}
-\rho_t \,\|G_{B_{t-1}}\|\,\|G_{B_t}\|}_{\displaystyle S_3}
-.
-\end{aligned}
-\label{eq:corr}
+  \kappa_t=\frac{\sum_i\lambda_i a_i^2}{\sum_i a_i^2}.
+  \label{eq:rayleigh}
 \end{equation}
-%
-% We use $\rho_t$ to track trajectory coherence during training. When $\rho_t>0$, successive updates reinforce one another; when $\rho_t<0$, they partially cancel (overwriting); and when $\rho_t\approx 0$, updates are largely uncorrelated (noisy drift).
+Thus, the gradient selects a weighted average of Hessian eigenvalues. A sharp
+direction need not contribute much to the current gradient, so $\kappa_t$
+generally differs from $\lambda_{\max}$.
 
-% Note
-
-\begin{figure*}[h]
-    \centering
-    \includegraphics[width=1\linewidth]{figures/interf_ratio_to_loss.pdf}
-    \caption{
-Final training loss versus the normalized cross-step term \(S_3/(S_1+S_2)\) for VGG in CIFAR-10 with plain SGD (left), SGD with momentum \((\mu=0.9)\) (middle), and SGD with momentum plus weight decay \((\mu=0.9,\lambda=10^{-3})\) (right). Colors indicate batch size \(m\in\{8,32,128,512\}\); markers are annotated with the learning rate \(\{2^{-6}, ..., 2^{-2}\}\). The dashed vertical line denotes the boundary \(S_3=0\).
-}
-\label{fig:traj_decomp}
-\end{figure*}
-
-Although tracking consecutive-gradient alignment is not itself new \cite{xing2018walk}, our contribution is to place $\rho_t$ within the signal--interference decomposition and show that it directly governs the cross-step term $S_3$, thereby linking short-horizon gradient coherence to trajectory stability and loss reduction (Eq.~\eqref{eq:two_step_loss_interference}). In particular, \(\rho_t>0\) points to constructive accumulation of learning signal, \(\rho_t<0\) indicates destructive interference, and \(\rho_t\approx 0\) indicates random drift. Consistent with this picture, Figure~\ref{fig:traj_decomp} illustrates the trade-off: plain SGD operates in a destructive-interference regime (\(S_3/(S_1+S_2)<0\)), whereas momentum shifts it toward constructive accumulation (\(S_3/(S_1+S_2)>0\)), which is associated with lower loss; adding weight decay further improves robustness across a broader range of learning rates.
-
-% \subsection{Finite-Time Terminal Bound}
-
-% The practical diagnostic introduced above characterizes learning dynamics locally, but it does not quantify how these effects accumulate over the full training trajectory. We now complement that view with a finite-time analysis of the terminal parameter norm. Starting from the same assumptions used for the practical diagnosis, we derive an explicit upper bound on $\|\theta_T\|$ that makes its dependence on learning rate, batch size, dataset size, model dimensionality, and cross-step gradient alignment explicit.
-
-% Our analysis relies on the following assumptions.
-
-% \begin{enumerate}
-%     \item \textbf{Small Initialization.}
-%     The network parameters are initialized near the origin,
-%     \(
-%     \theta_0 \approx 0.
-%     \)
-
-%     \item \textbf{Local Temporal Gradient Correlations.}
-%     Dependence between mini-batch gradients is assumed to be significant only between successive iterations.
-%     For each iteration \(t \ge 1\), we define the cosine similarity
-%     \[
-%     \rho_t
-%     \;=\;
-%     \frac{\left\langle G_{B_{t-1}}, G_{B_t} \right\rangle}
-%          {\|G_{B_{t-1}}\|\,\|G_{B_t}\|},
-%     \]
-%     and assume a uniform bound
-%     \[
-%     |\rho_t| \;\le\; \rho
-%     \quad
-%     \text{for all } t,
-%     \]
-%     for some constant \(\rho \ge 0\).
-
-%     \item \textbf{Gradient Boundedness.}
-%     Each sample-level gradient is componentwise bounded by a constant \(g > 0\), i.e.,
-%     \[
-%     \bigl| g_i^{(t)}(\alpha) \bigr| \le g,
-%     \qquad
-%     \forall\, \alpha = 1,\dots,d,
-%     \]
-%     which implies
-%     \[
-%     \| g_i^{(t)} \| \le g \sqrt{d},
-%     \qquad
-%     \forall\, i,t.
-%     \]
-% \end{enumerate}
-
-% From the inequality \(2ab \le a^2 + b^2\) and the uniform bound \(|\rho_t| \le \rho\), we obtain
-% \[
-% 2\rho_t \|G_{B_{t-1}}\|\,\|G_{B_t}\|
-% \;\le\;
-% \rho\left(
-% \|G_{B_{t-1}}\|^2 + \|G_{B_t}\|^2
-% \right).
-% \]
-% Substituting into Eq.~\eqref{eq:corr} and summing over all iterations yields
-% \[
-% \|\theta_T\|^2
-% \;\le\;
-% \eta^2 (1 + 2\rho)
-% \sum_{t=0}^{T-1} \|G_{B_t}\|^2.
-% \]
-
-% Recalling that
-% \[
-% G_{B_t}
-% =
-% \frac{1}{m}
-% \sum_{i=1}^{m} g_i^{(t)},
-% \]
-% the triangle inequality together with the gradient boundedness assumption gives
-% \[
-% \|G_{B_t}\|
-% \;\le\;
-% \frac{1}{m}
-% \sum_{i=1}^{m} \|g_i^{(t)}\|
-% \;\le\;
-% g \sqrt{d}.
-% \]
-% Consequently,
-% \[
-% \|G_{B_t}\|^2 \le g^2 d,
-% \]
-% and
-% \[
-% \sum_{t=0}^{T-1} \|G_{B_t}\|^2 \le T g^2 d.
-% \]
-% Combining the above inequalities and taking expectations yields
-% \[
-% \mathbb{E}\!\left[\|\theta_T\|^2\right]
-% \;\le\;
-% \eta^2 (1 + 2\rho)\, g^2 d\, T.
-% \]
-% Since one epoch consists of \(N/m\) iterations, training for \(k\) epochs corresponds to \(T = k\,\frac{N}{m}\). Substituting this expression and applying Jensen’s inequality, we arrive at the final bound
-% \begin{equation}
-% \boxed{
-% \;
-% \mathbb{E}\!\left[\|\theta_T\|\right]
-% \;\le\;
-% \eta\, g\,
-% \sqrt{(1 + 2\rho)\, d\, \frac{kN}{m}}.
-% \;}
-% \label{eq:terminal_weight_norm_final}
-% \end{equation}
-
-% Equation~\ref{eq:terminal_weight_norm_final} reveals the characteristic \(\sqrt{N/m}\) scaling of the parameter norm for a fixed number of epochs \(k\). Temporal alignment between successive mini-batch gradients amplifies this growth through the factor \(\sqrt{1 + 2\rho}\), while weak or negative correlations attenuate it. The bound highlights how learning rate, batch size, model dimensionality, and gradient coherence jointly govern the accumulation of parameter magnitude during training.
-
-
-
-\subsection{Effects on Loss Dynamics}
-
-% Utilizando a decomposição proposta, é possível avaliar os efeitos da interação entre os gradientes ao longo da trajetória na redução da função de custo.
-The proposed framework provides insights into how gradient interactions affect the short-term evolution of the loss function. Consider two consecutive SGD steps $\theta_{t+1}=\theta_t-\eta \, G_{B_t}$ and $\theta_{t+2}=\theta_{t+1}-\eta \, G_{B_{t+1}}$. Using the noise decomposition from Eq.~\eqref{eq:sgd_noise_decomposition}, we write $G_{B_t} = g^{(t)} + \xi_t$, where $g^{(t)} := \nabla\mathcal{L}(\theta_t)$ is the true gradient and $\xi_t$ is the zero-mean stochastic noise with $\mathrm{Cov}(\xi_t \mid \theta_t) \approx \frac{1}{m}\Sigma(\theta_t)$. Applying a second-order Taylor expansion of the loss at each step and a first-order expansion of the gradient $g^{(t+1)}$ around $\theta_t$ (see Appendix A), we obtain
+Rearranging Eq.~\eqref{eq:rho-normalized} motivates the quantity
+\begin{equation}
+  \eta\widehat\kappa_t
+  :=1-\rho_t\frac{\|g_t\|}{\|g_{t-1}\|}+\varepsilon_t.
+  \label{eq:kappa-estimate}
+\end{equation}
+For full-batch GD, $\xi_t=0$ and hence $\varepsilon_t=0$. The gradient-only
+expression is then exactly
 \begin{equation}
 \begin{aligned}
-\mathcal{L}(\theta_{t+2})
-&\;\approx\;
-\mathcal{L}(\theta_t) \\
-&\;-\;\eta\Big(\|G_{B_t}\|^2 \;+\; \|G_{B_t}\|\,\|G_{B_{t+1}}\|\,\rho_{t+1}\Big) \\
-&\;+\;\eta\,\xi_t^{\top}\!\bigl(G_{B_t} + G_{B_{t+1}}\bigr) \\
-&\;+\;\eta^2\, G_{B_t}^{\top} H_t\, G_{B_{t+1}} \\
-&\;+\;\frac{\eta^2}{2}\Big(
-G_{B_t}^{\top} H_t\, G_{B_t}
-\;+\;
-G_{B_{t+1}}^{\top} H_{t+1}\, G_{B_{t+1}}
-\Big),
+\eta\widehat\kappa_t
+ &=1-\rho_t\frac{\|g_t\|}{\|g_{t-1}\|}\\
+ &=-\frac{g_{t-1}^\top(g_t-g_{t-1})}{\|g_{t-1}\|^2}.
 \end{aligned}
-\label{eq:two_step_loss_interference}
+\label{eq:gd-proxy}
 \end{equation}
-where \(H_t = \nabla^2\mathcal{L}(\theta_t)\), \(\rho_{t+1}\) is the cosine similarity between consecutive mini-batch gradients, and \(\xi_t = G_{B_t} - g^{(t)}\) is the sampling noise at step \(t\). A detailed derivation is provided in Appendix~\ref{appendix:two_step}.
+It measures the finite-step change in the gradient projected onto its
+preceding direction. Its interpretation as $\eta\kappa_t$ relies on the
+Taylor approximation, whereas the equality in Eq.~\eqref{eq:gd-proxy} does not.
+The transition to negative cosine occurs when this measured projected change
+exceeds one. This reversal boundary differs from the quadratic GD stability
+threshold $\eta\lambda_{\max}=2$.
 
-Analyzing the two terms proportional to \(\eta\) in Eq.~\eqref{eq:two_step_loss_interference}, one can see three distinct elements that affect the two-step loss change: (i) per-step gradient energy \(\|G_{B_t}\|^2\), which captures the loss decrease from the current mini-batch update alone; (ii) cross-step coherence \(\|G_{B_t}\|\,\|G_{B_{t+1}}\|\,\rho_{t+1}\), which determines whether consecutive updates reinforce or partially cancel; and (iii) noise--trajectory coupling \(\xi_t^{\top}(G_{B_t}+G_{B_{t+1}})\), which measures how stochastic fluctuations project onto the combined update direction. Again, when \(\rho_{t+1} > 0\), consecutive updates point in similar directions, so the second step builds on the first and amplifies the loss decrease. When \(\rho_{t+1} < 0\), the second update opposes the first, so part of the progress made at step \(t\) is canceled at step \(t+1\). This may produce oscillatory behavior and dampen loss reduction across the two steps, even when local curvature measures still suggest stable training.
+For mini-batch SGD, the gradient-only expression remains measurable, but
+$\varepsilon_t$ requires additional information about the gradient noise.
+Cosine and norms alone therefore provide a projected-gradient-change
+diagnostic, rather than an isolated curvature estimate. This distinction
+allows the same measurements to track directional regime transitions without
+attributing every reversal to curvature or identifying it with a loss spike.
 
-Furthermore, the noise--trajectory term 
-\(\eta \,\xi_t^{\top}\!\bigl(G_{B_t} + G_{B_{t+1}}\bigr)\) 
-reveals an opposing source to loss decrease.  To make it explicit, consider its interaction with the current mini-batch gradient:
-\(\xi_t^{\top} G_{B_t} = \xi_t^{\top}g^{(t)} + \|\xi_t\|^2\).
-The second term, \(\|\xi_t\|^2\), is always nonnegative and therefore contributes positively to the loss change regardless of the direction of the update. This means that even when consecutive gradients are well aligned ($\rho_t>0$) or nearly orthogonal ($\rho_t\approx0$), stochastic noise can still slow down convergence. We speculate here that \(\|\xi_t\|^2\) is aligned with the implicit-regularization argument of SGD, in which gradient noise can bias optimization away from purely deterministic descent and toward flatter, better-generalizing regions of the loss landscape~\cite{mandt2017sgd, jastrzebski2018three, smith2018bayesian}.
+\subsection{Normalized Displacement and Cumulative Interference}
 
-The remaining terms proportional to \(\eta^2\) in Eq.~\eqref{eq:two_step_loss_interference} capture curvature effects. In particular, the cross-term \(G_{B_t}^{\top} H_t\, G_{B_{t+1}}\) shows that curvature influences how successive updates interact by weighting their shared directions through the local Hessian. Because this coupling depends on both batches, it cannot be inferred from \(\lambda_{\max}(H_t)\) or \(\Sigma(\theta_t)\) alone.
+Consecutive alignment characterizes one pair of steps. To describe how
+directions accumulate over the complete trajectory, compare the sum of
+gradient lengths with the length of their sum:
+\begin{equation}
+  A_T:=\sum_{t=1}^T\|g_t\|,
+  \qquad B_T:=\Bigl\|\sum_{t=1}^T g_t\Bigr\|.
+  \label{eq:ab}
+\end{equation}
+For constant-step plain SGD, $\eta A_T$ is the discrete path length and
+$\eta B_T=\|\Delta_T\|$ is the endpoint displacement. Provided $A_T>0$, define
+\begin{equation}
+\begin{aligned}
+  R_T:=\frac{B_T}{A_T}
+     &=\frac{\|\Delta_T\|}{\eta\sum_{t=1}^T\|g_t\|},\\
+  &\hspace{1em}0\leq R_T\leq1.
+\end{aligned}
+\label{eq:normalized-displacement}
+\end{equation}
+Values near one indicate that most of the accumulated path length remains as
+net displacement. Smaller values indicate greater cumulative cancellation.
+The ratio is relative to path length: a small $R_T$ does not by itself imply
+small absolute displacement, poor loss reduction, or unstable training.
+Together, $\rho_t$ and $R_T$ distinguish a local reversal of direction from
+cancellation accumulated over a chosen horizon.
 
-Equation~\ref{eq:two_step_loss_interference} also admits further refinement beyond the present analysis. In particular, it suggests a practical approach for noise diagnostics: if the true gradient \(g^{(t)}\) is approximated by a temporal average of mini-batch gradients with memory comparable to the number of batches, e.g. \(\hat{g}^{(t)} = (1-\beta)\,\hat{g}^{(t-1)} + \beta\,G_{B_t}\), where \(\beta\) is a memory coefficient, then the sampling noise can be estimated as \(\xi_t \approx G_{B_t} - \hat{g}^{(t)}\). This approximation enables tracking of all first-order (in \(\eta\)) contributions in Eq.~\eqref{eq:two_step_loss_interference} along the training trajectory. More broadly, the same expansion could be used to derive step-size conditions that explicitly incorporate cross-step coherence and noise--trajectory coupling, going beyond classical analyses based solely on curvature or worst-case eigenvalues. We leave these extensions for future work, as our focus here is on isolating and characterizing the signal--interference tradeoff.
+These diagnostics can be computed online without per-sample gradients,
+Hessian eigenvectors, or a stored gradient history. Consecutive cosine and the
+projected change require the current and preceding gradients, their norms,
+and one inner product. Accumulating $A_T$ and either $\sum_t g_t$ or the
+parameter displacement gives $R_T$. The auxiliary storage is $O(p)$ and the
+additional vector work is $O(p)$ per update, with no additional backward pass
+or Hessian-vector product. Retaining parameter-sized vectors can still be
+costly for a large model, but its cost does not grow with the training horizon.
+
+Measurements must use the same parameter scope and loss reduction at every
+update. We use the complete accumulated mini-batch gradient before clipping;
+cosine is undefined when either gradient norm is zero, and $R_T$ is undefined
+when $A_T=0$. Clipping, momentum, adaptive preconditioning, and learning-rate
+schedules change the relationship between raw gradients and actual parameter
+motion. Their gradient diagnostics remain descriptive, but the plain-SGD
+displacement and curvature relations cannot be transferred to those updates
+without accounting for the optimizer. The formulation therefore supplies a
+practical geometric baseline for interpreting training trajectories alongside
+loss and gradient-norm monitoring.

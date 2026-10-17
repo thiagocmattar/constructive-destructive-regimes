@@ -40,4 +40,12 @@ formulation in English through the empirical full-batch GD result, stopping
 before the optimizer extension. It follows the local writing-style guide and
 includes a compact publication view of Analysis019 GD evidence. Editable TeX,
 the builder, reviewed PDF and provenance are together in
-`2026-10-11-restatement/`. The main manuscript is unchanged.
+`2026-10-11-restatement/`. Its source remains a separate reference for the draft revision.
+
+The restatement is now being integrated into `draft/` in user-directed steps.
+The background includes a practical pretraining-stability review, and Section 3
+uses the displacement formulation through normalized displacement. The older
+sample-level algebra is retained in Appendix A for the existing image results;
+their scientific interpretation, the introduction, and the conclusion still
+require later alignment with the new formulation. Current compiled output and
+mechanical verification records are in ignored `manuscript/artifacts/draft/`.

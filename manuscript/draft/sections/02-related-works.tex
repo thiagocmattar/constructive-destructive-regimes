@@ -87,5 +87,49 @@ Under this definition, the break-even point is defined as the first iteration at
 % algo como "Apesar da análise local facilitar a interpretação e o tratamento matemático da estabilidade dos algoritmos de otimização, essa abordagem tem fraquezas bem conhecidas. Em especial, ...
 Although the local analysis simplifies both the interpretation and the mathematical treatment of the stability problem, it is subject to well-known limitations. For instance, the Edge-of-Stability (EoS) phenomenon challenges the local-quadratic picture even in deterministic gradient descent (GD). Across architectures and tasks, full-batch GD often exhibits progressive sharpening, with the largest eigenvalue of the Hessian, $\lambda_{\max}(H_t)$, rising until it hovers near (and sometimes above) the nominal threshold $2/\eta$ (Eq.~\ref{eq:quad_stability_condition}), while optimization continues to make progress despite short-term non-monotonicity~\cite{cohen2021edge, arora2022understanding, damian2023self}. Thus, successful training can coexist with local linear instability for extended periods, indicating that sharpness alone does not fully explain and determine trajectory-level behavior.
 
-Together, these results clarify both the value and the limitation of curvature--noise interaction criteria. Quantities such as the leading Hessian eigenvalue $\lambda_{\max}(H_t)$, the gradient-noise covariance $\Sigma(\theta_{t-1})$, and related one-step stability conditions provide a pointwise description of local amplification potential, often along a dominant direction. In practice, however, these quantities are difficult to estimate online during training, especially in large neural networks. More fundamentally, even when they are available, they fail to describe the real training dynamics, as shown by the EoS phenomenon. It could be argued that this is mainly due to the strictly local validity of the discussed frameworks, which makes it difficult to extrapolate the analyses to the full optimization trajectory. A more comprehensive analysis should explain, for instance, how sequential gradient steps interact to amplify or cancel each other's effects. That interaction can be decisive for trajectory stability: two runs may exhibit similar sharpness and similar noise levels, yet follow very different optimization paths because successive updates may either reinforce one another or partially overwrite previous progress. Therefore, we argue that stability is fundamentally a property of the \textit{training trajectory}: it reflects how successive parameter updates interact and accumulate over time.
+Together, these results clarify both the value and the limitation of curvature--noise interaction criteria. Quantities such as the leading Hessian eigenvalue $\lambda_{\max}(H_t)$ and the gradient-noise covariance $\Sigma(\theta_{t-1})$ characterize local geometry and stochasticity, but can be expensive to estimate online. Their pointwise values also leave open how successive updates interact and accumulate over a training trajectory. This motivates complementary diagnostics that describe directional reinforcement and cancellation using quantities available during optimization.
+
+\subsection{Practical Stability Analysis in Large-Model Pretraining}
+\label{subsec:practical-stability}
+
+Large-model training reports approach stability through observable symptoms and
+interventions on the training recipe. An instructive example is PaLM:
+Section~5.1 reports approximately 20 loss spikes during training of the
+540B model despite global gradient clipping. The authors recovered by returning
+to a checkpoint about 100 steps before a spike and skipping 200--500 batches.
+Replaying those batches from a different parameter state did not reproduce the
+spikes, suggesting an interaction between data and model state rather than a
+property of the batches alone~\cite{chowdhery2022palm}.
+
+Reports accompanying released model weights provide further operational
+evidence. During OPT-175B training, loss divergence was associated with failures
+of the dynamic loss scale and growing final-layer activation norms. Recovery
+involved reducing the learning rate and restarting from an earlier checkpoint;
+lowering the gradient-clipping threshold from 1.0 to 0.3 also improved stability
+early in training~\cite{zhang2022opt}. These observations motivate monitoring
+the numerical state of training alongside the loss.
+
+OLMo~2 makes this diagnostic process explicit by measuring a rolling spike
+score on training loss and gradient norm, and using controlled ablations to
+study initialization, normalization, and optimizer settings. Its revised recipe
+combines global gradient clipping with changes including query--key
+normalization, reordered normalization, and a logit regularizer
+($z$-loss)~\cite{olmo2025furious}. In Llama~3, the authors report a stable
+pretraining recipe with few loss spikes and no interventions for divergence;
+they use learning-rate warmup and a staged batch-size schedule, and emphasize
+FP32 gradient accumulation and reduction for numerical
+stability~\cite{grattafiori2024llama3}. These reports document both failure
+recovery and recipes that avoid recurrent failures, rather than a universal
+instability mechanism.
+
+Loss, gradient norm, and activation statistics are practical monitoring signals,
+but gradient magnitude alone does not describe the relationship between
+successive directions. A large gradient can reinforce or oppose its predecessor,
+and a sequence of individually bounded steps can still exhibit cumulative
+cancellation. We therefore seek a complementary description that can be
+computed from training gradients and interpreted through their temporal
+geometry. The following section develops parameter displacement and
+consecutive-gradient cosine similarity for this purpose, connecting the latter
+to directional curvature and gradient noise without requiring online Hessian
+eigendecomposition.
 

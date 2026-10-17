@@ -119,3 +119,26 @@ evidence. The first500-update three-case GD/SGD stage is running on owned Spark;
 its empirical comparisons remain pending. The 13-page report and standalone
 control figure are rendered and reviewed, with input/source/artifact hashes.
 Original supplied Markdown and earlier evidence remain unchanged.
+
+On 2026-10-17, the user requested stepwise integration of the restatement into
+the working manuscript. Section 3 is now *Parameter Displacement under
+Stochastic Gradient Descent*, following the restatement through normalized
+displacement (Section 2.2). It develops the exact displacement/all-lag split,
+consecutive cosine, directional curvature/noise approximation, finite-step
+gradient projection, and B/A with explicit online measurement costs and limits.
+No lag-one truncation or alignment-based stability guarantee is assumed.
+
+The background now ends with a practical pretraining-stability review using
+PaLM v5 Section 5.1 (2204.02311), OPT v4 Section 2.5 (2205.01068), OLMo 2 v3
+Sections 2.3 and 3 (2501.00656), and Llama 3 v3 Sections 3.3.2 and 3.4.1
+(2407.21783). PaLM supplies broader large-scale context; the other reports
+document models with released weights. The reference TeX is preserved.
+
+The exact older sample-level algebra and supplied loss/interference figure are
+retained in Appendix A, and the existing two-step loss expansion is self-contained
+in Appendix B. Later empirical prose and its original metrics remain for a
+separate revision; only dependent references and a notation pointer are repaired.
+Eleven deterministic numerical checks cover the new identities, noise/remainder
+signs, reversal versus divergence, and preserved sample-level factors. The draft
+is compiled and visually reviewed under ignored `manuscript/artifacts/draft/`.
+These are manuscript mechanics checks, not new training evidence or experiments.

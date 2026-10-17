@@ -491,8 +491,11 @@ Stochastic Gradient Descent, Training Stability, Gradient Interference, Momentum
 
 %\appendix[Two-Step Loss Reduction]
 \appendices
-\section{Two-Step Loss Reduction}
+\input{sections/06-appendix}
+\section{Two-Step Loss Expansion}
 \label{appendix:two_step}
+
+This appendix uses the iteration indexing of Appendix~\ref{appendix:sample-level}: $G_{B_t}$ is evaluated at $\theta_t$, corresponding to $g_{t+1}$ in Section~\ref{sec:displacement}. Here the Hessian index likewise refers to $\theta_t$.
 
 We derive Eq.~\eqref{eq:two_step_loss_interference} by combining a second-order Taylor expansion of the loss across two consecutive SGD steps with a first-order expansion of the gradient. Consider
 \[
@@ -610,6 +613,22 @@ G_{B_t}^{\top}G_{B_{t+1}}
 \|G_{B_t}\|\,\|G_{B_{t+1}}\|\,\rho_{t+1}.
 \]
 Substituting this into Eq.~\eqref{eq:appendix_pre_rho} yields Eq.~\eqref{eq:two_step_loss_interference}.
+\begin{equation}
+\begin{aligned}
+\mathcal{L}(\theta_{t+2})
+&\;\approx\;
+\mathcal{L}(\theta_t) \\
+&\;-\;\eta\Big(\|G_{B_t}\|^2 \;+\; \|G_{B_t}\|\,\|G_{B_{t+1}}\|\,\rho_{t+1}\Big) \\
+&\;+\;\eta\,\xi_t^{\top}\!\bigl(G_{B_t} + G_{B_{t+1}}\bigr) \\
+&\;+\;\eta^2\, G_{B_t}^{\top} H_t\, G_{B_{t+1}} \\
+&\;+\;\frac{\eta^2}{2}\Big(
+G_{B_t}^{\top} H_t\, G_{B_t}
+\;+\;
+G_{B_{t+1}}^{\top} H_{t+1}\, G_{B_{t+1}}
+\Big),
+\end{aligned}
+\label{eq:two_step_loss_interference}
+\end{equation}
 
 
 
