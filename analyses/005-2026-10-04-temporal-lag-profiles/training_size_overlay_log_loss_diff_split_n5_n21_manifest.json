@@ -1,0 +1,363 @@
+{
+  "script_sha256": "f3cbfd1c0df358b5ca70c348c9bc774c1de7abcbe7148b26fe081e264a0d662e",
+  "source_csv": "training_size_overlay_log_loss_diff_n5_1_400_data.csv",
+  "source_csv_sha256": "91df042661dc685d640f87a78fb4e24c05ccc177e767df6e631a7e3237816685",
+  "source_manifest_sha256": "e3e8bbe3c01e156efb720d0ca952590c320e6b5027d76f94b2f03211f27cf5f2",
+  "preserved": {
+    "figures/cumulative_lag_interaction.pdf": "a83e399dc29c86d41de37fe7d9c1987e0d65220286a42550fdd397a697b58d87",
+    "figures/cumulative_lag_interaction_all_lags.pdf": "799bda6cc95c68f68b6d18dd1320fcfc02c82ec7a36d32cc571957abb55918ff",
+    "figures/lag_profiles.pdf": "2310780cc515d930c01717f4271003cafb4c4c7dc26d36676b53d3bc9fecf0c8",
+    "figures/lag_profiles_above_shuffled.pdf": "d32ebe23efdc78629824b1b5e87cfdd9b1650cc0fbe8718220dee74f54b276e7",
+    "figures/lag_profiles_fixed_origins.pdf": "98afc4712eea9c32eeee80a543d8ae3ccda520eec8295ea868b2bd5bc01393a4",
+    "figures/temporal_gram.pdf": "b03127aeca57237cc31293ac915f10914a7f34af5493b92e677faf4a632ec3f0",
+    "figures/training_overview.pdf": "5a628a51a9fec0390cb8828b48425274270d864d1c5717008fa1d1b23f7bf394",
+    "figures/training_size_overlay.pdf": "3ac34b7c1aabdca22beb0ba23c0ea5c46b8a819ebff2b658b631ad3af7b76fce",
+    "figures/training_size_overlay_log_loss_diff_n5_1_400.pdf": "f903742e270fbd9705e4e59d1616bb74d6e7801c5605a9f5b527987410942b94",
+    "figures/training_size_overlay_log_loss_diff_n5_split.pdf": "b3ef190d8081cbe0879887f95de34aaf204bc66641e2b0861859af34c37db833",
+    "figures/training_size_overlay_loss_diff_n5_1_400.pdf": "fd14b543818c10bab218410b4b6edbedbe69c48e3a14849c78a502c1f85e19b1",
+    "figures/training_size_overlay_raw_1_400.pdf": "0be49341246f5ef9df7610d5eef1d230fda10b6dd4ae8012d3fd565b7775460c",
+    "training_size_overlay_log_loss_diff_n5_1_400_data.csv": "91df042661dc685d640f87a78fb4e24c05ccc177e767df6e631a7e3237816685",
+    "training_size_overlay_log_loss_diff_n5_1_400_manifest.json": "e3e8bbe3c01e156efb720d0ca952590c320e6b5027d76f94b2f03211f27cf5f2",
+    "14_plot_raw_first400.py": "8343d1cceb567b616c7eb889ed683918f7fe979bec5a70e980499371feeee7c6",
+    "training_size_overlay_log_loss_diff_n5_split_manifest.json": "22f8100fb2ceae6637a1f699fa300b1149a053f65af4e041b6fbc67c5d2707ac"
+  },
+  "curves": [
+    {
+      "size": "14M",
+      "metric": "log_loss_diff_mean",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "smoothing_window": 5,
+      "finite_points": 95,
+      "arrays_sha256": "dad3e8421b28e31c2b4e57507f5f90fdb38718c66b9b3e37d43782a60cc5fef0"
+    },
+    {
+      "size": "14M",
+      "metric": "eta_kappa_proxy",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "smoothing_window": 5,
+      "finite_points": 95,
+      "arrays_sha256": "ec803c24bd7ff665987372618797d8f1534c6840e223e8db6d2ba3c65305dda6"
+    },
+    {
+      "size": "14M",
+      "metric": "rho",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "smoothing_window": 5,
+      "finite_points": 95,
+      "arrays_sha256": "3a62aebd0a8479ef212cbace2d7ee155523cf4ed2982c15d3c47194611cd70d6"
+    },
+    {
+      "size": "14M",
+      "metric": "raw_gradient_norm",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "smoothing_window": 5,
+      "finite_points": 96,
+      "arrays_sha256": "adeacfe7b99eaf78aecdc3ac433acb86c55e8221d728b2750b45dbd62d341a09"
+    },
+    {
+      "size": "14M",
+      "metric": "log_loss_diff_mean",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "smoothing_window": 21,
+      "finite_points": 301,
+      "arrays_sha256": "05350f83908d494d7964b997b46044df8a67d6e5061771a899c153c9b5e646f7"
+    },
+    {
+      "size": "14M",
+      "metric": "eta_kappa_proxy",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "smoothing_window": 21,
+      "finite_points": 301,
+      "arrays_sha256": "f0fedf3ca32de2525e84ae09c0063ae01d0ad9fb63ac1644df46f92e9087217b"
+    },
+    {
+      "size": "14M",
+      "metric": "rho",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "smoothing_window": 21,
+      "finite_points": 301,
+      "arrays_sha256": "40d75f6afb33c905a5ffe8e53973fd25bcf5c2eb29af9dcb150a87aa9ddb693c"
+    },
+    {
+      "size": "14M",
+      "metric": "raw_gradient_norm",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "smoothing_window": 21,
+      "finite_points": 301,
+      "arrays_sha256": "401fbf755cb850fc86fd6474396d733776161c0b4e0ea7401902e9603798c082"
+    },
+    {
+      "size": "31M",
+      "metric": "log_loss_diff_mean",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "smoothing_window": 5,
+      "finite_points": 95,
+      "arrays_sha256": "2825fc135dc00ea9812b29db8c02053113c5e671c588930697f637ec46a6f8bf"
+    },
+    {
+      "size": "31M",
+      "metric": "eta_kappa_proxy",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "smoothing_window": 5,
+      "finite_points": 95,
+      "arrays_sha256": "89f2e91e0b00778bbd1a3ff420f36ecb2f119cd4a21186d9739a1cd311771485"
+    },
+    {
+      "size": "31M",
+      "metric": "rho",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "smoothing_window": 5,
+      "finite_points": 95,
+      "arrays_sha256": "8aaaafc34169f868c07f1aab6ebf80f25998c83544724ec2df693c95c9da1a40"
+    },
+    {
+      "size": "31M",
+      "metric": "raw_gradient_norm",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "smoothing_window": 5,
+      "finite_points": 96,
+      "arrays_sha256": "f16e1e2952ac39e112898519eeb261f745320f7a707b39196b237865f7a210a7"
+    },
+    {
+      "size": "31M",
+      "metric": "log_loss_diff_mean",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "smoothing_window": 21,
+      "finite_points": 301,
+      "arrays_sha256": "38eb940542675931e9c7fb68dad3dc7c82eb0236f11a41df573ec1bc45278819"
+    },
+    {
+      "size": "31M",
+      "metric": "eta_kappa_proxy",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "smoothing_window": 21,
+      "finite_points": 301,
+      "arrays_sha256": "e4c4f2ca222536155acf6b914a97a9109a67c8a46e7b1da354a1df22bd61af14"
+    },
+    {
+      "size": "31M",
+      "metric": "rho",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "smoothing_window": 21,
+      "finite_points": 301,
+      "arrays_sha256": "52096936cceec0633820b410c10392685be9d2a521ac673b44faddc5e08a9bf7"
+    },
+    {
+      "size": "31M",
+      "metric": "raw_gradient_norm",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "smoothing_window": 21,
+      "finite_points": 301,
+      "arrays_sha256": "573c23880dac65e2eeb3d75f2bee4630ae294670c1c762aed3c59866d908ad1a"
+    },
+    {
+      "size": "70M",
+      "metric": "log_loss_diff_mean",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "smoothing_window": 5,
+      "finite_points": 95,
+      "arrays_sha256": "ecb5d6e2b8a032c0ad58049f0724d4dbb4f27a2ab222a53a74364985c48877d0"
+    },
+    {
+      "size": "70M",
+      "metric": "eta_kappa_proxy",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "smoothing_window": 5,
+      "finite_points": 95,
+      "arrays_sha256": "ca0844aa28eb6cd69ee9c8651ea706ecd30549c750b9abf7570e1c0e245fe85e"
+    },
+    {
+      "size": "70M",
+      "metric": "rho",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "smoothing_window": 5,
+      "finite_points": 95,
+      "arrays_sha256": "e620c2cfae87a6e6d6d7d9dff454d1ff73945a3e491ccddd7d3b60f853a46bfa"
+    },
+    {
+      "size": "70M",
+      "metric": "raw_gradient_norm",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "smoothing_window": 5,
+      "finite_points": 96,
+      "arrays_sha256": "af981d8504e75ff2aece716a49680458961b2ef5a6efd7d8272dc01f6b7dde80"
+    },
+    {
+      "size": "70M",
+      "metric": "log_loss_diff_mean",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "smoothing_window": 21,
+      "finite_points": 301,
+      "arrays_sha256": "30948e7bc8316fedf528d586eab380a19b661d6ebcb46987209f5200f2fb790e"
+    },
+    {
+      "size": "70M",
+      "metric": "eta_kappa_proxy",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "smoothing_window": 21,
+      "finite_points": 301,
+      "arrays_sha256": "d93d92658c534091f7293f1cbd72c259c0200ecd1796fd200a5721ded1cc9339"
+    },
+    {
+      "size": "70M",
+      "metric": "rho",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "smoothing_window": 21,
+      "finite_points": 301,
+      "arrays_sha256": "5bebd18bf5f8d2a2b2bd8daea1f58a646abde4388b575b3ea77f9287ddb6927d"
+    },
+    {
+      "size": "70M",
+      "metric": "raw_gradient_norm",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "smoothing_window": 21,
+      "finite_points": 301,
+      "arrays_sha256": "eb75894f3281f06313d42772d3cbe7b3a1182ae94c80b760ef74c8bf8ea4fef3"
+    }
+  ],
+  "output": {
+    "path": "figures/training_size_overlay_log_loss_diff_split_n5_n21.pdf",
+    "bytes": 122421,
+    "sha256": "264e38bc6ad05c0e0dbaea5fbc736a635e47dfce59f2254b98b310396de06608"
+  },
+  "plot_data": {
+    "path": "training_size_overlay_log_loss_diff_split_n5_n21_data.csv",
+    "bytes": 112731,
+    "sha256": "14da9be2dc2c74d21202d62b49ce45646cd40e65a338fec6c0e40160004edb5b"
+  },
+  "columns": [
+    [
+      1,
+      100
+    ],
+    [
+      100,
+      400
+    ]
+  ],
+  "row_metrics": [
+    "log_loss_diff_mean",
+    "eta_kappa_proxy",
+    "rho",
+    "raw_gradient_norm"
+  ],
+  "y_limits": "independent by column",
+  "smoothing_windows": [
+    5,
+    21
+  ],
+  "checks": {
+    "source_outputs_verified": true,
+    "plotted_arrays": true,
+    "finite_plotted_points": 4755,
+    "independent_means_checked": 4755,
+    "csv_roundtrip": true,
+    "repeated_update100_points": 12,
+    "update100_values_differ_by_window": true,
+    "raw_log_differences_used": true,
+    "smoothing_not_restarted_at_boundary": true,
+    "previous_figures_unchanged": true
+  },
+  "visual_review": {
+    "passed": true,
+    "renderer": "Poppler pdftoppm",
+    "render_sha256": "8a2cbc7d288eb9ed06063c10d160c611e3dac20f53b8c1bceb16c52deb413176",
+    "inspection": "All eight panels, two column ranges, metric rows, solid colour legend, independent Y scales and reduction notes are legible; no overlap or clipping."
+  }
+}

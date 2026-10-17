@@ -1,6 +1,10 @@
 # Analysis005: phase-dependent temporal raw-gradient alignment
 
-Latest: [four metric rows, two update ranges](figures/training_size_overlay_log_loss_diff_n5_split.pdf).
+Latest: [all metrics smoothed, N=5 / N=21](figures/training_size_overlay_log_loss_diff_split_n5_n21.pdf).
+Every row uses N=5 for updates 1-100 and N=21 for 100-400, starting from the raw
+per-update values. See [observation009](observations/009-column-smoothing.md).
+
+[Four metric rows, two update ranges](figures/training_size_overlay_log_loss_diff_n5_split.pdf).
 Columns cover 1-100 and 100-400; rows show N=5 log-loss change, eta*kappa_hat,
 rho and raw norms. Other metrics remain unsmoothed. See
 [observation008](observations/008-split-update-windows.md).

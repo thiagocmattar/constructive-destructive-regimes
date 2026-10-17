@@ -269,6 +269,9 @@ uses N=5 means of ln(L_t/L_(t-1)), approximately fractional loss changes; other 
 The [split-range layout](../analyses/005-2026-10-04-temporal-lag-profiles/observations/008-split-update-windows.md)
 uses four metric rows and columns 1-100/100-400, independent Y limits and unchanged source arrays.
 
+The [column-smoothed revision](../analyses/005-2026-10-04-temporal-lag-profiles/observations/009-column-smoothing.md)
+uses complete N=5 means for every metric at updates 1-100 and N=21 at 100-400, starting from raw scalars.
+
 [Analysis004](../analyses/004-2026-10-04-lr-schedule-intervention/README.md) completed
 the first H004 intervention: seed1235,14M/70M, original/held/accelerated decay
 from update356. Faster decay reduces raw negativity and brings positive alignment
