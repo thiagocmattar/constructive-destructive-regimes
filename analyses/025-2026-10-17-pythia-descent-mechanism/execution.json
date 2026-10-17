@@ -146,5 +146,32 @@
     "132": 7
   },
   "calibration_evidence_locally_hash_verified": true,
-  "storage_monitoring_note": "disk_free_gb from the underlying shared filesystem is not the task quota; this task has a 200 GB volume allocation"
+  "storage_monitoring_note": "disk_free_gb from the underlying shared filesystem is not the task quota; this task has a 200 GB volume allocation",
+  "spending_monitoring": {
+    "manual_check_at_epoch": 1792253642.5198164,
+    "progress_poll_seconds": 300,
+    "independent_deadline_guard_seconds": 10,
+    "live_estimated_cost_refresh_seconds": 30,
+    "stop_worker_after_all_assigned_runs_locally_verified": true,
+    "both_gpu_prices_rechecked_usd_per_hour": [
+      0.89,
+      0.89
+    ],
+    "gpu_utilization_observed_percent": [
+      97,
+      99
+    ],
+    "provider_billing_records_posted_for_task": 0,
+    "billing_status": "provisional; no task records posted at this check",
+    "observed_updates": {
+      "129": 100,
+      "132": 102
+    },
+    "overflow_retries": {
+      "129": 0,
+      "132": 0
+    },
+    "first_production_reconstruction_controls_passed": true,
+    "provisional_cost_estimate_usd": 1.1474026780518767
+  }
 }

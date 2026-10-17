@@ -40,5 +40,21 @@
       "seconds": 23.38
     },
     "empty_prelaunch_directory_fix": "py_compile passed; remote directory correction verified by both calibrations reaching update1"
+  },
+  "spending_monitor_checks": {
+    "passed": 8,
+    "seconds": 0.05,
+    "coverage": [
+      "missing/unverified branch blocks shutdown",
+      "every assigned run required",
+      "owned-pod stop and readback",
+      "empty assignment blocks shutdown",
+      "storage included in budget",
+      "earlier cost/time cutoff"
+    ],
+    "new_source_sha256": {
+      "analyses\\025-2026-10-17-pythia-descent-mechanism\\09_stop_verified_workers.py": "6bdac8eba63134ec412170b4c8e3a8ae16dddf5091ac68fd790d51b7175e9eef",
+      "tests\\test_verified_worker_stop.py": "6da51d303430c3d88bac4dcf2eaec54a323eb6ce1d0aa4d556c5736c4e3b333d"
+    }
   }
 }

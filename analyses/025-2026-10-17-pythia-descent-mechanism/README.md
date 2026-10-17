@@ -275,3 +275,18 @@ failed before invoking a model update; its logs/status were preserved. Creating
 the cohort directories and restarting the detached workers fixed the issue.
 `07_stage_and_launch.py` now creates those directories after extraction. Frozen
 scientific source, configs and input hashes stayed unchanged.
+
+## Active spending monitoring
+
+The progress/retrieval controller polls every300s. Its separate spending guard
+checks the original USD25/12h cutoff every10s. `09_stop_verified_workers.py`
+refreshes a provisional cost estimate every30s and stops each task-owned worker
+as soon as all runs assigned to it have local hash and scientific-verification
+receipts. The other worker continues its queue; the shared volume stays until
+all27 receipts permit final cleanup. This helper is independent of the existing
+training, retrieval and deadline processes. Raw probes and calibration stay local.
+
+The live estimate conservatively assumes both GPUs have run since the first
+allocation and adds the quoted storage rate; provider billing is reconciled
+separately when records post. The helper's ignored `idle-stop-status.json` holds
+the refreshed estimate, remaining budget and any per-worker shutdown read-backs.
