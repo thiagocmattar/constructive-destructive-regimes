@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "scope": "Completed MLP/ResNet only; one LR and seed per case; 3000 GD updates.",
+  "scope": "Completed MLP/ResNet/Transformer; one LR and seed per case; 3000 GD updates.",
   "runs": [
     {
       "run_id": "059",
@@ -57,19 +57,48 @@
       "config_sha256": "18691e3dacbb62cb3b95eab7338e8b2ad3222e92fd766087e296c85e5977e692",
       "verified_files": 32,
       "transfer_inventory_sha256": "48ddfdc99294456af39225c0214d0b2854528e5e4f5cfe5a5547a7fe5800fd3f"
+    },
+    {
+      "run_id": "121",
+      "run": "121-2026-10-15-eos-transformer-gd-smallest-lr-3k",
+      "task": "transformer",
+      "lr": 0.05,
+      "seed": 0,
+      "updates": 3000,
+      "initial_loss": 10.729182719678409,
+      "loss_at_state_3000": 6.630096961210181,
+      "first_negative_gradient_update": null,
+      "late_1000_cosine_mean": 0.9999951843779773,
+      "late_1000_q_mean": 0.0001963146709027368,
+      "final_B_over_A": 0.72234893497218,
+      "initial_gradient_norm": 1.289067120440712,
+      "gradient_norm_at_state_2999": 0.051622370981353596,
+      "minimum_gradient_norm": 0.051622370981353596,
+      "maximum_gradient_norm": 1.4376358506672735,
+      "maximum_sampled_eta_lambda": 1.7228544235229493,
+      "last_sampled_eta_lambda": 1.7228544235229493,
+      "source_sha256": {
+        "metrics.jsonl": "a6f549e780e53986fd09f3341cf71337beadca11d1164fb6883aad90ff9490f3",
+        "curvature.jsonl": "5eff6b382dfdbcc682e8d94545fed24dcd6980c432e8b5d6a65583ff2c046559",
+        "manifest.json": "09c293ce6658cfcfee0bb2889fe97702732f3b1f1561ce7040bfdd5756ed11be"
+      },
+      "config_sha256": "154ced50dfd85d0c731c5509b746eaed371b7bc70c33513e08b66676f9e1b331",
+      "verified_files": 32,
+      "transfer_inventory_sha256": "e971abee17a7fe28fd92bbb6bd8dde26d3511379628f7fb3e0bfd8a2a7a1e466"
     }
   ],
-  "gradient_pairs": 5998,
-  "spectral_points": 62,
+  "gradient_pairs": 8997,
+  "spectral_points": 93,
   "temporal_smoothing": "none",
   "seed_aggregation": "none",
-  "raw_gradient_norm_points": 6000,
+  "raw_gradient_norm_points": 9000,
   "gradient_norm_y_scale": "log",
   "checks": [
     "Full used-row and spectral coverage",
     "Verified byte sizes and SHA256 inventories",
     "Frozen initialization/config identities",
     "Exact q and prefix geometry identities",
-    "Exact plotted arrays"
+    "Exact plotted arrays",
+    "Previously plotted curve hashes unchanged"
   ]
 }

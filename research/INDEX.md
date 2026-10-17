@@ -11,7 +11,8 @@ Final losses are0.3365/0.4898/6.6301; late1k mean raw cosines are
 Only ResNet has negative adjacent pairs in this window; first at update231.
 Training finished October17 at01:05 Sao Paulo time; retrieval/reduction at01:10.
 ETC0, owned Spark idle and local monitors closed. The reviewed MLP/ResNet3k
-PDF is preserved; Transformer has numeric results but is excluded from that figure.
+PDF now includes Transformer: three columns, four rows,27093 exact plotted points.
+All eight previous MLP/ResNet curves are unchanged; only the norm row is log Y.
 All later020/021 training stays held for review. No rental or manuscript edit.
 Single-seed calibrations do not establish universal LR or stability effects.
 Next Run122 / Analysis024 / H021.

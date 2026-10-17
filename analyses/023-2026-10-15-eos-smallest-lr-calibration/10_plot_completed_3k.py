@@ -1,4 +1,4 @@
-"""Two-column overview of the completed seed0 MLP/ResNet 3k GD evidence."""
+"""Three-column overview of the completed seed0 3k GD calibration evidence."""
 import argparse
 import hashlib
 import importlib.util
@@ -33,7 +33,7 @@ def sources():
     checks = module(ROOT / 'analyses/021-2026-10-15-eos-multitask-lr/03_collect.py', 'completed_3k_checks')
     loader = module(ROOT / 'analyses/020-2026-10-14-eos-multitask/07_plot_training.py', 'completed_3k_loader')
     data, results = [], []
-    for rid in ['059', '120']:
+    for rid in ['059', '120', '121']:
         record = next(r for r in cohort['runs'] if r['run_id'] == rid)
         assert record['updates'] == 3000 and record['seed'] == 0 and record['method'] == 'gd'
         if record['kind'] == 'reused_gd_prefix': receipt = checks.verify_legacy(record)
@@ -47,7 +47,7 @@ def sources():
         assert manifest['config_sha256'] == file_hash(run / 'config.json')
         assert manifest['initial_tensor_sha256'] == inputs['initial'][record['task']][0]['initial_tensor_sha256']
         assert record['lr'] == (config['optimizers']['gd']['lr'] if rid == '059' else config['lr'])
-        if rid == '120': assert manifest['full_batch'] and manifest['completed_updates'] == 3000
+        if rid != '059': assert manifest['full_batch'] and manifest['completed_updates'] == 3000
         d = loader.load(record)
         np.testing.assert_array_equal(d['spectral_x'], np.arange(0, 3001, 100))
         assert len(d['loss']) == 3000 and np.isfinite(d['loss']).all() and np.isfinite(d['final_loss'])
@@ -88,17 +88,22 @@ def main():
         assert m['script_sha256'] == file_hash(__file__)
         for key in ['pdf', 'render', 'arrays', 'results']:
             assert file_hash(ROOT / m[key]) == m[key+'_sha256']
-        m.update(status='passed', visual_review='Current Poppler render inspected: two columns, eight panels, readable LR/seed labels, unsmoothed curves, logarithmic raw-gradient norms, full/subset spectral labels, reference lines and margins.')
+        m.update(status='passed', visual_review='Current Poppler render inspected: three columns, twelve panels, readable LR/seed labels, unsmoothed curves, logarithmic raw-gradient norms, full/subset spectral labels, reference lines and margins.')
         write_json(MANIFEST, m)
         return
     data, results, loader = sources()
     plt.rcParams.update({'font.family':'serif', 'mathtext.fontset':'stix', 'font.size':10,
         'axes.labelsize':10.5, 'axes.titlesize':11, 'xtick.labelsize':9, 'ytick.labelsize':9,
         'axes.spines.top':False, 'axes.spines.right':False, 'axes.linewidth':.7, 'pdf.fonttype':42})
-    fig, axes = plt.subplots(4, 2, figsize=(7.4, 8.9), sharex='col')
+    fig, axes = plt.subplots(4, 3, figsize=(11.0, 8.9), sharex='col')
     arrays, artists = {}, []
-    titles = ['CIFAR-10 / tanh MLP\n5,000 training images', 'CIFAR-10 / ResNet-32\n50,000 training images']
-    colours = ['#0072B2', '#D55E00']
+    previous = json.loads(MANIFEST.read_text()) if MANIFEST.exists() else None
+    titles = ['CIFAR-10 / tanh MLP\n5,000 training images',
+              'CIFAR-10 / ResNet-32\n50,000 training images',
+              'WikiText-2 / Transformer\n2.09M training target tokens']
+    colours = ['#0072B2', '#D55E00', '#009E73']
+    spectral_labels = ['Hessian: full 5k', 'Hessian: fixed 5k subset',
+                       'Hessian: fixed 2,500-sequence subset']
     for col, d in enumerate(data):
         axes[0,col].set_title(titles[col], pad=31)
         values = [(np.arange(3001), np.r_[d['loss'], d['final_loss']]),
@@ -117,14 +122,13 @@ def main():
                 x_sha256=hashlib.sha256(np.asarray(x,dtype='<f8').tobytes()).hexdigest(),
                 y_sha256=hashlib.sha256(np.asarray(y,dtype='<f8').tobytes()).hexdigest()))
             ax.set_xlim(0,3000); ax.set_xticks([0,1000,2000,3000]); ax.grid(alpha=.16,lw=.55)
-            ax.text(.025,.94,f'({chr(97+row*2+col)})',transform=ax.transAxes,va='top',fontsize=9,
+            ax.text(.025,.94,f'({chr(97+row*3+col)})',transform=ax.transAxes,va='top',fontsize=9,
                 bbox=dict(facecolor='white',edgecolor='none',alpha=.85,pad=.8))
             if row in (1,2):
                 ax.axhline(2 if row==1 else 1,color='.45',ls=(0,(4,3)),lw=.8)
                 ax.margins(y=.08)
             if row==1:
-                label='Hessian: full 5k' if col==0 else 'Hessian: fixed 5k subset'
-                ax.text(.03,.28 if col==0 else .06,label,transform=ax.transAxes,fontsize=8,color='.3',
+                ax.text(.03,.28 if col==0 else .06,spectral_labels[col],transform=ax.transAxes,fontsize=8,color='.3',
                     bbox=dict(facecolor='white',edgecolor='none',alpha=.85,pad=1))
             if row==3:
                 ax.set_yscale('log')
@@ -133,7 +137,11 @@ def main():
             fontsize=9,handlelength=1.6,borderaxespad=0)
     for row,label in enumerate(['Training loss',r'$\eta\lambda_{\max}$',r'$\eta\widehat\kappa_t$',r'$\|g_t\|_2$']):
         axes[row,0].set_ylabel(label)
-    fig.subplots_adjust(left=.105,right=.965,bottom=.075,top=.89,wspace=.28,hspace=.24)
+    if previous:
+        current = {a['tag']: a for a in artists}
+        for prior in previous['curves']:
+            assert current[prior['tag']] == prior, f'Previously plotted curve changed: {prior["tag"]}'
+    fig.subplots_adjust(left=.075,right=.98,bottom=.075,top=.89,wspace=.28,hspace=.24)
     fig.canvas.draw(); renderer=fig.canvas.get_renderer()
     # Log locators retain off-view tick Text objects; check the actual drawn
     # figure bounds rather than undrawn labels outside the logarithmic limits.
@@ -147,14 +155,17 @@ def main():
     arrayfile=HERE/'derived/completed_3k_curves.npz'; arrayfile.parent.mkdir(exist_ok=True)
     np.savez_compressed(arrayfile,**arrays)
     resultfile=HERE/'completed_3k_results.json'
-    write_json(resultfile,dict(status='passed',scope='Completed MLP/ResNet only; one LR and seed per case; 3000 GD updates.',
-        runs=results,gradient_pairs=5998,spectral_points=62,temporal_smoothing='none',seed_aggregation='none',
-        raw_gradient_norm_points=6000,gradient_norm_y_scale='log',
+    write_json(resultfile,dict(status='passed',scope='Completed MLP/ResNet/Transformer; one LR and seed per case; 3000 GD updates.',
+        runs=results,gradient_pairs=8997,spectral_points=93,temporal_smoothing='none',seed_aggregation='none',
+        raw_gradient_norm_points=9000,gradient_norm_y_scale='log',
         checks=['Full used-row and spectral coverage','Verified byte sizes and SHA256 inventories',
-                'Frozen initialization/config identities','Exact q and prefix geometry identities','Exact plotted arrays']))
+                'Frozen initialization/config identities','Exact q and prefix geometry identities','Exact plotted arrays',
+                'Previously plotted curve hashes unchanged']))
     paths=dict(pdf=pdf,render=png,arrays=arrayfile,results=resultfile)
     record=dict(status='awaiting_visual_review',script_sha256=file_hash(__file__),loader_sha256=file_hash(loader.__file__),
-        cohort_sha256=file_hash(HERE/'cohort.json'),curves=artists,gradient_norm_y_scale='log',visual_review=None)
+        cohort_sha256=file_hash(HERE/'cohort.json'),curves=artists,gradient_norm_y_scale='log',visual_review=None,
+        layout=dict(rows=4,columns=3,panels=12),plotted_points=sum(a['points'] for a in artists),
+        previous_curves_verified_unchanged=[a['tag'] for a in previous['curves']] if previous else [])
     for key,path in paths.items():
         record[key]=path.relative_to(ROOT).as_posix(); record[key+'_sha256']=file_hash(path)
     write_json(MANIFEST,record)

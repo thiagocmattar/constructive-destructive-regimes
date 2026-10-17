@@ -168,15 +168,16 @@ No negative adjacent pair occurs for the MLP or Transformer in this window;
 the ResNet first crosses at gradient update231. These are single-seed
 calibrations, not a replicated LR sweep or an asymptotic stability result.
 
-The requested [two-column3k overview](figures/eos_gd_overview_completed_3k.pdf)
-now covers the completed MLP and ResNet cases, with unsmoothed loss,
-eta*lambda_max, eta*kappa_hat and raw-gradient norms on logarithmic Y axes.
-Run120 is retrieved/hash verified; all5,998 used pairs,62 spectra and6,000
-raw norms pass checks, and the current eight-panel PDF passes
+The requested [three-column3k overview](figures/eos_gd_overview_completed_3k.pdf)
+now covers the completed MLP, ResNet and Transformer cases. Its four rows show
+unsmoothed loss, eta*lambda_max, eta*kappa_hat and raw-gradient norms; only
+the norm row uses logarithmic Y axes. Both new runs are retrieved/hash verified;
+all8,997 used pairs,93 spectra and9,000 raw norms pass checks, and the current
+twelve-panel PDF passes
 visual review. See [observation003](observations/003-completed-3k-overview.md),
 `10_plot_completed_3k.py`, `completed_3k_results.json` and its figure manifest.
-The Transformer is now complete but remains outside this two-case figure;
-the existing PDF and manuscript are unchanged by the completion closeout.
+All eight previous MLP/ResNet curve hashes are unchanged. The original
+Analysis020 reference PDF and manuscript are unchanged by this figure update.
 
 The verified3k MLP prefix has loss0.596781 ->0.336508, late1k mean cosine
 0.999999957, B/A0.794144, and maximum sampled eta*lambda_max0.316827.
