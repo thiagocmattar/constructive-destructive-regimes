@@ -56,7 +56,7 @@ in Eq.~\eqref{eq:lag-split}: adjacent anti-alignment does not determine the sign
 of the complete temporal sum. No assumption that these other interactions
 vanish is needed to measure or interpret $\rho_t$.
 
-\subsection{Curvature, Gradient Noise, and Consecutive Alignment}
+\subsection{Directional Curvature and Consecutive Alignment}
 
 To interpret the observed alignment, use the gradient-noise decomposition in
 Eq.~\eqref{eq:sgd_noise_decomposition},
@@ -82,46 +82,28 @@ gradient energy:
 \end{aligned}
 \label{eq:kappa-epsilon}
 \end{equation}
+Curvature describes how the gradient changes as the parameters move. Here
+$H_{t-1}g_{t-1}$ gives the local gradient response along the preceding gradient
+direction, and the projection in $\kappa_t$ retains the component along that
+same line. Since the SGD step is $-\eta g_{t-1}$, positive $\kappa_t$ reduces
+the full gradient's component along $g_{t-1}$; a large enough change can
+reverse that component. Thus, $\kappa_t$ describes curvature encountered along
+the step being taken, while other directions can behave differently.
+
 Neglecting the Taylor remainder gives the first-order relation
 \begin{equation}
   \boxed{\rho_t\approx\frac{\|g_{t-1}\|}{\|g_t\|}
                    (1-\eta\kappa_t+\varepsilon_t).}
   \label{eq:rho-normalized}
 \end{equation}
-Positive curvature along the preceding gradient direction reduces its alignment
-with the next gradient. The noise difference can reinforce or oppose that
+Positive curvature reduces the next gradient's component along the preceding
+gradient direction. The noise difference can reinforce or oppose that
 effect on an individual step. Since the norm ratio is positive, the first-order
-sign prediction depends on $1-\eta\kappa_t+\varepsilon_t$
-(Table~\ref{tab:alignment-sign}). The omitted projection
+model predicts positive alignment when $\eta\kappa_t<1+\varepsilon_t$,
+orthogonality at equality, and negative alignment when
+$\eta\kappa_t>1+\varepsilon_t$. The omitted projection
 $g_{t-1}^\top r_t$ can shift the sign boundary, particularly when the
 first-order numerator is close to zero.
-
-\begin{table}[t]
-\centering
-\caption{Consecutive-gradient alignment in the first-order model.}
-\label{tab:alignment-sign}
-\begin{tabular}{lll}
-\toprule
-Alignment & Cosine sign & First-order condition\\
-\midrule
-Positive & $\rho_t>0$ & $\eta\kappa_t<1+\varepsilon_t$\\
-Orthogonal & $\rho_t=0$ & $\eta\kappa_t=1+\varepsilon_t$\\
-Negative & $\rho_t<0$ & $\eta\kappa_t>1+\varepsilon_t$\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\subsubsection{Directional curvature from gradient observations}
-The quantity $\kappa_t$ is a Hessian Rayleigh quotient along the preceding
-stochastic gradient. If $H_{t-1}v_i=\lambda_i v_i$ in an orthonormal eigenbasis
-and $g_{t-1}=\sum_i a_i v_i$, then
-\begin{equation}
-  \kappa_t=\frac{\sum_i\lambda_i a_i^2}{\sum_i a_i^2}.
-  \label{eq:rayleigh}
-\end{equation}
-Thus, the gradient selects a weighted average of Hessian eigenvalues. A sharp
-direction need not contribute much to the current gradient, so $\kappa_t$
-generally differs from $\lambda_{\max}$.
 
 Rearranging Eq.~\eqref{eq:rho-normalized} motivates the quantity
 \begin{equation}
@@ -153,6 +135,57 @@ diagnostic, rather than an isolated curvature estimate. This distinction
 allows the same measurements to track directional regime transitions without
 attributing every reversal to curvature or identifying it with a loss spike.
 
+\subsection{Noise Contribution under Mini-Batch Sampling}
+\label{subsec:sampling-noise}
+
+Fresh, conditionally unbiased sampling makes the new noise $\xi_t$
+uncorrelated with the preceding gradient $g_{t-1}$. However, $g_{t-1}$ already
+contains its own noise $\xi_{t-1}$. Consequently, assuming finite second moments,
+\begin{equation}
+\begin{aligned}
+  \mathbb{E}[g_{t-1}^\top(\xi_t-\xi_{t-1})]
+  &=-\mathbb{E}\|\xi_{t-1}\|^2\\
+  &\leq0.
+\end{aligned}
+\label{eq:noise-expectation}
+\end{equation}
+Even zero-mean sampling noise therefore contributes a nonpositive term to the
+unnormalized adjacent inner product in Eq.~\eqref{eq:gradient-evolution}.
+This identifies a sampling contribution that can accompany the curvature
+effect in the alignment diagnostic.
+
+To separate sampling from parameter motion, consider independent mini-batch
+gradients evaluated at the same fixed parameters $\theta$. Each draw has the
+form $g_t=\nabla\mathcal{L}(\theta)+\xi_t$: the full-gradient component stays
+the same, while the sampled component varies. Using the per-sample covariance
+$\Sigma(\theta)$ defined in Eq.~\eqref{eq:grad_cov_def}, a uniform batch of
+$b$ examples sampled without replacement from $N>1$ examples has
+\begin{equation}
+  \mathbb{E}\|\xi_t\|^2
+  =\frac{N-b}{b(N-1)}\,\mathrm{tr}\,\Sigma(\theta).
+  \label{eq:finite-population-noise}
+\end{equation}
+Smaller batches have larger sampling variance; at $b=N$, this noise vanishes.
+For two independent draws at these fixed parameters,
+\begin{equation}
+\begin{aligned}
+  \mathbb{E}[g_{t-1}^\top g_t]
+    &=\|\nabla\mathcal{L}(\theta)\|^2,\\
+  \mathbb{E}\|g_t\|^2
+    &=\|\nabla\mathcal{L}(\theta)\|^2
+      +\mathbb{E}\|\xi_t\|^2.
+\end{aligned}
+\label{eq:frozen-noise-energy}
+\end{equation}
+The shared full-gradient component contributes to the expected inner product,
+while independent sampling fluctuations increase gradient energy without
+adding a persistent direction. Because cosine divides by random gradient
+norms, its expectation is not the ratio of these two expectations. In
+particular, adjacent sampled gradients can vary even when the parameters and
+the full gradient are unchanged. Their projected change must therefore be
+interpreted together with sampling noise, rather than attributed entirely to
+curvature encountered through parameter motion.
+
 \subsection{Normalized Displacement and Cumulative Interference}
 
 Consecutive alignment characterizes one pair of steps. To describe how
@@ -180,8 +213,24 @@ small absolute displacement, poor loss reduction, or unstable training.
 Together, $\rho_t$ and $R_T$ distinguish a local reversal of direction from
 cancellation accumulated over a chosen horizon.
 
+The fixed-parameter sampling calculation also clarifies this ratio. For
+independent gradient draws at the same $\theta$, with
+$0<\mathbb{E}\|g_t\|<\infty$, averaging the vectors preserves the full
+gradient, whereas averaging their lengths retains sampling fluctuations.
+Consequently,
+\begin{equation}
+  \frac{B_T}{A_T}\xrightarrow[T\to\infty]{\mathrm{a.s.}}
+  \frac{\|\nabla\mathcal{L}(\theta)\|}{\mathbb{E}\|g_t\|}.
+  \label{eq:frozen-accumulation-limit}
+\end{equation}
+This describes gradient accumulation in a sampling control without parameter
+updates. It shows how sampling can reduce the fraction of accumulated gradient
+length that remains in the mean direction. Along an SGD trajectory, the
+parameters and full-gradient direction also change, so the same fixed-state
+calculation does not determine the observed $R_T$.
+
 These diagnostics can be computed online without per-sample gradients,
-Hessian eigenvectors, or a stored gradient history. Consecutive cosine and the
+Hessian eigenvectors, or a full stored gradient history. Consecutive cosine and the
 projected change require the current and preceding gradients, their norms,
 and one inner product. Accumulating $A_T$ and either $\sum_t g_t$ or the
 parameter displacement gives $R_T$. The auxiliary storage is $O(p)$ and the
@@ -199,3 +248,57 @@ displacement and curvature relations cannot be transferred to those updates
 without accounting for the optimizer. The formulation therefore supplies a
 practical geometric baseline for interpreting training trajectories alongside
 loss and gradient-norm monitoring.
+
+\subsection{Connection with Loss Decrease and Convergence}
+\label{subsec:loss-connection}
+
+Directional reinforcement and cancellation describe parameter motion. To
+connect them with optimization progress, expand the loss along the same SGD
+step. For the preceding update, from $\theta_{t-2}$ to $\theta_{t-1}$, the
+second-order approximation gives
+\begin{equation}
+\begin{aligned}
+&\mathcal{L}(\theta_{t-1})-\mathcal{L}(\theta_{t-2})\\
+&\quad\approx-\eta\|g_{t-1}\|^2
+          \left(1-\frac{\eta\kappa_t}{2}\right)
+          +\eta\xi_{t-1}^\top g_{t-1}.
+\end{aligned}
+\label{eq:loss-curvature}
+\end{equation}
+The same $\kappa_t$ that describes the projected gradient change therefore
+also appears in the local loss change. For full-batch GD, the noise term
+vanishes: the quadratic model predicts a loss decrease for $\eta\kappa_t<2$,
+while the consecutive gradient turns against its predecessor for
+$\eta\kappa_t>1$. Thus, $1<\eta\kappa_t<2$ can combine gradient reversal
+with loss decrease. These statements are exact for a quadratic objective;
+for a nonlinear loss, the omitted Taylor terms affect both predictions.
+The condition concerns descent along the observed step, rather than
+contraction of perturbations in every direction.
+
+The role of consecutive cosine is also visible over two updates. Expanding
+the loss along their combined displacement
+$\theta_t-\theta_{t-2}=-\eta(g_{t-1}+g_t)$ yields
+\begin{equation}
+\begin{aligned}
+&\mathcal{L}(\theta_t)-\mathcal{L}(\theta_{t-2})\\
+&\quad\approx-\eta\left(\|g_{t-1}\|^2
+                   +\|g_{t-1}\|\|g_t\|\rho_t\right)\\
+&\qquad+\eta\xi_{t-1}^\top(g_{t-1}+g_t)\\
+&\qquad+\frac{\eta^2}{2}(g_{t-1}+g_t)^\top
+                    H_{t-1}(g_{t-1}+g_t).
+\end{aligned}
+\label{eq:two_step_loss_interference}
+\end{equation}
+Here $\rho_t$ enters the first-order projection of the combined step onto
+the starting gradient. Curvature and noise also contribute, so its sign alone
+does not determine whether the loss decreases. Appendix~\ref{appendix:two_step}
+derives both relations and shows how the noise terms interact under unbiased
+sampling.
+
+These relations connect the diagnostics to loss progress without making
+alignment a convergence criterion. Convergence requires control of loss
+changes, noise, and approximation errors over the trajectory under suitable
+assumptions. Positive cosine or a large $R_T$ does not supply that control;
+negative cosine or strong cumulative cancellation can coexist with decreasing
+loss. The geometric diagnostics should therefore be read alongside the loss
+and the chosen convergence criterion.

@@ -142,3 +142,23 @@ Eleven deterministic numerical checks cover the new identities, noise/remainder
 signs, reversal versus divergence, and preserved sample-level factors. The draft
 is compiled and visually reviewed under ignored `manuscript/artifacts/draft/`.
 These are manuscript mechanics checks, not new training evidence or experiments.
+
+The next user-directed revision removes the alignment table and the spectral
+definition of directional curvature, explaining kappa through the gradient
+response projected along the preceding step. The first-order sign conditions
+are stated in prose. A sampling-noise subsection now precedes normalized
+displacement, reusing the existing per-sample covariance for the exact
+finite-population factor and separating fixed-parameter gradient draws from
+an evolving SGD trajectory. The fixed-state B/A limit follows its definitions.
+No noise experiment or additional figure is inserted.
+
+The section ends with *Connection with Loss Decrease and Convergence*, reusing
+kappa in the one-step loss expansion and cosine in a compact two-step expansion.
+Appendix B now uses the same g/theta/H indexing and derives these relations,
+including cancellation of noise energy in the expected first-order loss term.
+The local quadratic reversal boundary at eta*kappa=1 is distinguished from
+the loss-descent boundary at eta*kappa=2 and from a convergence guarantee.
+Fifty-five exhaustive finite-population and deterministic objective-value checks
+pass with maximum absolute discrepancy 1.78e-15; the 13-page draft compiles with
+resolved references and no overfull boxes. Validation scripts and records remain
+under ignored `manuscript/artifacts/draft/`. These checks add no training evidence.

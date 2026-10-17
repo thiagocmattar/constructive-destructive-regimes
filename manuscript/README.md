@@ -44,8 +44,11 @@ the builder, reviewed PDF and provenance are together in
 
 The restatement is now being integrated into `draft/` in user-directed steps.
 The background includes a practical pretraining-stability review, and Section 3
-uses the displacement formulation through normalized displacement. The older
-sample-level algebra is retained in Appendix A for the existing image results;
-their scientific interpretation, the introduction, and the conclusion still
-require later alignment with the new formulation. Current compiled output and
-mechanical verification records are in ignored `manuscript/artifacts/draft/`.
+uses displacement, directional curvature, sampling noise, normalized
+displacement, and a local connection to loss decrease. The older
+sample-level algebra is retained in Appendix A for the existing image results.
+Appendix B derives the loss relations using the main section's notation.
+The scientific interpretation of the image results, the introduction, and the
+conclusion still require later alignment with the new formulation. Current
+compiled output and mechanical verification records are in ignored
+`manuscript/artifacts/draft/`.

@@ -5,17 +5,23 @@ Run001 defines whole-model raw, unscaled accumulated gradients at each optimizer
 boundary before clipping/AdamW; the requested cosines and cumulative norms are
 specified in `BASELINE_PLAN.md`. Broader claims/definitions below remain open.
 
-The working manuscript (`manuscript/draft/sections/03-methods.tex`) decomposes
-terminal squared parameter norm under constant-step, plain mini-batch SGD into
-initialization norm, initialization-trajectory alignment `C`, per-sample energy
-`S1`, intra-batch alignment `S2`, and cross-step interaction `S3`.
+The working formulation (`manuscript/draft/sections/03-methods.tex`) now starts
+with displacement from initialization under constant-step, plain mini-batch SGD.
+It retains the exact gradient-energy and all-pair temporal-interaction split,
+defines consecutive cosine `rho_t` and normalized displacement `R_T = B_T/A_T`,
+and connects projected gradient change to directional curvature and sampling
+noise. The older absolute parameter-norm and sample-level `C/S1/S2/S3`
+decomposition remains in Appendix A for the existing image-classification results.
 
 Its practical diagnostic `rho_t` is the cosine similarity between consecutive
 mini-batch gradients evaluated along the evolving trajectory. Positive/negative
 values describe reinforcement/cancellation of those vectors. The diagnostic
 alone does not establish loss reduction, forgetting, or any formal stability
-criterion. The practical norm approximation omits interactions beyond lag one;
-that omission is an assumption, not a known property of Pythia training.
+criterion. The current displacement formulation retains interactions beyond
+lag one; it does not assume they vanish. The local loss relations retain noise
+and a quadratic/Taylor approximation, so gradient reversal can coexist with
+loss decrease. These manuscript relations are distinct from an experiment's
+measurement contract or a convergence guarantee.
 
 Before implementation, decide:
 

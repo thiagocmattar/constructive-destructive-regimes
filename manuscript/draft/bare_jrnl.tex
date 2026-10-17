@@ -492,146 +492,88 @@ Stochastic Gradient Descent, Training Stability, Gradient Interference, Momentum
 %\appendix[Two-Step Loss Reduction]
 \appendices
 \input{sections/06-appendix}
-\section{Two-Step Loss Expansion}
+\section{Derivation of the Local Loss Changes}
 \label{appendix:two_step}
 
-This appendix uses the iteration indexing of Appendix~\ref{appendix:sample-level}: $G_{B_t}$ is evaluated at $\theta_t$, corresponding to $g_{t+1}$ in Section~\ref{sec:displacement}. Here the Hessian index likewise refers to $\theta_t$.
+We use the same indexing as Section~\ref{sec:displacement}: $g_{t-1}$ is
+evaluated at $\theta_{t-2}$, $g_t$ at $\theta_{t-1}$, and
+$H_{t-1}=\nabla^2\mathcal{L}(\theta_{t-2})$. The loss is assumed twice
+continuously differentiable along the displacements considered below. The
+relations retain second-order terms and omit the Taylor remainders; they are
+exact when the objective is quadratic.
 
-We derive Eq.~\eqref{eq:two_step_loss_interference} by combining a second-order Taylor expansion of the loss across two consecutive SGD steps with a first-order expansion of the gradient. Consider
-\[
-\theta_{t+1}=\theta_t-\eta\,G_{B_t},
-\quad
-\theta_{t+2}=\theta_{t+1}-\eta\,G_{B_{t+1}},
-\]
-and recall
-\[
-G_{B_t}=g^{(t)}+\xi_t,
-\quad
-g^{(t)}:=\nabla \mathcal{L}(\theta_t),
-\quad
-H_t:=\nabla^2\mathcal{L}(\theta_t).
-\]
-A second-order expansion of \(\mathcal{L}(\theta_{t+1})\) around \(\theta_t\) gives
+\subsection{One Update and Directional Curvature}
+For $\theta_{t-1}-\theta_{t-2}=-\eta g_{t-1}$, Taylor expansion gives
 \begin{equation}
 \begin{aligned}
-\mathcal{L}(\theta_{t+1})
-&\approx
-\mathcal{L}(\theta_t) \\
-&-\eta\,g^{(t)\top}G_{B_t}
-+\frac{\eta^2}{2}\,G_{B_t}^{\top}H_t\,G_{B_t}.
+&\mathcal{L}(\theta_{t-1})-\mathcal{L}(\theta_{t-2})\\
+&\quad\approx-\eta\nabla\mathcal{L}(\theta_{t-2})^\top g_{t-1}
+ +\frac{\eta^2}{2}g_{t-1}^\top H_{t-1}g_{t-1}.
 \end{aligned}
 \label{eq:appendix_step1}
 \end{equation}
-Similarly, expanding \(\mathcal{L}(\theta_{t+2})\) around \(\theta_{t+1}\) yields
+Substituting $\nabla\mathcal{L}(\theta_{t-2})=g_{t-1}-\xi_{t-1}$ and
+$g_{t-1}^\top H_{t-1}g_{t-1}=\kappa_t\|g_{t-1}\|^2$ yields
+Eq.~\eqref{eq:loss-curvature} for nonzero $g_{t-1}$.
+
+The positive term $\eta\xi_{t-1}^\top g_{t-1}$ in that expression cannot be
+interpreted separately as the net effect of noise. Conditional on the
+parameters before the batch is drawn, unbiased sampling gives
 \begin{equation}
 \begin{aligned}
-\mathcal{L}(\theta_{t+2})
-&\approx
-\mathcal{L}(\theta_{t+1}) \\
-&-\eta\,g^{(t+1)\top}G_{B_{t+1}}
-+\frac{\eta^2}{2}\,G_{B_{t+1}}^{\top}H_{t+1}\,G_{B_{t+1}}.
+\mathbb{E}[\|g_{t-1}\|^2\mid\theta_{t-2}]
+ &=\|\nabla\mathcal{L}(\theta_{t-2})\|^2\\
+ &\quad+\mathbb{E}[\|\xi_{t-1}\|^2\mid\theta_{t-2}],\\
+\mathbb{E}[\xi_{t-1}^\top g_{t-1}\mid\theta_{t-2}]
+ &=\mathbb{E}[\|\xi_{t-1}\|^2\mid\theta_{t-2}].
 \end{aligned}
-\label{eq:appendix_step2}
+\label{eq:appendix-noise-cancellation}
 \end{equation}
-Next, using a first-order expansion of the gradient around \(\theta_t\),
+Thus, the noise energy cancels between the first-order terms when taking their
+conditional expectation. With finite moments for the retained terms, the
+expected loss change in the quadratic approximation is
+\begin{equation}
+\begin{aligned}
+&\mathbb{E}[\mathcal{L}(\theta_{t-1})-\mathcal{L}(\theta_{t-2})
+              \mid\theta_{t-2}]\\
+&\quad\approx-\eta\|\nabla\mathcal{L}(\theta_{t-2})\|^2\\
+&\qquad+\frac{\eta^2}{2}\mathbb{E}[
+  g_{t-1}^\top H_{t-1}g_{t-1}\mid\theta_{t-2}].
+\end{aligned}
+\label{eq:expected-loss-change}
+\end{equation}
+Sampling still contributes to the curvature-weighted second-order term. This
+conditional calculation does not remove that contribution or the Taylor
+remainder from a nonlinear trajectory.
+
+\subsection{Two Updates and Consecutive Alignment}
+The displacement over two SGD updates is exactly
 \[
-g^{(t+1)}
-\approx
-g^{(t)}+H_t(\theta_{t+1}-\theta_t)
-=
-g^{(t)}-\eta\,H_t\,G_{B_t},
+  \theta_t-\theta_{t-2}=-\eta(g_{t-1}+g_t).
 \]
-so that
+Expanding around the starting parameters $\theta_{t-2}$ gives
 \begin{equation}
--\eta\,g^{(t+1)\top}G_{B_{t+1}}
-\approx
--\eta\,g^{(t)\top}G_{B_{t+1}}
-+\eta^2\,G_{B_t}^{\top}H_t\,G_{B_{t+1}}.
-\label{eq:appendix_grad_expand}
-\end{equation}
-Substituting Eqs.~\eqref{eq:appendix_step1} and \eqref{eq:appendix_grad_expand} into Eq.~\eqref{eq:appendix_step2}, we obtain
-\begin{equation}
+\begin{aligned}
+&\mathcal{L}(\theta_t)-\mathcal{L}(\theta_{t-2})\\
+&\quad\approx-\eta\nabla\mathcal{L}(\theta_{t-2})^\top(g_{t-1}+g_t)\\
+&\qquad+\frac{\eta^2}{2}(g_{t-1}+g_t)^\top
+                        H_{t-1}(g_{t-1}+g_t).
+\end{aligned}
 \label{eq:appendix_combined}
-\begin{split}
-\mathcal{L}(\theta_{t+2})
-&\approx
-\mathcal{L}(\theta_t)
--\eta\,g^{(t)\top}G_{B_t}
--\eta\,g^{(t)\top}G_{B_{t+1}} \\
-&\quad
-+\eta^2\,G_{B_t}^{\top}H_t\,G_{B_{t+1}}
-+\frac{\eta^2}{2}\,G_{B_t}^{\top}H_t\,G_{B_t} \\
-&\quad
-+\frac{\eta^2}{2}\,G_{B_{t+1}}^{\top}H_{t+1}\,G_{B_{t+1}}.
-\end{split}
 \end{equation}
-Using \(g^{(t)}=G_{B_t}-\xi_t\), the two first-order terms become
-\[
-g^{(t)\top}G_{B_t}
-=
-\|G_{B_t}\|^2-\xi_t^{\top}G_{B_t},
-\]
-\[
-g^{(t)\top}G_{B_{t+1}}
-=
-G_{B_t}^{\top}G_{B_{t+1}}
--\xi_t^{\top}G_{B_{t+1}}.
-\]
-Thus,
-\begin{equation}
-\label{eq:appendix_pre_rho}
-\begin{split}
-\mathcal{L}(\theta_{t+2})
-&\approx
-\mathcal{L}(\theta_t)
--\eta\Bigl(
-\|G_{B_t}\|^2
-+
-G_{B_t}^{\top}G_{B_{t+1}}
-\Bigr) \\
-&\quad
-+\eta\,\xi_t^{\top}\!\bigl(G_{B_t}+G_{B_{t+1}}\bigr)
-+\eta^2\,G_{B_t}^{\top}H_t\,G_{B_{t+1}} \\
-&\quad
-+\frac{\eta^2}{2}\Bigl(
-G_{B_t}^{\top}H_t\,G_{B_t}
-+
-G_{B_{t+1}}^{\top}H_{t+1}\,G_{B_{t+1}}
-\Bigr).
-\end{split}
-\end{equation}
-Finally, by the definition of the cosine similarity between consecutive mini-batch gradients,
-\[
-\rho_{t+1}
-=
-\frac{G_{B_t}^{\top}G_{B_{t+1}}}
-{\|G_{B_t}\|\,\|G_{B_{t+1}}\|},
-\]
-\[
-G_{B_t}^{\top}G_{B_{t+1}}
-=
-\|G_{B_t}\|\,\|G_{B_{t+1}}\|\,\rho_{t+1}.
-\]
-Substituting this into Eq.~\eqref{eq:appendix_pre_rho} yields Eq.~\eqref{eq:two_step_loss_interference}.
+The first-order projection can be written as
 \begin{equation}
 \begin{aligned}
-\mathcal{L}(\theta_{t+2})
-&\;\approx\;
-\mathcal{L}(\theta_t) \\
-&\;-\;\eta\Big(\|G_{B_t}\|^2 \;+\; \|G_{B_t}\|\,\|G_{B_{t+1}}\|\,\rho_{t+1}\Big) \\
-&\;+\;\eta\,\xi_t^{\top}\!\bigl(G_{B_t} + G_{B_{t+1}}\bigr) \\
-&\;+\;\eta^2\, G_{B_t}^{\top} H_t\, G_{B_{t+1}} \\
-&\;+\;\frac{\eta^2}{2}\Big(
-G_{B_t}^{\top} H_t\, G_{B_t}
-\;+\;
-G_{B_{t+1}}^{\top} H_{t+1}\, G_{B_{t+1}}
-\Big),
+&\nabla\mathcal{L}(\theta_{t-2})^\top(g_{t-1}+g_t)\\
+&\quad=\|g_{t-1}\|^2+g_{t-1}^\top g_t
+       -\xi_{t-1}^\top(g_{t-1}+g_t).
 \end{aligned}
-\label{eq:two_step_loss_interference}
 \end{equation}
-
-
-
+Finally, $g_{t-1}^\top g_t=\|g_{t-1}\|\|g_t\|\rho_t$ yields
+Eq.~\eqref{eq:two_step_loss_interference}. The same starting Hessian appears
+throughout this expansion. For a nonlinear objective, its remainder is governed
+by the combined displacement; a small cosine alone does not control that
+approximation error.
 
 % use section* for acknowledgment
 % \section*{Acknowledgment}
