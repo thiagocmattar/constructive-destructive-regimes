@@ -180,53 +180,60 @@ attributing every reversal to curvature or identifying it with a loss spike.
 \subsection{Noise Contribution under Mini-Batch Sampling}
 \label{subsec:sampling-noise}
 
-Fresh, conditionally unbiased sampling makes the new noise $\xi_t$
-uncorrelated with the preceding gradient $g_{t-1}$. However, $g_{t-1}$ already
-contains its own noise $\xi_{t-1}$. Consequently, assuming finite second moments,
+Equation~\eqref{eq:rho-normalized} shows how noise affects alignment. For
+fixed curvature and gradient-norm ratio, negative $\varepsilon_t$ lowers
+$\rho_t$, while positive $\varepsilon_t$ raises it. The effect on the
+curvature diagnostic has the opposite sign. Rearranging
+Eq.~\eqref{eq:kappa-estimate} gives
 \begin{equation}
 \begin{aligned}
-  \mathbb{E}[g_{t-1}^\top(\xi_t-\xi_{t-1})]
-  &=-\mathbb{E}\|\xi_{t-1}\|^2\\
-  &\leq0.
+1-\rho_t\frac{\|g_t\|}{\|g_{t-1}\|}
+ &=\eta\widehat\kappa_t-\varepsilon_t\\
+ &\approx\eta\kappa_t-\varepsilon_t.
 \end{aligned}
-\label{eq:noise-expectation}
+\label{eq:uncorrected-curvature}
 \end{equation}
-Even zero-mean sampling noise therefore contributes a nonpositive term to the
-unnormalized adjacent inner product in Eq.~\eqref{eq:gradient-inner-product}.
-This identifies a sampling contribution that can accompany the curvature
-effect in the alignment diagnostic.
+Thus, negative $\varepsilon_t$ inflates the gradient-only curvature proxy.
+The $+\varepsilon_t$ correction in Eq.~\eqref{eq:kappa-estimate} removes this
+explicit noise contribution within the first-order approximation; it requires
+information about the noise beyond the observed gradients.
 
-To separate sampling from parameter motion, consider independent mini-batch
-gradients evaluated at the same fixed parameters $\theta$. Each draw has the
-form $g_t=\nabla\mathcal{L}(\theta)+\xi_t$: the full-gradient component stays
-the same, while the sampled component varies. Using the per-sample covariance
-$\Sigma(\theta)$ defined in Eq.~\eqref{eq:grad_cov_def}, a uniform batch of
-$b$ examples sampled without replacement from $N>1$ examples has
+Fresh, conditionally unbiased sampling makes the new noise $\xi_t$
+uncorrelated with $g_{t-1}$, but the preceding gradient contains its own noise
+$\xi_{t-1}$. With finite second moments,
 \begin{equation}
-  \mathbb{E}\|\xi_t\|^2
-  =\frac{N-b}{b(N-1)}\,\mathrm{tr}\,\Sigma(\theta).
+  \mathbb{E}[g_{t-1}^\top(\xi_t-\xi_{t-1})]
+  =-\mathbb{E}\|\xi_{t-1}\|^2\leq0.
+  \label{eq:noise-expectation}
+\end{equation}
+The noise-difference term therefore subtracts the preceding noise variance
+from the mean unnormalized inner product. This does not imply
+$\mathbb{E}[\varepsilon_t]\leq0$: its denominator
+$\|g_{t-1}\|^2$ is also random. The same distinction prevents inferring a
+universal trend in mean cosine or estimated curvature from this expectation.
+
+Batch size controls the variance of this sampling noise. For a uniform batch
+of $b$ examples drawn without replacement from $N>1$, the covariance defined
+in Eq.~\eqref{eq:grad_cov_def} gives
+\begin{equation}
+  \mathbb{E}[\|\xi_t\|^2\mid\theta_{t-1}]
+  =\frac{N-b}{b(N-1)}\,\mathrm{tr}\,\Sigma(\theta_{t-1}).
   \label{eq:finite-population-noise}
 \end{equation}
-Smaller batches have larger sampling variance; at $b=N$, this noise vanishes.
-For two independent draws at these fixed parameters,
-\begin{equation}
-\begin{aligned}
-  \mathbb{E}[g_{t-1}^\top g_t]
-    &=\|\nabla\mathcal{L}(\theta)\|^2,\\
-  \mathbb{E}\|g_t\|^2
-    &=\|\nabla\mathcal{L}(\theta)\|^2
-      +\mathbb{E}\|\xi_t\|^2.
-\end{aligned}
-\label{eq:frozen-noise-magnitudes}
-\end{equation}
-The shared full-gradient component contributes to the expected inner product,
-while independent sampling fluctuations increase the expected squared gradient
-norm without adding a persistent direction. Because cosine divides by random
-gradient norms, its expectation is not the ratio of these two expectations. In
-particular, adjacent sampled gradients can vary even when the parameters and
-the full gradient are unchanged. Their projected change must therefore be
-interpreted together with sampling noise, rather than attributed entirely to
-curvature encountered through parameter motion.
+At the same parameters, smaller batches increase this variance; full-batch
+sampling removes it. This changes the noise in the diagnostic without requiring
+any change in the Hessian.
+
+When successive gradient norms are similar, the gradient-only proxy in
+Eq.~\eqref{eq:uncorrected-curvature} is approximately $1-\rho_t$. If sampling
+noise makes consecutive directions nearly unrelated, $\rho_t$ approaches zero
+and this proxy approaches one. This explains a possible value near one without
+establishing that the actual $\eta\kappa_t$ is near a reversal threshold.
+More noise does not universally pull either quantity toward one. Noisy updates
+can also make the loss fluctuate, but a reduction in directional agreement
+does not establish greater or lesser training stability. Loss changes also
+depend on the learning rate and curvature, as shown in
+Section~\ref{subsec:loss-connection}.
 
 \subsection{Normalized Displacement and Cumulative Interference}
 
@@ -255,8 +262,8 @@ small absolute displacement, poor loss reduction, or unstable training.
 Together, $\rho_t$ and $R_T$ distinguish a local reversal of direction from
 cancellation accumulated over a chosen horizon.
 
-The fixed-parameter sampling calculation also clarifies this ratio. For
-independent gradient draws at the same $\theta$, with
+A separate way to examine sampling is to hold the parameters fixed and draw
+gradients independently at the same $\theta$. With
 $0<\mathbb{E}\|g_t\|<\infty$, averaging the vectors preserves the full
 gradient, whereas averaging their lengths retains sampling fluctuations.
 Consequently,

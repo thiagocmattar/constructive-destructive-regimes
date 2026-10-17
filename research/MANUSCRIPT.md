@@ -207,3 +207,17 @@ normalizations leading to kappa, epsilon, and consecutive cosine. The noise
 discussion points directly to the new scalar equation. The 13-page draft
 compiles with resolved references and no overfull boxes; changed pages are
 rendered and visually reviewed. No scientific definition or assumption changes.
+
+The noise subsection now starts from the consecutive-cosine relation and the
+distinction between the gradient-only proxy and its epsilon correction. Negative
+epsilon lowers alignment and inflates the uncorrected proxy. The negative
+expected noise projection concerns an unnormalized term; it does not determine
+the mean of epsilon after division by a random squared norm. The exact batch-size
+variance is conditioned on the current parameters. Comparable gradient norms
+and weak observed alignment explain a proxy near one, without a universal
+noise-to-one trend, a curvature threshold claim, or a stability guarantee.
+The frozen inner-product/norm calculation is removed; the sampling control for
+B/A is introduced where that ratio is discussed. Forty-two deterministic
+enumeration and counterexample checks pass, and the 13-page working draft
+compiles with resolved references and no overfull boxes. Changed pages are
+visually reviewed. These checks add no training evidence.
