@@ -1,7 +1,8 @@
 # Observation004: smoothed model-size overlays and early loss reduction
 
 The user requests the four training variables in a 2x2 layout, overlaying all
-three Pythia sizes, smoothing the curves and removing the final step. The
+three Pythia sizes and removing the final step. The latest revision keeps loss
+unsmoothed, smooths the other variables, and uses solid lines in three colours. The
 [new figure](../figures/training_size_overlay.pdf) uses Runs017/018/019 and seed
 1235. No training or new run/analysis ID is needed.
 
@@ -20,9 +21,10 @@ is excluded BEFORE every moving mean and summary. Each size contributes updates
 1..711, all full 1024-sequence batches. The original complete histories and PDFs
 remain unchanged.
 
-Each plotted quantity uses an arithmetic mean over its own last 20 raw values,
-including the current update. Only complete windows are shown: loss and norm
-begin at update 20; rho and q begin at 21 because the first pair is undefined.
+Loss is unsmoothed and covers updates 1..711. Each other plotted quantity uses
+an arithmetic mean over its own last 20 raw values, including the current update.
+Only complete windows are shown: norm begins at update 20; rho and q begin at
+21 because the first pair is undefined.
 All curves end at 711. There are no shortened edge windows, interpolation,
 subsampling, raw underlays or uncertainty bands. A trailing mean averages prior
 states and can delay or blur visible transitions by up to 19 updates.
@@ -34,10 +36,13 @@ for the separately smoothed panels. Gradient norms are arithmetically averaged
 before displaying them on log Y, not averaged in logarithmic coordinates.
 
 The script verifies all 2,130 retained raw identities and independently recomputes
-every complete window by slicing, with all 8,298 finite plotted values checked
+every complete window by slicing (6,222 means), with all 8,355 finite plotted values checked
 against their artists and the exported CSV. Missing means remain blank in the
 CSV and NaN in the plotted arrays. Poppler rendering and visual inspection are
-recorded in the [manifest](../training_size_overlay_manifest.json).
+recorded in the [manifest](../training_size_overlay_manifest.json). All 2,133
+unsmoothed loss values are checked against their source values; all model curves
+are checked to use solid lines and their assigned colours. The CSV column is
+`loss` for the raw loss; diagnostic columns retain the `_mean` suffix.
 
 ## Early loss comparison
 
@@ -99,15 +104,16 @@ without a measured noise correction or verified Hessian interpretation.
 
 **Caption.** Pythia-14M/31M/70M MiniPile training dynamics (Runs017-019, seed 1235).
 Panels show training loss, eta*kappa_hat gradient-change proxy, raw adjacent
-cosine rho and raw gradient L2 norm, with all model sizes overlaid. Curves are
-complete 20-update trailing arithmetic means computed after omitting update 712.
-Loss/norm means cover updates 20..711; pair means cover 21..711. Blue solid, orange
-dashed and green dash-dot denote 14M, 31M and 70M. The norm axis is logarithmic;
-horizontal dotted references mark q=1 and rho=0. These are smoothed descriptive
+cosine rho and raw gradient L2 norm, with all model sizes overlaid. Loss is
+unsmoothed over updates 1..711; other curves are complete 20-update trailing
+arithmetic means computed after omitting update 712. Norm means cover updates
+20..711; pair means cover 21..711. Solid blue, orange and green lines denote
+14M, 31M and 70M. The norm axis is logarithmic;
+horizontal dotted references mark q=1 and rho=0. These are descriptive
 trajectories, without confidence bands or curvature/stability implications.
 
 Run `python analyses/005-2026-10-04-temporal-lag-profiles/13_plot_size_overlay.py`.
-Outputs are the PDF, [smoothed plot data](../training_size_overlay_data.csv),
+Outputs are the PDF, [plot data](../training_size_overlay_data.csv),
 results and manifest. Render using `pdftoppm -png -r 130` to
 `scratch/training_size_overlay`, inspect the page, then run the script with
 `--accept-reviewed`. Original unsmoothed observations and figures are preserved.

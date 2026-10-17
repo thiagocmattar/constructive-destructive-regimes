@@ -1,5 +1,5 @@
 {
-  "script_sha256": "e188830a620dae6461a1fe9c4a4d4726e89c78413332137bc79ac35f6b0401fb",
+  "script_sha256": "212534626a88836f000119abdca7a1b2983daebbe2a3718391d8ba821c4af922",
   "source_manifest_sha256": "6b7fde3957003b2f0a8950b2801a66d1c2905be2c696307693ab87297812dec9",
   "source_csv_sha256": "d327677b25c47f3e0e687ea41454876a46f3e7b0effb16b7802b247301762307",
   "preserved": {
@@ -18,26 +18,26 @@
   },
   "outputs": {
     "figures/training_size_overlay.pdf": {
-      "bytes": 147591,
-      "sha256": "4cc80b10bd6162aa98a6528121748f381b14be9eb3fc1c2530bef9ca67d89b00"
+      "bytes": 140258,
+      "sha256": "3ac34b7c1aabdca22beb0ba23c0ea5c46b8a819ebff2b658b631ad3af7b76fce"
     },
     "training_size_overlay_data.csv": {
-      "bytes": 177731,
-      "sha256": "174ec75542c3b9efa38fe410b820f41d1b63edaf2d933e3b4a9b1bac504efe89"
+      "bytes": 178760,
+      "sha256": "fcfe5a0be439e8360dafad7d1d1cf04b199aad625caa899d15777764c4aa3399"
     },
     "training_size_overlay_results.json": {
-      "bytes": 4426,
-      "sha256": "b1cab3c5122113e659a8afc3bcc76a1a6e60230392a4f095453a3a2df13c0a23"
+      "bytes": 4506,
+      "sha256": "97e4e1a6b9e644678cf3b88bd508d281ac1becd08e8c94bfc038d56eb8a85b27"
     }
   },
   "curves": [
     {
       "size": "14M",
       "metric": "loss",
-      "first_update": 20,
+      "first_update": 1,
       "last_update": 711,
-      "points": 692,
-      "arrays_sha256": "73e8addbd1b823bcb27680f395008885d3e8d7c37e646988d3d183075b08868f"
+      "points": 711,
+      "arrays_sha256": "eba0117ba493c34f7c272a6f950e4a4c4acccc724b5fac9fe8ed5b03c3c758ea"
     },
     {
       "size": "14M",
@@ -66,10 +66,10 @@
     {
       "size": "31M",
       "metric": "loss",
-      "first_update": 20,
+      "first_update": 1,
       "last_update": 711,
-      "points": 692,
-      "arrays_sha256": "dfda4af6b7a67dee8e40a2c40509e57b85b2e659e25a923496f7820dbb1fdcb0"
+      "points": 711,
+      "arrays_sha256": "99dbe2dc62cf776088fd9d39233c547fa9fdce4532bd34da594e4707bb559251"
     },
     {
       "size": "31M",
@@ -98,10 +98,10 @@
     {
       "size": "70M",
       "metric": "loss",
-      "first_update": 20,
+      "first_update": 1,
       "last_update": 711,
-      "points": 692,
-      "arrays_sha256": "c14e6a616a0a552de008e5309ae4304dcd002f0a5ce0b8b39ed25c392c7fd180"
+      "points": 711,
+      "arrays_sha256": "97c437e96783fff4d712e3e29689d98376ec87ac64ecd3b1c070ddb5fbbcb4a2"
     },
     {
       "size": "70M",
@@ -131,7 +131,9 @@
   "checks": {
     "original_sources_verified": true,
     "update712_excluded_before_smoothing": true,
-    "independent_means_checked": 8298,
+    "independent_means_checked": 6222,
+    "raw_loss_values_checked": 2133,
+    "solid_model_curves": true,
     "plotted_arrays": true,
     "csv_roundtrip": true,
     "raw_identity_pairs": 2130,
@@ -140,7 +142,7 @@
   "visual_review": {
     "passed": true,
     "renderer": "Poppler pdftoppm",
-    "render_sha256": "b5b45e3967c7cd209b8c0f57ba1aef598c3ecf54db5f9bdacb24dfef1a993be6",
+    "render_sha256": "39d980246f92f739f82555d0fe205fa26bed6ca308369e3f5b97f3c0797997ab",
     "inspection": "All four panels, model overlays, legend, log-norm ticks and notes are legible; no clipping or overlap."
   }
 }

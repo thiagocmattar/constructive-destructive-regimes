@@ -1,7 +1,8 @@
 # Analysis005: phase-dependent temporal raw-gradient alignment
 
 Latest: [smoothed 2x2 model-size overlay](figures/training_size_overlay.pdf).
-Each variable overlays 14M/31M/70M using complete 20-update trailing means;
+All panels overlay 14M/31M/70M using solid lines in three colours. Loss is
+unsmoothed; other variables use complete 20-update trailing means.
 Update 712 is excluded before smoothing. [Observation004](observations/004-smoothed-size-overlay.md)
 compares early loss changes and norms: larger first-10 loss drops coincide with
 larger norms, but norm ordering is not monotonic over the first 50 updates.

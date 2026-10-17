@@ -1,4 +1,4 @@
-"""Overlay model sizes using complete 20-update means after excluding update712."""
+"""Overlay raw loss and 20-update diagnostic means, excluding update712."""
 from pathlib import Path
 import argparse
 import csv
@@ -17,7 +17,6 @@ WINDOW = 20
 FIELDS = ("loss", "eta_kappa_proxy", "rho", "raw_gradient_norm")
 SIZES = ("14M", "31M", "70M")
 COLORS = ("#2166ac", "#d95f02", "#1b9e77")
-STYLES = ("-", "--", "-.")
 PDF = HERE / "figures/training_size_overlay.pdf"
 MANIFEST = HERE / "training_size_overlay_manifest.json"
 
@@ -31,6 +30,10 @@ def trailing_mean(values):
     output = np.full(len(values), np.nan)
     output[WINDOW - 1:] = np.convolve(values, np.ones(WINDOW) / WINDOW, mode="valid")
     return output
+
+
+def column(field):
+    return "loss" if field == "loss" else field + "_mean"
 
 
 def main():
@@ -47,7 +50,7 @@ def main():
         record["visual_review"] = dict(passed=True, renderer="Poppler pdftoppm",
             render_sha256=sha(render), inspection="All four panels, model overlays, legend, log-norm ticks and notes are legible; no clipping or overlap.")
         MANIFEST.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
-        print("Recorded visual acceptance of the smoothed size overlay.")
+        print("Recorded visual acceptance of the size overlay.")
         return
 
     source_manifest = HERE / "training_overview_manifest.json"
@@ -79,30 +82,35 @@ def main():
               r"Raw adjacent cosine $\rho_t$", r"Raw gradient $\|g_t\|_2$")
     plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 10,
                          "pdf.fonttype": 42, "path.simplify": False})
-    for size, color, style in zip(SIZES, COLORS, STYLES):
+    for size, color in zip(SIZES, COLORS):
         source_rows = [r for r in selected if r["size"] == size]
         x = np.array([int(r["update"]) for r in source_rows])
         np.testing.assert_array_equal(x, np.arange(1, 712))
         raw = {field: np.array([float(r[field]) if r[field] else np.nan for r in source_rows]) for field in FIELDS}
         expected_q = 1 - raw["rho"][1:] * raw["raw_gradient_norm"][1:] / raw["raw_gradient_norm"][:-1]
         np.testing.assert_allclose(raw["eta_kappa_proxy"][1:], expected_q, rtol=1e-12, atol=1e-12)
-        smooth = {field: trailing_mean(values) for field, values in raw.items()}
+        plotted = {field: values.copy() if field == "loss" else trailing_mean(values)
+                   for field, values in raw.items()}
         for ax, field in zip(axes.flat, FIELDS):
-            y = smooth[field]
-            first = 21 if field in ("rho", "eta_kappa_proxy") else 20
+            y = plotted[field]
+            first = 1 if field == "loss" else (21 if field in ("rho", "eta_kappa_proxy") else 20)
             assert np.isfinite(y).sum() == 712 - first
             assert np.isnan(y[:first - 1]).all() and np.isfinite(y[first - 1:]).all()
-            # Independent slicing checks every complete mean and placement.
-            reference = [np.mean(raw[field][i - WINDOW + 1:i + 1]) for i in range(first - 1, 711)]
-            np.testing.assert_allclose(y[first - 1:], reference, rtol=2e-13, atol=2e-13)
-            line, = ax.plot(x, y, label="Pythia-" + size, color=color, ls=style, lw=1.9)
+            if field == "loss":
+                np.testing.assert_array_equal(y, raw[field])
+            else:
+                # Independent slicing checks every complete mean and placement.
+                reference = [np.mean(raw[field][i - WINDOW + 1:i + 1]) for i in range(first - 1, 711)]
+                np.testing.assert_allclose(y[first - 1:], reference, rtol=2e-13, atol=2e-13)
+            line, = ax.plot(x, y, label="Pythia-" + size, color=color, ls="-", lw=1.9)
+            assert line.get_linestyle() == "-" and line.get_color() == color
             np.testing.assert_array_equal(line.get_xdata(), x)
             np.testing.assert_array_equal(line.get_ydata(), y)
             curves.append(dict(size=size, metric=field, first_update=first, last_update=711,
                 points=int(np.isfinite(y).sum()), arrays_sha256=hashlib.sha256(x.tobytes() + y.tobytes()).hexdigest()))
         for i, update in enumerate(x):
             plot_rows.append(dict(size=size, update=int(update), **{
-                field + "_mean": float(smooth[field][i]) if np.isfinite(smooth[field][i]) else "" for field in FIELDS}))
+                column(field): float(plotted[field][i]) if np.isfinite(plotted[field][i]) else "" for field in FIELDS}))
         early = {}
         for stop in (10, 50, 100):
             loss = raw["loss"][:stop]
@@ -133,12 +141,12 @@ def main():
     handles, legend_labels = axes[0, 0].get_legend_handles_labels()
     fig.legend(handles, legend_labels, loc="upper center", bbox_to_anchor=(.5, .947),
                ncol=3, frameon=False, handlelength=3)
-    fig.text(.5, .043, "Complete 20-update trailing means; seed 1235. Update 712 excluded before smoothing.", ha="center", fontsize=9)
-    fig.text(.5, .018, "First mean: update 20 (loss/norm), 21 (pairs). Norm axis: log Y. AdamW q is a gradient-change proxy.", ha="center", fontsize=9)
+    fig.text(.5, .043, "Loss: unsmoothed. Other panels: complete 20-update trailing means. Seed 1235; update 712 excluded.", ha="center", fontsize=9)
+    fig.text(.5, .018, "Loss: updates 1-711. First mean: update 20 (norm), 21 (pairs). Norm: log Y. AdamW q is a proxy.", ha="center", fontsize=9)
     fig.subplots_adjust(left=.085, right=.98, top=.865, bottom=.13, hspace=.28, wspace=.23)
     fig.savefig(PDF)
     plt.close(fig)
-    assert sum(c["points"] for c in curves) == 8298
+    assert sum(c["points"] for c in curves) == 8355
     data_path = HERE / "training_size_overlay_data.csv"
     with data_path.open("w", newline="", encoding="utf-8") as stream:
         writer = csv.DictWriter(stream, fieldnames=list(plot_rows[0]))
@@ -150,11 +158,12 @@ def main():
         wanted = [r for r in plot_rows if r["size"] == size]
         actual = [r for r in exported if r["size"] == size]
         for field in FIELDS:
-            key = field + "_mean"
+            key = column(field)
             np.testing.assert_array_equal([r[key] if r[key] != "" else np.nan for r in wanted],
                 [float(r[key]) if r[key] else np.nan for r in actual])
-    results = dict(smoothing="complete 20-update trailing arithmetic mean of each raw scalar",
-        excluded_update=712, included_updates=[1, 711], finite_plotted_points=8298,
+    results = dict(smoothing="loss unsmoothed; other panels use complete 20-update trailing arithmetic means",
+        line_styles="solid; model sizes distinguished by colour",
+        excluded_update=712, included_updates=[1, 711], finite_plotted_points=8355,
         comparison="Same tokens/order/AdamW recipe; architecture-specific tensors; seed1235",
         cohort=summaries, training_launched=False)
     result_path = HERE / "training_size_overlay_results.json"
@@ -165,7 +174,8 @@ def main():
         outputs={p.relative_to(HERE).as_posix(): dict(bytes=p.stat().st_size, sha256=sha(p))
                  for p in (PDF, data_path, result_path)}, curves=curves,
         checks=dict(original_sources_verified=True, update712_excluded_before_smoothing=True,
-                    independent_means_checked=8298, plotted_arrays=True, csv_roundtrip=True,
+                    independent_means_checked=6222, raw_loss_values_checked=2133,
+                    solid_model_curves=True, plotted_arrays=True, csv_roundtrip=True,
                     raw_identity_pairs=2130, original_outputs_unchanged=True), visual_review=None)
     MANIFEST.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(results, indent=2))

@@ -1,11 +1,12 @@
 {
-  "smoothing": "complete 20-update trailing arithmetic mean of each raw scalar",
+  "smoothing": "loss unsmoothed; other panels use complete 20-update trailing arithmetic means",
+  "line_styles": "solid; model sizes distinguished by colour",
   "excluded_update": 712,
   "included_updates": [
     1,
     711
   ],
-  "finite_plotted_points": 8298,
+  "finite_plotted_points": 8355,
   "comparison": "Same tokens/order/AdamW recipe; architecture-specific tensors; seed1235",
   "cohort": [
     {

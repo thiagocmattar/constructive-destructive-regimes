@@ -251,7 +251,7 @@ sources preserved.
 [Analysis005](../analyses/005-2026-10-04-temporal-lag-profiles/REPORT.md) completed H005 at14M/31M/70M,seed1235: calibrated raw-gradient histories for all712 updates. Middle windows show negative lag1 and a positive longer-lag background, while exact all-pair interaction is positive in all nine windows. Full-pass lag1 truncation misses97.94-98.57% of squared cumulative raw-gradient norm. Early/late smooth decay to zero is not supported consistently over lags1-64. Six PDFs and two observations are complete; replays are numerically sensitive and do not add independent seeds. All six owned workers removed after verified retrieval; zero retained cloud storage, estimated USD6.54 provisional. Manuscript/source inputs preserved; multi-seed validation deferred.
 
 The [Analysis005 size overlay](../analyses/005-2026-10-04-temporal-lag-profiles/observations/004-smoothed-size-overlay.md)
-shows loss, eta*kappa_hat proxy, rho and raw norms with 20-update smoothing and
+shows unsmoothed loss and 20-update means of eta*kappa_hat proxy, rho and raw norms;
 update 712 excluded. Larger first-10 loss drops/norms coexist; first-50 mean norms
 are non-monotonic across sizes. Exact checks pass; AdamW/minibatches limit interpretation.
 
