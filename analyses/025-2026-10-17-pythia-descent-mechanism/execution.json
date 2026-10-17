@@ -173,5 +173,18 @@
     },
     "first_production_reconstruction_controls_passed": true,
     "provisional_cost_estimate_usd": 1.1474026780518767
+  },
+  "retrieval_progress_check": {
+    "observed_at_epoch": 1792269741.5354252,
+    "completed_remote_runs": 21,
+    "locally_verified_runs": 14,
+    "verified_bytes_approx": 79865066347,
+    "expected_total_bytes_approx": 103520000000,
+    "recent_effective_download_mb_per_second": 5.23584,
+    "local_disk_free_gb": 124.45,
+    "estimated_training_completion_brt": "2026-10-17 18:25-18:30",
+    "estimated_retrieval_analysis_cleanup_brt": "2026-10-17 19:00-19:15",
+    "independent_progress_watcher_live": true,
+    "note": "Combined retrieval/progress snapshots can lag during serial large-file downloads; independent watcher remains fresh."
   }
 }

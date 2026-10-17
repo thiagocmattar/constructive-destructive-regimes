@@ -278,7 +278,9 @@ scientific source, configs and input hashes stayed unchanged.
 
 ## Active spending monitoring
 
-The progress/retrieval controller polls every300s. Its separate spending guard
+The progress/retrieval controller polls every300s between transfers. A separate
+read-only `10_watch_progress.py` polls every300s throughout large checkpoint
+downloads, writing ignored `fresh-progress.json`. Its separate spending guard
 checks the original USD25/12h cutoff every10s. `09_stop_verified_workers.py`
 refreshes a provisional cost estimate every30s and stops each task-owned worker
 as soon as all runs assigned to it have local hash and scientific-verification
