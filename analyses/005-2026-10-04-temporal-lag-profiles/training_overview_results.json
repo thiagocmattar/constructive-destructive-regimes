@@ -1,0 +1,73 @@
+{
+  "cohort": [
+    {
+      "size": "14M",
+      "run": "017",
+      "updates": 712,
+      "adjacent_pairs": 711,
+      "first_negative_pair_update": 63,
+      "negative_pairs": 356,
+      "negative_pair_fraction": 0.5007032348804501,
+      "initial_training_loss": 11.02303921058774,
+      "final_batch_training_loss": 5.222511210543256,
+      "final_validation_loss": 5.182231983148177,
+      "eta_kappa_range": [
+        -0.18019186448785263,
+        2.833161231607784
+      ],
+      "raw_gradient_norm_range": [
+        0.19678205670200374,
+        1.7698578355361116
+      ],
+      "final_raw_gradient_norm": 1.4926259125677235
+    },
+    {
+      "size": "31M",
+      "run": "018",
+      "updates": 712,
+      "adjacent_pairs": 711,
+      "first_negative_pair_update": 26,
+      "negative_pairs": 397,
+      "negative_pair_fraction": 0.5583684950773559,
+      "initial_training_loss": 11.007336776703596,
+      "final_batch_training_loss": 4.584644641425317,
+      "final_validation_loss": 4.624931108876793,
+      "eta_kappa_range": [
+        -0.019872277340631683,
+        2.1299957461700165
+      ],
+      "raw_gradient_norm_range": [
+        0.15333197708223403,
+        2.4800640191826493
+      ],
+      "final_raw_gradient_norm": 1.2611508732176089
+    },
+    {
+      "size": "70M",
+      "run": "019",
+      "updates": 712,
+      "adjacent_pairs": 711,
+      "first_negative_pair_update": 14,
+      "negative_pairs": 469,
+      "negative_pair_fraction": 0.659634317862166,
+      "initial_training_loss": 10.982760112732649,
+      "final_batch_training_loss": 3.931143660486069,
+      "final_validation_loss": 4.009942039070582,
+      "eta_kappa_range": [
+        -0.01977099050906639,
+        2.529649539866514
+      ],
+      "raw_gradient_norm_range": [
+        0.203660366529224,
+        3.558780159426288
+      ],
+      "final_raw_gradient_norm": 0.7528505724389065
+    }
+  ],
+  "updates": 2136,
+  "defined_adjacent_pairs": 2133,
+  "finite_plotted_points": 8538,
+  "formula": "1 - rho[t] * norm(g[t]) / norm(g[t-1])",
+  "reduction": "unsmoothed; all accepted updates; no sketch-based quantities",
+  "training_launched": false
+}

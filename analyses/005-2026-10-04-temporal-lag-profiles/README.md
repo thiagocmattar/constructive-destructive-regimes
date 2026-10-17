@@ -1,5 +1,12 @@
 # Analysis005: phase-dependent temporal raw-gradient alignment
 
+October 17 follow-up: [training overview](figures/training_overview.pdf), with
+three model-size columns and four rows: loss, eta*kappa_hat proxy, rho and raw
+gradient norms. All 712 updates per size are retained; no new training is needed.
+Initial, midpoint and final recovery checkpoints are present locally. See
+[observation003](observations/003-training-overview.md) for paths, definitions,
+checks and the AdamW/minibatch interpretation limit. The six original PDFs remain.
+
 Status: complete. All three full histories are retrieved and verified; all six
 task-owned workers, including infrastructure failures, are deleted. Six PDFs
 passed rendering and visual inspection. Multi-seed validation remains deferred.

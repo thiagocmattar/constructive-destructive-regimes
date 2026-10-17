@@ -1,0 +1,375 @@
+{
+  "script_sha256": "7f8ac73fce23aa60e467aafd77a750636443457536e7b5aa42c641972430cd14",
+  "sources": [
+    {
+      "run": "017-2026-10-04-pythia14m-temporal-sketch-seed1235",
+      "size": "14M",
+      "base": "runs/017-2026-10-04-pythia14m-temporal-sketch-seed1235/artifacts/attempt-01/full-pass",
+      "receipt_sha256": "a4fdc0bf9a7cc9812a39cca43f555072397698097063432404ac2e723d48c301",
+      "files": {
+        "events.jsonl": {
+          "bytes": 1201716,
+          "sha256": "8f0412c79dbd108b7c5725d735196b7e3c754e687a32033bfe650cf6100d4e8f"
+        },
+        "resolved_config.json": {
+          "bytes": 5306,
+          "sha256": "4e0ee88b1d8bdd324e8fd46e7cdd535bfb56a7ccb0c0c9bdc1ff5735e636e190"
+        },
+        "input_identity.json": {
+          "bytes": 1590,
+          "sha256": "b3583b631776e670002e9c059582fcda1f399a3ec83595472e966a9703eb9e76"
+        },
+        "summary.json": {
+          "bytes": 36946,
+          "sha256": "9abbb9a2e385ab9f1e028b4e0134f37352d2dfb3d7be44d3c0a6298d7ca58ae0"
+        },
+        "temporal/exact_pairs.jsonl": {
+          "bytes": 398159,
+          "sha256": "da76b3a585595a39aa589f6eec672d62287ae91063050d2856f3d610581f8c05"
+        }
+      },
+      "checkpoints_present": {
+        "initial": [
+          {
+            "path": "runs/017-2026-10-04-pythia14m-temporal-sketch-seed1235/artifacts/attempt-01/full-pass/checkpoints/initial/model/config.json",
+            "bytes": 1055
+          },
+          {
+            "path": "runs/017-2026-10-04-pythia14m-temporal-sketch-seed1235/artifacts/attempt-01/full-pass/checkpoints/initial/model/generation_config.json",
+            "bytes": 196
+          },
+          {
+            "path": "runs/017-2026-10-04-pythia14m-temporal-sketch-seed1235/artifacts/attempt-01/full-pass/checkpoints/initial/model/model.safetensors",
+            "bytes": 56279344
+          },
+          {
+            "path": "runs/017-2026-10-04-pythia14m-temporal-sketch-seed1235/artifacts/attempt-01/full-pass/checkpoints/initial/recovery.pt",
+            "bytes": 394003411
+          }
+        ],
+        "midpoint": [
+          {
+            "path": "runs/017-2026-10-04-pythia14m-temporal-sketch-seed1235/artifacts/attempt-01/full-pass/checkpoints/midpoint/model/config.json",
+            "bytes": 1055
+          },
+          {
+            "path": "runs/017-2026-10-04-pythia14m-temporal-sketch-seed1235/artifacts/attempt-01/full-pass/checkpoints/midpoint/model/generation_config.json",
+            "bytes": 196
+          },
+          {
+            "path": "runs/017-2026-10-04-pythia14m-temporal-sketch-seed1235/artifacts/attempt-01/full-pass/checkpoints/midpoint/model/model.safetensors",
+            "bytes": 56279344
+          },
+          {
+            "path": "runs/017-2026-10-04-pythia14m-temporal-sketch-seed1235/artifacts/attempt-01/full-pass/checkpoints/midpoint/recovery.pt",
+            "bytes": 900632935
+          }
+        ],
+        "final": [
+          {
+            "path": "runs/017-2026-10-04-pythia14m-temporal-sketch-seed1235/artifacts/attempt-01/full-pass/checkpoints/final/model/config.json",
+            "bytes": 1055
+          },
+          {
+            "path": "runs/017-2026-10-04-pythia14m-temporal-sketch-seed1235/artifacts/attempt-01/full-pass/checkpoints/final/model/generation_config.json",
+            "bytes": 196
+          },
+          {
+            "path": "runs/017-2026-10-04-pythia14m-temporal-sketch-seed1235/artifacts/attempt-01/full-pass/checkpoints/final/model/model.safetensors",
+            "bytes": 56279344
+          },
+          {
+            "path": "runs/017-2026-10-04-pythia14m-temporal-sketch-seed1235/artifacts/attempt-01/full-pass/checkpoints/final/recovery.pt",
+            "bytes": 788073971
+          }
+        ]
+      }
+    },
+    {
+      "run": "018-2026-10-04-pythia31m-temporal-sketch-seed1235",
+      "size": "31M",
+      "base": "runs/018-2026-10-04-pythia31m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass",
+      "receipt_sha256": "f27fe945242f5cd062df4e25f30962d0fdba4b616300c5924359326573b5f1ba",
+      "files": {
+        "events.jsonl": {
+          "bytes": 1199536,
+          "sha256": "f955dceb5ac243f8b25c9b0224c6430635cd3e0ad402c017e5e27e4b7d6940aa"
+        },
+        "resolved_config.json": {
+          "bytes": 5360,
+          "sha256": "e1a2bef684b5572813a00f4de34969bc81002ca028881d4444ff472e17b873a5"
+        },
+        "input_identity.json": {
+          "bytes": 1590,
+          "sha256": "b3583b631776e670002e9c059582fcda1f399a3ec83595472e966a9703eb9e76"
+        },
+        "summary.json": {
+          "bytes": 36399,
+          "sha256": "a3b6809bd522672da331dfd3dc9ffc74888b53a0c00942abb5e50a318d4a9812"
+        },
+        "temporal/exact_pairs.jsonl": {
+          "bytes": 399728,
+          "sha256": "1723fab6852818d235eca2d62e1e503fef6c902ce9180972936bae5ca1123f32"
+        }
+      },
+      "checkpoints_present": {
+        "initial": [
+          {
+            "path": "runs/018-2026-10-04-pythia31m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/checkpoints/initial/model/config.json",
+            "bytes": 1056
+          },
+          {
+            "path": "runs/018-2026-10-04-pythia31m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/checkpoints/initial/model/generation_config.json",
+            "bytes": 196
+          },
+          {
+            "path": "runs/018-2026-10-04-pythia31m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/checkpoints/initial/model/model.safetensors",
+            "bytes": 121987544
+          },
+          {
+            "path": "runs/018-2026-10-04-pythia31m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/checkpoints/initial/recovery.pt",
+            "bytes": 853960339
+          }
+        ],
+        "midpoint": [
+          {
+            "path": "runs/018-2026-10-04-pythia31m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/checkpoints/midpoint/model/config.json",
+            "bytes": 1056
+          },
+          {
+            "path": "runs/018-2026-10-04-pythia31m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/checkpoints/midpoint/model/generation_config.json",
+            "bytes": 196
+          },
+          {
+            "path": "runs/018-2026-10-04-pythia31m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/checkpoints/midpoint/model/model.safetensors",
+            "bytes": 121987544
+          },
+          {
+            "path": "runs/018-2026-10-04-pythia31m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/checkpoints/midpoint/recovery.pt",
+            "bytes": 1951963303
+          }
+        ],
+        "final": [
+          {
+            "path": "runs/018-2026-10-04-pythia31m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/checkpoints/final/model/config.json",
+            "bytes": 1056
+          },
+          {
+            "path": "runs/018-2026-10-04-pythia31m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/checkpoints/final/model/generation_config.json",
+            "bytes": 196
+          },
+          {
+            "path": "runs/018-2026-10-04-pythia31m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/checkpoints/final/model/model.safetensors",
+            "bytes": 121987544
+          },
+          {
+            "path": "runs/018-2026-10-04-pythia31m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/checkpoints/final/recovery.pt",
+            "bytes": 1707988147
+          }
+        ]
+      }
+    },
+    {
+      "run": "019-2026-10-04-pythia70m-temporal-sketch-seed1235",
+      "size": "70M",
+      "base": "runs/019-2026-10-04-pythia70m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass",
+      "receipt_sha256": "c388b9720614d83810a7b67120ed7b9e9ef0e7b18f6df4e81d138b3395240849",
+      "files": {
+        "events.jsonl": {
+          "bytes": 1202678,
+          "sha256": "cede6f486ef58aef8f94f7efd9b901a7145539d2451a65d63d37bd8ff9ac5a3d"
+        },
+        "resolved_config.json": {
+          "bytes": 5360,
+          "sha256": "690bf2804de9fabf4b60a2c14c68cf986ce314a9cdcd1d40469eb77484beac25"
+        },
+        "input_identity.json": {
+          "bytes": 1590,
+          "sha256": "b3583b631776e670002e9c059582fcda1f399a3ec83595472e966a9703eb9e76"
+        },
+        "summary.json": {
+          "bytes": 37382,
+          "sha256": "7939088cd85c7e841b3df2961895aff509f79f4037f916ab2d27c027a791a3a8"
+        },
+        "temporal/exact_pairs.jsonl": {
+          "bytes": 401511,
+          "sha256": "a243b85fc5da5a12a2b522f0808192f79a76c4cc40aa91eae43ca3ff58687e59"
+        }
+      },
+      "checkpoints_present": {
+        "initial": [
+          {
+            "path": "runs/019-2026-10-04-pythia70m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/checkpoints/initial/model/config.json",
+            "bytes": 1056
+          },
+          {
+            "path": "runs/019-2026-10-04-pythia70m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/checkpoints/initial/model/generation_config.json",
+            "bytes": 196
+          },
+          {
+            "path": "runs/019-2026-10-04-pythia70m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/checkpoints/initial/model/model.safetensors",
+            "bytes": 281715176
+          },
+          {
+            "path": "runs/019-2026-10-04-pythia70m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/checkpoints/initial/recovery.pt",
+            "bytes": 1972053651
+          }
+        ],
+        "midpoint": [
+          {
+            "path": "runs/019-2026-10-04-pythia70m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/checkpoints/midpoint/model/config.json",
+            "bytes": 1056
+          },
+          {
+            "path": "runs/019-2026-10-04-pythia70m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/checkpoints/midpoint/model/generation_config.json",
+            "bytes": 196
+          },
+          {
+            "path": "runs/019-2026-10-04-pythia70m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/checkpoints/midpoint/model/model.safetensors",
+            "bytes": 281715176
+          },
+          {
+            "path": "runs/019-2026-10-04-pythia70m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/checkpoints/midpoint/recovery.pt",
+            "bytes": 4507605263
+          }
+        ],
+        "final": [
+          {
+            "path": "runs/019-2026-10-04-pythia70m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/checkpoints/final/model/config.json",
+            "bytes": 1056
+          },
+          {
+            "path": "runs/019-2026-10-04-pythia70m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/checkpoints/final/model/generation_config.json",
+            "bytes": 196
+          },
+          {
+            "path": "runs/019-2026-10-04-pythia70m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/checkpoints/final/model/model.safetensors",
+            "bytes": 281715176
+          },
+          {
+            "path": "runs/019-2026-10-04-pythia70m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/checkpoints/final/recovery.pt",
+            "bytes": 3944174771
+          }
+        ]
+      }
+    }
+  ],
+  "preserved": {
+    "results.json": "a5751f03b9a136107094b3e559790d0305ec2b0279602ed2abca8a46bdcd579a",
+    "curve_data.csv": "a2ddbdf177d5756730be226b9cd1d2479b479c62b84ba1e150cbd9b417bb9421",
+    "cohort.json": "4d0d085d03626c2c5682af5358e1e3b2cfaac9cad02d228b29586f5ccdab6b64",
+    "artifact_validation.json": "b7a95374d4b2f9b5e8055088eff06f33376d20c4871707540b25fb1c680122a0",
+    "figures/cumulative_lag_interaction.pdf": "a83e399dc29c86d41de37fe7d9c1987e0d65220286a42550fdd397a697b58d87",
+    "figures/cumulative_lag_interaction_all_lags.pdf": "799bda6cc95c68f68b6d18dd1320fcfc02c82ec7a36d32cc571957abb55918ff",
+    "figures/lag_profiles.pdf": "2310780cc515d930c01717f4271003cafb4c4c7dc26d36676b53d3bc9fecf0c8",
+    "figures/lag_profiles_above_shuffled.pdf": "d32ebe23efdc78629824b1b5e87cfdd9b1650cc0fbe8718220dee74f54b276e7",
+    "figures/lag_profiles_fixed_origins.pdf": "98afc4712eea9c32eeee80a543d8ae3ccda520eec8295ea868b2bd5bc01393a4",
+    "figures/temporal_gram.pdf": "b03127aeca57237cc31293ac915f10914a7f34af5493b92e677faf4a632ec3f0"
+  },
+  "outputs": {
+    "figures/training_overview.pdf": {
+      "bytes": 168598,
+      "sha256": "5a628a51a9fec0390cb8828b48425274270d864d1c5717008fa1d1b23f7bf394"
+    },
+    "training_overview_data.csv": {
+      "bytes": 272061,
+      "sha256": "d327677b25c47f3e0e687ea41454876a46f3e7b0effb16b7802b247301762307"
+    },
+    "training_overview_results.json": {
+      "bytes": 2216,
+      "sha256": "58656b27cc05725eac30a7814e02ba56cea545a4842faf2f8e3665bc456a6caa"
+    }
+  },
+  "checks": {
+    "source_sizes_and_sha256": true,
+    "matched_data_order_and_training_protocol": true,
+    "contiguous_updates": true,
+    "direct_dot_identity_pairs": 2133,
+    "reversal_equivalence_pairs": 2133,
+    "csv_roundtrip": true,
+    "plotted_arrays": true,
+    "finite_plotted_points": 8538,
+    "retained_checkpoint_sizes_only": true,
+    "original_outputs_unchanged": true
+  },
+  "curves": [
+    {
+      "size": "14M",
+      "metric": "loss",
+      "points": 712,
+      "arrays_sha256": "499cf003da816deea98f1df80d3a4b13ea435d0f42e7fb1772d8dfc485273d44"
+    },
+    {
+      "size": "14M",
+      "metric": "eta_kappa_proxy",
+      "points": 711,
+      "arrays_sha256": "038fa829464c509346bff706ac574fd8f141e346db766aed5f0dee83b0c70b06"
+    },
+    {
+      "size": "14M",
+      "metric": "rho",
+      "points": 711,
+      "arrays_sha256": "ae5668e2bf8cdbc846351520c4ec0057fa324b08e3bf135f2e78af61a1cb62a5"
+    },
+    {
+      "size": "14M",
+      "metric": "raw_gradient_norm",
+      "points": 712,
+      "arrays_sha256": "7d0a1c7459c3c59a9894306c56bf9d385aee26a02b35ec2e43e76424b3a89177"
+    },
+    {
+      "size": "31M",
+      "metric": "loss",
+      "points": 712,
+      "arrays_sha256": "743f4bcceb06475e1ef73bad22f38f38b7d301d972f85fe28b09917d83c12303"
+    },
+    {
+      "size": "31M",
+      "metric": "eta_kappa_proxy",
+      "points": 711,
+      "arrays_sha256": "78994946e5c32208f541843d3316820123a230dab7ae07585ff4d91de847481e"
+    },
+    {
+      "size": "31M",
+      "metric": "rho",
+      "points": 711,
+      "arrays_sha256": "4987901a6528f315b535f9663dee3feb3cefb86a39ec57afdf7d9e6e65b78d9a"
+    },
+    {
+      "size": "31M",
+      "metric": "raw_gradient_norm",
+      "points": 712,
+      "arrays_sha256": "3c2dcbc5e6ddf664b8dd2c7f2a0b442f6bca8df0c858b6987f9dd2ae1eec3f2a"
+    },
+    {
+      "size": "70M",
+      "metric": "loss",
+      "points": 712,
+      "arrays_sha256": "20c957d250077f15fcae8fe09cb30f845b5172fd299c102aea5dae4f2b453610"
+    },
+    {
+      "size": "70M",
+      "metric": "eta_kappa_proxy",
+      "points": 711,
+      "arrays_sha256": "d1330e08c9835c6322ff7f76ec595d110bc71d46241d04538f719cb3b3b9eee7"
+    },
+    {
+      "size": "70M",
+      "metric": "rho",
+      "points": 711,
+      "arrays_sha256": "5be47f32bc5c75bcfba976f70cec594ba9cfec763b7bce312f7ab06b37ce6590"
+    },
+    {
+      "size": "70M",
+      "metric": "raw_gradient_norm",
+      "points": 712,
+      "arrays_sha256": "f4382e1f62e3092111877efa0572b346a82c58d3f3f4e1b11228fb862408c4ca"
+    }
+  ],
+  "visual_review": {
+    "passed": true,
+    "renderer": "Poppler pdftoppm",
+    "render_sha256": "ec2963a0e5d4d78db81b3c7960a5a48cf6680945572fba22ec2d03ec72e26db6",
+    "inspection": "All twelve panels, shared scales, formulas, endpoint diamonds and notes are legible; no overlap or clipping."
+  }
+}
