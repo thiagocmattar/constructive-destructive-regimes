@@ -1,0 +1,325 @@
+{
+  "script_sha256": "17dcf273330421ea6f30a09c09ef4b5671ff4a1416ecd2baee729a8d0ba1aa94",
+  "source_csv": "training_size_overlay_log_loss_diff_n5_1_400_data.csv",
+  "source_csv_sha256": "91df042661dc685d640f87a78fb4e24c05ccc177e767df6e631a7e3237816685",
+  "source_manifest_sha256": "e3e8bbe3c01e156efb720d0ca952590c320e6b5027d76f94b2f03211f27cf5f2",
+  "preserved": {
+    "figures/cumulative_lag_interaction.pdf": "a83e399dc29c86d41de37fe7d9c1987e0d65220286a42550fdd397a697b58d87",
+    "figures/cumulative_lag_interaction_all_lags.pdf": "799bda6cc95c68f68b6d18dd1320fcfc02c82ec7a36d32cc571957abb55918ff",
+    "figures/lag_profiles.pdf": "2310780cc515d930c01717f4271003cafb4c4c7dc26d36676b53d3bc9fecf0c8",
+    "figures/lag_profiles_above_shuffled.pdf": "d32ebe23efdc78629824b1b5e87cfdd9b1650cc0fbe8718220dee74f54b276e7",
+    "figures/lag_profiles_fixed_origins.pdf": "98afc4712eea9c32eeee80a543d8ae3ccda520eec8295ea868b2bd5bc01393a4",
+    "figures/temporal_gram.pdf": "b03127aeca57237cc31293ac915f10914a7f34af5493b92e677faf4a632ec3f0",
+    "figures/training_overview.pdf": "5a628a51a9fec0390cb8828b48425274270d864d1c5717008fa1d1b23f7bf394",
+    "figures/training_size_overlay.pdf": "3ac34b7c1aabdca22beb0ba23c0ea5c46b8a819ebff2b658b631ad3af7b76fce",
+    "figures/training_size_overlay_log_loss_diff_n5_1_400.pdf": "f903742e270fbd9705e4e59d1616bb74d6e7801c5605a9f5b527987410942b94",
+    "figures/training_size_overlay_loss_diff_n5_1_400.pdf": "fd14b543818c10bab218410b4b6edbedbe69c48e3a14849c78a502c1f85e19b1",
+    "figures/training_size_overlay_raw_1_400.pdf": "0be49341246f5ef9df7610d5eef1d230fda10b6dd4ae8012d3fd565b7775460c",
+    "training_size_overlay_log_loss_diff_n5_1_400_data.csv": "91df042661dc685d640f87a78fb4e24c05ccc177e767df6e631a7e3237816685",
+    "training_size_overlay_log_loss_diff_n5_1_400_manifest.json": "e3e8bbe3c01e156efb720d0ca952590c320e6b5027d76f94b2f03211f27cf5f2",
+    "14_plot_raw_first400.py": "8343d1cceb567b616c7eb889ed683918f7fe979bec5a70e980499371feeee7c6"
+  },
+  "curves": [
+    {
+      "size": "14M",
+      "metric": "log_loss_diff_mean",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "finite_points": 95,
+      "arrays_sha256": "dad3e8421b28e31c2b4e57507f5f90fdb38718c66b9b3e37d43782a60cc5fef0"
+    },
+    {
+      "size": "14M",
+      "metric": "eta_kappa_proxy",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "finite_points": 99,
+      "arrays_sha256": "d537d420b59cfde1491160e93f615ac5527229fd17db83eec0aa808f9f396c36"
+    },
+    {
+      "size": "14M",
+      "metric": "rho",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "finite_points": 99,
+      "arrays_sha256": "81b10eacc66af107dfc16597086377a123c65f8dcf45304db3bcc08f5ee98098"
+    },
+    {
+      "size": "14M",
+      "metric": "raw_gradient_norm",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "finite_points": 100,
+      "arrays_sha256": "2e0aa7e277522c11d77e13f3ed26e66e441e78cc386209a6e241b5ded7500181"
+    },
+    {
+      "size": "14M",
+      "metric": "log_loss_diff_mean",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "finite_points": 301,
+      "arrays_sha256": "ad360e2e552db7140256fe03af13bc603b8bf54e32b3bb204835805b94836cbd"
+    },
+    {
+      "size": "14M",
+      "metric": "eta_kappa_proxy",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "finite_points": 301,
+      "arrays_sha256": "d60fe5a5bafa9fb1c7770f8484669025bfb87a93fb7b8a7c8c6044825acee396"
+    },
+    {
+      "size": "14M",
+      "metric": "rho",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "finite_points": 301,
+      "arrays_sha256": "a5de4d066ce53c8af432cd8ae71ccb9d24c3c7eede27b53ccbbfa3a1a131b940"
+    },
+    {
+      "size": "14M",
+      "metric": "raw_gradient_norm",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "finite_points": 301,
+      "arrays_sha256": "7f7dfd55ec781afc398fed9c034045f38588a0f4bf59d069466c41f4f0f71307"
+    },
+    {
+      "size": "31M",
+      "metric": "log_loss_diff_mean",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "finite_points": 95,
+      "arrays_sha256": "2825fc135dc00ea9812b29db8c02053113c5e671c588930697f637ec46a6f8bf"
+    },
+    {
+      "size": "31M",
+      "metric": "eta_kappa_proxy",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "finite_points": 99,
+      "arrays_sha256": "f453cd8a31978da6dcd207a2a611d3f998759ccdf982ab302fefce589b30b620"
+    },
+    {
+      "size": "31M",
+      "metric": "rho",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "finite_points": 99,
+      "arrays_sha256": "20436d499a7a75665b2676edb319707a38338e2999e04ad89930818869685e6d"
+    },
+    {
+      "size": "31M",
+      "metric": "raw_gradient_norm",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "finite_points": 100,
+      "arrays_sha256": "57ec392e120b26b9865bc05a9144cd6d8b464397076d7176698e1f619a1fe50e"
+    },
+    {
+      "size": "31M",
+      "metric": "log_loss_diff_mean",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "finite_points": 301,
+      "arrays_sha256": "b5b91d78b69e8868d949e6ff403f6925bed98e37173fe6e7719a02d191f7f386"
+    },
+    {
+      "size": "31M",
+      "metric": "eta_kappa_proxy",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "finite_points": 301,
+      "arrays_sha256": "61656d68afc2894cde3f7f65dce1aa51856bb84b8c73c60c443320de158a7a8e"
+    },
+    {
+      "size": "31M",
+      "metric": "rho",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "finite_points": 301,
+      "arrays_sha256": "a7880d9d00b9e6da336e052035c6b70f106a39ebac9b86d1cdcfd3425cdc6683"
+    },
+    {
+      "size": "31M",
+      "metric": "raw_gradient_norm",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "finite_points": 301,
+      "arrays_sha256": "fe83fb8eb4c2383f9a5deccb183a7bb5de533495ff2b3ceb970ba20a1ba2dec9"
+    },
+    {
+      "size": "70M",
+      "metric": "log_loss_diff_mean",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "finite_points": 95,
+      "arrays_sha256": "ecb5d6e2b8a032c0ad58049f0724d4dbb4f27a2ab222a53a74364985c48877d0"
+    },
+    {
+      "size": "70M",
+      "metric": "eta_kappa_proxy",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "finite_points": 99,
+      "arrays_sha256": "29460247b68cd05ad7486213e535f3de743e8e1b0db68b7e289ba6c3b918c5ac"
+    },
+    {
+      "size": "70M",
+      "metric": "rho",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "finite_points": 99,
+      "arrays_sha256": "f65bda5aae71feda5aa59f61151b2bcd17967c328c2659b04462691f460eb088"
+    },
+    {
+      "size": "70M",
+      "metric": "raw_gradient_norm",
+      "column": 1,
+      "updates": [
+        1,
+        100
+      ],
+      "finite_points": 100,
+      "arrays_sha256": "3efe4ccf9a2516d266e7b9b5c816fec2a636672b31830b33d4b00a062a92d293"
+    },
+    {
+      "size": "70M",
+      "metric": "log_loss_diff_mean",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "finite_points": 301,
+      "arrays_sha256": "984efa998c74cfb87b8af19fc5b76ed0c2ac8c3a0661e847472bd420b6455287"
+    },
+    {
+      "size": "70M",
+      "metric": "eta_kappa_proxy",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "finite_points": 301,
+      "arrays_sha256": "4613c507bda326ea1243a0b87a52afea699f194d2ea7e2f9e2006648aa1796da"
+    },
+    {
+      "size": "70M",
+      "metric": "rho",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "finite_points": 301,
+      "arrays_sha256": "150d78b45f70c341ba7b6c6c269a148d8013055b513ce3196d98634925f7a1e6"
+    },
+    {
+      "size": "70M",
+      "metric": "raw_gradient_norm",
+      "column": 2,
+      "updates": [
+        100,
+        400
+      ],
+      "finite_points": 301,
+      "arrays_sha256": "2a672e9abe7c3fe474e8414d762affc0ecb2227d3dc79f08a53c37702a335881"
+    }
+  ],
+  "output": {
+    "path": "figures/training_size_overlay_log_loss_diff_n5_split.pdf",
+    "bytes": 123368,
+    "sha256": "b3ef190d8081cbe0879887f95de34aaf204bc66641e2b0861859af34c37db833"
+  },
+  "columns": [
+    [
+      1,
+      100
+    ],
+    [
+      100,
+      400
+    ]
+  ],
+  "row_metrics": [
+    "log_loss_diff_mean",
+    "eta_kappa_proxy",
+    "rho",
+    "raw_gradient_norm"
+  ],
+  "y_limits": "independent by column",
+  "checks": {
+    "source_outputs_verified": true,
+    "plotted_arrays": true,
+    "finite_plotted_points": 4791,
+    "unique_finite_points": 4779,
+    "repeated_boundary_points": 12,
+    "smoothing_not_restarted_at_boundary": true,
+    "previous_figures_unchanged": true
+  },
+  "visual_review": {
+    "passed": true,
+    "renderer": "Poppler pdftoppm",
+    "render_sha256": "9c7f7cec5582255b2f874916c2c965515af5748c5de8d921bb8d6ee6f4f59cd9",
+    "inspection": "All eight panels, two column ranges, metric rows, solid colour legend, independent Y scales and reduction notes are legible; no overlap or clipping."
+  }
+}

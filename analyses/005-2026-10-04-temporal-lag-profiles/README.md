@@ -1,6 +1,11 @@
 # Analysis005: phase-dependent temporal raw-gradient alignment
 
-Latest: [1-400 overlay with log-loss differences](figures/training_size_overlay_log_loss_diff_n5_1_400.pdf).
+Latest: [four metric rows, two update ranges](figures/training_size_overlay_log_loss_diff_n5_split.pdf).
+Columns cover 1-100 and 100-400; rows show N=5 log-loss change, eta*kappa_hat,
+rho and raw norms. Other metrics remain unsmoothed. See
+[observation008](observations/008-split-update-windows.md).
+
+[1-400 overlay with log-loss differences](figures/training_size_overlay_log_loss_diff_n5_1_400.pdf).
 The loss panel uses an N=5 mean of ln(L_t/L_(t-1)), approximately relative loss
 change per update; other panels remain raw. See
 [observation007](observations/007-log-loss-difference.md).

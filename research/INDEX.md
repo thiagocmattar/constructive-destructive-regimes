@@ -266,6 +266,9 @@ uses an N=5 trailing mean of signed adjacent loss changes; the other panels rema
 The [log-loss-difference variant](../analyses/005-2026-10-04-temporal-lag-profiles/observations/007-log-loss-difference.md)
 uses N=5 means of ln(L_t/L_(t-1)), approximately fractional loss changes; other panels stay raw.
 
+The [split-range layout](../analyses/005-2026-10-04-temporal-lag-profiles/observations/008-split-update-windows.md)
+uses four metric rows and columns 1-100/100-400, independent Y limits and unchanged source arrays.
+
 [Analysis004](../analyses/004-2026-10-04-lr-schedule-intervention/README.md) completed
 the first H004 intervention: seed1235,14M/70M, original/held/accelerated decay
 from update356. Faster decay reduces raw negativity and brings positive alignment
