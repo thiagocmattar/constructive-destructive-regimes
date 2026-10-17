@@ -35,8 +35,9 @@ S_3&:=2\sum_{t=0}^{T-1}\sum_{u=0}^{t-1}
 \end{aligned}
 \label{eq:s_def}
 \end{equation}
-The sums collect per-sample energy, within-batch interactions, and all
-cross-step interactions, respectively. Their expansion gives the exact identity
+The sums collect squared per-sample gradient norms, within-batch interactions,
+and all cross-step interactions, respectively. Their expansion gives the exact
+identity
 \begin{equation}
 \begin{aligned}
 \|\theta_T\|^2={}&\|\theta_0\|^2+C\\
@@ -44,10 +45,10 @@ cross-step interactions, respectively. Their expansion gives the exact identity
 \end{aligned}
 \label{eq:thetaT_full}
 \end{equation}
-In particular, $(S_1+S_2)/m^2=\sum_t\|G_{B_t}\|^2$ is the batch-gradient
-energy, while $S_3/m^2$ is the complete temporal interaction. The latter
-cannot generally be recovered from consecutive cosine alone. These identities
-specify the quantities displayed in Fig.~\ref{fig:traj_decomp}; they do not
+In particular, $(S_1+S_2)/m^2=\sum_t\|G_{B_t}\|^2$ is the sum of squared
+batch-gradient norms, while $S_3/m^2$ is the complete temporal interaction. The
+latter cannot generally be recovered from consecutive cosine alone. These
+identities specify the quantities displayed in Fig.~\ref{fig:traj_decomp}; they do not
 identify their signs with loss reduction or a stability guarantee.
 
 \begin{figure*}[h]

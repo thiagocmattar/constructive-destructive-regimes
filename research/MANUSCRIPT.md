@@ -162,3 +162,17 @@ Fifty-five exhaustive finite-population and deterministic objective-value checks
 pass with maximum absolute discrepancy 1.78e-15; the 13-page draft compiles with
 resolved references and no overfull boxes. Validation scripts and records remain
 under ignored `manuscript/artifacts/draft/`. These checks add no training evidence.
+
+The author-marked opening of Section 3 is polished around gradient magnitude
+and directional alignment. Displacement describes the net parameter change
+from initialization; it is not equated with an amount of learned knowledge.
+The slope interpretation distinguishes full gradients from sampled gradients
+and first-order loss predictions from finite-step loss changes. An exact
+pairwise-cosine expression replaces the separate lag-one/longer-lag presentation,
+with consecutive cosine retained as its online diagnostic. Consumed editing
+markers are removed. Squared-norm terminology replaces the energy wording
+throughout the working draft; the separate energy-distance statistic is retained.
+Six identity checks, including zero-gradient cases, pass, and the 13-page PDF
+compiles with resolved references and no overfull boxes. Changed pages are
+visually reviewed; the before-edit source and verification records remain in
+ignored `manuscript/artifacts/draft/`. No experiment or empirical claim is added.

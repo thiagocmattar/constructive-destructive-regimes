@@ -1,12 +1,13 @@
 \section{Parameter Displacement under Stochastic Gradient Descent}
 \label{sec:displacement}
 
-The practical monitoring strategies reviewed above motivate diagnostics that
-can be computed from gradients already available during training. We develop
-such a description by relating parameter displacement to gradient magnitudes
-and directional interactions. The resulting quantities characterize how steps
-reinforce or cancel one another, and connect changes in consecutive-gradient
-alignment to directional curvature and gradient noise.
+Loss spikes and oscillatory updates motivate practical diagnostics that can be
+computed from gradients already available during training. We develop these
+diagnostics by relating parameter displacement to gradient magnitudes and
+directional alignment, then connecting alignment to curvature and sampling
+noise. The resulting quantities characterize when updates reinforce or cancel
+one another, helping interpret constructive and destructive regimes and inform
+possible interventions without computing a Hessian.
 
 Consider the plain SGD update in Eq.~\eqref{eq:sgd_map_stability}, with constant
 learning rate $\eta>0$. As before, $\theta_t\in\mathbb{R}^p$ denotes the
@@ -16,45 +17,57 @@ at $\theta_{t-1}$. Summing the updates gives the displacement from initializatio
   \Delta_T:=\theta_T-\theta_0=-\eta\sum_{t=1}^T g_t.
   \label{eq:displacement}
 \end{equation}
-Expanding its squared norm separates individual gradient magnitudes from their
-temporal interactions:
+The displacement $\Delta_T$ summarizes how training changes the initialized
+model in parameter space. Its squared norm measures the magnitude of the net
+change accumulated over the trajectory. Expanding this quantity separates
+individual gradient magnitudes from interactions between their directions:
 \begin{equation}
 \begin{aligned}
   \|\Delta_T\|^2
   ={}&\eta^2\sum_{t=1}^T\|g_t\|^2\\
      &+2\eta^2\sum_{1\leq u<t\leq T}g_u^\top g_t.
 \end{aligned}
-\label{eq:energy-interaction}
+\label{eq:magnitude-interaction}
 \end{equation}
-The gradient-energy terms are nonnegative. Positive inner products reinforce
-the accumulated displacement, whereas negative inner products cancel part of
-it. This identity concerns displacement from initialization, rather than the
-absolute parameter norm or the change in the training objective.
+The terms $\|g_t\|^2$ are nonnegative and determine the squared lengths of
+individual SGD steps through $\eta^2\|g_t\|^2$. In full-batch GD, a larger
+gradient norm indicates a steeper local loss and a larger first-order decrease
+along the negative gradient. Mini-batch gradient norms also reflect sampling
+noise, and the actual loss change depends on curvature. The cross-step terms
+$g_u^\top g_t$ describe how these steps interact: positive inner products
+reinforce the accumulated displacement, whereas negative inner products cancel
+part of it. Large gradient norms can therefore coexist with strong
+cancellation along the training trajectory.
 
-For nonzero consecutive gradients, define their cosine similarity as
+To separate directional alignment from gradient magnitudes, define the cosine
+similarity between any two nonzero gradients and its consecutive-step form:
 \begin{equation}
-  \rho_t:=\frac{g_{t-1}^\top g_t}{\|g_{t-1}\|\|g_t\|},
-  \qquad t=2,\ldots,T.
-  \label{eq:rho}
+\begin{aligned}
+  \rho_{u,t}&:=\frac{g_u^\top g_t}{\|g_u\|\|g_t\|},
+       &&1\leq u<t\leq T,\\
+  \rho_t&:=\rho_{t-1,t}, &&t=2,\ldots,T.
+\end{aligned}
+\label{eq:rho}
 \end{equation}
-Separating adjacent pairs from longer-lag interactions gives the exact relation
+Substituting these similarities into Eq.~\eqref{eq:magnitude-interaction}
+expresses the squared displacement entirely through gradient norms and
+directional alignment:
 \begin{equation}
 \begin{aligned}
 \|\Delta_T\|^2={}&\eta^2\sum_{t=1}^T\|g_t\|^2\\
- &+2\eta^2\underbrace{\sum_{t=2}^T
-    \|g_{t-1}\|\|g_t\|\rho_t}_{\text{lag-one interaction}}\\
- &+2\eta^2\underbrace{\sum_{t=3}^T\sum_{u=1}^{t-2}
-    g_u^\top g_t}_{\text{interaction beyond lag one}}.
+ &+2\eta^2\sum_{1\leq u<t\leq T}
+    \|g_u\|\|g_t\|\rho_{u,t}.
 \end{aligned}
-\label{eq:lag-split}
+\label{eq:magnitude-alignment}
 \end{equation}
-Positive $\rho_t$ indicates constructive interaction between the two adjacent
-SGD steps; negative $\rho_t$ indicates partial cancellation. Persistent sign
-patterns therefore provide a diagnostic of transitions between locally
-reinforcing and alternating-gradient regimes. Longer-lag interactions remain
-in Eq.~\eqref{eq:lag-split}: adjacent anti-alignment does not determine the sign
-of the complete temporal sum. No assumption that these other interactions
-vanish is needed to measure or interpret $\rho_t$.
+If either gradient is zero, its pairwise contribution is taken as zero.
+For fixed gradient norms, positive $\rho_{u,t}$ increases the squared net
+displacement, negative $\rho_{u,t}$ contributes cancellation, and orthogonal
+gradients have no pairwise contribution. Gradient magnitudes determine the
+lengths of the steps, while their alignment determines how those steps
+accumulate. In practice, $\rho_t$ provides an online diagnostic of this
+interaction between successive updates: persistent positive or negative
+values characterize locally reinforcing or alternating-gradient regimes.
 
 \subsection{Directional Curvature and Consecutive Alignment}
 
@@ -71,9 +84,9 @@ SGD update yields
   \label{eq:gradient-evolution}
 \end{equation}
 where $r_t$ is the Taylor remainder. Taking the inner product with $g_{t-1}$
-separates the preceding gradient energy, the curvature contribution, and the
-change in gradient noise. Normalize the latter two terms by the preceding
-gradient energy:
+separates the squared norm of the preceding gradient, the curvature
+contribution, and the change in gradient noise. Normalize the latter two terms
+by $\|g_{t-1}\|^2$:
 \begin{equation}
 \begin{aligned}
   \kappa_t&:=\frac{g_{t-1}^\top H_{t-1}g_{t-1}}{\|g_{t-1}\|^2},\\
@@ -175,12 +188,12 @@ For two independent draws at these fixed parameters,
     &=\|\nabla\mathcal{L}(\theta)\|^2
       +\mathbb{E}\|\xi_t\|^2.
 \end{aligned}
-\label{eq:frozen-noise-energy}
+\label{eq:frozen-noise-magnitudes}
 \end{equation}
 The shared full-gradient component contributes to the expected inner product,
-while independent sampling fluctuations increase gradient energy without
-adding a persistent direction. Because cosine divides by random gradient
-norms, its expectation is not the ratio of these two expectations. In
+while independent sampling fluctuations increase the expected squared gradient
+norm without adding a persistent direction. Because cosine divides by random
+gradient norms, its expectation is not the ratio of these two expectations. In
 particular, adjacent sampled gradients can vary even when the parameters and
 the full gradient are unchanged. Their projected change must therefore be
 interpreted together with sampling noise, rather than attributed entirely to

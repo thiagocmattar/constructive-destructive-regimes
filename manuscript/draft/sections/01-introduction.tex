@@ -37,7 +37,7 @@ This decomposition also provides a mechanistic lens for optimization heuristics 
 % \end{aligned}
 % \label{eq:thetaT_full_intro_rewrite}
 % \end{equation}
-% Here, \(C\) is the initialization--trajectory alignment, \(S_1\) the per-sample gradient energy, \(S_2\) the intra-batch alignment, and \(S_3\) the cross-step interaction. Thus, \(S_1+S_2\) captures the gradient signal contributed by each batch, while \(S_3\) captures whether that signal accumulates constructively or is partially overwritten over time. We link this signal--interference decomposition to loss reduction through a two-step approximation (Eq.~\eqref{eq:two_step_loss_interference}).
+% Here, \(C\) is the initialization--trajectory alignment, \(S_1\) the sum of squared per-sample gradient norms, \(S_2\) the intra-batch alignment, and \(S_3\) the cross-step interaction. Thus, \(S_1+S_2\) captures the gradient signal contributed by each batch, while \(S_3\) captures whether that signal accumulates constructively or is partially overwritten over time. We link this signal--interference decomposition to loss reduction through a two-step approximation (Eq.~\eqref{eq:two_step_loss_interference}).
 
 % Equation \ref{eq:thetaT_full_intro_rewrite}, however, is not tractable at scale, as it requires access to all gradient interactions. Assuming that temporal correlations are primarily local, we obtain an approximation that could be tracked online on practical training pipelines. In particular, letting $G_{B_t} := \frac{1}{m}\sum_{i=1}^m g_i^{(t)}$ denote the mini-batch mean gradient, the terminal norm can be approximated as
 % \begin{equation}

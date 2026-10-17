@@ -7,8 +7,9 @@ specified in `BASELINE_PLAN.md`. Broader claims/definitions below remain open.
 
 The working formulation (`manuscript/draft/sections/03-methods.tex`) now starts
 with displacement from initialization under constant-step, plain mini-batch SGD.
-It retains the exact gradient-energy and all-pair temporal-interaction split,
-defines consecutive cosine `rho_t` and normalized displacement `R_T = B_T/A_T`,
+It decomposes squared displacement exactly into squared gradient norms and
+pairwise inner products, defines pairwise cosine `rho_{u,t}`, consecutive
+cosine `rho_t`, and normalized displacement `R_T = B_T/A_T`,
 and connects projected gradient change to directional curvature and sampling
 noise. The older absolute parameter-norm and sample-level `C/S1/S2/S3`
 decomposition remains in Appendix A for the existing image-classification results.
