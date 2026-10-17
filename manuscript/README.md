@@ -15,6 +15,12 @@ Entry point: [draft/bare_jrnl.tex](draft/bare_jrnl.tex). Section text is in
 PDFs and `bibliography.bib` are carried over exactly. Keep original assets until
 their replacement is explicitly part of an editing task.
 
+When introducing a variable, explain its practical intuition and why it is
+useful before or alongside its formal definition. The intended audience uses
+the theory to interpret training behavior. Preserve the author's motivation
+when polishing, while distinguishing an intuitive interpretation from a proved
+quantitative claim.
+
 The archive and submitted PDF are distinct snapshots until their correspondence
 is checked. Read the applicable snapshot when addressing a reviewer equation.
 The review map is in [research/REVIEW_CONTEXT.md](../research/REVIEW_CONTEXT.md).

@@ -176,3 +176,15 @@ Six identity checks, including zero-gradient cases, pass, and the 13-page PDF
 compiles with resolved references and no overfull boxes. Changed pages are
 visually reviewed; the before-edit source and verification records remain in
 ignored `manuscript/artifacts/draft/`. No experiment or empirical claim is added.
+
+The author clarified that the learning intuition is essential to the motivation
+for displacement. The paragraph now starts from an untrained reference and
+describes the final parameters as encoding what the model learned within its
+training budget. Squared displacement provides a geometric view of the magnitude
+of the parameter change through which that learning is expressed; no conversion
+to information units or performance guarantee is introduced. The manuscript
+README records the general writing principle: introduce each variable with its
+practical intuition and diagnostic purpose. The formulas are unchanged, and the
+13-page draft compiles with resolved references and no overfull boxes. Reflowed
+pages are visually reviewed; the previous source and PDF are retained in ignored
+`manuscript/artifacts/draft/`.

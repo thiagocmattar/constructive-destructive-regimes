@@ -17,10 +17,16 @@ at $\theta_{t-1}$. Summing the updates gives the displacement from initializatio
   \Delta_T:=\theta_T-\theta_0=-\eta\sum_{t=1}^T g_t.
   \label{eq:displacement}
 \end{equation}
-The displacement $\Delta_T$ summarizes how training changes the initialized
-model in parameter space. Its squared norm measures the magnitude of the net
-change accumulated over the trajectory. Expanding this quantity separates
-individual gradient magnitudes from interactions between their directions:
+For a model trained from scratch, $\theta_0$ provides a reference that has not
+yet learned from the training data. After $T$ updates, the trained parameters
+$\theta_T$ encode what the model has learned within that training budget.
+The displacement $\Delta_T$ captures the net parameter change through which
+this learning is expressed. Its squared norm therefore gives a geometric
+measure of the magnitude of that change, connecting the idea of learning from
+data to an observable quantity in parameter space. This motivates examining
+how individual updates accumulate into the trained model. Expanding the
+squared displacement separates gradient magnitudes from interactions between
+their directions:
 \begin{equation}
 \begin{aligned}
   \|\Delta_T\|^2
