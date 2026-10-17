@@ -1,0 +1,35 @@
+{
+  "utc": "2026-10-17T12:15:38.866448+00:00",
+  "queue": {
+    "runs": {
+      "122": {
+        "status": "complete",
+        "started_utc": "2026-10-17T12:13:31.199586+00:00",
+        "task": "mlp",
+        "method": "gd",
+        "seed": 0,
+        "pid": 559317,
+        "completed_updates": 3000,
+        "ended_utc": "2026-10-17T12:14:16.997778+00:00"
+      },
+      "123": {
+        "status": "running",
+        "started_utc": "2026-10-17T12:14:17.082341+00:00",
+        "task": "resnet",
+        "method": "gd",
+        "seed": 0,
+        "pid": 559920
+      }
+    },
+    "resume_predecessor": false,
+    "status": "running",
+    "resumed_or_started_utc": "2026-10-17T12:13:31.198641+00:00",
+    "current_run": "123"
+  },
+  "progress": null,
+  "last_gradient": null,
+  "gpu": "96, 56, 41.47",
+  "old020_status": "held_by_user_pending_calibration_review",
+  "old021_admission_state": "T",
+  "status": "passed_live_admission_and_old_queue_hold_check"
+}

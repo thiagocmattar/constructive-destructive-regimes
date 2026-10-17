@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "runs": [
+    {
+      "run_id": "059",
+      "lr": 0.004,
+      "updates": 3000,
+      "first_negative_gradient_update": null,
+      "first_100_pair_window_end_update": {
+        "0.8": null,
+        "1.0": null
+      },
+      "metrics_sha256": "b26bd47afdbe92c915d4973fc3aa07b546a68663216360e3c490d46ae1e730e0"
+    },
+    {
+      "run_id": "062",
+      "lr": 0.02,
+      "updates": 3000,
+      "first_negative_gradient_update": 1156,
+      "first_100_pair_window_end_update": {
+        "0.8": 1345,
+        "1.0": 1365
+      },
+      "metrics_sha256": "c94770a13d0f6668a4e6f1be577239b472a0c105fc5e098d6901d2514e620243"
+    },
+    {
+      "run_id": "122",
+      "lr": 0.04,
+      "updates": 3000,
+      "first_negative_gradient_update": 2,
+      "first_100_pair_window_end_update": {
+        "0.8": 323,
+        "1.0": 343
+      },
+      "metrics_sha256": "fe7b59d109c43684942e3fd8ac3c5b8ae057e6b7d94049fecea34df466439f04"
+    }
+  ],
+  "definition": "Window comprises 100 defined adjacent pairs, inclusive; report its ending gradient update (one-based). Threshold0.8 matches Analysis023 descriptive convention. A window threshold is not a stability test.",
+  "script_sha256": "a2c0b6cd3c794b414c368f112cfe722eceb27fcee4574ad0e3e379b7abb4eecb"
+}
