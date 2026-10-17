@@ -277,6 +277,8 @@ uses saved d cosines/norms and projected direction change q_d, with identical lo
 
 The [unsmoothed Adam-direction revision](../analyses/005-2026-10-04-temporal-lag-profiles/observations/011-unsmoothed-adam-direction.md)
 removes extra averaging from q_d, rho_d and direction norms; only log-loss change retains N=5/N=21 smoothing.
+The [200-250 inspection](../analyses/005-2026-10-04-temporal-lag-profiles/observations/012-loss-separation-200-250.md)
+finds smaller models slowing while70M maintains its loss decline; matched schedule and geometry do not establish a mechanism.
 
 [Analysis004](../analyses/004-2026-10-04-lr-schedule-intervention/README.md) completed
 the first H004 intervention: seed1235,14M/70M, original/held/accelerated decay

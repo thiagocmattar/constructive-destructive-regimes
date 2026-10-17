@@ -1,0 +1,612 @@
+{
+  "script_sha256": "f6cdcdf0a780487a3d883d04b0f12489b20951846d72d8556a6d464a08907547",
+  "source_manifest": "training_size_adam_direction_split_loss_only_n5_n21_manifest.json",
+  "source_manifest_sha256": "abdd54d40a6ed1d5042535de9bdbf80c244a88f87fbec655cf86f1365318af26",
+  "sources": [
+    {
+      "run": "017-2026-10-04-pythia14m-temporal-sketch-seed1235",
+      "size": "14M",
+      "attempt": "attempt-01",
+      "receipt": {
+        "path": "runs/017-2026-10-04-pythia14m-temporal-sketch-seed1235/prelaunch/attempt-01-retrieval.json",
+        "bytes": 1459,
+        "sha256": "a4fdc0bf9a7cc9812a39cca43f555072397698097063432404ac2e723d48c301"
+      },
+      "files": [
+        {
+          "path": "runs/017-2026-10-04-pythia14m-temporal-sketch-seed1235/artifacts/attempt-01/full-pass/events.jsonl",
+          "bytes": 1201716,
+          "sha256": "8f0412c79dbd108b7c5725d735196b7e3c754e687a32033bfe650cf6100d4e8f"
+        },
+        {
+          "path": "runs/017-2026-10-04-pythia14m-temporal-sketch-seed1235/artifacts/attempt-01/full-pass/resolved_config.json",
+          "bytes": 5306,
+          "sha256": "4e0ee88b1d8bdd324e8fd46e7cdd535bfb56a7ccb0c0c9bdc1ff5735e636e190"
+        },
+        {
+          "path": "runs/017-2026-10-04-pythia14m-temporal-sketch-seed1235/artifacts/attempt-01/full-pass/input_identity.json",
+          "bytes": 1590,
+          "sha256": "b3583b631776e670002e9c059582fcda1f399a3ec83595472e966a9703eb9e76"
+        },
+        {
+          "path": "runs/017-2026-10-04-pythia14m-temporal-sketch-seed1235/artifacts/attempt-01/full-pass/summary.json",
+          "bytes": 36946,
+          "sha256": "9abbb9a2e385ab9f1e028b4e0134f37352d2dfb3d7be44d3c0a6298d7ca58ae0"
+        }
+      ],
+      "capture": {
+        "vectors": [
+          "raw_unscaled_batch_gradient",
+          "adam_bias_corrected_preconditioned_direction"
+        ],
+        "raw_capture": "after_accumulation_unscaling_before_clipping",
+        "adaptive_capture": "after_optimizer_step_from_actual_updated_FP32_moments",
+        "adaptive_formula": "(m_t/(1-beta1**t))/(sqrt(v_t/(1-beta2**t))+epsilon)",
+        "adaptive_excludes": [
+          "learning_rate",
+          "weight_decay",
+          "parameter_subtraction_rounding"
+        ],
+        "adaptive_moment_input": "globally_clipped_gradient",
+        "adaptive_direction_dtype": "float64_from_FP32_moments",
+        "previous_raw_dtype": "float32",
+        "previous_adaptive_dtype": "float64",
+        "cumulative_dtype": "float64",
+        "reductions_dtype": "float64",
+        "every_update": true,
+        "ratio": "norm_of_cumulative_sum_over_cumulative_sum_of_norms",
+        "undefined": "null_with_reason",
+        "norm_comparison": "raw_norm, adaptive_norm, adaptive_norm/raw_norm"
+      }
+    },
+    {
+      "run": "018-2026-10-04-pythia31m-temporal-sketch-seed1235",
+      "size": "31M",
+      "attempt": "attempt-02",
+      "receipt": {
+        "path": "runs/018-2026-10-04-pythia31m-temporal-sketch-seed1235/prelaunch/attempt-02-retrieval.json",
+        "bytes": 1212,
+        "sha256": "f27fe945242f5cd062df4e25f30962d0fdba4b616300c5924359326573b5f1ba"
+      },
+      "files": [
+        {
+          "path": "runs/018-2026-10-04-pythia31m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/events.jsonl",
+          "bytes": 1199536,
+          "sha256": "f955dceb5ac243f8b25c9b0224c6430635cd3e0ad402c017e5e27e4b7d6940aa"
+        },
+        {
+          "path": "runs/018-2026-10-04-pythia31m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/resolved_config.json",
+          "bytes": 5360,
+          "sha256": "e1a2bef684b5572813a00f4de34969bc81002ca028881d4444ff472e17b873a5"
+        },
+        {
+          "path": "runs/018-2026-10-04-pythia31m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/input_identity.json",
+          "bytes": 1590,
+          "sha256": "b3583b631776e670002e9c059582fcda1f399a3ec83595472e966a9703eb9e76"
+        },
+        {
+          "path": "runs/018-2026-10-04-pythia31m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/summary.json",
+          "bytes": 36399,
+          "sha256": "a3b6809bd522672da331dfd3dc9ffc74888b53a0c00942abb5e50a318d4a9812"
+        }
+      ],
+      "capture": {
+        "vectors": [
+          "raw_unscaled_batch_gradient",
+          "adam_bias_corrected_preconditioned_direction"
+        ],
+        "raw_capture": "after_accumulation_unscaling_before_clipping",
+        "adaptive_capture": "after_optimizer_step_from_actual_updated_FP32_moments",
+        "adaptive_formula": "(m_t/(1-beta1**t))/(sqrt(v_t/(1-beta2**t))+epsilon)",
+        "adaptive_excludes": [
+          "learning_rate",
+          "weight_decay",
+          "parameter_subtraction_rounding"
+        ],
+        "adaptive_moment_input": "globally_clipped_gradient",
+        "adaptive_direction_dtype": "float64_from_FP32_moments",
+        "previous_raw_dtype": "float32",
+        "previous_adaptive_dtype": "float64",
+        "cumulative_dtype": "float64",
+        "reductions_dtype": "float64",
+        "every_update": true,
+        "ratio": "norm_of_cumulative_sum_over_cumulative_sum_of_norms",
+        "undefined": "null_with_reason",
+        "norm_comparison": "raw_norm, adaptive_norm, adaptive_norm/raw_norm"
+      }
+    },
+    {
+      "run": "019-2026-10-04-pythia70m-temporal-sketch-seed1235",
+      "size": "70M",
+      "attempt": "attempt-02",
+      "receipt": {
+        "path": "runs/019-2026-10-04-pythia70m-temporal-sketch-seed1235/prelaunch/attempt-02-retrieval.json",
+        "bytes": 1462,
+        "sha256": "c388b9720614d83810a7b67120ed7b9e9ef0e7b18f6df4e81d138b3395240849"
+      },
+      "files": [
+        {
+          "path": "runs/019-2026-10-04-pythia70m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/events.jsonl",
+          "bytes": 1202678,
+          "sha256": "cede6f486ef58aef8f94f7efd9b901a7145539d2451a65d63d37bd8ff9ac5a3d"
+        },
+        {
+          "path": "runs/019-2026-10-04-pythia70m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/resolved_config.json",
+          "bytes": 5360,
+          "sha256": "690bf2804de9fabf4b60a2c14c68cf986ce314a9cdcd1d40469eb77484beac25"
+        },
+        {
+          "path": "runs/019-2026-10-04-pythia70m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/input_identity.json",
+          "bytes": 1590,
+          "sha256": "b3583b631776e670002e9c059582fcda1f399a3ec83595472e966a9703eb9e76"
+        },
+        {
+          "path": "runs/019-2026-10-04-pythia70m-temporal-sketch-seed1235/artifacts/attempt-02/full-pass/summary.json",
+          "bytes": 37382,
+          "sha256": "7939088cd85c7e841b3df2961895aff509f79f4037f916ab2d27c027a791a3a8"
+        }
+      ],
+      "capture": {
+        "vectors": [
+          "raw_unscaled_batch_gradient",
+          "adam_bias_corrected_preconditioned_direction"
+        ],
+        "raw_capture": "after_accumulation_unscaling_before_clipping",
+        "adaptive_capture": "after_optimizer_step_from_actual_updated_FP32_moments",
+        "adaptive_formula": "(m_t/(1-beta1**t))/(sqrt(v_t/(1-beta2**t))+epsilon)",
+        "adaptive_excludes": [
+          "learning_rate",
+          "weight_decay",
+          "parameter_subtraction_rounding"
+        ],
+        "adaptive_moment_input": "globally_clipped_gradient",
+        "adaptive_direction_dtype": "float64_from_FP32_moments",
+        "previous_raw_dtype": "float32",
+        "previous_adaptive_dtype": "float64",
+        "cumulative_dtype": "float64",
+        "reductions_dtype": "float64",
+        "every_update": true,
+        "ratio": "norm_of_cumulative_sum_over_cumulative_sum_of_norms",
+        "undefined": "null_with_reason",
+        "norm_comparison": "raw_norm, adaptive_norm, adaptive_norm/raw_norm"
+      }
+    }
+  ],
+  "user_selected_window": [
+    200,
+    250
+  ],
+  "windows": [
+    [
+      100,
+      150
+    ],
+    [
+      150,
+      200
+    ],
+    [
+      200,
+      250
+    ],
+    [
+      250,
+      300
+    ],
+    [
+      300,
+      350
+    ]
+  ],
+  "reductions": [
+    {
+      "size": "14M",
+      "updates": [
+        100,
+        150
+      ],
+      "loss_records": 51,
+      "loss_differences": 50,
+      "initial_loss": 6.571797877550125,
+      "final_loss": 6.129247101023793,
+      "endpoint_loss_drop_percent": 6.734089890958561,
+      "fitted_log_loss_slope": -0.001425694724982294,
+      "mean_raw_gradient_norm": 0.3519199609368127,
+      "mean_raw_rho": -0.19999018908158045,
+      "mean_direction_norm": 1479.919558514796,
+      "mean_direction_rho": 0.9773612411112899,
+      "mean_direction_change": 0.022484364941261402,
+      "mean_lr_times_direction_norm": 1.3823088572955426,
+      "initial_learning_rate": 0.0009594710472192336,
+      "final_learning_rate": 0.0009051817454447911,
+      "clipping_count": 0,
+      "loss_scales": [
+        4096.0
+      ]
+    },
+    {
+      "size": "14M",
+      "updates": [
+        150,
+        200
+      ],
+      "loss_records": 51,
+      "loss_differences": 50,
+      "initial_loss": 6.129247101023793,
+      "final_loss": 5.827988458797336,
+      "endpoint_loss_drop_percent": 4.915100293087171,
+      "fitted_log_loss_slope": -0.000942260342610249,
+      "mean_raw_gradient_norm": 0.4976979124285461,
+      "mean_raw_rho": -0.28247591795109717,
+      "mean_direction_norm": 1432.223782046014,
+      "mean_direction_rho": 0.9738923805667159,
+      "mean_direction_change": 0.02724205381900959,
+      "mean_lr_times_direction_norm": 1.2461136018515862,
+      "initial_learning_rate": 0.0009051817454447911,
+      "final_learning_rate": 0.000831251270622938,
+      "clipping_count": 0,
+      "loss_scales": [
+        4096.0
+      ]
+    },
+    {
+      "size": "14M",
+      "updates": [
+        200,
+        250
+      ],
+      "loss_records": 51,
+      "loss_differences": 50,
+      "initial_loss": 5.827988458797336,
+      "final_loss": 5.664548080414534,
+      "endpoint_loss_drop_percent": 2.804404633576263,
+      "fitted_log_loss_slope": -0.0005895452865749236,
+      "mean_raw_gradient_norm": 0.5329432219787325,
+      "mean_raw_rho": -0.3525187044713798,
+      "mean_direction_norm": 1359.1572969804752,
+      "mean_direction_rho": 0.9708360930439138,
+      "mean_direction_change": 0.03002739781020802,
+      "mean_lr_times_direction_norm": 1.0706776379997036,
+      "initial_learning_rate": 0.000831251270622938,
+      "final_learning_rate": 0.0007412634003196142,
+      "clipping_count": 0,
+      "loss_scales": [
+        4096.0
+      ]
+    },
+    {
+      "size": "14M",
+      "updates": [
+        250,
+        300
+      ],
+      "loss_records": 51,
+      "loss_differences": 50,
+      "initial_loss": 5.664548080414534,
+      "final_loss": 5.550830375403166,
+      "endpoint_loss_drop_percent": 2.007533582503296,
+      "fitted_log_loss_slope": -0.0004733780930496169,
+      "mean_raw_gradient_norm": 0.5639444372841247,
+      "mean_raw_rho": -0.34409582653415643,
+      "mean_direction_norm": 1305.0573253297066,
+      "mean_direction_rho": 0.96823691465856,
+      "mean_direction_change": 0.032612052828942244,
+      "mean_lr_times_direction_norm": 0.9024655944734237,
+      "initial_learning_rate": 0.0007412634003196142,
+      "final_learning_rate": 0.0006395802938686637,
+      "clipping_count": 0,
+      "loss_scales": [
+        4096.0
+      ]
+    },
+    {
+      "size": "14M",
+      "updates": [
+        300,
+        350
+      ],
+      "loss_records": 51,
+      "loss_differences": 50,
+      "initial_loss": 5.550830375403166,
+      "final_loss": 5.439037252217531,
+      "endpoint_loss_drop_percent": 2.0139891804478838,
+      "fitted_log_loss_slope": -0.0003081431362461304,
+      "mean_raw_gradient_norm": 0.5320790829314183,
+      "mean_raw_rho": -0.28667560781133655,
+      "mean_direction_norm": 1266.0836166563508,
+      "mean_direction_rho": 0.9664373000521022,
+      "mean_direction_change": 0.033999168537980205,
+      "mean_lr_times_direction_norm": 0.7417916354610594,
+      "initial_learning_rate": 0.0006395802938686637,
+      "final_learning_rate": 0.0005311310368279989,
+      "clipping_count": 0,
+      "loss_scales": [
+        4096.0
+      ]
+    },
+    {
+      "size": "31M",
+      "updates": [
+        100,
+        150
+      ],
+      "loss_records": 51,
+      "loss_differences": 50,
+      "initial_loss": 6.073676189407706,
+      "final_loss": 5.675228837877512,
+      "endpoint_loss_drop_percent": 6.560233688866612,
+      "fitted_log_loss_slope": -0.0013690452968565146,
+      "mean_raw_gradient_norm": 0.41928065181788354,
+      "mean_raw_rho": -0.3168790867963343,
+      "mean_direction_norm": 1829.3854984504255,
+      "mean_direction_rho": 0.9629582912862203,
+      "mean_direction_change": 0.03798601098889884,
+      "mean_lr_times_direction_norm": 1.7091926529476786,
+      "initial_learning_rate": 0.0009594710472192336,
+      "final_learning_rate": 0.0009051817454447911,
+      "clipping_count": 0,
+      "loss_scales": [
+        4096.0
+      ]
+    },
+    {
+      "size": "31M",
+      "updates": [
+        150,
+        200
+      ],
+      "loss_records": 51,
+      "loss_differences": 50,
+      "initial_loss": 5.675228837877512,
+      "final_loss": 5.393481981009245,
+      "endpoint_loss_drop_percent": 4.964502135805294,
+      "fitted_log_loss_slope": -0.0009477214296474712,
+      "mean_raw_gradient_norm": 0.48663472590141144,
+      "mean_raw_rho": -0.35281285185132066,
+      "mean_direction_norm": 1717.9487656333224,
+      "mean_direction_rho": 0.9563204022306324,
+      "mean_direction_change": 0.04475036741750096,
+      "mean_lr_times_direction_norm": 1.4947800872795387,
+      "initial_learning_rate": 0.0009051817454447911,
+      "final_learning_rate": 0.000831251270622938,
+      "clipping_count": 0,
+      "loss_scales": [
+        4096.0
+      ]
+    },
+    {
+      "size": "31M",
+      "updates": [
+        200,
+        250
+      ],
+      "loss_records": 51,
+      "loss_differences": 50,
+      "initial_loss": 5.393481981009245,
+      "final_loss": 5.250531751662493,
+      "endpoint_loss_drop_percent": 2.650425640617471,
+      "fitted_log_loss_slope": -0.0006008660369586288,
+      "mean_raw_gradient_norm": 0.5443597621093064,
+      "mean_raw_rho": -0.3648422049055651,
+      "mean_direction_norm": 1629.3460118733437,
+      "mean_direction_rho": 0.9502622408068382,
+      "mean_direction_change": 0.05050304713937561,
+      "mean_lr_times_direction_norm": 1.2835353442528339,
+      "initial_learning_rate": 0.000831251270622938,
+      "final_learning_rate": 0.0007412634003196142,
+      "clipping_count": 0,
+      "loss_scales": [
+        4096.0
+      ]
+    },
+    {
+      "size": "31M",
+      "updates": [
+        250,
+        300
+      ],
+      "loss_records": 51,
+      "loss_differences": 50,
+      "initial_loss": 5.250531751662493,
+      "final_loss": 5.120942885987461,
+      "endpoint_loss_drop_percent": 2.4681093611899407,
+      "fitted_log_loss_slope": -0.0005306011707960243,
+      "mean_raw_gradient_norm": 0.5191238488378734,
+      "mean_raw_rho": -0.34377808406835847,
+      "mean_direction_norm": 1571.783206021925,
+      "mean_direction_rho": 0.9482305750387209,
+      "mean_direction_change": 0.052376285719246116,
+      "mean_lr_times_direction_norm": 1.0866983127000702,
+      "initial_learning_rate": 0.0007412634003196142,
+      "final_learning_rate": 0.0006395802938686637,
+      "clipping_count": 0,
+      "loss_scales": [
+        4096.0
+      ]
+    },
+    {
+      "size": "31M",
+      "updates": [
+        300,
+        350
+      ],
+      "loss_records": 51,
+      "loss_differences": 50,
+      "initial_loss": 5.120942885987461,
+      "final_loss": 5.0074127884581685,
+      "endpoint_loss_drop_percent": 2.2169764447079965,
+      "fitted_log_loss_slope": -0.00037362298955581657,
+      "mean_raw_gradient_norm": 0.5212514048803356,
+      "mean_raw_rho": -0.32024091198356014,
+      "mean_direction_norm": 1544.3875959569314,
+      "mean_direction_rho": 0.9459843636478643,
+      "mean_direction_change": 0.054105264727855644,
+      "mean_lr_times_direction_norm": 0.904666968123799,
+      "initial_learning_rate": 0.0006395802938686637,
+      "final_learning_rate": 0.0005311310368279989,
+      "clipping_count": 0,
+      "loss_scales": [
+        4096.0
+      ]
+    },
+    {
+      "size": "70M",
+      "updates": [
+        100,
+        150
+      ],
+      "loss_records": 51,
+      "loss_differences": 50,
+      "initial_loss": 5.7915271650999784,
+      "final_loss": 5.408367535099387,
+      "endpoint_loss_drop_percent": 6.615865195444992,
+      "fitted_log_loss_slope": -0.0013710290753749935,
+      "mean_raw_gradient_norm": 0.4411752231142066,
+      "mean_raw_rho": -0.17323581573932825,
+      "mean_direction_norm": 2225.306572947607,
+      "mean_direction_rho": 0.9335024047545118,
+      "mean_direction_change": 0.067516860827124,
+      "mean_lr_times_direction_norm": 2.07926924232756,
+      "initial_learning_rate": 0.0009594710472192336,
+      "final_learning_rate": 0.0009051817454447911,
+      "clipping_count": 1,
+      "loss_scales": [
+        4096.0
+      ]
+    },
+    {
+      "size": "70M",
+      "updates": [
+        150,
+        200
+      ],
+      "loss_records": 51,
+      "loss_differences": 50,
+      "initial_loss": 5.408367535099387,
+      "final_loss": 5.12183356937021,
+      "endpoint_loss_drop_percent": 5.297975107453778,
+      "fitted_log_loss_slope": -0.0010797556546550237,
+      "mean_raw_gradient_norm": 0.4626333859856866,
+      "mean_raw_rho": -0.28559888027917585,
+      "mean_direction_norm": 2092.038704772442,
+      "mean_direction_rho": 0.9246616906877341,
+      "mean_direction_change": 0.0755912150572074,
+      "mean_lr_times_direction_norm": 1.8199896022708844,
+      "initial_learning_rate": 0.0009051817454447911,
+      "final_learning_rate": 0.000831251270622938,
+      "clipping_count": 0,
+      "loss_scales": [
+        4096.0
+      ]
+    },
+    {
+      "size": "70M",
+      "updates": [
+        200,
+        250
+      ],
+      "loss_records": 51,
+      "loss_differences": 50,
+      "initial_loss": 5.12183356937021,
+      "final_loss": 4.860791304148734,
+      "endpoint_loss_drop_percent": 5.09665653297623,
+      "fitted_log_loss_slope": -0.0010310529015460864,
+      "mean_raw_gradient_norm": 0.49527060726202654,
+      "mean_raw_rho": -0.2411082397390367,
+      "mean_direction_norm": 2023.3617441960364,
+      "mean_direction_rho": 0.9186566204829616,
+      "mean_direction_change": 0.08181425515223882,
+      "mean_lr_times_direction_norm": 1.5936054759255611,
+      "initial_learning_rate": 0.000831251270622938,
+      "final_learning_rate": 0.0007412634003196142,
+      "clipping_count": 0,
+      "loss_scales": [
+        4096.0
+      ]
+    },
+    {
+      "size": "70M",
+      "updates": [
+        250,
+        300
+      ],
+      "loss_records": 51,
+      "loss_differences": 50,
+      "initial_loss": 4.860791304148734,
+      "final_loss": 4.5592826111242175,
+      "endpoint_loss_drop_percent": 6.2028726221423085,
+      "fitted_log_loss_slope": -0.0014174848126435006,
+      "mean_raw_gradient_norm": 0.5010979994054202,
+      "mean_raw_rho": -0.3267552426304312,
+      "mean_direction_norm": 2012.49426297096,
+      "mean_direction_rho": 0.9168856662740267,
+      "mean_direction_change": 0.08299424117712376,
+      "mean_lr_times_direction_norm": 1.390956759501752,
+      "initial_learning_rate": 0.0007412634003196142,
+      "final_learning_rate": 0.0006395802938686637,
+      "clipping_count": 0,
+      "loss_scales": [
+        4096.0
+      ]
+    },
+    {
+      "size": "70M",
+      "updates": [
+        300,
+        350
+      ],
+      "loss_records": 51,
+      "loss_differences": 50,
+      "initial_loss": 4.5592826111242175,
+      "final_loss": 4.318123968318105,
+      "endpoint_loss_drop_percent": 5.289398867657569,
+      "fitted_log_loss_slope": -0.0009893476577986216,
+      "mean_raw_gradient_norm": 0.487162212662648,
+      "mean_raw_rho": -0.26649685104258275,
+      "mean_direction_norm": 1989.6384993134889,
+      "mean_direction_rho": 0.9204533871305262,
+      "mean_direction_change": 0.07977489347094802,
+      "mean_lr_times_direction_norm": 1.1655385431453549,
+      "initial_learning_rate": 0.0006395802938686637,
+      "final_learning_rate": 0.0005311310368279989,
+      "clipping_count": 0,
+      "loss_scales": [
+        4096.0
+      ]
+    }
+  ],
+  "definitions": {
+    "endpoint_loss_drop": "100*(1-L[last]/L[first]); 50 adjacent changes",
+    "fitted_slope": "OLS slope of ln(loss) against update across 51 unsmoothed records",
+    "geometry": "arithmetic descriptive means across all 51 inclusive records; figures unchanged",
+    "lr_times_direction_norm": "norm of adaptive update component eta*d; excludes decay and rounding"
+  },
+  "checks": {
+    "accepted_source_hashes_and_bytes": true,
+    "matched_data_seed_training_recipe": true,
+    "identical_lr_history": true,
+    "lr_strictly_decreasing_150_350": true,
+    "no_overflows": true,
+    "all_visible_batches_full": true,
+    "independent_ols_and_log_telescoping": true,
+    "previous_figures_unchanged": true
+  },
+  "preserved_figures": {
+    "cumulative_lag_interaction.pdf": "a83e399dc29c86d41de37fe7d9c1987e0d65220286a42550fdd397a697b58d87",
+    "cumulative_lag_interaction_all_lags.pdf": "799bda6cc95c68f68b6d18dd1320fcfc02c82ec7a36d32cc571957abb55918ff",
+    "lag_profiles.pdf": "2310780cc515d930c01717f4271003cafb4c4c7dc26d36676b53d3bc9fecf0c8",
+    "lag_profiles_above_shuffled.pdf": "d32ebe23efdc78629824b1b5e87cfdd9b1650cc0fbe8718220dee74f54b276e7",
+    "lag_profiles_fixed_origins.pdf": "98afc4712eea9c32eeee80a543d8ae3ccda520eec8295ea868b2bd5bc01393a4",
+    "temporal_gram.pdf": "b03127aeca57237cc31293ac915f10914a7f34af5493b92e677faf4a632ec3f0",
+    "training_overview.pdf": "5a628a51a9fec0390cb8828b48425274270d864d1c5717008fa1d1b23f7bf394",
+    "training_size_adam_direction_split_loss_only_n5_n21.pdf": "beb9724ab22c5e6fa3f10a3bb093f5dce1b6ce5759dbbab0edfe638692c07f31",
+    "training_size_adam_direction_split_n5_n21.pdf": "49ab571db31bb989d44aa6613d3060dc69b4fe0dd85d08206cd3508aa34ed429",
+    "training_size_overlay.pdf": "3ac34b7c1aabdca22beb0ba23c0ea5c46b8a819ebff2b658b631ad3af7b76fce",
+    "training_size_overlay_log_loss_diff_n5_1_400.pdf": "f903742e270fbd9705e4e59d1616bb74d6e7801c5605a9f5b527987410942b94",
+    "training_size_overlay_log_loss_diff_n5_split.pdf": "b3ef190d8081cbe0879887f95de34aaf204bc66641e2b0861859af34c37db833",
+    "training_size_overlay_log_loss_diff_split_n5_n21.pdf": "264e38bc6ad05c0e0dbaea5fbc736a635e47dfce59f2254b98b310396de06608",
+    "training_size_overlay_loss_diff_n5_1_400.pdf": "fd14b543818c10bab218410b4b6edbedbe69c48e3a14849c78a502c1f85e19b1",
+    "training_size_overlay_raw_1_400.pdf": "0be49341246f5ef9df7610d5eef1d230fda10b6dd4ae8012d3fd565b7775460c"
+  },
+  "interpretation": "Descriptive loss separation in one seed; no causal mechanism or asymptotic convergence established."
+}

@@ -11,3 +11,4 @@
 - [009: Column smoothing](009-column-smoothing.md): complete means of all four metrics, N=5 at updates 1-100 and N=21 at 100-400, using raw per-update scalars.
 - [010: Adam direction](010-adam-direction.md): same N=5/N=21 layout using saved adaptive direction q_d, rho_d and norms; loss means exactly preserved.
 - [011: Unsmoothed Adam direction](011-unsmoothed-adam-direction.md): no additional averaging of q_d, rho_d or norms; only log-loss change keeps N=5/N=21 smoothing.
+- [012: Loss separation at200-250](012-loss-separation-200-250.md):70M maintains its loss-reduction rate as smaller models slow; matched schedule and geometry checks do not establish a cause.

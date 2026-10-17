@@ -5,6 +5,10 @@ Only the log-loss-change row retains N=5/N=21 smoothing. q_d, rho_d and ||d||
 use the saved per-update values. The same model colours and columns 1-100 / 100-400
 are retained. See [observation011](observations/011-unsmoothed-adam-direction.md).
 
+[Updates200-250 comparison](observations/012-loss-separation-200-250.md):70M
+largely maintains its loss-reduction rate while14M/31M slow. LR and direction
+norms decline; the current diagnostics do not identify the causal mechanism.
+
 [Adam-direction companion, all rows N=5 / N=21](figures/training_size_adam_direction_split_n5_n21.pdf).
 The loss row is unchanged; geometry now uses saved adaptive directions d, with
 projected direction change q_d, adjacent cosine rho_d and norm ||d||. Columns
