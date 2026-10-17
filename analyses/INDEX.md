@@ -33,7 +33,7 @@
 
 | [023](023-2026-10-15-eos-smallest-lr-calibration/README.md) | Smallest-LR3k full-GD calibration on Spark | Reused Run059; new120/121, seed0 | All three3k calibrations complete;79 files/8997 pairs/93 spectra verified; Three-case4x3 PDF reviewed; no subsequent training | [Protocol/status](023-2026-10-15-eos-smallest-lr-calibration/README.md), [MLP result](023-2026-10-15-eos-smallest-lr-calibration/observations/001-mlp-3k-prefix.md); no rental or manuscript change |
 
-| [024](024-2026-10-17-eos-gd-lr-calibration/README.md) | One-initialization3k GD LR calibration | Nine conditions; reused059/062/120/121; new122-126 | Run122 complete/verified;123 active;5/9 conditions available; expected76.81h, qualified92.18h, cap120h | [Protocol/status](024-2026-10-17-eos-gd-lr-calibration/README.md); old queues held; no rental or manuscript edit |
+| [024](024-2026-10-17-eos-gd-lr-calibration/README.md) | One-initialization3k GD LR calibration | Nine conditions; reused059/062/120/121; new122-126 | Run122 complete/verified; MLP three-LR PDF reviewed;5/9 conditions available; expected76.81h, qualified92.18h, cap120h | [Protocol/status](024-2026-10-17-eos-gd-lr-calibration/README.md); old queues held; no rental or manuscript edit |
 
 Next analysis: `025-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
 an analysis may use manuscript or external inputs without referencing a run.

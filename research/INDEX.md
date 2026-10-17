@@ -8,6 +8,8 @@ ResNet0.025/0.05/0.1 and Transformer0.05/0.1/0.2, seed0 and3000 updates.
 Nine conditions reuse059/062/120/121; five new runs122-126 execute sequentially.
 Run122 MLP0.04 is complete/retrieved/verified; Run123 ResNet0.025 is active.
 Five of nine conditions pass numeric checks; initial MLP0.04 reversal is transient.
+The reviewed MLP0.004/0.02/0.04 four-panel PDF has27093 exact plotted points,
+full5k spectra and logarithmic raw norms; all curves are unsmoothed.
 Measured3k timings project76.81h,92.18h with20% allowance;120h hard queue limit.
 All diagnostics and100-step spectra retained; larger-model Hessians remain subsets.
 Hidden30min monitoring retrieves/verifies terminal results;15GB storage allowance
