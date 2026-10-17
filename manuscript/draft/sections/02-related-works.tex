@@ -6,29 +6,25 @@ Intuitively, stable optimization occurs when updates reinforce each other and gr
 
 Training can be interpreted as a discrete-time dynamical system in which the local curvature of the loss function determines the stability of the updates~\cite{polyak1964methods, bertsekas1997nonlinear}. The curvature indicates how sensitive the loss is to parameter changes in different directions: when curvature is small, updates tend to produce smooth descent toward a minimum, whereas in directions of high curvature the same step can overshoot the minimum and induce oscillatory behavior~\cite{polyak1964methods, bertsekas1997nonlinear, foret2021sharpness}. For this reason, classical analyses of gradient descent relate stability to the spectrum of the Hessian of the loss function, whose eigenvalues quantify directional curvature and indicate how sensitive optimization is to the choice of learning rate~\cite{polyak1964methods, bertsekas1997nonlinear}.
 
-Under this view, let $\theta_t\in\mathbb{R}^p$ denote the parameters after update $t$, and let $g_t$ denote a mini-batch gradient evaluated at $\theta_{t-1}$. For a constant learning rate $\eta>0$, mini-batch SGD can be written as the time-varying map
+Under this view, let $\theta_t\in\mathbb{R}^p$ denote the parameters after update $t$, and let $g_t$ denote a mini-batch gradient evaluated at $\theta_{t-1}$. For a constant learning rate $\eta>0$, the SGD update is
 \begin{equation}
 \theta_t
 = 
-\Phi_t(\theta_{t-1})
-:=
-\theta_{t-1} - \eta \, g_t,
+\theta_{t-1} - \eta \, g_t.
 \label{eq:sgd_map_stability}
 \end{equation}
-where $g_t:=\nabla\mathcal{L}_{B_t}(\theta_{t-1})$ and $\mathcal{L}_{B_t}$ is the loss averaged over mini-batch $B_t$. Local trajectory stability is governed by the Jacobian of this update map,
+For full-batch GD, $g_t=\nabla\mathcal{L}(\theta_{t-1})$, where $\mathcal{L}$ denotes the full training objective. Defining $H_t:=\nabla^2\mathcal{L}(\theta_{t-1})$, the Jacobian of the deterministic update map is
 \begin{equation}
 J_t
 =
-I - \eta\, H_{B_t}(\theta_{t-1}),
+I - \eta\, H_t.
 \label{eq:jacobian_sgd}
 \end{equation}
-in which $H_{B_t}(\theta_{t-1}):=\nabla^2\mathcal{L}_{B_t}(\theta_{t-1})$ is the mini-batch Hessian. In full-batch gradient descent, it becomes $H_t:=\nabla^2\mathcal{L}(\theta_{t-1})$ and $J_t=I-\eta H_t$.
-
-Then, consider a small perturbation \(e_t\) around the parameters at the current step $t$. Under the local linearization of the update map, this perturbation evolves as
+Consider a small perturbation \(e_{t-1}\) around $\theta_{t-1}$. Under the local linearization of the full-batch GD update, this perturbation evolves as
 \[
 e_t \approx J_t e_{t-1} = (I-\eta H_t)e_{t-1},
 \]
-where here \(H_t=\nabla^2\mathcal{L}(\theta_{t-1})\) denotes the Hessian of the full loss. For mini-batch SGD, one may analogously consider the mini-batch Hessian \(H_{B_t}\), but the classical stability condition below is exact in the deterministic full-batch. In a locally quadratic regime near a minimum, the Hessian is approximately constant and admits eigenpairs \((\lambda_i,v_i)\). Decomposing the perturbation as \(e_t=\sum_i \delta_t^{(i)} v_i\), each eigendirection evolves independently according to
+In a locally quadratic regime near a minimum, the Hessian is approximately constant and admits eigenpairs \((\lambda_i,v_i)\). Decomposing the perturbation as \(e_t=\sum_i \delta_t^{(i)} v_i\), each eigendirection evolves independently according to
 \[
 \delta_t^{(i)}=(1-\eta\lambda_i)\,\delta_{t-1}^{(i)}.
 \]
@@ -61,7 +57,7 @@ g_t
 \end{aligned}
 \label{eq:sgd_noise_decomposition}
 \end{equation}
-where \(\xi_t\) is the sampling noise, $b:=|B_t|$ is the batch size, and \(\Sigma(\theta_{t-1})\) denotes the covariance matrix of per-sample gradients around the full gradient. At the current parameters, write \(h_i:=\nabla\ell_i(\theta_{t-1})\), where $\ell_i$ is the loss for sample $i$, and \(\mu:=\frac{1}{N}\sum_{i=1}^N h_i=\nabla\mathcal{L}(\theta_{t-1})\), where $N$ is the dataset size. The covariance matrix is
+where \(\xi_t\) is the sampling noise, $b$ is the batch size, and \(\Sigma(\theta_{t-1})\) denotes the covariance matrix of per-sample gradients around the full gradient. At the current parameters, write \(h_i:=\nabla\ell_i(\theta_{t-1})\), where $\ell_i$ is the loss for sample $i$, and \(\mu:=\frac{1}{N}\sum_{i=1}^N h_i=\nabla\mathcal{L}(\theta_{t-1})\), where $N$ is the dataset size. The covariance matrix is
 \begin{equation}
 \Sigma(\theta_{t-1})
 :=
