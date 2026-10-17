@@ -10,3 +10,4 @@
 - [008: Split update windows](008-split-update-windows.md): 4x2 layout; columns 1-100/100-400 and one metric per row, preserving the N=5 log-loss change and raw diagnostics.
 - [009: Column smoothing](009-column-smoothing.md): complete means of all four metrics, N=5 at updates 1-100 and N=21 at 100-400, using raw per-update scalars.
 - [010: Adam direction](010-adam-direction.md): same N=5/N=21 layout using saved adaptive direction q_d, rho_d and norms; loss means exactly preserved.
+- [011: Unsmoothed Adam direction](011-unsmoothed-adam-direction.md): no additional averaging of q_d, rho_d or norms; only log-loss change keeps N=5/N=21 smoothing.

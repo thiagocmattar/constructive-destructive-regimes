@@ -275,6 +275,9 @@ uses complete N=5 means for every metric at updates 1-100 and N=21 at 100-400, s
 The [Adam-direction companion](../analyses/005-2026-10-04-temporal-lag-profiles/observations/010-adam-direction.md)
 uses saved d cosines/norms and projected direction change q_d, with identical loss means and N=5/N=21 windows.
 
+The [unsmoothed Adam-direction revision](../analyses/005-2026-10-04-temporal-lag-profiles/observations/011-unsmoothed-adam-direction.md)
+removes extra averaging from q_d, rho_d and direction norms; only log-loss change retains N=5/N=21 smoothing.
+
 [Analysis004](../analyses/004-2026-10-04-lr-schedule-intervention/README.md) completed
 the first H004 intervention: seed1235,14M/70M, original/held/accelerated decay
 from update356. Faster decay reduces raw negativity and brings positive alignment

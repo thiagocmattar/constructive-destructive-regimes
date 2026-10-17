@@ -1,6 +1,11 @@
 # Analysis005: phase-dependent temporal raw-gradient alignment
 
-Latest: [Adam-direction companion, N=5 / N=21](figures/training_size_adam_direction_split_n5_n21.pdf).
+Latest: [Adam directions without extra averaging](figures/training_size_adam_direction_split_loss_only_n5_n21.pdf).
+Only the log-loss-change row retains N=5/N=21 smoothing. q_d, rho_d and ||d||
+use the saved per-update values. The same model colours and columns 1-100 / 100-400
+are retained. See [observation011](observations/011-unsmoothed-adam-direction.md).
+
+[Adam-direction companion, all rows N=5 / N=21](figures/training_size_adam_direction_split_n5_n21.pdf).
 The loss row is unchanged; geometry now uses saved adaptive directions d, with
 projected direction change q_d, adjacent cosine rho_d and norm ||d||. Columns
 remain 1-100 / 100-400. See [observation010](observations/010-adam-direction.md)
