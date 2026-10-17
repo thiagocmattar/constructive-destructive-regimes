@@ -260,6 +260,9 @@ are non-monotonic across sizes. Exact checks pass; AdamW/minibatches limit inter
 A [separate unsmoothed 1-400 overlay](../analyses/005-2026-10-04-temporal-lag-profiles/observations/005-unsmoothed-first400.md)
 shows all four raw variables with solid coloured curves; the earlier figure is preserved.
 
+The [loss-difference variant](../analyses/005-2026-10-04-temporal-lag-profiles/observations/006-short-loss-difference.md)
+uses an N=5 trailing mean of signed adjacent loss changes; the other panels remain raw.
+
 [Analysis004](../analyses/004-2026-10-04-lr-schedule-intervention/README.md) completed
 the first H004 intervention: seed1235,14M/70M, original/held/accelerated decay
 from update356. Faster decay reduces raw negativity and brings positive alignment

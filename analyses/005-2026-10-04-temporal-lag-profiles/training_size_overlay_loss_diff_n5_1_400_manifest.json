@@ -1,0 +1,155 @@
+{
+  "script_sha256": "be5e9a338372695fe7457f083380d0cfcc5a9231069a88e53402768b3a5add1e",
+  "source_csv_sha256": "d327677b25c47f3e0e687ea41454876a46f3e7b0effb16b7802b247301762307",
+  "source_manifest_sha256": "6b7fde3957003b2f0a8950b2801a66d1c2905be2c696307693ab87297812dec9",
+  "preserved": {
+    "figures/cumulative_lag_interaction.pdf": "a83e399dc29c86d41de37fe7d9c1987e0d65220286a42550fdd397a697b58d87",
+    "figures/cumulative_lag_interaction_all_lags.pdf": "799bda6cc95c68f68b6d18dd1320fcfc02c82ec7a36d32cc571957abb55918ff",
+    "figures/lag_profiles.pdf": "2310780cc515d930c01717f4271003cafb4c4c7dc26d36676b53d3bc9fecf0c8",
+    "figures/lag_profiles_above_shuffled.pdf": "d32ebe23efdc78629824b1b5e87cfdd9b1650cc0fbe8718220dee74f54b276e7",
+    "figures/lag_profiles_fixed_origins.pdf": "98afc4712eea9c32eeee80a543d8ae3ccda520eec8295ea868b2bd5bc01393a4",
+    "figures/temporal_gram.pdf": "b03127aeca57237cc31293ac915f10914a7f34af5493b92e677faf4a632ec3f0",
+    "figures/training_overview.pdf": "5a628a51a9fec0390cb8828b48425274270d864d1c5717008fa1d1b23f7bf394",
+    "figures/training_size_overlay.pdf": "3ac34b7c1aabdca22beb0ba23c0ea5c46b8a819ebff2b658b631ad3af7b76fce",
+    "figures/training_size_overlay_raw_1_400.pdf": "0be49341246f5ef9df7610d5eef1d230fda10b6dd4ae8012d3fd565b7775460c",
+    "training_overview_data.csv": "d327677b25c47f3e0e687ea41454876a46f3e7b0effb16b7802b247301762307",
+    "training_overview_manifest.json": "6b7fde3957003b2f0a8950b2801a66d1c2905be2c696307693ab87297812dec9",
+    "training_size_overlay_data.csv": "fcfe5a0be439e8360dafad7d1d1cf04b199aad625caa899d15777764c4aa3399",
+    "training_size_overlay_results.json": "97e4e1a6b9e644678cf3b88bd508d281ac1becd08e8c94bfc038d56eb8a85b27",
+    "training_size_overlay_manifest.json": "8163f6c7bc0f111a001e5afa692a158ef94cadb099021c23fbc3f0332b7019ce",
+    "13_plot_size_overlay.py": "212534626a88836f000119abdca7a1b2983daebbe2a3718391d8ba821c4af922",
+    "training_size_overlay_raw_1_400_data.csv": "eb3897f6cfe8026c95b6f8a347317eecb770520148f1ba5332b79983696563ca",
+    "training_size_overlay_raw_1_400_manifest.json": "99e075d7c7d4d7327baefd80713634d1a649d07eab6763dc2a57127363b9c41a"
+  },
+  "curves": [
+    {
+      "size": "14M",
+      "metric": "loss_diff_mean",
+      "first_update": 6,
+      "last_update": 400,
+      "points": 395,
+      "arrays_sha256": "8c0b0c4b8464ee6b4f322e7f2e20e335d35119888183891f3717e48a2e8b9b14"
+    },
+    {
+      "size": "14M",
+      "metric": "eta_kappa_proxy",
+      "first_update": 2,
+      "last_update": 400,
+      "points": 399,
+      "arrays_sha256": "b5556945c069e10963838a339375919fc193362a9fe094fc8860071d995d6351"
+    },
+    {
+      "size": "14M",
+      "metric": "rho",
+      "first_update": 2,
+      "last_update": 400,
+      "points": 399,
+      "arrays_sha256": "c53ed3df3997067e2b8ff1c33fa8142176fc163c68d72c04ea714c5bf3894d7c"
+    },
+    {
+      "size": "14M",
+      "metric": "raw_gradient_norm",
+      "first_update": 1,
+      "last_update": 400,
+      "points": 400,
+      "arrays_sha256": "f30474c6eeab649789e6ffe97716057a57bd62262b9d8c85f706c52704aa9142"
+    },
+    {
+      "size": "31M",
+      "metric": "loss_diff_mean",
+      "first_update": 6,
+      "last_update": 400,
+      "points": 395,
+      "arrays_sha256": "c305be3c3dee08eba4a01ec289925ce089915f5ef4bbb937e869ddf916781f03"
+    },
+    {
+      "size": "31M",
+      "metric": "eta_kappa_proxy",
+      "first_update": 2,
+      "last_update": 400,
+      "points": 399,
+      "arrays_sha256": "990b8916c040cbfd41e95f25fb084966ea897cc073edef6db23f46ad57bbc4aa"
+    },
+    {
+      "size": "31M",
+      "metric": "rho",
+      "first_update": 2,
+      "last_update": 400,
+      "points": 399,
+      "arrays_sha256": "1721eed182da7042d4912b7ed419e4f297d6f91a7c0d1b5e2746a56842b5461d"
+    },
+    {
+      "size": "31M",
+      "metric": "raw_gradient_norm",
+      "first_update": 1,
+      "last_update": 400,
+      "points": 400,
+      "arrays_sha256": "22273cd38ddc63754a7bc2e21d77fc0078e1cc0f4455e12c10e3c330624d0871"
+    },
+    {
+      "size": "70M",
+      "metric": "loss_diff_mean",
+      "first_update": 6,
+      "last_update": 400,
+      "points": 395,
+      "arrays_sha256": "c926f0df77766f16f58099712cab4df405b589be3f7eaed513312f3b24a5760c"
+    },
+    {
+      "size": "70M",
+      "metric": "eta_kappa_proxy",
+      "first_update": 2,
+      "last_update": 400,
+      "points": 399,
+      "arrays_sha256": "673a65a183b567d25670b7d34a01f322bff560dc4af7240a09b1f0a6825176f5"
+    },
+    {
+      "size": "70M",
+      "metric": "rho",
+      "first_update": 2,
+      "last_update": 400,
+      "points": 399,
+      "arrays_sha256": "cb8234d939f7c1a9ea305833bf8e1c55c66f7229a42350bb5c273f9c611dbc2a"
+    },
+    {
+      "size": "70M",
+      "metric": "raw_gradient_norm",
+      "first_update": 1,
+      "last_update": 400,
+      "points": 400,
+      "arrays_sha256": "3b724ae9b0febef912d16e190cedf29d7f354f8c0f6c902caf305802d899a9b4"
+    }
+  ],
+  "outputs": {
+    "figures/training_size_overlay_loss_diff_n5_1_400.pdf": {
+      "bytes": 124137,
+      "sha256": "fd14b543818c10bab218410b4b6edbedbe69c48e3a14849c78a502c1f85e19b1"
+    },
+    "training_size_overlay_loss_diff_n5_1_400_data.csv": {
+      "bytes": 153185,
+      "sha256": "452546f4640bdc47d67a3fe7f63aafc2e845536ccd4e320e014a3210a725c9b4"
+    }
+  },
+  "included_updates": [
+    1,
+    400
+  ],
+  "smoothing": "loss differences: complete 5-update trailing mean; other panels: none",
+  "loss_difference_formula": "(L[t]-L[t-5])/5; first defined at t=6",
+  "checks": {
+    "original_sources_verified": true,
+    "raw_identity_pairs": 1197,
+    "finite_plotted_points": 4779,
+    "loss_difference_means_checked": 1185,
+    "csv_roundtrip": true,
+    "plotted_arrays": true,
+    "raw_diagnostic_arrays": true,
+    "solid_model_curves": true,
+    "previous_overlay_unchanged": true
+  },
+  "visual_review": {
+    "passed": true,
+    "renderer": "Poppler pdftoppm",
+    "render_sha256": "4dc7c56d5e9009b1f7dfd4f13d5a929f08c9d1896d43a0c3865883e47b6bfc2a",
+    "inspection": "All four panels, solid colour overlays, 1-400 axes, legend and reduction notes are legible; no clipping or overlap."
+  }
+}
