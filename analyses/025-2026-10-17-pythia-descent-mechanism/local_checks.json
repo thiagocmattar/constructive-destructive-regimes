@@ -19,5 +19,25 @@
     "src/baseline/causal_training.py": "8a7d3a4aabb819ac9a9e89adc323b557b3d095eb9e614b4d09f4f4a17f126765",
     "src/baseline/descent_diagnostics.py": "b9ab74f28e69592cec6203ec2828602ac1e7808e63026b1192f9511dfbf1aa73"
   },
-  "gpu_calibration": "not executed; requires spending limit"
+  "gpu_calibration": "not executed; requires spending limit",
+  "post_approval_checks": {
+    "causal_analysis_tests_passed": 3,
+    "covers": [
+      "known primary effect",
+      "paired model-size interaction",
+      "changed scalar rejection",
+      "incomplete cohort rejection"
+    ],
+    "synthetic_pdf_layouts_rendered_and_visually_inspected": 3,
+    "layout_smoke_is_scientific_evidence": false,
+    "new_source_sha256": {
+      "analyses\\025-2026-10-17-pythia-descent-mechanism\\07_stage_and_launch.py": "7cd9350ab036a0e5333062a3ae68205a28f08df3ddfec4d236b516dd5d3738a7",
+      "analyses\\025-2026-10-17-pythia-descent-mechanism\\08_analyze.py": "be0503bcc7b125223494dfe2aafa405c707e5379ec41c8aed380dc2d49e1ab91",
+      "tests\\test_causal_analysis.py": "78176eb1358a63b81729fd17d3ea1e4b42a0203cc07fbcd3f3fd09c8a6049855"
+    },
+    "full_relevant_suite": {
+      "passed": 24,
+      "seconds": 23.38
+    }
+  }
 }

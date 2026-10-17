@@ -37,7 +37,7 @@
 
 | Analysis | Question | Source runs / other inputs | Status | Observations / figures |
 | --- | --- | --- | --- | --- |
-| [025](025-2026-10-17-pythia-descent-mechanism/README.md) | H021 Pythia descent mechanism: fixed probe, direction substitutions and norm-matched preconditioning ablation | Runs127-153; 3 sizes x3 seed blocks | Prepared/tested; cloud spending approval pending; no rental started | [Contract and launch packet](025-2026-10-17-pythia-descent-mechanism/README.md) |
+| [025](025-2026-10-17-pythia-descent-mechanism/README.md) | H021 Pythia descent mechanism: fixed probe, direction substitutions and norm-matched preconditioning ablation | Runs127-153; 3 sizes x3 seed blocks | Authorized USD25/12h; two workers allocated; inputs staging | [Contract and launch packet](025-2026-10-17-pythia-descent-mechanism/README.md) |
 
 Next analysis: `026-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
 an analysis may use manuscript or external inputs without referencing a run.

@@ -1,0 +1,88 @@
+{
+  "status": "authorized_setup_in_progress",
+  "authorization": {
+    "user_message": "approved",
+    "maximum_total_usd": 25,
+    "maximum_elapsed_hours": 12,
+    "maximum_concurrent_gpus": 2
+  },
+  "resource_lease": {
+    "owner": "Analysis025-current-task",
+    "created_at_epoch": 1792251331.875,
+    "hard_deadline_epoch": 1792294531.875,
+    "training_deadline_epoch": 1792289131.875,
+    "storage_hourly_price": 0.0273972602739726,
+    "ssh_key": "C:/Users/thima/.ssh/id_ed25519_runpod",
+    "volume": {
+      "id": "mnxup3mcmn",
+      "name": "cdr-analysis025-descent"
+    },
+    "pods": [
+      {
+        "id": "ng9p2ejfzc4cb0",
+        "name": "cdr-analysis025-worker0",
+        "worker": 0,
+        "hourly_price": 0.89,
+        "host": "213.173.107.224",
+        "port": 12717,
+        "user": "root"
+      },
+      {
+        "id": "sq5xyaaz382pug",
+        "name": "cdr-analysis025-worker1",
+        "worker": 1,
+        "hourly_price": 0.89,
+        "host": "213.173.109.202",
+        "port": 17537,
+        "user": "root"
+      }
+    ]
+  },
+  "observed_prices": {
+    "queried_at_utc": "2026-10-17T15:35:00Z",
+    "secure_rtx4090_usd_per_gpu_hour": 0.89,
+    "network_usd_per_gb_month": 0.07,
+    "container_usd_per_gb_month": 0.1,
+    "combined_estimated_usd_per_hour": 1.8073972602739725,
+    "maximum_12h_estimate_usd": 21.68876712328767,
+    "pricing_reference": "https://docs.runpod.io/pods/pricing",
+    "billing_status": "provisional"
+  },
+  "allocation_readback": {
+    "region": "EU-RO-1",
+    "volume_id": "mnxup3mcmn",
+    "pod_ids": [
+      "ng9p2ejfzc4cb0",
+      "sq5xyaaz382pug"
+    ],
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "vram_mib": 24564,
+    "drivers": [
+      "580.126.20",
+      "580.159.04"
+    ]
+  },
+  "source_commit": "5f4c9a3",
+  "source_packet_sha256": "6a3dea0515ed6b046d4da52ddf75dc4ad8453488934ea88cf02c47aa84dded54",
+  "input_packet_sha256": "aba8866cda33d68c9695f11a54eb772ed2f08ab4162064ea554244caaf05e920",
+  "setup_recovery": {
+    "issue": "uv-created environment does not contain pip",
+    "resolution": "python -m ensurepip --upgrade, then resume the original frozen setup at its pip-install line",
+    "scientific_inputs_changed": false,
+    "failed_logs_retained": true,
+    "test_temporary_directory_issue": "pytest basetemp parent did not exist; created .pytest_tmp and reran unchanged tests"
+  },
+  "recorded_at_epoch": 1792251526.3194351,
+  "remote_tests": [
+    {
+      "worker": 0,
+      "passed": 10,
+      "seconds": 5.89
+    },
+    {
+      "worker": 1,
+      "passed": 10,
+      "seconds": 5.2
+    }
+  ]
+}

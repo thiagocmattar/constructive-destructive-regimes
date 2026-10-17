@@ -1,9 +1,10 @@
 # Analysis025: causal tests of the Pythia loss-rate separation
 
-Status: prepared and locally tested; a cloud spending envelope is pending.
-The user authorized implementing and executing the preceding causal proposal on
-Runpod because the owned DGX Spark is busy. No cloud resources have been created,
-no paid calibration has started, and no Spark jobs have been changed.
+Status: authorized on October17 with a USD25 aggregate cap and12h deadline.
+Two Secure RTX4090 workers and a new200GB network volume are allocated in
+EU-RO-1. Both remote mechanics suites pass; frozen inputs are staging before
+GPU qualification. See [execution record](execution.json). Spark jobs remain
+untouched. No empirical mechanism result is available yet.
 
 H021 asks whether Adam coordinate preconditioning contributes to the model-size
 loss-rate separation around updates200-250, after controlling adaptive-step norm.
@@ -241,7 +242,18 @@ before deleting only this task's workers and new volume. An independent deadline
 stop preserves the network volume if retrieval is incomplete. Reconcile final
 provider billing, marking estimates provisional until posted.
 
-Spending authorization is the sole pending launch decision. The workspace
-`AGENTS.md` requires a stated cloud envelope before billable execution. Approval
-of this packet authorizes the bounded calibration/main queue/retrieval/cleanup;
-it does not require a second scientific-design approval.
+The user approved this packet and its USD25/12h envelope. Allocation began
+October17 at15:35:31 UTC; the hard stop is October18 at03:35:31 UTC. The
+independent guard is active. `07_stage_and_launch.py` verifies/extracts the
+archive, checks successful setup, starts both detached workers, then runs the
+retrieval/cleanup controller. After all27 runs are verified locally and cloud
+cleanup succeeds, `08_analyze.py` generates the paired effects, descent-accounting
+figures and local observation. Scientific results remain pending execution;
+new figure layouts were checked using explicitly synthetic scratch data.
+
+The original source packet and its inventory remain frozen. Setup recovery
+added pip with `python -m ensurepip --upgrade`, resumed the original pinned
+install lines, created the missing `.pytest_tmp` parent, and reran the unchanged
+remote tests:10 passed per worker. Failed/successful setup logs and recovery
+scripts are retained locally under ignored scratch with [hashes](setup_evidence.json).
+No model, optimizer, data, diagnostic or run-config input changed.
