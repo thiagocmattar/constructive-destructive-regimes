@@ -1,6 +1,10 @@
 # Analysis005: phase-dependent temporal raw-gradient alignment
 
-Latest: [smoothed 2x2 model-size overlay](figures/training_size_overlay.pdf).
+Latest: [separate unsmoothed 2x2 overlay, updates 1-400](figures/training_size_overlay_raw_1_400.pdf).
+All four variables use raw values and solid coloured curves; see
+[observation005](observations/005-unsmoothed-first400.md) for coverage and checks.
+
+Full horizon: [smoothed 2x2 model-size overlay](figures/training_size_overlay.pdf).
 All panels overlay 14M/31M/70M using solid lines in three colours. Loss is
 unsmoothed; other variables use complete 20-update trailing means.
 Update 712 is excluded before smoothing. [Observation004](observations/004-smoothed-size-overlay.md)

@@ -257,6 +257,9 @@ shows unsmoothed loss and 20-update means of eta*kappa_hat proxy, rho and raw no
 update 712 excluded. Larger first-10 loss drops/norms coexist; first-50 mean norms
 are non-monotonic across sizes. Exact checks pass; AdamW/minibatches limit interpretation.
 
+A [separate unsmoothed 1-400 overlay](../analyses/005-2026-10-04-temporal-lag-profiles/observations/005-unsmoothed-first400.md)
+shows all four raw variables with solid coloured curves; the earlier figure is preserved.
+
 [Analysis004](../analyses/004-2026-10-04-lr-schedule-intervention/README.md) completed
 the first H004 intervention: seed1235,14M/70M, original/held/accelerated decay
 from update356. Faster decay reduces raw negativity and brings positive alignment
