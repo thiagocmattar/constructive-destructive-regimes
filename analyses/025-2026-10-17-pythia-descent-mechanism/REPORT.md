@@ -2,19 +2,21 @@
 
 Analysis 025 · Hypothesis H021 · Experiment completed October 17, 2026 · Report updated October 18, 2026
 
-**Main finding.** Removing Adam's coordinate scaling, while preserving the native
-adaptive-step norm schedule within each model, worsened the 50-update outcome in
-all 18 continuations. The harm increased from 14M to 31M to 70M in every seed block
-at both starting checkpoints. At the checkpoint after update 225, the geometric
-mean endpoint loss penalties were **26.84%, 57.90%, and 106.49%**, respectively,
-relative to native AdamW at update 275. Same-state direction substitutions show
-that a favorable first-order loss prediction can be overwhelmed by a much larger
-finite-step nonlinear remainder when coordinate scaling is removed.
+## TL;DR
 
-These results establish a size-dependent response to an optimizer intervention
-under this training recipe. They support an optimizer contribution to the observed
-loss-rate separation, without establishing its complete mediation or a unique
-transition at update 200.
+- **Test:** Across Pythia-14M/31M/70M and three seed blocks, remove Adam's coordinate
+  scaling for 50 updates while preserving each native adaptive-step norm schedule.
+- **Result:** All 18 continuations worsened, with greater harm at larger sizes in
+  every paired comparison. From checkpoint 225, geometric mean fixed-probe loss
+  penalties at update 275 were **26.84%, 57.90%, and 106.49%** for 14M, 31M, and
+  70M, respectively, relative to native AdamW.
+- **Mechanism:** Without coordinate scaling, a direction can look favorable in a
+  first-order loss prediction yet produce a large loss increase because its
+  finite-step nonlinear penalty dominates.
+- **Conclusion:** Adam's coordinate scaling matters more for the larger model
+  under this recipe. This supports an optimizer contribution to the loss-rate
+  separation; it does not fully explain the size gap or identify a unique switch
+  at update 200.
 
 ## 1. Question and hypotheses
 
