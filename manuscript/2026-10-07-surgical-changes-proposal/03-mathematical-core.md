@@ -1,9 +1,6 @@
 # Mathematical core of the proposed revision
 
-Start with plain mini-batch SGD and derive the diagnostics directly from its
-gradients. Then treat Adam separately through its first moment and
-preconditioned direction. The measurement contracts of completed runs remain
-as recorded.
+Start with plain mini-batch SGD. Then treat Adam separately.
 
 ## Displacement under SGD
 
@@ -21,7 +18,7 @@ After \(T\) updates, define the displacement from initialization as
 \]
 
 Its norm \(\|\Delta_T\|\) measures the net distance traveled from
-initialization. Taking its squared norm gives
+initialization. The model final parameter can be seen as a cumulative learning (gradient) path. Taking its squared norm gives
 
 \[
 \boxed{
@@ -31,11 +28,9 @@ initialization. Taking its squared norm gives
 }
 \]
 
-The first term adds the squared gradient magnitudes. The second measures
-how gradients reinforce or oppose one another across training steps.
+The first term adds the squared gradient magnitudes. The second measures the temporal interaction between gradients across training steps.
 Studying displacement removes the initialization-origin cross term in the
-draft's absolute parameter-norm expansion. Displacement still depends on
-parameterization and does not by itself measure loss or stability.
+draft's absolute parameter-norm expansion. 
 
 ## Gradient accumulation and adjacent alignment
 
