@@ -2,12 +2,12 @@
 
 ## Current state
 
-[Analysis025: Pythia descent mechanism](../analyses/025-2026-10-17-pythia-descent-mechanism/README.md)
-is running on Runpod:9 matched350-update baselines and18 norm-matched50-update
-preconditioning ablations, with a shared training-disjoint probe and3 seed blocks.
-User approved USD25/12h. Two Secure RTX4090 workers and a new200GB volume
-are in EU-RO-1. Both GPU calibrations passed; the two production queues
-are running. Retrieval, verification and cleanup are automatic. Spark is untouched.
+[Analysis025: completed Pythia preconditioning experiment](../analyses/025-2026-10-17-pythia-descent-mechanism/REPORT.md)
+completed27 runs and4,050 updates across three sizes and three seed blocks.
+All18 norm-controlled preconditioning ablations increased fixed-probe loss;
+70M effects exceeded14M in each paired block at both forks. The unique200-250
+transition remains unresolved. All103.516GB are locally verified; three PDFs
+reviewed. Task pods/volume deleted October17 at19:05 BRT; posted cost USD11.42/$25.
 
 [Analysis024: one-initialization3k GD LR calibration](../analyses/024-2026-10-17-eos-gd-lr-calibration/README.md)
 launched on owned Spark October17: MLP0.004/0.02/0.04,

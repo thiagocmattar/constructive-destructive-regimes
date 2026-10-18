@@ -1,10 +1,11 @@
 # Analysis025: causal tests of the Pythia loss-rate separation
 
-Status: authorized on October17 with a USD25 aggregate cap and12h deadline.
-Two Secure RTX4090 workers and a new200GB network volume are allocated in
-EU-RO-1. Both GPU calibrations passed; the two production queues are running.
-See [execution record](execution.json). Spark jobs remain
-untouched. No empirical mechanism result is available yet.
+Status: complete. All27 runs and4,050 updates are locally hash/science verified.
+All103.516GB of retained artifacts are local; three scientific PDFs are reviewed.
+Task pods and volume were deleted October17 at19:05 BRT. Posted task charges
+are USD11.42 against the USD25 cap. See [results and figures](REPORT.md),
+[observation](observations/001-preconditioning-effects.md), [billing](billing.json)
+and [execution record](execution.json). Spark work was untouched.
 
 H021 asks whether Adam coordinate preconditioning contributes to the model-size
 loss-rate separation around updates200-250, after controlling adaptive-step norm.
@@ -250,7 +251,7 @@ independent guard is active. `07_stage_and_launch.py` verifies/extracts the
 archive, checks successful setup, starts both detached workers, then runs the
 retrieval/cleanup controller. After all27 runs are verified locally and cloud
 cleanup succeeds, `08_analyze.py` generates the paired effects, descent-accounting
-figures and local observation. Scientific results remain pending execution;
+figures and local observation. Completed results are in REPORT.md;
 new figure layouts were checked using explicitly synthetic scratch data.
 
 The original source packet and its inventory remain frozen. Setup recovery
@@ -268,7 +269,7 @@ upper measurements were11.409/11.144s, and diagnostic overhead19.866/19.265s.
 Largest remaining queue projection was5.681h; applying the gate's30% allowance
 gives7.385h before retrieval. Smaller-model timing remains qualified by historical
 RTX4090 ratios, with live progress/ETC refreshed by the monitor. Both production
-runs have accepted updates; scientific conclusions await the complete cohort.
+queues completed; the complete-cohort results are in REPORT.md.
 
 The archive omitted empty `prelaunch` directories. The first worker launcher
 failed before invoking a model update; its logs/status were preserved. Creating

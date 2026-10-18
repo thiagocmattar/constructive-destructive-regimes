@@ -1,5 +1,5 @@
 {
-  "status": "production_queues_running",
+  "status": "complete",
   "authorization": {
     "user_message": "approved",
     "maximum_total_usd": 25,
@@ -186,5 +186,18 @@
     "estimated_retrieval_analysis_cleanup_brt": "2026-10-17 19:00-19:15",
     "independent_progress_watcher_live": true,
     "note": "Combined retrieval/progress snapshots can lag during serial large-file downloads; independent watcher remains fresh."
-  }
+  },
+  "completed_runs": 27,
+  "accepted_optimizer_updates": 4050,
+  "retained_artifact_bytes": 103516215158,
+  "retained_recovery_states": 45,
+  "training_completed_at_epoch": 1792272216.595473,
+  "cloud_cleanup_completed_at_epoch": 1792274720.6820917,
+  "posted_task_charges_usd": 11.416828036308289,
+  "billing_status": "posted provider records; subject to provider reconciliation",
+  "resource_absence_rechecked_at_utc": "2026-10-18T00:54:07.828Z",
+  "task_compute_deleted": true,
+  "task_storage_deleted": true,
+  "scientific_reduction_reproduced_from_verified_scalars": true,
+  "publication_figures_rendered_and_visually_reviewed": 3
 }

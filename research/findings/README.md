@@ -156,3 +156,13 @@ horizons, without a cross-seed performance law, stability criterion or causal
 benefit of momentum. All three complete passes and five updated comparison PDFs
 are verified; original interim figures, executed inputs and recovery state are
 preserved. No manuscript change or additional experiment was launched.
+
+[Analysis025](../../analyses/025-2026-10-17-pythia-descent-mechanism/REPORT.md) completed27 Pythia runs across
+14M/31M/70M and three seed blocks. All18 preconditioning removals increased
+fixed-probe loss at the unmodified parent's adaptive-step norm schedule. Paired
+70M effects exceeded14M at both forks in each seed block. At update200, the70M seed mean has
+a larger favorable linear prediction but a much larger nonlinear penalty after
+removing preconditioning; this supports an optimizer-mediated contribution under
+this norm schedule. It does not identify a unique200-250 trigger, an optimized
+momentum LR comparison, a capacity effect, or Hessian curvature. All artifacts
+are verified locally; three PDFs reviewed; task resources deleted; USD11.42 posted.

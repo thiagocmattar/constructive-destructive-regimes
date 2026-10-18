@@ -31,7 +31,7 @@ questions alone do not create experimental commitments.
 
 | ID | Question / hypothesis | Status | Runs / analyses | Evidence / limits |
 | --- | --- | --- | --- | --- |
-| H021 | Does Adam coordinate preconditioning contribute to Pythia's model-size loss-rate separation, after controlling adaptive-step norm? | Running; both GPU calibrations passed | [Analysis025](../analyses/025-2026-10-17-pythia-descent-mechanism/README.md), Runs127-153 | Fixed-probe D/P/residual, same-state direction substitutions and paired50-update ablations; 3 sizes x3 seed blocks; no mechanism established |
+| H021 | Does Adam coordinate preconditioning contribute to Pythia's model-size loss-rate separation, after controlling adaptive-step norm? | Complete; supports norm-controlled preconditioning contribution | [Analysis025](../analyses/025-2026-10-17-pythia-descent-mechanism/README.md), Runs127-153 | All18 ablations raise fixed-probe loss;70M effect exceeds14M in all3 seed blocks at both forks; unique200-250 onset not established |
 
 Next hypothesis: `H022`. Record the operational meaning,
 comparison, support/refutation criteria, and scope in the corresponding run
