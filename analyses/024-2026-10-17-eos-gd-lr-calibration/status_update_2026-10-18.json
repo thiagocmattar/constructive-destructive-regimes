@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-18T09:44:40.450660+00:00",
+  "active_run": "124",
+  "task": "resnet",
+  "lr": 0.05,
+  "completed_updates": 2456,
+  "requested_updates": 3000,
+  "progress_utc": "2026-10-18T09:44:36.579303+00:00",
+  "train_loss": 1.1223584448242185,
+  "elapsed_seconds": 34916.01069994783,
+  "seconds_per_update_including_diagnostics": 14.216616734506445,
+  "active_remaining_seconds": 7733.839503571507,
+  "remaining_queue_hours": 54.90119616203259,
+  "qualified_remaining_queue_hours": 65.88143539443911,
+  "expected_finish_sao_paulo": "2026-10-20T13:38:44.756843-03:00",
+  "qualified_finish_sao_paulo": "2026-10-21T00:37:33.618080-03:00",
+  "gpu": {
+    "utilization_percent": 96,
+    "temperature_c": 74,
+    "power_watts": 57.32,
+    "sm_clock_mhz": 2463,
+    "thermal_headroom_c": 22,
+    "hardware_thermal_slowdown": false,
+    "software_thermal_slowdown": false,
+    "peak_allocated_bytes": 6361997312,
+    "peak_reserved_bytes": 7587495936
+  },
+  "completed_new_run_ids": [
+    "122",
+    "123"
+  ],
+  "pending_new_run_ids": [
+    "125",
+    "126"
+  ],
+  "verified_conditions": 6,
+  "planned_conditions": 9,
+  "adjacent_pairs": 17994,
+  "spectral_states": 186,
+  "qualification": "Active estimate uses measured progress. Each queued Transformer uses completed Run121 elapsed94955.23334s; changed LR/eigensolver cost is unmeasured. 20% allowance is not a confidence interval.",
+  "no_additional_training_admitted": true
+}

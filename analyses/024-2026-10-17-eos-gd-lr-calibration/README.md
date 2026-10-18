@@ -5,10 +5,15 @@ DGX Spark, with 3,000 full-GD updates and one frozen initialization. This
 authorizes only the five new runs below. Analysis020/021 queues stay held;
 no cloud rental or manuscript work. Executed inputs remain unchanged.
 
-**Launched October17 at09:13 Sao Paulo time.** Run122 (MLP0.04) is complete,
-retrieved and verified; Run123 (ResNet0.025) is active. Five of nine total
-conditions are available, including four reused sources. See `launch.json`,
-`launch_followup_verification.json` and [available results](observations/001-available-calibrations.md).
+**Status October18 at06:44 Sao Paulo time:** Runs122/123 (MLP0.04 and
+ResNet0.025) are complete, retrieved and verified. Run124 (ResNet0.05) is at
+2,456/3,000 updates; Transformer0.1/0.2 remain queued. Six of nine total
+conditions are verified, including four reused sources. Remaining ETC is54.90h
+(65.88h with20% allowance), projecting October20 around13:40 Sao Paulo time.
+The completed0.025 ResNet first reverses at gradient update1,121, later than
+231 at0.1; its final train loss is1.466540 and B/A0.138530.
+Launched October17 at09:13. See `launch.json`, `status_update_2026-10-18.json`
+and [available results](observations/001-available-calibrations.md).
 
 | Dataset / model | LR | Evidence | Updates |
 | --- | ---: | --- | ---: |

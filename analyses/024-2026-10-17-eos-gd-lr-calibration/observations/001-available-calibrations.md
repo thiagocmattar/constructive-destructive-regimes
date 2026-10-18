@@ -1,12 +1,13 @@
 # Available 3k GD learning-rate calibrations
 
-5/9 conditions available. Same frozen seed0 within each case; no temporal smoothing.
+6/9 conditions available. Same frozen seed0 within each case; no temporal smoothing.
 
 | Case | LR | Final loss | First negative gradient update | Last1k mean cosine | Last1k mean q | Final B/A |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | mlp | 0.004 | 0.3365076 | Not observed | 1 | 4.374569e-05 | 0.7941436 |
 | mlp | 0.02 | 0.2114426 | 1156 | -0.9913007 | 1.992392 | 0.04877406 |
 | mlp | 0.04 | 0.1538689 | 2 | -0.9799027 | 1.98198 | 0.02566965 |
+| resnet | 0.025 | 1.46654 | 1121 | -0.9723297 | 1.973992 | 0.13853 |
 | resnet | 0.1 | 0.4898384 | 231 | -0.9683847 | 1.970699 | 0.03737483 |
 | transformer | 0.05 | 6.630097 | Not observed | 0.9999952 | 0.0001963147 | 0.7223489 |
 
