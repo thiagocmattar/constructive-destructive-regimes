@@ -115,16 +115,23 @@ refreshed ETC, retrieves terminal new runs, and verifies available results.
 Monitoring/retrieval do not admit training. A failed condition is reported
 without silently replacing its rate or hiding the failure.
 
-## Reviewed MLP preview
+## Reviewed completed-run overview
 
-The [MLP three-rate figure](figures/eos_mlp_learning_rates_3k.pdf) overlays
-0.004/0.02/0.04 through3,000 updates: unsmoothed loss, eta*lambda_max,
-unsmoothed eta*kappa_hat and raw-gradient norms (log Y). All27,093 plotted
-points,8,997 pairs,93 full5k spectra and62 source-inventory files pass checks;
-the current four-panel Poppler render is reviewed. See
-[observation002](observations/002-mlp-learning-rates.md), `06_plot_mlp.py`,
-`mlp_learning_rates_results.json` and `mlp_learning_rates_figure_manifest.json`.
-This local preview preserves the frozen packet, training queue and existing PDFs.
+The user expanded the [existing PDF](figures/eos_mlp_learning_rates_3k.pdf)
+to three model columns and four rows. It now includes all seven completed
+conditions: MLP0.004/0.02/0.04, ResNet0.025/0.05/0.1 and Transformer0.05.
+Rows show unsmoothed loss, eta*lambda_max, unsmoothed eta*kappa_hat and
+raw-gradient norms (log Y). The running/queued Transformer0.1/0.2 are excluded.
+Full/subset Hessian labels distinguish the measurement coverage.
+
+All63,217 plotted points,20,993 pairs,217 spectra and190 source-inventory
+files pass checks; the current twelve-panel Poppler render is reviewed. All12
+previous MLP curves are unchanged. See
+[observation003](observations/003-completed-three-model-overview.md),
+`06_plot_mlp.py`, `mlp_learning_rates_results.json` and
+`mlp_learning_rates_figure_manifest.json`. Filenames retain the original MLP
+prefix at the user's request; metadata explicitly states the expanded scope.
+This local figure update preserves the frozen packet, queue and other PDFs.
 
 ## Final figure plan and records
 

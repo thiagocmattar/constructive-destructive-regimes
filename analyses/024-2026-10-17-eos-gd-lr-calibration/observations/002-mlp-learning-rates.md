@@ -1,8 +1,15 @@
 # MLP: three selected GD learning rates through3k
 
-The reviewed [four-panel PDF](../figures/eos_mlp_learning_rates_3k.pdf) overlays
-the three rates selected for Analysis024:0.004,0.02 and0.04. This is the MLP
-column's calibration preview, not a completed nine-condition figure.
+**Historical layout:** this record describes the original MLP-only version
+at commit1ef393a. The user subsequently expanded the same PDF to three model
+columns; [observation003](003-completed-three-model-overview.md) describes the
+current figure. All12 original MLP curve arrays are unchanged. The shared
+machine-readable manifest/summary now describe the expanded coverage.
+
+The original four-panel version overlaid the three MLP rates selected for
+Analysis024:0.004,0.02 and0.04. The [current PDF](../figures/eos_mlp_learning_rates_3k.pdf)
+also includes the other model columns; this record retains the MLP-specific
+calibration interpretation. The full nine-condition comparison is still pending.
 
 ## Sources and reduction
 

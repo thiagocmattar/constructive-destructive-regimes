@@ -1,9 +1,26 @@
 {
   "status": "passed",
-  "rates": [
-    0.004,
-    0.02,
-    0.04
+  "scope": "Completed conditions across three model cases; original MLP filename retained.",
+  "rates_by_task": {
+    "mlp": [
+      0.004,
+      0.02,
+      0.04
+    ],
+    "resnet": [
+      0.025,
+      0.05,
+      0.1
+    ],
+    "transformer": [
+      0.05
+    ]
+  },
+  "completed_conditions": 7,
+  "planned_conditions": 9,
+  "pending_run_ids": [
+    "125",
+    "126"
   ],
   "updates": 3000,
   "seed": 0,
@@ -82,12 +99,113 @@
       "config_sha256": "1e78d8c0441a4fbfae2bfef2f410b2ce9d666c70d92df06e2dd05e7a3041dc1b",
       "verified_files": 32,
       "transfer_inventory_sha256": "c9cbf89c0157e783a88f94ec1e0f35a0f3fd80343772eb7900b1608b81c3f9c8"
+    },
+    {
+      "run_id": "123",
+      "task": "resnet",
+      "lr": 0.025,
+      "updates": 3000,
+      "seed": 0,
+      "reused": false,
+      "initial_loss": 2.30956712890625,
+      "final_loss": 1.466540378417969,
+      "first_negative_gradient_update": 1121,
+      "late_1000_cosine_mean": -0.9723297497881733,
+      "late_1000_q_mean": 1.973992053246837,
+      "final_B_over_A": 0.1385299826462256,
+      "final_raw_gradient_norm": 0.8882252106270954,
+      "maximum_sampled_eta_lambda": 2.81762809753418,
+      "final_sampled_eta_lambda": 2.81762809753418,
+      "source_sha256": {
+        "metrics.jsonl": "3d70f0ae7a2976fc5c33bd65aee7d936abc1092dab9b973b01a202dba01a0511",
+        "curvature.jsonl": "a5e5ceee1b2a057bf264bb734a4238ad5798ff35edeb6de3f0f2e9586462afdb",
+        "manifest.json": "87e37a982f85895e6b35c3fe56ff885f6634570fda9ff81c287d854a2c1c4c99"
+      },
+      "config_sha256": "7a61a6a833f642fbf58c9fdad34e0d6ef40274c8777aa17e74504fc25858829f",
+      "verified_files": 32,
+      "transfer_inventory_sha256": "daff33895507dc6805dab1a277b1d448373073e81933b06a94944378bd70ba98"
+    },
+    {
+      "run_id": "124",
+      "task": "resnet",
+      "lr": 0.05,
+      "updates": 3000,
+      "seed": 0,
+      "reused": false,
+      "initial_loss": 2.30956712890625,
+      "final_loss": 0.9672287634277343,
+      "first_negative_gradient_update": 494,
+      "late_1000_cosine_mean": -0.9708461459334805,
+      "late_1000_q_mean": 1.9746286894507197,
+      "final_B_over_A": 0.06162193594657969,
+      "final_raw_gradient_norm": 1.3711758479414935,
+      "maximum_sampled_eta_lambda": 5.737495040893555,
+      "final_sampled_eta_lambda": 2.6599254608154297,
+      "source_sha256": {
+        "metrics.jsonl": "14665f159b35fb548b78294ef87a076243087666ed13d29af031ed03d515df36",
+        "curvature.jsonl": "f20f62d5f4f3dac424834b1103fc7ef97c97861c4911590f3271d0e8eb2a5e91",
+        "manifest.json": "bb83d522fc50b255e73beb7b5ade04fc22750130a1065cd2044fbc5bf4f4183b"
+      },
+      "config_sha256": "11278e6d720b24d9a8de8b4eb55cbae936e3039bcc9595b86f6db904cedcf052",
+      "verified_files": 32,
+      "transfer_inventory_sha256": "c0060758adbb2b119ae8ca3c36449f0f6a21549fab624436422e5a6fb5d33e2a"
+    },
+    {
+      "run_id": "120",
+      "task": "resnet",
+      "lr": 0.1,
+      "updates": 3000,
+      "seed": 0,
+      "reused": true,
+      "initial_loss": 2.30956712890625,
+      "final_loss": 0.48983840637207027,
+      "first_negative_gradient_update": 231,
+      "late_1000_cosine_mean": -0.9683846974357112,
+      "late_1000_q_mean": 1.97069939716022,
+      "final_B_over_A": 0.037374831556213156,
+      "final_raw_gradient_norm": 2.0338818966983685,
+      "maximum_sampled_eta_lambda": 3.461435699462891,
+      "final_sampled_eta_lambda": 3.2488494873046876,
+      "source_sha256": {
+        "metrics.jsonl": "73fba39ec0d4247adb98b4afa0f7c8e703230f6e3e9f3b7fb709f3c18804cb8b",
+        "curvature.jsonl": "f25ba4e672344321f58c887f1aaa9befbac1bb496d2d113ce5939c609fd6c943",
+        "manifest.json": "3a993c15613a450d97500ea9772cdbd4755ab50b94be2848636b8113132dbdf7"
+      },
+      "config_sha256": "18691e3dacbb62cb3b95eab7338e8b2ad3222e92fd766087e296c85e5977e692",
+      "verified_files": 32,
+      "transfer_inventory_sha256": "48ddfdc99294456af39225c0214d0b2854528e5e4f5cfe5a5547a7fe5800fd3f"
+    },
+    {
+      "run_id": "121",
+      "task": "transformer",
+      "lr": 0.05,
+      "updates": 3000,
+      "seed": 0,
+      "reused": true,
+      "initial_loss": 10.729182719678409,
+      "final_loss": 6.630096961210181,
+      "first_negative_gradient_update": null,
+      "late_1000_cosine_mean": 0.9999951843779773,
+      "late_1000_q_mean": 0.0001963146709027368,
+      "final_B_over_A": 0.72234893497218,
+      "final_raw_gradient_norm": 0.051622370981353596,
+      "maximum_sampled_eta_lambda": 1.7228544235229493,
+      "final_sampled_eta_lambda": 1.7228544235229493,
+      "source_sha256": {
+        "metrics.jsonl": "a6f549e780e53986fd09f3341cf71337beadca11d1164fb6883aad90ff9490f3",
+        "curvature.jsonl": "5eff6b382dfdbcc682e8d94545fed24dcd6980c432e8b5d6a65583ff2c046559",
+        "manifest.json": "09c293ce6658cfcfee0bb2889fe97702732f3b1f1561ce7040bfdd5756ed11be"
+      },
+      "config_sha256": "154ced50dfd85d0c731c5509b746eaed371b7bc70c33513e08b66676f9e1b331",
+      "verified_files": 32,
+      "transfer_inventory_sha256": "e971abee17a7fe28fd92bbb6bd8dde26d3511379628f7fb3e0bfd8a2a7a1e466"
     }
   ],
-  "adjacent_pairs": 8997,
-  "spectral_states": 93,
-  "raw_norm_points": 9000,
-  "plotted_points": 27093,
+  "verified_source_inventory_files": 190,
+  "adjacent_pairs": 20993,
+  "spectral_states": 217,
+  "raw_norm_points": 21000,
+  "plotted_points": 63217,
   "temporal_smoothing": "none",
   "seed_aggregation": "none",
   "gradient_norm_y_scale": "log",
@@ -96,6 +214,8 @@
     "Full used-row and residual-checked spectral coverage",
     "Exact q identity and reversal boundary",
     "Exact plotted artist arrays",
-    "Values match independently verified Analysis024 reduction"
+    "Values match independently verified Analysis024 reduction",
+    "All previously plotted curve hashes unchanged",
+    "Running/queued conditions excluded"
   ]
 }
