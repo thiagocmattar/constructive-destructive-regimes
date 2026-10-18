@@ -1,7 +1,7 @@
 {
   "status": "passed_available_conditions",
-  "utc": "2026-10-18T09:45:03.905924+00:00",
-  "available": 6,
+  "utc": "2026-10-18T16:05:44.391190+00:00",
+  "available": 7,
   "planned": 9,
   "runs": [
     {
@@ -141,10 +141,33 @@
         "manifest.json": "87e37a982f85895e6b35c3fe56ff885f6634570fda9ff81c287d854a2c1c4c99"
       },
       "config_sha256": "7a61a6a833f642fbf58c9fdad34e0d6ef40274c8777aa17e74504fc25858829f"
+    },
+    {
+      "run_id": "124",
+      "task": "resnet",
+      "lr": 0.05,
+      "updates": 3000,
+      "seed": 0,
+      "reused": false,
+      "initial_loss": 2.30956712890625,
+      "final_loss": 0.9672287634277343,
+      "first_negative_gradient_update": 494,
+      "late_1000_cosine_mean": -0.9708461459334805,
+      "late_1000_q_mean": 1.9746286894507197,
+      "final_B_over_A": 0.06162193594657969,
+      "final_raw_gradient_norm": 1.3711758479414935,
+      "maximum_sampled_eta_lambda": 5.737495040893555,
+      "final_sampled_eta_lambda": 2.6599254608154297,
+      "source_sha256": {
+        "metrics.jsonl": "14665f159b35fb548b78294ef87a076243087666ed13d29af031ed03d515df36",
+        "curvature.jsonl": "f20f62d5f4f3dac424834b1103fc7ef97c97861c4911590f3271d0e8eb2a5e91",
+        "manifest.json": "bb83d522fc50b255e73beb7b5ade04fc22750130a1065cd2044fbc5bf4f4183b"
+      },
+      "config_sha256": "11278e6d720b24d9a8de8b4eb55cbae936e3039bcc9595b86f6db904cedcf052"
     }
   ],
-  "adjacent_pairs": 17994,
-  "spectral_states": 186,
+  "adjacent_pairs": 20993,
+  "spectral_states": 217,
   "script_sha256": "7d785de63bed09ae9668fdb82f7c65ff5b0ae4d4d9cc03c9f5c14be1f7085b3a",
   "cohort_sha256": "1de4ab6aa26dd693b3ecc3dd84e6c8af004d2c01042319f6a76db456d18dc37b",
   "temporal_smoothing": "none",
