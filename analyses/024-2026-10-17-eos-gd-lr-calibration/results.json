@@ -1,7 +1,7 @@
 {
   "status": "passed_available_conditions",
-  "utc": "2026-10-18T16:05:44.391190+00:00",
-  "available": 7,
+  "utc": "2026-10-19T14:46:56.273264+00:00",
+  "available": 8,
   "planned": 9,
   "runs": [
     {
@@ -164,10 +164,33 @@
         "manifest.json": "bb83d522fc50b255e73beb7b5ade04fc22750130a1065cd2044fbc5bf4f4183b"
       },
       "config_sha256": "11278e6d720b24d9a8de8b4eb55cbae936e3039bcc9595b86f6db904cedcf052"
+    },
+    {
+      "run_id": "125",
+      "task": "transformer",
+      "lr": 0.1,
+      "updates": 3000,
+      "seed": 0,
+      "reused": false,
+      "initial_loss": 10.729182719678409,
+      "final_loss": 6.351935365365105,
+      "first_negative_gradient_update": 456,
+      "late_1000_cosine_mean": -0.974860444743181,
+      "late_1000_q_mean": 1.9753884656006189,
+      "final_B_over_A": 0.13950035170651548,
+      "final_raw_gradient_norm": 0.4749044548521699,
+      "maximum_sampled_eta_lambda": 2.398144340515137,
+      "final_sampled_eta_lambda": 2.2751832962036134,
+      "source_sha256": {
+        "metrics.jsonl": "0f20797974f6b74e724276bf124d6e1a5bf979a3a3ec633ecc3aac3947d39963",
+        "curvature.jsonl": "6c4335e3cb0e6c1afaba77e0bec3f3cb78f2bbd1e87d845d29b8bb739558fb34",
+        "manifest.json": "0fe89f4cd8c682e8acc29703f41b0ec1456557b96835047bc79b51c7e8ada413"
+      },
+      "config_sha256": "ce4fc693d9a8d3055b9c9e18743cea15d4cee4907e1398ab8d03bc371391067b"
     }
   ],
-  "adjacent_pairs": 20993,
-  "spectral_states": 217,
+  "adjacent_pairs": 23992,
+  "spectral_states": 248,
   "script_sha256": "7d785de63bed09ae9668fdb82f7c65ff5b0ae4d4d9cc03c9f5c14be1f7085b3a",
   "cohort_sha256": "1de4ab6aa26dd693b3ecc3dd84e6c8af004d2c01042319f6a76db456d18dc37b",
   "temporal_smoothing": "none",

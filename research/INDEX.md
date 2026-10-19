@@ -13,12 +13,12 @@ reviewed. Task pods/volume deleted October17 at19:05 BRT; posted cost USD11.42/$
 launched on owned Spark October17: MLP0.004/0.02/0.04,
 ResNet0.025/0.05/0.1 and Transformer0.05/0.1/0.2, seed0 and3000 updates.
 Nine conditions reuse059/062/120/121; five new runs122-126 execute sequentially.
-All MLP/ResNet rates complete/retrieved/verified; Run125 Transformer0.1 active.
-Seven of nine conditions pass numeric checks. ResNet0.025/0.05/0.1 first reverse
-at1121/494/231. October18 13:05 BRT ETC48.76h, qualified58.52h; only126 queued.
-The reviewed4x3 PDF covers all seven completed conditions:3 MLP/3 ResNet/1
-Transformer rate,63217 exact plotted points, full/subset spectral labels and
-logarithmic raw norms. All12 original MLP curves are unchanged; no smoothing.
+Eight conditions pass source/numeric checks; Transformer0.1 (Run125) completed
+with final loss6.351935 and B/A0.1395004. Only Run126 Transformer0.2 remains active.
+October19 12:27 BRT remaining ETC26.24h,31.48h with20% allowance.
+The reviewed4x3 PDF covers all eight completed conditions:3 MLP/3 ResNet/2
+Transformer rates,72,248 exact plotted points, full/subset spectral labels and
+logarithmic raw norms. All28 previous curves are unchanged; no smoothing.
 Measured3k timings project76.81h,92.18h with20% allowance;120h hard queue limit.
 All diagnostics and100-step spectra retained; larger-model Hessians remain subsets.
 Hidden30min monitoring retrieves/verifies terminal results;15GB storage allowance

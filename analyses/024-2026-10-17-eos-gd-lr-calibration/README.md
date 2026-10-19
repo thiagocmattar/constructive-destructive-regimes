@@ -5,11 +5,12 @@ DGX Spark, with 3,000 full-GD updates and one frozen initialization. This
 authorizes only the five new runs below. Analysis020/021 queues stay held;
 no cloud rental or manuscript work. Executed inputs remain unchanged.
 
-**Status October18 at13:05 Sao Paulo time:** all three MLP and all three
-ResNet conditions are complete, retrieved and verified. Transformer0.1 (Run125)
-is at466/3,000 updates; Transformer0.2 (Run126) remains queued. Seven of nine
-conditions pass numerical checks. Remaining ETC is48.76h (58.52h with20%
-allowance), projecting October20 around13:50 Sao Paulo time.
+**Status October19 at12:27 Sao Paulo time:** all MLP/ResNet conditions and
+Transformer0.05/0.1 are complete, retrieved and verified: eight of nine
+conditions pass numerical checks. Run125 finished at11:21 with final training
+loss6.351935 and B/A0.1395004. Transformer0.2 (Run126) is the final active run,
+at120/3,000 updates. Observed-rate remaining ETC is26.24h (31.48h with20%
+allowance), projecting October20 around14:45 Sao Paulo time.
 The three ResNet rates0.025/0.05/0.1 first reverse at gradient updates
 1,121/494/231, with final train losses1.466540/0.967229/0.489838.
 Launched October17 at09:13. See `launch.json`,
@@ -118,15 +119,16 @@ without silently replacing its rate or hiding the failure.
 ## Reviewed completed-run overview
 
 The user expanded the [existing PDF](figures/eos_mlp_learning_rates_3k.pdf)
-to three model columns and four rows. It now includes all seven completed
-conditions: MLP0.004/0.02/0.04, ResNet0.025/0.05/0.1 and Transformer0.05.
+to three model columns and four rows. The October19 update includes eight
+completed conditions: MLP0.004/0.02/0.04, ResNet0.025/0.05/0.1 and
+Transformer0.05/0.1.
 Rows show unsmoothed loss, eta*lambda_max, unsmoothed eta*kappa_hat and
-raw-gradient norms (log Y). The running/queued Transformer0.1/0.2 are excluded.
+raw-gradient norms (log Y). The running Transformer0.2 is excluded.
 Full/subset Hessian labels distinguish the measurement coverage.
 
-All63,217 plotted points,20,993 pairs,217 spectra and190 source-inventory
-files pass checks; the current twelve-panel Poppler render is reviewed. All12
-previous MLP curves are unchanged. See
+All72,248 plotted points,23,992 pairs,248 spectra and222 source-inventory
+files pass checks; the current twelve-panel Poppler render is reviewed. All28
+previously plotted curves are unchanged. See
 [observation003](observations/003-completed-three-model-overview.md),
 `06_plot_mlp.py`, `mlp_learning_rates_results.json` and
 `mlp_learning_rates_figure_manifest.json`. Filenames retain the original MLP
@@ -155,4 +157,4 @@ available from planned conditions. No final figure is claimed before review.
 The separate post-launch `05_check_mlp_transitions.py` only reduces retained
 MLP evidence; it does not change the frozen training packet or admit new work.
 
-Next Run127 / Analysis025 / H021. H020 remains the scientific question.
+Next Run154 / Analysis026 / H022 (see research/INDEX.md). H020 remains the scientific question.
