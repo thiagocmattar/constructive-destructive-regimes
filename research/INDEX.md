@@ -59,7 +59,9 @@ pending; no new updates started. Only075 and023 finish; later training held; no 
 [Analysis020: EOS task and noise extension](../analyses/020-2026-10-14-eos-multitask/REPORT.md)
 completed owned-Spark calibration and three-seed frozen-gradient sampling on
 CIFAR-10/MLP, CIFAR-10/ResNet-32 and WikiText-2/Transformer. The control has36
-conditions and147,456 observations, retrieved/hashed, with a reviewed paper figure.
+conditions and147,456 observations, retrieved/hashed. The October20 control
+figure follows draft rho_t/R_128/eta*kappa_hat_t/epsilon_t/mathcal L; all27 seed
+curves, nine means and ranges are unchanged. Frozen scope is explicit; no new run.
 The reviewed seed0 GD overview now covers all three cases at500 updates:
 loss, eta*lambda_max and eta*kappa_hat, with one existing LR per case.
 Runs061/071/074,73 retained files,1,497 adjacent pairs and18 spectra pass checks;

@@ -15,6 +15,14 @@ It is included after Table1 in the restatement report. See the
 [protocol](PROTOCOL.md). Active Run075 continues on Spark; the remaining
 Transformer seed and SGD stage are held, as is the Analysis021 LR sweep.
 
+The October20 [frozen-noise figure](figures/eos_frozen_noise_comparison.pdf)
+uses the current draft symbols rho_t, R_128, eta*kappa_hat_t, epsilon_t and
+mathcal L. All seed/mean/range values are unchanged. Its footer states that
+parameters are fixed; the zero corrected line is not a zero-curvature claim.
+See [observation001](observations/001-frozen-real-data-noise.md) for the notation
+map, exact sampling setup and current visual/array verification. No new run
+or manuscript edit is part of this figure update.
+
 The user selected CIFAR-10/tanh MLP, CIFAR-10/ResNet-32 and
 WikiText-2/Transformer, with robustness appropriate for a technical paper aimed
 at IEEE TNNLS. These are three task/architecture cases, using two real datasets.

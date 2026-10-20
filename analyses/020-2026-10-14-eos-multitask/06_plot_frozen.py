@@ -17,6 +17,7 @@ sys.path.insert(0,str(ROOT))
 from src.cifar_eos.core import file_hash,write_json
 HERE=Path(__file__).parent
 RUN=ROOT/"runs/068-2026-10-14-eos-frozen-gradient-noise"
+NOTATION_SOURCE=ROOT/"manuscript/draft/sections/03-methods.tex"
 
 
 def main():
@@ -31,8 +32,10 @@ def main():
         record=json.loads(manifestfile.read_text())
         assert file_hash(pdf)==record["pdf_sha256"] and file_hash(render)==record["render_sha256"]
         assert file_hash(resultfile)==record["source_results_sha256"] and file_hash(__file__)==record["script_sha256"]
-        record.update(status="passed",visual_review="Current Poppler render inspected: labels, axes, uncertainty, legends and clipping.")
+        assert file_hash(NOTATION_SOURCE)==record["notation_source_sha256"]
+        record.update(status="passed",visual_review="Current Poppler render inspected: manuscript symbols, frozen-state qualification, axes, seed ranges, legends and clipping.")
         write_json(manifestfile,record);return
+    previous=json.loads(manifestfile.read_text()) if manifestfile.exists() else None
     assert json.loads((RUN/"retrieval_verification.json").read_text())["status"]=="passed"
     result=json.loads(resultfile.read_text())
     assert result["status"]=="complete" and len(result["conditions"])==36
@@ -45,12 +48,14 @@ def main():
         "axes.labelsize":9,"axes.titlesize":10,"xtick.labelsize":8,"ytick.labelsize":8,
         "axes.spines.top":False,"axes.spines.right":False,"axes.linewidth":.7,
         "pdf.fonttype":42,"savefig.facecolor":"white"})
-    fig,axes=plt.subplots(3,3,figsize=(8.4,6.65))
+    fig,axes=plt.subplots(3,3,figsize=(8.4,7.3))
     colours={"mlp":"#0072B2","resnet":"#D55E00","transformer":"#8C4AA8"}
     titles={"mlp":"CIFAR-10 · tanh MLP","resnet":"CIFAR-10 · ResNet-32","transformer":"WikiText-2 · Transformer"}
     fields=["mean_cosine","mean_B_over_A","mean_gradient_only_projected_change"]
-    labels=[r"Adjacent cosine $\rho$",r"Normalized accumulation $B/A$",r"Projected change $q$"]
+    labels=[r"Consecutive cosine $\rho_t$",r"Normalized accumulation $R_{128}$",
+        r"Gradient-only estimate $\eta\widehat\kappa_t$"]
     curves=[]
+    mean_curves=[]
     summaries=[]
     for col,task in enumerate(colours):
         colour=colours[task]
@@ -70,20 +75,24 @@ def main():
                 assert np.array_equal(line.get_xdata(),sx) and np.array_equal(line.get_ydata(),sy)
                 curves.append({"panel":[row,col],"seed":seed,"field":field,"x":sx.tolist(),"y":sy.tolist()})
             mean=values.mean(1)
-            ax.plot(x,mean,"o-",color=colour,lw=1.7,ms=4,zorder=4)
+            line,=ax.plot(x,mean,"o-",color=colour,lw=1.7,ms=4,zorder=4)
+            assert np.array_equal(line.get_xdata(),x) and np.array_equal(line.get_ydata(),mean)
+            mean_curves.append({"panel":[row,col],"field":field,"x":x.tolist(),"y":mean.tolist(),
+                "seed_min":values.min(1).tolist(),"seed_max":values.max(1).tolist()})
             ax.plot(0,mean[0],marker="s",color=colour,ms=5,zorder=5)
             if row<2:
                 ax.set_ylim(min(-.025,float(values.min())-.025),1.055)
                 ax.axhline(0,color=".7",lw=.6,ls=":",zorder=0)
             else:
-                ax.axhline(0,color=".3",ls="--",lw=1,label="Noise-corrected change")
+                ax.axhline(0,color=".3",ls="--",lw=1)
                 ax.set_ylim(min(-.05,float(values.min())-.06),max(1.04,float(values.max())+.06))
             ax.set_xscale("symlog",linthresh=.1)
             ax.set_xlim(-.012,max(x)*1.22)
             ax.grid(alpha=.18,lw=.6)
             ax.text(.015,1.015,f"({chr(97+row*3+col)})",transform=ax.transAxes,fontsize=9,va="bottom")
             if col==0:ax.set_ylabel(label)
-            if row==2:ax.set_xlabel(r"Measured noise RMS / $\|\nabla F\|$")
+            if row==2:ax.set_xlabel("Measured relative noise RMS\n"+
+                r"$\sqrt{\mathbb{E}\|\xi_t\|^2}/\|\nabla\mathcal{L}(\theta_0)\|$")
         for group in groups:
             summaries.append({"task":task,"batch_units":group[0]["batch_units"],"seeds":len(group),
                 "relative_noise_rms_mean":float(np.mean([c["relative_noise_rms"] for c in group])),
@@ -95,9 +104,18 @@ def main():
     fig.legend(handles=[Line2D([],[],color=".25",marker="o",lw=1.7,label="Mean over 3 initializations"),
         Line2D([],[],color=".5",lw=7,alpha=.2,label="Range across initializations"),
         Line2D([],[],color=".25",marker="s",lw=0,label="Full-batch control"),
-        Line2D([],[],color=".3",ls="--",lw=1,label="Noise-corrected change = 0")],
-        loc="lower center",bbox_to_anchor=(.5,.012),ncol=2,frameon=False,fontsize=8)
-    fig.subplots_adjust(left=.085,right=.985,top=.95,bottom=.155,hspace=.28,wspace=.25)
+        Line2D([],[],color=".3",ls="--",lw=1,
+            label=r"Noise correction: $\eta\widehat\kappa_t+\varepsilon_t=0$")],
+        loc="lower center",bbox_to_anchor=(.5,.045),ncol=2,frameon=False,fontsize=8)
+    fig.text(.5,.016,r"Frozen $\theta_0$; no parameter updates. 32 sequences of 128 gradients per condition.",
+        ha="center",va="bottom",fontsize=8,color=".3")
+    fig.subplots_adjust(left=.085,right=.985,top=.95,bottom=.22,hspace=.28,wspace=.25)
+    if previous:
+        assert file_hash(resultfile)==previous["source_results_sha256"],"Frozen source results changed."
+        assert curves==previous["curves"],"Previously plotted seed curves changed."
+    fig.canvas.draw()
+    bounds=fig.get_tightbbox(fig.canvas.get_renderer()).transformed(fig.dpi_scale_trans)
+    assert bounds.x0>=-1 and bounds.y0>=-1 and bounds.x1<=fig.bbox.width+1 and bounds.y1<=fig.bbox.height+1
     pdf.parent.mkdir(exist_ok=True)
     render.parent.mkdir(exist_ok=True)
     fig.savefig(pdf,metadata={"CreationDate":None,"ModDate":None});plt.close(fig)
@@ -110,8 +128,14 @@ def main():
         "seeds":3,"parameter_updates":0,"scope":"Frozen initialization controls only; not training dynamics."})
     write_json(manifestfile,{"status":"awaiting_visual_review","pdf_sha256":file_hash(pdf),"render_sha256":file_hash(render),
         "source_results_sha256":file_hash(resultfile),"script_sha256":file_hash(__file__),"curves":curves,
+        "mean_curves":mean_curves,"previous_seed_curves_verified_unchanged":len(previous["curves"]) if previous else 0,
+        "notation_source":NOTATION_SOURCE.relative_to(ROOT).as_posix(),"notation_source_sha256":file_hash(NOTATION_SOURCE),
+        "notation":{"cosine":"rho_t","normalized_accumulation":"R_128 = norm(sum g) / sum norm(g)",
+            "gradient_only_estimate":"eta*kappa_hat_t = 1 - rho_t*norm(g_t)/norm(g_previous)",
+            "noise_correction":"eta*kappa_hat_t + epsilon_t = 0 at frozen theta_0",
+            "objective":"mathcal L","horizontal_axis":"sqrt(E norm(xi_t)^2) / norm(gradient mathcal L(theta_0))"},
         "source_conditions":36,"metric_draws":36*32*128,"seed_uncertainty":"range, not95%CI",
-        "noise_corrected_identity":"all frozen signal changes exactly zero within reported roundoff"})
+        "noise_corrected_identity":"all frozen signal changes zero within roundoff; not a zero-Hessian-curvature claim"})
     print(str(pdf))
 
 

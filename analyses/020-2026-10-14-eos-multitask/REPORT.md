@@ -45,9 +45,14 @@ per case, 32 independent 128-draw sequences per batch condition, 36 conditions a
 147,456 recorded vector observations. At each fixed initial parameter vector,
 noise is the actual sampled batch-gradient error against the complete gradient.
 ResNet samples whole ghost groups to preserve its objective. No parameter updates are applied in this real-data sampling control.
-Normalized B/A in this experiment is gradient accumulation, not actual motion.
+The manuscript statistic R_128=B/A is gradient accumulation here, not actual
+parameter motion. The October20 figure uses rho_t, R_128, eta*kappa_hat_t,
+epsilon_t and mathcal L from the working draft. At frozen theta_0, the
+gradient-only expression satisfies eta*kappa_hat_t=-epsilon_t: the zero
+corrected line is zero full-gradient change, not a Hessian-curvature estimate.
+The original27 seed curves, nine means and all ranges are unchanged.
 
-| Case | Smallest batch | Relative noise RMS | Mean adjacent cosine | Mean B/A |
+| Case | Smallest batch | Relative noise RMS | Mean rho_t | Mean R_128 |
 | --- | ---: | ---: | ---: | ---: |
 | mlp | 32 images | 1.232 | 0.398 | 0.639 |
 | resnet | 1000 images | 0.403 | 0.863 | 0.930 |
