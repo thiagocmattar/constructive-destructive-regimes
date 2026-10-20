@@ -33,7 +33,7 @@
 
 | [023](023-2026-10-15-eos-smallest-lr-calibration/README.md) | Smallest-LR3k full-GD calibration on Spark | Reused Run059; new120/121, seed0 | All three3k calibrations complete;79 files/8997 pairs/93 spectra verified; Three-case4x3 PDF reviewed; no subsequent training | [Protocol/status](023-2026-10-15-eos-smallest-lr-calibration/README.md), [MLP result](023-2026-10-15-eos-smallest-lr-calibration/observations/001-mlp-3k-prefix.md); no rental or manuscript change |
 
-| [024](024-2026-10-17-eos-gd-lr-calibration/README.md) | One-initialization3k GD LR calibration | Nine conditions; reused059/062/120/121; new122-126 | Complete9/9;254 source files/26,991 pairs/279 spectra verified; ETC0; Spark idle; eight-condition PDF preserved | [Completed calibration](024-2026-10-17-eos-gd-lr-calibration/observations/004-completed-calibration.md); queue exited; no rental or manuscript edit |
+| [024](024-2026-10-17-eos-gd-lr-calibration/README.md) | One-initialization3k GD LR calibration | Nine conditions; reused059/062/120/121; new122-126 | Complete9/9;254 source files/26,991 pairs/279 spectra verified; final4x3 PDF reviewed,81,279 points; previous32 curves unchanged; ETC0 | [Completed calibration](024-2026-10-17-eos-gd-lr-calibration/observations/004-completed-calibration.md), [final figure](024-2026-10-17-eos-gd-lr-calibration/observations/003-completed-three-model-overview.md); queue exited; no rental or manuscript edit |
 
 | Analysis | Question | Source runs / other inputs | Status | Observations / figures |
 | --- | --- | --- | --- | --- |

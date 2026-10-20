@@ -14,14 +14,13 @@
     ],
     "transformer": [
       0.05,
-      0.1
+      0.1,
+      0.2
     ]
   },
-  "completed_conditions": 8,
+  "completed_conditions": 9,
   "planned_conditions": 9,
-  "pending_run_ids": [
-    "126"
-  ],
+  "pending_run_ids": [],
   "updates": 3000,
   "seed": 0,
   "runs": [
@@ -224,13 +223,38 @@
       "config_sha256": "ce4fc693d9a8d3055b9c9e18743cea15d4cee4907e1398ab8d03bc371391067b",
       "verified_files": 32,
       "transfer_inventory_sha256": "cd2e08ee12985bbd9d2fbdf57ef5b58e2150c1befe04d6b1998a4c4ec9eb765f"
+    },
+    {
+      "run_id": "126",
+      "task": "transformer",
+      "lr": 0.2,
+      "updates": 3000,
+      "seed": 0,
+      "reused": false,
+      "initial_loss": 10.729182719678409,
+      "final_loss": 6.069747180845569,
+      "first_negative_gradient_update": 10,
+      "late_1000_cosine_mean": -0.9936597960831844,
+      "late_1000_q_mean": 1.9936709974086362,
+      "final_B_over_A": 0.054132939079099454,
+      "final_raw_gradient_norm": 0.5826664998539824,
+      "maximum_sampled_eta_lambda": 3.348635482788086,
+      "final_sampled_eta_lambda": 3.1202476501464846,
+      "source_sha256": {
+        "metrics.jsonl": "07e0d3223e4ce5e258d17172a7bfeabbf2747dd9b6ce3028748df2b2947d521d",
+        "curvature.jsonl": "7d7e007eeb9900dd518355480b06098dfad9cb98169161fb2c3368f196365e64",
+        "manifest.json": "43278b19c9526d6d24f4603c3de366e044206a7c57ef2f3ec182d17a868266dc"
+      },
+      "config_sha256": "e94af19249e60717266c6587ce2e5241bcb5d198199cd8958ea8480767925e39",
+      "verified_files": 32,
+      "transfer_inventory_sha256": "9e86249f700a6a324b875ae4701f189f33c99cc0a6b89ca06bf9107ed27a3115"
     }
   ],
-  "verified_source_inventory_files": 222,
-  "adjacent_pairs": 23992,
-  "spectral_states": 248,
-  "raw_norm_points": 24000,
-  "plotted_points": 72248,
+  "verified_source_inventory_files": 254,
+  "adjacent_pairs": 26991,
+  "spectral_states": 279,
+  "raw_norm_points": 27000,
+  "plotted_points": 81279,
   "temporal_smoothing": "none",
   "seed_aggregation": "none",
   "gradient_norm_y_scale": "log",

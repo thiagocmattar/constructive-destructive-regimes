@@ -126,17 +126,16 @@ without silently replacing its rate or hiding the failure.
 ## Reviewed completed-run overview
 
 The user expanded the [existing PDF](figures/eos_mlp_learning_rates_3k.pdf)
-to three model columns and four rows. The October19 update includes eight
+to three model columns and four rows. The October20 update includes all nine
 completed conditions: MLP0.004/0.02/0.04, ResNet0.025/0.05/0.1 and
-Transformer0.05/0.1.
+Transformer0.05/0.1/0.2.
 Rows show unsmoothed loss, eta*lambda_max, unsmoothed eta*kappa_hat and
-raw-gradient norms (log Y). This figure retains its October19 cutoff;
-Transformer0.2 subsequently completed and is reported in observation004.
-The existing PDF is preserved pending the next figure update.
+raw-gradient norms (log Y). Transformer0.2 is green, alongside the existing
+blue0.05 and orange0.1 curves, through all3,000 updates.
 Full/subset Hessian labels distinguish the measurement coverage.
 
-All72,248 plotted points,23,992 pairs,248 spectra and222 source-inventory
-files pass checks; the current twelve-panel Poppler render is reviewed. All28
+All81,279 plotted points,26,991 pairs,279 spectra and254 source-inventory
+files pass checks; the current twelve-panel Poppler render is reviewed. All32
 previously plotted curves are unchanged. See
 [observation003](observations/003-completed-three-model-overview.md),
 `06_plot_mlp.py`, `mlp_learning_rates_results.json` and
@@ -144,13 +143,13 @@ previously plotted curves are unchanged. See
 prefix at the user's request; metadata explicitly states the expanded scope.
 This local figure update preserves the frozen packet, queue and other PDFs.
 
-## Final figure plan and records
+## Final figure and records
 
-After calibration review, the final overview retains three model columns and
-four rows: unsmoothed training loss, eta*lambda_max, unsmoothed eta*kappa_hat,
-and raw-gradient norms with log Y. Overlay three LR colors per column, with
-explicit legends and subset-spectrum labels. Keep the q=1 reversal and
-eta*lambda=2 quadratic reference lines; neither establishes global stability.
+The reviewed final overview retains three model columns and four rows:
+unsmoothed training loss, eta*lambda_max, unsmoothed eta*kappa_hat, and
+raw-gradient norms with log Y. Three LR colors per column have explicit
+legends and subset-spectrum labels. Reference lines mark q=1 reversal and
+eta*lambda=2 for a quadratic; neither establishes global stability.
 Raw adjacent cosine and normalized displacement remain available for companion
 figures. No manuscript insertion is performed by this calibration pipeline.
 
@@ -162,7 +161,8 @@ all available3k conditions; `04_monitor.py` performs bounded hidden reads and
 automatic retrieval. `cohort.json`, `preflight.json`, `remote_preflight.json`,
 `launch.json` and owning-run receipts record execution. `results.json` and
 [observation001](observations/001-available-calibrations.md) distinguish
-available from planned conditions. No final figure is claimed before review.
+available from planned conditions; all nine are now complete. The final
+figure passes source/array/hash checks and visual review.
 The separate post-launch `05_check_mlp_transitions.py` only reduces retained
 MLP evidence; it does not change the frozen training packet or admit new work.
 

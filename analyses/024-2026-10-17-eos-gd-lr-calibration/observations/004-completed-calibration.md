@@ -52,6 +52,8 @@ on each machine, below the15GB allowance. This total excludes reused runs,
 shared datasets and source packets. Only verified redundant transfer archives
 were removed; checkpoints, raw metrics and executed sources remain.
 
-The existing October19 twelve-panel PDF still contains eight completed
-conditions and is preserved for this status request. Its observation003
-describes that cutoff. No figure or manuscript was changed at closeout.
+At the status closeout, the existing twelve-panel PDF retained its October19
+cutoff of eight completed conditions. The subsequent October20 figure update
+adds Run126 and now covers all nine conditions; observation003 records the
+final figure and verification. All32 previously plotted curves are unchanged.
+No training input or manuscript was changed.

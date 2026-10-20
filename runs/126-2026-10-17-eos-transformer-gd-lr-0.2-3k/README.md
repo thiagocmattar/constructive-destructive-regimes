@@ -7,5 +7,6 @@ Completed3,000 updates October20 at13:47 Sao Paulo time. All32 retained files
 (3.017GB) were retrieved and size/SHA256 verified at14:47. Final training
 loss6.069747, test loss5.858303, first negative gradient update10,
 last1k mean cosine-0.9936598, final B/A0.05413294. All Analysis024 numerical
-checks pass. Raw recovery/source evidence remains local and on owned Spark.
+checks pass; the final nine-condition PDF includes this run and passes review.
+Raw recovery/source evidence remains local and on owned Spark.
 The authorized queue exited and the Spark is idle; no follow-up training.

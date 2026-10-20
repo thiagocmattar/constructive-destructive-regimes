@@ -19,8 +19,9 @@ last1k mean cosine-0.9936598. All scalar/recovery evidence is local and on Spark
 Training/retrieval ETC0; GPU idle at32C. The queue exited without continuation.
 Monitor SSH failure recovered by direct collection; task monitor stopped.
 Five new runs retain160 files/6.395GB per machine; redundant archives removed.
-The reviewed October19 PDF retains eight conditions and its original curves;
-no PDF/manuscript update at closeout. Larger-model Hessians remain subsets.
+The final October20 PDF covers all nine conditions in4x3 panels,81,279 exact
+points; all32 previous curves are unchanged. Source/array/render checks pass.
+Larger-model Hessians remain subsets; no manuscript update.
 Single-initialization comparisons do not establish initialization robustness.
 Owned Spark only, zero rental; old020/021 queues stay held.
 Next Run154 / Analysis026 / H022.
