@@ -131,7 +131,7 @@
 | [123](123-2026-10-17-eos-resnet-gd-lr-0.025-3k/README.md) | H020 resnet full GD, LR0.025, seed0,3000 updates | Complete3k;32 files/106.38MB retrieved and hash verified | Owned Spark; no old queue continuation | [Analysis024](../analyses/024-2026-10-17-eos-gd-lr-calibration/README.md); no rental |
 | [124](124-2026-10-17-eos-resnet-gd-lr-0.05-3k/README.md) | H020 resnet full GD, LR0.05, seed0,3000 updates | Complete3k;32 files/106.36MB retrieved and hash verified | Owned Spark; no old queue continuation | [Analysis024](../analyses/024-2026-10-17-eos-gd-lr-calibration/README.md); no rental |
 | [125](125-2026-10-17-eos-transformer-gd-lr-0.1-3k/README.md) | H020 transformer full GD, LR0.1, seed0,3000 updates | Complete3k;32 files/3.017GB retrieved and hash verified; PDF reviewed | Owned Spark; no old queue continuation | [Analysis024](../analyses/024-2026-10-17-eos-gd-lr-calibration/README.md); no rental |
-| [126](126-2026-10-17-eos-transformer-gd-lr-0.2-3k/README.md) | H020 transformer full GD, LR0.2, seed0,3000 updates | Final active calibration;120/3000 at Oct19 12:27 BRT | Owned Spark; queue exits after completion | [Analysis024](../analyses/024-2026-10-17-eos-gd-lr-calibration/README.md); no rental |
+| [126](126-2026-10-17-eos-transformer-gd-lr-0.2-3k/README.md) | H020 transformer full GD, LR0.2, seed0,3000 updates | Complete3k;32 files/3.017GB retrieved and hash verified; numerical checks pass | Owned Spark; queue exited and GPU idle | [Analysis024](../analyses/024-2026-10-17-eos-gd-lr-calibration/README.md); no follow-up training or rental |
 
 | Run | Question / hypotheses | Status | Attempts | Observations |
 | --- | --- | --- | --- | --- |

@@ -1,0 +1,280 @@
+{
+  "utc": "2026-10-20T17:46:47.451650+00:00",
+  "queue": {
+    "runs": {
+      "122": {
+        "status": "complete",
+        "started_utc": "2026-10-17T12:13:31.199586+00:00",
+        "task": "mlp",
+        "method": "gd",
+        "seed": 0,
+        "pid": 559317,
+        "completed_updates": 3000,
+        "ended_utc": "2026-10-17T12:14:16.997778+00:00"
+      },
+      "123": {
+        "status": "complete",
+        "started_utc": "2026-10-17T12:14:17.082341+00:00",
+        "task": "resnet",
+        "method": "gd",
+        "seed": 0,
+        "pid": 559920,
+        "completed_updates": 3000,
+        "ended_utc": "2026-10-18T00:02:38.389586+00:00"
+      },
+      "124": {
+        "status": "complete",
+        "started_utc": "2026-10-18T00:02:38.457043+00:00",
+        "task": "resnet",
+        "method": "gd",
+        "seed": 0,
+        "pid": 569868,
+        "completed_updates": 3000,
+        "ended_utc": "2026-10-18T11:57:44.280630+00:00"
+      },
+      "125": {
+        "status": "complete",
+        "started_utc": "2026-10-18T11:57:44.348380+00:00",
+        "task": "transformer",
+        "method": "gd",
+        "seed": 0,
+        "pid": 578912,
+        "completed_updates": 3000,
+        "ended_utc": "2026-10-19T14:21:09.461024+00:00"
+      },
+      "126": {
+        "status": "complete",
+        "started_utc": "2026-10-19T14:21:10.812115+00:00",
+        "task": "transformer",
+        "method": "gd",
+        "seed": 0,
+        "pid": 599404,
+        "completed_updates": 3000,
+        "ended_utc": "2026-10-20T16:47:22.848569+00:00"
+      }
+    },
+    "resume_predecessor": false,
+    "status": "complete",
+    "resumed_or_started_utc": "2026-10-17T12:13:31.198641+00:00",
+    "current_run": null,
+    "completed_utc": "2026-10-20T16:47:24.193956+00:00",
+    "elapsed_this_scheduler_seconds": 275632.9953303449
+  },
+  "finish_only": {
+    "status": "no_follow_up_training",
+    "utc": "2026-10-20T16:47:24.203668+00:00",
+    "resume_predecessor": false,
+    "allowed_run_ids": [
+      "122",
+      "123",
+      "124",
+      "125",
+      "126"
+    ]
+  },
+  "gpu_util_temp_power": "0, 32, 4.49",
+  "gpu_compute_processes": "",
+  "new_run_summaries": {
+    "122": {
+      "completed_updates": 3000,
+      "elapsed_seconds": 43.79522234410979,
+      "final_train": {
+        "loss": 0.15386888427734377,
+        "loss_units": 5000,
+        "objective_units": 5000
+      },
+      "final_test": {
+        "loss": 0.5283930541992188,
+        "loss_units": 10000,
+        "objective_units": 10000
+      },
+      "memory": {
+        "peak_allocated_bytes": 280529920,
+        "peak_reserved_bytes": 308281344
+      },
+      "final_tensor_sha256": "3d302de7568e6ea4f2ce4dfd179037b5614be57d7de155caabf8f0ba4283c9ef",
+      "final_raw_geometry": {
+        "norm": 1.8659046743212728,
+        "A": 4638.549599806272,
+        "B": 119.06994762008662,
+        "B_over_A": 0.025669650622052103,
+        "cosine": -0.9759372042608708,
+        "cosine_undefined_reason": null,
+        "ratio_undefined_reason": null,
+        "energy": 8547.784121964942,
+        "all_pair": 5629.86830428523,
+        "lag_one": -16622.64395048803,
+        "beyond_lag_one": 22252.51225477326,
+        "A_squared": 21516142.38986293,
+        "B_squared": 14177.652426250172,
+        "triangle_gap": 21501964.73743668
+      }
+    },
+    "123": {
+      "completed_updates": 3000,
+      "elapsed_seconds": 42493.50175732584,
+      "final_train": {
+        "loss": 1.466540378417969,
+        "loss_units": 50000,
+        "objective_units": 50
+      },
+      "final_test": {
+        "loss": 1.4800121337890624,
+        "loss_units": 10000,
+        "objective_units": 10
+      },
+      "memory": {
+        "peak_allocated_bytes": 6361997312,
+        "peak_reserved_bytes": 7587495936
+      },
+      "final_tensor_sha256": "0ecfda0b891730db819db5dcbc16f4e5869ce3ff476b5b9e6be1c570a855fca4",
+      "final_raw_geometry": {
+        "norm": 0.8882252106270954,
+        "A": 1647.1403684185498,
+        "B": 228.17832665291934,
+        "B_over_A": 0.1385299826462256,
+        "cosine": -0.9784573249173109,
+        "cosine_undefined_reason": null,
+        "ratio_undefined_reason": null,
+        "energy": 1341.9625293153213,
+        "all_pair": 50723.38622481104,
+        "lag_one": -2528.137685254177,
+        "beyond_lag_one": 53251.52391006522,
+        "A_squared": 2713071.3932739957,
+        "B_squared": 52065.34875412636,
+        "triangle_gap": 2661006.044519869
+      }
+    },
+    "124": {
+      "completed_updates": 3000,
+      "elapsed_seconds": 42897.85612728796,
+      "final_train": {
+        "loss": 0.9672287634277343,
+        "loss_units": 50000,
+        "objective_units": 50
+      },
+      "final_test": {
+        "loss": 1.06737470703125,
+        "loss_units": 10000,
+        "objective_units": 10
+      },
+      "memory": {
+        "peak_allocated_bytes": 6361997312,
+        "peak_reserved_bytes": 7587495936
+      },
+      "final_tensor_sha256": "4250e8209ee4f100cc3f89536ac2887770b72ed895750ed961b828728de04209",
+      "final_raw_geometry": {
+        "norm": 1.3711758479414935,
+        "A": 2926.963180642105,
+        "B": 180.36513763552495,
+        "B_over_A": 0.06162193594657969,
+        "cosine": -0.9836670561489324,
+        "cosine_undefined_reason": null,
+        "ratio_undefined_reason": null,
+        "energy": 3884.281100004476,
+        "all_pair": 28647.30177427738,
+        "lag_one": -7379.744769194723,
+        "beyond_lag_one": 36027.046543472105,
+        "A_squared": 8567113.460834546,
+        "B_squared": 32531.582874281856,
+        "triangle_gap": 8534581.877960265
+      }
+    },
+    "125": {
+      "completed_updates": 3000,
+      "elapsed_seconds": 94987.21423208993,
+      "final_train": {
+        "loss": 6.351935365365105,
+        "loss_units": 2088600,
+        "objective_units": 59680
+      },
+      "final_test": {
+        "loss": 6.09815271202403,
+        "loss_units": 245550,
+        "objective_units": 7020
+      },
+      "memory": {
+        "peak_allocated_bytes": 3947503616,
+        "peak_reserved_bytes": 4129292288
+      },
+      "final_tensor_sha256": "00538ed33fd58c5be0d9902cf8b5659435200edb5250f48b8f18ac286e015307",
+      "final_raw_geometry": {
+        "norm": 0.4749044548521699,
+        "A": 1118.4651145334954,
+        "B": 156.02627684889072,
+        "B_over_A": 0.13950035170651548,
+        "cosine": -0.9873038077904114,
+        "cosine_undefined_reason": null,
+        "ratio_undefined_reason": null,
+        "energy": 476.294467930502,
+        "all_pair": 23867.904599396188,
+        "lag_one": -776.6635865543772,
+        "beyond_lag_one": 24644.568185950564,
+        "A_squared": 1250964.212428425,
+        "B_squared": 24344.199067326692,
+        "triangle_gap": 1226620.0133610982
+      }
+    },
+    "126": {
+      "completed_updates": 3000,
+      "elapsed_seconds": 95154.04730592109,
+      "final_train": {
+        "loss": 6.069747180845569,
+        "loss_units": 2088600,
+        "objective_units": 59680
+      },
+      "final_test": {
+        "loss": 5.858303095888057,
+        "loss_units": 245550,
+        "objective_units": 7020
+      },
+      "memory": {
+        "peak_allocated_bytes": 3947503616,
+        "peak_reserved_bytes": 4129292288
+      },
+      "final_tensor_sha256": "7833cdc2d14fd63ccf7fcd4c5458686ed49e119014c91835a8feb3c5aa558180",
+      "final_raw_geometry": {
+        "norm": 0.5826664998539824,
+        "A": 2029.20182004526,
+        "B": 109.8466585037078,
+        "B_over_A": 0.054132939079099454,
+        "cosine": -0.9952568503752058,
+        "cosine_undefined_reason": null,
+        "ratio_undefined_reason": null,
+        "energy": 1391.6274424672595,
+        "all_pair": 10674.660941962942,
+        "lag_one": -2682.184389663075,
+        "beyond_lag_one": 13356.845331626017,
+        "A_squared": 4117660.026474996,
+        "B_squared": 12066.288384430201,
+        "triangle_gap": 4105593.738090566
+      }
+    }
+  },
+  "remote_disk_free_bytes": 3701439873024,
+  "status": "passed",
+  "training_etc_seconds": 0,
+  "rental_cost": 0,
+  "local_monitor_stopped_after_verified_queue_completion": true,
+  "recovery_note": "Local 30-minute monitor reported SSH exit255 before final retrieval; a direct SSH read succeeded. Task monitor PID45788 was command-verified and stopped to avoid concurrent retrieval; 03_results.py --collect performs final retrieval and verification.",
+  "manuscript_edits": false,
+  "figures_changed": false,
+  "results.json_sha256": "c9147f0c1cb0d4d2c5a6e3ed80f354f64da8463162db293e58e0001c4605c3f3",
+  "retrieval_verification.json_sha256": "5226ef5c9b9160b76ad2b681d7f465a79028187b2fd02b2cb5b14e55c211edea",
+  "retrieval_and_reduction_utc": "2026-10-20T17:47:26.179658+00:00",
+  "verified_conditions": 9,
+  "verified_adjacent_pairs": 26991,
+  "verified_spectral_states": 279,
+  "verified_source_inventory_files": 254,
+  "new_run_retained_files": 160,
+  "new_run_retained_bytes": 6394817635,
+  "retention_scope": "Five new run inventories on each machine; reused conditions, shared data and source packets excluded from this byte total.",
+  "transfer_archives_retained": false,
+  "retained_evidence_locations": [
+    "local workspace",
+    "owned DGX Spark"
+  ],
+  "retrieval_etc_seconds": 0,
+  "local_monitor_status": "stopped_after_completed_queue",
+  "figure_scope": "Existing October19 figure retains eight completed conditions; not regenerated for this status request."
+}

@@ -3,7 +3,8 @@
 The existing [publication PDF](../figures/eos_mlp_learning_rates_3k.pdf)
 retains its three columns, four rows and original filename. The October19
 update adds the completed Transformer LR0.1 (Run125), giving eight complete,
-retrieved and verified conditions. The running LR0.2 (Run126) is excluded.
+retrieved and verified conditions at that cutoff. LR0.2 (Run126) completed
+on October20; its results appear in observation004 and this PDF is unchanged.
 
 ## Sources and coverage
 
@@ -89,8 +90,8 @@ The q/cosine relation is algebraic. q is a finite-step projected gradient
 change; interpreting it as local directional Hessian curvature requires a
 Taylor approximation. ResNet/Transformer subset sharpness is not the exact
 full-objective maximum curvature. Alignment/norms alone do not establish loss
-decrease, generalization, asymptotic behavior or global stability. The remaining
-unfinished Transformer LR0.2 is excluded rather than extrapolated.
+decrease, generalization, asymptotic behavior or global stability. Transformer
+LR0.2 was unfinished at this figure's October19 cutoff and was excluded.
 
 The current Poppler render is reviewed for all12 panels, three model headings,
 eight LR entries, full/subset spectral labels, reference lines, norm log axes

@@ -9,21 +9,20 @@ All18 norm-controlled preconditioning ablations increased fixed-probe loss;
 transition remains unresolved. All103.516GB are locally verified; three PDFs
 reviewed. Task pods/volume deleted October17 at19:05 BRT; posted cost USD11.42/$25.
 
-[Analysis024: one-initialization3k GD LR calibration](../analyses/024-2026-10-17-eos-gd-lr-calibration/README.md)
-launched on owned Spark October17: MLP0.004/0.02/0.04,
-ResNet0.025/0.05/0.1 and Transformer0.05/0.1/0.2, seed0 and3000 updates.
-Nine conditions reuse059/062/120/121; five new runs122-126 execute sequentially.
-Eight conditions pass source/numeric checks; Transformer0.1 (Run125) completed
-with final loss6.351935 and B/A0.1395004. Only Run126 Transformer0.2 remains active.
-October19 12:27 BRT remaining ETC26.24h,31.48h with20% allowance.
-The reviewed4x3 PDF covers all eight completed conditions:3 MLP/3 ResNet/2
-Transformer rates,72,248 exact plotted points, full/subset spectral labels and
-logarithmic raw norms. All28 previous curves are unchanged; no smoothing.
-Measured3k timings project76.81h,92.18h with20% allowance;120h hard queue limit.
-All diagnostics and100-step spectra retained; larger-model Hessians remain subsets.
-Hidden30min monitoring retrieves/verifies terminal results;15GB storage allowance
-on both machines, no rental. Old020/021 queues stay held; no manuscript edit.
-Rates are calibrated on one initialization, without an initialization-robustness claim.
+[Analysis024: completed3k GD LR calibration](../analyses/024-2026-10-17-eos-gd-lr-calibration/observations/004-completed-calibration.md)
+completed all nine conditions: MLP0.004/0.02/0.04, ResNet0.025/0.05/0.1,
+Transformer0.05/0.1/0.2; seed0 and3000 full-GD updates per condition.
+Five new runs122-126 finished October20 at13:47 Sao Paulo; four conditions
+reuse059/062/120/121. All254 source files,26,991 pairs and279 spectra pass.
+Transformer0.2 final train/test losses6.069747/5.858303; final B/A0.05413294,
+last1k mean cosine-0.9936598. All scalar/recovery evidence is local and on Spark.
+Training/retrieval ETC0; GPU idle at32C. The queue exited without continuation.
+Monitor SSH failure recovered by direct collection; task monitor stopped.
+Five new runs retain160 files/6.395GB per machine; redundant archives removed.
+The reviewed October19 PDF retains eight conditions and its original curves;
+no PDF/manuscript update at closeout. Larger-model Hessians remain subsets.
+Single-initialization comparisons do not establish initialization robustness.
+Owned Spark only, zero rental; old020/021 queues stay held.
 Next Run154 / Analysis026 / H022.
 
 [Analysis023: smallest-LR3k calibration](../analyses/023-2026-10-15-eos-smallest-lr-calibration/README.md)

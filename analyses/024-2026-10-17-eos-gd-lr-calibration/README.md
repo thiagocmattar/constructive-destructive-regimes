@@ -5,12 +5,19 @@ DGX Spark, with 3,000 full-GD updates and one frozen initialization. This
 authorizes only the five new runs below. Analysis020/021 queues stay held;
 no cloud rental or manuscript work. Executed inputs remain unchanged.
 
-**Status October19 at12:27 Sao Paulo time:** all MLP/ResNet conditions and
-Transformer0.05/0.1 are complete, retrieved and verified: eight of nine
-conditions pass numerical checks. Run125 finished at11:21 with final training
-loss6.351935 and B/A0.1395004. Transformer0.2 (Run126) is the final active run,
-at120/3,000 updates. Observed-rate remaining ETC is26.24h (31.48h with20%
-allowance), projecting October20 around14:45 Sao Paulo time.
+**Completed October20 at13:47 Sao Paulo time:** all nine conditions reached
+3,000 full-GD updates. All outputs were retrieved and verified at14:47:
+254 source-inventory files,26,991 adjacent pairs and279 spectral states pass.
+The final Transformer LR0.2 run has training loss6.069747, test loss5.858303,
+first negative gradient update10, last1k mean cosine-0.9936598 and final
+B/A0.05413294. Training/retrieval ETC is zero; the owned Spark is idle.
+The five-run queue took76.56h and stopped without predecessor continuation.
+A monitor SSH error delayed final retrieval; the direct connection succeeded,
+the task monitor was stopped and manual `03_results.py --collect` passed.
+The five new runs retain6.395GB in160 inventoried files on each machine;
+verified redundant transfer archives were removed. No cloud rental.
+See [completion observation](observations/004-completed-calibration.md) and
+`completion_verification.json` for the closeout evidence.
 The three ResNet rates0.025/0.05/0.1 first reverse at gradient updates
 1,121/494/231, with final train losses1.466540/0.967229/0.489838.
 Launched October17 at09:13. See `launch.json`,
@@ -123,7 +130,9 @@ to three model columns and four rows. The October19 update includes eight
 completed conditions: MLP0.004/0.02/0.04, ResNet0.025/0.05/0.1 and
 Transformer0.05/0.1.
 Rows show unsmoothed loss, eta*lambda_max, unsmoothed eta*kappa_hat and
-raw-gradient norms (log Y). The running Transformer0.2 is excluded.
+raw-gradient norms (log Y). This figure retains its October19 cutoff;
+Transformer0.2 subsequently completed and is reported in observation004.
+The existing PDF is preserved pending the next figure update.
 Full/subset Hessian labels distinguish the measurement coverage.
 
 All72,248 plotted points,23,992 pairs,248 spectra and222 source-inventory
