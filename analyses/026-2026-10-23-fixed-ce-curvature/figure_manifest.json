@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-23T18:59:17.483982+00:00",
+  "source_data_sha256": "1272115b057ac31c8f6a464ee8f90299d9be67b63c2e931e9ed30b9a75b8c2dc",
+  "source_results_sha256": "83e7e181a5962359dca6c19e6441b1a5c0e27a4d108f632f071443cf879bb01c",
+  "script_sha256": "8b1609ea4aa055f11e5bae6cc88720e0d127473e282c7d7b01f60866b68753e5",
+  "pdf_sha256": "cf1bb965ff143046dc92b8a29863f527ce6462912d720adee84bee66d9883283",
+  "pdf_bytes": 238696,
+  "coverage": {
+    "runs": 30,
+    "updates": 300000,
+    "paired_seeds": 10,
+    "training_pairs": 480,
+    "heldout_pairs": 481,
+    "regular_curvature_states": 690,
+    "ordinary_eigenpairs": 840,
+    "adam_scaled_eigenpairs": 660
+  },
+  "loss_display_sampling": "pre-update states0,20,...,9980; all raw states retained",
+  "terminal_loss_points": "state10000; full-FP64 objective from results final_common_loss; all10 seeds/arm",
+  "curvature_sampling": "all23 prespecified regular states; undefined endpoints omitted",
+  "uncertainty": "seed traces/medians; paired95% t CI in panelg; descriptive matched-loss control"
+}

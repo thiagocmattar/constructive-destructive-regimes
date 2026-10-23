@@ -2,13 +2,13 @@
 
 ## Current state
 
-[Analysis026: fixed-CE curvature proposal](../analyses/026-2026-10-23-fixed-ce-curvature/README.md)
-operationalizes H022 with ten paired seeds on tiny modular addition, three CE
-arithmetic conditions, and common full-FP64 Hessian diagnostics. Primary target
-is a20% late-window maximum-curvature reduction, with confidence/scale and Adam
-controls. CPU calculus checks pass; no training evidence or resource creation.
-Live3090 price USD0.50/h; proposed four-hour/USD3 limit, runtime unmeasured.
-Next Run154 / Analysis027 / H023.
+[Analysis026: completed fixed-CE curvature experiment](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md)
+completed30 paired conditions and300k updates on owned5070Ti. Common fully
+FP64 full480-example Hessians give fixed/native curvature ratio 0.014885, 95% CI [0.0030771,0.072007];
+Hard-collapse exposure qualifies 0/10 seeds. Matched-loss curvature is similar;
+Adam-scaled curvature rises 2.41x. These are attained-state, conditional findings.
+All evidence is local and hash verified; publication PDF reviewed.
+Zero rental and no cloud resources created. Next Run185 / Analysis027 / H023.
 
 [Analysis025: completed Pythia preconditioning experiment](../analyses/025-2026-10-17-pythia-descent-mechanism/REPORT.md)
 completed27 runs and4,050 updates across three sizes and three seed blocks.

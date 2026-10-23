@@ -1,0 +1,21 @@
+{
+  "utc": "2026-10-23T18:56:01.020011+00:00",
+  "status": "passed",
+  "checks": [
+    "all retained per-run byte sizes and SHA256",
+    "300k contiguous updates",
+    "exact initial tensors paired across arms, ten distinct seeds",
+    "complete fixed split identity",
+    "streaming geometry bounds and indexing; saved prefix vectors checked on CPU",
+    "initial/final tensor hashes independently reconstructed from checkpoints",
+    "directional Rayleigh quotients bounded by maximum algebraic eigenvalues",
+    "690 regular states and all loss-crossing states",
+    "ordinary and Adam-scaled eigenpair residuals",
+    "terminal actual-update curvature undefined",
+    "exact stored Taylor decomposition",
+    "independent paired CI calculation"
+  ],
+  "files": 1710,
+  "bytes": 1008678749,
+  "source_inventory_sha256": "a8b01b704f8ee7b11ccba6b4a0e349425b1522bf0a22eda69a95c6e8c73254fe"
+}

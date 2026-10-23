@@ -163,6 +163,38 @@
 | [152](152-2026-10-17-pythia70m-no-precond-fork175-seed1236/README.md) | H021 Pythia-70M, seed1236, no-preconditioning50 from175 | Complete; local hash and scientific verification passed | Attempt01 full pass; recovery states retained locally; Runpod resources deleted | [Analysis025](../analyses/025-2026-10-17-pythia-descent-mechanism/README.md) |
 | [153](153-2026-10-17-pythia70m-no-precond-fork225-seed1236/README.md) | H021 Pythia-70M, seed1236, no-preconditioning50 from225 | Complete; local hash and scientific verification passed | Attempt01 full pass; recovery states retained locally; Runpod resources deleted | [Analysis025](../analyses/025-2026-10-17-pythia-descent-mechanism/README.md) |
 
-Next run: `154-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
+| [154](154-2026-10-23-fixed-ce-calibration/README.md) | H022 full-shape mechanics/timing; seed1000 excluded from inference | Complete; two local calibration attempts | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/README.md) |
+| [155](155-2026-10-23-fixed-ce-native32-seed0/README.md) | H022 native32,seed0 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [156](156-2026-10-23-fixed-ce-fixed32-seed0/README.md) | H022 fixed32,seed0 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [157](157-2026-10-23-fixed-ce-ce64-seed0/README.md) | H022 ce64,seed0 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [158](158-2026-10-23-fixed-ce-native32-seed1/README.md) | H022 native32,seed1 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [159](159-2026-10-23-fixed-ce-fixed32-seed1/README.md) | H022 fixed32,seed1 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [160](160-2026-10-23-fixed-ce-ce64-seed1/README.md) | H022 ce64,seed1 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [161](161-2026-10-23-fixed-ce-native32-seed2/README.md) | H022 native32,seed2 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [162](162-2026-10-23-fixed-ce-fixed32-seed2/README.md) | H022 fixed32,seed2 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [163](163-2026-10-23-fixed-ce-ce64-seed2/README.md) | H022 ce64,seed2 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [164](164-2026-10-23-fixed-ce-native32-seed3/README.md) | H022 native32,seed3 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [165](165-2026-10-23-fixed-ce-fixed32-seed3/README.md) | H022 fixed32,seed3 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [166](166-2026-10-23-fixed-ce-ce64-seed3/README.md) | H022 ce64,seed3 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [167](167-2026-10-23-fixed-ce-native32-seed4/README.md) | H022 native32,seed4 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [168](168-2026-10-23-fixed-ce-fixed32-seed4/README.md) | H022 fixed32,seed4 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [169](169-2026-10-23-fixed-ce-ce64-seed4/README.md) | H022 ce64,seed4 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [170](170-2026-10-23-fixed-ce-native32-seed5/README.md) | H022 native32,seed5 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [171](171-2026-10-23-fixed-ce-fixed32-seed5/README.md) | H022 fixed32,seed5 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [172](172-2026-10-23-fixed-ce-ce64-seed5/README.md) | H022 ce64,seed5 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [173](173-2026-10-23-fixed-ce-native32-seed6/README.md) | H022 native32,seed6 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [174](174-2026-10-23-fixed-ce-fixed32-seed6/README.md) | H022 fixed32,seed6 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [175](175-2026-10-23-fixed-ce-ce64-seed6/README.md) | H022 ce64,seed6 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [176](176-2026-10-23-fixed-ce-native32-seed7/README.md) | H022 native32,seed7 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [177](177-2026-10-23-fixed-ce-fixed32-seed7/README.md) | H022 fixed32,seed7 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [178](178-2026-10-23-fixed-ce-ce64-seed7/README.md) | H022 ce64,seed7 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [179](179-2026-10-23-fixed-ce-native32-seed8/README.md) | H022 native32,seed8 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [180](180-2026-10-23-fixed-ce-fixed32-seed8/README.md) | H022 fixed32,seed8 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [181](181-2026-10-23-fixed-ce-ce64-seed8/README.md) | H022 ce64,seed8 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [182](182-2026-10-23-fixed-ce-native32-seed9/README.md) | H022 native32,seed9 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [183](183-2026-10-23-fixed-ce-fixed32-seed9/README.md) | H022 fixed32,seed9 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+| [184](184-2026-10-23-fixed-ce-ce64-seed9/README.md) | H022 ce64,seed9 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
+
+Next run: `185-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
 executed IDs and configurations; retry unchanged scientific inputs in a new
 attempt within the same run.

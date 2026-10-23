@@ -39,7 +39,7 @@
 | --- | --- | --- | --- | --- |
 | [025](025-2026-10-17-pythia-descent-mechanism/README.md) | H021 Pythia descent mechanism: fixed probe, direction substitutions and norm-matched preconditioning ablation | Runs127-153; 3 sizes x3 seed blocks | Complete;27 runs verified;3 PDFs reviewed; task resources deleted; USD11.42 posted | [Results](025-2026-10-17-pythia-descent-mechanism/REPORT.md), [observation](025-2026-10-17-pythia-descent-mechanism/observations/001-preconditioning-effects.md) |
 
-| [026](026-2026-10-23-fixed-ce-curvature/README.md) | H022: does fixed CE lead to flatter curvature? | Linked paper v1; draft; Analyses019/024/025 | Prospective; ten paired seeds, three CE arithmetic arms; proposed USD3/four-hour cap; no training or rental | [Protocol](026-2026-10-23-fixed-ce-curvature/PROTOCOL.md), CPU calculus checks and live price snapshot |
+| [026](026-2026-10-23-fixed-ce-curvature/README.md) | H022 fixed-CE curvature | Runs154-184;10 paired seeds,three loss-arithmetic arms | Complete30/30,300k updates; verified ordinary/scaled spectra; zero rental | [Conclusions](026-2026-10-23-fixed-ce-curvature/REPORT.md), [figure](026-2026-10-23-fixed-ce-curvature/figures/fixed_ce_curvature.pdf); fixed/native curvature ratio 0.014885, 95% CI [0.0030771,0.072007]; collapse-qualified seeds0/10 |
 
 Next analysis: `027-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
 an analysis may use manuscript or external inputs without referencing a run.

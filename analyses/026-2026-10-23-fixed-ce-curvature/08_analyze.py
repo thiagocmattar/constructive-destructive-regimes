@@ -12,11 +12,12 @@ from pathlib import Path
 
 import numpy as np
 import torch
+torch.set_num_threads(1)
 from scipy import stats
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
-from src.fixed_ce_curvature.core import save_json, sha, stamp, tensor_hash
+from src.fixed_ce_curvature.core import flat, save_json, sha, stamp, tensor_hash
 
 HERE = Path(__file__).resolve().parent
 ARMS = ("native32", "fixed32", "ce64")
@@ -54,6 +55,10 @@ def verify_run(entry, verify_hashes=True):
     assert tensor_hash(first["parameters"].values()) == manifest["initial_tensor_sha256"]
     assert tensor_hash(final["parameters"].values()) == manifest["final_tensor_sha256"]
     assert final["geometry"]["count"] == 10000
+    assert list(final["optimizer"]["state"]) == final["optimizer"]["param_groups"][0]["params"]
+    exact_displacement = flat(final["parameters"].values()).double() - flat(first["parameters"].values()).double()
+    prefix_residual = float((final["geometry"]["total"][3] - exact_displacement).norm() / exact_displacement.norm())
+    assert prefix_residual < 1e-5
     proof = json.loads((output / "inventory.json").read_text())
     if verify_hashes:
         for item in proof["files"]:
@@ -126,6 +131,9 @@ def verify_run(entry, verify_hashes=True):
     summary = {**entry, "initial_tensor_sha256": manifest["initial_tensor_sha256"],
         "data_sha256": manifest["data_sha256"], "files": len(proof["files"]), "bytes": proof["total_bytes"],
         "late_lambda_geometric_mean": float(np.exp(np.log(largest).mean())),
+        "late_loss_geometric_mean": float(np.exp(np.log([r["train_loss"] for r in late]).mean())),
+        "late_lambda_over_loss_geometric_mean": float(np.exp(np.log([
+            r["ordinary"]["value"] / r["train_loss"] for r in late]).mean())),
         "late_gradient_curvature_mean": float(np.mean([r["gradient_curvature"] for r in late])),
         "late_update_curvature_mean": float(np.mean([r["update_curvature"] for r in late if "update_curvature" in r])),
         "late_adam_lambda_geometric_mean": float(np.exp(np.log([r["adam_scaled"]["value"] for r in late]).mean())),
@@ -138,6 +146,14 @@ def verify_run(entry, verify_hashes=True):
         "final_parameter_norm": regular[-1]["parameter_norm"],
         "last_update_loss": last["common_logits_loss"],
         "last_margin_median": last["margin_median"],
+        "actual_update_prefix_telescoping_relative_error": prefix_residual,
+        "late_raw_cosine_mean": float(np.mean(trajectories["raw_cosine"][-1000:])),
+        "late_momentum_cosine_mean": float(np.mean(trajectories["momentum_cosine"][-1000:])),
+        "late_update_cosine_mean": float(np.mean(trajectories["update_cosine"][-1000:])),
+        "late_negative_raw_fraction": float(np.mean(np.asarray(trajectories["raw_cosine"][-1000:]) < 0)),
+        "late_negative_update_fraction": float(np.mean(np.asarray(trajectories["update_cosine"][-1000:]) < 0)),
+        "final_raw_B_over_A": last["raw"]["ratio"],
+        "final_update_B_over_A": last["update"]["ratio"],
         "seconds_training": manifest["seconds"], "peak_memory_gb": manifest["peak_memory_gb"],
         "spectra": len(curvature), "regular_states": len(regular)}
     return summary, trajectories, regular, curvature
@@ -161,7 +177,7 @@ def main():
         records[(entry["seed"], entry["arm"])] = regular
         all_curvatures[(entry["seed"], entry["arm"])] = curvature
     if args.partial:
-        save_json(HERE / "partial_results.json", {"utc": stamp(), "runs": summaries})
+        save_json(HERE / "scratch/partial_results.json", {"utc": stamp(), "runs": summaries})
         print(json.dumps({"completed": len(summaries), "run_summaries": summaries}, indent=2))
         return
     assert len(summaries) == 30
@@ -178,6 +194,14 @@ def main():
     primary["fixed32_over_ce64"] = paired_summary([
         by_key[(s, "fixed32")]["late_lambda_geometric_mean"] /
         by_key[(s, "ce64")]["late_lambda_geometric_mean"] for s in range(10)])
+    secondary = {}
+    for arm in ("fixed32", "ce64"):
+        for field in ("late_loss_geometric_mean", "late_lambda_over_loss_geometric_mean",
+                      "late_adam_lambda_geometric_mean"):
+            values = [by_key[(s, arm)][field] / by_key[(s, "native32")][field] for s in range(10)]
+            secondary[arm + "_over_native32__" + field] = {
+                "seed_ratios": values, "geometric_ratio": float(np.exp(np.log(values).mean())),
+                "role": "descriptive secondary; no confirmatory threshold"}
     qualification = {
         "required_qualified_native_seeds": 8,
         "qualified_native_seeds": sum(by_key[(s, "native32")]["collapse_qualified"] for s in range(10)),
@@ -211,6 +235,7 @@ def main():
                             "ordinary_eigenpairs": sum(r["spectra"] for r in summaries),
                             "adam_scaled_eigenpairs": 660},
                "qualification": qualification, "primary": primary, "raw_endpoint_verdict": verdict,
+               "secondary_descriptive": secondary,
                "interpretation_status": verdict if qualification["mechanism_qualified"] else
                    "collapse_mechanism_unqualified__" + verdict,
                "runs": summaries, "matched_loss": matched,
@@ -224,7 +249,8 @@ def main():
         selected = [plots[(s, arm)] for s in range(10)]
         sample = np.arange(0, 10000, 20)
         plot_data["curves"][arm] = {
-            "loss_steps": (sample + 1).tolist(),
+            "loss_steps": sample.tolist(),
+            "trajectory_x": "pre-update parameter state; equal to completed updates",
             "loss_seed_curves": [[t["loss"][i] for i in sample] for t in selected],
             "collapse_seed_curves": [[t["collapse"][i] for i in sample] for t in selected],
             "ordinary_seed_curves": [[r["ordinary"]["value"] for r in records[(s, arm)]] for s in range(10)],

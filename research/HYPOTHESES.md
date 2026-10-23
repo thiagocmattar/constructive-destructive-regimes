@@ -33,7 +33,7 @@ questions alone do not create experimental commitments.
 | --- | --- | --- | --- | --- |
 | H021 | Does Adam coordinate preconditioning contribute to Pythia's model-size loss-rate separation, after controlling adaptive-step norm? | Complete; supports norm-controlled preconditioning contribution | [Analysis025](../analyses/025-2026-10-17-pythia-descent-mechanism/README.md), Runs127-153 | All18 ablations raise fixed-probe loss;70M effect exceeds14M in all3 seed blocks at both forks; unique200-250 onset not established |
 
-| H022 | Does numerically fixed hard-target CE lead AdamW to lower common-objective Hessian curvature? | Proposed; no training evidence | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/README.md); no run allocated | Ten paired initializations, native FP32/fixed FP32/FP64-loss-only control; shared full-FP64 curvature evaluation;20% primary effect threshold; qualification and matched-loss controls; proposed USD3 cap |
+| H022 | Does numerically fixed hard-target CE lead AdamW to lower common-objective Hessian curvature? | Supports raw-Hessian flattening in this recipe; exposure-qualified seeds0/10 | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md), Runs154-184 | fixed/native curvature ratio 0.014885, 95% CI [0.0030771,0.072007];30 trajectories/300k updates; full480-example FP64 Hessians; paired precision control and matched-loss audit; zero rental; no Pythia transfer claim |
 
 Next hypothesis: `H023`. Record the operational meaning,
 comparison, support/refutation criteria, and scope in the corresponding run
