@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "script_sha256": "334ed5a5b97ea9b229fc273488b70bd3306be534fa63c2204a557fe6f43b8cf3",
+  "data_sha256": "6b1f5fad9e7f33a4548af001bba2feef7594d0a51c7ca26247014031cbd50799",
+  "png_sha256": "b715eb2729084eb3dc2cb900bb2e592ce4ffc2b28cec471c7aadd7c37e5e7547",
+  "png_bytes": 1105919,
+  "dimensions": [
+    3420,
+    1500
+  ],
+  "dpi": 300,
+  "panels": [
+    "a: loss",
+    "b: eta*lambda_max"
+  ],
+  "arms": [
+    "native32",
+    "fixed32"
+  ],
+  "seeds_per_arm": 10,
+  "source_curves_unchanged": true,
+  "plotted_curves_checked": 44,
+  "new_training": false,
+  "visual_review": "Actual PNG inspected: only panels(a,b), two FP32 arms, readable labels/legend/caption, no overlaps or clipping."
+}
