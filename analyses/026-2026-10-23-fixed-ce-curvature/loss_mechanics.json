@@ -1,0 +1,44 @@
+{
+  "status": "passed",
+  "utc": "2026-10-23T15:34:18.516698+00:00",
+  "scope": "CPU synthetic calculus checks only; no training, no curvature-trajectory evidence",
+  "torch": "2.11.0+cu128",
+  "checks": [
+    "FP64 fixed CE loss/gradient/Hessian and shift invariance at six binary margins",
+    "Native and fixed FP64 derivatives agree below saturation",
+    "Actual CPU FP32 native target-gradient collapse and fixed zero-sum restoration at margin18"
+  ],
+  "max_analytic_hessian_relative_error": 2.1725062058236467e-16,
+  "fp32_binary_margin18": {
+    "native_loss": 0.0,
+    "fixed_loss": 1.5229979055675358e-08,
+    "native_gradient": [
+      0.0,
+      1.5229979055675358e-08
+    ],
+    "fixed_gradient": [
+      -1.5229979055675358e-08,
+      1.5229979055675358e-08
+    ],
+    "native_autodiff_hessian": [
+      [
+        0.0,
+        -1.5229979055675358e-08
+      ],
+      [
+        -1.5229979055675358e-08,
+        1.5229979055675358e-08
+      ]
+    ],
+    "fixed_autodiff_hessian": [
+      [
+        1.5229980832032197e-08,
+        -1.5229980832032197e-08
+      ],
+      [
+        -1.5229980832032197e-08,
+        1.5229980832032197e-08
+      ]
+    ]
+  }
+}
