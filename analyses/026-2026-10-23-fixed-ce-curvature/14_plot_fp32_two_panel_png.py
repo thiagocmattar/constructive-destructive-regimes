@@ -27,7 +27,7 @@ def main(reviewed=False):
         for key, path in (("script", Path(__file__)), ("data", DATA), ("png", OUTPUT)):
             assert record[key + "_sha256"] == sha(path)
         record.update(status="passed", visual_review="Actual PNG inspected: only panels(a,b), two FP32 arms, readable labels/legend/caption, no overlaps or clipping.")
-        MANIFEST.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
+        MANIFEST.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8", newline="\n")
         return
     previous = json.loads((HERE / "fp32_figure_manifest.json").read_text())
     assert previous["status"] == "passed" and previous["data_sha256"] == sha(DATA)
@@ -92,7 +92,7 @@ def main(reviewed=False):
         "dimensions": [3420, 1500], "dpi": 300, "panels": ["a: loss", "b: eta*lambda_max"],
         "arms": data["arms"], "seeds_per_arm": 10, "source_curves_unchanged": True,
         "plotted_curves_checked": checked, "new_training": False}
-    MANIFEST.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
+    MANIFEST.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(OUTPUT)
 
 
