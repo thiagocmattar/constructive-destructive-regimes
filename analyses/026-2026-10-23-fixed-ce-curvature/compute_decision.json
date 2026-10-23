@@ -1,0 +1,134 @@
+{
+  "decision_utc": "2026-10-23T18:15:18Z",
+  "cloud_resources_created": 0,
+  "gpu_rental_usd": 0,
+  "selected": "owned NVIDIA GeForce RTX5070Ti Laptop GPU",
+  "approval": "User: Go on. everything is approved. get back with the conclusions",
+  "reason": "approved local alternative calibrated successfully; cloud stock changed between read-only queries",
+  "catalog_evidence": {
+    "secure_3090": {
+      "availability": "NONE",
+      "community": true,
+      "cudaVersions": [
+        {
+          "available": false,
+          "version": "13.0"
+        },
+        {
+          "available": false,
+          "version": "13.2"
+        }
+      ],
+      "id": "NVIDIA GeForce RTX 3090",
+      "manufacturer": "NVIDIA",
+      "maxCount": {
+        "community": 8,
+        "secure": 8
+      },
+      "memory": 24,
+      "name": "RTX 3090",
+      "pool": "AMPERE_24",
+      "price": {
+        "community": 0.22,
+        "secure": 0.5,
+        "serverless": 0.69
+      },
+      "secure": true
+    },
+    "community_3090_earlier": {
+      "availability": "LOW",
+      "community": true,
+      "cudaVersions": [
+        {
+          "available": false,
+          "version": "12.4"
+        },
+        {
+          "available": false,
+          "version": "12.5"
+        },
+        {
+          "available": false,
+          "version": "12.7"
+        },
+        {
+          "available": false,
+          "version": "12.8"
+        },
+        {
+          "available": false,
+          "version": "12.9"
+        },
+        {
+          "available": true,
+          "version": "13.0"
+        },
+        {
+          "available": false,
+          "version": "13.2"
+        },
+        {
+          "available": false,
+          "version": "13.3"
+        }
+      ],
+      "id": "NVIDIA GeForce RTX 3090",
+      "manufacturer": "NVIDIA",
+      "maxCount": {
+        "community": 8,
+        "secure": 8
+      },
+      "memory": 24,
+      "name": "RTX 3090",
+      "pool": "AMPERE_24",
+      "price": {
+        "community": 0.22,
+        "secure": 0.5,
+        "serverless": 0.69
+      },
+      "secure": true
+    },
+    "community_3090_latest_before_local": {
+      "availability": "NONE",
+      "community": true,
+      "cudaVersions": [
+        {
+          "available": false,
+          "version": "12.8"
+        },
+        {
+          "available": false,
+          "version": "12.9"
+        },
+        {
+          "available": false,
+          "version": "13.0"
+        },
+        {
+          "available": false,
+          "version": "13.2"
+        },
+        {
+          "available": false,
+          "version": "13.3"
+        }
+      ],
+      "id": "NVIDIA GeForce RTX 3090",
+      "manufacturer": "NVIDIA",
+      "maxCount": {
+        "community": 8,
+        "secure": 8
+      },
+      "memory": 24,
+      "name": "RTX 3090",
+      "pool": "AMPERE_24",
+      "price": {
+        "community": 0.22,
+        "secure": 0.5,
+        "serverless": 0.69
+      },
+      "secure": true
+    }
+  },
+  "price_note": "quotes are read-only historical preflight evidence, not charges or promises of current stock"
+}

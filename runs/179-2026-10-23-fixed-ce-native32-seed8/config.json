@@ -1,0 +1,34 @@
+{
+  "run": "179-2026-10-23-fixed-ce-native32-seed8",
+  "hypothesis": "H022",
+  "seed": 8,
+  "arm": "native32",
+  "updates": 10000,
+  "initial_path": "cache/fixed-ce-curvature/initial-seed8.pt",
+  "initial_file_sha256": "91a3d2601e8b00be555485e9caba693224749677521ee29dddc725c89846ffbc",
+  "initial_tensor_sha256": "5a9b932dc32ce30c011fff210318913724582fbc857d695a33ad4e8c346db551",
+  "data_sha256": "463247c7332532fd70b7548babd67cefa7683621446508b0c3473ffd481b08e2",
+  "model": {
+    "width": 64,
+    "heads": 4,
+    "ff": 256,
+    "classes": 31
+  },
+  "optimizer": {
+    "type": "AdamW",
+    "lr": 0.001,
+    "betas": [
+      0.9,
+      0.98
+    ],
+    "epsilon": 1e-08,
+    "weight_decay": 1,
+    "fused": false,
+    "foreach": false
+  },
+  "precision": "fp32-model-and-moments",
+  "tf32": false,
+  "train_pairs": 480,
+  "heldout_pairs": 481,
+  "curvature_objective": "whole-model-fp64-fixed-ce-all480"
+}

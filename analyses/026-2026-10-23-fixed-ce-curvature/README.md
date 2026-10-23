@@ -1,8 +1,10 @@
 # Analysis026: does numerically fixed cross-entropy lead to flatter curvature?
 
-Status: prospective experiment proposal, October 23,2026. H022 is the user's
-intuition, operationalized below. No training run or cloud resource is allocated,
-and the proposed spending limit is not an executed charge. No manuscript edit.
+Status: user approved implementation and execution on October 23,2026.
+Run154 owns mechanics/calibration and Runs155-184 own the30 scientific
+conditions. Training is active on the approved owned-GPU alternative; no
+cloud resource was created and GPU rental is zero. H022 is the user's intuition,
+operationalized below. No manuscript edit.
 
 ## Recommendation
 
@@ -67,3 +69,25 @@ specified task if qualification and uncertainty criteria pass. It cannot
 guarantee a decisive outcome, establish flatness invariant to reparameterization,
 or establish transfer to CIFAR/Pythia. An inconclusive result remains explicit;
 there is no automatic seed, horizon, epsilon or task search.
+
+## Execution resolution
+
+The owned RTX5070Ti Laptop GPU passed full-shape calibration, using less than
+0.12GB allocated memory. The queue's measured estimate is about48minutes of
+production work, about73minutes including30% allowance and ten-minute closeout.
+Cloud stock changed between read-only queries; the already-approved local
+alternative avoids rental without changing scientific inputs. The detached
+queue has3.5hour training admission and four-hour independent process guards.
+
+The frozen raw metric schema uses `gradient_state` for the pre-update state,
+so accepted update number is exactly `gradient_state + 1`. The `update` key
+contains actual-displacement geometry; it supersedes the worker's initially
+constructed integer field of the same name. No gradient, actual-update metric
+or time index is lost, and reduction verifies the full contiguous state sequence.
+Raw evidence and executed source remain unchanged.
+
+After the first seed showed curvature separation without exact target-gradient
+collapse, an exploratory checkpoint-gradient audit was specified in
+`10_checkpoint_audit.py`. It compares three gradient implementations at the same
+retained states, without updates. It cannot replace the predeclared endpoints
+or collapse qualification and will be reported separately as post-hoc analysis.

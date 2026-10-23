@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "utc": "2026-10-23T18:11:59.236268+00:00",
+  "scope": "mechanics-not-training-evidence",
+  "checks": [
+    "Production logaddexp fixed-CE double backward matches analytic binary Hessian through margin40",
+    "Paired CPU initialization and complete disjoint480/481 modular split",
+    "Whole-model FP64 HVP matches native unsaturated CE and central gradient differences",
+    "Streaming FP64 norms, prefix sums and ratios agree with independent explicit vectors",
+    "First unfused AdamW step matches independently bias-corrected moments and decoupled decay"
+  ],
+  "hvp_finite_difference_relative_error": 1.0525557372743792e-10,
+  "parameters": 53760,
+  "torch": "2.11.0+cu128"
+}
