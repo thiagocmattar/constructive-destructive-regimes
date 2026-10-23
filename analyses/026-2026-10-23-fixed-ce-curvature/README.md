@@ -8,8 +8,14 @@ created and GPU rental is zero. No manuscript edit.
 **[Conclusions and controls](REPORT.md):** fixed CE reduces the late ordinary
 maximum-Hessian endpoint by 98.5% (paired ratio 0.0149,95% CI0.0031-0.0720).
 Matched-loss curvature is similar; Adam-scaled curvature rises 2.4 x. Hard-collapse
-exposure is below the prespecified criterion. The [publication PDF](figures/fixed_ce_curvature.pdf)
-and [completed observation](observations/001-completed-experiment.md) show
+exposure is below the prespecified criterion. The simplified
+[FP32 publication figure](figures/fixed_ce_curvature_fp32.pdf) shows only native
+and fixed FP32 training: loss, eta*lambda_max, measured eta*kappa, and the
+manuscript's consecutive-gradient eta*kappa_hat proxy. The
+[figure observation](observations/002-focused-fp32-figure.md) defines the two
+kappa quantities and their AdamW interpretation. The original
+[eight-panel control figure](figures/fixed_ce_curvature.pdf) and
+[completed observation](observations/001-completed-experiment.md) retain all arms,
 coverage, uncertainty and the narrower interpretation.
 
 ## Original prospective design

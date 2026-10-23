@@ -1,0 +1,38 @@
+{
+  "utc": "2026-10-23T19:21:50.656669+00:00",
+  "status": "passed",
+  "script_sha256": "c592be96524101586c68b4922bfa851c7d264a9ec67e1a4d07296df85dabef70",
+  "data_sha256": "6b1f5fad9e7f33a4548af001bba2feef7594d0a51c7ca26247014031cbd50799",
+  "pdf_sha256": "19d5dd3e22ec5e2030a6a1f28caebc0b5b9b704bdb457b005184e676f5c9fcee",
+  "pdf_bytes": 132163,
+  "render": "tmp/analysis026/fixed_ce_curvature_fp32.png",
+  "render_sha256": "8dfadc8f98acf86d05541688e3d13d02c9658cdc1d7e351080e1bd9e9742c03d",
+  "arms": [
+    "native32",
+    "fixed32"
+  ],
+  "panels": 4,
+  "coverage": {
+    "runs": 20,
+    "seeds_per_arm": 10,
+    "scalar_states_per_run": 10000,
+    "gradient_pairs_per_run": 9999,
+    "curvature_states_per_run": 23,
+    "train_pairs_per_hessian": 480
+  },
+  "checks": [
+    "60 frozen input sizes/SHA256",
+    "20 complete clocks and FP32 configurations",
+    "loss/lambda/kappa unchanged from original verified reduction",
+    "eta from all20 optimizer configs",
+    "proxy projected-difference algebra and sign identity",
+    "no zero gradient denominators",
+    "all 88 plotted curves equal source/median arrays",
+    "all23 measured Hessian states; no interpolated new measurements",
+    "figure bounds"
+  ],
+  "plotted_curves_checked": 88,
+  "new_training": false,
+  "gpu_rental_usd": 0,
+  "visual_review": "Current Poppler render reviewed: four readable panels, two FP32 arms, all10 seeds, eta-scaled labels, common evaluator disclosure, signed proxy scale, and no clipped or overlapping content."
+}

@@ -9,8 +9,13 @@ same loss.** The experiment therefore supports the user's intuition about the
 states reached during training, with a narrower interpretation than changing
 the mathematical loss landscape itself.
 
-The [publication figure](figures/fixed_ce_curvature.pdf) presents the complete
-comparison. [Results](results.json), [verification](verification.json),
+The simplified [FP32 figure](figures/fixed_ce_curvature_fp32.pdf) presents loss,
+eta*lambda_max, measured eta*kappa, and the manuscript's gradient-based
+eta*kappa_hat for the two FP32 training arms. Its
+[observation](observations/002-focused-fp32-figure.md) defines the reductions and
+qualifies the AdamW proxy. The original
+[eight-panel figure](figures/fixed_ce_curvature.pdf) preserves the complete
+three-arm comparison. [Results](results.json), [verification](verification.json),
 [figure data](figure_data.json), [checkpoint-gradient audit](checkpoint_gradient_audit.json),
 and the original [prospective protocol](PROTOCOL.md) provide the numerical evidence.
 
@@ -219,6 +224,7 @@ python analyses/026-2026-10-23-fixed-ce-curvature/08_analyze.py
 python analyses/026-2026-10-23-fixed-ce-curvature/10_checkpoint_audit.py
 python analyses/026-2026-10-23-fixed-ce-curvature/09_plot.py
 python analyses/026-2026-10-23-fixed-ce-curvature/12_verify_outputs.py
+python analyses/026-2026-10-23-fixed-ce-curvature/13_plot_fp32.py
 ```
 
 The final PDF was rendered with Poppler and visually reviewed. Source inputs,
