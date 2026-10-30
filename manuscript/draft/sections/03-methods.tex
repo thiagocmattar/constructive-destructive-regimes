@@ -16,7 +16,7 @@ at $\theta_{t-1}$. Summing the updates gives the displacement from initializatio
   \Delta_T:=\theta_T-\theta_0=-\eta\sum_{t=1}^T g_t.
   \label{eq:displacement}
 \end{equation}
-For a model trained from scratch, $\theta_0$ represents the intiialized model that has not
+For a model trained from scratch, $\theta_0$ represents the initialized model that has not
 yet learned from the training data. After $T$ updates, the trained parameters
 $\theta_T$ encode what the model has learned within that training budget.
 The displacement $\Delta_T$ captures the net parameter change through which
@@ -98,7 +98,7 @@ approximation. Taking the inner product with $g_{t-1}$ then gives
 The right-hand side separates the preceding gradient magnitude,
 the curvature contribution, and the gradient noise contribution.
 Positive curvature along the preceding gradient direction reduces
-reduces its alignment with the next gradient, while
+its alignment with the next gradient, while
 the noise difference can reinforce or oppose this effect.
 To characterize these contributions, we define the directional
 curvature and normalized noise contribution
@@ -139,7 +139,7 @@ nonzero gradients are positively aligned when $\eta\kappa_t<1$,
 orthogonal when $\eta\kappa_t=1$, and negatively aligned when
 $\eta\kappa_t>1$.
 Differently from Eq.~\ref{eq:quad_stability_condition},
-here we focus on the caracterization of constructive-destructive regimes.
+here we focus on the characterization of constructive-destructive regimes.
 
 
 \subsection{Noise Contribution under Mini-Batch Sampling}
@@ -216,7 +216,7 @@ and its interaction with local curvature.
 
 While the consecutive cosine similarity $\rho_t$ measures local lag-1
 directional alignment, it does not capture interactions between
-more distant updates (lag$\leq2$). To measure their cumulative effect,
+more distant updates (lag$\geq2$). To measure their cumulative effect,
 we define the normalized displacement
 \begin{equation}
   R_T:=

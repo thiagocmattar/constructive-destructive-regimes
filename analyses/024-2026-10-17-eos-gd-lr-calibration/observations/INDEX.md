@@ -6,3 +6,6 @@
 - [004: Completed calibration and closeout](004-completed-calibration.md).
 - [005: Isolated three-column figures](005-isolated-three-column-figures.md): six
   separate1x3 PDFs; log loss, raw/smoothed cosine, smoothed q/norms and raw R_t.
+- [006: IEEE figures and manuscript integration](006-ieee-figures-and-manuscript.md):
+  external labels, no plot footers, unchanged Y values, two composites, critical
+  review, generated endpoints and new manuscript Section IV / Appendix D.

@@ -58,3 +58,12 @@ The scientific interpretation of the image results, the introduction, and the
 conclusion still require later alignment with the new formulation. Current
 compiled output and mechanical verification records are in ignored
 `manuscript/artifacts/draft/`.
+
+The new Section IV presents the completed Analysis024 full-batch learning-rate
+comparison: matched design, three main figures, all nine endpoint rows and
+explicit interpretation limits. Appendix D retains unsmoothed alignment.
+The [individual IEEE figure review](../analyses/024-2026-10-17-eos-gd-lr-calibration/FIGURE_REVIEW.md)
+and [integration observation](../analyses/024-2026-10-17-eos-gd-lr-calibration/observations/006-ieee-figures-and-manuscript.md)
+record its scientific and visual review. Analysis024's asset generator copies
+the reviewed vector figures and regenerates `draft/tables/analysis024_endpoints.tex`
+from verified results; the working draft remains self-contained for building.

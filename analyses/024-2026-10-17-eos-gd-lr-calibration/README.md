@@ -143,6 +143,18 @@ previously plotted curves are unchanged. See
 prefix at the user's request; metadata explicitly states the expanded scope.
 This local figure update preserves the frozen packet, queue and other PDFs.
 
+The user subsequently authorized a manuscript experimental section. The
+[IEEE revision and integration](observations/006-ieee-figures-and-manuscript.md)
+updates the six isolated views, adds two compact main-text composites, and
+inserts Section IV and a raw-alignment Appendix D into the working paper.
+See the [critical figure review](FIGURE_REVIEW.md). Artwork is 7.16 inches wide,
+has no embedded footers, and places panel letters outside the axes. All 54
+standalone Y arrays are unchanged; gradient X indices now follow manuscript t.
+`08_build_manuscript_assets.py` copies reviewed figures and generates all nine
+endpoint rows, with hashes in `manuscript_assets.json`. All scientific training
+inputs and the original overview remain preserved; this extension is local
+postprocessing and manuscript authoring, with no new run or cloud execution.
+
 ## Final figure and records
 
 The reviewed final overview retains three model columns and four rows:

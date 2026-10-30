@@ -22,11 +22,12 @@
   },
   "smoothing_window": 50,
   "seed_aggregation": "none",
+  "presentation": "IEEE two-column width 7.16in; solid LR curves; external panel labels; no embedded footers.",
   "smoothing": "Arithmetic mean before axis transformation, complete trailing windows, no padding.",
   "indexing": {
     "loss": "Parameter states 0..3000, including measured final loss.",
-    "cosine_and_q": "Gradient evaluation states 1..2999; first undefined pair omitted.",
-    "norm": "Gradient evaluation states 0..2999.",
+    "cosine_and_q": "One-based gradient indices t=2..3000, evaluated at states t-1; first undefined pair omitted.",
+    "norm": "One-based gradient indices t=1..3000, evaluated at states t-1.",
     "ratio": "Completed updates 1..3000; prefix B/A after each update."
   },
   "source_results_sha256": "c9147f0c1cb0d4d2c5a6e3ed80f354f64da8463162db293e58e0001c4605c3f3",
@@ -104,7 +105,7 @@
       }
     }
   ],
-  "plotted_points": 160659,
+  "plotted_points": 267318,
   "checks": [
     "Exact used-source hashes match independently verified Analysis024 results",
     "Frozen config/initialization and complete nine-condition coverage",

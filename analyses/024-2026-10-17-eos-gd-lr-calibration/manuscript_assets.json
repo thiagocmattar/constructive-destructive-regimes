@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "script_sha256": "bb38ebb979dad489e1a96ea66e0c03081fc8c44c90c0fac7892f4eb5ddce5433",
+  "source_results_sha256": "c9147f0c1cb0d4d2c5a6e3ed80f354f64da8463162db293e58e0001c4605c3f3",
+  "source_figure_manifest_sha256": "2d6fcb8edefa9ba99df3c595d190a89bf1d402341cab44d7cb11096eb8c1752a",
+  "outputs": [
+    {
+      "path": "manuscript/draft/figures/analysis024/eos_gd_loss_log_3k.pdf",
+      "sha256": "8d288d70f7383072df599ec71a46b4c0e20cf43c300766872e245e7458e5813b",
+      "source": "analyses/024-2026-10-17-eos-gd-lr-calibration/figures/eos_gd_loss_log_3k.pdf"
+    },
+    {
+      "path": "manuscript/draft/figures/analysis024/eos_gd_alignment_displacement_3k.pdf",
+      "sha256": "98e2f60a2ce968e9baa54a6a5e2ac8f127f81360ce99f4430f3de505bc173d47",
+      "source": "analyses/024-2026-10-17-eos-gd-lr-calibration/figures/eos_gd_alignment_displacement_3k.pdf"
+    },
+    {
+      "path": "manuscript/draft/figures/analysis024/eos_gd_norms_projected_change_3k.pdf",
+      "sha256": "379eef3aaad6280ae50ee7a514ca0ba01a51184c189af661879adb52bbec3a33",
+      "source": "analyses/024-2026-10-17-eos-gd-lr-calibration/figures/eos_gd_norms_projected_change_3k.pdf"
+    },
+    {
+      "path": "manuscript/draft/figures/analysis024/eos_gd_rho_3k.pdf",
+      "sha256": "4945f01e974c014f3c8e33f374620cca0e0cbc9ab8de64ac7e56ab0e6e7a7b0c",
+      "source": "analyses/024-2026-10-17-eos-gd-lr-calibration/figures/eos_gd_rho_3k.pdf"
+    },
+    {
+      "path": "manuscript/draft/tables/analysis024_endpoints.tex",
+      "sha256": "c1c8e39b593d23624592b64321881253bdba8209b22dd6fb22a4b5b62c9d3120",
+      "source": "analyses/024-2026-10-17-eos-gd-lr-calibration/results.json"
+    }
+  ],
+  "checks": [
+    "All copied PDFs byte-identical to reviewed analysis artwork",
+    "All nine endpoint rows generated directly from verified results"
+  ]
+}

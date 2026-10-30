@@ -243,3 +243,28 @@ the finite-population batch-size variance, with their short explanations.
 No text outside that subsection is changed by this rollback. The 12-page working
 draft compiles with resolved references and no overfull boxes; changed pages
 are visually reviewed. Earlier derivations remain in the revision history.
+
+
+On 2026-10-30, the user authorized an experimental section immediately after
+Section III and an IEEE-oriented critical review of the Analysis024 figures.
+The six isolated figures now have no embedded footers, use external panel
+letters, and are sized at 7.16 inches with embedded fonts. All 54 scientific
+Y arrays are unchanged; gradient indices now follow manuscript t rather than
+preupdate state indices. Two composites organize the main geometric comparison.
+
+The new Section IV, *Empirical Characterization under Full-Batch Gradient
+Descent*, gives the matched nine-condition design, objective/data coverage,
+three main figures and a generated endpoint table. Appendix D retains raw
+cosines. The argument distinguishes reversal, path-relative accumulation and
+loss reduction; it explicitly retains calibration selection, one initialization,
+subset Hessians, different temporal reductions and finite-step approximation
+limits. It makes no prospective instability, convergence, generalization or
+measured diagnostic-overhead claim. Only obvious Section III typos and its
+nonadjacent-lag inequality are corrected; its equations are unchanged.
+
+[Analysis024 Observation006](../analyses/024-2026-10-17-eos-gd-lr-calibration/observations/006-ieee-figures-and-manuscript.md)
+provides the claim-to-source map and links the individual figure review,
+asset generator and verification. The 16-page working PDF compiles with
+resolved citations/references and no overfull boxes; all new artwork and
+reflowed pages are visually reviewed. No scientific inputs, raw evidence,
+provided manuscript assets or training trajectories are changed.

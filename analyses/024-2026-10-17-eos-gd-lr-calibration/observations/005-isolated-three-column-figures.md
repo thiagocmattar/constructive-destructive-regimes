@@ -1,5 +1,10 @@
 # Observation005: isolated three-column training-dynamics figures
 
+The later [IEEE presentation revision](006-ieee-figures-and-manuscript.md)
+supersedes the original layout, gradient-state X labels and embedded footer
+described below. All scientific Y arrays and smoothing windows are unchanged;
+the original presentation remains recoverable in Git history.
+
 Question: how do the completed Analysis024 trajectories read when each
 diagnostic occupies an isolated one-row, three-column figure?
 

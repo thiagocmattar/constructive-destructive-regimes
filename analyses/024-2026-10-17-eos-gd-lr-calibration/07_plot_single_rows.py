@@ -1,4 +1,4 @@
-"""Six isolated three-column views of the verified Analysis024 trajectories."""
+"""Six isolated IEEE-width views and two manuscript composites of Analysis024."""
 import argparse
 import hashlib
 import json
@@ -11,6 +11,7 @@ from pathlib import Path
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+from matplotlib.ticker import NullFormatter, ScalarFormatter
 import numpy as np
 from pypdf import PdfReader
 
@@ -56,11 +57,11 @@ def series(d, field, smoothed):
     if field == 'loss':
         x, y = np.arange(3001), np.r_[d['loss'], d['final_loss']]
     elif field in ('cosine', 'q'):
-        x, y = np.arange(1, 3000), d[field][1:]
+        x, y = np.arange(2, 3001), d[field][1:]
     elif field == 'ratio':
         x, y = np.arange(1, 3001), d[field]
     else:
-        x, y = np.arange(3000), d[field]
+        x, y = np.arange(1, 3001), d[field]
     assert np.isfinite(y).all()
     if smoothed:
         # Complete trailing windows, aligned to their rightmost observation.
@@ -84,9 +85,10 @@ def main():
             for key in ['pdf', 'render']:
                 assert file_hash(ROOT / figure[key]) == figure[key + '_sha256']
         record.update(status='passed', visual_review=(
-            'All six current Poppler renders inspected: three columns, nine LR entries, '
-            'correct log/linear axes, complete trailing-window means, reference lines, '
-            'coverage footers and unclipped labels.'))
+            'All eight current Poppler renders inspected: '
+            'solid colored LR curves, panel letters outside axes, no embedded footers, '
+            'IEEE-width typography, correct axes, complete trailing-window means and '
+            'unclipped labels. All scientific Y arrays are unchanged.'))
         write_json(MANIFEST, record)
         print(json.dumps({'status': 'passed', 'figures': len(record['figures'])}))
         return
@@ -125,61 +127,83 @@ def main():
     rates = {task: [r['lr'] for r in records if r['task'] == task] for task in TASKS}
     assert all(len(v) == 3 for v in rates.values())
 
-    plt.rcParams.update({'font.family': 'serif', 'mathtext.fontset': 'stix', 'font.size': 10,
-        'axes.labelsize': 11, 'axes.titlesize': 11, 'xtick.labelsize': 9, 'ytick.labelsize': 9,
+    plt.rcParams.update({'font.family': 'Times New Roman', 'mathtext.fontset': 'stix', 'font.size': 9,
+        'axes.labelsize': 9.5, 'axes.titlesize': 9, 'xtick.labelsize': 8.5, 'ytick.labelsize': 8.5,
         'axes.spines.top': False, 'axes.spines.right': False, 'axes.linewidth': .7, 'pdf.fonttype': 42})
     figures, all_curves, arrays = [], [], {}
     poppler = shutil.which('pdftoppm')
     assert poppler, 'Poppler is required for PDF visual review.'
-    for name, field, label, scale, smoothed in SPECS:
-        fig, axes = plt.subplots(1, 3, figsize=(11.4, 3.35))
+    layouts = [(s[0], [s]) for s in SPECS]
+    by_name = {s[0]: s for s in SPECS}
+    layouts += [('alignment_displacement', [by_name['rho_smoothed'], by_name['normalized_displacement']]),
+                ('norms_projected_change', [by_name['gradient_norms_smoothed'], by_name['eta_kappa_hat_smoothed']])]
+    for name, rows in layouts:
+        nrows = len(rows)
+        fig, axes = plt.subplots(nrows, 3, figsize=(7.16, 2.55 if nrows == 1 else 3.65),
+                                 squeeze=False, sharex='col')
         curves = []
-        for d in data:
-            task = d['record']['task']
-            col = TASKS.index(task)
-            index = rates[task].index(d['record']['lr'])
-            x, y = series(d, field, smoothed)
-            if scale == 'log':
-                assert (y > 0).all(), 'Never floor or clip values for log display.'
-            line, = axes[col].plot(x, y, color=COLORS[index], ls='-',
-                lw=.65 if field == 'cosine' and not smoothed else 1.15,
-                label=rf'$\eta={d["record"]["lr"]:g}$')
-            np.testing.assert_array_equal(line.get_xdata(), x)
-            np.testing.assert_array_equal(line.get_ydata(), y)
-            tag = f'{name}_run{d["record"]["run_id"]}'
-            arrays[tag + '_x'], arrays[tag + '_y'] = x, y
-            curve = dict(tag=tag, run_id=d['record']['run_id'], task=task,
-                         points=len(x), x_sha256=digest(x), y_sha256=digest(y))
-            curves.append(curve)
-            all_curves.append(curve)
-        for col, ax in enumerate(axes):
-            ax.set_title(TITLES[col], pad=29)
-            ax.legend(loc='lower center', bbox_to_anchor=(.5, 1.015), ncol=3,
-                frameon=False, fontsize=9, handlelength=1.5, columnspacing=.85,
-                handletextpad=.4, borderaxespad=0)
-            ax.set(xlim=(0, 3000), xticks=[0, 1000, 2000, 3000], xlabel='GD iteration')
-            ax.set_yscale(scale)
-            ax.grid(alpha=.16, lw=.55)
-            ax.margins(y=.08)
-            ax.text(.025, .94, f'({chr(97 + col)})', transform=ax.transAxes, va='top',
-                fontsize=9, bbox=dict(facecolor='white', edgecolor='none', alpha=.85, pad=.8))
-            if field == 'cosine':
-                ax.set_ylim(-1.06, 1.06)
-                ax.set_yticks([-1, -.5, 0, .5, 1])
-                ax.axhline(0, color='.45', ls=(0, (4, 3)), lw=.8)
-            elif field == 'q':
-                ax.axhline(1, color='.45', ls=(0, (4, 3)), lw=.8)
-            elif field == 'ratio':
-                ax.set_ylim(-.025, 1.025)
-        axes[0].set_ylabel(label)
-        smoothing = f'Trailing {WINDOW}-observation arithmetic mean; complete windows only.' if smoothed else 'Unsmoothed.'
-        fig.text(.075, .025, f'Seed 0; 3,000 full-GD updates per condition. {smoothing}',
-                 fontsize=8.3, color='.35')
-        fig.subplots_adjust(left=.075, right=.985, bottom=.205, top=.745, wspace=.28)
+        reductions = []
+        for row, (metric_name, field, label, scale, smoothed) in enumerate(rows):
+            smoothing = f'Trailing {WINDOW}-observation arithmetic mean; complete windows only.' if smoothed else 'Unsmoothed.'
+            reductions.append(dict(metric=metric_name, field=field, y_scale=scale, smoothing=smoothing))
+            for d in data:
+                task = d['record']['task']
+                col = TASKS.index(task)
+                index = rates[task].index(d['record']['lr'])
+                x, y = series(d, field, smoothed)
+                if scale == 'log':
+                    assert (y > 0).all(), 'Never floor or clip values for log display.'
+                if field == 'q':
+                    assert y.min() >= -.08 and y.max() <= 2.2, 'Do not clip the q curves.'
+                line, = axes[row, col].plot(x, y, color=COLORS[index], ls='-',
+                    lw=.55 if field == 'cosine' and not smoothed else 1.0,
+                    label=rf'$\eta={d["record"]["lr"]:g}$')
+                np.testing.assert_array_equal(line.get_xdata(), x)
+                np.testing.assert_array_equal(line.get_ydata(), y)
+                assert line.get_linestyle() == '-'
+                tag = f'{metric_name}_run{d["record"]["run_id"]}'
+                arrays[tag + '_x'], arrays[tag + '_y'] = x, y
+                curve = dict(tag=tag, run_id=d['record']['run_id'], task=task,
+                             points=len(x), x_sha256=digest(x), y_sha256=digest(y))
+                curves.append(curve)
+                all_curves.append(curve)
+            for col, ax in enumerate(axes[row]):
+                letter = f'({chr(97 + row * 3 + col)})'
+                if row == 0:
+                    ax.set_title(letter + ' ' + TITLES[col], pad=25)
+                    ax.legend(loc='lower center', bbox_to_anchor=(.5, 1.02), ncol=3,
+                        frameon=False, fontsize=8, handlelength=1.15, columnspacing=.65,
+                        handletextpad=.35, borderaxespad=0)
+                else:
+                    ax.text(0, 1.035, letter, transform=ax.transAxes, va='bottom', fontsize=9)
+                ax.set(xlim=(0, 3000), xticks=[0, 1000, 2000, 3000])
+                if row == nrows - 1:
+                    ax.set_xlabel(r'GD update $t$')
+                ax.set_yscale(scale)
+                ax.grid(alpha=.16, lw=.5)
+                ax.margins(y=.08)
+                if field == 'cosine':
+                    ax.set_ylim(-1.06, 1.06)
+                    ax.set_yticks([-1, 0, 1])
+                    ax.axhline(0, color='.45', ls=(0, (4, 3)), lw=.7)
+                elif field == 'q':
+                    ax.set_ylim(-.08, 2.2)
+                    ax.set_yticks([0, 1, 2])
+                    ax.axhline(1, color='.45', ls=(0, (4, 3)), lw=.7)
+                elif field == 'ratio':
+                    ax.set_ylim(-.025, 1.025)
+                    ax.set_yticks([0, .5, 1])
+                elif field == 'loss':
+                    ax.set_yticks([[.15, .2, .3, .4, .6], [.5, 1, 2], [6, 7, 8, 10]][col])
+                    ax.yaxis.set_major_formatter(ScalarFormatter())
+                    ax.yaxis.set_minor_formatter(NullFormatter())
+            axes[row, 0].set_ylabel(label)
+        fig.subplots_adjust(left=.095, right=.97, bottom=.185 if nrows == 1 else .11,
+                            top=.745 if nrows == 1 else .815, wspace=.30, hspace=.40)
         fig.canvas.draw()
         bounds = fig.get_tightbbox(fig.canvas.get_renderer()).transformed(fig.dpi_scale_trans)
-        assert bounds.x0 >= -1 and bounds.y0 >= -1
-        assert bounds.x1 <= fig.bbox.width + 1 and bounds.y1 <= fig.bbox.height + 1
+        assert bounds.x0 >= -1 and bounds.y0 >= -1, (name, bounds.bounds)
+        assert bounds.x1 <= fig.bbox.width + 1 and bounds.y1 <= fig.bbox.height + 1, (name, bounds.bounds, fig.bbox.bounds)
         pdf = HERE / f'figures/eos_gd_{name}_3k.pdf'
         png = HERE / f'scratch/eos_gd_{name}_3k.png'
         pdf.parent.mkdir(exist_ok=True)
@@ -189,11 +213,12 @@ def main():
         reader = PdfReader(pdf)
         assert len(reader.pages) == 1
         text = reader.pages[0].extract_text()
-        assert all(word in text for word in ['MLP', 'ResNet-32', 'Transformer', 'Seed'])
+        assert all(word in text for word in ['MLP', 'ResNet-32', 'Transformer'])
+        assert 'Seed 0' not in text and 'Unsmoothed' not in text and 'Trailing' not in text
         subprocess.run([poppler, '-r', '170', '-singlefile', '-png', str(pdf), str(png.with_suffix(''))],
             check=True, capture_output=True, creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
-        figures.append(dict(name=name, field=field, y_scale=scale, smoothing=smoothing,
-            rows=1, columns=3, curves=curves, plotted_points=sum(c['points'] for c in curves),
+        figures.append(dict(name=name, reductions=reductions,
+            rows=nrows, columns=3, curves=curves, plotted_points=sum(c['points'] for c in curves),
             pdf=pdf.relative_to(ROOT).as_posix(), pdf_sha256=file_hash(pdf),
             render=png.relative_to(ROOT).as_posix(), render_sha256=file_hash(png)))
 
@@ -203,10 +228,11 @@ def main():
     resultfile = HERE / 'single_rows_results.json'
     write_json(resultfile, dict(status='passed', conditions=9, updates=3000, seed=0,
         rates_by_task=rates, smoothing_window=WINDOW, seed_aggregation='none',
+        presentation='IEEE two-column width 7.16in; solid LR curves; external panel labels; no embedded footers.',
         smoothing='Arithmetic mean before axis transformation, complete trailing windows, no padding.',
         indexing={'loss': 'Parameter states 0..3000, including measured final loss.',
-                  'cosine_and_q': 'Gradient evaluation states 1..2999; first undefined pair omitted.',
-                  'norm': 'Gradient evaluation states 0..2999.',
+                  'cosine_and_q': 'One-based gradient indices t=2..3000, evaluated at states t-1; first undefined pair omitted.',
+                  'norm': 'One-based gradient indices t=1..3000, evaluated at states t-1.',
                   'ratio': 'Completed updates 1..3000; prefix B/A after each update.'},
         source_results_sha256=file_hash(HERE / 'results.json'),
         source_runs=[dict(run_id=d['record']['run_id'], source_sha256=d['source_sha256']) for d in data],
@@ -221,7 +247,7 @@ def main():
         cohort_sha256=file_hash(HERE / 'cohort.json'), figures=figures,
         arrays=arrayfile.relative_to(ROOT).as_posix(), arrays_sha256=file_hash(arrayfile),
         results=resultfile.relative_to(ROOT).as_posix(), results_sha256=file_hash(resultfile)))
-    print(json.dumps({'status': 'awaiting_visual_review', 'figures': 6,
+    print(json.dumps({'status': 'awaiting_visual_review', 'figures': len(figures),
                       'curves': len(all_curves), 'plotted_points': sum(c['points'] for c in all_curves)}))
 
 

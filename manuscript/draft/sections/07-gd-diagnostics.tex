@@ -1,0 +1,25 @@
+\section{Unsmoothed Alignment in the Full-Batch Comparisons}
+\label{appendix:gd-raw-alignment}
+
+Figure~\ref{fig:gd-raw-alignment} supplies the unsmoothed consecutive
+cosines underlying Fig.~\ref{fig:gd-alignment-displacement}(a)--(c).
+Complete trailing means suppress short transients and shift the displayed
+transition relative to the first negative pair. In particular, the MLP
+at $\eta=0.04$ reverses near initialization and then returns to positive
+alignment before its later negative phase. These raw traces distinguish
+such a transient from a persistent pattern without introducing a
+stability threshold or discarding early observations.
+
+\begin{figure*}[!t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/analysis024/eos_gd_rho_3k.pdf}
+  \caption{Unsmoothed consecutive-gradient cosine for the nine full-GD
+  conditions in Section~\ref{sec:gd-experiments}, with 2,999 defined pairs
+  per condition. Columns show (a) MLP, (b) ResNet-32 and (c) Transformer.
+  The dashed horizontal reference is zero. Blue, orange and green identify
+  increasing learning rates within each case, as given in the legends.
+  Every curve uses seed 0 and covers the same 3,000-update horizon;
+  the first undefined pair is omitted and there is no temporal or seed
+  averaging. Coincident positive curves can overlap exactly.}
+  \label{fig:gd-raw-alignment}
+\end{figure*}
