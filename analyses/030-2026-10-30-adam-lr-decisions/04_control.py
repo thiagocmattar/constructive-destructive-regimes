@@ -145,7 +145,7 @@ def retrieve_calibration(pod, lease):
             assert target.stat().st_size == item['bytes'] and sha(target) == item['sha256']
         assert verify(destination, destination / 'inventory.json', strict=True)['verified']
         receipts.append(dict(verified=True,inventory_sha256=sha(destination / 'inventory.json'),files=len(inventory['files'])))
-    for name in [f"environment-lock-{pod['worker']}.txt", f"setup-{pod['worker']}.log", f"worker-{pod['worker']}.log"]:
+    for name in [f"environment-lock-{pod['worker']}.txt", f"setup-{pod['worker']}.log", f"worker-{pod['worker']}.log", 'remote-guard.jsonl']:
         copy_file(pod, lease, 'worker-control/' + name, HERE / 'scratch' / name)
     save(HERE / f"calibration-retrieval-worker{pod['worker']}.json", dict(verified=True,receipts=receipts))
 

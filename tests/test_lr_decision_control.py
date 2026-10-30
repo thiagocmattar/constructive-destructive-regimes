@@ -60,3 +60,16 @@ def test_remote_status_program_compiles_and_has_bounded_transport(monkeypatch, t
     result = control.remote_status(dict(worker=0, user="root", host="127.0.0.1", port=22),
                                    dict(ssh_key=str(tmp_path / "key")))
     assert result["status"] == "running"
+
+
+def test_remote_guard_uses_only_matching_container_identity():
+    path = PATH.with_name('08_remote_guard.py')
+    guard_spec = importlib.util.spec_from_file_location('remote_deadline', path)
+    guard = importlib.util.module_from_spec(guard_spec)
+    guard_spec.loader.exec_module(guard)
+    env = b'RUNPOD_POD_ID=owned\0RUNPOD_API_KEY=example-only\0'
+    assert guard.own_identity('owned', env) == 'example-only'
+    with pytest.raises(AssertionError, match='Foreign'):
+        guard.own_identity('foreign', env)
+    with pytest.raises(AssertionError, match='Missing'):
+        guard.own_identity('owned', b'RUNPOD_POD_ID=owned\0')

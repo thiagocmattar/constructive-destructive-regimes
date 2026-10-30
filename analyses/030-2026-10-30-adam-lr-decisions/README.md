@@ -1,7 +1,8 @@
 # Adam diagnostics and matched learning-rate decisions
 
 Analysis030 / H024. Authorized on October 30, 2026: implement and run the
-matched-checkpoint experiment using Runpod. Status: preparation; no results yet.
+matched-checkpoint experiment using Runpod. Status: remote replay qualification
+running on the L40S; the18 scientific continuations have no results yet.
 
 ## Scientific comparison
 
@@ -84,7 +85,7 @@ the same frozen inputs. No manuscript edits are planned before evidence review.
 Spark and unrelated cloud resources remain untouched. Live quote, bounded cost,
 calibration, durable storage, monitoring and verified retrieval precede closeout.
 
-Eight local checks pass, including native-update equivalence, direct measurements,
+Nine local checks pass, including native-update equivalence, direct measurements,
 clipping/shrink factors, diagnostic noninterference, exact recovery, complete
 synthetic checkpoint-to-artifact execution with validation tail coverage, cloud
 ownership/transport checks, and independent ridge calculation/no held-target use.
@@ -101,6 +102,13 @@ elapsed time6--9h is qualified until the three-update calibration at each size.
 No live L40S placement supported a network volume. A200GB persistent pod volume
 instead retains checkpoints through a stop, until local hash/scientific acceptance.
 Separate guard and retrieval processes manage only this task's IDs.
+An additional detached pod-local guard (`08_remote_guard.py`) uses the
+container-supplied credential and REST v2 to stop only its own pod at the same
+hard deadline. Identity, API read access, the advertised stop action, and its
+armed log were verified. The stop action is reserved for the deadline, so this
+readback is not an end-to-end shutdown test. No account API key was copied.
+This infrastructure-only addition was deployed separately from the frozen
+scientific source archive; its hash is in `remote_guard_deployment.json`.
 If the deadline interrupts retrieval, recovery is preserved and storage billing
 is reported; the guard does not delete unverified evidence.
 
