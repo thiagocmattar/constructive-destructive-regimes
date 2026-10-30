@@ -1,7 +1,12 @@
 # IEEE figure review
 
-Current manuscript presentation: the [focused revision](observations/003-focused-manuscript-revision.md)
-uses two replacement figures, reviewed in [paper_revision_review.json](paper_revision_review.json).
+Current manuscript presentation: the [temporal revision](observations/004-temporal-interpretation.md)
+retains the batch-size outcome figure and replaces the frozen figure with a
+time-resolved view of the 1,000-update continuations. Its contract and individual
+review are in that observation and [temporal_revision_review.json](temporal_revision_review.json).
+The [previous focused revision](observations/003-focused-manuscript-revision.md)
+and [paper_revision_review.json](paper_revision_review.json) preserve the frozen
+figure's review; its artifact is unchanged and remains in the research record.
 The review below records the five original diagnostic figures, retained as
 research evidence but no longer included in the compiled manuscript.
 

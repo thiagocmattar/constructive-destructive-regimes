@@ -191,10 +191,11 @@ Nevertheless, increasing noise can reduce directional coherence
 by increasing gradient magnitudes relative to their common
 full-gradient component.
 
-To illustrate this effect, suppose the full gradient changes
-little between consecutive updates, so that both gradients
-behave approximately as independent noisy estimates at the
-same parameters. When their norms are sufficiently concentrated,
+To isolate the loss of directional coherence due to sampling,
+consider independent gradient estimates at the same fixed parameters.
+This also approximates consecutive updates when the full gradient
+changes little and the dependence induced by parameter motion is negligible.
+When the gradient norms are sufficiently concentrated,
 the expected cosine similarity can be approximated by
 \begin{equation}
   \mathbb{E}[\rho_t]\approx
@@ -203,18 +204,19 @@ the expected cosine similarity can be approximated by
   \frac{N-b}{b(N-1)}\operatorname{tr}\Sigma(\theta)}.
   \label{eq:noise-cosine-approx}
 \end{equation}
-This approximation suggests that, as sampling noise dominates
-the full-gradient signal, consecutive gradients become less
-directionally coherent, with their cosine similarity approaching
-zero. Under this local approximation, sampling fluctuations can
-dominate the directional agreement between gradient estimates.
-The cumulative displacement of a moving SGD trajectory additionally
-depends on its evolving full gradient and interactions across temporal lags.
-However, this behavior is not universal: curvature couples
-successive SGD updates and can induce systematic negative
-alignment even in noise-dominated regimes. Therefore, batch
-size influences observed alignment through both sampling noise
-and its interaction with local curvature.
+The ratio in Eq.~\eqref{eq:noise-cosine-approx} is an approximation
+to an expectation of normalized inner products, rather than an exact
+identity. For independent, identically distributed nonzero gradients
+at fixed parameters, the exact expected cosine is nonnegative:
+it equals the squared norm of the mean unit gradient. Thus this
+comparison describes the attenuation of common directional alignment
+toward zero; it cannot describe negative expected alignment caused by
+parameter motion. Along an SGD trajectory, curvature couples successive
+updates and can induce negative alignment even when sampling noise is
+large. Equation~\eqref{eq:noise-cosine-approx} therefore does not predict
+how a destructive regime responds to batch size. That response also
+depends on the evolving full gradient and its interaction with the
+sampled updates.
 
 
 \subsection{Normalized Displacement and Cumulative Interference}

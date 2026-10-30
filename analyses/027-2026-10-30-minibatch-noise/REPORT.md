@@ -72,6 +72,16 @@ full-GD loss in all three blocks at this fork. There is no universal monotonic
 batch-performance result. [Full loss histories](figures/sgd_full_loss.pdf) and
 [paired endpoint contrasts](tables/analysis027_contrasts.tex) retain these effects.
 
+The [temporal inspection](observations/004-temporal-interpretation.md) resolves
+why the state-1,000 comparison has a positive full-batch endpoint. Full GD first
+reverses at reference updates 1,149/1,227/1,224; only one initialization reaches
+that event within the 200-update continuation. At batch 2,048, full-gradient
+cosine along the SGD path first becomes negative within 3-5 updates in all 24
+repetitions, and averages -0.355 over updates 2-20. The difference reflects both
+changed trajectories and the selected observation window, without establishing
+a critical batch threshold. The new temporal figure retains all repetitions
+for batches 32/2,048/5,000; the complete batch comparison remains unchanged.
+
 The strongest validation concerns the curvature interpretation. At batch 32,
 the median absolute discrepancy between the raw proxy `q = eta kappa_hat` and
 the state-matched directional HVP is 0.7467. Measuring the explicit noise term
@@ -113,6 +123,15 @@ replaces that presentation with two batch-size figures and essential methods
 in Section V. The added Appendix E, dense tables and HVP discussion are removed
 from the paper; all original diagnostic evidence remains in this report.
 Section III and the supplied original assets are preserved.
+
+The subsequent [temporal revision](observations/004-temporal-interpretation.md)
+keeps the moving outcome figure as Fig. 4 and replaces the frozen plot with
+Fig. 5's time histories. Section III-B now makes the frozen approximation's
+nonnegative expectation and restricted domain explicit, with all equations
+unchanged. The fixed learning rate, positive full-batch endpoint and distinct
+loss/displacement responses are explained in the main text. All 1,140 current
+plotted means pass independent checks; both figures fit on page 10 of the
+reviewed 20-page draft.
 
 One task-owned Runpod RTX 4090 at the live quoted rate of USD0.89/hour completed
 production in 1,371.56 seconds (22.86 minutes). The full provision-to-cleanup

@@ -1,0 +1,147 @@
+{
+  "status": "passed",
+  "script_sha256": "57612302f62840a7cf7633a8ee17c54c2e5cfc24787602bc5ec476f3325a66c3",
+  "raw_files_checked": 54,
+  "temporal_initialization_values_checked": 3240,
+  "temporal_means_checked": 1080,
+  "temporal_range_endpoints_checked": 2160,
+  "outcome_initialization_values_checked": 180,
+  "outcome_means_checked": 60,
+  "numerical_statements": [
+    {
+      "checkpoint": 0,
+      "batch": 32,
+      "field": "mean_rho",
+      "value": -0.14149765617193194,
+      "display": "-0.141"
+    },
+    {
+      "checkpoint": 0,
+      "batch": 32,
+      "field": "mean_full_rho",
+      "value": 0.35286403286876356,
+      "display": "+0.353"
+    },
+    {
+      "checkpoint": 0,
+      "batch": 5000,
+      "field": "mean_rho",
+      "value": 0.9943786340620777,
+      "display": "0.994"
+    },
+    {
+      "checkpoint": 1000,
+      "batch": 2048,
+      "field": "mean_rho",
+      "value": -0.6172427898294727,
+      "display": "-0.617"
+    },
+    {
+      "checkpoint": 1000,
+      "batch": 2048,
+      "field": "mean_full_rho",
+      "value": -0.6297249886269266,
+      "display": "-0.630"
+    },
+    {
+      "checkpoint": 1000,
+      "batch": 5000,
+      "field": "mean_rho",
+      "value": 0.8389278454835726,
+      "display": "+0.839"
+    },
+    {
+      "checkpoint": 2000,
+      "batch": 5000,
+      "field": "mean_rho",
+      "value": -0.9912028927158728,
+      "display": "-0.991"
+    },
+    {
+      "checkpoint": 2000,
+      "batch": 32,
+      "field": "mean_rho",
+      "value": -0.38414557834599955,
+      "display": "-0.384"
+    },
+    {
+      "checkpoint": 2000,
+      "batch": 5000,
+      "field": "R",
+      "value": 0.03185746724411977,
+      "display": "0.0319"
+    },
+    {
+      "checkpoint": 2000,
+      "batch": 32,
+      "field": "R",
+      "value": 0.030278354666826893,
+      "display": "0.0303"
+    },
+    {
+      "checkpoint": 2000,
+      "batch": 5000,
+      "field": "loss_change",
+      "value": -0.008733131599426264,
+      "display": "0.0087"
+    },
+    {
+      "checkpoint": 2000,
+      "batch": 32,
+      "field": "loss_change",
+      "value": 0.024052179145813007,
+      "display": "0.0241"
+    },
+    {
+      "checkpoint": 0,
+      "batch": 32,
+      "field": "R",
+      "value": 0.06892073692957501,
+      "display": "0.069"
+    },
+    {
+      "checkpoint": 0,
+      "batch": 5000,
+      "field": "R",
+      "value": 0.8074697001432325,
+      "display": "0.807"
+    },
+    {
+      "checkpoint": 1000,
+      "batch": 32,
+      "field": "R",
+      "value": 0.03516871706850462,
+      "display": "0.035"
+    },
+    {
+      "checkpoint": 1000,
+      "batch": 5000,
+      "field": "R",
+      "value": 0.7478083231788563,
+      "display": "0.748"
+    }
+  ],
+  "first_negative_full_at_batch2048": {
+    "repetitions": 24,
+    "minimum": 3,
+    "maximum": 5
+  },
+  "full_gd_first_negative": [
+    1149,
+    1227,
+    1224
+  ],
+  "equations_unchanged": true,
+  "existing_outcome_figure_unchanged": true,
+  "pages": 20,
+  "both_figures_page": 10,
+  "next_section_page": 11,
+  "overfull_boxes": 0,
+  "unresolved_references": 0,
+  "pdf_sha256": "13b30b16be67b15a5b6fe52073165d531dde8525de8e03b3b1d78993e1fb2a34",
+  "temporal_manifest_sha256": "18a2d3c7b5cd7ce29f9ab3159aa79ec8f02e1f5d72efe3a5ce9cd264a7994178",
+  "sources": {
+    "sections/03-methods.tex": "da2105a735611c0895eef2e67d75a00a1c8ad9cbb2d0f35525ed8c01924d9917",
+    "sections/05-sgd-noise-experiments.tex": "f4dfe7b6e30c04d6526e70225eefbabb1d376a4d45511d437f4741e4142dcfa1"
+  }
+}

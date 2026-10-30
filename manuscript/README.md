@@ -96,3 +96,14 @@ Section III and the optimizer equations are unchanged. The 20-page PDF has
 both new figures on page 10 before Section VI, with zero overfull boxes or
 unresolved references; all 90 plotted means and 270 initialization values pass
 independent checks. No new training or remote work was performed.
+
+The next [reviewer-facing pass](../analyses/027-2026-10-30-minibatch-noise/observations/004-temporal-interpretation.md)
+condenses the frozen calibration and explicitly limits Eq. (19) to its
+same-state approximation. The equations are unchanged. Section V states the
+single learning rate and uses the batch-size outcomes plus a new temporal
+figure from the 1,000-update continuations. It explains the positive full-GD
+endpoint through transition timing and the observation window, and separates
+alignment, displacement retention and objective progress. The former frozen
+figure remains in Analysis027. Both current figures appear on page 10;
+1,140 plotted means and 54 raw source histories pass independent checks.
+The 20-page PDF is rebuilt and visually reviewed. No training or cloud work.

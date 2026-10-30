@@ -41,7 +41,7 @@
 
 | [026](026-2026-10-23-fixed-ce-curvature/README.md) | H022 fixed-CE curvature | Runs154-184;10 paired seeds,three loss-arithmetic arms | Complete30/30,300k updates; verified ordinary/scaled spectra; zero rental | [Conclusions](026-2026-10-23-fixed-ce-curvature/REPORT.md), [figure](026-2026-10-23-fixed-ce-curvature/figures/fixed_ce_curvature.pdf); fixed/native curvature ratio 0.014885, 95% CI [0.0030771,0.072007]; collapse-qualified seeds0/10 |
 
-| [027](027-2026-10-30-minibatch-noise/README.md) | H023 sampling noise at matched MLP training states | Runs185/186; 184,320 frozen draws, 297 forks, 1,188 HVP pairs | Complete; Section V revised around two focused batch-size figures; original diagnostics retained; all evidence retrieved; task cloud deleted, USD0.87 provisional; Spark untouched | [Report](027-2026-10-30-minibatch-noise/REPORT.md) |
+| [027](027-2026-10-30-minibatch-noise/README.md) | H023 sampling noise at matched MLP training states | Runs185/186; 184,320 frozen draws, 297 forks, 1,188 HVP pairs | Complete; Section V uses batch-size outcomes and a temporal view; 1,140 plotted means verified; frozen calibration condensed; original diagnostics retained; all evidence retrieved; task cloud deleted, USD0.87 provisional; Spark untouched | [Report](027-2026-10-30-minibatch-noise/REPORT.md) |
 
 Next analysis: `028-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
 an analysis may use manuscript or external inputs without referencing a run.
