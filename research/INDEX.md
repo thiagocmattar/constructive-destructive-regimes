@@ -6,8 +6,8 @@
 has launched eighteen matched128-update forks from six retained Pythia14M/70M states.
 H024 tests later loss benefit and exploratory held-seed prediction; common AdamW
 shrinkage, full validation, raw/clipped/moment/adaptive/actual-update diagnostics.
-Twelve local tests pass. Three L40S workers are allocated after user-authorized
-parallelization; the original queue runs while added workers stage/replay-check.
+Thirteen local tests and all six GPU replay checks pass. Three L40S workers
+execute one seed block each; Run187 completed remotely and retrieval is active.
 Agent-selected USD25 total cap, five-hour expansion window; outcomes pending. Spark untouched.
 Next Run205 / Analysis031 / H025.
 

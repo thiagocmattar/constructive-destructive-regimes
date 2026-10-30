@@ -207,7 +207,8 @@ def monitor(lease, once):
                         if row['run'] in snapshot['completed']:
                             continue
                         steps = 128
-                        if row['run'][:3] == active_id and active.get('scope') == 'scientific':
+                        if (row['run'][:3] == active_id and active.get('scope') == 'scientific'
+                                and 'planned_updates' in active and 'completed_updates' in active):
                             steps = active['planned_updates'] - active['completed_updates']
                             if steps > 0:
                                 rates[row['size']] = max(rates[row['size']], active.get('remaining_training_seconds', 0.) / steps)

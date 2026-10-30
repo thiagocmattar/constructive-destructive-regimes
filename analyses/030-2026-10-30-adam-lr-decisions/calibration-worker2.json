@@ -1,0 +1,57 @@
+{
+  "verified": true,
+  "by_size": {
+    "14M": {
+      "seconds": [
+        9.95836244605016,
+        9.741161342943087,
+        9.741875793901272
+      ],
+      "historical_replay_differences": [
+        {
+          "loss": 0.0,
+          "gradient_norm": 3.4502780081990814e-05,
+          "adjacent_cosine": 7.334849166540369e-06
+        },
+        {
+          "loss": 5.1781535148620605e-06,
+          "gradient_norm": 0.00017137302389824693,
+          "adjacent_cosine": 6.774032034539967e-05
+        },
+        {
+          "loss": 1.4215707778930664e-05,
+          "gradient_norm": 0.00046641464390984044,
+          "adjacent_cosine": 0.00018765721745028774
+        }
+      ],
+      "maximum_cuda_allocated_bytes": 6476462592
+    },
+    "70M": {
+      "seconds": [
+        12.816618666052818,
+        12.726305127027445,
+        12.676213786005974
+      ],
+      "historical_replay_differences": [
+        {
+          "loss": 0.0,
+          "gradient_norm": 5.170787505248686e-05,
+          "adjacent_cosine": 5.062962109919633e-05
+        },
+        {
+          "loss": 2.6297755539417267e-05,
+          "gradient_norm": 3.6062659405422526e-05,
+          "adjacent_cosine": 0.00025695066198597183
+        },
+        {
+          "loss": 8.03731381893158e-07,
+          "gradient_norm": 8.400751180137611e-06,
+          "adjacent_cosine": 1.4849205550587774e-05
+        }
+      ],
+      "maximum_cuda_allocated_bytes": 12260063744
+    }
+  },
+  "qualified_remaining_seconds": 11034.711296457052,
+  "remaining_deadline_seconds": 13333.758044242859
+}

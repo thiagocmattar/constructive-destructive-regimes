@@ -92,3 +92,19 @@ def test_remote_guard_uses_only_matching_container_identity():
         guard.own_identity('foreign', env)
     with pytest.raises(AssertionError, match='Missing'):
         guard.own_identity('owned', b'RUNPOD_POD_ID=owned\0')
+
+
+def test_monitor_accepts_manifest_before_first_update(monkeypatch, tmp_path):
+    (tmp_path/'scratch').mkdir()
+    rows=[dict(run='187-test',worker=0,size='14M')]
+    lease=dict(pods=[dict(id='owned',worker=0)],created_at_epoch=0,maximum_hourly_price=1)
+    (tmp_path/'scratch/lease.json').write_text(json.dumps(lease))
+    (tmp_path/'cohort.json').write_text(json.dumps(rows))
+    monkeypatch.setattr(control,'HERE',tmp_path)
+    monkeypatch.setattr(control,'remote_status',lambda *_:dict(
+        status='running',completed=[],manifest=dict(run_id='187',scope='scientific'),
+        calibration=dict(by_size={'14M':dict(seconds=[10,9,9])})))
+    control.monitor(lease,once=True)
+    snapshot=json.loads((tmp_path/'scratch/latest-status.json').read_text())['pods'][0]
+    assert snapshot['status']=='running' and 'error' not in snapshot
+    assert snapshot['cohort_remaining_seconds_with_ancillary_allowance']==128*10+90

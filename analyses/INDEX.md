@@ -47,7 +47,7 @@
 
 | [029](029-2026-10-30-pythia-adam-diagnostics/README.md) | Pythia Adam diagnostics across LR, schedule and size; useful next experiment | Analyses009/004/002, 22 event files; no new training | Complete; four vector PDFs reviewed; 303 curves / 192,399 values verified; input-versus-moment alignment reconstructed for4,977 pairs | [Assessment and proposed test](029-2026-10-30-pythia-adam-diagnostics/REPORT.md), [figure observation](029-2026-10-30-pythia-adam-diagnostics/observations/001-figures.md) |
 
-| [030](030-2026-10-30-adam-lr-decisions/README.md) | Matched Adam LR decisions and diagnostic information beyond loss | Six Pythia14M/70M checkpoints, three seeds; Runs187--204 | Active; three L40S allocated, added-worker replay pending; USD25/five-hour expansion cap | [Frozen protocol](030-2026-10-30-adam-lr-decisions/README.md) |
+| [030](030-2026-10-30-adam-lr-decisions/README.md) | Matched Adam LR decisions and diagnostic information beyond loss | Six Pythia14M/70M checkpoints, three seeds; Runs187--204 | Active; three L40S replay-qualified, scientific queues running; USD25/five-hour expansion cap | [Frozen protocol](030-2026-10-30-adam-lr-decisions/README.md) |
 
 Next analysis: `031-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
 an analysis may use manuscript or external inputs without referencing a run.

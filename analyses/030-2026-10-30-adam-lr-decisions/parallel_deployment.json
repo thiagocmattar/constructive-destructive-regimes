@@ -1,0 +1,27 @@
+{
+  "status": "three queues launched; new replay qualification pending",
+  "pods": [
+    {
+      "id": "bntt1ssurivogw",
+      "worker": 0
+    },
+    {
+      "id": "yigfe7k241c98x",
+      "worker": 1
+    },
+    {
+      "id": "wfmdusaovxxb7k",
+      "worker": 2
+    }
+  ],
+  "hard_deadline_epoch": 1793410091.6055188,
+  "training_deadline_epoch": 1793406491.6055188,
+  "completed_at_epoch": 1793392987.7199204,
+  "maximum_total_task_usd": 25,
+  "local_supervisor_replaced_to_suppress_console_windows": true,
+  "infrastructure_source_sha256": {
+    "09_parallel_worker.py": "43a73b0c40f1ff92dd4a1181c7f4b2d7efd3b66d4ebaf907c451146de1b4f17f",
+    "10_parallelize.py": "43e6f6947328489720b839df5d1640922a0d23eb95a2789c5a6db38658a3fc1d",
+    "parallel_assignment.json": "6d460d698895338cf1bce01fe2c63d7e6f4c7750f11aaadb32fcad22a37b1fb3"
+  }
+}

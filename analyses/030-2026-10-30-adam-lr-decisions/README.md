@@ -3,8 +3,9 @@
 Analysis030 / H024. Authorized on October 30, 2026: implement and run the
 matched-checkpoint experiment using Runpod. The user subsequently authorized
 parallel execution at increased cost. Three L40S workers are allocated, with
-one seed's six matched continuations assigned to each. The original worker
-continues its queue while the additional workers finish staging and replay qualification.
+one seed's six matched continuations assigned to each. All three workers passed both-size replay
+qualification and are executing their scientific queues. Run187 completed remotely;
+local artifact acceptance and the other17 arms remain pending.
 No cohort result or scientific conclusion is available yet.
 
 ## Scientific comparison
@@ -152,7 +153,7 @@ before extraction. All18 runs retain identical scientific inputs and definitions
 The monitor retrieves and verifies artifacts while other arms run, stops each
 worker after its six accepted arms, and deletes task storage only after acceptance.
 
-Twelve local checks now pass, including the seed-preserving partition and
+Thirteen local checks now pass, including the seed-preserving partition and
 Windows subprocess suppression checks.
 
 Local background SSH/SCP and CLI children initially opened Windows consoles.
@@ -166,3 +167,11 @@ or reinstalling the tested environments. Unrelated terminals/processes are untou
 `07_finalize.py` waits for verified retrieval/cleanup, then builds the report,
 three PDFs and previews. Its automatic layout checks do not replace visual review;
 figures and empirical claims remain pending review before manuscript integration.
+
+`parallel_validation.json` records all six size/worker replay checks, the unchanged
+source archive, observed scientific execution and verified guard readbacks.
+The monitor now accepts startup manifests before their first progress update,
+so a newly loaded arm cannot delay collection of an already completed arm.
+GPU update rates remain near the original calibration; storage reads, inventories
+and local transfers add uncertainty to the planning ETC. Final conclusions await
+the complete cohort and local artifact acceptance.
