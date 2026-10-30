@@ -34,7 +34,9 @@ smoothed q/norms and raw R_t;50-step trailing means are explicit.
 [Observation005](../analyses/024-2026-10-17-eos-gd-lr-calibration/observations/005-isolated-three-column-figures.md) records all54 verified curves and visual review.
 Larger-model Hessians remain subsets. The [IEEE revision and manuscript integration](../analyses/024-2026-10-17-eos-gd-lr-calibration/observations/006-ieee-figures-and-manuscript.md)
 preserves all54 Y arrays, adds two composites and inserts SectionIV with
-all nine endpoints and explicit scope limits. The16-page draft is reviewed.
+all nine endpoints and explicit scope limits. The [applied surgical revision](../analyses/024-2026-10-17-eos-gd-lr-calibration/observations/008-applied-section-iv-revision.md) adds
+local/all-lag evidence and a retrospective loss audit; all36 table rows and
+26,991 loss pairs pass independent checks. The18-page draft is reviewed.
 Single-initialization comparisons do not establish initialization robustness.
 Owned Spark only, zero rental; old020/021 queues stay held.
 Next Run154 / Analysis026 / H022.

@@ -12,3 +12,6 @@
 - [007: Second critical review of Section IV](007-section-iv-critical-review.md):
   local/all-lag distinction, absolute displacement, retrospective loss-approximation
   audit and prioritized scientific revisions; draft and figures unchanged.
+- [008: Applied surgical revision of Section IV](008-applied-section-iv-revision.md):
+  all eight edits, four generated tables, independent scalar checks, and the
+  reviewed 18-page draft; scientific figure arrays and source evidence preserved.

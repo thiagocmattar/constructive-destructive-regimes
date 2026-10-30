@@ -1,7 +1,29 @@
 {
   "status": "passed",
-  "script_sha256": "bb38ebb979dad489e1a96ea66e0c03081fc8c44c90c0fac7892f4eb5ddce5433",
+  "script_sha256": "6200b05157ef0e63ee10171ba07208332ee4be1188784d6bf863c56b8cc35895",
   "source_results_sha256": "c9147f0c1cb0d4d2c5a6e3ed80f354f64da8463162db293e58e0001c4605c3f3",
+  "source_review_audit_sha256": "6f72f04d768ab68ff445e5f49635140d2386b9a38ab4939787fc0a9f1cfcc39e",
+  "source_inputs_sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+  "reference_sources": {
+    "resnet_cifar.py": {
+      "repository": "locuslab/edge-of-stability",
+      "revision": "0d8ceeb3ad98e28930762205934f0a941faeb479",
+      "path": "src/resnet_cifar.py",
+      "sha256": "7a98f29fed2635bfc80b6cbea00d0d08e92122125789483e2600aa82fc5735c9"
+    },
+    "model.py": {
+      "repository": "pytorch/examples",
+      "revision": "13acec6d7c78dacd5e1fe9b0b4a325e1d39abc15",
+      "path": "word_language_model/model.py",
+      "sha256": "9d2a01d0076146232bb10b21f642b2c27435ae33aaaa9fbd1f80a357ff84c196"
+    },
+    "data.py": {
+      "repository": "pytorch/examples",
+      "revision": "13acec6d7c78dacd5e1fe9b0b4a325e1d39abc15",
+      "path": "word_language_model/data.py",
+      "sha256": "15784815a6bd18e9b25eadf6ae049915f88d4fb8faebeba9d83ae6ec8e19883d"
+    }
+  },
   "source_figure_manifest_sha256": "2d6fcb8edefa9ba99df3c595d190a89bf1d402341cab44d7cb11096eb8c1752a",
   "outputs": [
     {
@@ -26,12 +48,39 @@
     },
     {
       "path": "manuscript/draft/tables/analysis024_endpoints.tex",
-      "sha256": "c1c8e39b593d23624592b64321881253bdba8209b22dd6fb22a4b5b62c9d3120",
-      "source": "analyses/024-2026-10-17-eos-gd-lr-calibration/results.json"
+      "sha256": "22db9bf6738c7326e10f6d098c4554f2abd46c742e7b89a49b4acb8aa8414fc7",
+      "sources": [
+        "analyses/024-2026-10-17-eos-gd-lr-calibration/results.json",
+        "analyses/024-2026-10-17-eos-gd-lr-calibration/section_iv_review_checks.json"
+      ]
+    },
+    {
+      "path": "manuscript/draft/tables/analysis024_temporal_accounting.tex",
+      "sha256": "7d0a145131c535bc6c36840f7cf46028a09564e4d82158a484ed3211c176db94",
+      "sources": [
+        "analyses/024-2026-10-17-eos-gd-lr-calibration/section_iv_review_checks.json"
+      ]
+    },
+    {
+      "path": "manuscript/draft/tables/analysis024_loss_audit.tex",
+      "sha256": "88d4d3d74733c1dd733024aad1cf63c32e7db576bd4542d2c085de81b977d7bf",
+      "sources": [
+        "analyses/024-2026-10-17-eos-gd-lr-calibration/section_iv_review_checks.json"
+      ]
+    },
+    {
+      "path": "manuscript/draft/tables/analysis024_spectral_context.tex",
+      "sha256": "ef682f6f1786a5e34b9eef54754f46279c42dc7d4e5957d8a796631eee1ecb90",
+      "sources": [
+        "analyses/024-2026-10-17-eos-gd-lr-calibration/results.json"
+      ]
     }
   ],
   "checks": [
     "All copied PDFs byte-identical to reviewed analysis artwork",
-    "All nine endpoint rows generated directly from verified results"
+    "Four tables each cover all nine conditions",
+    "Source metrics hashes match the retained review audit",
+    "Displacement, temporal accounting and loss audit sourced from verified scalars",
+    "All nine spectral endpoints preserved with explicit objective coverage"
   ]
 }

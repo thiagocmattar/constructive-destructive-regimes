@@ -1,5 +1,43 @@
-\section{Unsmoothed Alignment in the Full-Batch Comparisons}
+\section{Measurement Details and Additional Full-Batch Diagnostics}
 \label{appendix:gd-raw-alignment}
+
+\subsection{Objectives and Measurement}
+
+The MLP uses coordinate-wise standardization and ResNet uses channel-wise
+standardization, both based on the complete CIFAR-10 training split.
+ResNet's objective averages the same 50 fixed groups of 1,000 images,
+with batch normalization performed separately within each group.
+Accumulating all group gradients gives the gradient of this fixed
+objective; physical batching introduces no random sampling.
+
+For the Transformer, the corpus is arranged into 20 fixed streams and
+causal chunks of at most 35 tokens. Eight stream-tail tokens and the
+20 initial context tokens have no training target; short chunks retain
+their valid targets, and padding is excluded from the loss. The resulting
+59,680 sequences contain 2,088,600 training targets. The 33,278-word
+vocabulary follows the first-occurrence dictionary over training,
+validation and test text in the PyTorch word-language-model example,
+revision \texttt{13acec6d7c78}~\cite{pytorchWordLanguageModelPinned}.
+The same pinned example supplies the Transformer implementation.
+These comparisons concern training dynamics rather than held-out
+generalization.
+
+Physical accumulation uses 1,000-image chunks for the MLP, the fixed
+1,000-image groups for ResNet, and 64-sequence chunks for the Transformer.
+The complete objective is accumulated before each parameter update.
+Training parameters and gradients are FP32, TF32 is disabled, and
+diagnostic reductions are FP64. The nine conditions are paired
+learning-rate comparisons within three model cases, not nine independent
+initializations or a controlled comparison of architectures.
+The gradient diagnostics require vector reductions and retained gradient
+information rather than online eigendecomposition; their runtime and
+memory overhead have not been isolated by a controlled benchmark.
+
+The first adjacent pair is omitted without a denominator offset.
+The complete 50-observation trailing means aid visualization and do not
+define regime-onset times. Endpoint losses and $R_{3000}$ are unsmoothed.
+
+\subsection{Unsmoothed Alignment and Temporal Accounting}
 
 Figure~\ref{fig:gd-raw-alignment} supplies the unsmoothed consecutive
 cosines underlying Fig.~\ref{fig:gd-alignment-displacement}(a)--(c).
@@ -23,3 +61,116 @@ stability threshold or discarding early observations.
   averaging. Coincident positive curves can overlap exactly.}
   \label{fig:gd-raw-alignment}
 \end{figure*}
+
+For the complete prefix of $T$ gradients, define the traveled distance
+and the temporal contributions as
+\begin{equation}
+\begin{aligned}
+ P_T&:=\eta\sum_{t=1}^{T}\|g_t\|,\\
+ I_T^{(1)}&:=2\sum_{t=2}^{T}g_{t-1}^{\top}g_t,\\
+ I_T^{(>1)}&:=2\sum_{\substack{1\leq u<t\leq T\\t-u>1}}g_u^{\top}g_t,\\
+ I_T&:=I_T^{(1)}+I_T^{(>1)}
+      =\Bigl\|\sum_{t=1}^{T}g_t\Bigr\|^2-\sum_{t=1}^{T}\|g_t\|^2.
+\end{aligned}
+\label{eq:gd-temporal-accounting}
+\end{equation}
+Table~\ref{tab:gd-temporal-accounting} reports these quantities at $T=3000$.
+The interaction columns use raw gradients and include the factor of two;
+they are not multiplied by $\eta^2$. The total is positive in all nine
+conditions, whereas the adjacent contribution is negative in seven.
+This endpoint result does not assert positivity at every prefix or for
+every individual pair. Comparisons of magnitudes are within each model
+case and its fixed parameterization.
+
+\begin{table*}[!t]
+  \centering
+  \caption{Complete-prefix temporal accounting at $T=3000$, with the
+  quantities defined in Eq.~\eqref{eq:gd-temporal-accounting}.
+  $P_{3000}$ is path length; the last three columns are raw-gradient
+  interactions. All nine conditions use one shared initialization per case.
+  Values are rounded only for display, so displayed components may not
+  sum exactly to the displayed total.}
+  \label{tab:gd-temporal-accounting}
+  \small
+  \input{tables/analysis024_temporal_accounting}
+\end{table*}
+
+\subsection{Retrospective Loss Approximation}
+
+For each gradient pair indexed by $t=2,\ldots,3000$, let
+$\delta\mathcal L_{t-1}:=\mathcal L(\theta_{t-1})-\mathcal L(\theta_{t-2})$.
+We compare this observed change with
+$\widehat{\delta\mathcal L}_{t-1}$ from Eq.~\eqref{eq:gd-loss-surrogate}.
+The normalized absolute discrepancy is
+\begin{equation}
+ e_t:=\frac{|\delta\mathcal L_{t-1}-\widehat{\delta\mathcal L}_{t-1}|}
+                 {\eta\|g_{t-1}\|^2}.
+ \label{eq:gd-loss-audit-residual}
+\end{equation}
+The denominator is the magnitude of the first-order full-GD descent term.
+It is nonzero for every measured pair. Table~\ref{tab:gd-loss-audit}
+reports the median over all 2,999 pairs and the count of opposite signs.
+The final update is excluded because its subsequent gradient was not
+recorded. All inputs are unsmoothed; the table uses no seed aggregation.
+
+For the threshold sensitivity columns, define
+\begin{equation}
+ h_t(\tau):=\tau\max\{ |\mathcal L(\theta_{t-2})|,
+                         |\mathcal L(\theta_{t-1})|\}.
+\end{equation}
+A transition is eligible only when both
+$|\delta\mathcal L_{t-1}|>h_t(\tau)$ and
+$|\widehat{\delta\mathcal L}_{t-1}|>h_t(\tau)$.
+Each cell prints opposite-sign transitions divided by its eligible count;
+the median discrepancy remains computed over all pairs. These thresholds
+are descriptive sensitivity choices, not calibrated FP32 error bounds.
+Serial transitions are not independent initialization replicates, and
+the comparison is retrospective because it uses the subsequent gradient.
+The discrepancy does not isolate finite-step, nonsmooth or numerical effects.
+
+\begin{table*}[!t]
+  \centering
+  \caption{Retrospective check of the local loss approximation for all nine
+  conditions. The unthresholded count and median $e_t$ use 2,999 transitions
+  per condition. Each threshold cell gives opposite signs / eligible
+  transitions; eligibility requires both change magnitudes to exceed
+  $h_t(\tau)$. These descriptive temporal counts are not independent-sample
+  predictive accuracies.}
+  \label{tab:gd-loss-audit}
+  \small
+  \input{tables/analysis024_loss_audit}
+\end{table*}
+
+\subsection{Spectral Context}
+
+We measure the largest algebraic Hessian eigenvalue at states
+$0,100,\ldots,3000$ using matrix-free Hessian--vector products and a
+checked relative eigenpair residual of at most $0.005$. The Hessian
+objective covers all 5,000 MLP training examples, but only the first
+five fixed ResNet groups and the first 2,500 Transformer sequences.
+Subset measurements follow the computational motivation
+of~\cite{cohen2021edge}; they are not full-objective sharpness for the
+larger models. Reused MLP trajectories requested two largest eigenvalues
+and the other runs requested one; we compare only the largest value.
+Table~\ref{tab:gd-spectral-context} retains all nine final measurements.
+
+Maximum pointwise eigenvalue concerns the most curved local direction,
+whereas $\widehat\kappa_t$ concerns realized gradient change across a step.
+Objective coverage and a finite-step Taylor remainder also affect their
+comparison. Final spectral values and the late means in
+Table~\ref{tab:gd-endpoints} use different temporal reductions. Their
+agreement or disagreement therefore does not isolate estimator accuracy
+or the cause of a discrepancy. A state-matched local comparison would pair
+the Hessian at state $s$ with the expansion for gradient index $t=s+2$;
+the spectrum at state 3000 has no matching recorded gradient pair.
+
+\begin{table*}[!t]
+  \centering
+  \caption{Final spectral context at parameter state 3000. Only the MLP
+  measurement covers its complete training objective. ResNet and Transformer
+  use fixed subsets of the stated size; residual-checked eigenpairs do not
+  establish subset representativeness. All conditions use seed 0.}
+  \label{tab:gd-spectral-context}
+  \small
+  \input{tables/analysis024_spectral_context}
+\end{table*}

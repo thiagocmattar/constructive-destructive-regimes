@@ -1,80 +1,51 @@
 \section{Empirical Characterization under Full-Batch Gradient Descent}
 \label{sec:gd-experiments}
 
-We examine whether the diagnostics in Section~\ref{sec:displacement}
-distinguish directional reversal from cumulative cancellation and from
-optimization progress. Full-batch gradient descent isolates this comparison:
-the sampling-noise term vanishes, and gradients determine the update direction
-directly. We vary the learning rate while matching initialization, objective,
-data order and training horizon within each model case. The experiments
-characterize realized trajectories; they do not test a rule for predicting
-or preventing divergence.
+Full-batch gradient descent provides a controlled setting for examining
+how consecutive gradient directions relate to cumulative parameter motion
+and objective progress. The sampling-noise term vanishes, and each gradient
+directly determines an update. Building on the observation that oscillatory
+full-GD training can reduce loss over longer timescales~\cite{cohen2021edge},
+we compare learning rates at matched initialization, objective and update
+budget. We examine local reversal through $\rho_t$, cumulative motion through
+$R_t$ and the complete cross-step interaction, and the accuracy of the local
+loss approximation in Section~\ref{subsec:loss-connection}. The comparisons
+characterize the nine recorded trajectories.
 
 \subsection{Experimental Design and Measurement}
 
 We use three settings motivated by the Edge-of-Stability
-experiments~\cite{cohen2021edge}. The first trains a fully connected network
-with two 200-unit tanh hidden layers on the first 5,000 CIFAR-10 images,
-minimizing the mean half-squared error to one-hot targets. The second trains
-ResNet-32 on all 50,000 CIFAR-10 training images using mean cross-entropy.
-Its objective averages 50 fixed groups of 1,000 images, with batch
-normalization performed separately within each group. Accumulating these
-group gradients gives the gradient of this fixed objective; physical
-batching introduces no random sampling. The MLP uses coordinate-wise
-standardization and ResNet uses channel-wise standardization, both based
-on the complete CIFAR-10 training split.
+experiments~\cite{cohen2021edge}: a tanh MLP with two 200-unit hidden layers
+on the first 5,000 CIFAR-10 training images; ResNet-32 on all 50,000 CIFAR-10
+training images; and a two-layer, two-head word-level Transformer on
+WikiText-2, with embedding and feed-forward dimensions of 200. The MLP
+minimizes half-squared error summed over the ten output coordinates and
+averaged over examples. ResNet minimizes mean cross-entropy over 50 fixed
+groups of 1,000 images, with batch normalization computed within each group.
+The Transformer minimizes token-weighted negative log-likelihood over
+2,088,600 prepared training targets. Every update accumulates the complete
+fixed objective.
 
-The third setting trains a word-level Transformer on WikiText-2, with two
-layers, two attention heads, embedding and feed-forward dimensions of 200,
-and zero dropout. The objective is mean next-token negative log-likelihood
-over 2,088,600 prepared training targets. The corpus is arranged into 20
-fixed streams and causal chunks of at most 35 tokens. Eight stream-tail
-tokens and the 20 initial context tokens have no training target; short
-chunks retain their valid targets, and padding is excluded from the loss.
-The 33,278-word vocabulary follows the reference tutorial's first-occurrence dictionary
-over the training, validation and test text. These comparisons concern
-training dynamics rather than held-out generalization.
+Each condition runs for 3,000 updates at a constant learning rate:
+$\{0.004,0.02,0.04\}$ for the MLP, $\{0.025,0.05,0.1\}$ for ResNet,
+and $\{0.05,0.1,0.2\}$ for the Transformer. Rates were selected from earlier
+training calibrations to expose contrasting dynamics within this horizon,
+without test-loss selection. Within each case, all rates share one frozen
+initialization (seed 0) and identical data preparation. There is no momentum,
+weight decay, gradient clipping, schedule, augmentation or dropout. These
+are paired comparisons conditional on one initialization per case.
 
-Each condition runs for 3,000 updates at a constant learning rate.
-The rates are $\{0.004,0.02,0.04\}$ for the MLP,
-$\{0.025,0.05,0.1\}$ for ResNet, and $\{0.05,0.1,0.2\}$ for the
-Transformer. Rates were selected using earlier training calibrations to
-expose contrasting behaviors within the fixed horizon, without test-loss
-selection. Each model case uses one frozen random initialization
-(seed 0), shared across its three rates. There is no momentum, weight decay,
-gradient clipping, learning-rate schedule, augmentation or dropout.
-Training parameters and gradients are FP32, TF32 is disabled, and
-diagnostic reductions are FP64. Thus the nine conditions provide paired
-learning-rate comparisons within three model cases, not nine independent
-initializations or a controlled comparison of architectures.
-Physical accumulation uses 1,000-image chunks for the MLP, the fixed
-1,000-image groups for ResNet, and 64-sequence chunks for the Transformer;
-the complete objective is accumulated before each parameter update.
-
-We record full-objective loss, the global raw-gradient norm,
-$\rho_t$, $\eta\widehat\kappa_t$ and the complete-prefix $R_t$ at every
-update. A gradient indexed by $t$ is evaluated at $\theta_{t-1}$;
-loss and displacement at $t$ refer to $\theta_t$. The first adjacent
-pair is undefined and is omitted, without a denominator offset.
-All measured gradient norms are nonzero. We compute $R_t$ through the
-gradient-sum form of Eq.~\eqref{eq:normalized-displacement};
-its equality with displacement of the stored parameters is subject to
-FP32 update roundoff. Curves explicitly identified as smoothed use a
-trailing arithmetic mean of 50 observations and only complete windows;
-means are computed before logarithmic display. These windows aid visualization
-and do not define regime-onset times. Endpoint losses and
-$R_{3000}$ are unsmoothed, and late means in
-Table~\ref{tab:gd-endpoints} use the last 1,000 defined observations.
-
-As a spectral reference, we measure the largest algebraic Hessian eigenvalue
-at states $0,100,\ldots,3000$, using matrix-free Hessian--vector products
-and a checked relative eigenpair residual of at most $0.005$.
-The Hessian objective covers all 5,000 MLP training examples, but only
-the first five fixed ResNet groups and the first 2,500 Transformer
-sequences. These subset measurements follow the computational motivation
-of~\cite{cohen2021edge}; they are not full-objective sharpness for the
-larger models. Reused MLP trajectories requested two largest eigenvalues
-and the other runs requested one; we compare only the largest value.
+We record full-objective loss and raw-gradient geometry at every update.
+Gradient $g_t$ is evaluated at $\theta_{t-1}$; loss and displacement at
+index $t$ refer to $\theta_t$. The first adjacent pair is undefined and
+omitted; all measured gradient norms are nonzero. Both $R_t$ and the
+displacement norm in Table~\ref{tab:gd-endpoints} use the gradient-sum
+identity, whose agreement with stored-parameter displacement is subject
+to FP32 update roundoff. Smoothed curves use complete 50-observation
+trailing arithmetic means, computed before logarithmic display.
+Late means average the last 1,000 defined observations. Preparation,
+precision, accumulation and spectral measurement details appear in
+Appendix~\ref{appendix:gd-raw-alignment}.
 
 \begin{figure*}[!t]
   \centering
@@ -91,12 +62,12 @@ and the other runs requested one; we compare only the largest value.
 
 \begin{table*}[!t]
   \centering
-  \caption{Descriptive endpoints of the nine matched learning-rate
-  conditions. Late means average the last 1,000 defined gradient
-  observations; other entries refer to state/update 3,000. The last column
-  uses the full MLP objective, a fixed 5,000-image ResNet subset, and a
-  fixed 2,500-sequence Transformer subset. Each condition has one
-  initialization; no across-initialization uncertainty is estimated.}
+  \caption{Descriptive endpoints of the nine matched learning-rate conditions.
+  Late means average the last 1,000 defined gradient observations;
+  other entries refer to update 3,000. Displacement is computed as
+  $\eta\|\sum_{t=1}^{3000}g_t\|$, subject to FP32 parameter-update roundoff.
+  Each model case shares one initialization across rates. Values are
+  compared within cases; no across-initialization uncertainty is estimated.}
   \label{tab:gd-endpoints}
   \small
   \input{tables/analysis024_endpoints}
@@ -126,10 +97,10 @@ late reversal, even though their loss continues to decrease over longer
 timescales. The MLP illustrates this distinction directly: final losses
 are $0.3365$, $0.2114$ and $0.1539$ at increasing rates, while the
 corresponding late mean cosines are approximately $1$, $-0.9913$ and
-$-0.9799$. These observations support the separation in
-Section~\ref{subsec:loss-connection} between opposing successive directions
-and a loss increase. They do not identify every negative pair with an
-unstable or unproductive update.
+$-0.9799$. These observations illustrate the distinction in
+Section~\ref{subsec:loss-connection} between adjacent reversal and
+longer-timescale objective progress. The accuracy of its one-step loss
+approximation is examined separately below.
 
 \begin{figure*}[!tp]
   \centering
@@ -145,23 +116,28 @@ unstable or unproductive update.
   \label{fig:gd-alignment-displacement}
 \end{figure*}
 
-\subsection{Cumulative Cancellation and Gradient Magnitude}
+\subsection{Cumulative Geometry and Gradient Magnitude}
 
-The lower row of Fig.~\ref{fig:gd-alignment-displacement} measures
-the cumulative geometry directly, retaining every temporal interaction
-through $R_t$. At the lowest MLP rate, $R_{3000}=0.7941$;
-at the two higher rates it is $0.0488$ and $0.0257$.
-The Transformer exhibits the same ordering, with values $0.7223$,
-$0.1395$ and $0.0541$. ResNet reaches $0.1385$, $0.0616$ and $0.0374$.
-Thus lower retained displacement relative to path length coexists with
-lower final training loss in these comparisons.
+The lower row of Fig.~\ref{fig:gd-alignment-displacement} shows that
+$R_{3000}$ decreases with learning rate within each case. Absolute
+displacement nevertheless increases, as reported in
+Table~\ref{tab:gd-endpoints}. For the MLP, the gradient-sum displacement
+norm rises from $0.951$ to $3.139$ and $4.763$, while the accumulated path
+length rises from $1.198$ to $64.361$ and $185.542$. The reduction in
+$R_{3000}$ therefore reflects faster growth of traveled distance than
+of net displacement.
 
-This observation does not imply smaller absolute displacement or less
-learned information: both the path length and net displacement can
-change with the learning rate. Nor does negative adjacent alignment alone
-determine $R_t$, since nonadjacent inner products also contribute.
-Measuring $R_t$ avoids replacing the complete temporal sum by a lag-one
-approximation.
+The temporal decomposition further separates adjacent reversal from
+whole-trajectory interaction. At $T=3000$, the cumulative adjacent term
+$2\sum_{t=2}^{T}g_{t-1}^{\top}g_t$ is negative in seven conditions,
+whereas the complete term
+$2\sum_{1\leq u<t\leq T}g_u^{\top}g_t$ is positive in all nine.
+Positive contributions beyond lag one outweigh the adjacent negative
+contribution in those seven trajectories
+(Table~\ref{tab:gd-temporal-accounting}). Thus, negative adjacent
+alignment and low path-length retention coexist with positive total
+cross-step interaction over the complete recorded horizon. Neither
+$\rho_t$ nor $R_t$ alone specifies the sign of that total interaction.
 
 Figure~\ref{fig:gd-norms-projection}(a)--(c) shows that gradient magnitude
 adds another part of the description. In the MLP and ResNet cases,
@@ -186,35 +162,53 @@ therefore describe different aspects of the observed motion.
   \label{fig:gd-norms-projection}
 \end{figure*}
 
-\subsection{Projected Gradient Change and the Spectral Reference}
+\subsection{Projected Gradient Change and the Local Loss Approximation}
 
 The projected change in Fig.~\ref{fig:gd-norms-projection}(d)--(f)
 approaches two in the late reversing regimes, with late means between
 $1.9707$ and $1.9937$. This is consistent with nearly opposing gradients
 of comparable norm. Its relationship to the cosine is algebraic:
 for nonzero gradients, $\eta\widehat\kappa_t>1$ if and only if $\rho_t<0$.
-Consequently, the two displays are complementary parameterizations of
-the same local geometry, not independent validation of a curvature estimate.
+The diagnostics are algebraically linked: $\eta\widehat\kappa_t$ also
+incorporates the consecutive norm ratio, but its threshold crossing
+does not independently validate a curvature estimate.
 
-Table~\ref{tab:gd-endpoints} places this observable alongside the measured
-spectral reference. For the MLP at $\eta=0.02$ and $0.04$, final
-$\eta\lambda_{\max}$ is $2.2157$ and $2.3259$, while the late projected
-change is close to two. The larger-model subset spectra differ more
-substantially, reaching $3.2488$ for ResNet at $\eta=0.1$ and $3.1202$
-for the Transformer at $\eta=0.2$. These entries summarize different
-quantities and, in the table, different temporal reductions.
-Maximum eigenvalue concerns the most curved local direction, whereas
-$\widehat\kappa_t$ concerns the realized gradient change across one step.
-Moreover, subset coverage and a finite-step Taylor remainder can affect
-the comparison. Agreement is therefore not required, and disagreement
-does not isolate its cause.
+We directly assess the local loss approximation by comparing
+\begin{equation}
+  \widehat{\delta\mathcal L}_{t-1}
+  :=-\frac{\eta}{2}\|g_{t-1}\|^2
+  \left(2-\eta\widehat\kappa_t\right)
+  \label{eq:gd-loss-surrogate}
+\end{equation}
+with the recorded change
+$\mathcal L(\theta_{t-1})-\mathcal L(\theta_{t-2})$ for
+$t=2,\ldots,3000$. This gives 2,999 unsmoothed comparisons per condition;
+the last update has no subsequent recorded gradient. The comparison is
+retrospective because $\widehat\kappa_t$ uses that subsequent gradient.
 
-The measurements establish that oscillatory, strongly canceling motion
-can accompany continued optimization in these selected full-GD trajectories.
-They do not establish an initialization-robust phase diagram, a calibrated
-Hessian estimator, a convergence guarantee or a prospective warning of loss
-spikes. The gradient diagnostics require vector reductions and retained
-gradient information rather than online eigendecomposition; their runtime
-and memory overhead have not been isolated by a controlled benchmark.
-Sampling noise and optimizer transformations require additional controls
-before extending this deterministic interpretation to practical SGD or Adam.
+The approximation's sign disagrees with the recorded change in zero
+transitions for the lowest MLP and Transformer rates, but in 1,325 of
+2,999 transitions ($44.2\%$) for the Transformer at $\eta=0.2$.
+
+% Keep the sensitivity result together across the intervening figure page.
+\begin{samepage}
+After excluding transitions for which either change is at most $10^{-5}$
+times the larger neighboring loss in absolute value, disagreement remains
+in 1,239 of 2,837 transitions ($43.7\%$).
+Table~\ref{tab:gd-loss-audit} reports every condition, residual magnitudes
+and threshold sensitivity. These descriptive thresholds do not establish
+floating-point error bounds. Near a small predicted decrease, a residual
+can reverse the sign even when it is small relative to the first-order
+descent term. The audit measures the approximation error without assigning
+it uniquely to finite-step, nonsmooth or numerical effects.
+\par
+\end{samepage}
+
+The nine trajectories therefore demonstrate local reversal alongside
+positive final all-pair interaction and continued longer-timescale
+loss reduction. Their gradient-derived diagnostics characterize observed
+motion; the local loss approximation varies in accuracy across these
+conditions. The spectral measurements in
+Appendix~\ref{appendix:gd-raw-alignment} provide additional context with
+explicit objective coverage. Extension to sampling noise, transformed
+optimizer directions or prospective intervention requires separate tests.

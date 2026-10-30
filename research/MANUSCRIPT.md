@@ -288,3 +288,13 @@ and preparation details to Appendix D, and specifies a generated displacement
 column. Two small Section III edits align the geometric interpretation.
 Optional additional measurements are separate from the minimum editorial
 package. The proposal is local and the manuscript remains unchanged.
+
+The user then authorized application of the proposal. All eight edits are
+implemented in the working draft, with the existing three main figures,
+gradient-sum displacement in Table I, and three Appendix D evidence tables.
+The two Section III prose corrections preserve its equations. The retained
+PyTorch vocabulary/model revision is now cited explicitly.
+[Analysis024 Observation008](../analyses/024-2026-10-17-eos-gd-lr-calibration/observations/008-applied-section-iv-revision.md)
+records the source mapping, independent verification of all 36 table rows
+and 26,991 loss comparisons, preserved figure arrays and visual review of
+the 18-page draft. No additional training, HVPs or cloud work was performed.

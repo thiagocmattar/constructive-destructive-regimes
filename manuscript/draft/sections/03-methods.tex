@@ -19,9 +19,10 @@ at $\theta_{t-1}$. Summing the updates gives the displacement from initializatio
 For a model trained from scratch, $\theta_0$ represents the initialized model that has not
 yet learned from the training data. After $T$ updates, the trained parameters
 $\theta_T$ encode what the model has learned within that training budget.
-The displacement $\Delta_T$ captures the net parameter change through which
-this learning is expressed. Its squared norm therefore gives a geometric
-measure of the magnitude of learned information in parameter space. 
+The displacement $\Delta_T$ captures the net parameter change produced
+by training. Its squared norm measures the magnitude of this change in
+the chosen parameterization; its relation to learned function or predictive
+performance requires additional evidence.
 Expanding the squared displacement separates gradient magnitudes from the interactions 
 between different steps 
 \begin{equation}
@@ -249,9 +250,11 @@ R_T^2
 \end{equation}
 Unlike $\rho_t$, which considers only adjacent gradients,
 $R_T$ incorporates interactions across all temporal lags.
-Values near one indicate that successive updates reinforce
-a consistent net direction, while smaller values reveal
-greater cumulative cancellation.
+Values near one indicate that the updates retain most of their accumulated
+path length as net displacement. Smaller values indicate greater loss of
+path-length retention through directional variation, including cancellation;
+they do not determine the sign of the total cross-step interaction in
+Eq.~\eqref{eq:cumulative-interference}.
 
 \subsection{Connection with Loss Spikes and Convergence}
 \label{subsec:loss-connection}

@@ -1,6 +1,7 @@
 # Surgical change proposal for Section IV
 
-Date: 2026-10-30. Status: proposal for author and advisor review.
+Date: 2026-10-30. Status: applied to the working draft at the user's request.
+See the [implementation record](../../analyses/024-2026-10-17-eos-gd-lr-calibration/observations/008-applied-section-iv-revision.md).
 
 Refocus Section IV on a result that the existing experiments establish:
 **adjacent gradient reversal, cumulative interaction, displacement relative to
@@ -106,8 +107,8 @@ claim also requires a later consistency pass on the remaining sections.
 - [Section IV source](../draft/sections/04-gd-experiments.tex), [Section III source](../draft/sections/03-methods.tex), and [Appendix D source](../draft/sections/07-gd-diagnostics.tex).
 - [Cohen et al.](https://arxiv.org/abs/2103.00065), the existing EOS reference.
 
-This proposal has not been applied to the manuscript. Existing draft sources,
-publication figures, generated tables and the compiled paper are preserved.
-No new run, analysis or hypothesis identifier is required for this editorial
-proposal. Local verification of anchors, links, numeric examples and unchanged
-draft hashes is recorded in `verification.json`.
+The eight edits have been applied. The [implementation record](../../analyses/024-2026-10-17-eos-gd-lr-calibration/observations/008-applied-section-iv-revision.md)
+documents the generated tables, independent checks and reviewed 18-page output.
+No new run, analysis or hypothesis identifier was required. `verification.json`
+preserves the original pre-application anchor, numeric and draft-hash checks;
+current verification is in Analysis024's `manuscript_verification.json`.

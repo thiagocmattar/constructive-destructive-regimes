@@ -71,5 +71,8 @@ from verified results; the working draft remains self-contained for building.
 The [Section IV surgical proposal, 2026-10-30](2026-10-30-section-iv-surgical-proposal/README.md)
 turns the second critical review into eight anchored edits with replacement
 wording, a one-column endpoint-table change, appendix evidence contracts and
-two Section III terminology corrections. It reuses the completed scalar audit;
-the proposal is not applied to the working draft.
+two Section III terminology corrections. It is now applied to the working draft.
+The [implementation record](../analyses/024-2026-10-17-eos-gd-lr-calibration/observations/008-applied-section-iv-revision.md)
+documents the four generated tables and independent checks of all 36 rows and
+26,991 loss comparisons. The current 18-page PDF and its affected pages have
+been rendered and reviewed; the three main figures are unchanged.

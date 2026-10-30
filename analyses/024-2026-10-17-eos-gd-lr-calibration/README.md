@@ -214,4 +214,14 @@ the local loss approximation's limitations. `10_review_section_iv.py` and
 `section_iv_review_checks.json` preserve definitions, coverage and hashes.
 The draft, figures, executed inputs and raw evidence are unchanged.
 
+## Applied manuscript revision
+
+[Observation008](observations/008-applied-section-iv-revision.md) records the
+user-authorized application of all eight surgical edits. Section IV now
+reports the local/all-lag distinction, absolute displacement and retrospective
+loss audit; Appendix D contains detailed methods and the three supporting
+tables. All 36 table rows and 26,991 loss comparisons pass independent checks.
+The 18-page draft is compiled and visually reviewed. Existing scientific
+figures and executed evidence are preserved; this remains local postprocessing.
+
 Next Run154 / Analysis026 / H022 (see research/INDEX.md). H020 remains the scientific question.
