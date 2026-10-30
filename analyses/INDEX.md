@@ -45,5 +45,7 @@
 
 | [028](028-2026-10-30-adam-diagnostics/README.md) | Practical Adam extension: raw gradients, moments, adaptive directions and informed scheduling | Existing Analyses004/008/009; Analysis025 mapped for later development | Complete manuscript synthesis; 13 event files and 40 displayed values verified; 17-page draft reviewed; no new training or cloud | [Argument and idea map](028-2026-10-30-adam-diagnostics/README.md), [table evidence](028-2026-10-30-adam-diagnostics/observations/001-adam-extension.md); Section VI and two compact tables |
 
-Next analysis: `029-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
+| [029](029-2026-10-30-pythia-adam-diagnostics/README.md) | Pythia Adam diagnostics across LR, schedule and size; useful next experiment | Analyses009/004/002, 22 event files; no new training | Complete; four vector PDFs reviewed; 303 curves / 192,399 values verified; input-versus-moment alignment reconstructed for4,977 pairs | [Assessment and proposed test](029-2026-10-30-pythia-adam-diagnostics/REPORT.md), [figure observation](029-2026-10-30-pythia-adam-diagnostics/observations/001-figures.md) |
+
+Next analysis: `030-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
 an analysis may use manuscript or external inputs without referencing a run.

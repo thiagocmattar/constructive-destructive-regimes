@@ -58,3 +58,23 @@ wall time, throughput, environment and input identities, and required artifacts.
 These are execution/provenance fields. Scientific loss reductions and diagnostic
 formulas still need a concrete contract. The artifact envelope is described in
 [ARTIFACTS.md](ARTIFACTS.md).
+
+## Adam reanalysis: projected change and incoming-gradient alignment
+
+[Analysis029](../analyses/029-2026-10-30-pythia-adam-diagnostics/README.md)
+reconstructs `1-rho_t*||g_t||/||g_(t-1)||` from existing norms and cosines. Under
+Adam this is normalized projected gradient change, not a directional-curvature
+estimate or stability threshold. Compute the expression pointwise before
+smoothing. Its crossing of1 is equivalent to negative raw cosine pointwise;
+separately smoothed curves need not cross simultaneously. The zero-LR initial
+step prevents dividing the first defined expression by LR to obtain kappa.
+
+For Runs021--027, actual stored first-moment norms and adjacent cosine also
+recover `cos(h_t,m_(t-1))` through the EMA recurrence, where h is the clipped
+optimizer input. Global positive clipping preserves this cosine relative to
+raw g. Reconstructed input norms agree with clipping records to3.40e-7 maximum
+relative error across4,977 pairs. This is a roundoff-qualified reconstruction
+of recorded optimizer geometry, not a counterfactual benefit or curvature test.
+The older size/schedule cohorts did not capture the required moment statistics.
+All source, reduction, smoothing, uncertainty and figure contracts are local
+to Analysis029; no additional training metric capture was performed.

@@ -2,6 +2,15 @@
 
 ## Current state
 
+[Analysis029: Pythia diagnostics across LR, schedule and size](../analyses/029-2026-10-30-pythia-adam-diagnostics/REPORT.md)
+adds four reviewed vector figures from22 existing event files. Projected gradient
+change reuses the SGD eta-kappa expression without an Adam curvature claim.
+Incoming-gradient/prior-moment alignment is recovered from stored EMA geometry;
+4,977 reconstructed clipped norms agree to max relative error3.40e-7.
+All303 curves /192,399 values pass independent checks. The proposed next step is
+matched LR forks evaluated by later loss; no training/cloud or manuscript edit.
+Next Run187 / Analysis030 / H024.
+
 [Analysis028: directional diagnostics under Adam](../analyses/028-2026-10-30-adam-diagnostics/README.md)
 replaces the old optimizer/image section with a practical extension separating
 raw gradients, moments, adaptive directions and actual parameter motion.

@@ -1,0 +1,5276 @@
+{
+  "script_sha256": "bfe653696f2867cd6e0694a7b75b758faaf9639c644c399e1f4509eaeeb8f18b",
+  "sources": {
+    "analyses/028-2026-10-30-adam-diagnostics/evidence.json": "f0205f18f7d6c8d035ebb842ae4c48192c2d42fe22e40c07c4d42a1ab410e5f3",
+    "analyses/009-2026-10-09-intermediate-lr/complete-seven-lr/comparison_data.json": "a02a1ba7ace7a7011063767e6e7fb1c25548be0a12be06b6dad6826e5e7b2739",
+    "runs/022-2026-10-08-pythia14m-no-decay-small/artifacts/attempt-01/full-pass/events.jsonl": "37ccd1efeac7a135603776692049eaf0ab21663f596dd9a48c8edf3131d445ef",
+    "runs/024-2026-10-09-pythia14m-no-decay-intermediate-1/artifacts/attempt-01/full-pass/events.jsonl": "50e82cfae99774cf201243c0801b7c4966b6df0ae757cfe3dfe79edec5070d00",
+    "runs/025-2026-10-09-pythia14m-no-decay-intermediate-2/artifacts/attempt-01/full-pass/events.jsonl": "716b507e24b8f3d0078e822e773ae0d069aefe997beb5d8a0de3b9fe3b9425fd",
+    "runs/021-2026-10-08-pythia14m-no-decay-base/artifacts/attempt-01/full-pass/events.jsonl": "15a5a892793d212a524e8401a1f8cc6b5590d76d02ddb76154c89fc4846b510d",
+    "runs/026-2026-10-09-pythia14m-no-decay-intermediate-3/artifacts/attempt-01/full-pass/events.jsonl": "f416ad6258a8f69325afb204fb302848c573c19588f814a98d6f885df0aa49c4",
+    "analyses/009-2026-10-09-intermediate-lr/scratch/completed-metrics/027/events.jsonl": "5c59abc59cadc8f6313a0e3b5a3a9a715c396defb8f87544d3e1e71b698ea58f",
+    "runs/023-2026-10-08-pythia14m-no-decay-large/artifacts/attempt-01/full-pass/events.jsonl": "f26223e5df626e5de6a168bc53bbdb7ca3ad263117cd6754c201bec101dc5393",
+    "analyses/002-2026-10-04-scale-seed-replication/results.json": "4dcc899b5572c97e40345ba871af8445632ba1c2d83568ecdd36760094136a79",
+    "runs/002-2026-10-03-pythia14m-adamw-adaptive-geometry/artifacts/attempt-02/full-pass/events.jsonl": "be690ae5d984799fc493bab330f535c7ed2f17cc5b406c56501bb6ce352b1f77",
+    "runs/003-2026-10-03-pythia31m-adamw-scale/artifacts/attempt-01/full-pass/events.jsonl": "00f4232954b7fd99f5a4e2a85b7032c334eb1a1f99846317b1070205fe0a015d",
+    "runs/004-2026-10-03-pythia70m-adamw-scale/artifacts/attempt-01/full-pass/events.jsonl": "344a4242b61cc5c533a9cb83855038a78f5798f7e17ed6aa9c2a2de403c9fd0a",
+    "runs/005-2026-10-04-pythia14m-seed1235/artifacts/attempt-01/full-pass/events.jsonl": "ff8f7efdc1d330cf5284a64c3b7811878d557abfca3c04384be35606412d6a5f",
+    "runs/006-2026-10-04-pythia31m-seed1235/artifacts/attempt-01/full-pass/events.jsonl": "04cbe1f1caaf7545d918a181c8067a71533453efb888acb8c022509a7b5ebbeb",
+    "runs/007-2026-10-04-pythia70m-seed1235/artifacts/attempt-01/full-pass/events.jsonl": "299e270e6925ace59193c0e66beacc5a58f54091733e829014b5585b5bd8dc8d",
+    "runs/008-2026-10-04-pythia14m-seed1236/artifacts/attempt-01/full-pass/events.jsonl": "0236fda49f7eee499ebedefb4f6d0bac61b9f27e9627d0d14080e3d33218246d",
+    "runs/009-2026-10-04-pythia31m-seed1236/artifacts/attempt-01/full-pass/events.jsonl": "858d6b8c0de642892435ae165f3cf0441522735f73c28f6417bdbcafef54318e",
+    "runs/010-2026-10-04-pythia70m-seed1236/artifacts/attempt-01/full-pass/events.jsonl": "6cbfb714f1d284332fca8fdf660839d3db309d6a819b2a163420de8adb52afeb",
+    "analyses/004-2026-10-04-lr-schedule-intervention/results.json": "b15537ab31b1a97b80e3fee5ef98392830e7ab5da36da2160c97fe6fea93f682",
+    "runs/011-2026-10-04-pythia14m-lr-original-seed1235/artifacts/attempt-01/full-pass/events.jsonl": "b9a748f4c55509f51b329aebc31cb737b3ab4e050bd382b91d56b754898d59cc",
+    "runs/012-2026-10-04-pythia14m-lr-hold-seed1235/artifacts/attempt-01/full-pass/events.jsonl": "63155f0d702c28058d226f3e0e1c3f5fc3ecf1e49ce3ae68296f89ee5619c250",
+    "runs/013-2026-10-04-pythia14m-lr-accelerated-seed1235/artifacts/attempt-01/full-pass/events.jsonl": "87932b42e4cf368b441cc1ae19d6c83ebb5cf6af739de55b92f1dd1c40c5679d",
+    "runs/014-2026-10-04-pythia70m-lr-original-seed1235/artifacts/attempt-01/full-pass/events.jsonl": "c11408448c1ebf983f4e2829f93d49ea987ed0a79f37e1cb231225db318f00e7",
+    "runs/015-2026-10-04-pythia70m-lr-hold-seed1235/artifacts/attempt-01/full-pass/events.jsonl": "4f181961d61ed4b7a3e2b7acc16e076135c321c6a799a416a10edfce3668774b",
+    "runs/016-2026-10-04-pythia70m-lr-accelerated-seed1235/artifacts/attempt-01/full-pass/events.jsonl": "fe579c0086e4ef00da23241c9c099ce5d7790e917ed7e90111b8cc396790b8ff"
+  },
+  "window": 25,
+  "records": [
+    {
+      "cohort": "lr",
+      "run": "022",
+      "size": "14M",
+      "seed": 1234,
+      "condition": 0.0001,
+      "validation": [
+        {
+          "update": 712,
+          "loss": 6.23220715268553
+        }
+      ],
+      "hardware": "Spark",
+      "event_source": "runs/022-2026-10-08-pythia14m-no-decay-small/artifacts/attempt-01/full-pass/events.jsonl",
+      "windows": {
+        "full": {
+          "g_norm": 0.651225656673713,
+          "g_cos": 0.7532651961398341,
+          "d_cos": 0.9793268786117593,
+          "m_norm": 0.4356402911355354,
+          "m_cos": 0.9974848540827094,
+          "q": 0.2701788736992198,
+          "input_m_cos": 0.8076656206814304,
+          "input_memory_ratio": 0.13425850178685386
+        },
+        "full_batches": {
+          "g_norm": 0.6511295422484632,
+          "g_cos": 0.7561848874142028,
+          "d_cos": 0.9793441925330029,
+          "m_norm": 0.4366867465594767,
+          "m_cos": 0.9975124910924312,
+          "q": 0.26653614026583144,
+          "input_m_cos": 0.8084244407405576,
+          "input_memory_ratio": 0.13421825611490037
+        },
+        "late": {
+          "g_norm": 0.8636912456827528,
+          "g_cos": -0.3342390989507257,
+          "d_cos": 0.9775811501639227,
+          "m_norm": 0.16092426518043657,
+          "m_cos": 0.8669777441333029,
+          "q": 1.2797017663351267,
+          "input_m_cos": -0.040504804961224286,
+          "input_memory_ratio": 0.5518890041947615
+        }
+      },
+      "q_correction_abs_p95_full_batches": 0.23436343971886092,
+      "clipped_updates": 74,
+      "raw_negative_pairs": 187,
+      "terminal_R": {
+        "g": 0.5945432283492165,
+        "m": 0.9147650077987626,
+        "d": 0.5699674253051198
+      },
+      "max_input_norm_relative_error": 3.343708882081098e-07,
+      "negative_momentum_pairs": 0
+    },
+    {
+      "cohort": "lr",
+      "run": "024",
+      "size": "14M",
+      "seed": 1234,
+      "condition": 0.00021544346900318845,
+      "validation": [
+        {
+          "update": 712,
+          "loss": 5.600857134166275
+        }
+      ],
+      "hardware": "Runpod RTX4090",
+      "event_source": "runs/024-2026-10-09-pythia14m-no-decay-intermediate-1/artifacts/attempt-01/full-pass/events.jsonl",
+      "windows": {
+        "full": {
+          "g_norm": 0.7844634576402506,
+          "g_cos": -0.23626916889064797,
+          "d_cos": 0.97783120330356,
+          "m_norm": 0.1483589278604635,
+          "m_cos": 0.880087621086081,
+          "q": 1.2145489994273055,
+          "input_m_cos": -0.03097931337273792,
+          "input_memory_ratio": 0.5315079889328594
+        },
+        "full_batches": {
+          "g_norm": 0.7834610318899136,
+          "g_cos": -0.2360687116598587,
+          "d_cos": 0.9778398006864486,
+          "m_norm": 0.1483614498227251,
+          "m_cos": 0.8817681808945087,
+          "q": 1.2107622705517098,
+          "input_m_cos": -0.02939802636002762,
+          "input_memory_ratio": 0.5305217349732907
+        },
+        "late": {
+          "g_norm": 1.0467706576633438,
+          "g_cos": -0.434392254794584,
+          "d_cos": 0.9717436478001544,
+          "m_norm": 0.11112607726062215,
+          "m_cos": 0.5734047487191402,
+          "q": 1.4371620739700284,
+          "input_m_cos": -0.36017792392189296,
+          "input_memory_ratio": 0.9630591296376425
+        }
+      },
+      "q_correction_abs_p95_full_batches": 0.26355253840837256,
+      "clipped_updates": 136,
+      "raw_negative_pairs": 426,
+      "terminal_R": {
+        "g": 0.3044522495195608,
+        "m": 0.8288861974038473,
+        "d": 0.6068247628508244
+      },
+      "max_input_norm_relative_error": 3.2365525679327915e-07,
+      "negative_momentum_pairs": 0
+    },
+    {
+      "cohort": "lr",
+      "run": "025",
+      "size": "14M",
+      "seed": 1234,
+      "condition": 0.00046415888336127773,
+      "validation": [
+        {
+          "update": 712,
+          "loss": 5.237702190227028
+        }
+      ],
+      "hardware": "Runpod RTX4090",
+      "event_source": "runs/025-2026-10-09-pythia14m-no-decay-intermediate-2/artifacts/attempt-01/full-pass/events.jsonl",
+      "windows": {
+        "full": {
+          "g_norm": 0.8198654288438438,
+          "g_cos": -0.3977063717211757,
+          "d_cos": 0.9719809533826652,
+          "m_norm": 0.14031702692763495,
+          "m_cos": 0.8014180295859058,
+          "q": 1.380696540786725,
+          "input_m_cos": -0.1490731048216423,
+          "input_memory_ratio": 0.6802637471727463
+        },
+        "full_batches": {
+          "g_norm": 0.8192411046164887,
+          "g_cos": -0.3982105278951309,
+          "d_cos": 0.9720420692235447,
+          "m_norm": 0.14029700163488423,
+          "m_cos": 0.8015551853102518,
+          "q": 1.3820795174938336,
+          "input_m_cos": -0.14928317761568252,
+          "input_memory_ratio": 0.6789136567602574
+        },
+        "late": {
+          "g_norm": 1.0653900050185878,
+          "g_cos": -0.49457261636821226,
+          "d_cos": 0.9575501425689874,
+          "m_norm": 0.14992923096167854,
+          "m_cos": 0.7624410982170936,
+          "q": 1.4731053071827556,
+          "input_m_cos": -0.1912206822873011,
+          "input_memory_ratio": 0.7294638422801658
+        }
+      },
+      "q_correction_abs_p95_full_batches": 0.26586529018756533,
+      "clipped_updates": 197,
+      "raw_negative_pairs": 540,
+      "terminal_R": {
+        "g": 0.204918016201632,
+        "m": 0.7703259078061271,
+        "d": 0.658876271304354
+      },
+      "max_input_norm_relative_error": 3.235653780346705e-07,
+      "negative_momentum_pairs": 0
+    },
+    {
+      "cohort": "lr",
+      "run": "021",
+      "size": "14M",
+      "seed": 1234,
+      "condition": 0.001,
+      "validation": [
+        {
+          "update": 712,
+          "loss": 4.763734345360932
+        }
+      ],
+      "hardware": "Spark",
+      "event_source": "runs/021-2026-10-08-pythia14m-no-decay-base/artifacts/attempt-01/full-pass/events.jsonl",
+      "windows": {
+        "full": {
+          "g_norm": 0.7206060311206466,
+          "g_cos": -0.38189091000790554,
+          "d_cos": 0.9569188924965248,
+          "m_norm": 0.1911392183310162,
+          "m_cos": 0.9223361280525749,
+          "q": 1.3706184521660205,
+          "input_m_cos": 0.06129785362358304,
+          "input_memory_ratio": 0.43156968928546985
+        },
+        "full_batches": {
+          "g_norm": 0.7198118782609426,
+          "g_cos": -0.3816944578599434,
+          "d_cos": 0.9569373246154043,
+          "m_norm": 0.1911128420577806,
+          "m_cos": 0.9223513129791803,
+          "q": 1.3700844849808367,
+          "input_m_cos": 0.06142319661360808,
+          "input_memory_ratio": 0.4313849592706047
+        },
+        "late": {
+          "g_norm": 0.906806892436705,
+          "g_cos": -0.43176706434698786,
+          "d_cos": 0.9423652086170378,
+          "m_norm": 0.2245671852712776,
+          "m_cos": 0.9161204472506714,
+          "q": 1.4246256673818118,
+          "input_m_cos": 0.048731271825748365,
+          "input_memory_ratio": 0.44894511046027585
+        }
+      },
+      "q_correction_abs_p95_full_batches": 0.1846834772098448,
+      "clipped_updates": 63,
+      "raw_negative_pairs": 601,
+      "terminal_R": {
+        "g": 0.24907431004137012,
+        "m": 0.8301181223944721,
+        "d": 0.6565217822925995
+      },
+      "max_input_norm_relative_error": 3.148310663357379e-07,
+      "negative_momentum_pairs": 0
+    },
+    {
+      "cohort": "lr",
+      "run": "026",
+      "size": "14M",
+      "seed": 1234,
+      "condition": 0.0021544346900318843,
+      "validation": [
+        {
+          "update": 712,
+          "loss": 4.410369959202718
+        }
+      ],
+      "hardware": "Runpod RTX4090",
+      "event_source": "runs/026-2026-10-09-pythia14m-no-decay-intermediate-3/artifacts/attempt-01/full-pass/events.jsonl",
+      "windows": {
+        "full": {
+          "g_norm": 0.611119162737994,
+          "g_cos": -0.23720043387434894,
+          "d_cos": 0.930860587469094,
+          "m_norm": 0.2402222511226656,
+          "m_cos": 0.9643001666939517,
+          "q": 1.2307550312203346,
+          "input_m_cos": 0.23541963673292696,
+          "input_memory_ratio": 0.30335519726854787
+        },
+        "full_batches": {
+          "g_norm": 0.6105033825948296,
+          "g_cos": -0.23669134901033217,
+          "d_cos": 0.9308988200214168,
+          "m_norm": 0.24018769171181192,
+          "m_cos": 0.9643926497935347,
+          "q": 1.2296300175569632,
+          "input_m_cos": 0.2356098622815125,
+          "input_memory_ratio": 0.30334085895051266
+        },
+        "late": {
+          "g_norm": 0.8205633015187579,
+          "g_cos": -0.3100554569882997,
+          "d_cos": 0.9116364750046603,
+          "m_norm": 0.2751115384345527,
+          "m_cos": 0.9562734812464463,
+          "q": 1.3007778015080484,
+          "input_m_cos": 0.20276801013090218,
+          "input_memory_ratio": 0.32870488621922067
+        }
+      },
+      "q_correction_abs_p95_full_batches": 0.15055657300261957,
+      "clipped_updates": 25,
+      "raw_negative_pairs": 556,
+      "terminal_R": {
+        "g": 0.3349554063272347,
+        "m": 0.905331791999494,
+        "d": 0.5918290548117783
+      },
+      "max_input_norm_relative_error": 3.110603100349551e-07,
+      "negative_momentum_pairs": 0
+    },
+    {
+      "cohort": "lr",
+      "run": "027",
+      "size": "14M",
+      "seed": 1234,
+      "condition": 0.004641588833612777,
+      "validation": [
+        {
+          "update": 712,
+          "loss": 4.318091074599746
+        }
+      ],
+      "hardware": "Runpod RTX4090",
+      "event_source": "analyses/009-2026-10-09-intermediate-lr/scratch/completed-metrics/027/events.jsonl",
+      "windows": {
+        "full": {
+          "g_norm": 0.7432020911255656,
+          "g_cos": -0.27369221591751436,
+          "d_cos": 0.8864830119557605,
+          "m_norm": 0.20360323992208845,
+          "m_cos": 0.9351228266760291,
+          "q": 1.261534694270751,
+          "input_m_cos": 0.11579069401175496,
+          "input_memory_ratio": 0.40258788205020385
+        },
+        "full_batches": {
+          "g_norm": 0.7425165641128914,
+          "g_cos": -0.2733974836238936,
+          "d_cos": 0.8865061082594495,
+          "m_norm": 0.20365780010929152,
+          "m_cos": 0.935335029556015,
+          "q": 1.2603675028058148,
+          "input_m_cos": 0.11587307602364998,
+          "input_memory_ratio": 0.4025074073982894
+        },
+        "late": {
+          "g_norm": 1.2278532854740687,
+          "g_cos": -0.36107254297343117,
+          "d_cos": 0.8535237860774225,
+          "m_norm": 0.188993637739377,
+          "m_cos": 0.8522820496212498,
+          "q": 1.3545394001396627,
+          "input_m_cos": -0.08511718490237274,
+          "input_memory_ratio": 0.5826733023410455
+        }
+      },
+      "q_correction_abs_p95_full_batches": 0.23413377400661084,
+      "clipped_updates": 200,
+      "raw_negative_pairs": 557,
+      "terminal_R": {
+        "g": 0.23981549697952076,
+        "m": 0.9123291799760069,
+        "d": 0.43607801109159217
+      },
+      "max_input_norm_relative_error": 3.231991454816313e-07,
+      "negative_momentum_pairs": 0
+    },
+    {
+      "cohort": "lr",
+      "run": "023",
+      "size": "14M",
+      "seed": 1234,
+      "condition": 0.01,
+      "validation": [
+        {
+          "update": 712,
+          "loss": 6.636489039178169
+        }
+      ],
+      "hardware": "Spark",
+      "event_source": "runs/023-2026-10-08-pythia14m-no-decay-large/artifacts/attempt-01/full-pass/events.jsonl",
+      "windows": {
+        "full": {
+          "g_norm": 2.3021373146340123,
+          "g_cos": -0.1558375890624068,
+          "d_cos": 0.8598151485149093,
+          "m_norm": 0.10564279776004078,
+          "m_cos": 0.5579510429297746,
+          "q": 1.1492065258797655,
+          "input_m_cos": -0.3185252986177345,
+          "input_memory_ratio": 0.9953267650663931
+        },
+        "full_batches": {
+          "g_norm": 2.3021048923417,
+          "g_cos": -0.1560506570804026,
+          "d_cos": 0.8598759623759313,
+          "m_norm": 0.10578584308874903,
+          "m_cos": 0.5590204910197336,
+          "q": 1.1501691864381878,
+          "input_m_cos": -0.31835583657020916,
+          "input_memory_ratio": 0.9945433544964567
+        },
+        "late": {
+          "g_norm": 5.565899663870951,
+          "g_cos": -0.10337298160717442,
+          "d_cos": 0.8540185954545816,
+          "m_norm": 0.09683954145927831,
+          "m_cos": 0.4029492865145764,
+          "q": 1.0929998211699563,
+          "input_m_cos": -0.4671587304049982,
+          "input_memory_ratio": 1.1514190181043804
+        }
+      },
+      "q_correction_abs_p95_full_batches": 0.3601855378783964,
+      "clipped_updates": 517,
+      "raw_negative_pairs": 487,
+      "terminal_R": {
+        "g": 0.04484272918330714,
+        "m": 0.6531212440408014,
+        "d": 0.2776804113658312
+      },
+      "max_input_norm_relative_error": 3.3996482697359197e-07,
+      "negative_momentum_pairs": 0
+    },
+    {
+      "cohort": "size",
+      "run": "002",
+      "size": "14M",
+      "seed": 1234,
+      "condition": "14M",
+      "validation": [
+        {
+          "update": 712,
+          "loss": 5.182391677010039
+        }
+      ],
+      "hardware": "NVIDIA GeForce RTX 4090",
+      "event_source": "runs/002-2026-10-03-pythia14m-adamw-adaptive-geometry/artifacts/attempt-02/full-pass/events.jsonl",
+      "windows": {
+        "full": {
+          "g_norm": 0.40869208458025125,
+          "g_cos": 0.007220274217490398,
+          "d_cos": 0.966249585530794,
+          "q": 0.9933558665081965
+        },
+        "full_batches": {
+          "g_norm": 0.4083297597601169,
+          "g_cos": 0.0072472864702722555,
+          "d_cos": 0.9662620350858855,
+          "q": 0.9932718894775501
+        },
+        "late": {
+          "g_norm": 0.315200719832438,
+          "g_cos": 0.3447397571522267,
+          "d_cos": 0.9651279720125676,
+          "q": 0.6520858088968248
+        }
+      },
+      "q_correction_abs_p95_full_batches": 0.1696577520589342,
+      "clipped_updates": 8,
+      "raw_negative_pairs": 350,
+      "terminal_R": {
+        "g": 0.3371318366068217,
+        "d": 0.7047802641850273
+      }
+    },
+    {
+      "cohort": "size",
+      "run": "003",
+      "size": "31M",
+      "seed": 1234,
+      "condition": "31M",
+      "validation": [
+        {
+          "update": 712,
+          "loss": 4.611768352157314
+        }
+      ],
+      "hardware": "NVIDIA GeForce RTX 4090",
+      "event_source": "runs/003-2026-10-03-pythia31m-adamw-scale/artifacts/attempt-01/full-pass/events.jsonl",
+      "windows": {
+        "full": {
+          "g_norm": 0.3868622650461328,
+          "g_cos": -0.08625160942530179,
+          "d_cos": 0.95286451506537,
+          "q": 1.0843289969929184
+        },
+        "full_batches": {
+          "g_norm": 0.38635680663675687,
+          "g_cos": -0.08694381796008874,
+          "d_cos": 0.9528681229719655,
+          "q": 1.0845941307225746
+        },
+        "late": {
+          "g_norm": 0.32840940954933484,
+          "g_cos": 0.12378922244095543,
+          "d_cos": 0.9531887938093218,
+          "q": 0.8806879002933389
+        }
+      },
+      "q_correction_abs_p95_full_batches": 0.15738982565612591,
+      "clipped_updates": 13,
+      "raw_negative_pairs": 405,
+      "terminal_R": {
+        "g": 0.33075149244406893,
+        "d": 0.6655583872982535
+      }
+    },
+    {
+      "cohort": "size",
+      "run": "004",
+      "size": "70M",
+      "seed": 1234,
+      "condition": "70M",
+      "validation": [
+        {
+          "update": 712,
+          "loss": 4.063201078517274
+        }
+      ],
+      "hardware": "NVIDIA GeForce RTX 4090",
+      "event_source": "runs/004-2026-10-03-pythia70m-adamw-scale/artifacts/attempt-01/full-pass/events.jsonl",
+      "windows": {
+        "full": {
+          "g_norm": 0.3936446323491374,
+          "g_cos": -0.16056599144827324,
+          "d_cos": 0.931794987956543,
+          "q": 1.15253128270453
+        },
+        "full_batches": {
+          "g_norm": 0.3934912409376994,
+          "g_cos": -0.16121002953597596,
+          "d_cos": 0.9318031142052745,
+          "q": 1.1513496562609133
+        },
+        "late": {
+          "g_norm": 0.31014812953279747,
+          "g_cos": -0.03572499528087192,
+          "d_cos": 0.9361680792947347,
+          "q": 1.0388082969249368
+        }
+      },
+      "q_correction_abs_p95_full_batches": 0.13996922471020107,
+      "clipped_updates": 10,
+      "raw_negative_pairs": 481,
+      "terminal_R": {
+        "g": 0.30938023389185676,
+        "d": 0.6094357493955133
+      }
+    },
+    {
+      "cohort": "size",
+      "run": "005",
+      "size": "14M",
+      "seed": 1235,
+      "condition": "14M",
+      "validation": [
+        {
+          "update": 712,
+          "loss": 5.182015651441844
+        }
+      ],
+      "hardware": "NVIDIA GeForce RTX 5090",
+      "event_source": "runs/005-2026-10-04-pythia14m-seed1235/artifacts/attempt-01/full-pass/events.jsonl",
+      "windows": {
+        "full": {
+          "g_norm": 0.4125959076912783,
+          "g_cos": -0.003979377537259749,
+          "d_cos": 0.9663061762413051,
+          "q": 1.0033427858159147
+        },
+        "full_batches": {
+          "g_norm": 0.4123165652230956,
+          "g_cos": -0.002354547945669732,
+          "d_cos": 0.9663070458526134,
+          "q": 1.002054837398724
+        },
+        "late": {
+          "g_norm": 0.3256076118290706,
+          "g_cos": 0.3369272580885125,
+          "d_cos": 0.9650933151207808,
+          "q": 0.6584075415745202
+        }
+      },
+      "q_correction_abs_p95_full_batches": 0.1522498816662589,
+      "clipped_updates": 7,
+      "raw_negative_pairs": 357,
+      "terminal_R": {
+        "g": 0.3448906056923606,
+        "d": 0.7052445683423163
+      }
+    },
+    {
+      "cohort": "size",
+      "run": "006",
+      "size": "31M",
+      "seed": 1235,
+      "condition": "31M",
+      "validation": [
+        {
+          "update": 712,
+          "loss": 4.617402575555352
+        }
+      ],
+      "hardware": "NVIDIA GeForce RTX 5090",
+      "event_source": "runs/006-2026-10-04-pythia31m-seed1235/artifacts/attempt-01/full-pass/events.jsonl",
+      "windows": {
+        "full": {
+          "g_norm": 0.37005792832140966,
+          "g_cos": -0.03306462057056674,
+          "d_cos": 0.952478705548271,
+          "q": 1.0307872987797226
+        },
+        "full_batches": {
+          "g_norm": 0.3700270207934234,
+          "g_cos": -0.03370501385136547,
+          "d_cos": 0.9524833541813399,
+          "q": 1.0322377371149583
+        },
+        "late": {
+          "g_norm": 0.29374091276791003,
+          "g_cos": 0.2364782469649508,
+          "d_cos": 0.9533859452966302,
+          "q": 0.7621675661044374
+        }
+      },
+      "q_correction_abs_p95_full_batches": 0.1553898821529785,
+      "clipped_updates": 15,
+      "raw_negative_pairs": 379,
+      "terminal_R": {
+        "g": 0.3247711715324412,
+        "d": 0.659127156096981
+      }
+    },
+    {
+      "cohort": "size",
+      "run": "007",
+      "size": "70M",
+      "seed": 1235,
+      "condition": "70M",
+      "validation": [
+        {
+          "update": 712,
+          "loss": 4.058427325733528
+        }
+      ],
+      "hardware": "NVIDIA GeForce RTX 5090",
+      "event_source": "runs/007-2026-10-04-pythia70m-seed1235/artifacts/attempt-01/full-pass/events.jsonl",
+      "windows": {
+        "full": {
+          "g_norm": 0.37991369223946764,
+          "g_cos": -0.1112526587800156,
+          "d_cos": 0.9325755013327349,
+          "q": 1.1090183663504631
+        },
+        "full_batches": {
+          "g_norm": 0.3797534823778003,
+          "g_cos": -0.11139202928603126,
+          "d_cos": 0.932579973447539,
+          "q": 1.10976467874132
+        },
+        "late": {
+          "g_norm": 0.3206471294345822,
+          "g_cos": -0.02919432741665904,
+          "d_cos": 0.9355244553306113,
+          "q": 1.027533329765538
+        }
+      },
+      "q_correction_abs_p95_full_batches": 0.1540018359186254,
+      "clipped_updates": 10,
+      "raw_negative_pairs": 459,
+      "terminal_R": {
+        "g": 0.30866977137027235,
+        "d": 0.6093040348647515
+      }
+    },
+    {
+      "cohort": "size",
+      "run": "008",
+      "size": "14M",
+      "seed": 1236,
+      "condition": "14M",
+      "validation": [
+        {
+          "update": 712,
+          "loss": 5.164867154806001
+        }
+      ],
+      "hardware": "NVIDIA GeForce RTX 5090",
+      "event_source": "runs/008-2026-10-04-pythia14m-seed1236/artifacts/attempt-01/full-pass/events.jsonl",
+      "windows": {
+        "full": {
+          "g_norm": 0.4098888215201907,
+          "g_cos": 0.013477951282730077,
+          "d_cos": 0.9661629460422335,
+          "q": 0.9887943436511941
+        },
+        "full_batches": {
+          "g_norm": 0.4091087366885575,
+          "g_cos": 0.013597307763908464,
+          "d_cos": 0.9661703481991878,
+          "q": 0.9874411590700978
+        },
+        "late": {
+          "g_norm": 0.3246748175178724,
+          "g_cos": 0.3114666813451282,
+          "d_cos": 0.9651879084270344,
+          "q": 0.6955492489826283
+        }
+      },
+      "q_correction_abs_p95_full_batches": 0.14783509610797083,
+      "clipped_updates": 5,
+      "raw_negative_pairs": 348,
+      "terminal_R": {
+        "g": 0.3324703713288353,
+        "d": 0.70168906027377
+      }
+    },
+    {
+      "cohort": "size",
+      "run": "009",
+      "size": "31M",
+      "seed": 1236,
+      "condition": "31M",
+      "validation": [
+        {
+          "update": 712,
+          "loss": 4.522797383559328
+        }
+      ],
+      "hardware": "NVIDIA GeForce RTX 5090",
+      "event_source": "runs/009-2026-10-04-pythia31m-seed1236/artifacts/attempt-01/full-pass/events.jsonl",
+      "windows": {
+        "full": {
+          "g_norm": 0.4032673746983008,
+          "g_cos": -0.1212422161006984,
+          "d_cos": 0.9532169834209286,
+          "q": 1.1201172374286963
+        },
+        "full_batches": {
+          "g_norm": 0.40303036624603666,
+          "g_cos": -0.12061677755409246,
+          "d_cos": 0.9532229266398082,
+          "q": 1.118501325534001
+        },
+        "late": {
+          "g_norm": 0.3394376913917474,
+          "g_cos": 0.03706474983701938,
+          "d_cos": 0.9537325718409659,
+          "q": 0.9621241516138457
+        }
+      },
+      "q_correction_abs_p95_full_batches": 0.1460204646719097,
+      "clipped_updates": 14,
+      "raw_negative_pairs": 459,
+      "terminal_R": {
+        "g": 0.31522439226550414,
+        "d": 0.6636471946110711
+      }
+    },
+    {
+      "cohort": "size",
+      "run": "010",
+      "size": "70M",
+      "seed": 1236,
+      "condition": "70M",
+      "validation": [
+        {
+          "update": 712,
+          "loss": 4.029232269346635
+        }
+      ],
+      "hardware": "NVIDIA GeForce RTX 5090",
+      "event_source": "runs/010-2026-10-04-pythia70m-seed1236/artifacts/attempt-01/full-pass/events.jsonl",
+      "windows": {
+        "full": {
+          "g_norm": 0.3768836005938932,
+          "g_cos": -0.1294040593988611,
+          "d_cos": 0.9312638847333077,
+          "q": 1.1317389352464422
+        },
+        "full_batches": {
+          "g_norm": 0.3767614374282347,
+          "g_cos": -0.12927666617749975,
+          "d_cos": 0.9312857640969756,
+          "q": 1.1313138892957697
+        },
+        "late": {
+          "g_norm": 0.3087112497336979,
+          "g_cos": -0.059844845420427686,
+          "d_cos": 0.9349944396976524,
+          "q": 1.058335243396933
+        }
+      },
+      "q_correction_abs_p95_full_batches": 0.15641080232722535,
+      "clipped_updates": 10,
+      "raw_negative_pairs": 485,
+      "terminal_R": {
+        "g": 0.2966798518525168,
+        "d": 0.6052205135126428
+      }
+    },
+    {
+      "cohort": "schedule",
+      "run": "011",
+      "size": "14M",
+      "seed": 1235,
+      "condition": "original",
+      "validation": [
+        {
+          "update": 356,
+          "loss": 5.402301903419572
+        },
+        {
+          "update": 445,
+          "loss": 5.298231076060733
+        },
+        {
+          "update": 534,
+          "loss": 5.251352474444297
+        },
+        {
+          "update": 623,
+          "loss": 5.223321143570079
+        },
+        {
+          "update": 712,
+          "loss": 5.182014485720386
+        }
+      ],
+      "hardware": "RTX 5090",
+      "event_source": "runs/011-2026-10-04-pythia14m-lr-original-seed1235/artifacts/attempt-01/full-pass/events.jsonl",
+      "parent_run": "005",
+      "windows": {
+        "full": {
+          "g_norm": 0.41203722275491295,
+          "g_cos": -0.0016064521569210705,
+          "d_cos": 0.9662743814716116,
+          "q": 1.001821579419913
+        },
+        "full_batches": {
+          "g_norm": 0.41085396875950053,
+          "g_cos": -0.001533975662536307,
+          "d_cos": 0.966282481200562,
+          "q": 1.0016461033875306
+        },
+        "late": {
+          "g_norm": 0.32723040617728294,
+          "g_cos": 0.34202538104507835,
+          "d_cos": 0.96503807177055,
+          "q": 0.6577331304916016
+        },
+        "affected": {
+          "g_norm": 0.35542074901082815,
+          "g_cos": 0.1940552421622686,
+          "d_cos": 0.9652698196864996,
+          "q": 0.8177355133733868
+        }
+      },
+      "q_correction_abs_p95_full_batches": 0.1522498816662589,
+      "clipped_updates": 7,
+      "raw_negative_pairs": 357,
+      "terminal_R": {
+        "g": 0.3448642424743213,
+        "d": 0.7052444862123063
+      }
+    },
+    {
+      "cohort": "schedule",
+      "run": "012",
+      "size": "14M",
+      "seed": 1235,
+      "condition": "hold",
+      "validation": [
+        {
+          "update": 356,
+          "loss": 5.402301903419572
+        },
+        {
+          "update": 445,
+          "loss": 5.291773703907198
+        },
+        {
+          "update": 534,
+          "loss": 5.213111917828849
+        },
+        {
+          "update": 623,
+          "loss": 5.148571439227595
+        },
+        {
+          "update": 712,
+          "loss": 5.067428711292225
+        }
+      ],
+      "hardware": "RTX 5090",
+      "event_source": "runs/012-2026-10-04-pythia14m-lr-hold-seed1235/artifacts/attempt-01/full-pass/events.jsonl",
+      "parent_run": "005",
+      "windows": {
+        "full": {
+          "g_norm": 0.5959402358467689,
+          "g_cos": -0.3083531043538998,
+          "d_cos": 0.9645911706073518,
+          "q": 1.304544293653697
+        },
+        "full_batches": {
+          "g_norm": 0.5959400890131341,
+          "g_cos": -0.31001774071897714,
+          "d_cos": 0.964613326057427,
+          "q": 1.3031631000171249
+        },
+        "late": {
+          "g_norm": 0.7575001196117721,
+          "g_cos": -0.40442173691765476,
+          "d_cos": 0.9548351482453287,
+          "q": 1.4108518385194535
+        },
+        "affected": {
+          "g_norm": 0.6765424295781938,
+          "g_cos": -0.3581510242135213,
+          "d_cos": 0.9585346690347777,
+          "q": 1.3732110706684257
+        }
+      },
+      "q_correction_abs_p95_full_batches": 0.16606899560552973,
+      "clipped_updates": 15,
+      "raw_negative_pairs": 588,
+      "terminal_R": {
+        "g": 0.2663343580824081,
+        "d": 0.6926211930256482
+      }
+    },
+    {
+      "cohort": "schedule",
+      "run": "013",
+      "size": "14M",
+      "seed": 1235,
+      "condition": "accelerated",
+      "validation": [
+        {
+          "update": 356,
+          "loss": 5.402301903419572
+        },
+        {
+          "update": 445,
+          "loss": 5.314736132964409
+        },
+        {
+          "update": 534,
+          "loss": 5.286154710202262
+        },
+        {
+          "update": 623,
+          "loss": 5.2605418993847985
+        },
+        {
+          "update": 712,
+          "loss": 5.217632993573656
+        }
+      ],
+      "hardware": "RTX 5090",
+      "event_source": "runs/013-2026-10-04-pythia14m-lr-accelerated-seed1235/artifacts/attempt-01/full-pass/events.jsonl",
+      "parent_run": "005",
+      "windows": {
+        "full": {
+          "g_norm": 0.35691838547046467,
+          "g_cos": 0.1831037779867798,
+          "d_cos": 0.9677574403813325,
+          "q": 0.8268927747139336
+        },
+        "full_batches": {
+          "g_norm": 0.35681485049361517,
+          "g_cos": 0.18519867904746032,
+          "d_cos": 0.9677589196411525,
+          "q": 0.8264470270324504
+        },
+        "late": {
+          "g_norm": 0.31457662701692013,
+          "g_cos": 0.3586062437601842,
+          "d_cos": 0.9662968700049364,
+          "q": 0.6618176360121149
+        },
+        "affected": {
+          "g_norm": 0.3067126761228204,
+          "g_cos": 0.330620524356861,
+          "d_cos": 0.9668321770726003,
+          "q": 0.6682922024385436
+        }
+      },
+      "q_correction_abs_p95_full_batches": 0.1522498816662589,
+      "clipped_updates": 7,
+      "raw_negative_pairs": 284,
+      "terminal_R": {
+        "g": 0.3629466003608996,
+        "d": 0.7098959494529747
+      }
+    },
+    {
+      "cohort": "schedule",
+      "run": "014",
+      "size": "70M",
+      "seed": 1235,
+      "condition": "original",
+      "validation": [
+        {
+          "update": 356,
+          "loss": 4.486190033191719
+        },
+        {
+          "update": 445,
+          "loss": 4.2573423248221385
+        },
+        {
+          "update": 534,
+          "loss": 4.16972718182552
+        },
+        {
+          "update": 623,
+          "loss": 4.113077709287834
+        },
+        {
+          "update": 712,
+          "loss": 4.055890218512298
+        }
+      ],
+      "hardware": "RTX 5090",
+      "event_source": "runs/014-2026-10-04-pythia70m-lr-original-seed1235/artifacts/attempt-01/full-pass/events.jsonl",
+      "parent_run": "007",
+      "windows": {
+        "full": {
+          "g_norm": 0.3810165763385697,
+          "g_cos": -0.10910522747930405,
+          "d_cos": 0.9322312056291168,
+          "q": 1.1061657989572125
+        },
+        "full_batches": {
+          "g_norm": 0.38080883533106974,
+          "g_cos": -0.10990001151105981,
+          "d_cos": 0.9322507982305418,
+          "q": 1.1062454313311054
+        },
+        "late": {
+          "g_norm": 0.3172392818781493,
+          "g_cos": -0.013133051189946642,
+          "d_cos": 0.9351508526776282,
+          "q": 1.0117060531854998
+        },
+        "affected": {
+          "g_norm": 0.34036286589175,
+          "g_cos": -0.10856431051399207,
+          "d_cos": 0.9332972583577734,
+          "q": 1.1085241736584823
+        }
+      },
+      "q_correction_abs_p95_full_batches": 0.1540018359186254,
+      "clipped_updates": 10,
+      "raw_negative_pairs": 461,
+      "terminal_R": {
+        "g": 0.3085327944753779,
+        "d": 0.6092740569990329
+      }
+    },
+    {
+      "cohort": "schedule",
+      "run": "015",
+      "size": "70M",
+      "seed": 1235,
+      "condition": "hold",
+      "validation": [
+        {
+          "update": 356,
+          "loss": 4.486190033191719
+        },
+        {
+          "update": 445,
+          "loss": 4.261405606027466
+        },
+        {
+          "update": 534,
+          "loss": 4.120305089641253
+        },
+        {
+          "update": 623,
+          "loss": 4.0458676071028234
+        },
+        {
+          "update": 712,
+          "loss": 3.9845693924336976
+        }
+      ],
+      "hardware": "RTX 5090",
+      "event_source": "runs/015-2026-10-04-pythia70m-lr-hold-seed1235/artifacts/attempt-01/full-pass/events.jsonl",
+      "parent_run": "007",
+      "windows": {
+        "full": {
+          "g_norm": 0.4981976087591927,
+          "g_cos": -0.2363919814699713,
+          "d_cos": 0.9195297471634525,
+          "q": 1.2382885498932439
+        },
+        "full_batches": {
+          "g_norm": 0.4979395948178259,
+          "g_cos": -0.2359675260915196,
+          "d_cos": 0.9195394897999226,
+          "q": 1.2382099584016413
+        },
+        "late": {
+          "g_norm": 0.5750062330767223,
+          "g_cos": -0.298558266569082,
+          "d_cos": 0.910027243377301,
+          "q": 1.3016054300235127
+        },
+        "affected": {
+          "g_norm": 0.5529094426051568,
+          "g_cos": -0.3112423923174234,
+          "d_cos": 0.9137484221474597,
+          "q": 1.3071652783456755
+        }
+      },
+      "q_correction_abs_p95_full_batches": 0.17715980459429853,
+      "clipped_updates": 12,
+      "raw_negative_pairs": 549,
+      "terminal_R": {
+        "g": 0.25995197518814106,
+        "d": 0.5824377132516538
+      }
+    },
+    {
+      "cohort": "schedule",
+      "run": "016",
+      "size": "70M",
+      "seed": 1235,
+      "condition": "accelerated",
+      "validation": [
+        {
+          "update": 356,
+          "loss": 4.486190033191719
+        },
+        {
+          "update": 445,
+          "loss": 4.2745994533798575
+        },
+        {
+          "update": 534,
+          "loss": 4.2148560441152805
+        },
+        {
+          "update": 623,
+          "loss": 4.162333598409478
+        },
+        {
+          "update": 712,
+          "loss": 4.1041633738881265
+        }
+      ],
+      "hardware": "RTX 5090",
+      "event_source": "runs/016-2026-10-04-pythia70m-lr-accelerated-seed1235/artifacts/attempt-01/full-pass/events.jsonl",
+      "parent_run": "007",
+      "windows": {
+        "full": {
+          "g_norm": 0.34684056416050746,
+          "g_cos": -0.042650751745609075,
+          "d_cos": 0.9366691095223985,
+          "q": 1.039395451443633
+        },
+        "full_batches": {
+          "g_norm": 0.34676784446107006,
+          "g_cos": -0.04338571304062255,
+          "d_cos": 0.936672761747273,
+          "q": 1.0399095002076946
+        },
+        "late": {
+          "g_norm": 0.3197574324228548,
+          "g_cos": -0.05014579132417817,
+          "d_cos": 0.9373438799236609,
+          "q": 1.0482363795978507
+        },
+        "affected": {
+          "g_norm": 0.2927702168225661,
+          "g_cos": -0.0064957462676957,
+          "d_cos": 0.9379394309241663,
+          "q": 1.0066575351945666
+        }
+      },
+      "q_correction_abs_p95_full_batches": 0.15447790312820298,
+      "clipped_updates": 10,
+      "raw_negative_pairs": 402,
+      "terminal_R": {
+        "g": 0.32170649472875895,
+        "d": 0.6159088533002589
+      }
+    }
+  ],
+  "curves": [
+    {
+      "key": "curve_0000",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "022"
+      ],
+      "cohort": "lr",
+      "metric": "loss",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0001",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "022"
+      ],
+      "cohort": "lr",
+      "metric": "loss",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0002",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "024"
+      ],
+      "cohort": "lr",
+      "metric": "loss",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0003",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "024"
+      ],
+      "cohort": "lr",
+      "metric": "loss",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0004",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "025"
+      ],
+      "cohort": "lr",
+      "metric": "loss",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0005",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "025"
+      ],
+      "cohort": "lr",
+      "metric": "loss",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0006",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "021"
+      ],
+      "cohort": "lr",
+      "metric": "loss",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0007",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "021"
+      ],
+      "cohort": "lr",
+      "metric": "loss",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0008",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "026"
+      ],
+      "cohort": "lr",
+      "metric": "loss",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0009",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "026"
+      ],
+      "cohort": "lr",
+      "metric": "loss",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0010",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "027"
+      ],
+      "cohort": "lr",
+      "metric": "loss",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0011",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "027"
+      ],
+      "cohort": "lr",
+      "metric": "loss",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0012",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "023"
+      ],
+      "cohort": "lr",
+      "metric": "loss",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0013",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "023"
+      ],
+      "cohort": "lr",
+      "metric": "loss",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0014",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "022"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0015",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "022"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0016",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "024"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0017",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "024"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0018",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "025"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0019",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "025"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0020",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "021"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0021",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "021"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0022",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "026"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0023",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "026"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0024",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "027"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0025",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "027"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0026",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "023"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0027",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "023"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0028",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "022"
+      ],
+      "cohort": "lr",
+      "metric": "q",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0029",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "022"
+      ],
+      "cohort": "lr",
+      "metric": "q",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0030",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "024"
+      ],
+      "cohort": "lr",
+      "metric": "q",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0031",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "024"
+      ],
+      "cohort": "lr",
+      "metric": "q",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0032",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "025"
+      ],
+      "cohort": "lr",
+      "metric": "q",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0033",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "025"
+      ],
+      "cohort": "lr",
+      "metric": "q",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0034",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "021"
+      ],
+      "cohort": "lr",
+      "metric": "q",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0035",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "021"
+      ],
+      "cohort": "lr",
+      "metric": "q",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0036",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "026"
+      ],
+      "cohort": "lr",
+      "metric": "q",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0037",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "026"
+      ],
+      "cohort": "lr",
+      "metric": "q",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0038",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "027"
+      ],
+      "cohort": "lr",
+      "metric": "q",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0039",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "027"
+      ],
+      "cohort": "lr",
+      "metric": "q",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0040",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "023"
+      ],
+      "cohort": "lr",
+      "metric": "q",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0041",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "023"
+      ],
+      "cohort": "lr",
+      "metric": "q",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0042",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "022"
+      ],
+      "cohort": "lr",
+      "metric": "g_norm",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0043",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "022"
+      ],
+      "cohort": "lr",
+      "metric": "g_norm",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0044",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "024"
+      ],
+      "cohort": "lr",
+      "metric": "g_norm",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0045",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "024"
+      ],
+      "cohort": "lr",
+      "metric": "g_norm",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0046",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "025"
+      ],
+      "cohort": "lr",
+      "metric": "g_norm",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0047",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "025"
+      ],
+      "cohort": "lr",
+      "metric": "g_norm",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0048",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "021"
+      ],
+      "cohort": "lr",
+      "metric": "g_norm",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0049",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "021"
+      ],
+      "cohort": "lr",
+      "metric": "g_norm",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0050",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "026"
+      ],
+      "cohort": "lr",
+      "metric": "g_norm",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0051",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "026"
+      ],
+      "cohort": "lr",
+      "metric": "g_norm",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0052",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "027"
+      ],
+      "cohort": "lr",
+      "metric": "g_norm",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0053",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "027"
+      ],
+      "cohort": "lr",
+      "metric": "g_norm",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0054",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "023"
+      ],
+      "cohort": "lr",
+      "metric": "g_norm",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0055",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "023"
+      ],
+      "cohort": "lr",
+      "metric": "g_norm",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0056",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "022"
+      ],
+      "cohort": "lr",
+      "metric": "m_norm",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0057",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "022"
+      ],
+      "cohort": "lr",
+      "metric": "m_norm",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0058",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "024"
+      ],
+      "cohort": "lr",
+      "metric": "m_norm",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0059",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "024"
+      ],
+      "cohort": "lr",
+      "metric": "m_norm",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0060",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "025"
+      ],
+      "cohort": "lr",
+      "metric": "m_norm",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0061",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "025"
+      ],
+      "cohort": "lr",
+      "metric": "m_norm",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0062",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "021"
+      ],
+      "cohort": "lr",
+      "metric": "m_norm",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0063",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "021"
+      ],
+      "cohort": "lr",
+      "metric": "m_norm",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0064",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "026"
+      ],
+      "cohort": "lr",
+      "metric": "m_norm",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0065",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "026"
+      ],
+      "cohort": "lr",
+      "metric": "m_norm",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0066",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "027"
+      ],
+      "cohort": "lr",
+      "metric": "m_norm",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0067",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "027"
+      ],
+      "cohort": "lr",
+      "metric": "m_norm",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0068",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "023"
+      ],
+      "cohort": "lr",
+      "metric": "m_norm",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0069",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "023"
+      ],
+      "cohort": "lr",
+      "metric": "m_norm",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0070",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "022"
+      ],
+      "cohort": "lr",
+      "metric": "input_m_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0071",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "022"
+      ],
+      "cohort": "lr",
+      "metric": "input_m_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0072",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "024"
+      ],
+      "cohort": "lr",
+      "metric": "input_m_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0073",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "024"
+      ],
+      "cohort": "lr",
+      "metric": "input_m_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0074",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "025"
+      ],
+      "cohort": "lr",
+      "metric": "input_m_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0075",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "025"
+      ],
+      "cohort": "lr",
+      "metric": "input_m_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0076",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "021"
+      ],
+      "cohort": "lr",
+      "metric": "input_m_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0077",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "021"
+      ],
+      "cohort": "lr",
+      "metric": "input_m_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0078",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "026"
+      ],
+      "cohort": "lr",
+      "metric": "input_m_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0079",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "026"
+      ],
+      "cohort": "lr",
+      "metric": "input_m_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0080",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "027"
+      ],
+      "cohort": "lr",
+      "metric": "input_m_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0081",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "027"
+      ],
+      "cohort": "lr",
+      "metric": "input_m_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0082",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "023"
+      ],
+      "cohort": "lr",
+      "metric": "input_m_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0083",
+      "figure": "pythia_lr_response",
+      "runs": [
+        "023"
+      ],
+      "cohort": "lr",
+      "metric": "input_m_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0084",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "022"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0085",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "022"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0086",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "022"
+      ],
+      "cohort": "lr",
+      "metric": "g_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0087",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "024"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0088",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "024"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0089",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "024"
+      ],
+      "cohort": "lr",
+      "metric": "g_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0090",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "025"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0091",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "025"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0092",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "025"
+      ],
+      "cohort": "lr",
+      "metric": "g_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0093",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "021"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0094",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "021"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0095",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "021"
+      ],
+      "cohort": "lr",
+      "metric": "g_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0096",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "026"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0097",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "026"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0098",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "026"
+      ],
+      "cohort": "lr",
+      "metric": "g_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0099",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "027"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0100",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "027"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0101",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "027"
+      ],
+      "cohort": "lr",
+      "metric": "g_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0102",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "023"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0103",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "023"
+      ],
+      "cohort": "lr",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0104",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "023"
+      ],
+      "cohort": "lr",
+      "metric": "g_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0105",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "022"
+      ],
+      "cohort": "lr",
+      "metric": "m_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0106",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "022"
+      ],
+      "cohort": "lr",
+      "metric": "m_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0107",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "022"
+      ],
+      "cohort": "lr",
+      "metric": "m_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0108",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "024"
+      ],
+      "cohort": "lr",
+      "metric": "m_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0109",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "024"
+      ],
+      "cohort": "lr",
+      "metric": "m_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0110",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "024"
+      ],
+      "cohort": "lr",
+      "metric": "m_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0111",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "025"
+      ],
+      "cohort": "lr",
+      "metric": "m_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0112",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "025"
+      ],
+      "cohort": "lr",
+      "metric": "m_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0113",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "025"
+      ],
+      "cohort": "lr",
+      "metric": "m_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0114",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "021"
+      ],
+      "cohort": "lr",
+      "metric": "m_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0115",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "021"
+      ],
+      "cohort": "lr",
+      "metric": "m_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0116",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "021"
+      ],
+      "cohort": "lr",
+      "metric": "m_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0117",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "026"
+      ],
+      "cohort": "lr",
+      "metric": "m_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0118",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "026"
+      ],
+      "cohort": "lr",
+      "metric": "m_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0119",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "026"
+      ],
+      "cohort": "lr",
+      "metric": "m_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0120",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "027"
+      ],
+      "cohort": "lr",
+      "metric": "m_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0121",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "027"
+      ],
+      "cohort": "lr",
+      "metric": "m_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0122",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "027"
+      ],
+      "cohort": "lr",
+      "metric": "m_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0123",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "023"
+      ],
+      "cohort": "lr",
+      "metric": "m_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0124",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "023"
+      ],
+      "cohort": "lr",
+      "metric": "m_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0125",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "023"
+      ],
+      "cohort": "lr",
+      "metric": "m_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0126",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "022"
+      ],
+      "cohort": "lr",
+      "metric": "d_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0127",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "022"
+      ],
+      "cohort": "lr",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0128",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "022"
+      ],
+      "cohort": "lr",
+      "metric": "d_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0129",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "024"
+      ],
+      "cohort": "lr",
+      "metric": "d_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0130",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "024"
+      ],
+      "cohort": "lr",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0131",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "024"
+      ],
+      "cohort": "lr",
+      "metric": "d_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0132",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "025"
+      ],
+      "cohort": "lr",
+      "metric": "d_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0133",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "025"
+      ],
+      "cohort": "lr",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0134",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "025"
+      ],
+      "cohort": "lr",
+      "metric": "d_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0135",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "021"
+      ],
+      "cohort": "lr",
+      "metric": "d_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0136",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "021"
+      ],
+      "cohort": "lr",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0137",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "021"
+      ],
+      "cohort": "lr",
+      "metric": "d_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0138",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "026"
+      ],
+      "cohort": "lr",
+      "metric": "d_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0139",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "026"
+      ],
+      "cohort": "lr",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0140",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "026"
+      ],
+      "cohort": "lr",
+      "metric": "d_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0141",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "027"
+      ],
+      "cohort": "lr",
+      "metric": "d_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0142",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "027"
+      ],
+      "cohort": "lr",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0143",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "027"
+      ],
+      "cohort": "lr",
+      "metric": "d_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0144",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "023"
+      ],
+      "cohort": "lr",
+      "metric": "d_cos",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0145",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "023"
+      ],
+      "cohort": "lr",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0146",
+      "figure": "pythia_optimizer_streams",
+      "runs": [
+        "023"
+      ],
+      "cohort": "lr",
+      "metric": "d_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0147",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "011"
+      ],
+      "cohort": "schedule",
+      "metric": "lr",
+      "smooth": false,
+      "first": 357,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0148",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "012"
+      ],
+      "cohort": "schedule",
+      "metric": "lr",
+      "smooth": false,
+      "first": 357,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0149",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "013"
+      ],
+      "cohort": "schedule",
+      "metric": "lr",
+      "smooth": false,
+      "first": 357,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0150",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "011"
+      ],
+      "cohort": "schedule",
+      "metric": "g_cos",
+      "smooth": false,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0151",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "011"
+      ],
+      "cohort": "schedule",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0152",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "012"
+      ],
+      "cohort": "schedule",
+      "metric": "g_cos",
+      "smooth": false,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0153",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "012"
+      ],
+      "cohort": "schedule",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0154",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "013"
+      ],
+      "cohort": "schedule",
+      "metric": "g_cos",
+      "smooth": false,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0155",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "013"
+      ],
+      "cohort": "schedule",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0156",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "011"
+      ],
+      "cohort": "schedule",
+      "metric": "q",
+      "smooth": false,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0157",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "011"
+      ],
+      "cohort": "schedule",
+      "metric": "q",
+      "smooth": true,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0158",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "012"
+      ],
+      "cohort": "schedule",
+      "metric": "q",
+      "smooth": false,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0159",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "012"
+      ],
+      "cohort": "schedule",
+      "metric": "q",
+      "smooth": true,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0160",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "013"
+      ],
+      "cohort": "schedule",
+      "metric": "q",
+      "smooth": false,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0161",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "013"
+      ],
+      "cohort": "schedule",
+      "metric": "q",
+      "smooth": true,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0162",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "011"
+      ],
+      "cohort": "schedule",
+      "metric": "d_cos",
+      "smooth": false,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0163",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "011"
+      ],
+      "cohort": "schedule",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0164",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "012"
+      ],
+      "cohort": "schedule",
+      "metric": "d_cos",
+      "smooth": false,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0165",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "012"
+      ],
+      "cohort": "schedule",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0166",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "013"
+      ],
+      "cohort": "schedule",
+      "metric": "d_cos",
+      "smooth": false,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0167",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "013"
+      ],
+      "cohort": "schedule",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0168",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "011"
+      ],
+      "cohort": "schedule",
+      "metric": "validation",
+      "smooth": false,
+      "first": 357,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0169",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "012"
+      ],
+      "cohort": "schedule",
+      "metric": "validation",
+      "smooth": false,
+      "first": 357,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0170",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "013"
+      ],
+      "cohort": "schedule",
+      "metric": "validation",
+      "smooth": false,
+      "first": 357,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0171",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "014"
+      ],
+      "cohort": "schedule",
+      "metric": "lr",
+      "smooth": false,
+      "first": 357,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0172",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "015"
+      ],
+      "cohort": "schedule",
+      "metric": "lr",
+      "smooth": false,
+      "first": 357,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0173",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "016"
+      ],
+      "cohort": "schedule",
+      "metric": "lr",
+      "smooth": false,
+      "first": 357,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0174",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "014"
+      ],
+      "cohort": "schedule",
+      "metric": "g_cos",
+      "smooth": false,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0175",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "014"
+      ],
+      "cohort": "schedule",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0176",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "015"
+      ],
+      "cohort": "schedule",
+      "metric": "g_cos",
+      "smooth": false,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0177",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "015"
+      ],
+      "cohort": "schedule",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0178",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "016"
+      ],
+      "cohort": "schedule",
+      "metric": "g_cos",
+      "smooth": false,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0179",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "016"
+      ],
+      "cohort": "schedule",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0180",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "014"
+      ],
+      "cohort": "schedule",
+      "metric": "q",
+      "smooth": false,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0181",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "014"
+      ],
+      "cohort": "schedule",
+      "metric": "q",
+      "smooth": true,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0182",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "015"
+      ],
+      "cohort": "schedule",
+      "metric": "q",
+      "smooth": false,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0183",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "015"
+      ],
+      "cohort": "schedule",
+      "metric": "q",
+      "smooth": true,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0184",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "016"
+      ],
+      "cohort": "schedule",
+      "metric": "q",
+      "smooth": false,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0185",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "016"
+      ],
+      "cohort": "schedule",
+      "metric": "q",
+      "smooth": true,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0186",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "014"
+      ],
+      "cohort": "schedule",
+      "metric": "d_cos",
+      "smooth": false,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0187",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "014"
+      ],
+      "cohort": "schedule",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0188",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "015"
+      ],
+      "cohort": "schedule",
+      "metric": "d_cos",
+      "smooth": false,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0189",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "015"
+      ],
+      "cohort": "schedule",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0190",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "016"
+      ],
+      "cohort": "schedule",
+      "metric": "d_cos",
+      "smooth": false,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0191",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "016"
+      ],
+      "cohort": "schedule",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 358,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0192",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "014"
+      ],
+      "cohort": "schedule",
+      "metric": "validation",
+      "smooth": false,
+      "first": 357,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0193",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "015"
+      ],
+      "cohort": "schedule",
+      "metric": "validation",
+      "smooth": false,
+      "first": 357,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0194",
+      "figure": "pythia_schedule_response",
+      "runs": [
+        "016"
+      ],
+      "cohort": "schedule",
+      "metric": "validation",
+      "smooth": false,
+      "first": 357,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0195",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "002"
+      ],
+      "cohort": "size",
+      "metric": "loss",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0196",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "005"
+      ],
+      "cohort": "size",
+      "metric": "loss",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0197",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "008"
+      ],
+      "cohort": "size",
+      "metric": "loss",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0198",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "002",
+        "005",
+        "008"
+      ],
+      "cohort": "size",
+      "metric": "loss",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "mean"
+    },
+    {
+      "key": "curve_0199",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "002",
+        "005",
+        "008"
+      ],
+      "cohort": "size",
+      "metric": "loss",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "min"
+    },
+    {
+      "key": "curve_0200",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "002",
+        "005",
+        "008"
+      ],
+      "cohort": "size",
+      "metric": "loss",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "max"
+    },
+    {
+      "key": "curve_0201",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "003"
+      ],
+      "cohort": "size",
+      "metric": "loss",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0202",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "006"
+      ],
+      "cohort": "size",
+      "metric": "loss",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0203",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "009"
+      ],
+      "cohort": "size",
+      "metric": "loss",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0204",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "003",
+        "006",
+        "009"
+      ],
+      "cohort": "size",
+      "metric": "loss",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "mean"
+    },
+    {
+      "key": "curve_0205",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "003",
+        "006",
+        "009"
+      ],
+      "cohort": "size",
+      "metric": "loss",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "min"
+    },
+    {
+      "key": "curve_0206",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "003",
+        "006",
+        "009"
+      ],
+      "cohort": "size",
+      "metric": "loss",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "max"
+    },
+    {
+      "key": "curve_0207",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "004"
+      ],
+      "cohort": "size",
+      "metric": "loss",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0208",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "007"
+      ],
+      "cohort": "size",
+      "metric": "loss",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0209",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "010"
+      ],
+      "cohort": "size",
+      "metric": "loss",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0210",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "004",
+        "007",
+        "010"
+      ],
+      "cohort": "size",
+      "metric": "loss",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "mean"
+    },
+    {
+      "key": "curve_0211",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "004",
+        "007",
+        "010"
+      ],
+      "cohort": "size",
+      "metric": "loss",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "min"
+    },
+    {
+      "key": "curve_0212",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "004",
+        "007",
+        "010"
+      ],
+      "cohort": "size",
+      "metric": "loss",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "max"
+    },
+    {
+      "key": "curve_0213",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "002"
+      ],
+      "cohort": "size",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0214",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "005"
+      ],
+      "cohort": "size",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0215",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "008"
+      ],
+      "cohort": "size",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0216",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "002",
+        "005",
+        "008"
+      ],
+      "cohort": "size",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "mean"
+    },
+    {
+      "key": "curve_0217",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "002",
+        "005",
+        "008"
+      ],
+      "cohort": "size",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "min"
+    },
+    {
+      "key": "curve_0218",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "002",
+        "005",
+        "008"
+      ],
+      "cohort": "size",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "max"
+    },
+    {
+      "key": "curve_0219",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "003"
+      ],
+      "cohort": "size",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0220",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "006"
+      ],
+      "cohort": "size",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0221",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "009"
+      ],
+      "cohort": "size",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0222",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "003",
+        "006",
+        "009"
+      ],
+      "cohort": "size",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "mean"
+    },
+    {
+      "key": "curve_0223",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "003",
+        "006",
+        "009"
+      ],
+      "cohort": "size",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "min"
+    },
+    {
+      "key": "curve_0224",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "003",
+        "006",
+        "009"
+      ],
+      "cohort": "size",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "max"
+    },
+    {
+      "key": "curve_0225",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "004"
+      ],
+      "cohort": "size",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0226",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "007"
+      ],
+      "cohort": "size",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0227",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "010"
+      ],
+      "cohort": "size",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0228",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "004",
+        "007",
+        "010"
+      ],
+      "cohort": "size",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "mean"
+    },
+    {
+      "key": "curve_0229",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "004",
+        "007",
+        "010"
+      ],
+      "cohort": "size",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "min"
+    },
+    {
+      "key": "curve_0230",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "004",
+        "007",
+        "010"
+      ],
+      "cohort": "size",
+      "metric": "g_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "max"
+    },
+    {
+      "key": "curve_0231",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "002"
+      ],
+      "cohort": "size",
+      "metric": "q",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0232",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "005"
+      ],
+      "cohort": "size",
+      "metric": "q",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0233",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "008"
+      ],
+      "cohort": "size",
+      "metric": "q",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0234",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "002",
+        "005",
+        "008"
+      ],
+      "cohort": "size",
+      "metric": "q",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "mean"
+    },
+    {
+      "key": "curve_0235",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "002",
+        "005",
+        "008"
+      ],
+      "cohort": "size",
+      "metric": "q",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "min"
+    },
+    {
+      "key": "curve_0236",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "002",
+        "005",
+        "008"
+      ],
+      "cohort": "size",
+      "metric": "q",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "max"
+    },
+    {
+      "key": "curve_0237",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "003"
+      ],
+      "cohort": "size",
+      "metric": "q",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0238",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "006"
+      ],
+      "cohort": "size",
+      "metric": "q",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0239",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "009"
+      ],
+      "cohort": "size",
+      "metric": "q",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0240",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "003",
+        "006",
+        "009"
+      ],
+      "cohort": "size",
+      "metric": "q",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "mean"
+    },
+    {
+      "key": "curve_0241",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "003",
+        "006",
+        "009"
+      ],
+      "cohort": "size",
+      "metric": "q",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "min"
+    },
+    {
+      "key": "curve_0242",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "003",
+        "006",
+        "009"
+      ],
+      "cohort": "size",
+      "metric": "q",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "max"
+    },
+    {
+      "key": "curve_0243",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "004"
+      ],
+      "cohort": "size",
+      "metric": "q",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0244",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "007"
+      ],
+      "cohort": "size",
+      "metric": "q",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0245",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "010"
+      ],
+      "cohort": "size",
+      "metric": "q",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0246",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "004",
+        "007",
+        "010"
+      ],
+      "cohort": "size",
+      "metric": "q",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "mean"
+    },
+    {
+      "key": "curve_0247",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "004",
+        "007",
+        "010"
+      ],
+      "cohort": "size",
+      "metric": "q",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "min"
+    },
+    {
+      "key": "curve_0248",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "004",
+        "007",
+        "010"
+      ],
+      "cohort": "size",
+      "metric": "q",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "max"
+    },
+    {
+      "key": "curve_0249",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "002"
+      ],
+      "cohort": "size",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0250",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "005"
+      ],
+      "cohort": "size",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0251",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "008"
+      ],
+      "cohort": "size",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0252",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "002",
+        "005",
+        "008"
+      ],
+      "cohort": "size",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "mean"
+    },
+    {
+      "key": "curve_0253",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "002",
+        "005",
+        "008"
+      ],
+      "cohort": "size",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "min"
+    },
+    {
+      "key": "curve_0254",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "002",
+        "005",
+        "008"
+      ],
+      "cohort": "size",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "max"
+    },
+    {
+      "key": "curve_0255",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "003"
+      ],
+      "cohort": "size",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0256",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "006"
+      ],
+      "cohort": "size",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0257",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "009"
+      ],
+      "cohort": "size",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0258",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "003",
+        "006",
+        "009"
+      ],
+      "cohort": "size",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "mean"
+    },
+    {
+      "key": "curve_0259",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "003",
+        "006",
+        "009"
+      ],
+      "cohort": "size",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "min"
+    },
+    {
+      "key": "curve_0260",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "003",
+        "006",
+        "009"
+      ],
+      "cohort": "size",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "max"
+    },
+    {
+      "key": "curve_0261",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "004"
+      ],
+      "cohort": "size",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0262",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "007"
+      ],
+      "cohort": "size",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0263",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "010"
+      ],
+      "cohort": "size",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0264",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "004",
+        "007",
+        "010"
+      ],
+      "cohort": "size",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "mean"
+    },
+    {
+      "key": "curve_0265",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "004",
+        "007",
+        "010"
+      ],
+      "cohort": "size",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "min"
+    },
+    {
+      "key": "curve_0266",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "004",
+        "007",
+        "010"
+      ],
+      "cohort": "size",
+      "metric": "d_cos",
+      "smooth": true,
+      "first": 1,
+      "last": 711,
+      "aggregation": "max"
+    },
+    {
+      "key": "curve_0267",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "002"
+      ],
+      "cohort": "size",
+      "metric": "g_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0268",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "005"
+      ],
+      "cohort": "size",
+      "metric": "g_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0269",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "008"
+      ],
+      "cohort": "size",
+      "metric": "g_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0270",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "002",
+        "005",
+        "008"
+      ],
+      "cohort": "size",
+      "metric": "g_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "mean"
+    },
+    {
+      "key": "curve_0271",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "002",
+        "005",
+        "008"
+      ],
+      "cohort": "size",
+      "metric": "g_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "min"
+    },
+    {
+      "key": "curve_0272",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "002",
+        "005",
+        "008"
+      ],
+      "cohort": "size",
+      "metric": "g_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "max"
+    },
+    {
+      "key": "curve_0273",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "003"
+      ],
+      "cohort": "size",
+      "metric": "g_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0274",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "006"
+      ],
+      "cohort": "size",
+      "metric": "g_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0275",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "009"
+      ],
+      "cohort": "size",
+      "metric": "g_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0276",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "003",
+        "006",
+        "009"
+      ],
+      "cohort": "size",
+      "metric": "g_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "mean"
+    },
+    {
+      "key": "curve_0277",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "003",
+        "006",
+        "009"
+      ],
+      "cohort": "size",
+      "metric": "g_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "min"
+    },
+    {
+      "key": "curve_0278",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "003",
+        "006",
+        "009"
+      ],
+      "cohort": "size",
+      "metric": "g_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "max"
+    },
+    {
+      "key": "curve_0279",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "004"
+      ],
+      "cohort": "size",
+      "metric": "g_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0280",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "007"
+      ],
+      "cohort": "size",
+      "metric": "g_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0281",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "010"
+      ],
+      "cohort": "size",
+      "metric": "g_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0282",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "004",
+        "007",
+        "010"
+      ],
+      "cohort": "size",
+      "metric": "g_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "mean"
+    },
+    {
+      "key": "curve_0283",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "004",
+        "007",
+        "010"
+      ],
+      "cohort": "size",
+      "metric": "g_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "min"
+    },
+    {
+      "key": "curve_0284",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "004",
+        "007",
+        "010"
+      ],
+      "cohort": "size",
+      "metric": "g_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "max"
+    },
+    {
+      "key": "curve_0285",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "002"
+      ],
+      "cohort": "size",
+      "metric": "d_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0286",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "005"
+      ],
+      "cohort": "size",
+      "metric": "d_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0287",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "008"
+      ],
+      "cohort": "size",
+      "metric": "d_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0288",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "002",
+        "005",
+        "008"
+      ],
+      "cohort": "size",
+      "metric": "d_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "mean"
+    },
+    {
+      "key": "curve_0289",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "002",
+        "005",
+        "008"
+      ],
+      "cohort": "size",
+      "metric": "d_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "min"
+    },
+    {
+      "key": "curve_0290",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "002",
+        "005",
+        "008"
+      ],
+      "cohort": "size",
+      "metric": "d_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "max"
+    },
+    {
+      "key": "curve_0291",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "003"
+      ],
+      "cohort": "size",
+      "metric": "d_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0292",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "006"
+      ],
+      "cohort": "size",
+      "metric": "d_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0293",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "009"
+      ],
+      "cohort": "size",
+      "metric": "d_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0294",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "003",
+        "006",
+        "009"
+      ],
+      "cohort": "size",
+      "metric": "d_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "mean"
+    },
+    {
+      "key": "curve_0295",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "003",
+        "006",
+        "009"
+      ],
+      "cohort": "size",
+      "metric": "d_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "min"
+    },
+    {
+      "key": "curve_0296",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "003",
+        "006",
+        "009"
+      ],
+      "cohort": "size",
+      "metric": "d_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "max"
+    },
+    {
+      "key": "curve_0297",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "004"
+      ],
+      "cohort": "size",
+      "metric": "d_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0298",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "007"
+      ],
+      "cohort": "size",
+      "metric": "d_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0299",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "010"
+      ],
+      "cohort": "size",
+      "metric": "d_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "individual"
+    },
+    {
+      "key": "curve_0300",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "004",
+        "007",
+        "010"
+      ],
+      "cohort": "size",
+      "metric": "d_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "mean"
+    },
+    {
+      "key": "curve_0301",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "004",
+        "007",
+        "010"
+      ],
+      "cohort": "size",
+      "metric": "d_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "min"
+    },
+    {
+      "key": "curve_0302",
+      "figure": "pythia_scale_response",
+      "runs": [
+        "004",
+        "007",
+        "010"
+      ],
+      "cohort": "size",
+      "metric": "d_R",
+      "smooth": false,
+      "first": 1,
+      "last": 711,
+      "aggregation": "max"
+    }
+  ],
+  "figures": {
+    "pythia_lr_response": {
+      "path": "analyses/029-2026-10-30-pythia-adam-diagnostics/figures/pythia_lr_response.pdf",
+      "sha256": "b0150fa19ebc0842e82be9561893c232471d030df37155e01b21be9e7c4292da",
+      "data_bounds_within_axes": true
+    },
+    "pythia_optimizer_streams": {
+      "path": "analyses/029-2026-10-30-pythia-adam-diagnostics/figures/pythia_optimizer_streams.pdf",
+      "sha256": "704e9e505050f82859e1d6dd9aa8b210c5b35700f70751c8796e25e43b68c760",
+      "data_bounds_within_axes": true
+    },
+    "pythia_schedule_response": {
+      "path": "analyses/029-2026-10-30-pythia-adam-diagnostics/figures/pythia_schedule_response.pdf",
+      "sha256": "d39f9dc9d319d22bb4850d9f87da22079c7de14b14163601efc6b7a9fc47d69d",
+      "data_bounds_within_axes": true
+    },
+    "pythia_scale_response": {
+      "path": "analyses/029-2026-10-30-pythia-adam-diagnostics/figures/pythia_scale_response.pdf",
+      "sha256": "76427a17dc36565213762109a2ff84cac91f5c31050a8df377f7829d9c3e9b0b",
+      "data_bounds_within_axes": true
+    }
+  },
+  "plot_arrays_sha256": "22730a809e3e1fc89c10998b3ed4ee525ad23f24ac7792f64975a357d8f29429",
+  "observed_update_rows": 15664,
+  "defined_projected_changes": 15642,
+  "reconstructed_input_pairs": 4977
+}
