@@ -423,14 +423,14 @@ Minas Gerais 35931-008, Brazil (e-mail: fredgfc@ufmg.br; apbraga@ufmg.br).}
 % in the abstract or keywords.
 
 \begin{abstract}
-Stability in stochastic gradient descent (SGD) is typically analyzed using pointwise criteria such as local curvature and gradient-noise statistics. Although these perspectives are useful for characterizing whether an individual update is locally stable, they are less informative about how sequential updates interact with each other. This leaves an important part of optimization unexplained: why some training choices lead to smooth and robust progress, while others produce oscillation, cancellation, or drift. In this paper, we introduce a signal--interference framework for stochastic optimization that makes these trajectory interactions explicit. Through a finite-time decomposition of parameter growth into squared per-sample gradient norms, intra-batch alignment, and cross-step interference, we show that training dynamics depend not only on the strength of individual gradients, but also on how gradients from different mini-batches interact across time, shaping both parameter growth and loss reduction. Using this framework, we study how momentum and weight decay improve the performance of plain SGD, providing additional insight into the mechanisms underlying these optimization strategies. In particular, our results show that plain SGD often operates in destructive regimes, whereas momentum promotes constructive accumulation of updates and weight decay improves robustness by introducing a recency bias. Additionally, we show that batch representativeness is a major driver of trajectory coherence, helping to prevent destructive interference between successive updates. Together, these results help clarify the factors shaping SGD stability beyond local analysis, opening a broader research agenda for interpreting training mechanisms, improving online diagnostics, and designing interference-aware algorithms.
+Parameter updates can reinforce or cancel one another even when training loss continues to decrease. We study this distinction through an exact finite-time decomposition of displacement under stochastic gradient descent (SGD), separating gradient magnitudes from interactions across all temporal lags. Consecutive-gradient cosine provides a local directional diagnostic, while normalized displacement measures cumulative retention of traveled distance. Local expansions connect these quantities to curvature and sampling noise without identifying alignment sign with stability or objective progress. Full-batch experiments exhibit gradient reversal alongside continued loss reduction. Matched mini-batch continuations show that sampling changes both gradient estimates and the paths traversed through the objective. We then extend the diagnostic interpretation to Adam by distinguishing raw gradients, first moments, adaptive directions and actual parameter increments. Language-model measurements and checkpoint-matched schedule interventions demonstrate why coherence at these different stages must be assessed alongside loss. The resulting framework supports the formulation and evaluation of informed learning-rate interventions; it does not prescribe an alignment-maximizing schedule.
 \end{abstract}
 
 
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-Stochastic Gradient Descent, Training Stability, Gradient Interference, Momentum, Weight Decay
+Stochastic Gradient Descent, Adam, Gradient Alignment, Parameter Displacement, Learning-Rate Scheduling
 \end{IEEEkeywords}
 
 
@@ -459,7 +459,7 @@ Stochastic Gradient Descent, Training Stability, Gradient Interference, Momentum
 \input{sections/03-methods}
 \input{sections/04-gd-experiments}
 \input{sections/05-sgd-noise-experiments}
-\input{sections/04-results}
+\input{sections/06-adam-diagnostics}
 \input{sections/05-conclusion}
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -493,7 +493,7 @@ Stochastic Gradient Descent, Training Stability, Gradient Interference, Momentum
 
 %\appendix[Two-Step Loss Reduction]
 \appendices
-\input{sections/06-appendix}
+\input{sections/06-loss-appendix}
 \section{Derivation of the Local Loss Changes}
 \label{appendix:two_step}
 

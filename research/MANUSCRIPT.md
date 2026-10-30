@@ -360,3 +360,25 @@ alignment, displacement retention and objective progress. The former frozen
 figure remains in Analysis027. Both current figures appear on page 10;
 1,140 plotted means and 54 raw source histories pass independent checks.
 The 20-page PDF is rebuilt and visually reviewed. No training or cloud work.
+
+## Adam diagnostic extension, 2026-10-30
+
+[Analysis028](../analyses/028-2026-10-30-adam-diagnostics/README.md) implements
+the requested Section VI after the mini-batch experiments. It distinguishes
+raw-gradient response, momentum growth/rotation, coordinate scaling and actual
+parameter displacement, reusing the existing diagnostics without transferring
+SGD curvature or stability conditions to Adam. Two compact tables summarize
+the existing seven-rate Pythia comparison and matched schedule interventions.
+Clipping qualifies raw-norm propagation, and more positive alignment is kept
+separate from validation improvement. Scheduling is an explicitly unvalidated
+next step, with an evidence/idea map for its later development.
+
+The abstract, introduction and conclusion now follow this argument. The former
+optimizer/image section and sample-level appendix remain on disk but are no
+longer compiled. The retained loss appendices and full-GD details are now
+Appendices A--C; the full-GD tables are regrouped without changing their content.
+Sections III--V and prior figures/evidence are unchanged. All 13 source event
+hashes, 40 displayed values and mathematical checks pass. The 17-page PDF is
+rebuilt and visually reviewed, with Section VI on pages 11--12 and its two
+tables on page 12; no overfull boxes or unresolved references. This supersedes
+the older image-result alignment TODOs above. No training or remote work.

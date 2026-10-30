@@ -1,0 +1,195 @@
+{
+  "script_sha256": "01878047153f5fedd5bae4540b2b0ecacfa40866b8ff743522d7c21f8400fb80",
+  "numpy": "2.5.0",
+  "source_summaries": {
+    "analyses/009-2026-10-09-intermediate-lr/complete-seven-lr/comparison_data.json": "a02a1ba7ace7a7011063767e6e7fb1c25548be0a12be06b6dad6826e5e7b2739",
+    "analyses/004-2026-10-04-lr-schedule-intervention/results.json": "b15537ab31b1a97b80e3fee5ef98392830e7ab5da36da2160c97fe6fea93f682"
+  },
+  "event_sources": {
+    "runs/022-2026-10-08-pythia14m-no-decay-small/artifacts/attempt-01/full-pass/events.jsonl": "37ccd1efeac7a135603776692049eaf0ab21663f596dd9a48c8edf3131d445ef",
+    "runs/024-2026-10-09-pythia14m-no-decay-intermediate-1/artifacts/attempt-01/full-pass/events.jsonl": "50e82cfae99774cf201243c0801b7c4966b6df0ae757cfe3dfe79edec5070d00",
+    "runs/025-2026-10-09-pythia14m-no-decay-intermediate-2/artifacts/attempt-01/full-pass/events.jsonl": "716b507e24b8f3d0078e822e773ae0d069aefe997beb5d8a0de3b9fe3b9425fd",
+    "runs/021-2026-10-08-pythia14m-no-decay-base/artifacts/attempt-01/full-pass/events.jsonl": "15a5a892793d212a524e8401a1f8cc6b5590d76d02ddb76154c89fc4846b510d",
+    "runs/026-2026-10-09-pythia14m-no-decay-intermediate-3/artifacts/attempt-01/full-pass/events.jsonl": "f416ad6258a8f69325afb204fb302848c573c19588f814a98d6f885df0aa49c4",
+    "analyses/009-2026-10-09-intermediate-lr/scratch/completed-metrics/027/events.jsonl": "5c59abc59cadc8f6313a0e3b5a3a9a715c396defb8f87544d3e1e71b698ea58f",
+    "runs/023-2026-10-08-pythia14m-no-decay-large/artifacts/attempt-01/full-pass/events.jsonl": "f26223e5df626e5de6a168bc53bbdb7ca3ad263117cd6754c201bec101dc5393",
+    "runs/011-2026-10-04-pythia14m-lr-original-seed1235/artifacts/attempt-01/full-pass/events.jsonl": "b9a748f4c55509f51b329aebc31cb737b3ab4e050bd382b91d56b754898d59cc",
+    "runs/012-2026-10-04-pythia14m-lr-hold-seed1235/artifacts/attempt-01/full-pass/events.jsonl": "63155f0d702c28058d226f3e0e1c3f5fc3ecf1e49ce3ae68296f89ee5619c250",
+    "runs/013-2026-10-04-pythia14m-lr-accelerated-seed1235/artifacts/attempt-01/full-pass/events.jsonl": "87932b42e4cf368b441cc1ae19d6c83ebb5cf6af739de55b92f1dd1c40c5679d",
+    "runs/014-2026-10-04-pythia70m-lr-original-seed1235/artifacts/attempt-01/full-pass/events.jsonl": "c11408448c1ebf983f4e2829f93d49ea987ed0a79f37e1cb231225db318f00e7",
+    "runs/015-2026-10-04-pythia70m-lr-hold-seed1235/artifacts/attempt-01/full-pass/events.jsonl": "4f181961d61ed4b7a3e2b7acc16e076135c321c6a799a416a10edfce3668774b",
+    "runs/016-2026-10-04-pythia70m-lr-accelerated-seed1235/artifacts/attempt-01/full-pass/events.jsonl": "fe579c0086e4ef00da23241c9c099ce5d7790e917ed7e90111b8cc396790b8ff"
+  },
+  "streams": [
+    {
+      "run": "022",
+      "lr": 0.0001,
+      "hardware": "Spark",
+      "validation_loss": 6.23220715268553,
+      "raw": -0.3342390989507257,
+      "momentum": 0.8669777441333029,
+      "adaptive": 0.9775811501639227,
+      "late_raw_norm": 0.8636912456827528,
+      "late_momentum_norm": 0.16092426518043657,
+      "clipped_updates": 74,
+      "negative_momentum_pairs": 0
+    },
+    {
+      "run": "024",
+      "lr": 0.00021544346900318845,
+      "hardware": "Runpod RTX4090",
+      "validation_loss": 5.600857134166275,
+      "raw": -0.434392254794584,
+      "momentum": 0.5734047487191402,
+      "adaptive": 0.9717436478001544,
+      "late_raw_norm": 1.0467706576633438,
+      "late_momentum_norm": 0.11112607726062215,
+      "clipped_updates": 136,
+      "negative_momentum_pairs": 0
+    },
+    {
+      "run": "025",
+      "lr": 0.00046415888336127773,
+      "hardware": "Runpod RTX4090",
+      "validation_loss": 5.237702190227028,
+      "raw": -0.49457261636821226,
+      "momentum": 0.7624410982170936,
+      "adaptive": 0.9575501425689874,
+      "late_raw_norm": 1.0653900050185878,
+      "late_momentum_norm": 0.14992923096167854,
+      "clipped_updates": 197,
+      "negative_momentum_pairs": 0
+    },
+    {
+      "run": "021",
+      "lr": 0.001,
+      "hardware": "Spark",
+      "validation_loss": 4.763734345360932,
+      "raw": -0.43176706434698786,
+      "momentum": 0.9161204472506714,
+      "adaptive": 0.9423652086170378,
+      "late_raw_norm": 0.906806892436705,
+      "late_momentum_norm": 0.2245671852712776,
+      "clipped_updates": 63,
+      "negative_momentum_pairs": 0
+    },
+    {
+      "run": "026",
+      "lr": 0.0021544346900318843,
+      "hardware": "Runpod RTX4090",
+      "validation_loss": 4.410369959202718,
+      "raw": -0.3100554569882997,
+      "momentum": 0.9562734812464463,
+      "adaptive": 0.9116364750046603,
+      "late_raw_norm": 0.8205633015187579,
+      "late_momentum_norm": 0.2751115384345527,
+      "clipped_updates": 25,
+      "negative_momentum_pairs": 0
+    },
+    {
+      "run": "027",
+      "lr": 0.004641588833612777,
+      "hardware": "Runpod RTX4090",
+      "validation_loss": 4.318091074599746,
+      "raw": -0.36107254297343117,
+      "momentum": 0.8522820496212498,
+      "adaptive": 0.8535237860774225,
+      "late_raw_norm": 1.2278532854740687,
+      "late_momentum_norm": 0.188993637739377,
+      "clipped_updates": 200,
+      "negative_momentum_pairs": 0
+    },
+    {
+      "run": "023",
+      "lr": 0.01,
+      "hardware": "Spark",
+      "validation_loss": 6.636489039178169,
+      "raw": -0.10337298160717442,
+      "momentum": 0.4029492865145764,
+      "adaptive": 0.8540185954545816,
+      "late_raw_norm": 5.565899663870951,
+      "late_momentum_norm": 0.09683954145927831,
+      "clipped_updates": 517,
+      "negative_momentum_pairs": 0
+    }
+  ],
+  "schedules": [
+    {
+      "run": "011-2026-10-04-pythia14m-lr-original-seed1235",
+      "size": "14M",
+      "schedule": "original",
+      "raw": 0.1940552421622686,
+      "validation_loss": 5.182014485720386,
+      "positive_recovery": {
+        "first_center_update": 467,
+        "last_held_center_update": 497,
+        "later_negative_mean": false
+      }
+    },
+    {
+      "run": "012-2026-10-04-pythia14m-lr-hold-seed1235",
+      "size": "14M",
+      "schedule": "hold",
+      "raw": -0.3581510242135213,
+      "validation_loss": 5.067428711292225,
+      "positive_recovery": {
+        "first_center_update": null,
+        "last_held_center_update": null,
+        "later_negative_mean": null
+      }
+    },
+    {
+      "run": "013-2026-10-04-pythia14m-lr-accelerated-seed1235",
+      "size": "14M",
+      "schedule": "accelerated",
+      "raw": 0.330620524356861,
+      "validation_loss": 5.217632993573656,
+      "positive_recovery": {
+        "first_center_update": 402,
+        "last_held_center_update": 432,
+        "later_negative_mean": false
+      }
+    },
+    {
+      "run": "014-2026-10-04-pythia70m-lr-original-seed1235",
+      "size": "70M",
+      "schedule": "original",
+      "raw": -0.10856431051399207,
+      "validation_loss": 4.055890218512298,
+      "positive_recovery": {
+        "first_center_update": 538,
+        "last_held_center_update": 568,
+        "later_negative_mean": true
+      }
+    },
+    {
+      "run": "015-2026-10-04-pythia70m-lr-hold-seed1235",
+      "size": "70M",
+      "schedule": "hold",
+      "raw": -0.3112423923174234,
+      "validation_loss": 3.9845693924336976,
+      "positive_recovery": {
+        "first_center_update": null,
+        "last_held_center_update": null,
+        "later_negative_mean": null
+      }
+    },
+    {
+      "run": "016-2026-10-04-pythia70m-lr-accelerated-seed1235",
+      "size": "70M",
+      "schedule": "accelerated",
+      "raw": -0.0064957462676957,
+      "validation_loss": 4.1041633738881265,
+      "positive_recovery": {
+        "first_center_update": 437,
+        "last_held_center_update": 467,
+        "later_negative_mean": true
+      }
+    }
+  ],
+  "tables": {
+    "analysis028_streams.tex": "70a9acf71c0c4ddade331e11642f386276e09ad0952ab148fa5a3aec1780fba7",
+    "analysis028_schedules.tex": "f3a9a67c4c978f3fcacd588605511884f89605aa5b2e56ae75647d76ad6a688b"
+  },
+  "status": "passed"
+}

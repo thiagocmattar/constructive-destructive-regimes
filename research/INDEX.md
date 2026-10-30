@@ -2,6 +2,16 @@
 
 ## Current state
 
+[Analysis028: directional diagnostics under Adam](../analyses/028-2026-10-30-adam-diagnostics/README.md)
+replaces the old optimizer/image section with a practical extension separating
+raw gradients, moments, adaptive directions and actual parameter motion.
+Two compact tables reuse 13 hash-verified event files; all 40 displayed values
+and the geometric qualifications pass checks. Matched schedule branches show
+alignment recovery without superior validation loss. Clipping limits the
+raw-norm-to-momentum interpretation; diagnostic-driven scheduling remains a
+proposal. Sections III--V and previous evidence are unchanged. The 17-page
+PDF is reviewed; no training, remote work or spending. Next Run187 / Analysis029 / H024.
+
 [Analysis027: mini-batch noise at matched training states](../analyses/027-2026-10-30-minibatch-noise/README.md)
 completed frozen sampling and 297 matched 200-update forks across three MLP
 initializations, three checkpoints and five batches. All full-gradient/loss/HVP

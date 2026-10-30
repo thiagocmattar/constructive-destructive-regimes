@@ -1,3 +1,26 @@
 \section{Conclusion}
 
-The central claim of this paper is that the stability of SGD is not fully explained by pointwise properties of the loss landscape, such as local curvature. Instead, it also depends on temporal interactions between successive mini-batch updates, an aspect that remains comparatively underexplored despite its influence on the training trajectory. To address this gap, we introduced a signal--interference framework for stochastic optimization. By decomposing parameter growth into gradient signal and cross-step interference, the framework brings to light an important property of training dynamics: whether successive updates accumulate constructively or partially overwrite one another. We further derived a formulation to explain such interaction through consecutive-gradient cosine similarity, and used it to analyze plain SGD, momentum, and weight decay. Our results indicate that both stability and performance of SGD depend heavily on the combination of update magnitude and coherence. Momentum improves performance by making successive updates constructive, but it can become unstable if its velocity overshoots. Weight decay improves robustness by reducing the influence of older, stale directions. Overall, our findings complement existing approaches by introducing a temporal perspective on optimization dynamics, together with a practical diagnostic tool for assessing stability based on the correlation between successive updates. Therefore, these contributions provide a more mechanistic understanding of training evolution, helping to bridge the gap between theory and practice in modern machine learning.
+The displacement formulation distinguishes the magnitude of individual updates,
+their local directional interaction and their cumulative accumulation. For
+plain SGD, the exact decomposition retains all temporal lags, while consecutive
+cosine provides a tractable local observation. The curvature and sampling
+relations clarify how that observation can change without determining either
+cumulative displacement or loss improvement. The full-batch and mini-batch
+experiments illustrate these distinctions: gradient reversal can coexist with
+objective progress, and weaker reversal need not improve displacement retention
+or the attained loss.
+
+Under Adam, the same measurements acquire different meanings at successive
+stages of the optimizer. Raw gradients describe the sampled loss response;
+first moments expose temporal averaging; adaptive directions incorporate
+coordinate scaling. Parameter displacement additionally depends on the applied
+learning rates and weight decay. The language-model comparisons show why
+positive momentum or adaptive alignment cannot serve as a universal performance
+criterion, and why restoring positive raw alignment through decay need not
+improve the final validation loss.
+
+The practical contribution is a framework for interpreting these measurements
+together and using them to formulate controlled interventions. Developing a
+scheduler requires a further step: demonstrating that the diagnostics improve
+rate decisions beyond recent loss and known training settings, at matched
+budgets and across independent runs. That evaluation remains future work.

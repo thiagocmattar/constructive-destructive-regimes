@@ -12,7 +12,8 @@ pairwise inner products, defines pairwise cosine `rho_{u,t}`, consecutive
 cosine `rho_t`, and normalized displacement `R_T = B_T/A_T`,
 and connects projected gradient change to directional curvature and sampling
 noise. The older absolute parameter-norm and sample-level `C/S1/S2/S3`
-decomposition remains in Appendix A for the existing image-classification results.
+decomposition is preserved in the uncompiled legacy appendix; the active draft
+now follows the SGD experiments with practical directional diagnostics under Adam.
 
 Its practical diagnostic `rho_t` is the cosine similarity between consecutive
 mini-batch gradients evaluated along the evolving trajectory. Positive/negative
@@ -39,3 +40,13 @@ Before implementation, decide:
 
 These choices remain open. Preserve the distinction between manuscript notation
 and whichever operational definitions the new experiments eventually use.
+
+The [Adam extension](../analyses/028-2026-10-30-adam-diagnostics/README.md)
+reuses norms, adjacent cosine and accumulation ratios for explicitly identified
+raw-gradient, first-moment and adaptive-direction streams. Under clipping,
+moments use the clipped optimizer input. Stream accumulation is not actual
+parameter displacement: the latter requires applied increments, including LR
+weights and decay. Raw-gradient changes observe the sampled loss response along
+the optimizer's chosen path; the SGD directional-curvature interpretation does
+not carry over automatically. These distinctions clarify measurement semantics
+without defining a new stability threshold or validated scheduling rule.

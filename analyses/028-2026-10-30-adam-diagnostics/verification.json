@@ -1,0 +1,58 @@
+{
+  "status": "passed",
+  "script_sha256": "4b4dbe6f227d479bba0ee9aba92b0f2a2ce9680460d45dd7af76dfde093a71a9",
+  "evidence_sha256": "f0205f18f7d6c8d035ebb842ae4c48192c2d42fe22e40c07c4d42a1ab410e5f3",
+  "math_checks": {
+    "quadratic_gradient_response_max_error": 8.881784197001252e-16,
+    "fixed_hessian_lr_response": [
+      0.9997585707353875,
+      -0.7592565989199306
+    ],
+    "momentum_rotation_without_sign_reversal": [
+      0.9938837346736189,
+      0.6689647316224496
+    ],
+    "raw_growth_can_be_removed_by_clipping": true,
+    "momentum_can_reverse": true,
+    "bias_correction_cosine_invariant_ratio_not_invariant": true,
+    "coordinate_scaling_can_rotate_constant_momentum": true,
+    "variable_lr_changes_cumulative_retention": true
+  },
+  "table_rows_checked": 10,
+  "table_cosine_loss_values_checked": 40,
+  "unchanged_sources": [
+    "sections/03-methods.tex",
+    "sections/04-gd-experiments.tex",
+    "sections/05-sgd-noise-experiments.tex",
+    "sections/04-results.tex",
+    "sections/06-appendix.tex"
+  ],
+  "adam_section_page": 11,
+  "tables_page": 12,
+  "gd_appendix_text_and_tables_preserved": true,
+  "preserved_assets": {
+    "manuscript/draft/figures/analysis024/eos_gd_alignment_displacement_3k.pdf": "98e2f60a2ce968e9baa54a6a5e2ac8f127f81360ce99f4430f3de505bc173d47",
+    "manuscript/draft/figures/analysis024/eos_gd_loss_log_3k.pdf": "8d288d70f7383072df599ec71a46b4c0e20cf43c300766872e245e7458e5813b",
+    "manuscript/draft/figures/analysis024/eos_gd_norms_projected_change_3k.pdf": "379eef3aaad6280ae50ee7a514ca0ba01a51184c189af661879adb52bbec3a33",
+    "manuscript/draft/figures/analysis024/eos_gd_rho_3k.pdf": "4945f01e974c014f3c8e33f374620cca0e0cbc9ab8de64ac7e56ab0e6e7a7b0c",
+    "manuscript/draft/figures/analysis027/batch_size_fixed_parameters.pdf": "ddd538478c74b22735721e7e123a958df83534c2b73338f3c6f583a0a9aa30a2",
+    "manuscript/draft/figures/analysis027/batch_size_sgd_outcomes.pdf": "3d5f68dc5b83b4a08bf927e72a9054f6cf58dca82135a251313a835ca71406c9",
+    "manuscript/draft/figures/analysis027/frozen_calibration.pdf": "d006e63017e50df583378d6ce6363bf6cc7834367f47d3fbb328967e6c37872d",
+    "manuscript/draft/figures/analysis027/sgd_alignment_from_state1000.pdf": "298f54cdbfb4c318398877be8c766f128266e4874c6490c8c13b89768ae98d25",
+    "manuscript/draft/figures/analysis027/sgd_full_loss.pdf": "9abdc7630417f883a9d91ed352c2acc1b23aa1ab993eef90d0e5de49a26ab620",
+    "manuscript/draft/figures/analysis027/sgd_geometry.pdf": "7b71750e690bc3abbff02ec7c13f658441a509aef9a8aab5728b429728c44574",
+    "manuscript/draft/figures/analysis027/sgd_geometry_raw.pdf": "c09bdd1ca4efebf5cc0c8166866463de05a2ee34c99b6a8ff568b9899f5cbc87",
+    "manuscript/draft/figures/analysis027/sgd_proxy_validation.pdf": "6b29dbdaf58928fbb149e8e64f30ee01f4b7fcf404eaed88262b0e383d7d1edb",
+    "manuscript/draft/tables/analysis024_endpoints.tex": "22db9bf6738c7326e10f6d098c4554f2abd46c742e7b89a49b4acb8aa8414fc7",
+    "manuscript/draft/tables/analysis024_loss_audit.tex": "88d4d3d74733c1dd733024aad1cf63c32e7db576bd4542d2c085de81b977d7bf",
+    "manuscript/draft/tables/analysis024_spectral_context.tex": "ef682f6f1786a5e34b9eef54754f46279c42dc7d4e5957d8a796631eee1ecb90",
+    "manuscript/draft/tables/analysis024_temporal_accounting.tex": "7d0a145131c535bc6c36840f7cf46028a09564e4d82158a484ed3211c176db94",
+    "manuscript/draft/tables/analysis027_contrasts.tex": "4a40553ba0385c1fee2302bf407bf6b10fd18a97dd27c5f87952aefe9aeef5a2",
+    "manuscript/draft/tables/analysis027_hvp_errors.tex": "90858ddc0298c6b4ac62bda76a6ee511dcb53bb63e735860172468147e0e9f8d"
+  },
+  "pages": 17,
+  "overfull_boxes": 0,
+  "unresolved_references": 0,
+  "pdf_sha256": "f12a71b57da1b2b5057781b2a2b586b6eca6116e566f889c89fa3646c3e6ed6a",
+  "section_sha256": "3d01b5f3bf72fce5b2b57677d171c19bcc99452c8b0e44bfa7a123ae96f9cdbb"
+}

@@ -43,5 +43,7 @@
 
 | [027](027-2026-10-30-minibatch-noise/README.md) | H023 sampling noise at matched MLP training states | Runs185/186; 184,320 frozen draws, 297 forks, 1,188 HVP pairs | Complete; Section V uses batch-size outcomes and a temporal view; 1,140 plotted means verified; frozen calibration condensed; original diagnostics retained; all evidence retrieved; task cloud deleted, USD0.87 provisional; Spark untouched | [Report](027-2026-10-30-minibatch-noise/REPORT.md) |
 
-Next analysis: `028-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
+| [028](028-2026-10-30-adam-diagnostics/README.md) | Practical Adam extension: raw gradients, moments, adaptive directions and informed scheduling | Existing Analyses004/008/009; Analysis025 mapped for later development | Complete manuscript synthesis; 13 event files and 40 displayed values verified; 17-page draft reviewed; no new training or cloud | [Argument and idea map](028-2026-10-30-adam-diagnostics/README.md), [table evidence](028-2026-10-30-adam-diagnostics/observations/001-adam-extension.md); Section VI and two compact tables |
+
+Next analysis: `029-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
 an analysis may use manuscript or external inputs without referencing a run.
