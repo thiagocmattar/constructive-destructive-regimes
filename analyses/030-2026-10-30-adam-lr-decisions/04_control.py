@@ -14,11 +14,20 @@ sys.path.insert(0, str(ROOT))
 from tools.artifact_inventory import verify
 
 CLI = Path(__import__("shutil").which("runpodctl"))
+NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0)
 
 
 def sha(path):
     with Path(path).open("rb") as stream:
         return hashlib.file_digest(stream, "sha256").hexdigest()
+
+
+def assigned_rows(worker):
+    rows = json.loads((HERE / 'cohort.json').read_text())
+    path = HERE / 'parallel_assignment.json'
+    assignment = json.loads(path.read_text()) if path.exists() else {r['run']: r['worker'] for r in rows}
+    assert set(assignment) == {r['run'] for r in rows}
+    return [r for r in rows if assignment[r['run']] == worker]
 
 
 def save(path, record):
@@ -28,7 +37,7 @@ def save(path, record):
 
 
 def cli(*args, check=True):
-    result = subprocess.run([str(CLI), *args], capture_output=True, text=True, timeout=45)
+    result = subprocess.run([str(CLI), *args], capture_output=True, text=True, timeout=45, creationflags=NO_WINDOW)
     if check and result.returncode:
         raise RuntimeError(result.stderr)
     return result
@@ -76,7 +85,7 @@ record['observed_at']=time.time()
 print(json.dumps(record))
 '''.replace("WORKER", str(pod["worker"]))
     result = subprocess.run(transport(pod, lease) + [f"{pod['user']}@{pod['host']}", "python3 -"],
-        input=script, capture_output=True, text=True, timeout=45)
+        input=script, capture_output=True, text=True, timeout=45, creationflags=NO_WINDOW)
     if result.returncode:
         raise RuntimeError(result.stderr)
     return json.loads(result.stdout)
@@ -86,7 +95,7 @@ def copy_file(pod, lease, relative, destination):
     remote = "/workspace/constructive/" + relative
     destination.parent.mkdir(parents=True, exist_ok=True)
     result = subprocess.run(transport(pod, lease, scp=True) + ["-q",
-        f"{pod['user']}@{pod['host']}:{remote}", str(destination)], capture_output=True, text=True, timeout=2700)
+        f"{pod['user']}@{pod['host']}:{remote}", str(destination)], capture_output=True, text=True, timeout=2700, creationflags=NO_WINDOW)
     if result.returncode:
         raise RuntimeError(result.stderr)
 
@@ -145,7 +154,11 @@ def retrieve_calibration(pod, lease):
             assert target.stat().st_size == item['bytes'] and sha(target) == item['sha256']
         assert verify(destination, destination / 'inventory.json', strict=True)['verified']
         receipts.append(dict(verified=True,inventory_sha256=sha(destination / 'inventory.json'),files=len(inventory['files'])))
-    for name in [f"environment-lock-{pod['worker']}.txt", f"setup-{pod['worker']}.log", f"worker-{pod['worker']}.log", 'remote-guard.jsonl']:
+    names=[f"environment-lock-{pod['worker']}.txt", f"setup-{pod['worker']}.log", f"worker-{pod['worker']}.log", 'remote-guard.jsonl']
+    if (HERE / 'parallel_assignment.json').exists():
+        names += [f"parallel-qualification-{pod['worker']}.json"]
+        if pod['worker']==0:names += ['parallel-worker-0.log','worker-0-before-parallel.json']
+    for name in names:
         copy_file(pod, lease, 'worker-control/' + name, HERE / 'scratch' / name)
     save(HERE / f"calibration-retrieval-worker{pod['worker']}.json", dict(verified=True,receipts=receipts))
 
@@ -179,17 +192,18 @@ def monitor(lease, once):
     accepted = json.loads((HERE / "scratch/retrieved.json").read_text())["runs"] if (HERE / "scratch/retrieved.json").exists() else []
     expected = {r["run"] for r in json.loads((HERE / "cohort.json").read_text())}
     while True:
+        lease = json.loads((HERE / 'scratch/lease.json').read_text())
         snapshots = []
         for pod in lease["pods"]:
             try:
                 snapshot = remote_status(pod, lease)
                 if snapshot.get('calibration', {}).get('by_size'):
-                    assigned_rows = [r for r in json.loads((HERE / 'cohort.json').read_text()) if r['worker'] == pod['worker']]
+                    worker_rows = assigned_rows(pod['worker'])
                     rates = {size: max(record['seconds']) for size, record in snapshot['calibration']['by_size'].items()}
                     active = snapshot.get('manifest', {})
                     active_id = active.get('run_id')
                     remaining = 0.
-                    for row in assigned_rows:
+                    for row in worker_rows:
                         if row['run'] in snapshot['completed']:
                             continue
                         steps = 128
@@ -210,7 +224,7 @@ def monitor(lease, once):
                             raise ValueError("Worker returned an unknown run")
                         if name not in accepted:
                             retrieve(pod, lease, name, accepted)
-                    assigned = {r["run"] for r in json.loads((HERE / "cohort.json").read_text()) if r["worker"] == pod["worker"]}
+                    assigned = {r['run'] for r in assigned_rows(pod['worker'])}
                     if snapshot["status"] == "completed" and assigned <= set(accepted):
                         retrieve_calibration(pod, lease)
                         assert_owned(pod)

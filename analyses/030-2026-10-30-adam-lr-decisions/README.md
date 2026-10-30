@@ -1,10 +1,11 @@
 # Adam diagnostics and matched learning-rate decisions
 
 Analysis030 / H024. Authorized on October 30, 2026: implement and run the
-matched-checkpoint experiment using Runpod. Status: both sizes passed remote replay
-qualification; the18 scientific continuations are running sequentially on the
-L40S. First scientific updates and every diagnostic stream were observed; no
-completed-arm result or scientific conclusion is available yet.
+matched-checkpoint experiment using Runpod. The user subsequently authorized
+parallel execution at increased cost. Three L40S workers are allocated, with
+one seed's six matched continuations assigned to each. The original worker
+continues its queue while the additional workers finish staging and replay qualification.
+No cohort result or scientific conclusion is available yet.
 
 ## Scientific comparison
 
@@ -106,8 +107,8 @@ and analysis code do not alter the worker's scientific inputs.
 The first unused4090 allocation was removed after matching capacity disappeared;
 the RTX6000 Ada replacement failed its10min readiness deadline and was also removed.
 No scientific updates or input staging occurred on either worker. The same18 arms
-are assigned sequentially to one48GB L40S, live quoteUSD1.09/h in US-MO-1.
-The aggregate cap staysUSD15 including retries; the time guard is12h from the first
+were initially assigned sequentially to one48GB L40S, live quoteUSD1.09/h in US-MO-1.
+The initial aggregate cap wasUSD15 including retries; its time guard was12h from the first
 allocation, with training bounded to10.5h and90min reserved for final retrieval. The
 initial6--9h estimate was provisional until the three-update calibration at each size.
 Calibration now passes: warmed update times are9.44s/12.69s for14M/70M,
@@ -128,6 +129,38 @@ This infrastructure-only addition was deployed separately from the frozen
 scientific source archive; its hash is in `remote_guard_deployment.json`.
 If the deadline interrupts retrieval, recovery is preserved and storage billing
 is reported; the guard does not delete unverified evidence.
+
+### Authorized parallel expansion
+
+At17:28 BRT on October30, the user-authorized expansion replaced the previous
+cap/deadline with an agent-selected USD25 total-task cap and a five-hour expanded
+allocation window. Training must finish by21:28 BRT; all three task pods have
+independent remote guards for22:28 BRT, reserving one hour for final retrieval.
+The live L40S quote remains USD1.09 per GPU-hour: USD3.27/h for three GPUs plus
+approximately USD0.0671/h of provisioned storage (400GB persistent pod volumes
+and90GB container disks). These are provisional estimates, not reconciled billing.
+The initial planning ETC is3--4h from expansion; each added worker must pass
+the original historical replay tolerances and measured time/memory gate first.
+
+`parallel_assignment.json` places Runs187--192,193--198 and199--204 on workers0,1,2.
+Both model sizes and all three LR multipliers for a seed stay on the same GPU.
+The executed source/config archive and original cohort remain immutable;
+`09_parallel_worker.py` supplies only queue allocation and adoption of the already
+running Run187 child. `parallel_handover.json` records the preserved process.
+Input archives transfer directly between task pods and undergo SHA-256 checking
+before extraction. All18 runs retain identical scientific inputs and definitions.
+The monitor retrieves and verifies artifacts while other arms run, stops each
+worker after its six accepted arms, and deletes task storage only after acceptance.
+
+Twelve local checks now pass, including the seed-preserving partition and
+Windows subprocess suppression checks.
+
+Local background SSH/SCP and CLI children initially opened Windows consoles.
+All local subprocess launch sites now explicitly suppress window creation.
+The guard, monitor, finalizer and staging supervisor were replaced; existing
+peer-copy SSH processes and the remote scientific child were preserved.
+The staging adoption mode finishes the existing copies without reallocating GPUs
+or reinstalling the tested environments. Unrelated terminals/processes are untouched.
 
 `06_analyze.py` implements the prespecified reductions and seed-held-out analysis.
 `07_finalize.py` waits for verified retrieval/cleanup, then builds the report,

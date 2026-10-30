@@ -17,7 +17,7 @@ def main():
                 (HERE/'scratch/finalizer-status.json').write_text(json.dumps(dict(status='waiting_for_incomplete_retrieval',at_epoch=time.time())),encoding='utf-8')
                 return
         time.sleep(30)
-    subprocess.run([sys.executable,str(HERE/'06_analyze.py')],cwd=ROOT,check=True)
+    subprocess.run([sys.executable,str(HERE/'06_analyze.py')],cwd=ROOT,check=True,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
     import fitz
     scratch=HERE/'scratch/renders';scratch.mkdir(exist_ok=True)
     checks=[]

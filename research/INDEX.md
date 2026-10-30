@@ -6,8 +6,9 @@
 has launched eighteen matched128-update forks from six retained Pythia14M/70M states.
 H024 tests later loss benefit and exploratory held-seed prediction; common AdamW
 shrinkage, full validation, raw/clipped/moment/adaptive/actual-update diagnostics.
-Nine local tests and both GPU replay checks pass. The L40S queue is running under
-an agent-selected USD15/twelve-hour cap; final outcomes remain pending. Spark untouched.
+Twelve local tests pass. Three L40S workers are allocated after user-authorized
+parallelization; the original queue runs while added workers stage/replay-check.
+Agent-selected USD25 total cap, five-hour expansion window; outcomes pending. Spark untouched.
 Next Run205 / Analysis031 / H025.
 
 [Analysis029: Pythia diagnostics across LR, schedule and size](../analyses/029-2026-10-30-pythia-adam-diagnostics/REPORT.md)

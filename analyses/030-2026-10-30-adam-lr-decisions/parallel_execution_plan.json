@@ -1,0 +1,20 @@
+{
+  "user_authorization": "Are you running on a single GPU? You can parallelize it and speed up the results. Even if it increases the cost.",
+  "created_at_epoch": 1793391955.6070173,
+  "planned_workers": 3,
+  "gpu": "NVIDIA L40S",
+  "live_gpu_hourly_usd": 1.09,
+  "maximum_total_task_usd": 25,
+  "maximum_expansion_hours": 5,
+  "training_margin_hours": 1,
+  "allocation": "One seed per worker; both sizes and all three LR arms together",
+  "scientific_changes": false,
+  "transfer": "Verified existing input archive via temporary task-only SSH key between pods",
+  "storage": "Existing200GB plus100GB persistent pod volume per additional worker; retrieve and hash-check before deletion",
+  "planning_etc_hours": [
+    3,
+    4
+  ],
+  "etc_caveat": "Includes provisional staging/retrieval allowances; new workers require replay checks",
+  "frozen_source_sha256": "82a30a33335df3b65727ef773b633450b760f1917f516f9a186b6e59234d8a81"
+}

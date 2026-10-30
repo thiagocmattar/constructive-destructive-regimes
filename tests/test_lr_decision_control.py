@@ -54,12 +54,31 @@ def test_remote_status_program_compiles_and_has_bounded_transport(monkeypatch, t
         ast.parse(kwargs["input"])
         assert "WORKER" not in kwargs["input"]
         assert kwargs["timeout"] == 45
+        assert kwargs["creationflags"] == getattr(subprocess, "CREATE_NO_WINDOW", 0)
         assert command[0] == "ssh"
         return subprocess.CompletedProcess(command, 0, '{"status":"running"}', "")
     monkeypatch.setattr(control.subprocess, "run", inspect)
     result = control.remote_status(dict(worker=0, user="root", host="127.0.0.1", port=22),
                                    dict(ssh_key=str(tmp_path / "key")))
     assert result["status"] == "running"
+
+
+def test_local_cli_and_transfers_do_not_create_windows(monkeypatch, tmp_path):
+    calls=[]
+    def inspect(command, **kwargs):
+        assert kwargs['creationflags'] == getattr(subprocess, 'CREATE_NO_WINDOW', 0)
+        calls.append(command[0])
+        return subprocess.CompletedProcess(command, 0, b'' if isinstance(kwargs.get('input'), bytes) else '', '')
+    monkeypatch.setattr(control.subprocess, 'run', inspect)
+    pod=dict(worker=0, user='root', host='127.0.0.1', port=22)
+    lease=dict(ssh_key=str(tmp_path/'key'))
+    control.cli('pod', 'list')
+    control.copy_file(pod, lease, 'test.txt', tmp_path/'test.txt')
+    launch_spec=importlib.util.spec_from_file_location('hidden_launch', PATH.with_name('05_launch.py'))
+    launch=importlib.util.module_from_spec(launch_spec);launch_spec.loader.exec_module(launch)
+    launch.ssh(pod, lease, 'true\n')
+    launch.upload(pod, lease, tmp_path/'test.txt', '/tmp/test.txt')
+    assert len(calls)==4
 
 
 def test_remote_guard_uses_only_matching_container_identity():

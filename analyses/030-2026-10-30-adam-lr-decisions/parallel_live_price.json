@@ -1,0 +1,37 @@
+{
+  "epoch": 1793392091.6055188,
+  "quote": {
+    "available": true,
+    "communityCloud": true,
+    "communityPricePerHr": 0.79,
+    "dataCenterAvailability": [
+      {
+        "dataCenterId": "EUR-IS-2",
+        "stockStatus": "Low"
+      },
+      {
+        "dataCenterId": "OC-AU-1",
+        "stockStatus": "Low"
+      },
+      {
+        "dataCenterId": "US-MO-1",
+        "stockStatus": "Low"
+      },
+      {
+        "dataCenterId": "US-NC-1",
+        "stockStatus": "Low"
+      },
+      {
+        "dataCenterId": "US-TX-4",
+        "stockStatus": "Low"
+      }
+    ],
+    "displayName": "L40S",
+    "gpuId": "NVIDIA L40S",
+    "memoryInGb": 48,
+    "secureCloud": true,
+    "securePricePerHr": 1.09,
+    "stockStatus": "Low"
+  },
+  "source": "live runpodctl3.0.1 gpu list"
+}

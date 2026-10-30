@@ -14,11 +14,11 @@ control=importlib.util.module_from_spec(spec);spec.loader.exec_module(control)
 
 def cli(*args):return json.loads(control.cli(*args).stdout)
 def ssh(pod,lease,script,timeout=60):
-    r=subprocess.run(control.transport(pod,lease)+[f"{pod['user']}@{pod['host']}",'bash -s'],input=script.encode('utf-8'),capture_output=True,timeout=timeout)
+    r=subprocess.run(control.transport(pod,lease)+[f"{pod['user']}@{pod['host']}",'bash -s'],input=script.encode('utf-8'),capture_output=True,timeout=timeout,creationflags=control.NO_WINDOW)
     if r.returncode:raise RuntimeError((r.stderr+r.stdout).decode(errors='replace'))
     return r.stdout.decode('utf-8')
 def upload(pod,lease,local,remote):
-    r=subprocess.run(control.transport(pod,lease,scp=True)+['-q',str(local),f"{pod['user']}@{pod['host']}:{remote}"],capture_output=True,text=True,timeout=3600)
+    r=subprocess.run(control.transport(pod,lease,scp=True)+['-q',str(local),f"{pod['user']}@{pod['host']}:{remote}"],capture_output=True,text=True,timeout=3600,creationflags=control.NO_WINDOW)
     if r.returncode:raise RuntimeError(r.stderr)
 
 def main():
@@ -46,7 +46,7 @@ def main():
         volume=dict(kind='pod-volume',dataCenterId=dc,size=200,name='task pod attached persistent storage')
         lease['volume']=volume;control.save(lease_path,lease)
         guardlog=(HERE/'scratch/guard.log').open('w')
-        guard=subprocess.Popen([sys.executable,str(HERE/'04_control.py'),'guard'],cwd=ROOT,stdin=subprocess.DEVNULL,stdout=guardlog,stderr=subprocess.STDOUT,creationflags=subprocess.CREATE_NO_WINDOW|subprocess.DETACHED_PROCESS)
+        guard=subprocess.Popen([sys.executable,str(HERE/'04_control.py'),'guard'],cwd=ROOT,stdin=subprocess.DEVNULL,stdout=guardlog,stderr=subprocess.STDOUT,creationflags=control.NO_WINDOW)
         control.save(HERE/'scratch/guard-process.json',dict(pid=guard.pid))
     try:
         for i in range(1):
@@ -98,7 +98,7 @@ echo $!
             pid=ssh(pod,lease,script).strip()
             control.save(HERE/f'scratch/worker-{i}-launch.json',dict(pid=pid,at_epoch=time.time()))
         control.save(HERE/'execution.json',dict(status='launched',pods=[dict(id=p['id'],worker=p['worker'],name=p['name']) for p in lease['pods']],volume=volume,started_at_epoch=lease['created_at_epoch'],maximum_total_usd=15,hard_deadline_epoch=lease['hard_deadline_epoch'],training_deadline_epoch=lease['training_deadline_epoch']))
-        subprocess.run([sys.executable,str(HERE/'04_control.py'),'monitor'],check=True,cwd=ROOT)
+        subprocess.run([sys.executable,str(HERE/'04_control.py'),'monitor'],check=True,cwd=ROOT,creationflags=control.NO_WINDOW)
     except Exception as exc:
         control.save(HERE/'scratch/launch-error.json',dict(error=repr(exc),at_epoch=time.time()))
         for pod in lease['pods']:
