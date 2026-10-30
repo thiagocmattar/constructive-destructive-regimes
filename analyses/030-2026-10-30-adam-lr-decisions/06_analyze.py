@@ -119,7 +119,7 @@ def main():
     for method in methods:
         values=[d['held_regret'] if method=='Hold LR' else d['choices'][method]['regret'] for d in decisions]
         lines.append(f'- {method}: {np.mean(values):.6f}.')
-    lines+=['','No significance test or controller-validation claim is made. All predictions, including failures to select the best arm, are retained in results.json. Figures require visual review before publication.']
+    lines+=['','Predictors observe updates2--16 from every candidate branch. This tests early recognition after intervention, not selection using only the common checkpoint. Probing all three rates for16 updates and completing the chosen128-update branch would require160 total updates,25% more than one predetermined rate before evaluation overhead. The regret comparison is not an equal-compute scheduler comparison.','','No significance test or controller-validation claim is made. All predictions, including failures to select the best arm, are retained in results.json. Figures require visual review before publication.']
     (HERE/'REPORT.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
     observations=HERE/'observations';observations.mkdir(exist_ok=True)
     observation='''# H024 matched LR figures
@@ -163,6 +163,10 @@ reference, not an oracle beyond these rates; this pilot does not validate a sche
 The fixed-LR comparator chooses its multiplier only on each fold's training seeds;
 it tests whether diagnostics add value beyond ordinary state-independent LR tuning.
 If every state favors the same rate, conditional decision value is unestablished.
+Predictions use each candidate's post-intervention updates2--16; all three early
+branches are observed. Deploying this selection procedure would cost160 updates
+to produce a128-update selected branch, before evaluation overhead. These loss
+regrets do not establish an equal-compute benefit or a checkpoint-only policy.
 
 Visual review: pending. Automated text-bound checks and preview generation are
 recorded separately in figure_checks.json; no figure is yet approved for the paper.

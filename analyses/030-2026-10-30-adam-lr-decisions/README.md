@@ -78,6 +78,15 @@ information beyond ordinary LR tuning, not merely improvement over holding LR.
 It was added during input transfer, before any new training outcomes existed;
 the scientific runs and the ridge-feature/penalty contract were unchanged.
 
+These predictors observe each candidate's response during updates2--16. They
+test early recognition of a beneficial intervention, not selection from the
+common checkpoint alone. A deployment that probes all three candidates for16
+updates and then completes the chosen128-update branch would consume160 total
+updates, versus128 for a single predetermined rate (25% more training compute,
+before evaluation overhead). The regret plot compares final branch losses and
+does not demonstrate an equal-compute scheduler improvement. Directional
+associations also do not identify a causal mediator or Adam curvature.
+
 ## Execution
 
 Run IDs187--204, calibration uses separately labeled mechanics outputs under
