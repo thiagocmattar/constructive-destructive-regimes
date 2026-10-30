@@ -1,7 +1,11 @@
 # Mini batch noise experiments and manuscript proposal
 
-Date: 2026-10-30. Status: proposed scientific design; no training launched and
-no changes applied to the working manuscript.
+Date: 2026-10-30. Status: approved by the user, including Runpod execution because
+Spark is busy. [Analysis027](../../analyses/027-2026-10-30-minibatch-noise/README.md)
+owns the completed implementation and [results](../../analyses/027-2026-10-30-minibatch-noise/REPORT.md).
+The reviewed evidence is now in Section V and Appendix E of the working draft.
+Task cloud resources are deleted after verified retrieval; Spark stayed untouched.
+The text below preserves the original proposal and its pre-execution status.
 
 The strongest addition would establish **when consecutive-gradient geometry
 reflects sampling variability, and when it reflects changes along the training

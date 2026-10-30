@@ -166,3 +166,16 @@ removing preconditioning; this supports an optimizer-mediated contribution under
 this norm schedule. It does not identify a unique200-250 trigger, an optimized
 momentum LR comparison, a capacity effect, or Hessian curvature. All artifacts
 are verified locally; three PDFs reviewed; task resources deleted; USD11.42 posted.
+
+[Analysis027's matched-state mini-batch experiment](../../analyses/027-2026-10-30-minibatch-noise/REPORT.md)
+uses three CIFAR-10 MLP initializations, three checkpoints and five batch sizes
+at LR 0.02, with all 5k-example reference gradients/losses/HVPs. Frozen variance
+and noise-projection targets agree within 0.50%/0.74%; the cosine approximation
+has maximum absolute error 0.00745 and detectable bias in 21/36 stochastic cells.
+At the initial fork, batch 32 sampled cosine averages -0.141 while full gradients
+along those same SGD states average +0.353. At the later fork, cosine closer to
+zero does not improve R or loss uniformly. Offline noise correction reduces the
+batch 32 median directional-HVP discrepancy 0.7467 to 0.0030. One objective/LR and
+200-update forks establish diagnostic interpretation limits, not stability,
+generalization or LLM batch requirements. Historical reconstruction does not
+qualify; new matched controls replay exactly. Full evidence and five PDFs are verified.

@@ -1,0 +1,72 @@
+{
+  "path": "cache\\minibatch-noise-preparation\\inputs.tar.gz",
+  "bytes": 176470629,
+  "sha256": "ca94468f5f0e67af301795e47847905051c7670b5a744aa60c2a76a5b1c256b3",
+  "source_commit": "a1b105335db48b09004c5e024b964cd3e95a144c",
+  "files": {
+    "src/cifar_eos/__init__.py": {
+      "bytes": 80,
+      "sha256": "4cfbf7fc078bcae86b6ddfcbb2a9d87619b6350302c07379b3f4df21fe7eb27c"
+    },
+    "src/cifar_eos/core.py": {
+      "bytes": 11786,
+      "sha256": "c9fab65d551740149d7ff3a79e4b3af1e87ff5e7f3ba7c5cc62201f216434138"
+    },
+    "src/eos_tasks/__init__.py": {
+      "bytes": 78,
+      "sha256": "b827b6bf61d01a83281bbff65204315279e6d343f962a1bbe4e52d5a7f67b86e"
+    },
+    "src/eos_tasks/task.py": {
+      "bytes": 6899,
+      "sha256": "28a15439e22ec82e05da41497b2d6c9a33171f29a9e13413d8167804d124c6b0"
+    },
+    "src/eos_tasks/noise.py": {
+      "bytes": 3104,
+      "sha256": "c94a139f40cd1e632ca4b68c15a0407cd2523e9ac8de0144d51a9a89b7eca6bb"
+    },
+    "runs/186-2026-10-30-mlp-minibatch-noise/01_experiment.py": {
+      "bytes": 20653,
+      "sha256": "ba5c9c132f58993a79edb5172a49094008c81a9dc31baa37456f389d734654ea"
+    },
+    "runs/186-2026-10-30-mlp-minibatch-noise/config.json": {
+      "bytes": 3079,
+      "sha256": "106bb149e32f7c3ea407c32868e2e45c0dd397447bd5cf83a0496c20a38f7d9b"
+    },
+    "runs/185-2026-10-30-minibatch-noise-calibration/01_validate.py": {
+      "bytes": 7049,
+      "sha256": "3deee53b80fd158f902371a9084e1c8ab1793dcbdf890f48bee03e741dd1b888"
+    },
+    "tools/artifact_inventory.py": {
+      "bytes": 4906,
+      "sha256": "b8fcccad1f3b6b0566d544daa27d75a9b120be1bdedb7191f78f9277f964e27e"
+    },
+    "cache/cifar10-eos/data.pt": {
+      "bytes": 184491697,
+      "sha256": "2e4761c655a66a7e578efeb30950b9e39deeafd618f519cbc4ec823ff867985e"
+    },
+    "cache/cifar10-eos/inputs.json": {
+      "bytes": 3252,
+      "sha256": "a5eea01295c437f42135294619765dea9d2ba7befc9f785a3936f7366f9144f0"
+    },
+    "cache/eos-multitask/inputs.json": {
+      "bytes": 7492,
+      "sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f"
+    },
+    "cache/minibatch-noise-preparation/run062-prefix.json": {
+      "bytes": 277205,
+      "sha256": "f1b9a6550a73e032954e42204e134918a9696cead4a56742d42d568a9738b4b3"
+    },
+    "cache/eos-multitask/mlp_initial_seed0.pt": {
+      "bytes": 2630285,
+      "sha256": "b64c58838e736a667ca27e02e825ffd26bd1864097a7a999bcb01a418adafa7c"
+    },
+    "cache/eos-multitask/mlp_initial_seed1.pt": {
+      "bytes": 2630285,
+      "sha256": "6e226a05ae876f8db1554462eea539a92ed8151da2fe2aacee1643b9463c0cdc"
+    },
+    "cache/eos-multitask/mlp_initial_seed2.pt": {
+      "bytes": 2630285,
+      "sha256": "46e307b60603d5401436cff72630741454c80384d8ad8a1677b38abb06ec9798"
+    }
+  }
+}

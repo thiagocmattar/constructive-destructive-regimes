@@ -1,0 +1,107 @@
+{
+  "status": "passed",
+  "counts": {
+    "reference_updates": 6000,
+    "frozen_draws": 184320,
+    "continuation_updates": 59400
+  },
+  "frozen_sequences": 1440,
+  "analysis_numpy": "2.5.0",
+  "analysis_torch": "2.11.0+cu128",
+  "moving_forks": 297,
+  "source_config_sha256": "106bb149e32f7c3ea407c32868e2e45c0dd397447bd5cf83a0496c20a38f7d9b",
+  "results_sha256": "c7df5d328d2388022b4d5553bf94ea4304a626f44983fda723c8e2e2b4c5bb4a",
+  "production_inventory_sha256": "22367dfbfb0f2d6bcd0dc20ef3bd9296f657af5d8a4d25c2b3df216530113553",
+  "reconstruction": {
+    "loss": {
+      "max_absolute_error": 0.0309903584420681,
+      "failed_states": 690,
+      "count": 2000,
+      "first_failed_state": 1157,
+      "absolute_tolerance": 0.0001,
+      "relative_tolerance": 0.001
+    },
+    "norm": {
+      "max_absolute_error": 1.666561132364186,
+      "failed_states": 830,
+      "count": 2000,
+      "first_failed_state": 1137,
+      "absolute_tolerance": 1e-05,
+      "relative_tolerance": 0.01
+    },
+    "cosine": {
+      "max_absolute_error": 1.1804253991602414,
+      "failed_states": 177,
+      "count": 1999,
+      "first_failed_state": 1135,
+      "absolute_tolerance": 0.02,
+      "relative_tolerance": 0
+    },
+    "qualified": false
+  },
+  "maximum_correction_identity_error": 8.881784197001252e-16,
+  "full_control_replays": [
+    {
+      "seed": 0,
+      "checkpoint": 0,
+      "maximum_absolute_errors": {
+        "full_loss": 0.0,
+        "norm": 0.0,
+        "cosine": 0.0
+      }
+    },
+    {
+      "seed": 0,
+      "checkpoint": 1000,
+      "maximum_absolute_errors": {
+        "full_loss": 0.0,
+        "norm": 0.0,
+        "cosine": 0.0
+      }
+    },
+    {
+      "seed": 1,
+      "checkpoint": 0,
+      "maximum_absolute_errors": {
+        "full_loss": 0.0,
+        "norm": 0.0,
+        "cosine": 0.0
+      }
+    },
+    {
+      "seed": 1,
+      "checkpoint": 1000,
+      "maximum_absolute_errors": {
+        "full_loss": 0.0,
+        "norm": 0.0,
+        "cosine": 0.0
+      }
+    },
+    {
+      "seed": 2,
+      "checkpoint": 0,
+      "maximum_absolute_errors": {
+        "full_loss": 0.0,
+        "norm": 0.0,
+        "cosine": 0.0
+      }
+    },
+    {
+      "seed": 2,
+      "checkpoint": 1000,
+      "maximum_absolute_errors": {
+        "full_loss": 0.0,
+        "norm": 0.0,
+        "cosine": 0.0
+      }
+    }
+  ],
+  "maximum_update_roundoff_relative_error": 0.0002458475105945614,
+  "transfer": {
+    "verified": true,
+    "files": 7068,
+    "total_bytes": 14917425040,
+    "errors": []
+  },
+  "note": "Qualification of reconstruction is reported separately; approximation errors are results, not acceptance conditions."
+}

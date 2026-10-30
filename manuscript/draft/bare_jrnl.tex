@@ -458,6 +458,7 @@ Stochastic Gradient Descent, Training Stability, Gradient Interference, Momentum
 \input{sections/02-related-works}
 \input{sections/03-methods}
 \input{sections/04-gd-experiments}
+\input{sections/05-sgd-noise-experiments}
 \input{sections/04-results}
 \input{sections/05-conclusion}
 % 
@@ -607,7 +608,16 @@ approximation error.
 % The IEEEtran BibTeX style support page is at:
 % http://www.michaelshell.org/tex/ieeetran/bibtex/
 \input{sections/07-gd-diagnostics}
+\input{sections/08-sgd-noise-diagnostics}
 
+% Flush appendix floats; reset column space left by the final double-column float.
+\clearpage
+\makeatletter
+\global\@colroom\@colht
+\global\vsize\@colht
+\makeatother
+\raggedbottom
+\IEEEtriggeratref{19} % Balance the current reference list; revisit after additions.
 \bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
 \bibliography{IEEEabrv,bibliography.bib}

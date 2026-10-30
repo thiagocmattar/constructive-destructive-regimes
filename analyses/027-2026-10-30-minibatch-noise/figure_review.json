@@ -1,0 +1,56 @@
+{
+  "status": "passed",
+  "pdfs": {
+    "frozen_calibration.pdf": "d006e63017e50df583378d6ce6363bf6cc7834367f47d3fbb328967e6c37872d",
+    "sgd_geometry.pdf": "7b71750e690bc3abbff02ec7c13f658441a509aef9a8aab5728b429728c44574",
+    "sgd_geometry_raw.pdf": "c09bdd1ca4efebf5cc0c8166866463de05a2ee34c99b6a8ff568b9899f5cbc87",
+    "sgd_full_loss.pdf": "9abdc7630417f883a9d91ed352c2acc1b23aa1ab993eef90d0e5de49a26ab620",
+    "sgd_proxy_validation.pdf": "6b29dbdaf58928fbb149e8e64f30ee01f4b7fcf404eaed88262b0e383d7d1edb"
+  },
+  "render_dpi": 150,
+  "render_folder": "scratch/figures",
+  "all_five_visually_inspected": true,
+  "plot_records_unchanged": 300,
+  "fonts": {
+    "frozen_calibration.pdf": {
+      "embedded": true,
+      "type3": false,
+      "font_records": 2
+    },
+    "sgd_geometry.pdf": {
+      "embedded": true,
+      "type3": false,
+      "font_records": 4
+    },
+    "sgd_geometry_raw.pdf": {
+      "embedded": true,
+      "type3": false,
+      "font_records": 4
+    },
+    "sgd_full_loss.pdf": {
+      "embedded": true,
+      "type3": false,
+      "font_records": 1
+    },
+    "sgd_proxy_validation.pdf": {
+      "embedded": true,
+      "type3": false,
+      "font_records": 4
+    }
+  },
+  "fixes": [
+    "Unclipped loss label and exact compact logarithmic-axis tick labels",
+    "Common x limits for proxy and paired raw HVP panels",
+    "Geometry grids use 5.3-inch height at unchanged font sizes so stacked IEEE floats fit"
+  ],
+  "scientific_review": [
+    "Exact moments and approximate cosine distinguished",
+    "Three-seed ranges labeled descriptive",
+    "Raw paired markers separate HVP accuracy from temporal smoothing",
+    "Small absolute cosine bias is statistically detectable in 21/36 cells",
+    "R is path relative; matched updates imply unequal sampled-example budgets"
+  ],
+  "footnotes_inside_graphics": false,
+  "panel_labels_outside_axes": true,
+  "all_batch_lines_solid": true
+}

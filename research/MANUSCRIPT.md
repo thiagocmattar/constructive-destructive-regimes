@@ -310,3 +310,25 @@ equation-specific figure contracts, uncertainty, checkpoint reconstruction needs
 and positioning against gradient-noise-scale and stochastic-EOS literature.
 No new empirical findings, manuscript edits, training, HVPs or remote work are
 claimed; no run/analysis IDs are allocated and the earlier held queues remain held.
+
+The user approved that mini-batch design and Runpod execution because Spark was
+busy. Analysis027 is now complete: three initializations, three checkpoints,
+five batches,297 moving forks and 1,188 complete-objective directional HVP pairs.
+[Observation001](../analyses/027-2026-10-30-minibatch-noise/observations/001-controlled-minibatch-noise.md)
+provides the scientific source/reduction/caption contracts and uncertainty.
+
+The new Section V presents frozen exact-moment calibration versus approximate
+cosine, sampled and full-path geometry, paired loss/displacement contrasts and
+the noisy proxy interpretation. Appendix E contains raw geometry, full loss,
+noise-corrected HVP checks, coverage and qualification limits. Two Section III
+prose corrections preserve all 16 equations. The historical seed 0 reconstruction
+fails its predeclared tolerances; the paper explicitly uses new matched
+references, whose six corresponding full-GD continuation segments replay exactly.
+
+The [integration record](../analyses/027-2026-10-30-minibatch-noise/observations/002-manuscript-integration.md)
+verifies 17 new table rows / 123 displayed scalars, 1,188 HVP pairs and 7 copied assets.
+All five vector PDFs and the 23-page draft are visually reviewed, with zero
+unresolved references or overfull boxes. The original assets and earlier
+full-GD figure data are preserved. Existing introduction/conclusion and older
+image-result alignment remain later editorial work. Task cloud resources were
+deleted after local hash-verified retrieval; Spark and held queues stayed untouched.

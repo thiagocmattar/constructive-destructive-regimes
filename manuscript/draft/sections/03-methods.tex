@@ -161,6 +161,9 @@ Consequently, assuming finite second moments,
 Thus, even unbiased sampling noise contributes a systematic
 nonpositive term to the expected unnormalized interaction
 between consecutive gradients.
+Its sign need not be inherited by $\mathbb{E}[\varepsilon_t]$:
+the denominator in Eq.~\eqref{eq:epsilon} is a correlated random
+squared gradient norm.
 
 This contribution is directly related to mini-batch size.
 Consider a mini-batch of $b$ examples sampled uniformly
@@ -203,8 +206,10 @@ the expected cosine similarity can be approximated by
 This approximation suggests that, as sampling noise dominates
 the full-gradient signal, consecutive gradients become less
 directionally coherent, with their cosine similarity approaching
-zero. The resulting trajectory becomes increasingly driven by
-stochastic fluctuations rather than a consistent descent direction.
+zero. Under this local approximation, sampling fluctuations can
+dominate the directional agreement between gradient estimates.
+The cumulative displacement of a moving SGD trajectory additionally
+depends on its evolving full gradient and interactions across temporal lags.
 However, this behavior is not universal: curvature couples
 successive SGD updates and can induce systematic negative
 alignment even in noise-dominated regimes. Therefore, batch

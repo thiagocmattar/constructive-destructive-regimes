@@ -35,7 +35,9 @@ questions alone do not create experimental commitments.
 
 | H022 | Does numerically fixed hard-target CE lead AdamW to lower common-objective Hessian curvature? | Supports raw-Hessian flattening in this recipe; exposure-qualified seeds0/10 | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md), Runs154-184 | fixed/native curvature ratio 0.014885, 95% CI [0.0030771,0.072007];30 trajectories/300k updates; full480-example FP64 Hessians; paired precision control and matched-loss audit; zero rental; no Pythia transfer claim |
 
-Next hypothesis: `H023`. Record the operational meaning,
+| H023 | How does fresh minibatch sampling affect gradient alignment, projected change and actual displacement at matched trained states? | Completed conditional characterization; moment targets agree closely, cosine approximation has detectable bias, sampled/full-path alignment can differ in sign | [Analysis027](../analyses/027-2026-10-30-minibatch-noise/REPORT.md), Runs185/186 | Three MLP initializations; matched trained-state controls and complete-objective HVPs distinguish sampling from motion. Batch 32 median proxy discrepancy 0.7467 becomes 0.0030 after offline correction. No universal stability/generalization claim |
+
+Next hypothesis: `H024`. Record the operational meaning,
 comparison, support/refutation criteria, and scope in the corresponding run
 proposal. Suggested statuses: proposed, active, supported, unsupported,
 inconclusive, withdrawn. Preserve superseded interpretations instead of rewriting

@@ -2,6 +2,17 @@
 
 ## Current state
 
+[Analysis027: mini-batch noise at matched training states](../analyses/027-2026-10-30-minibatch-noise/README.md)
+completed frozen sampling and 297 matched 200-update forks across three MLP
+initializations, three checkpoints and five batches. All full-gradient/loss/HVP
+references cover 5k/5k examples. Frozen moment errors are below 0.75%; the cosine
+approximation has small detectable bias. Noise correction reduces batch 32 median
+HVP discrepancy 0.7467 to 0.0030. Historical reconstruction does not qualify; new
+matched controls replay exactly. Five PDFs and Section V/Appendix E are reviewed;
+17 new table rows / 123 scalars pass. All 15.192 GB are locally hash verified.
+Task Runpod pod/volume deleted; approximately USD 0.87 provisional, zero cloud
+storage. Spark and held queues untouched. Next Run187 / Analysis028 / H024.
+
 [Analysis026: completed fixed-CE curvature experiment](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md)
 completed30 paired conditions and300k updates on owned5070Ti. Common fully
 FP64 full480-example Hessians give fixed/native curvature ratio 0.014885, 95% CI [0.0030771,0.072007];

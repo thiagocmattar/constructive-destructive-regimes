@@ -1,0 +1,79 @@
+{
+  "run_id": "186",
+  "hypothesis": "H023",
+  "analysis": "027",
+  "purpose": "Approved trained-state frozen controls and matched moving SGD continuations",
+  "eta": 0.02,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "reference_updates": 2000,
+  "checkpoints": [
+    0,
+    1000,
+    2000
+  ],
+  "batches": [
+    32,
+    128,
+    512,
+    2048,
+    5000
+  ],
+  "frozen_repetitions": 32,
+  "frozen_draws": 128,
+  "moving_repetitions": 8,
+  "continuation_updates": 200,
+  "hvp_predecessor_gradients": [
+    1,
+    51,
+    101,
+    151
+  ],
+  "recovery_every": 50,
+  "physical_batch_size": 1000,
+  "frozen_sampling_seed": 2026103001,
+  "moving_sampling_seed": 2026103002,
+  "data_path": "cache/cifar10-eos/data.pt",
+  "initial_paths": {
+    "0": "cache/eos-multitask/mlp_initial_seed0.pt",
+    "1": "cache/eos-multitask/mlp_initial_seed1.pt",
+    "2": "cache/eos-multitask/mlp_initial_seed2.pt"
+  },
+  "initial_tensor_hashes": {
+    "0": "8de1e7c880539f122aa840d5b7c28027310e82bd3ee4e753afef87fe0876a2da",
+    "1": "cb6282e2746ed6ff6d80d680b835f1220f4e2fa5ca4d762a96c9d3e0f6bb55d4",
+    "2": "2e1d25f786c0f550c0d006b355f244748c215f282a7f76ed30f54a77753ed6c4"
+  },
+  "input_files_sha256": {
+    "cache/cifar10-eos/data.pt": "2e4761c655a66a7e578efeb30950b9e39deeafd618f519cbc4ec823ff867985e",
+    "cache/cifar10-eos/inputs.json": "a5eea01295c437f42135294619765dea9d2ba7befc9f785a3936f7366f9144f0",
+    "cache/eos-multitask/inputs.json": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+    "cache/minibatch-noise-preparation/run062-prefix.json": "f1b9a6550a73e032954e42204e134918a9696cead4a56742d42d568a9738b4b3",
+    "cache/eos-multitask/mlp_initial_seed0.pt": "b64c58838e736a667ca27e02e825ffd26bd1864097a7a999bcb01a418adafa7c",
+    "cache/eos-multitask/mlp_initial_seed1.pt": "6e226a05ae876f8db1554462eea539a92ed8151da2fe2aacee1643b9463c0cdc",
+    "cache/eos-multitask/mlp_initial_seed2.pt": "46e307b60603d5401436cff72630741454c80384d8ad8a1677b38abb06ec9798"
+  },
+  "optimizer": "plain constant-step SGD; no clipping, momentum, decay or scheduler",
+  "objective": "mean half squared error summed over ten outputs; complete first5000 CIFAR10",
+  "precision": "FP32 parameters/gradients; FP64 diagnostic reductions and accumulation; TF32 disabled",
+  "sampling": "fresh independent uniform subsets without replacement within each update; paired permutation prefixes across batch sizes",
+  "covariance_normalization": "population 1/N",
+  "zero_denominator": "null with reason, no epsilon replacement",
+  "reproduction_tolerances": {
+    "loss_absolute": 0.0001,
+    "loss_relative": 0.001,
+    "norm_absolute": 1e-05,
+    "norm_relative": 0.01,
+    "cosine_absolute": 0.02
+  },
+  "reproduction_failure_policy": "new matched reference trajectory; retain discrepancies rather than claim historical checkpoint reuse",
+  "smoothing": {
+    "cosine_trailing_pairs": 20,
+    "require_complete_window": true,
+    "loss_and_R": "none"
+  },
+  "inference": "conditional sampling uncertainty and three independent initialization blocks; no stability or generalization inference"
+}

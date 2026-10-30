@@ -1,0 +1,19 @@
+{
+  "epoch": 1793369369.987684,
+  "reason": "Increase SFTP request window for the high-latency large-file transfer",
+  "interrupted_partial_bytes": 1175355392,
+  "options": [
+    "-X",
+    "nrequests=256",
+    "-X",
+    "buffer=131072"
+  ],
+  "scientific_inputs_unchanged": true,
+  "documentation": "https://man.openbsd.org/scp",
+  "segmented_retry": {
+    "epoch": 1793369625.4598284,
+    "reason": "Single SSH stream remained slow; retrieve four independent byte ranges and verify the assembled archive SHA256",
+    "streams": 4,
+    "source_archive_unchanged": true
+  }
+}

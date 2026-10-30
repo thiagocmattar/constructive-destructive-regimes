@@ -195,6 +195,9 @@
 | [183](183-2026-10-23-fixed-ce-fixed32-seed9/README.md) | H022 fixed32,seed9 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
 | [184](184-2026-10-23-fixed-ce-ce64-seed9/README.md) | H022 ce64,seed9 | Complete10k; local hash/math verification | Owned5070Ti; no rental | [Analysis026](../analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md) |
 
-Next run: `185-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
+| [185](185-2026-10-30-minibatch-noise-calibration/README.md) | H023 mechanics and diagnostic-workload calibration | Complete; local math, remote complete-objective checks and exact recovery replay pass | Evidence retrieved; task Runpod resources deleted; Spark untouched | [Analysis027](../analyses/027-2026-10-30-minibatch-noise/README.md) |
+| [186](186-2026-10-30-mlp-minibatch-noise/README.md) | H023 frozen trained-state noise and matched SGD continuations | Complete; 6k reference + 59,400 continuation updates, 184,320 frozen draws; 22.86 min production | All 14.917 GB production verified locally; cloud deleted; whole task USD 0.87 provisional | [Analysis027](../analyses/027-2026-10-30-minibatch-noise/REPORT.md) |
+
+Next run: `187-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
 executed IDs and configurations; retry unchanged scientific inputs in a new
 attempt within the same run.
