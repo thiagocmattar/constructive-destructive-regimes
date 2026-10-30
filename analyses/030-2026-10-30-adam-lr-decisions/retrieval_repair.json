@@ -1,0 +1,29 @@
+{
+  "observed_at_epoch": 1793396201.4196565,
+  "cause": "Missing run prelaunch directories prevented saving retrieval receipts after file and scientific verification.",
+  "fix": "Create the destination parent before atomic JSON persistence.",
+  "completed_local_retrievals": [
+    {
+      "run": "187-2026-10-30-pythia14m-seed1234-lr0p5",
+      "bytes": 2251972568,
+      "inventory_sha256": "851486a183edd600b031c2801f06faaed67801569cda144901a9ff4936b54850",
+      "verified": true
+    },
+    {
+      "run": "193-2026-10-30-pythia14m-seed1235-lr0p5",
+      "bytes": 2251972747,
+      "inventory_sha256": "ec4973cf3b61bb753426ea8c2ec1134dd0438dcfa4f069f5ecf5f37420cca7d7",
+      "verified": true
+    },
+    {
+      "run": "199-2026-10-30-pythia14m-seed1236-lr0p5",
+      "bytes": 2251973213,
+      "inventory_sha256": "3b6bd343965e41f581c4dcbb02dbf6574838aeb03e0755de651487a25335ad47",
+      "verified": true
+    }
+  ],
+  "control_tests_passed": 8,
+  "training_interrupted": false,
+  "collector_restarted_without_windows": true,
+  "remaining_cohort": "Collection and training continue; no final scientific conclusion."
+}

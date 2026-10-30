@@ -4,8 +4,9 @@ Analysis030 / H024. Authorized on October 30, 2026: implement and run the
 matched-checkpoint experiment using Runpod. The user subsequently authorized
 parallel execution at increased cost. Three L40S workers are allocated, with
 one seed's six matched continuations assigned to each. All three workers passed both-size replay
-qualification and are executing their scientific queues. Run187 completed remotely;
-local artifact acceptance and the other17 arms remain pending.
+qualification and are executing their scientific queues. At18:34 BRT, six arms
+completed remotely and three more were running. The first three retrieved arms
+passed local hash/scientific acceptance after the receipt-directory fix.
 No cohort result or scientific conclusion is available yet.
 
 ## Scientific comparison
@@ -153,7 +154,7 @@ before extraction. All18 runs retain identical scientific inputs and definitions
 The monitor retrieves and verifies artifacts while other arms run, stops each
 worker after its six accepted arms, and deletes task storage only after acceptance.
 
-Thirteen local checks now pass, including the seed-preserving partition and
+Fourteen local checks now pass, including the seed-preserving partition and
 Windows subprocess suppression checks.
 
 Local background SSH/SCP and CLI children initially opened Windows consoles.
@@ -175,3 +176,9 @@ so a newly loaded arm cannot delay collection of an already completed arm.
 GPU update rates remain near the original calibration; storage reads, inventories
 and local transfers add uncertainty to the planning ETC. Final conclusions await
 the complete cohort and local artifact acceptance.
+
+`retrieval_repair.json` records recovery of the first three local receipts.
+Downloaded artifacts had passed integrity checks, but missing `prelaunch/`
+directories prevented receipt writes and advancement to subsequent arms. The
+controller now creates the destination directory before atomic persistence;
+the regression check passes and hidden collection resumed. Training was unaffected.

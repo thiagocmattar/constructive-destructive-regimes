@@ -108,3 +108,10 @@ def test_monitor_accepts_manifest_before_first_update(monkeypatch, tmp_path):
     snapshot=json.loads((tmp_path/'scratch/latest-status.json').read_text())['pods'][0]
     assert snapshot['status']=='running' and 'error' not in snapshot
     assert snapshot['cohort_remaining_seconds_with_ancillary_allowance']==128*10+90
+
+
+def test_retrieval_receipt_creates_prelaunch_directory(tmp_path):
+    receipt=tmp_path/'runs/187-test/prelaunch/attempt-01-retrieval.json'
+    control.save(receipt,dict(verified=True))
+    assert json.loads(receipt.read_text())==dict(verified=True)
+    assert not receipt.with_suffix('.json.tmp').exists()
