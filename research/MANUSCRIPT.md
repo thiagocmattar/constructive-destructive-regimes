@@ -279,3 +279,12 @@ with sensitivity thresholds and interpretation limits retained. The review
 prioritizes the local/all-lag distinction, theory validation, spectral scope
 and a clearer contribution relative to Edge of Stability. The working draft
 and publication figures are unchanged; no training or cloud work is launched.
+
+The subsequent [Section IV surgical proposal](../manuscript/2026-10-30-section-iv-surgical-proposal/README.md)
+provides exact anchors and replacement prose for eight coordinated edits.
+It retains the three main figures, promotes the local/all-lag distinction,
+incorporates the completed retrospective loss audit, moves spectral context
+and preparation details to Appendix D, and specifies a generated displacement
+column. Two small Section III edits align the geometric interpretation.
+Optional additional measurements are separate from the minimum editorial
+package. The proposal is local and the manuscript remains unchanged.

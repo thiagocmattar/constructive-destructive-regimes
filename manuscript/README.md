@@ -67,3 +67,9 @@ and [integration observation](../analyses/024-2026-10-17-eos-gd-lr-calibration/o
 record its scientific and visual review. Analysis024's asset generator copies
 the reviewed vector figures and regenerates `draft/tables/analysis024_endpoints.tex`
 from verified results; the working draft remains self-contained for building.
+
+The [Section IV surgical proposal, 2026-10-30](2026-10-30-section-iv-surgical-proposal/README.md)
+turns the second critical review into eight anchored edits with replacement
+wording, a one-column endpoint-table change, appendix evidence contracts and
+two Section III terminology corrections. It reuses the completed scalar audit;
+the proposal is not applied to the working draft.
