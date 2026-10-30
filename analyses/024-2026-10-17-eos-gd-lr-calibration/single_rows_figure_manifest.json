@@ -1,0 +1,535 @@
+{
+  "status": "passed",
+  "visual_review": "All six current Poppler renders inspected: three columns, nine LR entries, correct log/linear axes, complete trailing-window means, reference lines, coverage footers and unclipped labels.",
+  "script_sha256": "17beab704bf135b53eb0d82d4f5b678cf798c775e2b6fb705b0ce20eaed3c083",
+  "loader_sha256": "aa9a39fc11ca0af48464159558b23a026008ad051a0c599e7224afdcef57ef43",
+  "cohort_sha256": "1de4ab6aa26dd693b3ecc3dd84e6c8af004d2c01042319f6a76db456d18dc37b",
+  "figures": [
+    {
+      "name": "loss_log",
+      "field": "loss",
+      "y_scale": "log",
+      "smoothing": "Unsmoothed.",
+      "rows": 1,
+      "columns": 3,
+      "curves": [
+        {
+          "tag": "loss_log_run059",
+          "run_id": "059",
+          "task": "mlp",
+          "points": 3001,
+          "x_sha256": "613f1a2e882fae2b540d0a7da475ce368be19f869c2396bae69128f62e21ca40",
+          "y_sha256": "c9c9b907c40fb557d0d4058550f8290aa2a5153babdcd2b8e6df31b4eaf5562b"
+        },
+        {
+          "tag": "loss_log_run062",
+          "run_id": "062",
+          "task": "mlp",
+          "points": 3001,
+          "x_sha256": "613f1a2e882fae2b540d0a7da475ce368be19f869c2396bae69128f62e21ca40",
+          "y_sha256": "e8acf4e3ff551188fcabd26c88d345650a41c4a0e4ad77e3c97ea5eb11075a25"
+        },
+        {
+          "tag": "loss_log_run122",
+          "run_id": "122",
+          "task": "mlp",
+          "points": 3001,
+          "x_sha256": "613f1a2e882fae2b540d0a7da475ce368be19f869c2396bae69128f62e21ca40",
+          "y_sha256": "e7497c7f07726a2ebc8162b23af7a29b602a7b2938cca1749c05822cd2039b5d"
+        },
+        {
+          "tag": "loss_log_run123",
+          "run_id": "123",
+          "task": "resnet",
+          "points": 3001,
+          "x_sha256": "613f1a2e882fae2b540d0a7da475ce368be19f869c2396bae69128f62e21ca40",
+          "y_sha256": "c9b7dd5d6850fbce590e92e9de31e4f53cc49c4d041fdc6debd94a68e1af99b9"
+        },
+        {
+          "tag": "loss_log_run124",
+          "run_id": "124",
+          "task": "resnet",
+          "points": 3001,
+          "x_sha256": "613f1a2e882fae2b540d0a7da475ce368be19f869c2396bae69128f62e21ca40",
+          "y_sha256": "c0e4df7aabd80a6b68c61189c14cdfc0b18f6cdda944eda6b5ed78089a4e4157"
+        },
+        {
+          "tag": "loss_log_run120",
+          "run_id": "120",
+          "task": "resnet",
+          "points": 3001,
+          "x_sha256": "613f1a2e882fae2b540d0a7da475ce368be19f869c2396bae69128f62e21ca40",
+          "y_sha256": "a977d0885cc8d64c8c836cf19e0c9004da82914fae2935fe69710e52c433cfe6"
+        },
+        {
+          "tag": "loss_log_run121",
+          "run_id": "121",
+          "task": "transformer",
+          "points": 3001,
+          "x_sha256": "613f1a2e882fae2b540d0a7da475ce368be19f869c2396bae69128f62e21ca40",
+          "y_sha256": "0f8979cd422fb8817fb7404777c9cb6e49ba5a873dabf2c3a508434a0238a592"
+        },
+        {
+          "tag": "loss_log_run125",
+          "run_id": "125",
+          "task": "transformer",
+          "points": 3001,
+          "x_sha256": "613f1a2e882fae2b540d0a7da475ce368be19f869c2396bae69128f62e21ca40",
+          "y_sha256": "954177e7afe4e69595db68b61ae0b100b7bbabf4692c4f0b5d14c6b405c57d6c"
+        },
+        {
+          "tag": "loss_log_run126",
+          "run_id": "126",
+          "task": "transformer",
+          "points": 3001,
+          "x_sha256": "613f1a2e882fae2b540d0a7da475ce368be19f869c2396bae69128f62e21ca40",
+          "y_sha256": "f3498e1153d9004ba4e1eaf62d330da4e94abf083f738d7b93c8da2a67da17b6"
+        }
+      ],
+      "plotted_points": 27009,
+      "pdf": "analyses/024-2026-10-17-eos-gd-lr-calibration/figures/eos_gd_loss_log_3k.pdf",
+      "pdf_sha256": "6cee8b4b01146f66fa32c02fac5c0b896fec7a8929c47c860ca6fad7a707ce3f",
+      "render": "analyses/024-2026-10-17-eos-gd-lr-calibration/scratch/eos_gd_loss_log_3k.png",
+      "render_sha256": "e3c91982d31e79411ecff06ca3188fcb40d24365db44662409ae0b1aedec0afe"
+    },
+    {
+      "name": "rho",
+      "field": "cosine",
+      "y_scale": "linear",
+      "smoothing": "Unsmoothed.",
+      "rows": 1,
+      "columns": 3,
+      "curves": [
+        {
+          "tag": "rho_run059",
+          "run_id": "059",
+          "task": "mlp",
+          "points": 2999,
+          "x_sha256": "e672b534f35a46008f7dd2feb778b7a9bae88b5d80c10b9b352e51e183043d34",
+          "y_sha256": "48503526a9467d02c1d217811767b40f695b4e78f1a1c447da8e80e4d0cc8ff4"
+        },
+        {
+          "tag": "rho_run062",
+          "run_id": "062",
+          "task": "mlp",
+          "points": 2999,
+          "x_sha256": "e672b534f35a46008f7dd2feb778b7a9bae88b5d80c10b9b352e51e183043d34",
+          "y_sha256": "12c0831e0022ea13e8934a591ae219513aaee2117c4ec69dfbee3783bca091a2"
+        },
+        {
+          "tag": "rho_run122",
+          "run_id": "122",
+          "task": "mlp",
+          "points": 2999,
+          "x_sha256": "e672b534f35a46008f7dd2feb778b7a9bae88b5d80c10b9b352e51e183043d34",
+          "y_sha256": "55af466c827e0ed5c3dca48f91aa56c44a4010a2c6f0575062df9d69d8ff172d"
+        },
+        {
+          "tag": "rho_run123",
+          "run_id": "123",
+          "task": "resnet",
+          "points": 2999,
+          "x_sha256": "e672b534f35a46008f7dd2feb778b7a9bae88b5d80c10b9b352e51e183043d34",
+          "y_sha256": "fca8ff96103a3d78e38517496d711790925c8dcb96767b19b4209ab7c95329bc"
+        },
+        {
+          "tag": "rho_run124",
+          "run_id": "124",
+          "task": "resnet",
+          "points": 2999,
+          "x_sha256": "e672b534f35a46008f7dd2feb778b7a9bae88b5d80c10b9b352e51e183043d34",
+          "y_sha256": "757a9615071a87e4690f25422f1a413763721c8e62bf4ed11d45ea3e95a014e6"
+        },
+        {
+          "tag": "rho_run120",
+          "run_id": "120",
+          "task": "resnet",
+          "points": 2999,
+          "x_sha256": "e672b534f35a46008f7dd2feb778b7a9bae88b5d80c10b9b352e51e183043d34",
+          "y_sha256": "c5c6812d900b3d78fa501285a283e93da6c2db73b0cecba34f2338e206e5ca3e"
+        },
+        {
+          "tag": "rho_run121",
+          "run_id": "121",
+          "task": "transformer",
+          "points": 2999,
+          "x_sha256": "e672b534f35a46008f7dd2feb778b7a9bae88b5d80c10b9b352e51e183043d34",
+          "y_sha256": "7350bebd984648f1c736a5576a5b3b14efede008b2343c5e83641e6fd4f90acd"
+        },
+        {
+          "tag": "rho_run125",
+          "run_id": "125",
+          "task": "transformer",
+          "points": 2999,
+          "x_sha256": "e672b534f35a46008f7dd2feb778b7a9bae88b5d80c10b9b352e51e183043d34",
+          "y_sha256": "2944a424b5c476bac708e488a27626b1245e0038a8997a31d507fa34666f5851"
+        },
+        {
+          "tag": "rho_run126",
+          "run_id": "126",
+          "task": "transformer",
+          "points": 2999,
+          "x_sha256": "e672b534f35a46008f7dd2feb778b7a9bae88b5d80c10b9b352e51e183043d34",
+          "y_sha256": "83acc08df45acaedbb67b3810379f0a85588885520066a918d6a0ff435d11f66"
+        }
+      ],
+      "plotted_points": 26991,
+      "pdf": "analyses/024-2026-10-17-eos-gd-lr-calibration/figures/eos_gd_rho_3k.pdf",
+      "pdf_sha256": "73729d348e1a57e43e843b6e1c1b57527750da0cc801af364af9c7ad84918d5f",
+      "render": "analyses/024-2026-10-17-eos-gd-lr-calibration/scratch/eos_gd_rho_3k.png",
+      "render_sha256": "8c26b77569d614034541e46a52e3e9ad00daff7a59de71fb53b22797ce54744d"
+    },
+    {
+      "name": "rho_smoothed",
+      "field": "cosine",
+      "y_scale": "linear",
+      "smoothing": "Trailing 50-observation arithmetic mean; complete windows only.",
+      "rows": 1,
+      "columns": 3,
+      "curves": [
+        {
+          "tag": "rho_smoothed_run059",
+          "run_id": "059",
+          "task": "mlp",
+          "points": 2950,
+          "x_sha256": "b9d4b1cbb958e275d37fa1c5b5917ad32f4b52ec6614169b78efd8c1f9c369de",
+          "y_sha256": "3d5756d2a9dd027e304213d6342a7d08bb193c51e170f55824b2a3d322fe41a3"
+        },
+        {
+          "tag": "rho_smoothed_run062",
+          "run_id": "062",
+          "task": "mlp",
+          "points": 2950,
+          "x_sha256": "b9d4b1cbb958e275d37fa1c5b5917ad32f4b52ec6614169b78efd8c1f9c369de",
+          "y_sha256": "825681c8fe03658d6ed998217c4b49fb787be378f3dd49dd6ba322d0574e630d"
+        },
+        {
+          "tag": "rho_smoothed_run122",
+          "run_id": "122",
+          "task": "mlp",
+          "points": 2950,
+          "x_sha256": "b9d4b1cbb958e275d37fa1c5b5917ad32f4b52ec6614169b78efd8c1f9c369de",
+          "y_sha256": "09135647f5972fdc30232cc5bd0d366c79f8876f010dd96fcfbf9c9a414b93cb"
+        },
+        {
+          "tag": "rho_smoothed_run123",
+          "run_id": "123",
+          "task": "resnet",
+          "points": 2950,
+          "x_sha256": "b9d4b1cbb958e275d37fa1c5b5917ad32f4b52ec6614169b78efd8c1f9c369de",
+          "y_sha256": "311f625ca9978a53ec11adc17e610ea73b56fe88370a641cd91c77822dacc4d1"
+        },
+        {
+          "tag": "rho_smoothed_run124",
+          "run_id": "124",
+          "task": "resnet",
+          "points": 2950,
+          "x_sha256": "b9d4b1cbb958e275d37fa1c5b5917ad32f4b52ec6614169b78efd8c1f9c369de",
+          "y_sha256": "dcf05c3d34acfaa7cc4a5e2c826783ccefd5adfc286a195ed2a226ed120288dd"
+        },
+        {
+          "tag": "rho_smoothed_run120",
+          "run_id": "120",
+          "task": "resnet",
+          "points": 2950,
+          "x_sha256": "b9d4b1cbb958e275d37fa1c5b5917ad32f4b52ec6614169b78efd8c1f9c369de",
+          "y_sha256": "9cfbab7f94f713663d8f4ecc1a2ad78fe6de7d8f41842db6e070f72ae417ecf4"
+        },
+        {
+          "tag": "rho_smoothed_run121",
+          "run_id": "121",
+          "task": "transformer",
+          "points": 2950,
+          "x_sha256": "b9d4b1cbb958e275d37fa1c5b5917ad32f4b52ec6614169b78efd8c1f9c369de",
+          "y_sha256": "8bcdba056b3722d49624a461c7a02704ec161bbab2f3c35e1c341e74ce994a8c"
+        },
+        {
+          "tag": "rho_smoothed_run125",
+          "run_id": "125",
+          "task": "transformer",
+          "points": 2950,
+          "x_sha256": "b9d4b1cbb958e275d37fa1c5b5917ad32f4b52ec6614169b78efd8c1f9c369de",
+          "y_sha256": "a9493f1950c5b1c5c2101020a92b1d3c3b94026322abb9bbcc67324501ce2268"
+        },
+        {
+          "tag": "rho_smoothed_run126",
+          "run_id": "126",
+          "task": "transformer",
+          "points": 2950,
+          "x_sha256": "b9d4b1cbb958e275d37fa1c5b5917ad32f4b52ec6614169b78efd8c1f9c369de",
+          "y_sha256": "f504bc7481bd9e9eef982020e29eb7ce313669671d911eb3f95abcd9c8eafbcb"
+        }
+      ],
+      "plotted_points": 26550,
+      "pdf": "analyses/024-2026-10-17-eos-gd-lr-calibration/figures/eos_gd_rho_smoothed_3k.pdf",
+      "pdf_sha256": "d26bb0b201a83538cb70985b326ab04126babf41c947b7f76e88731083566dce",
+      "render": "analyses/024-2026-10-17-eos-gd-lr-calibration/scratch/eos_gd_rho_smoothed_3k.png",
+      "render_sha256": "bffa3c525824126887e745bcbf07421aec4bf23f16dc1d8185ec767e4590f615"
+    },
+    {
+      "name": "eta_kappa_hat_smoothed",
+      "field": "q",
+      "y_scale": "linear",
+      "smoothing": "Trailing 50-observation arithmetic mean; complete windows only.",
+      "rows": 1,
+      "columns": 3,
+      "curves": [
+        {
+          "tag": "eta_kappa_hat_smoothed_run059",
+          "run_id": "059",
+          "task": "mlp",
+          "points": 2950,
+          "x_sha256": "b9d4b1cbb958e275d37fa1c5b5917ad32f4b52ec6614169b78efd8c1f9c369de",
+          "y_sha256": "ad034625789990da9d9f0f4efb5ab9e6c5697e52f562a42274d93d316acac5aa"
+        },
+        {
+          "tag": "eta_kappa_hat_smoothed_run062",
+          "run_id": "062",
+          "task": "mlp",
+          "points": 2950,
+          "x_sha256": "b9d4b1cbb958e275d37fa1c5b5917ad32f4b52ec6614169b78efd8c1f9c369de",
+          "y_sha256": "281c64c8e5c209c6a261afb15fab390944a1583b833e670db3d3cf921c5a5cad"
+        },
+        {
+          "tag": "eta_kappa_hat_smoothed_run122",
+          "run_id": "122",
+          "task": "mlp",
+          "points": 2950,
+          "x_sha256": "b9d4b1cbb958e275d37fa1c5b5917ad32f4b52ec6614169b78efd8c1f9c369de",
+          "y_sha256": "eede8e3e8c7d43dc0fbf6bc472a3ee5034e4f652610397b9c304e9cd75b29d39"
+        },
+        {
+          "tag": "eta_kappa_hat_smoothed_run123",
+          "run_id": "123",
+          "task": "resnet",
+          "points": 2950,
+          "x_sha256": "b9d4b1cbb958e275d37fa1c5b5917ad32f4b52ec6614169b78efd8c1f9c369de",
+          "y_sha256": "456931065e4cbf76673b9fce041a7dd4baf2cc1ebe82983584ae4b3ad8cf8cc3"
+        },
+        {
+          "tag": "eta_kappa_hat_smoothed_run124",
+          "run_id": "124",
+          "task": "resnet",
+          "points": 2950,
+          "x_sha256": "b9d4b1cbb958e275d37fa1c5b5917ad32f4b52ec6614169b78efd8c1f9c369de",
+          "y_sha256": "f335eb2d90a407a59a66544d72e2412a7a8d61442c34abf2a0f43152c65ee36f"
+        },
+        {
+          "tag": "eta_kappa_hat_smoothed_run120",
+          "run_id": "120",
+          "task": "resnet",
+          "points": 2950,
+          "x_sha256": "b9d4b1cbb958e275d37fa1c5b5917ad32f4b52ec6614169b78efd8c1f9c369de",
+          "y_sha256": "1b2b296a4efaed052e403a793474435ed8ce8981cb22e2b6eb1cdb4f384919df"
+        },
+        {
+          "tag": "eta_kappa_hat_smoothed_run121",
+          "run_id": "121",
+          "task": "transformer",
+          "points": 2950,
+          "x_sha256": "b9d4b1cbb958e275d37fa1c5b5917ad32f4b52ec6614169b78efd8c1f9c369de",
+          "y_sha256": "a0aebecd67fee0a7e9061f848031dd29e9dd15f407ac624f288c749ca00110e0"
+        },
+        {
+          "tag": "eta_kappa_hat_smoothed_run125",
+          "run_id": "125",
+          "task": "transformer",
+          "points": 2950,
+          "x_sha256": "b9d4b1cbb958e275d37fa1c5b5917ad32f4b52ec6614169b78efd8c1f9c369de",
+          "y_sha256": "62d47d1f637437b315d8ef5f64f3ef2c60d9e1299a304b3f315cfa24d7f2f925"
+        },
+        {
+          "tag": "eta_kappa_hat_smoothed_run126",
+          "run_id": "126",
+          "task": "transformer",
+          "points": 2950,
+          "x_sha256": "b9d4b1cbb958e275d37fa1c5b5917ad32f4b52ec6614169b78efd8c1f9c369de",
+          "y_sha256": "fa8dc98852da46ce9cdaaf2710a9f636268220b7aede4f5323f6313814e1af5b"
+        }
+      ],
+      "plotted_points": 26550,
+      "pdf": "analyses/024-2026-10-17-eos-gd-lr-calibration/figures/eos_gd_eta_kappa_hat_smoothed_3k.pdf",
+      "pdf_sha256": "a9bcf3dfa8c4aa0f0c132e40bafe4cc93a676c8d16d58e6de2e365ecccd55a4b",
+      "render": "analyses/024-2026-10-17-eos-gd-lr-calibration/scratch/eos_gd_eta_kappa_hat_smoothed_3k.png",
+      "render_sha256": "df8d94ddd45f3138c1227a4f7a6b8177eb8801bad3cee5c5e6e61724f3a93958"
+    },
+    {
+      "name": "gradient_norms_smoothed",
+      "field": "norm",
+      "y_scale": "log",
+      "smoothing": "Trailing 50-observation arithmetic mean; complete windows only.",
+      "rows": 1,
+      "columns": 3,
+      "curves": [
+        {
+          "tag": "gradient_norms_smoothed_run059",
+          "run_id": "059",
+          "task": "mlp",
+          "points": 2951,
+          "x_sha256": "2bb66bf464474341aa441b6c87a38af2bca843eef70abb5f6956ef9b0a93b619",
+          "y_sha256": "b61f3bc3170aabda8db9ea6c25ac5ec3ecf268774854770cd63bd0d66bd5f4b5"
+        },
+        {
+          "tag": "gradient_norms_smoothed_run062",
+          "run_id": "062",
+          "task": "mlp",
+          "points": 2951,
+          "x_sha256": "2bb66bf464474341aa441b6c87a38af2bca843eef70abb5f6956ef9b0a93b619",
+          "y_sha256": "17f1f2736ce6e46b0a890ee502a2306de71004807778d05f518a33084f9a5876"
+        },
+        {
+          "tag": "gradient_norms_smoothed_run122",
+          "run_id": "122",
+          "task": "mlp",
+          "points": 2951,
+          "x_sha256": "2bb66bf464474341aa441b6c87a38af2bca843eef70abb5f6956ef9b0a93b619",
+          "y_sha256": "fe2786d8528949a64925b766c09065d7a6cb9a31d1cd64f6f00f11b85ed907a6"
+        },
+        {
+          "tag": "gradient_norms_smoothed_run123",
+          "run_id": "123",
+          "task": "resnet",
+          "points": 2951,
+          "x_sha256": "2bb66bf464474341aa441b6c87a38af2bca843eef70abb5f6956ef9b0a93b619",
+          "y_sha256": "974503407f2ea6caa15b92b872524676d246c778c85b10ca560828a2dbb541bb"
+        },
+        {
+          "tag": "gradient_norms_smoothed_run124",
+          "run_id": "124",
+          "task": "resnet",
+          "points": 2951,
+          "x_sha256": "2bb66bf464474341aa441b6c87a38af2bca843eef70abb5f6956ef9b0a93b619",
+          "y_sha256": "2b21fde414adf5c823e6d3508323bb32df46dc6aac8ebe4db507adb913a4d41d"
+        },
+        {
+          "tag": "gradient_norms_smoothed_run120",
+          "run_id": "120",
+          "task": "resnet",
+          "points": 2951,
+          "x_sha256": "2bb66bf464474341aa441b6c87a38af2bca843eef70abb5f6956ef9b0a93b619",
+          "y_sha256": "470ba310347824f0770216bd2a92b7ef3aa5b324401ac8229969a16a349e0d7f"
+        },
+        {
+          "tag": "gradient_norms_smoothed_run121",
+          "run_id": "121",
+          "task": "transformer",
+          "points": 2951,
+          "x_sha256": "2bb66bf464474341aa441b6c87a38af2bca843eef70abb5f6956ef9b0a93b619",
+          "y_sha256": "6690d9cf565e6d4fafe2027ac2e42c996b66a03e78da0c1e802381c3ac5e2c84"
+        },
+        {
+          "tag": "gradient_norms_smoothed_run125",
+          "run_id": "125",
+          "task": "transformer",
+          "points": 2951,
+          "x_sha256": "2bb66bf464474341aa441b6c87a38af2bca843eef70abb5f6956ef9b0a93b619",
+          "y_sha256": "b5033f6ff40016817e03ea31a5f333163c75b2c29c45e63fd2a347e5cb6bb63a"
+        },
+        {
+          "tag": "gradient_norms_smoothed_run126",
+          "run_id": "126",
+          "task": "transformer",
+          "points": 2951,
+          "x_sha256": "2bb66bf464474341aa441b6c87a38af2bca843eef70abb5f6956ef9b0a93b619",
+          "y_sha256": "361d01d1ae2fe7bd2ce102e7d2844d56a32ffa9bd170b66ea125b2bed05c9755"
+        }
+      ],
+      "plotted_points": 26559,
+      "pdf": "analyses/024-2026-10-17-eos-gd-lr-calibration/figures/eos_gd_gradient_norms_smoothed_3k.pdf",
+      "pdf_sha256": "2da7e019a92264f5eced86a8da40d15445a181ba9a70cb1559ee7570ef13be34",
+      "render": "analyses/024-2026-10-17-eos-gd-lr-calibration/scratch/eos_gd_gradient_norms_smoothed_3k.png",
+      "render_sha256": "ce818ee54bbfcb2fbb3c5c99160501c3a1f38aa802cc2e05ac5fd8e68cad0ee6"
+    },
+    {
+      "name": "normalized_displacement",
+      "field": "ratio",
+      "y_scale": "linear",
+      "smoothing": "Unsmoothed.",
+      "rows": 1,
+      "columns": 3,
+      "curves": [
+        {
+          "tag": "normalized_displacement_run059",
+          "run_id": "059",
+          "task": "mlp",
+          "points": 3000,
+          "x_sha256": "7aaee97c3319ebd07e64e104eaf5da617f22e7c4ca3bfa239f78bae496240a3a",
+          "y_sha256": "5d766e593db95a9476de69f156cc22a1d3aa8702b5bc83303b48e146b59c42ac"
+        },
+        {
+          "tag": "normalized_displacement_run062",
+          "run_id": "062",
+          "task": "mlp",
+          "points": 3000,
+          "x_sha256": "7aaee97c3319ebd07e64e104eaf5da617f22e7c4ca3bfa239f78bae496240a3a",
+          "y_sha256": "cd61c2557ee0d5bffa368a9043a211a5fcd8dbf50c1af6de69d84689094d9ea2"
+        },
+        {
+          "tag": "normalized_displacement_run122",
+          "run_id": "122",
+          "task": "mlp",
+          "points": 3000,
+          "x_sha256": "7aaee97c3319ebd07e64e104eaf5da617f22e7c4ca3bfa239f78bae496240a3a",
+          "y_sha256": "65cac03022ee69b46985dc4d32a681a64572377aab94f88c4651b3546afa597b"
+        },
+        {
+          "tag": "normalized_displacement_run123",
+          "run_id": "123",
+          "task": "resnet",
+          "points": 3000,
+          "x_sha256": "7aaee97c3319ebd07e64e104eaf5da617f22e7c4ca3bfa239f78bae496240a3a",
+          "y_sha256": "3809481f2e3db42a77ad1ac088c784b1f78e46739bb6eeb66b609a71f7079ec6"
+        },
+        {
+          "tag": "normalized_displacement_run124",
+          "run_id": "124",
+          "task": "resnet",
+          "points": 3000,
+          "x_sha256": "7aaee97c3319ebd07e64e104eaf5da617f22e7c4ca3bfa239f78bae496240a3a",
+          "y_sha256": "f8476f4c3477fdb061622c39c6828695135425720fa99686c6d43b0d94bf7f50"
+        },
+        {
+          "tag": "normalized_displacement_run120",
+          "run_id": "120",
+          "task": "resnet",
+          "points": 3000,
+          "x_sha256": "7aaee97c3319ebd07e64e104eaf5da617f22e7c4ca3bfa239f78bae496240a3a",
+          "y_sha256": "233bc18646e4b8b9a1856bf185108e49399bf2344b5a1457d3a77b3d982fe2e0"
+        },
+        {
+          "tag": "normalized_displacement_run121",
+          "run_id": "121",
+          "task": "transformer",
+          "points": 3000,
+          "x_sha256": "7aaee97c3319ebd07e64e104eaf5da617f22e7c4ca3bfa239f78bae496240a3a",
+          "y_sha256": "ecf228728b808e6c221174d5a07adf05ba89e4c4fffc14ca19b3e8413e2e1fcd"
+        },
+        {
+          "tag": "normalized_displacement_run125",
+          "run_id": "125",
+          "task": "transformer",
+          "points": 3000,
+          "x_sha256": "7aaee97c3319ebd07e64e104eaf5da617f22e7c4ca3bfa239f78bae496240a3a",
+          "y_sha256": "c629c86ac4b3fb2e7a3538b07e1405a6ccb4a4662c8369a11050640a9679a60f"
+        },
+        {
+          "tag": "normalized_displacement_run126",
+          "run_id": "126",
+          "task": "transformer",
+          "points": 3000,
+          "x_sha256": "7aaee97c3319ebd07e64e104eaf5da617f22e7c4ca3bfa239f78bae496240a3a",
+          "y_sha256": "311f3b89aae36c6bb067928f3ccc222e6bd7a512114945cb302a1f8b4acc0cdc"
+        }
+      ],
+      "plotted_points": 27000,
+      "pdf": "analyses/024-2026-10-17-eos-gd-lr-calibration/figures/eos_gd_normalized_displacement_3k.pdf",
+      "pdf_sha256": "9b47962ab17a508c1cd855822d1d3350667093f362d64ffd792c1e84c2a351eb",
+      "render": "analyses/024-2026-10-17-eos-gd-lr-calibration/scratch/eos_gd_normalized_displacement_3k.png",
+      "render_sha256": "b57941a91f5678e4604f5855ae6029ff94b6090d251132ed50ea131536d8bd4f"
+    }
+  ],
+  "arrays": "analyses/024-2026-10-17-eos-gd-lr-calibration/derived/single_rows_curves.npz",
+  "arrays_sha256": "4294d81b8a69049af1c372f69c212c424e79e327f6b8ae117ab22fe670a7e7ed",
+  "results": "analyses/024-2026-10-17-eos-gd-lr-calibration/single_rows_results.json",
+  "results_sha256": "1f5ac1fc934e1a3a5af2a9cc53893e19ec00f983981999a1fb48921b6448b991"
+}

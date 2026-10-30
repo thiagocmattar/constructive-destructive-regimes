@@ -29,6 +29,9 @@ Monitor SSH failure recovered by direct collection; task monitor stopped.
 Five new runs retain160 files/6.395GB per machine; redundant archives removed.
 The final October20 PDF covers all nine conditions in4x3 panels,81,279 exact
 points; all32 previous curves are unchanged. Source/array/render checks pass.
+Six isolated1x3 companion PDFs now show log loss, raw/smoothed cosine,
+smoothed q/norms and raw R_t;50-step trailing means are explicit.
+[Observation005](../analyses/024-2026-10-17-eos-gd-lr-calibration/observations/005-isolated-three-column-figures.md) records all54 verified curves and visual review.
 Larger-model Hessians remain subsets; no manuscript update.
 Single-initialization comparisons do not establish initialization robustness.
 Owned Spark only, zero rental; old020/021 queues stay held.

@@ -1,0 +1,115 @@
+{
+  "status": "passed",
+  "conditions": 9,
+  "updates": 3000,
+  "seed": 0,
+  "rates_by_task": {
+    "mlp": [
+      0.004,
+      0.02,
+      0.04
+    ],
+    "resnet": [
+      0.025,
+      0.05,
+      0.1
+    ],
+    "transformer": [
+      0.05,
+      0.1,
+      0.2
+    ]
+  },
+  "smoothing_window": 50,
+  "seed_aggregation": "none",
+  "smoothing": "Arithmetic mean before axis transformation, complete trailing windows, no padding.",
+  "indexing": {
+    "loss": "Parameter states 0..3000, including measured final loss.",
+    "cosine_and_q": "Gradient evaluation states 1..2999; first undefined pair omitted.",
+    "norm": "Gradient evaluation states 0..2999.",
+    "ratio": "Completed updates 1..3000; prefix B/A after each update."
+  },
+  "source_results_sha256": "c9147f0c1cb0d4d2c5a6e3ed80f354f64da8463162db293e58e0001c4605c3f3",
+  "source_runs": [
+    {
+      "run_id": "059",
+      "source_sha256": {
+        "metrics.jsonl": "b26bd47afdbe92c915d4973fc3aa07b546a68663216360e3c490d46ae1e730e0",
+        "curvature.jsonl": "577d016029be4a4f996f3be5cdf82330bd75f0b00f461ba2acbe2ae61c98105f",
+        "manifest.json": "a05368ff98b228924923e8a1e556461ee49ef24dcf442d0c4dc3bd26acd25e12"
+      }
+    },
+    {
+      "run_id": "062",
+      "source_sha256": {
+        "metrics.jsonl": "c94770a13d0f6668a4e6f1be577239b472a0c105fc5e098d6901d2514e620243",
+        "curvature.jsonl": "a0cd312d5948ce6a8ee2e350e9ea112c160070c468ff4625d5bce70ef55f7d1d",
+        "manifest.json": "7d0957c123fc2db7ee5459b33e135593ec4f912a8444d132c0cd7f6108dd9a6e"
+      }
+    },
+    {
+      "run_id": "122",
+      "source_sha256": {
+        "metrics.jsonl": "fe7b59d109c43684942e3fd8ac3c5b8ae057e6b7d94049fecea34df466439f04",
+        "curvature.jsonl": "2cdfd2e7ff456999e27af93cfe00cdbddb1f18596b3812b728517015c1b0864a",
+        "manifest.json": "610cf8d026ac19d2d1aed30096e8207c9e2f8cf2daeae7e99214896d66762335"
+      }
+    },
+    {
+      "run_id": "123",
+      "source_sha256": {
+        "metrics.jsonl": "3d70f0ae7a2976fc5c33bd65aee7d936abc1092dab9b973b01a202dba01a0511",
+        "curvature.jsonl": "a5e5ceee1b2a057bf264bb734a4238ad5798ff35edeb6de3f0f2e9586462afdb",
+        "manifest.json": "87e37a982f85895e6b35c3fe56ff885f6634570fda9ff81c287d854a2c1c4c99"
+      }
+    },
+    {
+      "run_id": "124",
+      "source_sha256": {
+        "metrics.jsonl": "14665f159b35fb548b78294ef87a076243087666ed13d29af031ed03d515df36",
+        "curvature.jsonl": "f20f62d5f4f3dac424834b1103fc7ef97c97861c4911590f3271d0e8eb2a5e91",
+        "manifest.json": "bb83d522fc50b255e73beb7b5ade04fc22750130a1065cd2044fbc5bf4f4183b"
+      }
+    },
+    {
+      "run_id": "120",
+      "source_sha256": {
+        "metrics.jsonl": "73fba39ec0d4247adb98b4afa0f7c8e703230f6e3e9f3b7fb709f3c18804cb8b",
+        "curvature.jsonl": "f25ba4e672344321f58c887f1aaa9befbac1bb496d2d113ce5939c609fd6c943",
+        "manifest.json": "3a993c15613a450d97500ea9772cdbd4755ab50b94be2848636b8113132dbdf7"
+      }
+    },
+    {
+      "run_id": "121",
+      "source_sha256": {
+        "metrics.jsonl": "a6f549e780e53986fd09f3341cf71337beadca11d1164fb6883aad90ff9490f3",
+        "curvature.jsonl": "5eff6b382dfdbcc682e8d94545fed24dcd6980c432e8b5d6a65583ff2c046559",
+        "manifest.json": "09c293ce6658cfcfee0bb2889fe97702732f3b1f1561ce7040bfdd5756ed11be"
+      }
+    },
+    {
+      "run_id": "125",
+      "source_sha256": {
+        "metrics.jsonl": "0f20797974f6b74e724276bf124d6e1a5bf979a3a3ec633ecc3aac3947d39963",
+        "curvature.jsonl": "6c4335e3cb0e6c1afaba77e0bec3f3cb78f2bbd1e87d845d29b8bb739558fb34",
+        "manifest.json": "0fe89f4cd8c682e8acc29703f41b0ec1456557b96835047bc79b51c7e8ada413"
+      }
+    },
+    {
+      "run_id": "126",
+      "source_sha256": {
+        "metrics.jsonl": "07e0d3223e4ce5e258d17172a7bfeabbf2747dd9b6ce3028748df2b2947d521d",
+        "curvature.jsonl": "7d7e007eeb9900dd518355480b06098dfad9cb98169161fb2c3368f196365e64",
+        "manifest.json": "43278b19c9526d6d24f4603c3de366e044206a7c57ef2f3ec182d17a868266dc"
+      }
+    }
+  ],
+  "plotted_points": 160659,
+  "checks": [
+    "Exact used-source hashes match independently verified Analysis024 results",
+    "Frozen config/initialization and complete nine-condition coverage",
+    "Exact q identity, cumulative A and B/A identities",
+    "Independent convolution verifies every smoothed point",
+    "Every artist array matches its reduction; positive log values; PDF page/text/bounds checks"
+  ]
+}

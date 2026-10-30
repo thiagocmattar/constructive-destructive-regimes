@@ -163,6 +163,31 @@ automatic retrieval. `cohort.json`, `preflight.json`, `remote_preflight.json`,
 [observation001](observations/001-available-calibrations.md) distinguish
 available from planned conditions; all nine are now complete. The final
 figure passes source/array/hash checks and visual review.
+
+## Isolated three-column figures, October30
+
+The requested companion views each contain one row and three model columns,
+with all nine completed conditions, consistent LR colors and solid data curves:
+
+- [Training loss, log Y](figures/eos_gd_loss_log_3k.pdf), unsmoothed.
+- [Consecutive cosine](figures/eos_gd_rho_3k.pdf), unsmoothed.
+- [Consecutive cosine, smoothed](figures/eos_gd_rho_smoothed_3k.pdf).
+- [Gradient-derived eta*kappa_hat, smoothed](figures/eos_gd_eta_kappa_hat_smoothed_3k.pdf).
+- [Gradient norms, smoothed, log Y](figures/eos_gd_gradient_norms_smoothed_3k.pdf).
+- [Normalized displacement R_t](figures/eos_gd_normalized_displacement_3k.pdf), unsmoothed.
+
+Smoothing is a 50-observation trailing arithmetic mean, using complete windows
+only and no edge padding. Norms are averaged before log display. There is no
+seed aggregation. The generator `07_plot_single_rows.py` checks used-source
+hashes against the independently verified results, config/initial identities,
+q and B/A identities, all smoothed values against independent convolution, and
+every plotted artist array. All six PDFs pass page/text/bounds and Poppler
+visual review. The 54 curves contain 160,659 plotted points. Ignored renders
+and arrays remain under `scratch/` and `derived/`; compact provenance is in
+`single_rows_results.json` and `single_rows_figure_manifest.json`.
+See [observation005](observations/005-isolated-three-column-figures.md) for
+indexing, captions, coverage and interpretation limits. Existing figures and
+executed evidence are preserved; this is local postprocessing only.
 The separate post-launch `05_check_mlp_transitions.py` only reduces retained
 MLP evidence; it does not change the frozen training packet or admit new work.
 
