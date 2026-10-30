@@ -1,0 +1,130 @@
+{
+  "status": "passed",
+  "script_sha256": "ba88de0edb9b5ca34e959bedc7b0a93b8bc7bd98fc1fb7bcb556563eea800d71",
+  "initialization_values_checked": 270,
+  "plotted_means_checked": 90,
+  "plotted_minima_maxima_checked": 180,
+  "numerical_statements": [
+    {
+      "stage": "frozen",
+      "checkpoint": 0,
+      "batch": 2048,
+      "field": "mean_rho",
+      "value": 0.9863919095393481,
+      "displayed": "0.986"
+    },
+    {
+      "stage": "frozen",
+      "checkpoint": 1000,
+      "batch": 2048,
+      "field": "mean_rho",
+      "value": 0.06933944220163983,
+      "displayed": "0.069"
+    },
+    {
+      "stage": "moving",
+      "checkpoint": 0,
+      "batch": 32,
+      "field": "mean_rho",
+      "value": -0.1414976561719319,
+      "displayed": "-0.141"
+    },
+    {
+      "stage": "moving",
+      "checkpoint": 0,
+      "batch": 32,
+      "field": "mean_full_rho",
+      "value": 0.35286403286876356,
+      "displayed": "+0.353"
+    },
+    {
+      "stage": "moving",
+      "checkpoint": 0,
+      "batch": 5000,
+      "field": "mean_rho",
+      "value": 0.9943786340620777,
+      "displayed": "0.994"
+    },
+    {
+      "stage": "moving",
+      "checkpoint": 2000,
+      "batch": 5000,
+      "field": "mean_rho",
+      "value": -0.9912028927158728,
+      "displayed": "-0.991"
+    },
+    {
+      "stage": "moving",
+      "checkpoint": 2000,
+      "batch": 32,
+      "field": "mean_rho",
+      "value": -0.38414557834599955,
+      "displayed": "-0.384"
+    },
+    {
+      "stage": "moving",
+      "checkpoint": 2000,
+      "batch": 5000,
+      "field": "R",
+      "value": 0.03185746724411977,
+      "displayed": "0.0319"
+    },
+    {
+      "stage": "moving",
+      "checkpoint": 2000,
+      "batch": 32,
+      "field": "R",
+      "value": 0.030278354666826893,
+      "displayed": "0.0303"
+    },
+    {
+      "stage": "moving",
+      "checkpoint": 2000,
+      "batch": 5000,
+      "field": "loss_change",
+      "value": -0.008733131599426264,
+      "displayed": "0.0087"
+    },
+    {
+      "stage": "moving",
+      "checkpoint": 2000,
+      "batch": 32,
+      "field": "loss_change",
+      "value": 0.024052179145813007,
+      "displayed": "0.0241"
+    }
+  ],
+  "variance_max_relative_error": 0.004958596471109189,
+  "projection_max_relative_error": 0.007347919839982731,
+  "cosine_max_absolute_error": 0.007450158690204434,
+  "cosine_intervals_excluding_prediction": 21,
+  "stochastic_cells": 36,
+  "fonts": {
+    "batch_size_fixed_parameters.pdf": {
+      "embedded": true,
+      "type3": false,
+      "records": 3
+    },
+    "batch_size_sgd_outcomes.pdf": {
+      "embedded": true,
+      "type3": false,
+      "records": 5
+    }
+  },
+  "section_iii_unchanged": true,
+  "legacy_equations_unchanged": true,
+  "pages": 20,
+  "both_new_figures_page": 10,
+  "next_section_page": 11,
+  "overfull_boxes": 0,
+  "unresolved_references": 0,
+  "pdf_sha256": "cdc86a5f8cdc97996c9380c95276537e2662b6bcc03c7dcaff24089bf6d722f8",
+  "figure_manifest_sha256": "1f44be9aaff2cff1381ac6f27ca986e7c5c1b4509e49edf0fb7ea980826f0004",
+  "sources": {
+    "bare_jrnl.tex": "9f1c80945899c07ca2e41471b49bb2c829e35ace419a7966317c52929ceeb93a",
+    "sections/01-introduction.tex": "91889e90ad1fa2dba15fe171d2d39377b5302e03ba07ea0e2a5c93d2ed5990ee",
+    "sections/03-methods.tex": "d42e53ac91dd753a7d4432f44bf977e84aa6141c3a99ff406497a558c799f47f",
+    "sections/04-results.tex": "df58abf3b93cd62910623907467317b30a3be365a56b4104739445d47601619e",
+    "sections/05-sgd-noise-experiments.tex": "eba03ea87b03d5150b44a7cec20ce9f311f8af1f07e5b58b00532c156d355d5b"
+  }
+}

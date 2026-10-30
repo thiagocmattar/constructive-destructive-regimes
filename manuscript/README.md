@@ -83,15 +83,16 @@ and proposes frozen trained-state measurements plus matched SGD continuations.
 It specifies an MLP comparison, full-gradient noise references, equation checks,
 two figure designs, uncertainty and a focused stochastic-EOS literature comparison.
 The user approved execution on Runpod because Spark was busy. The completed
-[Analysis027 report](../analyses/027-2026-10-30-minibatch-noise/REPORT.md) now supplies
-Section V, *Mini-Batch Noise and Displacement Diagnostics*, and Appendix E.
-Five reviewed PDFs and two generated tables distinguish frozen sampling,
-actual SGD motion, complete-gradient references and directional-HVP validation.
-Two Section III prose corrections preserve all 16 equations. The current 23-page
-PDF passes independent checks of 17 new table rows / 123 values and all 7 asset
-copies, with no overfull boxes or unresolved references. The
-[integration record](../analyses/027-2026-10-30-minibatch-noise/observations/002-manuscript-integration.md)
-records limitations, source hashes and visual review. The historical reconstruction
-failure is explicit; within-run full-GD controls replay the new references exactly.
-Held queues and Spark remain untouched. The introduction, conclusion and older
-image-result discussion retain their previously identified revision needs.
+[Analysis027 report](../analyses/027-2026-10-30-minibatch-noise/REPORT.md) records
+the measurements and original diagnostic figures. After the user's critical
+review, the [focused revision](../analyses/027-2026-10-30-minibatch-noise/observations/003-focused-manuscript-revision.md)
+rewrites Section V around two comparisons: batch size at fixed parameters,
+then batch size during SGD. Two new figures show the intervention directly
+using existing cosine, displacement and loss quantities. The added Appendix E,
+HVP discussion and dense tables are removed from the paper; essential methods
+are in the main section and all original evidence remains in the analysis.
+The adjacent older SGD interpretation and introduction roadmap are corrected.
+Section III and the optimizer equations are unchanged. The 20-page PDF has
+both new figures on page 10 before Section VI, with zero overfull boxes or
+unresolved references; all 90 plotted means and 270 initialization values pass
+independent checks. No new training or remote work was performed.

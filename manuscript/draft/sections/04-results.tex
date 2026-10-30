@@ -5,7 +5,15 @@ The sample-level quantities $S_1$, $S_2$, and $S_3$ used in these results are de
 
 In modern deep learning, training stability is typically achieved through a set of standard heuristics, like momentum~\cite{polyak1964methods,smith2018disciplined}, weight decay~\cite{krogh1991simple,loshchilov2017decoupled}, learning-rate schedules~\cite{smith2017cyclical,loshchilov2016sgdr}, adaptive methods such as Adam~\cite{kingma2014adam}, and more recently gradient orthogonalization~\cite{jordan2024muon}. Here we argue that these methods can be viewed as explicit mechanisms for controlling the signal--interference trade-off: they either promote constructive accumulation ($S_1+S_2$) or mitigate destructive cross-step interference ($S_3$) by reshaping the magnitude, direction, and temporal structure of the updates.
 
-In this section, we focus on plain SGD, momentum, and weight decay, as they provide the foundational building blocks for adaptive optimization and regularization, which are central to deep learning stability and scale. We first analyze SGD trajectories using the diagnostic in Eq.~\eqref{eq:rho} and identify three regimes: an early constructive phase ($\rho_t>0$), a destructive phase ($\rho_t<0$), and a final random drift phase ($\rho_t\approx 0$). We then examine momentum and weight decay, interpreting how each affects the signal--interference trade-off. Next, we run ablations using plain SGD, SGD with momentum, and SGD with weight decay. Finally, we show how batch representativeness explains the coherence and stability of SGD. We follow the benchmark setting used in the Edge-of-Stability literature~\cite{cohen2021edge}, training VGG~\cite{simonyan2014vgg} on CIFAR-10~\cite{krizhevsky2009cifar}.
+In this section, we examine plain SGD, momentum and weight decay on the
+VGG/CIFAR-10 benchmark used in the Edge-of-Stability literature
+\cite{cohen2021edge,simonyan2014vgg,krizhevsky2009cifar}. We first describe
+periods of positive, negative and weak consecutive-gradient alignment, then
+examine how momentum and weight decay affect update accumulation. We finally
+consider changes to batch composition. Following
+Section~\ref{sec:sgd-noise-experiments}, the alignment regimes are geometric
+descriptions; their relation to objective progress must be assessed from the
+loss measurements rather than assigned from the cosine sign alone.
 
 %\subsection{SGD Learning Phases}
 \subsection{Trajectory Regimes in Plain SGD}
@@ -20,9 +28,21 @@ Here we analyze training dynamics of plain SGD using the consecutive-gradient co
 \end{figure*}
 
 
-Across all batch sizes, the training trajectories follow a consistent three-phase pattern. In the initial phase, successive gradients are strongly aligned, as indicated by positive cosine similarity, as shown in the bottom-right corner plot of Fig. \ref{fig:cifar_traj}. This alignment is stronger for larger batches and corresponds to rapid loss reduction and steady growth of the parameter norm, reflecting effective accumulation of the learning signal. As training progresses, an oscillatory phase emerges in which cosine similarity becomes negative. This indicates that successive updates partially oppose one another, consistent with overshooting and oscillation around a minimum. In the final phase, cosine similarity approaches zero, indicating that successive gradients are largely uncorrelated. In this regime, loss improvement saturates, and training becomes noise-dominated: parameter updates behave like a random walk, and further norm growth is driven primarily by stochastic fluctuations rather than a consistent learning signal.
+Figure~\ref{fig:cifar_traj} shows periods of positive consecutive-gradient
+alignment, negative alignment and alignment closer to zero. Positive cosine
+means that adjacent updates reinforce each other; negative cosine means that
+they partly cancel. Their association with the loss and norm curves describes
+these measured trajectories. In particular, a negative cosine does not by
+itself identify overshooting near a minimum, and a cosine near zero does not
+establish that the accumulated parameter motion is a random walk.
 
-Training dynamics vary systematically with batch size. For larger batches, the three phases are clearly separated, and the optimization trajectory is well structured. Gradient estimates are more accurate, leading to strong early alignment, a clear oscillatory phase near the minimum, and eventual convergence. As the batch size decreases, the magnitude of $\rho_t$ decreases, indicating weaker gradient alignment and larger stochasticity. For the smallest batch size (\(m = 8\)), training is largely noise-dominated: the loss and gradient norms fluctuate strongly, while the parameter norm continues to grow. In this regime, weight growth is driven primarily by stochastic noise rather than by a consistent learning signal, indicating that noise is being absorbed into the parameters without stable convergence.
+Batch size changes both the observed alignment and the loss trajectories.
+The smallest batch has pronounced loss and gradient-norm fluctuations while
+the parameter norm continues to grow. Section~\ref{sec:sgd-noise-experiments}
+shows why such observations require separate interpretation: sampling can
+weaken alignment, while the moving parameters also change the full-gradient
+geometry. Parameter-norm growth alone cannot determine which contribution
+dominates or whether the optimization has converged.
 
 %\subsection{Momentum}
 \subsection{Momentum as Temporal Averaging}

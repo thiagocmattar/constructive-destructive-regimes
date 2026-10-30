@@ -6,7 +6,7 @@ and Runpod execution because Spark was busy. Spark and held queues were untouche
 
 Start with the [report](REPORT.md), [figure review](FIGURE_REVIEW.md),
 [scientific observation](observations/001-controlled-minibatch-noise.md) and
-[manuscript integration](observations/002-manuscript-integration.md).
+[focused manuscript revision](observations/003-focused-manuscript-revision.md).
 
 Three CIFAR-10 MLP initializations, three GD checkpoints and five batch sizes
 provide frozen sampling controls and matched 200-update SGD continuations at
@@ -27,26 +27,32 @@ comparisons use explicitly identified new matched references.
 
 Run186 owns immutable scientific inputs and ignored raw evidence. This analysis
 owns preparation/control/retrieval scripts, independent numerical checks,
-reductions, five publication PDFs and manuscript verification. From the root:
+reductions, five original diagnostic PDFs, two focused paper figures and
+manuscript verification. From the root:
 
 ```text
 python analyses/027-2026-10-30-minibatch-noise/02_verify.py
 python analyses/027-2026-10-30-minibatch-noise/03_analyze.py
 python analyses/027-2026-10-30-minibatch-noise/06_report.py
-python analyses/027-2026-10-30-minibatch-noise/07_build_manuscript_assets.py
-python analyses/027-2026-10-30-minibatch-noise/08_verify_manuscript.py
+python analyses/027-2026-10-30-minibatch-noise/09_paper_figures.py
+python analyses/027-2026-10-30-minibatch-noise/10_verify_paper_revision.py
 ```
 
-The last command expects a freshly compiled draft and the retained pre-edit
-snapshot under ignored manuscript artifacts. Asset copying requires current
-figure-review hashes. Re-render and review whenever figures change. The draft
-itself is self-contained and does not require raw experiment files to compile.
+The last command expects a freshly compiled draft and compares unchanged
+source against the initial integration commit `29519c7`. Scripts 07/08 and the original
+manuscript verification describe the superseded first integration. Script 09
+generates and copies the current two paper figures. Re-render and review whenever
+figures change. The draft itself is self-contained and does not require raw experiment files to compile.
 Do not replay cloud control scripts as an analysis step: their completed lease
 is task-specific and the pod/volume no longer exist.
 
 [verification.json](verification.json), [scientific_summary.json](scientific_summary.json),
-[figure_manifest.json](figure_manifest.json), [manuscript_verification.json](manuscript_verification.json)
-and [manuscript_review.json](manuscript_review.json) retain checks and hashes.
+[paper_figure_manifest.json](paper_figure_manifest.json),
+[paper_revision_verification.json](paper_revision_verification.json) and
+[paper_revision_review.json](paper_revision_review.json) retain the current checks
+and hashes. The five original diagnostic PDFs and HVP results remain available
+in the report; the paper now uses two focused batch-size figures and no added
+appendix or HVP tables.
 
 ## Execution closeout
 
@@ -57,4 +63,4 @@ All 7,178 inventory-listed files (15.192 GB) were size/SHA-256 verified locally
 before the task pod and 30 GB volume were deleted. No cloud storage remains.
 Raw evidence and the 10.267 GB transfer archive remain in ignored local storage.
 See [retrieval](retrieval.json) and [closeout](closeout.json). Unrelated resources
-were preserved. Section V and Appendix E now contain the reviewed evidence.
+were preserved. The revised Section V contains the focused sampling argument.

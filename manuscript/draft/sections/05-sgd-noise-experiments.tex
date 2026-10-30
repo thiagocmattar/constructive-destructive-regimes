@@ -1,163 +1,135 @@
-\section{Mini-Batch Noise and Displacement Diagnostics}
+\section{Effect of Mini-Batch Sampling on the Diagnostics}
 \label{sec:sgd-noise-experiments}
 
-We examine how mini-batch sampling changes the interpretation of the
-diagnostics in Section~\ref{subsec:sampling-noise}. Repeated gradient
-estimation at fixed trained parameters isolates sampling variability;
-SGD continuations from the same states measure its interaction with
-parameter motion. Complete-objective gradients along each continuation
-provide a reference for its realized sampling error.
+The full-batch experiments isolate gradient interactions along a training
+trajectory. With mini-batches, the same diagnostics also reflect which
+examples enter each gradient estimate. Section~\ref{subsec:sampling-noise}
+predicts that reducing batch size increases the magnitude of the negative
+expected noise contribution and can weaken consecutive-gradient alignment. We test this
+prediction first at fixed parameters, where sampling is the only source of
+variation, and then during SGD, where the parameters also move. This separates
+a change in gradient estimation from its consequences for accumulated
+parameter displacement.
 
-\subsection{Matched States and Sampling Design}
+\subsection{Experimental Design}
 
-We use the CIFAR-10 MLP objective of Section~\ref{sec:gd-experiments},
-covering all $N=5{,}000$ training images, with three independent
-initializations. At learning rate $\eta=0.02$, each full-GD reference
-supplies parameter states after 0, 1,000 and 2,000 updates. These are
-matched update indices, not common curvature or loss levels across seeds.
-They are new reference trajectories: a reconstruction of the earlier
-seed-0 history failed the predeclared scalar tolerances. Every batch
-comparison below nevertheless shares exactly the same saved starting
-parameters within its initialization and checkpoint.
+We use the CIFAR-10 MLP and squared-error objective described in
+Section~\ref{sec:gd-experiments}, with all $N=5{,}000$ training images.
+For each of three independent initializations, a new full-batch GD run
+at $\eta=0.02$ provides parameter states before training and after
+1,000 and 2,000 updates. These update counts sample different portions of
+the reference trajectories; they do not define common stability regimes
+across initializations. At each saved state, we vary only the batch size,
+$b\in\{32,128,512,2048,5000\}$.
 
-At each state, we compare $b\in\{32,128,512,2048,5000\}$. Each stochastic
-batch is a uniform subset without replacement, independently redrawn
-at every gradient evaluation. Sampling is not an epoch-wise reshuffle.
-Common random-permutation prefixes pair the batch sizes within each
-repetition. There is no momentum, weight decay, clipping, schedule,
-augmentation or dropout; parameter and gradient arithmetic are FP32,
-with TF32 disabled and FP64 diagnostic reductions.
+The fixed-parameter comparison draws 32 independent sequences of 128
+mini-batch gradients per condition, without updating the parameters.
+The training comparison instead resumes SGD for 200 updates from each
+saved state, with eight independent sampling repetitions per mini-batch
+size and one full-batch GD continuation. Each batch is sampled uniformly
+without replacement and redrawn independently at every step. The learning
+rate remains 0.02, with no momentum, weight decay, clipping or schedule.
+All batch sizes share the same starting parameters within each comparison.
+The displacement origin is reset to that starting state, so $R_{200}$
+measures accumulation over the 200-update continuation. Equal update counts
+serve a diagnostic comparison, rather than a comparison of training efficiency.
 
-The frozen experiment uses 32 independent sequences of 128 gradient draws
-per stochastic condition, with the full gradient as a deterministic control.
-All 5,000 examples contribute to the full gradient and population covariance
-trace. Define $S=\|\nabla\mathcal L(\theta)\|^2$ and
-$V_b=(N-b)\operatorname{tr}\Sigma(\theta)/(b(N-1))$ at the frozen state.
-We compare measured noise squared norm with $V_b$, measured noise
-projection with $-V_b$, and mean cosine with $S/(S+V_b)$. The first two
-targets are expectation identities; the third requires the local
-norm-concentration approximation in Eq.~\eqref{eq:noise-cosine-approx}.
-Bootstrap intervals resample entire sequences, preserving dependence
-between adjacent pairs within a sequence.
+Within each sampling repetition, batch sizes share prefixes of the same
+random permutation; permutations are independent across steps and repetitions.
+Parameters and gradients are FP32, diagnostic reductions are FP64, and TF32
+is disabled. There is no augmentation or dropout. Figure summaries first
+average repetitions within each initialization, then weight the three
+initializations equally. Shading shows the range of these three means.
+For the fixed-parameter cosine comparison, conditional 95\% intervals use
+4,000 bootstrap resamples of whole sampling sequences, preserving dependence
+between adjacent pairs. The SGD summaries describe the complete 200-update
+window, without assuming stationary behavior within it.
 
-For motion, we run eight independent 200-update SGD continuations per
-stochastic condition and one full-GD control, totaling 297 continuations.
-Every sampled gradient is paired with a complete-objective gradient at
-the same parameters. We record both consecutive-cosine streams, the full
-training loss, and $R_K$ with its origin reset to the shared fork state.
-Stored parameter differences separately verify the gradient-sum displacement
-up to update roundoff. Equal update counts imply different numbers of sampled
-examples; this is a diagnostic comparison rather than an efficiency benchmark.
+\subsection{Batch Size and Alignment at Fixed Parameters}
+
+At fixed parameters, consecutive gradients differ only because their
+mini-batches differ. We compute the full gradient and per-example gradient
+covariance over all 5,000 images, then evaluate
+Eqs.~\eqref{eq:noise-expectation}--\eqref{eq:noise-cosine-approx}
+without fitted constants. Across the 36 stochastic conditions, the measured
+mean squared noise norm agrees with Eq.~\eqref{eq:finite-population-noise}
+within 0.50\% relative error, and the mean noise contribution in
+Eq.~\eqref{eq:noise-expectation} agrees within 0.74\%.
 
 \begin{figure*}[!t]
   \centering
-  \includegraphics[width=\textwidth]{figures/analysis027/frozen_calibration.pdf}
-  \caption{Frozen-state sampling calibration at three GD checkpoints and
-  three initializations. Panels compare measured and predicted
-  (a) noise squared norm, (b) unnormalized noise projection and
-  (c) consecutive cosine. Both axes in (a) and (b) are divided by the
-  same state-dependent $S+V_b$. Colors denote batch sizes and markers
-  denote checkpoint indices; each point is one initialization--checkpoint
-  condition. Error bars are conditional 95\% bootstrap intervals over
-  32 independent 128-draw sequences; the full-batch control is deterministic.
-  Gray identity lines indicate agreement. Parameters remain fixed throughout.}
+  \includegraphics[width=\textwidth]{figures/analysis027/batch_size_fixed_parameters.pdf}
+  \caption{Batch size and consecutive-gradient cosine at fixed parameters.
+  Columns identify the saved GD state; no parameter updates occur during
+  measurement. Circles show measurements and squares show
+  Eq.~\eqref{eq:noise-cosine-approx}, evaluated per initialization before
+  averaging. Shading is the range of three initialization means after averaging
+  32 sampling sequences, not a confidence interval. The batch axis is logarithmic
+  and lines guide the eye. At $b=5000$, every draw is the same full gradient.}
   \label{fig:sgd-frozen-calibration}
 \end{figure*}
 
-\subsection{Frozen Sampling and Moving Geometry}
-
-Figure~\ref{fig:sgd-frozen-calibration} separates the exact moment targets
-from the cosine approximation. Across the 36 stochastic cells, measured
-mean variance and noise projection differ from their targets by at most
-0.50\% and 0.74\%, respectively. The largest absolute cosine-approximation
-error is 0.00745. This small error is nevertheless distinguishable from
-sampling uncertainty: the approximation lies outside the conditional
-95\% interval in 21 of the 36 stochastic cells. Gradient-norm coefficients
-of variation range from 0.018 to 0.135. Thus, the approximation captures
-the dominant batch/state dependence here, with measurable residual deviations.
-
-The signal-to-noise balance changes substantially with the training state.
-At update 1,000, even $b=2048$ gives $V_b/S$ between 13.37 and 13.57 across
-the three initializations. A large fraction of this dataset therefore does
-not suffice to make the gradient estimate signal dominated at those states.
-
 \begin{figure*}[!t]
   \centering
-  \includegraphics[width=\textwidth]{figures/analysis027/sgd_geometry.pdf}
-  \caption{SGD continuations from matched GD states. Columns denote the
-  fork checkpoint; rows show sampled-gradient cosine, complete-gradient
-  cosine evaluated along the same SGD states, and normalized displacement
-  from the fork origin. Colors denote batch sizes. Curves first average
-  repetitions within each initialization, then weight the three initializations
-  equally; shading is the range of these three means, not a confidence interval.
-  Cosines use complete 20-pair trailing arithmetic means; $R_K$ is unsmoothed.
-  The full-gradient reference follows each sampled trajectory and is distinct
-  from the full-batch continuation shown in black.}
+  \includegraphics[width=\textwidth]{figures/analysis027/batch_size_sgd_outcomes.pdf}
+  \caption{Outcomes over 200 SGD updates from each saved state. Top: mean
+  consecutive cosine of mini-batch gradients (blue) and full gradients at the
+  same SGD states (orange). Middle: normalized displacement $R_{200}$.
+  Bottom: final minus initial training loss on all 5,000 images; positive
+  values indicate an increase. Lines and shading show the mean and descriptive
+  range of three initialization means after averaging sampling repetitions.
+  Batch axes are logarithmic; $b=5000$ is full-batch GD. Loss axes use different ranges.}
   \label{fig:sgd-moving-geometry}
 \end{figure*}
 
-Parameter motion changes the interpretation of the frozen results.
-From initialization, $b=32$ yields a mean sampled cosine of $-0.141$,
-while the full gradients along those same SGD states have mean cosine
-$0.353$; the full-GD control gives $0.994$. These means average all
-defined pairs and then weight the three initializations equally.
-Negative sampled alignment can therefore coexist with positive average
-alignment of the complete gradients along the realized path.
+Figure~\ref{fig:sgd-frozen-calibration} shows the resulting effect on
+$\rho_t$: smaller batches yield weaker alignment even though the parameters
+never move. Equation~\eqref{eq:noise-cosine-approx} captures this dependence,
+with maximum absolute error 0.0075. The agreement is approximate: its prediction
+lies outside the conditional 95\% sampling interval in 21 of the 36 stochastic
+conditions. The observed deviations therefore remain distinguishable from
+sampling uncertainty.
 
-The checkpoint at update 1,000 also exposes initialization dependence:
-the full-GD continuation's mean cosine ranges from $0.517$ to $1.000$.
-The first negative pair in the three reference histories occurs at
-updates 1,149, 1,227 and 1,224, respectively. The shared checkpoint index
-does not define a shared transition time. Moreover, changing batch size
-changes the visited parameters and their full-gradient geometry, not only
-the noise of gradient estimation on one common trajectory.
+The effect also depends on the training state. At batch size 2,048, the mean
+cosine is 0.986 at initialization but only 0.069 at the state reached after
+1,000 GD updates. Thus, even using over 40\% of this dataset in each batch
+does not ensure strong alignment. Equation~\eqref{eq:noise-cosine-approx}
+explains this dependence through the sampling variance relative to the
+squared full-gradient norm. Batch size alone does not specify that balance.
 
-From update 2,000, reducing the batch from 5,000 to 32 changes mean
-sampled cosine from $-0.991$ to $-0.384$, while $R_{200}$ remains close
-to $0.03$ (0.0319 and 0.0303, respectively). Mean full-objective loss
-changes by $-0.0087$ under full GD and by $+0.0241$ at $b=32$;
-the latter initialization-specific mean is positive in all three cases.
-A cosine closer to zero therefore implies neither less path-relative
-cancellation nor better objective progress. $R_K$ itself is a ratio and
-does not identify the absolute displacement. Table~\ref{tab:sgd-noise-contrasts}
-reports the paired batch effects; Appendix~\ref{appendix:sgd-noise-diagnostics}
-retains unsmoothed geometry and complete-objective loss histories.
+\subsection{Alignment, Displacement and Loss during SGD}
 
-\begin{table*}[!t]
-  \centering
-  \caption{Batch effects relative to full-GD continuations from the same
-  starting states. Entries are the mean [minimum, maximum] of the three
-  initialization-specific differences after averaging the eight sampling
-  repetitions. The range is descriptive, not a confidence interval.
-  $\overline\rho$ averages all 199 defined adjacent pairs;
-  $R_{200}$ and full-objective loss refer to the final state.
-  Positive loss differences indicate a higher endpoint loss than the full-GD
-  control at the same update budget.}
-  \label{tab:sgd-noise-contrasts}
-  \small
-  \input{tables/analysis027_contrasts}
-\end{table*}
+Once training resumes, changing the batch size also changes the visited
+parameters. Figure~\ref{fig:sgd-moving-geometry} summarizes consecutive-gradient
+cosine, normalized displacement and training loss for all continuations.
+To distinguish estimation noise from changes along the trajectory, we also
+compute the full-data gradients at the same SGD parameter states and apply
+the same cosine formula to them. These full gradients are used only for
+measurement; each SGD update still uses its sampled mini-batch gradient.
 
-\subsection{Interpreting the Noisy Curvature Proxy}
+From initialization, batch size 32 produces mean sampled cosine $-0.141$,
+while the full gradients along the same trajectories have mean cosine
+$+0.353$. Training loss nevertheless decreases. Negative sampled alignment
+can therefore coexist with positive average full-gradient alignment and
+objective progress. The full-batch continuation has mean cosine $0.994$,
+showing that mini-batching changes both gradient estimation and the path
+followed through the objective.
 
-The distinction also matters for $q_k=\eta\widehat\kappa_k$.
-Using complete gradients to measure $\varepsilon_k$, we compare
-$q_k$ and $q_k+\varepsilon_k$ with independent, state-matched
-directional Hessian--vector products. At $b=32$, the median absolute
-error against $\eta\kappa_k$ falls from 0.7467 to 0.0030 over 288
-probe pairs. The other stochastic batches show the same substantial
-improvement (Table~\ref{tab:sgd-hvp-errors}). The correction identity
-alone is algebraic; the independent HVP comparisons assess the remaining
-finite-step approximation. Residual errors remain, and the correction
-requires full-gradient information unavailable from consecutive sampled
-gradients alone. The raw proxy should therefore be interpreted as observed
-gradient change, rather than as isolated curvature, when sampling noise
-is appreciable.
+From the state after 2,000 GD updates, reducing the batch from 5,000 to 32
+moves mean cosine from $-0.991$ to $-0.384$. Yet $R_{200}$ remains near
+0.03 in both cases (0.0319 and 0.0303), so weaker consecutive reversal does
+not translate into a larger fraction of retained displacement. Mean training
+loss decreases by 0.0087 under full GD but increases by 0.0241 at batch 32;
+the latter increase occurs in every initialization-specific mean. The batch
+response is not uniformly monotonic: batch 2,048 attains a lower final loss
+than full GD in all three initializations at this starting state.
 
-The distinction is relevant when choosing batches for larger-model diagnostic
-studies. The ratio $\chi_b=V_b/S$, rather than batch size alone, quantifies
-sampling variability relative to the full-gradient signal at a given state.
-The comparison covers one objective, one learning rate and 200-update forks
-from three initializations. These MLP measurements do not determine its magnitude in a different
-architecture or dataset. Neither a cosine sign nor a displacement ratio alone
-establishes stability, convergence or generalization.
+These results connect the sampling argument in
+Section~\ref{subsec:sampling-noise} to the displacement decomposition.
+Noise can weaken alignment at fixed parameters, but during SGD the observed
+cosine also reflects parameter motion. Its sign or proximity to zero does
+not determine cumulative displacement or loss reduction. Accordingly,
+$\eta\widehat\kappa_t$ retains the noise contribution identified in
+Eq.~\eqref{eq:kappa-estimate}; interpreting it as curvature alone requires
+that contribution to be small. These observations cover one MLP objective and learning rate over
+200-update continuations; they do not define a general stability criterion.

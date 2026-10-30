@@ -107,10 +107,12 @@ distinguish raw gradients from optimizer directions.
 [Observation001](observations/001-controlled-minibatch-noise.md) specifies every
 figure's sources, reduction, caption, uncertainty and caveats. The
 [figure review](FIGURE_REVIEW.md) and [manuscript integration](observations/002-manuscript-integration.md)
-record the visual and numerical checks. The working paper now contains Section V,
-two main figures and a contrast table, with three companion figures and HVP
-validation in Appendix E. Two targeted Section III prose corrections preserve
-all 16 equations. The original supplied manuscript assets are retained.
+record the original visual and numerical checks. The subsequent
+[focused editorial revision](observations/003-focused-manuscript-revision.md)
+replaces that presentation with two batch-size figures and essential methods
+in Section V. The added Appendix E, dense tables and HVP discussion are removed
+from the paper; all original diagnostic evidence remains in this report.
+Section III and the supplied original assets are preserved.
 
 One task-owned Runpod RTX 4090 at the live quoted rate of USD0.89/hour completed
 production in 1,371.56 seconds (22.86 minutes). The full provision-to-cleanup

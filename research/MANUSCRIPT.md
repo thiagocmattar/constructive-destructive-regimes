@@ -332,3 +332,20 @@ unresolved references or overfull boxes. The original assets and earlier
 full-GD figure data are preserved. Existing introduction/conclusion and older
 image-result alignment remain later editorial work. Task cloud resources were
 deleted after local hash-verified retrieval; Spark and held queues stayed untouched.
+
+The user subsequently rejected the first Analysis027 presentation as confusing.
+The [focused editorial revision](../analyses/027-2026-10-30-minibatch-noise/observations/003-focused-manuscript-revision.md)
+removes auxiliary aliases, the independent HVP argument, both dense tables and
+Appendix E from the paper. Section V now asks how batch size affects alignment
+at fixed parameters and how that differs during SGD. Two replacement figures
+put batch size on the horizontal axis and show existing cosine/displacement/loss
+quantities. Essential sampling and uncertainty methods remain in the section.
+All original measurements and diagnostic figures are retained in Analysis027.
+Nearby older prose is corrected where it inferred random-walk motion or
+convergence from cosine/parameter norm alone, and the introduction roadmap is
+updated. Section III and the older optimizer equations remain unchanged.
+The 20-page PDF places both new figures on page 10 before Section VI on page 11.
+All 270 initialization values, 90 plotted means, 180 range endpoints and numerical
+statements pass independent checks; individual figures and page reflow are
+reviewed. No new experiment or cloud execution was performed. The previous
+23-page integration record is historical, not the current presentation.

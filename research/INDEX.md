@@ -8,8 +8,10 @@ initializations, three checkpoints and five batches. All full-gradient/loss/HVP
 references cover 5k/5k examples. Frozen moment errors are below 0.75%; the cosine
 approximation has small detectable bias. Noise correction reduces batch 32 median
 HVP discrepancy 0.7467 to 0.0030. Historical reconstruction does not qualify; new
-matched controls replay exactly. Five PDFs and Section V/Appendix E are reviewed;
-17 new table rows / 123 scalars pass. All 15.192 GB are locally hash verified.
+matched controls replay exactly. Section V now uses two focused batch-size figures;
+the added appendix/HVP material is retained in the research record. All 90 plotted
+means and 270 initialization values pass. The 20-page draft is reviewed;
+all 15.192 GB of original evidence remain locally hash verified.
 Task Runpod pod/volume deleted; approximately USD 0.87 provisional, zero cloud
 storage. Spark and held queues untouched. Next Run187 / Analysis028 / H024.
 

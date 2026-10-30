@@ -1,5 +1,10 @@
 # IEEE figure review
 
+Current manuscript presentation: the [focused revision](observations/003-focused-manuscript-revision.md)
+uses two replacement figures, reviewed in [paper_revision_review.json](paper_revision_review.json).
+The review below records the five original diagnostic figures, retained as
+research evidence but no longer included in the compiled manuscript.
+
 Reviewed 2026-10-30. All five PDFs passed individual rendering at 150 dpi,
 embedded-font inspection and manuscript-scale inspection. Numeric records are
 unchanged by layout refinement: all 300 plotting records retain their arrays.
