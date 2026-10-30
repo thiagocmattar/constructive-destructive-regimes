@@ -1,23 +1,39 @@
 {
-  "observed_at_epoch": 1793389064.3683844,
+  "observed_at_epoch": 1793389743.280583,
   "gpu": {
     "available": true,
     "communityCloud": true,
-    "communityPricePerHr": 0.74,
+    "communityPricePerHr": 0.79,
     "dataCenterAvailability": [
       {
-        "dataCenterId": "US-WA-1",
+        "dataCenterId": "EUR-IS-2",
+        "stockStatus": "Low"
+      },
+      {
+        "dataCenterId": "OC-AU-1",
+        "stockStatus": "Low"
+      },
+      {
+        "dataCenterId": "US-MO-1",
+        "stockStatus": "Low"
+      },
+      {
+        "dataCenterId": "US-TX-3",
+        "stockStatus": "Low"
+      },
+      {
+        "dataCenterId": "US-TX-4",
         "stockStatus": "Low"
       }
     ],
-    "displayName": "RTX 6000 Ada",
-    "gpuId": "NVIDIA RTX 6000 Ada Generation",
+    "displayName": "L40S",
+    "gpuId": "NVIDIA L40S",
     "memoryInGb": 48,
     "secureCloud": true,
-    "securePricePerHr": 0.99,
+    "securePricePerHr": 1.09,
     "stockStatus": "Low"
   },
-  "datacenter": "US-WA-1",
+  "datacenter": "US-MO-1",
   "storage_source": "https://docs.runpod.io/pods/pricing",
   "network_gb_month_usd": 0.07,
   "container_gb_month_usd": 0.1,

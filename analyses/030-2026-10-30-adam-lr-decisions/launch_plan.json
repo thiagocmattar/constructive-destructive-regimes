@@ -4,12 +4,12 @@
   "maximum_total_usd": 15,
   "maximum_elapsed_hours": 12,
   "workers": 1,
-  "gpu": "NVIDIA RTX 6000 Ada Generation",
-  "quoted_gpu_hourly_usd": 0.99,
-  "network_volume_gb": 200,
+  "gpu": "NVIDIA L40S",
+  "quoted_gpu_hourly_usd": 1.09,
+  "network_volume_gb": 0,
   "container_disk_gb_per_worker": 30,
-  "storage_hourly_usd": 0.023287671232876714,
-  "maximum_execution_estimate_usd": 12.35945205479452,
+  "storage_hourly_usd": 0.031506849315068496,
+  "maximum_execution_estimate_usd": 13.858082191780824,
   "qualified_elapsed_hours": [
     6,
     9
@@ -23,6 +23,8 @@
   "guard_seconds": 10,
   "retained_storage": "Delete after local inventory and scientific verification; preserve recovery on unexpected deadline failure and report continued storage billing.",
   "checks": "6 local tests passed; GPU replay/calibration still pending",
-  "reason": "Matching4090 capacity vanished; same18 forks sequentially on one GPU. First unused allocation removed.",
-  "calibration": "Three original-schedule replay updates per model size;120% of measured maximum step time plus90sec/arm; must fit deadline"
+  "reason": "Two unused infrastructure allocations removed; L40S fallback preserves scientific design. Deadline measured from first task allocation.",
+  "calibration": "Three original-schedule replay updates per model size;120% of measured maximum step time plus90sec/arm; must fit deadline",
+  "persistent_pod_volume_gb": 200,
+  "storage_reason": "Live L40S stock has no supported network-volume placement. Pod-attached200GB storage survives stop; guard stops, never terminates unverified evidence; deletion follows verified retrieval."
 }

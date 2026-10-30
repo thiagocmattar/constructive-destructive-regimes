@@ -71,6 +71,11 @@ held-LR regret, and all predictions. No tuning against held folds, threshold sea
 significance claim or validated-controller claim from six blocks/three seed clusters.
 If every block favors the same multiplier, the experiment cannot demonstrate
 state-dependent intervention value; retain that negative/inconclusive result.
+An additional state-independent comparator chooses a single multiplier using the
+training seeds of each fold and applies it to both held-seed states. This tests
+information beyond ordinary LR tuning, not merely improvement over holding LR.
+It was added during input transfer, before any new training outcomes existed;
+the scientific runs and the ridge-feature/penalty contract were unchanged.
 
 ## Execution
 
@@ -86,14 +91,16 @@ ownership/transport checks, and independent ridge calculation/no held-target use
 The production source archive is frozen; subsequent local validation additions
 and analysis code do not alter the worker's scientific inputs.
 
-The first unused4090 allocation was removed after matching capacity disappeared.
-No scientific updates or input staging occurred there. The same18 arms are now
-assigned sequentially to one48GB RTX6000 Ada, live quoteUSD0.99/h in US-WA-1.
-The aggregate cap staysUSD15 including the first allocation; the time guard is
-12h with training bounded to10.5h and90min reserved for final retrieval. Expected
+The first unused4090 allocation was removed after matching capacity disappeared;
+the RTX6000 Ada replacement failed its10min readiness deadline and was also removed.
+No scientific updates or input staging occurred on either worker. The same18 arms
+are assigned sequentially to one48GB L40S, live quoteUSD1.09/h in US-MO-1.
+The aggregate cap staysUSD15 including retries; the time guard is12h from the first
+allocation, with training bounded to10.5h and90min reserved for final retrieval. Expected
 elapsed time6--9h is qualified until the three-update calibration at each size.
-The new200GB network volume retains checkpoints until local hash/scientific
-acceptance. Separate guard and retrieval processes manage only this task's IDs.
+No live L40S placement supported a network volume. A200GB persistent pod volume
+instead retains checkpoints through a stop, until local hash/scientific acceptance.
+Separate guard and retrieval processes manage only this task's IDs.
 If the deadline interrupts retrieval, recovery is preserved and storage billing
 is reported; the guard does not delete unverified evidence.
 

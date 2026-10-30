@@ -26,23 +26,24 @@ def main():
     resume=lease_path.exists()
     if resume and '--resume-provision' not in sys.argv:raise RuntimeError('Existing lease requires explicit infrastructure recovery')
     prices=cli('gpu','list')
-    gpu=next(v for v in prices if v['gpuId']=='NVIDIA RTX 6000 Ada Generation')
-    assert gpu['securePricePerHr']<=.99
+    gpu=next(v for v in prices if v['gpuId']=='NVIDIA L40S')
+    assert gpu['securePricePerHr']<=1.09
     dcs=[v['dataCenterId'] for v in gpu.get('dataCenterAvailability',[]) if v['stockStatus'].lower()!='none']
-    if not dcs and not resume:raise RuntimeError('No live 4090 placement; no allocation performed')
-    dc=json.loads(lease_path.read_text())['volume']['dataCenterId'] if resume else dcs[0]
+    if not dcs and not resume:raise RuntimeError('No live L40S placement; no allocation performed')
+    dc=json.loads(lease_path.read_text())['volume']['dataCenterId'] if resume else ('US-MO-1' if 'US-MO-1' in dcs else dcs[0])
     control.save(HERE/'live_price.json',dict(observed_at_epoch=time.time(),gpu=gpu,datacenter=dc,storage_source='https://docs.runpod.io/pods/pricing',network_gb_month_usd=.07,container_gb_month_usd=.10,cli_version='3.0.1-551d6a4'))
-    control.save(HERE/'scratch/authorization.json',dict(approved=True,source='User: Go on. You are allowed to run experiments using runpod.',agent_execution_cap=True,maximum_total_usd=14.8,maximum_hours=12,maximum_gpus=1))
+    control.save(HERE/'scratch/authorization.json',dict(approved=True,source='User: Go on. You are allowed to run experiments using runpod.',agent_execution_cap=True,maximum_total_usd=14.6,maximum_hours=12,maximum_gpus=1))
     if resume:
         lease=json.loads(lease_path.read_text())
         assert lease['owner']=='Analysis030-current-task' and len(lease['pods'])<=2
         volume=lease['volume']
         dc=volume['dataCenterId']
     else:
-        lease=dict(owner='Analysis030-current-task',created_at_epoch=time.time(),pods=[],ssh_key=str(Path.home()/'.ssh/id_ed25519_runpod'),storage_hourly_price=(200*.07+30*.1)/730,maximum_hourly_price=.99+(200*.07+30*.1)/730)
-        lease['hard_deadline_epoch']=lease['created_at_epoch']+12*3600
-        lease['training_deadline_epoch']=lease['created_at_epoch']+10.5*3600
-        volume=cli('network-volume','create','--name','cdr-analysis030-lr-decisions','--size','200','--data-center-id',dc)
+        lease=dict(owner='Analysis030-current-task',created_at_epoch=time.time(),pods=[],ssh_key=str(Path.home()/'.ssh/id_ed25519_runpod'),storage_hourly_price=(200*.10+30*.1)/730,maximum_hourly_price=1.09+(200*.10+30*.1)/730)
+        first_allocation=json.loads((HERE/'scratch/lease-attempt1.json').read_text())['created_at_epoch']
+        lease['hard_deadline_epoch']=first_allocation+12*3600
+        lease['training_deadline_epoch']=lease['hard_deadline_epoch']-1.5*3600
+        volume=dict(kind='pod-volume',dataCenterId=dc,size=200,name='task pod attached persistent storage')
         lease['volume']=volume;control.save(lease_path,lease)
         guardlog=(HERE/'scratch/guard.log').open('w')
         guard=subprocess.Popen([sys.executable,str(HERE/'04_control.py'),'guard'],cwd=ROOT,stdin=subprocess.DEVNULL,stdout=guardlog,stderr=subprocess.STDOUT,creationflags=subprocess.CREATE_NO_WINDOW|subprocess.DETACHED_PROCESS)
@@ -53,13 +54,13 @@ def main():
             # Persist the returned ID before readiness or SSH checks.
             pod=next((v for v in lease['pods'] if v['worker']==i),None)
             if pod is None:
-                r=cli('pod','create','--name',name,'--template-id','runpod-torch-v280','--gpu-id',gpu['gpuId'],'--cloud-type','SECURE','--gpu-count','1','--data-center-ids',dc,'--network-volume-id',volume['id'],'--container-disk-in-gb','30','--volume-in-gb','0','--ports','22/tcp','--min-cuda-version','12.8')
-                pod=dict(id=r['id'],name=name,worker=i,hourly_price=.99)
+                r=cli('pod','create','--name',name,'--template-id','runpod-torch-v280','--gpu-id',gpu['gpuId'],'--cloud-type','SECURE','--gpu-count','1','--data-center-ids',dc,'--container-disk-in-gb','30','--volume-in-gb','200','--ports','22/tcp','--min-cuda-version','12.8')
+                pod=dict(id=r['id'],name=name,worker=i,hourly_price=1.09)
                 lease['pods'].append(pod);control.save(lease_path,lease)
             deadline=time.time()+600
             while time.time()<deadline:
                 details=cli('pod','get',pod['id'])
-                assert details['name']==name and details['costPerHr']<=.99
+                assert details['name']==name and details['costPerHr']<=1.09
                 info=details.get('ssh',{}) or {'ip':pod.get('host'),'port':pod.get('port')}
                 control.save(HERE/f'scratch/ssh-info-{i}.json',info)
                 # runpodctl3.0 SSH connection map (verified against current CLI source).

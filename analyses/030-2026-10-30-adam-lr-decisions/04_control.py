@@ -183,6 +183,24 @@ def monitor(lease, once):
         for pod in lease["pods"]:
             try:
                 snapshot = remote_status(pod, lease)
+                if snapshot.get('calibration', {}).get('by_size'):
+                    assigned_rows = [r for r in json.loads((HERE / 'cohort.json').read_text()) if r['worker'] == pod['worker']]
+                    rates = {size: max(record['seconds']) for size, record in snapshot['calibration']['by_size'].items()}
+                    active = snapshot.get('manifest', {})
+                    active_id = active.get('run_id')
+                    remaining = 0.
+                    for row in assigned_rows:
+                        if row['run'] in snapshot['completed']:
+                            continue
+                        steps = 128
+                        if row['run'][:3] == active_id and active.get('scope') == 'scientific':
+                            steps = active['planned_updates'] - active['completed_updates']
+                            if steps > 0:
+                                rates[row['size']] = max(rates[row['size']], active.get('remaining_training_seconds', 0.) / steps)
+                        remaining += steps * rates[row['size']] + 90
+                    snapshot['cohort_remaining_seconds_with_ancillary_allowance'] = remaining
+                    snapshot['cohort_estimate_excludes'] = 'final local download/verification; transfers overlap training'
+                snapshot['task_cost_upper_estimate_usd'] = .4 + (time.time() - lease['created_at_epoch']) / 3600 * lease['maximum_hourly_price']
                 snapshots.append(dict(pod=pod["id"], **snapshot))
                 if not once:
                     if snapshot.get("calibration"):
@@ -220,11 +238,12 @@ def cleanup(lease):
         assert_owned(pod)
         cli("pod", "delete", pod["id"], check=False)
         confirm_absent("pod", "get", pod["id"])
-    volume = json.loads(cli("network-volume", "get", lease["volume"]["id"]).stdout)
-    assert volume["id"] == lease["volume"]["id"]
-    assert volume["name"] == lease["volume"]["name"] == "cdr-analysis030-lr-decisions"
-    cli("network-volume", "delete", lease["volume"]["id"], check=False)
-    confirm_absent("network-volume", "get", lease["volume"]["id"])
+    if lease['volume'].get('kind') != 'pod-volume':
+        volume = json.loads(cli("network-volume", "get", lease["volume"]["id"]).stdout)
+        assert volume["id"] == lease["volume"]["id"]
+        assert volume["name"] == lease["volume"]["name"] == "cdr-analysis030-lr-decisions"
+        cli("network-volume", "delete", lease["volume"]["id"], check=False)
+        confirm_absent("network-volume", "get", lease["volume"]["id"])
     save(HERE / "closeout.json", dict(completed_at_epoch=time.time(), task_compute_deleted=True,
                                      task_storage_deleted=True, billing="provisional until provider reconciliation"))
 

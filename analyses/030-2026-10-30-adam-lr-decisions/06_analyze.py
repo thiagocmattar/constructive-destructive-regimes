@@ -52,7 +52,14 @@ def main():
                 assert np.isclose(r['updates'][0][key],rows[0]['updates'][0][key],rtol=1e-5,atol=1e-7),(block,key)
             assert [u['batch_indices_sha256'] for u in r['updates']]==[u['batch_indices_sha256'] for u in rows[0]['updates']]
     x=np.array([r['features'] for r in data]);y=np.array([r['final_loss'] for r in data]);seeds=np.array([r['seed'] for r in data])
-    predictions={}
+    # A state-independent tuning baseline must compete with diagnostic models.
+    # Its multiplier is chosen using only the training seeds of each fold.
+    fixed=np.full(len(data),np.nan)
+    for seed in sorted(set(seeds)):
+        train=np.flatnonzero(seeds!=seed);test=np.flatnonzero(seeds==seed)
+        scores={mult:np.mean([y[i] for i in train if data[i]['multiplier']==mult]) for mult in [.5,1.,2.]}
+        for i in test:fixed[i]=scores[data[i]['multiplier']]
+    predictions={'Fixed LR':fixed}
     for label,count in [('Loss baseline',4),('Plus raw cosine',5),('Joint diagnostics',9)]:
         pred=np.full(len(data),np.nan)
         for seed in sorted(set(seeds)):
@@ -95,14 +102,14 @@ def main():
     h,l=axes[0].get_legend_handles_labels();fig.legend(h,l,loc='outside upper center',ncol=2,frameon=False)
     fig.savefig(figdir/'early_geometry_later_loss.pdf');plt.close(fig)
     fig,ax=plt.subplots(figsize=(7.1,2.8),layout='constrained')
-    methods=['Hold LR',*predictions];palette=['#777777','#0072B2','#D55E00','#009E73'];positions=np.arange(len(decisions))
+    methods=['Hold LR',*predictions];palette=['#777777','#CC79A7','#0072B2','#D55E00','#009E73'];positions=np.arange(len(decisions))
     for k,(method,color) in enumerate(zip(methods,palette)):
         values=[d['held_regret'] if method=='Hold LR' else d['choices'][method]['regret'] for d in decisions]
-        ax.bar(positions+(k-1.5)*.19,values,width=.18,color=color,label=method)
+        ax.bar(positions+(k-2)*.16,values,width=.15,color=color,label=method)
     ax.set_xticks(positions,[d['block'].replace('-','\n') for d in decisions]);ax.set_ylabel('Loss above best observed branch');ax.grid(axis='y',alpha=.15)
-    fig.legend(loc='outside upper center',ncol=4,frameon=False)
+    fig.legend(loc='outside upper center',ncol=5,frameon=False)
     fig.savefig(figdir/'held_seed_decision_regret.pdf');plt.close(fig)
-    result=dict(status='completed pilot; exploratory prediction',sources=sources,effects=effects,decisions=decisions,feature_contract='README.md; no outcome-driven tuning',predictions={k:v.tolist() for k,v in predictions.items()},run_order=[r['run'] for r in data],best_multiplier_varies=len({d['best_multiplier'] for d in decisions})>1,seed_clusters=3)
+    result=dict(status='completed pilot; exploratory prediction',generator_sha256=sha(Path(__file__)),sources=sources,effects=effects,decisions=decisions,feature_contract='README.md; no outcome-driven tuning',features=x.tolist(),feature_names=['initial_probe_loss','probe_loss_change_0_16','log_lr','log_parameters','raw_cosine','moment_cosine','adaptive_cosine','input_previous_moment_cosine','log_raw_norm_change'],ridge_penalty=10,predictions={k:v.tolist() for k,v in predictions.items()},run_order=[r['run'] for r in data],best_multiplier_varies=len({d['best_multiplier'] for d in decisions})>1,seed_clusters=3)
     (HERE/'results.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
     lines=['# Matched Adam learning-rate pilot','', 'All18 branches completed and passed local artifact/scientific acceptance. Three seed clusters, two sizes and one fork stage support a pilot, not a validated scheduler.','', '| State | Lower LR minus held loss | Higher LR minus held loss | Best multiplier |','| --- | ---: | ---: | ---: |']
     for d in decisions:
@@ -153,6 +160,8 @@ both sizes and all arms of each held seed are excluded during fitting. No tuning
 Coverage:18 arms, six states, three folds. Uncertainty: per-state outcomes shown,
 no significance intervals. Caveat: the observed best arm is a finite-comparison
 reference, not an oracle beyond these rates; this pilot does not validate a scheduler.
+The fixed-LR comparator chooses its multiplier only on each fold's training seeds;
+it tests whether diagnostics add value beyond ordinary state-independent LR tuning.
 If every state favors the same rate, conditional decision value is unestablished.
 
 Visual review: pending. Automated text-bound checks and preview generation are
