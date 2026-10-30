@@ -9,3 +9,6 @@
 - [006: IEEE figures and manuscript integration](006-ieee-figures-and-manuscript.md):
   external labels, no plot footers, unchanged Y values, two composites, critical
   review, generated endpoints and new manuscript Section IV / Appendix D.
+- [007: Second critical review of Section IV](007-section-iv-critical-review.md):
+  local/all-lag distinction, absolute displacement, retrospective loss-approximation
+  audit and prioritized scientific revisions; draft and figures unchanged.

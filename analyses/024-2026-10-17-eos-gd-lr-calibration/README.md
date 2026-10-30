@@ -203,4 +203,15 @@ executed evidence are preserved; this is local postprocessing only.
 The separate post-launch `05_check_mlp_transitions.py` only reduces retained
 MLP evidence; it does not change the frozen training packet or admit new work.
 
+## Second critical review of manuscript Section IV
+
+[Observation007](observations/007-section-iv-critical-review.md) reviews the
+scientific argument and adds a reproducible audit of retained scalar evidence.
+All nine final all-pair interactions are positive, while seven cumulative
+lag-one interactions are negative. Absolute displacement rises with LR as R
+falls within each case. A correctly indexed retrospective check quantifies
+the local loss approximation's limitations. `10_review_section_iv.py` and
+`section_iv_review_checks.json` preserve definitions, coverage and hashes.
+The draft, figures, executed inputs and raw evidence are unchanged.
+
 Next Run154 / Analysis026 / H022 (see research/INDEX.md). H020 remains the scientific question.

@@ -268,3 +268,14 @@ asset generator and verification. The 16-page working PDF compiles with
 resolved citations/references and no overfull boxes; all new artwork and
 reflowed pages are visually reviewed. No scientific inputs, raw evidence,
 provided manuscript assets or training trajectories are changed.
+
+On 2026-10-30, the requested second critical review of Section IV is recorded
+in [Analysis024 Observation007](../analyses/024-2026-10-17-eos-gd-lr-calibration/observations/007-section-iv-critical-review.md).
+A reproducible scalar audit finds positive final all-pair interaction in all
+nine trajectories despite negative cumulative lag-one interaction in seven;
+absolute displacement rises with LR while R falls. A correctly indexed
+retrospective loss-change check exposes limits of the local approximation,
+with sensitivity thresholds and interpretation limits retained. The review
+prioritizes the local/all-lag distinction, theory validation, spectral scope
+and a clearer contribution relative to Edge of Stability. The working draft
+and publication figures are unchanged; no training or cloud work is launched.
