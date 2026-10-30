@@ -1,0 +1,11 @@
+{
+  "reason": "CLI ssh info uses stale legacy readiness; pod get supplies working live SSH route, confirmed by nvidia-smi.",
+  "old_launcher_sha256": "1a8f4299efe52b3d771599a4e2be9e97a417d8c63baea4ce5d1555b833d1b26b",
+  "new_launcher_sha256": "672ea332d8dcee8fd3a0098d85da708790c7bcf616467df8b5c1c88945f0525e",
+  "scope": "local infrastructure launcher only; frozen scientific source/config/input packets unchanged",
+  "additional_repairs": [
+    "send UTF8 bytes over SSH to avoid Windows CRLF translation",
+    "new unused4090 allocation removed after capacity loss",
+    "single RTX6000 Ada placement and sequential queue; original scientific configs unchanged"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "status": "authorized_bounded_pilot",
+  "authorization": "User explicitly authorized experiments on Runpod; agent selected conservative execution cap.",
+  "maximum_total_usd": 15,
+  "maximum_elapsed_hours": 12,
+  "workers": 1,
+  "gpu": "NVIDIA RTX 6000 Ada Generation",
+  "quoted_gpu_hourly_usd": 0.99,
+  "network_volume_gb": 200,
+  "container_disk_gb_per_worker": 30,
+  "storage_hourly_usd": 0.023287671232876714,
+  "maximum_execution_estimate_usd": 12.35945205479452,
+  "qualified_elapsed_hours": [
+    6,
+    9
+  ],
+  "qualification": "Historical comparable updates, extra diagnostic and checkpoint allowance; production-shaped3-update replay gates each worker.",
+  "training_deadline_hours": 10.5,
+  "retrieval_reserve_hours": 1.5,
+  "expected_checkpoint_bytes": 121672800000,
+  "input_bytes": 16110019700,
+  "monitor_seconds": 120,
+  "guard_seconds": 10,
+  "retained_storage": "Delete after local inventory and scientific verification; preserve recovery on unexpected deadline failure and report continued storage billing.",
+  "checks": "6 local tests passed; GPU replay/calibration still pending",
+  "reason": "Matching4090 capacity vanished; same18 forks sequentially on one GPU. First unused allocation removed.",
+  "calibration": "Three original-schedule replay updates per model size;120% of measured maximum step time plus90sec/arm; must fit deadline"
+}

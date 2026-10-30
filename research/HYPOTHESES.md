@@ -37,7 +37,9 @@ questions alone do not create experimental commitments.
 
 | H023 | How does fresh minibatch sampling affect gradient alignment, projected change and actual displacement at matched trained states? | Completed conditional characterization; moment targets agree closely, cosine approximation has detectable bias, sampled/full-path alignment can differ in sign | [Analysis027](../analyses/027-2026-10-30-minibatch-noise/REPORT.md), Runs185/186 | Three MLP initializations; matched trained-state controls and complete-objective HVPs distinguish sampling from motion. Batch 32 median proxy discrepancy 0.7467 becomes 0.0030 after offline correction. No universal stability/generalization claim |
 
-Next hypothesis: `H024`. Record the operational meaning,
+| H024 | Do joint gradient/momentum/update diagnostics distinguish beneficial LR changes beyond loss and raw cosine? | Active; matched-checkpoint pilot, prediction exploratory | [Analysis030](../analyses/030-2026-10-30-adam-lr-decisions/README.md), Runs187--204 | Six states at356, two sizes/three seed clusters, three constant rates,128 updates; common shrink; no results yet |
+
+Next hypothesis: `H025`. Record the operational meaning,
 comparison, support/refutation criteria, and scope in the corresponding run
 proposal. Suggested statuses: proposed, active, supported, unsupported,
 inconclusive, withdrawn. Preserve superseded interpretations instead of rewriting
