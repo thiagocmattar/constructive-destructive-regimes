@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "scope": "Proposal verification only; no real-data training or new noise measurements.",
+  "local_links": "all proposal links resolve",
+  "mathematics": "Exact enumeration over finite vector populations: variance, noise projection, total dot, expected unit-vector cosine, two-draw accumulation energy. Counterexamples check limitations. These are mechanics checks, not empirical evidence.",
+  "enumeration": [
+    {
+      "batch": 1,
+      "max_absolute_identity_error": 5.551115123125783e-17
+    },
+    {
+      "batch": 2,
+      "max_absolute_identity_error": 0.0
+    },
+    {
+      "batch": 3,
+      "max_absolute_identity_error": 4.440892098500626e-16
+    },
+    {
+      "batch": 4,
+      "max_absolute_identity_error": 0.0
+    }
+  ],
+  "counterexamples": {
+    "zero_mean_expected_cosine": 0.25,
+    "negative_unnormalized_noise_with_positive_expected_epsilon": 0.33333333333333337
+  },
+  "design_counts": {
+    "initializations": 3,
+    "states_per_initialization": 3,
+    "frozen_conditions": 45,
+    "frozen_sequences": 1440,
+    "frozen_gradient_observations": 184320,
+    "stochastic_forks": 288,
+    "deterministic_forks": 9,
+    "continuation_updates": 59400,
+    "reference_updates_if_all_regenerated": 6000
+  },
+  "sources_sha256": {
+    "manuscript/draft/sections/03-methods.tex": "1c329b2086977393c6796be23fec8156d75ae9bb6da4dd4359fede4a6549e670",
+    "manuscript/artifacts/draft/bare_jrnl.pdf": "d1f3dd603e5b0be21f34b701156a5db2722f0dba16477e984155f2af9f4ee9f7",
+    "analyses/020-2026-10-14-eos-multitask/observations/001-frozen-real-data-noise.md": "ce32d22452566c8a859edf4decc1389cd1c373c786d08a9193aed411b7f58c6f",
+    "analyses/020-2026-10-14-eos-multitask/frozen_results.json": "21e97652bfcb8f177709855dce8915b695e06e6c9ef91c35a867d452fba52d2c",
+    "analyses/020-2026-10-14-eos-multitask/figures/eos_frozen_noise_comparison.pdf": "b2f68b1216f7d588b76ca94ee0b287cf5794222d2960d1ee5d4a39f944553468",
+    "runs/068-2026-10-14-eos-frozen-gradient-noise/config.json": "e5955a1f73cee31734de5a578862f7575959a5f2c584f3bf88bd29bccc59bb13",
+    "runs/062-2026-10-13-cifar10-eos-gd-lr-2e-2/artifacts/attempt-01-spark/production/manifest.json": "7d0957c123fc2db7ee5459b33e135593ec4f912a8444d132c0cd7f6108dd9a6e"
+  },
+  "pdf_review": "Compiled page 5 text checked against TeX; existing frozen-noise PDF rendered with Poppler and visually inspected. No PDFs authored."
+}

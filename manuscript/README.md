@@ -76,3 +76,10 @@ The [implementation record](../analyses/024-2026-10-17-eos-gd-lr-calibration/obs
 documents the four generated tables and independent checks of all 36 rows and
 26,991 loss comparisons. The current 18-page PDF and its affected pages have
 been rendered and reviewed; the three main figures are unchanged.
+
+The [mini-batch noise proposal, 2026-10-30](2026-10-30-minibatch-noise-proposal/README.md)
+assesses Section III-B against the existing initialization-only sampling control
+and proposes frozen trained-state measurements plus matched SGD continuations.
+It specifies an MLP comparison, full-gradient noise references, equation checks,
+two figure designs, uncertainty and a focused stochastic-EOS literature comparison.
+This is a proposal; the manuscript and held experiment queues are unchanged.

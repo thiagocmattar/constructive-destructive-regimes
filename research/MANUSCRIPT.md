@@ -298,3 +298,15 @@ PyTorch vocabulary/model revision is now cited explicitly.
 records the source mapping, independent verification of all 36 table rows
 and 26,991 loss comparisons, preserved figure arrays and visual review of
 the 18-page draft. No additional training, HVPs or cloud work was performed.
+
+The subsequent [mini-batch noise assessment and proposal](../manuscript/2026-10-30-minibatch-noise-proposal/README.md)
+reviews the compiled Section III-B and Analysis020's frozen initial-state
+control. It separates the exact unnormalized noise projection and conditional
+variance law from the concentrated-norm cosine approximation, and distinguishes
+frozen gradient accumulation from actual displacement. The proposed MLP design
+uses three initialization blocks, three trained states, five batch sizes and
+paired SGD continuations with complete-objective gradient references. It includes
+equation-specific figure contracts, uncertainty, checkpoint reconstruction needs,
+and positioning against gradient-noise-scale and stochastic-EOS literature.
+No new empirical findings, manuscript edits, training, HVPs or remote work are
+claimed; no run/analysis IDs are allocated and the earlier held queues remain held.
