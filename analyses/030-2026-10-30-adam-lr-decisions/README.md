@@ -1,8 +1,10 @@
 # Adam diagnostics and matched learning-rate decisions
 
 Analysis030 / H024. Authorized on October 30, 2026: implement and run the
-matched-checkpoint experiment using Runpod. Status: remote replay qualification
-running on the L40S; the18 scientific continuations have no results yet.
+matched-checkpoint experiment using Runpod. Status: both sizes passed remote replay
+qualification; the18 scientific continuations are running sequentially on the
+L40S. First scientific updates and every diagnostic stream were observed; no
+completed-arm result or scientific conclusion is available yet.
 
 ## Scientific comparison
 
@@ -106,8 +108,14 @@ the RTX6000 Ada replacement failed its10min readiness deadline and was also remo
 No scientific updates or input staging occurred on either worker. The same18 arms
 are assigned sequentially to one48GB L40S, live quoteUSD1.09/h in US-MO-1.
 The aggregate cap staysUSD15 including retries; the time guard is12h from the first
-allocation, with training bounded to10.5h and90min reserved for final retrieval. Expected
-elapsed time6--9h is qualified until the three-update calibration at each size.
+allocation, with training bounded to10.5h and90min reserved for final retrieval. The
+initial6--9h estimate was provisional until the three-update calibration at each size.
+Calibration now passes: warmed update times are9.44s/12.69s for14M/70M,
+with peak allocated GPU memory6.03/11.42GiB. The conservative queue estimate
+including20% timing margin and per-arm allowance is9.56h, versus9.70h available
+at qualification. Raw update work at warmed speed is about7.1h; evaluations,
+checkpoint writes, inventories and retrieval add time. `launch_validation.json`
+records the replay differences and first observed scientific measurements.
 No live L40S placement supported a network volume. A200GB persistent pod volume
 instead retains checkpoints through a stop, until local hash/scientific acceptance.
 Separate guard and retrieval processes manage only this task's IDs.

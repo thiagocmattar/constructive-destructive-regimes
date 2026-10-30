@@ -1,0 +1,109 @@
+{
+  "observed_at_epoch": 1793391619.3708572,
+  "status": "scientific queue running; no completed-arm conclusions",
+  "pod": "bntt1ssurivogw",
+  "calibration": {
+    "verified": true,
+    "by_size": {
+      "14M": {
+        "seconds": [
+          10.390811478951946,
+          9.438759230077267,
+          9.440691482974216
+        ],
+        "historical_replay_differences": [
+          {
+            "loss": 0.0,
+            "gradient_norm": 3.530706901933023e-05,
+            "adjacent_cosine": 8.23451043774348e-06
+          },
+          {
+            "loss": 3.56137752532959e-06,
+            "gradient_norm": 9.22909254819082e-06,
+            "adjacent_cosine": 5.1374122463476724e-05
+          },
+          {
+            "loss": 4.718080163002014e-06,
+            "gradient_norm": 0.00017449042091277622,
+            "adjacent_cosine": 8.525035236184308e-06
+          }
+        ],
+        "maximum_cuda_allocated_bytes": 6476462592
+      },
+      "70M": {
+        "seconds": [
+          13.324454889982007,
+          12.693129117018543,
+          12.689076156006195
+        ],
+        "historical_replay_differences": [
+          {
+            "loss": 0.0,
+            "gradient_norm": 5.154677759477977e-05,
+            "adjacent_cosine": 5.043366092682966e-05
+          },
+          {
+            "loss": 2.884119749069214e-05,
+            "gradient_norm": 4.608571982051002e-05,
+            "adjacent_cosine": 0.0002696567707846653
+          },
+          {
+            "loss": 4.515983164310455e-06,
+            "gradient_norm": 5.56493384284984e-06,
+            "adjacent_cosine": 3.790315303800473e-05
+          }
+        ],
+        "maximum_cuda_allocated_bytes": 12260063744
+      }
+    },
+    "qualified_remaining_seconds": 34403.984228414294,
+    "remaining_deadline_seconds": 34927.34830164909
+  },
+  "current_output": "/workspace/constructive/runs/187-2026-10-30-pythia14m-seed1234-lr0p5/artifacts/attempt-01/full-pass",
+  "latest_update": {
+    "update": 363,
+    "local_update": 7,
+    "learning_rate": 0.00025895515275194353,
+    "loss": 5.466662388294935,
+    "gradient_norm": 0.36727448115240474,
+    "adjacent_cosine": 0.08507540100136542,
+    "projected_gradient_change": 0.9070179257974651,
+    "momentum": {
+      "adjacent_cosine": 0.9730161138748348,
+      "adjacent_cosine_undefined_reason": null,
+      "cumulative_norm_sum": 1.0834675971334904,
+      "cumulative_ratio": 0.9754107947553853,
+      "cumulative_ratio_undefined_reason": null,
+      "momentum_norm": 0.15376623232682662,
+      "cumulative_momentum_norm": 1.0568259900116854
+    },
+    "adaptive": {
+      "adjacent_cosine": 0.9683043120053538,
+      "adjacent_cosine_undefined_reason": null,
+      "cumulative_norm_sum": 8780.729518056474,
+      "cumulative_ratio": 0.9655874378066447,
+      "cumulative_ratio_undefined_reason": null,
+      "direction_norm": 1259.37313819201,
+      "cumulative_direction_norm": 8478.562117413325
+    },
+    "actual_parameter_update": {
+      "gradient_norm": 0.31698829802692446,
+      "adjacent_cosine": 0.9664474657295256,
+      "adjacent_cosine_undefined_reason": null,
+      "cumulative_norm_sum": 2.209596513989945,
+      "cumulative_gradient_norm": 2.128986771879974,
+      "cumulative_ratio": 0.9635183430098686,
+      "cumulative_ratio_undefined_reason": null
+    },
+    "incoming_previous_moment_cosine": 0.25845433627727393,
+    "clip_coefficient": 1.0,
+    "update_seconds": 9.513611676055007,
+    "tokens_per_second": 220436.9982094563,
+    "continuation_input_tokens": 14680064,
+    "overflow_retries": 0,
+    "loss_scale": 4096.0,
+    "peak_cuda_allocated_bytes": 6476462592
+  },
+  "task_cost_upper_estimate_usd": 0.9844574924382445,
+  "billing": "provisional elapsed-time estimate, not reconciled provider bill"
+}

@@ -3,11 +3,11 @@
 ## Current state
 
 [Analysis030: Adam LR decisions](../analyses/030-2026-10-30-adam-lr-decisions/README.md)
-prepares eighteen matched128-update forks from six retained Pythia14M/70M states.
+has launched eighteen matched128-update forks from six retained Pythia14M/70M states.
 H024 tests later loss benefit and exploratory held-seed prediction; common AdamW
 shrinkage, full validation, raw/clipped/moment/adaptive/actual-update diagnostics.
-Eight local mechanics/control/analysis tests pass. Runpod allocation/staging underway under
-an agent-selected USD15/twelve-hour cap; no scientific results yet. Spark untouched.
+Nine local tests and both GPU replay checks pass. The L40S queue is running under
+an agent-selected USD15/twelve-hour cap; final outcomes remain pending. Spark untouched.
 Next Run205 / Analysis031 / H025.
 
 [Analysis029: Pythia diagnostics across LR, schedule and size](../analyses/029-2026-10-30-pythia-adam-diagnostics/REPORT.md)
