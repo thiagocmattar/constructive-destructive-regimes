@@ -2,14 +2,15 @@
 
 ## Current state
 
-[Analysis030: Adam LR decisions](../analyses/030-2026-10-30-adam-lr-decisions/README.md)
-has launched eighteen matched128-update forks from six retained Pythia14M/70M states.
-H024 tests later loss benefit and exploratory held-seed prediction; common AdamW
-shrinkage, full validation, raw/clipped/moment/adaptive/actual-update diagnostics.
-Thirteen local tests and all six GPU replay checks pass. Three L40S workers
-execute one seed block each; Run187 completed remotely and retrieval is active.
-Agent-selected USD25 total cap, five-hour expansion window; outcomes pending. Spark untouched.
-Next Run205 / Analysis031 / H025.
+[Analysis030: completed matched Adam LR pilot](../analyses/030-2026-10-30-adam-lr-decisions/REPORT.md)
+completed18 forks /2,304 updates /4.83B input tokens from six Pythia14M/70M states.
+The2x LR wins in all six states despite negative early raw-gradient cosine.
+Fixed-LR and loss-only selectors have zero regret; raw/joint extensions have
+mean regret0.011137/0.016247. H024 is unsupported in this pilot; no conditional
+scheduling value is established. All180 files /121.692GB are locally verified;
+162 features,72 predictions and three PDFs pass numerical/visual review.
+Task compute/storage deleted October30 at21:49 BRT; USD13.90 posted, provisional.
+No cloud storage or remaining compute; Spark untouched. Next Run205 / Analysis031 / H025.
 
 [Analysis029: Pythia diagnostics across LR, schedule and size](../analyses/029-2026-10-30-pythia-adam-diagnostics/REPORT.md)
 adds four reviewed vector figures from22 existing event files. Projected gradient

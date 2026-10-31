@@ -179,3 +179,19 @@ batch 32 median directional-HVP discrepancy 0.7467 to 0.0030. One objective/LR a
 200-update forks establish diagnostic interpretation limits, not stability,
 generalization or LLM batch requirements. Historical reconstruction does not
 qualify; new matched controls replay exactly. Full evidence and five PDFs are verified.
+
+[Analysis030's matched Adam LR pilot](../../analyses/030-2026-10-30-adam-lr-decisions/REPORT.md)
+completed18 forks from six Pythia14M/70M states across three seed clusters.
+At128 matched updates, doubling LR improves full-validation loss by0.023816--0.050583
+relative to holding LR, and wins in every state. Half-rate branches have positive
+early raw cosine and worse final loss; doubled-rate branches have negative cosine
+and better loss. More positive gradient alignment is therefore not a performance
+objective in this comparison. Per-update AdamW shrinkage is held constant.
+The fixed-LR and loss-only selectors have zero observed regret; raw/joint feature
+extensions give0.011137/0.016247. These prespecified pilot models do not establish
+added diagnostic decision value. A common winning LR provides no evidence for
+conditional selection, and probing all candidates has an additional compute cost.
+One fork stage, small models and three seed clusters do not establish a scheduler,
+a curvature estimator or a stability result. All180 files /121.692GB are local;
+three PDFs reviewed and independent reductions verified. Task cloud deleted;
+USD13.90 posted, provisional. No manuscript changes were made from these results.

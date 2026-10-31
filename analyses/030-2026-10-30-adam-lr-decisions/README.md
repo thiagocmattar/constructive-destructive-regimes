@@ -1,13 +1,17 @@
 # Adam diagnostics and matched learning-rate decisions
 
-Analysis030 / H024. Authorized on October 30, 2026: implement and run the
-matched-checkpoint experiment using Runpod. The user subsequently authorized
-parallel execution at increased cost. Three L40S workers are allocated, with
-one seed's six matched continuations assigned to each. All three workers passed both-size replay
-qualification and are executing their scientific queues. At18:34 BRT, six arms
-completed remotely and three more were running. The first three retrieved arms
-passed local hash/scientific acceptance after the receipt-directory fix.
-No cohort result or scientific conclusion is available yet.
+Analysis030 / H024 is complete. All18 matched continuations finished:2,304 updates,
+4,831,838,208 input tokens and180 retained files /121.692 GB, locally hash and
+scientific verified. Training finished October30 at20:23 BRT; all task pods and
+storage were deleted at21:49 BRT. Three publication-format PDFs passed visual
+review, and independent reductions/predictions passed numerical checks.
+
+The2x LR wins in all six model/seed states. The fixed-LR and loss-only baselines
+achieve zero observed selection regret; adding raw cosine or joint diagnostics
+performs worse. This pilot does not establish diagnostic-based scheduling value.
+See [the completed report](REPORT.md) and [figure observation](observations/001-matched-lr-decisions.md).
+Posted cost is USD13.90, still provisional; no task cloud resources remain. ETC0.
+Historical design, qualification and execution records follow.
 
 ## Scientific comparison
 
