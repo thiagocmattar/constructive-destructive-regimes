@@ -195,3 +195,16 @@ One fork stage, small models and three seed clusters do not establish a schedule
 a curvature estimator or a stability result. All180 files /121.692GB are local;
 three PDFs reviewed and independent reductions verified. Task cloud deleted;
 USD13.90 posted, provisional. No manuscript changes were made from these results.
+
+## Analysis031: optimizer-state map and paired benefit
+
+The local exploratory reanalysis predicts held-minus-candidate validation loss
+at 128, conditional on model size and LR multiplier, with each seed held out.
+Actual/adaptive accumulation ratios over the first 16 updates reduce MAE from
+0.006643 to 0.004186/0.004174. The result concentrates in doubled-rate arms,
+is sensitive to the observation window, and does not persist as a standalone
+predictor of additional benefit 16-128. No tested initial-state summary improves
+primary prediction. A common best action remains, so scheduling value is unresolved.
+This is a candidate for independent validation, not a confirmed prediction law;
+all feature/fold outcomes and four reviewed figures are in the
+[report](../../analyses/031-2026-10-31-adam-state-map/REPORT.md). No new training.

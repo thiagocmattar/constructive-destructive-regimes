@@ -39,7 +39,9 @@ questions alone do not create experimental commitments.
 
 | H024 | Do joint gradient/momentum/update diagnostics distinguish beneficial LR changes beyond loss and raw cosine? | Not supported in this pilot; no conditional LR-choice diversity | [Analysis030](../analyses/030-2026-10-30-adam-lr-decisions/REPORT.md), Runs187--204 | All six states favor2x LR; fixed-LR/loss baseline regret0, raw0.011137, joint0.016247. Positive raw cosine does not imply better loss. Three seed clusters, one stage; no validated scheduler. All evidence local; task cloud deleted |
 
-Next hypothesis: `H025`. Record the operational meaning,
+| H025 | Can recorded optimizer-state summaries predict the magnitude of LR benefit beyond model size and action? | Exploratory candidate; no validated predictor | [Analysis031](../analyses/031-2026-10-31-adam-state-map/REPORT.md), reused Runs187-204 | Early actual/adaptive retention reduce final-benefit MAE about 37% across held-seed folds at 16; no initial feature improves primary prediction. Timing/target sensitivity, three seed clusters and outcome-known feature search limit inference. No controller claim |
+
+Next hypothesis: `H026`. Record the operational meaning,
 comparison, support/refutation criteria, and scope in the corresponding run
 proposal. Suggested statuses: proposed, active, supported, unsupported,
 inconclusive, withdrawn. Preserve superseded interpretations instead of rewriting

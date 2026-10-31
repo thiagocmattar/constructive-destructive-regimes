@@ -49,5 +49,7 @@
 
 | [030](030-2026-10-30-adam-lr-decisions/README.md) | Matched Adam LR decisions and diagnostic information beyond loss | Six Pythia14M/70M checkpoints, three seeds; Runs187--204 | Complete;18 runs verified, three PDFs reviewed; task cloud deleted; USD13.90 posted, provisional | [Results and reviewed figures](030-2026-10-30-adam-lr-decisions/REPORT.md) |
 
-Next analysis: `031-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
+| [031](031-2026-10-31-adam-state-map/README.md) | H025 optimizer state and paired LR benefit | Analysis030 / Runs187-204; 12 paired altered arms, three seed clusters | Complete exploratory map; four reviewed PDFs and independent reductions/predictions verified; no training or rental | [Report](031-2026-10-31-adam-state-map/REPORT.md); early actual/adaptive retention candidate, sensitive to window and target |
+
+Next analysis: `032-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
 an analysis may use manuscript or external inputs without referencing a run.

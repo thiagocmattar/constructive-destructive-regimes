@@ -2,6 +2,16 @@
 
 ## Current state
 
+[Analysis031: Adam state map and paired-benefit prediction](../analyses/031-2026-10-31-adam-state-map/REPORT.md)
+reuses all 18 Analysis030 arms; 12 altered-rate outcomes and three seed clusters.
+At update 16, actual/adaptive retention reduce held-seed final-benefit prediction
+MAE by 37.0%/37.2% beyond model/LR means. No tested initial summary improves it;
+window/target sensitivity and shared best action prevent a controller claim.
+H025 is an exploratory candidate; H024 remains unresolved by this design.
+Four PDFs pass visual review; 1,068 features, 1,956 predictions and 6,840 plotted
+source values pass independent checks. No training, cloud cost, or manuscript edit.
+Next Run205 / Analysis032 / H026.
+
 [Analysis030: completed matched Adam LR pilot](../analyses/030-2026-10-30-adam-lr-decisions/REPORT.md)
 completed18 forks /2,304 updates /4.83B input tokens from six Pythia14M/70M states.
 The2x LR wins in all six states despite negative early raw-gradient cosine.
