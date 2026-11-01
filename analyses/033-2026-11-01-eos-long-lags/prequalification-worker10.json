@@ -1,0 +1,27 @@
+{
+  "config_sha256": "87eae7a13b003482c36b26e91f8cc480fd2f9ba0ce9f15e97fa75c564c786180",
+  "worker": 10,
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "checks": [
+    {
+      "parent_run_id": "124",
+      "anchor": 2000,
+      "relative_gradient_error": 3.4089608396870716e-05,
+      "passed": false,
+      "loss_error": -9.765624975344167e-09,
+      "seconds": 6.8651455831713974,
+      "parameters_unchanged": true,
+      "applied_updates": 0
+    },
+    {
+      "parent_run_id": "124",
+      "anchor": 3000,
+      "relative_gradient_error": 4.436366803322551e-05,
+      "passed": false,
+      "loss_error": 3.662109282487336e-09,
+      "seconds": 6.252599781844765,
+      "parameters_unchanged": true,
+      "applied_updates": 0
+    }
+  ]
+}

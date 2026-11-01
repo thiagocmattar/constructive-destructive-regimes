@@ -1,0 +1,75 @@
+{
+  "run_id": "207",
+  "run_path": "runs/207-2026-11-01-eos-parallel-resnet-lags",
+  "workers": [
+    12,
+    13,
+    14
+  ],
+  "reuse_eligible_workers": [
+    6,
+    7,
+    8,
+    11
+  ],
+  "expected_window_keys": [
+    [
+      "123",
+      2000
+    ],
+    [
+      "124",
+      3000
+    ],
+    [
+      "124",
+      2000
+    ],
+    [
+      "120",
+      3000
+    ],
+    [
+      "120",
+      2000
+    ],
+    [
+      "123",
+      3000
+    ]
+  ],
+  "assignments": {
+    "12": [
+      [
+        "123",
+        2000
+      ],
+      [
+        "124",
+        3000
+      ]
+    ],
+    "13": [
+      [
+        "124",
+        2000
+      ],
+      [
+        "120",
+        3000
+      ]
+    ],
+    "14": [
+      [
+        "120",
+        2000
+      ],
+      [
+        "123",
+        3000
+      ]
+    ]
+  },
+  "stop_original_worker11_after_first_window": true,
+  "reason": "Later ResNet5090 boundary checks fail1e-5 tolerance. Use completed4090 control Pods and independent source checkpoints; scientific metrics and budgets unchanged. New run ID freezes the changed placement/config/shared runner."
+}

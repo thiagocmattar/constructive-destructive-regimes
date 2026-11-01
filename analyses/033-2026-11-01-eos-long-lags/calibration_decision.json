@@ -1,0 +1,67 @@
+{
+  "selected_physical": 512,
+  "candidates": [
+    {
+      "physical": 64,
+      "passed": true,
+      "seconds": [
+        5.634726754855365,
+        5.635721476981416
+      ],
+      "relative_gradient_errors": [
+        0.0,
+        0.0
+      ],
+      "loss_error": 0.0,
+      "peak_allocated_bytes": 1736472576
+    },
+    {
+      "physical": 128,
+      "passed": true,
+      "seconds": [
+        4.663649692200124,
+        4.656605385942385
+      ],
+      "relative_gradient_errors": [
+        4.067079368206856e-06,
+        4.067079368206856e-06
+      ],
+      "loss_error": -6.078376024731824e-09,
+      "peak_allocated_bytes": 2971530240
+    },
+    {
+      "physical": 256,
+      "passed": true,
+      "seconds": [
+        4.247319004964083,
+        4.251233594957739
+      ],
+      "relative_gradient_errors": [
+        4.4951369303602045e-06,
+        4.4951369303602045e-06
+      ],
+      "loss_error": 9.818932333871544e-09,
+      "peak_allocated_bytes": 5443926528
+    },
+    {
+      "physical": 512,
+      "passed": true,
+      "seconds": [
+        4.029609955148771,
+        4.0096934088505805
+      ],
+      "relative_gradient_errors": [
+        4.062185497661802e-06,
+        4.062185497661802e-06
+      ],
+      "loss_error": 2.3378481373015347e-09,
+      "peak_allocated_bytes": 10381779456
+    }
+  ],
+  "mathematical_objective_unchanged": true,
+  "fp32_accumulation_partition_changes": true,
+  "checks": {
+    "source_boundary_relative_error": 4.026627438947186e-06,
+    "source_boundary_loss_error": 2.10405470824071e-09
+  }
+}

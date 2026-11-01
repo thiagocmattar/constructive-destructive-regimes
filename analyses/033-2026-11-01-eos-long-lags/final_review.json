@@ -1,0 +1,65 @@
+{
+  "status": "passed",
+  "profiles": 27,
+  "primary_profiles": 25,
+  "csv_json_values_verified": 36096,
+  "report_rows_verified": 27,
+  "pdfs": [
+    {
+      "path": "figures/common_lag256.pdf",
+      "pages": 1,
+      "width_points": 820.7999877929688,
+      "height_points": 561.5999755859375,
+      "vector_output": true
+    },
+    {
+      "path": "figures/long_lag_profiles.pdf",
+      "pages": 1,
+      "width_points": 820.7999877929688,
+      "height_points": 561.5999755859375,
+      "vector_output": true
+    },
+    {
+      "path": "figures/all_profiles_with_reconstruction_flags.pdf",
+      "pages": 1,
+      "width_points": 820.7999877929688,
+      "height_points": 561.5999755859375,
+      "vector_output": true
+    },
+    {
+      "path": "figures/alternating_gap.pdf",
+      "pages": 1,
+      "width_points": 820.7999877929688,
+      "height_points": 561.5999755859375,
+      "vector_output": true
+    }
+  ],
+  "source_files_parsed": [
+    "analyses/033-2026-11-01-eos-long-lags/00_prepare.py",
+    "analyses/033-2026-11-01-eos-long-lags/01_cloud.py",
+    "analyses/033-2026-11-01-eos-long-lags/02_analyze.py",
+    "analyses/033-2026-11-01-eos-long-lags/03_record.py",
+    "analyses/033-2026-11-01-eos-long-lags/04_watch.py",
+    "analyses/033-2026-11-01-eos-long-lags/05_final_review.py",
+    "analyses/033-2026-11-01-eos-long-lags/06_prequalify.py",
+    "analyses/033-2026-11-01-eos-long-lags/08_capture_handoffs.py",
+    "analyses/033-2026-11-01-eos-long-lags/09_prepare_handoffs.py",
+    "analyses/033-2026-11-01-eos-long-lags/10_close_registries.py",
+    "analyses/033-2026-11-01-eos-long-lags/11_billing.py",
+    "runs/206-2026-11-01-eos-long-lags/01_worker.py",
+    "runs/206-2026-11-01-eos-long-lags/test_streaming.py",
+    "runs/207-2026-11-01-eos-parallel-resnet-lags/01_worker.py",
+    "runs/207-2026-11-01-eos-parallel-resnet-lags/test_staged_resume.py",
+    "runs/208-2026-11-01-eos-checkpoint-handoffs/01_worker.py",
+    "runs/208-2026-11-01-eos-checkpoint-handoffs/test_checkpoint_boundary.py",
+    "src/eos_tasks/lag_profile.py"
+  ],
+  "frozen_input_files_verified": 95,
+  "task_pods_confirmed_absent": 20,
+  "task_named_pods_absent_from_live_inventory": true,
+  "maximum_concurrent_workers": 12,
+  "no_task_cloud_storage": true,
+  "compute_estimate_within_approved_cap": true,
+  "local_document_links_verified": 27,
+  "figure_visual_review_passed": true
+}

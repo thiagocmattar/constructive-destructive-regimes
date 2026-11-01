@@ -1,0 +1,25 @@
+{
+  "epoch": 1793551805.1152236,
+  "original_graceful_trigger_usd": 25,
+  "graceful_trigger_usd": 29.5,
+  "hard_compute_stop_usd": 29.6,
+  "approved_aggregate_cap_usd": 30,
+  "maximum_lease_seconds": 14400,
+  "reason": "After verified closures, only six workers remain and the fleet is declining to one. Remaining measured full-gradient work forecasts about29.3USD compute before small transfers; attached40GB disk billing is about0.006USD per Pod-hour, with no network storage. Refine the graceful checkpoint trigger to29.5 while retaining the29.6 hard ceiling, original USD30 aggregate authorization and four-hour deadline. The0.40USD hard reserve covers measured storage/stop latency; no scientific inputs, tolerance or horizons change.",
+  "scientific_config_unchanged": true,
+  "history": [
+    {
+      "graceful_trigger_usd": 28,
+      "hard_compute_stop_usd": 29,
+      "reason": "Measured streaming retention and verified container-local archive transfers need much less than the initial USD5 reserve. Use the approved envelope for requested long horizons, reserve USD2 at graceful signal and USD1 at hard stop; global four-hour deadline and ten-minute retrieval margin are unchanged."
+    },
+    {
+      "epoch": 1793548850.5531607,
+      "graceful_trigger_usd": 29.3,
+      "hard_compute_stop_usd": 29.6,
+      "reason": "All profiles are already launched and qualified; measured remaining full-gradient work forecasts within the authorized USD30 envelope. Exact streaming archives are small and container-local transfers are verified. Current task billing records show disk charges only about0.003USD per Pod-hour; no network storage exists. Reserve0.70USD at graceful signal and0.40USD at hard stop for transfer/guard latency/storage; peak fleet is declining. Original four-hour deadline and ten-minute deadline retrieval margin are unchanged. Scientific inputs/stages/tolerances remain frozen."
+    }
+  ],
+  "forecast_compute_all_to2048_usd": 29.016581789781398,
+  "forecast_excludes_transfer_margin": true
+}

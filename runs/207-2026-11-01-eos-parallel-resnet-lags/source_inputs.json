@@ -1,0 +1,194 @@
+{
+  "reference_sources": {
+    "resnet_cifar.py": {
+      "repository": "locuslab/edge-of-stability",
+      "revision": "0d8ceeb3ad98e28930762205934f0a941faeb479",
+      "path": "src/resnet_cifar.py",
+      "sha256": "7a98f29fed2635bfc80b6cbea00d0d08e92122125789483e2600aa82fc5735c9"
+    },
+    "model.py": {
+      "repository": "pytorch/examples",
+      "revision": "13acec6d7c78dacd5e1fe9b0b4a325e1d39abc15",
+      "path": "word_language_model/model.py",
+      "sha256": "9d2a01d0076146232bb10b21f642b2c27435ae33aaaa9fbd1f80a357ff84c196"
+    },
+    "data.py": {
+      "repository": "pytorch/examples",
+      "revision": "13acec6d7c78dacd5e1fe9b0b4a325e1d39abc15",
+      "path": "word_language_model/data.py",
+      "sha256": "15784815a6bd18e9b25eadf6ae049915f88d4fb8faebeba9d83ae6ec8e19883d"
+    }
+  },
+  "cifar_archive_sha256": "6d958be074577803d12ecdefd02955f39262c83c16fe9348329d7fe0b5c001ce",
+  "cifar_normalization": {
+    "resnet": "full50k channel population mean/std",
+    "mlp": "unchanged Run058 released-code coordinate normalization"
+  },
+  "wikitext": {
+    "vocabulary_size": 33278,
+    "dictionary": "tutorial train/valid/test first-occurrence union",
+    "sources": {
+      "train": {
+        "url": "https://raw.githubusercontent.com/pytorch/examples/13acec6d7c78dacd5e1fe9b0b4a325e1d39abc15/word_language_model/data/wikitext-2/train.txt",
+        "sha256": "9e9fa1ad55b1c2c95b08e37dd8e653f638fac2c6de904b79e813611eefbc985f",
+        "bytes": 10797148
+      },
+      "valid": {
+        "url": "https://raw.githubusercontent.com/pytorch/examples/13acec6d7c78dacd5e1fe9b0b4a325e1d39abc15/word_language_model/data/wikitext-2/valid.txt",
+        "sha256": "f0737ed31fc1329026e95cb8b98e19c2a182c39c240ab909dc31abf2f8af58e8",
+        "bytes": 1121681
+      },
+      "test": {
+        "url": "https://raw.githubusercontent.com/pytorch/examples/13acec6d7c78dacd5e1fe9b0b4a325e1d39abc15/word_language_model/data/wikitext-2/test.txt",
+        "sha256": "d790b833ef8cf03a90db7bf1271b7520b83c45ce07ba3c1a9699df81e239eca0",
+        "bytes": 1256449
+      }
+    },
+    "coverage": {
+      "train": {
+        "original_tokens": 2088628,
+        "batchify_tail_omitted": 8,
+        "stream_initial_tokens_without_target": 20,
+        "target_tokens": 2088600,
+        "sequence_units": 59680,
+        "length": 35,
+        "batchify_streams": 20
+      },
+      "valid": {
+        "original_tokens": 217646,
+        "batchify_tail_omitted": 6,
+        "stream_initial_tokens_without_target": 10,
+        "target_tokens": 217630,
+        "sequence_units": 6220,
+        "length": 35,
+        "batchify_streams": 10
+      },
+      "test": {
+        "original_tokens": 245569,
+        "batchify_tail_omitted": 9,
+        "stream_initial_tokens_without_target": 10,
+        "target_tokens": 245550,
+        "sequence_units": 7020,
+        "length": 35,
+        "batchify_streams": 10
+      }
+    }
+  },
+  "initial": {
+    "mlp": [
+      {
+        "seed": 0,
+        "path": "mlp_initial_seed0.pt",
+        "sha256": "b64c58838e736a667ca27e02e825ffd26bd1864097a7a999bcb01a418adafa7c",
+        "initial_tensor_sha256": "8de1e7c880539f122aa840d5b7c28027310e82bd3ee4e753afef87fe0876a2da",
+        "parameters": 656810
+      },
+      {
+        "seed": 1,
+        "path": "mlp_initial_seed1.pt",
+        "sha256": "6e226a05ae876f8db1554462eea539a92ed8151da2fe2aacee1643b9463c0cdc",
+        "initial_tensor_sha256": "cb6282e2746ed6ff6d80d680b835f1220f4e2fa5ca4d762a96c9d3e0f6bb55d4",
+        "parameters": 656810
+      },
+      {
+        "seed": 2,
+        "path": "mlp_initial_seed2.pt",
+        "sha256": "46e307b60603d5401436cff72630741454c80384d8ad8a1677b38abb06ec9798",
+        "initial_tensor_sha256": "2e1d25f786c0f550c0d006b355f244748c215f282a7f76ed30f54a77753ed6c4",
+        "parameters": 656810
+      }
+    ],
+    "resnet": [
+      {
+        "seed": 0,
+        "path": "resnet_initial_seed0.pt",
+        "sha256": "8cc004193b85f35c74c301530ffee7ac8b624d05c646da0e261fc9c8e56fde14",
+        "initial_tensor_sha256": "e2fd253c5c6e3cdfd75d255811f0d2bd4b59dae33702d6a981b517150a259dde",
+        "parameters": 464250
+      },
+      {
+        "seed": 1,
+        "path": "resnet_initial_seed1.pt",
+        "sha256": "4136b058b02127a9aa488ec81db63d296bbe733eaa06cc3654edd18c6c332ca6",
+        "initial_tensor_sha256": "24875d1ef7ec2da9cdfa87ae9ca2543e06cae5780683b5754883375f79d75c81",
+        "parameters": 464250
+      },
+      {
+        "seed": 2,
+        "path": "resnet_initial_seed2.pt",
+        "sha256": "80c3e5ad6bb30f6d39b53a7b9b22a420c37fe6bbababd6d855c027bbda940c26",
+        "initial_tensor_sha256": "96b006788cc79a801f1af520e61d10c25ed8bb75d26da5983ad4116ccd1ffda6",
+        "parameters": 464250
+      }
+    ],
+    "transformer": [
+      {
+        "seed": 0,
+        "path": "transformer_initial_seed0.pt",
+        "sha256": "37ce7e65ba47c7cb091a0be1479325ac88ef481b018bec0970cc9eaf71662402",
+        "initial_tensor_sha256": "66989f8082f75709fa410366bb0d74498eb3298b37df2fa1b1e48f9552617513",
+        "parameters": 13828478
+      },
+      {
+        "seed": 1,
+        "path": "transformer_initial_seed1.pt",
+        "sha256": "a9f644a6a3435eab7d8fb862be1e746fb7b7112e0bb57382c4c15d4ff7e0b930",
+        "initial_tensor_sha256": "a3ef6ea224ea96fdef92bd9ab1b11af4b2472cf3247b923faea9844ce4234955",
+        "parameters": 13828478
+      },
+      {
+        "seed": 2,
+        "path": "transformer_initial_seed2.pt",
+        "sha256": "474328cac0e153fa15ea977431a044285506b25d43000afa7508757a46f3aa38",
+        "initial_tensor_sha256": "acc0314fafc504bfb1d335719d8dfa6514abec9b06e9d7fef3d463e0870ffc7f",
+        "parameters": 13828478
+      }
+    ]
+  },
+  "prepared_files": {
+    "mlp_initial_seed0.pt": {
+      "bytes": 2630285,
+      "sha256": "b64c58838e736a667ca27e02e825ffd26bd1864097a7a999bcb01a418adafa7c"
+    },
+    "mlp_initial_seed1.pt": {
+      "bytes": 2630285,
+      "sha256": "6e226a05ae876f8db1554462eea539a92ed8151da2fe2aacee1643b9463c0cdc"
+    },
+    "mlp_initial_seed2.pt": {
+      "bytes": 2630285,
+      "sha256": "46e307b60603d5401436cff72630741454c80384d8ad8a1677b38abb06ec9798"
+    },
+    "resnet_data.pt": {
+      "bytes": 737762437,
+      "sha256": "0a71ff06ddf09c355f82712bcb57f973e987916269e26ed278133e008b88564a"
+    },
+    "resnet_initial_seed0.pt": {
+      "bytes": 1891855,
+      "sha256": "8cc004193b85f35c74c301530ffee7ac8b624d05c646da0e261fc9c8e56fde14"
+    },
+    "resnet_initial_seed1.pt": {
+      "bytes": 1891855,
+      "sha256": "4136b058b02127a9aa488ec81db63d296bbe733eaa06cc3654edd18c6c332ca6"
+    },
+    "resnet_initial_seed2.pt": {
+      "bytes": 1891855,
+      "sha256": "80c3e5ad6bb30f6d39b53a7b9b22a420c37fe6bbababd6d855c027bbda940c26"
+    },
+    "transformer_data.pt": {
+      "bytes": 40838081,
+      "sha256": "6be25abd18302070e46ac69cd47316212f9a3b62f24ededebc63f2a0d8e3db35"
+    },
+    "transformer_initial_seed0.pt": {
+      "bytes": 59324915,
+      "sha256": "37ce7e65ba47c7cb091a0be1479325ac88ef481b018bec0970cc9eaf71662402"
+    },
+    "transformer_initial_seed1.pt": {
+      "bytes": 59324915,
+      "sha256": "a9f644a6a3435eab7d8fb862be1e746fb7b7112e0bb57382c4c15d4ff7e0b930"
+    },
+    "transformer_initial_seed2.pt": {
+      "bytes": 59324915,
+      "sha256": "474328cac0e153fa15ea977431a044285506b25d43000afa7508757a46f3aa38"
+    }
+  }
+}

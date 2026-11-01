@@ -1,0 +1,44 @@
+{
+  "status": "passed",
+  "reviewed_utc": "2026-11-01T17:40:17.056792+00:00",
+  "method": "Final PDFs rendered at2x with PyMuPDF and visually inspected",
+  "figures": [
+    {
+      "path": "figures/common_lag256.pdf",
+      "sha256": "e0664bb7bef380a57dbd0673becbd571435f3ac8e337f463969a9522a28a39a7",
+      "reviewed_render": "scratch/pdf-common_lag256.png",
+      "render_sha256": "695e63f19cb244b7c36e62f50a3b39bba0cc9b7893e31640f3871358236f625b",
+      "status": "passed"
+    },
+    {
+      "path": "figures/long_lag_profiles.pdf",
+      "sha256": "8994917c46fd0c2331dc4d23eaa3f57b799986d4006898513e6e569257062ea4",
+      "reviewed_render": "scratch/pdf-long_lag_profiles.png",
+      "render_sha256": "17478b9b74d30b2543079c38a784bd0f18d61b279cf0d88156fac20184a0ceb6",
+      "status": "passed"
+    },
+    {
+      "path": "figures/all_profiles_with_reconstruction_flags.pdf",
+      "sha256": "7d6ea324773f0f85c8bfd23613f2821b8967f1d1f270923e204358d3373793f0",
+      "reviewed_render": "scratch/pdf-all_profiles_with_reconstruction_flags.png",
+      "render_sha256": "4d3017cb9c71e302d5bd784f5798b3616026eb8c34ef25d21a80ecb56b840fc7",
+      "status": "passed"
+    },
+    {
+      "path": "figures/alternating_gap.pdf",
+      "sha256": "e57974e455bdf496e9524a6551f8f9c45563f3ec7e3b75c302508869cd75f7d5",
+      "reviewed_render": "scratch/pdf-alternating_gap.png",
+      "render_sha256": "7c3f68ce9954c5f2ceb9d443f496fc51bcce973fe3e3fb3f40d79e7b21b7ca05",
+      "status": "passed"
+    }
+  ],
+  "checks": [
+    "All four PDFs are single-page vector output",
+    "Axis labels, tick labels, row/column titles and legends readable",
+    "Raw odd/even branches unsmoothed, with backend path simplification disabled",
+    "Common256 and adaptive terminal coverage clearly marked",
+    "Unqualified reconstructions faded and labeled[U], with definition in footer",
+    "Rolling32-pair statistic and threshold clearly identified; rebounds visible",
+    "All source artist arrays independently checked by generating script"
+  ]
+}

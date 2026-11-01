@@ -1,0 +1,25 @@
+{
+  "worker": 5,
+  "pod_id": "srfmbhjbwi0iq4",
+  "reason": "Repeated SSH timeouts after package CDN failures on shared host; no scientific worker launched",
+  "available_local_evidence_verified": [
+    {
+      "path": "infrastructure_attempts/worker5-attempt01/platform-logs-error.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "infrastructure_attempts/worker5-attempt01/platform-logs.jsonl",
+      "bytes": 849,
+      "sha256": "7fead305e74de96e0b6157e084fab72736edc21d39ccdd12d2a909d60c0601fc"
+    },
+    {
+      "path": "infrastructure_attempts/worker5-attempt01/unreachable-pod.json",
+      "bytes": 742,
+      "sha256": "dd94d58f3150b1e966186a44328ccd56686dc28db9d34f873f869886b7dc3679"
+    }
+  ],
+  "remote_setup_files_unavailable": true,
+  "scientific_inputs_retained_locally": true,
+  "user_authorized_full_termination": true
+}

@@ -1,0 +1,716 @@
+{
+  "run_id": "207",
+  "analysis": "033",
+  "hypothesis": "H020",
+  "purpose": "Parallelize six independent later-ResNet profiles after hardware qualification; same Analysis033 geometry and source starts",
+  "anchors": [
+    500,
+    2000,
+    3000
+  ],
+  "stages": [
+    256,
+    512,
+    1024,
+    2048
+  ],
+  "jobs": [
+    {
+      "parent_run_id": "123",
+      "task": "resnet",
+      "lr": 0.025,
+      "anchor": 2000,
+      "worker": 12,
+      "seed": 0,
+      "physical": 1000,
+      "data": "cache/eos-multitask/resnet_data.pt",
+      "checkpoint": "cache/analysis033-inputs/123-2000/resume.pt",
+      "checkpoint_sha256": "f641e32b6a00945f2a8db738ca3c8bfcf9e57def12714fa45bdb3f16e9a66f2c",
+      "resume_tensor_sha256": "e1fc6098fbdd076397d54381240ca9fb32e1fdf4082b9b47e88d5cc776ffe5e9",
+      "anchor_gradient": "cache/analysis033-inputs/123-2000/anchor.npy",
+      "boundary_gradient": "cache/analysis033-inputs/123-2000/boundary.npy",
+      "source_window": "runs/205-2026-11-01-eos-exact-lag10/artifacts/attempt-01/worker0/123/state-002000/result.json",
+      "primary_eligible": true,
+      "parent_mode": "saved_checkpoint",
+      "initial_reversal": true,
+      "prefix_rows": [
+        {
+          "lag": 0,
+          "state": 2000,
+          "loss": 1.6426034619140626,
+          "norm": 0.796335907061545,
+          "cosine": 1.0,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 1,
+          "state": 2001,
+          "loss": 1.6422587036132816,
+          "norm": 0.7968112633192003,
+          "cosine": -0.9766266522437437,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 2,
+          "state": 2002,
+          "loss": 1.6422422607421874,
+          "norm": 0.7972228688623854,
+          "cosine": 0.9999955315643636,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 3,
+          "state": 2003,
+          "loss": 1.6418964599609376,
+          "norm": 0.7978436304735554,
+          "cosine": -0.9766614230038992,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 4,
+          "state": 2004,
+          "loss": 1.641884370117188,
+          "norm": 0.7982879956059932,
+          "cosine": 0.9999918890859176,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 5,
+          "state": 2005,
+          "loss": 1.641535275878906,
+          "norm": 0.7985540151759891,
+          "cosine": -0.9766997932143486,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 6,
+          "state": 2006,
+          "loss": 1.6415198339843753,
+          "norm": 0.7983298122381176,
+          "cosine": 0.9999881774231731,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 7,
+          "state": 2007,
+          "loss": 1.6411611816406246,
+          "norm": 0.7978347719313871,
+          "cosine": -0.9766911620891442,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 8,
+          "state": 2008,
+          "loss": 1.6411405419921876,
+          "norm": 0.7962861207228139,
+          "cosine": 0.9999820653448672,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 9,
+          "state": 2009,
+          "loss": 1.6407610986328127,
+          "norm": 0.794508935195098,
+          "cosine": -0.9766087892548619,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 10,
+          "state": 2010,
+          "loss": 1.6407362573242186,
+          "norm": 0.7931457500569923,
+          "cosine": 0.999975550208456,
+          "source": "Run205 independently verified full vector"
+        }
+      ]
+    },
+    {
+      "parent_run_id": "124",
+      "task": "resnet",
+      "lr": 0.05,
+      "anchor": 3000,
+      "worker": 12,
+      "seed": 0,
+      "physical": 1000,
+      "data": "cache/eos-multitask/resnet_data.pt",
+      "checkpoint": "cache/analysis033-inputs/124-3000/resume.pt",
+      "checkpoint_sha256": "48f94cdf5b8b3f61365adb4a5ff4fa304a9aa550bad2a834200404ba9f59c1e8",
+      "resume_tensor_sha256": "eb6e627930818f95e771f8de3aca801a620f79bbb809ad9f0b40615dbf1ae4e6",
+      "anchor_gradient": "cache/analysis033-inputs/124-3000/anchor.npy",
+      "boundary_gradient": "cache/analysis033-inputs/124-3000/boundary.npy",
+      "source_window": "runs/205-2026-11-01-eos-exact-lag10/artifacts/attempt-01/worker1/124/state-003000/result.json",
+      "primary_eligible": true,
+      "parent_mode": "saved_checkpoint",
+      "initial_reversal": true,
+      "prefix_rows": [
+        {
+          "lag": 0,
+          "state": 3000,
+          "loss": 0.9672287597656252,
+          "norm": 1.4058757217496738,
+          "cosine": 1.0,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 1,
+          "state": 3001,
+          "loss": 0.9702520532226562,
+          "norm": 1.5109735547542387,
+          "cosine": -0.9805913253628269,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 2,
+          "state": 3002,
+          "loss": 0.9750507409667972,
+          "norm": 1.6226346337561375,
+          "cosine": 0.9627811855284989,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 3,
+          "state": 3003,
+          "loss": 0.9792917260742185,
+          "norm": 1.807369903755963,
+          "cosine": -0.9071436772914847,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 4,
+          "state": 3004,
+          "loss": 0.990973280029297,
+          "norm": 1.9282832247521302,
+          "cosine": 0.8499557398691778,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 5,
+          "state": 3005,
+          "loss": 0.9901763500976565,
+          "norm": 2.0216797820906334,
+          "cosine": -0.7766880166830412,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 6,
+          "state": 3006,
+          "loss": 0.9990892285156249,
+          "norm": 2.0654219076166282,
+          "cosine": 0.7082004028282683,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 7,
+          "state": 3007,
+          "loss": 0.993131252441406,
+          "norm": 2.025495249092544,
+          "cosine": -0.624284417906521,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 8,
+          "state": 3008,
+          "loss": 0.9938226208496097,
+          "norm": 1.9344776972063797,
+          "cosine": 0.5685468719083545,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 9,
+          "state": 3009,
+          "loss": 0.9836249865722657,
+          "norm": 1.8582791461065984,
+          "cosine": -0.476524581483795,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 10,
+          "state": 3010,
+          "loss": 0.9865088220214845,
+          "norm": 1.7695734230494635,
+          "cosine": 0.4104220835115623,
+          "source": "Run205 independently verified full vector"
+        }
+      ]
+    },
+    {
+      "parent_run_id": "124",
+      "task": "resnet",
+      "lr": 0.05,
+      "anchor": 2000,
+      "worker": 13,
+      "seed": 0,
+      "physical": 1000,
+      "data": "cache/eos-multitask/resnet_data.pt",
+      "checkpoint": "cache/analysis033-inputs/124-2000/resume.pt",
+      "checkpoint_sha256": "b937df0299ca1e18e30db066f27ecb9bf36e6fe7e903368499016ab83967a18d",
+      "resume_tensor_sha256": "2a9c9a1a21c57214b39829aeddf14d1e58dd1a0419602c26dc18ca1f38979e3e",
+      "anchor_gradient": "cache/analysis033-inputs/124-2000/anchor.npy",
+      "boundary_gradient": "cache/analysis033-inputs/124-2000/boundary.npy",
+      "source_window": "runs/205-2026-11-01-eos-exact-lag10/artifacts/attempt-01/worker1/124/state-002000/result.json",
+      "primary_eligible": true,
+      "parent_mode": "saved_checkpoint",
+      "initial_reversal": true,
+      "prefix_rows": [
+        {
+          "lag": 0,
+          "state": 2000,
+          "loss": 1.2848856225585938,
+          "norm": 1.7957991261351072,
+          "cosine": 1.0000000000000002,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 1,
+          "state": 2001,
+          "loss": 1.2924079174804686,
+          "norm": 1.800105318998257,
+          "cosine": -0.9524634880466323,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 2,
+          "state": 2002,
+          "loss": 1.2803398974609372,
+          "norm": 1.654153817559032,
+          "cosine": 0.9723755595050898,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 3,
+          "state": 2003,
+          "loss": 1.2776211816406249,
+          "norm": 1.4075002591063162,
+          "cosine": -0.9211135105808503,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 4,
+          "state": 2004,
+          "loss": 1.2632149755859379,
+          "norm": 0.9774256287489822,
+          "cosine": 0.8601806824288629,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 5,
+          "state": 2005,
+          "loss": 1.255322509765625,
+          "norm": 0.7444595152608222,
+          "cosine": -0.7003647293835696,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 6,
+          "state": 2006,
+          "loss": 1.2531919970703125,
+          "norm": 0.6996150345334173,
+          "cosine": 0.485133919981198,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 7,
+          "state": 2007,
+          "loss": 1.252797028808594,
+          "norm": 0.7830379418899845,
+          "cosine": -0.29694626619715975,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 8,
+          "state": 2008,
+          "loss": 1.255501953125,
+          "norm": 0.9240084716555095,
+          "cosine": 0.17954477899452642,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 9,
+          "state": 2009,
+          "loss": 1.2585189135742194,
+          "norm": 1.1589841785243202,
+          "cosine": -0.09349804442651043,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 10,
+          "state": 2010,
+          "loss": 1.2677916967773437,
+          "norm": 1.3775148886275652,
+          "cosine": 0.02294820540345333,
+          "source": "Run205 independently verified full vector"
+        }
+      ]
+    },
+    {
+      "parent_run_id": "120",
+      "task": "resnet",
+      "lr": 0.1,
+      "anchor": 3000,
+      "worker": 13,
+      "seed": 0,
+      "physical": 1000,
+      "data": "cache/eos-multitask/resnet_data.pt",
+      "checkpoint": "cache/analysis033-inputs/120-3000/resume.pt",
+      "checkpoint_sha256": "32cb8d80371403c6b334b34a8f24631f404f70fed9978ca156fef371e6a122f0",
+      "resume_tensor_sha256": "2b08b563fd2ee8541186ac9c207ea499ef2e2fa66143707d7935148fc31a4eaf",
+      "anchor_gradient": "cache/analysis033-inputs/120-3000/anchor.npy",
+      "boundary_gradient": "cache/analysis033-inputs/120-3000/boundary.npy",
+      "source_window": "runs/205-2026-11-01-eos-exact-lag10/artifacts/attempt-01/worker2/120/state-003000/result.json",
+      "primary_eligible": true,
+      "parent_mode": "saved_checkpoint",
+      "initial_reversal": true,
+      "prefix_rows": [
+        {
+          "lag": 0,
+          "state": 3000,
+          "loss": 0.4898383941650392,
+          "norm": 2.172104932771317,
+          "cosine": 1.0000000000000002,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 1,
+          "state": 3001,
+          "loss": 0.5036934082031249,
+          "norm": 2.300989302437731,
+          "cosine": -0.967186180970519,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 2,
+          "state": 3002,
+          "loss": 0.5136827709960937,
+          "norm": 2.3779055648409226,
+          "cosine": 0.9542124645317299,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 3,
+          "state": 3003,
+          "loss": 0.5153180249023438,
+          "norm": 2.2899222140258306,
+          "cosine": -0.8864080741346103,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 4,
+          "state": 3004,
+          "loss": 0.4901182348632813,
+          "norm": 2.1353816272089774,
+          "cosine": 0.8325929927114754,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 5,
+          "state": 3005,
+          "loss": 0.4827917224121093,
+          "norm": 1.9704430676989044,
+          "cosine": -0.7229056678656909,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 6,
+          "state": 3006,
+          "loss": 0.46072500122070326,
+          "norm": 1.886575361181867,
+          "cosine": 0.581389230365341,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 7,
+          "state": 3007,
+          "loss": 0.47031550659179694,
+          "norm": 1.9282077285550774,
+          "cosine": -0.4348925797814633,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 8,
+          "state": 3008,
+          "loss": 0.4700383544921876,
+          "norm": 2.0340958324653475,
+          "cosine": 0.3015094581755632,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 9,
+          "state": 3009,
+          "loss": 0.48997365661621073,
+          "norm": 2.144298387264913,
+          "cosine": -0.21584563060623302,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 10,
+          "state": 3010,
+          "loss": 0.4905305871582032,
+          "norm": 2.208422960817706,
+          "cosine": 0.1452902212398479,
+          "source": "Run205 independently verified full vector"
+        }
+      ]
+    },
+    {
+      "parent_run_id": "120",
+      "task": "resnet",
+      "lr": 0.1,
+      "anchor": 2000,
+      "worker": 14,
+      "seed": 0,
+      "physical": 1000,
+      "data": "cache/eos-multitask/resnet_data.pt",
+      "checkpoint": "cache/analysis033-inputs/120-2000/resume.pt",
+      "checkpoint_sha256": "7fc7352d80bc8ce3d4cb59997c7c77e78730145aa39e5283c57dc7620a6c89ec",
+      "resume_tensor_sha256": "124502abb8f78fd8591223e4648d1e2cead3bd4e1a1c08903433dccf21896e39",
+      "anchor_gradient": "cache/analysis033-inputs/120-2000/anchor.npy",
+      "boundary_gradient": "cache/analysis033-inputs/120-2000/boundary.npy",
+      "source_window": "runs/205-2026-11-01-eos-exact-lag10/artifacts/attempt-01/worker2/120/state-002000/result.json",
+      "primary_eligible": true,
+      "parent_mode": "saved_checkpoint",
+      "initial_reversal": true,
+      "prefix_rows": [
+        {
+          "lag": 0,
+          "state": 2000,
+          "loss": 0.7946179113769531,
+          "norm": 1.2555384472376252,
+          "cosine": 1.0000000000000002,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 1,
+          "state": 2001,
+          "loss": 0.7996439233398441,
+          "norm": 1.2724160246698253,
+          "cosine": -0.9776315963046741,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 2,
+          "state": 2002,
+          "loss": 0.7953450756835937,
+          "norm": 1.2834793604335863,
+          "cosine": 0.9706448742921178,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 3,
+          "state": 2003,
+          "loss": 0.7998350512695311,
+          "norm": 1.288337341210079,
+          "cosine": -0.9171955158469258,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 4,
+          "state": 2004,
+          "loss": 0.7951263366699219,
+          "norm": 1.3089511735380857,
+          "cosine": 0.8666406112713273,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 5,
+          "state": 2005,
+          "loss": 0.8022830151367188,
+          "norm": 1.344900483839166,
+          "cosine": -0.7584917620029924,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 6,
+          "state": 2006,
+          "loss": 0.8003481921386723,
+          "norm": 1.431928646398881,
+          "cosine": 0.6416743124673442,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 7,
+          "state": 2007,
+          "loss": 0.8159463879394531,
+          "norm": 1.5801196757167784,
+          "cosine": -0.46434779117061,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 8,
+          "state": 2008,
+          "loss": 0.8245692333984375,
+          "norm": 1.7458325238665156,
+          "cosine": 0.29717032301287766,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 9,
+          "state": 2009,
+          "loss": 0.841401240234375,
+          "norm": 1.8309756056083732,
+          "cosine": -0.1745460402418076,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 10,
+          "state": 2010,
+          "loss": 0.8337605822753905,
+          "norm": 1.6992115518841124,
+          "cosine": 0.06802634789074385,
+          "source": "Run205 independently verified full vector"
+        }
+      ]
+    },
+    {
+      "parent_run_id": "123",
+      "task": "resnet",
+      "lr": 0.025,
+      "anchor": 3000,
+      "worker": 14,
+      "seed": 0,
+      "physical": 1000,
+      "data": "cache/eos-multitask/resnet_data.pt",
+      "checkpoint": "cache/analysis033-inputs/123-3000/resume.pt",
+      "checkpoint_sha256": "54cd5c44384abe5e4defcc2ab745534dd52040cf4885222f65b6266880942309",
+      "resume_tensor_sha256": "63d63a63e9117a0b388f66ee93bbb3720d938d912544ceb78cd08dd8f57fe17a",
+      "anchor_gradient": "cache/analysis033-inputs/123-3000/anchor.npy",
+      "boundary_gradient": "cache/analysis033-inputs/123-3000/boundary.npy",
+      "source_window": "runs/205-2026-11-01-eos-exact-lag10/artifacts/attempt-01/worker0/123/state-003000/result.json",
+      "primary_eligible": true,
+      "parent_mode": "saved_checkpoint",
+      "initial_reversal": true,
+      "prefix_rows": [
+        {
+          "lag": 0,
+          "state": 3000,
+          "loss": 1.4665403833007815,
+          "norm": 0.8952211854245254,
+          "cosine": 0.9999999999999999,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 1,
+          "state": 3001,
+          "loss": 1.4658891235351568,
+          "norm": 0.8974279542254064,
+          "cosine": -0.9791014402920013,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 2,
+          "state": 3002,
+          "loss": 1.4661791381835938,
+          "norm": 0.905339143592512,
+          "cosine": 0.9992519521240055,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 3,
+          "state": 3003,
+          "loss": 1.4656577514648443,
+          "norm": 0.9087624588073566,
+          "cosine": -0.9779972073982657,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 4,
+          "state": 3004,
+          "loss": 1.4658474243164064,
+          "norm": 0.9174096199430571,
+          "cosine": 0.9974037713481602,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 5,
+          "state": 3005,
+          "loss": 1.4654453491210944,
+          "norm": 0.9214004373844773,
+          "cosine": -0.9763690628162122,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 6,
+          "state": 3006,
+          "loss": 1.4655298974609374,
+          "norm": 0.9285260586756976,
+          "cosine": 0.9953776392039788,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 7,
+          "state": 3007,
+          "loss": 1.4652011767578124,
+          "norm": 0.9313851452843832,
+          "cosine": -0.9743996996678602,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 8,
+          "state": 3008,
+          "loss": 1.4651878784179686,
+          "norm": 0.9349745943408095,
+          "cosine": 0.9926246223786267,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 9,
+          "state": 3009,
+          "loss": 1.4648767114257815,
+          "norm": 0.9328693072062629,
+          "cosine": -0.9712090237433341,
+          "source": "Run205 independently verified full vector"
+        },
+        {
+          "lag": 10,
+          "state": 3010,
+          "loss": 1.4647302343750004,
+          "norm": 0.9340921957226646,
+          "cosine": 0.9896591153016358,
+          "source": "Run205 independently verified full vector"
+        }
+      ]
+    }
+  ],
+  "metric": "cos(gradient(theta_anchor),gradient(theta_anchor+lag)); one pair per lag; no averaging or compression",
+  "objective": {
+    "mlp": "complete first5000 images; half squared error summed over outputs and mean over examples",
+    "resnet": "complete50000 images; cross entropy; same50 fixed1000-image train-mode BN groups; no running-stat mutation",
+    "transformer": "all59680 fixed sequences; NLL summed then divided by2088600 target tokens"
+  },
+  "optimizer": "constant plain SGD, original LR; no momentum, weight decay, clipping, schedule, augmentation or dropout",
+  "precision": "FP32 parameters/accumulated gradients; TF32 disabled; exact FP64 diagnostic dot products and norms",
+  "parameter_scope": "all trainable parameters, original model order, no compression",
+  "zero_denominator": "null with undefined flag; no epsilon",
+  "task_cache": "cache/eos-multitask",
+  "original_inputs": "cache/eos-multitask/inputs.json",
+  "inputs_manifest": "runs/207-2026-11-01-eos-parallel-resnet-lags/input_manifest.json",
+  "stop_request": "runs/207-2026-11-01-eos-parallel-resnet-lags/stop-request",
+  "gradient_relative_tolerance": 1e-05,
+  "cosine_audit_tolerance": 1e-10,
+  "transformer_compute_candidates": [
+    64,
+    128,
+    256,
+    512
+  ],
+  "compute_chunk_policy": "One common Transformer chunk chosen by two complete-gradient timings per candidate at Run126 state3010; must match chunk64 within1e-5 relative gradient and1e-5 absolute loss, use<80% VRAM. Recheck chosen chunk at each of9 starts. FP32 accumulation partitions may differ; full objective, order, token denominator and model remain identical. ResNet fixed1000 BN groups never change.",
+  "envelope_width": 64,
+  "damped_gap_threshold": 0.1,
+  "stopping_policy": "All27 profiles reach256. Positive-lag1 controls stop there. Negative-lag1 profiles double to512/1024/2048 until the median half absolute odd/even gap of the last32 pairs is<=0.1. Keep all stages and report unequal coverage. Maximum horizon/budget may end undamped profiles; never guarantee decay.",
+  "recovery_every": 128,
+  "retention": "Exact GPU FP64 and independent CPU NumPy FP64 products at every new lag; raw full gradients at11 and the last odd/even pair; full reference/source history retained in Run205; current model/optimizer/RNG checkpoint every128 and at termination. No random projection or quantization.",
+  "qualification_policy": "Saved-model continuations are valid new forks; historical agreement reported separately. Reconstructed MLP windows failing any preceding check are excluded from primary profiles and retained separately.",
+  "original_history_limit": 3000,
+  "source_prefix": "Reuse independently verified lags0..10 and exact Run205 end states; recompute the unapplied lag10 gradient before stepping. New continuations can differ in hardware and FP32 accumulation; not historical replay beyond anchor.",
+  "validation": "none; complete training objective, no held-out claims",
+  "authorization": "Same user-approved full Analysis033, USD30 shared cap/four-hour shared deadline; reuse freed4090 Pods, at most12 concurrent physical GPUs.",
+  "resource_limits": {
+    "workers": 3,
+    "network_volume": false,
+    "shared_cap_usd": 30,
+    "shared_deadline_owner": "Run206 lease; no separate envelope"
+  },
+  "inference": "One initialization, one anchored pair per lag; stopping coverage is adaptive and outcome dependent. Damping of this descriptive cosine envelope is not stability, generalization or an optimizer benefit.",
+  "parallelization_only": true,
+  "source_run": "206",
+  "staged_coverage_policy": "For each worker, measure both independent profiles through256 first. Then resume persistent profiles from their own unapplied-gradient256 recovery states, checking the recomputed boundary against the retained full gradient. Derived phase configs and raw baseline/extension evidence are retained; merged outputs preserve verified prefix rows. Stop at declared stages or shared resource bounds."
+}

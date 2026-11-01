@@ -1,0 +1,166 @@
+{
+  "status": "complete",
+  "profiles": 27,
+  "primary_profiles": 25,
+  "flagged_profiles": 2,
+  "direct_saved_starts": 21,
+  "qualifying_reconstructions": 4,
+  "unqualified_reconstructions": 2,
+  "cosines": 36096,
+  "new_cosines": 35826,
+  "common_maximum_lag": 256,
+  "largest_measured_lag": 2048,
+  "horizon_counts": {
+    "256": 9,
+    "512": 2,
+    "2048": 16
+  },
+  "primary_initially_reversing": 17,
+  "primary_damped_by_declared_rule": 4,
+  "primary_terminal_half_gap_at_most_threshold": 4,
+  "primary_still_above_damping_threshold": 13,
+  "budget_limited_profiles": 0,
+  "resolved_transformer_physical": 512,
+  "timing": {
+    "mlp": {
+      "samples": 9382,
+      "median_seconds": 0.013326668471563607,
+      "minimum_seconds": 0.006600301014259458,
+      "maximum_seconds": 0.020291559980250895
+    },
+    "resnet": {
+      "samples": 16550,
+      "median_seconds": 2.5690371795208193,
+      "minimum_seconds": 2.4906790941022336,
+      "maximum_seconds": 5.592067193007097
+    },
+    "transformer": {
+      "samples": 9894,
+      "median_seconds": 4.178079028963111,
+      "minimum_seconds": 4.0174160049064085,
+      "maximum_seconds": 6.513075551949441
+    }
+  },
+  "maximum_source_boundary_relative_gradient_error": 6.84466743843574e-06,
+  "maximum_compute_chunk_relative_gradient_error": 8.035913939696191e-06,
+  "maximum_selected_chunk_absolute_loss_error": 2.9456792560722533e-08,
+  "allocation_to_last_deletion_minutes": 197.18084005912144,
+  "aggregate_gpu_hours": 28.341152429646915,
+  "compute_estimate_usd": 29.4777406227582,
+  "billing": "provisional; posted billing and storage may lag",
+  "posted_billing_total_usd": 24.882557947421446,
+  "raw_files": 674,
+  "raw_bytes": 2846578011,
+  "cloud_storage_remaining_gb": 0,
+  "peak_recorded_cuda_allocated_bytes": 10277688832,
+  "peak_recorded_cuda_reserved_bytes": 14898167808,
+  "pods_deleted": 20,
+  "gpu_allocations": {
+    "RTX 5090": 13,
+    "RTX 4090": 7
+  },
+  "failed_gradient_qualification_attempts": 5,
+  "unreachable_setup_only_workers": 2,
+  "parity_sign_checks": [
+    {
+      "parent_run_id": "122",
+      "anchor": 500,
+      "first_parity_sign_break": 14
+    },
+    {
+      "parent_run_id": "122",
+      "anchor": 2000,
+      "first_parity_sign_break": 14
+    },
+    {
+      "parent_run_id": "122",
+      "anchor": 3000,
+      "first_parity_sign_break": 13
+    },
+    {
+      "parent_run_id": "123",
+      "anchor": 2000,
+      "first_parity_sign_break": 123
+    },
+    {
+      "parent_run_id": "123",
+      "anchor": 3000,
+      "first_parity_sign_break": 42
+    },
+    {
+      "parent_run_id": "124",
+      "anchor": 500,
+      "first_parity_sign_break": 545
+    },
+    {
+      "parent_run_id": "124",
+      "anchor": 2000,
+      "first_parity_sign_break": 11
+    },
+    {
+      "parent_run_id": "124",
+      "anchor": 3000,
+      "first_parity_sign_break": 71
+    },
+    {
+      "parent_run_id": "120",
+      "anchor": 500,
+      "first_parity_sign_break": 20
+    },
+    {
+      "parent_run_id": "120",
+      "anchor": 2000,
+      "first_parity_sign_break": 12
+    },
+    {
+      "parent_run_id": "120",
+      "anchor": 3000,
+      "first_parity_sign_break": 35
+    },
+    {
+      "parent_run_id": "125",
+      "anchor": 500,
+      "first_parity_sign_break": 675
+    },
+    {
+      "parent_run_id": "125",
+      "anchor": 2000,
+      "first_parity_sign_break": 225
+    },
+    {
+      "parent_run_id": "125",
+      "anchor": 3000,
+      "first_parity_sign_break": 191
+    },
+    {
+      "parent_run_id": "126",
+      "anchor": 500,
+      "first_parity_sign_break": 74
+    },
+    {
+      "parent_run_id": "126",
+      "anchor": 2000,
+      "first_parity_sign_break": 179
+    },
+    {
+      "parent_run_id": "126",
+      "anchor": 3000,
+      "first_parity_sign_break": 428
+    }
+  ],
+  "scientific_runs": [
+    "206",
+    "207",
+    "208"
+  ],
+  "parallel_later_resnet_profiles": 6,
+  "canonical_profiles_by_run": {
+    "206": 20,
+    "207": 3,
+    "208": 4
+  },
+  "qualified_handoff_profiles": 4,
+  "full_vector_audits": 95,
+  "maximum_staged_resume_relative_gradient_error": 4.6631486062552975e-07,
+  "generated_utc": "2026-11-01T17:41:31.867143+00:00"
+}

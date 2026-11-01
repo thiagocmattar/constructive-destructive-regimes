@@ -1,0 +1,976 @@
+{
+  "status": "passed",
+  "profiles": 27,
+  "primary_profiles": 25,
+  "cosines": 36096,
+  "new_cosines": 35826,
+  "maximum_cpu_gpu_cosine_error": 2.886579864025407e-15,
+  "maximum_cpu_gpu_norm_relative_error": 1.5543122344752192e-15,
+  "retained_full_vector_audits": [
+    {
+      "parent_run_id": "126",
+      "anchor": 3000,
+      "lag": 11,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker0/126-3000/audit-first.npy",
+      "cosine_error": 6.661338147750939e-16,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "126",
+      "anchor": 3000,
+      "lag": 511,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker0/126-3000/audit-previous.npy",
+      "cosine_error": 2.7755575615628914e-17,
+      "norm_relative_error": 1.1102230246251565e-16
+    },
+    {
+      "parent_run_id": "126",
+      "anchor": 3000,
+      "lag": 512,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker0/126-3000/audit-current.npy",
+      "cosine_error": 1.942890293094024e-16,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "126",
+      "anchor": 2000,
+      "lag": 11,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker1/126-2000/audit-first.npy",
+      "cosine_error": 4.440892098500626e-16,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "126",
+      "anchor": 2000,
+      "lag": 511,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker1/126-2000/audit-previous.npy",
+      "cosine_error": 5.551115123125783e-17,
+      "norm_relative_error": 0.0
+    },
+    {
+      "parent_run_id": "126",
+      "anchor": 2000,
+      "lag": 512,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker1/126-2000/audit-current.npy",
+      "cosine_error": 1.942890293094024e-16,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "126",
+      "anchor": 500,
+      "lag": 11,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker2/126-500/audit-first.npy",
+      "cosine_error": 9.992007221626409e-16,
+      "norm_relative_error": 5.551115123125783e-16
+    },
+    {
+      "parent_run_id": "126",
+      "anchor": 500,
+      "lag": 2047,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker2/126-500/audit-previous.npy",
+      "cosine_error": 4.440892098500626e-16,
+      "norm_relative_error": 3.3306690738754696e-16
+    },
+    {
+      "parent_run_id": "126",
+      "anchor": 500,
+      "lag": 2048,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker2/126-500/audit-current.npy",
+      "cosine_error": 5.551115123125783e-16,
+      "norm_relative_error": 3.3306690738754696e-16
+    },
+    {
+      "parent_run_id": "125",
+      "anchor": 3000,
+      "lag": 11,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker3/125-3000/audit-first.npy",
+      "cosine_error": 1.1102230246251565e-16,
+      "norm_relative_error": 0.0
+    },
+    {
+      "parent_run_id": "125",
+      "anchor": 3000,
+      "lag": 2047,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker3/125-3000/audit-previous.npy",
+      "cosine_error": 3.3306690738754696e-16,
+      "norm_relative_error": 4.440892098500626e-16
+    },
+    {
+      "parent_run_id": "125",
+      "anchor": 3000,
+      "lag": 2048,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker3/125-3000/audit-current.npy",
+      "cosine_error": 8.881784197001252e-16,
+      "norm_relative_error": 0.0
+    },
+    {
+      "parent_run_id": "125",
+      "anchor": 2000,
+      "lag": 11,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker4/125-2000/audit-first.npy",
+      "cosine_error": 1.6653345369377348e-15,
+      "norm_relative_error": 7.771561172376096e-16
+    },
+    {
+      "parent_run_id": "125",
+      "anchor": 2000,
+      "lag": 2047,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker4/125-2000/audit-previous.npy",
+      "cosine_error": 1.3877787807814457e-16,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "125",
+      "anchor": 2000,
+      "lag": 2048,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker4/125-2000/audit-current.npy",
+      "cosine_error": 1.3877787807814457e-16,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "125",
+      "anchor": 500,
+      "lag": 11,
+      "path": "runs/208-2026-11-01-eos-checkpoint-handoffs/artifacts/attempt-01/worker15/125-500/audit-first.npy",
+      "cosine_error": 5.551115123125783e-16,
+      "norm_relative_error": 0.0
+    },
+    {
+      "parent_run_id": "125",
+      "anchor": 500,
+      "lag": 2047,
+      "path": "runs/208-2026-11-01-eos-checkpoint-handoffs/artifacts/attempt-01/worker15/125-500/audit-previous.npy",
+      "cosine_error": 1.1102230246251565e-16,
+      "norm_relative_error": 0.0
+    },
+    {
+      "parent_run_id": "125",
+      "anchor": 500,
+      "lag": 2048,
+      "path": "runs/208-2026-11-01-eos-checkpoint-handoffs/artifacts/attempt-01/worker15/125-500/audit-current.npy",
+      "cosine_error": 6.661338147750939e-16,
+      "norm_relative_error": 4.440892098500626e-16
+    },
+    {
+      "parent_run_id": "125",
+      "anchor": 500,
+      "lag": 511,
+      "path": "cache/analysis033-handoffs/125-500/audit-previous.npy",
+      "cosine_error": 1.1102230246251565e-15,
+      "norm_relative_error": 2.220446049250313e-16,
+      "purpose": "handoff_resume_boundary"
+    },
+    {
+      "parent_run_id": "125",
+      "anchor": 500,
+      "lag": 512,
+      "path": "cache/analysis033-handoffs/125-500/audit-current.npy",
+      "cosine_error": 1.1102230246251565e-15,
+      "norm_relative_error": 0.0,
+      "purpose": "handoff_resume_boundary"
+    },
+    {
+      "parent_run_id": "121",
+      "anchor": 3000,
+      "lag": 11,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-02/worker6/121-3000/audit-first.npy",
+      "cosine_error": 7.771561172376096e-16,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "121",
+      "anchor": 3000,
+      "lag": 255,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-02/worker6/121-3000/audit-previous.npy",
+      "cosine_error": 5.551115123125783e-16,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "121",
+      "anchor": 3000,
+      "lag": 256,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-02/worker6/121-3000/audit-current.npy",
+      "cosine_error": 7.771561172376096e-16,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "121",
+      "anchor": 2000,
+      "lag": 11,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-02/worker7/121-2000/audit-first.npy",
+      "cosine_error": 5.551115123125783e-16,
+      "norm_relative_error": 1.1102230246251565e-16
+    },
+    {
+      "parent_run_id": "121",
+      "anchor": 2000,
+      "lag": 255,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-02/worker7/121-2000/audit-previous.npy",
+      "cosine_error": 9.992007221626409e-16,
+      "norm_relative_error": 1.1102230246251565e-16
+    },
+    {
+      "parent_run_id": "121",
+      "anchor": 2000,
+      "lag": 256,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-02/worker7/121-2000/audit-current.npy",
+      "cosine_error": 3.3306690738754696e-16,
+      "norm_relative_error": 4.440892098500626e-16
+    },
+    {
+      "parent_run_id": "121",
+      "anchor": 500,
+      "lag": 11,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-02/worker8/121-500/audit-first.npy",
+      "cosine_error": 0.0,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "121",
+      "anchor": 500,
+      "lag": 255,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-02/worker8/121-500/audit-previous.npy",
+      "cosine_error": 3.3306690738754696e-16,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "121",
+      "anchor": 500,
+      "lag": 256,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-02/worker8/121-500/audit-current.npy",
+      "cosine_error": 2.220446049250313e-16,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "059",
+      "anchor": 500,
+      "lag": 11,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/059-500/audit-first.npy",
+      "cosine_error": 7.771561172376096e-16,
+      "norm_relative_error": 5.551115123125783e-16
+    },
+    {
+      "parent_run_id": "059",
+      "anchor": 500,
+      "lag": 255,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/059-500/audit-previous.npy",
+      "cosine_error": 6.661338147750939e-16,
+      "norm_relative_error": 3.3306690738754696e-16
+    },
+    {
+      "parent_run_id": "059",
+      "anchor": 500,
+      "lag": 256,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/059-500/audit-current.npy",
+      "cosine_error": 5.551115123125783e-16,
+      "norm_relative_error": 1.1102230246251565e-16
+    },
+    {
+      "parent_run_id": "059",
+      "anchor": 2000,
+      "lag": 11,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/059-2000/audit-first.npy",
+      "cosine_error": 7.771561172376096e-16,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "059",
+      "anchor": 2000,
+      "lag": 255,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/059-2000/audit-previous.npy",
+      "cosine_error": 6.661338147750939e-16,
+      "norm_relative_error": 4.440892098500626e-16
+    },
+    {
+      "parent_run_id": "059",
+      "anchor": 2000,
+      "lag": 256,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/059-2000/audit-current.npy",
+      "cosine_error": 7.771561172376096e-16,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "059",
+      "anchor": 3000,
+      "lag": 11,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/059-3000/audit-first.npy",
+      "cosine_error": 7.771561172376096e-16,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "059",
+      "anchor": 3000,
+      "lag": 255,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/059-3000/audit-previous.npy",
+      "cosine_error": 1.1102230246251565e-15,
+      "norm_relative_error": 4.440892098500626e-16
+    },
+    {
+      "parent_run_id": "059",
+      "anchor": 3000,
+      "lag": 256,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/059-3000/audit-current.npy",
+      "cosine_error": 8.881784197001252e-16,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "062",
+      "anchor": 500,
+      "lag": 11,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/062-500/audit-first.npy",
+      "cosine_error": 8.881784197001252e-16,
+      "norm_relative_error": 4.440892098500626e-16
+    },
+    {
+      "parent_run_id": "062",
+      "anchor": 500,
+      "lag": 255,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/062-500/audit-previous.npy",
+      "cosine_error": 9.992007221626409e-16,
+      "norm_relative_error": 4.440892098500626e-16
+    },
+    {
+      "parent_run_id": "062",
+      "anchor": 500,
+      "lag": 256,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/062-500/audit-current.npy",
+      "cosine_error": 5.551115123125783e-16,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "062",
+      "anchor": 2000,
+      "lag": 11,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/062-2000/audit-first.npy",
+      "cosine_error": 4.440892098500626e-16,
+      "norm_relative_error": 4.440892098500626e-16
+    },
+    {
+      "parent_run_id": "062",
+      "anchor": 2000,
+      "lag": 255,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/062-2000/audit-previous.npy",
+      "cosine_error": 1.1102230246251565e-16,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "062",
+      "anchor": 2000,
+      "lag": 256,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/062-2000/audit-current.npy",
+      "cosine_error": 2.220446049250313e-16,
+      "norm_relative_error": 3.3306690738754696e-16
+    },
+    {
+      "parent_run_id": "062",
+      "anchor": 3000,
+      "lag": 11,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/062-3000/audit-first.npy",
+      "cosine_error": 4.440892098500626e-16,
+      "norm_relative_error": 4.440892098500626e-16
+    },
+    {
+      "parent_run_id": "062",
+      "anchor": 3000,
+      "lag": 2047,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/062-3000/audit-previous.npy",
+      "cosine_error": 4.85722573273506e-17,
+      "norm_relative_error": 4.440892098500626e-16
+    },
+    {
+      "parent_run_id": "062",
+      "anchor": 3000,
+      "lag": 2048,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/062-3000/audit-current.npy",
+      "cosine_error": 5.204170427930421e-18,
+      "norm_relative_error": 1.1102230246251565e-16
+    },
+    {
+      "parent_run_id": "122",
+      "anchor": 500,
+      "lag": 11,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/122-500/audit-first.npy",
+      "cosine_error": 8.326672684688674e-17,
+      "norm_relative_error": 1.1102230246251565e-16
+    },
+    {
+      "parent_run_id": "122",
+      "anchor": 500,
+      "lag": 2047,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/122-500/audit-previous.npy",
+      "cosine_error": 1.6479873021779667e-17,
+      "norm_relative_error": 5.551115123125783e-16
+    },
+    {
+      "parent_run_id": "122",
+      "anchor": 500,
+      "lag": 2048,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/122-500/audit-current.npy",
+      "cosine_error": 1.3877787807814457e-17,
+      "norm_relative_error": 3.3306690738754696e-16
+    },
+    {
+      "parent_run_id": "122",
+      "anchor": 2000,
+      "lag": 11,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/122-2000/audit-first.npy",
+      "cosine_error": 1.3877787807814457e-16,
+      "norm_relative_error": 3.3306690738754696e-16
+    },
+    {
+      "parent_run_id": "122",
+      "anchor": 2000,
+      "lag": 2047,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/122-2000/audit-previous.npy",
+      "cosine_error": 6.938893903907228e-17,
+      "norm_relative_error": 4.440892098500626e-16
+    },
+    {
+      "parent_run_id": "122",
+      "anchor": 2000,
+      "lag": 2048,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/122-2000/audit-current.npy",
+      "cosine_error": 5.551115123125783e-17,
+      "norm_relative_error": 3.3306690738754696e-16
+    },
+    {
+      "parent_run_id": "122",
+      "anchor": 3000,
+      "lag": 11,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/122-3000/audit-first.npy",
+      "cosine_error": 1.1102230246251565e-16,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "122",
+      "anchor": 3000,
+      "lag": 2047,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/122-3000/audit-previous.npy",
+      "cosine_error": 4.440892098500626e-16,
+      "norm_relative_error": 5.551115123125783e-16
+    },
+    {
+      "parent_run_id": "122",
+      "anchor": 3000,
+      "lag": 2048,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/122-3000/audit-current.npy",
+      "cosine_error": 2.7755575615628914e-16,
+      "norm_relative_error": 3.3306690738754696e-16
+    },
+    {
+      "parent_run_id": "123",
+      "anchor": 500,
+      "lag": 11,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/123-500/audit-first.npy",
+      "cosine_error": 0.0,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "123",
+      "anchor": 500,
+      "lag": 255,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/123-500/audit-previous.npy",
+      "cosine_error": 1.1102230246251565e-16,
+      "norm_relative_error": 0.0
+    },
+    {
+      "parent_run_id": "123",
+      "anchor": 500,
+      "lag": 256,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker9/123-500/audit-current.npy",
+      "cosine_error": 1.1102230246251565e-16,
+      "norm_relative_error": 1.1102230246251565e-16
+    },
+    {
+      "parent_run_id": "123",
+      "anchor": 2000,
+      "lag": 11,
+      "path": "runs/207-2026-11-01-eos-parallel-resnet-lags/artifacts/attempt-01/worker12/123-2000/audit-first.npy",
+      "cosine_error": 0.0,
+      "norm_relative_error": 1.1102230246251565e-16
+    },
+    {
+      "parent_run_id": "123",
+      "anchor": 2000,
+      "lag": 2047,
+      "path": "runs/207-2026-11-01-eos-parallel-resnet-lags/artifacts/attempt-01/worker12/123-2000/audit-previous.npy",
+      "cosine_error": 5.551115123125783e-17,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "123",
+      "anchor": 2000,
+      "lag": 2048,
+      "path": "runs/207-2026-11-01-eos-parallel-resnet-lags/artifacts/attempt-01/worker12/123-2000/audit-current.npy",
+      "cosine_error": 0.0,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "123",
+      "anchor": 2000,
+      "lag": 255,
+      "path": "runs/207-2026-11-01-eos-parallel-resnet-lags/artifacts/attempt-01/worker12/baseline/123-2000/audit-previous.npy",
+      "cosine_error": 5.551115123125783e-16,
+      "norm_relative_error": 0.0,
+      "purpose": "staged_resume_boundary"
+    },
+    {
+      "parent_run_id": "123",
+      "anchor": 2000,
+      "lag": 256,
+      "path": "runs/207-2026-11-01-eos-parallel-resnet-lags/artifacts/attempt-01/worker12/baseline/123-2000/audit-current.npy",
+      "cosine_error": 7.771561172376096e-16,
+      "norm_relative_error": 0.0,
+      "purpose": "staged_resume_boundary"
+    },
+    {
+      "parent_run_id": "123",
+      "anchor": 3000,
+      "lag": 11,
+      "path": "runs/208-2026-11-01-eos-checkpoint-handoffs/artifacts/attempt-01/worker16/123-3000/audit-first.npy",
+      "cosine_error": 3.3306690738754696e-16,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "123",
+      "anchor": 3000,
+      "lag": 2047,
+      "path": "runs/208-2026-11-01-eos-checkpoint-handoffs/artifacts/attempt-01/worker16/123-3000/audit-previous.npy",
+      "cosine_error": 0.0,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "123",
+      "anchor": 3000,
+      "lag": 2048,
+      "path": "runs/208-2026-11-01-eos-checkpoint-handoffs/artifacts/attempt-01/worker16/123-3000/audit-current.npy",
+      "cosine_error": 8.326672684688674e-17,
+      "norm_relative_error": 0.0
+    },
+    {
+      "parent_run_id": "123",
+      "anchor": 3000,
+      "lag": 255,
+      "path": "cache/analysis033-handoffs/123-3000/audit-previous.npy",
+      "cosine_error": 1.1102230246251565e-16,
+      "norm_relative_error": 4.440892098500626e-16,
+      "purpose": "handoff_resume_boundary"
+    },
+    {
+      "parent_run_id": "123",
+      "anchor": 3000,
+      "lag": 256,
+      "path": "cache/analysis033-handoffs/123-3000/audit-current.npy",
+      "cosine_error": 1.1102230246251565e-16,
+      "norm_relative_error": 2.220446049250313e-16,
+      "purpose": "handoff_resume_boundary"
+    },
+    {
+      "parent_run_id": "124",
+      "anchor": 500,
+      "lag": 11,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker10/124-500/audit-first.npy",
+      "cosine_error": 1.1102230246251565e-16,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "124",
+      "anchor": 500,
+      "lag": 2047,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker10/124-500/audit-previous.npy",
+      "cosine_error": 2.7755575615628914e-17,
+      "norm_relative_error": 1.1102230246251565e-16
+    },
+    {
+      "parent_run_id": "124",
+      "anchor": 500,
+      "lag": 2048,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker10/124-500/audit-current.npy",
+      "cosine_error": 5.551115123125783e-17,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "124",
+      "anchor": 2000,
+      "lag": 11,
+      "path": "runs/207-2026-11-01-eos-parallel-resnet-lags/artifacts/attempt-01/worker13/124-2000/audit-first.npy",
+      "cosine_error": 1.0408340855860843e-17,
+      "norm_relative_error": 0.0
+    },
+    {
+      "parent_run_id": "124",
+      "anchor": 2000,
+      "lag": 2047,
+      "path": "runs/207-2026-11-01-eos-parallel-resnet-lags/artifacts/attempt-01/worker13/124-2000/audit-previous.npy",
+      "cosine_error": 1.6653345369377348e-16,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "124",
+      "anchor": 2000,
+      "lag": 2048,
+      "path": "runs/207-2026-11-01-eos-parallel-resnet-lags/artifacts/attempt-01/worker13/124-2000/audit-current.npy",
+      "cosine_error": 0.0,
+      "norm_relative_error": 0.0
+    },
+    {
+      "parent_run_id": "124",
+      "anchor": 2000,
+      "lag": 255,
+      "path": "runs/207-2026-11-01-eos-parallel-resnet-lags/artifacts/attempt-01/worker13/baseline/124-2000/audit-previous.npy",
+      "cosine_error": 1.1102230246251565e-16,
+      "norm_relative_error": 0.0,
+      "purpose": "staged_resume_boundary"
+    },
+    {
+      "parent_run_id": "124",
+      "anchor": 2000,
+      "lag": 256,
+      "path": "runs/207-2026-11-01-eos-parallel-resnet-lags/artifacts/attempt-01/worker13/baseline/124-2000/audit-current.npy",
+      "cosine_error": 2.220446049250313e-16,
+      "norm_relative_error": 2.220446049250313e-16,
+      "purpose": "staged_resume_boundary"
+    },
+    {
+      "parent_run_id": "124",
+      "anchor": 3000,
+      "lag": 11,
+      "path": "runs/208-2026-11-01-eos-checkpoint-handoffs/artifacts/attempt-01/worker17/124-3000/audit-first.npy",
+      "cosine_error": 1.6653345369377348e-16,
+      "norm_relative_error": 0.0
+    },
+    {
+      "parent_run_id": "124",
+      "anchor": 3000,
+      "lag": 2047,
+      "path": "runs/208-2026-11-01-eos-checkpoint-handoffs/artifacts/attempt-01/worker17/124-3000/audit-previous.npy",
+      "cosine_error": 2.7755575615628914e-17,
+      "norm_relative_error": 0.0
+    },
+    {
+      "parent_run_id": "124",
+      "anchor": 3000,
+      "lag": 2048,
+      "path": "runs/208-2026-11-01-eos-checkpoint-handoffs/artifacts/attempt-01/worker17/124-3000/audit-current.npy",
+      "cosine_error": 2.7755575615628914e-17,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "124",
+      "anchor": 3000,
+      "lag": 255,
+      "path": "cache/analysis033-handoffs/124-3000/audit-previous.npy",
+      "cosine_error": 1.1102230246251565e-16,
+      "norm_relative_error": 0.0,
+      "purpose": "handoff_resume_boundary"
+    },
+    {
+      "parent_run_id": "124",
+      "anchor": 3000,
+      "lag": 256,
+      "path": "cache/analysis033-handoffs/124-3000/audit-current.npy",
+      "cosine_error": 5.551115123125783e-17,
+      "norm_relative_error": 0.0,
+      "purpose": "handoff_resume_boundary"
+    },
+    {
+      "parent_run_id": "120",
+      "anchor": 500,
+      "lag": 11,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-02/worker11/120-500/audit-first.npy",
+      "cosine_error": 1.1102230246251565e-16,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "120",
+      "anchor": 500,
+      "lag": 2047,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-02/worker11/120-500/audit-previous.npy",
+      "cosine_error": 1.3877787807814457e-17,
+      "norm_relative_error": 1.1102230246251565e-16
+    },
+    {
+      "parent_run_id": "120",
+      "anchor": 500,
+      "lag": 2048,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-02/worker11/120-500/audit-current.npy",
+      "cosine_error": 2.0816681711721685e-17,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "120",
+      "anchor": 2000,
+      "lag": 11,
+      "path": "runs/207-2026-11-01-eos-parallel-resnet-lags/artifacts/attempt-01/worker14/120-2000/audit-first.npy",
+      "cosine_error": 2.6020852139652106e-17,
+      "norm_relative_error": 0.0
+    },
+    {
+      "parent_run_id": "120",
+      "anchor": 2000,
+      "lag": 2047,
+      "path": "runs/207-2026-11-01-eos-parallel-resnet-lags/artifacts/attempt-01/worker14/120-2000/audit-previous.npy",
+      "cosine_error": 5.551115123125783e-17,
+      "norm_relative_error": 1.1102230246251565e-16
+    },
+    {
+      "parent_run_id": "120",
+      "anchor": 2000,
+      "lag": 2048,
+      "path": "runs/207-2026-11-01-eos-parallel-resnet-lags/artifacts/attempt-01/worker14/120-2000/audit-current.npy",
+      "cosine_error": 2.7755575615628914e-17,
+      "norm_relative_error": 0.0
+    },
+    {
+      "parent_run_id": "120",
+      "anchor": 2000,
+      "lag": 255,
+      "path": "runs/207-2026-11-01-eos-parallel-resnet-lags/artifacts/attempt-01/worker14/baseline/120-2000/audit-previous.npy",
+      "cosine_error": 0.0,
+      "norm_relative_error": 0.0,
+      "purpose": "staged_resume_boundary"
+    },
+    {
+      "parent_run_id": "120",
+      "anchor": 2000,
+      "lag": 256,
+      "path": "runs/207-2026-11-01-eos-parallel-resnet-lags/artifacts/attempt-01/worker14/baseline/120-2000/audit-current.npy",
+      "cosine_error": 2.7755575615628914e-17,
+      "norm_relative_error": 0.0,
+      "purpose": "staged_resume_boundary"
+    },
+    {
+      "parent_run_id": "120",
+      "anchor": 3000,
+      "lag": 11,
+      "path": "runs/208-2026-11-01-eos-checkpoint-handoffs/artifacts/attempt-01/worker18/120-3000/audit-first.npy",
+      "cosine_error": 1.3877787807814457e-17,
+      "norm_relative_error": 0.0
+    },
+    {
+      "parent_run_id": "120",
+      "anchor": 3000,
+      "lag": 2047,
+      "path": "runs/208-2026-11-01-eos-checkpoint-handoffs/artifacts/attempt-01/worker18/120-3000/audit-previous.npy",
+      "cosine_error": 2.7755575615628914e-17,
+      "norm_relative_error": 2.220446049250313e-16
+    },
+    {
+      "parent_run_id": "120",
+      "anchor": 3000,
+      "lag": 2048,
+      "path": "runs/208-2026-11-01-eos-checkpoint-handoffs/artifacts/attempt-01/worker18/120-3000/audit-current.npy",
+      "cosine_error": 5.551115123125783e-17,
+      "norm_relative_error": 0.0
+    },
+    {
+      "parent_run_id": "120",
+      "anchor": 3000,
+      "lag": 255,
+      "path": "cache/analysis033-handoffs/120-3000/audit-previous.npy",
+      "cosine_error": 0.0,
+      "norm_relative_error": 0.0,
+      "purpose": "handoff_resume_boundary"
+    },
+    {
+      "parent_run_id": "120",
+      "anchor": 3000,
+      "lag": 256,
+      "path": "cache/analysis033-handoffs/120-3000/audit-current.npy",
+      "cosine_error": 0.0,
+      "norm_relative_error": 0.0,
+      "purpose": "handoff_resume_boundary"
+    }
+  ],
+  "peak_recorded_cuda_allocated_bytes": 10277688832,
+  "peak_recorded_cuda_reserved_bytes": 14898167808,
+  "selected_chunk_loss_checks": [
+    {
+      "parent_run_id": "126",
+      "anchor": 3000,
+      "absolute_loss_error": 4.441902845542245e-09,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker0/events.jsonl",
+      "resolved_physical": 512
+    },
+    {
+      "parent_run_id": "126",
+      "anchor": 2000,
+      "absolute_loss_error": 5.143252046480029e-09,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker1/events.jsonl",
+      "resolved_physical": 512
+    },
+    {
+      "parent_run_id": "126",
+      "anchor": 500,
+      "absolute_loss_error": 2.3378396107887056e-08,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker2/events.jsonl",
+      "resolved_physical": 512
+    },
+    {
+      "parent_run_id": "125",
+      "anchor": 3000,
+      "absolute_loss_error": 9.585148674773336e-09,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker3/events.jsonl",
+      "resolved_physical": 512
+    },
+    {
+      "parent_run_id": "125",
+      "anchor": 2000,
+      "absolute_loss_error": 5.3770312646861385e-09,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker4/events.jsonl",
+      "resolved_physical": 512
+    },
+    {
+      "parent_run_id": "125",
+      "anchor": 500,
+      "absolute_loss_error": 9.818931445693124e-09,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-02/worker5/events.jsonl",
+      "resolved_physical": 512
+    },
+    {
+      "parent_run_id": "121",
+      "anchor": 3000,
+      "absolute_loss_error": 1.730002718858259e-08,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-02/worker6/events.jsonl",
+      "resolved_physical": 512
+    },
+    {
+      "parent_run_id": "121",
+      "anchor": 2000,
+      "absolute_loss_error": 2.9456792560722533e-08,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-02/worker7/events.jsonl",
+      "resolved_physical": 512
+    },
+    {
+      "parent_run_id": "121",
+      "anchor": 500,
+      "absolute_loss_error": 1.823516360133226e-08,
+      "path": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-02/worker8/events.jsonl",
+      "resolved_physical": 512
+    }
+  ],
+  "maximum_selected_chunk_absolute_loss_error": 2.9456792560722533e-08,
+  "raw_files": 674,
+  "raw_bytes": 2846578011,
+  "source_prefix_preserved": true,
+  "complete_common_lag256": true,
+  "all_end_recovery_states_verified": true,
+  "failed_attempts": [
+    {
+      "receipt": "infrastructure_attempts/worker11-attempt01/retrieval-worker11.json",
+      "worker": 11,
+      "pod_id": "j3secxub6b0b94",
+      "attempt": 1,
+      "artifact_root": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker11",
+      "verified": true,
+      "files": 12,
+      "bytes": 32659,
+      "archive_sha256": "e59394e0037b9cf4d61eb9024b5bb0a7680d8dbf5173c5d0f99005a7e2db4d18",
+      "inventory_sha256": "deb8aaac6b7c02586e1a07726137bef8609a040c50cde3c01c6bf40ed8ae4827",
+      "epoch": 1793543245.4752562,
+      "scientific_status": "failed"
+    },
+    {
+      "receipt": "infrastructure_attempts/worker6-attempt01/retrieval-worker6.json",
+      "worker": 6,
+      "pod_id": "hh39mbpbtrnkfe",
+      "attempt": 1,
+      "artifact_root": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker6",
+      "verified": true,
+      "files": 12,
+      "bytes": 33304,
+      "archive_sha256": "2da2052fbf5dd38d32dd45364821f3cd5250fe4a04138b27ada1ab67eb24a95a",
+      "inventory_sha256": "2f1420b37cb20e353dd8dc9457784905acb7a3b382870e1a72b4f50956e5c631",
+      "epoch": 1793543245.4766047,
+      "scientific_status": "failed"
+    },
+    {
+      "receipt": "infrastructure_attempts/worker8-attempt01/retrieval-worker8.json",
+      "worker": 8,
+      "pod_id": "mnst8m1h85egf8",
+      "attempt": 1,
+      "artifact_root": "runs/206-2026-11-01-eos-long-lags/artifacts/attempt-01/worker8",
+      "verified": true,
+      "files": 12,
+      "bytes": 33304,
+      "archive_sha256": "cd241187b85772be4738c935e516dee85f3a5e6aee972f72a1aaab2c851b2d5d",
+      "inventory_sha256": "c49f7f22aff7cd2a5d43ec4c86e16b37258bea523280df3206926919643cfdef",
+      "epoch": 1793543245.4051402,
+      "scientific_status": "failed"
+    }
+  ],
+  "workers_with_later_independent_start_failure": [
+    10,
+    9
+  ],
+  "parallel_sources": [
+    [
+      "120",
+      2000
+    ],
+    [
+      "120",
+      3000
+    ],
+    [
+      "123",
+      2000
+    ],
+    [
+      "123",
+      3000
+    ],
+    [
+      "124",
+      2000
+    ],
+    [
+      "124",
+      3000
+    ]
+  ],
+  "handoff_sources": [
+    [
+      "120",
+      3000
+    ],
+    [
+      "123",
+      3000
+    ],
+    [
+      "124",
+      3000
+    ],
+    [
+      "125",
+      500
+    ]
+  ],
+  "figures": [
+    {
+      "path": "figures/common_lag256.pdf",
+      "sha256": "e0664bb7bef380a57dbd0673becbd571435f3ac8e337f463969a9522a28a39a7",
+      "plotted_values": 6400,
+      "artist_arrays_verified": true
+    },
+    {
+      "path": "figures/long_lag_profiles.pdf",
+      "sha256": "8994917c46fd0c2331dc4d23eaa3f57b799986d4006898513e6e569257062ea4",
+      "plotted_values": 33792,
+      "artist_arrays_verified": true
+    },
+    {
+      "path": "figures/all_profiles_with_reconstruction_flags.pdf",
+      "sha256": "7d6ea324773f0f85c8bfd23613f2821b8967f1d1f270923e204358d3373793f0",
+      "plotted_values": 36096,
+      "artist_arrays_verified": true
+    },
+    {
+      "path": "figures/alternating_gap.pdf",
+      "sha256": "e57974e455bdf496e9524a6551f8f9c45563f3ec7e3b75c302508869cd75f7d5",
+      "plotted_values": 16121,
+      "artist_arrays_verified": true
+    }
+  ]
+}

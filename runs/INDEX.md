@@ -218,8 +218,10 @@
 | [204](204-2026-10-30-pythia70m-seed1236-lr2p0/README.md) | H024 70m-1236 LR2 | Complete;128 updates locally verified | Local artifacts; task cloud deleted; cohort USD13.90 posted, provisional | [Analysis030](../analyses/030-2026-10-30-adam-lr-decisions/README.md) |
 | [205](205-2026-11-01-eos-exact-lag10/README.md) | H020: exact lag-10 profiles near retained GD states | Complete; 27 windows / 270 cosines; 25 primary profiles | One Runpod attempt; 147 files / 7.072 GB locally verified; task cloud deleted | [Analysis032](../analyses/032-2026-11-01-eos-exact-lag10/REPORT.md); compute USD 1.05 provisional |
 
-| [206](206-2026-11-01-eos-long-lags/README.md) | H020: exact long-lag continuation of Analysis032 | Prepared; 27 profiles through256, adaptive extensions up to2048 | Runpod launch pending larger USD30 envelope; no resources created | [Analysis033](../analyses/033-2026-11-01-eos-long-lags/README.md) |
+| [206](206-2026-11-01-eos-long-lags/README.md) | H020: exact long-lag continuation of Analysis032 | Complete; 20 canonical profiles in joint 27; maximum lag 2048 | Verified raw evidence; all task cloud deleted; USD 29.48 provisional joint | [Analysis033](../analyses/033-2026-11-01-eos-long-lags/REPORT.md) |
+| [207](207-2026-11-01-eos-parallel-resnet-lags/README.md) | H020: parallel placement of six later ResNet profiles | Complete; baseline 256 before staged extensions; 3 canonical final profiles | Reused 4090 workers; verified retrieval; joint cloud closed | [Analysis033](../analyses/033-2026-11-01-eos-long-lags/REPORT.md) |
+| [208](208-2026-11-01-eos-checkpoint-handoffs/README.md) | H020: qualified checkpoint handoffs | Complete; 4 canonical final profiles with exact prefixes | Original gradient tolerance; verified retrieval; joint cloud closed | [Analysis033](../analyses/033-2026-11-01-eos-long-lags/REPORT.md) |
 
-Next run: `207-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
+Next run: `209-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
 executed IDs and configurations; retry unchanged scientific inputs in a new
 attempt within the same run.

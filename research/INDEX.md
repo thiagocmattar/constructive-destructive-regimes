@@ -2,12 +2,15 @@
 
 ## Current state
 
-[Analysis033: long-lag full-gradient profiles](../analyses/033-2026-11-01-eos-long-lags/README.md)
-prepared27 checkpoint continuations with common lag256 coverage and declared
-adaptive extensions to2048. Exact streaming products avoid gradient compression;
-CPU/GPU reductions and sparse full-vector audits are implemented and tested.
-Runpod launch awaits the larger USD30 envelope; no resources created.
-Next Run207 / Analysis034; H020 remains active.
+[Analysis033: exact long-lag profiles](../analyses/033-2026-11-01-eos-long-lags/REPORT.md)
+completed 27 profiles / 36,096 anchored cosines, all through lag 256
+and up to 2048; 25 primary, two previously unqualified Run062 starts.
+Of 17 primary initially reversing profiles, 4 have terminal local half-gap <=0.1;
+13 remain above it. Attenuation can rebound; no asymptotic or stability claim.
+Runs206/207/208 use exact streaming and qualified checkpoint handoffs, without
+compression. Four PDFs and numerical/vector/provenance checks pass.
+All 20 task Pods/storage deleted after verified retrieval; USD 29.48 provisional.
+Next Run209 / Analysis034; H020 remains active.
 
 [Analysis032: exact gradient cosine through lag 10](../analyses/032-2026-11-01-eos-exact-lag10/REPORT.md)
 completed 27 windows / 270 exact cosines near states 500/2000/3000 across nine
