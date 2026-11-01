@@ -1,0 +1,368 @@
+{
+  "run_id": "205",
+  "analysis": "032",
+  "hypothesis": "H020",
+  "purpose": "Exact anchored lag1..10 geometry near Analysis024 saved states",
+  "anchors": [
+    500,
+    2000,
+    3000
+  ],
+  "max_lag": 10,
+  "conditions": [
+    {
+      "parent_run_id": "059",
+      "parent_run": "059-2026-10-13-cifar10-eos-gd-lr-4e-3",
+      "task": "mlp",
+      "lr": 0.004,
+      "worker": 0,
+      "seed": 0,
+      "physical": 1000,
+      "reconstructed": true,
+      "data": "cache/cifar10-eos/data.pt",
+      "reference": "cache/analysis032-inputs/references/059.json",
+      "parents": [],
+      "initial": "cache/eos-multitask/mlp_initial_seed0.pt",
+      "initial_tensor_sha256": "8de1e7c880539f122aa840d5b7c28027310e82bd3ee4e753afef87fe0876a2da"
+    },
+    {
+      "parent_run_id": "062",
+      "parent_run": "062-2026-10-13-cifar10-eos-gd-lr-2e-2",
+      "task": "mlp",
+      "lr": 0.02,
+      "worker": 1,
+      "seed": 0,
+      "physical": 1000,
+      "reconstructed": true,
+      "data": "cache/cifar10-eos/data.pt",
+      "reference": "cache/analysis032-inputs/references/062.json",
+      "parents": [],
+      "initial": "cache/eos-multitask/mlp_initial_seed0.pt",
+      "initial_tensor_sha256": "8de1e7c880539f122aa840d5b7c28027310e82bd3ee4e753afef87fe0876a2da"
+    },
+    {
+      "parent_run_id": "122",
+      "parent_run": "122-2026-10-17-eos-mlp-gd-lr-0.04-3k",
+      "task": "mlp",
+      "lr": 0.04,
+      "worker": 2,
+      "seed": 0,
+      "physical": 1000,
+      "reconstructed": false,
+      "data": "cache/cifar10-eos/data.pt",
+      "reference": "cache/analysis032-inputs/references/122.json",
+      "parents": [
+        {
+          "state": 500,
+          "path": "cache/analysis032-inputs/parents/122/state-000500.pt",
+          "tensor_sha256": "f5ddcd0bb28961a4d97250cb4b350c55c3541ddae5dedf70a3137ac456dbf4d4",
+          "original": "runs/122-2026-10-17-eos-mlp-gd-lr-0.04-3k/artifacts/attempt-01-spark/production/state-000500.pt",
+          "original_bytes": 23655965,
+          "original_sha256": "4d98fd7d73b079b396a8a02289edda2753475580b00bf9a116247c72c9fce787",
+          "original_inventory": "runs/122-2026-10-17-eos-mlp-gd-lr-0.04-3k/artifacts/attempt-01-spark/transfer_inventory.json"
+        },
+        {
+          "state": 2000,
+          "path": "cache/analysis032-inputs/parents/122/state-002000.pt",
+          "tensor_sha256": "eb8f6b9971f1bb1b9ef2925928cc2fe7e6dd75b744e418689485ea7df781822e",
+          "original": "runs/122-2026-10-17-eos-mlp-gd-lr-0.04-3k/artifacts/attempt-01-spark/production/state-002000.pt",
+          "original_bytes": 23655965,
+          "original_sha256": "95f276cf15601cd42493f718518402ab146a75f6e60c86cb530bc4d29e6fd577",
+          "original_inventory": "runs/122-2026-10-17-eos-mlp-gd-lr-0.04-3k/artifacts/attempt-01-spark/transfer_inventory.json"
+        },
+        {
+          "state": 3000,
+          "path": "cache/analysis032-inputs/parents/122/state-003000.pt",
+          "tensor_sha256": "3d302de7568e6ea4f2ce4dfd179037b5614be57d7de155caabf8f0ba4283c9ef",
+          "original": "runs/122-2026-10-17-eos-mlp-gd-lr-0.04-3k/artifacts/attempt-01-spark/production/state-003000.pt",
+          "original_bytes": 23655965,
+          "original_sha256": "79ba883aaecb5de94bc2168b68a83ed2b2aa38b6eb4a339f7c60de18c3a75036",
+          "original_inventory": "runs/122-2026-10-17-eos-mlp-gd-lr-0.04-3k/artifacts/attempt-01-spark/transfer_inventory.json"
+        }
+      ]
+    },
+    {
+      "parent_run_id": "123",
+      "parent_run": "123-2026-10-17-eos-resnet-gd-lr-0.025-3k",
+      "task": "resnet",
+      "lr": 0.025,
+      "worker": 0,
+      "seed": 0,
+      "physical": 1000,
+      "reconstructed": false,
+      "data": "cache/eos-multitask/resnet_data.pt",
+      "reference": "cache/analysis032-inputs/references/123.json",
+      "parents": [
+        {
+          "state": 500,
+          "path": "cache/analysis032-inputs/parents/123/state-000500.pt",
+          "tensor_sha256": "3b1c1644753dcd53642ace2bd42729564251ae3dc0b47e4ed403d302e0132728",
+          "original": "runs/123-2026-10-17-eos-resnet-gd-lr-0.025-3k/artifacts/attempt-01-spark/production/state-000500.pt",
+          "original_bytes": 16756702,
+          "original_sha256": "268f607def5e5e6d18b5ed4df7d04eb551410e1dffdafcf1bc453289ec1efea1",
+          "original_inventory": "runs/123-2026-10-17-eos-resnet-gd-lr-0.025-3k/artifacts/attempt-01-spark/transfer_inventory.json"
+        },
+        {
+          "state": 2000,
+          "path": "cache/analysis032-inputs/parents/123/state-002000.pt",
+          "tensor_sha256": "a158fb3131a0295eff1bc469a976fab42af9cd8c97c425be372e9b12bd00b180",
+          "original": "runs/123-2026-10-17-eos-resnet-gd-lr-0.025-3k/artifacts/attempt-01-spark/production/state-002000.pt",
+          "original_bytes": 16756702,
+          "original_sha256": "ac97ab9024a67a8ad0c745787d89d6fb1658c7b82c27c4524f405271a1584f24",
+          "original_inventory": "runs/123-2026-10-17-eos-resnet-gd-lr-0.025-3k/artifacts/attempt-01-spark/transfer_inventory.json"
+        },
+        {
+          "state": 3000,
+          "path": "cache/analysis032-inputs/parents/123/state-003000.pt",
+          "tensor_sha256": "0ecfda0b891730db819db5dcbc16f4e5869ce3ff476b5b9e6be1c570a855fca4",
+          "original": "runs/123-2026-10-17-eos-resnet-gd-lr-0.025-3k/artifacts/attempt-01-spark/production/state-003000.pt",
+          "original_bytes": 16756702,
+          "original_sha256": "88299c6310880bc2b58575f84f2aa524d92aeca1624deeff3995b7a1a579f687",
+          "original_inventory": "runs/123-2026-10-17-eos-resnet-gd-lr-0.025-3k/artifacts/attempt-01-spark/transfer_inventory.json"
+        }
+      ]
+    },
+    {
+      "parent_run_id": "124",
+      "parent_run": "124-2026-10-17-eos-resnet-gd-lr-0.05-3k",
+      "task": "resnet",
+      "lr": 0.05,
+      "worker": 1,
+      "seed": 0,
+      "physical": 1000,
+      "reconstructed": false,
+      "data": "cache/eos-multitask/resnet_data.pt",
+      "reference": "cache/analysis032-inputs/references/124.json",
+      "parents": [
+        {
+          "state": 500,
+          "path": "cache/analysis032-inputs/parents/124/state-000500.pt",
+          "tensor_sha256": "37bf3ff53835d83b35d402f8baac0158778159009a2e71ab35ea3ef5cd96cc07",
+          "original": "runs/124-2026-10-17-eos-resnet-gd-lr-0.05-3k/artifacts/attempt-01-spark/production/state-000500.pt",
+          "original_bytes": 16756702,
+          "original_sha256": "87f3200e0c90bd981718a8e2e7220d7b0f531dae6b7c0fcf06736d0275217b2c",
+          "original_inventory": "runs/124-2026-10-17-eos-resnet-gd-lr-0.05-3k/artifacts/attempt-01-spark/transfer_inventory.json"
+        },
+        {
+          "state": 2000,
+          "path": "cache/analysis032-inputs/parents/124/state-002000.pt",
+          "tensor_sha256": "b172e0c458294e309c3e97007ba4095eefbb4e6f56a040e4ef974e1398b7d111",
+          "original": "runs/124-2026-10-17-eos-resnet-gd-lr-0.05-3k/artifacts/attempt-01-spark/production/state-002000.pt",
+          "original_bytes": 16756702,
+          "original_sha256": "ea2bc22d562d73dbc831596562a53884fe2d631029edc13c5df4fae176e56eb6",
+          "original_inventory": "runs/124-2026-10-17-eos-resnet-gd-lr-0.05-3k/artifacts/attempt-01-spark/transfer_inventory.json"
+        },
+        {
+          "state": 3000,
+          "path": "cache/analysis032-inputs/parents/124/state-003000.pt",
+          "tensor_sha256": "4250e8209ee4f100cc3f89536ac2887770b72ed895750ed961b828728de04209",
+          "original": "runs/124-2026-10-17-eos-resnet-gd-lr-0.05-3k/artifacts/attempt-01-spark/production/state-003000.pt",
+          "original_bytes": 16756702,
+          "original_sha256": "1230f96cf0a1219eb65e6b3198b54589c135a7c514200d1f4ac00e97027e431f",
+          "original_inventory": "runs/124-2026-10-17-eos-resnet-gd-lr-0.05-3k/artifacts/attempt-01-spark/transfer_inventory.json"
+        }
+      ]
+    },
+    {
+      "parent_run_id": "120",
+      "parent_run": "120-2026-10-15-eos-resnet-gd-smallest-lr-3k",
+      "task": "resnet",
+      "lr": 0.1,
+      "worker": 2,
+      "seed": 0,
+      "physical": 1000,
+      "reconstructed": false,
+      "data": "cache/eos-multitask/resnet_data.pt",
+      "reference": "cache/analysis032-inputs/references/120.json",
+      "parents": [
+        {
+          "state": 500,
+          "path": "cache/analysis032-inputs/parents/120/state-000500.pt",
+          "tensor_sha256": "2715e4bb9ead5df319c0822bdcca6e5d8757e06345a34545d8d8847d298f8686",
+          "original": "runs/120-2026-10-15-eos-resnet-gd-smallest-lr-3k/artifacts/attempt-01-spark/production/state-000500.pt",
+          "original_bytes": 16756702,
+          "original_sha256": "a96a178d4419ceaccda0baa0d3e72bf8b4df8214247ab09a0726c92e8f03ef90",
+          "original_inventory": "runs/120-2026-10-15-eos-resnet-gd-smallest-lr-3k/artifacts/attempt-01-spark/transfer_inventory.json"
+        },
+        {
+          "state": 2000,
+          "path": "cache/analysis032-inputs/parents/120/state-002000.pt",
+          "tensor_sha256": "7640cc1f26814c4a0462d630bff94708442ab15870476512966f69e9ef1065e7",
+          "original": "runs/120-2026-10-15-eos-resnet-gd-smallest-lr-3k/artifacts/attempt-01-spark/production/state-002000.pt",
+          "original_bytes": 16756702,
+          "original_sha256": "33a1ba192cbc2403fb1ca8ac38294327b211e5bffd8f6bed1323c854b226899b",
+          "original_inventory": "runs/120-2026-10-15-eos-resnet-gd-smallest-lr-3k/artifacts/attempt-01-spark/transfer_inventory.json"
+        },
+        {
+          "state": 3000,
+          "path": "cache/analysis032-inputs/parents/120/state-003000.pt",
+          "tensor_sha256": "7731c4135c6580e9859f38be1ea6d19ff7ad02a29ff390c0d7ca434b8e0b0e70",
+          "original": "runs/120-2026-10-15-eos-resnet-gd-smallest-lr-3k/artifacts/attempt-01-spark/production/state-003000.pt",
+          "original_bytes": 16756702,
+          "original_sha256": "9cad73553ff1b53ca1486f725d7e3dff84e1404ea4c840a8aa3ca697242bc8e3",
+          "original_inventory": "runs/120-2026-10-15-eos-resnet-gd-smallest-lr-3k/artifacts/attempt-01-spark/transfer_inventory.json"
+        }
+      ]
+    },
+    {
+      "parent_run_id": "121",
+      "parent_run": "121-2026-10-15-eos-transformer-gd-smallest-lr-3k",
+      "task": "transformer",
+      "lr": 0.05,
+      "worker": 0,
+      "seed": 0,
+      "physical": 64,
+      "reconstructed": false,
+      "data": "cache/eos-multitask/transformer_data.pt",
+      "reference": "cache/analysis032-inputs/references/121.json",
+      "parents": [
+        {
+          "state": 500,
+          "path": "cache/analysis032-inputs/parents/121/state-000500.pt",
+          "tensor_sha256": "14743cd11b653f1ff4fb17ce4c5c8a611028c3d3d5b160e19386389e501e87d4",
+          "original": "runs/121-2026-10-15-eos-transformer-gd-smallest-lr-3k/artifacts/attempt-01-spark/production/state-000500.pt",
+          "original_bytes": 501844169,
+          "original_sha256": "32c3926694d68ac176bf67039b018faffb2de99a471ab4d9ff7f31a2e57f4142",
+          "original_inventory": "runs/121-2026-10-15-eos-transformer-gd-smallest-lr-3k/artifacts/attempt-01-spark/transfer_inventory.json"
+        },
+        {
+          "state": 2000,
+          "path": "cache/analysis032-inputs/parents/121/state-002000.pt",
+          "tensor_sha256": "683c9e5e73a76bfee7bff0fb567307f70d85b3615cded1836e40729ed5c4b7ab",
+          "original": "runs/121-2026-10-15-eos-transformer-gd-smallest-lr-3k/artifacts/attempt-01-spark/production/state-002000.pt",
+          "original_bytes": 501844169,
+          "original_sha256": "f8280ec7cd567674da0f4a9ed05c9fe9fda67d370953fdd9f0767e8df0e0eefa",
+          "original_inventory": "runs/121-2026-10-15-eos-transformer-gd-smallest-lr-3k/artifacts/attempt-01-spark/transfer_inventory.json"
+        },
+        {
+          "state": 3000,
+          "path": "cache/analysis032-inputs/parents/121/state-003000.pt",
+          "tensor_sha256": "7de0f5466d53e5ec09685fbbb65420d64c932e46cd91c9bb515012f0e93548fd",
+          "original": "runs/121-2026-10-15-eos-transformer-gd-smallest-lr-3k/artifacts/attempt-01-spark/production/state-003000.pt",
+          "original_bytes": 501844169,
+          "original_sha256": "472210421dffe5ed1a0c07c7cf00c219682aecbfa28fe32400a3d915bce592ae",
+          "original_inventory": "runs/121-2026-10-15-eos-transformer-gd-smallest-lr-3k/artifacts/attempt-01-spark/transfer_inventory.json"
+        }
+      ]
+    },
+    {
+      "parent_run_id": "125",
+      "parent_run": "125-2026-10-17-eos-transformer-gd-lr-0.1-3k",
+      "task": "transformer",
+      "lr": 0.1,
+      "worker": 1,
+      "seed": 0,
+      "physical": 64,
+      "reconstructed": false,
+      "data": "cache/eos-multitask/transformer_data.pt",
+      "reference": "cache/analysis032-inputs/references/125.json",
+      "parents": [
+        {
+          "state": 500,
+          "path": "cache/analysis032-inputs/parents/125/state-000500.pt",
+          "tensor_sha256": "33f8c2be058f18e387b47eadc618967e68643c100cd7a82538c900a81e2dd56a",
+          "original": "runs/125-2026-10-17-eos-transformer-gd-lr-0.1-3k/artifacts/attempt-01-spark/production/state-000500.pt",
+          "original_bytes": 501844169,
+          "original_sha256": "7b204eb2d39fced49093295a1d30e2d20cbd7d160965d7e811bb83a3b9167acc",
+          "original_inventory": "runs/125-2026-10-17-eos-transformer-gd-lr-0.1-3k/artifacts/attempt-01-spark/transfer_inventory.json"
+        },
+        {
+          "state": 2000,
+          "path": "cache/analysis032-inputs/parents/125/state-002000.pt",
+          "tensor_sha256": "7872a15f525e929894191ea7de819c1f055edd877441dabb854499dad37963f2",
+          "original": "runs/125-2026-10-17-eos-transformer-gd-lr-0.1-3k/artifacts/attempt-01-spark/production/state-002000.pt",
+          "original_bytes": 501844169,
+          "original_sha256": "74c481b0ace7d5bf1a73ea6c69b25e80cf8a7b5324f67b01ea3ac8e66f84a09d",
+          "original_inventory": "runs/125-2026-10-17-eos-transformer-gd-lr-0.1-3k/artifacts/attempt-01-spark/transfer_inventory.json"
+        },
+        {
+          "state": 3000,
+          "path": "cache/analysis032-inputs/parents/125/state-003000.pt",
+          "tensor_sha256": "00538ed33fd58c5be0d9902cf8b5659435200edb5250f48b8f18ac286e015307",
+          "original": "runs/125-2026-10-17-eos-transformer-gd-lr-0.1-3k/artifacts/attempt-01-spark/production/state-003000.pt",
+          "original_bytes": 501844169,
+          "original_sha256": "458fede10916b46ec40613fd848b384321b92ecdef10bd53d776ca9fb1004453",
+          "original_inventory": "runs/125-2026-10-17-eos-transformer-gd-lr-0.1-3k/artifacts/attempt-01-spark/transfer_inventory.json"
+        }
+      ]
+    },
+    {
+      "parent_run_id": "126",
+      "parent_run": "126-2026-10-17-eos-transformer-gd-lr-0.2-3k",
+      "task": "transformer",
+      "lr": 0.2,
+      "worker": 2,
+      "seed": 0,
+      "physical": 64,
+      "reconstructed": false,
+      "data": "cache/eos-multitask/transformer_data.pt",
+      "reference": "cache/analysis032-inputs/references/126.json",
+      "parents": [
+        {
+          "state": 500,
+          "path": "cache/analysis032-inputs/parents/126/state-000500.pt",
+          "tensor_sha256": "29791416d4a8d3dc277f994442b6fe5dcf66902efcb2c1dc37916b7a4aa5c00b",
+          "original": "runs/126-2026-10-17-eos-transformer-gd-lr-0.2-3k/artifacts/attempt-01-spark/production/state-000500.pt",
+          "original_bytes": 501844169,
+          "original_sha256": "8ca24ed787307ca3226a69cc42e0527f2573092596713f1bbc6d66ff1b68f569",
+          "original_inventory": "runs/126-2026-10-17-eos-transformer-gd-lr-0.2-3k/artifacts/attempt-01-spark/transfer_inventory.json"
+        },
+        {
+          "state": 2000,
+          "path": "cache/analysis032-inputs/parents/126/state-002000.pt",
+          "tensor_sha256": "c8bc4a0be4bf9bfd6542b39d2b539e823697c52807dd50f018460def98834399",
+          "original": "runs/126-2026-10-17-eos-transformer-gd-lr-0.2-3k/artifacts/attempt-01-spark/production/state-002000.pt",
+          "original_bytes": 501844169,
+          "original_sha256": "90f6731b85a03f5b59340aa8723f2cf2749f7fdd6e56a32e4f41881452f234c1",
+          "original_inventory": "runs/126-2026-10-17-eos-transformer-gd-lr-0.2-3k/artifacts/attempt-01-spark/transfer_inventory.json"
+        },
+        {
+          "state": 3000,
+          "path": "cache/analysis032-inputs/parents/126/state-003000.pt",
+          "tensor_sha256": "7833cdc2d14fd63ccf7fcd4c5458686ed49e119014c91835a8feb3c5aa558180",
+          "original": "runs/126-2026-10-17-eos-transformer-gd-lr-0.2-3k/artifacts/attempt-01-spark/production/state-003000.pt",
+          "original_bytes": 501844169,
+          "original_sha256": "0157598abed4c240e95961515dd43218bd2aea7ce228a7c0ad630d512bb34035",
+          "original_inventory": "runs/126-2026-10-17-eos-transformer-gd-lr-0.2-3k/artifacts/attempt-01-spark/transfer_inventory.json"
+        }
+      ]
+    }
+  ],
+  "task_cache": "cache/eos-multitask",
+  "inputs_manifest": "runs/205-2026-11-01-eos-exact-lag10/input_manifest.json",
+  "original_inputs": "cache/eos-multitask/inputs.json",
+  "metric": "cos(gradient(theta_anchor),gradient(theta_anchor+lag)); one pair per lag; no averaging or compression",
+  "objective": {
+    "mlp": "complete first5000 images; half squared error summed over outputs and mean over examples",
+    "resnet": "complete50000 images; cross entropy; same50 fixed1000-image train-mode BN groups; no running-stat mutation",
+    "transformer": "all59680 fixed sequences; NLL summed then divided by2088600 target tokens"
+  },
+  "optimizer": "constant plain SGD, original LR; no momentum, weight decay, clipping, schedule, augmentation or dropout",
+  "precision": "FP32 parameters/accumulated gradients; TF32 disabled; exact FP64 diagnostic dot products and norms",
+  "parameter_scope": "all trainable parameters, original model order, no compression",
+  "zero_denominator": "null with undefined flag; no epsilon",
+  "original_history_limit": 3000,
+  "late_window": "new10-update continuation beyond Analysis024; never append to original runs",
+  "qualification_tolerances": {
+    "loss_absolute": 0.0001,
+    "loss_relative": 0.001,
+    "norm_absolute": 1e-05,
+    "norm_relative": 0.01,
+    "cosine_absolute": 0.02
+  },
+  "qualification_policy": "Saved-model continuations are valid new forks; historical agreement reported separately. Reconstructed MLP windows failing any preceding check are excluded from primary profiles and retained separately.",
+  "fixed_repeat_relative_tolerance": 1e-05,
+  "recovery": "parent inputs retained; each11-gradient window keeps start/end model, optimizer and RNG states",
+  "validation": "none; complete training objective only; no new held-out/generalization claims",
+  "authorization": "User: Use runpod. No need to compress. Use the checkpoints for faster run. Produce an analysis folder at the end.",
+  "resource_limits": {
+    "workers": 3,
+    "max_total_usd": 6,
+    "max_lease_seconds": 7200,
+    "production_timeout_seconds": 3600,
+    "container_gb": 30,
+    "pod_volume_gb": 15,
+    "network_volume": false
+  },
+  "inference": "One initialization per model;27 anchored profiles; one dependent pair per lag. No seed uncertainty, stationarity, stability or loss-benefit inference."
+}

@@ -2,6 +2,15 @@
 
 ## Current state
 
+[Analysis032: exact gradient cosine through lag 10](../analyses/032-2026-11-01-eos-exact-lag10/REPORT.md)
+completed 27 windows / 270 exact cosines near states 500/2000/3000 across nine
+Analysis024 conditions. There are 21 exact saved starts, four qualifying
+reconstructions and two failed Run062 replays retained separately. All 17 primary
+negative-lag-1 profiles have negative odd / positive even lags through 10.
+All 147 files / 7.072 GB are local and hash verified; three task pods/storage deleted.
+Compute USD 1.05 provisional; posted billing pending. Next Run206 / Analysis033.
+H020 remains active; one initialization and one anchored pair per lag.
+
 [Analysis031: Adam state map and paired-benefit prediction](../analyses/031-2026-10-31-adam-state-map/REPORT.md)
 reuses all 18 Analysis030 arms; 12 altered-rate outcomes and three seed clusters.
 At update 16, actual/adaptive retention reduce held-seed final-benefit prediction

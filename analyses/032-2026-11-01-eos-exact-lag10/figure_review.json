@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "reviewed_utc": "2026-11-01T11:58:02.169937+00:00",
+  "figures": [
+    {
+      "path": "figures/exact_gradient_lag10.pdf",
+      "sha256": "4955918801a8b4e918de887548e51ad4998457ba9cb1db96ef0b482fa5429ee1",
+      "pages": 1,
+      "page_points": [
+        0.0,
+        0.0,
+        777.6,
+        532.8
+      ],
+      "curves": 25,
+      "values": 250
+    },
+    {
+      "path": "figures/all_profiles_with_reconstruction_flags.pdf",
+      "sha256": "32c33be8684ac7f4bdd99e0001504556890336e2a4c75d37df1dc812b6853018",
+      "pages": 1,
+      "page_points": [
+        0.0,
+        0.0,
+        777.6,
+        532.8
+      ],
+      "curves": 27,
+      "values": 270
+    }
+  ],
+  "renderer": "Poppler pdftoppm, 110dpi PNG; both full-page renders inspected",
+  "checks": [
+    "All nine panels readable; titles/axis labels/ticks not clipped",
+    "LR colors and lag axes consistent across panels",
+    "Primary contains25 eligible profiles; companion contains27 with two explicitly dashed unqualified reconstructions",
+    "520 plotted artist values agree with the270 unique independently verified source values",
+    "Vector PDF font type42; one page per figure; source coverage and limits in Observation001"
+  ],
+  "uncertainty": "One selected anchored pair per point and one initialization per case; no inferential error bars",
+  "ignored_renders": [
+    "scratch/exact_gradient_lag10.png",
+    "scratch/all_profiles_with_reconstruction_flags.png"
+  ]
+}

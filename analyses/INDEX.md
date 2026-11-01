@@ -51,5 +51,9 @@
 
 | [031](031-2026-10-31-adam-state-map/README.md) | H025 optimizer state and paired LR benefit | Analysis030 / Runs187-204; 12 paired altered arms, three seed clusters | Complete exploratory map; four reviewed PDFs and independent reductions/predictions verified; no training or rental | [Report](031-2026-10-31-adam-state-map/REPORT.md); early actual/adaptive retention candidate, sensitive to window and target |
 
-Next analysis: `032-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
+| Analysis | Question | Source runs / other inputs | Status | Observations / figures |
+| --- | --- | --- | --- | --- |
+| [032](032-2026-11-01-eos-exact-lag10/README.md) | Exact anchored gradient cosine through lag 10 at three trained states | Run205; nine Analysis024 conditions, seed 0 | Complete; 27 profiles / 270 values, 25 primary; two failed MLP replays flagged | [Report](032-2026-11-01-eos-exact-lag10/REPORT.md), two reviewed PDFs; 7.072 GB verified; task cloud deleted; USD 1.05 compute provisional |
+
+Next analysis: `033-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
 an analysis may use manuscript or external inputs without referencing a run.

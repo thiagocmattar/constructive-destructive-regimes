@@ -1,0 +1,103 @@
+{
+  "total_profiles": 27,
+  "primary_profiles": 25,
+  "saved_checkpoint_profiles": 21,
+  "reconstructed_profiles": 6,
+  "unqualified_reconstruction_profiles": 2,
+  "total_cosines": 270,
+  "primary_cosines": 250,
+  "recorded_window_updates": 270,
+  "replay_updates_outside_windows": 5960,
+  "total_applied_updates": 6230,
+  "primary_negative_lag1": 17,
+  "negative_lag1_positive_lag2": 17,
+  "negative_lag1_positive_lag10": 17,
+  "negative_lag1_positive_all_even": 17,
+  "negative_lag1_negative_all_odd": 17,
+  "maximum_fixed_repeat_relative_error": 1.7405319530097386e-07,
+  "retained_bytes": 7071781155,
+  "retained_files": 147,
+  "replay_failures": [
+    {
+      "parent": "062",
+      "first_failed_state": 1134,
+      "failed_checks": 1845,
+      "checked_records": 3013
+    }
+  ],
+  "timings": [
+    {
+      "worker": 0,
+      "task": "mlp",
+      "n": 30,
+      "median_gradient_seconds": 0.008572097984142601,
+      "minimum_gradient_seconds": 0.007472655037418008,
+      "maximum_gradient_seconds": 0.016612266888841987
+    },
+    {
+      "worker": 0,
+      "task": "resnet",
+      "n": 30,
+      "median_gradient_seconds": 2.5634272260358557,
+      "minimum_gradient_seconds": 2.5463080059271306,
+      "maximum_gradient_seconds": 2.5713359429500997
+    },
+    {
+      "worker": 0,
+      "task": "transformer",
+      "n": 30,
+      "median_gradient_seconds": 8.979250079602934,
+      "minimum_gradient_seconds": 8.124580122996122,
+      "maximum_gradient_seconds": 9.230160139035434
+    },
+    {
+      "worker": 1,
+      "task": "mlp",
+      "n": 30,
+      "median_gradient_seconds": 0.022862752666696906,
+      "minimum_gradient_seconds": 0.008664855966344476,
+      "maximum_gradient_seconds": 0.23263512109406292
+    },
+    {
+      "worker": 1,
+      "task": "resnet",
+      "n": 30,
+      "median_gradient_seconds": 3.9382735199760646,
+      "minimum_gradient_seconds": 2.891826099017635,
+      "maximum_gradient_seconds": 5.98992004385218
+    },
+    {
+      "worker": 1,
+      "task": "transformer",
+      "n": 30,
+      "median_gradient_seconds": 9.711936498526484,
+      "minimum_gradient_seconds": 8.314812817145139,
+      "maximum_gradient_seconds": 11.321099903900176
+    },
+    {
+      "worker": 2,
+      "task": "mlp",
+      "n": 30,
+      "median_gradient_seconds": 0.010865466087125242,
+      "minimum_gradient_seconds": 0.010287021985277534,
+      "maximum_gradient_seconds": 0.014358807122334838
+    },
+    {
+      "worker": 2,
+      "task": "resnet",
+      "n": 30,
+      "median_gradient_seconds": 2.5744028056506068,
+      "minimum_gradient_seconds": 2.5595641429536045,
+      "maximum_gradient_seconds": 2.586403753841296
+    },
+    {
+      "worker": 2,
+      "task": "transformer",
+      "n": 30,
+      "median_gradient_seconds": 8.764250065549277,
+      "minimum_gradient_seconds": 8.259861462051049,
+      "maximum_gradient_seconds": 9.140530759003013
+    }
+  ],
+  "aggregate_compute_seconds": 1401.575399454683
+}

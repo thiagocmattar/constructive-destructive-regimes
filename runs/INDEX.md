@@ -216,7 +216,8 @@
 | [202](202-2026-10-30-pythia70m-seed1236-lr0p5/README.md) | H024 70m-1236 LR0.5 | Complete;128 updates locally verified | Local artifacts; task cloud deleted; cohort USD13.90 posted, provisional | [Analysis030](../analyses/030-2026-10-30-adam-lr-decisions/README.md) |
 | [203](203-2026-10-30-pythia70m-seed1236-lr1p0/README.md) | H024 70m-1236 LR1 | Complete;128 updates locally verified | Local artifacts; task cloud deleted; cohort USD13.90 posted, provisional | [Analysis030](../analyses/030-2026-10-30-adam-lr-decisions/README.md) |
 | [204](204-2026-10-30-pythia70m-seed1236-lr2p0/README.md) | H024 70m-1236 LR2 | Complete;128 updates locally verified | Local artifacts; task cloud deleted; cohort USD13.90 posted, provisional | [Analysis030](../analyses/030-2026-10-30-adam-lr-decisions/README.md) |
+| [205](205-2026-11-01-eos-exact-lag10/README.md) | H020: exact lag-10 profiles near retained GD states | Complete; 27 windows / 270 cosines; 25 primary profiles | One Runpod attempt; 147 files / 7.072 GB locally verified; task cloud deleted | [Analysis032](../analyses/032-2026-11-01-eos-exact-lag10/REPORT.md); compute USD 1.05 provisional |
 
-Next run: `205-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
+Next run: `206-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
 executed IDs and configurations; retry unchanged scientific inputs in a new
 attempt within the same run.

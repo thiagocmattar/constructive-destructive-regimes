@@ -1,0 +1,48 @@
+{
+  "utc": 1793532537.260711,
+  "gpu": {
+    "available": true,
+    "communityCloud": true,
+    "communityPricePerHr": 0.34,
+    "dataCenterAvailability": [
+      {
+        "dataCenterId": "EU-CZ-1",
+        "stockStatus": "Low"
+      },
+      {
+        "dataCenterId": "EU-RO-1",
+        "stockStatus": "Low"
+      },
+      {
+        "dataCenterId": "EUR-IS-1",
+        "stockStatus": "Low"
+      },
+      {
+        "dataCenterId": "EUR-IS-2",
+        "stockStatus": "Low"
+      },
+      {
+        "dataCenterId": "US-IL-1",
+        "stockStatus": "Low"
+      }
+    ],
+    "displayName": "RTX 4090",
+    "gpuId": "NVIDIA GeForce RTX 4090",
+    "memoryInGb": 24,
+    "secureCloud": true,
+    "securePricePerHr": 0.89,
+    "stockStatus": "Low"
+  },
+  "template": {
+    "category": "NVIDIA",
+    "containerDiskInGb": 30,
+    "id": "runpod-torch-v280",
+    "imageName": "runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404",
+    "isPublic": true,
+    "isRunpod": true,
+    "name": "Runpod Pytorch 2.8.0",
+    "volumeInGb": 50,
+    "volumeMountPath": "/workspace"
+  },
+  "existing_pods": []
+}
