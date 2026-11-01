@@ -55,5 +55,7 @@
 | --- | --- | --- | --- | --- |
 | [032](032-2026-11-01-eos-exact-lag10/README.md) | Exact anchored gradient cosine through lag 10 at three trained states | Run205; nine Analysis024 conditions, seed 0 | Complete; 27 profiles / 270 values, 25 primary; two failed MLP replays flagged | [Report](032-2026-11-01-eos-exact-lag10/REPORT.md), two reviewed PDFs; 7.072 GB verified; task cloud deleted; USD 1.05 compute provisional |
 
-Next analysis: `033-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
+| [033](033-2026-11-01-eos-long-lags/README.md) | Long-lag full-gradient damping across nine EOS conditions | Run206; nine Analysis024 conditions, seed0 | Prepared; common256, adaptive2048 maximum; USD30 envelope pending | Exact streaming reductions and sparse vector audits; no cloud resources created |
+
+Next analysis: `034-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
 an analysis may use manuscript or external inputs without referencing a run.

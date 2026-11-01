@@ -2,6 +2,13 @@
 
 ## Current state
 
+[Analysis033: long-lag full-gradient profiles](../analyses/033-2026-11-01-eos-long-lags/README.md)
+prepared27 checkpoint continuations with common lag256 coverage and declared
+adaptive extensions to2048. Exact streaming products avoid gradient compression;
+CPU/GPU reductions and sparse full-vector audits are implemented and tested.
+Runpod launch awaits the larger USD30 envelope; no resources created.
+Next Run207 / Analysis034; H020 remains active.
+
 [Analysis032: exact gradient cosine through lag 10](../analyses/032-2026-11-01-eos-exact-lag10/REPORT.md)
 completed 27 windows / 270 exact cosines near states 500/2000/3000 across nine
 Analysis024 conditions. There are 21 exact saved starts, four qualifying

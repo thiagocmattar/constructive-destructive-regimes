@@ -1,0 +1,60 @@
+{
+  "dataset_url": "https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz",
+  "download_url": "https://huggingface.co/datasets/MIT-OL-AI-D/cifar-10-python/resolve/a48007227f9e2cd0af96175f4afb5ac4965e261b/cifar-10-python.tar.gz",
+  "mirror_revision": "a48007227f9e2cd0af96175f4afb5ac4965e261b",
+  "archive_bytes": 170498071,
+  "archive_sha256": "6d958be074577803d12ecdefd02955f39262c83c16fe9348329d7fe0b5c001ce",
+  "archive_md5": "c58f30108f718f92721af3b95e74349a",
+  "source_revision": "0d8ceeb3ad98e28930762205934f0a941faeb479",
+  "sources": {
+    "README.md": {
+      "sha256": "e7162c52132b4867a81615d66d2399f870e81954252082311624dfd44961ae52",
+      "url": "https://raw.githubusercontent.com/locuslab/edge-of-stability/0d8ceeb3ad98e28930762205934f0a941faeb479/README.md"
+    },
+    "src/archs.py": {
+      "sha256": "f382eb40410c48a66ceb5e644871cfa95cf4b2b6ce99445bb6866541dcd108c1",
+      "url": "https://raw.githubusercontent.com/locuslab/edge-of-stability/0d8ceeb3ad98e28930762205934f0a941faeb479/src/archs.py"
+    },
+    "src/cifar.py": {
+      "sha256": "7f019b42f8a54b7e8e07c82d2cb3e93ea1e28b8de872d4aa3332944b5bd2f9cf",
+      "url": "https://raw.githubusercontent.com/locuslab/edge-of-stability/0d8ceeb3ad98e28930762205934f0a941faeb479/src/cifar.py"
+    },
+    "src/gd.py": {
+      "sha256": "25db23eb2946e504de6cfd51ceb4582520bae8951c6924cb04576814d9977f25",
+      "url": "https://raw.githubusercontent.com/locuslab/edge-of-stability/0d8ceeb3ad98e28930762205934f0a941faeb479/src/gd.py"
+    },
+    "src/adam.py": {
+      "sha256": "365377b213e35c82caf2f56de0c3b3c6a7505683067c02fa8d273269595051aa",
+      "url": "https://raw.githubusercontent.com/locuslab/edge-of-stability/0d8ceeb3ad98e28930762205934f0a941faeb479/src/adam.py"
+    },
+    "src/utilities.py": {
+      "sha256": "2b5f0a0db23a9aa76bf4b54f570394b678dbb4cdc1e3128ecbdf5f370945c3d5",
+      "url": "https://raw.githubusercontent.com/locuslab/edge-of-stability/0d8ceeb3ad98e28930762205934f0a941faeb479/src/utilities.py"
+    }
+  },
+  "train_examples": 5000,
+  "normalization_examples": 50000,
+  "test_examples": 10000,
+  "order": "official first 5000; unchanged deterministic order",
+  "parameter_count": 656810,
+  "initial_tensor_sha256": "8de1e7c880539f122aa840d5b7c28027310e82bd3ee4e753afef87fe0876a2da",
+  "data_tensor_sha256": {
+    "x_train": "8a7e4a95c9786c9cfd148630fe7c4dbe13a2501ab8a2f743d1a8c94f85b25489",
+    "y_train": "30f7de43292a518e72ce3a76c5feddd0c5613abe050676c2e3d4b3b2a1d9d8d1",
+    "x_test": "7438979404341ca4c88d1980c5de8c08aada6626589b9738f5fcd96dceb7393d",
+    "y_test": "cbb7365de8ed11f05cc4c3a1e7f78144127c5e851efd83762fb18202461230bb",
+    "normalization_mean": "4877981f90114d1591237798d3b290ce674047d7bb4d924f1d0ee61a5e3376d4",
+    "normalization_std": "0c0f27e39a24ba4aa82d374e3b2ae64f95d1f5801d41a30355782fa7df111b4e"
+  },
+  "prepared_files": {
+    "data.pt": {
+      "bytes": 184491697,
+      "sha256": "2e4761c655a66a7e578efeb30950b9e39deeafd618f519cbc4ec823ff867985e"
+    },
+    "initial.pt": {
+      "bytes": 2629973,
+      "sha256": "ad880aca70536b02bd5bb492dbc2a6e4142b22feab5fb4f2c7b0f5ddc93c1ff9"
+    }
+  },
+  "official_preprocessing_parity": "bitwise equal for 11 probe images"
+}
