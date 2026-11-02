@@ -11,8 +11,9 @@ Analysis034's continuation evidence. [FAST_CALIBRATION.md](FAST_CALIBRATION.md)
 specifies nine arms of 128 updates: MLP rates 1e-4/3e-4/1e-3, and
 ResNet/Transformer rates 3e-4/1e-3/3e-3. This replaces the unexecuted 21-arm
 proposal. The user subsequently approved the calibration and full training: Run215 executes
-nine fresh 1,024-update arms (9,216 updates total). Four arms are complete and
-verified (all three MLP rates and ResNet at0.003); five cloud arms remain active. See
+nine fresh 1,024-update arms (9,216 updates total). Six arms are complete and
+verified (three MLP, two ResNet rates and one Transformer rate); three cloud arms
+remain active. See
 [Run215](../../runs/215-2026-11-02-controlled-full-batch-adam/README.md).
 
 Calibration completed on November 2, 2026: all nine arms /1,152 updates are verified. MLP uses the owned RTX5070Ti
@@ -58,7 +59,8 @@ coverage and reduction, and smoothed_composite_verification.json for checks.
 This adds a third reviewed PDF without new training or cloud execution.
 
 The [completed production preview](figures/adam_diagnostics_completed_preview.pdf)
-uses only those four verified1,024-update histories in the approved eight-row,
-three-column layout. The Transformer column is explicitly pending. See
+uses six verified1,024-update histories in the approved eight-row, three-column
+layout. Training loss and Adam R_t are unsmoothed; the other six diagnostic rows
+use16-step trailing means. Coverage is3/3 MLP,2/3 ResNet and1/3 Transformer. See
 [Observation003](observations/003-completed-production-preview.md),
 completed_preview_manifest.json and completed_preview_verification.json.

@@ -73,7 +73,7 @@
 <!-- Analysis036 preparation -->
 | Analysis | Question | Source runs / other inputs | Status | Observations / figures |
 | --- | --- | --- | --- | --- |
-| [036](036-2026-11-02-controlled-adam-diagnostics/README.md) | Fixed-LR full-objective Adam diagnostics from Analysis024 initial weights | Runs213/215; Analysis024/029/034 | Calibration9 x128 complete; one initialization, no Hessians;8 smooth-loss labels/1 unclassified, raw reversals in ResNet/Transformer | [Report](036-2026-11-02-controlled-adam-diagnostics/REPORT.md); three calibration PDFs plus a four-arm production preview; calibration pods/storage deleted, USD2.26 provisional; Run215 main9 x1,024 active, three MLP arms verified |
+| [036](036-2026-11-02-controlled-adam-diagnostics/README.md) | Fixed-LR full-objective Adam diagnostics from Analysis024 initial weights | Runs213/215; Analysis024/029/034 | Calibration9 x128 complete; one initialization, no Hessians;8 smooth-loss labels/1 unclassified, raw reversals in ResNet/Transformer | [Report](036-2026-11-02-controlled-adam-diagnostics/REPORT.md); three calibration PDFs plus a six-arm production preview; calibration pods/storage deleted, USD2.26 provisional; Run215 main9 x1,024 active, three MLP arms verified |
 <!-- End Analysis036 preparation -->
 
 Next analysis: `038-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;

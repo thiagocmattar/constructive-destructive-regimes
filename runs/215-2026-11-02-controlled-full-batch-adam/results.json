@@ -3,7 +3,7 @@
   "run_id": "215",
   "updates_per_arm": 1024,
   "expected_arms": 9,
-  "completed_arms": 4,
+  "completed_arms": 6,
   "conditions": [
     {
       "task": "mlp",
@@ -384,6 +384,263 @@
       "manifest_sha256": "0a8ae45b014049fcd7350768bef6190f4991802ed6bf9e254c810c3ca2032e12"
     },
     {
+      "task": "transformer",
+      "lr": 0.0003,
+      "updates": 1024,
+      "status": "complete",
+      "initial_loss": 10.729182719678409,
+      "final_loss": 2.356973316806675,
+      "final_evaluations": {
+        "valid": {
+          "loss": 8.314280233097026,
+          "loss_units": 217630,
+          "objective_units": 6220
+        },
+        "test": {
+          "loss": 8.256309401089391,
+          "loss_units": 245550,
+          "objective_units": 7020
+        }
+      },
+      "tail64_cosines": {
+        "raw": -0.7946246379602497,
+        "moment": -0.5981442716559227,
+        "adaptive": 0.93920267981402,
+        "actual": 0.9392026777625428
+      },
+      "final_R_t": 0.540216935764151,
+      "parameter_telescoping_error": 0.0,
+      "elapsed_seconds": 9285.236400261987,
+      "environment": {
+        "utc": "2026-11-02T13:23:43.705469+00:00",
+        "python": "3.12.3",
+        "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.39",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "numpy": "2.5.0",
+        "scipy": "1.18.1",
+        "device": "cuda:0",
+        "gpu": "NVIDIA GeForce RTX 4090",
+        "gpu_total_bytes": 25252724736,
+        "matmul_precision": "highest",
+        "tf32": false
+      },
+      "gd_loss_matches": [
+        {
+          "gd_run": "121",
+          "gd_state": 500,
+          "target_loss": 7.330716035019716,
+          "first_adam_state": 43,
+          "first_trailing64_state": 81
+        },
+        {
+          "gd_run": "121",
+          "gd_state": 1000,
+          "target_loss": 7.062673203313899,
+          "first_adam_state": 52,
+          "first_trailing64_state": 90
+        },
+        {
+          "gd_run": "121",
+          "gd_state": 2000,
+          "target_loss": 6.787544823638962,
+          "first_adam_state": 69,
+          "first_trailing64_state": 102
+        },
+        {
+          "gd_run": "121",
+          "gd_state": 3000,
+          "target_loss": 6.630096961210181,
+          "first_adam_state": 80,
+          "first_trailing64_state": 112
+        },
+        {
+          "gd_run": "125",
+          "gd_state": 500,
+          "target_loss": 7.070934507097312,
+          "first_adam_state": 52,
+          "first_trailing64_state": 89
+        },
+        {
+          "gd_run": "125",
+          "gd_state": 1000,
+          "target_loss": 6.792513584252755,
+          "first_adam_state": 68,
+          "first_trailing64_state": 102
+        },
+        {
+          "gd_run": "125",
+          "gd_state": 2000,
+          "target_loss": 6.51654500383967,
+          "first_adam_state": 88,
+          "first_trailing64_state": 120
+        },
+        {
+          "gd_run": "125",
+          "gd_state": 3000,
+          "target_loss": 6.351935365365105,
+          "first_adam_state": 100,
+          "first_trailing64_state": 132
+        },
+        {
+          "gd_run": "126",
+          "gd_state": 500,
+          "target_loss": 6.819112337838082,
+          "first_adam_state": 66,
+          "first_trailing64_state": 101
+        },
+        {
+          "gd_run": "126",
+          "gd_state": 1000,
+          "target_loss": 6.562957109661155,
+          "first_adam_state": 85,
+          "first_trailing64_state": 117
+        },
+        {
+          "gd_run": "126",
+          "gd_state": 2000,
+          "target_loss": 6.256404861790646,
+          "first_adam_state": 107,
+          "first_trailing64_state": 139
+        },
+        {
+          "gd_run": "126",
+          "gd_state": 3000,
+          "target_loss": 6.069747180845569,
+          "first_adam_state": 121,
+          "first_trailing64_state": 154
+        }
+      ],
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker0/lr-0.0003",
+      "manifest_sha256": "10755e07d67029177aac13f0a7af6a44033696e6101211f62a8c73df1cd8b19c"
+    },
+    {
+      "task": "resnet",
+      "lr": 0.0003,
+      "updates": 1024,
+      "status": "complete",
+      "initial_loss": 2.30956712890625,
+      "final_loss": 0.5265881774902343,
+      "final_evaluations": {
+        "test": {
+          "loss": 1.01809287109375,
+          "loss_units": 10000,
+          "objective_units": 10
+        }
+      },
+      "tail64_cosines": {
+        "raw": -0.9089099430281954,
+        "moment": -0.5152745301238708,
+        "adaptive": -0.08182079571045922,
+        "actual": -0.08182070824228671
+      },
+      "final_R_t": 0.3769468374420036,
+      "parameter_telescoping_error": 0.0,
+      "elapsed_seconds": 7217.709634786937,
+      "environment": {
+        "utc": "2026-11-02T13:56:37.430604+00:00",
+        "python": "3.12.3",
+        "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "numpy": "2.5.0",
+        "scipy": "1.18.1",
+        "device": "cuda:0",
+        "gpu": "NVIDIA RTX PRO 4000 Blackwell",
+        "gpu_total_bytes": 25153044480,
+        "matmul_precision": "highest",
+        "tf32": false
+      },
+      "gd_loss_matches": [
+        {
+          "gd_run": "120",
+          "gd_state": 500,
+          "target_loss": 1.6699012768554689,
+          "first_adam_state": 221,
+          "first_trailing64_state": 252
+        },
+        {
+          "gd_run": "120",
+          "gd_state": 1000,
+          "target_loss": 1.3101294287109375,
+          "first_adam_state": 316,
+          "first_trailing64_state": 348
+        },
+        {
+          "gd_run": "120",
+          "gd_state": 2000,
+          "target_loss": 0.7946179235839844,
+          "first_adam_state": 629,
+          "first_trailing64_state": 659
+        },
+        {
+          "gd_run": "120",
+          "gd_state": 3000,
+          "target_loss": 0.48983840637207027,
+          "first_adam_state": null,
+          "first_trailing64_state": null
+        },
+        {
+          "gd_run": "123",
+          "gd_state": 500,
+          "target_loss": 2.0940153222656246,
+          "first_adam_state": 121,
+          "first_trailing64_state": 151
+        },
+        {
+          "gd_run": "123",
+          "gd_state": 1000,
+          "target_loss": 1.9284021386718755,
+          "first_adam_state": 163,
+          "first_trailing64_state": 194
+        },
+        {
+          "gd_run": "123",
+          "gd_state": 2000,
+          "target_loss": 1.6426034594726564,
+          "first_adam_state": 227,
+          "first_trailing64_state": 259
+        },
+        {
+          "gd_run": "123",
+          "gd_state": 3000,
+          "target_loss": 1.466540378417969,
+          "first_adam_state": 270,
+          "first_trailing64_state": 302
+        },
+        {
+          "gd_run": "124",
+          "gd_state": 500,
+          "target_loss": 1.9328419433593746,
+          "first_adam_state": 162,
+          "first_trailing64_state": 193
+        },
+        {
+          "gd_run": "124",
+          "gd_state": 1000,
+          "target_loss": 1.649430200195312,
+          "first_adam_state": 225,
+          "first_trailing64_state": 257
+        },
+        {
+          "gd_run": "124",
+          "gd_state": 2000,
+          "target_loss": 1.2848856225585934,
+          "first_adam_state": 324,
+          "first_trailing64_state": 356
+        },
+        {
+          "gd_run": "124",
+          "gd_state": 3000,
+          "target_loss": 0.9672287634277343,
+          "first_adam_state": 475,
+          "first_trailing64_state": 507
+        }
+      ],
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker17/lr-0.0003",
+      "manifest_sha256": "b72f9bff98df63764804a4ab841702ff898c87be2497a99243130a06d92b9bc8"
+    },
+    {
       "task": "resnet",
       "lr": 0.003,
       "updates": 1024,
@@ -514,15 +771,7 @@
   "missing": [
     [
       "resnet",
-      0.0003
-    ],
-    [
-      "resnet",
       0.001
-    ],
-    [
-      "transformer",
-      0.0003
     ],
     [
       "transformer",

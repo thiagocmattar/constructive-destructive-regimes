@@ -1,25 +1,30 @@
 {
   "status": "passed",
-  "conditions": 4,
+  "conditions": 6,
   "completed_counts": {
     "mlp": 3,
-    "resnet": 1,
-    "transformer": 0
+    "resnet": 2,
+    "transformer": 1
   },
-  "curves": 32,
-  "plotted_values": 32336,
+  "curves": 48,
+  "plotted_values": 48594,
   "rows": 8,
   "columns": 3,
   "panels": 24,
-  "smoothing_window": 16,
-  "independent_scalar_mean_max_absolute_error": 8.881784197001252e-16,
+  "smoothing_window_for_diagnostic_rows": 16,
+  "unsmoothed_rows": [
+    "training_loss_log",
+    "R_t"
+  ],
+  "loss_exact_source_values_and_states": true,
   "R_t_stream": "actual_Adam_updates_only",
   "R_t_unsmoothed": true,
+  "independent_scalar_mean_max_absolute_error": 8.881784197001252e-16,
   "all_source_hashes_verified": true,
   "page_count": 1,
   "text_bounds_inside_page": true,
   "coverage_footer_separate_from_axes": true,
-  "figure_sha256": "e8e756bdc3793cba19809ca9d294a19fd7eef3d8ece1c305632cf3d78b494635",
-  "generator_sha256": "8ef286def004959282ddf81204e08b5016c6e6aca22ea548049dc929eaf19af0",
-  "visual_review": "passed: no clipping, overlapping text or obscured curves; pending Transformer column explicit."
+  "figure_sha256": "c59ad88e8f8910be123717a9e20fae165f80c3e0c7fe216ffaf44d0b6b1b35b5",
+  "generator_sha256": "94a5ce91313362e2c4da20214115ff3beaed74580e85430e177e596c3b6ae13b",
+  "visual_review": "passed: 24 readable panels, no clipped labels or overlaps; training loss and Adam R_t show exact unsmoothed source values."
 }

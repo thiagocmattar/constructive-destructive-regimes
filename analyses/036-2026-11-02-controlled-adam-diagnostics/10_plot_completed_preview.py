@@ -42,7 +42,7 @@ def main():
     counts = {task: sum(r['task'] == task for r in results['conditions']) for task in TASKS}
     manifest = dict(generator=Path(__file__).relative_to(ROOT).as_posix(),
         generator_sha256=sha(__file__), sources={}, window=WINDOW,
-        smoothing='Complete 16-observation trailing arithmetic means; cumulative R_t is unchanged.',
+        smoothing='Training loss and cumulative Adam R_t are unsmoothed; the six diagnostic rows use complete 16-observation trailing arithmetic means.',
         clock='Loss states 0..1024; vector measurements associated with applied updates 1..1024.',
         cohort='Complete, locally retrieved, scientifically verified Run215 arms only.',
         completed_counts=counts, omitted_conditions=results['missing'],
@@ -121,7 +121,7 @@ def main():
             lr = condition['lr']; steps = np.arange(1,updates+1)
             options = dict(color=color, lw=.85)
             curve(axes[0,col], np.arange(updates+1), [r['loss'] for r in boundaries],
-                task, lr, 'training_loss_log', 'training', label=rate_label(lr), **options)
+                task, lr, 'training_loss_log', 'training', smooth=False, label=rate_label(lr), **options)
             projected = [r['projected_gradient_change'] for r in metrics]
             raw = [r['streams']['raw'] for r in metrics]
             for i in range(1,updates):
@@ -173,7 +173,7 @@ def main():
     for ax,label in zip(axes[:,0],labels):
         ax.set_ylabel(label)
     fig.subplots_adjust(left=.105,right=.975,top=.925,bottom=.10,hspace=.34,wspace=.29)
-    fig.text(.545,.018,'16-step trailing means; cumulative '+r'$R_t$'+' for Adam updates shown without smoothing.',
+    fig.text(.545,.018,'Training loss and Adam '+r'$R_t$'+' unsmoothed; other rows: 16-step trailing means.',
         ha='center',fontsize=8)
     fig.text(.545,.045,
         f'Completed runs only: MLP {counts["mlp"]}/3, ResNet-32 {counts["resnet"]}/3, Transformer {counts["transformer"]}/3.',

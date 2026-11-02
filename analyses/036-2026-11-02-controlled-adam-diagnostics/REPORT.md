@@ -95,8 +95,9 @@ This adds a third reviewed PDF without new training or cloud execution.
 
 The approved Run215 main stage is active. The interim
 [preview](figures/adam_diagnostics_completed_preview.pdf) shows three completed
-MLP rates and ResNet LR0.003 through1,024 updates, using the approved eight rows,
-16-step trailing means and only Adam-update R_t. The remaining ResNet rates and
-all Transformer rates are pending. All32 curves /32,336 values and the rendered
+MLP rates, ResNet LR0.0003/0.003 and Transformer LR0.0003 through1,024 updates.
+Following the user revision, training loss and Adam-update R_t are unsmoothed;
+the other six diagnostic rows retain16-step trailing means. One ResNet rate and
+two Transformer rates are pending. All48 curves /48,594 values and the rendered
 PDF pass checks. [Observation003](observations/003-completed-production-preview.md)
 records sources, reduction, coverage and limits; no new scientific claim is added.
