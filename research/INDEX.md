@@ -7,7 +7,8 @@ completed Run213's prior-informed9-arm x128-update calibration (1,152 updates).
 One frozen seed0 initialization per case; no Hessian/HVP or LR interventions.
 Eight smooth-loss labels, one unclassified; no sustained-loss-oscillation bracket.
 ResNet/Transformer raw gradients reverse despite coherent adaptive directions.
-All9 arms,11 tests,4-stream prefixes and two PDFs verified. Main horizon/rates pending.
+All9 arms,11 tests and three PDFs verified; eight-row smoothed view added.
+Main horizon/rates pending.
 All5 task Pods/disks deleted after verified retrieval; USD2.26 estimated provisional.
 Run213 / Analysis036 / H027; next Run214 / Analysis037 / H028.
 

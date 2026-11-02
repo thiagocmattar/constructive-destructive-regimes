@@ -47,3 +47,10 @@ loss-oscillation label. ResNet/Transformer show raw-gradient reversal despite
 coherent adaptive directions. MLP remains smooth across the tested grid.
 The [observation](observations/001-fast-calibration.md) records figure sources,
 reduction, coverage and interpretation limits.
+
+The requested eight-row [smoothed Adam composite](figures/adam_diagnostics_smoothed.pdf)
+uses manuscript notation,16-step trailing means, separate gradient/momentum
+norm rows, and R_t only for Adam updates. See
+[Observation002](observations/002-smoothed-adam-composite.md) for exact timing,
+coverage and reduction, and smoothed_composite_verification.json for checks.
+This adds a third reviewed PDF without new training or cloud execution.

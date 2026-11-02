@@ -240,7 +240,7 @@
 <!-- Run213 preparation -->
 | Run | Question / hypotheses | Status | Attempts | Observations |
 | --- | --- | --- | --- | --- |
-| [213](213-2026-11-02-eos-adam-from-init-calibration/README.md) | H027 fixed-LR Adam from matched initial tensors | Completed9 x128 updates; one initialization, no Hessians | Attempt01; all files verified, task pods/storage deleted, USD2.26 provisional | [Analysis036 report](../analyses/036-2026-11-02-controlled-adam-diagnostics/REPORT.md); two reviewed PDFs, raw/moment/adaptive/actual streams; main pending |
+| [213](213-2026-11-02-eos-adam-from-init-calibration/README.md) | H027 fixed-LR Adam from matched initial tensors | Completed9 x128 updates; one initialization, no Hessians | Attempt01; all files verified, task pods/storage deleted, USD2.26 provisional | [Analysis036 report](../analyses/036-2026-11-02-controlled-adam-diagnostics/REPORT.md); three reviewed PDFs, raw/moment/adaptive/actual streams; main pending |
 <!-- End Run213 preparation -->
 
 Next run: `214-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve

@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "curves": 72,
+  "conditions": 9,
+  "panels": 24,
+  "rows": 8,
+  "columns": 3,
+  "plotted_values": 8244,
+  "smoothing_window": 16,
+  "independent_mean_max_absolute_error": 1.7763568394002505e-15,
+  "complete_prefix_R_t_unchanged": true,
+  "R_t_stream": "measured_Adam_updates_only",
+  "page_count": 1,
+  "text_bounds_inside_page": true,
+  "figure_sha256": "7ee7e6b9f5e191e10bb2ef0c299ff35894335aa0c2a7d05c99475514d8b06873",
+  "generator_sha256": "2f3bf62357e4ce30c8513da98edfaa05c5949a43e878eb0bb92649f6a10abf05",
+  "visual_review": "passed",
+  "visual_checks": [
+    "24 readable panels; no clipping, overlapping text or obscured curves.",
+    "Separate raw-gradient and stored-momentum norm rows with matched column scales.",
+    "Only Adam actual-update R_t, with three LR-colored curves.",
+    "Manuscript notation and Training step axis; no alternate variable labels."
+  ]
+}

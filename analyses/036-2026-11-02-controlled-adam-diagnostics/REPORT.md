@@ -83,3 +83,10 @@ retrieval receipts. The independent USD20 /90-minute guard did not trigger.
 07_reduce_plot_calibration.py generates both PDFs and exact plotted arrays.
 See observations/001-fast-calibration.md for captions, reduction, coverage,
 uncertainty and caveats. No manuscript was changed.
+
+The requested eight-row [smoothed Adam composite](figures/adam_diagnostics_smoothed.pdf)
+uses manuscript notation,16-step trailing means, separate gradient/momentum
+norm rows, and R_t only for Adam updates. See
+[Observation002](observations/002-smoothed-adam-composite.md) for exact timing,
+coverage and reduction, and smoothed_composite_verification.json for checks.
+This adds a third reviewed PDF without new training or cloud execution.
