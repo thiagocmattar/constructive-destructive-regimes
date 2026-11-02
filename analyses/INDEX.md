@@ -83,4 +83,4 @@ an analysis may use manuscript or external inputs without referencing a run.
 
 | Analysis | Question | Sources | Status | Records |
 | --- | --- | --- | --- | --- |
-| [037](037-2026-11-02-sgd-batch-extension/README.md) | H023: three-case batch-size figure extension | Runs214/216; 198 unchanged Analysis027 MLP continuations | Complete; 348 new forks, six references, Spark bridge, raw/math checks and manuscript review pass; all 13 task Pods/disks deleted, USD 26.30 provisional | [Report](037-2026-11-02-sgd-batch-extension/REPORT.md); [figure observation](037-2026-11-02-sgd-batch-extension/observations/001-three-case-sgd.md); final 2x3 figure |
+| [037](037-2026-11-02-sgd-batch-extension/README.md) | H023: three-case batch-size figure extension | Runs214/216; 198 unchanged Analysis027 MLP continuations | Complete; 348 new forks, six references, Spark bridge, raw/math checks and manuscript review pass; all 13 task Pods/disks deleted, USD 26.30 provisional | [Report](037-2026-11-02-sgd-batch-extension/REPORT.md); [figure observation](037-2026-11-02-sgd-batch-extension/observations/001-three-case-sgd.md); compact mean-cosine figure |

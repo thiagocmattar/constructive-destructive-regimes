@@ -116,3 +116,12 @@ Code, results and completed checks are recorded in
 - [x] Rebuild, inspect figures and affected manuscript pages, and commit.
 - [x] Group Table I dataset/model cells with `\multirow`; verify that its 45
   displayed values are unchanged.
+
+## Latest feedback: cosine-only compact SGD figure
+
+This supersedes the earlier two-row SGD display.
+
+- [x] Remove the displacement-ratio row; retain three cases and both starting states.
+- [x] Preserve all mean-cosine values, initialization ranges and full-GD markers.
+- [x] Update caption/prose, verify the reduction, rebuild and visually inspect.
+- [x] Keep retention results in the analysis record and commit the reviewed version.

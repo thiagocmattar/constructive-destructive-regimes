@@ -1,9 +1,9 @@
 {
   "status": "passed",
   "date": "2026-11-02",
-  "pdf_sha256": "52819d9ba14606e48a632c09adec9b9b07d77a49695821e21c727f0dd84c3b22",
+  "pdf_sha256": "6b2dc8834bbc815aeb07758add9ddf7f7713bfc95b607b60740b895fc6819733",
   "pages": 16,
-  "previous_review_pdf_sha256": "cdd9f5db470abc6f94f30e93ce027bba236571e78bf3e75161ed2e7a7fd58a1d",
+  "previous_review_pdf_sha256": "52819d9ba14606e48a632c09adec9b9b07d77a49695821e21c727f0dd84c3b22",
   "page_renders": [
     {
       "page": 1,
@@ -35,31 +35,31 @@
     },
     {
       "page": 8,
-      "sha256": "07b344f940635412e1cbeaa84c66558529845d8b2ea5628eb12b071e218538dd"
+      "sha256": "40651cf66b302d35cbd3a281b59531f135309c2592f0102df41356ac64f94d2e"
     },
     {
       "page": 9,
-      "sha256": "1851ebc02451431e5ec2a55eea05409dbec1589a43d67caed25352ba759ad6e9"
+      "sha256": "334bafc86103447affd2a0b0a48d85c1b0f86eeacff0f8980304a6e1c9654b89"
     },
     {
       "page": 10,
-      "sha256": "98482cdbdf176a2b206738d9661493bc924975e4d3fa9f36b83f3c9d641ee8a8"
+      "sha256": "2466c4ac3bb46962ef219cbe21bd15ea32d86587f828beac3a9bb3349ecc89b7"
     },
     {
       "page": 11,
-      "sha256": "079bc8df5a23d27efeb288bdae9ceef7ffc4185fcb00698505cb37e5880e6739"
+      "sha256": "c5820b6f58f9068c7dff8ed359e9ceaabd7832ed1e9ee2bdccd1c8ad5482f389"
     },
     {
       "page": 12,
-      "sha256": "37a1cd7f0c03653b30810aec751b43d3a4e012c7db9e6b38f1215af836e342fc"
+      "sha256": "5d6de87cc9f7f75bfca2d3b8d27adb11510b4de71def97a3173992c737c43c5e"
     },
     {
       "page": 13,
-      "sha256": "61c53d99896daaefe289308f746f57646cf9ace3ab1f04c6089529cda5b9a091"
+      "sha256": "faad003d2f34b553a2d5cff84f20e2cec4ee0296e071c87d2815e192df5002ae"
     },
     {
       "page": 14,
-      "sha256": "825956c620f6143902e548fe3342ea64025c4085c4d0962f63cbb2ab993b05f2"
+      "sha256": "796eb1f69321283ed08d5da54a039c7ba48800b98315f8b81615006eff485159"
     },
     {
       "page": 15,
@@ -93,6 +93,8 @@
     9,
     10,
     11,
+    12,
+    13,
     14
   ],
   "unchanged_page_renders_verified": [
@@ -103,8 +105,6 @@
     5,
     6,
     7,
-    12,
-    13,
     15,
     16
   ],
@@ -119,24 +119,23 @@
     },
     {
       "path": "manuscript/draft/figures/analysis037/sgd_batch_size_compact.pdf",
-      "sha256": "a1a5d95ede461105feac1af144db059a1d4b05fecee1bf297069a2a5a461b161"
+      "sha256": "6f6c258c03ce9d49774c5fface2021a898c54df1cad8dc8c0e709c973b1bd5c4"
     },
     {
       "path": "manuscript/draft/figures/analysis035/gd_backward_compact.pdf",
       "sha256": "f9b5e66a132eae54d7fa5cbdd56bb1bb473ca604dcd913aa225687e5e3594999"
     }
   ],
-  "figure_manifest_sha256": "d2bf60a6066d352f4c9dc50952064089f90005424cf13193888af9d280f22a97",
+  "figure_manifest_sha256": "5a1aedbc19be9a6c4be5a6b7ea885a17b015d6aead93e700a2ed0a49795021f8",
   "cohort_acceptance_sha256": "afb9c9916457bac84c868cb2c76889ab8e303486e926773b4eaa65c093fb9b87",
   "checks": [
-    "All 16 page renders reviewed; changed pages 8/9/10/11/14 inspected individually.",
-    "All four vector figures reviewed; no label/legend collisions or clipped batch ticks.",
-    "Three SGD columns, two metric rows, initialization/2k curves and full-GD markers are clear.",
-    "GD headers compact with separate legends; training-loss ticks use decimal notation.",
-    "Backward-lag second row shows exact lags 1-32 and early sign alternation.",
-    "Table I multirow groups, 45 values and rounding footnote remain correct.",
-    "No nearly empty spillover page, overfull boxes, unresolved references or unwanted blank pages.",
-    "All 26 archived PDFs retain bytes/SHA; LaTeX uses exactly five active PDFs."
+    "Mean-cosine figure rendered with Poppler and inspected at publication scale.",
+    "Exactly one row, three case panels and two starting-state curves per panel; no displacement-ratio row.",
+    "All six cosine curves and ranges match the preceding verified layout; 28 plotted means and 84 block scalars independently checked.",
+    "Changed pages 8-14 reviewed from Poppler renders; remaining page renders match the prior review.",
+    "Removed the forced column break before Adam; figure still precedes the optimizer extension.",
+    "GD figures, backward zoom and Table I values/groups unchanged; no clipped labels or overlapping content.",
+    "No overfull boxes or unresolved references; five active PDFs and 26 archived assets remain verified."
   ],
   "comment_coverage": [
     "C01",
@@ -168,5 +167,5 @@
     "C27",
     "C28"
   ],
-  "scientific_scope": "348 new and 198 reused continuations; three initialization blocks, descriptive ranges. Runtime/batch confounding, unequal exposure and training-only outcomes explicit."
+  "scientific_scope": "Display-only follow-up; no new measurements, data reduction changes, training or cloud execution. Retention remains in Analysis037 supporting results."
 }

@@ -3,7 +3,7 @@
 The three-case SGD extension is complete in
 [Analysis037](../../../../analyses/037-2026-11-02-sgd-batch-extension/REPORT.md).
 All 348 new continuations and 198 reused MLP continuations supply the requested
-2-by-3 figure. The 16-page manuscript passes numerical and visual review.
+one-row mean-cosine figure. The 16-page manuscript passes numerical and visual review.
 All 13 task Pods/disks are deleted; cost US$26.30 provisional, within the approved
 US$40/six-hour envelope. Spark's isolated 1.379 GB project is retained on owned
 storage with no active task measurement process.
@@ -30,8 +30,7 @@ preserves 26 unused figure copies and their hashes, leaving only the five
 compiled assets in the active figure directory. The layout-only changes
 reuse existing GD evidence.
 
-**Subsequent feedback:** the SGD figure now has three case columns and two metric
-rows, with initialization and 2k-state curves per panel. The
+**Subsequent feedback:** the SGD figure now has one row of three mean-cosine panels, with initialization and 2k-state curves per panel. The
 [extension contract](SGD_EXTENSION.md) and Analysis037 record the new ResNet/
 Transformer measurements, runtime qualification, full-cohort acceptance and
 cleanup. The superseded MLP-only draft copy is preserved in the figure archive.
@@ -52,7 +51,7 @@ cleanup. The superseded MLP-only draft copy is preserved in the figure archive.
 | C23 | Added a 2-by-3 backward-lag figure with a 1--32 zoom and a short interpretation. | Common middle endpoint in all models; all 256 pairs retained. State 2256 corresponds to gradient index 2257. Separate numerical continuations are identified explicitly; all nine endpoints support the appendix statement. |
 | C24 | Added dataset, T notation, explicit late-window definition and decimal formatting to Table I. | A star denotes a positive value below 0.00005 rounded to zero; full-precision values remain in the source. |
 | C25 | Moved the detailed loss-surrogate audit entirely into Appendix C. | Its equation, counts and limitation remain available without interrupting the main argument. |
-| C26--C28 | SGD is a short subsection with the final 2-by-3 three-case figure, two starting-state curves per panel and explicit full-GD endpoints. | Smallest batches weaken trained-state reversal while retention stays low. The Transformer example separates adjacent cosine from retention and loss progress. The covariance/implicit-bias connection remains qualified; generalization was not measured. |
+| C26--C28 | SGD is a short subsection with the compact one-row three-case cosine figure, two starting-state curves per panel and explicit full-GD endpoints. | Smallest batches weaken trained-state reversal. The Transformer example shows that similar cosine can accompany opposite training-loss changes. The covariance/implicit-bias connection remains qualified; generalization was not measured. |
 
 The small accompanying changes repair the introduction roadmap, add a
 conclusion label, and make the background consistent with the distinction
@@ -64,7 +63,7 @@ equivalence now explicitly assumes a positive-definite Hessian.
 Analysis024 GD arrays and Analysis035 backward profiles supply the retained GD
 views. Runs214/216 add 348 ResNet/Transformer continuations and six fresh GD
 references, while Analysis027 supplies the unchanged MLP continuations.
-All 63 curves / 134,588 plotted points, the displayed scientific example,
+All 57 curves / 134,560 plotted points, the displayed scientific example,
 runtime-bridge value, 45 table scalars and 186 equation checks pass.
 Local figure observations are:
 
@@ -106,3 +105,9 @@ ResNet-32 blocks share one CIFAR-10 cell; a partial rule separates their model
 groups. All 45 numerical entries remain unchanged and pass source verification.
 The grouping and all 45 values remain verified in the latest manuscript;
 the table and its surrounding layout were reviewed.
+
+Latest layout follow-up: show only mean cosine in the SGD figure. All six
+retained curves and their ranges are unchanged; the 84 block scalars and 28
+plotted means pass independent checks. The compact caption and main prose now
+focus on adjacent alignment and training-loss outcomes. Retention data remain
+in Analysis037. No additional training or cloud execution.

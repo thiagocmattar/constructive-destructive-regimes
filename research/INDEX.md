@@ -4,7 +4,7 @@
 
 [Analysis037: three-case SGD batch-size comparison](../analyses/037-2026-11-02-sgd-batch-extension/REPORT.md)
 completed 348 new continuations plus 198 reused MLP continuations, with all three
-initializations and sampling repetitions retained. The 2-by-3 figure and 16-page
+initializations and sampling repetitions retained. The one-row mean-cosine figure and 16-page
 manuscript pass numerical/visual review. Smallest trained-state batches weaken
 reversal while retention means stay below 0.05; adjacent cosine alone does not
 order retention or training loss. All 13 task Pods/disks deleted; 0 GB cloud storage;

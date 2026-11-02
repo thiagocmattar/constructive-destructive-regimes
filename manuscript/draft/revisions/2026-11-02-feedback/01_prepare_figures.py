@@ -144,46 +144,45 @@ def main():
     assert coverage['status']=='passed' and coverage['results_sha256']==sha(A37/'results.json')
     batch_sets = {'mlp':[32,128,512,2048,5000], 'resnet':[1,5,20,50],
                   'transformer':[8,32,128,512,59680]}
-    fig, axes = plt.subplots(2, 3, figsize=(7.16, 3.45), sharey='row')
+    fig, axes = plt.subplots(1, 3, figsize=(7.16, 2.15), sharey=True)
     sgd_values = []
+    field = 'mean_rho'
     for col, task in enumerate(TASKS):
         batches=batch_sets[task]
         x=np.array(batches)*(1000 if task=='resnet' else 1)
-        axes[0,col].set_title(f'({chr(97+col)})  {TITLES[col]}', pad=6)
-        for row, field in enumerate(['mean_rho', 'R']):
-            ax = axes[row,col]
-            for checkpoint,color,marker in zip([0,2000],COLORS[:2],['o','s']):
-                if task=='mlp':
-                    blocks=np.array([[next(r[field] for r in reduced['moving'] if
-                        (r['seed'],r['checkpoint'],r['batch'])==(seed,checkpoint,b))
-                        for b in batches] for seed in range(3)])
-                else:
-                    blocks=np.array([next(r['seed_means'][field] for r in extension['cells'] if
-                        (r['task'],r['state'],r['batch'])==(task,checkpoint,b)) for b in batches]).T
-                assert blocks.shape==(3,len(batches))
-                mean,low,high=blocks.mean(0),blocks.min(0),blocks.max(0)
-                ax.fill_between(x,low,high,color=color,alpha=.14,lw=0)
-                curve(ax,x,mean,f'sgd:{task}:{checkpoint}:{field}',color=color,marker=marker,
-                      ms=3.2,lw=1,label='At initialization' if checkpoint==0 else 'After 2,000 GD updates')
-                ax.plot(x[-1],mean[-1],marker=marker,ms=4,color=color,mfc='white',lw=0)
-                sgd_values.append(dict(task=task,checkpoint=checkpoint,field=field,batches=batches,
-                    plotted_batches=x.tolist(),initialization_means=blocks.tolist(),mean=mean.tolist(),
-                    minimum=low.tolist(),maximum=high.tolist()))
-            ax.set(xscale='log',xlim=(x[0]/1.2,x[-1]*(2 if task=='transformer' else 1.4)),
-                   ylim=(-1.08,1.08) if row==0 else (0,1.03))
-            ax.xaxis.set_major_locator(FixedLocator(x))
-            labels=[f'{b:,}' for b in x];labels[-1]+='\n(full)'
-            ax.xaxis.set_major_formatter(FixedFormatter(labels))
-            ax.xaxis.set_minor_locator(NullLocator())
-            ax.tick_params(axis='x',labelbottom=row==1,labelsize=7.5)
-            ax.set_yticks([-1,0,1] if row==0 else [0,.5,1])
-            if row==0: ax.axhline(0,color='.5',lw=.6,zorder=0)
-            if row==1: ax.set_xlabel(r'Batch size $b$ ('+('sequences' if task=='transformer' else 'images')+')')
-            if col==0: ax.set_ylabel(r'Mean cosine $\rho_t$' if row==0 else r'Displacement ratio $R_{200}$')
-            style(ax,chr(97+row*3+col) if row else None,label_y=1.025)
-    fig.legend(*axes[0,0].get_legend_handles_labels(),loc='upper center',bbox_to_anchor=(.53,1.005),
+        ax=axes[col]
+        ax.set_title(f'({chr(97+col)})  {TITLES[col]}', pad=6)
+        for checkpoint,color,marker in zip([0,2000],COLORS[:2],['o','s']):
+            if task=='mlp':
+                blocks=np.array([[next(r[field] for r in reduced['moving'] if
+                    (r['seed'],r['checkpoint'],r['batch'])==(seed,checkpoint,b))
+                    for b in batches] for seed in range(3)])
+            else:
+                blocks=np.array([next(r['seed_means'][field] for r in extension['cells'] if
+                    (r['task'],r['state'],r['batch'])==(task,checkpoint,b)) for b in batches]).T
+            assert blocks.shape==(3,len(batches))
+            mean,low,high=blocks.mean(0),blocks.min(0),blocks.max(0)
+            ax.fill_between(x,low,high,color=color,alpha=.14,lw=0)
+            curve(ax,x,mean,f'sgd:{task}:{checkpoint}:{field}',color=color,marker=marker,
+                  ms=3.2,lw=1,label='At initialization' if checkpoint==0 else 'After 2,000 GD updates')
+            ax.plot(x[-1],mean[-1],marker=marker,ms=4,color=color,mfc='white',lw=0)
+            sgd_values.append(dict(task=task,checkpoint=checkpoint,field=field,batches=batches,
+                plotted_batches=x.tolist(),initialization_means=blocks.tolist(),mean=mean.tolist(),
+                minimum=low.tolist(),maximum=high.tolist()))
+        ax.set(xscale='log',xlim=(x[0]/1.2,x[-1]*(2 if task=='transformer' else 1.4)),
+               ylim=(-1.08,1.08),yticks=[-1,0,1])
+        ax.xaxis.set_major_locator(FixedLocator(x))
+        labels=[f'{b:,}' for b in x];labels[-1]+='\n(full)'
+        ax.xaxis.set_major_formatter(FixedFormatter(labels))
+        ax.xaxis.set_minor_locator(NullLocator())
+        ax.tick_params(axis='x',labelsize=7.5)
+        ax.axhline(0,color='.5',lw=.6,zorder=0)
+        ax.set_xlabel(r'Batch size $b$ ('+('sequences' if task=='transformer' else 'images')+')')
+        if col==0: ax.set_ylabel(r'Mean cosine $\rho_t$')
+        style(ax)
+    fig.legend(*axes[0].get_legend_handles_labels(),loc='upper center',bbox_to_anchor=(.53,1.005),
                ncol=2,frameon=False,fontsize=9,columnspacing=2,handlelength=2)
-    fig.subplots_adjust(left=.085,right=.985,top=.865,bottom=.19,hspace=.28,wspace=.18)
+    fig.subplots_adjust(left=.085,right=.985,top=.76,bottom=.28,wspace=.18)
     save(fig,A37,'sgd_batch_size_compact.pdf')
     manifest['sgd_values']=sgd_values
 

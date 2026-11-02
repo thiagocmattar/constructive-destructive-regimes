@@ -7,8 +7,8 @@
     "zero_gradient_exception": true
   },
   "evidence": {
-    "curves": 63,
-    "points": 134588,
+    "curves": 57,
+    "points": 134560,
     "endpoint_rows": 9,
     "displayed_scalars": 45,
     "backward_endpoints": 9,
@@ -18,16 +18,17 @@
     "transformer_state_example": {
       "0": {
         "mean_rho": -0.25949575516214246,
-        "R": 0.1098963102077641,
         "loss_change": -3.505136604351701
       },
       "2000": {
         "mean_rho": -0.25844491207239656,
-        "R": 0.041632160827787375,
         "loss_change": 0.0642658936333953
       }
     },
-    "displayed_state_example_scalars": 3,
+    "displayed_state_example_scalars": 1,
+    "sgd_curves": 6,
+    "sgd_points": 28,
+    "sgd_initialization_scalars": 84,
     "displayed_runtime_bridge_scalars": 1
   },
   "status": "passed",
@@ -55,32 +56,33 @@
     "6": "6\n0.2\n0.3\n0.4\n0.6\nTraining loss\n(a)  CIFAR-10 / MLP\n\u03b7 = 0.004\n\u03b7 = 0.02\n\u03b7 = 0.04\n0.4\n0.6\n1\n",
     "7": "7\n\u22121\n0\n1\n\u03c1t\n(a)  CIFAR-10 / MLP\n\u03b7 = 0.004\n\u03b7 = 0.02\n\u03b7 = 0.04\n\u22121\n0\n1\n(b)  CIFAR-10 / ResNet-",
     "8": "8\nTABLE I: Endpoints at T = 3000 updates. The late means \u03c1late and \u03b7b\u03balate average gradien",
-    "9": "9\n\u22121\n0\n1\nMean cosine \u03c1t\n(a)  CIFAR-10 / MLP\n(b)  CIFAR-10 / ResNet-32\n(c)  WikiText-2 / Tr",
-    "10": "10\nThe norms, consecutive cosines and accumulation ratio from\nSection III can be computed ",
-    "11": "11\nTABLE II: Pythia-14M: median consecutive cosine over up-\ndates 612\u2013711 and final valida",
-    "12": "12\nUsing\nthe\nstochastic\ngradient\ndecomposition\ngt\n=\n\u2207L(\u03b8t\u22121) + \u03bet at both endpoints, we ob",
-    "13": "13\nCIFAR-10 training split. ResNet\u2019s objective averages the same\n50 fixed groups of 1,000 ",
+    "9": "9\n32\n128\n512\n2,048 5,000\n(full)\nBatch size b (images)\n\u22121\n0\n1\nMean cosine \u03c1t\n(a)  CIFAR-10 ",
+    "10": "10\ngradient-change statistic, but its directional-curvature interpre-\ntation does not carr",
+    "11": "11\nE. From Characterization to Informed Scheduling\nThese observations motivate using the d",
+    "12": "12\nA. One Update and Directional Curvature\nFor \u03b8t\u22121 \u2212\u03b8t\u22122 = \u2212\u03b7gt\u22121, Taylor expansion gives",
+    "13": "13\na transient from a persistent pattern without introducing a\nstability threshold or disc",
     "14": "14\n0\n1000\n2000\n3000\nGD update t\n\u22121\n0\n1\n\u03c1t\n(a) CIFAR-10 / tanh MLP\n5,000 training images\n\u03b7 ",
     "15": "15\nTABLE IV: Complete-prefix temporal accounting at T = 3000, with the quantities defined ",
     "16": "16\nREFERENCES\n[1] J. Hestness, S. Narang, N. Ardalani, G. Diamos, H. Jun, H. Kianinejad,\nM"
   },
-  "pdf_sha256": "52819d9ba14606e48a632c09adec9b9b07d77a49695821e21c727f0dd84c3b22",
+  "pdf_sha256": "6b2dc8834bbc815aeb07758add9ddf7f7713bfc95b607b60740b895fc6819733",
   "build": "pdflatex, bibtex, pdflatex, pdflatex; no overfull boxes or unresolved references",
   "source_hashes": {
-    "manuscript/draft/bare_jrnl.tex": "ce55fd05165ad3fcd25f3adeddd5f471b021b51426c87c1dcb405e46ec0e4eff",
+    "manuscript/draft/bare_jrnl.tex": "1820a966b4314d945515c2e5d13b03c60df63b0426828f83bbcec7354a341032",
     "manuscript/draft/sections/01-introduction.tex": "4a3d3837dbb451f658f8ed3804f519c3546b02ccd47316d3429e17feb44c8ff8",
     "manuscript/draft/sections/02-related-works.tex": "a021e3313e2dca6ebf0081ecb022152ae9db97eaf27a7f6085256e8ffad045a4",
     "manuscript/draft/sections/03-methods.tex": "e6266f3479995166414ff0dff73f809961cd1f3a9affe3b358fa54412ff76d14",
     "manuscript/draft/sections/04-gd-experiments.tex": "c6b059ed1f7c8f33444340a570876268304650987edc73ab9ecc952595cc41e1",
     "manuscript/draft/sections/04-results.tex": "afc1f30d1c6f3dba8e3d3cdeaa0d04947fc8df54e9131871db16390062a77d45",
     "manuscript/draft/sections/05-conclusion.tex": "8723c121439da3e78f0e136ca4decc783e69470f94c43d138cd65082bcda3f01",
-    "manuscript/draft/sections/05-sgd-noise-experiments.tex": "9592efdf441907d1b5e4e11c01f41ae05ce6136536b1333621aebf9a22a65217",
+    "manuscript/draft/sections/05-sgd-noise-experiments.tex": "b3c9df8b28b8d3f4830e57eb90df29fbfdb14b6914d3ba0e4865adbb8796a944",
     "manuscript/draft/sections/06-adam-diagnostics.tex": "3d01b5f3bf72fce5b2b57677d171c19bcc99452c8b0e44bfa7a123ae96f9cdbb",
     "manuscript/draft/sections/06-appendix.tex": "210ed113fe474b3171f6640c7fe8dc417bd35586d981ae2d1e8fcd89a6a6732c",
     "manuscript/draft/sections/06-loss-appendix.tex": "c14739b470c3ed36ec6b41bd50d570ef2c074daf441c10a3906b1c38e592c1f6",
     "manuscript/draft/sections/07-gd-diagnostics.tex": "626b8e3dd4f04e5e487eb1d78bc5199f5749d7cd33ccbab50fafdddb76b4f927"
   },
-  "verifier_sha256": "e378ada0757ffd5878520cc4cf0fb4d2ed847076ad5970590f768c7399fa1359",
-  "visual_review_sha256": "2b8ca25958fed0b127228e48ba9556385ca3475b913bb1f009e9bf5dd47abb46",
-  "figure_manifest_sha256": "d2bf60a6066d352f4c9dc50952064089f90005424cf13193888af9d280f22a97"
+  "verifier_sha256": "bffc02570fec63c698c8245df5954764eae7641a88da7f6ee777c74451fd17a7",
+  "visual_review_sha256": "8d60b6cc70971409163b78313d5e5ac0bab5d94cbcf90613dee0f0a77179084e",
+  "figure_manifest_sha256": "5a1aedbc19be9a6c4be5a6b7ea885a17b015d6aead93e700a2ed0a49795021f8",
+  "retained_curve_hashes_match_previous_layout": true
 }

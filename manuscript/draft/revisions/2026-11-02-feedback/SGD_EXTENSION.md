@@ -10,15 +10,13 @@ The initial design and subsequent implementation decisions remain below.
 
 ## Figure and question
 
-Use a full-width 2-by-3 figure, with columns CIFAR-10/MLP,
-CIFAR-10/ResNet-32, and WikiText-2/Transformer. The top row shows mean
-consecutive sampled-gradient cosine over 199 pairs; the bottom shows
-displacement retention R_200 over a 200-update continuation. Every panel
-contains two curves: starting at initialization and starting after 2,000 GD
-updates. Use a common two-color legend and distinct markers, shared row limits
-([-1, 1] and [0, 1]), column-specific logarithmic batch axes and explicit
-full-batch markers. Shade the range across initialization means, not a
-confidence interval. No synthetic or interpolated evidence fills missing cases.
+The final display is a full-width 1-by-3 mean-cosine figure: CIFAR-10/MLP,
+CIFAR-10/ResNet-32 and WikiText-2/Transformer. Each panel retains initialization
+and 2k-state curves, with common colors/markers, log batch axes and hollow full-GD
+endpoints. Shading is the range across initialization means, not a confidence
+interval. This latest author request supersedes the earlier two-row display.
+The original measurement contract retains both cosine and displacement ratio;
+its complete results are preserved. No new measurements are required.
 
 The question is whether batch size changes directional coherence and path
 retention differently across initial and GD-trained states, and whether that

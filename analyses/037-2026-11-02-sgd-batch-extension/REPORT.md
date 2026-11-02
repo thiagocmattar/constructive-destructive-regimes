@@ -4,6 +4,11 @@ Status: complete. All 348 new continuations, six reference trajectories and
 both helpers pass raw-file and numerical acceptance. The publication figure
 and 16-page manuscript pass numerical and visual review.
 
+Display follow-up: the publication figure now shows only mean adjacent cosine
+in one row of three case panels, with both starting states. Retention remains
+in the verified results and this report. The earlier two-row publication view
+is preserved at commit093b81c; no measurements or sampling have changed.
+
 ## Comparison and coverage
 
 H023; Runs214/216 extend the existing Analysis027 MLP experiment to the

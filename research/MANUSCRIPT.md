@@ -12,16 +12,16 @@ every evolving SGD path.
 The reviewed 16-page PDF includes compact GD loss/projected-change and
 cosine/norm/retention figures, Table I with dataset/model multirows, and the
 backward-lag comparison with exact lags 1--32 in a second row. The SGD figure
-now has three case columns and two metric rows, with initialization/2k curves.
+now shows only mean cosine in one row of three cases, with initialization/2k curves.
 [Analysis037](../analyses/037-2026-11-02-sgd-batch-extension/REPORT.md) adds
 348 verified ResNet/Transformer continuations and reuses 198 unchanged MLP
 continuations from Analysis027. Smaller batches weaken trained-state reversal
-across the cases while retention means remain below 0.05. Transformer batch 8
-has nearly equal mean cosine from both starts but different retention and
-opposite mean complete-training-loss changes. The prose distinguishes adjacent
+across the cases. Transformer batch 8 has nearly equal mean cosine from both
+starts but opposite mean complete-training-loss changes. Retention results
+remain in the Analysis037 record. The prose distinguishes adjacent
 geometry, all-lag accumulation and objective progress.
 
-All 63 curves / 134,588 points, 45 endpoint-table scalars, 186 equation checks,
+All 57 curves / 134,560 points, 45 endpoint-table scalars, 186 equation checks,
 source hashes, archive inventory and compiled references pass. All pages and
 four vector figures are visually reviewed. The shaded range spans three
 initialization-block means, not a confidence interval; runtime variation and

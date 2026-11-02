@@ -3,7 +3,7 @@
 H023; Runs214/216. Complete:348 new continuations, six fresh 2,000-update GD
 references, and the additional 200-update Spark runtime bridge. Reusing 198
 unchanged Analysis027 MLP continuations supplies 546 trajectories for the
-requested 2-by-3 figure. All three initializations and eight stochastic
+compact mean-cosine figure. All three initializations and eight stochastic
 repetitions per condition are retained. The cases are CIFAR-10/MLP,
 CIFAR-10/ResNet-32 and WikiText-2/Transformer, not three distinct datasets.
 
@@ -26,7 +26,7 @@ Adjacent alignment alone therefore does not order cumulative motion or loss.
 
 Within each case, vary batch size and initial/2k starting state, matching the
 objective, pinned initial tensors, constant rate and 200-update horizon. Rates
-0.02/0.1/0.2 were selected before these outcomes. ResNet keeps fixed 1 k-image
+0.02/0.1/0.2 were selected before these outcomes. ResNet keeps fixed 1,000-image
 normalization groups; Transformer uses the unbiased fixed-token-denominator
 estimator and full 2,088,600-token objective. See the [measurement contract](../../manuscript/draft/revisions/2026-11-02-feedback/SGD_EXTENSION.md).
 
@@ -43,11 +43,11 @@ production; its effective sampling batches/objective are unchanged. Cloud
 workers use PyTorch 2.8/CUDA 12.8. ResNet uses L40S/4090; seed 2's 32 smallest-group
 forks use Spark GB10/PyTorch 2.11/CUDA 13 from hash-identical cloud checkpoints.
 The [initial200-update bridge](spark-bridge-acceptance.json) has parameter
-relative L 2 error2.36e-7 versus L40S; this is not long chaotic replay validation.
+relative L2 error 2.36e-7 versus L40S; this is not long chaotic replay validation.
 Batch/runtime effects are not separated in that block, and shading also
 combines initialization/runtime variation. Equal updates imply unequal exposure;
 case differences do not isolate architecture or dataset. No covariance, HVP,
-stability or generalization result is inferred from these two rows.
+stability or generalization result is inferred from this comparison.
 
 Two initial full-GD controls reuse exactly captured reference prefixes;
 348 trajectories cover 69,600 continuation updates but require 69,200 explicit
