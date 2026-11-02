@@ -2,6 +2,15 @@
 
 ## Current state
 
+[Analysis036: controlled Adam from initialization](../analyses/036-2026-11-02-controlled-adam-diagnostics/PROTOCOL.md)
+prepares Run213 fixed-LR screening on the three Analysis024 objectives.
+User confirmed identical frozen initial weights. All four optimizer streams are
+captured; 11 tests, full5k MLP mechanics and input/artifact hashes pass.
+All36 GD loss milestones are frozen; no scientific training or cloud launch.
+Compute/envelope and production-shaped calibration remain pending.
+Reserved Run213 / Analysis036 / H027; next Run214 / Analysis037 / H028.
+
+
 [Analysis034: Adam from identical GD states](../analyses/034-2026-11-01-eos-adam-continuations/REPORT.md)
 completed five-rate calibration and 27 matched-horizon cold-Adam forks.
 Selected constant LRs: mlp 0.0003, resnet 0.001, transformer 0.001; 25 primary, two flagged reconstructions.

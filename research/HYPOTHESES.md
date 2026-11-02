@@ -47,7 +47,14 @@ questions alone do not create experimental commitments.
 | H026 | How do cold-Adam continuations change anchored and adjacent raw-gradient alignment at the same GD-trained states after training-loss LR calibration? | Completed conditional descriptive comparison | Runs209/210/211; [Analysis034](../analyses/034-2026-11-01-eos-adam-continuations/REPORT.md) | Same 27 retained states and GD horizons, 25 primary; five-rate 64-step calibration, one common rate per model; exact full gradients; optimizer reset, seed uncertainty unestimated; no independent method ranking or stability claim |
 <!-- End Analysis034 records -->
 
-Next hypothesis: `H027`. Record the operational meaning,
+
+<!-- H027 proposal -->
+| ID | Question / hypothesis | Status | Runs / analyses | Evidence / limits |
+| --- | --- | --- | --- | --- |
+| H027 | How do raw, first-moment, adaptive-direction and actual-step geometry differ across smooth/oscillatory full-batch Adam LR conditions from identical initialization? | Proposed; no scientific outcome yet | [Analysis036](../analyses/036-2026-11-02-controlled-adam-diagnostics/PROTOCOL.md), Run213 screening | Same Analysis024 seed0 tensors/data; fixed LR, no schedule. Loss labels separate from cosine, GD loss milestones frozen. Mechanics pass; production rates/horizon and compute envelope pending; q is projected change, not identified curvature |
+<!-- End H027 proposal -->
+
+Next hypothesis: `H028`. Record the operational meaning,
 comparison, support/refutation criteria, and scope in the corresponding run
 proposal. Suggested statuses: proposed, active, supported, unsupported,
 inconclusive, withdrawn. Preserve superseded interpretations instead of rewriting

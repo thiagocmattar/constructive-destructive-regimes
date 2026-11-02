@@ -230,6 +230,13 @@
 | [211](211-2026-11-01-eos-parallel-adam-calibration/README.md) | H026 parallel placement of unchanged Adam arms | Complete; 10 arms at two delayed Transformer states, 64 updates each | Reused warm workers; identical scientific inputs, verified retrieval | [Analysis034](../analyses/034-2026-11-01-eos-adam-continuations/REPORT.md); 135 canonical calibration arms jointly |
 <!-- End Analysis034 records -->
 
-Next run: `212-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
+
+<!-- Run213 preparation -->
+| Run | Question / hypotheses | Status | Attempts | Observations |
+| --- | --- | --- | --- | --- |
+| [213](213-2026-11-02-eos-adam-from-init-calibration/README.md) | H027 fixed-LR Adam from matched initial tensors | Prepared, not launched; 21 proposed 256-update arms | Two-update MLP mechanics only; no cloud or scientific screening | [Analysis036 protocol](../analyses/036-2026-11-02-controlled-adam-diagnostics/PROTOCOL.md); complete raw/moment/adaptive/actual streams, no schedule |
+<!-- End Run213 preparation -->
+
+Next run: `214-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
 executed IDs and configurations; retry unchanged scientific inputs in a new
 attempt within the same run.

@@ -1,0 +1,157 @@
+{
+  "sources": [
+    {
+      "path": "analyses/024-2026-10-17-eos-gd-lr-calibration/README.md",
+      "sha256": "9896707215596d3146b2aa73970686b61ead45100470053d889d3917bd8693ca",
+      "bytes": 13911
+    },
+    {
+      "path": "analyses/024-2026-10-17-eos-gd-lr-calibration/results.json",
+      "sha256": "c9147f0c1cb0d4d2c5a6e3ed80f354f64da8463162db293e58e0001c4605c3f3",
+      "bytes": 9442
+    },
+    {
+      "path": "analyses/029-2026-10-30-pythia-adam-diagnostics/README.md",
+      "sha256": "b9a37c0ff44ce461f437a42aba9c82fc7d3b89fdef6731ae468cd87065f5d33d",
+      "bytes": 5602
+    },
+    {
+      "path": "analyses/029-2026-10-30-pythia-adam-diagnostics/REPORT.md",
+      "sha256": "80321c8f2f5114d443614059faa832deb60a29c327b8b574a2384dcb0d70433b",
+      "bytes": 14899
+    },
+    {
+      "path": "analyses/034-2026-11-01-eos-adam-continuations/REPORT.md",
+      "sha256": "6d0fc8509e10f022c862f2752ebbb57e0343a75244f9d5254127a89e850337dd",
+      "bytes": 11191
+    },
+    {
+      "path": "analyses/034-2026-11-01-eos-adam-continuations/calibration_decision.json",
+      "sha256": "73f9705e5f4c47d5f3afc132a268d46a950dc2d4542595d9e8e099177f449f58",
+      "bytes": 6898935
+    },
+    {
+      "path": "analyses/034-2026-11-01-eos-adam-continuations/figures/calibration.pdf",
+      "sha256": "f60c120000f2bd0dce876148edd7c10fa94ac4d9348c3faeb1c8f9764bdf1fe5",
+      "bytes": 69131
+    }
+  ],
+  "calibration_figure_review": "First and only page rendered with PyMuPDF after system Poppler failed MiKTeX setup; inspected all three panels and selection markers.",
+  "calibration_summary": {
+    "mlp": {
+      "selected_lr": 0.0003,
+      "candidates": [
+        {
+          "lr": 0.00001,
+          "eligible": true,
+          "checkpoints": 7,
+          "mean_log_terminal_loss_ratio": -0.1309523045316967
+        },
+        {
+          "lr": 0.00003,
+          "eligible": true,
+          "checkpoints": 7,
+          "mean_log_terminal_loss_ratio": -0.1856401571512549
+        },
+        {
+          "lr": 0.0001,
+          "eligible": true,
+          "checkpoints": 7,
+          "mean_log_terminal_loss_ratio": -0.2364536805896138
+        },
+        {
+          "lr": 0.0003,
+          "eligible": true,
+          "checkpoints": 7,
+          "mean_log_terminal_loss_ratio": -0.25559276885087073
+        },
+        {
+          "lr": 0.001,
+          "eligible": false,
+          "checkpoints": 7,
+          "mean_log_terminal_loss_ratio": -0.03986333937373264
+        }
+      ],
+      "primary_checkpoints": 7
+    },
+    "resnet": {
+      "selected_lr": 0.001,
+      "candidates": [
+        {
+          "lr": 0.00001,
+          "eligible": true,
+          "checkpoints": 9,
+          "mean_log_terminal_loss_ratio": -0.04389838025932006
+        },
+        {
+          "lr": 0.00003,
+          "eligible": true,
+          "checkpoints": 9,
+          "mean_log_terminal_loss_ratio": -0.058611680673141736
+        },
+        {
+          "lr": 0.0001,
+          "eligible": true,
+          "checkpoints": 9,
+          "mean_log_terminal_loss_ratio": -0.09604106656050165
+        },
+        {
+          "lr": 0.0003,
+          "eligible": true,
+          "checkpoints": 9,
+          "mean_log_terminal_loss_ratio": -0.173885552075995
+        },
+        {
+          "lr": 0.001,
+          "eligible": true,
+          "checkpoints": 9,
+          "mean_log_terminal_loss_ratio": -0.2851625675043614
+        }
+      ],
+      "primary_checkpoints": 9
+    },
+    "transformer": {
+      "selected_lr": 0.001,
+      "candidates": [
+        {
+          "lr": 0.00001,
+          "eligible": true,
+          "checkpoints": 9,
+          "mean_log_terminal_loss_ratio": -0.007301276203763436
+        },
+        {
+          "lr": 0.00003,
+          "eligible": true,
+          "checkpoints": 9,
+          "mean_log_terminal_loss_ratio": -0.018920846075674142
+        },
+        {
+          "lr": 0.0001,
+          "eligible": true,
+          "checkpoints": 9,
+          "mean_log_terminal_loss_ratio": -0.05359212751150302
+        },
+        {
+          "lr": 0.0003,
+          "eligible": true,
+          "checkpoints": 9,
+          "mean_log_terminal_loss_ratio": -0.12294970309287748
+        },
+        {
+          "lr": 0.001,
+          "eligible": true,
+          "checkpoints": 9,
+          "mean_log_terminal_loss_ratio": -0.250753546272646
+        }
+      ],
+      "primary_checkpoints": 9
+    }
+  },
+  "interpretation": [
+    "Analysis024: from-initialization, constant full-GD rates, 3000 updates and one seed per condition.",
+    "Analysis029: comparable diagnostics separate raw gradients, stored moments, adaptive directions and actual motion; projected change is not automatically curvature.",
+    "Analysis034: cold-Adam forks of GD-trained states, short training-loss calibration; ResNet/Transformer selected upper tested grid boundary."
+  ],
+  "user_resolved_initialization": "Same frozen initial weights as Analysis024.",
+  "remaining_execution": "No compute choice or new aggregate spending/duration envelope supplied."
+}

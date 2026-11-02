@@ -63,5 +63,12 @@
 | [034](034-2026-11-01-eos-adam-continuations/README.md) | Calibrated Adam from identical EOS GD checkpoints | Runs209/210/211; Run205 starts and Analysis033 GD reference | Complete; 27 matched horizons, exact anchored/adjacent raw cosines, 25 primary | Four reviewed PDFs; verified retrieval; task cloud deleted; USD 39.35 provisional |
 <!-- End Analysis034 records -->
 
-Next analysis: `035-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
+
+<!-- Analysis036 preparation -->
+| Analysis | Question | Source runs / other inputs | Status | Observations / figures |
+| --- | --- | --- | --- | --- |
+| [036](036-2026-11-02-controlled-adam-diagnostics/README.md) | Fixed-LR full-objective Adam diagnostics from Analysis024 initial weights | Run213 screening; Analysis024/029/034 | Prepared, not launched; 11 focused tests and full5k MLP mechanics pass; compute/envelope pending | [Protocol](036-2026-11-02-controlled-adam-diagnostics/PROTOCOL.md); 36 frozen GD loss targets; no empirical figure |
+<!-- End Analysis036 preparation -->
+
+Next analysis: `037-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
 an analysis may use manuscript or external inputs without referencing a run.

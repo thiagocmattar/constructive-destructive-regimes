@@ -1,0 +1,96 @@
+{
+  "status": "prepared_not_launched",
+  "scientific_arms_completed": 0,
+  "focused_tests": {
+    "passed": 11,
+    "failed": 0,
+    "scope": [
+      "mixed-curvature quadratic identity",
+      "four exact vector prefixes against NumPy",
+      "parameter telescoping",
+      "zero denominators",
+      "moment bias correction",
+      "optimizer and diagnostic serialization/resume",
+      "uneven full-objective accumulation",
+      "evaluation preserves gradients",
+      "loss-based regime labels",
+      "failed outcomes preserved",
+      "tampered artifact rejected"
+    ],
+    "invocation": "python -c: workspace TORCHINDUCTOR_CACHE_DIR, pytest scoped file, fresh run-owned --basetemp"
+  },
+  "local_runtime_workarounds": [
+    "Tool child environment omits username; Torch cache explicitly placed in ignored tmp/.",
+    "Existing repository default pytest temporary folder is inaccessible; used a fresh ignored run-owned scratch folder without deleting existing work."
+  ],
+  "inputs": {
+    "files": 26,
+    "total_bytes": 1027064116,
+    "manifest_sha256": "08d6e2454e59d489e75ab657e17464a3c7436b315e4c755b96f44e59996e5377",
+    "all_sizes_and_hashes_verified": true
+  },
+  "mechanics": {
+    "task": "mlp",
+    "seed": 0,
+    "lr": 0.0003,
+    "updates": 2,
+    "objective_images": 5000,
+    "evaluation_test_images": 10000,
+    "boundary_states": [
+      0,
+      1,
+      2
+    ],
+    "actual_stream_updates": [
+      1,
+      2
+    ],
+    "optimizer_clocks_verified": true,
+    "stream_counts_verified": true,
+    "maximum_gradient_norm_cpu_gpu_error": 2.1227464230832993e-13,
+    "projected_change_checked_independently": true,
+    "actual_displacement_identity_checked": true,
+    "files_verified": 10,
+    "retained_bytes": 63083726,
+    "peak_allocated_bytes": 322370560,
+    "environment": {
+      "utc": "2026-11-02T11:06:17.614511+00:00",
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "torch": "2.11.0+cu128",
+      "cuda": "12.8",
+      "numpy": "2.5.0",
+      "scipy": "1.18.1",
+      "device": "cuda:0",
+      "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+      "gpu_total_bytes": 12820480000,
+      "matmul_precision": "highest",
+      "tf32": false
+    },
+    "source_manifest_sha256": "ddfcaac603165a12fa27b833734d23814e6e122400bb1e61aaeb7333c9d704f4",
+    "limitation": "Mechanics only; no regime, convergence, remote speed, ResNet/Transformer fit or cross-hardware replay evidence."
+  },
+  "execution": {
+    "cloud_resources_created": 0,
+    "new_cloud_spend": 0,
+    "launch_authorization_pending": true,
+    "pending": [
+      "compute choice and aggregate envelope",
+      "production-shaped timing/fit",
+      "remote start-gradient qualification",
+      "external guard/monitor/retrieval packet"
+    ]
+  },
+  "gd_milestones": {
+    "conditions": 9,
+    "targets": 36,
+    "sha256": "c8242a7c94e66738612cc1124392281dcf5361d067bf387722f391c2b158049b",
+    "source_hashes_verified": true
+  },
+  "source_sha256": {
+    "01_train.py": "dc2f79e1357ab6def0bc32913e9340beabd2560c6c095819b45b3f2f3afa2284",
+    "02_classify.py": "4d032814f507ba002def25614b4b18d8fda2e0e87c52e81c38ba9b686f73a0dc",
+    "diagnostics.py": "2d70b9d876c9fb08845f0a2f779d1b90b138c41b530422f44b9da06fe453fc7d",
+    "test_diagnostics.py": "936e947a7c3eb9475933de31feb9014ab7301df97e3e76ad70551f36b7a94f2a"
+  }
+}

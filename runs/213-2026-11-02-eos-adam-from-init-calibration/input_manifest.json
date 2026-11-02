@@ -1,0 +1,377 @@
+{
+  "run_id": "213",
+  "status": "locally_verified_not_launched",
+  "files": [
+    {
+      "path": "cache/eos-multitask/inputs.json",
+      "bytes": 7492,
+      "sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+      "tasks": [
+        "mlp",
+        "resnet",
+        "transformer"
+      ]
+    },
+    {
+      "path": "cache/cifar10-eos/inputs.json",
+      "bytes": 3252,
+      "sha256": "a5eea01295c437f42135294619765dea9d2ba7befc9f785a3936f7366f9144f0",
+      "tasks": [
+        "mlp"
+      ]
+    },
+    {
+      "path": "cache/cifar10-eos/data.pt",
+      "bytes": 184491697,
+      "sha256": "2e4761c655a66a7e578efeb30950b9e39deeafd618f519cbc4ec823ff867985e",
+      "tasks": [
+        "mlp"
+      ]
+    },
+    {
+      "path": "cache/eos-multitask/mlp_initial_seed0.pt",
+      "bytes": 2630285,
+      "sha256": "b64c58838e736a667ca27e02e825ffd26bd1864097a7a999bcb01a418adafa7c",
+      "tasks": [
+        "mlp"
+      ]
+    },
+    {
+      "path": "cache/eos-multitask/resnet_initial_seed0.pt",
+      "bytes": 1891855,
+      "sha256": "8cc004193b85f35c74c301530ffee7ac8b624d05c646da0e261fc9c8e56fde14",
+      "tasks": [
+        "resnet"
+      ]
+    },
+    {
+      "path": "cache/eos-multitask/resnet_data.pt",
+      "bytes": 737762437,
+      "sha256": "0a71ff06ddf09c355f82712bcb57f973e987916269e26ed278133e008b88564a",
+      "tasks": [
+        "resnet"
+      ]
+    },
+    {
+      "path": "cache/eos-multitask/transformer_initial_seed0.pt",
+      "bytes": 59324915,
+      "sha256": "37ce7e65ba47c7cb091a0be1479325ac88ef481b018bec0970cc9eaf71662402",
+      "tasks": [
+        "transformer"
+      ]
+    },
+    {
+      "path": "cache/eos-multitask/transformer_data.pt",
+      "bytes": 40838081,
+      "sha256": "6be25abd18302070e46ac69cd47316212f9a3b62f24ededebc63f2a0d8e3db35",
+      "tasks": [
+        "transformer"
+      ]
+    },
+    {
+      "path": "cache/eos-multitask/reference/resnet_cifar.py",
+      "bytes": 4252,
+      "sha256": "7a98f29fed2635bfc80b6cbea00d0d08e92122125789483e2600aa82fc5735c9",
+      "tasks": [
+        "mlp",
+        "resnet",
+        "transformer"
+      ]
+    },
+    {
+      "path": "cache/eos-multitask/reference/model.py",
+      "bytes": 6367,
+      "sha256": "9d2a01d0076146232bb10b21f642b2c27435ae33aaaa9fbd1f80a357ff84c196",
+      "tasks": [
+        "mlp",
+        "resnet",
+        "transformer"
+      ]
+    },
+    {
+      "path": "cache/eos-multitask/reference/data.py",
+      "bytes": 1482,
+      "sha256": "15784815a6bd18e9b25eadf6ae049915f88d4fb8faebeba9d83ae6ec8e19883d",
+      "tasks": [
+        "mlp",
+        "resnet",
+        "transformer"
+      ]
+    },
+    {
+      "path": "src/eos_tasks/__init__.py",
+      "bytes": 78,
+      "sha256": "b827b6bf61d01a83281bbff65204315279e6d343f962a1bbe4e52d5a7f67b86e",
+      "tasks": [
+        "mlp",
+        "resnet",
+        "transformer"
+      ]
+    },
+    {
+      "path": "src/eos_tasks/adam_profile.py",
+      "bytes": 11792,
+      "sha256": "764394ed57819b58b1a7a0dd09b6c4c5bf162cb3b572f3907e5d25f78e6a9865",
+      "tasks": [
+        "mlp",
+        "resnet",
+        "transformer"
+      ]
+    },
+    {
+      "path": "src/eos_tasks/lag_profile.py",
+      "bytes": 13952,
+      "sha256": "6b52a7e47cc78e4f4868afd231b113aed263d4c75172614acd54a071ba61b26b",
+      "tasks": [
+        "mlp",
+        "resnet",
+        "transformer"
+      ]
+    },
+    {
+      "path": "src/eos_tasks/noise.py",
+      "bytes": 3104,
+      "sha256": "c94a139f40cd1e632ca4b68c15a0407cd2523e9ac8de0144d51a9a89b7eca6bb",
+      "tasks": [
+        "mlp",
+        "resnet",
+        "transformer"
+      ]
+    },
+    {
+      "path": "src/eos_tasks/production.py",
+      "bytes": 1375,
+      "sha256": "9cda7703e50d4f32d9e8c3118361c418b600a87e23b3f8d6b175b82e1482b6ce",
+      "tasks": [
+        "mlp",
+        "resnet",
+        "transformer"
+      ]
+    },
+    {
+      "path": "src/eos_tasks/task.py",
+      "bytes": 6899,
+      "sha256": "28a15439e22ec82e05da41497b2d6c9a33171f29a9e13413d8167804d124c6b0",
+      "tasks": [
+        "mlp",
+        "resnet",
+        "transformer"
+      ]
+    },
+    {
+      "path": "src/eos_tasks/train.py",
+      "bytes": 11195,
+      "sha256": "beecb97a02cb1037618bc326c1e9af04d5ff7db43f5d17127939f9151d853175",
+      "tasks": [
+        "mlp",
+        "resnet",
+        "transformer"
+      ]
+    },
+    {
+      "path": "src/cifar_eos/__init__.py",
+      "bytes": 80,
+      "sha256": "4cfbf7fc078bcae86b6ddfcbb2a9d87619b6350302c07379b3f4df21fe7eb27c",
+      "tasks": [
+        "mlp",
+        "resnet",
+        "transformer"
+      ]
+    },
+    {
+      "path": "src/cifar_eos/core.py",
+      "bytes": 11786,
+      "sha256": "c9fab65d551740149d7ff3a79e4b3af1e87ff5e7f3ba7c5cc62201f216434138",
+      "tasks": [
+        "mlp",
+        "resnet",
+        "transformer"
+      ]
+    },
+    {
+      "path": "src/cifar_eos/train.py",
+      "bytes": 12788,
+      "sha256": "532d67c82c27076a573bdd6e2fe0b1156de414b3cb38db953f5237b7b9261f17",
+      "tasks": [
+        "mlp",
+        "resnet",
+        "transformer"
+      ]
+    },
+    {
+      "path": "src/cifar_eos/verification.py",
+      "bytes": 9066,
+      "sha256": "a7a8959c5b3db757edbd752693b416d63446af9b6d388373ffe2b5ffc65d5e28",
+      "tasks": [
+        "mlp",
+        "resnet",
+        "transformer"
+      ]
+    },
+    {
+      "path": "runs/213-2026-11-02-eos-adam-from-init-calibration/01_train.py",
+      "bytes": 9930,
+      "sha256": "dc2f79e1357ab6def0bc32913e9340beabd2560c6c095819b45b3f2f3afa2284",
+      "tasks": [
+        "mlp",
+        "resnet",
+        "transformer"
+      ]
+    },
+    {
+      "path": "runs/213-2026-11-02-eos-adam-from-init-calibration/02_classify.py",
+      "bytes": 4742,
+      "sha256": "4d032814f507ba002def25614b4b18d8fda2e0e87c52e81c38ba9b686f73a0dc",
+      "tasks": [
+        "mlp",
+        "resnet",
+        "transformer"
+      ]
+    },
+    {
+      "path": "runs/213-2026-11-02-eos-adam-from-init-calibration/diagnostics.py",
+      "bytes": 4027,
+      "sha256": "2d70b9d876c9fb08845f0a2f779d1b90b138c41b530422f44b9da06fe453fc7d",
+      "tasks": [
+        "mlp",
+        "resnet",
+        "transformer"
+      ]
+    },
+    {
+      "path": "runs/213-2026-11-02-eos-adam-from-init-calibration/config.json",
+      "bytes": 1187,
+      "sha256": "79380d4a9babfb6f4960f7c523155c427efc6b8facdb9be78139e6c7533a4633",
+      "tasks": [
+        "mlp",
+        "resnet",
+        "transformer"
+      ]
+    }
+  ],
+  "initial": {
+    "mlp": [
+      {
+        "seed": 0,
+        "path": "mlp_initial_seed0.pt",
+        "sha256": "b64c58838e736a667ca27e02e825ffd26bd1864097a7a999bcb01a418adafa7c",
+        "initial_tensor_sha256": "8de1e7c880539f122aa840d5b7c28027310e82bd3ee4e753afef87fe0876a2da",
+        "parameters": 656810
+      },
+      {
+        "seed": 1,
+        "path": "mlp_initial_seed1.pt",
+        "sha256": "6e226a05ae876f8db1554462eea539a92ed8151da2fe2aacee1643b9463c0cdc",
+        "initial_tensor_sha256": "cb6282e2746ed6ff6d80d680b835f1220f4e2fa5ca4d762a96c9d3e0f6bb55d4",
+        "parameters": 656810
+      },
+      {
+        "seed": 2,
+        "path": "mlp_initial_seed2.pt",
+        "sha256": "46e307b60603d5401436cff72630741454c80384d8ad8a1677b38abb06ec9798",
+        "initial_tensor_sha256": "2e1d25f786c0f550c0d006b355f244748c215f282a7f76ed30f54a77753ed6c4",
+        "parameters": 656810
+      }
+    ],
+    "resnet": [
+      {
+        "seed": 0,
+        "path": "resnet_initial_seed0.pt",
+        "sha256": "8cc004193b85f35c74c301530ffee7ac8b624d05c646da0e261fc9c8e56fde14",
+        "initial_tensor_sha256": "e2fd253c5c6e3cdfd75d255811f0d2bd4b59dae33702d6a981b517150a259dde",
+        "parameters": 464250
+      },
+      {
+        "seed": 1,
+        "path": "resnet_initial_seed1.pt",
+        "sha256": "4136b058b02127a9aa488ec81db63d296bbe733eaa06cc3654edd18c6c332ca6",
+        "initial_tensor_sha256": "24875d1ef7ec2da9cdfa87ae9ca2543e06cae5780683b5754883375f79d75c81",
+        "parameters": 464250
+      },
+      {
+        "seed": 2,
+        "path": "resnet_initial_seed2.pt",
+        "sha256": "80c3e5ad6bb30f6d39b53a7b9b22a420c37fe6bbababd6d855c027bbda940c26",
+        "initial_tensor_sha256": "96b006788cc79a801f1af520e61d10c25ed8bb75d26da5983ad4116ccd1ffda6",
+        "parameters": 464250
+      }
+    ],
+    "transformer": [
+      {
+        "seed": 0,
+        "path": "transformer_initial_seed0.pt",
+        "sha256": "37ce7e65ba47c7cb091a0be1479325ac88ef481b018bec0970cc9eaf71662402",
+        "initial_tensor_sha256": "66989f8082f75709fa410366bb0d74498eb3298b37df2fa1b1e48f9552617513",
+        "parameters": 13828478
+      },
+      {
+        "seed": 1,
+        "path": "transformer_initial_seed1.pt",
+        "sha256": "a9f644a6a3435eab7d8fb862be1e746fb7b7112e0bb57382c4c15d4ff7e0b930",
+        "initial_tensor_sha256": "a3ef6ea224ea96fdef92bd9ab1b11af4b2472cf3247b923faea9844ce4234955",
+        "parameters": 13828478
+      },
+      {
+        "seed": 2,
+        "path": "transformer_initial_seed2.pt",
+        "sha256": "474328cac0e153fa15ea977431a044285506b25d43000afa7508757a46f3aa38",
+        "initial_tensor_sha256": "acc0314fafc504bfb1d335719d8dfa6514abec9b06e9d7fef3d463e0870ffc7f",
+        "parameters": 13828478
+      }
+    ]
+  },
+  "wikitext": {
+    "vocabulary_size": 33278,
+    "dictionary": "tutorial train/valid/test first-occurrence union",
+    "sources": {
+      "train": {
+        "url": "https://raw.githubusercontent.com/pytorch/examples/13acec6d7c78dacd5e1fe9b0b4a325e1d39abc15/word_language_model/data/wikitext-2/train.txt",
+        "sha256": "9e9fa1ad55b1c2c95b08e37dd8e653f638fac2c6de904b79e813611eefbc985f",
+        "bytes": 10797148
+      },
+      "valid": {
+        "url": "https://raw.githubusercontent.com/pytorch/examples/13acec6d7c78dacd5e1fe9b0b4a325e1d39abc15/word_language_model/data/wikitext-2/valid.txt",
+        "sha256": "f0737ed31fc1329026e95cb8b98e19c2a182c39c240ab909dc31abf2f8af58e8",
+        "bytes": 1121681
+      },
+      "test": {
+        "url": "https://raw.githubusercontent.com/pytorch/examples/13acec6d7c78dacd5e1fe9b0b4a325e1d39abc15/word_language_model/data/wikitext-2/test.txt",
+        "sha256": "d790b833ef8cf03a90db7bf1271b7520b83c45ce07ba3c1a9699df81e239eca0",
+        "bytes": 1256449
+      }
+    },
+    "coverage": {
+      "train": {
+        "original_tokens": 2088628,
+        "batchify_tail_omitted": 8,
+        "stream_initial_tokens_without_target": 20,
+        "target_tokens": 2088600,
+        "sequence_units": 59680,
+        "length": 35,
+        "batchify_streams": 20
+      },
+      "valid": {
+        "original_tokens": 217646,
+        "batchify_tail_omitted": 6,
+        "stream_initial_tokens_without_target": 10,
+        "target_tokens": 217630,
+        "sequence_units": 6220,
+        "length": 35,
+        "batchify_streams": 10
+      },
+      "test": {
+        "original_tokens": 245569,
+        "batchify_tail_omitted": 9,
+        "stream_initial_tokens_without_target": 10,
+        "target_tokens": 245550,
+        "sequence_units": 7020,
+        "length": 35,
+        "batchify_streams": 10
+      }
+    }
+  },
+  "limitations": [
+    "Seed0 screening only.",
+    "No production-shaped remote throughput, price, spending authority or launch yet."
+  ]
+}

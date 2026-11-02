@@ -1,0 +1,181 @@
+{
+  "status": "frozen_before_scientific_adam_screening",
+  "analysis024_results_sha256": "c9147f0c1cb0d4d2c5a6e3ed80f354f64da8463162db293e58e0001c4605c3f3",
+  "analysis024_cohort_sha256": "1de4ab6aa26dd693b3ecc3dd84e6c8af004d2c01042319f6a76db456d18dc37b",
+  "conditions": [
+    {
+      "run_id": "059",
+      "task": "mlp",
+      "gd_lr": 0.004,
+      "seed": 0,
+      "targets_by_parameter_state": {
+        "500": 0.38961104303598404,
+        "1000": 0.37363753467798233,
+        "2000": 0.3532533198595047,
+        "3000": 0.3365076333284378
+      },
+      "source": "runs/059-2026-10-13-cifar10-eos-gd-lr-4e-3/artifacts/attempt-01-spark/production",
+      "source_sha256": {
+        "metrics.jsonl": "b26bd47afdbe92c915d4973fc3aa07b546a68663216360e3c490d46ae1e730e0",
+        "curvature.jsonl": "577d016029be4a4f996f3be5cdf82330bd75f0b00f461ba2acbe2ae61c98105f",
+        "manifest.json": "a05368ff98b228924923e8a1e556461ee49ef24dcf442d0c4dc3bd26acd25e12"
+      },
+      "summary_sha256": "4aad9366f0f897cfdb3884cf9859a57b8988a111000b8b169463cb017ab1af2a"
+    },
+    {
+      "run_id": "062",
+      "task": "mlp",
+      "gd_lr": 0.02,
+      "seed": 0,
+      "targets_by_parameter_state": {
+        "500": 0.3447737619280815,
+        "1000": 0.30438389256596565,
+        "2000": 0.24561740458011627,
+        "3000": 0.21144264936447144
+      },
+      "source": "runs/062-2026-10-13-cifar10-eos-gd-lr-2e-2/artifacts/attempt-01-spark/production",
+      "source_sha256": {
+        "metrics.jsonl": "c94770a13d0f6668a4e6f1be577239b472a0c105fc5e098d6901d2514e620243",
+        "curvature.jsonl": "a0cd312d5948ce6a8ee2e350e9ea112c160070c468ff4625d5bce70ef55f7d1d",
+        "manifest.json": "7d0957c123fc2db7ee5459b33e135593ec4f912a8444d132c0cd7f6108dd9a6e"
+      },
+      "summary_sha256": "7e8cf5f0a5cc64820af11f36df1acf26b075c8c2cf58242fc9957f6502db5461"
+    },
+    {
+      "run_id": "120",
+      "task": "resnet",
+      "gd_lr": 0.1,
+      "seed": 0,
+      "targets_by_parameter_state": {
+        "500": 1.6699012768554689,
+        "1000": 1.3101294287109375,
+        "2000": 0.7946179235839844,
+        "3000": 0.48983840637207027
+      },
+      "source": "runs/120-2026-10-15-eos-resnet-gd-smallest-lr-3k/artifacts/attempt-01-spark/production",
+      "source_sha256": {
+        "metrics.jsonl": "73fba39ec0d4247adb98b4afa0f7c8e703230f6e3e9f3b7fb709f3c18804cb8b",
+        "curvature.jsonl": "f25ba4e672344321f58c887f1aaa9befbac1bb496d2d113ce5939c609fd6c943",
+        "manifest.json": "3a993c15613a450d97500ea9772cdbd4755ab50b94be2848636b8113132dbdf7"
+      },
+      "summary_sha256": "23825e99c56bada010d8a55c7bf5216c1e6f9e8d20114eb7109d48e12d86064d"
+    },
+    {
+      "run_id": "121",
+      "task": "transformer",
+      "gd_lr": 0.05,
+      "seed": 0,
+      "targets_by_parameter_state": {
+        "500": 7.330716035019716,
+        "1000": 7.062673203313899,
+        "2000": 6.787544823638962,
+        "3000": 6.630096961210181
+      },
+      "source": "runs/121-2026-10-15-eos-transformer-gd-smallest-lr-3k/artifacts/attempt-01-spark/production",
+      "source_sha256": {
+        "metrics.jsonl": "a6f549e780e53986fd09f3341cf71337beadca11d1164fb6883aad90ff9490f3",
+        "curvature.jsonl": "5eff6b382dfdbcc682e8d94545fed24dcd6980c432e8b5d6a65583ff2c046559",
+        "manifest.json": "09c293ce6658cfcfee0bb2889fe97702732f3b1f1561ce7040bfdd5756ed11be"
+      },
+      "summary_sha256": "ae59ef8c1acbd6ad57a9f2c41e90c7c275aae632bf395b1ab2329d94742c2051"
+    },
+    {
+      "run_id": "122",
+      "task": "mlp",
+      "gd_lr": 0.04,
+      "seed": 0,
+      "targets_by_parameter_state": {
+        "500": 0.3295493349432945,
+        "1000": 0.268673662096262,
+        "2000": 0.21827969327569008,
+        "3000": 0.15386888427734377
+      },
+      "source": "runs/122-2026-10-17-eos-mlp-gd-lr-0.04-3k/artifacts/attempt-01-spark/production",
+      "source_sha256": {
+        "metrics.jsonl": "fe7b59d109c43684942e3fd8ac3c5b8ae057e6b7d94049fecea34df466439f04",
+        "curvature.jsonl": "2cdfd2e7ff456999e27af93cfe00cdbddb1f18596b3812b728517015c1b0864a",
+        "manifest.json": "610cf8d026ac19d2d1aed30096e8207c9e2f8cf2daeae7e99214896d66762335"
+      },
+      "summary_sha256": "eb1b520c99ff0045f5ccb5af8320ee56a42a667e4ea8cf7db8d7e0cb2098a464"
+    },
+    {
+      "run_id": "123",
+      "task": "resnet",
+      "gd_lr": 0.025,
+      "seed": 0,
+      "targets_by_parameter_state": {
+        "500": 2.0940153222656246,
+        "1000": 1.9284021386718755,
+        "2000": 1.6426034594726564,
+        "3000": 1.466540378417969
+      },
+      "source": "runs/123-2026-10-17-eos-resnet-gd-lr-0.025-3k/artifacts/attempt-01-spark/production",
+      "source_sha256": {
+        "metrics.jsonl": "3d70f0ae7a2976fc5c33bd65aee7d936abc1092dab9b973b01a202dba01a0511",
+        "curvature.jsonl": "a5e5ceee1b2a057bf264bb734a4238ad5798ff35edeb6de3f0f2e9586462afdb",
+        "manifest.json": "87e37a982f85895e6b35c3fe56ff885f6634570fda9ff81c287d854a2c1c4c99"
+      },
+      "summary_sha256": "a15d139c76c3d74dfe31aacde9a33df35405e988fcb0876ac33896fb984df3a4"
+    },
+    {
+      "run_id": "124",
+      "task": "resnet",
+      "gd_lr": 0.05,
+      "seed": 0,
+      "targets_by_parameter_state": {
+        "500": 1.9328419433593746,
+        "1000": 1.649430200195312,
+        "2000": 1.2848856225585934,
+        "3000": 0.9672287634277343
+      },
+      "source": "runs/124-2026-10-17-eos-resnet-gd-lr-0.05-3k/artifacts/attempt-01-spark/production",
+      "source_sha256": {
+        "metrics.jsonl": "14665f159b35fb548b78294ef87a076243087666ed13d29af031ed03d515df36",
+        "curvature.jsonl": "f20f62d5f4f3dac424834b1103fc7ef97c97861c4911590f3271d0e8eb2a5e91",
+        "manifest.json": "bb83d522fc50b255e73beb7b5ade04fc22750130a1065cd2044fbc5bf4f4183b"
+      },
+      "summary_sha256": "51c3b1225cddcfae205ca7385dba9be12e72c7d0d3e340d34cfaebf6655ff275"
+    },
+    {
+      "run_id": "125",
+      "task": "transformer",
+      "gd_lr": 0.1,
+      "seed": 0,
+      "targets_by_parameter_state": {
+        "500": 7.070934507097312,
+        "1000": 6.792513584252755,
+        "2000": 6.51654500383967,
+        "3000": 6.351935365365105
+      },
+      "source": "runs/125-2026-10-17-eos-transformer-gd-lr-0.1-3k/artifacts/attempt-01-spark/production",
+      "source_sha256": {
+        "metrics.jsonl": "0f20797974f6b74e724276bf124d6e1a5bf979a3a3ec633ecc3aac3947d39963",
+        "curvature.jsonl": "6c4335e3cb0e6c1afaba77e0bec3f3cb78f2bbd1e87d845d29b8bb739558fb34",
+        "manifest.json": "0fe89f4cd8c682e8acc29703f41b0ec1456557b96835047bc79b51c7e8ada413"
+      },
+      "summary_sha256": "e8dc0133801aaf3db4dfda5592f86a8c61362d159a1f4f67ee413dbf78f355d1"
+    },
+    {
+      "run_id": "126",
+      "task": "transformer",
+      "gd_lr": 0.2,
+      "seed": 0,
+      "targets_by_parameter_state": {
+        "500": 6.819112337838082,
+        "1000": 6.562957109661155,
+        "2000": 6.256404861790646,
+        "3000": 6.069747180845569
+      },
+      "source": "runs/126-2026-10-17-eos-transformer-gd-lr-0.2-3k/artifacts/attempt-01-spark/production",
+      "source_sha256": {
+        "metrics.jsonl": "07e0d3223e4ce5e258d17172a7bfeabbf2747dd9b6ce3028748df2b2947d521d",
+        "curvature.jsonl": "7d7e007eeb9900dd518355480b06098dfad9cb98169161fb2c3368f196365e64",
+        "manifest.json": "43278b19c9526d6d24f4603c3de366e044206a7c57ef2f3ec182d17a868266dc"
+      },
+      "summary_sha256": "866e0016e233ed80ae283f0d3d0faa371ce6b10a3124080562ac246bfbd34f60"
+    }
+  ],
+  "reduction": "All nine GD conditions; exact full-objective losses at parameter states500/1000/2000/3000.",
+  "comparison": "First Adam state and first64-state mean at/below each target; right censor unachieved targets.",
+  "limits": "One seed; same loss need not mean same region. Historical hardware/optimizer costs differ."
+}
