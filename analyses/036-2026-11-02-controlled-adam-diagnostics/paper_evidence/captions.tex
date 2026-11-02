@@ -1,67 +1,33 @@
-% Caption candidates. These are text fragments, not an active manuscript input.
-\paragraph{Compact overview.}
-Controlled full-batch Adam from one frozen initialization per case, with three
-constant rates and 1,024 updates each. Rows show training loss (log scale),
-raw-gradient projected change, consecutive raw-gradient cosine, and norms
-divided by their own value at state 0. Solid/dashed norm curves denote gradient/
-stored first moment. Loss is unsmoothed. The other prominent curves are complete
-eight-observation trailing arithmetic means, right aligned; faint projected-change
-curves retain every raw observation. Norms are averaged in linear space before
-log display. Horizontal state$t$ counts completed updates; the displayed gradient
-and updated moment are available before displacement$t+1$. The reference at 2
-is not an identified Adam stability boundary. Temporal analyses use raw values.
+% Current caption candidates: two figures and one descriptive table only.
+\paragraph{Overview.}
+Controlled full-batch Adam at three constant rates per case, from one frozen
+initialization each. Rows show training loss (log scale), raw-gradient projected
+change and consecutive raw-gradient cosine. Loss is unsmoothed; prominent
+non-loss curves are complete 16-observation trailing arithmetic means,
+right aligned, without raw overlays. The loss axis uses ordinary numeric
+tick labels on a logarithmic scale.
+Panels(d)--(f) intentionally restrict the displayed range to$[-0.1,2.2]$;
+values outside this range are retained unchanged in the data. The horizontal
+coordinate counts completed updates and aligns each diagnostic to the state
+where it is available. The reference at two is not an Adam stability boundary.
 
-\paragraph{Micro views.}
+\paragraph{Spikes.}
 Unsmoothed views of the completed episode with the largest relative loss peak
-at each case's highest tested rate. Each crop starts 10 states before the peak
-and ends at the first subsequent loss below its starting value. Dotted verticals
-mark the 10\% episode onset, dashed verticals the loss maximum; dotted horizontals
-in the loss row mark crop-start loss. Gradient and stored-momentum norms are
-divided by their respective crop-start values, comparing proportional changes
-rather than absolute magnitudes. Every point is retained; all diagnostics use
-their parameter-state availability clock. The examples illustrate the sequence;
-the census and forecasting analyses include other episodes and non-spike states.
+at each case's highest tested rate. Crops begin 10 states before their peak and
+end at the first later loss below the starting value. Dotted verticals mark
+10\% episode onset, dashed verticals the peak; dotted loss horizontals mark
+the crop-start value. Gradient and stored-momentum norms are divided by their
+own crop-start values. Every observation is retained. These loss-selected
+examples illustrate local ordering; the recurrence table includes other
+episodes and misses.
 
-\paragraph{Repeated episode onsets.}
-All 27 large observed episodes at the highest rates:17 MLP,3 ResNet-32 and 7
-Transformer. Time 0 is the first loss at least 10\% above the preceding 16-state
-minimum, not the peak. Thin curves show individual events; thick curves are
-pointwise medians. Loss is divided by the frozen episode baseline; each norm
-is divided by its own value at relative state-8. No temporal smoothing or
-independent-event confidence band is used. Both unfinished recoveries are
-retained; every displayed state has data. Five MLP windows overlap the end of
-a previous episode. Selecting large episodes conditions on the future loss;
-this figure describes temporal recurrence and does not estimate alarm precision.
-
-\paragraph{Forward precision-recall.}
-Primary predictions evaluated in five later time blocks, shown within each
-case across all three rates. Blue uses loss history, training age and arm;
-orange adds continuous raw-gradient projected change. Curves use exactly the
-same eligible decision states for both models; dotted lines show positive
-prevalence. Average precision is shown in each legend. Case subsets contain
-1,112/1,751/1,671 states and 319/66/110 positives for MLP/ResNet/Transformer.
-These are subsets of pooled-model predictions, not separately fitted case
-models. Curves are unsmoothed, and no test operating point is selected.
-
-\paragraph{Episode table.}
-Loss-only episode census across all nine arms. Large denotes an observed
-peak at least 50\% above its frozen baseline. Cross denotes a fresh crossing
-of projected change from at most 2 to above 2. Warnings occur 1--8 states before
-10\% onset while loss is less than 5\% above its own recent minimum. Entries
-are episodes with a warning over eligible episodes of that severity; every
-episode remains in the denominator, including misses and those without an
-eligible warning state. Lead is median[min,max] among hits. Gradient/momentum
-columns require greater than 20\% one-state norm growth. Cens. counts unfinished
-recoveries. A dash means no event or undefined lead, not zero warning precision.
-Counts describe dependent recurrences, not independent replications.
-
-\paragraph{Prediction table.}
-Incremental prediction on identical forward-test decisions. The target is a
-loss rise of at least 10\% relative to current loss within 8 updates; eligibility
-restricts current loss to less than 5\% above its trailing minimum. AP is average
-precision (higher is better); Brier is mean squared probability error (lower is
-better). Added means the same loss/age/arm model plus continuous projected
-change. Differences compare models within a row. Case rows subset pooled fits;
-pooled scores weight decision states, not cases or independent episodes equally.
-Five expanding-prefix fits use a 24-state exclusion gap and training-only scaling.
-Temporal dependence and exploratory selection preclude an IID significance claim.
+\paragraph{Recurrence table.}
+Descriptive loss-only episode census across all nine arms. Large means an
+observed peak at least 50\% above the frozen episode baseline. Earlier crossing
+means projected change moves from at most two to above two,1--8 updates before
+10\% onset while loss remains less than 5\% above its own recent minimum.
+Fractions retain all episodes of the indicated severity, including misses.
+Lead is median[min,max] among large episodes with a qualifying crossing;
+a dash means no episode or undefined lead. One highest-rate MLP and one
+highest-rate Transformer recovery are unfinished. Repeated episodes are
+dependent observations, not independent replications.

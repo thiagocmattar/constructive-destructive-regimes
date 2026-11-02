@@ -1,113 +1,65 @@
-% Candidate prose only. Not included in the active manuscript.
-% Figure/table insertion and numbering await author review.
-\section{Raw-Gradient Information Along Adam Trajectories}
+% Candidate observational section; not included in the active manuscript.
+\section{Raw-Gradient Dynamics Along Adam Trajectories}
 
-Adam transforms gradients through first-moment averaging and coordinatewise
-scaling before updating the parameters. Raw-gradient reversal therefore does
-not directly describe reversal of the applied updates. Nevertheless, successive
-raw gradients measure how the training objective changes along the trajectory
-chosen by Adam. We ask whether this response contains information about an
-upcoming loss excursion beyond the loss history already observed.
+Adam averages and rescales gradients before applying parameter updates.
+Consecutive raw-gradient reversal therefore does not directly describe reversal
+of the applied updates. The raw gradients nevertheless reveal how the training
+objective changes along the path selected by Adam. We examine their behavior
+around pronounced, transient loss excursions.
 
-We retain the projected-change expression
+The projected-change expression remains available:
 \begin{equation}
-  \eta\widehat\kappa_t
-  =1-\rho_t\frac{\|g_t\|}{\|g_{t-1}\|}.
+ \eta\widehat\kappa_t
+ =1-\rho_t\frac{\|g_t\|}{\|g_{t-1}\|}.
 \end{equation}
-Under Adam, this is a normalized projected gradient change, without an
-identified Hessian-curvature interpretation or stability threshold. For nonzero
-gradients, a value above two requires both negative consecutive cosine and
-gradient-norm growth. Showing these quantities together explains the observed
-geometry; it does not provide independent corroboration of three mechanisms.
-The stored first moment supplies a complementary view of how Adam averages
-the evolving gradient input.
+Under Adam, this quantity describes a normalized projected gradient change;
+it does not identify Hessian curvature or an Adam stability boundary. For
+nonzero gradients, exceeding two requires negative raw cosine and gradient-norm
+growth. These linked observations describe one geometric pattern, rather than
+independent evidence for several mechanisms.
 
-\subsection{Controlled Trajectories and Local Excursions}
+\subsection{Controlled Trajectories and Local Spikes}
 
-We examine CIFAR-10/MLP, CIFAR-10/ResNet-32 and WikiText-2/Transformer under
-full-batch Adam, using one frozen initialization per case and three constant
-learning rates. Each trajectory contains 1,024 updates, with fresh Adam
-moments, $(\beta_1,\beta_2)=(0.9,0.999)$ and $\epsilon=10^{-8}$.
-There is no clipping, weight decay, schedule or learning-rate intervention.
-The overview displays loss, projected change, raw-gradient cosine and
-gradient/momentum norms. Its shorter trailing average is a display reduction;
-all timing and prediction analyses use the unsmoothed observations.
+We reuse the three controlled full-batch objectives: CIFAR-10/MLP,
+CIFAR-10/ResNet-32 and WikiText-2/Transformer. Each case starts from one frozen
+initialization and uses three constant Adam rates for 1,024 updates, with fresh
+moments and no clipping, decay or learning-rate schedule. The overview shows
+training loss, raw projected change and raw cosine across all nine arms.
+The loss is unsmoothed. The other curves use 16-observation trailing means;
+the projected-change panels focus their axes on
+$[-0.1,2.2]$. Timing statements use raw observations, including values outside
+this display range.
 
-The micro views show each highest-rate arm's completed episode with the
-largest loss peak relative to its episode baseline. These explicitly selected
-examples illustrate the temporal sequence. At the Transformer peak at state 794,
-projected change first crosses two within the local pre-onset window at 788,
-when loss is only 0.40\% above its recent minimum. Loss reaches 12.0\% above that
-minimum at 790. Gradient and momentum norms also grow before this pronounced
-increase. Projected change, gradient norm, momentum norm and loss attain their
-local maxima at 790,792,793 and 794, respectively. The crossing precedes the
-pronounced rise, but not its first small positive loss change. This exact
-ordering of maxima is not shared by every case.
+The spike figure shows the completed episode with the largest loss peak relative
+to its baseline at each case's highest rate. All observations are unsmoothed.
+For the Transformer example, projected change crosses two at state 788, when
+loss is only 0.40\% above the recent minimum; loss reaches 12.0\% above that
+minimum at 790 and peaks at 794. Raw cosine is negative, and gradient and
+momentum norms grow before the pronounced rise. This crossing precedes the
+large increase, although the first small positive loss change has already
+occurred. The other cases show related local behavior, with differences in
+the ordering of the norm and loss maxima.
 
-\subsection{Recurrence, Lead Time and Specificity}
+\subsection{Recurrence and Its Limits}
 
-To assess repetition, we define episodes using loss alone. An episode begins
-at a 10\% increase above the preceding 16-state minimum and ends at the first
-return below that frozen baseline. Rebounds before recovery remain one
-episode; unfinished recoveries are retained. The nine arms contain 129
-episodes,45 of which reach at least 50\% above baseline.
+A simple loss-only census checks repetition beyond these selected examples.
+An episode begins when loss rises at least 10\% above the preceding 16-state
+minimum and ends at its first return below that frozen baseline. Rebounds
+before recovery remain one episode. The nine arms contain 129 episodes;
+45 reach at least 50\% above baseline and are called large episodes.
 
-The episode table reports every arm, including misses and zero-event arms.
-At the highest rates, a fresh crossing of two occurs 1--8 updates before the
-10\% onset, while loss is still within 5\% of its recent minimum, in 13/17 large
-MLP episodes,3/3 ResNet episodes and 7/7 Transformer episodes. Among episodes
-with a warning, median leads are 5,2 and 5 updates, respectively. Coverage is
-lower when all episode sizes are considered:17/39,5/7 and 13/13. The
-onset-aligned traces show the individual trajectories behind these counts,
-rather than only a single selected peak or a mean trajectory.
+The recurrence table retains every arm, including misses and zero-event arms.
+At the highest rates, a fresh crossing of projected change above two occurs
+1--8 updates before the 10\% onset, while loss is still within 5\% of its own
+recent minimum, in 13/17 large MLP episodes,3/3 ResNet episodes and 7/7 Transformer
+episodes. Conditional median leads are 5,2 and 5 updates. Across all episode
+sizes, the corresponding counts are 17/39,5/7 and 13/13. These observations show
+recurrence without suggesting that every excursion shares the same precursor.
 
-A recurring precursor need not be a specific warning. On the forward-test
-states, projected change exceeds two at 891 eligible states, of which only 187
-are followed within 8 updates by a loss at least 10\% above the current value.
-Thus its precision is 21.0\%; a fresh crossing has precision 15.9\%.
-The smallest-rate ResNet and Transformer arms have no qualifying episode,
-yet contribute 175 and 190 above-two alarm states with no positive forecast
-targets. These controls preclude treating two as a universal Adam instability
-boundary. Episode coverage and alarm precision use different denominators
-and different loss references, which are specified in the methods.
-
-\subsection{Information Beyond Recent Loss}
-
-We next test incremental information, using the same eligible states for all
-models. The target is a 10\% loss increase within the next 8 updates, from a
-state still within 5\% of its trailing minimum. The baseline includes task/rate
-indicators, training age, current loss and recent loss changes. We compare it
-with the same regularized logistic model plus continuous projected change.
-Five expanding-prefix fits predict later time blocks, with a 24-state exclusion
-gap; scaling uses training data only.
-
-Across 4,534 forward-test decisions, including 495 positives, average precision
-increases from 0.260 to 0.454. Brier score decreases from 0.1197 to 0.0868.
-Both improve in all five time blocks, and the per-case comparisons retain the
-direction of improvement. These case summaries subset pooled-model predictions;
-they do not measure transfer to an unseen task. The low ResNet event prevalence
-and the numbers of decisions and positives are reported with the scores.
-
-Additional checks clarify the finding. Raw cosine alone yields average
-precision 0.423. Expanding the loss baseline to all 16 recent log-loss changes
-retains an improvement from 0.258 to 0.447 after adding projected change, although
-AP improves in four rather than all five blocks. With a common larger exclusion
-gap, current projected change is more useful in aggregate than its 16- or 32-state
-delayed values. The complete ablations and target/horizon sensitivities are
-retained; adding all diagnostics is not uniformly better.
-
-These comparisons establish incremental predictive information under the
-tested models, rather than calibrated risk estimates. The original loss-only
-model has worse pooled Brier score than a training-prevalence predictor
-(0.1197 versus 0.0986). The projected extension improves the pooled comparison,
-but does not beat that probability reference within every case or gap setting.
-The evidence consequently supports a diagnostic association along the measured
-trajectories, with no validated operating threshold or scheduling benefit.
-
-The sequence is scientifically useful because raw-gradient geometry remains
-informative even when Adam transforms those gradients before applying an
-update. The local views describe the response, the episode census establishes
-its recurrence and failures, and the forward comparison tests information
-beyond recent loss. The analysis remains exploratory, with dependent events
-from one initialization per case. It neither identifies a causal feedback
-mechanism nor establishes an intervention effect.
+Crossing two is also not sufficient for an excursion. The smallest-rate ResNet
+and Transformer arms cross two despite having no qualifying loss episode.
+The figure examples and episode counts therefore support a recurring temporal
+association along these adaptive trajectories. They do not establish a causal
+mechanism or a general warning rule. Repeated episodes are dependent observations
+from one initialization per case, and the analysis is exploratory. The present
+claim concerns their observed geometry and timing; interventions are deferred.

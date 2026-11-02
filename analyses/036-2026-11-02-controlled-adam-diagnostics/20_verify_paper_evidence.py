@@ -17,6 +17,18 @@ prior=importlib.util.module_from_spec(spec);spec.loader.exec_module(prior)
 read=prior.analysis.read;sha=prior.analysis.sha
 
 
+def verified_output(path,digest):
+    """Resolve the superseded overview through its explicit archive identity."""
+    candidate=ROOT/path
+    if sha(candidate)==digest:return candidate
+    archive=OUT/'archive/2026-11-02-before-simplification/archive_manifest.json'
+    entries=read(archive)
+    assert path in entries and entries[path]['sha256']==digest,path
+    candidate=ROOT/entries[path]['archived']
+    assert sha(candidate)==digest,path
+    return candidate
+
+
 def check_scores(rows,expected):
     y=np.array([int(r['target']) for r in rows])
     for name,stats in expected.items():
@@ -34,7 +46,7 @@ def main():
     for record in [result,fig]:
         assert sha(ROOT/record['generator'])==record['generator_sha256']
         for path,digest in record['sources'].items(): assert sha(ROOT/path)==digest,path
-        for path,digest in record['outputs'].items(): assert sha(ROOT/path)==digest,path
+        for path,digest in record['outputs'].items(): verified_output(path,digest)
     raw={}
     arms=read(ROOT/'runs/215-2026-11-02-controlled-full-batch-adam/results.json')['conditions']
     arms=sorted(arms,key=lambda a:(['mlp','resnet','transformer'].index(a['task']),a['lr']))
@@ -143,8 +155,8 @@ def main():
             np.testing.assert_array_equal(x,recall);expected=precision
         np.testing.assert_allclose(y,expected,rtol=3e-14,atol=3e-14)
         max_curve_error=max(max_curve_error,float(np.max(np.abs(y-expected))));points+=len(y)
-    for path in fig['outputs']:
-        with fitz.open(ROOT/path) as doc:
+    for path,digest in fig['outputs'].items():
+        with fitz.open(verified_output(path,digest)) as doc:
             assert len(doc)==1 and abs(doc[0].rect.width/72-7.16)<1e-6
             assert not doc[0].get_images()
             for entry in doc[0].get_fonts(full=True): assert doc.extract_font(entry[0])[3]

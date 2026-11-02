@@ -121,12 +121,13 @@ limits remain explicit. No new training, scientific inputs or cloud work.
 
 ## Paper evidence prepared for the next author review
 
-The [evidence package](paper_evidence/README.md) supersedes the analysis copies
-of the two compact figures with four-row versions including raw-gradient rho,
-lighter overview smoothing and visible raw projected-change crossings. It adds
-an onset-aligned recurrence figure, precision-recall curves, expanded all-arm
-tables, richer-loss/component/delay checks, and candidate section/methods/captions.
-[Observation010](observations/010-paper-evidence-package.md) records all sources,
-reductions, caveats and verification. The current manuscript remains unchanged;
-its prior integrated figure versions are archived locally. Interventions are a
-deferred TODO. No new training, cloud work or additional seeds.
+The [simplified presentation](paper_evidence/README.md) now uses the three-row
+overview (loss, projected change, raw cosine), unchanged unsmoothed spike
+examples, and a descriptive recurrence table. The overview uses 16-observation
+trailing means, no raw overlays, projected-change limits [-0.1,2.2], and ordinary
+numeric loss ticks on a log axis. Relative norms are removed from the overview.
+Precision-recall and onset-overlay figures are withdrawn from the proposed
+paper; their underlying evidence is preserved. Candidate text now makes the
+narrower observational argument. [Observation011](observations/011-simplified-presentation.md)
+records the changes and checks; Observation010 records the superseded proposal.
+The current manuscript remains unchanged and interventions are deferred.

@@ -231,3 +231,14 @@ retained. Probability-error comparisons to a constant reference limit any
 calibrated-warning claim. All 225 curves /67,530 values and 30 independent refits
 pass verification. The active manuscript and its figure copies are unchanged;
 prior analysis copies are archived. Interventions remain a deferred TODO.
+
+## Simplified author-selected presentation
+
+[Observation011](observations/011-simplified-presentation.md) supersedes the
+presentation proposal above with a three-row overview, unchanged spike examples
+and a descriptive recurrence table. The overview has 16-observation smoothing,
+no raw overlays or relative norms, projected-change limits [-0.1,2.2], and
+ordinary numeric loss ticks. Precision-recall and onset-overlay figures are
+withdrawn from the proposed paper. Earlier results remain preserved; the
+candidate text now makes an observational timing/recurrence claim. All 27 curves
+and 27,369 plotted values pass source/display checks. Manuscript unchanged.
