@@ -6,6 +6,8 @@
 [Largest learning rate, all lags 1–256 connected](figures/largest_lr_lag256.pdf)
 shows one curve per architecture/anchor without an odd/even split. See
 [Observation002](observations/002-largest-lr-lag256.md) for sources and caption.
+The matching [1–64 lag zoom](figures/largest_lr_lag64.pdf) is documented in
+[Observation003](observations/003-largest-lr-lag64.md).
 
 Follow-up to [Analysis024](../024-2026-10-17-eos-gd-lr-calibration/README.md)
 and [Analysis032](../032-2026-11-01-eos-exact-lag10/REPORT.md): 27 anchored profiles at states 500/2000/3000,

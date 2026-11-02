@@ -3,6 +3,8 @@
 Additional requested view: [largest GD rate, consecutive lags 1–256](figures/largest_lr_lag256.pdf).
 It uses MLP LR 0.04, ResNet-32 LR 0.1 and Transformer LR 0.2, with all three
 anchor rows and one ordered curve per panel. [Sources and caption](observations/002-largest-lr-lag256.md).
+The matching [lag 1–64 version](figures/largest_lr_lag64.pdf) uses the same nine
+profiles; see [Observation003](observations/003-largest-lr-lag64.md).
 
 Completed 27 profiles / 36,096 anchored cosines across the nine
 [Analysis024](../024-2026-10-17-eos-gd-lr-calibration/README.md) conditions,

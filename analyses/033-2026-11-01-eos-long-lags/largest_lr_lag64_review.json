@@ -1,0 +1,100 @@
+{
+  "status": "passed",
+  "generator": "13_plot_largest_lr_lag64.py",
+  "generator_sha256": "5b44916986532557de5d32798e3caf767396ccf02ab00a81fb067b7599a04845",
+  "source_results_sha256": "f7097576da8de6e81305e823f1ccf60bc3aa366cb52f6ae3a7a75ff896ec60a5",
+  "source_csv_sha256": "20e088a8c9af339d3ae0b75b13bf2ec8544b8c69bb4f4481509b931253760ba4",
+  "source_lag256_review_sha256": "3832f8a433cbbe4018c096ed7d6b6cfba2a45779acda5483a0202adc75e1c11b",
+  "profiles": [
+    {
+      "task": "mlp",
+      "parent_run_id": "122",
+      "anchor": 500,
+      "lr": 0.04,
+      "points": 64,
+      "exact_source_artist_match": true
+    },
+    {
+      "task": "resnet",
+      "parent_run_id": "120",
+      "anchor": 500,
+      "lr": 0.1,
+      "points": 64,
+      "exact_source_artist_match": true
+    },
+    {
+      "task": "transformer",
+      "parent_run_id": "126",
+      "anchor": 500,
+      "lr": 0.2,
+      "points": 64,
+      "exact_source_artist_match": true
+    },
+    {
+      "task": "mlp",
+      "parent_run_id": "122",
+      "anchor": 2000,
+      "lr": 0.04,
+      "points": 64,
+      "exact_source_artist_match": true
+    },
+    {
+      "task": "resnet",
+      "parent_run_id": "120",
+      "anchor": 2000,
+      "lr": 0.1,
+      "points": 64,
+      "exact_source_artist_match": true
+    },
+    {
+      "task": "transformer",
+      "parent_run_id": "126",
+      "anchor": 2000,
+      "lr": 0.2,
+      "points": 64,
+      "exact_source_artist_match": true
+    },
+    {
+      "task": "mlp",
+      "parent_run_id": "122",
+      "anchor": 3000,
+      "lr": 0.04,
+      "points": 64,
+      "exact_source_artist_match": true
+    },
+    {
+      "task": "resnet",
+      "parent_run_id": "120",
+      "anchor": 3000,
+      "lr": 0.1,
+      "points": 64,
+      "exact_source_artist_match": true
+    },
+    {
+      "task": "transformer",
+      "parent_run_id": "126",
+      "anchor": 3000,
+      "lr": 0.2,
+      "points": 64,
+      "exact_source_artist_match": true
+    }
+  ],
+  "plotted_points": 576,
+  "reduction": "Exact first-64-lag subset of the verified 256-lag view; all lags connected in order, no parity split, smoothing or downsampling.",
+  "figure": "figures/largest_lr_lag64.pdf",
+  "figure_sha256": "5edf69e6b9aac63748868cb012612d5c17bc114d15c1ba787e91561cfc3a7b47",
+  "render": "scratch/largest_lr_lag64.png",
+  "render_sha256": "f3c81d62b0d78736a0939a150751be62ca266f3b54474ae32ef1ef3cc78b9054",
+  "vector_pdf": true,
+  "text_within_page": true,
+  "visual_review": {
+    "status": "passed",
+    "observed_utc": "2026-11-02T10:15:52.895258+00:00",
+    "method": "Viewed actual-PDF render at original detail with view_image",
+    "notes": [
+      "Same nine-panel layout, largest GD rates and anchor rows as the 256-lag figure.",
+      "All 64 consecutive lags are connected in each panel; raw zigzags remain visible.",
+      "Titles, linear-axis ticks and anchor/cosine labels are readable with no clipping."
+    ]
+  }
+}
