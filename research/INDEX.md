@@ -18,6 +18,7 @@ One frozen initialization per case, constant LR, no Hessian/HVP or LR interventi
 All four vector streams, full split evaluations and recovery/audit states verified.
 Both complete eight-row figures are reviewed: loss/Adam R_t raw with six rows
 smoothed, plus a fully unsmoothed alternative; earlier previews are retained.
+A five-row highest-LR Adam/SGD comparison covers the common first 1,024 updates.
 All15 calibration/main task Pods/disks deleted after verified acceptance; fresh
 account inventory confirms zero remaining. Retained task cloud storage0GB.
 Combined estimated USD13.89 provisional (main11.62 +calibration2.26).

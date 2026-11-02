@@ -151,3 +151,16 @@ provisional. All10 main task Pods and the earlier5 calibration Pods/disks are
 deleted. Fresh account inventory confirms no Analysis036 worker remains and0GB
 retained task cloud storage. Per-worker hash/scientific acceptance receipts,
 finalization.json and completion.json are local. No manuscript was edited.
+
+## Highest-LR Adam versus full-batch SGD figure
+
+The [five-row comparison](figures/adam_vs_sgd_highest_lr.pdf) pairs Adam's
+largest tested rates (MLP 0.001; ResNet/Transformer 0.003) with Analysis024's
+largest plain-GD rates (MLP 0.04; ResNet 0.1; Transformer 0.2). It displays the
+common first 1,024 updates from matching frozen initial tensors. Rows are log
+training loss, raw-gradient eta*kappa_hat, raw-gradient rho_t, log gradient norm
+and R_t. Loss and R_t are raw; the three other rows use 50-step trailing means.
+All 30 curves / 29,832 points match the prior verified figure arrays exactly.
+[Observation006](observations/006-highest-lr-adam-sgd-comparison.md) records sources,
+reduction, retention-vector semantics, caption, coverage and limitations.
+No additional training or cloud cost is incurred.

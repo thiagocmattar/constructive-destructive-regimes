@@ -80,3 +80,11 @@ retain their historical 16-step windows.
 See [Observation005](observations/005-complete-production-diagnostics.md) and
 full_diagnostics_verification.json: all72 curves in each version and all source
 identities pass checks. The earlier six-arm previews above remain as snapshots.
+
+The [highest-LR Adam versus SGD comparison](figures/adam_vs_sgd_highest_lr.pdf)
+selects each optimizer's largest tested LR per task and displays their common
+first 1,024 updates in five rows: log loss, raw-gradient projected change,
+raw-gradient cosine, gradient norm and R_t. Loss/R_t are unsmoothed; other
+rows use 50-step trailing means. All 30 curves match the prior verified figures.
+See [Observation006](observations/006-highest-lr-adam-sgd-comparison.md) and
+highest_lr_comparison_manifest.json. Full-batch SGD is Analysis024's plain GD.
