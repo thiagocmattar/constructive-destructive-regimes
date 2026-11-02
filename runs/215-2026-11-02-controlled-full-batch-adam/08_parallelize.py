@@ -143,11 +143,16 @@ def main():
         reserved={(p['task'],p['rates'][0]) for p in state['pods'] if not p.get('deleted_epoch') or p.get('worker_exit')=='0'}
         reserved.update(m['job'] for m in futures.values() if m['kind']=='create')
         pending=[j for j in jobs if j not in reserved]
-        ready={(p['task'],p['rates'][0]) for p in state['pods'] if p.get('production_observed') or p.get('worker_exit')=='0'}
+        ready={(p['task'],p['rates'][0]) for p in state['pods'] if
+            (p.get('production_observed') and not p.get('deleted_epoch') and p.get('worker_exit') is None)
+            or p.get('worker_exit')=='0'}
         if all(j in ready for j in jobs) and not futures:break
         if not futures and (c.spend(state)>15 or time.time()>state['deadline_epoch']-14400):break
         if pending and time.time()-last_search>=25:
-            catalog=c.cli('gpu','list','--include-unavailable')
+            try:catalog=c.cli('gpu','list','--include-unavailable')
+            except (RuntimeError,subprocess.TimeoutExpired) as error:
+                print(json.dumps(dict(phase='catalog_retry',error=repr(error))),flush=True)
+                time.sleep(20);continue
             c.write_json(c.SCRATCH/'capacity-catalog-latest.json',dict(utc=c.stamp(),catalog=catalog))
             candidates=[]
             for gpu in catalog:
@@ -157,8 +162,12 @@ def main():
                     if price is not None and price<=5.29:candidates.append((gpu,cloud,price))
             for job in pending:
                 if not candidates:break
-                candidates.sort(key=lambda r:(attempted.get((r[0]['gpuId'],r[1]),0),r[0]['displayName']=='L4' and job[0]=='transformer',r[2]))
-                gpu,cloud,price=candidates[0]
+                eligible=[r for r in candidates if not (job[0]=='transformer' and
+                    r[0]['displayName']=='PRO 6000 MIG 24GB')]
+                # This partition measured18s/update and failed the frozen4h gate.
+                if not eligible:continue
+                eligible.sort(key=lambda r:(attempted.get((r[0]['gpuId'],r[1]),0),r[0]['displayName']=='L4' and job[0]=='transformer',r[2]))
+                gpu,cloud,price=eligible[0]
                 attempted[(gpu['gpuId'],cloud)]=attempted.get((gpu['gpuId'],cloud),0)+1
                 f=pool.submit(create,job,gpu,cloud,worker,state)
                 futures[f]=dict(kind='create',job=job,gpu=gpu['displayName'],cloud=cloud,worker=worker);worker+=1

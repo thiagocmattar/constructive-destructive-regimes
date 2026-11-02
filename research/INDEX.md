@@ -9,10 +9,10 @@ Eight smooth-loss labels, one unclassified; no sustained-loss-oscillation bracke
 ResNet/Transformer raw gradients reverse despite coherent adaptive directions.
 All9 arms,11 tests and three PDFs verified; eight-row smoothed view added.
 Run215 now executes the approved9 x1,024-update main study from initialization;
-three MLP arms are complete and verified, cloud arms are launching/running.
+three MLP arms are verified; all six cloud arms are qualified and running in parallel.
 Mixed GPUs are qualified per worker; ongoing capacity search prioritizes parallelism.
 Main-stage USD45 /8.5h cap remains inside the USD50 study envelope.
-All5 task Pods/disks deleted after verified retrieval; USD2.26 estimated provisional.
+All5 calibration Pods/disks deleted after verified retrieval; USD2.26 estimated provisional.
 Run213/215 / Analysis036 / H027; next Run216 / Analysis038 / H028.
 
 

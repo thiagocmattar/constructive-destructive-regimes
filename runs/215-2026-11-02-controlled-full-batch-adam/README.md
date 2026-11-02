@@ -44,3 +44,19 @@ survives controller failures; detached remote jobs survive SSH loss. Completed
 workers are retrieved with archive and per-file size/SHA checks before deletion.
 09_finalize.py runs complete-cohort verification after cloud closeout. Missing or
 rejected arms remain explicitly incomplete and cannot pass its nine-arm check.
+
+Launch verified at2026-11-02 13:58UTC (10:58BRT): all six cloud arms have accepted
+production updates and passed per-worker source/start-gradient qualification.
+See production-status.json for exact task/LR/device mapping, numerical errors,
+steps, loss, token coverage, memory, live quotes and measured ETC. Three RTX4090s,
+one RTXPRO4500SE, one RTXPRO4000 and one24GB PRO6000 partition are active, with
+one arm per worker. Four unsuccessful infrastructure/qualification workers were
+retired before any scientific trajectory. Qualification logs and retrieval
+receipts are retained; pre-delivery failures have zero scientific files.
+
+At this snapshot, the slowest observed remaining duration is2.88h. Extrapolating
+each observed rate and allowing9 minutes retrieval per worker gives USD14.47
+for the study including calibration. This is an early estimate, not posted
+billing; the approved USD50 ceiling and independent limits remain in force.
+The search also tried non-RTX L40S/A100/H100 capacity; suitable available workers
+were accepted regardless of model. The final1,024-step histories remain pending.

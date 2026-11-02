@@ -114,7 +114,7 @@ def packet(task):
 
 
 def setup_and_launch(pod, archive):
-    until = time.time()+480
+    until = time.time()+720
     while time.time() < until:
         try:
             state = cli('pod', 'get', pod['id'])
@@ -127,7 +127,7 @@ def setup_and_launch(pod, archive):
             pass
         time.sleep(8)
     else:
-        raise RuntimeError('SSH startup exceeded eight minutes.')
+        raise RuntimeError('SSH startup exceeded twelve minutes.')
     ssh(pod, 'mkdir -p '+CONTROL+'\n')
     pod['delivery_started'] = True
     remote_hash = ssh(pod, 'if test -f /workspace/cdr215-inputs.tar.gz; then sha256sum /workspace/cdr215-inputs.tar.gz; else echo missing; fi\n').split()[0]

@@ -1,0 +1,387 @@
+{
+  "utc": "2026-11-02T13:58:04.340667+00:00",
+  "run_id": "215",
+  "status": "all_six_cloud_arms_running",
+  "local_mlp_complete_arms": 3,
+  "requested_updates_per_arm": 1024,
+  "cloud": [
+    {
+      "worker": 0,
+      "pod_id": "x8fq93sebzksbi",
+      "task": "transformer",
+      "rates": [
+        0.0003
+      ],
+      "gpu": "RTX 4090",
+      "price_per_gpu_hour": 0.89,
+      "qualification": {
+        "status": "passed",
+        "task": "transformer",
+        "lr": 0.0003,
+        "config_sha256": "868c271e89bea4641e633d727c7b322a2220085ea1bee63c2dc712389e8e88f4",
+        "input_manifest_sha256": "d90c7fa4554c20e3f812ea7383a0ccfdc543d7bdb221eacb9bb6af88c82a71b1",
+        "initial_tensor_sha256": "66989f8082f75709fa410366bb0d74498eb3298b37df2fa1b1e48f9552617513",
+        "initial_gradient_relative_error": 1.4365798166859906e-06,
+        "environment": {
+          "utc": "2026-11-02T13:23:39.585530+00:00",
+          "python": "3.12.3",
+          "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.39",
+          "torch": "2.11.0+cu130",
+          "cuda": "13.0",
+          "numpy": "2.5.0",
+          "scipy": "1.18.1",
+          "device": "cuda:0",
+          "gpu": "NVIDIA GeForce RTX 4090",
+          "gpu_total_bytes": 25252724736,
+          "matmul_precision": "highest",
+          "tf32": false
+        },
+        "peak_allocated_bytes": 2686965760,
+        "mechanics_second_update_seconds": 7.735648206900805
+      },
+      "arms": [
+        {
+          "arm": "lr-0.0003",
+          "progress": {
+            "utc": "2026-11-02T13:58:07.601349+00:00",
+            "completed_updates": 228,
+            "requested_updates": 1024,
+            "loss": 5.180864408369391,
+            "loss_state": 227,
+            "cumulative_loss_units": 476200800,
+            "supervised_tokens": 476200800,
+            "examples_seen": null,
+            "elapsed_seconds": 2063.895896805916,
+            "updates_per_second": 0.11047068815479145,
+            "remaining_seconds_at_observed_rate": 7205.531288848724,
+            "peak_allocated_bytes": 2799906304,
+            "peak_reserved_bytes": 3835691008
+          }
+        }
+      ],
+      "setup_exit": "0",
+      "worker_exit": null
+    },
+    {
+      "worker": 4,
+      "pod_id": "783vdlj2v0ulek",
+      "task": "resnet",
+      "rates": [
+        0.001
+      ],
+      "gpu": "PRO 6000 MIG 24GB",
+      "price_per_gpu_hour": 0.69,
+      "qualification": {
+        "status": "passed",
+        "task": "resnet",
+        "lr": 0.001,
+        "config_sha256": "868c271e89bea4641e633d727c7b322a2220085ea1bee63c2dc712389e8e88f4",
+        "input_manifest_sha256": "d90c7fa4554c20e3f812ea7383a0ccfdc543d7bdb221eacb9bb6af88c82a71b1",
+        "initial_tensor_sha256": "e2fd253c5c6e3cdfd75d255811f0d2bd4b59dae33702d6a981b517150a259dde",
+        "initial_gradient_relative_error": 1.256383855275516e-07,
+        "environment": {
+          "utc": "2026-11-02T13:47:40.899566+00:00",
+          "python": "3.12.3",
+          "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+          "torch": "2.11.0+cu130",
+          "cuda": "13.0",
+          "numpy": "2.5.0",
+          "scipy": "1.18.1",
+          "device": "cuda:0",
+          "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition MIG 1g.24gb",
+          "gpu_total_bytes": 25367150592,
+          "matmul_precision": "highest",
+          "tf32": false
+        },
+        "peak_allocated_bytes": 3360895488,
+        "mechanics_second_update_seconds": 9.663343364954926
+      },
+      "arms": [
+        {
+          "arm": "lr-0.001",
+          "progress": {
+            "utc": "2026-11-02T13:58:10.306461+00:00",
+            "completed_updates": 65,
+            "requested_updates": 1024,
+            "loss": 1.9043722924804687,
+            "loss_state": 64,
+            "cumulative_loss_units": 3250000,
+            "supervised_tokens": null,
+            "examples_seen": 3250000,
+            "elapsed_seconds": 625.7127594900085,
+            "updates_per_second": 0.10388153192365568,
+            "remaining_seconds_at_observed_rate": 9231.669790014124,
+            "peak_allocated_bytes": 3365611008,
+            "peak_reserved_bytes": 4238344192
+          }
+        }
+      ],
+      "setup_exit": "0",
+      "worker_exit": null
+    },
+    {
+      "worker": 15,
+      "pod_id": "q9e32fzzoqwdbk",
+      "task": "transformer",
+      "rates": [
+        0.001
+      ],
+      "gpu": "RTX PRO 4500 SE",
+      "price_per_gpu_hour": 0.72,
+      "qualification": {
+        "status": "passed",
+        "task": "transformer",
+        "lr": 0.001,
+        "config_sha256": "868c271e89bea4641e633d727c7b322a2220085ea1bee63c2dc712389e8e88f4",
+        "input_manifest_sha256": "d90c7fa4554c20e3f812ea7383a0ccfdc543d7bdb221eacb9bb6af88c82a71b1",
+        "initial_tensor_sha256": "66989f8082f75709fa410366bb0d74498eb3298b37df2fa1b1e48f9552617513",
+        "initial_gradient_relative_error": 1.440773403663323e-06,
+        "environment": {
+          "utc": "2026-11-02T13:50:23.654084+00:00",
+          "python": "3.12.3",
+          "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+          "torch": "2.11.0+cu130",
+          "cuda": "13.0",
+          "numpy": "2.5.0",
+          "scipy": "1.18.1",
+          "device": "cuda:0",
+          "gpu": "NVIDIA RTX PRO 4500 Blackwell Server Edition",
+          "gpu_total_bytes": 33689829376,
+          "matmul_precision": "highest",
+          "tf32": false
+        },
+        "peak_allocated_bytes": 2686965760,
+        "mechanics_second_update_seconds": 10.40988168795593
+      },
+      "arms": [
+        {
+          "arm": "lr-0.001",
+          "progress": {
+            "utc": "2026-11-02T13:58:11.834020+00:00",
+            "completed_updates": 44,
+            "requested_updates": 1024,
+            "loss": 6.192978693768395,
+            "loss_state": 43,
+            "cumulative_loss_units": 91898400,
+            "supervised_tokens": 91898400,
+            "examples_seen": null,
+            "elapsed_seconds": 465.2936179728713,
+            "updates_per_second": 0.09456394478758012,
+            "remaining_seconds_at_observed_rate": 10363.357854850316,
+            "peak_allocated_bytes": 2799906304,
+            "peak_reserved_bytes": 3835691008
+          }
+        }
+      ],
+      "setup_exit": "0",
+      "worker_exit": null
+    },
+    {
+      "worker": 17,
+      "pod_id": "uva1lbbna1u64q",
+      "task": "resnet",
+      "rates": [
+        0.0003
+      ],
+      "gpu": "RTX PRO 4000",
+      "price_per_gpu_hour": 0.57,
+      "qualification": {
+        "status": "passed",
+        "task": "resnet",
+        "lr": 0.0003,
+        "config_sha256": "868c271e89bea4641e633d727c7b322a2220085ea1bee63c2dc712389e8e88f4",
+        "input_manifest_sha256": "d90c7fa4554c20e3f812ea7383a0ccfdc543d7bdb221eacb9bb6af88c82a71b1",
+        "initial_tensor_sha256": "e2fd253c5c6e3cdfd75d255811f0d2bd4b59dae33702d6a981b517150a259dde",
+        "initial_gradient_relative_error": 8.683659021195444e-08,
+        "environment": {
+          "utc": "2026-11-02T13:56:29.732371+00:00",
+          "python": "3.12.3",
+          "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+          "torch": "2.11.0+cu130",
+          "cuda": "13.0",
+          "numpy": "2.5.0",
+          "scipy": "1.18.1",
+          "device": "cuda:0",
+          "gpu": "NVIDIA RTX PRO 4000 Blackwell",
+          "gpu_total_bytes": 25153044480,
+          "matmul_precision": "highest",
+          "tf32": false
+        },
+        "peak_allocated_bytes": 3360895488,
+        "mechanics_second_update_seconds": 6.964582486078143
+      },
+      "arms": [
+        {
+          "arm": "lr-0.0003",
+          "progress": {
+            "utc": "2026-11-02T13:58:10.354504+00:00",
+            "completed_updates": 13,
+            "requested_updates": 1024,
+            "loss": 2.2994641503906252,
+            "loss_state": 12,
+            "cumulative_loss_units": 650000,
+            "supervised_tokens": null,
+            "examples_seen": 650000,
+            "elapsed_seconds": 92.92392581189051,
+            "updates_per_second": 0.13989938421581974,
+            "remaining_seconds_at_observed_rate": 7226.622230447793,
+            "peak_allocated_bytes": 3365483008,
+            "peak_reserved_bytes": 4238344192
+          }
+        }
+      ],
+      "setup_exit": "0",
+      "worker_exit": null
+    },
+    {
+      "worker": 18,
+      "pod_id": "zy2yrxe9r5ha3y",
+      "task": "resnet",
+      "rates": [
+        0.003
+      ],
+      "gpu": "RTX 4090",
+      "price_per_gpu_hour": 0.89,
+      "qualification": {
+        "status": "passed",
+        "task": "resnet",
+        "lr": 0.003,
+        "config_sha256": "868c271e89bea4641e633d727c7b322a2220085ea1bee63c2dc712389e8e88f4",
+        "input_manifest_sha256": "d90c7fa4554c20e3f812ea7383a0ccfdc543d7bdb221eacb9bb6af88c82a71b1",
+        "initial_tensor_sha256": "e2fd253c5c6e3cdfd75d255811f0d2bd4b59dae33702d6a981b517150a259dde",
+        "initial_gradient_relative_error": 1.2281094526918147e-07,
+        "environment": {
+          "utc": "2026-11-02T13:55:33.699275+00:00",
+          "python": "3.12.3",
+          "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+          "torch": "2.11.0+cu130",
+          "cuda": "13.0",
+          "numpy": "2.5.0",
+          "scipy": "1.18.1",
+          "device": "cuda:0",
+          "gpu": "NVIDIA GeForce RTX 4090",
+          "gpu_total_bytes": 25252724736,
+          "matmul_precision": "highest",
+          "tf32": false
+        },
+        "peak_allocated_bytes": 3310469632,
+        "mechanics_second_update_seconds": 2.6180946258828044
+      },
+      "arms": [
+        {
+          "arm": "lr-0.003",
+          "progress": {
+            "utc": "2026-11-02T13:58:12.510800+00:00",
+            "completed_updates": 59,
+            "requested_updates": 1024,
+            "loss": 1.3839639233398437,
+            "loss_state": 58,
+            "cumulative_loss_units": 2950000,
+            "supervised_tokens": null,
+            "examples_seen": 2950000,
+            "elapsed_seconds": 154.0284795591142,
+            "updates_per_second": 0.3830460455681934,
+            "remaining_seconds_at_observed_rate": 2519.2793690600884,
+            "peak_allocated_bytes": 3315555840,
+            "peak_reserved_bytes": 3560964096
+          }
+        }
+      ],
+      "setup_exit": "0",
+      "worker_exit": null
+    },
+    {
+      "worker": 23,
+      "pod_id": "sw65g6k1x7t237",
+      "task": "transformer",
+      "rates": [
+        0.003
+      ],
+      "gpu": "RTX 4090",
+      "price_per_gpu_hour": 0.89,
+      "qualification": {
+        "status": "passed",
+        "task": "transformer",
+        "lr": 0.003,
+        "config_sha256": "868c271e89bea4641e633d727c7b322a2220085ea1bee63c2dc712389e8e88f4",
+        "input_manifest_sha256": "d90c7fa4554c20e3f812ea7383a0ccfdc543d7bdb221eacb9bb6af88c82a71b1",
+        "initial_tensor_sha256": "66989f8082f75709fa410366bb0d74498eb3298b37df2fa1b1e48f9552617513",
+        "initial_gradient_relative_error": 1.4365798166859906e-06,
+        "environment": {
+          "utc": "2026-11-02T13:57:19.325580+00:00",
+          "python": "3.12.3",
+          "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+          "torch": "2.11.0+cu130",
+          "cuda": "13.0",
+          "numpy": "2.5.0",
+          "scipy": "1.18.1",
+          "device": "cuda:0",
+          "gpu": "NVIDIA GeForce RTX 4090",
+          "gpu_total_bytes": 25252724736,
+          "matmul_precision": "highest",
+          "tf32": false
+        },
+        "peak_allocated_bytes": 2686965760,
+        "mechanics_second_update_seconds": 9.079947476042435
+      },
+      "arms": [
+        {
+          "arm": "lr-0.003",
+          "progress": {
+            "utc": "2026-11-02T13:58:09.626468+00:00",
+            "completed_updates": 5,
+            "requested_updates": 1024,
+            "loss": 7.8649491206542335,
+            "loss_state": 4,
+            "cumulative_loss_units": 10443000,
+            "supervised_tokens": 10443000,
+            "examples_seen": null,
+            "elapsed_seconds": 46.17286206106655,
+            "updates_per_second": 0.10828871715570028,
+            "remaining_seconds_at_observed_rate": 9410.029288045364,
+            "peak_allocated_bytes": 2799385088,
+            "peak_reserved_bytes": 3835691008
+          }
+        }
+      ],
+      "setup_exit": "0",
+      "worker_exit": null
+    }
+  ],
+  "retired_workers": [
+    {
+      "worker": 8,
+      "id": "uvw0aafxhrme28",
+      "gpu": "RTX PRO 6000",
+      "reason": "RuntimeError('SSH startup exceeded eight minutes.')"
+    },
+    {
+      "worker": 12,
+      "id": "xaz2dp4he2ogwm",
+      "gpu": "RTX PRO 4500",
+      "reason": "RuntimeError('')"
+    },
+    {
+      "worker": 13,
+      "id": "ybbit3cusbbxiq",
+      "gpu": "PRO 6000 MIG 24GB",
+      "reason": "Qualification timing rejected; no production trajectory."
+    },
+    {
+      "worker": 14,
+      "id": "p5z6rq47chb32f",
+      "gpu": "RTX 5090",
+      "reason": "RuntimeError('SSH startup exceeded eight minutes.')"
+    }
+  ],
+  "main_cost_estimate_so_far_usd": 1.6366587146954035,
+  "prior_calibration_provisional_usd": 2.262821938202852,
+  "main_cap_usd": 45,
+  "study_cap_usd": 50,
+  "billing": "provisional",
+  "observed_max_remaining_hours": 2.878710515236199,
+  "deadline_epoch": 1793656237.7426186,
+  "control": "08_parallelize.py ->03_cloud.py monitor; independent guard;09_finalize.py after verified retrieval.",
+  "measured_extrapolated_study_cost_usd": 14.465669458047469,
+  "estimate_caveat": "Early measured rates, includes9 minutes retrieval per active worker; no future capacity failures assumed. Billing provisional."
+}
