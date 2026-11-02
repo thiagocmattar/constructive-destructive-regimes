@@ -1,0 +1,112 @@
+% Candidate appendix methods, not included in the active manuscript.
+\subsection{Measurement Availability and Experimental Scope}
+
+In the analysis figures, state $t$ means $t$ completed parameter updates.
+Loss $L_t$ and raw gradient $g_t$ are evaluated at $\theta_t$; $m_t$ denotes the
+stored first moment after consuming this gradient, available before the next
+parameter displacement. In the manuscript's update-index convention, these
+vectors are $g_{s+1}$ and $m_{s+1}$ at parameter state $s$. An integration must
+use one notation consistently; the numerical availability clock is identical.
+Losses cover states 0--1,024; stored moment diagnostics cover 0--1,023.
+No next-step loss, gradient or parameter increment is supplied to a forecast.
+
+The MLP uses the frozen 5,000-image CIFAR-10 objective; ResNet-32 uses all 50,000
+training images with the 50 fixed ghost-batch-normalization groups of 1,000.
+The Transformer uses all 2,088,600 prepared WikiText-2 target tokens per update.
+The frozen model/data/cache identities and exact initialization hashes are
+retained in Run 215. Rates are $10^{-4},3\cdot 10^{-4},10^{-3}$ for the MLP and
+$3\cdot 10^{-4},10^{-3},3\cdot 10^{-3}$ for the other cases. Training is FP32
+with FP64 diagnostic reductions and TF32 disabled. No Hessians are measured.
+All quantities concern the full specified training objective and all trainable
+parameters, counting tied parameters once. Zero-norm cosines/projected changes
+are undefined rather than regularized; the retained forecast rows are finite.
+
+\subsection{Loss-Only Episodes and Warning Windows}
+
+Searching begins at state 64. At each unassigned state, the episode reference
+is the minimum over the preceding 16 states, excluding the current state.
+An episode starts when current loss is at least 1.10 times that reference.
+Freeze the reference until the first later loss strictly below it, merge all
+intermediate rebounds, and resume searching after recovery. The largest loss
+before recovery defines the observed peak. If no recovery is observed by 1,024,
+retain the episode and mark its recovery as right-censored. A large episode
+has an observed peak at least 1.50 times the frozen reference. This is an
+observed-horizon classification, not a claim about an unobserved final peak.
+
+An early warning must be strictly before onset, in the preceding 8 states,
+with loss less than 1.05 times the minimum over its own current and previous 16
+states. The alarms are projected change above 2; a fresh crossing from at most 2
+to above 2; one-state gradient-norm growth above 20\%; one-state stored-momentum
+growth above 20\%; and the conjunction of fresh crossing and momentum growth.
+Record hits, misses and the earliest qualifying lead within the window.
+Lead summaries condition on a hit; they do not assign zero to misses.
+
+The micro examples select each highest-rate arm's completed episode with the
+largest peak/reference ratio, using loss alone. Crops begin 10 states before
+the peak and end at the first subsequent loss below the crop-start value.
+That display reference differs from the episode's frozen minimum. The repeated
+event view retains all 27 large highest-rate episodes, with no diagnostic-based
+selection and no censoring exclusion. Every displayed relative state from-8
+through+8 has data. Five MLP windows include the end of a previous episode;
+they are retained and flagged. Each individual trace remains visible. The
+pointwise median is an aggregate across dependent episodes, not a smoothed
+trajectory or an estimate with an independent-event confidence band.
+
+\subsection{Forward Evaluation and Controls}
+
+At eligible state$t$, predict whether
+\begin{equation}
+  \max_{1\leq h\leq 8} L_{t+h}/L_t-1\geq 0.10.
+\end{equation}
+Eligibility requires$t\geq 64$ and current loss less than 1.05 times its minimum
+over$t-16,\ldots,t$. Omit the final 8 states with incomplete future coverage;
+do not label them negative. This target uses current loss and a fixed horizon,
+whereas the episode census uses a frozen pre-onset baseline and variable recovery.
+Adjacent decision targets overlap and are not independent observations.
+
+The baseline features are nine arm indicators, $t/1,024$, log current loss,
+log-loss changes over 1,4 and 8 updates, and current log draw-up above the
+past/current 16-lag minimum. The primary extension adds continuous projected
+change. Other inherited comparisons add log gradient level and one-state
+growth, log first-moment level and growth, or all five diagnostic features.
+All fits use training-only standardization and L2 logistic regression with
+$C=1$, liblinear, fixed solver randomness, no class weighting and no tuning.
+
+Test blocks begin 384,512,640,768 and 896, ending before the next block or at 1,016.
+Training decision states are strictly below the test start minus 24. Hence all
+training outcomes precede the earliest loss-history input in the test block.
+The same time cuts apply across all arms; individual states are never randomly
+split. Later blocks may train on previous test periods, as in expanding-window
+forecasting, but never on their own future. Report pooled, per-case, per-arm
+and per-block results. Per-case results subset predictions of the pooled fits.
+
+Average precision is the noninterpolated precision-recall summary; Brier score
+is mean squared probability error. Also report prevalence, decision counts,
+positive counts, fixed-alarm precision/recall and false-positive rates.
+An additional reference predicts the positive prevalence of its training set,
+constant within each test block. It provides a probability-error benchmark,
+not a probability calibration fit. No test operating threshold is selected.
+
+The new exploratory checks add raw cosine alone and raw cosine with one-state
+log gradient growth; replace the three selected loss lags with all 16 lagged
+log-loss changes; and compare current projected change with its 16- and 32-state
+delays. All delay comparisons, including their controls, use a common 48-state
+gap so every training outcome precedes the earliest delayed test input.
+Delaying a feature is not an exchangeable permutation null. These comparisons
+provide descriptive timing sensitivity without a formal causal or significance
+test. The inherited sensitivity grid includes all combinations of horizons
+4/8/16 and future rises 5/10/25\%, with no best-setting selection.
+
+\subsection{Scope of Inference}
+
+This is a retrospective exploratory study motivated by an inspected peak.
+The time blocks are held out from coefficient fitting, not pristine confirmation
+of hypotheses chosen after inspecting the results. Repeated events, overlapping
+forecast windows, rates sharing an initialization and successive training blocks
+are dependent. We report descriptive counts, ranges and block variation, without
+IID confidence intervals or confirmatory$p$-values. One initialization per case
+does not establish robustness across initializations; full-batch training does
+not remove that limitation. Initial-gradient qualification and common frozen
+inputs do not isolate all later cross-hardware numerical effects. No inference
+of Hessian curvature, universal Adam stability, generalization, causal mechanism
+or optimizer-intervention benefit is made.

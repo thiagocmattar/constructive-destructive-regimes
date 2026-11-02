@@ -118,3 +118,15 @@ loss history, despite Adam transforming gradients before parameter updates.
 All 66 plotted series /53,777 values and 12 table scalars are independently
 checked against existing evidence. Experimental scope, false alarms and causal
 limits remain explicit. No new training, scientific inputs or cloud work.
+
+## Paper evidence prepared for the next author review
+
+The [evidence package](paper_evidence/README.md) supersedes the analysis copies
+of the two compact figures with four-row versions including raw-gradient rho,
+lighter overview smoothing and visible raw projected-change crossings. It adds
+an onset-aligned recurrence figure, precision-recall curves, expanded all-arm
+tables, richer-loss/component/delay checks, and candidate section/methods/captions.
+[Observation010](observations/010-paper-evidence-package.md) records all sources,
+reductions, caveats and verification. The current manuscript remains unchanged;
+its prior integrated figure versions are archived locally. Interventions are a
+deferred TODO. No new training, cloud work or additional seeds.

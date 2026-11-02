@@ -214,3 +214,20 @@ loss history, despite Adam transforming gradients before parameter updates.
 All 66 plotted series /53,777 values and 12 table scalars are independently
 checked against existing evidence. Experimental scope, false alarms and causal
 limits remain explicit. No new training, scientific inputs or cloud work.
+
+## Evidence package before another manuscript edit
+
+[Observation010](observations/010-paper-evidence-package.md) and the
+[paper package](paper_evidence/README.md) prepare four focused figures, an
+expanded recurrence/specificity census, prediction tables and candidate prose.
+The overview and micro view now share four rows including raw-gradient rho;
+the overview uses trailing 8 means plus raw projected-change context. All
+micro/event observations remain unsmoothed. Raw source values are unchanged.
+
+Additional local checks retain incremental AP improvement with all 16 recent
+loss changes (0.258 to 0.447), and show raw cosine alone is informative (0.423).
+Delayed-feature controls support timing specificity in aggregate, with exceptions
+retained. Probability-error comparisons to a constant reference limit any
+calibrated-warning claim. All 225 curves /67,530 values and 30 independent refits
+pass verification. The active manuscript and its figure copies are unchanged;
+prior analysis copies are archived. Interventions remain a deferred TODO.

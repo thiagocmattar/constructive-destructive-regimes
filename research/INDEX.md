@@ -29,6 +29,9 @@ Run213/215 / Analysis036 / H027 completed as a descriptive single-initialization
 The [Adam manuscript revision](../manuscript/draft/revisions/2026-11-02-adam-feedback/README.md)
 centers raw-gradient information beyond recent loss, with two compact views and
 a forward-test table; all six author comments and source-to-display checks are addressed.
+The [next-review evidence package](../analyses/036-2026-11-02-controlled-adam-diagnostics/paper_evidence/README.md)
+adds focused figures, an all-arm recurrence census, richer-loss/timing controls
+and candidate text. Manuscript unchanged; interventions deferred.
 
 
 [Analysis035: backward fixed-endpoint profiles](../analyses/035-2026-11-02-eos-backward-anchors/REPORT.md)
