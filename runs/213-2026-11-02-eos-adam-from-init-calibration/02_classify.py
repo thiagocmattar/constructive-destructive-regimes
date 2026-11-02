@@ -73,7 +73,8 @@ def main():
         raise ValueError('Duplicate task/LR arms require canonical attempt qualification first.')
     config_path = Path(__file__).with_name('config.json')
     config = json.loads(config_path.read_text())
-    expected = {(task, lr) for task in config['tasks'] for lr in config['learning_rates']}
+    expected = {(task, lr) for task in config['tasks']
+        for lr in config.get('learning_rates_by_task', {}).get(task, config.get('learning_rates', []))}
     if not set(keys).issubset(expected):
         raise ValueError('An arm is outside the declared task/LR grid.')
     complete = set(keys) == expected

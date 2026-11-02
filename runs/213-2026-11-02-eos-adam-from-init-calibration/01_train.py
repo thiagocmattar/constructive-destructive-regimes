@@ -29,7 +29,8 @@ def main():
     parser.add_argument('--smoke-updates', type=int, choices=[2], help='Two-update mechanics check; never paper evidence.')
     args = parser.parse_args()
     cfg = json.loads((HERE/'config.json').read_text())
-    if args.lr not in cfg['learning_rates']:
+    rates = cfg.get('learning_rates_by_task', {}).get(args.task, cfg.get('learning_rates', []))
+    if args.lr not in rates:
         parser.error('LR is outside the frozen screening grid.')
     if args.smoke_updates:
         cfg['updates'] = args.smoke_updates
@@ -112,7 +113,7 @@ def main():
             append_json(args.output/'boundaries.jsonl', boundary)
             if index in (0, 1, cfg['updates']):
                 torch.save(dict(state=index, raw_gradient=gradient.cpu()), args.output/('audit-gradient-'+str(index)+'.pt'))
-            if index % cfg['evaluate_every'] == 0 or index == cfg['updates']:
+            if cfg.get('evaluate_splits', True) and (index % cfg['evaluate_every'] == 0 or index == cfg['updates']):
                 # Every prepared split is complete; no random or truncated probes.
                 evaluation = {split: task.evaluate(split) for split in ('valid', 'test') if 'x_'+split in data}
                 append_json(args.output/'evaluation.jsonl', dict(state=index, splits=evaluation, utc=stamp()))
@@ -136,7 +137,7 @@ def main():
                 actual_displacement_identity_residual_norm=float((diagnostics.streams['actual'].total-(after-initial_parameters)).norm()),
                 seconds=time.perf_counter()-begin)
             append_json(args.output/'metrics.jsonl', stats)
-            if completed % cfg['checkpoint_every'] == 0:
+            if completed % cfg['checkpoint_every'] == 0 and completed < cfg['updates']:
                 save()
             elapsed = time.perf_counter()-clock
             event = dict(utc=stamp(), completed_updates=completed, requested_updates=cfg['updates'],

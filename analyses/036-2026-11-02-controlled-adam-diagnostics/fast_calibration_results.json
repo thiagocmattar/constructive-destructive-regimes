@@ -1,0 +1,1301 @@
+{
+  "status": "nine_arms_verified",
+  "updates": 1152,
+  "conditions": [
+    {
+      "task": "mlp",
+      "lr": 0.0001,
+      "updates": 128,
+      "status": "complete",
+      "initial_loss": 0.5967808663845062,
+      "label": "smooth_progress",
+      "tail_window": 64,
+      "upward_fraction": 0.0,
+      "median_relative_absolute_change": 0.002692572130682212,
+      "terminal_mean": 0.33213485323358327,
+      "terminal_over_initial": 0.5565440716049844,
+      "tail_min": 0.3045445941388607,
+      "tail_max": 0.36139752715826035,
+      "peak_loss": 0.5967808663845062,
+      "startup_peak_loss": 0.5967808663845062,
+      "final_loss": 0.3045445941388607,
+      "terminal_adjacent_raw_cosine": 0.9998771452734427,
+      "tail_raw_cosine_median": 0.9995296720507119,
+      "tail_stream_cosine_medians": {
+        "raw": 0.9995296720507119,
+        "moment": 0.9999403868408887,
+        "adaptive": 0.9998642862964857,
+        "actual": 0.99986428594698
+      },
+      "tail_moment_over_gradient_norm_median": 1.1335250485618051,
+      "tail_unbiased_moment_over_gradient_norm_median": 1.133766165087803,
+      "final_retention": {
+        "raw": 0.7174717555749357,
+        "moment": 0.9246473753879357,
+        "adaptive": 0.7214345189990565,
+        "actual": 0.7214345122941856
+      },
+      "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+      "source": "runs/213-2026-11-02-eos-adam-from-init-calibration/artifacts/attempt-01/local-mlp/lr-0.0001",
+      "manifest_sha256": "c8ecfdad56be0859d7d8018c025d03ecf52798186f96fd1ead78dd8a16a9f80f",
+      "final_checkpoint_bytes": 55188643,
+      "elapsed_seconds": 1.9860264000017196,
+      "peak_allocated_bytes": 323049472,
+      "initial_gradient_relative_error_to_case_reference": 0.0,
+      "initial_gradient_reference_source": "runs/213-2026-11-02-eos-adam-from-init-calibration/artifacts/attempt-01/local-mlp/lr-0.0001",
+      "final_parameter_telescoping_error": 0.0,
+      "gd_loss_matches": [
+        {
+          "gd_run": "059",
+          "gd_state": 500,
+          "target_loss": 0.38961104303598404,
+          "first_adam_state": 42,
+          "first_adam_trailing64_state": 76,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "059",
+          "gd_state": 1000,
+          "target_loss": 0.37363753467798233,
+          "first_adam_state": 54,
+          "first_adam_trailing64_state": 88,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "059",
+          "gd_state": 2000,
+          "target_loss": 0.3532533198595047,
+          "first_adam_state": 74,
+          "first_adam_trailing64_state": 106,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "059",
+          "gd_state": 3000,
+          "target_loss": 0.3365076333284378,
+          "first_adam_state": 92,
+          "first_adam_trailing64_state": 124,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "062",
+          "gd_state": 500,
+          "target_loss": 0.3447737619280815,
+          "first_adam_state": 82,
+          "first_adam_trailing64_state": 115,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "062",
+          "gd_state": 1000,
+          "target_loss": 0.30438389256596565,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "062",
+          "gd_state": 2000,
+          "target_loss": 0.24561740458011627,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "062",
+          "gd_state": 3000,
+          "target_loss": 0.21144264936447144,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "122",
+          "gd_state": 500,
+          "target_loss": 0.3295493349432945,
+          "first_adam_state": 99,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "122",
+          "gd_state": 1000,
+          "target_loss": 0.268673662096262,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "122",
+          "gd_state": 2000,
+          "target_loss": 0.21827969327569008,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "122",
+          "gd_state": 3000,
+          "target_loss": 0.15386888427734377,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        }
+      ]
+    },
+    {
+      "task": "mlp",
+      "lr": 0.0003,
+      "updates": 128,
+      "status": "complete",
+      "initial_loss": 0.5967808663845062,
+      "label": "smooth_progress",
+      "tail_window": 64,
+      "upward_fraction": 0.0,
+      "median_relative_absolute_change": 0.003787343876810725,
+      "terminal_mean": 0.30121032847091556,
+      "terminal_over_initial": 0.5047251770917963,
+      "tail_min": 0.26344795152544975,
+      "tail_max": 0.33642539381980896,
+      "peak_loss": 0.7722983360290527,
+      "startup_peak_loss": 0.7722983360290527,
+      "final_loss": 0.26344795152544975,
+      "terminal_adjacent_raw_cosine": 0.9993760250688556,
+      "tail_raw_cosine_median": 0.9933339572648798,
+      "tail_stream_cosine_medians": {
+        "raw": 0.9933339572648798,
+        "moment": 0.9997259289646414,
+        "adaptive": 0.9997134602459146,
+        "actual": 0.9997134596149171
+      },
+      "tail_moment_over_gradient_norm_median": 0.9857884893668071,
+      "tail_unbiased_moment_over_gradient_norm_median": 0.9858564540276166,
+      "final_retention": {
+        "raw": 0.3461956350947857,
+        "moment": 0.7360627078034879,
+        "adaptive": 0.6285047257219788,
+        "actual": 0.6285047248868746
+      },
+      "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+      "source": "runs/213-2026-11-02-eos-adam-from-init-calibration/artifacts/attempt-01/local-mlp/lr-0.0003",
+      "manifest_sha256": "cc9bb2e89ef23f269ffcd58c564d33d45a7025418af6f5fcf80c666681478d85",
+      "final_checkpoint_bytes": 55188643,
+      "elapsed_seconds": 1.9409878998994827,
+      "peak_allocated_bytes": 323049472,
+      "initial_gradient_relative_error_to_case_reference": 0.0,
+      "initial_gradient_reference_source": "runs/213-2026-11-02-eos-adam-from-init-calibration/artifacts/attempt-01/local-mlp/lr-0.0001",
+      "final_parameter_telescoping_error": 0.0,
+      "gd_loss_matches": [
+        {
+          "gd_run": "059",
+          "gd_state": 500,
+          "target_loss": 0.38961104303598404,
+          "first_adam_state": 29,
+          "first_adam_trailing64_state": 67,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "059",
+          "gd_state": 1000,
+          "target_loss": 0.37363753467798233,
+          "first_adam_state": 37,
+          "first_adam_trailing64_state": 74,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "059",
+          "gd_state": 2000,
+          "target_loss": 0.3532533198595047,
+          "first_adam_state": 51,
+          "first_adam_trailing64_state": 85,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "059",
+          "gd_state": 3000,
+          "target_loss": 0.3365076333284378,
+          "first_adam_state": 65,
+          "first_adam_trailing64_state": 98,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "062",
+          "gd_state": 500,
+          "target_loss": 0.3447737619280815,
+          "first_adam_state": 58,
+          "first_adam_trailing64_state": 91,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "062",
+          "gd_state": 1000,
+          "target_loss": 0.30438389256596565,
+          "first_adam_state": 95,
+          "first_adam_trailing64_state": 126,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "062",
+          "gd_state": 2000,
+          "target_loss": 0.24561740458011627,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "062",
+          "gd_state": 3000,
+          "target_loss": 0.21144264936447144,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "122",
+          "gd_state": 500,
+          "target_loss": 0.3295493349432945,
+          "first_adam_state": 72,
+          "first_adam_trailing64_state": 104,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "122",
+          "gd_state": 1000,
+          "target_loss": 0.268673662096262,
+          "first_adam_state": 124,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "122",
+          "gd_state": 2000,
+          "target_loss": 0.21827969327569008,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "122",
+          "gd_state": 3000,
+          "target_loss": 0.15386888427734377,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        }
+      ]
+    },
+    {
+      "task": "mlp",
+      "lr": 0.001,
+      "updates": 128,
+      "status": "complete",
+      "initial_loss": 0.5967808663845062,
+      "label": "smooth_progress",
+      "tail_window": 64,
+      "upward_fraction": 0.0,
+      "median_relative_absolute_change": 0.006091050903791099,
+      "terminal_mean": 0.2781916715321131,
+      "terminal_over_initial": 0.46615380485887437,
+      "tail_min": 0.22286731377243996,
+      "tail_max": 0.3293919414281845,
+      "peak_loss": 2.4583400189876556,
+      "startup_peak_loss": 2.4583400189876556,
+      "final_loss": 0.22286731377243996,
+      "terminal_adjacent_raw_cosine": 0.9971440250861291,
+      "tail_raw_cosine_median": 0.9828095291683916,
+      "tail_stream_cosine_medians": {
+        "raw": 0.9828095291683916,
+        "moment": 0.9996331621143741,
+        "adaptive": 0.9992217483013471,
+        "actual": 0.9992217481023733
+      },
+      "tail_moment_over_gradient_norm_median": 0.9453094784481777,
+      "tail_unbiased_moment_over_gradient_norm_median": 0.945338923649119,
+      "final_retention": {
+        "raw": 0.24002580158385084,
+        "moment": 0.6374387706685428,
+        "adaptive": 0.5441156407961978,
+        "actual": 0.5441156409071485
+      },
+      "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+      "source": "runs/213-2026-11-02-eos-adam-from-init-calibration/artifacts/attempt-01/local-mlp/lr-0.001",
+      "manifest_sha256": "0c65a83cf5b7cc6a8ef27174983e9f5455253a3301e5efffa4c10f8152c686db",
+      "final_checkpoint_bytes": 55188643,
+      "elapsed_seconds": 1.9763654998969287,
+      "peak_allocated_bytes": 323049472,
+      "initial_gradient_relative_error_to_case_reference": 0.0,
+      "initial_gradient_reference_source": "runs/213-2026-11-02-eos-adam-from-init-calibration/artifacts/attempt-01/local-mlp/lr-0.0001",
+      "final_parameter_telescoping_error": 0.0,
+      "gd_loss_matches": [
+        {
+          "gd_run": "059",
+          "gd_state": 500,
+          "target_loss": 0.38961104303598404,
+          "first_adam_state": 31,
+          "first_adam_trailing64_state": 69,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "059",
+          "gd_state": 1000,
+          "target_loss": 0.37363753467798233,
+          "first_adam_state": 38,
+          "first_adam_trailing64_state": 74,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "059",
+          "gd_state": 2000,
+          "target_loss": 0.3532533198595047,
+          "first_adam_state": 50,
+          "first_adam_trailing64_state": 83,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "059",
+          "gd_state": 3000,
+          "target_loss": 0.3365076333284378,
+          "first_adam_state": 61,
+          "first_adam_trailing64_state": 93,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "062",
+          "gd_state": 500,
+          "target_loss": 0.3447737619280815,
+          "first_adam_state": 55,
+          "first_adam_trailing64_state": 88,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "062",
+          "gd_state": 1000,
+          "target_loss": 0.30438389256596565,
+          "first_adam_state": 82,
+          "first_adam_trailing64_state": 113,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "062",
+          "gd_state": 2000,
+          "target_loss": 0.24561740458011627,
+          "first_adam_state": 116,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "062",
+          "gd_state": 3000,
+          "target_loss": 0.21144264936447144,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "122",
+          "gd_state": 500,
+          "target_loss": 0.3295493349432945,
+          "first_adam_state": 65,
+          "first_adam_trailing64_state": 97,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "122",
+          "gd_state": 1000,
+          "target_loss": 0.268673662096262,
+          "first_adam_state": 103,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "122",
+          "gd_state": 2000,
+          "target_loss": 0.21827969327569008,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "122",
+          "gd_state": 3000,
+          "target_loss": 0.15386888427734377,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        }
+      ]
+    },
+    {
+      "task": "transformer",
+      "lr": 0.0003,
+      "updates": 128,
+      "status": "complete",
+      "initial_loss": 10.729182743056814,
+      "label": "smooth_progress",
+      "tail_window": 64,
+      "upward_fraction": 0.0,
+      "median_relative_absolute_change": 0.002129709326119466,
+      "terminal_mean": 6.397660663618983,
+      "terminal_over_initial": 0.5962859256693253,
+      "tail_min": 5.981771384829782,
+      "tail_max": 6.832396254612084,
+      "peak_loss": 10.729182743056814,
+      "startup_peak_loss": 10.729182743056814,
+      "final_loss": 5.981771384829782,
+      "terminal_adjacent_raw_cosine": 0.9994841437401798,
+      "tail_raw_cosine_median": 0.9987684063599216,
+      "tail_stream_cosine_medians": {
+        "raw": 0.9987684063599216,
+        "moment": 0.9997654008135721,
+        "adaptive": 0.9995182541799565,
+        "actual": 0.9995182541402965
+      },
+      "tail_moment_over_gradient_norm_median": 1.0621564471999463,
+      "tail_unbiased_moment_over_gradient_norm_median": 1.06215970567137,
+      "final_retention": {
+        "raw": 0.8564041030396962,
+        "moment": 0.8964339162464233,
+        "adaptive": 0.810336804364768,
+        "actual": 0.8103368044140316
+      },
+      "gpu": "NVIDIA GeForce RTX 5090",
+      "source": "runs/213-2026-11-02-eos-adam-from-init-calibration/artifacts/attempt-01/worker0/lr-0.0003",
+      "manifest_sha256": "0cf7fe02b6d1c2fcc901ac110289d34d7fc56249cd109aa57c78d45fe70c2354",
+      "final_checkpoint_bytes": 1165633421,
+      "elapsed_seconds": 798.1190266481135,
+      "peak_allocated_bytes": 2799906304,
+      "initial_gradient_relative_error_to_case_reference": 0.0,
+      "initial_gradient_reference_source": "runs/213-2026-11-02-eos-adam-from-init-calibration/artifacts/attempt-01/worker0/lr-0.0003",
+      "final_parameter_telescoping_error": 0.0,
+      "gd_loss_matches": [
+        {
+          "gd_run": "121",
+          "gd_state": 500,
+          "target_loss": 7.330716035019716,
+          "first_adam_state": 43,
+          "first_adam_trailing64_state": 81,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "121",
+          "gd_state": 1000,
+          "target_loss": 7.062673203313899,
+          "first_adam_state": 52,
+          "first_adam_trailing64_state": 90,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "121",
+          "gd_state": 2000,
+          "target_loss": 6.787544823638962,
+          "first_adam_state": 69,
+          "first_adam_trailing64_state": 102,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "121",
+          "gd_state": 3000,
+          "target_loss": 6.630096961210181,
+          "first_adam_state": 80,
+          "first_adam_trailing64_state": 112,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "125",
+          "gd_state": 500,
+          "target_loss": 7.070934507097312,
+          "first_adam_state": 52,
+          "first_adam_trailing64_state": 89,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "125",
+          "gd_state": 1000,
+          "target_loss": 6.792513584252755,
+          "first_adam_state": 68,
+          "first_adam_trailing64_state": 102,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "125",
+          "gd_state": 2000,
+          "target_loss": 6.51654500383967,
+          "first_adam_state": 88,
+          "first_adam_trailing64_state": 120,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "125",
+          "gd_state": 3000,
+          "target_loss": 6.351935365365105,
+          "first_adam_state": 100,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "126",
+          "gd_state": 500,
+          "target_loss": 6.819112337838082,
+          "first_adam_state": 66,
+          "first_adam_trailing64_state": 101,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "126",
+          "gd_state": 1000,
+          "target_loss": 6.562957109661155,
+          "first_adam_state": 85,
+          "first_adam_trailing64_state": 117,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "126",
+          "gd_state": 2000,
+          "target_loss": 6.256404861790646,
+          "first_adam_state": 107,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "126",
+          "gd_state": 3000,
+          "target_loss": 6.069747180845569,
+          "first_adam_state": 121,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        }
+      ]
+    },
+    {
+      "task": "transformer",
+      "lr": 0.003,
+      "updates": 128,
+      "status": "complete",
+      "initial_loss": 10.729182743056814,
+      "label": "smooth_progress",
+      "tail_window": 64,
+      "upward_fraction": 0.031746031746031744,
+      "median_relative_absolute_change": 0.0072619101495816326,
+      "terminal_mean": 3.717063993554251,
+      "terminal_over_initial": 0.3464442802933595,
+      "tail_min": 2.943088367217052,
+      "tail_max": 4.583019286618428,
+      "peak_loss": 10.729182743056814,
+      "startup_peak_loss": 10.729182743056814,
+      "final_loss": 2.943088367217052,
+      "terminal_adjacent_raw_cosine": -0.7019718077578688,
+      "tail_raw_cosine_median": -0.4131932076333463,
+      "tail_stream_cosine_medians": {
+        "raw": -0.4131932076333463,
+        "moment": 0.7558550931554172,
+        "adaptive": 0.9753872515058852,
+        "actual": 0.9753872514014459
+      },
+      "tail_moment_over_gradient_norm_median": 0.14879667953829528,
+      "tail_unbiased_moment_over_gradient_norm_median": 0.14881360400346383,
+      "final_retention": {
+        "raw": 0.17297663462590418,
+        "moment": 0.7105179307614107,
+        "adaptive": 0.5584522489730844,
+        "actual": 0.5584522514975905
+      },
+      "gpu": "NVIDIA GeForce RTX 5090",
+      "source": "runs/213-2026-11-02-eos-adam-from-init-calibration/artifacts/attempt-01/worker0/lr-0.003",
+      "manifest_sha256": "64b2af7ff0e48f6eb909eaee84e19a1865256e887dd86c5c5868dea5b0da6ae4",
+      "final_checkpoint_bytes": 1165633421,
+      "elapsed_seconds": 808.2214673070703,
+      "peak_allocated_bytes": 2799906304,
+      "initial_gradient_relative_error_to_case_reference": 0.0,
+      "initial_gradient_reference_source": "runs/213-2026-11-02-eos-adam-from-init-calibration/artifacts/attempt-01/worker0/lr-0.0003",
+      "final_parameter_telescoping_error": 0.0,
+      "gd_loss_matches": [
+        {
+          "gd_run": "121",
+          "gd_state": 500,
+          "target_loss": 7.330716035019716,
+          "first_adam_state": 6,
+          "first_adam_trailing64_state": 63,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "121",
+          "gd_state": 1000,
+          "target_loss": 7.062673203313899,
+          "first_adam_state": 8,
+          "first_adam_trailing64_state": 63,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "121",
+          "gd_state": 2000,
+          "target_loss": 6.787544823638962,
+          "first_adam_state": 15,
+          "first_adam_trailing64_state": 63,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "121",
+          "gd_state": 3000,
+          "target_loss": 6.630096961210181,
+          "first_adam_state": 16,
+          "first_adam_trailing64_state": 63,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "125",
+          "gd_state": 500,
+          "target_loss": 7.070934507097312,
+          "first_adam_state": 8,
+          "first_adam_trailing64_state": 63,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "125",
+          "gd_state": 1000,
+          "target_loss": 6.792513584252755,
+          "first_adam_state": 15,
+          "first_adam_trailing64_state": 63,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "125",
+          "gd_state": 2000,
+          "target_loss": 6.51654500383967,
+          "first_adam_state": 17,
+          "first_adam_trailing64_state": 63,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "125",
+          "gd_state": 3000,
+          "target_loss": 6.351935365365105,
+          "first_adam_state": 20,
+          "first_adam_trailing64_state": 63,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "126",
+          "gd_state": 500,
+          "target_loss": 6.819112337838082,
+          "first_adam_state": 15,
+          "first_adam_trailing64_state": 63,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "126",
+          "gd_state": 1000,
+          "target_loss": 6.562957109661155,
+          "first_adam_state": 17,
+          "first_adam_trailing64_state": 63,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "126",
+          "gd_state": 2000,
+          "target_loss": 6.256404861790646,
+          "first_adam_state": 21,
+          "first_adam_trailing64_state": 63,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "126",
+          "gd_state": 3000,
+          "target_loss": 6.069747180845569,
+          "first_adam_state": 23,
+          "first_adam_trailing64_state": 63,
+          "censoring_horizon": 128
+        }
+      ]
+    },
+    {
+      "task": "resnet",
+      "lr": 0.001,
+      "updates": 128,
+      "status": "complete",
+      "initial_loss": 2.30956712890625,
+      "label": "smooth_progress",
+      "tail_window": 64,
+      "upward_fraction": 0.015873015873015872,
+      "median_relative_absolute_change": 0.005821458791895536,
+      "terminal_mean": 1.582952501678467,
+      "terminal_over_initial": 0.6853892583880475,
+      "tail_min": 1.3156420458984377,
+      "tail_max": 1.893201584472657,
+      "peak_loss": 2.30956712890625,
+      "startup_peak_loss": 2.30956712890625,
+      "final_loss": 1.3156420458984377,
+      "terminal_adjacent_raw_cosine": -0.40326708152253415,
+      "tail_raw_cosine_median": -0.13179542374259356,
+      "tail_stream_cosine_medians": {
+        "raw": -0.13179542374259356,
+        "moment": 0.9760085449878757,
+        "adaptive": 0.9186576292737225,
+        "actual": 0.9186576320572373
+      },
+      "tail_moment_over_gradient_norm_median": 0.43282015938260354,
+      "tail_unbiased_moment_over_gradient_norm_median": 0.4328356451612624,
+      "final_retention": {
+        "raw": 0.49327565768145276,
+        "moment": 0.9134866037691235,
+        "adaptive": 0.49342364625595364,
+        "actual": 0.49342364535134664
+      },
+      "gpu": "NVIDIA GeForce RTX 5090",
+      "source": "runs/213-2026-11-02-eos-adam-from-init-calibration/artifacts/attempt-01/worker3/lr-0.001",
+      "manifest_sha256": "e5f30574104445971f7c8e911f09df1d5b2a90275ca61e9ae62fd53e2d684dfb",
+      "final_checkpoint_bytes": 39124782,
+      "elapsed_seconds": 369.07833965681493,
+      "peak_allocated_bytes": 3365940224,
+      "initial_gradient_relative_error_to_case_reference": 0.0,
+      "initial_gradient_reference_source": "runs/213-2026-11-02-eos-adam-from-init-calibration/artifacts/attempt-01/worker3/lr-0.001",
+      "final_parameter_telescoping_error": 0.0,
+      "gd_loss_matches": [
+        {
+          "gd_run": "120",
+          "gd_state": 500,
+          "target_loss": 1.6699012768554689,
+          "first_adam_state": 87,
+          "first_adam_trailing64_state": 119,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "120",
+          "gd_state": 1000,
+          "target_loss": 1.3101294287109375,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "120",
+          "gd_state": 2000,
+          "target_loss": 0.7946179235839844,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "120",
+          "gd_state": 3000,
+          "target_loss": 0.48983840637207027,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "123",
+          "gd_state": 500,
+          "target_loss": 2.0940153222656246,
+          "first_adam_state": 46,
+          "first_adam_trailing64_state": 74,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "123",
+          "gd_state": 1000,
+          "target_loss": 1.9284021386718755,
+          "first_adam_state": 62,
+          "first_adam_trailing64_state": 93,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "123",
+          "gd_state": 2000,
+          "target_loss": 1.6426034594726564,
+          "first_adam_state": 89,
+          "first_adam_trailing64_state": 122,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "123",
+          "gd_state": 3000,
+          "target_loss": 1.466540378417969,
+          "first_adam_state": 109,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "124",
+          "gd_state": 500,
+          "target_loss": 1.9328419433593746,
+          "first_adam_state": 62,
+          "first_adam_trailing64_state": 92,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "124",
+          "gd_state": 1000,
+          "target_loss": 1.649430200195312,
+          "first_adam_state": 89,
+          "first_adam_trailing64_state": 121,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "124",
+          "gd_state": 2000,
+          "target_loss": 1.2848856225585934,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "124",
+          "gd_state": 3000,
+          "target_loss": 0.9672287634277343,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        }
+      ]
+    },
+    {
+      "task": "transformer",
+      "lr": 0.001,
+      "updates": 128,
+      "status": "complete",
+      "initial_loss": 10.729182743056814,
+      "label": "smooth_progress",
+      "tail_window": 64,
+      "upward_fraction": 0.0,
+      "median_relative_absolute_change": 0.0031324810102852227,
+      "terminal_mean": 5.069158675239356,
+      "terminal_over_initial": 0.47246456665301606,
+      "tail_min": 4.593133247899309,
+      "tail_max": 5.599031971083351,
+      "peak_loss": 10.729182743056814,
+      "startup_peak_loss": 10.729182743056814,
+      "final_loss": 4.593133247899309,
+      "terminal_adjacent_raw_cosine": -0.8923459851847498,
+      "tail_raw_cosine_median": -0.660177071981308,
+      "tail_stream_cosine_medians": {
+        "raw": -0.660177071981308,
+        "moment": 0.9273272749637759,
+        "adaptive": 0.9959194949888073,
+        "actual": 0.995919494953692
+      },
+      "tail_moment_over_gradient_norm_median": 0.2661694360980829,
+      "tail_unbiased_moment_over_gradient_norm_median": 0.2661876798652896,
+      "final_retention": {
+        "raw": 0.4693122308883631,
+        "moment": 0.8602752292561975,
+        "adaptive": 0.6689505721520645,
+        "actual": 0.6689505733829474
+      },
+      "gpu": "NVIDIA GeForce RTX 5090",
+      "source": "runs/213-2026-11-02-eos-adam-from-init-calibration/artifacts/attempt-01/worker3/lr-0.001-transformer",
+      "manifest_sha256": "3a4858ea5037806a09e361a89e9d125e2a25961c8b6ba10b28d40fe1a89958b3",
+      "final_checkpoint_bytes": 1165633421,
+      "elapsed_seconds": 634.471111245919,
+      "peak_allocated_bytes": 2799906304,
+      "initial_gradient_relative_error_to_case_reference": 0.0,
+      "initial_gradient_reference_source": "runs/213-2026-11-02-eos-adam-from-init-calibration/artifacts/attempt-01/worker0/lr-0.0003",
+      "final_parameter_telescoping_error": 0.0,
+      "gd_loss_matches": [
+        {
+          "gd_run": "121",
+          "gd_state": 500,
+          "target_loss": 7.330716035019716,
+          "first_adam_state": 15,
+          "first_adam_trailing64_state": 63,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "121",
+          "gd_state": 1000,
+          "target_loss": 7.062673203313899,
+          "first_adam_state": 19,
+          "first_adam_trailing64_state": 63,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "121",
+          "gd_state": 2000,
+          "target_loss": 6.787544823638962,
+          "first_adam_state": 27,
+          "first_adam_trailing64_state": 65,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "121",
+          "gd_state": 3000,
+          "target_loss": 6.630096961210181,
+          "first_adam_state": 31,
+          "first_adam_trailing64_state": 67,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "125",
+          "gd_state": 500,
+          "target_loss": 7.070934507097312,
+          "first_adam_state": 19,
+          "first_adam_trailing64_state": 63,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "125",
+          "gd_state": 1000,
+          "target_loss": 6.792513584252755,
+          "first_adam_state": 27,
+          "first_adam_trailing64_state": 65,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "125",
+          "gd_state": 2000,
+          "target_loss": 6.51654500383967,
+          "first_adam_state": 34,
+          "first_adam_trailing64_state": 70,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "125",
+          "gd_state": 3000,
+          "target_loss": 6.351935365365105,
+          "first_adam_state": 39,
+          "first_adam_trailing64_state": 73,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "126",
+          "gd_state": 500,
+          "target_loss": 6.819112337838082,
+          "first_adam_state": 26,
+          "first_adam_trailing64_state": 65,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "126",
+          "gd_state": 1000,
+          "target_loss": 6.562957109661155,
+          "first_adam_state": 33,
+          "first_adam_trailing64_state": 69,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "126",
+          "gd_state": 2000,
+          "target_loss": 6.256404861790646,
+          "first_adam_state": 42,
+          "first_adam_trailing64_state": 76,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "126",
+          "gd_state": 3000,
+          "target_loss": 6.069747180845569,
+          "first_adam_state": 47,
+          "first_adam_trailing64_state": 82,
+          "censoring_horizon": 128
+        }
+      ]
+    },
+    {
+      "task": "resnet",
+      "lr": 0.0003,
+      "updates": 128,
+      "status": "complete",
+      "initial_loss": 2.30956712890625,
+      "label": "smooth_progress",
+      "tail_window": 64,
+      "upward_fraction": 0.0,
+      "median_relative_absolute_change": 0.0012095689950609567,
+      "terminal_mean": 2.160681334228516,
+      "terminal_over_initial": 0.9355351949660616,
+      "tail_min": 2.0681698779296878,
+      "tail_max": 2.2342758544921884,
+      "peak_loss": 2.30956712890625,
+      "startup_peak_loss": 2.30956712890625,
+      "final_loss": 2.0681698779296878,
+      "terminal_adjacent_raw_cosine": 0.999972636681273,
+      "tail_raw_cosine_median": 0.9999629216735649,
+      "tail_stream_cosine_medians": {
+        "raw": 0.9999629216735649,
+        "moment": 0.9999613528615097,
+        "adaptive": 0.9989440627340087,
+        "actual": 0.9989440637139667
+      },
+      "tail_moment_over_gradient_norm_median": 0.9223006032035167,
+      "tail_unbiased_moment_over_gradient_norm_median": 0.9223360755178258,
+      "final_retention": {
+        "raw": 0.9194345583368427,
+        "moment": 0.9246264249076628,
+        "adaptive": 0.6642623800386611,
+        "actual": 0.6642623810633909
+      },
+      "gpu": "NVIDIA GeForce RTX 5090",
+      "source": "runs/213-2026-11-02-eos-adam-from-init-calibration/artifacts/attempt-01/worker4/lr-0.0003",
+      "manifest_sha256": "957ebcaf67368e238d96e89246777fc4ded5262811773a075b21f35a14a34197",
+      "final_checkpoint_bytes": 39124782,
+      "elapsed_seconds": 367.80287297582254,
+      "peak_allocated_bytes": 3365940224,
+      "initial_gradient_relative_error_to_case_reference": 7.815000337011997e-08,
+      "initial_gradient_reference_source": "runs/213-2026-11-02-eos-adam-from-init-calibration/artifacts/attempt-01/worker3/lr-0.001",
+      "final_parameter_telescoping_error": 0.0,
+      "gd_loss_matches": [
+        {
+          "gd_run": "120",
+          "gd_state": 500,
+          "target_loss": 1.6699012768554689,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "120",
+          "gd_state": 1000,
+          "target_loss": 1.3101294287109375,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "120",
+          "gd_state": 2000,
+          "target_loss": 0.7946179235839844,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "120",
+          "gd_state": 3000,
+          "target_loss": 0.48983840637207027,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "123",
+          "gd_state": 500,
+          "target_loss": 2.0940153222656246,
+          "first_adam_state": 121,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "123",
+          "gd_state": 1000,
+          "target_loss": 1.9284021386718755,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "123",
+          "gd_state": 2000,
+          "target_loss": 1.6426034594726564,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "123",
+          "gd_state": 3000,
+          "target_loss": 1.466540378417969,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "124",
+          "gd_state": 500,
+          "target_loss": 1.9328419433593746,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "124",
+          "gd_state": 1000,
+          "target_loss": 1.649430200195312,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "124",
+          "gd_state": 2000,
+          "target_loss": 1.2848856225585934,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "124",
+          "gd_state": 3000,
+          "target_loss": 0.9672287634277343,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        }
+      ]
+    },
+    {
+      "task": "resnet",
+      "lr": 0.003,
+      "updates": 128,
+      "status": "complete",
+      "initial_loss": 2.30956712890625,
+      "label": "unclassified",
+      "tail_window": 64,
+      "upward_fraction": 0.1746031746031746,
+      "median_relative_absolute_change": 0.006477730151330757,
+      "terminal_mean": 1.0411077990722657,
+      "terminal_over_initial": 0.4507804887079887,
+      "tail_min": 0.853715811767578,
+      "tail_max": 1.3040314013671876,
+      "peak_loss": 2.30956712890625,
+      "startup_peak_loss": 2.30956712890625,
+      "final_loss": 0.853715811767578,
+      "terminal_adjacent_raw_cosine": -0.7713926725217097,
+      "tail_raw_cosine_median": -0.5115557896138109,
+      "tail_stream_cosine_medians": {
+        "raw": -0.5115557896138109,
+        "moment": 0.5105591438220392,
+        "adaptive": 0.6341807742077841,
+        "actual": 0.6341807656471989
+      },
+      "tail_moment_over_gradient_norm_median": 0.10557837329432801,
+      "tail_unbiased_moment_over_gradient_norm_median": 0.10559340196454964,
+      "final_retention": {
+        "raw": 0.13359336321906654,
+        "moment": 0.7602845793786884,
+        "adaptive": 0.4154823064453929,
+        "actual": 0.4154823070690513
+      },
+      "gpu": "NVIDIA GeForce RTX 5090",
+      "source": "runs/213-2026-11-02-eos-adam-from-init-calibration/artifacts/attempt-01/worker4/lr-0.003",
+      "manifest_sha256": "40a4cffddc600f3e898067aa682687c83c3727654063309358c2e1178cee0858",
+      "final_checkpoint_bytes": 39124782,
+      "elapsed_seconds": 366.9305765130557,
+      "peak_allocated_bytes": 3365940224,
+      "initial_gradient_relative_error_to_case_reference": 8.052716298832275e-08,
+      "initial_gradient_reference_source": "runs/213-2026-11-02-eos-adam-from-init-calibration/artifacts/attempt-01/worker3/lr-0.001",
+      "final_parameter_telescoping_error": 0.0,
+      "gd_loss_matches": [
+        {
+          "gd_run": "120",
+          "gd_state": 500,
+          "target_loss": 1.6699012768554689,
+          "first_adam_state": 40,
+          "first_adam_trailing64_state": 74,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "120",
+          "gd_state": 1000,
+          "target_loss": 1.3101294287109375,
+          "first_adam_state": 65,
+          "first_adam_trailing64_state": 99,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "120",
+          "gd_state": 2000,
+          "target_loss": 0.7946179235839844,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "120",
+          "gd_state": 3000,
+          "target_loss": 0.48983840637207027,
+          "first_adam_state": null,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "123",
+          "gd_state": 500,
+          "target_loss": 2.0940153222656246,
+          "first_adam_state": 19,
+          "first_adam_trailing64_state": 63,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "123",
+          "gd_state": 1000,
+          "target_loss": 1.9284021386718755,
+          "first_adam_state": 27,
+          "first_adam_trailing64_state": 63,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "123",
+          "gd_state": 2000,
+          "target_loss": 1.6426034594726564,
+          "first_adam_state": 41,
+          "first_adam_trailing64_state": 75,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "123",
+          "gd_state": 3000,
+          "target_loss": 1.466540378417969,
+          "first_adam_state": 52,
+          "first_adam_trailing64_state": 87,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "124",
+          "gd_state": 500,
+          "target_loss": 1.9328419433593746,
+          "first_adam_state": 27,
+          "first_adam_trailing64_state": 63,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "124",
+          "gd_state": 1000,
+          "target_loss": 1.649430200195312,
+          "first_adam_state": 41,
+          "first_adam_trailing64_state": 75,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "124",
+          "gd_state": 2000,
+          "target_loss": 1.2848856225585934,
+          "first_adam_state": 66,
+          "first_adam_trailing64_state": 101,
+          "censoring_horizon": 128
+        },
+        {
+          "gd_run": "124",
+          "gd_state": 3000,
+          "target_loss": 0.9672287634277343,
+          "first_adam_state": 107,
+          "first_adam_trailing64_state": null,
+          "censoring_horizon": 128
+        }
+      ]
+    }
+  ],
+  "regime_candidates": {
+    "mlp": {
+      "smooth_lr": 0.0001,
+      "intermediate_lr": null,
+      "oscillatory_lr": null,
+      "spans_requested_regimes": false
+    },
+    "resnet": {
+      "smooth_lr": 0.0003,
+      "intermediate_lr": null,
+      "oscillatory_lr": null,
+      "spans_requested_regimes": false
+    },
+    "transformer": {
+      "smooth_lr": 0.0003,
+      "intermediate_lr": null,
+      "oscillatory_lr": null,
+      "spans_requested_regimes": false
+    }
+  },
+  "limitations": [
+    "128-step training-only pilot; loss labels are provisional.",
+    "One initialization per case; no seed uncertainty.",
+    "No Hessian/HVP measurements or curvature/stability claims.",
+    "MLP on one owned laptop; each other case uses matched 5090 class across its LRs."
+  ]
+}

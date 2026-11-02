@@ -1,0 +1,17 @@
+{
+  "reason": "Two container starts never became ready; use warm same-class workers after their ResNet arms.",
+  "scientific_inputs_changed": false,
+  "run_id": "213",
+  "jobs": [
+    {
+      "worker": 3,
+      "task": "transformer",
+      "lr": 0.001
+    },
+    {
+      "worker": 4,
+      "task": "resnet",
+      "lr": 0.0003
+    }
+  ]
+}

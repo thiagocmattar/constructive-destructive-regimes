@@ -1,5 +1,10 @@
 # Parallel Runpod estimate, November 2, 2026
 
+Historical estimate for the original 21 x256 screening proposal. The user's
+later calibration-first instruction reduced this to9 x128; see
+[FAST_CALIBRATION.md](FAST_CALIBRATION.md) and the eventual calibration-closeout.json
+for current scope and realized execution. Main-study timing remains provisional.
+
 Plan for approximately **4--8.5 hours end to end and USD 18--36 expected**,
 with a **USD 50 suggested aggregate ceiling** for calibration plus the proposed
 1,024-update main study. Calibration alone: about **1--2.5 hours, USD 8--16**,

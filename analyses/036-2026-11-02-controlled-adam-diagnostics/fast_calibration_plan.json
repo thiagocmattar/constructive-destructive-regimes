@@ -1,0 +1,54 @@
+{
+  "authorized_action": "calibration first only",
+  "user_instructions": [
+    "One seed only, same frozen initialization",
+    "No Hessian/HVP measurements",
+    "Simplify using Analysis034 as prior evidence",
+    "Run calibration as fast as available capacity permits; report before main study"
+  ],
+  "scope": {
+    "runs": 9,
+    "updates_each": 128,
+    "total_updates": 1152,
+    "learning_rates_by_task": {
+      "mlp": [
+        0.0001,
+        0.0003,
+        0.001
+      ],
+      "resnet": [
+        0.0003,
+        0.001,
+        0.003
+      ],
+      "transformer": [
+        0.0003,
+        0.001,
+        0.003
+      ]
+    }
+  },
+  "execution": {
+    "maximum_concurrent_gpus": 9,
+    "preferred_gpu": "RTX PRO 5000",
+    "live_price_usd_per_gpu_hour": 0.96,
+    "available_fallbacks_under_usd_per_gpu_hour": 1.19,
+    "qualified_etc_minutes": [
+      30,
+      75
+    ],
+    "maximum_duration_minutes": 90,
+    "maximum_total_cost_usd": 20,
+    "overall_session_quote_usd": 50,
+    "compute_soft_guard_usd": 14,
+    "compute_stop_guard_usd": 18.5,
+    "retrieval_margin_minutes": 15,
+    "container_disk_gb_per_worker": 60,
+    "volume_disk_gb_per_worker": 20,
+    "network_volume": false,
+    "retained_local_reserve_gb": 10,
+    "monitoring": "Read-only per-worker progress every30s, user summaries at bounded intervals; separate detached cost guard.",
+    "cleanup": "Per-file size/SHA and archive verification precede deletion; preserve unrelated pods and storage."
+  },
+  "main_study": "Not launched by this request; rates and final horizon reviewed after calibration."
+}

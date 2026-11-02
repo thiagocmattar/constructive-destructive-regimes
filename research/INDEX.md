@@ -2,13 +2,14 @@
 
 ## Current state
 
-[Analysis036: controlled Adam from initialization](../analyses/036-2026-11-02-controlled-adam-diagnostics/PROTOCOL.md)
-prepares Run213 fixed-LR screening on the three Analysis024 objectives.
-User confirmed identical frozen initial weights. All four optimizer streams are
-captured; 11 tests, full5k MLP mechanics and input/artifact hashes pass.
-All36 GD loss milestones are frozen; no scientific training or cloud launch.
-Compute/envelope and production-shaped calibration remain pending.
-Reserved Run213 / Analysis036 / H027; next Run214 / Analysis037 / H028.
+[Analysis036: controlled Adam from initialization](../analyses/036-2026-11-02-controlled-adam-diagnostics/REPORT.md)
+completed Run213's prior-informed9-arm x128-update calibration (1,152 updates).
+One frozen seed0 initialization per case; no Hessian/HVP or LR interventions.
+Eight smooth-loss labels, one unclassified; no sustained-loss-oscillation bracket.
+ResNet/Transformer raw gradients reverse despite coherent adaptive directions.
+All9 arms,11 tests,4-stream prefixes and two PDFs verified. Main horizon/rates pending.
+All5 task Pods/disks deleted after verified retrieval; USD2.26 estimated provisional.
+Run213 / Analysis036 / H027; next Run214 / Analysis037 / H028.
 
 
 [Analysis035: backward fixed-endpoint profiles](../analyses/035-2026-11-02-eos-backward-anchors/REPORT.md)

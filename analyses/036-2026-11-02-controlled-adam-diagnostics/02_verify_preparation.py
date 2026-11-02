@@ -14,7 +14,7 @@ HERE = Path(__file__).resolve().parent
 
 
 def main():
-    output = RUN/'scratch/mlp-two-update-final'
+    output = RUN/'scratch/mlp-fast-calibration-smoke'
     manifest = json.loads((output/'manifest.json').read_text())
     assert manifest['status'] == 'smoke_complete' and manifest['mechanics_only']
     assert manifest['completed_updates'] == 2
@@ -40,16 +40,15 @@ def main():
     raw_sum = gradients[0]+gradients[1]
     assert torch.allclose(final['diagnostics']['raw']['total'], raw_sum, atol=2e-14, rtol=0)
     assert all(state['count'] == 2 for state in final['diagnostics'].values())
-    evaluations = [json.loads(line) for line in (output/'evaluation.jsonl').read_text().splitlines()]
-    assert [row['state'] for row in evaluations] == [0, 2]
-    assert all(row['splits']['test']['loss_units'] == 10000 for row in evaluations)
+    evaluations = [json.loads(line) for line in (output/'evaluation.jsonl').read_text().splitlines()] if (output/'evaluation.jsonl').exists() else []
+    assert [row['state'] for row in evaluations] == []
     for row in metrics:
         assert row['actual_displacement_identity_residual_norm'] < 1e-10
     inputs = json.loads((RUN/'input_manifest.json').read_text())
     for item in inputs['files']:
         file = ROOT/item['path']
         assert file.stat().st_size == item['bytes'] and file_hash(file) == item['sha256']
-    result = dict(status='prepared_not_launched', scientific_arms_completed=0,
+    result = dict(status='preparation_mechanics_verified',
         focused_tests=dict(passed=11, failed=0,
             scope=['mixed-curvature quadratic identity', 'four exact vector prefixes against NumPy',
                 'parameter telescoping', 'zero denominators', 'moment bias correction',
@@ -62,7 +61,8 @@ def main():
         inputs=dict(files=len(inputs['files']), total_bytes=sum(x['bytes'] for x in inputs['files']),
             manifest_sha256=file_hash(RUN/'input_manifest.json'), all_sizes_and_hashes_verified=True),
         mechanics=dict(task='mlp', seed=0, lr=.0003, updates=2, objective_images=5000,
-            evaluation_test_images=10000, boundary_states=[0, 1, 2], actual_stream_updates=[1, 2],
+            evaluation_test_images=0, evaluation_policy='training_only_no_split_evaluation',
+            boundary_states=[0, 1, 2], actual_stream_updates=[1, 2],
             optimizer_clocks_verified=True, stream_counts_verified=True,
             maximum_gradient_norm_cpu_gpu_error=maximum_error, projected_change_checked_independently=True,
             actual_displacement_identity_checked=True, files_verified=len(manifest['files']),
@@ -70,9 +70,8 @@ def main():
             peak_allocated_bytes=max(json.loads(line)['peak_allocated_bytes'] for line in (output/'events.jsonl').read_text().splitlines()),
             environment=manifest['environment'], source_manifest_sha256=file_hash(output/'manifest.json'),
             limitation='Mechanics only; no regime, convergence, remote speed, ResNet/Transformer fit or cross-hardware replay evidence.'),
-        execution=dict(cloud_resources_created=0, new_cloud_spend=0, launch_authorization_pending=True,
-            pending=['compute choice and aggregate envelope', 'production-shaped timing/fit',
-                'remote start-gradient qualification', 'external guard/monitor/retrieval packet']),
+        execution=dict(scope='Preparation mechanics only; see calibration-closeout.json for execution.',
+            launch_authorization_pending=False),
         gd_milestones=dict(conditions=9, targets=36, sha256=file_hash(HERE/'gd_loss_milestones.json'), source_hashes_verified=True),
         source_sha256={p.name: file_hash(p) for p in RUN.glob('*.py')})
     write_json(HERE/'verification.json', result)

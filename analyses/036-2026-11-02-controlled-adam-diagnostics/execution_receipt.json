@@ -1,0 +1,95 @@
+{
+  "status": "all_nine_arms_verified_all_task_pods_deleted",
+  "verification_utc": "2026-11-02T12:32:40.503625+00:00",
+  "start_utc": "2026-11-02T11:49:17.490819+00:00",
+  "end_utc": "2026-11-02T12:30:47.752855+00:00",
+  "duration_minutes": 41.46925440629323,
+  "cloud_price_usd_per_gpu_hour": 1.19,
+  "cloud_gpu": "RTX 5090",
+  "image": "pytorch/pytorch@sha256:bfbb4a2b4fdba0fefdb428ea737e626d61bb3daf74a16e1ff935bdb03aa7c3f0",
+  "compute_storage_estimate_usd": 2.262821938202852,
+  "billing": "provisional_unreconciled_with_provider_invoice",
+  "cloud_arms": 6,
+  "local_mlp_arms": 3,
+  "accepted_updates": 1152,
+  "seed_initializations_per_case": 1,
+  "guard_triggered": false,
+  "maximum_cost_usd": 20,
+  "maximum_minutes": 90,
+  "retained_task_cloud_storage_gb": 0,
+  "task_pods": [
+    {
+      "id": "awqwmnomfyxc3h",
+      "name": "cdr-analysis036-cal-transformer-0",
+      "confirmed_absent": true
+    },
+    {
+      "id": "qwqjq9s92qcj8m",
+      "name": "cdr-analysis036-cal-transformer-1",
+      "confirmed_absent": true
+    },
+    {
+      "id": "dvuwk2nt7hnjpq",
+      "name": "cdr-analysis036-cal-resnet-0",
+      "confirmed_absent": true
+    },
+    {
+      "id": "eh1devuhvq1kq1",
+      "name": "cdr-analysis036-cal-resnet-1",
+      "confirmed_absent": true
+    },
+    {
+      "id": "thw7hoxdbhk628",
+      "name": "cdr-analysis036-cal-resnet-2",
+      "confirmed_absent": true
+    }
+  ],
+  "preexisting_resources_preserved": [
+    {
+      "id": "kykdwoonqs0z9s",
+      "name": "cdr-analysis009-lr026-027",
+      "desiredStatus": "EXITED",
+      "runtimeStatus": "stopped"
+    },
+    {
+      "id": "mtd2dlb7w1mslf",
+      "name": "cdr-analysis009-lr024-027",
+      "desiredStatus": "EXITED",
+      "runtimeStatus": "stopped"
+    }
+  ],
+  "retained_local_raw_artifact_bytes": 4322586620,
+  "case_runtime_ranges_seconds": {
+    "mlp": [
+      1.9409878998994827,
+      1.9860264000017196
+    ],
+    "resnet": [
+      366.9305765130557,
+      369.07833965681493
+    ],
+    "transformer": [
+      634.471111245919,
+      808.2214673070703
+    ]
+  },
+  "case_peak_allocated_bytes": {
+    "mlp": 323049472,
+    "resnet": 3365940224,
+    "transformer": 2799906304
+  },
+  "maximum_initial_gradient_relative_error": 8.052716298832275e-08,
+  "maximum_parameter_telescoping_error": 0.0,
+  "results_sha256": "0abd85ca9cd666cb0f174bf3ba94db402f13a6525351c66cc3b24e433195d09b",
+  "focused_tests_passed": 11,
+  "no_hessian_or_hvp": true,
+  "no_validation_test_passes": true,
+  "no_lr_interventions": true,
+  "main_runs_launched": 0,
+  "figures_visual_reviewed": {
+    "fast_calibration.pdf": "254f75f83246bb792f71ca6be96bfdeda456450b269b932aa71d8b0368896bf5",
+    "fast_calibration_streams.pdf": "9a9cfb0725b2d5e0bed3e7c4fa4ca795cb14ea9cd193b84a827c5f9bdaaa71a2"
+  },
+  "plotted_curves_verified": 117,
+  "staged_scientific_source_files_verified": 15
+}

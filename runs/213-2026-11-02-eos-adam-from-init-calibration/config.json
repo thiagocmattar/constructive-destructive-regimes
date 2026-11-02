@@ -4,22 +4,13 @@
   "hypothesis": "H027",
   "status": "prepared_not_launched",
   "seed": 0,
-  "phase": "lr_screening_from_initialization",
+  "phase": "prior_informed_fast_calibration_from_initialization",
   "tasks": [
     "mlp",
     "resnet",
     "transformer"
   ],
-  "learning_rates": [
-    0.00001,
-    0.00003,
-    0.0001,
-    0.0003,
-    0.001,
-    0.003,
-    0.01
-  ],
-  "updates": 256,
+  "updates": 128,
   "physical": {
     "mlp": 1000,
     "resnet": 1000,
@@ -31,7 +22,7 @@
       0.9,
       0.999
     ],
-    "eps": 1e-8,
+    "eps": 1e-08,
     "weight_decay": 0,
     "amsgrad": false,
     "foreach": false,
@@ -40,15 +31,36 @@
   "checkpoint_every": 64,
   "evaluate_every": 128,
   "loss_guard_factor": 10,
-  "maximum_arm_seconds": 7200,
+  "maximum_arm_seconds": 3600,
   "cache": "cache/eos-multitask",
   "mlp_cache": "cache/cifar10-eos",
   "input_manifest": "input_manifest.json",
   "stop_file": "STOP",
   "notes": [
+    "One frozen seed0 initialization per case; no extra seeds.",
+    "No Hessian, HVP or spectral measurement.",
     "No schedule, warmup, clipping, decay, augmentation or dropout.",
-    "Every arm starts with the same seed0 frozen model tensors and fresh zero Adam state.",
-    "256 updates are screening only, not a convergence budget.",
-    "Run213 does not authorize a cloud launch or select production LRs."
-  ]
+    "All arms reset Adam at the same initial weights; rates informed by Analysis034, not assumed transferable.",
+    "128 updates are short calibration; report before main training.",
+    "Training-only calibration; no validation/test passes.",
+    "Execution requested by user; calibration ceiling USD20 inside prior USD50 overall quote."
+  ],
+  "learning_rates_by_task": {
+    "mlp": [
+      0.0001,
+      0.0003,
+      0.001
+    ],
+    "resnet": [
+      0.0003,
+      0.001,
+      0.003
+    ],
+    "transformer": [
+      0.0003,
+      0.001,
+      0.003
+    ]
+  },
+  "evaluate_splits": false
 }

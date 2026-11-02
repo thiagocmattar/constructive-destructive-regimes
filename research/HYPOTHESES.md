@@ -51,7 +51,7 @@ questions alone do not create experimental commitments.
 <!-- H027 proposal -->
 | ID | Question / hypothesis | Status | Runs / analyses | Evidence / limits |
 | --- | --- | --- | --- | --- |
-| H027 | How do raw, first-moment, adaptive-direction and actual-step geometry differ across smooth/oscillatory full-batch Adam LR conditions from identical initialization? | Proposed; no scientific outcome yet | [Analysis036](../analyses/036-2026-11-02-controlled-adam-diagnostics/PROTOCOL.md), Run213 screening | Same Analysis024 seed0 tensors/data; fixed LR, no schedule. Loss labels separate from cosine, GD loss milestones frozen. Mechanics pass; production rates/horizon and compute envelope pending; q is projected change, not identified curvature |
+| H027 | How do raw, first-moment, adaptive-direction and actual-step geometry differ across smooth/oscillatory full-batch Adam LR conditions from identical initialization? | Short calibration complete; main study pending | [Analysis036 report](../analyses/036-2026-11-02-controlled-adam-diagnostics/REPORT.md), Run213 | Nine128-update arms, one frozen initialization, no Hessians. Raw gradients reverse with coherent adaptive motion and smooth loss in ResNet/Transformer; MLP smooth across grid. No sustained loss-oscillation bracket or convergence claim; q is projected gradient change |
 <!-- End H027 proposal -->
 
 Next hypothesis: `H028`. Record the operational meaning,

@@ -1,5 +1,10 @@
 # Controlled full-batch Adam extension
 
+Current user instruction: run the reduced calibration first, one frozen
+initialization per case, no Hessian/HVP measurements. The current operational
+packet is [FAST_CALIBRATION.md](FAST_CALIBRATION.md); it supersedes the original
+21-arm duration estimate. Main training is deferred until calibration review.
+
 ## Question and comparison
 
 Describe how raw gradients, first moments and adaptive directions differ along
@@ -13,8 +18,8 @@ changes during a trajectory.
 Vary only constant Adam LR within each case. Match the exact seed0 frozen
 initial weights, prepared data/order, objective, fixed BN groups, parameter
 scope, precision and accumulation partition across rates. Adam moments and clock
-start at zero. One initialization per case is screening; uncertainty across
-initializations is unmeasured. Replication is a subsequent design choice.
+start at zero. One initialization per case is the requested study; uncertainty
+across initializations is unmeasured. No additional seeds are planned.
 
 | Case | Full objective per update | Numerical partition |
 | --- | --- | --- |
@@ -47,14 +52,14 @@ ResNet and Transformer. This establishes neither a sufficiently large upper
 rate nor training-from-initialization regimes. Its calibration PDF was rendered
 and reviewed; original decisions are unchanged.
 
-Run213 proposes256 full updates at each of
-1e-5 /3e-5 /1e-4 /3e-4 /1e-3 /3e-3 /1e-2 for each case:21 arms,
-5,376 updates maximum, plus one unapplied terminal gradient per completed arm.
+Run213 now executes 128 full updates at each of three rates per case:
+MLP 1e-4/3e-4/1e-3; ResNet and Transformer 3e-4/1e-3/3e-3.
+This is nine arms and 1,152 updates, plus one unapplied terminal gradient per arm.
 Independent arms reset the model, Adam and diagnostics. Nonfinite arms and arms
-reaching the10x initial-loss execution guard remain failed/guarded outcomes.
+reaching the 10x initial-loss execution guard remain failed/guarded outcomes.
 A guard stops an arm; it never reduces LR or substitutes a rate. Per-arm runtime
-bound2h is subject to a stricter future aggregate envelope; this is not permission
-to occupy42 GPU-hours.
+bound is one hour, within the aggregate 90-minute / USD 20 calibration envelope.
+No full main-study training is admitted by this calibration controller.
 
 Report continuous statistics before descriptive labels. On the last64 losses,
 report upward-step fraction (rise >1e-5 relative to preceding loss), median
@@ -64,7 +69,7 @@ Oscillatory progress: upward fraction >=25%, median relative change >=0.001
 and final mean <=initial. These are operational screening rules, not stability
 or convergence definitions. Keep raw loss visible; borderline cases remain
 unclassified. Cosine does not define labels, so agreement is not built in.
-The final64 window excludes the first64-state startup interval at horizon256.
+The final 64 window excludes the first 64-state startup interval at horizon128.
 
 Propose the lowest smooth-progress LR and highest oscillatory-progress LR;
 include the completed interior rate nearest their geometric mean. If the grid
@@ -126,14 +131,10 @@ and rounding. It does not estimate g^T H g/norm(g)^2, lambda_max, or an Adam
 stability threshold. Negative raw cosine can coexist with decreasing loss.
 Cosine alone cannot identify flat, sharp, indefinite or beneficial regions.
 
-An additional curvature test would independently evaluate
--g^T H Delta/norm(g)^2 at selected starting states on the same full objective,
-compare with next q and its Taylor residual, and compare actual loss change
-with g^T Delta +0.5 Delta^T H Delta. This HVP audit is optional, not implemented
-or included in screening cost. Old GD-path spectra do not measure new Adam-state
-curvature. Adaptive-EOS claims need a separate preconditioned-Hessian contract;
-SGD's eta*lambda=2 line does not transfer. See
-[Cohen et al.](https://arxiv.org/abs/2207.14484).
+No Hessian, HVP, eigenspectrum or curvature-probe measurement is part of the
+requested study. The equations above explain an interpretation limit only.
+The recorded q is a gradient-change diagnostic and will not be relabeled as
+identified curvature or an Adam stability threshold.
 
 Zero denominators yield null, without artificial epsilons. Exact cancellation
 at positive A gives R=0. First q and adjacent pairs are undefined. The terminal
@@ -143,9 +144,10 @@ are never silently accepted as ordinary diagnostic updates.
 
 ## Evaluation, retention and figures
 
-Record raw full training loss every boundary; all prepared validation/test
-splits at0/128/256 in screening, with token weighting. MLP uses its entire
-declared test cache; ResNet all10k test images; WikiText valid/test
+Record raw full training loss every boundary. To accelerate this training-only
+calibration, skip validation/test evaluation entirely; no generalization claim
+is made. The later main study will declare full prepared-split evaluation:
+MLP's entire test cache, ResNet all10k test images and WikiText valid/test
 217,630/245,550 targets. Evaluation never selects LR. Freeze production
 evaluation cadence before launch. Show raw full-batch loss/cosine; explicitly
 label any trailing64-state summary. Compute pointwise q before smoothing.
@@ -168,26 +170,26 @@ identities, and raw audit gradients at0/1/T. Dense gradient history is not
 retained; arbitrary retrospective lag profiles cannot be reconstructed.
 Preserve all historical runs and evidence.
 
-## Execution packet and remaining decision
+## Execution packet
 
-Implementation/input verification, eleven focused tests and a two-update MLP smoke
-on owned RTX5070Ti Laptop pass. The smoke is not production-shaped timing for
-ResNet/Transformer or a remote ETC. No external worker is allocated. Confirming
-initialization did not supply a new spending envelope or authorize a multi-hour
-local queue.
+Implementation/input verification, eleven focused tests and a fresh two-update
+MLP smoke pass. The user accepted the prior cost quote and requested calibration
+first. The current packet bounds this stage at USD20 inside the quoted USD50
+overall envelope. Live placement, execution and cleanup are recorded separately.
 
-Before launch choose owned Spark versus Runpod; refresh live availability/price
-if rented; measure representative end-to-end updates, validation and checkpoint
-I/O; state aggregate maximum cost/duration with retrieval margin. Historical
-Analysis034 prices/cap are not new permission or estimates. For Runpod, load the
-installed router and inspect live CLI/MCP help. Preparation touches no remote
-resources or credentials.
+Execution uses the owned RTX5070Ti laptop for all MLP rates and matched Runpod
+RTX5090 class for every ResNet/Transformer rate. Actual catalog price was
+USD1.19/GPU-hour. The pinned official PyTorch2.11/cu130 runtime and native
+runpodctl3.0.1 were read live. All setup/retry cost counts toward the same cap.
+Historical Analysis034 prices/resource IDs were not used as current facts.
+The controller and independent guard persist local logs; cloud training is
+detached. Compact receipts record verified retrieval before worker deletion.
 
-ETC must sum each task's seven arms,21 terminal gradients, split evaluations,
-checkpointing, setup and transfer. Four FP64 previous/prefix streams use about
+ETC must sum each task's three arms, nine terminal gradients, checkpointing,
+setup and transfer. There are no split evaluations in calibration. Four FP64 previous/prefix streams use about
 64 bytes/parameter (0.885GB Transformer), before model/moments/temporaries.
 Transformer final recovery is approximately1.16GB/arm plus audit vectors.
-Reserve20GB retained local storage for screening; measure sizes before launch.
+Reserve10GB retained local storage for this reduced calibration.
 Each worker also needs image/packages/cache and atomic checkpoint replacement
 space. Production has a separate packet after rate selection.
 

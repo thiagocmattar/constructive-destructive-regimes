@@ -1,39 +1,49 @@
 # Analysis036: controlled Adam diagnostics from initialization
 
-Prepared November 2, 2026. The user confirmed **start from the same initial
-weights as Analysis024**, rather than GD checkpoint forks. This extends the
-Analysis029 diagnostic comparison to the controlled CIFAR-10/MLP,
-CIFAR-10/ResNet-32 and WikiText-2/Transformer objectives. Every trajectory uses
-one constant LR; no schedule or within-trajectory LR intervention.
+The user confirmed the same frozen initial weights as Analysis024. This extends
+Analysis029's Adam diagnostics to full-objective CIFAR-10/MLP,
+CIFAR-10/ResNet-32 and WikiText-2/Transformer training. There is one fixed
+initialization per case, no seed sweep and no Hessian/HVP measurements. Every
+trajectory uses one constant LR and fresh Adam moments.
 
-Status: design and Run213 screening implementation prepared; eleven focused tests
-and a two-update full-objective MLP mechanics check pass. No scientific screening
-arm, production experiment or cloud job has been launched. The smoke is not
-training-regime evidence and does not estimate remote throughput.
+The user requested calibration first and a reduced search informed by
+Analysis034's continuation evidence. [FAST_CALIBRATION.md](FAST_CALIBRATION.md)
+specifies nine arms of 128 updates: MLP rates 1e-4/3e-4/1e-3, and
+ResNet/Transformer rates 3e-4/1e-3/3e-3. This replaces the unexecuted 21-arm
+proposal. The main 1,024-update horizon remains provisional and is not launched
+by this calibration controller.
 
-[PROTOCOL.md](PROTOCOL.md) defines the comparison, calibration, duration,
-measurement semantics, figure plan, limits and remaining execution decision.
-[Run213](../../runs/213-2026-11-02-eos-adam-from-init-calibration/README.md)
-owns the screening config, code and pinned input manifest. Production rates and
-run IDs will be frozen after calibration. Analysis035/Run212 is separate work.
+Calibration completed on November 2, 2026: all nine arms /1,152 updates are verified. MLP uses the owned RTX5070Ti
+laptop across all its rates; ResNet and Transformer use matched RTX5090-class
+Runpod workers across their rates. All nine arms preserve the same scientific
+config and pinned inputs. See [REPORT.md](REPORT.md), [results](fast_calibration_results.json) and
+[execution receipt](execution_receipt.json). All task pods/disks are deleted;
+USD2.26 estimated Runpod cost is provisional. Training-only
+calibration skips validation/test passes. Labels describe this short horizon;
+they do not establish stability or convergence.
 
-Raw-gradient turning under Adam is observable, but the SGD eta-kappa expression
-measures projected gradient change. The full-objective setting removes the
-changing-batch sampling term; adaptive step geometry and finite-step effects
-still prevent identifying raw Hessian curvature from that scalar. A separately
-proposed HVP audit can test the local expansion.
+[PROTOCOL.md](PROTOCOL.md) defines the comparison, measurement semantics,
+interpretation limits and later study. [Run213](../../runs/213-2026-11-02-eos-adam-from-init-calibration/README.md)
+owns scientific code, config and immutable input manifest. Analysis035/Run212 is
+separate work. Raw-gradient projected change q remains a gradient-change
+diagnostic under Adam; it does not identify Hessian curvature or a stability
+threshold.
 
-Reproduce preparation:
+Eleven focused diagnostics tests and a two-update full-objective MLP mechanics
+check pass. [verification.json](verification.json) records preparation checks;
+the smoke is excluded from LR evidence. The input verifier hashes data, initial
+weights and scientific sources. Executed scientific inputs must not be rebuilt
+or changed in place.
 
-    python analyses/036-2026-11-02-controlled-adam-diagnostics/01_prepare.py
-    python -m pytest runs/213-2026-11-02-eos-adam-from-init-calibration/test_diagnostics.py -q
+The earlier [parallel Runpod estimate](RUNPOD_ESTIMATE.md) is retained as the
+historical estimate for the original screening plus main-study proposal. The
+reduced calibration has its own USD20 / 90-minute maximum, inside the earlier
+USD50 suggested study envelope, with independent guard and verified retrieval.
 
-The input verifier hashes pinned data, initial weights, reference model sources
-and scientific dependencies. See [verification.json](verification.json) for
-exact checks, mechanics coverage and environment limitations.
-
-The November2 [parallel Runpod estimate](RUNPOD_ESTIMATE.md) uses live pricing,
-recorded cloud timings and a separately labeled local Transformer mechanics
-profile. Up to seven 4090s project roughly4--8.5h /USD18--36 for screening plus
-the proposed main study; suggested aggregate ceiling USD50. Capacity and new
-remote throughput remain unqualified; this is an estimate, not a launch.
+The two reviewed PDFs are [calibration](figures/fast_calibration.pdf) and
+[stream comparison](figures/fast_calibration_streams.pdf). Eight loss labels are
+smooth-progress and one is unclassified; none meets the declared sustained
+loss-oscillation label. ResNet/Transformer show raw-gradient reversal despite
+coherent adaptive directions. MLP remains smooth across the tested grid.
+The [observation](observations/001-fast-calibration.md) records figure sources,
+reduction, coverage and interpretation limits.

@@ -13,6 +13,8 @@ MLP = ROOT/'cache/cifar10-eos'
 
 
 def main():
+    if any((RUN/'artifacts').rglob('manifest.json')):
+        raise RuntimeError('Run213 has executed artifacts; preserve its input manifest. Use 02_verify_preparation.py or 07_reduce_plot_calibration.py for read-only verification.')
     cfg = json.loads((RUN/'config.json').read_text())
     shared = json.loads((CACHE/'inputs.json').read_text())
     old = json.loads((MLP/'inputs.json').read_text())
