@@ -86,3 +86,10 @@ of bias, not a generalization claim for the current MLP experiment.
 The earlier analysis-specific manuscript validators describe older snapshots.
 Use the revision scripts above for this manuscript; raw-evidence verification
 and historical records remain in their owning analyses.
+
+## Table I grouping follow-up
+
+Table I uses `\multirow` for the shared dataset and model labels. The MLP and
+ResNet-32 blocks share one CIFAR-10 cell; a partial rule separates their model
+groups. All 45 numerical entries remain unchanged and pass source verification.
+Only page 8 changed visually; its table and surrounding layout were reviewed.

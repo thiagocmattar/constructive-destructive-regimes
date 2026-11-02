@@ -125,11 +125,18 @@ def check_evidence():
                 assert abs(np.mean(reps)-record['initialization_means'][i][j])<1e-14
     # Independent displayed-table parsing against full-precision reductions.
     results=read(a24/'results.json')['runs'];audit=read(a24/'section_iv_review_checks.json')['runs']
-    rows=[x for x in (DRAFT/'tables/analysis024_endpoints.tex').read_text().splitlines() if x.startswith(('CIFAR-10','WikiText-2'))]
+    table_text=(DRAFT/'tables/analysis024_endpoints.tex').read_text()
+    rows=[x for x in table_text.splitlines() if ' & ' in x and not x.startswith('Dataset &')]
     assert len(rows)==9
+    assert table_text.count(r'\multirow{6}{*}{CIFAR-10}')==1
+    assert table_text.count(r'\multirow{3}{*}')==4
+    dataset=model=None
     for row in rows:
         cells=[x.strip() for x in row.removesuffix(r'\\').split('&')]
-        task={'MLP':'mlp','ResNet-32':'resnet','Transformer':'transformer'}[cells[1]]
+        if cells[0]: dataset=re.fullmatch(r'\\multirow\{[36]\}\{\*\}\{([^}]+)\}',cells[0]).group(1)
+        if cells[1]: model=re.fullmatch(r'\\multirow\{3\}\{\*\}\{([^}]+)\}',cells[1]).group(1)
+        task={'MLP':'mlp','ResNet-32':'resnet','Transformer':'transformer'}[model]
+        assert dataset==('WikiText-2' if task=='transformer' else 'CIFAR-10')
         r=next(r for r in results if r['task']==task and r['lr']==float(cells[2]))
         a=next(a for a in audit if a['run_id']==r['run_id'])
         expected=[r['final_loss'],r['late_1000_cosine_mean'],r['final_B_over_A'],r['late_1000_q_mean'],a['final_gradient_sum_displacement']]

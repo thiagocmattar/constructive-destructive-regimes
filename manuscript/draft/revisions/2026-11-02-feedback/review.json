@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "date": "2026-11-02",
-  "pdf_sha256": "6262f68c537784efadcfddc682d64eb705b611c02f21277056ae795b376b08d2",
+  "pdf_sha256": "cdd9f5db470abc6f94f30e93ce027bba236571e78bf3e75161ed2e7a7fd58a1d",
   "pages": 16,
   "page_renders": [
     {
@@ -34,7 +34,7 @@
     },
     {
       "page": 8,
-      "sha256": "0b2a2dd0c920dc764394a838443aa7f3a4f7876017c0cf187b9ca3dd87f7eff8"
+      "sha256": "f7106dc9af01dcb23ff620886439ebc941325bf8926706b6c753fa940a9050e6"
     },
     {
       "page": 9,
@@ -154,6 +154,33 @@
       "Backward figure has full lags1-256 and exact zoom lags1-32; clear alternating points",
       "All 25 archived PDFs retain their bytes and SHA256; five active PDFs confirmed by LaTeX recorder",
       "MLP SGD figure remains byte-identical; its experimental extension stays deferred"
+    ]
+  },
+  "table_i_followup": {
+    "reviewed_changed_pages": [
+      8
+    ],
+    "unchanged_page_renders_verified": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "checks": [
+      "Dataset and model labels use multirow with clear group boundaries.",
+      "All 45 numerical values verified against full-precision source reductions.",
+      "Table, caption and following figure fit without overlap."
     ]
   }
 }

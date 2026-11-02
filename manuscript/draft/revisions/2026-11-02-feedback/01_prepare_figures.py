@@ -198,10 +198,13 @@ def main():
            r'\begin{tabular}{@{}lllrrrrr@{}}',r'\toprule',
            r'Dataset & Model & $\eta$ & $\mathcal L(\theta_T)$ & $\overline\rho_{\rm late}$ & $R_T$ & $\overline{\eta\widehat\kappa}_{\rm late}$ & $\|\Delta_T\|$ \\',r'\midrule']
     for i,r in enumerate(runs):
-        if i in [3,6]: lines.append(r'\midrule')
+        if i==3: lines.append(r'\cmidrule(l){2-8}')
+        if i==6: lines.append(r'\midrule')
         a=next(a for a in audit['runs'] if a['run_id']==r['run_id'])
         q=r['late_1000_q_mean']; qtext=f'{q:.4f}'+(r'$^{*}$' if 0<abs(q)<.00005 else '')
-        cells=['WikiText-2' if r['task']=='transformer' else 'CIFAR-10',labels[r['task']],f'{r["lr"]:g}',
+        dataset=r'\multirow{6}{*}{CIFAR-10}' if i==0 else (r'\multirow{3}{*}{WikiText-2}' if i==6 else '')
+        model=rf'\multirow{{3}}{{*}}{{{labels[r["task"]]}}}' if i%3==0 else ''
+        cells=[dataset,model,f'{r["lr"]:g}',
                f'{r["final_loss"]:.4f}',f'{r["late_1000_cosine_mean"]:.4f}',f'{r["final_B_over_A"]:.4f}',qtext,
                f'{a["final_gradient_sum_displacement"]:.4f}']
         lines.append(' & '.join(cells)+r' \\')
