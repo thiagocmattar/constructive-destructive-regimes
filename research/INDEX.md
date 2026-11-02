@@ -16,7 +16,8 @@ hypothesis. Next Run217 / Analysis038 / H028.
 extracts 812 candidate excursions from all nine Run215 Adam histories: 806 recovered,
 6 right-censored. The author selected a fixed pre-rise reference; no smoothing,
 tolerance or amplitude cutoff. Event losses, durations and optimizer diagnostics
-are source-verified with an independent segmentation. Earlier work remains archived;
+are source-verified with an independent segmentation. A [3 x 3 descriptive panel](../analyses/036-2026-11-02-controlled-adam-diagnostics/figures/adam_spike_descriptive_statistics.pdf)
+summarizes peak increases and durations for the 806 recovered events. Earlier work remains archived;
 retained figures and manuscript unchanged. No new training or cloud resources.
 
 

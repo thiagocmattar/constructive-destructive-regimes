@@ -1,0 +1,37 @@
+{
+  "generator": "analyses/036-2026-11-02-controlled-adam-diagnostics/04_plot_spike_statistics.py",
+  "generator_sha256": "22e65c1ffdea145a90f4b8fdf1cc688162f49453541e1379793ae55520db267a",
+  "sources": {
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_dataset/loss_spikes.csv": "d35e901cc68a1bce5379129b4ce74f4d1b8896c3c0ccfaf643d4647558e4500d",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_dataset/manifest.json": "bef7421d30a1cb4cb2715d21f5fad97434b3b8c55b4ff08f9f15e753fea6dc0d"
+  },
+  "cohort": "806 recovered excursions; six censored events excluded from all four metrics.",
+  "statistics": [
+    "mean",
+    "std",
+    "min",
+    "p25",
+    "p75",
+    "max"
+  ],
+  "std_ddof": 1,
+  "quantiles": "linear interpolation, equivalent to inclusive quartiles",
+  "metrics": [
+    "peak_change_percent",
+    "rise_steps",
+    "recovery_steps",
+    "total_steps"
+  ],
+  "checks": {
+    "nine_panels": true,
+    "independent_numeric_checks": 216,
+    "shared_complete_cohort": true,
+    "all_cell_text_fits": true,
+    "pdf_text_inside_page": true
+  },
+  "outputs": {
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/figures/adam_spike_descriptive_statistics.pdf": "c3e4f33a8c139e66c54661af2e40df8c564fc3ba0e671ee08d5e1e97ef469cb3",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_descriptive_statistics.csv": "4a79bc0fe8ce10a266a504b5198631281a6dc9406d91c15e393c9662a7a3b8ed"
+  },
+  "visual_review": "passed: all nine tables reviewed in the Poppler render; readable values, no overlap or clipping"
+}
