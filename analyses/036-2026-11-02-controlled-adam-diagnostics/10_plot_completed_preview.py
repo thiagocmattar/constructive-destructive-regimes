@@ -1,4 +1,5 @@
 """Preview only complete, verified Run215 arms in the approved eight-row layout."""
+import argparse
 import hashlib
 import json
 from pathlib import Path
@@ -32,7 +33,7 @@ def rate_label(rate):
     return rf'$\eta={"" if coefficient == 1 else str(coefficient)+r"\times"}10^{{{exponent}}}$'
 
 
-def main():
+def main(output_stem='adam_diagnostics_completed_preview', manifest_name='completed_preview_manifest.json'):
     results = read(RUN/'results.json')
     assert results['status'] in ['partial_verified', 'complete_verified']
     config = read(RUN/'config.json')
@@ -184,16 +185,20 @@ def main():
                 ax.set_yticks([]); ax.set_yticks([],minor=True)
                 ax.set_facecolor('#f7f7f7'); ax.grid(False)
                 for line in ax.lines: line.set_visible(False)
-    output = HERE/'figures/adam_diagnostics_completed_preview.pdf'
+    output = HERE/'figures'/(output_stem+'.pdf')
     fig.savefig(output,metadata={'CreationDate':None,'ModDate':None})
     plt.close(fig)
     assert len(manifest['curves']) == 8*results['completed_arms']
     manifest['output'] = output.relative_to(ROOT).as_posix()
     manifest['output_sha256'] = sha(output)
     manifest['status'] = 'numerical_checks_passed'
-    (HERE/'completed_preview_manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8',newline='\n')
+    (HERE/manifest_name).write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8',newline='\n')
     print(json.dumps(dict(output=manifest['output'], curves=len(manifest['curves']), window=WINDOW)))
 
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output-stem', default='adam_diagnostics_completed_preview')
+    parser.add_argument('--manifest-name', default='completed_preview_manifest.json')
+    args = parser.parse_args()
+    main(args.output_stem, args.manifest_name)

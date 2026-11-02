@@ -1,9 +1,9 @@
 {
-  "status": "partial_verified",
+  "status": "complete_verified",
   "run_id": "215",
   "updates_per_arm": 1024,
   "expected_arms": 9,
-  "completed_arms": 6,
+  "completed_arms": 9,
   "conditions": [
     {
       "task": "mlp",
@@ -515,6 +515,137 @@
       "manifest_sha256": "10755e07d67029177aac13f0a7af6a44033696e6101211f62a8c73df1cd8b19c"
     },
     {
+      "task": "transformer",
+      "lr": 0.001,
+      "updates": 1024,
+      "status": "complete",
+      "initial_loss": 10.729182719678409,
+      "final_loss": 0.9880058517536416,
+      "final_evaluations": {
+        "valid": {
+          "loss": 13.73718029390838,
+          "loss_units": 217630,
+          "objective_units": 6220
+        },
+        "test": {
+          "loss": 13.59408558274791,
+          "loss_units": 245550,
+          "objective_units": 7020
+        }
+      },
+      "tail64_cosines": {
+        "raw": -0.33059481741717234,
+        "moment": 0.08376130235346857,
+        "adaptive": 0.9598086877629403,
+        "actual": 0.9598086862177135
+      },
+      "final_R_t": 0.4590965012333341,
+      "parameter_telescoping_error": 0.0,
+      "elapsed_seconds": 10879.943339322926,
+      "environment": {
+        "utc": "2026-11-02T13:50:26.540413+00:00",
+        "python": "3.12.3",
+        "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "numpy": "2.5.0",
+        "scipy": "1.18.1",
+        "device": "cuda:0",
+        "gpu": "NVIDIA RTX PRO 4500 Blackwell Server Edition",
+        "gpu_total_bytes": 33689829376,
+        "matmul_precision": "highest",
+        "tf32": false
+      },
+      "gd_loss_matches": [
+        {
+          "gd_run": "121",
+          "gd_state": 500,
+          "target_loss": 7.330716035019716,
+          "first_adam_state": 15,
+          "first_trailing64_state": 63
+        },
+        {
+          "gd_run": "121",
+          "gd_state": 1000,
+          "target_loss": 7.062673203313899,
+          "first_adam_state": 19,
+          "first_trailing64_state": 63
+        },
+        {
+          "gd_run": "121",
+          "gd_state": 2000,
+          "target_loss": 6.787544823638962,
+          "first_adam_state": 27,
+          "first_trailing64_state": 65
+        },
+        {
+          "gd_run": "121",
+          "gd_state": 3000,
+          "target_loss": 6.630096961210181,
+          "first_adam_state": 31,
+          "first_trailing64_state": 67
+        },
+        {
+          "gd_run": "125",
+          "gd_state": 500,
+          "target_loss": 7.070934507097312,
+          "first_adam_state": 19,
+          "first_trailing64_state": 63
+        },
+        {
+          "gd_run": "125",
+          "gd_state": 1000,
+          "target_loss": 6.792513584252755,
+          "first_adam_state": 27,
+          "first_trailing64_state": 65
+        },
+        {
+          "gd_run": "125",
+          "gd_state": 2000,
+          "target_loss": 6.51654500383967,
+          "first_adam_state": 34,
+          "first_trailing64_state": 70
+        },
+        {
+          "gd_run": "125",
+          "gd_state": 3000,
+          "target_loss": 6.351935365365105,
+          "first_adam_state": 39,
+          "first_trailing64_state": 73
+        },
+        {
+          "gd_run": "126",
+          "gd_state": 500,
+          "target_loss": 6.819112337838082,
+          "first_adam_state": 26,
+          "first_trailing64_state": 65
+        },
+        {
+          "gd_run": "126",
+          "gd_state": 1000,
+          "target_loss": 6.562957109661155,
+          "first_adam_state": 33,
+          "first_trailing64_state": 69
+        },
+        {
+          "gd_run": "126",
+          "gd_state": 2000,
+          "target_loss": 6.256404861790646,
+          "first_adam_state": 42,
+          "first_trailing64_state": 76
+        },
+        {
+          "gd_run": "126",
+          "gd_state": 3000,
+          "target_loss": 6.069747180845569,
+          "first_adam_state": 47,
+          "first_trailing64_state": 82
+        }
+      ],
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker15/lr-0.001",
+      "manifest_sha256": "06416f93b915dae3be94e2f6c9b205de1b25a512a807904d14cf73d53aebe77f"
+    },
+    {
       "task": "resnet",
       "lr": 0.0003,
       "updates": 1024,
@@ -765,23 +896,267 @@
       ],
       "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003",
       "manifest_sha256": "6162fb3eee941231f44bc006c92d74a702f0ab52bad560a78dc4ae36848a71c0"
+    },
+    {
+      "task": "transformer",
+      "lr": 0.003,
+      "updates": 1024,
+      "status": "complete",
+      "initial_loss": 10.729182719678409,
+      "final_loss": 0.6162663999764065,
+      "final_evaluations": {
+        "valid": {
+          "loss": 17.73533060026262,
+          "loss_units": 217630,
+          "objective_units": 6220
+        },
+        "test": {
+          "loss": 17.491602803336892,
+          "loss_units": 245550,
+          "objective_units": 7020
+        }
+      },
+      "tail64_cosines": {
+        "raw": -0.07488689267715767,
+        "moment": 0.41479759967431723,
+        "adaptive": 0.9559722909870685,
+        "actual": 0.9559722916539655
+      },
+      "final_R_t": 0.3151793808815835,
+      "parameter_telescoping_error": 0.0,
+      "elapsed_seconds": 9429.605161688989,
+      "environment": {
+        "utc": "2026-11-02T13:57:23.453623+00:00",
+        "python": "3.12.3",
+        "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "numpy": "2.5.0",
+        "scipy": "1.18.1",
+        "device": "cuda:0",
+        "gpu": "NVIDIA GeForce RTX 4090",
+        "gpu_total_bytes": 25252724736,
+        "matmul_precision": "highest",
+        "tf32": false
+      },
+      "gd_loss_matches": [
+        {
+          "gd_run": "121",
+          "gd_state": 500,
+          "target_loss": 7.330716035019716,
+          "first_adam_state": 6,
+          "first_trailing64_state": 63
+        },
+        {
+          "gd_run": "121",
+          "gd_state": 1000,
+          "target_loss": 7.062673203313899,
+          "first_adam_state": 8,
+          "first_trailing64_state": 63
+        },
+        {
+          "gd_run": "121",
+          "gd_state": 2000,
+          "target_loss": 6.787544823638962,
+          "first_adam_state": 15,
+          "first_trailing64_state": 63
+        },
+        {
+          "gd_run": "121",
+          "gd_state": 3000,
+          "target_loss": 6.630096961210181,
+          "first_adam_state": 16,
+          "first_trailing64_state": 63
+        },
+        {
+          "gd_run": "125",
+          "gd_state": 500,
+          "target_loss": 7.070934507097312,
+          "first_adam_state": 8,
+          "first_trailing64_state": 63
+        },
+        {
+          "gd_run": "125",
+          "gd_state": 1000,
+          "target_loss": 6.792513584252755,
+          "first_adam_state": 15,
+          "first_trailing64_state": 63
+        },
+        {
+          "gd_run": "125",
+          "gd_state": 2000,
+          "target_loss": 6.51654500383967,
+          "first_adam_state": 17,
+          "first_trailing64_state": 63
+        },
+        {
+          "gd_run": "125",
+          "gd_state": 3000,
+          "target_loss": 6.351935365365105,
+          "first_adam_state": 20,
+          "first_trailing64_state": 63
+        },
+        {
+          "gd_run": "126",
+          "gd_state": 500,
+          "target_loss": 6.819112337838082,
+          "first_adam_state": 15,
+          "first_trailing64_state": 63
+        },
+        {
+          "gd_run": "126",
+          "gd_state": 1000,
+          "target_loss": 6.562957109661155,
+          "first_adam_state": 17,
+          "first_trailing64_state": 63
+        },
+        {
+          "gd_run": "126",
+          "gd_state": 2000,
+          "target_loss": 6.256404861790646,
+          "first_adam_state": 21,
+          "first_trailing64_state": 63
+        },
+        {
+          "gd_run": "126",
+          "gd_state": 3000,
+          "target_loss": 6.069747180845569,
+          "first_adam_state": 23,
+          "first_trailing64_state": 63
+        }
+      ],
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003",
+      "manifest_sha256": "96fd00453edef0c3f0096716cb550ef3f86d25466e06be1b29165beaa5739327"
+    },
+    {
+      "task": "resnet",
+      "lr": 0.001,
+      "updates": 1024,
+      "status": "complete",
+      "initial_loss": 2.30956712890625,
+      "final_loss": 0.06628202140808105,
+      "final_evaluations": {
+        "test": {
+          "loss": 1.763066198730469,
+          "loss_units": 10000,
+          "objective_units": 10
+        }
+      },
+      "tail64_cosines": {
+        "raw": 0.1692633387471923,
+        "moment": 0.9048739147791032,
+        "adaptive": 0.977081939538694,
+        "actual": 0.9770819236222229
+      },
+      "final_R_t": 0.27789877939534685,
+      "parameter_telescoping_error": 0.0,
+      "elapsed_seconds": 9836.206212149002,
+      "environment": {
+        "utc": "2026-11-02T13:47:44.593725+00:00",
+        "python": "3.12.3",
+        "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "numpy": "2.5.0",
+        "scipy": "1.18.1",
+        "device": "cuda:0",
+        "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition MIG 1g.24gb",
+        "gpu_total_bytes": 25367150592,
+        "matmul_precision": "highest",
+        "tf32": false
+      },
+      "gd_loss_matches": [
+        {
+          "gd_run": "120",
+          "gd_state": 500,
+          "target_loss": 1.6699012768554689,
+          "first_adam_state": 87,
+          "first_trailing64_state": 119
+        },
+        {
+          "gd_run": "120",
+          "gd_state": 1000,
+          "target_loss": 1.3101294287109375,
+          "first_adam_state": 129,
+          "first_trailing64_state": 163
+        },
+        {
+          "gd_run": "120",
+          "gd_state": 2000,
+          "target_loss": 0.7946179235839844,
+          "first_adam_state": 272,
+          "first_trailing64_state": 304
+        },
+        {
+          "gd_run": "120",
+          "gd_state": 3000,
+          "target_loss": 0.48983840637207027,
+          "first_adam_state": 481,
+          "first_trailing64_state": 525
+        },
+        {
+          "gd_run": "123",
+          "gd_state": 500,
+          "target_loss": 2.0940153222656246,
+          "first_adam_state": 46,
+          "first_trailing64_state": 74
+        },
+        {
+          "gd_run": "123",
+          "gd_state": 1000,
+          "target_loss": 1.9284021386718755,
+          "first_adam_state": 62,
+          "first_trailing64_state": 93
+        },
+        {
+          "gd_run": "123",
+          "gd_state": 2000,
+          "target_loss": 1.6426034594726564,
+          "first_adam_state": 89,
+          "first_trailing64_state": 122
+        },
+        {
+          "gd_run": "123",
+          "gd_state": 3000,
+          "target_loss": 1.466540378417969,
+          "first_adam_state": 109,
+          "first_trailing64_state": 142
+        },
+        {
+          "gd_run": "124",
+          "gd_state": 500,
+          "target_loss": 1.9328419433593746,
+          "first_adam_state": 62,
+          "first_trailing64_state": 92
+        },
+        {
+          "gd_run": "124",
+          "gd_state": 1000,
+          "target_loss": 1.649430200195312,
+          "first_adam_state": 89,
+          "first_trailing64_state": 121
+        },
+        {
+          "gd_run": "124",
+          "gd_state": 2000,
+          "target_loss": 1.2848856225585934,
+          "first_adam_state": 133,
+          "first_trailing64_state": 167
+        },
+        {
+          "gd_run": "124",
+          "gd_state": 3000,
+          "target_loss": 0.9672287634277343,
+          "first_adam_state": 201,
+          "first_trailing64_state": 235
+        }
+      ],
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker4/lr-0.001",
+      "manifest_sha256": "be5c9081f50634dcf658d3b532555e99e50aea2fac57b1651da43b950ad4cedf"
     }
   ],
   "incomplete": [],
-  "missing": [
-    [
-      "resnet",
-      0.001
-    ],
-    [
-      "transformer",
-      0.001
-    ],
-    [
-      "transformer",
-      0.003
-    ]
-  ],
+  "missing": [],
   "source_gd_milestones_sha256": "c8242a7c94e66738612cc1124392281dcf5361d067bf387722f391c2b158049b",
   "interpretation": "One initialization; descriptive matched fixed-LR trajectories. No Hessian, stability or generalization claim."
 }

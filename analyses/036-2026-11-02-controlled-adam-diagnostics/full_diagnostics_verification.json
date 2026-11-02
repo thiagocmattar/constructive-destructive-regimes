@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "conditions": 9,
+  "curves_per_figure": 72,
+  "smoothed_diagnostic_figure_points": 72891,
+  "fully_unsmoothed_figure_points": 73701,
+  "independent_mean_max_absolute_error": 1.7763568394002505e-15,
+  "raw_arrays_and_indices_exact": true,
+  "loss_and_Adam_R_t_unsmoothed_and_identical_between_versions": true,
+  "all_nine_conditions_identical_between_versions": true,
+  "all_source_hashes_verified": true,
+  "full_manifest_sha256": "270ae9249928feadc37bfb240f40c3766bb347d32633542b61a9884c95e35b3b",
+  "raw_manifest_sha256": "a450ef1449964af1ad32fe0bdb46366ab177da78731786cca22cdaf57479a1d7",
+  "figures": [
+    {
+      "path": "analyses/036-2026-11-02-controlled-adam-diagnostics/figures/adam_diagnostics_full.pdf",
+      "sha256": "81185615d208ef57b582a0e73eeedd0813294e2e8ebdc7a0bc37b63c85a04ecc",
+      "pages": 1,
+      "text_bounds_inside_page": true
+    },
+    {
+      "path": "analyses/036-2026-11-02-controlled-adam-diagnostics/figures/adam_diagnostics_full_unsmoothed.pdf",
+      "sha256": "a271676f7b9efe51fc1beeabba4b2509e090ec28fadb86ff1f3a35b47c8d5a10",
+      "pages": 1,
+      "text_bounds_inside_page": true
+    }
+  ],
+  "visual_review": "passed: both complete24-panel renders reviewed; no clipped labels or overlapping text; raw oscillations retained in alternative."
+}

@@ -1,5 +1,10 @@
 # Run215: controlled full-batch Adam production
 
+Completed and verified: all nine1,024-update arms (9,216 updates). All10 task
+Pods/disks are deleted, with0GB retained task cloud storage. Main estimate
+USD11.62; including calibration USD13.89, provisional. See completion.json.
+
+
 User approved Analysis036 calibration and requested full training on November2.
 H027 / Analysis036. Nine independent1024-update arms (9,216 total updates):
 MLP1e-4/3e-4/1e-3; ResNet32 and Transformer3e-4/1e-3/3e-3.
@@ -67,3 +72,13 @@ verified (all three MLP arms and ResNet LR0.003). The completed cloud worker was
 deleted after scientific and per-file integrity verification. Five arms remain
 active without reported errors; the slowest measured ETC is about95 minutes,
 plus retrieval. See progress-2026-11-02-1517UTC.json and results.json.
+
+Final closeout at2026-11-02 16:54UTC: complete-cohort verification passed with
+--require-complete; no missing/incomplete arm or guard-triggered stop. Final model,
+Adam/RNG/diagnostic recovery and0/1/1024 audit gradients are retained locally for
+all nine arms. All10 allocated Pods have verified acceptance/no-delivery receipts
+and confirmed deletion. A fresh account inventory found zero Analysis036 workers.
+Full split evaluations cover every scheduled state0,128,...,1024. Main compute/
+storage estimate USD11.623649, plus calibration USD2.262822 =USD13.886471 total;
+billing remains provisional. Full figures and source reductions are in Analysis036,
+Observation005. All three local control processes completed their lifecycle.

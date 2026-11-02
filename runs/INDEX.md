@@ -240,8 +240,8 @@
 <!-- Run213 preparation -->
 | Run | Question / hypotheses | Status | Attempts | Observations |
 | --- | --- | --- | --- | --- |
-| [213](213-2026-11-02-eos-adam-from-init-calibration/README.md) | H027 fixed-LR Adam from matched initial tensors | Completed9 x128 updates; one initialization, no Hessians | Attempt01; all files verified, task pods/storage deleted, USD2.26 provisional | [Analysis036 report](../analyses/036-2026-11-02-controlled-adam-diagnostics/REPORT.md); three reviewed PDFs, raw/moment/adaptive/actual streams; main pending |
-| [215](215-2026-11-02-controlled-full-batch-adam/README.md) | H027 controlled Adam full training from frozen initialization | Active; nine arms x1,024 updates; three MLP arms verified | Attempt01; ongoing broad-GPU search, qualification, detached guard/retrieval; main cap USD45/8.5h | [Analysis036](../analyses/036-2026-11-02-controlled-adam-diagnostics/README.md); no schedules, Hessians or seed sweep |
+| [213](213-2026-11-02-eos-adam-from-init-calibration/README.md) | H027 fixed-LR Adam from matched initial tensors | Completed9 x128 updates; one initialization, no Hessians | Attempt01; all files verified, task Pods/storage deleted, USD2.26 provisional | [Analysis036 report](../analyses/036-2026-11-02-controlled-adam-diagnostics/REPORT.md); three calibration PDFs; main completed in Run215 |
+| [215](215-2026-11-02-controlled-full-batch-adam/README.md) | H027 controlled Adam full training from frozen initialization | Complete;9 x1,024 updates, all four streams and full splits verified | Attempt01; three local arms, six production/four pre-production Pods; all retrieved/verified/deleted; USD11.62 main provisional | [Analysis036](../analyses/036-2026-11-02-controlled-adam-diagnostics/README.md); two complete figures, no schedules/Hessians/seed sweep |
 <!-- End Run213 preparation -->
 
 Next run: `217-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve

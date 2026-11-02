@@ -1,0 +1,84 @@
+{
+  "config_sha256": "868c271e89bea4641e633d727c7b322a2220085ea1bee63c2dc712389e8e88f4",
+  "input_manifest_sha256": "d90c7fa4554c20e3f812ea7383a0ccfdc543d7bdb221eacb9bb6af88c82a71b1",
+  "task": "resnet",
+  "lr": 0.001,
+  "effective_updates": 1024,
+  "mechanics_only": false,
+  "source_sha256": {
+    "runs/215-2026-11-02-controlled-full-batch-adam/01_train.py": "861afc4b14a31f5ccb9bb7f92c1f8e0d56f0ef3ac39a0d1521f3758fccfe5514",
+    "src/eos_tasks/adam_diagnostics.py": "2d70b9d876c9fb08845f0a2f779d1b90b138c41b530422f44b9da06fe453fc7d"
+  },
+  "run_id": "215",
+  "status": "complete",
+  "started_utc": "2026-11-02T13:47:44.593704+00:00",
+  "full_batch": true,
+  "start_update": 0,
+  "requested_updates": 1024,
+  "seed": 0,
+  "initial_tensor_sha256": "e2fd253c5c6e3cdfd75d255811f0d2bd4b59dae33702d6a981b517150a259dde",
+  "environment": {
+    "utc": "2026-11-02T13:47:44.593725+00:00",
+    "python": "3.12.3",
+    "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+    "torch": "2.11.0+cu130",
+    "cuda": "13.0",
+    "numpy": "2.5.0",
+    "scipy": "1.18.1",
+    "device": "cuda:0",
+    "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition MIG 1g.24gb",
+    "gpu_total_bytes": 25367150592,
+    "matmul_precision": "highest",
+    "tf32": false
+  },
+  "objective_units": 50,
+  "loss_units": 50000,
+  "physical": 1000,
+  "resume_from": null,
+  "completed_updates": 1024,
+  "finished_utc": "2026-11-02T16:31:40.799847+00:00",
+  "elapsed_seconds": 9836.206212149002,
+  "final_tensor_sha256": "c44ce45544552d59199d756738f2bca908772b34c87689c2cf5317e5cab28c8b",
+  "files": {
+    "resolved_config.json": {
+      "bytes": 1704,
+      "sha256": "4cc5b55e1cc32543c2352dc6171378cbd9fca3aaa8893a68a3c58b7b895392c2"
+    },
+    "boundaries.jsonl": {
+      "bytes": 131780,
+      "sha256": "b47c647c05dbab1defd6d5ab0e653e0ffe236066c483458b63167597e4639d16"
+    },
+    "audit-gradient-0.pt": {
+      "bytes": 1858664,
+      "sha256": "12f628f5f30e7c8f3cfc248a2d84cc5f918570d532a2e40a8c5a4ee834a768ca"
+    },
+    "evaluation.jsonl": {
+      "bytes": 1360,
+      "sha256": "0de70cebb576104d403af983c32db4046f977873cddcbb63c881e1345a106eb1"
+    },
+    "metrics.jsonl": {
+      "bytes": 2779468,
+      "sha256": "586c7a961f0a410e280e3286f8d044df28a29cc99c7a988798ce43f6a60cbfc8"
+    },
+    "events.jsonl": {
+      "bytes": 452328,
+      "sha256": "0d3893be8afbc6c21ed15ba730ce765bd8fade1609a24413f9ac72e9d0408904"
+    },
+    "progress.json": {
+      "bytes": 459,
+      "sha256": "9cfb91818952b9f7d6dd5a44248482762fb83bed7f9014be0e2bccfc1de91048"
+    },
+    "audit-gradient-1.pt": {
+      "bytes": 1858664,
+      "sha256": "1b99108b41147624b14f8162c485782284873ec80b5021b34ff9dedeab90ab0e"
+    },
+    "audit-gradient-1024.pt": {
+      "bytes": 1858685,
+      "sha256": "51dbe6900d01c73cea28de22102f517f886d7274ffe7c6a0519ca2d9a9eecfee"
+    },
+    "final.pt": {
+      "bytes": 39124846,
+      "sha256": "ca7a0008a369cf4dcc94619bcb93b3aba5efe7bb222a56782b277a31b39f6a0d"
+    }
+  }
+}

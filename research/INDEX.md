@@ -10,18 +10,15 @@ and numerical acceptance precede worker cleanup. Manuscript figure awaits the
 complete cohort; H023, no new hypothesis. Next Run217 / Analysis038 / H028.
 
 [Analysis036: controlled Adam from initialization](../analyses/036-2026-11-02-controlled-adam-diagnostics/REPORT.md)
-completed Run213's prior-informed9-arm x128-update calibration (1,152 updates).
-One frozen seed0 initialization per case; no Hessian/HVP or LR interventions.
-Eight smooth-loss labels, one unclassified; no sustained-loss-oscillation bracket.
-ResNet/Transformer raw gradients reverse despite coherent adaptive directions.
-All9 arms,11 tests and three PDFs verified; eight-row smoothed view added.
-Run215 now executes the approved9 x1,024-update main study from initialization;
-six arms are verified (three MLP, two ResNet, one Transformer); three cloud arms continue.
-Completed-run preview has48 checked curves; training loss and Adam R_t are unsmoothed.
-Mixed GPUs are qualified per worker; ongoing capacity search prioritizes parallelism.
-Main-stage USD45 /8.5h cap remains inside the USD50 study envelope.
-All5 calibration Pods/disks deleted after verified retrieval; USD2.26 estimated provisional.
-Run213/215 / Analysis036 / H027; next Run217 / Analysis038 / H028.
+completed Run213 calibration9 x128 and Run215 main9 x1,024 (9,216 main updates).
+One frozen initialization per case, constant LR, no Hessian/HVP or LR intervention.
+All four vector streams, full split evaluations and recovery/audit states verified.
+Both complete eight-row figures are reviewed: loss/Adam R_t raw with six rows
+smoothed, plus a fully unsmoothed alternative; earlier previews are retained.
+All15 calibration/main task Pods/disks deleted after verified acceptance; fresh
+account inventory confirms zero remaining. Retained task cloud storage0GB.
+Combined estimated USD13.89 provisional (main11.62 +calibration2.26).
+Run213/215 / Analysis036 / H027 completed as a descriptive single-initialization study.
 
 
 [Analysis035: backward fixed-endpoint profiles](../analyses/035-2026-11-02-eos-backward-anchors/REPORT.md)

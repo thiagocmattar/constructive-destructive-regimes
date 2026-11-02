@@ -3,7 +3,10 @@
 Current user instruction: run the reduced calibration first, one frozen
 initialization per case, no Hessian/HVP measurements. The current operational
 packet is [FAST_CALIBRATION.md](FAST_CALIBRATION.md); it supersedes the original
-21-arm duration estimate. Main training is deferred until calibration review.
+21-arm duration estimate. After calibration review the user approved Run215;
+all nine1,024-update arms are now complete, verified and retrieved. The historical
+calibration packet below is retained; see Observation005 and Run215 completion.json
+for main-stage coverage, hardware and cleanup.
 
 ## Question and comparison
 

@@ -1,5 +1,5 @@
 {
-  "status": "all_nine_arms_launched_three_mlp_complete_six_cloud_running",
+  "status": "complete_verified_retrieved_and_deleted",
   "run_id": "215",
   "analysis_id": "036",
   "hypothesis": "H027",
@@ -59,6 +59,9 @@
   "live_available_quotes_note": "Historical initial quotes; current catalog snapshots and actual per-worker quotes are in scratch and production-status.json.",
   "measured_launch_snapshot": "production-status.json",
   "bootstrap_timeout_minutes": 12,
-  "active_cloud_workers": 6,
-  "all_active_workers_numerically_qualified": true
+  "active_cloud_workers": 0,
+  "all_active_workers_numerically_qualified": true,
+  "completed_arms": 9,
+  "completion_record": "completion.json",
+  "retained_cloud_storage_gb": 0
 }

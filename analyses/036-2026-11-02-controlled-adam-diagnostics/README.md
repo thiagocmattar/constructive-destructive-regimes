@@ -11,9 +11,9 @@ Analysis034's continuation evidence. [FAST_CALIBRATION.md](FAST_CALIBRATION.md)
 specifies nine arms of 128 updates: MLP rates 1e-4/3e-4/1e-3, and
 ResNet/Transformer rates 3e-4/1e-3/3e-3. This replaces the unexecuted 21-arm
 proposal. The user subsequently approved the calibration and full training: Run215 executes
-nine fresh 1,024-update arms (9,216 updates total). Six arms are complete and
-verified (three MLP, two ResNet rates and one Transformer rate); three cloud arms
-remain active. See
+nine fresh 1,024-update arms (9,216 updates total). All nine arms are complete and
+verified. All task Runpod workers and disks are deleted; retained cloud storage
+is0GB. Combined main/calibration estimate isUSD13.89, provisional. See
 [Run215](../../runs/215-2026-11-02-controlled-full-batch-adam/README.md).
 
 Calibration completed on November 2, 2026: all nine arms /1,152 updates are verified. MLP uses the owned RTX5070Ti
@@ -64,3 +64,16 @@ layout. Training loss and Adam R_t are unsmoothed; the other six diagnostic rows
 use16-step trailing means. Coverage is3/3 MLP,2/3 ResNet and1/3 Transformer. See
 [Observation003](observations/003-completed-production-preview.md),
 completed_preview_manifest.json and completed_preview_verification.json.
+
+The separate [fully unsmoothed alternative](figures/adam_diagnostics_completed_unsmoothed.pdf)
+uses the exact same six-condition snapshot, with no averaging in any row.
+All48 curves /49,134 values and indices match the original observations exactly.
+See [Observation004](observations/004-fully-unsmoothed-alternative.md) and
+completed_unsmoothed_verification.json. Both preview versions are retained.
+
+The complete nine-arm figures are [diagnostic rows smoothed](figures/adam_diagnostics_full.pdf)
+and [fully unsmoothed](figures/adam_diagnostics_full_unsmoothed.pdf). Both keep
+training loss and Adam-update R_t unsmoothed, with all three LRs per column.
+See [Observation005](observations/005-complete-production-diagnostics.md) and
+full_diagnostics_verification.json: all72 curves in each version and all source
+identities pass checks. The earlier six-arm previews above remain as snapshots.

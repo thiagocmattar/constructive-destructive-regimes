@@ -1,4 +1,12 @@
-# Analysis036: short Adam calibration from initialization
+# Analysis036: controlled full-batch Adam diagnostics
+
+Run215 completed all nine1,024-update arms. Scientific verification passed for
+9,216 updates,9,225 boundary losses, all four vector streams and full held-out
+split evaluations. All task cloud workers/disks are deleted; combined calibration
+and main compute/storage estimate isUSD13.89 provisional. The complete figures
+are linked in the main-study section below.
+
+## Calibration at128 updates
 
 Nine arms completed 128 full-objective updates each (1,152 accepted updates).
 All use the same frozen Analysis024 seed0 weights per case and fresh Adam.
@@ -47,7 +55,7 @@ mean has not passed by128. These comparisons support shorter loss-matching
 horizons in these cases. Matching an earlier GD loss is not convergence, matched location,
 generalization, or a rate-independent optimizer benefit.
 
-The main study remains provisional: up to three fixed LR regimes per case,
+At calibration closeout the main study was provisional: up to three fixed LR regimes per case,
 initially1,024 updates each (at most9 arms /9,216 updates). Calibration does
 not establish convergence or authorize automatic main runs. Any new LR or
 horizon requires a new frozen scientific run ID; the one-initialization and
@@ -93,7 +101,7 @@ This adds a third reviewed PDF without new training or cloud execution.
 
 ## Main-study completed-run preview
 
-The approved Run215 main stage is active. The interim
+The following six-arm snapshot preceded completion of Run215. The interim
 [preview](figures/adam_diagnostics_completed_preview.pdf) shows three completed
 MLP rates, ResNet LR0.0003/0.003 and Transformer LR0.0003 through1,024 updates.
 Following the user revision, training loss and Adam-update R_t are unsmoothed;
@@ -101,3 +109,43 @@ the other six diagnostic rows retain16-step trailing means. One ResNet rate and
 two Transformer rates are pending. All48 curves /48,594 values and the rendered
 PDF pass checks. [Observation003](observations/003-completed-production-preview.md)
 records sources, reduction, coverage and limits; no new scientific claim is added.
+
+## Complete1,024-update main study
+
+All nine approved task/LR arms completed from the same frozen initialization
+per case, with fresh Adam and constant LR. No extra seeds, Hessians/HVPs,
+clipping, decay, schedule or LR interventions were introduced. The complete
+[diagnostic-row-smoothed figure](figures/adam_diagnostics_full.pdf) and
+[fully unsmoothed figure](figures/adam_diagnostics_full_unsmoothed.pdf) retain
+the requested eight-row layout, raw training loss and only actual-Adam-update
+R_t. Both include all nine arms; the earlier preview files remain separate.
+
+| Case | LR | Final training loss | Tail64 rho raw | Tail64 rho momentum | Tail64 rho Adam | Final Adam R_t |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| mlp | 0.0001 | 0.0236636 | -0.9694 | -0.4092 | -0.0787 | 0.5609 |
+| mlp | 0.0003 | 0.0119957 | -0.9292 | -0.7199 | -0.5422 | 0.3753 |
+| mlp | 0.001 | 0.0095223 | -0.9506 | -0.8889 | -0.7936 | 0.2774 |
+| resnet | 0.0003 | 0.526588 | -0.9089 | -0.5153 | -0.0818 | 0.3769 |
+| resnet | 0.001 | 0.066282 | 0.1693 | 0.9049 | 0.9771 | 0.2779 |
+| resnet | 0.003 | 0.000831704 | 0.9952 | 1.0000 | 1.0000 | 0.2492 |
+| transformer | 0.0003 | 2.35697 | -0.7946 | -0.5981 | 0.9392 | 0.5402 |
+| transformer | 0.001 | 0.988006 | -0.3306 | 0.0838 | 0.9598 | 0.4591 |
+| transformer | 0.003 | 0.616266 | -0.0749 | 0.4148 | 0.9560 | 0.3152 |
+
+Tail values are medians over the last64 applied updates, without plot smoothing.
+Held-out losses and exact GD-loss milestone attainment remain in Run215/results.json.
+This is a single-initialization descriptive comparison; different qualified GPU
+models limit exclusive LR attribution. Negative raw cosine is not a Hessian,
+convergence, stability or generalization result.
+
+Both full figures pass source, numerical and visual checks:72 curves each,
+72,891 values with six diagnostic rows smoothed and73,701 values fully raw.
+Loss and R_t are identical between versions. See
+[Observation005](observations/005-complete-production-diagnostics.md) for sources,
+reduction, complete split coverage, uncertainty, hardware and reproduction.
+
+Run215 main cost isUSD11.62365 and calibration cost isUSD2.26282; totalUSD13.88647,
+provisional. All10 main task Pods and the earlier5 calibration Pods/disks are
+deleted. Fresh account inventory confirms no Analysis036 worker remains and0GB
+retained task cloud storage. Per-worker hash/scientific acceptance receipts,
+finalization.json and completion.json are local. No manuscript was edited.
