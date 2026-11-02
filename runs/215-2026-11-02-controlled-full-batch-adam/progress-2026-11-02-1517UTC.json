@@ -1,0 +1,149 @@
+{
+  "utc": "2026-11-02T15:18:08.703002+00:00",
+  "run_id": "215",
+  "verified_complete_arms": 4,
+  "active_arms": 5,
+  "updates_per_arm": 1024,
+  "progress": [
+    {
+      "task": "transformer",
+      "lr": 0.0003,
+      "gpu": "RTX 4090",
+      "worker": 0,
+      "arms": [
+        {
+          "arm": "lr-0.0003",
+          "progress": {
+            "utc": "2026-11-02T15:18:01.905909+00:00",
+            "completed_updates": 760,
+            "requested_updates": 1024,
+            "loss": 2.844904750439327,
+            "loss_state": 759,
+            "cumulative_loss_units": 1587336000,
+            "supervised_tokens": 1587336000,
+            "examples_seen": null,
+            "elapsed_seconds": 6858.200456399936,
+            "updates_per_second": 0.11081624178698118,
+            "remaining_seconds_at_observed_rate": 2382.322263802083,
+            "peak_allocated_bytes": 2799906304,
+            "peak_reserved_bytes": 3835691008
+          }
+        }
+      ],
+      "worker_exit": null
+    },
+    {
+      "task": "resnet",
+      "lr": 0.001,
+      "gpu": "PRO 6000 MIG 24GB",
+      "worker": 4,
+      "arms": [
+        {
+          "arm": "lr-0.001",
+          "progress": {
+            "utc": "2026-11-02T15:18:10.553097+00:00",
+            "completed_updates": 566,
+            "requested_updates": 1024,
+            "loss": 0.3927651556396485,
+            "loss_state": 565,
+            "cumulative_loss_units": 28300000,
+            "supervised_tokens": null,
+            "examples_seen": 28300000,
+            "elapsed_seconds": 5425.959399219952,
+            "updates_per_second": 0.10431334965045434,
+            "remaining_seconds_at_observed_rate": 4390.617323043707,
+            "peak_allocated_bytes": 3365940224,
+            "peak_reserved_bytes": 4238344192
+          }
+        }
+      ],
+      "worker_exit": null
+    },
+    {
+      "task": "transformer",
+      "lr": 0.001,
+      "gpu": "RTX PRO 4500 SE",
+      "worker": 15,
+      "arms": [
+        {
+          "arm": "lr-0.001",
+          "progress": {
+            "utc": "2026-11-02T15:18:12.121540+00:00",
+            "completed_updates": 495,
+            "requested_updates": 1024,
+            "loss": 1.7717399512859637,
+            "loss_state": 494,
+            "cumulative_loss_units": 1033857000,
+            "supervised_tokens": 1033857000,
+            "examples_seen": null,
+            "elapsed_seconds": 5265.581144240918,
+            "updates_per_second": 0.0940067176709246,
+            "remaining_seconds_at_observed_rate": 5627.257424855445,
+            "peak_allocated_bytes": 2799906304,
+            "peak_reserved_bytes": 3835691008
+          }
+        }
+      ],
+      "worker_exit": null
+    },
+    {
+      "task": "resnet",
+      "lr": 0.0003,
+      "gpu": "RTX PRO 4000",
+      "worker": 17,
+      "arms": [
+        {
+          "arm": "lr-0.0003",
+          "progress": {
+            "utc": "2026-11-02T15:18:11.930611+00:00",
+            "completed_updates": 695,
+            "requested_updates": 1024,
+            "loss": 0.7385971557617188,
+            "loss_state": 694,
+            "cumulative_loss_units": 34750000,
+            "supervised_tokens": null,
+            "examples_seen": 34750000,
+            "elapsed_seconds": 4894.500033281976,
+            "updates_per_second": 0.14199611712618013,
+            "remaining_seconds_at_observed_rate": 2316.9647639565037,
+            "peak_allocated_bytes": 3365940224,
+            "peak_reserved_bytes": 4238344192
+          }
+        }
+      ],
+      "worker_exit": null
+    },
+    {
+      "task": "transformer",
+      "lr": 0.003,
+      "gpu": "RTX 4090",
+      "worker": 23,
+      "arms": [
+        {
+          "arm": "lr-0.003",
+          "progress": {
+            "utc": "2026-11-02T15:17:34.166106+00:00",
+            "completed_updates": 526,
+            "requested_updates": 1024,
+            "loss": 0.8869175050277582,
+            "loss_state": 525,
+            "cumulative_loss_units": 1098603600,
+            "supervised_tokens": 1098603600,
+            "examples_seen": null,
+            "elapsed_seconds": 4810.712500161026,
+            "updates_per_second": 0.1093393130398862,
+            "remaining_seconds_at_observed_rate": 4554.628945019374,
+            "peak_allocated_bytes": 2799906304,
+            "peak_reserved_bytes": 3835691008
+          }
+        }
+      ],
+      "worker_exit": null
+    }
+  ],
+  "main_cost_estimate_usd": 7.374675681038845,
+  "calibration_estimate_usd": 2.262821938202852,
+  "billing": "provisional",
+  "source": "03_cloud.py live SSH status, detached monitor cache and verified results.json",
+  "maximum_remaining_minutes": 93.78762374759074
+}

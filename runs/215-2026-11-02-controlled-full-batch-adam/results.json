@@ -3,7 +3,7 @@
   "run_id": "215",
   "updates_per_arm": 1024,
   "expected_arms": 9,
-  "completed_arms": 3,
+  "completed_arms": 4,
   "conditions": [
     {
       "task": "mlp",
@@ -382,6 +382,132 @@
       ],
       "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001",
       "manifest_sha256": "0a8ae45b014049fcd7350768bef6190f4991802ed6bf9e254c810c3ca2032e12"
+    },
+    {
+      "task": "resnet",
+      "lr": 0.003,
+      "updates": 1024,
+      "status": "complete",
+      "initial_loss": 2.3095671435546876,
+      "final_loss": 0.0008317042469978334,
+      "final_evaluations": {
+        "test": {
+          "loss": 2.2648177734375,
+          "loss_units": 10000,
+          "objective_units": 10
+        }
+      },
+      "tail64_cosines": {
+        "raw": 0.9951574295412153,
+        "moment": 0.9999523112678309,
+        "adaptive": 0.999981507131326,
+        "actual": 0.9999813802810101
+      },
+      "final_R_t": 0.24917478914025498,
+      "parameter_telescoping_error": 0.0,
+      "elapsed_seconds": 2674.244687240105,
+      "environment": {
+        "utc": "2026-11-02T13:55:38.482340+00:00",
+        "python": "3.12.3",
+        "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "numpy": "2.5.0",
+        "scipy": "1.18.1",
+        "device": "cuda:0",
+        "gpu": "NVIDIA GeForce RTX 4090",
+        "gpu_total_bytes": 25252724736,
+        "matmul_precision": "highest",
+        "tf32": false
+      },
+      "gd_loss_matches": [
+        {
+          "gd_run": "120",
+          "gd_state": 500,
+          "target_loss": 1.6699012768554689,
+          "first_adam_state": 40,
+          "first_trailing64_state": 74
+        },
+        {
+          "gd_run": "120",
+          "gd_state": 1000,
+          "target_loss": 1.3101294287109375,
+          "first_adam_state": 64,
+          "first_trailing64_state": 99
+        },
+        {
+          "gd_run": "120",
+          "gd_state": 2000,
+          "target_loss": 0.7946179235839844,
+          "first_adam_state": 140,
+          "first_trailing64_state": 175
+        },
+        {
+          "gd_run": "120",
+          "gd_state": 3000,
+          "target_loss": 0.48983840637207027,
+          "first_adam_state": 241,
+          "first_trailing64_state": 275
+        },
+        {
+          "gd_run": "123",
+          "gd_state": 500,
+          "target_loss": 2.0940153222656246,
+          "first_adam_state": 19,
+          "first_trailing64_state": 63
+        },
+        {
+          "gd_run": "123",
+          "gd_state": 1000,
+          "target_loss": 1.9284021386718755,
+          "first_adam_state": 27,
+          "first_trailing64_state": 63
+        },
+        {
+          "gd_run": "123",
+          "gd_state": 2000,
+          "target_loss": 1.6426034594726564,
+          "first_adam_state": 41,
+          "first_trailing64_state": 75
+        },
+        {
+          "gd_run": "123",
+          "gd_state": 3000,
+          "target_loss": 1.466540378417969,
+          "first_adam_state": 52,
+          "first_trailing64_state": 87
+        },
+        {
+          "gd_run": "124",
+          "gd_state": 500,
+          "target_loss": 1.9328419433593746,
+          "first_adam_state": 27,
+          "first_trailing64_state": 63
+        },
+        {
+          "gd_run": "124",
+          "gd_state": 1000,
+          "target_loss": 1.649430200195312,
+          "first_adam_state": 41,
+          "first_trailing64_state": 75
+        },
+        {
+          "gd_run": "124",
+          "gd_state": 2000,
+          "target_loss": 1.2848856225585934,
+          "first_adam_state": 67,
+          "first_trailing64_state": 101
+        },
+        {
+          "gd_run": "124",
+          "gd_state": 3000,
+          "target_loss": 0.9672287634277343,
+          "first_adam_state": 105,
+          "first_trailing64_state": 140
+        }
+      ],
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003",
+      "manifest_sha256": "6162fb3eee941231f44bc006c92d74a702f0ab52bad560a78dc4ae36848a71c0"
     }
   ],
   "incomplete": [],
@@ -393,10 +519,6 @@
     [
       "resnet",
       0.001
-    ],
-    [
-      "resnet",
-      0.003
     ],
     [
       "transformer",

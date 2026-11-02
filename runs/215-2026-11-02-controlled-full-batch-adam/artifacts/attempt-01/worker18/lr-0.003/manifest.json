@@ -1,0 +1,84 @@
+{
+  "config_sha256": "868c271e89bea4641e633d727c7b322a2220085ea1bee63c2dc712389e8e88f4",
+  "input_manifest_sha256": "d90c7fa4554c20e3f812ea7383a0ccfdc543d7bdb221eacb9bb6af88c82a71b1",
+  "task": "resnet",
+  "lr": 0.003,
+  "effective_updates": 1024,
+  "mechanics_only": false,
+  "source_sha256": {
+    "runs/215-2026-11-02-controlled-full-batch-adam/01_train.py": "861afc4b14a31f5ccb9bb7f92c1f8e0d56f0ef3ac39a0d1521f3758fccfe5514",
+    "src/eos_tasks/adam_diagnostics.py": "2d70b9d876c9fb08845f0a2f779d1b90b138c41b530422f44b9da06fe453fc7d"
+  },
+  "run_id": "215",
+  "status": "complete",
+  "started_utc": "2026-11-02T13:55:38.482323+00:00",
+  "full_batch": true,
+  "start_update": 0,
+  "requested_updates": 1024,
+  "seed": 0,
+  "initial_tensor_sha256": "e2fd253c5c6e3cdfd75d255811f0d2bd4b59dae33702d6a981b517150a259dde",
+  "environment": {
+    "utc": "2026-11-02T13:55:38.482340+00:00",
+    "python": "3.12.3",
+    "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+    "torch": "2.11.0+cu130",
+    "cuda": "13.0",
+    "numpy": "2.5.0",
+    "scipy": "1.18.1",
+    "device": "cuda:0",
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "gpu_total_bytes": 25252724736,
+    "matmul_precision": "highest",
+    "tf32": false
+  },
+  "objective_units": 50,
+  "loss_units": 50000,
+  "physical": 1000,
+  "resume_from": null,
+  "completed_updates": 1024,
+  "finished_utc": "2026-11-02T14:40:12.726928+00:00",
+  "elapsed_seconds": 2674.244687240105,
+  "final_tensor_sha256": "3e5f8bed6db3aa36fadcb1615a3175c54327f2f188a0cfcbe77ce66a6ef079db",
+  "files": {
+    "resolved_config.json": {
+      "bytes": 1704,
+      "sha256": "e94e0230b96f2f5fe46553d77a5f7529b3732f47a40bae7fbe0e7b9ce3b1f98a"
+    },
+    "boundaries.jsonl": {
+      "bytes": 135167,
+      "sha256": "b952c7e4d184e1da70d1dbadd7710de16452aaa7041d1e7df6fa2165ac3e28ee"
+    },
+    "audit-gradient-0.pt": {
+      "bytes": 1858664,
+      "sha256": "f0895de4ad218182e5fd46f7b5a2ff3f1b630b87dca50b3f9d5d7336ffb7f9a7"
+    },
+    "evaluation.jsonl": {
+      "bytes": 1362,
+      "sha256": "b09741b06d37e9a3438f5959a6109b46ec675b2a49cc8ca94b0af049e8e63ba9"
+    },
+    "metrics.jsonl": {
+      "bytes": 2782726,
+      "sha256": "c9572aaa98f3e9f8c0378b6ff2b5ce60d8e3383e563c358485c5afffaf5945ca"
+    },
+    "events.jsonl": {
+      "bytes": 453557,
+      "sha256": "20042d2b71c0c9e8284c86dc5849ace7e0b99494e0ebeba8e8c71d9e61e2533a"
+    },
+    "progress.json": {
+      "bytes": 462,
+      "sha256": "dec6c9b6f46704357a28f0bbc994d7330ee20f88f44586119d7fe2feb20362b7"
+    },
+    "audit-gradient-1.pt": {
+      "bytes": 1858664,
+      "sha256": "72331f09f684510ebf537c6ae55c0a9a6a089f6c4fe21f8c701362f723b17bda"
+    },
+    "audit-gradient-1024.pt": {
+      "bytes": 1858685,
+      "sha256": "1a09900e22c544f3b55d9ef1fab74f641834d120ec0d11cba45eda8ce57a7895"
+    },
+    "final.pt": {
+      "bytes": 39124846,
+      "sha256": "a79c111d626a18cc66602bd309c7a859d6e6b9b5163c0732d1e7c2cc9e352cdd"
+    }
+  }
+}

@@ -60,3 +60,9 @@ for the study including calibration. This is an early estimate, not posted
 billing; the approved USD50 ceiling and independent limits remain in force.
 The search also tried non-RTX L40S/A100/H100 capacity; suitable available workers
 were accepted regardless of model. The final1,024-step histories remain pending.
+
+Progress at2026-11-02 15:17UTC (12:17BRT): four of nine arms are complete and
+verified (all three MLP arms and ResNet LR0.003). The completed cloud worker was
+deleted after scientific and per-file integrity verification. Five arms remain
+active without reported errors; the slowest measured ETC is about95 minutes,
+plus retrieval. See progress-2026-11-02-1517UTC.json and results.json.

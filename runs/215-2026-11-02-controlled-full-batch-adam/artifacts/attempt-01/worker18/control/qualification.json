@@ -1,0 +1,179 @@
+{
+  "status": "passed",
+  "mechanics_only": true,
+  "task": "resnet",
+  "lr": 0.003,
+  "updates": 2,
+  "config_sha256": "868c271e89bea4641e633d727c7b322a2220085ea1bee63c2dc712389e8e88f4",
+  "input_manifest_sha256": "d90c7fa4554c20e3f812ea7383a0ccfdc543d7bdb221eacb9bb6af88c82a71b1",
+  "initial_tensor_sha256": "e2fd253c5c6e3cdfd75d255811f0d2bd4b59dae33702d6a981b517150a259dde",
+  "initial_gradient_relative_error": 1.2281094526918147e-07,
+  "full_split_evaluations": {
+    "test": {
+      "loss": 2.309553491210938,
+      "loss_units": 10000,
+      "objective_units": 10
+    }
+  },
+  "rows": [
+    {
+      "update": 1,
+      "loss": 2.3095671435546876,
+      "seconds": 3.2713896909262985,
+      "streams": {
+        "raw": {
+          "norm": 0.16304811906904002,
+          "A": 0.16304811906904002,
+          "B": 0.16304811906904002,
+          "B_over_A": 1.0,
+          "cosine": null,
+          "cosine_undefined_reason": "first_update",
+          "ratio_undefined_reason": null,
+          "energy": 0.02658468913195185,
+          "all_pair": 0.0,
+          "lag_one": 0.0,
+          "beyond_lag_one": 0.0,
+          "A_squared": 0.02658468913195185,
+          "B_squared": 0.02658468913195185,
+          "triangle_gap": 0.0
+        },
+        "moment": {
+          "norm": 0.016304812203407425,
+          "A": 0.016304812203407425,
+          "B": 0.016304812203407425,
+          "B_over_A": 1.0,
+          "cosine": null,
+          "cosine_undefined_reason": "first_update",
+          "ratio_undefined_reason": null,
+          "energy": 0.0002658469009883837,
+          "all_pair": 0.0,
+          "lag_one": 0.0,
+          "beyond_lag_one": 0.0,
+          "A_squared": 0.0002658469009883837,
+          "B_squared": 0.0002658469009883837,
+          "triangle_gap": 0.0
+        },
+        "adaptive": {
+          "norm": 33.93933145572624,
+          "A": 33.93933145572624,
+          "B": 33.93933145572624,
+          "B_over_A": 1.0,
+          "cosine": null,
+          "cosine_undefined_reason": "first_update",
+          "ratio_undefined_reason": null,
+          "energy": 1151.8782196616487,
+          "all_pair": 0.0,
+          "lag_one": 0.0,
+          "beyond_lag_one": 0.0,
+          "A_squared": 1151.8782196616487,
+          "B_squared": 1151.8782196616487,
+          "triangle_gap": 0.0
+        },
+        "actual": {
+          "norm": 0.10181799041125533,
+          "A": 0.10181799041125533,
+          "B": 0.10181799041125533,
+          "B_over_A": 1.0,
+          "cosine": null,
+          "cosine_undefined_reason": "first_update",
+          "ratio_undefined_reason": null,
+          "energy": 0.010366903171386483,
+          "all_pair": 0.0,
+          "lag_one": 0.0,
+          "beyond_lag_one": 0.0,
+          "A_squared": 0.010366903171386483,
+          "B_squared": 0.010366903171386483,
+          "triangle_gap": 0.0
+        }
+      }
+    },
+    {
+      "update": 2,
+      "loss": 2.3018598828125003,
+      "seconds": 2.6180946258828044,
+      "streams": {
+        "raw": {
+          "norm": 0.15412284290410902,
+          "A": 0.31717096197314903,
+          "B": 0.31589605355873057,
+          "B_over_A": 0.9959803747276007,
+          "cosine": 0.9839410970455399,
+          "cosine_undefined_reason": null,
+          "ratio_undefined_reason": null,
+          "energy": 0.05033853983679652,
+          "all_pair": 0.04945177681718385,
+          "lag_one": 0.04945177681718384,
+          "beyond_lag_one": 1.3877787807814457e-17,
+          "A_squared": 0.10059741911897276,
+          "B_squared": 0.09979031665398037,
+          "triangle_gap": 0.0008071024649923819
+        },
+        "moment": {
+          "norm": 0.029965655610997424,
+          "A": 0.046270467814404845,
+          "B": 0.04622585452884627,
+          "B_over_A": 0.9990358151178086,
+          "cosine": 0.9957770193346617,
+          "cosine_undefined_reason": null,
+          "ratio_undefined_reason": null,
+          "energy": 0.0011637874171852851,
+          "all_pair": 0.0009730422097367719,
+          "lag_one": 0.0009730422097367721,
+          "beyond_lag_one": -2.168404344971009e-19,
+          "A_squared": 0.0021409561917638746,
+          "B_squared": 0.002136829626922057,
+          "triangle_gap": 4.1265648418175455e-06
+        },
+        "adaptive": {
+          "norm": 292.0471859885064,
+          "A": 325.9865174442326,
+          "B": 297.32061020024963,
+          "B_over_A": 0.9120641323796868,
+          "cosine": 0.09867487064714872,
+          "cosine_undefined_reason": null,
+          "ratio_undefined_reason": null,
+          "energy": 86443.43706346689,
+          "all_pair": 1956.1081863818981,
+          "lag_one": 1956.1081863818777,
+          "beyond_lag_one": 2.0463630789890885e-11,
+          "A_squared": 106267.20955541897,
+          "B_squared": 88399.54524984879,
+          "triangle_gap": 17867.664305570186
+        },
+        "actual": {
+          "norm": 0.8761415534584489,
+          "A": 0.9779595438697042,
+          "B": 0.8919618247113081,
+          "B_over_A": 0.9120641342502674,
+          "cosine": 0.09867486488239093,
+          "cosine_undefined_reason": null,
+          "ratio_undefined_reason": null,
+          "energy": 0.7779909248679705,
+          "all_pair": 0.017604971874355835,
+          "lag_one": 0.017604971874355647,
+          "beyond_lag_one": 1.8735013540549517e-16,
+          "A_squared": 0.9564048694458399,
+          "B_squared": 0.7955958967423263,
+          "triangle_gap": 0.16080897270351358
+        }
+      }
+    }
+  ],
+  "elapsed_seconds": 5.889751896029338,
+  "environment": {
+    "utc": "2026-11-02T13:55:33.699275+00:00",
+    "python": "3.12.3",
+    "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+    "torch": "2.11.0+cu130",
+    "cuda": "13.0",
+    "numpy": "2.5.0",
+    "scipy": "1.18.1",
+    "device": "cuda:0",
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "gpu_total_bytes": 25252724736,
+    "matmul_precision": "highest",
+    "tf32": false
+  },
+  "peak_allocated_bytes": 3310469632,
+  "limitation": "Mechanics and numerical start qualification only; excluded from scientific trajectories."
+}
