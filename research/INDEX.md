@@ -493,12 +493,13 @@ SGD remains deferred. Original manuscript assets are preserved.
 
 Next run: 055; analysis: 019; hypothesis: H018. Preserve executed inputs and raw evidence.
 
-## Deferred batch-size figure extension
+## Resumed batch-size figure extension
 
 [Analysis037](../analyses/037-2026-11-02-sgd-batch-extension/README.md) / Run214
-prepare the requested three-case2x3 SGD figure. Seven numerical tests and three
-local GPU mechanics checks pass; pinned inputs and timing are retained. The user
-deferred execution because the proposed eight-hour envelope was too long.
-No production training, cloud resources, rental spend or active task process.
-The manuscript TODO remains open. Next Run215 / Analysis038; H023 extended,
+prepare the requested three-case2x3 SGD figure. The user resumed execution on
+Runpod; a new aggregate cost/time envelope is pending. Seven CPU tests and both
+complete short worker queues pass, including sampled forks, replay, CPU audits,
+verified copied artifacts and corruption rejection. Small ResNet FP32 replay
+drift is recorded; Transformer short replay is exact. No production training or
+paid allocation has started. The manuscript TODO remains open. Next Run215 / Analysis038; H023 extended,
 no new hypothesis allocated.

@@ -83,4 +83,4 @@ an analysis may use manuscript or external inputs without referencing a run.
 
 | Analysis | Question | Sources | Status | Records |
 | --- | --- | --- | --- | --- |
-| [037](037-2026-11-02-sgd-batch-extension/README.md) | H023: three-case batch-size figure extension | Run214; reuse Analysis027 MLP evidence | Deferred by user after local timing; seven numerical tests and three GPU mechanics checks passed; no production or cloud launch | [Preparation receipt](037-2026-11-02-sgd-batch-extension/preparation_receipt.json); pending three-case 2x3 manuscript figure |
+| [037](037-2026-11-02-sgd-batch-extension/README.md) | H023: three-case batch-size figure extension | Run214; reuse Analysis027 MLP evidence | Resumed for Runpod; seven CPU checks and both full short worker queues pass; cost/time envelope pending, no paid allocation | [Worker qualification](037-2026-11-02-sgd-batch-extension/worker_qualification.json); [launch packet](037-2026-11-02-sgd-batch-extension/RUNPOD_LAUNCH.md); pending three-case 2x3 figure |

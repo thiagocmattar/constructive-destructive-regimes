@@ -30,9 +30,12 @@ def main():
         add(cache/'reference'/name,cfg['tasks'],entry['sha256'])
     for folder in ['src/eos_tasks','src/cifar_eos']:
         for path in sorted((ROOT/folder).glob('*.py')): add(path,cfg['tasks'])
-    for name in ['config.json','01_measure.py']: add(RUN/name,cfg['tasks'])
+    add(RUN/'config.json',cfg['tasks'])
+    for path in sorted(RUN.glob('*.py')): add(path,cfg['tasks'])
     write_json(RUN/'input_manifest.json',dict(run_id='214',files=files,initial=shared['initial'],
         wikitext=shared['wikitext'],reference_policy=cfg['reference_policy']))
+    manifest=RUN/'input_manifest.json'
+    manifest.write_text(manifest.read_text(encoding='utf-8'),encoding='utf-8',newline='\n')
     print(json.dumps(dict(files=len(files),bytes=sum(x['bytes'] for x in files),status='verified')))
 
 

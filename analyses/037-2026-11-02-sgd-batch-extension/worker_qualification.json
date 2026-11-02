@@ -1,0 +1,71 @@
+{
+  "utc": "2026-11-02T13:27:49.546873+00:00",
+  "status": "passed",
+  "mechanics_only": true,
+  "workers": [
+    {
+      "task": "resnet",
+      "source": "runs/214-2026-11-02-sgd-batch-extension/scratch/qualified-resnet-worker",
+      "inventory_sha256": "b886d612dc6b3f78995c51d6b0ec4b874b472402cd1187d73a4008366e69444c",
+      "files": 39,
+      "bytes": 52172813,
+      "forks": 2,
+      "full_batch_replay": {
+        "updates": 3,
+        "max_absolute_parameter_difference": 2.9685907065868378e-08,
+        "relative_parameter_l2_error": 1.0729557335884063e-09,
+        "bitwise_identical": false,
+        "parameter_tolerance": "rtol1e-6/atol1e-7, plus relative total L2 <=1e-6",
+        "geometry_tolerance": "rtol1e-6/atol1e-7",
+        "initial_strict_test": "ResNet bitwise equality failed; small cuDNN FP32 drift recorded explicitly. Transformer exact."
+      },
+      "sampled_fork": "three real-data updates with exact saved-index replay",
+      "audit_vectors": "CPU NumPy norms, prefixes and adjacent cosine",
+      "retrieval": "copied and all inventory sizes/SHA256 independently verified",
+      "corruption_rejected": true
+    },
+    {
+      "task": "transformer",
+      "source": "runs/214-2026-11-02-sgd-batch-extension/scratch/qualified-transformer-worker",
+      "inventory_sha256": "9cf705ccaa0cd60111eff92c3a5806ea6ee5cd080761afd651e023d24c36f58b",
+      "files": 39,
+      "bytes": 1564894935,
+      "forks": 2,
+      "full_batch_replay": {
+        "updates": 3,
+        "max_absolute_parameter_difference": 0.0,
+        "relative_parameter_l2_error": 0.0,
+        "bitwise_identical": true,
+        "parameter_tolerance": "rtol1e-6/atol1e-7, plus relative total L2 <=1e-6",
+        "geometry_tolerance": "rtol1e-6/atol1e-7",
+        "initial_strict_test": "ResNet bitwise equality failed; small cuDNN FP32 drift recorded explicitly. Transformer exact."
+      },
+      "sampled_fork": "three real-data updates with exact saved-index replay",
+      "audit_vectors": "CPU NumPy norms, prefixes and adjacent cosine",
+      "retrieval": "copied and all inventory sizes/SHA256 independently verified",
+      "corruption_rejected": true
+    }
+  ],
+  "mechanics_input_manifest": {
+    "path": "runs/214-2026-11-02-sgd-batch-extension/scratch/qualified-worker-input-manifest.json",
+    "sha256": "74f00df10257e203eb1b4d751de885d2fb6f99cbbc43b3b6af61372214109811"
+  },
+  "input_manifest_formatting": "Mechanics used CRLF; production manifest has identical parsed content with LF. Both byte identities are retained.",
+  "sources": {
+    "runs/214-2026-11-02-sgd-batch-extension/00_profile.py": "c710502353fe3da04c6c4a1089e138e0d4c518cbbf9162f48c98e9d527cad5c3",
+    "runs/214-2026-11-02-sgd-batch-extension/01_measure.py": "6cc0388c34c39ac42a8fed85a802a5fafd8870ef7d269294c733f9d2d293bb18",
+    "runs/214-2026-11-02-sgd-batch-extension/02_worker.py": "0eb090921efce6ad7e17d8f2f690b7b975b662d599273aa89aa8d11fe9e09329",
+    "runs/214-2026-11-02-sgd-batch-extension/test_measurement.py": "295406754644ef8406d6c2553dee97d809e4d9f6635396534ba2efb9f311b7fd",
+    "analyses/037-2026-11-02-sgd-batch-extension/01_prepare.py": "34a5968f3e62cbe39eca2831fce40ba412f4e9efb94003745f9957b43eab4b08",
+    "analyses/037-2026-11-02-sgd-batch-extension/02_verify_results.py": "c5b9daad97f265d82d19d14f53e99fefbe71ab789a4da3a9f80f4d3f6056d7ef",
+    "analyses/037-2026-11-02-sgd-batch-extension/03_prepare_runpod.py": "1ca0b585e0221972c4eda425f230103272daeae0238d772896b9f0726da40d42",
+    "analyses/037-2026-11-02-sgd-batch-extension/04_qualify_workers.py": "90a7f101c76318c5acf98e153873eb1ea3ffd17cfe8b9dc30d05ffba0586f0e9",
+    "runs/214-2026-11-02-sgd-batch-extension/config.json": "78e63fb6b1fd2bf6459d99670764b5362ab66161f4c69c0c585b4e40912069ed",
+    "runs/214-2026-11-02-sgd-batch-extension/input_manifest.json": "af7451b7a78b345f5f4284bf6a22561abe5e3781b288ce24e4b92af902c2c9da"
+  },
+  "limits": [
+    "Mechanics only; no new paper evidence or production updates.",
+    "Cloud placement, sustained throughput, GPU/runtime parity and actual SSH/SCP transfer require the funded calibration.",
+    "Full 348-fork cohort and manuscript integration remain pending."
+  ]
+}

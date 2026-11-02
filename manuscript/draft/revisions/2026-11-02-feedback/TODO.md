@@ -12,7 +12,7 @@ the mathematics and evidence. Keep editable work, review inputs and the next
 review PDF under `manuscript/draft`; keep temporary build/render files ignored.
 The original PDF annotations reuse completed experiments. The subsequent
 three-case SGD figure request requires additional measurements; see the open
-extension below. No new training or cloud execution has started.
+extension below. No production training or cloud execution has started.
 
 - [x] C01: Replace Section III's title with a title centered on the regimes.
 - [x] C02--C03: Delete the two marked displacement sentences/clauses.
@@ -77,8 +77,12 @@ distinct datasets. This supersedes the 2-by-2 layout specified above.
 - [x] Specify the [2-by-3 figure and measurement extension](SGD_EXTENSION.md).
 - [x] Verify pinned inputs, prepare the runner and numerical checks, and measure
   local runtime/memory in Run214 / Analysis037 (mechanics only).
-- [ ] Revisit execution resource, duration and budget. **Deferred by the user:**
-  "Keep this as a TODO, 8 hours is too long." No production or cloud launch.
+- [x] Qualify both complete short worker queues, full-batch replay, sampled
+  forks, independent vector/index checks and copied-artifact integrity.
+- [ ] Execute on Runpod, as now requested by the user. The earlier eight-hour
+  proposal was declined. A new aggregate cost/time limit is pending; see the
+  [launch packet](../../../../analyses/037-2026-11-02-sgd-batch-extension/RUNPOD_LAUNCH.md).
+  No paid calibration or production allocation has started.
 - [ ] Measure ResNet-32 and Transformer continuations at initialization and
   after 2,000 full-GD updates, with the declared replication and controls.
 - [ ] Replace the compact figure with three case columns, two metric rows,

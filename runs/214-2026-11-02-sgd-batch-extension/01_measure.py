@@ -175,11 +175,13 @@ def main():
                     ids = torch.from_numpy(draw.astype(np.int64)).to(device)
                 loss, g = task.gradient(ids)
                 if not math.isfinite(loss): raise RuntimeError('Nonfinite sampled loss.')
+                audit = args.seed == 0 and args.rep == 0 and index in (0, horizon-1)
+                previous = raw.previous.cpu() if audit and raw.previous is not None else None
                 stats = raw.consume(g)
                 before = flat(model.parameters()).detach().double()
-                audit = args.seed == 0 and args.rep == 0 and index in (0, horizon-1)
                 if audit: atomic_torch(args.output/f'audit-{index:04d}.pt', dict(gradient=g.cpu(), raw_prefix=raw.total.cpu(),
-                    state=index, tensor_sha256=tensor_hash(model.parameters()), ids=None if ids is None else ids.cpu()))
+                    previous_gradient=previous, state=index, tensor_sha256=tensor_hash(model.parameters()),
+                    ids=None if ids is None else ids.cpu()))
                 step(model, g, lr)
                 after = flat(model.parameters()).detach().double()
                 actual_stats = actual.consume(after-before)

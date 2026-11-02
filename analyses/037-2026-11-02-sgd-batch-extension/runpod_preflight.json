@@ -1,0 +1,754 @@
+{
+  "utc": "2026-11-02T13:27:47.837702+00:00",
+  "epoch": 1793626067.8377018,
+  "cli_version": "runpodctl 3.0.1-551d6a4",
+  "status": "prepared_awaiting_spending_envelope",
+  "config_sha256": "78e63fb6b1fd2bf6459d99670764b5362ab66161f4c69c0c585b4e40912069ed",
+  "input_manifest_sha256": "af7451b7a78b345f5f4284bf6a22561abe5e3781b288ce24e4b92af902c2c9da",
+  "catalog": [
+    {
+      "available": false,
+      "communityCloud": false,
+      "communityPricePerHr": null,
+      "displayName": "MI300X",
+      "gpuId": "AMD Instinct MI300X OAM",
+      "memoryInGb": 192,
+      "secureCloud": true,
+      "securePricePerHr": 2.39
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 1.19,
+      "displayName": "A100 PCIe",
+      "gpuId": "NVIDIA A100 80GB PCIe",
+      "memoryInGb": 80,
+      "secureCloud": true,
+      "securePricePerHr": 1.79
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 1,
+      "displayName": "A100 SXM 40GB",
+      "gpuId": "NVIDIA A100-SXM4-40GB",
+      "memoryInGb": 40,
+      "secureCloud": false,
+      "securePricePerHr": null
+    },
+    {
+      "available": true,
+      "communityCloud": true,
+      "communityPricePerHr": 1.39,
+      "dataCenterAvailability": [
+        {
+          "dataCenterId": "EUR-IS-1",
+          "stockStatus": "Low"
+        }
+      ],
+      "displayName": "A100 SXM",
+      "gpuId": "NVIDIA A100-SXM4-80GB",
+      "memoryInGb": 80,
+      "secureCloud": true,
+      "securePricePerHr": 1.79,
+      "stockStatus": "Low"
+    },
+    {
+      "available": false,
+      "communityCloud": false,
+      "communityPricePerHr": null,
+      "displayName": "A40",
+      "gpuId": "NVIDIA A40",
+      "memoryInGb": 48,
+      "secureCloud": true,
+      "securePricePerHr": 0.59
+    },
+    {
+      "available": true,
+      "communityCloud": true,
+      "communityPricePerHr": 5.98,
+      "dataCenterAvailability": [
+        {
+          "dataCenterId": "US-CA-2",
+          "stockStatus": "Low"
+        },
+        {
+          "dataCenterId": "US-NC-2",
+          "stockStatus": "Low"
+        }
+      ],
+      "displayName": "B200",
+      "gpuId": "NVIDIA B200",
+      "memoryInGb": 180,
+      "secureCloud": true,
+      "securePricePerHr": 7.99,
+      "stockStatus": "Low"
+    },
+    {
+      "available": true,
+      "communityCloud": true,
+      "communityPricePerHr": 6.94,
+      "dataCenterAvailability": [
+        {
+          "dataCenterId": "US-WA-2",
+          "stockStatus": "Low"
+        }
+      ],
+      "displayName": "B300",
+      "gpuId": "NVIDIA B300 SXM6 AC",
+      "memoryInGb": 288,
+      "secureCloud": true,
+      "securePricePerHr": 8.99,
+      "stockStatus": "Low"
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 0.13,
+      "displayName": "RTX 3070",
+      "gpuId": "NVIDIA GeForce RTX 3070",
+      "memoryInGb": 8,
+      "secureCloud": false,
+      "securePricePerHr": null
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 0.17,
+      "displayName": "RTX 3080",
+      "gpuId": "NVIDIA GeForce RTX 3080",
+      "memoryInGb": 10,
+      "secureCloud": false,
+      "securePricePerHr": null
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 0.18,
+      "displayName": "RTX 3080 Ti",
+      "gpuId": "NVIDIA GeForce RTX 3080 Ti",
+      "memoryInGb": 12,
+      "secureCloud": false,
+      "securePricePerHr": null
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 0.22,
+      "displayName": "RTX 3090",
+      "gpuId": "NVIDIA GeForce RTX 3090",
+      "memoryInGb": 24,
+      "secureCloud": true,
+      "securePricePerHr": 0.5
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 0.27,
+      "displayName": "RTX 3090 Ti",
+      "gpuId": "NVIDIA GeForce RTX 3090 Ti",
+      "memoryInGb": 24,
+      "secureCloud": false,
+      "securePricePerHr": null
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 0.19,
+      "displayName": "RTX 4070 Ti",
+      "gpuId": "NVIDIA GeForce RTX 4070 Ti",
+      "memoryInGb": 12,
+      "secureCloud": false,
+      "securePricePerHr": null
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 0.27,
+      "displayName": "RTX 4080",
+      "gpuId": "NVIDIA GeForce RTX 4080",
+      "memoryInGb": 16,
+      "secureCloud": false,
+      "securePricePerHr": null
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 0.28,
+      "displayName": "RTX 4080 SUPER",
+      "gpuId": "NVIDIA GeForce RTX 4080 SUPER",
+      "memoryInGb": 16,
+      "secureCloud": false,
+      "securePricePerHr": null
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 0.34,
+      "displayName": "RTX 4090",
+      "gpuId": "NVIDIA GeForce RTX 4090",
+      "memoryInGb": 24,
+      "secureCloud": true,
+      "securePricePerHr": 0.89
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 0.39,
+      "displayName": "RTX 5080",
+      "gpuId": "NVIDIA GeForce RTX 5080",
+      "memoryInGb": 16,
+      "secureCloud": false,
+      "securePricePerHr": null
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 0.69,
+      "displayName": "RTX 5090",
+      "gpuId": "NVIDIA GeForce RTX 5090",
+      "memoryInGb": 32,
+      "secureCloud": true,
+      "securePricePerHr": 1.19
+    },
+    {
+      "available": true,
+      "communityCloud": true,
+      "communityPricePerHr": 2.69,
+      "dataCenterAvailability": [
+        {
+          "dataCenterId": "AP-IN-1",
+          "stockStatus": "Low"
+        },
+        {
+          "dataCenterId": "AP-JP-1",
+          "stockStatus": "Low"
+        },
+        {
+          "dataCenterId": "EUR-NO-2",
+          "stockStatus": "Low"
+        },
+        {
+          "dataCenterId": "US-CA-2",
+          "stockStatus": "Low"
+        },
+        {
+          "dataCenterId": "US-GA-2",
+          "stockStatus": "Low"
+        },
+        {
+          "dataCenterId": "US-NE-1",
+          "stockStatus": "Low"
+        }
+      ],
+      "displayName": "H100 SXM",
+      "gpuId": "NVIDIA H100 80GB HBM3",
+      "memoryInGb": 80,
+      "secureCloud": true,
+      "securePricePerHr": 3.99,
+      "stockStatus": "Low"
+    },
+    {
+      "available": true,
+      "communityCloud": true,
+      "communityPricePerHr": 2.59,
+      "dataCenterAvailability": [
+        {
+          "dataCenterId": "US-CA-2",
+          "stockStatus": "Low"
+        }
+      ],
+      "displayName": "H100 NVL",
+      "gpuId": "NVIDIA H100 NVL",
+      "memoryInGb": 94,
+      "secureCloud": true,
+      "securePricePerHr": 3.19,
+      "stockStatus": "Low"
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 1.99,
+      "displayName": "H100 PCIe",
+      "gpuId": "NVIDIA H100 PCIe",
+      "memoryInGb": 80,
+      "secureCloud": true,
+      "securePricePerHr": 2.89
+    },
+    {
+      "available": true,
+      "communityCloud": true,
+      "communityPricePerHr": 3.59,
+      "dataCenterAvailability": [
+        {
+          "dataCenterId": "AP-JP-1",
+          "stockStatus": "Low"
+        },
+        {
+          "dataCenterId": "CA-MTL-3",
+          "stockStatus": "Low"
+        },
+        {
+          "dataCenterId": "EUR-IS-4",
+          "stockStatus": "Low"
+        },
+        {
+          "dataCenterId": "EUR-IS-5",
+          "stockStatus": "Low"
+        },
+        {
+          "dataCenterId": "US-CA-2",
+          "stockStatus": "Low"
+        },
+        {
+          "dataCenterId": "US-CO-1",
+          "stockStatus": "Low"
+        },
+        {
+          "dataCenterId": "US-GA-2",
+          "stockStatus": "Low"
+        },
+        {
+          "dataCenterId": "US-NC-1",
+          "stockStatus": "Low"
+        }
+      ],
+      "displayName": "H200 SXM",
+      "gpuId": "NVIDIA H200",
+      "memoryInGb": 141,
+      "secureCloud": true,
+      "securePricePerHr": 5.29,
+      "stockStatus": "Low"
+    },
+    {
+      "available": false,
+      "communityCloud": false,
+      "communityPricePerHr": null,
+      "displayName": "H200 NVL",
+      "gpuId": "NVIDIA H200 NVL",
+      "memoryInGb": 143,
+      "secureCloud": true,
+      "securePricePerHr": 3.79
+    },
+    {
+      "available": true,
+      "communityCloud": false,
+      "communityPricePerHr": null,
+      "dataCenterAvailability": [
+        {
+          "dataCenterId": "EU-RO-1",
+          "stockStatus": "Low"
+        }
+      ],
+      "displayName": "L4",
+      "gpuId": "NVIDIA L4",
+      "memoryInGb": 24,
+      "secureCloud": true,
+      "securePricePerHr": 0.59,
+      "stockStatus": "Low"
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 0.69,
+      "displayName": "L40",
+      "gpuId": "NVIDIA L40",
+      "memoryInGb": 48,
+      "secureCloud": true,
+      "securePricePerHr": 0.82
+    },
+    {
+      "available": true,
+      "communityCloud": true,
+      "communityPricePerHr": 0.79,
+      "displayName": "L40S",
+      "gpuId": "NVIDIA L40S",
+      "memoryInGb": 48,
+      "secureCloud": true,
+      "securePricePerHr": 1.09,
+      "stockStatus": "Low"
+    },
+    {
+      "available": false,
+      "communityCloud": false,
+      "communityPricePerHr": null,
+      "displayName": "RTX 2000 Ada",
+      "gpuId": "NVIDIA RTX 2000 Ada Generation",
+      "memoryInGb": 16,
+      "secureCloud": true,
+      "securePricePerHr": 0.24
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 0.2,
+      "displayName": "RTX 4000 Ada",
+      "gpuId": "NVIDIA RTX 4000 Ada Generation",
+      "memoryInGb": 20,
+      "secureCloud": true,
+      "securePricePerHr": 0.28
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 0.18,
+      "displayName": "RTX 4000 Ada SFF",
+      "gpuId": "NVIDIA RTX 4000 SFF Ada Generation",
+      "memoryInGb": 20,
+      "secureCloud": false,
+      "securePricePerHr": null
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 0.49,
+      "displayName": "RTX 5000 Ada",
+      "gpuId": "NVIDIA RTX 5000 Ada Generation",
+      "memoryInGb": 32,
+      "secureCloud": false,
+      "securePricePerHr": null
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 0.74,
+      "displayName": "RTX 6000 Ada",
+      "gpuId": "NVIDIA RTX 6000 Ada Generation",
+      "memoryInGb": 48,
+      "secureCloud": true,
+      "securePricePerHr": 0.99
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 0.12,
+      "displayName": "RTX A2000",
+      "gpuId": "NVIDIA RTX A2000",
+      "memoryInGb": 6,
+      "secureCloud": false,
+      "securePricePerHr": null
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 0.17,
+      "displayName": "RTX A4000",
+      "gpuId": "NVIDIA RTX A4000",
+      "memoryInGb": 16,
+      "secureCloud": true,
+      "securePricePerHr": 0.25
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 0.19,
+      "displayName": "RTX A4500",
+      "gpuId": "NVIDIA RTX A4500",
+      "memoryInGb": 20,
+      "secureCloud": true,
+      "securePricePerHr": 0.25
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 0.16,
+      "displayName": "RTX A5000",
+      "gpuId": "NVIDIA RTX A5000",
+      "memoryInGb": 24,
+      "secureCloud": true,
+      "securePricePerHr": 0.27
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 0.33,
+      "displayName": "RTX A6000",
+      "gpuId": "NVIDIA RTX A6000",
+      "memoryInGb": 48,
+      "secureCloud": true,
+      "securePricePerHr": 0.59
+    },
+    {
+      "available": false,
+      "communityCloud": false,
+      "communityPricePerHr": null,
+      "displayName": "RTX PRO 4000",
+      "gpuId": "NVIDIA RTX PRO 4000 Blackwell",
+      "memoryInGb": 24,
+      "secureCloud": true,
+      "securePricePerHr": 0.57
+    },
+    {
+      "available": false,
+      "communityCloud": false,
+      "communityPricePerHr": null,
+      "displayName": "RTX PRO 4500",
+      "gpuId": "NVIDIA RTX PRO 4500 Blackwell",
+      "memoryInGb": 32,
+      "secureCloud": true,
+      "securePricePerHr": 0.72
+    },
+    {
+      "available": false,
+      "communityCloud": false,
+      "communityPricePerHr": null,
+      "displayName": "RTX PRO 4500 SE",
+      "gpuId": "NVIDIA RTX PRO 4500 Blackwell Server Edition",
+      "memoryInGb": 32,
+      "secureCloud": true,
+      "securePricePerHr": 0.72
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 0.82,
+      "displayName": "RTX PRO 5000",
+      "gpuId": "NVIDIA RTX PRO 5000 Blackwell",
+      "memoryInGb": 48,
+      "secureCloud": true,
+      "securePricePerHr": 0.96
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 1.64,
+      "displayName": "RTX PRO 6000 MaxQ",
+      "gpuId": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+      "memoryInGb": 96,
+      "secureCloud": false,
+      "securePricePerHr": null
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 1.69,
+      "displayName": "RTX PRO 6000",
+      "gpuId": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+      "memoryInGb": 96,
+      "secureCloud": true,
+      "securePricePerHr": 2.49
+    },
+    {
+      "available": false,
+      "communityCloud": false,
+      "communityPricePerHr": null,
+      "displayName": "PRO 6000 MIG 24GB",
+      "gpuId": "NVIDIA RTX PRO 6000 Blackwell Server Edition MIG 1g.24gb",
+      "memoryInGb": 24,
+      "secureCloud": true,
+      "securePricePerHr": 0.69
+    },
+    {
+      "available": false,
+      "communityCloud": false,
+      "communityPricePerHr": null,
+      "displayName": "PRO 6000 MIG 48GB",
+      "gpuId": "NVIDIA RTX PRO 6000 Blackwell Server Edition MIG 2g.48gb",
+      "memoryInGb": 48,
+      "secureCloud": true,
+      "securePricePerHr": 1.29
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 1.69,
+      "displayName": "RTX PRO 6000 WK",
+      "gpuId": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition",
+      "memoryInGb": 96,
+      "secureCloud": true,
+      "securePricePerHr": 2.59
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 0.19,
+      "displayName": "Tesla V100",
+      "gpuId": "Tesla V100-PCIE-16GB",
+      "memoryInGb": 16,
+      "secureCloud": false,
+      "securePricePerHr": null
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 0.23,
+      "displayName": "V100 SXM2",
+      "gpuId": "Tesla V100-SXM2-16GB",
+      "memoryInGb": 16,
+      "secureCloud": false,
+      "securePricePerHr": null
+    }
+  ],
+  "template": {
+    "category": "NVIDIA",
+    "containerDiskInGb": 30,
+    "id": "runpod-torch-v280",
+    "imageName": "runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404",
+    "isPublic": true,
+    "isRunpod": true,
+    "name": "Runpod Pytorch 2.8.0",
+    "volumeInGb": 50,
+    "volumeMountPath": "/workspace"
+  },
+  "baseline_pods": [
+    {
+      "id": "x8fq93sebzksbi",
+      "name": "cdr-analysis036-full-transformer-0"
+    }
+  ],
+  "baseline_volumes": [
+    {
+      "id": "mja1prpve4",
+      "name": "cdr-analysis009-intermediate-lr",
+      "size": 60,
+      "dataCenterId": "EU-RO-1"
+    },
+    {
+      "id": "9luykg5yc3",
+      "name": "sparsity-spillover-shared",
+      "size": 100,
+      "dataCenterId": "EUR-IS-1"
+    }
+  ],
+  "packets": [
+    {
+      "task": "resnet",
+      "path": "analyses/037-2026-11-02-sgd-batch-extension/scratch/run214-resnet-inputs.tar",
+      "bytes": 743639040,
+      "sha256": "437dd882e0214bf1da9f9251cbcfa9100be4ea4db3609004e38c70583a41a86f",
+      "files": [
+        "cache/eos-multitask/inputs.json",
+        "cache/eos-multitask/resnet_data.pt",
+        "cache/eos-multitask/resnet_initial_seed0.pt",
+        "cache/eos-multitask/resnet_initial_seed1.pt",
+        "cache/eos-multitask/resnet_initial_seed2.pt",
+        "cache/eos-multitask/reference/resnet_cifar.py",
+        "cache/eos-multitask/reference/model.py",
+        "cache/eos-multitask/reference/data.py",
+        "src/eos_tasks/__init__.py",
+        "src/eos_tasks/adam_diagnostics.py",
+        "src/eos_tasks/adam_profile.py",
+        "src/eos_tasks/lag_profile.py",
+        "src/eos_tasks/noise.py",
+        "src/eos_tasks/production.py",
+        "src/eos_tasks/task.py",
+        "src/eos_tasks/train.py",
+        "src/cifar_eos/__init__.py",
+        "src/cifar_eos/core.py",
+        "src/cifar_eos/train.py",
+        "src/cifar_eos/verification.py",
+        "runs/214-2026-11-02-sgd-batch-extension/config.json",
+        "runs/214-2026-11-02-sgd-batch-extension/00_profile.py",
+        "runs/214-2026-11-02-sgd-batch-extension/01_measure.py",
+        "runs/214-2026-11-02-sgd-batch-extension/02_worker.py",
+        "runs/214-2026-11-02-sgd-batch-extension/test_measurement.py",
+        "runs/214-2026-11-02-sgd-batch-extension/input_manifest.json"
+      ]
+    },
+    {
+      "task": "transformer",
+      "path": "analyses/037-2026-11-02-sgd-batch-extension/scratch/run214-transformer-inputs.tar",
+      "bytes": 219013120,
+      "sha256": "179f4ab10b2e23b509eaa21b4cd0e8e1df5198a2859f802881bb92cffc748f5a",
+      "files": [
+        "cache/eos-multitask/inputs.json",
+        "cache/eos-multitask/transformer_data.pt",
+        "cache/eos-multitask/transformer_initial_seed0.pt",
+        "cache/eos-multitask/transformer_initial_seed1.pt",
+        "cache/eos-multitask/transformer_initial_seed2.pt",
+        "cache/eos-multitask/reference/resnet_cifar.py",
+        "cache/eos-multitask/reference/model.py",
+        "cache/eos-multitask/reference/data.py",
+        "src/eos_tasks/__init__.py",
+        "src/eos_tasks/adam_diagnostics.py",
+        "src/eos_tasks/adam_profile.py",
+        "src/eos_tasks/lag_profile.py",
+        "src/eos_tasks/noise.py",
+        "src/eos_tasks/production.py",
+        "src/eos_tasks/task.py",
+        "src/eos_tasks/train.py",
+        "src/cifar_eos/__init__.py",
+        "src/cifar_eos/core.py",
+        "src/cifar_eos/train.py",
+        "src/cifar_eos/verification.py",
+        "runs/214-2026-11-02-sgd-batch-extension/config.json",
+        "runs/214-2026-11-02-sgd-batch-extension/00_profile.py",
+        "runs/214-2026-11-02-sgd-batch-extension/01_measure.py",
+        "runs/214-2026-11-02-sgd-batch-extension/02_worker.py",
+        "runs/214-2026-11-02-sgd-batch-extension/test_measurement.py",
+        "runs/214-2026-11-02-sgd-batch-extension/input_manifest.json"
+      ]
+    }
+  ],
+  "production_forks": 348,
+  "continuation_updates": 69600,
+  "reference_updates": 12000,
+  "workers": [
+    {
+      "task": "resnet",
+      "seed": 0
+    },
+    {
+      "task": "resnet",
+      "seed": 1
+    },
+    {
+      "task": "resnet",
+      "seed": 2
+    },
+    {
+      "task": "transformer",
+      "seed": 0
+    },
+    {
+      "task": "transformer",
+      "seed": 1
+    },
+    {
+      "task": "transformer",
+      "seed": 2
+    }
+  ],
+  "runtime_policy": "One pinned image/environment and GPU model per case; all initial tensors loaded by hash; no historical trajectory mixing.",
+  "cloud_etc": "Unmeasured. Paid representative calibration is part of the requested envelope; accept production only when its conservative ETC fits the remaining deadline.",
+  "proposed_envelope": {
+    "max_total_usd": 40,
+    "max_wall_hours": 4,
+    "max_concurrent_gpus": 6,
+    "max_gpu_usd_per_hour": 1.19,
+    "retrieval_margin_minutes": 30,
+    "calibration_max_minutes": 20,
+    "includes": "Setup, calibration, all workers/retries, running/stopped storage, retrieval and verification."
+  },
+  "storage": {
+    "container_gb_per_worker": 30,
+    "pod_volume_gb_per_worker": 35,
+    "running_usd_per_gb_month": 0.1,
+    "stopped_pod_volume_usd_per_gb_month": 0.2,
+    "source": "https://docs.runpod.io/pods/pricing",
+    "network_volumes_created": 0,
+    "retention": "Pod volume retains recovery and evidence. Retrieve and verify before deleting task Pods. Preserve unrelated volumes."
+  },
+  "monitoring": {
+    "interval_seconds": 60,
+    "fields": [
+      "updates",
+      "sampled/full loss",
+      "throughput",
+      "ETC",
+      "GPU memory",
+      "event age",
+      "disk",
+      "aggregate estimated cost"
+    ],
+    "warnings": [
+      "nonfinite or undefined diagnostics",
+      "GPU identity/runtime mismatch",
+      "ETC exceeds remaining time",
+      "progress stale for five full updates",
+      "cost reaches reserve threshold"
+    ],
+    "stop": "Stop scientific work 30 minutes before the wall limit or at USD32 estimated spend; save recovery and inventory. Stop task compute at the hard deadline. Retained disk must fit USD40 aggregate ceiling."
+  },
+  "lifecycle": "Detached worker and independent local guard; incremental verified retrieval; terminal inventory and per-worker acceptance before deletion. No push."
+}

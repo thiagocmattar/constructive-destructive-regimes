@@ -111,6 +111,15 @@
       ]
     },
     {
+      "path": "src/eos_tasks/adam_diagnostics.py",
+      "bytes": 4027,
+      "sha256": "2d70b9d876c9fb08845f0a2f779d1b90b138c41b530422f44b9da06fe453fc7d",
+      "tasks": [
+        "resnet",
+        "transformer"
+      ]
+    },
+    {
       "path": "src/eos_tasks/adam_profile.py",
       "bytes": 11792,
       "sha256": "764394ed57819b58b1a7a0dd09b6c4c5bf162cb3b572f3907e5d25f78e6a9865",
@@ -210,9 +219,36 @@
       ]
     },
     {
+      "path": "runs/214-2026-11-02-sgd-batch-extension/00_profile.py",
+      "bytes": 4231,
+      "sha256": "c710502353fe3da04c6c4a1089e138e0d4c518cbbf9162f48c98e9d527cad5c3",
+      "tasks": [
+        "resnet",
+        "transformer"
+      ]
+    },
+    {
       "path": "runs/214-2026-11-02-sgd-batch-extension/01_measure.py",
-      "bytes": 13786,
-      "sha256": "21120d4059b8be5960285714d486e0e2d473e4f4f753374157bb8699da5675a7",
+      "bytes": 13928,
+      "sha256": "6cc0388c34c39ac42a8fed85a802a5fafd8870ef7d269294c733f9d2d293bb18",
+      "tasks": [
+        "resnet",
+        "transformer"
+      ]
+    },
+    {
+      "path": "runs/214-2026-11-02-sgd-batch-extension/02_worker.py",
+      "bytes": 4142,
+      "sha256": "0eb090921efce6ad7e17d8f2f690b7b975b662d599273aa89aa8d11fe9e09329",
+      "tasks": [
+        "resnet",
+        "transformer"
+      ]
+    },
+    {
+      "path": "runs/214-2026-11-02-sgd-batch-extension/test_measurement.py",
+      "bytes": 5318,
+      "sha256": "295406754644ef8406d6c2553dee97d809e4d9f6635396534ba2efb9f311b7fd",
       "tasks": [
         "resnet",
         "transformer"

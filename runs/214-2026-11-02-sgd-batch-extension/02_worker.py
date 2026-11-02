@@ -19,6 +19,7 @@ def main():
     p.add_argument('--seed',type=int,choices=[0,1,2],required=True)
     p.add_argument('--output',type=Path,required=True)
     p.add_argument('--deadline-epoch',type=float,required=True)
+    p.add_argument('--smoke',action='store_true',help='Three-update reference, full control and smallest sampled fork at state zero; no paper evidence.')
     args=p.parse_args()
     cfg=json.loads((HERE/'config.json').read_text())
     args.output.mkdir(parents=True,exist_ok=True)
@@ -29,22 +30,25 @@ def main():
             repeats=1 if batch==cfg['batches'][args.task][-1] else cfg['stochastic_repetitions']
             for rep in range(repeats):
                 jobs.append(dict(name=f'state-{state}-b{batch}-rep{rep:02d}',mode='fork',state=state,batch=batch,rep=rep))
+    if args.smoke:
+        jobs=[jobs[0]]+[j for j in jobs[1:] if j['state']==0 and j['rep']==0 and j['batch'] in (cfg['batches'][args.task][0],cfg['batches'][args.task][-1])]
     identity=dict(task=args.task,seed=args.seed,config_sha256=file_hash(HERE/'config.json'),
-                  input_manifest_sha256=file_hash(HERE/'input_manifest.json'),jobs=jobs)
+                  input_manifest_sha256=file_hash(HERE/'input_manifest.json'),mechanics_only=args.smoke,jobs=jobs)
     packet=args.output/'worker_manifest.json'
     if packet.exists():
         previous=json.loads(packet.read_text()); assert previous['identity']==identity
     write_json(packet,dict(identity=identity,status='running',started_utc=stamp(),deadline_epoch=args.deadline_epoch))
-    status='complete'
+    status='smoke_complete' if args.smoke else 'complete'
     for i,job in enumerate(jobs):
         output=args.output/job['name']; summary=output/'summary.json'
         if summary.exists():
-            assert json.loads(summary.read_text())['status']=='complete'
+            assert json.loads(summary.read_text())['status']==('smoke_complete' if args.smoke else 'complete')
             continue
         remaining=args.deadline_epoch-time.time()
         if remaining<120 or (HERE/'STOP').exists():status='bounded_stop';break
         command=[sys.executable,'-u',str(HERE/'01_measure.py'),'--task',args.task,'--seed',str(args.seed),
             '--mode',job['mode'],'--output',str(output),'--max-seconds',str(max(1,remaining-60))]
+        if args.smoke:command+=['--smoke-updates','3']
         if job['mode']=='fork':
             command+=['--state',str(job['state']),'--batch',str(job['batch']),'--rep',str(job['rep']),
                 '--reference',str(args.output/'reference'/f'state-{job["state"]:04d}.pt')]

@@ -1,9 +1,9 @@
 # Run214: three-case SGD batch-size extension
 
-**Deferred at the user's request:** "Keep this as a TODO, 8 hours is too long."
-No production training or cloud resources were launched. All local mechanics
-processes have finished. The current scripts are preparation, not a completed
-experiment or fully qualified production pipeline.
+The user resumed this task and requested Runpod execution. The new cost/time
+envelope is pending; the earlier eight-hour proposal was declined. No production
+training or cloud resources have been launched. Local mechanics have finished;
+the qualified short queues are not paper evidence.
 
 H023 / Analysis037. The user requested execution of the manuscript's
 [three-case measurement extension](../../manuscript/draft/revisions/2026-11-02-feedback/SGD_EXTENSION.md).
@@ -30,9 +30,13 @@ Use detached execution and independent artifact inventories. Undefined cosines
 remain null and prevent automatic figure acceptance; never silently omit them.
 No changes to held queues, unrelated resources or existing raw evidence.
 
-Seven CPU tests pass. Local production-shaped timing covers every batch size;
-the three-update ResNet reference passed a stop/resume and a sampled fork,
-and the three-update Transformer reference completed. Transformer sampled-fork
-smoke, independent full-batch replay, complete worker/retrieval qualification
-and the result reducer remain to be exercised before production. No smoke
-measurement supports a manuscript claim. See Analysis037's preparation receipt.
+Seven CPU tests pass. Local production-shaped timing covers every batch size.
+Both three-update worker queues now pass reference/full-control/sampled-fork
+checks, independent geometry and index reduction, copied-artifact verification
+and corruption rejection. Full replay is exact for Transformer; ResNet has small
+recorded FP32 cuDNN drift rather than bitwise equality. See Analysis037's
+[qualification](../../analyses/037-2026-11-02-sgd-batch-extension/worker_qualification.json)
+and [Runpod launch packet](../../analyses/037-2026-11-02-sgd-batch-extension/RUNPOD_LAUNCH.md).
+Cloud calibration, actual remote transfer, the full 348-fork cohort, its reducer,
+figure and manuscript remain pending. Source data, seeds, rates and horizons are
+unchanged. No paid calibration is launched before the envelope is supplied.

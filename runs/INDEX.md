@@ -251,4 +251,4 @@ attempt within the same run.
 
 | Run | Question | Status | Design |
 | --- | --- | --- | --- |
-| [214](214-2026-11-02-sgd-batch-extension/README.md) | H023 / Analysis037: ResNet/Transformer batch-size continuations | Deferred by user; prepared code, pinned inputs, local timing and mechanics only; no production or cloud resources | 3 seeds, states0/2000, 200-update forks; existing MLP evidence reused |
+| [214](214-2026-11-02-sgd-batch-extension/README.md) | H023 / Analysis037: ResNet/Transformer batch-size continuations | Resumed for Runpod; both short queues, replay and retrieval-integrity checks pass; spending envelope pending, no production allocation | 3 seeds, states0/2000, 200-update forks; existing MLP evidence reused |

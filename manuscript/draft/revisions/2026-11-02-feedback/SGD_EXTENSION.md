@@ -1,9 +1,10 @@
 # Three-case batch-size comparison
 
-Status: deferred by the user on 2026-11-02: "Keep this as a TODO, 8 hours is
-too long." The user confirmed the three existing cases. Run214 / Analysis037
-retain prepared code, seven passing numerical tests and bounded local GPU
-mechanics/timing. No production training or cloud allocation has started.
+Status: the user resumed this task and requested Runpod execution, after
+previously declining the eight-hour proposal. A new aggregate cost/time limit
+is pending. The user confirmed the three existing cases. Run214 / Analysis037
+retain prepared code, seven passing numerical tests and qualified short real-data
+worker queues. No production training or cloud allocation has started.
 This extension supersedes the current 2-by-2 SGD figure, not its source data.
 
 ## Figure and question
