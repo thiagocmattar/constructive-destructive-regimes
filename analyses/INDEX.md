@@ -73,7 +73,7 @@
 <!-- Analysis036 preparation -->
 | Analysis | Question | Source runs / other inputs | Status | Observations / figures |
 | --- | --- | --- | --- | --- |
-| [036](036-2026-11-02-controlled-adam-diagnostics/archive/README.md) | Fixed-LR full-objective Adam diagnostics from Analysis024 initial weights | Runs213/215; Analysis024/029/034 | Archived at the author's request; awaiting new directives | Only [overview](036-2026-11-02-controlled-adam-diagnostics/figures/adam_manuscript_overview.pdf) and [spikes](036-2026-11-02-controlled-adam-diagnostics/figures/adam_manuscript_spikes.pdf) remain active; all other contents moved to archive/; [archived report](036-2026-11-02-controlled-adam-diagnostics/archive/REPORT.md) |
+| [036](036-2026-11-02-controlled-adam-diagnostics/README.md) | Fixed-LR full-objective Adam diagnostics from Analysis024 initial weights | Runs213/215; Analysis024/029/034 | Event dataset ready for review: 812 fixed-level excursions, 806 recovered and 6 censored across nine arms | [Definition](036-2026-11-02-controlled-adam-diagnostics/loss_spike_definition.md); [one-row-per-event dataset](036-2026-11-02-controlled-adam-diagnostics/spike_dataset/loss_spikes.csv); full recorded event-state statistics, source hashes and independent extraction checks; no amplitude cutoff or smoothing; earlier exploratory work in archive/, retained overview/spike PDFs unchanged |
 <!-- End Analysis036 preparation -->
 
 Next analysis: `038-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;

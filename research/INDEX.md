@@ -12,10 +12,12 @@ USD 26.30 provisional / 4.663 hours within USD 40/six hours. Spark project 1.379
 retained with no task measurement active; old queue untouched. H023; no new
 hypothesis. Next Run217 / Analysis038 / H028.
 
-[Analysis036: archived at the author's request](../analyses/036-2026-11-02-controlled-adam-diagnostics/archive/README.md).
-Only the overview and spike PDFs remain active in figures/; all other analysis
-contents were moved into archive/. Awaiting new scientific directives.
-Completed Run213/215 evidence is preserved; task cloud resources were already deleted.
+[Analysis036: fixed-level loss-spike dataset](../analyses/036-2026-11-02-controlled-adam-diagnostics/README.md)
+extracts 812 candidate excursions from all nine Run215 Adam histories: 806 recovered,
+6 right-censored. The author selected a fixed pre-rise reference; no smoothing,
+tolerance or amplitude cutoff. Event losses, durations and optimizer diagnostics
+are source-verified with an independent segmentation. Earlier work remains archived;
+retained figures and manuscript unchanged. No new training or cloud resources.
 
 
 [Analysis035: backward fixed-endpoint profiles](../analyses/035-2026-11-02-eos-backward-anchors/REPORT.md)

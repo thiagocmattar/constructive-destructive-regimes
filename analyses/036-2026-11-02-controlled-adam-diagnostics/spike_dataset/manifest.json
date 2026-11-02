@@ -1,0 +1,142 @@
+{
+  "generator": "analyses/036-2026-11-02-controlled-adam-diagnostics/02_extract_loss_spikes.py",
+  "generator_sha256": "ceea5a9d2d0265bc83d45858961763f898afffce15febd6e7982385ea56e6542",
+  "definition": "Fixed pre-rise loss; first return at or below it; no magnitude threshold; no smoothing.",
+  "baseline": "pre-rise",
+  "tolerance": 0,
+  "coverage": "All nine Run215 arms, all loss states 0..1024.",
+  "spikes": 812,
+  "step_rows": 5362,
+  "sources": {
+    "runs/215-2026-11-02-controlled-full-batch-adam/results.json": "c907d1b5ccaa68b3310f13526e98f37fd1c19943eb7631cea46612f75de39572",
+    "runs/215-2026-11-02-controlled-full-batch-adam/config.json": "868c271e89bea4641e633d727c7b322a2220085ea1bee63c2dc712389e8e88f4",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/loss_spike_definition.md": "603b21c6fc70b5e48b38dfd392c813a399abcc6efd2c75b9f913eb273a9329f0",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/archive/loss_spike_definition_original.md": "55a0855cb4606f8a5b7a1ea56646225793e781f3b6178edf0af6faf356073809",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0001/manifest.json": "0655ffcc68288a311a1ebb977373418e676dac85b81f64100e7c12822d473072",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0001/boundaries.jsonl": "1ece15455f4e43d8c39495b0c6bc57e9b28296d1c2aff4e0f094b54d8bac432e",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0001/metrics.jsonl": "9e1d16738fea6715aee387c362e5e5f49caf372b77e832994bc2a28980a969ca",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0003/manifest.json": "856171914d42aaa62a26d70c3bb9a83791838564851c17195feec50946cc5b8a",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0003/boundaries.jsonl": "00bd2559e33299a21694c3162d7b39fbaa6949883808b5eb2b895b66a0da61cc",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0003/metrics.jsonl": "5f3e2f82765b29b6cd124ec7fb727480910b6c820b681f5b74d76be7378a4cf3",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/manifest.json": "0a8ae45b014049fcd7350768bef6190f4991802ed6bf9e254c810c3ca2032e12",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/boundaries.jsonl": "bd15d446afab7641f01ed12c089b1f606f123b4e92982f2d0ff1deae1fe061be",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/metrics.jsonl": "3c8bac53f92bde65da67b8bcc80046644f2db3ef7fd818334ebca2b04e7a0157",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker17/lr-0.0003/manifest.json": "b72f9bff98df63764804a4ab841702ff898c87be2497a99243130a06d92b9bc8",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker17/lr-0.0003/boundaries.jsonl": "70b283eb2777897feb04b13eb9aa68cb68e7e62649ab4b91f6e23a24be5bd0ba",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker17/lr-0.0003/metrics.jsonl": "811298ff7f5eb6a6982d7c8c24fe3c3b7372d15717276b1fe79af5055ec4a5c6",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker4/lr-0.001/manifest.json": "be5c9081f50634dcf658d3b532555e99e50aea2fac57b1651da43b950ad4cedf",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker4/lr-0.001/boundaries.jsonl": "b47c647c05dbab1defd6d5ab0e653e0ffe236066c483458b63167597e4639d16",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker4/lr-0.001/metrics.jsonl": "586c7a961f0a410e280e3286f8d044df28a29cc99c7a988798ce43f6a60cbfc8",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/manifest.json": "6162fb3eee941231f44bc006c92d74a702f0ab52bad560a78dc4ae36848a71c0",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/boundaries.jsonl": "b952c7e4d184e1da70d1dbadd7710de16452aaa7041d1e7df6fa2165ac3e28ee",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/metrics.jsonl": "c9572aaa98f3e9f8c0378b6ff2b5ce60d8e3383e563c358485c5afffaf5945ca",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker0/lr-0.0003/manifest.json": "10755e07d67029177aac13f0a7af6a44033696e6101211f62a8c73df1cd8b19c",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker0/lr-0.0003/boundaries.jsonl": "0eeb0a81c45100e25bec785aa6eb826ef8c48840171de0ebe4f6e66dcb18981c",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker0/lr-0.0003/metrics.jsonl": "5983695e1071ab62c0cd1c9a71d000e7e5ad07f1d11390eb99baf38cb232c669",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker15/lr-0.001/manifest.json": "06416f93b915dae3be94e2f6c9b205de1b25a512a807904d14cf73d53aebe77f",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker15/lr-0.001/boundaries.jsonl": "ff71889f1653f41754a2a66cad38d2868415fd08b43b3d24df25196826fe4a69",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker15/lr-0.001/metrics.jsonl": "ecb5acb6fcbc82ef54833160aa5ec4b2f76d5784a07ae3a649f02571fd41ded3",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/manifest.json": "96fd00453edef0c3f0096716cb550ef3f86d25466e06be1b29165beaa5739327",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/boundaries.jsonl": "822cccc891250b529fc8bb60d4a391d2002856e8e3c8b7233c145c7fbf15a3f7",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/metrics.jsonl": "3ae6e2af2400caea6e3a40ed2d06db31068524c39ef7e55ec931d16362b62574"
+  },
+  "summary": [
+    {
+      "task": "mlp",
+      "learning_rate": 0.0001,
+      "states": 1025,
+      "excursions": 95,
+      "recovered": 94,
+      "censored": 1,
+      "max_peak_loss_ratio": 1.3090658547884095
+    },
+    {
+      "task": "mlp",
+      "learning_rate": 0.0003,
+      "states": 1025,
+      "excursions": 140,
+      "recovered": 139,
+      "censored": 1,
+      "max_peak_loss_ratio": 3.0311271377538134
+    },
+    {
+      "task": "mlp",
+      "learning_rate": 0.001,
+      "states": 1025,
+      "excursions": 124,
+      "recovered": 123,
+      "censored": 1,
+      "max_peak_loss_ratio": 4.176298843053216
+    },
+    {
+      "task": "resnet",
+      "learning_rate": 0.0003,
+      "states": 1025,
+      "excursions": 81,
+      "recovered": 80,
+      "censored": 1,
+      "max_peak_loss_ratio": 1.0369936535821398
+    },
+    {
+      "task": "resnet",
+      "learning_rate": 0.001,
+      "states": 1025,
+      "excursions": 121,
+      "recovered": 121,
+      "censored": 0,
+      "max_peak_loss_ratio": 7.021146168736052
+    },
+    {
+      "task": "resnet",
+      "learning_rate": 0.003,
+      "states": 1025,
+      "excursions": 44,
+      "recovered": 44,
+      "censored": 0,
+      "max_peak_loss_ratio": 9.587697586669618
+    },
+    {
+      "task": "transformer",
+      "learning_rate": 0.0003,
+      "states": 1025,
+      "excursions": 80,
+      "recovered": 79,
+      "censored": 1,
+      "max_peak_loss_ratio": 1.0262548728267824
+    },
+    {
+      "task": "transformer",
+      "learning_rate": 0.001,
+      "states": 1025,
+      "excursions": 89,
+      "recovered": 89,
+      "censored": 0,
+      "max_peak_loss_ratio": 1.806146292149001
+    },
+    {
+      "task": "transformer",
+      "learning_rate": 0.003,
+      "states": 1025,
+      "excursions": 38,
+      "recovered": 37,
+      "censored": 1,
+      "max_peak_loss_ratio": 3.3140280202882266
+    }
+  ],
+  "outputs": {
+    "spike_dataset/loss_spikes.csv": "d35e901cc68a1bce5379129b4ce74f4d1b8896c3c0ccfaf643d4647558e4500d",
+    "spike_dataset/spike_steps.csv": "65bfd66cf75cc1d717c8a8bbedee4ce04e7a0f83d5e1493c5372c66d9a581d6f",
+    "spike_dataset/summary.csv": "7f7e39d65dc243879df186ae283c3510673e7bed572a97b5902ad16cff6bbc74",
+    "README.md": "92d89504f10f83d15b9bb1efe60649df4ded597538d3289a3a1c5ce6bacf1013"
+  },
+  "verification": {
+    "status": "passed",
+    "verifier": "analyses/036-2026-11-02-controlled-adam-diagnostics/03_verify_loss_spikes.py",
+    "verifier_sha256": "cd96f9b144397e3555f68eba060d0fc9d9443d79a2d3ab1c12eed8c650da716f",
+    "detector_checks": 41,
+    "independent_segmentation": true,
+    "all_event_anchors_and_summaries": true,
+    "all_exported_state_statistics": true,
+    "all_source_hashes_and_output_hashes": true
+  }
+}
