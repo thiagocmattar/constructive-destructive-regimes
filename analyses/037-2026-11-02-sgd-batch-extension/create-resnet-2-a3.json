@@ -1,0 +1,43 @@
+{
+  "utc": "2026-11-02T14:28:44.513871+00:00",
+  "catalog_entry": {
+    "available": true,
+    "communityCloud": true,
+    "communityPricePerHr": 2.69,
+    "dataCenterAvailability": [
+      {
+        "dataCenterId": "EUR-NO-2",
+        "stockStatus": "Low"
+      },
+      {
+        "dataCenterId": "US-CA-2",
+        "stockStatus": "Low"
+      },
+      {
+        "dataCenterId": "US-NE-1",
+        "stockStatus": "Low"
+      }
+    ],
+    "displayName": "H100 SXM",
+    "gpuId": "NVIDIA H100 80GB HBM3",
+    "memoryInGb": 80,
+    "secureCloud": true,
+    "securePricePerHr": 3.99,
+    "stockStatus": "Low"
+  },
+  "response": {
+    "containerDiskInGb": 30,
+    "costPerHr": 3.99,
+    "desiredStatus": "RUNNING",
+    "gpuCount": 1,
+    "id": "ta1faqsem6801f",
+    "imageName": "runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404",
+    "memoryInGb": 251,
+    "name": "cdr-analysis037-resnet-seed2-a3",
+    "ports": "22/tcp",
+    "vcpuCount": 8,
+    "volumeInGb": 35,
+    "volumeMountPath": "/workspace"
+  },
+  "environment_values_omitted": true
+}

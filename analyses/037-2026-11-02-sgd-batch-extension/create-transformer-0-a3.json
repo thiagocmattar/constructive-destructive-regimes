@@ -1,0 +1,28 @@
+{
+  "utc": "2026-11-02T14:07:46.970666+00:00",
+  "catalog_entry": {
+    "available": false,
+    "communityCloud": true,
+    "communityPricePerHr": 0.69,
+    "displayName": "RTX 5090",
+    "gpuId": "NVIDIA GeForce RTX 5090",
+    "memoryInGb": 32,
+    "secureCloud": true,
+    "securePricePerHr": 1.19
+  },
+  "response": {
+    "containerDiskInGb": 30,
+    "costPerHr": 0.69,
+    "desiredStatus": "RUNNING",
+    "gpuCount": 1,
+    "id": "u18i7fn9xb0r4p",
+    "imageName": "runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404",
+    "memoryInGb": 94,
+    "name": "cdr-analysis037-transformer-seed0-a3",
+    "ports": "22/tcp",
+    "vcpuCount": 12,
+    "volumeInGb": 35,
+    "volumeMountPath": "/workspace"
+  },
+  "environment_values_omitted": true
+}

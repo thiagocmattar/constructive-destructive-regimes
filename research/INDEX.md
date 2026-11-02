@@ -2,6 +2,13 @@
 
 ## Current state
 
+[Analysis037: three-case SGD batch-size comparison](../analyses/037-2026-11-02-sgd-batch-extension/README.md)
+executes Runs214/216 on six qualified cloud workers, with GB10 assistance for
+ResNet seed2 small-group forks. Three seeds and all sampling repetitions retained;
+shared USD40/six-hour ceiling ends November2 at19:34:56 UTC. Raw fork retrieval
+and numerical acceptance precede worker cleanup. Manuscript figure awaits the
+complete cohort; H023, no new hypothesis. Next Run217 / Analysis038 / H028.
+
 [Analysis036: controlled Adam from initialization](../analyses/036-2026-11-02-controlled-adam-diagnostics/REPORT.md)
 completed Run213's prior-informed9-arm x128-update calibration (1,152 updates).
 One frozen seed0 initialization per case; no Hessian/HVP or LR interventions.
@@ -14,7 +21,7 @@ Completed-run preview adds32 checked curves in the approved eight-row layout.
 Mixed GPUs are qualified per worker; ongoing capacity search prioritizes parallelism.
 Main-stage USD45 /8.5h cap remains inside the USD50 study envelope.
 All5 calibration Pods/disks deleted after verified retrieval; USD2.26 estimated provisional.
-Run213/215 / Analysis036 / H027; next Run216 / Analysis038 / H028.
+Run213/215 / Analysis036 / H027; next Run217 / Analysis038 / H028.
 
 
 [Analysis035: backward fixed-endpoint profiles](../analyses/035-2026-11-02-eos-backward-anchors/REPORT.md)

@@ -1,0 +1,18 @@
+{
+  "utc": "2026-11-02T14:36:20.394743+00:00",
+  "workers": [
+    {
+      "task": "transformer",
+      "seed": 0
+    },
+    {
+      "task": "resnet",
+      "seed": 2
+    }
+  ],
+  "definition": "State0 full-GD controls for the two listed blocks are the exact measured first200 updates of their fresh GD references. All200-update trajectories and replication counts are preserved; no interpolation or synthetic measurements.",
+  "qualification": "Short independently executed full controls and reference prefixes passed parameter/geometry replay checks on each qualified runtime.",
+  "retention": "Exact state200 recovery, raw200-update prefix, endpoint loss, final tensors, source hashes and audit coverage.",
+  "audit_limit": "For the derived control, terminal gradient/prefix and actual displacement are independently checked; terminal adjacent cosine is inherited from the reference scalar stream.",
+  "execution_note": "Both captures completed successfully. The remaining four initial full controls and all six trained-state full controls execute independently. 400 redundant training updates are saved."
+}

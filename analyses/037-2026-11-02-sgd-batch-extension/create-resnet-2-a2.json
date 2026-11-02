@@ -1,0 +1,28 @@
+{
+  "utc": "2026-11-02T14:05:21.764367+00:00",
+  "catalog_entry": {
+    "available": false,
+    "communityCloud": true,
+    "communityPricePerHr": 0.69,
+    "displayName": "RTX 5090",
+    "gpuId": "NVIDIA GeForce RTX 5090",
+    "memoryInGb": 32,
+    "secureCloud": true,
+    "securePricePerHr": 1.19
+  },
+  "response": {
+    "containerDiskInGb": 30,
+    "costPerHr": 1.19,
+    "desiredStatus": "RUNNING",
+    "gpuCount": 1,
+    "id": "1ut65sd3c91l8a",
+    "imageName": "runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404",
+    "memoryInGb": 62,
+    "name": "cdr-analysis037-resnet-seed2-a2",
+    "ports": "22/tcp",
+    "vcpuCount": 16,
+    "volumeInGb": 35,
+    "volumeMountPath": "/workspace"
+  },
+  "environment_values_omitted": true
+}

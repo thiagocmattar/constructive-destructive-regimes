@@ -1,11 +1,14 @@
 """Verify retrieved worker inventories and independently reduce every new fork."""
 import argparse
 import json
+import os
 from pathlib import Path
 import sys
 
+os.environ.setdefault('OPENBLAS_NUM_THREADS','4')
 import numpy as np
 import torch
+torch.set_num_threads(4)
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -17,8 +20,12 @@ from src.cifar_eos.core import file_hash,write_json
 def read(path):return json.loads(path.read_text())
 
 
-def verify_worker(folder,mechanics=False,input_manifest=RUN/'input_manifest.json'):
+def verify_worker(folder,mechanics=False,input_manifest=None):
     folder=folder.resolve()
+    active_run=RUN
+    candidate=ROOT/'runs/216-2026-11-02-sgd-transformer-microbatch512'
+    if folder.is_relative_to(candidate.resolve()):active_run=candidate
+    input_manifest=input_manifest or active_run/'input_manifest.json'
     inventory=read(folder/'worker_inventory.json')
     for relative,entry in inventory.items():
         path=folder/relative
@@ -29,9 +36,9 @@ def verify_worker(folder,mechanics=False,input_manifest=RUN/'input_manifest.json
     assert manifest['status']==('smoke_complete' if mechanics else 'complete')
     identity=manifest['identity']
     assert identity['mechanics_only']==mechanics
-    assert identity['config_sha256']==file_hash(RUN/'config.json')
+    assert identity['config_sha256']==file_hash(active_run/'config.json')
     assert identity['input_manifest_sha256']==file_hash(input_manifest)
-    cfg=read(RUN/'config.json');task=identity['task'];seed=identity['seed']
+    cfg=read(active_run/'config.json');task=identity['task'];seed=identity['seed']
     expected_jobs=[dict(name='reference',mode='reference')]
     for state in cfg['states']:
         for batch in reversed(cfg['batches'][task]):
@@ -47,6 +54,7 @@ def verify_worker(folder,mechanics=False,input_manifest=RUN/'input_manifest.json
     for job in identity['jobs']:
         target=folder/job['name']; summary=read(target/'summary.json')
         assert summary['identity']['config_sha256']==identity['config_sha256']
+        assert summary['identity']['input_manifest_sha256']==identity['input_manifest_sha256']
         assert summary['status']==('smoke_complete' if mechanics else 'complete')
         assert summary['identity']['mechanics_only']==mechanics
         assert summary['identity']['task']==task and summary['identity']['seed']==seed
@@ -88,7 +96,7 @@ def verify_worker(folder,mechanics=False,input_manifest=RUN/'input_manifest.json
         actual_length=sum(r['actual']['norm'] for r in history)
         np.testing.assert_allclose(distance/actual_length,summary['actual_R'],rtol=1e-8,atol=1e-9)
         assert summary['max_actual_prefix_error']<1e-10
-        if job['batch']!=read(RUN/'config.json')['batches'][identity['task']][-1]:
+        if job['batch']!=cfg['batches'][identity['task']][-1]:
             indices=np.fromfile(target/'indices.u32',dtype='<u4').reshape(horizon,job['batch'])
             assert all(len(np.unique(row))==job['batch'] for row in indices)
             rng=np.random.default_rng(np.random.SeedSequence([cfg['sampling_seed'],{'resnet':1,'transformer':2}[task],seed,job['state'],job['rep']]))
@@ -108,6 +116,9 @@ def verify_worker(folder,mechanics=False,input_manifest=RUN/'input_manifest.json
                 np.testing.assert_allclose(summary[metric],reference[metric],rtol=1e-6,atol=1e-7)
         results.append(dict(task=identity['task'],seed=identity['seed'],**job,
                             mean_rho=summary['mean_rho'],R=summary['R'],loss_change=summary['loss_change'],
+                            actual_R=summary['actual_R'],initial_loss=summary['initial_loss'],final_loss=summary['final_loss'],
+                            valid_cosines=summary['valid_cosines'],nominal_displacement_relative_error=summary['max_nominal_displacement_relative_error'],
+                            run=active_run.name,
                             source=target.relative_to(ROOT).as_posix(),summary_sha256=file_hash(target/'summary.json')))
     return results
 
@@ -117,7 +128,7 @@ def main():
     p.add_argument('workers',type=Path,nargs='+')
     p.add_argument('--partial',action='store_true',help='Verify supplied complete workers, never certify the cohort.')
     p.add_argument('--mechanics',action='store_true',help='Qualify short workers and replay, without production acceptance.')
-    p.add_argument('--input-manifest',type=Path,default=RUN/'input_manifest.json',help='Explicit preserved input identity for historical mechanics qualification.')
+    p.add_argument('--input-manifest',type=Path,default=None,help='Explicit preserved input identity for historical mechanics qualification; otherwise use each worker\'s owning run.')
     args=p.parse_args(); cfg=read(RUN/'config.json')
     results=[]
     for worker in args.workers:results.extend(verify_worker(worker,args.mechanics,args.input_manifest))
@@ -139,7 +150,8 @@ def main():
                 if not block:continue
                 means={metric:[float(np.mean([r[metric] for r in block if r['seed']==seed]))
                     for seed in cfg['seeds'] if any(r['seed']==seed for r in block)]
-                    for metric in ['mean_rho','R','loss_change']}
+                    for metric in ['mean_rho','R','actual_R','initial_loss','final_loss','loss_change',
+                                   'nominal_displacement_relative_error']}
                 cells.append(dict(task=task,state=state,batch=batch,seed_means=means,
                     mean={k:float(np.mean(v)) for k,v in means.items()},
                     minimum={k:min(v) for k,v in means.items()},maximum={k:max(v) for k,v in means.items()}))

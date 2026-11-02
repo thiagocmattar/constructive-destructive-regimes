@@ -79,8 +79,8 @@
 Next analysis: `038-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
 an analysis may use manuscript or external inputs without referencing a run.
 
-## Deferred batch-size extension
+## Active batch-size extension
 
 | Analysis | Question | Sources | Status | Records |
 | --- | --- | --- | --- | --- |
-| [037](037-2026-11-02-sgd-batch-extension/README.md) | H023: three-case batch-size figure extension | Run214; reuse Analysis027 MLP evidence | Resumed for Runpod; seven CPU checks and both full short worker queues pass; cost/time envelope pending, no paid allocation | [Worker qualification](037-2026-11-02-sgd-batch-extension/worker_qualification.json); [launch packet](037-2026-11-02-sgd-batch-extension/RUNPOD_LAUNCH.md); pending three-case 2x3 figure |
+| [037](037-2026-11-02-sgd-batch-extension/README.md) | H023: three-case batch-size figure extension | Runs214/216; reuse Analysis027 MLP evidence | Six qualified cloud blocks plus Spark assistance active; USD40/six-hour shared envelope; incremental verified retrieval | [Worker qualification](037-2026-11-02-sgd-batch-extension/worker_qualification.json); [launch packet](037-2026-11-02-sgd-batch-extension/RUNPOD_LAUNCH.md); pending three-case 2x3 figure |

@@ -1,0 +1,35 @@
+{
+  "utc": "2026-11-02T13:59:03.124849+00:00",
+  "catalog_entry": {
+    "available": true,
+    "communityCloud": false,
+    "communityPricePerHr": null,
+    "dataCenterAvailability": [
+      {
+        "dataCenterId": "EU-RO-1",
+        "stockStatus": "Low"
+      }
+    ],
+    "displayName": "RTX PRO 4500",
+    "gpuId": "NVIDIA RTX PRO 4500 Blackwell",
+    "memoryInGb": 32,
+    "secureCloud": true,
+    "securePricePerHr": 0.72,
+    "stockStatus": "Low"
+  },
+  "response": {
+    "containerDiskInGb": 30,
+    "costPerHr": 0.72,
+    "desiredStatus": "RUNNING",
+    "gpuCount": 1,
+    "id": "3tsz68t3mgcs1t",
+    "imageName": "runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404",
+    "memoryInGb": 62,
+    "name": "cdr-analysis037-transformer-seed0-a2",
+    "ports": "22/tcp",
+    "vcpuCount": 32,
+    "volumeInGb": 35,
+    "volumeMountPath": "/workspace"
+  },
+  "environment_values_omitted": true
+}

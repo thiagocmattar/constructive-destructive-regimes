@@ -1,0 +1,35 @@
+{
+  "utc": "2026-11-02T13:41:36.850409+00:00",
+  "catalog_entry": {
+    "available": true,
+    "communityCloud": true,
+    "communityPricePerHr": 0.34,
+    "dataCenterAvailability": [
+      {
+        "dataCenterId": "EUR-IS-2",
+        "stockStatus": "Low"
+      }
+    ],
+    "displayName": "RTX 4090",
+    "gpuId": "NVIDIA GeForce RTX 4090",
+    "memoryInGb": 24,
+    "secureCloud": true,
+    "securePricePerHr": 0.89,
+    "stockStatus": "Low"
+  },
+  "response": {
+    "containerDiskInGb": 30,
+    "costPerHr": 0.89,
+    "desiredStatus": "RUNNING",
+    "gpuCount": 1,
+    "id": "nay3c7fhrj5hfl",
+    "imageName": "runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404",
+    "memoryInGb": 62,
+    "name": "cdr-analysis037-resnet-seed1-a1",
+    "ports": "22/tcp",
+    "vcpuCount": 16,
+    "volumeInGb": 35,
+    "volumeMountPath": "/workspace"
+  },
+  "environment_values_omitted": true
+}

@@ -1,0 +1,35 @@
+{
+  "utc": "2026-11-02T13:44:35.515428+00:00",
+  "catalog_entry": {
+    "available": true,
+    "communityCloud": false,
+    "communityPricePerHr": null,
+    "dataCenterAvailability": [
+      {
+        "dataCenterId": "US-KS-2",
+        "stockStatus": "Low"
+      }
+    ],
+    "displayName": "RTX PRO 4500 SE",
+    "gpuId": "NVIDIA RTX PRO 4500 Blackwell Server Edition",
+    "memoryInGb": 32,
+    "secureCloud": true,
+    "securePricePerHr": 0.72,
+    "stockStatus": "Low"
+  },
+  "response": {
+    "containerDiskInGb": 30,
+    "costPerHr": 0.72,
+    "desiredStatus": "RUNNING",
+    "gpuCount": 1,
+    "id": "h2x6133h7668qj",
+    "imageName": "runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404",
+    "memoryInGb": 94,
+    "name": "cdr-analysis037-resnet-seed2-a1",
+    "ports": "22/tcp",
+    "vcpuCount": 16,
+    "volumeInGb": 35,
+    "volumeMountPath": "/workspace"
+  },
+  "environment_values_omitted": true
+}

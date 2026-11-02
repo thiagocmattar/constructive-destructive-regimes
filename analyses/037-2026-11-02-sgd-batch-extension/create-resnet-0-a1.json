@@ -1,0 +1,35 @@
+{
+  "utc": "2026-11-02T13:38:18.675352+00:00",
+  "catalog_entry": {
+    "available": true,
+    "communityCloud": true,
+    "communityPricePerHr": 0.79,
+    "dataCenterAvailability": [
+      {
+        "dataCenterId": "EUR-IS-2",
+        "stockStatus": "Low"
+      }
+    ],
+    "displayName": "L40S",
+    "gpuId": "NVIDIA L40S",
+    "memoryInGb": 48,
+    "secureCloud": true,
+    "securePricePerHr": 1.09,
+    "stockStatus": "Low"
+  },
+  "response": {
+    "containerDiskInGb": 30,
+    "costPerHr": 1.09,
+    "desiredStatus": "RUNNING",
+    "gpuCount": 1,
+    "id": "q1s7ge3vlk0hu2",
+    "imageName": "runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404",
+    "memoryInGb": 125,
+    "name": "cdr-analysis037-resnet-seed0-a1",
+    "ports": "22/tcp",
+    "vcpuCount": 18,
+    "volumeInGb": 35,
+    "volumeMountPath": "/workspace"
+  },
+  "environment_values_omitted": true
+}

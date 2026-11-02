@@ -244,12 +244,13 @@
 | [215](215-2026-11-02-controlled-full-batch-adam/README.md) | H027 controlled Adam full training from frozen initialization | Active; nine arms x1,024 updates; three MLP arms verified | Attempt01; ongoing broad-GPU search, qualification, detached guard/retrieval; main cap USD45/8.5h | [Analysis036](../analyses/036-2026-11-02-controlled-adam-diagnostics/README.md); no schedules, Hessians or seed sweep |
 <!-- End Run213 preparation -->
 
-Next run: `216-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
+Next run: `217-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
 executed IDs and configurations; retry unchanged scientific inputs in a new
 attempt within the same run.
 
-## Deferred batch-size extension
+## Active batch-size extension
 
 | Run | Question | Status | Design |
 | --- | --- | --- | --- |
-| [214](214-2026-11-02-sgd-batch-extension/README.md) | H023 / Analysis037: ResNet/Transformer batch-size continuations | Resumed for Runpod; both short queues, replay and retrieval-integrity checks pass; spending envelope pending, no production allocation | 3 seeds, states0/2000, 200-update forks; existing MLP evidence reused |
+| [214](214-2026-11-02-sgd-batch-extension/README.md) | H023 / Analysis037: ResNet batch-size continuations | Three qualified cloud seed blocks active; GB10 assists seed2 small-group forks; shared USD40/six-hour ceiling | 3 seeds, states0/2000, 200-update forks; immutable inputs, fresh GD references |
+| [216](216-2026-11-02-sgd-transformer-microbatch512/README.md) | H023 / Analysis037: Transformer batch-size continuations | Three qualified RTX5090 blocks active; physical512 selected before production; same shared envelope | 3 seeds, states0/2000, 8 sampling repetitions; Analysis027 MLP reused |

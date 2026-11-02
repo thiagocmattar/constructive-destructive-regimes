@@ -1,0 +1,35 @@
+{
+  "utc": "2026-11-02T13:34:57.936268+00:00",
+  "catalog_entry": {
+    "available": true,
+    "communityCloud": false,
+    "communityPricePerHr": null,
+    "dataCenterAvailability": [
+      {
+        "dataCenterId": "EUR-IS-2",
+        "stockStatus": "Low"
+      }
+    ],
+    "displayName": "PRO 6000 MIG 24GB",
+    "gpuId": "NVIDIA RTX PRO 6000 Blackwell Server Edition MIG 1g.24gb",
+    "memoryInGb": 24,
+    "secureCloud": true,
+    "securePricePerHr": 0.69,
+    "stockStatus": "Low"
+  },
+  "response": {
+    "containerDiskInGb": 30,
+    "costPerHr": 0.69,
+    "desiredStatus": "RUNNING",
+    "gpuCount": 1,
+    "id": "kg4kku64dhkilg",
+    "imageName": "runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404",
+    "memoryInGb": 31,
+    "name": "cdr-analysis037-transformer-seed0-a1",
+    "ports": "22/tcp",
+    "vcpuCount": 8,
+    "volumeInGb": 35,
+    "volumeMountPath": "/workspace"
+  },
+  "environment_values_omitted": true
+}
