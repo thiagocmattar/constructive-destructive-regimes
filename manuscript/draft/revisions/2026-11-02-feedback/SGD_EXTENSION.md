@@ -1,11 +1,12 @@
 # Three-case batch-size comparison
 
-Status: the user resumed this task and requested Runpod execution, after
-previously declining the eight-hour proposal. A new aggregate cost/time limit
-is pending. The user confirmed the three existing cases. Run214 / Analysis037
-retain prepared code, seven passing numerical tests and qualified short real-data
-worker queues. No production training or cloud allocation has started.
-This extension supersedes the current 2-by-2 SGD figure, not its source data.
+Status: completed in Runs214/216 and Analysis037. All 348 new continuations,
+six references and the additional Spark bridge pass raw and numerical checks;
+the requested three-case figure and 16-page review manuscript are verified.
+All 13 task Pods/disks are deleted; retained cloud storage 0 GB. Provisional
+US$26.30 /4.663 hours, including calibration, retries, disk and retrieval, within
+the user's US$40/six-hour envelope ending 2026-11-02 19:34:56 UTC.
+The initial design and subsequent implementation decisions remain below.
 
 ## Figure and question
 
@@ -39,13 +40,13 @@ differences cannot be attributed to architecture or dataset alone.
   retention is not measured parameter displacement. It cannot provide either
   missing continuation column or the trained-state curves.
 - [Analysis024](../../../../analyses/024-2026-10-17-eos-gd-lr-calibration/README.md)
-  supplies seed-0 GD trajectories and retained states. Runs120 and126 are
+  supplies seed-0 GD trajectories and retained states. Runs120 and 126 are
   candidate ResNet/Transformer sources at LR 0.1/0.2. Saved tensors and exact
   data/initialization identities must qualify before reuse. Replicated trained
   states must be generated for any missing seeds; a seed-0 checkpoint is not
   evidence for three initializations.
 
-## Proposed measurement contract
+## Measurement contract
 
 Retain three initialization blocks and eight stochastic repetitions as in the
 MLP study. Proposed rates are ResNet 0.1 and Transformer 0.2, held constant
@@ -56,8 +57,8 @@ estimate over learning rates. Register immutable run inputs before execution.
 
 | Case | Proposed batch sizes | Sampling unit / objective |
 | --- | --- | --- |
-| MLP (existing) | 32, 128, 512, 2048, 5000 | Images; complete fixed 5k-image objective |
-| ResNet-32 (new) | 1000, 5000, 20000, 50000 images | 1, 5, 20 or all 50 fixed 1k-image ghost-normalization groups |
+| MLP (existing) | 32, 128, 512, 2048, 5000 | Images; complete fixed 5 k-image objective |
+| ResNet-32 (new) | 1000, 5000, 20000, 50000 images | 1, 5, 20 or all 50 fixed 1 k-image ghost-normalization groups |
 | Transformer (new) | 8, 32, 128, 512, full corpus | Prepared sequences; complete token-weighted training objective |
 
 Verify the Transformer corpus count against its source identity (the prior
@@ -70,7 +71,7 @@ ResNet sampling retains its original normalization contexts, including all
 members of each sampled group. No change to augmentation, dropout, loss,
 parameter scope, momentum, clipping, decay or schedule is introduced.
 
-Record raw FP32 gradients at every update, with FP64 norm/dot/sum reductions
+Measure raw-gradient geometry at every update using FP32 gradients and FP64 norm/dot/sum reductions
 and TF32 disabled, matching the existing experiment. Average the 199 valid
 adjacent cosines per fork; calculate R_200 from all 200 updates, resetting the
 path at the fork. Check gradient-sum retention against actual parameter
@@ -90,7 +91,35 @@ The proposed new ResNet cells comprise 150 forks (30,000 updates); Transformer
 cells comprise 198 forks (39,600 updates). Total: 348 forks / 69,600 continuation
 updates, plus up to 12,000 reference GD updates if no saved three-seed states
 qualify, or 8,000 if both seed-0 references qualify. MLP data are reused.
-These counts are workloads, not elapsed-time or cost estimates.
+These counts are trajectory coverage, not elapsed-time or cost estimates.
+All six references are generated fresh. Transformer uses physical accumulation
+512 in separately frozen Run216; its complete-gradient comparison against 64
+has relative L 2 difference1.53e-6 at the pinned initial tensors. The effective
+sampling batches and token-weighted objective are unchanged. The initial full-GD
+controls for Transformer seed 0 and ResNet seed 2 reuse the exactly captured
+first 200 reference updates, with endpoint losses evaluated separately. Its scalar history,
+checkpoint, raw prefix and actual displacement are retained and audited;
+the terminal adjacent pair inherits the measured reference scalar because
+its previous gradient was not retained. This saves 400 executed updates while
+preserving both trajectory measurements. Other controls execute independently.
+
+The user subsequently identified idle Spark capacity. A separate GB10 directory
+qualified the unchanged Run214 source/data/config under PyTorch 2.11/CUDA 13:
+initial full-gradient relative L 2 difference1.20e-7 and three-update parameter
+difference1.59e-9 versus the cloud runtime. Spark executes ResNet seed 2's 32
+small-group continuations (1/5 groups at both starting states) from hash-identical
+cloud reference checkpoints. An additional 200-update initial full-GD bridge
+quantifies longer numerical drift. This adds explicit runtime variation, which
+is not isolated from initialization/sampling variation by the plotted range.
+It adds no cloud cost. The original suspended Spark queue remains untouched.
+With two reused reference-prefix controls and this additional bridge, planned
+new production training totals 81,400 updates, excluding mechanics/calibration;
+primary coverage remains 348 new continuation trajectories, with 198 MLP
+continuations reused for the figure. A qualified extra L40S executes two
+trained-state ResNet seed 2 batch 20 forks and hands them off before the main
+queue reaches them. A bounded inter-fork queue wait permits the remaining
+verified Spark handoffs; the active measurement child is never paused.
+Neither scheduling change alters scientific inputs, RNG identities or coverage.
 
 ## Execution preparation and acceptance
 

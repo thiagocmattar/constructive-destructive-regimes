@@ -28,7 +28,7 @@ if root.exists():
 terminal=(root/'worker_inventory.json').exists()
 if terminal:
  ready=sorted(p.name for p in root.iterdir() if p.is_dir() and p.name not in cached)
-selected=ready[:2];metadata=terminal and not ready
+selected=ready[:8 if terminal else 2];metadata=terminal and not ready
 if metadata:selected=sorted(p.name for p in root.iterdir() if p.is_file())
 if not selected:print(json.dumps({'ready':False,'terminal':terminal}));raise SystemExit
 archive=Path('/workspace/cdr214-stream.tar.gz')
@@ -75,6 +75,7 @@ PY
     c.save(progress,state)
     archive.unlink()  # Verified extracted raw files and hash receipt are retained.
     print(c.stamp(),pod['name'],'retrieved',packet['selected'],'terminal',state['done'],flush=True)
+    return packet['terminal']
 
 
 def main():
@@ -89,9 +90,10 @@ def main():
                 if pod['id'] not in pending and time.time()>=next_poll.get(pod['id'],0):pending[pod['id']]=pool.submit(tick,dict(pod))
             for key,future in list(pending.items()):
                 if not future.done():continue
-                try:future.result()
+                terminal=False
+                try:terminal=bool(future.result())
                 except Exception as error:print(c.stamp(),key,repr(error),flush=True)
-                del pending[key];next_poll[key]=time.time()+30
+                del pending[key];next_poll[key]=time.time()+(5 if terminal else 30)
             time.sleep(3)
 
 

@@ -2,12 +2,15 @@
 
 ## Current state
 
-[Analysis037: three-case SGD batch-size comparison](../analyses/037-2026-11-02-sgd-batch-extension/README.md)
-executes Runs214/216 on six qualified cloud workers, with GB10 assistance for
-ResNet seed2 small-group forks. Three seeds and all sampling repetitions retained;
-shared USD40/six-hour ceiling ends November2 at19:34:56 UTC. Raw fork retrieval
-and numerical acceptance precede worker cleanup. Manuscript figure awaits the
-complete cohort; H023, no new hypothesis. Next Run217 / Analysis038 / H028.
+[Analysis037: three-case SGD batch-size comparison](../analyses/037-2026-11-02-sgd-batch-extension/REPORT.md)
+completed 348 new continuations plus 198 reused MLP continuations, with all three
+initializations and sampling repetitions retained. The 2-by-3 figure and 16-page
+manuscript pass numerical/visual review. Smallest trained-state batches weaken
+reversal while retention means stay below 0.05; adjacent cosine alone does not
+order retention or training loss. All 13 task Pods/disks deleted; 0 GB cloud storage;
+USD 26.30 provisional / 4.663 hours within USD 40/six hours. Spark project 1.379 GB
+retained with no task measurement active; old queue untouched. H023; no new
+hypothesis. Next Run217 / Analysis038 / H028.
 
 [Analysis036: controlled Adam from initialization](../analyses/036-2026-11-02-controlled-adam-diagnostics/REPORT.md)
 completed Run213 calibration9 x128 and Run215 main9 x1,024 (9,216 main updates).

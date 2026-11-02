@@ -5,11 +5,14 @@ Latest author-feedback revision (2026-11-02):
 [completed TODO](draft/revisions/2026-11-02-feedback/TODO.md), and
 [comment dispositions / reproduction](draft/revisions/2026-11-02-feedback/README.md).
 The 28-comment source, revision scripts and review PDF are now under `draft/`.
+The latest 16-page version includes the completed Analysis037 three-case SGD
+figure, initialization/2k curves, GD layout fixes, backward-lag zoom and Table I
+multirow grouping. All 348 new trajectories and the manuscript checks pass.
 This revision builds into ignored `tmp/pdfs/` and delivers to `draft/`,
 superseding the older `artifacts/` output convention for the current review.
 
 `draft/figures/` now contains only the five figures used by the active build.
-The other 25 are preserved in the [figure archive](archive/2026-11-02-unused-figures/README.md),
+The other 26 are preserved in the [figure archive](archive/2026-11-02-unused-figures/README.md),
 with hashes and original paths. Inactive legacy sections reference that archive.
 
 The original supplied materials are preserved:

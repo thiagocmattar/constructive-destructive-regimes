@@ -1,103 +1,86 @@
-# Analysis037: three-case batch-size and starting-state comparison
+# Analysis037: three-case SGD batch-size comparison
 
-H023; Runs214/216. User requested measurements for the confirmed existing cases:
-CIFAR-10/MLP, CIFAR-10/ResNet-32 and WikiText-2/Transformer. Reuse Analysis027
-MLP results. Add ResNet/Transformer continuations at initialization and after
-2000 GD updates, then replace the manuscript figure with two rows and three
-columns, with two starting-state curves in each panel.
+H023; Runs214/216. Complete:348 new continuations, six fresh 2,000-update GD
+references, and the additional 200-update Spark runtime bridge. Reusing 198
+unchanged Analysis027 MLP continuations supplies 546 trajectories for the
+requested 2-by-3 figure. All three initializations and eight stochastic
+repetitions per condition are retained. The cases are CIFAR-10/MLP,
+CIFAR-10/ResNet-32 and WikiText-2/Transformer, not three distinct datasets.
 
-The [measurement contract](../../manuscript/draft/revisions/2026-11-02-feedback/SGD_EXTENSION.md)
-defines comparisons, coverage, aggregation, interpretation limits and retention.
-Run214's config makes the new-reference policy explicit: all seeds use fresh
-2000-update GD trajectories on the selected per-case runtime, from pinned
-initial tensors. This adds12000 reference updates to69600 continuation updates.
-It avoids combining historical seed0 numerical trajectories with new seeds.
-Run216 separately freezes Transformer physical accumulation512, selected by
-pre-production complete-gradient timing/precision checks; ResNet uses Run214.
+The [report](REPORT.md) gives the comparison, observations and reproduction.
+The [figure observation](observations/001-three-case-sgd.md) records sources,
+reduction, caption, coverage, descriptive ranges and interpretation limits.
+[results.json](results.json), [cohort_acceptance.json](cohort_acceptance.json),
+[scientific_summary.json](scientific_summary.json) and [cells.csv](cells.csv)
+preserve independently verified repetition/block reductions.
 
-The user resumed execution on Runpod after previously deferring the eight-hour
-proposal, approved US$40/four hours, and then explicitly extended the shared
-wall limit to six hours while keeping US$40 total. First allocation:
-2026-11-02 13:34:56 UTC; hard deadline19:34:56 UTC /16:34:56 São Paulo.
-All six task/seed blocks now run in parallel on qualified workers. Calibration,
-capacity retries, storage and verified retrieval count toward the same ceiling.
-The [original launch packet](RUNPOD_LAUNCH.md), [authorization](authorization.json)
-and [duration extension](duration-extension.json) preserve the decision record.
-No new hypothesis is allocated: this extends H023's batch-noise comparison.
+Smaller batches weaken trained-state negative mean cosine across all three
+cases, while every trained-state retention mean stays below 0.05. Initial-state
+responses differ: full GD is positively aligned for MLP/ResNet but strongly
+reversing for Transformer; sampled MLP paths can also change sign. Transformer
+batch 8 has nearly equal mean cosine from both starts (about-0.26), but retention
+changes from 0.110 to 0.042 and mean full-training-loss change from-3.505 to+0.064.
+Adjacent alignment alone therefore does not order cumulative motion or loss.
 
-Seven CPU checks pass: direct all-pair geometry, zero/cancelling gradients,
-unbiased variable-token sampling, fixed ghost groups, paired batch sampling,
-RNG/geometry recovery, and actual versus nominal displacement. Local GPU checks
-cover all batch sizes; the ResNet reference stopped/resumed and completed a
-sampled fork, and the Transformer reference completed three updates. These are
-mechanics checks, not evidence for the paper.
+## Design and verification
 
-The [preparation receipt](preparation_receipt.json) preserves source hashes,
-timing/memory and completed checks. ResNet full updates take about7.56 seconds;
-Transformer full updates about16.13 seconds on the owned5070Ti laptop. A rough
-linear projection plus25% allowance yields about60-75 hours for the full design;
-short timing samples do not measure sustained thermal throughput. The proposed
-Runpod8-hour limit was a maximum execution envelope, not a measured cloud ETC.
-The read-only [catalog snapshot](live_catalog.json) incurred no spending.
+Within each case, vary batch size and initial/2k starting state, matching the
+objective, pinned initial tensors, constant rate and 200-update horizon. Rates
+0.02/0.1/0.2 were selected before these outcomes. ResNet keeps fixed 1 k-image
+normalization groups; Transformer uses the unbiased fixed-token-denominator
+estimator and full 2,088,600-token objective. See the [measurement contract](../../manuscript/draft/revisions/2026-11-02-feedback/SGD_EXTENSION.md).
 
-The [worker qualification](worker_qualification.json) now covers both complete
-short queues, sampled forks, independently executed full-batch replay, saved
-sampling-index replay, CPU vector checks, copied-artifact hash verification and
-deliberate corruption rejection. All 78 inventory entries pass. Transformer
-replay is bitwise identical. ResNet's maximum absolute parameter difference is
-2.97e-8, relative total L2 error 1.07e-9; bitwise replay failed and the explicit
-FP32 tolerances are recorded. This does not qualify long-trajectory replay.
+Seven CPU math/sampling/recovery checks pass. Every new continuation has 200
+updates and 199 defined cosines; exact sampling indices, independent scalar
+reduction, selected CPU vector audits, actual endpoint displacement and complete
+raw-file byte/SHA inventories pass. Source/data/config/initial tensors remain
+unchanged; [executed-inputs-verification.json](executed-inputs-verification.json)
+rechecks all 29 manifest entries in each run. Raw evidence remains under ignored
+run artifacts, rather than in Git.
 
-Pending: complete the full cohort, independently reduce all arms, regenerate
-the figure and integrate the manuscript. No new scientific result or manuscript
-claim is supplied by mechanics checks. The original preparation receipt remains
-unchanged; the current input manifest has identical scientific values but adds
-all run-script hashes and uses LF. The short workers' CRLF manifest is retained
-under ignored scratch and identified separately in the qualification receipt.
+Run216 freezes Transformer physical accumulation 512, qualified before
+production; its effective sampling batches/objective are unchanged. Cloud
+workers use PyTorch 2.8/CUDA 12.8. ResNet uses L40S/4090; seed 2's 32 smallest-group
+forks use Spark GB10/PyTorch 2.11/CUDA 13 from hash-identical cloud checkpoints.
+The [initial200-update bridge](spark-bridge-acceptance.json) has parameter
+relative L 2 error2.36e-7 versus L40S; this is not long chaotic replay validation.
+Batch/runtime effects are not separated in that block, and shading also
+combines initialization/runtime variation. Equal updates imply unequal exposure;
+case differences do not isolate architecture or dataset. No covariance, HVP,
+stability or generalization result is inferred from these two rows.
 
-## Active execution and retention
+Two initial full-GD controls reuse exactly captured reference prefixes;
+348 trajectories cover 69,600 continuation updates but require 69,200 explicit
+continuation updates. Adding 12,000 reference and 200 bridge updates gives 81,400
+production updates, excluding mechanics/calibration. Spark hands off 32 primary
+forks; a qualified extra L40S hands off two original trained-state batch 20
+forks. No primary trajectory is duplicated. The bounded queue wait pauses only
+the scheduler, leaving its active measurement child running; all handoffs
+arrive before that child ends. Receipts preserve each placement and verification.
 
-ResNet seed0/2 use L40S (US$1.09/GPU-hour), seed1 uses RTX4090 (US$0.89);
-Transformer uses RTX5090 (US$1.19) for all three blocks. These rates come from
-each allocation's live catalog receipt. Full-gradient calibration is about
-2.74--2.84 seconds on L40S,2.6 seconds on4090 and4.0--4.1 seconds on5090 for
-their respective workloads. Short calibrations are qualified estimates, not
-guaranteed sustained timings. Slower/unreachable calibration resources were
-released; their cost remains included. Extra-worker requests continue across
-GPU classes when useful for the remaining critical path.
+## Execution and cleanup
 
-All production inputs stay frozen. Detached workers save recovery every50
-updates, exact sampling indices, scalar histories, endpoints and audit vectors.
-The independent guard stops science before the hard deadline or spending cap;
-immutable completed forks stream to local storage during computation.
-`14_accept_workers.py` verifies the complete raw inventory, numerical reduction,
-sampling replay and displacement before allowing that worker's deletion.
-Unrelated account Pods and network volumes are preserved.
+The user approved US$40/four hours, then six hours with the same total ceiling,
+and requested other GPU classes plus idle Spark assistance. All 13 task Pods
+(including calibration retries and the auxiliary worker) are deleted after
+appropriate retrieval/acceptance. Retained task cloud storage:0 GB. Fresh account
+readback preserves unrelated resources. Provisional elapsed-time GPU plus
+conservative disk estimate: **US$26.30**; allocation-to-final-deletion duration:
+**4.663 hours**, inside the six-hour ceiling. This is not posted billing.
+[closeout.json](closeout.json) contains the full ledger and readback.
 
-After the user identified idle Spark capacity, a separate GB10 task directory
-qualified the unchanged Run214 inputs under PyTorch2.11/CUDA13. Initial complete
-gradient relative L2 difference versus L40S is1.20e-7 (cosine1-6.9e-15);
-three-update parameter relative L2 difference is1.59e-9. Full updates take13.3s,
-so Spark handles only ResNet seed2's32 small-group forks (1/5 groups at both
-states), while its cloud worker retains the reference and larger batches.
-This is execution parallelism, with explicit additional runtime variation.
-An extra initial200-update full-GD control measures longer runtime drift.
-The [qualification](spark-qualification.json), [launch](spark-launch.json) and
-handoff receipts preserve its scope; raw inputs remain unchanged.
-Each imported fork is byte/hash checked and its sampling/geometry reduced
-before atomic placement ahead of the cloud queue. Completed cloud-worker
-acceptance still checks every imported fork independently. No cloud charge
-is added, and the old suspended Spark queue is untouched.
+Spark has no remaining task measurement process. Its isolated 1.379 GB project
+is retained on owned storage; the old suspended queue remains stopped and
+untouched. No cloud charge is added. The original [launch packet](RUNPOD_LAUNCH.md),
+[authorization](authorization.json), [extension](duration-extension.json), live
+allocation-price receipts and per-worker acceptances preserve execution history.
 
-Transformer seed0 and ResNet seed2 initial full-GD controls use their exactly
-captured first200 reference updates, saving400 executed updates without losing
-either trajectory.
-The retained checkpoint, loss evaluation and audit limitation are explicit in
-[the derivation plan](initial-gd-control-reuse-plan.json). Other full controls
-execute independently. Coverage remains348 forks plus six references.
+One calibration-only archive was lost after a failed transfer; no production
+ran there. Its timing snapshot remains. The [incident](retrieval-incident.json)
+and strengthened deletion gates are retained; all production/helper evidence
+was verified before cleanup.
 
-One calibration-only Pod was mistakenly deleted after an archive transfer
-failed. Its timing snapshot remains, but its full mechanics archive is lost;
-it had no production measurements. The [incident record](retrieval-incident.json)
-documents this and the deletion gates added afterward. This limitation must not
-be hidden by later successful production retrievals.
+The manuscript's active figure is `draft/figures/analysis037/sgd_batch_size_compact.pdf`.
+The superseded MLP-only draft copy is archived with its bytes/hash; historical
+Analysis027 source data and artwork remain unchanged. The reviewed next version
+and completed TODO are in `manuscript/draft/revisions/2026-11-02-feedback/`.

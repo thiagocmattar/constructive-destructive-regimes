@@ -1,0 +1,157 @@
+{
+  "status": "passed",
+  "utc": "2026-11-02T18:15:48.370340+00:00",
+  "all_task_pods_deleted": true,
+  "task_pods": 13,
+  "task_cloud_storage_gb": 0,
+  "unrelated_pods_preserved": 0,
+  "unrelated_volumes_preserved": 2,
+  "max_concurrent_cloud_gpus": 6,
+  "start_epoch": 1793626496.485294,
+  "last_deletion_epoch": 1793643282.4932213,
+  "elapsed_hours": 4.662779979772038,
+  "approved_usd": 40,
+  "approved_wall_hours": 6,
+  "estimated_total_usd": 26.29738086583942,
+  "billing_status": "provisional; elapsed-time GPU plus conservative disk estimate, not posted billing",
+  "ledger": [
+    {
+      "pod_id": "kg4kku64dhkilg",
+      "name": "cdr-analysis037-transformer-seed0-a1",
+      "gpu": "PRO 6000 MIG 24GB",
+      "created_epoch": 1793626496.485294,
+      "deleted_epoch": 1793627507.1265485,
+      "hours": 0.2807336817847358,
+      "gpu_usd": 0.19370624043146767,
+      "conservative_disk_usd": 0.002534401293889976
+    },
+    {
+      "pod_id": "q1s7ge3vlk0hu2",
+      "name": "cdr-analysis037-resnet-seed0-a1",
+      "gpu": "L40S",
+      "created_epoch": 1793626697.4609802,
+      "deleted_epoch": 1793640135.762766,
+      "hours": 3.732861607140965,
+      "gpu_usd": 4.068819151783652,
+      "conservative_disk_usd": 0.033699445064467044
+    },
+    {
+      "pod_id": "nay3c7fhrj5hfl",
+      "name": "cdr-analysis037-resnet-seed1-a1",
+      "gpu": "RTX 4090",
+      "created_epoch": 1793626895.7830882,
+      "deleted_epoch": 1793638686.1467986,
+      "hours": 3.275101030667623,
+      "gpu_usd": 2.9148399172941843,
+      "conservative_disk_usd": 0.029566884304638268
+    },
+    {
+      "pod_id": "mgl3rdbt7elrxr",
+      "name": "cdr-analysis037-transformer-seed1-a1",
+      "gpu": "RTX 5090",
+      "created_epoch": 1793626921.7262838,
+      "deleted_epoch": 1793639423.0890107,
+      "hours": 3.472600757479668,
+      "gpu_usd": 4.132394901400804,
+      "conservative_disk_usd": 0.03134986794946922
+    },
+    {
+      "pod_id": "h2x6133h7668qj",
+      "name": "cdr-analysis037-resnet-seed2-a1",
+      "gpu": "RTX PRO 4500 SE",
+      "created_epoch": 1793627074.538848,
+      "deleted_epoch": 1793628009.6726763,
+      "hours": 0.25975939677821264,
+      "gpu_usd": 0.1870267656803131,
+      "conservative_disk_usd": 0.0023450501098033084
+    },
+    {
+      "pod_id": "ucd3obqqpcmj2x",
+      "name": "cdr-analysis037-transformer-seed2-a1",
+      "gpu": "RTX 5090",
+      "created_epoch": 1793627100.3965752,
+      "deleted_epoch": 1793639800.5938048,
+      "hours": 3.5278325637843873,
+      "gpu_usd": 4.198120750903421,
+      "conservative_disk_usd": 0.031848488423053496
+    },
+    {
+      "pod_id": "3tsz68t3mgcs1t",
+      "name": "cdr-analysis037-transformer-seed0-a2",
+      "gpu": "RTX PRO 4500",
+      "created_epoch": 1793627941.588367,
+      "deleted_epoch": 1793628385.1471837,
+      "hours": 0.12321078240871429,
+      "gpu_usd": 0.08871176333427429,
+      "conservative_disk_usd": 0.0011123195634120042
+    },
+    {
+      "pod_id": "1ut65sd3c91l8a",
+      "name": "cdr-analysis037-resnet-seed2-a2",
+      "gpu": "RTX 5090",
+      "created_epoch": 1793628320.6866171,
+      "deleted_epoch": 1793629718.3234344,
+      "hours": 0.3882324492269092,
+      "gpu_usd": 0.4619966145800219,
+      "conservative_disk_usd": 0.0035048762777429303
+    },
+    {
+      "pod_id": "u18i7fn9xb0r4p",
+      "name": "cdr-analysis037-transformer-seed0-a3",
+      "gpu": "RTX 5090",
+      "created_epoch": 1793628465.7763479,
+      "deleted_epoch": 1793628956.7854207,
+      "hours": 0.13639140910572475,
+      "gpu_usd": 0.09411007228295007,
+      "conservative_disk_usd": 0.0012313113322044596
+    },
+    {
+      "pod_id": "7u5hddcqsqhc7t",
+      "name": "cdr-analysis037-transformer-seed0-a4",
+      "gpu": "RTX 5090",
+      "created_epoch": 1793628986.5538244,
+      "deleted_epoch": 1793640307.8149307,
+      "hours": 3.144794751736853,
+      "gpu_usd": 3.7423057545668548,
+      "conservative_disk_usd": 0.028390508175402143
+    },
+    {
+      "pod_id": "ta1faqsem6801f",
+      "name": "cdr-analysis037-resnet-seed2-a3",
+      "gpu": "H100 SXM",
+      "created_epoch": 1793629723.3356023,
+      "deleted_epoch": 1793632095.6807036,
+      "hours": 0.6589847503768074,
+      "gpu_usd": 2.6293491540034615,
+      "conservative_disk_usd": 0.005949167885346178
+    },
+    {
+      "pod_id": "92xz66q1cvuby0",
+      "name": "cdr-analysis037-resnet-seed2-a4",
+      "gpu": "L40S",
+      "created_epoch": 1793633162.8306053,
+      "deleted_epoch": 1793643282.4932213,
+      "hours": 2.8110173933373557,
+      "gpu_usd": 3.064008958737718,
+      "conservative_disk_usd": 0.025377240356517793
+    },
+    {
+      "pod_id": "tvo0a8tlrniihp",
+      "name": "cdr-analysis037-resnet-seed2-a5",
+      "gpu": "L40S",
+      "created_epoch": 1793640897.3800569,
+      "deleted_epoch": 1793641962.2235122,
+      "hours": 0.29578984869851005,
+      "gpu_usd": 0.32241093508137597,
+      "conservative_disk_usd": 0.0026703250229726605
+    }
+  ],
+  "spark": {
+    "active_task_measurement_pids": [],
+    "unrelated_old_queue_state": "T (stopped)",
+    "retained_project_bytes": 1378522451
+  },
+  "queue_barrier_receipt_sha256": "b4d83669000a1162d521638192d367e2a74ae83b5ff3a16031f8f0b77a20e2fb",
+  "production_retrieval": "All six primary blocks and both helpers verified before cloud cleanup.",
+  "calibration_limitation": "One calibration-only archive was lost; no production ran there. See retrieval-incident.json."
+}

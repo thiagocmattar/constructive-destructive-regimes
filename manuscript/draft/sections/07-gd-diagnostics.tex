@@ -157,21 +157,43 @@ their amplitudes vary substantially across endpoints.
 
 \subsection{Mini-Batch Comparison}
 
-The mini-batch experiment uses the same 5,000-image MLP objective with
-three independent initializations. New GD reference trajectories at
-$\eta=0.02$ supply matched starting states. Figure~\ref{fig:sgd-moving-geometry}
-retains initial and 2,000-update states from the completed experiment;
-the intermediate state and full-gradient companion diagnostics remain
-in the supporting research record. Each stochastic batch is a uniform
-subset without replacement, independently redrawn at each update.
+The mini-batch comparison uses three initializations for each objective.
+The MLP reuses the completed 5,000-image experiment at $\eta=0.02$,
+with batches $32,128,512,2048,5000$. Fresh 2,000-update GD references
+at $\eta=0.1$ and $0.2$ supply ResNet and Transformer starting states.
+ResNet samples $1,5,20$ or all $50$ fixed 1,000-image normalization
+groups, preserving each image's normalization context; its figure axis
+reports image counts. Transformer batches contain $8,32,128,512$ or all
+$59{,}680$ prepared sequences, with $M=2{,}088{,}600$ supervised tokens
+in the complete training objective. If $\ell_i$ is sequence $i$'s summed
+token loss, the sampled estimator is
+$\frac{N}{bM}\sum_{i\in B}\ell_i$, with $N=59{,}680$; a random sampled-token
+denominator would change this estimator. Every stochastic batch is a
+uniform subset without replacement, independently redrawn at each update.
 Batch sizes share prefixes of a common permutation within a repetition;
 permutations are independent across updates and repetitions. Parameters
 and gradients use FP32, reductions use FP64, and TF32 is disabled.
-Full-loss evaluations cover every training image. Cosines average all
+Full-loss evaluations cover every training image or supervised token.
+Cosines average all
 199 defined consecutive pairs; retention uses all 200 applied gradients.
 Eight repetitions are averaged within initialization before the three
-initializations receive equal weight. The plotted range represents
-variation among these initialization means, not sampling confidence.
+initializations receive equal weight. The plotted range represents variation
+among initialization-block means, not sampling confidence. Cases differ in
+objective, architecture, data size and selected learning rate; their contrasts
+do not isolate any one factor.
+
+Cloud runs use PyTorch 2.8/CUDA 12.8. The Transformer uses RTX5090 and
+512-sequence physical accumulation, without changing effective batches.
+ResNet uses L40S/RTX4090; seed~2's smallest two batches use GB10/PyTorch
+2.11/CUDA 13 from hash-identical cloud checkpoints. Complete-gradient and
+short replay checks qualify this runtime; a 200-update initial full-GD bridge
+has endpoint parameter relative error $2.36\times10^{-7}$ versus the cloud.
+This does not establish long-trajectory replay. Batch and runtime effects
+are confounded in this block; shading includes initialization and runtime
+variation. Initial full controls for ResNet seed~2 and Transformer seed~0
+reuse the exact first 200 reference updates, with separate endpoint losses;
+other controls execute independently. Audits of actual increments and endpoint
+displacement quantify FP32 update roundoff.
 
 \subsection{Spectral Context}
 

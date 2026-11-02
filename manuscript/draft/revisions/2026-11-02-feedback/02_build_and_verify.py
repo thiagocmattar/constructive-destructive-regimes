@@ -13,6 +13,7 @@ import numpy as np
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 DRAFT = HERE.parents[1]
+A37 = ROOT/'analyses/037-2026-11-02-sgd-batch-extension'
 SCRATCH = ROOT/'tmp/pdfs/manuscript-feedback-2026-11-02'
 
 
@@ -85,6 +86,7 @@ def check_evidence():
     a24=ROOT/'analyses/024-2026-10-17-eos-gd-lr-calibration'
     arrays=np.load(a24/'derived/single_rows_curves.npz')
     a27=read(ROOT/'analyses/027-2026-10-30-minibatch-noise/reduction.json')
+    raw37=read(A37/'results.json')['forks']
     with (ROOT/'analyses/035-2026-11-02-eos-backward-anchors/lag_profiles.csv').open() as f:
         lag=list(csv.DictReader(f))
     for c in m['curves']:
@@ -92,8 +94,18 @@ def check_evidence():
         if tag.startswith('gd_'):
             key=tag.split(':')[1]; x,y=arrays[key+'_x'],arrays[key+'_y']
         elif tag.startswith('sgd:'):
-            _,state,field=tag.split(':');x=[32,128,512,2048,5000]
-            y=np.array([[next(r[field] for r in a27['moving'] if (r['seed'],r['checkpoint'],r['batch'])==(seed,int(state),b)) for b in x] for seed in range(3)]).mean(0)
+            _,task,state,field=tag.split(':')
+            batches={'mlp':[32,128,512,2048,5000],'resnet':[1,5,20,50],
+                     'transformer':[8,32,128,512,59680]}[task]
+            x=np.array(batches)*(1000 if task=='resnet' else 1)
+            if task=='mlp':
+                y=np.array([[next(r[field] for r in a27['moving'] if
+                    (r['seed'],r['checkpoint'],r['batch'])==(seed,int(state),b))
+                    for b in batches] for seed in range(3)]).mean(0)
+            else:
+                y=np.array([[np.mean([r[field] for r in raw37 if
+                    (r['task'],r['seed'],r['state'],r['batch'])==(task,seed,int(state),b)])
+                    for b in batches] for seed in range(3)]).mean(0)
         else:
             task=tag.split(':')[1]
             rows=sorted([r for r in lag if r['optimizer']=='gd' and r['task']==task and int(r['start'])==2000],key=lambda r:int(r['lag']))
@@ -120,9 +132,16 @@ def check_evidence():
     for record in m['sgd_values']:
         for i,seed in enumerate(range(3)):
             for j,b in enumerate(record['batches']):
-                reps=[r[record['field']] for r in raw27 if (r['seed'],r['checkpoint'],r['batch'])==(seed,record['checkpoint'],b)]
-                assert len(reps)==(1 if b==5000 else 8)
+                if record['task']=='mlp':
+                    reps=[r[record['field']] for r in raw27 if (r['seed'],r['checkpoint'],r['batch'])==(seed,record['checkpoint'],b)]
+                else:
+                    reps=[r[record['field']] for r in raw37 if
+                        (r['task'],r['seed'],r['state'],r['batch'])==(record['task'],seed,record['checkpoint'],b)]
+                assert len(reps)==(1 if b==record['batches'][-1] else 8)
                 assert abs(np.mean(reps)-record['initialization_means'][i][j])<1e-14
+        block=np.array(record['initialization_means'])
+        np.testing.assert_array_equal(block.min(0),record['minimum'])
+        np.testing.assert_array_equal(block.max(0),record['maximum'])
     # Independent displayed-table parsing against full-precision reductions.
     results=read(a24/'results.json')['runs'];audit=read(a24/'section_iv_review_checks.json')['runs']
     table_text=(DRAFT/'tables/analysis024_endpoints.tex').read_text()
@@ -155,6 +174,42 @@ def check_evidence():
         for batch in [32,5000]:
             loss=np.mean([r['loss_change'] for r in raw27 if (r['seed'],r['checkpoint'],r['batch'])==(seed,2000,batch)])
             assert (loss>0)==(batch==32)
+    # Check the displayed moving-path example from every retained repetition.
+    state_example={}
+    for state in [0,2000]:
+        state_example[state]={field:float(np.mean([np.mean([r[field] for r in raw37 if
+            (r['task'],r['seed'],r['state'],r['batch'])==('transformer',seed,state,8)])
+            for seed in range(3)])) for field in ['mean_rho','R','loss_change']}
+        for seed in range(3):
+            loss=np.mean([r['loss_change'] for r in raw37 if
+                (r['task'],r['seed'],r['state'],r['batch'])==('transformer',seed,state,8)])
+            assert (loss>0)==(state==2000)
+    text=(DRAFT/'sections/05-sgd-noise-experiments.tex').read_text()
+    paragraph=text.split('For the Transformer at $b=8$,',1)[1].split('\n\n',1)[0]
+    displayed=re.findall(r'\$(-?\d+\.\d+)\$',paragraph)
+    assert f'{state_example[0]["mean_rho"]:.2f}'==f'{state_example[2000]["mean_rho"]:.2f}'
+    assert displayed==[f'{state_example[0]["mean_rho"]:.2f}',f'{state_example[0]["R"]:.2f}',f'{state_example[2000]["R"]:.2f}']
+    bridge=read(A37/'spark-bridge-acceptance.json')
+    coverage=read(A37/'cohort_acceptance.json')
+    assert bridge['status']=='passed' and coverage['spark_bridge_acceptance_sha256']==sha(A37/'spark-bridge-acceptance.json')
+    appendix=(DRAFT/'sections/07-gd-diagnostics.tex').read_text()
+    mantissa,exponent=re.search(r'parameter relative error \$(\d+\.\d+)\\times10\^\{(-?\d+)\}\$',appendix).groups()
+    assert f'{float(mantissa)*10**int(exponent):.2e}'==f'{bridge["full_replay_parameter_relative_l2"]:.2e}'
+    for seed in range(3):
+        full=np.mean([r['loss_change'] for r in raw37 if
+            (r['task'],r['seed'],r['state'],r['batch'])==('transformer',seed,2000,59680)])
+        assert full<0
+    for task,batches in [('mlp',[32,128,512,2048,5000]),('resnet',[1,5,20,50]),
+                         ('transformer',[8,32,128,512,59680])]:
+        rows=raw27 if task=='mlp' else [r for r in raw37 if r['task']==task]
+        state_key='checkpoint' if task=='mlp' else 'state'
+        means={b:{field:float(np.mean([np.mean([r[field] for r in rows if
+            (r['seed'],r[state_key],r['batch'])==(seed,2000,b)]) for seed in range(3)]))
+            for field in ['mean_rho','R']} for b in batches}
+        assert means[batches[-1]]['mean_rho']<means[batches[0]]['mean_rho']<0
+        assert max(cell['R'] for cell in means.values())<.05
+    assert np.mean([r['mean_rho'] for r in raw27 if (r['checkpoint'],r['batch'])==(0,32)])<0
+    assert np.mean([r['mean_rho'] for r in raw27 if (r['checkpoint'],r['batch'])==(0,5000)])>0
     # The manuscript's all-nine-endpoints statement uses every retained GD profile.
     for task in ['mlp','resnet','transformer']:
         for start in [500,2000,3000]:
@@ -170,7 +225,9 @@ def check_evidence():
     assert len(comments['comments'])==28 and sha(HERE/'source-comments.pdf')==comments['source_sha256']
     return dict(curves=len(m['curves']),points=sum(c['points'] for c in m['curves']),
                 endpoint_rows=9,displayed_scalars=45,backward_endpoints=9,
-                preserved_comments=28,source_hashes=len(m['sources']),vector_figures=4)
+                preserved_comments=28,source_hashes=len(m['sources']),vector_figures=4,
+                transformer_state_example=state_example,displayed_state_example_scalars=3,
+                displayed_runtime_bridge_scalars=1)
 
 
 def main():

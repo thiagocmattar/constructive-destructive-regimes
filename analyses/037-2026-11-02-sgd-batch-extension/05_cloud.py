@@ -87,7 +87,7 @@ def initialize():
 def allocate(task,seed,gpu='RTX 5090',cloud='SECURE',gpu_count=1,role=None):
     state=lease();assert sum(p.get('gpu_count',1) for p in state['pods'] if not p.get('deleted_epoch'))+gpu_count<=8
     active=[p for p in state['pods'] if p['task']==task and p['seed']==seed and not p.get('deleted_epoch')]
-    if role=='initial-continuation-helper':
+    if role in ('initial-continuation-helper','late-continuation-helper'):
         assert len(active)==1 and active[0].get('production_pid') and not active[0].get('role')
     else:assert not active
     catalog=cli('gpu','list','--include-unavailable');entry=next(x for x in catalog if x['displayName']==gpu)

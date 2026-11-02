@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "additional_updates": 200,
+  "primary_cohort_forks": 0,
+  "full_replay_parameter_relative_l2": 2.358857377560586e-07,
+  "absolute_metric_differences": {
+    "mean_rho": 8.332505287977909e-07,
+    "R": 4.273193719983581e-07,
+    "actual_R": 4.2813797129781506e-07,
+    "initial_loss": 9.765625197388772e-09,
+    "final_loss": 2.441406254938272e-08
+  },
+  "parameter_relative_l2_limit": 0.0001,
+  "metric_absolute_limit": 0.001,
+  "sources": {
+    "runs/214-2026-11-02-sgd-batch-extension/artifacts/spark-assist/resnet-seed2/initial-full-runtime-bridge": "a2be2a23464eae99f25adef91e09f722429e71918fdb141a35238ad3734a205d",
+    "runs/214-2026-11-02-sgd-batch-extension/artifacts/attempt-04/resnet-seed2/state-0-b50-rep00": "b89375ae3cf4f21d3b56e1606c6cacbcd030c2f3d9eb938eb15215a1ada9638d"
+  },
+  "verifier_sha256": "34c53fa29d10ebc88e8241e40db11c1eb7ae7af3bcd82bff73cee1357e933704",
+  "limit": "This quantifies the initial200-update full-GD bridge, not long chaotic replay or every stochastic path."
+}

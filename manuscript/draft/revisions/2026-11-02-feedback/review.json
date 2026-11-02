@@ -1,8 +1,9 @@
 {
   "status": "passed",
   "date": "2026-11-02",
-  "pdf_sha256": "cdd9f5db470abc6f94f30e93ce027bba236571e78bf3e75161ed2e7a7fd58a1d",
+  "pdf_sha256": "52819d9ba14606e48a632c09adec9b9b07d77a49695821e21c727f0dd84c3b22",
   "pages": 16,
+  "previous_review_pdf_sha256": "cdd9f5db470abc6f94f30e93ce027bba236571e78bf3e75161ed2e7a7fd58a1d",
   "page_renders": [
     {
       "page": 1,
@@ -34,19 +35,19 @@
     },
     {
       "page": 8,
-      "sha256": "f7106dc9af01dcb23ff620886439ebc941325bf8926706b6c753fa940a9050e6"
+      "sha256": "07b344f940635412e1cbeaa84c66558529845d8b2ea5628eb12b071e218538dd"
     },
     {
       "page": 9,
-      "sha256": "e1dd5dd3b9d32b67ce160dd21d9ad3c7261df4d64f809fde050aa5d780949b4e"
+      "sha256": "1851ebc02451431e5ec2a55eea05409dbec1589a43d67caed25352ba759ad6e9"
     },
     {
       "page": 10,
-      "sha256": "fb7c41c5ca9c103267d8a460f1bb73c01b6cd89fde7548ed2b96e236b325ace0"
+      "sha256": "98482cdbdf176a2b206738d9661493bc924975e4d3fa9f36b83f3c9d641ee8a8"
     },
     {
       "page": 11,
-      "sha256": "fe53052598aee1dd79a1947252f78ba32c9548195ccf477d14dc2e251bb7f3e0"
+      "sha256": "079bc8df5a23d27efeb288bdae9ceef7ffc4185fcb00698505cb37e5880e6739"
     },
     {
       "page": 12,
@@ -58,7 +59,7 @@
     },
     {
       "page": 14,
-      "sha256": "ac433992fe8e23bc49b222a04c820384c51737f6fbd0a603e00d65b25c5c680f"
+      "sha256": "825956c620f6143902e548fe3342ea64025c4085c4d0962f63cbb2ab993b05f2"
     },
     {
       "page": 15,
@@ -68,6 +69,44 @@
       "page": 16,
       "sha256": "fde82caec2cab4f0e6bdb900f167fab717b5d7614b664ed6f4c4db9cbee91e2c"
     }
+  ],
+  "reviewed_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "changed_page_renders": [
+    8,
+    9,
+    10,
+    11,
+    14
+  ],
+  "unchanged_page_renders_verified": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    12,
+    13,
+    15,
+    16
   ],
   "figure_review": [
     {
@@ -79,22 +118,25 @@
       "sha256": "c90c69a762375198b6d8e70de6c68ec89e70e002324f259b506ff9dab54c8ec2"
     },
     {
-      "path": "manuscript/draft/figures/analysis027/sgd_batch_size_compact.pdf",
-      "sha256": "3c35cd5ffad3c1ff8bfbea63cfebef1e7fa2881d9b86a366c048fe31798452d5"
+      "path": "manuscript/draft/figures/analysis037/sgd_batch_size_compact.pdf",
+      "sha256": "a1a5d95ede461105feac1af144db059a1d4b05fecee1bf297069a2a5a461b161"
     },
     {
       "path": "manuscript/draft/figures/analysis035/gd_backward_compact.pdf",
       "sha256": "f9b5e66a132eae54d7fa5cbdd56bb1bb473ca604dcd913aa225687e5e3594999"
     }
   ],
+  "figure_manifest_sha256": "d2bf60a6066d352f4c9dc50952064089f90005424cf13193888af9d280f22a97",
+  "cohort_acceptance_sha256": "afb9c9916457bac84c868cb2c76889ab8e303486e926773b4eaa65c093fb9b87",
   "checks": [
-    "All 16 manuscript pages inspected, including final reflow and references",
-    "All four new vector figures inspected at publication scale; labels, legends and axes legible",
-    "All main figures precede the Adam section; figure and table references resolve",
-    "Three signed loss terms and the two thresholds are readable and correctly indexed",
-    "Endpoint table has dataset, T notation, defined late window and decimal rounding footnote",
-    "No clipped content, overlaps, overfull boxes, unresolved references or unintended empty pages",
-    "Appendix evidence tables remain grouped on a dedicated page"
+    "All 16 page renders reviewed; changed pages 8/9/10/11/14 inspected individually.",
+    "All four vector figures reviewed; no label/legend collisions or clipped batch ticks.",
+    "Three SGD columns, two metric rows, initialization/2k curves and full-GD markers are clear.",
+    "GD headers compact with separate legends; training-loss ticks use decimal notation.",
+    "Backward-lag second row shows exact lags 1-32 and early sign alternation.",
+    "Table I multirow groups, 45 values and rounding footnote remain correct.",
+    "No nearly empty spillover page, overfull boxes, unresolved references or unwanted blank pages.",
+    "All 26 archived PDFs retain bytes/SHA; LaTeX uses exactly five active PDFs."
   ],
   "comment_coverage": [
     "C01",
@@ -126,61 +168,5 @@
     "C27",
     "C28"
   ],
-  "scientific_scope": "Existing evidence only; no training, new sampling, cloud resources or cost.",
-  "figure_layout_followup": {
-    "reviewed_changed_pages": [
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14
-    ],
-    "unchanged_page_renders_verified": [
-      1,
-      2,
-      3,
-      4,
-      5,
-      15,
-      16
-    ],
-    "checks": [
-      "GD titles/panel letters and legends occupy separate compact lines",
-      "Loss ticks use ordinary decimals on unchanged logarithmic scales",
-      "Backward figure has full lags1-256 and exact zoom lags1-32; clear alternating points",
-      "All 25 archived PDFs retain their bytes and SHA256; five active PDFs confirmed by LaTeX recorder",
-      "MLP SGD figure remains byte-identical; its experimental extension stays deferred"
-    ]
-  },
-  "table_i_followup": {
-    "reviewed_changed_pages": [
-      8
-    ],
-    "unchanged_page_renders_verified": [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16
-    ],
-    "checks": [
-      "Dataset and model labels use multirow with clear group boundaries.",
-      "All 45 numerical values verified against full-precision source reductions.",
-      "Table, caption and following figure fit without overlap."
-    ]
-  }
+  "scientific_scope": "348 new and 198 reused continuations; three initialization blocks, descriptive ranges. Runtime/batch confounding, unequal exposure and training-only outcomes explicit."
 }

@@ -33,3 +33,9 @@ Caption: `manuscript/draft/sections/05-sgd-noise-experiments.tex`.
 Source/figure hashes and completed review are in the revision's
 `figure_manifest.json`, `verification.json` and `review.json`.
 No new sampling, training or cloud execution.
+
+Follow-up: Analysis037 now supplies the three-case replacement. This historical
+MLP-only source PDF and its data remain unchanged; its draft copy is archived
+under `manuscript/archive/2026-11-02-unused-figures/figures/analysis027/`.
+The generator for this earlier layout is preserved at commit 3 a 93 cff. The current
+revision generator produces the Analysis037 replacement, with its own observation.

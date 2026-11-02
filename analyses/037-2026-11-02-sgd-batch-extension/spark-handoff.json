@@ -1,10 +1,42 @@
 {
-  "status": "in_progress",
+  "status": "complete",
   "verified": true,
   "source_host": "tcml-spark@spark-2277.local",
   "output": "runs/214-2026-11-02-sgd-batch-extension/artifacts/spark-assist/resnet-seed2",
   "downloaded": [
-    "state-0-b5-rep00"
+    "state-0-b5-rep00",
+    "state-0-b5-rep01",
+    "state-0-b5-rep02",
+    "state-0-b5-rep03",
+    "state-0-b5-rep04",
+    "state-0-b5-rep05",
+    "state-0-b5-rep06",
+    "state-0-b5-rep07",
+    "state-0-b1-rep00",
+    "state-0-b1-rep01",
+    "state-0-b1-rep02",
+    "state-0-b1-rep03",
+    "state-0-b1-rep04",
+    "state-0-b1-rep05",
+    "state-0-b1-rep06",
+    "state-0-b1-rep07",
+    "initial-full-runtime-bridge",
+    "state-2000-b5-rep00",
+    "state-2000-b5-rep01",
+    "state-2000-b5-rep02",
+    "state-2000-b5-rep03",
+    "state-2000-b5-rep04",
+    "state-2000-b5-rep05",
+    "state-2000-b5-rep06",
+    "state-2000-b5-rep07",
+    "state-2000-b1-rep00",
+    "state-2000-b1-rep01",
+    "state-2000-b1-rep02",
+    "state-2000-b1-rep03",
+    "state-2000-b1-rep04",
+    "state-2000-b1-rep05",
+    "state-2000-b1-rep06",
+    "state-2000-b1-rep07"
   ],
   "handoffs": [
     {
@@ -18,6 +50,378 @@
       ],
       "parent_job_index": 0,
       "epoch": 1793635064.9190197
+    },
+    {
+      "utc": "2026-11-02T16:02:19.677288+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-0-b5-rep01",
+          "summary_sha256": "0658eee01cb711921003dbcb0189baf9c744d72d087b8bb5d8025b7cc19b3b4a"
+        }
+      ],
+      "parent_job_index": 0,
+      "epoch": 1793635350.9969969
+    },
+    {
+      "utc": "2026-11-02T16:07:05.235241+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-0-b5-rep02",
+          "summary_sha256": "274c13e34b318feae37912b7b7f2ea4824440fea802897a6c1f9b15b354de2e3"
+        }
+      ],
+      "parent_job_index": 0,
+      "epoch": 1793635636.557401
+    },
+    {
+      "utc": "2026-11-02T16:11:51.746042+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-0-b5-rep03",
+          "summary_sha256": "ff10a9cd773fb35ad2a4444cb5f840a21562154d5da71c72404110d9d8e43076"
+        }
+      ],
+      "parent_job_index": 0,
+      "epoch": 1793635923.0727339
+    },
+    {
+      "utc": "2026-11-02T16:16:38.742919+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-0-b5-rep04",
+          "summary_sha256": "47a61813b05a440b3655b83a0ef704e4acfbcc45cfd6357323eed9aa87d13154"
+        }
+      ],
+      "parent_job_index": 0,
+      "epoch": 1793636210.0730095
+    },
+    {
+      "utc": "2026-11-02T16:21:26.010787+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-0-b5-rep05",
+          "summary_sha256": "451ea06ca4e4c935176ddce48f0abcb3289e33b4d523b2d416e48cdb4df568a0"
+        }
+      ],
+      "parent_job_index": 0,
+      "epoch": 1793636497.3459756
+    },
+    {
+      "utc": "2026-11-02T16:26:12.651121+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-0-b5-rep06",
+          "summary_sha256": "f38383340cb215409e561b159552e92f76ad0c021dd7bfe2d3b4be65cf2e7345"
+        }
+      ],
+      "parent_job_index": 0,
+      "epoch": 1793636783.9915001
+    },
+    {
+      "utc": "2026-11-02T16:30:41.160401+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-0-b5-rep07",
+          "summary_sha256": "0abb3baebb0b631d94e5a5af8003968d1abbbdb4d34764f24aab9a7bd9f05d71"
+        }
+      ],
+      "parent_job_index": 0,
+      "epoch": 1793637052.5048149
+    },
+    {
+      "utc": "2026-11-02T16:31:57.576428+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-0-b1-rep00",
+          "summary_sha256": "622c371650b7b937835ed005a72b54f8c2f8546364df0d0bd996001611faa60d"
+        }
+      ],
+      "parent_job_index": 0,
+      "epoch": 1793637128.9208274
+    },
+    {
+      "utc": "2026-11-02T16:32:56.608770+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-0-b1-rep01",
+          "summary_sha256": "02f9157c60be51c13b1b7c0a446482f7004b9fb948712b828de0a9ba82e676dd"
+        }
+      ],
+      "parent_job_index": 0,
+      "epoch": 1793637187.944316
+    },
+    {
+      "utc": "2026-11-02T16:34:12.869542+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-0-b1-rep02",
+          "summary_sha256": "94716970646d4db1753b8d252611bc818ca221184765fdf89463bcb7d873bdda"
+        }
+      ],
+      "parent_job_index": 0,
+      "epoch": 1793637264.2167962
+    },
+    {
+      "utc": "2026-11-02T16:35:11.957595+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-0-b1-rep03",
+          "summary_sha256": "216d4912d39c758e80d0eb00e600e50c6935a90eff34ef34a7bb46d718c970ff"
+        }
+      ],
+      "parent_job_index": 0,
+      "epoch": 1793637323.3027616
+    },
+    {
+      "utc": "2026-11-02T16:37:08.588729+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-0-b1-rep04",
+          "summary_sha256": "763321709c9e43c43be1c13a272eaf17fe91d09ad488a75da3b070ff9232970b"
+        }
+      ],
+      "parent_job_index": 0,
+      "epoch": 1793637439.935051
+    },
+    {
+      "utc": "2026-11-02T16:37:32.605557+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-0-b1-rep05",
+          "summary_sha256": "5a821c9c04ffd8841e3b804864ee02bd38c167489d797a15d5c727e09d319ba8"
+        }
+      ],
+      "parent_job_index": 0,
+      "epoch": 1793637463.951416
+    },
+    {
+      "utc": "2026-11-02T16:38:31.470513+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-0-b1-rep06",
+          "summary_sha256": "21d90e9baa3349f84e8756e7abd0ca11ec3f64abf74ba2d6dcec2e1e2b37c8cf"
+        }
+      ],
+      "parent_job_index": 0,
+      "epoch": 1793637522.8200316
+    },
+    {
+      "utc": "2026-11-02T16:39:49.027434+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-0-b1-rep07",
+          "summary_sha256": "2bb3b346f8bd454ad3a65112299bbcd7d2d10f47f1cba60420c063c22e5c0610"
+        }
+      ],
+      "parent_job_index": 0,
+      "epoch": 1793637600.3779082
+    },
+    {
+      "utc": "2026-11-02T17:29:39.239693+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-2000-b5-rep00",
+          "summary_sha256": "e74055f3ba3976bdefabcd71d35d8287395b9724755d4c32f23ab85b311eaa0b"
+        }
+      ],
+      "parent_job_index": 7,
+      "epoch": 1793640590.631486
+    },
+    {
+      "utc": "2026-11-02T17:34:25.927872+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-2000-b5-rep01",
+          "summary_sha256": "f6b53555107486e241eb4eb421e73f7f2ad26de943da0d8e936ca80674388702"
+        }
+      ],
+      "parent_job_index": 8,
+      "epoch": 1793640877.3242445
+    },
+    {
+      "utc": "2026-11-02T17:39:12.394805+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-2000-b5-rep02",
+          "summary_sha256": "1b907ee34b1f32ab260a4a7cbcd426fe22e9889b9b59f9a166b68dd2beb695a8"
+        }
+      ],
+      "parent_job_index": 9,
+      "epoch": 1793641163.7927747
+    },
+    {
+      "utc": "2026-11-02T17:44:37.744098+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-2000-b5-rep03",
+          "summary_sha256": "d8c92392ac91891879ff5addc72021091a27e874a5e0581ec0dbc7d75a88b7d7"
+        }
+      ],
+      "parent_job_index": 26,
+      "epoch": 1793641489.1487281
+    },
+    {
+      "utc": "2026-11-02T17:48:37.700771+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-2000-b5-rep04",
+          "summary_sha256": "07f1c8a0f7d482cebfbe2750ac88a8deb1deb525a8e8b4340f02be15090339be"
+        }
+      ],
+      "parent_job_index": 26,
+      "epoch": 1793641729.1064892
+    },
+    {
+      "utc": "2026-11-02T17:53:24.163514+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-2000-b5-rep05",
+          "summary_sha256": "139eb514117f1c3c4b5517e2008eb22790c593ed30f68bea1592ca49a8574d5c"
+        }
+      ],
+      "parent_job_index": 27,
+      "epoch": 1793642015.57451
+    },
+    {
+      "utc": "2026-11-02T17:58:10.432658+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-2000-b5-rep06",
+          "summary_sha256": "3fbc89807e397eeb0b6d88cd7ee11cf0d0a42f8596bf9fdd7314437a611ad45c"
+        }
+      ],
+      "parent_job_index": 29,
+      "epoch": 1793642301.8482356
+    },
+    {
+      "utc": "2026-11-02T18:02:57.223287+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-2000-b5-rep07",
+          "summary_sha256": "21b9eedae662b1926d03a1eb633a54d99ccbf386e2974dec584fd685294229e0"
+        }
+      ],
+      "parent_job_index": 30,
+      "epoch": 1793642588.641466
+    },
+    {
+      "utc": "2026-11-02T18:04:05.936378+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-2000-b1-rep00",
+          "summary_sha256": "31d4c3b932948e4b7816273167e22f4160b250897c3d6550ffb3db94cb4d16ee"
+        }
+      ],
+      "parent_job_index": 30,
+      "epoch": 1793642657.3541257
+    },
+    {
+      "utc": "2026-11-02T18:05:14.595995+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-2000-b1-rep01",
+          "summary_sha256": "6f213dacf6473427eb0ec981dfb9caa1563f8057f6608d74b251444328e9a21f"
+        }
+      ],
+      "parent_job_index": 30,
+      "epoch": 1793642726.016736
+    },
+    {
+      "utc": "2026-11-02T18:06:23.511515+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-2000-b1-rep02",
+          "summary_sha256": "e7eacca78fee33eb9f74fe7f5c79891492b1bd18513fe36f5b5f51cd9cec83b6"
+        }
+      ],
+      "parent_job_index": 31,
+      "epoch": 1793642794.9304147
+    },
+    {
+      "utc": "2026-11-02T18:08:18.173827+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-2000-b1-rep03",
+          "summary_sha256": "0aded3d7d9e4313fd8c34f11605c81a62547200b1ea5b2b850e01b81b3c2913b"
+        }
+      ],
+      "parent_job_index": 31,
+      "epoch": 1793642909.5929625
+    },
+    {
+      "utc": "2026-11-02T18:08:40.398810+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-2000-b1-rep04",
+          "summary_sha256": "8d0dc2ef0b093b9aeae245dc4c7487bdf5719f4ef02c2b61a4439e0d940cd4de"
+        }
+      ],
+      "parent_job_index": 31,
+      "epoch": 1793642931.8208976
+    },
+    {
+      "utc": "2026-11-02T18:09:33.277876+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-2000-b1-rep05",
+          "summary_sha256": "47be399b52b4ba60a8e7c58bd8045300ecbe43ae31330789e3b9cf1670f67976"
+        }
+      ],
+      "parent_job_index": 31,
+      "epoch": 1793642984.7011952
+    },
+    {
+      "utc": "2026-11-02T18:10:41.973563+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-2000-b1-rep06",
+          "summary_sha256": "5e3a8883446791984834ffae195e5202452b5c6e7f0be9da9d265ead6aa9d0ab"
+        }
+      ],
+      "parent_job_index": 32,
+      "epoch": 1793643053.3992975
+    },
+    {
+      "utc": "2026-11-02T18:11:50.848771+00:00",
+      "destination_pod": "92xz66q1cvuby0",
+      "accepted": [
+        {
+          "name": "state-2000-b1-rep07",
+          "summary_sha256": "ec6a3483ed5db15f401872c0f7d4f43227be6a90df5be03b38dd25e0c37c0e1a"
+        }
+      ],
+      "parent_job_index": 32,
+      "epoch": 1793643122.274469
     }
   ]
 }

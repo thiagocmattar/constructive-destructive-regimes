@@ -120,7 +120,27 @@ PY
 def main():
     while time.time()<c.lease()['scientific_deadline_epoch'] and not (c.SCRATCH/'closed.json').exists():
         state=c.read(c.SCRATCH/'spark-handoff-state.json') if (c.SCRATCH/'spark-handoff-state.json').exists() else dict(downloaded=[],handoffs=[])
-        if len(state['downloaded'])==33:return
+        if len(state['downloaded'])==33:
+            remote=t.REMOTE+'/helper-final.tar.gz'
+            digest=t.ssh(f"set -e\ntar -I 'gzip -1' -cf {remote} -C {OUT} .\nsha256sum {remote}\n",timeout=120).split()[0]
+            archive=c.SCRATCH/'spark-helper-final.tar.gz';t.copy(archive,remote,False)
+            assert c.file_hash(archive)==digest
+            with tarfile.open(archive) as bundle:bundle.extractall(LOCAL,filter='data')
+            inventory=c.read(LOCAL/'helper_inventory.json')
+            for name,entry in inventory.items():
+                path=LOCAL/name;assert path.resolve().is_relative_to(LOCAL.resolve())
+                assert path.stat().st_size==entry['bytes'] and c.file_hash(path)==entry['sha256']
+            assert set(inventory)=={p.relative_to(LOCAL).as_posix() for p in LOCAL.rglob('*') if p.is_file() and p.name!='helper_inventory.json'}
+            assert c.read(LOCAL/'helper_manifest.json')['status']=='complete'
+            retained=int(t.ssh(f'du -sb {t.REMOTE}\n').split()[0])
+            c.save(HERE/'spark-retrieval.json',dict(status='passed',verified=True,utc=c.stamp(),
+                source_host=t.HOST,path=LOCAL.relative_to(c.ROOT).as_posix(),
+                files=len(inventory),bytes=sum(x['bytes'] for x in inventory.values()),
+                inventory_sha256=c.file_hash(LOCAL/'helper_inventory.json'),archive_sha256=digest,
+                retained_remote_project_bytes=retained,cloud_storage_cost_usd=0))
+            receipt=c.read(HERE/'spark-handoff.json');receipt['status']='complete';c.save(HERE/'spark-handoff.json',receipt)
+            print(c.stamp(),'Spark raw inventory fully retrieved and verified',flush=True)
+            return
         pod=next(p for p in c.lease()['pods'] if p['id']=='92xz66q1cvuby0')
         if pod.get('deleted_epoch'):return
         try:tick(pod,state)

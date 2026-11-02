@@ -12,7 +12,8 @@ the mathematics and evidence. Keep editable work, review inputs and the next
 review PDF under `manuscript/draft`; keep temporary build/render files ignored.
 The original PDF annotations reuse completed experiments. The subsequent
 three-case SGD figure request requires additional measurements; see the open
-extension below. No production training or cloud execution has started.
+extension below. Run214 and Run216 completed the new measurements on Runpod with qualified
+Spark assistance.
 
 - [x] C01: Replace Section III's title with a title centered on the regimes.
 - [x] C02--C03: Delete the two marked displacement sentences/clauses.
@@ -79,21 +80,28 @@ distinct datasets. This supersedes the 2-by-2 layout specified above.
   local runtime/memory in Run214 / Analysis037 (mechanics only).
 - [x] Qualify both complete short worker queues, full-batch replay, sampled
   forks, independent vector/index checks and copied-artifact integrity.
-- [ ] Execute on Runpod, as now requested by the user. The earlier eight-hour
-  proposal was declined. A new aggregate cost/time limit is pending; see the
-  [launch packet](../../../../analyses/037-2026-11-02-sgd-batch-extension/RUNPOD_LAUNCH.md).
-  No paid calibration or production allocation has started.
-- [ ] Measure ResNet-32 and Transformer continuations at initialization and
+- [x] Start detached Runpod execution with qualified workers and an independent
+  spending/deadline guard. The user extended the original four-hour limit to
+  six hours while retaining US$40 total, including retries and retrieval.
+  Hard deadline: 2026-11-02 16:34:56 São Paulo / 19:34:56 UTC.
+- [x] Finish execution and retrieve/verify every worker before cleanup; see
+  [Analysis037](../../../../analyses/037-2026-11-02-sgd-batch-extension/README.md).
+- [x] Qualify the idle Spark GB10 with unchanged frozen inputs, complete-gradient
+  agreement and short replay; retain explicit runtime/hardware provenance.
+- [x] Complete the Spark 200-update runtime bridge, verify its 32 small-group
+  handoffs and retrieve its complete raw inventory.
+- [x] Measure ResNet-32 and Transformer continuations at initialization and
   after 2,000 full-GD updates, with the declared replication and controls.
-- [ ] Replace the compact figure with three case columns, two metric rows,
+- [x] Replace the compact figure with three case columns, two metric rows,
   and two starting-state curves in every panel; update the empirical prose
   from the observed results, without assuming attenuation in every case.
-- [ ] Verify reductions, uncertainty, complete-objective losses, figure layout
+- [x] Verify reductions, uncertainty, complete-objective losses, figure layout
   and the rebuilt manuscript; commit the completed extension.
 
-The current review PDF remains a verified intermediate revision. Its SGD
-figure has not yet incorporated this additional feedback.
-Prepared code, measured timings and remaining checks are recorded in
+The review PDF now includes the verified three-case figure. All 348 new
+continuations and both helpers are verified; all 13 task Pods/disks are deleted.
+Provisional cost US$26.30; 4.663 hours within US$40/six hours.
+Code, results and completed checks are recorded in
 [Analysis037](../../../../analyses/037-2026-11-02-sgd-batch-extension/README.md).
 
 ## Additional feedback: figure layout and archive
@@ -101,8 +109,10 @@ Prepared code, measured timings and remaining checks are recorded in
 - [x] Separate GD panel letters, column titles and learning-rate legends;
   remove excessive header spacing in both Analysis024 composites.
 - [x] Use ordinary decimal training-loss ticks while preserving log scales.
-- [x] Add a second backward-lag row showing the exact lags1--32 and update
+- [x] Add a second backward-lag row showing the exact lags 1--32 and update
   its caption, provenance and independent numerical checks.
-- [x] Archive the 25 unused figure copies, preserve bytes/hashes and update
+- [x] Archive the 26 unused figure copies, preserve bytes/hashes and update
   inactive TeX references. Leave the five compiled figures in `draft/figures`.
 - [x] Rebuild, inspect figures and affected manuscript pages, and commit.
+- [x] Group Table I dataset/model cells with `\multirow`; verify that its 45
+  displayed values are unchanged.

@@ -3,32 +3,40 @@
 ## Author-feedback revision, 2026-11-02
 
 The [completed 28-comment revision](../manuscript/draft/revisions/2026-11-02-feedback/README.md)
-reorganizes the curvature argument around directional overshoot, expands the
-noise expectation, and separates the signed contributions to loss change.
-The local loss-rise condition requires both sufficiently negative cosine and
-gradient-norm growth. Independent two-state noise attenuation is explicitly
-qualified; it is not asserted as a universal evolving-SGD law.
+reorganizes curvature around directional overshoot, expands the noise
+expectation and separates signed loss-change contributions. The local
+loss-rise condition needs sufficiently negative cosine and norm growth.
+Independent two-state attenuation is qualified, rather than asserted for
+every evolving SGD path.
 
-Section IV now pairs loss/projected change and cosine/norm/retention, with a
-reformatted endpoint table, a compact Analysis035 backward profile and an
-SGD batch-size subsection. The latter retains initialization and the 2k state
-from Analysis027, one sampled-gradient curve per panel. Prose emphasizes
-the common interpretation across objectives while retaining the observed
-exceptions and keeping the detailed loss audit in Appendix C.
+The reviewed 16-page PDF includes compact GD loss/projected-change and
+cosine/norm/retention figures, Table I with dataset/model multirows, and the
+backward-lag comparison with exact lags 1--32 in a second row. The SGD figure
+now has three case columns and two metric rows, with initialization/2k curves.
+[Analysis037](../analyses/037-2026-11-02-sgd-batch-extension/REPORT.md) adds
+348 verified ResNet/Transformer continuations and reuses 198 unchanged MLP
+continuations from Analysis027. Smaller batches weaken trained-state reversal
+across the cases while retention means remain below 0.05. Transformer batch 8
+has nearly equal mean cosine from both starts but different retention and
+opposite mean complete-training-loss changes. The prose distinguishes adjacent
+geometry, all-lag accumulation and objective progress.
 
-Four vector figures reuse existing evidence; all 55 curves / 134,552 plotted
-values, nine table rows / 45 displayed scalars, and all nine backward endpoint
-sign ranges pass independent checks. There are 186 deterministic equation
-checks plus orthogonal/canceling-path checks. The 16-page next-review PDF is
-compiled and visually reviewed, with resolved references and no overfull boxes.
-The annotated original is preserved, and editable/review work now resides in
-`manuscript/draft/`. No new run, training, remote execution or cost is introduced.
+All 63 curves / 134,588 points, 45 endpoint-table scalars, 186 equation checks,
+source hashes, archive inventory and compiled references pass. All pages and
+four vector figures are visually reviewed. The shaded range spans three
+initialization-block means, not a confidence interval; runtime variation and
+batch/runtime confounding in one ResNet block are explicit. The extension
+measures no covariance, HVP, stability or held-out generalization benefit.
 
-The follow-up figure pass tightens the two GD headers, uses decimal loss ticks
-on the retained log scales, and adds a second backward-lag row with the exact
-first32 values. The zoom repeats96 existing values, not new observations.
-The25 unused manuscript figure copies are archived with byte/SHA verification;
-the active figure directory contains the five PDFs recorded by LaTeX.
+The original annotations/assets are preserved. Editable/review work lives in
+`manuscript/draft/`, build scratch in ignored `tmp/pdfs/`; 26 unused draft copies
+are archived with verified bytes/SHA, leaving five compiled figures. Runs214/216
+and both helpers pass raw/scientific acceptance. All 13 task Pods/disks are
+deleted, retained task cloud storage is 0 GB, and provisional cost is US$26.30
+including calibration/retries/disk, within US$40/six hours. Spark's isolated
+1.379 GB project is retained with no task measurement running; its old suspended
+queue is untouched. One calibration-only archive was lost; no production ran
+there, and the incident/deletion-gate correction is preserved in Analysis037.
 
 ## Earlier manuscript records
 

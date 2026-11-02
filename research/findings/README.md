@@ -1,5 +1,15 @@
 # Consolidated findings
 
+[Analysis037's three-case SGD comparison](../../analyses/037-2026-11-02-sgd-batch-extension/REPORT.md)
+adds 348 verified ResNet/Transformer continuations and reuses 198 MLP continuations,
+with three initialization blocks per case. Smallest trained-state batches weaken
+negative adjacent alignment while retention means remain below 0.05. Transformer
+batch 8 has nearly equal mean cosine from both starts but retention 0.110/0.042
+and opposite mean training-loss changes. Adjacent geometry does not order
+cumulative motion or loss progress. Selected rates/objectives, unequal exposure,
+descriptive ranges and batch/runtime confounding in one ResNet block limit
+attribution; no stability/generalization benefit is established.
+
 [Analysis014's Gaussian gradient-noise sweep](../../analyses/014-2026-10-10-rosenbrock-gradient-noise/observations/006-sigma-comparison.md)
 keeps Rosenbrock, AdamW decay0.1, start(0,1), three LRs and 2,000 updates,
 with sigma0/0.01/0.1/1/10 and one shared seed1234. In this realization, final

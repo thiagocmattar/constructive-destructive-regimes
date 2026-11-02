@@ -252,5 +252,5 @@ attempt within the same run.
 
 | Run | Question | Status | Design |
 | --- | --- | --- | --- |
-| [214](214-2026-11-02-sgd-batch-extension/README.md) | H023 / Analysis037: ResNet batch-size continuations | Three qualified cloud seed blocks active; GB10 assists seed2 small-group forks; shared USD40/six-hour ceiling | 3 seeds, states0/2000, 200-update forks; immutable inputs, fresh GD references |
-| [216](216-2026-11-02-sgd-transformer-microbatch512/README.md) | H023 / Analysis037: Transformer batch-size continuations | Three qualified RTX5090 blocks active; physical512 selected before production; same shared envelope | 3 seeds, states0/2000, 8 sampling repetitions; Analysis027 MLP reused |
+| [214](214-2026-11-02-sgd-batch-extension/README.md) | H023 / Analysis037: ResNet batch-size continuations | Complete; 150 forks, three fresh references and GB10 runtime bridge; raw/math acceptance passed | L40S/4090 plus GB10 assistance; all task cloud resources deleted; joint USD 26.30 provisional |
+| [216](216-2026-11-02-sgd-transformer-microbatch512/README.md) | H023 / Analysis037: Transformer batch-size continuations | Complete; 198 forks and three fresh references; physical 512 fixed before production; raw/math acceptance passed | Three RTX5090 blocks; cloud deleted; joint three-case figure/manuscript reviewed |

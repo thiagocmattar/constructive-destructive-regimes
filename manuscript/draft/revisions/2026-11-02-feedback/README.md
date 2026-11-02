@@ -1,5 +1,13 @@
 # Next manuscript version: author feedback of 2026-11-02
 
+The three-case SGD extension is complete in
+[Analysis037](../../../../analyses/037-2026-11-02-sgd-batch-extension/REPORT.md).
+All 348 new continuations and 198 reused MLP continuations supply the requested
+2-by-3 figure. The 16-page manuscript passes numerical and visual review.
+All 13 task Pods/disks are deleted; cost US$26.30 provisional, within the approved
+US$40/six-hour envelope. Spark's isolated 1.379 GB project is retained on owned
+storage with no active task measurement process.
+
 Review [revised-manuscript.pdf](revised-manuscript.pdf). The editable entry point
 is [../../bare_jrnl.tex](../../bare_jrnl.tex); the usual compiled copy is also
 available at `manuscript/draft/bare_jrnl.pdf`. The source comments and revision
@@ -15,17 +23,18 @@ overlapping comments, both addressed by the same SGD revision.
 **Figure-layout follow-up:** the two GD composites now place panel letters
 with the column titles and the learning-rate legends directly beneath, with
 compact spacing. Training-loss ticks use decimal notation on the unchanged
-log scales. The backward-lag figure adds a second row zooming into lags1--32;
-all96 zoomed values repeat the full-range data exactly. The caption and checks
+log scales. The backward-lag figure adds a second row zooming into lags 1--32;
+all 96 zoomed values repeat the full-range data exactly. The caption and checks
 describe both rows. [The archive](../../../archive/2026-11-02-unused-figures/README.md)
-preserves25 unused figure copies and their hashes, leaving only the five
-compiled assets in the active figure directory. No additional experiments.
+preserves 26 unused figure copies and their hashes, leaving only the five
+compiled assets in the active figure directory. The layout-only changes
+reuse existing GD evidence.
 
-**Subsequent feedback:** the user requested a 2-by-3 SGD figure for the three
-existing model/dataset cases, with initialization and 2k-state curves in each
-panel. The [extension contract](SGD_EXTENSION.md) records the evidence gap and
-proposed measurements. This remains open in the TODO: the current PDF's MLP
-figure is an intermediate version, pending the additional experiments.
+**Subsequent feedback:** the SGD figure now has three case columns and two metric
+rows, with initialization and 2k-state curves per panel. The
+[extension contract](SGD_EXTENSION.md) and Analysis037 record the new ResNet/
+Transformer measurements, runtime qualification, full-cohort acceptance and
+cleanup. The superseded MLP-only draft copy is preserved in the figure archive.
 
 | Comments | Revision | Scientific handling |
 | --- | --- | --- |
@@ -43,7 +52,7 @@ figure is an intermediate version, pending the additional experiments.
 | C23 | Added a 2-by-3 backward-lag figure with a 1--32 zoom and a short interpretation. | Common middle endpoint in all models; all 256 pairs retained. State 2256 corresponds to gradient index 2257. Separate numerical continuations are identified explicitly; all nine endpoints support the appendix statement. |
 | C24 | Added dataset, T notation, explicit late-window definition and decimal formatting to Table I. | A star denotes a positive value below 0.00005 rounded to zero; full-precision values remain in the source. |
 | C25 | Moved the detailed loss-surrogate audit entirely into Appendix C. | Its equation, counts and limitation remain available without interrupting the main argument. |
-| C26--C28 | SGD is a short subsection with a 2-by-2 initial/2k-state figure, one sampled-gradient curve per panel and explicit full-batch endpoint. | Smaller batches attenuate late negative cosine but do not restore retention. Noise covariance structure motivates the brief implicit-bias connection; generalization was not measured here. |
+| C26--C28 | SGD is a short subsection with the final 2-by-3 three-case figure, two starting-state curves per panel and explicit full-GD endpoints. | Smallest batches weaken trained-state reversal while retention stays low. The Transformer example separates adjacent cosine from retention and loss progress. The covariance/implicit-bias connection remains qualified; generalization was not measured. |
 
 The small accompanying changes repair the introduction roadmap, add a
 conclusion label, and make the background consistent with the distinction
@@ -52,12 +61,15 @@ equivalence now explicitly assumes a positive-definite Hessian.
 
 ## Evidence and reproduction
 
-No new experiment was run. The existing Analysis024 GD arrays, Analysis027
-repetition-level results and Analysis035 backward profiles supply the four
-new vector figures. Local figure observations are:
+Analysis024 GD arrays and Analysis035 backward profiles supply the retained GD
+views. Runs214/216 add 348 ResNet/Transformer continuations and six fresh GD
+references, while Analysis027 supplies the unchanged MLP continuations.
+All 63 curves / 134,588 plotted points, the displayed scientific example,
+runtime-bridge value, 45 table scalars and 186 equation checks pass.
+Local figure observations are:
 
 - [GD composites and endpoint table](../../../../analyses/024-2026-10-17-eos-gd-lr-calibration/observations/009-author-feedback-figures.md).
-- [Compact batch-size intervention](../../../../analyses/027-2026-10-30-minibatch-noise/observations/005-compact-author-feedback.md).
+- [Three-case SGD figure](../../../../analyses/037-2026-11-02-sgd-batch-extension/observations/001-three-case-sgd.md); [earlier MLP-only view](../../../../analyses/027-2026-10-30-minibatch-noise/observations/005-compact-author-feedback.md) remains historical.
 - [Backward-lag manuscript view](../../../../analyses/035-2026-11-02-eos-backward-anchors/observations/002-manuscript-view.md).
 
 From the repository root:
@@ -81,7 +93,7 @@ The literature connection was checked against the primary sources:
 [Cohen et al., EoS](https://arxiv.org/abs/2103.00065) and
 [HaoChen et al., noise covariance and implicit bias](https://proceedings.mlr.press/v134/haochen21a.html).
 The latter result has a specific model/noise setting; it motivates the question
-of bias, not a generalization claim for the current MLP experiment.
+of bias, not a generalization claim for the present continuation experiments.
 
 The earlier analysis-specific manuscript validators describe older snapshots.
 Use the revision scripts above for this manuscript; raw-evidence verification
@@ -92,4 +104,5 @@ and historical records remain in their owning analyses.
 Table I uses `\multirow` for the shared dataset and model labels. The MLP and
 ResNet-32 blocks share one CIFAR-10 cell; a partial rule separates their model
 groups. All 45 numerical entries remain unchanged and pass source verification.
-Only page 8 changed visually; its table and surrounding layout were reviewed.
+The grouping and all 45 values remain verified in the latest manuscript;
+the table and its surrounding layout were reviewed.
