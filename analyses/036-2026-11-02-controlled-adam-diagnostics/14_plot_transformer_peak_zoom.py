@@ -45,7 +45,7 @@ def main(accept_reviewed=False):
         assert sha(PDF) == record['output_sha256'] and RENDER.exists()
         record.update(status='passed', visual_review=(
             'All nine unsmoothed panels reviewed in the Poppler render: individual points '
-            'and signed loss differences retained; correct peak, baseline and endpoint; '
+            'and signed loss differences retained; correct peak, baseline, endpoint and light-grey pre-crossing marker; '
             'legible axes and footers without overlap or clipping.'),
             render=RENDER.relative_to(ROOT).as_posix(), render_sha256=sha(RENDER))
         write(record)
@@ -95,6 +95,14 @@ def main(accept_reviewed=False):
     start = peak-BEFORE
     end = next(t for t in range(peak+1, len(losses)) if losses[t] < losses[start])
     assert np.all(losses[peak+1:end] >= losses[start])
+    first_above = next(t for t in range(start+1, peak+1) if losses[t] > losses[start])
+    before_crossing = first_above-1
+    assert losses[before_crossing] <= losses[start] < losses[first_above]
+    record['vertical_markers'] = [
+        dict(state=before_crossing, grey_level=.75, linestyle='--',
+             definition='Point immediately before the first pre-peak loss above the horizontal starting-loss reference.',
+             first_above_state=first_above),
+        dict(state=peak, grey_level=.45, linestyle='--', definition='Selected loss peak.')]
     record['window'] = dict(requested_near_step=ANCHOR, peak_search_states=[int(candidates[0]), int(candidates[-1])],
         peak_selection='Maximum recorded loss within +/-64 states of the approximate user anchor.',
         peak_state=peak, peak_loss=float(losses[peak]), start_state=start, before_peak_steps=BEFORE,
@@ -151,6 +159,7 @@ def main(accept_reviewed=False):
     for row, (ax, label) in enumerate(zip(axes, labels)):
         ax.set_ylabel(label)
         ax.axvline(peak, color='.45', lw=.7, ls='--', zorder=0)
+        ax.axvline(before_crossing, color='.75', lw=.7, ls='--', zorder=0)
         ax.grid(axis='y', alpha=.17, lw=.5)
         ax.tick_params(length=3, width=.6)
         ax.text(-.075,1.02,f'({chr(97+row)})', transform=ax.transAxes, va='bottom', fontsize=8)
@@ -176,7 +185,7 @@ def main(accept_reviewed=False):
              ha='center',fontsize=9)
     fig.text(.56,.043,'Loss: state '+r'$t$'+'. Vector rows: update '+r'$t$'+', using gradient from state '+r'$t-1$'+'.',
              ha='center',fontsize=8)
-    fig.text(.56,.022,'All points shown; '+r'$R_t$'+' retains its prefix from initialization. Dashed vertical line: loss peak.',
+    fig.text(.56,.022,r'$R_t$'+f' keeps its full prefix. Dashed lines: light grey, step {before_crossing}; dark grey, peak {peak}.',
              ha='center',fontsize=8)
     fig.savefig(PDF,metadata={'CreationDate':None,'ModDate':None})
     plt.close(fig)
@@ -190,6 +199,7 @@ def main(accept_reviewed=False):
         checks=dict(original_curves_exact=8, original_points=8*(end-start+1),
             loss_difference_points=len(differences), loss_difference_exact=True,
             difference_sum_matches_endpoint_loss_change=True, first_postpeak_crossing_verified=True,
+            pre_crossing_marker_verified=True,
             all_sources_hash_verified=True, pdf_text_inside_page=True))
     write(record)
     print(json.dumps(dict(output=record['output'], window=record['window'], checks=record['checks'])))

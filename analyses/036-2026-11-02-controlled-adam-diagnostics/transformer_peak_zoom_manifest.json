@@ -1,6 +1,6 @@
 {
   "generator": "analyses/036-2026-11-02-controlled-adam-diagnostics/14_plot_transformer_peak_zoom.py",
-  "generator_sha256": "2108a236ffb2cbf0939d601981721e781479fca03d37495a5c477ae62bedbe82",
+  "generator_sha256": "ac34feb9913189037f6a5529871044d75e48446d87d268d8260d5ec8bac997e2",
   "sources": {
     "runs/215-2026-11-02-controlled-full-batch-adam/results.json": "c907d1b5ccaa68b3310f13526e98f37fd1c19943eb7631cea46612f75de39572",
     "analyses/036-2026-11-02-controlled-adam-diagnostics/full_unsmoothed_manifest.json": "aea8b90f6b33f127a926dbac3eb06ed210613d27fd4635b5e1e8ecf6672c279e",
@@ -1346,6 +1346,21 @@
     "The window is selected retrospectively around a visible spike.",
     "Projected raw-gradient change under Adam is not measured Hessian curvature or a stability threshold."
   ],
+  "vertical_markers": [
+    {
+      "state": 788,
+      "grey_level": 0.75,
+      "linestyle": "--",
+      "definition": "Point immediately before the first pre-peak loss above the horizontal starting-loss reference.",
+      "first_above_state": 789
+    },
+    {
+      "state": 794,
+      "grey_level": 0.45,
+      "linestyle": "--",
+      "definition": "Selected loss peak."
+    }
+  ],
   "window": {
     "requested_near_step": 768,
     "peak_search_states": [
@@ -1366,9 +1381,9 @@
     "states_displayed": 69
   },
   "status": "passed",
-  "visual_review": "All nine unsmoothed panels reviewed in the Poppler render: individual points and signed loss differences retained; correct peak, baseline and endpoint; legible axes and footers without overlap or clipping.",
+  "visual_review": "All nine unsmoothed panels reviewed in the Poppler render: individual points and signed loss differences retained; correct peak, baseline, endpoint and light-grey pre-crossing marker; legible axes and footers without overlap or clipping.",
   "output": "analyses/036-2026-11-02-controlled-adam-diagnostics/figures/adam_transformer_peak_zoom.pdf",
-  "output_sha256": "634b3bd04a2bd60b285b55a122786afa5486911fd2c16e1f2b3ecfd51045d7c8",
+  "output_sha256": "83aa28508d2a4f11c5b1096b516fb3ac57dcf2b8884f791ca17ac8eb3d6230d1",
   "checks": {
     "original_curves_exact": 8,
     "original_points": 552,
@@ -1376,9 +1391,10 @@
     "loss_difference_exact": true,
     "difference_sum_matches_endpoint_loss_change": true,
     "first_postpeak_crossing_verified": true,
+    "pre_crossing_marker_verified": true,
     "all_sources_hash_verified": true,
     "pdf_text_inside_page": true
   },
   "render": "analyses/036-2026-11-02-controlled-adam-diagnostics/scratch/adam_transformer_peak_zoom.png",
-  "render_sha256": "6aed3cb226769e293ecef45e08c8974df5b5100e979d2503059d8b374e573b64"
+  "render_sha256": "8f3598650ade77b09fd496be90b43f9e18467a3697fb4ea651f8bcfbb4c898eb"
 }

@@ -32,8 +32,12 @@ panels show training loss, step-by-step loss difference L_t-L_(t-1), raw-gradien
 eta*kappa_hat, consecutive raw-gradient rho_t, momentum rho_t, adaptive Adam
 rho_t, raw-gradient norm, stored-momentum norm and cumulative actual-Adam-update
 R_t. Every original curve is unsmoothed and drawn with individual point markers.
-Loss differences are bars: positive orange, negative blue. The dashed vertical
-line marks the loss peak at 794; the dotted horizontal loss reference is L_784.
+Loss differences are bars: positive orange, negative blue. The dark-grey dashed
+vertical line marks the loss peak at 794; the dotted horizontal loss reference
+is L_784. A second, lighter-grey dashed vertical line at 788 marks the point
+immediately before the first pre-peak loss above L_784, which occurs at 789.
+Its grayscale level is 0.75, versus 0.45 for the peak line, across all nine panels.
+This user-requested annotation leaves the window and every plotted value unchanged.
 
 All eight original statistics are exact slices of
 `full_unsmoothed_manifest.json`, corresponding to the verified
