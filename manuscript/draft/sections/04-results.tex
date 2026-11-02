@@ -22,7 +22,7 @@ Here we analyze training dynamics of plain SGD using the consecutive-gradient co
 
 \begin{figure*}
     \centering
-    \includegraphics[width=1\linewidth]{figures/traj_metrics_cifar10_less_batches.pdf}
+    \includegraphics[width=1\linewidth]{../archive/2026-11-02-unused-figures/figures/traj_metrics_cifar10_less_batches.pdf}
     \caption{Smoothed training trajectories for plain SGD with $\eta = 0.01$. The plot grid shows training loss, the model's weight norm, gradient norms, and the cosine similarity between the gradients of sequential batches.}
     \label{fig:cifar_traj}
 \end{figure*}
@@ -172,7 +172,7 @@ Weight decay introduces an exponential recency bias along the optimization traje
 
 \begin{figure*}[t]
     \centering
-    \includegraphics[width=0.95\linewidth]{figures/SGD_ablations_v2.pdf}
+    \includegraphics[width=0.95\linewidth]{../archive/2026-11-02-unused-figures/figures/SGD_ablations_v2.pdf}
     \caption{\textbf{Empirical stability ablations for SGD, momentum, and weight decay.} We sweep batch size $m\in\{32, 128,512\}$ and learning rate $\eta\in\{2^{-6},2^{-5},2^{-4}\}$. Each point corresponds to a run and reports training loss, scaled signal $S_1+S_2$, scaled interference $S_3$, and the average consecutive-gradient cosine similarity $\overline{\rho}_t$.}
     \label{fig:stability_ablations}
 \end{figure*}
@@ -192,7 +192,7 @@ Adding weight decay further improves the momentum regime, mainly in the more agg
 
 \begin{figure*} [h]
     \centering
-    \includegraphics[width=1\linewidth]{figures/combined_energy_training_v2.pdf}
+    \includegraphics[width=1\linewidth]{../archive/2026-11-02-unused-figures/figures/combined_energy_training_v2.pdf}
     \caption{\textbf{Effect of batch construction on consecutive-batch energy distance, and noisy trajectories at large batch sizes.} Histograms comparing same-class and i.i.d.\ sampling for $m=8$ and $m=512$. The horizontal axis shows $\sqrt{\mathcal{E}(X_{t-1},X_t)}$ (used to expand the scale for readability). Same-class sampling has a minor effect for $m=8$ ($\mu$: 0.58 $\to$ 0.65) but a large effect for $m=512$ ($\mu$: 0.07 $\to$ 0.29), indicating substantially higher inter-batch discrepancy at large batch sizes. Training loss and $\rho_t$ trajectories: same-class grouping prevents large batches from becoming representative, keeping consecutive updates weakly aligned (small average $\rho_t$) and yielding random-walk-like drift even at $m=512$.}
     \label{fig:energy_distance}
 \end{figure*}

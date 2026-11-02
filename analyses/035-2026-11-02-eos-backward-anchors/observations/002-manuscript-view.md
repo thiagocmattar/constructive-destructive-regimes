@@ -1,11 +1,14 @@
 # Compact backward-lag manuscript view, 2026-11-02
 
 `figures/gd_backward_compact.pdf` extracts the middle row of the complete
-GD figure into a 1x3 publication view. The manuscript copy is under
+GD figure into a 2x3 publication view. The manuscript copy is under
 `manuscript/draft/figures/analysis035/`. It retains every exact point for
 lags 1--256, with no smoothing, parity reduction, endpoint averaging or
 compression. Sources are passed `verification.json` and `results.json`;
-all 768 plotted values independently match `lag_profiles.csv`.
+all 768 full-range values independently match `lag_profiles.csv`. The second
+row repeats the exact first32 values per case (96 additional plotted points)
+with markers and a wider horizontal scale, making the early sign alternation
+visible. It introduces no new measurements, smoothing or selection of pairs.
 
 Selection: the same middle retained starting state (2000) and endpoint
 state (2256) in all three models, at their previously chosen largest GD

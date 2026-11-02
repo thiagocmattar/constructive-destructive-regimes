@@ -16,13 +16,19 @@ from Analysis027, one sampled-gradient curve per panel. Prose emphasizes
 the common interpretation across objectives while retaining the observed
 exceptions and keeping the detailed loss audit in Appendix C.
 
-Four vector figures reuse existing evidence; all 52 curves / 134,456 plotted
+Four vector figures reuse existing evidence; all 55 curves / 134,552 plotted
 values, nine table rows / 45 displayed scalars, and all nine backward endpoint
 sign ranges pass independent checks. There are 186 deterministic equation
 checks plus orthogonal/canceling-path checks. The 16-page next-review PDF is
 compiled and visually reviewed, with resolved references and no overfull boxes.
 The annotated original is preserved, and editable/review work now resides in
 `manuscript/draft/`. No new run, training, remote execution or cost is introduced.
+
+The follow-up figure pass tightens the two GD headers, uses decimal loss ticks
+on the retained log scales, and adds a second backward-lag row with the exact
+first32 values. The zoom repeats96 existing values, not new observations.
+The25 unused manuscript figure copies are archived with byte/SHA verification;
+the active figure directory contains the five PDFs recorded by LaTeX.
 
 ## Earlier manuscript records
 

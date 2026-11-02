@@ -91,3 +91,14 @@ The current review PDF remains a verified intermediate revision. Its SGD
 figure has not yet incorporated this additional feedback.
 Prepared code, measured timings and remaining checks are recorded in
 [Analysis037](../../../../analyses/037-2026-11-02-sgd-batch-extension/README.md).
+
+## Additional feedback: figure layout and archive
+
+- [x] Separate GD panel letters, column titles and learning-rate legends;
+  remove excessive header spacing in both Analysis024 composites.
+- [x] Use ordinary decimal training-loss ticks while preserving log scales.
+- [x] Add a second backward-lag row showing the exact lags1--32 and update
+  its caption, provenance and independent numerical checks.
+- [x] Archive the 25 unused figure copies, preserve bytes/hashes and update
+  inactive TeX references. Leave the five compiled figures in `draft/figures`.
+- [x] Rebuild, inspect figures and affected manuscript pages, and commit.

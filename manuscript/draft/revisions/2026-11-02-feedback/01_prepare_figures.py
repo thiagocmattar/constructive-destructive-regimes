@@ -8,7 +8,7 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.ticker import FixedLocator, FixedFormatter, NullLocator
+from matplotlib.ticker import FixedLocator, FixedFormatter, NullLocator, FuncFormatter
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
@@ -67,8 +67,9 @@ def main():
         manifest['curves'].append(dict(tag=tag, points=len(x), x_sha256=arrsha(x), y_sha256=arrsha(y)))
         return line
 
-    def style(ax, letter):
-        ax.text(0, 1.035, f'({letter})', transform=ax.transAxes, va='bottom')
+    def style(ax, letter=None, label_y=1.025):
+        if letter is not None:
+            ax.text(0, label_y, f'({letter})', transform=ax.transAxes, va='bottom')
         ax.tick_params(length=3, width=.6)
         ax.grid(axis='y', alpha=.15, lw=.5)
 
@@ -84,16 +85,18 @@ def main():
 
     specs = [
         ('gd_loss_projected_change.pdf', [('loss_log', 'Training loss', 'log'),
-          ('eta_kappa_hat_smoothed', r'$\eta\widehat\kappa_t$', 'linear')], 3.65),
+          ('eta_kappa_hat_smoothed', r'$\eta\widehat\kappa_t$', 'linear')], 3.45),
         ('gd_reversal_norm_retention.pdf', [('rho_smoothed', r'$\rho_t$', 'linear'),
           ('gradient_norms_smoothed', r'$\|g_t\|$', 'log'),
-          ('normalized_displacement', r'$R_t$', 'linear')], 5.05),
+          ('normalized_displacement', r'$R_t$', 'linear')], 4.85),
     ]
     for name, rows, height in specs:
         fig, axes = plt.subplots(len(rows), 3, figsize=(7.16, height), sharex=True)
         for col, task in enumerate(TASKS):
             subset = [r for r in runs if r['task'] == task]
-            axes[0, col].set_title(TITLES[col], pad=32)
+            # The panel letter shares the title line; the legend has its own
+            # compact line below it, without competing with a separate letter.
+            axes[0, col].set_title(f'({chr(97+col)})  {TITLES[col]}', pad=15)
             for row, (metric, ylabel, scale) in enumerate(rows):
                 ax = axes[row, col]
                 for color, r in zip(COLORS, subset):
@@ -102,6 +105,10 @@ def main():
                     curve(ax, x, y, name+':'+tag, color=color, lw=.85,
                           label=rf'$\eta={r["lr"]:g}$')
                 ax.set(xlim=(0, 3000), xticks=[0, 1000, 2000, 3000], yscale=scale)
+                if metric == 'loss_log':
+                    ax.yaxis.set_major_locator(FixedLocator([[.2,.3,.4,.6],[.4,.6,1,2],[6,7,8,9,10]][col]))
+                    ax.yaxis.set_major_formatter(FuncFormatter(lambda value, position: f'{value:g}'))
+                    ax.yaxis.set_minor_locator(NullLocator())
                 if metric == 'eta_kappa_hat_smoothed':
                     ax.axhline(2, color='.35', lw=.7, ls='--', zorder=0)
                     ax.set(ylim=(-.08, 2.18), yticks=[0, 1, 2])
@@ -110,15 +117,15 @@ def main():
                     ax.set(ylim=(-1.08, 1.08), yticks=[-1, 0, 1])
                 if metric == 'normalized_displacement':
                     ax.set(ylim=(0, 1.04), yticks=[0, .5, 1])
-                style(ax, chr(97+row*3+col))
+                style(ax, chr(97+row*3+col) if row else None)
                 if col == 0:
                     ax.set_ylabel(ylabel)
                 if row == len(rows)-1:
                     ax.set_xlabel('Update index')
-            axes[0,col].legend(loc='lower center', bbox_to_anchor=(.5, 1.01),
+            axes[0,col].legend(loc='lower center', bbox_to_anchor=(.5, 1.015), borderaxespad=0,
                                ncol=3, fontsize=7, frameon=False, columnspacing=.7,
                                handlelength=1.1, handletextpad=.25)
-        fig.subplots_adjust(left=.085, right=.985, top=.80 if len(rows)==2 else .85,
+        fig.subplots_adjust(left=.085, right=.985, top=1-32/(72*height),
                             bottom=.13 if len(rows)==2 else .10, hspace=.32, wspace=.29)
         save(fig, A24, name)
 
@@ -151,26 +158,32 @@ def main():
             if row==0: ax.axhline(0,color='.5',lw=.6,zorder=0)
             if row==1: ax.set_xlabel(r'Batch size $b$')
             if col==0: ax.set_ylabel(r'Mean cosine $\rho_t$' if row==0 else r'Displacement ratio $R_{200}$')
-            style(ax, chr(97+row*2+col))
+            style(ax, chr(97+row*2+col), label_y=1.035)
     fig.subplots_adjust(left=.13,right=.98,top=.84,bottom=.19,hspace=.30,wspace=.22)
     save(fig,A27,'sgd_batch_size_compact.pdf')
     manifest['sgd_values']=sgd_values
 
     profiles = read(source(A35/'results.json'))['profiles']
     assert read(source(A35/'verification.json'))['status']=='passed'
-    fig,axes=plt.subplots(1,3,figsize=(7.16,2.0),sharey=True)
+    fig,axes=plt.subplots(2,3,figsize=(7.16,3.30),sharey=True)
     summaries=[]
     for col,task in enumerate(TASKS):
         p=next(p for p in profiles if (p['job']['optimizer'],p['job']['task'],p['job']['start'])==('gd',task,2000))
         x=np.array([r['lag'] for r in p['rows']]); y=np.array([r['cosine'] for r in p['rows']])
         assert p['endpoint']==2256 and np.array_equal(x,np.arange(1,257))
-        curve(axes[col],x,y,'backward:'+task,color=COLORS[0],lw=.55)
-        axes[col].set(title=TITLES[col],xlim=(1,256),ylim=(-1.05,1.05),
-                      xticks=[1,64,128,192,256],yticks=[-1,0,1],xlabel=r'Backward lag $k$')
-        axes[col].axhline(0,color='.5',lw=.6,zorder=0)
-        style(axes[col],chr(97+col))
-    axes[0].set_ylabel(r'$\cos(g_t,g_{t-k})$')
-    fig.subplots_adjust(left=.085,right=.985,top=.75,bottom=.25,wspace=.2)
+        for row,limit in enumerate([256,32]):
+            ax=axes[row,col]
+            curve(ax,x[:limit],y[:limit],('backward:' if row==0 else 'backward_zoom:')+task,
+                  color=COLORS[0],lw=.55 if row==0 else .7,
+                  marker=None if row==0 else 'o',ms=1.8)
+            ax.set(xlim=(1,limit),ylim=(-1.05,1.05),
+                   xticks=[1,64,128,192,256] if row==0 else [1,8,16,24,32],
+                   yticks=[-1,0,1],xlabel=r'Backward lag $k$'+(' (full range)' if row==0 else ' (zoom)'))
+            ax.axhline(0,color='.5',lw=.6,zorder=0)
+            style(ax,chr(97+row*3+col) if row else None)
+            if col==0: ax.set_ylabel(r'$\cos(g_t,g_{t-k})$')
+        axes[0,col].set_title(f'({chr(97+col)})  {TITLES[col]}',pad=6)
+    fig.subplots_adjust(left=.085,right=.985,top=.90,bottom=.13,wspace=.2,hspace=.62)
     save(fig,A35,'gd_backward_compact.pdf')
     for task in TASKS:
         for start in [500,2000,3000]:

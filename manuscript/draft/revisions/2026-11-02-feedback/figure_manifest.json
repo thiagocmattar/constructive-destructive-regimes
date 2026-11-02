@@ -1,6 +1,6 @@
 {
   "generator": "manuscript/draft/revisions/2026-11-02-feedback/01_prepare_figures.py",
-  "generator_sha256": "613d5a1b78fe586fbe3fd946d6692803673f7a7dcbf2354097b4f7b0c4875c8b",
+  "generator_sha256": "81eca7b9a4c29d7d98228360158e94fa5e10a44e468a1b978c8d6b3730e2ca46",
   "sources": {
     "analyses/024-2026-10-17-eos-gd-lr-calibration/single_rows_figure_manifest.json": "2d6fcb8edefa9ba99df3c595d190a89bf1d402341cab44d7cb11096eb8c1752a",
     "analyses/024-2026-10-17-eos-gd-lr-calibration/derived/single_rows_curves.npz": "6f12a75b08b8e79742e174a1c24f7fb4964519a00371ed41f77e26fb72e971ed",
@@ -17,12 +17,12 @@
     {
       "source": "analyses/024-2026-10-17-eos-gd-lr-calibration/figures/gd_loss_projected_change.pdf",
       "target": "manuscript/draft/figures/analysis024/gd_loss_projected_change.pdf",
-      "sha256": "239a125bafc761b82b82827ee702cba520f7e1bb825b48571d6384e3c97ac799"
+      "sha256": "0050743b18332a9c9ff55139947224aa5adcabd509e809bf3e4f2b357d2d7181"
     },
     {
       "source": "analyses/024-2026-10-17-eos-gd-lr-calibration/figures/gd_reversal_norm_retention.pdf",
       "target": "manuscript/draft/figures/analysis024/gd_reversal_norm_retention.pdf",
-      "sha256": "b6ca0233f5c5e4e5004b7f70de6da706b23eb3cb53302cb48e9bdf8023c0c3a2"
+      "sha256": "c90c69a762375198b6d8e70de6c68ec89e70e002324f259b506ff9dab54c8ec2"
     },
     {
       "source": "analyses/027-2026-10-30-minibatch-noise/figures/sgd_batch_size_compact.pdf",
@@ -32,7 +32,7 @@
     {
       "source": "analyses/035-2026-11-02-eos-backward-anchors/figures/gd_backward_compact.pdf",
       "target": "manuscript/draft/figures/analysis035/gd_backward_compact.pdf",
-      "sha256": "b5cf19bf8fb779b71673273ce94f79506c488c8a8bde2778dd765ed054087ad5"
+      "sha256": "f9b5e66a132eae54d7fa5cbdd56bb1bb473ca604dcd913aa225687e5e3594999"
     }
   ],
   "curves": [
@@ -337,16 +337,34 @@
       "y_sha256": "009dd37cd354d9ed5a53d7de6b13b254541cea85b7a700e4de305e60d3ba4a58"
     },
     {
+      "tag": "backward_zoom:mlp",
+      "points": 32,
+      "x_sha256": "ed18c2aa20ebf93d99f226a9832defb2a6852d9d5d420e762523cdf65b777ba9",
+      "y_sha256": "f0d28123590241616361bb2a92e52a60eaff02b8c92b86de773ccbdeab416613"
+    },
+    {
       "tag": "backward:resnet",
       "points": 256,
       "x_sha256": "68d5ee281535dded54bbfbb49c3d3a2dbd827be2536ccdc9f780910b6d376c34",
       "y_sha256": "f70f6f1ddd55ebf362d8c992ae706403f25c281f85cf6039109173ea859880ec"
     },
     {
+      "tag": "backward_zoom:resnet",
+      "points": 32,
+      "x_sha256": "ed18c2aa20ebf93d99f226a9832defb2a6852d9d5d420e762523cdf65b777ba9",
+      "y_sha256": "760888e66b63718a62386b509535225bd37bb2accf805842843cb9e648baf555"
+    },
+    {
       "tag": "backward:transformer",
       "points": 256,
       "x_sha256": "68d5ee281535dded54bbfbb49c3d3a2dbd827be2536ccdc9f780910b6d376c34",
       "y_sha256": "83cdbf5a546a770ae16cd2dc1f8f5360240a15f4dbc5ff1c81317917af23fd25"
+    },
+    {
+      "tag": "backward_zoom:transformer",
+      "points": 32,
+      "x_sha256": "ed18c2aa20ebf93d99f226a9832defb2a6852d9d5d420e762523cdf65b777ba9",
+      "y_sha256": "dc9db528866e8150284e53807e590cc4da7e9398632a54b0e4cfc4668f7cf371"
     }
   ],
   "tables": [
@@ -356,7 +374,7 @@
       "rows": 9
     }
   ],
-  "visual_review": "passed: review.json pins the four inspected figure hashes",
+  "visual_review": "passed",
   "sgd_values": [
     {
       "checkpoint": 0,

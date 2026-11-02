@@ -12,6 +12,15 @@ overlapping comments, both addressed by the same SGD revision.
 
 ## Comment dispositions
 
+**Figure-layout follow-up:** the two GD composites now place panel letters
+with the column titles and the learning-rate legends directly beneath, with
+compact spacing. Training-loss ticks use decimal notation on the unchanged
+log scales. The backward-lag figure adds a second row zooming into lags1--32;
+all96 zoomed values repeat the full-range data exactly. The caption and checks
+describe both rows. [The archive](../../../archive/2026-11-02-unused-figures/README.md)
+preserves25 unused figure copies and their hashes, leaving only the five
+compiled assets in the active figure directory. No additional experiments.
+
 **Subsequent feedback:** the user requested a 2-by-3 SGD figure for the three
 existing model/dataset cases, with initialization and 2k-state curves in each
 panel. The [extension contract](SGD_EXTENSION.md) records the evidence gap and
@@ -31,7 +40,7 @@ figure is an intermediate version, pending the additional experiments.
 | C16--C19, C22 | Condensed the empirical goal/design and replaced enumerated values with interpretation. | Preserved matched initialization, training-selected rates, objectives and coverage in one main paragraph plus the appendix. |
 | C20 | First figure is loss/projected change in a 2-by-3 grid. | The diagnostic requires no Hessian evaluation but concerns realized directional change, not the largest eigenvalue. The plot is descriptive, with no validated exact-onset prediction. |
 | C21 | Second figure is cosine/norm/retention in a 3-by-3 grid; endpoint discussion follows. | Reversals and inefficient path retention coexist with greater absolute displacement and lower final loss at the largest rate. The evidence does not support claiming slower GD from retention alone. |
-| C23 | Added a 1-by-3 backward-lag figure and a short interpretation. | Common middle endpoint in all models; all 256 pairs retained. State 2256 corresponds to gradient index 2257. Separate numerical continuations are identified explicitly; all nine endpoints support the appendix statement. |
+| C23 | Added a 2-by-3 backward-lag figure with a 1--32 zoom and a short interpretation. | Common middle endpoint in all models; all 256 pairs retained. State 2256 corresponds to gradient index 2257. Separate numerical continuations are identified explicitly; all nine endpoints support the appendix statement. |
 | C24 | Added dataset, T notation, explicit late-window definition and decimal formatting to Table I. | A star denotes a positive value below 0.00005 rounded to zero; full-precision values remain in the source. |
 | C25 | Moved the detailed loss-surrogate audit entirely into Appendix C. | Its equation, counts and limitation remain available without interrupting the main argument. |
 | C26--C28 | SGD is a short subsection with a 2-by-2 initial/2k-state figure, one sampled-gradient curve per panel and explicit full-batch endpoint. | Smaller batches attenuate late negative cosine but do not restore retention. Noise covariance structure motivates the brief implicit-bias connection; generalization was not measured here. |

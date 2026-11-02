@@ -97,6 +97,7 @@ def check_evidence():
         else:
             task=tag.split(':')[1]
             rows=sorted([r for r in lag if r['optimizer']=='gd' and r['task']==task and int(r['start'])==2000],key=lambda r:int(r['lag']))
+            if tag.startswith('backward_zoom:'): rows=rows[:32]
             x=[int(r['lag']) for r in rows];y=[float(r['cosine']) for r in rows]
         assert len(x)==c['points'] and arrsha(x)==c['x_sha256'] and arrsha(y)==c['y_sha256'],tag
     # Reconstruct each used GD series from the original per-update event files.
@@ -168,7 +169,7 @@ def check_evidence():
 def main():
     SCRATCH.mkdir(parents=True,exist_ok=True)
     record=dict(math=check_math(),evidence=check_evidence(),status='pending_build_and_visual_review')
-    commands=[['pdflatex','--disable-installer','-no-shell-escape','-interaction=nonstopmode',
+    commands=[['pdflatex','--disable-installer','-no-shell-escape','-recorder','-interaction=nonstopmode',
                '-halt-on-error','-file-line-error','-output-directory='+str(SCRATCH),'bare_jrnl.tex']]
     commands += [['bibtex',str(SCRATCH/'bare_jrnl')],commands[0],commands[0]]
     for i,command in enumerate(commands,1):
@@ -185,6 +186,27 @@ def main():
     placement={label:page(label) for label in ['fig:gd-loss','fig:gd-alignment-displacement','tab:gd-endpoints','fig:gd-backward','fig:sgd-moving-geometry','sec:adam-diagnostics']}
     assert list(placement.values())==sorted(placement.values()),placement
     record['placement']=placement
+    archive=read(ROOT/'manuscript/archive/2026-11-02-unused-figures/manifest.json')
+    expected={str((ROOT/p).resolve()) for p in archive['active_figures']}
+    present={str(p.resolve()) for p in (DRAFT/'figures').rglob('*') if p.is_file()}
+    assert present==expected, 'Keep only compiled figures in draft/figures.'
+    recorded=set()
+    for line in (SCRATCH/'bare_jrnl.fls').read_text().splitlines():
+        if line.startswith('INPUT '):
+            p=Path(line[6:])
+            if not p.is_absolute(): p=DRAFT/p
+            if p.suffix.lower()=='.pdf' and p.resolve().is_relative_to((DRAFT/'figures').resolve()):
+                recorded.add(str(p.resolve()))
+    assert recorded==expected, 'LaTeX recorder differs from the active figure inventory.'
+    for entry in archive['files']:
+        p=ROOT/entry['archived']
+        assert not (ROOT/entry['original']).exists()
+        assert p.stat().st_size==entry['bytes'] and sha(p)==entry['sha256']
+    for tex in (DRAFT/'sections').glob('*.tex'):
+        for asset in re.findall(r'\\includegraphics(?:\[[^\]]*\])?\{([^}]+)\}',tex.read_text()):
+            assert (DRAFT/asset).is_file(), (tex,asset)
+    record['figure_archive']=dict(active_figures=len(expected),archived_files=len(archive['files']),
+                                 hashes_verified=True,latex_recorder_verified=True)
     pdf=SCRATCH/'bare_jrnl.pdf'
     for target in [DRAFT/'bare_jrnl.pdf',HERE/'revised-manuscript.pdf']:
         shutil.copyfile(pdf,target)

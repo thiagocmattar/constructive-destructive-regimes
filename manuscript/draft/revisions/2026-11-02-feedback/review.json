@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "date": "2026-11-02",
-  "pdf_sha256": "64dbfc7413a36a3cee89ca136356c1b11791c8afee45c74996ce5e64c062d944",
+  "pdf_sha256": "6262f68c537784efadcfddc682d64eb705b611c02f21277056ae795b376b08d2",
   "pages": 16,
   "page_renders": [
     {
@@ -26,39 +26,39 @@
     },
     {
       "page": 6,
-      "sha256": "8199dfecadf5642cab11f5fc335315f4ebaacb981fa1e9ad0c493597ae91afc4"
+      "sha256": "eb0b6c3f8b58f2010def5aca24c4ec34facf697e2b63312b03b2855764e59616"
     },
     {
       "page": 7,
-      "sha256": "0f940f531bca7db70f5515e66fefded0df12b42941c8f53b125c2eafe74b5c1c"
+      "sha256": "09f3148f69461f5fa1dcd688fe4218568be9bc76f22dd8b6566388f4ec8d714c"
     },
     {
       "page": 8,
-      "sha256": "f64aa0e963e9554a3ea9e393f5b79042509afe35e0cba362bd13ffd420d14e68"
+      "sha256": "0b2a2dd0c920dc764394a838443aa7f3a4f7876017c0cf187b9ca3dd87f7eff8"
     },
     {
       "page": 9,
-      "sha256": "6ab8b3084c2951da8906508985877a18e22c256285260c3986746bf116d0eee5"
+      "sha256": "e1dd5dd3b9d32b67ce160dd21d9ad3c7261df4d64f809fde050aa5d780949b4e"
     },
     {
       "page": 10,
-      "sha256": "134a0b68188156ad9c3862a1e6d9b69e9fc4869096f5ddb3d9cc5efef4129249"
+      "sha256": "fb7c41c5ca9c103267d8a460f1bb73c01b6cd89fde7548ed2b96e236b325ace0"
     },
     {
       "page": 11,
-      "sha256": "24122666cdaba63e2a3452b2dca7b164d9d63741cc14f8364b9cceb2d61e1f02"
+      "sha256": "fe53052598aee1dd79a1947252f78ba32c9548195ccf477d14dc2e251bb7f3e0"
     },
     {
       "page": 12,
-      "sha256": "a9701438c860f810326cb5da7cc862b9f7a08a377af11d986770cf73802047d9"
+      "sha256": "37a1cd7f0c03653b30810aec751b43d3a4e012c7db9e6b38f1215af836e342fc"
     },
     {
       "page": 13,
-      "sha256": "89c6df36c8d3bdc587b1f3f2c469f1f0ec556f7347b82fe6011e7f357756c281"
+      "sha256": "61c53d99896daaefe289308f746f57646cf9ace3ab1f04c6089529cda5b9a091"
     },
     {
       "page": 14,
-      "sha256": "6482ee110ee2c1379ff60249f245b78439916db38cde46e32d24f8e97eb4e484"
+      "sha256": "ac433992fe8e23bc49b222a04c820384c51737f6fbd0a603e00d65b25c5c680f"
     },
     {
       "page": 15,
@@ -72,11 +72,11 @@
   "figure_review": [
     {
       "path": "manuscript/draft/figures/analysis024/gd_loss_projected_change.pdf",
-      "sha256": "239a125bafc761b82b82827ee702cba520f7e1bb825b48571d6384e3c97ac799"
+      "sha256": "0050743b18332a9c9ff55139947224aa5adcabd509e809bf3e4f2b357d2d7181"
     },
     {
       "path": "manuscript/draft/figures/analysis024/gd_reversal_norm_retention.pdf",
-      "sha256": "b6ca0233f5c5e4e5004b7f70de6da706b23eb3cb53302cb48e9bdf8023c0c3a2"
+      "sha256": "c90c69a762375198b6d8e70de6c68ec89e70e002324f259b506ff9dab54c8ec2"
     },
     {
       "path": "manuscript/draft/figures/analysis027/sgd_batch_size_compact.pdf",
@@ -84,7 +84,7 @@
     },
     {
       "path": "manuscript/draft/figures/analysis035/gd_backward_compact.pdf",
-      "sha256": "b5cf19bf8fb779b71673273ce94f79506c488c8a8bde2778dd765ed054087ad5"
+      "sha256": "f9b5e66a132eae54d7fa5cbdd56bb1bb473ca604dcd913aa225687e5e3594999"
     }
   ],
   "checks": [
@@ -126,5 +126,34 @@
     "C27",
     "C28"
   ],
-  "scientific_scope": "Existing evidence only; no training, new sampling, cloud resources or cost."
+  "scientific_scope": "Existing evidence only; no training, new sampling, cloud resources or cost.",
+  "figure_layout_followup": {
+    "reviewed_changed_pages": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "unchanged_page_renders_verified": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      15,
+      16
+    ],
+    "checks": [
+      "GD titles/panel letters and legends occupy separate compact lines",
+      "Loss ticks use ordinary decimals on unchanged logarithmic scales",
+      "Backward figure has full lags1-256 and exact zoom lags1-32; clear alternating points",
+      "All 25 archived PDFs retain their bytes and SHA256; five active PDFs confirmed by LaTeX recorder",
+      "MLP SGD figure remains byte-identical; its experimental extension stays deferred"
+    ]
+  }
 }

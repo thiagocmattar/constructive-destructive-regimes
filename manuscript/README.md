@@ -8,6 +8,10 @@ The 28-comment source, revision scripts and review PDF are now under `draft/`.
 This revision builds into ignored `tmp/pdfs/` and delivers to `draft/`,
 superseding the older `artifacts/` output convention for the current review.
 
+`draft/figures/` now contains only the five figures used by the active build.
+The other 25 are preserved in the [figure archive](archive/2026-11-02-unused-figures/README.md),
+with hashes and original paths. Inactive legacy sections reference that archive.
+
 The original supplied materials are preserved:
 
 - `latex-zip.zip`: original LaTeX source archive.

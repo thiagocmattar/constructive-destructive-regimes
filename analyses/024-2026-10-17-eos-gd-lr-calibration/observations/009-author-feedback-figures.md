@@ -36,3 +36,10 @@ Captions: `manuscript/draft/sections/04-gd-experiments.tex`.
 Exact sources, reductions, output hashes, numerical and visual verification:
 `manuscript/draft/revisions/2026-11-02-feedback/{figure_manifest,verification,review}.json`.
 Earlier figures and raw evidence remain unchanged; no training or cloud work.
+
+Follow-up layout correction: top-row panel letters now share the column-title
+line, with the three learning-rate entries immediately below. The header is
+shorter and no letter overlaps a legend. Loss axes retain their logarithmic
+scales but use ordinary decimal tick labels. All plotted arrays are unchanged.
+Unused manuscript copies of earlier figures are archived; owning analysis
+figures and source evidence remain in place.

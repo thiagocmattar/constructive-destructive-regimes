@@ -7,8 +7,8 @@
     "zero_gradient_exception": true
   },
   "evidence": {
-    "curves": 52,
-    "points": 134456,
+    "curves": 55,
+    "points": 134552,
     "endpoint_rows": 9,
     "displayed_scalars": 45,
     "backward_endpoints": 9,
@@ -25,6 +25,12 @@
     "fig:sgd-moving-geometry": 9,
     "sec:adam-diagnostics": 9
   },
+  "figure_archive": {
+    "active_figures": 5,
+    "archived_files": 25,
+    "hashes_verified": true,
+    "latex_recorder_verified": true
+  },
   "pages": 16,
   "page_texts": {
     "1": "1\nConstructive and Destructive Training Regimes: A\nFramework for Interpreting SGD Stabilit",
@@ -32,34 +38,34 @@
     "3": "3\nC. Curvature\u2013Noise Interaction\nThe break-even point framework of Jastrzebski et al. [12]",
     "4": "4\nat \u03b8t\u22121. Summing the updates gives the displacement from\ninitialization,\n\u2206T := \u03b8T \u2212\u03b80 = ",
     "5": "5\nB. Noise Contribution under Mini-Batch Sampling\nUnbiased sampling does not make the nois",
-    "6": "6\n2 \u00d7 10\u22121\n3 \u00d7 10\u22121\n4 \u00d7 10\u22121\n6 \u00d7 10\u22121\nTraining loss\n(a)\nCIFAR-10 / MLP\n\u03b7 = 0.004\n\u03b7 = 0.02\n",
-    "7": "7\n\u22121\n0\n1\n\u03c1t\n(a)\nCIFAR-10 / MLP\n\u03b7 = 0.004\n\u03b7 = 0.02\n\u03b7 = 0.04\n\u22121\n0\n1\n(b)\nCIFAR-10 / ResNet-32",
+    "6": "6\n0.2\n0.3\n0.4\n0.6\nTraining loss\n(a)  CIFAR-10 / MLP\n\u03b7 = 0.004\n\u03b7 = 0.02\n\u03b7 = 0.04\n0.4\n0.6\n1\n",
+    "7": "7\n\u22121\n0\n1\n\u03c1t\n(a)  CIFAR-10 / MLP\n\u03b7 = 0.004\n\u03b7 = 0.02\n\u03b7 = 0.04\n\u22121\n0\n1\n(b)  CIFAR-10 / ResNet-",
     "8": "8\nTABLE I: Endpoints at T = 3000 updates. The late means \u03c1late and \u03b7b\u03balate average gradien",
     "9": "9\n\u22121\n0\n1\nMean cosine \u03c1t\n(a)\nAt initialization\n\u22121\n0\n1\n(b)\nAfter 2,000 GD updates\n32\n128\n512",
-    "10": "10\nB. Raw Gradients as Observations of the Traversed Loss\nRaw-gradient alignment remains i",
-    "11": "11\ndecay clock twice as fast. Within each size, weights, optimizer\nstate and future batche",
-    "12": "12\nThus, the curvature-based and alignment-based expressions\ndescribe the same local loss ",
-    "13": "13\nB. Unsmoothed Alignment and Temporal Accounting\nFigure 5 supplies the unsmoothed consec",
+    "10": "10\nclipped, the clipped vector replaces gt in Eq. (25); raw-\ngradient diagnostics still us",
+    "11": "11\nTABLE II: Pythia-14M: median consecutive cosine over up-\ndates 612\u2013711 and final valida",
+    "12": "12\nUsing\nthe\nstochastic\ngradient\ndecomposition\ngt\n=\n\u2207L(\u03b8t\u22121) + \u03bet at both endpoints, we ob",
+    "13": "13\nCIFAR-10 training split. ResNet\u2019s objective averages the same\n50 fixed groups of 1,000 ",
     "14": "14\n0\n1000\n2000\n3000\nGD update t\n\u22121\n0\n1\n\u03c1t\n(a) CIFAR-10 / tanh MLP\n5,000 training images\n\u03b7 ",
     "15": "15\nTABLE IV: Complete-prefix temporal accounting at T = 3000, with the quantities defined ",
     "16": "16\nREFERENCES\n[1] J. Hestness, S. Narang, N. Ardalani, G. Diamos, H. Jun, H. Kianinejad,\nM"
   },
-  "pdf_sha256": "64dbfc7413a36a3cee89ca136356c1b11791c8afee45c74996ce5e64c062d944",
+  "pdf_sha256": "6262f68c537784efadcfddc682d64eb705b611c02f21277056ae795b376b08d2",
   "build": "pdflatex, bibtex, pdflatex, pdflatex; no overfull boxes or unresolved references",
   "source_hashes": {
     "manuscript/draft/bare_jrnl.tex": "ce55fd05165ad3fcd25f3adeddd5f471b021b51426c87c1dcb405e46ec0e4eff",
     "manuscript/draft/sections/01-introduction.tex": "4a3d3837dbb451f658f8ed3804f519c3546b02ccd47316d3429e17feb44c8ff8",
     "manuscript/draft/sections/02-related-works.tex": "a021e3313e2dca6ebf0081ecb022152ae9db97eaf27a7f6085256e8ffad045a4",
     "manuscript/draft/sections/03-methods.tex": "e6266f3479995166414ff0dff73f809961cd1f3a9affe3b358fa54412ff76d14",
-    "manuscript/draft/sections/04-gd-experiments.tex": "124231588a4e9396359bb125b5c62422f9b2bc08dcfe3b432db8f6b3c21154ea",
-    "manuscript/draft/sections/04-results.tex": "df58abf3b93cd62910623907467317b30a3be365a56b4104739445d47601619e",
+    "manuscript/draft/sections/04-gd-experiments.tex": "c6b059ed1f7c8f33444340a570876268304650987edc73ab9ecc952595cc41e1",
+    "manuscript/draft/sections/04-results.tex": "afc1f30d1c6f3dba8e3d3cdeaa0d04947fc8df54e9131871db16390062a77d45",
     "manuscript/draft/sections/05-conclusion.tex": "8723c121439da3e78f0e136ca4decc783e69470f94c43d138cd65082bcda3f01",
     "manuscript/draft/sections/05-sgd-noise-experiments.tex": "387987d4f06b3be6ced27ea322d7b85d750d75179a9d1dcfd3fe23113d198e1f",
     "manuscript/draft/sections/06-adam-diagnostics.tex": "3d01b5f3bf72fce5b2b57677d171c19bcc99452c8b0e44bfa7a123ae96f9cdbb",
-    "manuscript/draft/sections/06-appendix.tex": "20d552d9ba87c2cb7e061e42ca41e0cd8a9bfa89ca0f334c63885580e10121d7",
+    "manuscript/draft/sections/06-appendix.tex": "210ed113fe474b3171f6640c7fe8dc417bd35586d981ae2d1e8fcd89a6a6732c",
     "manuscript/draft/sections/06-loss-appendix.tex": "c14739b470c3ed36ec6b41bd50d570ef2c074daf441c10a3906b1c38e592c1f6",
     "manuscript/draft/sections/07-gd-diagnostics.tex": "133b9668017a152109c10a2392f59c404c85884efcda8cf821f6d40edfdf84c3"
   },
-  "verifier_sha256": "4e26b8e28f44210e59ff7a110c3dc3a5aa1f4c3abbd102e93880664451ff11e9",
+  "verifier_sha256": "0ddecfddba19172b0582b98fb1f4ca6e4f972aaa5c3bd3889fa5b24377d84999",
   "visual_review": "review.json"
 }
