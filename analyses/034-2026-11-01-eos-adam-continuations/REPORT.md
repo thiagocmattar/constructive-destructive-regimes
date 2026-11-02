@@ -137,6 +137,19 @@ no smoothing or path simplification. [Observation/captions](observations/001-ada
 [every production value](lag_profiles.csv), [results](results.json),
 [summary](summary.json), [verification](verification.json).
 
+The additional requested [largest-source-GD view through lag 256](figures/largest_lr_lag256.pdf)
+matches Analysis033's `largest_lr_lag256.pdf`: three architecture columns,
+three anchor rows, one curve connecting every consecutive positive lag,
+and the same linear axis ranges and styling. Source GD LRs are 0.04 / 0.1 / 0.2;
+Adam LRs are 3e-4 / 1e-3 / 1e-3 for MLP / ResNet-32 / Transformer.
+The user chose these existing full production curves; the MLP 1e-3 candidate
+has only 64-update calibration data and is excluded. All nine starts are primary.
+All 2304 plotted anchored cosines match the JSON, CSV and plotted arrays exactly;
+the vector PDF and its actual render pass review. This view reuses existing
+measurements and adds no training or cloud cost.
+[Observation/caption](observations/002-largest-lr-lag256.md),
+[generator](13_plot_largest_lr_lag256.py), [review](largest_lr_lag256_review.json).
+
 All 21 physical task Pods were deleted after per-file
 byte/SHA-256 and archive verification. Retrieved 1903 files /
 28.628 GB. No task cloud storage remains. Allocation through

@@ -1,0 +1,143 @@
+{
+  "status": "passed",
+  "generator": "13_plot_largest_lr_lag256.py",
+  "generator_sha256": "5a91febb8ba1832d3b43838d2f8a834743655d9e43178adf95133c90920c008c",
+  "source_results_sha256": "d63c05ec08c4fc7f55629550253589de61088f9932c11ffee408fc58c54b02e1",
+  "source_csv_sha256": "12bda653d28e959f69f90c2f52296f0bb2b95b05b1a5c823d6f749e7e8bbd619",
+  "calibration_decision_sha256": "73f9705e5f4c47d5f3afc132a268d46a950dc2d4542595d9e8e099177f449f58",
+  "reference_figure": "../033-2026-11-01-eos-long-lags/figures/largest_lr_lag256.pdf",
+  "reference_figure_sha256": "16d829d4fdd9d62615d471766367461c3c1327b512fcd33cd2d466e11c929d59",
+  "reference_generator_sha256": "afdcb1cb514febdda7865d5549b3265d9e57e775a98ac483f71cd873da7a79bb",
+  "source_gd_rates": {
+    "mlp": 0.04,
+    "resnet": 0.1,
+    "transformer": 0.2
+  },
+  "adam_rates": {
+    "mlp": 0.0003,
+    "resnet": 0.001,
+    "transformer": 0.001
+  },
+  "profiles": [
+    {
+      "task": "mlp",
+      "parent_run_id": "122",
+      "anchor": 500,
+      "parent_gd_lr": 0.04,
+      "adam_lr": 0.0003,
+      "horizon": 2048,
+      "primary_eligible": true,
+      "points": 256,
+      "plotted_values_sha256": "bbfbedd47e92ddfbc04fa15df52f8626071c33c46b4830acbab78a7da711cf40",
+      "exact_json_csv_artist_match": true
+    },
+    {
+      "task": "resnet",
+      "parent_run_id": "120",
+      "anchor": 500,
+      "parent_gd_lr": 0.1,
+      "adam_lr": 0.001,
+      "horizon": 2048,
+      "primary_eligible": true,
+      "points": 256,
+      "plotted_values_sha256": "c6129766f56df92de73deb8a032e35a97613d31560e69d486ec927e25f0a56f1",
+      "exact_json_csv_artist_match": true
+    },
+    {
+      "task": "transformer",
+      "parent_run_id": "126",
+      "anchor": 500,
+      "parent_gd_lr": 0.2,
+      "adam_lr": 0.001,
+      "horizon": 2048,
+      "primary_eligible": true,
+      "points": 256,
+      "plotted_values_sha256": "2ba85b2c513ec3f19ddf93e830ff05316e26b7ece260f2ecddf8e35c4212feba",
+      "exact_json_csv_artist_match": true
+    },
+    {
+      "task": "mlp",
+      "parent_run_id": "122",
+      "anchor": 2000,
+      "parent_gd_lr": 0.04,
+      "adam_lr": 0.0003,
+      "horizon": 2048,
+      "primary_eligible": true,
+      "points": 256,
+      "plotted_values_sha256": "2d34f8fae3bdf7d64d659c6cc956a37c9db754f42467c92e35ce9fb04bfa2d87",
+      "exact_json_csv_artist_match": true
+    },
+    {
+      "task": "resnet",
+      "parent_run_id": "120",
+      "anchor": 2000,
+      "parent_gd_lr": 0.1,
+      "adam_lr": 0.001,
+      "horizon": 2048,
+      "primary_eligible": true,
+      "points": 256,
+      "plotted_values_sha256": "e0ca7cf1d617f98c174acd7112f7bce18318f65a66e18af33c27725c2378a140",
+      "exact_json_csv_artist_match": true
+    },
+    {
+      "task": "transformer",
+      "parent_run_id": "126",
+      "anchor": 2000,
+      "parent_gd_lr": 0.2,
+      "adam_lr": 0.001,
+      "horizon": 512,
+      "primary_eligible": true,
+      "points": 256,
+      "plotted_values_sha256": "70637cac73e8279e39c0669e2cafcc304e017a1253485a2c04d7f9030431a3e5",
+      "exact_json_csv_artist_match": true
+    },
+    {
+      "task": "mlp",
+      "parent_run_id": "122",
+      "anchor": 3000,
+      "parent_gd_lr": 0.04,
+      "adam_lr": 0.0003,
+      "horizon": 2048,
+      "primary_eligible": true,
+      "points": 256,
+      "plotted_values_sha256": "b5e8cd61bed7418c2bec2bdd00b47a89d481cbb68c8814c6c5e5c5d47414599b",
+      "exact_json_csv_artist_match": true
+    },
+    {
+      "task": "resnet",
+      "parent_run_id": "120",
+      "anchor": 3000,
+      "parent_gd_lr": 0.1,
+      "adam_lr": 0.001,
+      "horizon": 2048,
+      "primary_eligible": true,
+      "points": 256,
+      "plotted_values_sha256": "54ec5959cfe6ec0b18d21f14332a74af0d00fb6826c4d5a86be5b02935991562",
+      "exact_json_csv_artist_match": true
+    },
+    {
+      "task": "transformer",
+      "parent_run_id": "126",
+      "anchor": 3000,
+      "parent_gd_lr": 0.2,
+      "adam_lr": 0.001,
+      "horizon": 512,
+      "primary_eligible": true,
+      "points": 256,
+      "plotted_values_sha256": "c7c2a563bac2ea635ed21328b88ee70f9be159bfb382704cabe1926859e6fcaa",
+      "exact_json_csv_artist_match": true
+    }
+  ],
+  "plotted_points": 2304,
+  "metric": "anchor_cosine = cos(g0, gk), raw gradients along Adam",
+  "reduction": "Select largest source GD LR per architecture and largest available full-production Adam LR; retain every lag 1..256 in order. No parity split, smoothing, averaging, or downsampling.",
+  "rate_choice": "User chose existing full curves: MLP 3e-4, ResNet/Transformer 1e-3. MLP 1e-3 exists only in 64-update calibration and is excluded.",
+  "figure": "figures/largest_lr_lag256.pdf",
+  "figure_sha256": "42b001ce24d0b77e431f2a8f083cf659de1ea4bfa6e0a89ce962ccfbbf778d4e",
+  "render": "scratch/largest_lr_lag256.png",
+  "render_sha256": "194af235b2e19d9db55ca5deb5d36b218a7ef773201f29359d3e6864a6533c29",
+  "vector_pdf": true,
+  "text_within_page": true,
+  "visual_review": "passed: inspected actual PDF render; nine panels, complete labels, matching scales, one consecutive-lag curve per panel; no clipping or overlap",
+  "visual_review_utc": "2026-11-02T10:22:05.621787+00:00"
+}

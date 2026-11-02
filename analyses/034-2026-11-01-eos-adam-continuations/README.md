@@ -1,5 +1,10 @@
 Completed: [report](REPORT.md), [figures](figures/anchored_profiles.pdf), [exact adjacent curves](figures/adjacent_profiles.pdf).
 
+Requested [largest-source-GD / Adam view, lags 1–256](figures/largest_lr_lag256.pdf)
+uses the same nine-panel structure as Analysis033, with all consecutive lags
+connected. Adam LRs: MLP 3e-4; ResNet-32 and Transformer 1e-3.
+[Selection, caption and checks](observations/002-largest-lr-lag256.md).
+
 All task cloud deleted; USD 39.35 compute estimate, provisional.
 
 # Analysis034: Adam continuations of the same EOS checkpoints
