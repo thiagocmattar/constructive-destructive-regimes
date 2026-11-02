@@ -75,7 +75,10 @@ distinct datasets. This supersedes the 2-by-2 layout specified above.
 - [x] Check existing evidence: Analysis027 supplies the MLP continuations;
   Analysis020 supplies only frozen-state controls for the other two cases.
 - [x] Specify the [2-by-3 figure and measurement extension](SGD_EXTENSION.md).
-- [ ] Resolve the execution resource/budget and qualify the required inputs.
+- [x] Verify pinned inputs, prepare the runner and numerical checks, and measure
+  local runtime/memory in Run214 / Analysis037 (mechanics only).
+- [ ] Revisit execution resource, duration and budget. **Deferred by the user:**
+  "Keep this as a TODO, 8 hours is too long." No production or cloud launch.
 - [ ] Measure ResNet-32 and Transformer continuations at initialization and
   after 2,000 full-GD updates, with the declared replication and controls.
 - [ ] Replace the compact figure with three case columns, two metric rows,
@@ -86,3 +89,5 @@ distinct datasets. This supersedes the 2-by-2 layout specified above.
 
 The current review PDF remains a verified intermediate revision. Its SGD
 figure has not yet incorporated this additional feedback.
+Prepared code, measured timings and remaining checks are recorded in
+[Analysis037](../../../../analyses/037-2026-11-02-sgd-batch-extension/README.md).

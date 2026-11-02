@@ -1,8 +1,9 @@
 # Three-case batch-size comparison
 
-Status: requested during manuscript review, 2026-11-02. The user confirmed
-the three existing cases. Layout and evidence audit are prepared; execution
-resource and budget are pending. No training or cloud allocation has started.
+Status: deferred by the user on 2026-11-02: "Keep this as a TODO, 8 hours is
+too long." The user confirmed the three existing cases. Run214 / Analysis037
+retain prepared code, seven passing numerical tests and bounded local GPU
+mechanics/timing. No production training or cloud allocation has started.
 This extension supersedes the current 2-by-2 SGD figure, not its source data.
 
 ## Figure and question

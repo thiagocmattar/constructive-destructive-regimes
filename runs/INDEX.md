@@ -246,3 +246,9 @@
 Next run: `214-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
 executed IDs and configurations; retry unchanged scientific inputs in a new
 attempt within the same run.
+
+## Deferred batch-size extension
+
+| Run | Question | Status | Design |
+| --- | --- | --- | --- |
+| [214](214-2026-11-02-sgd-batch-extension/README.md) | H023 / Analysis037: ResNet/Transformer batch-size continuations | Deferred by user; prepared code, pinned inputs, local timing and mechanics only; no production or cloud resources | 3 seeds, states0/2000, 200-update forks; existing MLP evidence reused |

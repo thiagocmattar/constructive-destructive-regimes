@@ -1,0 +1,28 @@
+{
+  "run_id": "214",
+  "analysis_id": "037",
+  "hypothesis": "H023",
+  "tasks": ["resnet", "transformer"],
+  "seeds": [0, 1, 2],
+  "states": [0, 2000],
+  "learning_rates": {"resnet": 0.1, "transformer": 0.2},
+  "batches": {"resnet": [1, 5, 20, 50], "transformer": [8, 32, 128, 512, 59680]},
+  "physical": {"resnet": 1000, "transformer": 64},
+  "stochastic_repetitions": 8,
+  "continuation_updates": 200,
+  "reference_updates": 2000,
+  "sampling_seed": 20261102,
+  "checkpoint_every": 50,
+  "cache": "cache/eos-multitask",
+  "reference_policy": "new matched GD references from all frozen initializations",
+  "optimizer": "constant-rate plain SGD, no momentum, clipping, decay or schedule",
+  "precision": "FP32 parameters and gradients; FP64 diagnostic reductions; TF32 disabled",
+  "evaluation": "complete training objective at fork start and end; no validation/test inference",
+  "notes": [
+    "ResNet batch sizes count fixed 1000-image ghost-normalization groups.",
+    "Transformer sizes count prepared sequences; unbiased token-weighted gradient estimator.",
+    "Regenerate all three reference trajectories on the selected per-case runtime to avoid mixing historical replay and new seeds.",
+    "MLP measurements are reused unchanged from Analysis027.",
+    "No Hessian, HVP, covariance sweep, or full-gradient reference at each stochastic update."
+  ]
+}
