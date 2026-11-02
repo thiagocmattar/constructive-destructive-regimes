@@ -164,3 +164,16 @@ All 30 curves / 29,832 points match the prior verified figure arrays exactly.
 [Observation006](observations/006-highest-lr-adam-sgd-comparison.md) records sources,
 reduction, retention-vector semantics, caption, coverage and limitations.
 No additional training or cloud cost is incurred.
+
+## Unsmoothed Transformer peak zoom
+
+The [nine-panel zoom](figures/adam_transformer_peak_zoom.pdf) isolates the visible
+Transformer Adam LR 0.003 spike near the user's approximate step 768. Its
+prominent loss peak is at state 794 (loss 2.145566); the crop starts at 784
+(loss 0.652293) and ends at the first post-peak loss below that reference,
+state 852 (loss 0.651872). All eight original unsmoothed statistics are retained,
+with a new panel for L_t-L_(t-1) over each adjacent pair inside the crop.
+All 552 original points and 68 loss differences pass source, index, numerical
+and visual checks. [Observation007](observations/007-transformer-peak-zoom.md)
+records selection, caption, reduction, clock alignment, coverage and limitations.
+This is a retrospective single-spike view, without new training or cloud cost.

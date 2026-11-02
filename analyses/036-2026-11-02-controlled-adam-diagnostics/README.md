@@ -88,3 +88,11 @@ raw-gradient cosine, gradient norm and R_t. Loss/R_t are unsmoothed; other
 rows use 50-step trailing means. All 30 curves match the prior verified figures.
 See [Observation006](observations/006-highest-lr-adam-sgd-comparison.md) and
 highest_lr_comparison_manifest.json. Full-batch SGD is Analysis024's plain GD.
+
+The [Transformer loss-peak zoom](figures/adam_transformer_peak_zoom.pdf) shows
+Adam LR 0.003 at steps 784-852: ten steps before the prominent peak at 794 through
+the first loss below L_784. It retains all eight original unsmoothed statistics
+and adds step-by-step loss differences. All 552 original points match the full
+figure exactly; the added 68 differences are direct adjacent-loss subtractions.
+See [Observation007](observations/007-transformer-peak-zoom.md) and
+transformer_peak_zoom_manifest.json for the selection rule and clock conventions.
