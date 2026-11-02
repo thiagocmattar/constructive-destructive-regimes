@@ -52,3 +52,10 @@ versions pinned in `runtime_constraints.txt`; the abandoned environment-bundle
 upload and placement qualification failures are retained in execution records.
 
 Completed: [report](REPORT.md), [GD figure](figures/gd_backward_lag256.pdf), [Adam figure](figures/adam_backward_lag256.pdf). All task cloud deleted; compute USD9.26, provisional. [Run212](../../runs/212-2026-11-02-eos-backward-anchors/README.md).
+
+## Manuscript-only revision, 2026-11-02
+
+The [author-feedback observation](observations/002-manuscript-view.md) records the new compact publication
+view and its unchanged source evidence. Reproduce the current manuscript
+through `manuscript/draft/revisions/2026-11-02-feedback/`; earlier paper
+validators refer to their historical snapshots. No training or cloud work.

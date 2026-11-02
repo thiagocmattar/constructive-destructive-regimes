@@ -67,3 +67,10 @@ before the task pod and 30 GB volume were deleted. No cloud storage remains.
 Raw evidence and the 10.267 GB transfer archive remain in ignored local storage.
 See [retrieval](retrieval.json) and [closeout](closeout.json). Unrelated resources
 were preserved. The revised Section V contains the focused sampling argument.
+
+## Manuscript-only revision, 2026-11-02
+
+The [author-feedback observation](observations/005-compact-author-feedback.md) records the new compact publication
+view and its unchanged source evidence. Reproduce the current manuscript
+through `manuscript/draft/revisions/2026-11-02-feedback/`; earlier paper
+validators refer to their historical snapshots. No training or cloud work.

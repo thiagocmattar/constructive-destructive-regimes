@@ -225,3 +225,10 @@ The 18-page draft is compiled and visually reviewed. Existing scientific
 figures and executed evidence are preserved; this remains local postprocessing.
 
 Next Run154 / Analysis026 / H022 (see research/INDEX.md). H020 remains the scientific question.
+
+## Manuscript-only revision, 2026-11-02
+
+The [author-feedback observation](observations/009-author-feedback-figures.md) records the new compact publication
+view and its unchanged source evidence. Reproduce the current manuscript
+through `manuscript/draft/revisions/2026-11-02-feedback/`; earlier paper
+validators refer to their historical snapshots. No training or cloud work.

@@ -1,6 +1,7 @@
 \section{Background: Stability Analysis of SGD}
+\label{sec:background}
 
-Intuitively, stable optimization occurs when updates reinforce each other and gradually shift parameters toward a point of minimum loss. Instability therefore arises when updates overshoot, oscillate, or partially undo the progress made by previous steps~\cite{polyak1964methods, bertsekas1997nonlinear}. Understanding this behavior requires examining the mechanisms that govern how updates evolve from one iteration to the next. Two factors have traditionally played a central role in explaining these dynamics: the \textit{local curvature} of the loss landscape and the \textit{stochasticity} introduced by mini-batch sampling.
+Training stability concerns how perturbations and loss evolve under repeated updates. Overshoot and oscillation are useful symptoms, but can also accompany sustained objective progress. Understanding these dynamics requires examining both the \textit{local curvature} of the loss landscape and the \textit{stochasticity} introduced by mini-batch sampling~\cite{polyak1964methods, bertsekas1997nonlinear, cohen2021edge}.
 
 \subsection{Local Curvature of the Loss Function and Stability}
 
@@ -28,7 +29,7 @@ In a locally quadratic regime near a minimum, the Hessian is approximately const
 \[
 \delta_t^{(i)}=(1-\eta\lambda_i)\,\delta_{t-1}^{(i)}.
 \]
-Thus, the factor \(1-\eta\lambda_i\) determines whether perturbations along direction \(v_i\) decay or grow. A classical necessary and sufficient condition for linear stability is
+Thus, the factor \(1-\eta\lambda_i\) determines whether perturbations along direction \(v_i\) decay or grow. For a positive-definite Hessian, a classical necessary and sufficient condition for linear stability is
 \begin{equation}
 \max_i |1-\eta\lambda_i| < 1
 \; \Leftrightarrow \;

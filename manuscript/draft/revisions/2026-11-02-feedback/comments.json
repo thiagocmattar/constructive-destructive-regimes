@@ -1,0 +1,398 @@
+{
+  "source_sha256": "8cb9abcb1170710caab49acb91e16d80cb62648e2cb5d183b7fe8cbf3b48f59e",
+  "pages": 17,
+  "comments": [
+    {
+      "task": "C01",
+      "page": 3,
+      "type": "Highlight",
+      "id": "464a25af-463b-4490-822e-7354ed1d37d8",
+      "comment": "I don't think this is a good title",
+      "highlighted_text": "III. PARAMETER DISPLACEMENT  STOCHASTIC  UNDER GRADIENT DESCENT",
+      "rect": [
+        321.1239929199219,
+        673.2969970703125,
+        553.89501953125,
+        698.00732421875
+      ]
+    },
+    {
+      "task": "C02",
+      "page": 4,
+      "type": "Highlight",
+      "id": "aef7bc16-9502-45b0-aa93-c88aca3098ff",
+      "comment": "drop. Remove.",
+      "highlighted_text": " its relation to learned function or pre- dictive performance requires additional evidence.",
+      "rect": [
+        48.58890151977539,
+        281.2820129394531,
+        300.39599609375,
+        305.9930114746094
+      ]
+    },
+    {
+      "task": "C03",
+      "page": 4,
+      "type": "Highlight",
+      "id": "c75f51cf-b260-42c3-8ae5-40846b8f6203",
+      "comment": "remove",
+      "highlighted_text": "T\n Its squared norm measures the magnitude of this change in the chosen parameterization;",
+      "rect": [
+        48.58980178833008,
+        257.3709716796875,
+        300.4079895019531,
+        294.0369873046875
+      ]
+    },
+    {
+      "task": "C04",
+      "page": 4,
+      "type": "Highlight",
+      "id": "3749af81-012e-43ca-8d7c-d43208367f7f",
+      "comment": "I think this is a little confusing. We first state kappa, than noise alignment, than rho as a function of then, then \\eta kappa hat, then we define constructive-destructive regimes in terms of kappa. We don't say anything on how \\rho and interference connects with curvature (which I think is a good insight). For example,",
+      "highlighted_text": " To characterize these contributions, we define the directional curvature and normalized noise contribution g⊤\nt− −1Ht− −1gt− −1 g⊤\nt− (13) κt := , ∥2 ∥g gt−1∥2 g⊤\nt− −1( (ξt − ξt−1) g⊤\nt− (14) εt := . 2 ∥g gt−1∥ Here,  measures the curvature projected at the gradient  κt t \ndirection, and  describes the mini-batch noise alignment with εt t \nthe same gradient direction. Substituting these into Eq. (12) and dividing by  gives, after neglecting the Taylor ∥ ∥gt−1∥∥gt∥ t−1t\nremainder, the first-order relation ∥ ∥gt−1∥ (15) ρt ≈ (1  − ηκt +  εt). ∥ ∥gt∥ Rearranging Eq. (15) gives ∥ ∥gt∥ �κ (16) η �κt := 1  − ρt ≈ ηκt  − εt. ∥g gt−1∥  �κ The quantity  is computable from consecutive mini-batch  �κt  �t \ngradients without evaluating the Hessian. However, it com- bines directional curvature with stochastic noise and therefore does not isolate κt. Equation (15) also characterizes the sign of t\nconsecutive gradient alignment. Neglecting the Taylor remain- der, and in the absence of noise (ε  0), consecutive nonzero εt  = t \ngradients are positively aligned when   1, orthogonal  ηκt  < when  t \n 1, and negatively aligned when  1.  ηκt  =  ηκt  > t t \nDifferently from Eq. 3, here we focus on the characterization of constructive-destructive regimes",
+      "rect": [
+        311.6029968261719,
+        399.3940124511719,
+        563.4219970703125,
+        749.0576782226562
+      ]
+    },
+    {
+      "task": "C05",
+      "page": 4,
+      "type": "Text",
+      "id": "43fe77c8-e0fe-4d35-b80e-2cedec5aa7e3",
+      "comment": "I think we're trowing too much math and then going to the conclusions. Let's provide the insights, interpretation as we write down the math. For example, Eq. 16 (diagnostic) may be introduced only at the end, connecting a theoretical argument with a quantifiable metric.",
+      "highlighted_text": "",
+      "rect": [
+        311.6029968261719,
+        399.3940124511719,
+        335.6029968261719,
+        423.3940124511719
+      ]
+    },
+    {
+      "task": "C06",
+      "page": 4,
+      "type": "Text",
+      "id": "4bf8e449-b95a-4627-bf50-7e9a0437eaf7",
+      "comment": "The key interpretation is that \\\\(\\rho_t\\\\) measures gradient alignment, while \\\\(\\kappa_t\\\\) measures curvature along the gradient direction. Their relationship describes how curvature rotates the gradient after an optimization step.\r\rStarting from\r\r\\\\[ \\boxed{ \\rho_t\\approx\\frac{\\\\|g\\_{t-1}\\\\|}{\\\\|g_t\\\\|}(1-\\eta\\kappa_t) } \\\\]\r\rwhere\r\r\\\\[ \\kappa_t= \\frac{g\\_{t-1}^{\\top}H\\_{t-1}g\\_{t-1}} {\\\\|g\\_{t-1}\\\\|^2} \\\\]\r\ris the Hessian curvature projected onto the gradient direction.\r\r## 1. Relationship between \\\\(\\rho_t\\\\) and \\\\(\\kappa_t\\\\)\r\rAssuming \\\\(\\eta>0\\\\) and nonzero gradients:\r\r| Condition            | Gradient alignment   | Interpretation                                          |\r| -------------------- | -------------------- | ------------------------------------------------------- |\r| \\\\(\\eta\\kappa_t<1\\\\) | \\\\(\\rho_t>0\\\\)       | Gradients have a positive projection onto each other    |\r| \\\\(\\eta\\kappa_t=1\\\\) | \\\\(\\rho_t\\approx0\\\\) | Consecutive gradients are orthogonal                    |\r| \\\\(\\eta\\kappa_t>1\\\\) | \\\\(\\rho_t<0\\\\)       | Gradient direction reverses along the previous gradient |\r\rThus, increasing positive curvature relative to the learning rate pushes gradient alignment from positive toward negative, although the exact magnitude of \\\\(\\rho_t\\\\) also depends on the gradient norm ratio.\r\r## 2. What does \\\\(\\eta\\kappa_t=1\\\\) mean geometrically?\r\rConsider the gradient descent update:\r\r\\\\[ \\theta_t=\\theta\\_{t-1}-\\eta g\\_{t-1}. \\\\]\r\rUsing a first-order approximation of the new gradient,\r\r\\\\[ g_t\\approx g\\_{t-1}-\\eta H\\_{t-1}g\\_{t-1}. \\\\]\r\rTaking the inner product with the previous gradient,\r\r\\\\[ g\\_{t-1}^{\\top}g_t \\approx \\\\|g\\_{t-1}\\\\|^2(1-\\eta\\kappa_t). \\\\]\r\rTherefore, when\r\r\\\\[ \\boxed{\\eta\\kappa_t=1} \\\\]\r\rwe obtain\r\r\\\\[ \\boxed{g\\_{t-1}^{\\top}g_t\\approx0.} \\\\]\r\rGeometrically, the updated gradient has lost its component along the previous gradient direction. If the updated gradient remains nonzero, the two gradients are approximately orthogonal.\r\r## 3. Connection to the optimal learning rate\r\rThere is an important interpretation here.\r\rConsider a second-order Taylor approximation of the loss along the negative gradient direction:\r\r\\\\[ \\mathcal L(\\theta\\_{t-1}-\\eta g\\_{t-1}) \\approx \\mathcal L(\\theta\\_{t-1}) -\\eta\\\\|g\\_{t-1}\\\\|^2 +\\frac{\\eta^2}{2}\\kappa_t\\\\|g\\_{t-1}\\\\|^2. \\\\]\r\rDifferentiating with respect to \\\\(\\eta\\\\):\r\r\\\\[ \\frac{\\partial\\mathcal L}{\\partial\\eta} \\approx -\\\\|g\\_{t-1}\\\\|^2(1-\\eta\\kappa_t). \\\\]\r\rSetting this derivative to zero gives\r\r\\\\[ \\boxed{\\eta^\\*=\\frac{1}{\\kappa_t}} \\\\]\r\rfor \\\\(\\kappa_t>0\\\\).\r\rSo \\\\(\\eta\\kappa_t=1\\\\) corresponds to the locally optimal step size along the negative gradient direction under the quadratic approximation.\r\rThis gives a meaningful interpretation:\r\r- \\\\(\\eta\\kappa_t<1\\\\): The step has not yet reached the minimum along the previous descent direction.\r- \\\\(\\eta\\kappa_t=1\\\\): The step approximately reaches that directional minimum.\r- \\\\(\\eta\\kappa_t>1\\\\): The step has passed that directional minimum, causing the gradient component along the previous direction to reverse.\r\rImportantly, reaching the directional minimum does not imply reaching a stationary point of the full multidimensional loss. The remaining gradient can be perpendicular to the previous direction.\r\rThere is also a special case: if the gradient lies entirely along a Hessian eigenvector, \\\\(\\eta\\kappa_t=1\\\\) can make \\\\(g_t=0\\\\) in the quadratic model. In that case, the cosine similarity \\\\(\\rho_t\\\\) is undefined rather than zero.\r\rThe central insight: \\\\(\\eta\\kappa_t=1\\\\) is a directional critical point where the gradient transitions from positive to negative alignment with its previous value. It represents locally optimal progress along the previous gradient direction, not necessarily an instability threshold or a full optimum.",
+      "highlighted_text": "",
+      "rect": [
+        311.6029968261719,
+        399.3940124511719,
+        335.6029968261719,
+        423.3940124511719
+      ]
+    },
+    {
+      "task": "C07",
+      "page": 5,
+      "type": "Highlight",
+      "id": "20b9cca8-b549-498b-9800-ba3cd5f6ef25",
+      "comment": "Add here the g_{t-1} = ... as a function of e_t to make explicit how it already contains its own noise, and how the Eq. 17 is formed from this. Make the text more compact and add more in-line math to be more explicit.",
+      "highlighted_text": "Under fresh, independent mini-batch sampling across updates, the current noise   has zero expected inner product with the preceding ξt t \ngradient −1. However,  already contains its own noise  gt− gt− −1 −1.  ξt−",
+      "rect": [
+        48.58890151977539,
+        93.718994140625,
+        300.4010009765625,
+        154.7459716796875
+      ]
+    },
+    {
+      "task": "C08",
+      "page": 5,
+      "type": "Highlight",
+      "id": "807dcdbc-897e-418a-b8ad-f1bde7222c8c",
+      "comment": "remove",
+      "highlighted_text": "Its sign need not be inherited by E[ [εt]: the denominator in Eq. (14) is a correlated random t\nsquared gradient norm.",
+      "rect": [
+        48.58890151977539,
+        201.5360107421875,
+        300.39801025390625,
+        238.20098876953125
+      ]
+    },
+    {
+      "task": "C09",
+      "page": 5,
+      "type": "Highlight",
+      "id": "cc869f01-41c4-4810-9653-8f15f1ba2710",
+      "comment": "compact those 2 paragraphs into one. pass the central message (i.e. noise dampens the expected value of alignment, approaching to zero regarding of rho being positive or negative), then use the equation to make it precise.",
+      "highlighted_text": "Importantly, this does not imply that the total expected inner product g⊤\nt−  necessarily becomes more negative with −1gt g⊤\nt− t−1t \nsmaller batches. The same sampling variance increases the expected squared norm ∥2, and these two contributions  ∥ ∥gt−1∥ t−1\ncancel in Eq. (12). Nevertheless, increasing noise can reduce directional coherence by increasing gradient magnitudes rela- tive to their common full-gradient component. To isolate the loss of directional coherence due to sampling, consider independent gradient estimates at the same fixed parameters. This also approximates consecutive updates when the full gradient changes little and the dependence induced by parameter motion is negligible. When the gradient norms are sufficiently concentrated, the expected cosine similarity can be approximated by",
+      "rect": [
+        48.58890151977539,
+        376.82501220703125,
+        300.4020080566406,
+        544.85400390625
+      ]
+    },
+    {
+      "task": "C10",
+      "page": 5,
+      "type": "Highlight",
+      "id": "410de14a-4ed5-4862-a46a-23cadcf1aa68",
+      "comment": "too verbose and with a low density of information. make it more clear, direct, precise. before writing, answer: what is the central message we want to pass here? every paragraph should have its own goal.",
+      "highlighted_text": "The ratio in Eq. (19) is an approximation to an expectation of normalized inner products, rather than an exact identity. For independent, identically distributed nonzero gradients at fixed parameters, the exact expected cosine is nonnegative: it equals the squared norm of the mean unit gradient. Thus this comparison describes the attenuation of common di- rectional alignment toward zero; it cannot describe negative expected alignment caused by parameter motion. Along an SGD trajectory, curvature couples successive updates and can induce negative alignment even when sampling noise is large. Equation (19) therefore does not predict how a destructive regime responds to batch size. That response also depends on the evolving full gradient and its interaction with the sampled updates.",
+      "rect": [
+        48.58890151977539,
+        580.885009765625,
+        300.3970031738281,
+        749.0574951171875
+      ]
+    },
+    {
+      "task": "C11",
+      "page": 5,
+      "type": "Highlight",
+      "id": "25bba31d-b4a0-4ce9-bcdc-88f920f2246a",
+      "comment": "Since we're \"characterizing constructive-destructive regimes\", we may inform the reader what we expect to happen to R_T. Since it measures the cumulative displacement / path ratio from t=0 to T, R_T -> 0 means almost all the path was destructed and didn't translate into parameter motion, and R_T -> 1 means almost all the path went to the parameters. We expect for SGD to be a small R_T, because of the destructive interference.",
+      "highlighted_text": "Unlike ρt, which considers only adjacent gradients, incor- RT tT \nporates interactions across all temporal lags. Values near one indicate that the updates retain most of their accumulated path length as net displacement. Smaller values indicate greater loss of path-length retention through directional variation, including cancellation; they do not determine the sign of the total cross-step interaction in Eq. (21).",
+      "rect": [
+        311.6029968261719,
+        274.44500732421875,
+        563.4110107421875,
+        358.9309997558594
+      ]
+    },
+    {
+      "task": "C12",
+      "page": 5,
+      "type": "Highlight",
+      "id": "fd2d462a-bb78-47de-89df-201b510559b7",
+      "comment": "Rewrite this equation. \r\rPut the left terms as a \\Delta loss;\rseparate -\\eta/2 ||g_{t-1}||^2 from -\\eta/2\\rho_t||g_t|||g_{t-1}||. -> it will isolate and make more explicit the destructive term;\rkeep the noise as the third term.\r\rAdd a bracket below them, saying:",
+      "highlighted_text": "L( (θt−1)  − L( (θt−2) 2)\n� � η ∥ ∥gt∥ 2 ≈− ∥ ∥gt−1∥ 1 +  ρt 2\nη ∥ ∥gt−1∥  η ⊤\nt− + g −1( (ξt− +  ξt). −1 g⊤\nt− 2",
+      "rect": [
+        364.9289855957031,
+        442.6679992675781,
+        510.16400146484375,
+        504.614990234375
+      ]
+    },
+    {
+      "task": "C13",
+      "page": 5,
+      "type": "Text",
+      "id": "3471fbdd-9462-4d73-a4ad-72e13e07b04e",
+      "comment": "gradient magnitude\rdestructive interference\rnoise interaction. \r\rWe can write also as \\eta.kappa, but I think the main point / interpretation here is that if gradients oppose the preceding direction, and has a big norm, then it has a negative term that can make \\Delta loss positive which is the cause for the overshoot / peaks. \r\rThere are 2 ways of interpreting it: which is the curvature argument, but also the destructive element. Then, we proceed to the explanation (next paragraph, which is good) to argue about those regimes",
+      "highlighted_text": "",
+      "rect": [
+        364.9289855957031,
+        442.6679992675781,
+        388.9289855957031,
+        466.6679992675781
+      ]
+    },
+    {
+      "task": "C14",
+      "page": 5,
+      "type": "Highlight",
+      "id": "8aa33de2-e855-422e-ae4b-f9aa5e9f7639",
+      "comment": "I think we can make this section richer and more insightful for a reader, e.g. \r\rAssuming a sufficiently large batch such that \\\\(<noise goes to 0>\\\\), we have\r\r\\\\[ \\Delta\\mathrm{loss}\\approx -\\frac{\\eta}{2}\\\\|g\\_{t-1}\\\\|^2 -\\frac{\\eta}{2}\\rho_t\\\\|g\\_{t-1}\\\\|\\\\|g_t\\\\|. \\\\]\r\rFactoring,\r\r\\\\[ \\Delta\\mathrm{loss}\\approx -\\frac{\\eta}{2}\\\\|g\\_{t-1}\\\\| \\left(\\\\|g\\_{t-1}\\\\|+\\rho_t\\\\|g_t\\\\|\\right). \\\\]\r\rFor a loss spike, we require \\\\(\\Delta\\mathrm{loss}>0\\\\).\r\rAssuming \\\\(\\eta>0\\\\) and nonzero gradients, this implies\r\r\\\\[ \\\\|g\\_{t-1}\\\\|+\\rho_t\\\\|g_t\\\\|<0. \\\\]\r\rTherefore, the condition for a loss spike is\r\r\\\\[ \\boxed{ \\rho_t<-\\frac{\\\\|g\\_{t-1}\\\\|}{\\\\|g_t\\\\|} } \\\\]\r\r### Interpretation\r\rAssuming \\\\(\\rho_t\\\\) is the cosine similarity between consecutive gradients, so that \\\\(\\rho_t\\in[-1,1]\\\\), two conditions must hold:\r\r1. Gradient misalignment: \\\\(\\rho_t<0\\\\). Consecutive gradients must point in sufficiently opposing directions.\r2. Gradient norm growth: \\\\(\\\\|g_t\\\\|>\\\\|g\\_{t-1}\\\\|\\\\). The current gradient must have a larger norm than the previous one.\r\rBoth are necessary, but neither is sufficient individually. The negative alignment must be strong enough to satisfy the boxed inequality.\r\rKey insight: In the large-batch limit of this approximation, loss spikes require the combination of gradient norm growth and sufficiently strong negative gradient alignment. Simply having a large gradient norm is not enough.",
+      "highlighted_text": "The complete derivation is provided at Appendix A. For full-batch gradient descent, the noise contribution vanishes. From Eq. (15), ηκt. Consequently,  ρt∥gt∥/∥gt−1∥ ≈ 1  − ttt−1t\nthe local quadratic model predicts a loss decrease when  2, whereas consecutive gradients become negatively ηκt < t \naligned when  1. Thus, the interval  de- ηκt >  1 <  ηκt < 2 t t \nscribes destructive interference without loss increase. Negative alignment alone is therefore insufficient to characterize a loss spike, once it depends too on the relative gradient magnitudes. Under mini-batch SGD, the noise contribution can overcome the predicted decrease, producing a loss spike even when  2. Such an increase may be transient if subsequent ηκt < t \nupdates recover the preceding loss level.",
+      "rect": [
+        311.6029968261719,
+        505.47601318359375,
+        563.4130249023438,
+        661.6400146484375
+      ]
+    },
+    {
+      "task": "C15",
+      "page": 5,
+      "type": "Text",
+      "id": "afbf3d4d-ac00-42ea-8d93-e7f1a8ce0418",
+      "comment": "Another good idea. We can make the 2 appear \r\rStarting from Equation (15):\r\r\\\\[ \\rho_t \\approx \\frac{\\\\|g\\_{t-1}\\\\|}{\\\\|g_t\\\\|}(1-\\eta\\kappa_t+\\varepsilon_t) \\\\]\r\rAssuming \\\\(\\varepsilon_t=0\\\\):\r\r\\\\[ \\boxed{\\rho_t\\approx\\frac{\\\\|g\\_{t-1}\\\\|}{\\\\|g_t\\\\|}(1-\\eta\\kappa_t)} \\\\]\r\rSince the ratio of gradient norms is positive (assuming nonzero gradients), the sign of \\\\(\\rho_t\\\\) is determined by \\\\(1-\\eta\\kappa_t\\\\).\r\r| Condition            | Gradient alignment                 |\r| -------------------- | ---------------------------------- |\r| \\\\(\\eta\\kappa_t<1\\\\) | \\\\(\\rho_t>0\\\\): aligned            |\r| \\\\(\\eta\\kappa_t=1\\\\) | \\\\(\\rho_t\\approx 0\\\\): orthogonal  |\r| \\\\(\\eta\\kappa_t>1\\\\) | \\\\(\\rho_t<0\\\\): negatively aligned |\r\r### Connection to loss spikes\r\rPreviously, we derived the loss spike condition:\r\r\\\\[ \\rho_t<-\\frac{\\\\|g\\_{t-1}\\\\|}{\\\\|g_t\\\\|} \\\\]\r\rSubstituting Equation (15):\r\r\\\\[ \\frac{\\\\|g\\_{t-1}\\\\|}{\\\\|g_t\\\\|}(1-\\eta\\kappa_t) < -\\frac{\\\\|g\\_{t-1}\\\\|}{\\\\|g_t\\\\|} \\\\]\r\rCanceling the positive gradient norm ratio:\r\r\\\\[ 1-\\eta\\kappa_t<-1 \\\\]\r\rTherefore,\r\r\\\\[ \\boxed{\\eta\\kappa_t>2} \\\\]\r\r### Key result\r\rUnder the approximations used, the loss change becomes\r\r\\\\[ \\boxed{ \\Delta\\mathrm{loss} \\approx \\frac{\\eta}{2}\\\\|g\\_{t-1}\\\\|^2(\\eta\\kappa_t-2) } \\\\]\r\rThis gives two important thresholds:\r\r- \\\\(\\eta\\kappa_t>1\\\\): Gradient alignment becomes negative.\r- \\\\(\\eta\\kappa_t>2\\\\): The negative alignment becomes sufficiently strong to produce a loss spike.\r\rThus, negative gradient alignment is necessary but not sufficient for a loss spike. The effective curvature–learning-rate product must exceed 2 within this approximation.",
+      "highlighted_text": "",
+      "rect": [
+        311.6029968261719,
+        505.47601318359375,
+        335.6029968261719,
+        529.4760131835938
+      ]
+    },
+    {
+      "task": "C16",
+      "page": 5,
+      "type": "Highlight",
+      "id": "bf8c12ac-c7b6-4b3f-8cad-6905a72ad577",
+      "comment": "This introduction (continued in the next page, for this entire paragraph) is too verbose and unecessary. Be more direct. State the goal. What do we want to achieve? Caracterize the destructive regime with GD, ... what else?",
+      "highlighted_text": "Full-batch gradient descent provides a controlled setting for examining how consecutive gradient directions relate to cumu- lative parameter motion and objective progress. The sampling- noise term vanishes, and each gradient directly determines",
+      "rect": [
+        311.6029968261719,
+        700.4373779296875,
+        563.4110107421875,
+        749.0574951171875
+      ]
+    },
+    {
+      "task": "C17",
+      "page": 5,
+      "type": "Text",
+      "id": "deac1d4d-f535-48cf-9b94-8d250a1af694",
+      "comment": "The diagnostics, interference behaviour...",
+      "highlighted_text": "",
+      "rect": [
+        311.6029968261719,
+        700.4373779296875,
+        335.6029968261719,
+        724.4373779296875
+      ]
+    },
+    {
+      "task": "C18",
+      "page": 6,
+      "type": "Highlight",
+      "id": "7140dc36-d5d6-4bc9-b8c0-67be8aa80cd4",
+      "comment": "Too big. SImplify into 1 paragraph. No need to provide such much detail (e.g. FP32), etc. Be compact. Think \"what a reviewer or human research need to know to understand / interpret the results\"?",
+      "highlighted_text": "We use three settings motivated by the Edge-of-Stability experiments [13]: a tanh MLP with two 200-unit hidden layers on the first 5,000 CIFAR-10 training images; ResNet- 32 on all 50,000 CIFAR-10 training images; and a two- layer, two-head word-level Transformer on WikiText-2, with embedding and feed-forward dimensions of 200. The MLP minimizes half-squared error summed over the ten output coordinates and averaged over examples. ResNet minimizes mean cross-entropy over 50 fixed groups of 1,000 images, with batch normalization computed within each group. The Trans- former minimizes token-weighted negative log-likelihood over 2,088,600 prepared training targets. Every update accumulates the complete fixed objective. Each condition runs for 3,000 updates at a constant learning rate:  for the MLP,  for  { {0.004, 0.02, 0.04}  { {0.025, 0.05, 0.1} ResNet, and   for the Transformer. Rates were {0 0.05, 0.1, 0.2} selected from earlier training calibrations to expose contrast- ing dynamics within this horizon, without test-loss selection. Within each case, all rates share one frozen initialization (seed 0) and identical data preparation. There is no momentum, weight decay, gradient clipping, schedule, augmentation or dropout. These are paired comparisons conditional on one initialization per case. We record full-objective loss and raw-gradient geometry at every update. Gradient  is evaluated at −1; loss and  gt  θt− displacement at index  t t−1\nrefer to θt. The first adjacent pair  t  t\nis undefined and omitted; all measured gradient norms are nonzero. Both and the displacement norm in Table I use the Rt t \ngradient-sum identity, whose agreement with stored-parameter displacement is subject to FP32 update roundoff. Smoothed curves use complete 50-observation trailing arithmetic means, computed before logarithmic display. Late means average the last 1,000 defined observations. Preparation, precision, accumulation and spectral measurement details appear in Ap- pendix C.",
+      "rect": [
+        48.58890151977539,
+        180.458984375,
+        300.3999938964844,
+        599.593017578125
+      ]
+    },
+    {
+      "task": "C19",
+      "page": 6,
+      "type": "Highlight",
+      "id": "69830079-32e3-45e8-a35a-d9343b066c20",
+      "comment": "No need to overly state numbers on the paragraphs. The text should be used for insights, interpretation, conclusions, observations. Before every pice of text we should think: how does it add to a reviewer interpretation?",
+      "highlighted_text": "rates. For ResNet, the first negative pair occurs at updates 1,121, 494 and 231 as the rate increases. Such a first sign event need not mark a sustained regime: the MLP at  has an  η = 0.04 initial reversal followed by renewed positive alignment before its later negative phase. The unsmoothed traces in Appendix C retain these transients. The late mean cosine is below  for all seven condi- − −0.96 tions with late reversal, even though their loss continues to decrease over longer timescales. The MLP illustrates this dis- tinction directly: final losses are 0.3365,  and  at  0.2114  0.1539 increasing rates, while the corresponding late mean cosines are approximately 1,   and −0.9799. These observations  − −0.9913  − illustrate the distinction in Section III-D between adjacent reversal and longer-timescale objective progress. The accuracy of its one-step loss approximation is examined separately below.",
+      "rect": [
+        311.6029968261719,
+        54.85797119140625,
+        563.416015625,
+        247.760009765625
+      ]
+    },
+    {
+      "task": "C20",
+      "page": 6,
+      "type": "Highlight",
+      "id": "dfd45a09-9f48-4ef5-884e-3b1aebc8d9fb",
+      "comment": "First thing we should show is a single figure with 3 columns, 2 rows:\r- each column is a dataset / model\r- first row is training loss\r- second row is \\eta hat{\\kappa}.\r\rThe main message is: edge-of-stability without having to compute hessians. With our metric, we can estimate the curvature and the regime without having to do 2nd order computations (which are very expensive). The observation is the same of EOS, oscilation (spikes) start when \\eta kappa goes to ~2.",
+      "highlighted_text": "B. Directional Reversal with Continued Loss Reduction Figure 1 shows that all nine trajectories reduce their training objective over the recorded horizon. Within each case, the largest selected learning rate attains the lowest final training loss. This comparison is at a matched update budget and does not establish an optimal rate outside the tested set. The alignment traces in Fig. 2(a)–(c) separate this progress from directional coherence. The MLP at  and  η = 0.004 Transformer at  retain positive adjacent alignment  η = 0.05 throughout the window. Higher MLP and Transformer rates develop persistent negative alignment, as do all three ResNet",
+      "rect": [
+        48.58890151977539,
+        613.7130126953125,
+        300.3970031738281,
+        749.057373046875
+      ]
+    },
+    {
+      "task": "C21",
+      "page": 6,
+      "type": "Text",
+      "id": "2c8974a4-d02f-4282-9470-ddcc432b9ec9",
+      "comment": "2nd figure should be\r- \\rho\r- gradient norms\r- R_t\r\rcentral message:\r- oscilation starts when the network goes to destructive regime, although it is still stable. the persistent negative \\rho implies overshooting the minimum, like the network would be cross the vale;\r- gradient norms peak and start to grow, which means the network is entering a steeper region. \r- although the gradient norms grow, the effect of parameter displacement doesn't. cancellation starts to dominate, and R_t goes -> 0.\r\rthis explains why GD may be slower. the learning rate may be too big for the vale resolution, so the model keeps overshoting the minimum.\r\rfinal message:\r- table\ralthough the overshoot, lower displacement, etc.. the best result is still the highers lr. discuss it briefly.",
+      "highlighted_text": "",
+      "rect": [
+        48.58890151977539,
+        613.7130126953125,
+        72.58889770507812,
+        637.7130126953125
+      ]
+    },
+    {
+      "task": "C22",
+      "page": 6,
+      "type": "Text",
+      "id": "c29d9934-3cb6-416e-96be-c2164d240778",
+      "comment": "My coments here apply for the rest of this section. We need to be more compact, direct, insightful and present a higher density of information in the text. Our writing should complement the figures, tables, etc.. not describe it.",
+      "highlighted_text": "",
+      "rect": [
+        48.58890151977539,
+        613.7130126953125,
+        72.58889770507812,
+        637.7130126953125
+      ]
+    },
+    {
+      "task": "C23",
+      "page": 6,
+      "type": "Text",
+      "id": "55b7c06b-da13-4e61-a611-a2beb5502173",
+      "comment": "There may be a interesting result here analyses\\035-2026-11-02-eos-backward-anchors\\figures\\gd_backward_lag256.pdf\r\rSee if it fits at the end, maybe doing an analysis of long-lag effects, presenting maybe in a simplified figure (shorter) or table). Because I think this \"long-lag\" view is very interesting. It show how it is effectively oscilating. We have some orthogonal gradients, but even longer-lag sometimes has a strong negative similarity cosine, which means the local-negative is propagating to longer gradients, and GD is effectively swinging / gingling around the minimum.",
+      "highlighted_text": "",
+      "rect": [
+        48.58890151977539,
+        613.7130126953125,
+        72.58889770507812,
+        637.7130126953125
+      ]
+    },
+    {
+      "task": "C24",
+      "page": 7,
+      "type": "Highlight",
+      "id": "55acb8c9-1c5f-49e9-904e-66e4897f70ae",
+      "comment": "Improve the table. Add a column with dataset; Describe T=3000 in the legend, and keep the column notations as a function of T, e.g. ||\\Delta_T||. Describe what is \\rho_{late}. Don't mix numeric (e.g. 1.9754) with scientific notation (e.g. 4.37x10^-5). You can approximate to 0 with a *.",
+      "highlighted_text": "TABLE I: Descriptive endpoints of the nine matched learning-rate conditions. Late means average the last 1,000 defined gradient\n3000  me\n�3 eans\n�3000\n  observations; other entries refer to update 3,000. Displacement is computed as  gt∥, subject to FP32 parameter-update η∥ �\nt=1\npared t=1 t\nroundoff. Each model case shares one initialization across rates. Values are compared within cases; no across-initialization uncertainty is estimated. �κ Model η L(θ3000) ρlate R3000 η �κlate ∥ ∥∆3000∥ MLP 0.004 0.3365 1.0000 0.7941 0− −5 0.9511 4.37×10 MLP\nMLP 0.004\n0.02 0.3365\n0.2114 1.0000\n-0.9913 0.7941\n0.0488 ×10\n1.9924 0.9511\n3.1391 MLP\nMLP 0.02\n0.04 0.2114\n0.1539 -0.9913\n-0.9799 0.0488\n0.0257 1.9924\n1.9820 3.1391\n4.7628 ResNet-32 0.025 1.4665 -0.9723 0.1385 1.9740 5.7045 ResNet-32\nResNet-32 0.025\n0.05 1.4665\n0.9672 -0.9723\n-0.9708 0.1385\n0.0616 1.9740\n1.9746 5.7045\n9.0183 ResNet-32\nResNet-32 0.05\n0.1 0.9672\n0.4898 -0.9708\n-0.9684 0.0616\n0.0374 1.9746\n1.9707 9.0183\n13.9329 Transformer 0.05 6.6301 1.0000 0.7223 0− −4 11.3183 1.96×10 Transformer\nTransformer 0.0\n0.1 6.6301\n6.3519 1.0000\n-0.9749 0.7223\n0.1395 ×10\n1.9754 11.3183\n15.6026 Transformer\nTransformer 0.1\n0.2 6.3519\n6.0697 -0.9749\n-0.9937 0.1395\n0.0541 1.9754\n1.9937 15.6026\n21.9693",
+      "rect": [
+        48.58879852294922,
+        301.90399169921875,
+        563.4099731445312,
+        478.5069885253906
+      ]
+    },
+    {
+      "task": "C25",
+      "page": 7,
+      "type": "Highlight",
+      "id": "608e28f1-0ea2-45e7-bbbd-794a3b1279bc",
+      "comment": "remove. my directive for this section is in the above coments.",
+      "highlighted_text": "We directly assess the local loss approximation by compar- ing η �\nδL �κ ∥2 (23) �\nδLt− :=  − ∥ ∥gt−1∥ (2  − η �κt) −1 2 with the recorded change   for  L( (θt−1)  − L( (θt−2)  t = t−1t−2\n 3000. This gives 2,999 unsmoothed comparisons per 2, . . . , condition; the last update has no subsequent recorded gra- ec\n �κ dient. The comparison is retrospective because  uses that  �κt subsequent gradient. The approximation’s sign disagrees with the recorded change in zero transitions for the lowest MLP and Transformer rates, but in 1,325 of 2,999 transitions (44.2%) for the Trans- former at  0.2.  η =",
+      "rect": [
+        48.58879852294922,
+        502.13299560546875,
+        300.4010009765625,
+        749.0576171875
+      ]
+    },
+    {
+      "task": "C26",
+      "page": 9,
+      "type": "Highlight",
+      "id": "d524fb2d-08c9-42c0-9d1d-1a11c9f15cde",
+      "comment": "This section is too big. It should be a subsection of the previous section. After we caracterized GD, we do a short subsection on SGD varying batch size.",
+      "highlighted_text": "V. EFFECT MINI-BATCH SAMPLING OF   ON THE DIAGNOSTICS Mini-batch sampling changes both the estimated gradients and the parameter trajectory. We distinguish these effects by first calibrating the fixed-parameter approximation in Sec- tion III-B, then comparing alignment, displacement and loss during matched SGD continuations. The question is how batch size changes the interpretation of the diagnostics at a fixed learning rate.",
+      "rect": [
+        48.58890151977539,
+        54.85699462890625,
+        300.3970031738281,
+        167.66998291015625
+      ]
+    },
+    {
+      "task": "C27",
+      "page": 9,
+      "type": "Text",
+      "id": "e39274b9-10d3-4c48-a56e-31b581f3a8d0",
+      "comment": "The section can limit its analysis to \"At initialization\" and \"After 2k updates\". No need to present an intermediate after 1k updates. Show only a figure with 2 rows and 2 columns:\r- rows are mean cosine similarity and displacement ratio\r- columns are \"at initialization\" and \"after 2k GD updates\"\r\rshow only a single line. Make explicit that the batch size b=5k is the full batch. \r\rbe very compact and pass the central message: batch size -> noise magnitude -> atenuation of \\rho and net displacement. its not that noisy is more \"destructive\", but that its more \"random\" / orthogonal.",
+      "highlighted_text": "",
+      "rect": [
+        48.58890151977539,
+        54.85699462890625,
+        72.58889770507812,
+        78.85699462890625
+      ]
+    },
+    {
+      "task": "C28",
+      "page": 9,
+      "type": "Text",
+      "id": "f1108ce7-2731-4823-ab14-0d8f297f9709",
+      "comment": "The section can limit its analysis to \"At initialization\" and \"After 2k updates\". No need to present an intermediate after 1k updates. Show only a figure with 2 rows and 2 columns:\r- rows are mean cosine similarity and displacement ratio\r- columns are \"at initialization\" and \"after 2k GD updates\"\r\rshow only a single line. Make explicit that the batch size b=5k is the full batch. \r\rbe very compact and pass the central message: batch size -> noise magnitude -> atenuation of \\rho and net displacement. its not that noisy is more \"destructive\", but that its more \"random\" / orthogonal.\r\rYou can even speculate briefly how \"random / orthogonal\" can or cannot be beneficial for learning, connecting maybe with the \"implicit regularization\" literature?",
+      "highlighted_text": "",
+      "rect": [
+        48.58890151977539,
+        54.85699462890625,
+        72.58889770507812,
+        78.85699462890625
+      ]
+    }
+  ]
+}

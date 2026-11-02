@@ -1,5 +1,9 @@
 # Analysis024 observations
 
+- [009: Author-feedback figures](009-author-feedback-figures.md): loss/projected
+  change and cosine/norm/retention composites, revised endpoint table, unchanged
+  scientific arrays, and the 2026-11-02 manuscript revision.
+
 - [001: Available 3k GD learning-rate calibrations](001-available-calibrations.md).
 - [002: MLP learning rates](002-mlp-learning-rates.md), historical MLP-only layout.
 - [003: Completed three-model overview](003-completed-three-model-overview.md).

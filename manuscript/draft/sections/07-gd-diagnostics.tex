@@ -3,6 +3,15 @@
 
 \subsection{Objectives and Measurement}
 
+The tanh MLP has two 200-unit hidden layers and minimizes half-squared
+error summed over ten output coordinates and averaged over the first
+5,000 training images. ResNet-32 minimizes mean cross-entropy on all
+50,000 training images. The word-level Transformer has two layers,
+two attention heads, and embedding/feed-forward dimensions of 200;
+its objective is token-weighted negative log-likelihood. Learning rates
+are constant and share frozen seed-0 initial tensors within each case.
+There is no momentum, decay, clipping, augmentation, dropout or schedule.
+
 The MLP uses coordinate-wise standardization and ResNet uses channel-wise
 standardization, both based on the complete CIFAR-10 training split.
 ResNet's objective averages the same 50 fixed groups of 1,000 images,
@@ -82,12 +91,18 @@ This endpoint result does not assert positivity at every prefix or for
 every individual pair. Comparisons of magnitudes are within each model
 case and its fixed parameterization.
 
+
 \subsection{Retrospective Loss Approximation}
 
 For each gradient pair indexed by $t=2,\ldots,3000$, let
 $\delta\mathcal L_{t-1}:=\mathcal L(\theta_{t-1})-\mathcal L(\theta_{t-2})$.
-We compare this observed change with
-$\widehat{\delta\mathcal L}_{t-1}$ from Eq.~\eqref{eq:gd-loss-surrogate}.
+We compare this observed change with the gradient-based approximation
+\begin{equation}
+  \widehat{\delta\mathcal L}_{t-1}
+  :=-\frac{\eta}{2}\|g_{t-1}\|^2
+  \left(2-\eta\widehat\kappa_t\right).
+  \label{eq:gd-loss-surrogate}
+\end{equation}
 The normalized absolute discrepancy is
 \begin{equation}
  e_t:=\frac{|\delta\mathcal L_{t-1}-\widehat{\delta\mathcal L}_{t-1}|}
@@ -114,6 +129,49 @@ are descriptive sensitivity choices, not calibrated FP32 error bounds.
 Serial transitions are not independent initialization replicates, and
 the comparison is retrospective because it uses the subsequent gradient.
 The discrepancy does not isolate finite-step, nonsmooth or numerical effects.
+For the highest-rate Transformer, the unthresholded signs disagree in
+$44.2\%$ of transitions; excluding changes below the $10^{-5}$ relative
+threshold leaves $43.7\%$ disagreement. Thus a projected change near two
+is informative about the oscillatory regime but does not by itself
+validate a pointwise nonlinear loss prediction.
+
+
+\subsection{Backward-Lag Measurements}
+
+The backward profiles use the largest GD rate in each model, with exact
+full-objective gradients from separately recomputed 256-update
+continuations. Retained states 500, 2000 and 3000 supply common starting
+parameters; their endpoints are states 756, 2256 and 3256 (gradient
+indices 757, 2257 and 3257). Figure~\ref{fig:gd-backward} uses the middle
+endpoint in every model, a common trained-state comparison rather than
+an endpoint chosen for maximum oscillation. Each curve holds that
+endpoint fixed, includes every lag through 256, and uses no temporal
+averaging or compression. FP64 products of FP32 vectors were checked
+independently on CPU and GPU; selected retained vectors supply additional
+local checks. Later floating-point trajectories can depart from earlier
+replays despite identical starting tensors, so these profiles are
+separate continuations, not reconstructed pairs from Figs.~\ref{fig:gd-loss}
+and~\ref{fig:gd-alignment-displacement}. At all nine measured endpoints,
+both positive and negative similarities occur within lags 193--256;
+their amplitudes vary substantially across endpoints.
+
+\subsection{Mini-Batch Comparison}
+
+The mini-batch experiment uses the same 5,000-image MLP objective with
+three independent initializations. New GD reference trajectories at
+$\eta=0.02$ supply matched starting states. Figure~\ref{fig:sgd-moving-geometry}
+retains initial and 2,000-update states from the completed experiment;
+the intermediate state and full-gradient companion diagnostics remain
+in the supporting research record. Each stochastic batch is a uniform
+subset without replacement, independently redrawn at each update.
+Batch sizes share prefixes of a common permutation within a repetition;
+permutations are independent across updates and repetitions. Parameters
+and gradients use FP32, reductions use FP64, and TF32 is disabled.
+Full-loss evaluations cover every training image. Cosines average all
+199 defined consecutive pairs; retention uses all 200 applied gradients.
+Eight repetitions are averaged within initialization before the three
+initializations receive equal weight. The plotted range represents
+variation among these initialization means, not sampling confidence.
 
 \subsection{Spectral Context}
 
@@ -137,6 +195,8 @@ agreement or disagreement therefore does not isolate estimator accuracy
 or the cause of a discrepancy. A state-matched local comparison would pair
 the Hessian at state $s$ with the expansion for gradient index $t=s+2$;
 the spectrum at state 3000 has no matching recorded gradient pair.
+
+
 
 \begin{table*}[!t]
   \centering

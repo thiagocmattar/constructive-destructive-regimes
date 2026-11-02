@@ -1,4 +1,4 @@
-\section{Parameter Displacement under Stochastic Gradient Descent}
+\section{Characterizing Constructive and Destructive Regimes}
 \label{sec:displacement}
 
 Loss spikes and oscillatory updates motivate practical diagnostics that can be
@@ -20,9 +20,7 @@ For a model trained from scratch, $\theta_0$ represents the initialized model th
 yet learned from the training data. After $T$ updates, the trained parameters
 $\theta_T$ encode what the model has learned within that training budget.
 The displacement $\Delta_T$ captures the net parameter change produced
-by training. Its squared norm measures the magnitude of this change in
-the chosen parameterization; its relation to learned function or predictive
-performance requires additional evidence.
+by training.
 Expanding the squared displacement separates gradient magnitudes from the interactions 
 between different steps 
 \begin{equation}
@@ -96,63 +94,72 @@ approximation. Taking the inner product with $g_{t-1}$ then gives
 \end{aligned}
 \label{eq:rho-expanded}
 \end{equation}
-The right-hand side separates the preceding gradient magnitude,
-the curvature contribution, and the gradient noise contribution.
-Positive curvature along the preceding gradient direction reduces
-its alignment with the next gradient, while
-the noise difference can reinforce or oppose this effect.
-To characterize these contributions, we define the directional
-curvature and normalized noise contribution
+Positive curvature reduces the component of the next gradient along the
+preceding direction. Its strength relative to the preceding squared norm
+is the directional curvature
 \begin{equation}
   \kappa_t:=\frac{g_{t-1}^\top H_{t-1}g_{t-1}}{\|g_{t-1}\|^2},
   \label{eq:kappa}
 \end{equation}
+Thus, $\kappa_t$ measures how strongly a step changes the gradient along
+the direction actually followed, whereas $\rho_t$ measures the resulting
+alignment. Sampling modifies this response through the normalized noise
+interaction
 \begin{equation}
   \varepsilon_t:=\frac{g_{t-1}^\top(\xi_t-\xi_{t-1})}
                             {\|g_{t-1}\|^2}.
   \label{eq:epsilon}
 \end{equation}
-Here, $\kappa_t$ measures the curvature projected at the gradient
-direction, and $\varepsilon_t$ describes the mini-batch noise alignment with the same gradient direction.
-Substituting these into Eq.~\eqref{eq:rho-expanded} and
-dividing by $\|g_{t-1}\|\|g_t\|$ gives, after neglecting the Taylor remainder,
-the first-order relation
+Dividing Eq.~\eqref{eq:rho-expanded} by the two gradient norms gives
 \begin{equation}
   \rho_t\approx\frac{\|g_{t-1}\|}{\|g_t\|}
                    (1-\eta\kappa_t+\varepsilon_t).
   \label{eq:rho-normalized}
 \end{equation}
-Rearranging Eq.~\eqref{eq:rho-normalized} gives
+In full-batch GD, $\varepsilon_t=0$. Within this first-order approximation,
+$\eta\kappa_t<1$ retains a positive projection, while $\eta\kappa_t>1$
+reverses it: the next update partially opposes the preceding step.
+At $\eta\kappa_t=1$, the new gradient has lost its component along the
+old direction. It is orthogonal if nonzero; if it vanishes, cosine is
+undefined. The norm ratio determines how this projected change translates
+into the magnitude of $\rho_t$.
+
+The threshold at one also has an optimization interpretation. Along the
+full-gradient direction, the local quadratic loss model is
+$\mathcal L(\theta_{t-2}-\alpha g_{t-1})\approx
+\mathcal L(\theta_{t-2})-\alpha\|g_{t-1}\|^2+
+\alpha^2\kappa_t\|g_{t-1}\|^2/2$.
+For $\kappa_t>0$, its directional minimum is at $\alpha=1/\kappa_t$.
+Negative alignment therefore indicates that the step has passed this
+directional minimum under the approximation. Other gradient components
+may remain: this threshold identifies directional overshoot, rather than
+a stationary point or the loss-increase boundary derived below.
+
+This interpretation leads to a measurable diagnostic. Rearranging
+Eq.~\eqref{eq:rho-normalized} gives
 \begin{equation}
   \eta\widehat\kappa_t
   :=1-\rho_t\frac{\|g_t\|}{\|g_{t-1}\|}
   \approx \eta\kappa_t-\varepsilon_t.
   \label{eq:kappa-estimate}
 \end{equation}
-The quantity $\widehat\kappa_t$ is computable from consecutive
-mini-batch gradients without evaluating the Hessian. However,
-it combines directional curvature with stochastic noise and
-therefore does not isolate $\kappa_t$.
-Equation~\eqref{eq:rho-normalized} also characterizes the sign
-of consecutive gradient alignment. Neglecting the Taylor remainder,
-and in the absence of noise ($\varepsilon_t=0$), consecutive
-nonzero gradients are positively aligned when $\eta\kappa_t<1$,
-orthogonal when $\eta\kappa_t=1$, and negatively aligned when
-$\eta\kappa_t>1$.
-Differently from Eq.~\ref{eq:quad_stability_condition},
-here we focus on the characterization of constructive-destructive regimes.
+The left-hand side uses only consecutive gradients: it measures their
+finite-step projected change without a Hessian evaluation. In full GD it
+estimates directional curvature when the Taylor remainder is small; in
+SGD it also contains sampling noise. It characterizes the realized step,
+whereas Eq.~\eqref{eq:quad_stability_condition} concerns perturbations
+along the most curved local direction.
 
 
 \subsection{Noise Contribution under Mini-Batch Sampling}
 \label{subsec:sampling-noise}
 
-Although mini-batch gradients are unbiased estimators of the full
-gradient, the noise contribution to consecutive gradient alignment
-need not vanish in expectation. Under fresh, independent mini-batch
-sampling across updates, the current noise $\xi_t$ has zero
-expected inner product with the preceding gradient $g_{t-1}$.
-However, $g_{t-1}$ already contains its own noise $\xi_{t-1}$.
-Consequently, assuming finite second moments,
+Unbiased sampling does not make the noise interaction vanish. Write
+$g_{t-1}=\nabla\mathcal L(\theta_{t-2})+\xi_{t-1}$.
+Fresh, conditionally unbiased batches give
+$\mathbb E[g_{t-1}^{\top}\xi_t]=0$ and
+$\mathbb E[\nabla\mathcal L(\theta_{t-2})^{\top}\xi_{t-1}]=0$.
+With finite second moments, the preceding gradient contributes its own noise energy:
 \begin{equation}
   \mathbb{E}[g_{t-1}^\top(\xi_t-\xi_{t-1})]
   =-\mathbb{E}[\|\xi_{t-1}\|^2]\leq0.
@@ -161,9 +168,6 @@ Consequently, assuming finite second moments,
 Thus, even unbiased sampling noise contributes a systematic
 nonpositive term to the expected unnormalized interaction
 between consecutive gradients.
-Its sign need not be inherited by $\mathbb{E}[\varepsilon_t]$:
-the denominator in Eq.~\eqref{eq:epsilon} is a correlated random
-squared gradient norm.
 
 This contribution is directly related to mini-batch size.
 Consider a mini-batch of $b$ examples sampled uniformly
@@ -182,21 +186,17 @@ variance and, consequently, a larger negative expected noise
 contribution. For full-batch gradients ($b=N$), this contribution
 vanishes.
 
-Importantly, this does not imply that the total expected inner
-product $g_{t-1}^\top g_t$ necessarily becomes more negative
-with smaller batches. The same sampling variance increases
-the expected squared norm $\|g_{t-1}\|^2$, and these two
-contributions cancel in Eq.~\eqref{eq:rho-expanded}.
-Nevertheless, increasing noise can reduce directional coherence
-by increasing gradient magnitudes relative to their common
-full-gradient component.
-
-To isolate the loss of directional coherence due to sampling,
-consider independent gradient estimates at the same fixed parameters.
-This also approximates consecutive updates when the full gradient
-changes little and the dependence induced by parameter motion is negligible.
-When the gradient norms are sufficiently concentrated,
-the expected cosine similarity can be approximated by
+Noise can weaken directional coherence by enlarging gradient norms
+relative to their shared signal. For independent estimates at two fixed
+states, let $\mu,\nu$ be the nonzero full gradients and $v_\mu,v_\nu$
+the expected squared noise norms. When sampled norms concentrate,
+\[
+\mathbb E[\cos(\mu+\xi,\nu+\zeta)]\approx
+\frac{\cos(\mu,\nu)}
+{\sqrt{(1+v_\mu/\|\mu\|^2)(1+v_\nu/\|\nu\|^2)}}.
+\]
+This attenuation moves either sign toward zero. At the same fixed state,
+the common full-gradient direction gives the special case
 \begin{equation}
   \mathbb{E}[\rho_t]\approx
   \frac{\|\nabla\mathcal{L}(\theta)\|^2}
@@ -204,19 +204,12 @@ the expected cosine similarity can be approximated by
   \frac{N-b}{b(N-1)}\operatorname{tr}\Sigma(\theta)}.
   \label{eq:noise-cosine-approx}
 \end{equation}
-The ratio in Eq.~\eqref{eq:noise-cosine-approx} is an approximation
-to an expectation of normalized inner products, rather than an exact
-identity. For independent, identically distributed nonzero gradients
-at fixed parameters, the exact expected cosine is nonnegative:
-it equals the squared norm of the mean unit gradient. Thus this
-comparison describes the attenuation of common directional alignment
-toward zero; it cannot describe negative expected alignment caused by
-parameter motion. Along an SGD trajectory, curvature couples successive
-updates and can induce negative alignment even when sampling noise is
-large. Equation~\eqref{eq:noise-cosine-approx} therefore does not predict
-how a destructive regime responds to batch size. That response also
-depends on the evolving full gradient and its interaction with the
-sampled updates.
+Here the expected cosine is nonnegative; the approximation quantifies
+the dilution of a common direction by sampling. During SGD, a sampled
+update also changes the next state, coupling noise and curvature.
+The fixed-state attenuation argument therefore isolates a mechanism,
+while the batch-size intervention in Section~\ref{sec:sgd-noise-experiments}
+tests its expression along evolving trajectories.
 
 
 \subsection{Normalized Displacement and Cumulative Interference}
@@ -257,41 +250,58 @@ R_T^2
 \end{equation}
 Unlike $\rho_t$, which considers only adjacent gradients,
 $R_T$ incorporates interactions across all temporal lags.
-Values near one indicate that the updates retain most of their accumulated
-path length as net displacement. Smaller values indicate greater loss of
-path-length retention through directional variation, including cancellation;
-they do not determine the sign of the total cross-step interaction in
-Eq.~\eqref{eq:cumulative-interference}.
+When $R_T$ is near one, almost all traveled distance survives as net
+displacement; when it is near zero, little does. Repeated back-and-forth
+steps and weakly coherent sampled directions both suggest low retention.
+For example, equal-length orthogonal updates give $R_T=1/\sqrt T$,
+whereas equal opposing pairs cancel exactly. We therefore expect small
+$R_T$ when such behavior persists over a substantial part of an SGD path.
+Its value is relative to traveled distance: absolute displacement can
+still grow, and the sign of the complete interaction in
+Eq.~\eqref{eq:cumulative-interference} requires the full decomposition.
 
-\subsection{Connection with Loss Spikes and Convergence}
+\subsection{Directional Overshoot and Loss Increase}
 \label{subsec:loss-connection}
 
-Constructive and destructive regimes have been characterized on parameter
-motion. To connect gradient alignment with optimization progress, consider
-the loss change along the preceding SGD update. A second-order
-approximation gives
+Directional overshoot need not undo the loss decrease already made along
+a step. Define its full-objective change as
+$\delta\mathcal L_{t-1}:=\mathcal L(\theta_{t-1})-
+\mathcal L(\theta_{t-2})$.
+The second-order approximation derived in Appendix~\ref{appendix:loss-curvature}
+separates three contributions:
 \begin{equation}
 \begin{aligned}
-&\mathcal{L}(\theta_{t-1})-\mathcal{L}(\theta_{t-2})\\
-&\quad\approx
--\frac{\eta}{2}\|g_{t-1}\|^2
-\left(1+\rho_t\frac{\|g_t\|}{\|g_{t-1}\|}\right)\\
-&\qquad+\frac{\eta}{2}
-g_{t-1}^\top(\xi_{t-1}+\xi_t).
+\delta\mathcal L_{t-1}
+&\approx\underbrace{-\frac{\eta}{2}\|g_{t-1}\|^2}_{\text{Gradient magnitude}}\\
+&\quad\underbrace{-\frac{\eta}{2}\rho_t\|g_{t-1}\|\|g_t\|}_{\text{Directional interference}}\\
+&\quad+\underbrace{\frac{\eta}{2}g_{t-1}^\top(\xi_{t-1}+\xi_t)}_{\text{Noise interaction}}.
 \end{aligned}
 \label{eq:loss-curvature}
 \end{equation}
-The complete derivation is provided at Appendix \ref{appendix:loss-curvature}. 
-For full-batch gradient descent, the noise contribution vanishes.
-From Eq.~\eqref{eq:rho-normalized}, $\rho_t\|g_t\|/\|g_{t-1}\|\approx 1-\eta\kappa_t$.
-Consequently, the local quadratic model predicts a loss decrease
-when $\eta\kappa_t<2$, whereas consecutive gradients become
-negatively aligned when $\eta\kappa_t>1$. Thus, the interval
-$1<\eta\kappa_t<2$ describes destructive interference without
-loss increase. Negative alignment alone is therefore insufficient
-to characterize a loss spike, once it depends too on the relative gradient magnitudes.
+The magnitude term favors descent. The interference term reinforces it
+for positive alignment and opposes it for negative alignment: destructive
+interference contributes positively to the predicted loss change.
+With negligible noise and nonzero gradients, the approximation predicts
+a loss increase precisely when
+\begin{equation}
+  \rho_t<-\frac{\|g_{t-1}\|}{\|g_t\|}.
+  \label{eq:loss-rise-alignment}
+\end{equation}
+This requires both negative alignment and gradient-norm growth. Neither
+alone suffices: the opposing component of the new gradient must exceed
+the preceding gradient magnitude. Large norms can therefore accompany
+descent, just as negative cosine can accompany a smaller loss decrease.
 
-Under mini-batch SGD, the noise contribution can overcome the
-predicted decrease, producing a loss spike even when
-$\eta\kappa_t<2$. Such an increase may be transient if subsequent
-updates recover the preceding loss level. 
+Substituting Eq.~\eqref{eq:rho-normalized} with zero noise gives
+\begin{equation}
+  \delta\mathcal L_{t-1}\approx
+  \frac{\eta}{2}\|g_{t-1}\|^2(\eta\kappa_t-2).
+  \label{eq:loss-rise-curvature}
+\end{equation}
+The two thresholds distinguish overshooting the directional minimum
+($\eta\kappa_t>1$) from overshooting far enough to raise the loss
+($\eta\kappa_t>2$). Between them, the gradients oppose each other while
+the step still improves the objective. These are local quadratic
+predictions; finite-step nonlinear effects and the explicit SGD noise
+term can change the observed sign. A transient increase becomes a loss
+peak only if subsequent updates recover.

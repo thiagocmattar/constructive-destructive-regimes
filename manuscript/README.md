@@ -1,5 +1,13 @@
 # Manuscript workspace
 
+Latest author-feedback revision (2026-11-02):
+[review PDF](draft/revisions/2026-11-02-feedback/revised-manuscript.pdf),
+[completed TODO](draft/revisions/2026-11-02-feedback/TODO.md), and
+[comment dispositions / reproduction](draft/revisions/2026-11-02-feedback/README.md).
+The 28-comment source, revision scripts and review PDF are now under `draft/`.
+This revision builds into ignored `tmp/pdfs/` and delivers to `draft/`,
+superseding the older `artifacts/` output convention for the current review.
+
 The original supplied materials are preserved:
 
 - `latex-zip.zip`: original LaTeX source archive.

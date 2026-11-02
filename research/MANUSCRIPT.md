@@ -1,5 +1,31 @@
 # Manuscript and evidence
 
+## Author-feedback revision, 2026-11-02
+
+The [completed 28-comment revision](../manuscript/draft/revisions/2026-11-02-feedback/README.md)
+reorganizes the curvature argument around directional overshoot, expands the
+noise expectation, and separates the signed contributions to loss change.
+The local loss-rise condition requires both sufficiently negative cosine and
+gradient-norm growth. Independent two-state noise attenuation is explicitly
+qualified; it is not asserted as a universal evolving-SGD law.
+
+Section IV now pairs loss/projected change and cosine/norm/retention, with a
+reformatted endpoint table, a compact Analysis035 backward profile and an
+SGD batch-size subsection. The latter retains initialization and the 2k state
+from Analysis027, one sampled-gradient curve per panel. Prose emphasizes
+the common interpretation across objectives while retaining the observed
+exceptions and keeping the detailed loss audit in Appendix C.
+
+Four vector figures reuse existing evidence; all 52 curves / 134,456 plotted
+values, nine table rows / 45 displayed scalars, and all nine backward endpoint
+sign ranges pass independent checks. There are 186 deterministic equation
+checks plus orthogonal/canceling-path checks. The 16-page next-review PDF is
+compiled and visually reviewed, with resolved references and no overfull boxes.
+The annotated original is preserved, and editable/review work now resides in
+`manuscript/draft/`. No new run, training, remote execution or cost is introduced.
+
+## Earlier manuscript records
+
 Working title: *Constructive and Destructive Training Regimes: A Framework for
 Interpreting SGD Stability*.
 
