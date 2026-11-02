@@ -1,5 +1,32 @@
 # Manuscript and evidence
 
+## Adam-section author feedback, 2026-11-02
+
+The [new revision](../manuscript/draft/revisions/2026-11-02-adam-feedback/README.md)
+addresses six further annotations and the author's clarified central claim:
+in Adam, raw-gradient dynamics provide information about impending loss
+excursions beyond recent loss history, despite their transformation before
+parameter updates. Experimental coverage is specified separately: nine
+controlled full-batch arms, selected rates, one initialization per case, and
+exploratory forward-time analysis from Analysis036.
+
+The generic Adam subsections and old Pythia/schedule illustrations are replaced
+by a compact full-cohort view, unsmoothed spike examples and a forward-test
+table. Pooled AP increases 0.260 to 0.454 beyond recent loss and known context;
+threshold false alarms and low-rate negative controls remain explicit. The
+text separates algebraically coupled sign/norm observations, predictive
+information, a causal feedback mechanism and a useful LR intervention. Abstract,
+introduction and conclusion follow the same claim. Detailed methods are in
+Appendix C-G; the SGD figure/text are unchanged. The source annotations and
+earlier review are preserved. No new training, run, hypothesis or cloud use.
+
+The two new vector figures have 66 series /53,777 values, reconstructed from
+raw histories; all 12 forecast-table scalars and state clocks pass independent
+checks. All 4,534 temporal labels, episodes and predictive scores are rechecked,
+alongside the retained GD/SGD evidence and 186 mathematical checks. The active
+manuscript contains seven compiled figure PDFs. Final deliverable and visual
+acceptance are recorded in the revision's verification/review JSON files.
+
 ## Author-feedback revision, 2026-11-02
 
 The [completed 28-comment revision](../manuscript/draft/revisions/2026-11-02-feedback/README.md)

@@ -423,7 +423,7 @@ Minas Gerais 35931-008, Brazil (e-mail: fredgfc@ufmg.br; apbraga@ufmg.br).}
 % in the abstract or keywords.
 
 \begin{abstract}
-Parameter updates can reinforce or cancel one another even when training loss continues to decrease. We study this distinction through an exact finite-time decomposition of displacement under stochastic gradient descent (SGD), separating gradient magnitudes from interactions across all temporal lags. Consecutive-gradient cosine provides a local directional diagnostic, while normalized displacement measures cumulative retention of traveled distance. Local expansions connect these quantities to curvature and sampling noise without identifying alignment sign with stability or objective progress. Full-batch experiments exhibit gradient reversal alongside continued loss reduction. Matched mini-batch continuations show that sampling changes both gradient estimates and the paths traversed through the objective. We then extend the diagnostic interpretation to Adam by distinguishing raw gradients, first moments, adaptive directions and actual parameter increments. Language-model measurements and checkpoint-matched schedule interventions demonstrate why coherence at these different stages must be assessed alongside loss. The resulting framework supports the formulation and evaluation of informed learning-rate interventions; it does not prescribe an alignment-maximizing schedule.
+Parameter updates can reinforce or cancel one another even when training loss continues to decrease. An exact finite-time decomposition of stochastic gradient descent (SGD) displacement separates gradient magnitudes from interactions across all temporal lags. Consecutive-gradient cosine provides a local directional diagnostic, while normalized displacement measures cumulative retention of traveled distance. Local expansions connect these quantities to curvature and sampling noise without identifying alignment sign with stability or objective progress. Full-batch experiments exhibit gradient reversal alongside continued loss reduction. Matched mini-batch continuations show that sampling changes both gradient estimates and the paths traversed through the objective. In Adam, raw-gradient dynamics provide information about impending loss excursions beyond recent loss history, even though the optimizer transforms those gradients before updating the parameters. Controlled full-batch experiments support this claim through exploratory forward-time prediction, while frequent threshold false alarms limit a standalone warning rule. The resulting framework supports the formulation and evaluation of informed learning-rate interventions; it does not prescribe an alignment-maximizing schedule.
 \end{abstract}
 
 
@@ -617,7 +617,7 @@ approximation error.
 \global\vsize\@colht
 \makeatother
 \raggedbottom
-\IEEEtriggeratref{19} % Balance the current reference list; revisit after additions.
+\IEEEtriggeratref{17} % Balance the current reference list; revisit after additions.
 \bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
 \bibliography{IEEEabrv,bibliography.bib}

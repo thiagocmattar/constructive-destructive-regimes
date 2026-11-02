@@ -1,6 +1,16 @@
 # Manuscript workspace
 
-Latest author-feedback revision (2026-11-02):
+Latest author-feedback revision (2026-11-02, Adam section):
+[review PDF](draft/revisions/2026-11-02-adam-feedback/revised-manuscript.pdf),
+[TODO](draft/revisions/2026-11-02-adam-feedback/TODO.md), and
+[comment dispositions / reproduction](draft/revisions/2026-11-02-adam-feedback/README.md).
+Six new annotations replace the old Adam exposition/Pythia illustrations with
+Analysis036: raw-gradient information about impending loss excursions beyond
+recent loss, despite Adam's transformation of those gradients. Two compact
+figures and a forward-test table use existing verified evidence. The experimental
+scope remains in the methods; the SGD batch-size figure is unchanged.
+
+Earlier author-feedback revision (2026-11-02):
 [review PDF](draft/revisions/2026-11-02-feedback/revised-manuscript.pdf),
 [completed TODO](draft/revisions/2026-11-02-feedback/TODO.md), and
 [comment dispositions / reproduction](draft/revisions/2026-11-02-feedback/README.md).
@@ -11,7 +21,8 @@ multirow grouping. All 348 new trajectories and the manuscript checks pass.
 This revision builds into ignored `tmp/pdfs/` and delivers to `draft/`,
 superseding the older `artifacts/` output convention for the current review.
 
-`draft/figures/` now contains only the five figures used by the active build.
+`draft/figures/` now contains only the seven figures used by the active build,
+including the two new Analysis036 manuscript views.
 The other 26 are preserved in the [figure archive](archive/2026-11-02-unused-figures/README.md),
 with hashes and original paths. Inactive legacy sections reference that archive.
 

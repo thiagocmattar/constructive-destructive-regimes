@@ -11,17 +11,18 @@ experiments illustrate these distinctions: gradient reversal can coexist with
 objective progress, and weaker reversal need not improve displacement retention
 or the attained loss.
 
-Under Adam, the same measurements acquire different meanings at successive
-stages of the optimizer. Raw gradients describe the sampled loss response;
-first moments expose temporal averaging; adaptive directions incorporate
-coordinate scaling. Parameter displacement additionally depends on the applied
-learning rates and weight decay. The language-model comparisons show why
-positive momentum or adaptive alignment cannot serve as a universal performance
-criterion, and why restoring positive raw alignment through decay need not
-improve the final validation loss.
+In Adam, raw-gradient dynamics provide information about impending loss
+excursions beyond recent loss history, even though the optimizer transforms
+those gradients before updating the parameters. The controlled full-batch
+comparisons support this interpretation through forward-time prediction
+and the timing of gradient/momentum changes around spikes. Local reversal
+can coexist with coherent adaptive directions and continued objective
+progress. Frequent threshold false alarms distinguish the information in
+the continuous diagnostic from a universal spike trigger.
 
 The practical contribution is a framework for interpreting these measurements
 together and using them to formulate controlled interventions. Developing a
-scheduler requires a further step: demonstrating that the diagnostics improve
-rate decisions beyond recent loss and known training settings, at matched
-budgets and across independent runs. That evaluation remains future work.
+scheduler requires a further step: demonstrating that acting on the diagnostics
+improves loss beyond decisions based on recent loss and known training settings,
+at matched budgets and across independent runs. That intervention evaluation
+remains future work.

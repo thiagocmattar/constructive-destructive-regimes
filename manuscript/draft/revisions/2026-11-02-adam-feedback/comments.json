@@ -1,0 +1,140 @@
+{
+  "source_original": "manuscript/artifacts/draft/revised-manuscript+comments.pdf",
+  "source_copy": "manuscript/draft/revisions/2026-11-02-adam-feedback/source-comments.pdf",
+  "source_sha256": "4a22d813b8bcdf59daf17bb694dfb0a3f1328082b263f99b4508f1b07719a143",
+  "pages": 16,
+  "comments": [
+    {
+      "id": "A01",
+      "page": 9,
+      "xref": 270,
+      "type": "Highlight",
+      "info": {
+        "content": "It should be cleaner. We're not addressing gradient clipping or AdamW. So it should not be mentioned.",
+        "name": "",
+        "title": "thima",
+        "creationDate": "D:20261102165246-03'00'",
+        "modDate": "D:20261102165309-03'00'",
+        "subject": "Comment on Text",
+        "id": "014a9755-d565-43bd-8caa-66e229138495"
+      },
+      "rect": [
+        48.58879852294922,
+        664.635009765625,
+        300.4020080566406,
+        737.1026000976562
+      ],
+      "selected_text": "Here \u03f5   >   0 is   Adam\u2019s   numerical   constant,   distinct   from the   sampling   contribution \u03b5 t in   Section   III.   If   gradients   are clipped,   the   clipped   vector   replaces g t in   Eq.   (25);   raw- gradient   diagnostics   still   use   the   unclipped   gradient.   AdamW additionally   applies   decoupled   weight   decay   [29]. The norms, consecutive cosines and accumulation ratio from"
+    },
+    {
+      "id": "A02",
+      "page": 9,
+      "xref": 272,
+      "type": "Highlight",
+      "info": {
+        "content": "The central message here is this:\r- Adam already computed the raw gradient (and momentum);\r- Although adam takes an adaptive step (d_t), g_t may tell us a lot about the current loss landscape. And m_t may inform us about the temporal averaging and coherence between sequential gradients;\r- For example, If our goal here is to identify actionable diagnostics, then we can argue that a peak in loss for adam happens when:\r- \\etakappahat > 2 (the diagnostics goes beyond 2)\r- \\rho_t < 0\r- raw gradient (and momentum) norms start growing\r\rif this causes a first loss increase, then maybe a higher loss reinforce a increase on raw gradient (and momentum) norms, and thus reinforce the spike.\r\rSo, our diagnostic can detect early on when a spike in Adam is happening.",
+        "name": "",
+        "title": "thima",
+        "creationDate": "D:20261102165336-03'00'",
+        "modDate": "D:20261102170011-03'00'",
+        "subject": "Comment on Text",
+        "id": "680c0906-5dfb-4d3a-8dfa-432ba0f95f4a"
+      },
+      "rect": [
+        311.6029968261719,
+        297.0950012207031,
+        563.4110107421875,
+        560.9320068359375
+      ],
+      "selected_text": "identify   the   vector   stream   explicitly   rather   than   redefine   each diagnostic.   Raw   gradients   reveal   changes   in   the   sampled   loss signal;   first   moments   show   what   temporal   averaging   retains; adaptive   directions   show   the   effect   of   coordinate   scaling on   that   retained   signal.   All   three   are   available   within   the optimizer,   although   measuring   consecutive   alignment   requires retaining   a   previous   vector,   and   cumulative   ratios   require   a running   vector   sum.   Their   computation   uses   reductions   rather than   new   backward   passes;   storage   and   communication   costs still   scale   with   the   measured   parameter   scope. An   accumulation   ratio   computed   from   raw   gradients   or moments   is   not   normalized   parameter   displacement   under Adam.   To   recover   that   quantity,   apply   the   same   norm-of- sum   over   sum-of-norms   construction   to   the   actual   parameter increments.   Even   for   Adam   without   decay,   these   increments include   \u03b7 t :   varying   the   learning   rate   changes   their   relative weights.   AdamW   decay   adds   a   separate   displacement,   and parameter-group   learning   rates   or   finite-precision   updates   can change the correspondence further. Positive scalar bias correc- tion   preserves   consecutive   momentum   cosine,   but   generally changes   cumulative   accumulation   because   the   scalar   varies with   time."
+    },
+    {
+      "id": "A03",
+      "page": 9,
+      "xref": 274,
+      "type": "Highlight",
+      "info": {
+        "content": "delete. this section is saying nothing.",
+        "name": "",
+        "title": "thima",
+        "creationDate": "D:20261102170038-03'00'",
+        "modDate": "D:20261102170047-03'00'",
+        "subject": "Comment on Text",
+        "id": "81b12868-bb50-4542-9629-0145fa9e9a60"
+      },
+      "rect": [
+        311.6059875488281,
+        576.0239868164062,
+        547.5180053710938,
+        588.6619873046875
+      ],
+      "selected_text": "B.   Raw   Gradients   as   Observations   of   the   Traversed   Loss"
+    },
+    {
+      "id": "A04",
+      "page": 10,
+      "xref": 295,
+      "type": "Highlight",
+      "info": {
+        "content": "delete. this section is saying nothing.",
+        "name": "",
+        "title": "thima",
+        "creationDate": "D:20261102170051-03'00'",
+        "modDate": "D:20261102170100-03'00'",
+        "subject": "Comment on Text",
+        "id": "e2fdeaca-5b1e-4795-a950-7d2d3ff02733"
+      },
+      "rect": [
+        48.59230041503906,
+        189.280029296875,
+        272.7669982910156,
+        201.91900634765625
+      ],
+      "selected_text": "C.   Momentum   Growth,   Rotation   and   Adaptive   Scaling"
+    },
+    {
+      "id": "A05",
+      "page": 10,
+      "xref": 297,
+      "type": "Highlight",
+      "info": {
+        "content": "delete. THe experiments are going to be the ones in analyses\\036-2026-11-02-controlled-adam-diagnostics",
+        "name": "",
+        "title": "thima",
+        "creationDate": "D:20261102170114-03'00'",
+        "modDate": "D:20261102170147-03'00'",
+        "subject": "Comment on Text",
+        "id": "dd730566-d68f-4380-9da4-b2ae54e4712d"
+      },
+      "rect": [
+        48.59230041503906,
+        589.7540283203125,
+        233.38499450683594,
+        602.3919677734375
+      ],
+      "selected_text": "D.   Illustrations   in   Language-Model   Training"
+    },
+    {
+      "id": "A06",
+      "page": 10,
+      "xref": 299,
+      "type": "Text",
+      "info": {
+        "content": "Keep it informative, compact and to the point as section EMPIRICAL CHARACTERIZATION OF GRADIENT\rINTERFERENCE",
+        "name": "Comment",
+        "title": "thima",
+        "creationDate": "D:20261102170259-03'00'",
+        "modDate": "D:20261102170259-03'00'",
+        "subject": "Sticky Note",
+        "id": "7d49a335-84ed-45c2-b288-229637ebe536"
+      },
+      "rect": [
+        48.59230041503906,
+        589.7540283203125,
+        72.59230041503906,
+        613.7540283203125
+      ],
+      "selected_text": ""
+    }
+  ]
+}

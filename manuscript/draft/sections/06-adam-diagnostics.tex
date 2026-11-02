@@ -1,210 +1,162 @@
-\section{Directional Diagnostics under Adam}
+\section{Raw-Gradient Diagnostics under Adam}
 \label{sec:adam-diagnostics}
 
-The geometric diagnostics developed for SGD can also characterize
-training under Adam, provided we distinguish the gradient information
-from the parameter motion produced by the optimizer. Raw gradients
-describe the instantaneous stochastic loss signal along the training
-trajectory; momentum averages this signal over time; and adaptive
-preconditioning determines how the accumulated information becomes
-a parameter update. We apply the same diagnostics to these successive
-quantities without transferring the SGD stability conditions to Adam.
+In Adam, raw-gradient dynamics provide information about impending loss
+excursions beyond recent loss history, even though Adam transforms those
+gradients before updating the parameters. The raw gradient observes the
+loss response along the adaptive path; the first moment records how that
+signal is averaged over time. Both are already computed by the optimizer.
 
-\subsection{Three Views of the Same Training Trajectory}
-
-For Adam~\cite{kingma2014adam}, the first and second moments satisfy
+For Adam~\cite{kingma2014adam},
 \begin{equation}
 \begin{aligned}
-  m_t&=\beta_1 m_{t-1}+(1-\beta_1)g_t,\\
-  v_t&=\beta_2 v_{t-1}+(1-\beta_2)g_t^{\odot 2},
+  m_t&=\beta_1m_{t-1}+(1-\beta_1)g_t,\\
+  v_t&=\beta_2v_{t-1}+(1-\beta_2)g_t^{\odot2},
 \end{aligned}
 \label{eq:adam-moments}
 \end{equation}
-with zero initial moments. Let $\widehat m_t=m_t/(1-\beta_1^t)$ and
-$\widehat v_t=v_t/(1-\beta_2^t)$ denote their bias-corrected values.
-The adaptive direction and parameter update are
+with zero initial moments. Bias correction gives
+$\widehat m_t=m_t/(1-\beta_1^t)$ and
+$\widehat v_t=v_t/(1-\beta_2^t)$, and
 \begin{equation}
-  d_t=\frac{\widehat m_t}{\sqrt{\widehat v_t}+\epsilon},
-  \qquad \theta_t=\theta_{t-1}-\eta_t d_t,
-  \label{eq:adam-direction}
+ d_t=\frac{\widehat m_t}{\sqrt{\widehat v_t}+\epsilon},
+ \qquad \theta_t=\theta_{t-1}-\eta d_t,
+ \label{eq:adam-direction}
 \end{equation}
-where squaring, square roots and division act coordinatewise.
-Here $\epsilon>0$ is Adam's numerical constant, distinct from the
-sampling contribution $\varepsilon_t$ in Section~III.
-If gradients are clipped, the clipped vector replaces $g_t$ in
-Eq.~\eqref{eq:adam-moments}; raw-gradient diagnostics still use the
-unclipped gradient. AdamW additionally applies decoupled weight
-decay~\cite{loshchilov2017decoupled}.
+where operations are coordinatewise and $\epsilon>0$ is a numerical constant.
+Norms and consecutive cosines of $g_t$ and $m_t$ require vector reductions
+and a previous-vector buffer, without another backward pass.
 
-The norms, consecutive cosines and accumulation ratio from Section~III
-can be computed for each of $g_t$, $m_t$ and $d_t$. We identify the
-vector stream explicitly rather than redefine each diagnostic.
-Raw gradients reveal changes in the sampled loss signal; first moments
-show what temporal averaging retains; adaptive directions show the
-effect of coordinate scaling on that retained signal. All three are
-available within the optimizer, although measuring consecutive alignment
-requires retaining a previous vector, and cumulative ratios require a
-running vector sum. Their computation uses reductions rather than new
-backward passes; storage and communication costs still scale with the
-measured parameter scope.
-
-An accumulation ratio computed from raw gradients or moments is not
-normalized parameter displacement under Adam. To recover that quantity,
-apply the same norm-of-sum over sum-of-norms construction to the actual
-parameter increments. Even for Adam without decay, these increments
-include $\eta_t$: varying the learning rate changes their relative
-weights. AdamW decay adds a separate displacement, and parameter-group
-learning rates or finite-precision updates can change the correspondence
-further. Positive scalar bias correction preserves consecutive momentum
-cosine, but generally changes cumulative accumulation because the scalar
-varies with time.
-
-\subsection{Raw Gradients as Observations of the Traversed Loss}
-
-Raw-gradient alignment remains informative under Adam because it records
-how the loss gradient changes along the optimizer's chosen path. The
-Taylor argument in Section~III can be written using the actual preceding
-displacement:
+The projected-change statistic in Eq.~\eqref{eq:kappa-estimate} also remains
+available:
 \begin{equation}
-\begin{aligned}
-  g_t-g_{t-1}\approx{}&H_{t-1}(\theta_{t-1}-\theta_{t-2})\\
-                     &+\xi_t-\xi_{t-1}.
-\end{aligned}
-\label{eq:adam-gradient-response}
+ \eta\widehat\kappa_t
+ =1-\rho_t\frac{\|g_t\|}{\|g_{t-1}\|}.
+ \label{eq:adam-projected-change}
 \end{equation}
-This uses the same Hessian indexing and neglected remainder as
-Eq.~\eqref{eq:gradient-evolution}. Under plain Adam, the displacement
-is $-\eta_{t-1}d_{t-1}$, rather than a scaled raw gradient.
-Consequently, the observed response combines local curvature, the
-direction selected by the optimizer and sampling variation.
-The SGD proxy in Eq.~\eqref{eq:kappa-estimate} remains computable as a
-normalized gradient-change statistic, but its directional-curvature
-interpretation does not carry over, even if sampling noise is small.
+Under Adam it measures the gradient response along the adaptive trajectory,
+rather than SGD directional curvature. For nonzero gradients, a value above
+two requires negative cosine and gradient-norm growth; these are coupled
+observations, not independent warning signals. Momentum supplies a different
+view: its norm and cosine show how that changing input propagates through
+temporal averaging.
 
-A return to positive raw-gradient cosine after reducing the learning
-rate therefore describes a change in the sampled gradient response.
-It does not by itself show that curvature decreased: shorter steps can
-change that response within the same local quadratic geometry.
-Nor does negative raw alignment imply that consecutive Adam updates
-oppose each other. That question must be answered from the transformed
-directions or actual parameter increments.
+\subsection{Controlled Full-Batch Comparison}
 
-\subsection{Momentum Growth, Rotation and Adaptive Scaling}
+We train the same three objectives from their frozen GD initializations,
+with fresh Adam moments and 1,024 full-objective updates at each constant
+rate. The MLP uses $\eta\in\{0.0001,0.0003,0.001\}$; ResNet-32 and the
+Transformer use $\{0.0003,0.001,0.003\}$. All arms use
+$(\beta_1,\beta_2)=(0.9,0.999)$ and $\epsilon=10^{-8}$.
+There is one initialization per case. Objectives, numerical checks and
+the exploratory spike-analysis protocol are detailed in
+Appendix~\ref{appendix:adam-measurements}.
 
-The first-moment recurrence separates two effects of an incoming gradient.
-Its component along the stored moment can reinforce or oppose the current
-momentum, while its transverse component changes the direction. Increasing
-the magnitude of an aligned input can grow the moment without appreciable
-rotation. Increasing a transverse input relative to the stored moment can
-instead lower consecutive momentum cosine while that cosine remains
-positive. Thus, a decline from near one already indicates greater angular
-change; a sign reversal is not required.
+\begin{figure*}[!t]
+ \centering
+ \includegraphics[width=\textwidth]{figures/analysis036/adam_manuscript_overview.pdf}
+ \caption{Controlled Adam training at three constant rates per case.
+ Training loss is unsmoothed; the other rows use complete 50-observation
+ trailing means. All rows are aligned to parameter state $\theta_s$:
+ $g_{s+1}$ and $m_{s+1}$ are available before the next update.
+ Momentum denotes the stored first moment, without bias correction.
+ The dashed reference at two concerns raw-gradient projected change,
+ not an identified Adam stability boundary. One initialization per case.}
+ \label{fig:adam-overview}
+\end{figure*}
 
-Positive alignment between consecutive raw gradients does not guarantee
-that the latest gradient aligns with the longer history stored in $m_{t-1}$.
-Interpreting momentum rotation therefore benefits from also comparing the
-incoming optimizer gradient with the previous moment. This is a distinct
-comparison from adjacent raw-gradient cosine. With clipping, the magnitude
-entering the recurrence is the clipped magnitude: growth of the raw norm
-beyond the threshold need not produce corresponding moment growth.
-The signs and norms of the recorded streams alone do not identify that
-propagation mechanism.
+Figure~\ref{fig:adam-overview} separates local gradient reversal from what
+temporal averaging retains. The recorded adaptive directions show a
+further distinction: at the Transformer's smallest rate, the last
+64 updates have median raw cosine $-0.795$ but adaptive-direction cosine
+$0.939$: Adam can move coherently while successive raw gradients oppose
+one another. Conversely, the MLP eventually exhibits reversal in both raw
+gradients and momentum. Temporal averaging therefore modifies the
+interference pattern without guaranteeing a positive first-moment cosine.
 
-Preconditioning adds another transformation. The same first moment can
-produce different update directions as coordinate weights change, and a
-large moment need not imply a large adaptive step. Comparing momentum
-and adaptive-direction alignment reveals where their temporal behavior
-differs, but their numerical difference is not an additive measure of
-the preconditioner's effect. Likewise, a highly aligned adaptive sequence
-can still make poor objective progress. Loss measurements and controlled
-direction or step-size interventions are needed to connect these
-geometric descriptions to optimization outcomes.
+The largest tested rate attains the lowest final training loss in each
+case, despite visible intermediate spikes. These excursions can be
+transient features of an improving trajectory. Neither negative raw cosine
+nor a spike by itself orders the attained loss across rates.
 
-\subsection{Illustrations in Language-Model Training}
+\subsection{Information beyond Recent Loss}
 
-We illustrate these distinctions with small Pythia-family decoder
-models~\cite{biderman2023pythia}, initialized from scratch and trained on
-MiniPile~\cite{kaddour2023minipile}. A seven-rate comparison uses one
-shared 14M initialization and data order (seed 1234), with linear warmup
-over the first 1\% of training followed by a constant rate. Each run
-processes the same complete 1.491-billion-input-token cache in 712
-updates, including the final partial batch. Full batches contain 1,024
-packed sequences of length 2,048, accumulated in microbatches of four.
-AdamW uses $(\beta_1,\beta_2)=(0.9,0.95)$, $\epsilon=10^{-8}$,
-global gradient clipping at norm one, and decay 0.1 excluding biases and
-layer-normalization parameters. Computation is FP16 with FP32 parameters
-and moments; diagnostic reductions are FP64. Loss is averaged over
-supervised next-token targets. Validation covers all 500 held-out
-documents and 693,329 targets, including the packed tail, with token weighting.
+We test whether the diagnostics add information before a pronounced
+excursion, rather than merely accompany its peak. From states still
+within 5\% of their recent loss minimum, we forecast a rise of at least
+10\% in the next eight updates. A baseline using recent loss, training
+age and task/rate indicators is compared with the same model plus
+continuous raw-gradient projected change. Training uses expanding
+prefixes; evaluation uses five later blocks separated from fitting
+by a 24-state gap. Appendix~\ref{appendix:adam-measurements} gives the
+complete protocol.
 
 \begin{table}[!t]
-  \caption{Pythia-14M: median consecutive cosine over updates 612--711
-  and final validation loss. Raw, moment and adaptive columns refer to
-  $g_t$, $m_t$ and $d_t$, respectively. One initialization; rows are grouped
-  by execution platform. Rates are rounded for display.}
-  \label{tab:adam-streams}
-  \centering
-  \footnotesize
-  \setlength{\tabcolsep}{4pt}
-  \input{tables/analysis028_streams}
+ \caption{Average precision for impending loss excursions on the same
+ forward-test states. The last column adds raw-gradient projected change
+ to the loss-history baseline; task/rate and training age enter both.
+ Positive prevalence is the fraction of states with a subsequent rise.
+ Per-case rows evaluate the pooled models within each case.}
+ \label{tab:adam-forecast}
+ \centering
+ \footnotesize
+ \setlength{\tabcolsep}{4pt}
+ \input{tables/analysis036_forecast}
 \end{table}
 
-Table~\ref{tab:adam-streams} shows negative late raw-gradient alignment
-alongside positive first-moment and adaptive alignment at every tested rate.
-No recorded consecutive first-moment pair is negative in these seven runs,
-yet its late median falls to 0.403 at rate $10^{-2}$. That run clips
-517 of 712 updates and has late median raw norm 5.566, while the moment
-norm is only 0.097. These measurements illustrate the distinction between
-large raw gradients and the signal accumulated after clipping and averaging;
-they do not establish raw-norm growth as the cause of momentum rotation.
-Within the hardware-matched RTX 4090 runs, rate $4.64\times10^{-3}$ has
-lower momentum alignment than $2.15\times10^{-3}$ but better validation
-loss. The comparison is descriptive: it uses one initialization, and
-pooled differences across platforms cannot be attributed solely to learning rate.
+Table~\ref{tab:adam-forecast} shows additional information in every case.
+Pooled average precision increases from 0.260 to 0.454, with improvement
+in all five time blocks. Thus, the gradient response distinguishes
+future excursions that recent loss and the known training context alone
+predict less effectively. This is exploratory temporal evidence from
+the controlled full-batch trajectories, with one initialization per case.
+The raw views below explain the timing of these signals.
 
-\begin{table}[!t]
-  \caption{Checkpoint-matched schedule intervention. Median raw cosine
-  uses affected pairs 358--712; loss is final full-validation loss.
-  Each size uses one initialization (seed 1235).}
-  \label{tab:adam-schedules}
-  \centering
-  \footnotesize
-  \setlength{\tabcolsep}{4pt}
-  \input{tables/analysis028_schedules}
-\end{table}
+\begin{figure*}[!t]
+ \centering
+ \includegraphics[width=\textwidth]{figures/analysis036/adam_manuscript_spikes.pdf}
+ \caption{Unsmoothed views of the completed loss episode with the largest
+ peak/baseline ratio at each case's highest tested Adam rate.
+ Each window begins ten states before its peak and ends at the first
+ subsequent loss below the starting value. Vertical dotted lines mark
+ the episode's 10\% rise onset; dashed lines mark the peak. Norms are
+ divided by their own value at the window's start. Gradient and momentum
+ diagnostics use the same state clock as Fig.~\ref{fig:adam-overview}.
+ These are loss-selected examples; repeated events and non-spike states
+ are included in the quantitative analysis.}
+ \label{fig:adam-spikes}
+\end{figure*}
 
-A separate intervention branches 14M and 70M AdamW checkpoints at update
-356 into three schedules: continue the original cosine decay, hold its
-current rate, or advance its decay clock twice as fast. Within each size,
-weights, optimizer state and future batches are matched; all branches
-continue through update 712 on RTX 5090 with the same recipe and validation
-coverage. The held rate is $5.1791\times10^{-4}$; original and accelerated
-decay reach the $10^{-4}$ floor at updates 575 and 466.
-Table~\ref{tab:adam-schedules} shows that faster decay makes raw alignment
-less negative, while held-rate continuations attain lower validation loss.
-Positive smoothed alignment also occurs earlier under accelerated decay,
-but later reverses in the 70M model. Changing the rate also changes
-AdamW's decay displacement, so these interventions identify schedule
-effects without isolating their mediation by step length or shrinkage.
+The raw views in Fig.~\ref{fig:adam-spikes} resolve changes hidden by
+the overview's averaging. In the Transformer, projected change crosses
+two at state 788, when loss is only 0.40\% above its recent trough;
+loss reaches a 10\% rise at 790 and peaks at 794. Gradient and momentum
+norms grow sharply at the crossing and peak at 792 and 793, respectively.
+The signal precedes the pronounced excursion, although the first small
+loss increase has already occurred. Similar ordering appears in the
+selected MLP and ResNet episodes, with different delays.
 
-\subsection{From Characterization to Informed Scheduling}
+To assess repetition, we identify episodes from loss alone: a rise of at
+least 10\% above the preceding 16-state minimum, followed until recovery
+below that fixed baseline. Among episodes reaching at least 50\%, a fresh
+crossing of two occurs 1--8 states before onset in 13/17 MLP, 3/3 ResNet
+and 7/7 Transformer episodes at the highest rates, while loss is still
+within 5\% of its recent minimum. These are recurrent events within one
+trajectory per rate, rather than independent initialization replicates.
 
-These observations motivate using the diagnostics to formulate and evaluate
-learning-rate interventions. Raw-gradient reversal with coherent momentum
-indicates that averaging is retaining a direction despite local variation.
-A simultaneous rise in raw norms, frequent clipping, declining momentum
-alignment and worsening loss supplies a different pattern that merits a
-step-size comparison. A change concentrated in adaptive directions calls
-for examining coordinate scaling and actual step lengths. These are
-interpretive patterns, not validated trigger thresholds.
+The threshold also fires without a spike. Across five forward test blocks
+covering all nine arms, only 187 of 891 eligible states above two are
+followed by a 10\% loss rise within eight updates (21\% precision).
+Both the lowest-rate ResNet and Transformer exhibit threshold crossings
+without a qualifying episode. The incremental information in
+Table~\ref{tab:adam-forecast} therefore supports a continuous diagnostic,
+while a universal threshold discards important context.
 
-An informed scheduling rule should therefore be evaluated by its subsequent
-loss improvement at a matched budget, rather than by whether it maximizes
-cosine similarity or displacement retention. The next test is to branch
-shared checkpoints into predefined rate interventions, record recent
-gradient, momentum and adaptive behavior, and compare later outcomes
-on held-out data across initializations. Such a test must establish whether
-the diagnostics add information beyond the current rate, training stage,
-clipping frequency and recent loss. The present extension supplies the
-measurement and interpretation framework for that test; it does not yet
-establish an improved adaptive schedule.
+Raw-gradient dynamics remain informative even when adaptive updates differ
+substantially from the gradients themselves. Momentum helps interpret
+how these changes enter the optimizer's memory. Their joint growth near
+spikes is compatible with amplification, but higher loss need not imply
+a larger gradient norm, so temporal ordering alone does not establish
+that feedback mechanism. A useful scheduling rule must further demonstrate
+that acting on the diagnostic improves subsequent loss beyond decisions
+based on recent loss alone.

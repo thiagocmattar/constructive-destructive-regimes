@@ -203,3 +203,14 @@ the frozen analysis protocol, complete source/prediction tables and independent
 verification. A proposal describes untouched-arm validation and separately
 authorized optimizer-state forks with LR held fixed. No new training, seed,
 Hessian/HVP, LR intervention or cloud cost accompanies this analysis.
+
+## Manuscript integration after author review
+
+[Observation009](observations/009-manuscript-raw-gradient-warnings.md) records
+the two compact manuscript views and forward-test table. The six-comment
+[Adam revision](../../manuscript/draft/revisions/2026-11-02-adam-feedback/README.md)
+centers raw-gradient information about impending loss excursions beyond recent
+loss history, despite Adam transforming gradients before parameter updates.
+All 66 plotted series /53,777 values and 12 table scalars are independently
+checked against existing evidence. Experimental scope, false alarms and causal
+limits remain explicit. No new training, scientific inputs or cloud work.

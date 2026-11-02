@@ -1,0 +1,70 @@
+{
+  "math": {
+    "quadratic_noise_and_attenuation_checks": 186,
+    "max_absolute_error": 1.7763568394002505e-14,
+    "orthogonal_retention": true,
+    "opposing_cancellation": true,
+    "zero_gradient_exception": true
+  },
+  "retained_gd_sgd_evidence": {
+    "curves": 57,
+    "points": 134560,
+    "endpoint_rows": 9,
+    "displayed_scalars": 45,
+    "backward_endpoints": 9,
+    "preserved_comments": 28,
+    "source_hashes": 12,
+    "vector_figures": 4,
+    "transformer_state_example": {
+      "0": {
+        "mean_rho": -0.25949575516214246,
+        "loss_change": -3.505136604351701
+      },
+      "2000": {
+        "mean_rho": -0.25844491207239656,
+        "loss_change": 0.0642658936333953
+      }
+    },
+    "displayed_state_example_scalars": 1,
+    "sgd_curves": 6,
+    "sgd_points": 28,
+    "sgd_initialization_scalars": 84,
+    "displayed_runtime_bridge_scalars": 1
+  },
+  "adam": {
+    "conditions": 9,
+    "curves": 66,
+    "points": 53777,
+    "max_independent_reduction_error": 2.6645352591003757e-15,
+    "state_clock_verified": true,
+    "forecast_table_scalars": 12,
+    "all_displayed_claims_verified": true,
+    "temporal_audit_sha256": "80a15b4859f305fa0fdc7b57f2a93b7cfc70390f9965ce472c8cefc1a538fb4c",
+    "annotated_source_sha256": "4a22d813b8bcdf59daf17bb694dfb0a3f1328082b263f99b4508f1b07719a143",
+    "preserved_comments": 6
+  },
+  "pages": 17,
+  "status": "passed",
+  "pdf_sha256": "a010e4e03d79e3bbcf49330213cece7f44cd4c5ed49e1f061936e1ee7c1e8beb",
+  "active_figures": 7,
+  "build": "pdflatex, bibtex, pdflatex, pdflatex; no overfull boxes or unresolved references",
+  "verifier_sha256": "09239c1b01ecae06635f0598c84be99f083a08f45635cd025e87632da508bbc5",
+  "source_hashes": {
+    "manuscript/draft/bare_jrnl.tex": "cde20e32357363a4ffe07f16fa0f62e43759d05f78c7f461fe84881081700e79",
+    "manuscript/draft/sections/01-introduction.tex": "477e47686f984c26861595af4f0600b9786b849de98d004b9775da482f32e198",
+    "manuscript/draft/sections/02-related-works.tex": "a021e3313e2dca6ebf0081ecb022152ae9db97eaf27a7f6085256e8ffad045a4",
+    "manuscript/draft/sections/03-methods.tex": "e6266f3479995166414ff0dff73f809961cd1f3a9affe3b358fa54412ff76d14",
+    "manuscript/draft/sections/04-gd-experiments.tex": "c6b059ed1f7c8f33444340a570876268304650987edc73ab9ecc952595cc41e1",
+    "manuscript/draft/sections/04-results.tex": "afc1f30d1c6f3dba8e3d3cdeaa0d04947fc8df54e9131871db16390062a77d45",
+    "manuscript/draft/sections/05-conclusion.tex": "3ed3c70c46b82e68459a5392d79b25e6483bb68fc91dac0b1e1feee14a09d8ab",
+    "manuscript/draft/sections/05-sgd-noise-experiments.tex": "b3c9df8b28b8d3f4830e57eb90df29fbfdb14b6914d3ba0e4865adbb8796a944",
+    "manuscript/draft/sections/06-adam-diagnostics.tex": "ba4cf73ee27e81d75e4b071ca4994289ae881e34da29f8f5e61ce6a2508df7cc",
+    "manuscript/draft/sections/06-appendix.tex": "210ed113fe474b3171f6640c7fe8dc417bd35586d981ae2d1e8fcd89a6a6732c",
+    "manuscript/draft/sections/06-loss-appendix.tex": "c14739b470c3ed36ec6b41bd50d570ef2c074daf441c10a3906b1c38e592c1f6",
+    "manuscript/draft/sections/07-gd-diagnostics.tex": "cde65a5f6a8452ac3f859e266b7620de2919b13c1f1c1c745869de6c1949f92a",
+    "manuscript/draft/tables/analysis036_forecast.tex": "6ef8a20a9cbc5604a2b2532035339d460d6c13bd984978c44271a39cbf599cac"
+  },
+  "visual_review": "All17 final Poppler renders match the reviewed pages pixel-for-pixel; both figure renders also match.",
+  "review_record": "review.json",
+  "review_sha256": "d76bd90b3a2d2d7130c0ec8e1549685ad77deefd188f1ee51c544f60a97a4165"
+}

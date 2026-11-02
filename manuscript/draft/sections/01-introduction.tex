@@ -38,10 +38,12 @@ The same distinction becomes essential under adaptive optimization. Adam
 already computes raw gradients and moment estimates~\cite{kingma2014adam};
 its parameter updates combine temporal averaging, coordinate scaling and the
 learning rate. Monitoring these successive quantities can reveal changes
-that a single alignment statistic would obscure. We use language-model
-measurements and schedule interventions to illustrate their interpretation,
-while separating descriptive geometric responses from the development of
-an improved learning-rate rule.
+that a single alignment statistic would obscure. Raw-gradient dynamics
+provide information about impending loss excursions beyond recent loss
+history, even though Adam transforms those gradients before updating the
+parameters. We examine this claim through controlled training and forward-time
+comparisons, distinguishing predictive information from a demonstrated
+improvement in learning-rate decisions.
 
 Our contributions are:
 \begin{itemize}
@@ -51,8 +53,8 @@ Our contributions are:
     \item Controlled full-batch and mini-batch experiments that distinguish
     directional reversal, displacement retention and objective progress;
     \item A practical extension to Adam that separates raw-gradient information,
-    momentum, adaptive directions and actual parameter motion, supported by
-    language-model measurements and matched schedule interventions.
+    momentum and adaptive directions, supported by controlled training and
+    an exploratory assessment of loss-spike warnings beyond recent loss.
 \end{itemize}
 
 The remainder of the paper is organized as follows. Section~\ref{sec:background} reviews

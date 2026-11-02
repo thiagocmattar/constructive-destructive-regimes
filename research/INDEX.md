@@ -26,6 +26,9 @@ All15 calibration/main task Pods/disks deleted after verified acceptance; fresh
 account inventory confirms zero remaining. Retained task cloud storage0GB.
 Combined estimated USD13.89 provisional (main11.62 +calibration2.26).
 Run213/215 / Analysis036 / H027 completed as a descriptive single-initialization study.
+The [Adam manuscript revision](../manuscript/draft/revisions/2026-11-02-adam-feedback/README.md)
+centers raw-gradient information beyond recent loss, with two compact views and
+a forward-test table; all six author comments and source-to-display checks are addressed.
 
 
 [Analysis035: backward fixed-endpoint profiles](../analyses/035-2026-11-02-eos-backward-anchors/REPORT.md)

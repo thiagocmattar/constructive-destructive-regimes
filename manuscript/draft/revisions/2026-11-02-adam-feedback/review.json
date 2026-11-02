@@ -1,0 +1,101 @@
+{
+  "status": "passed",
+  "date": "2026-11-02",
+  "pdf_sha256": "a010e4e03d79e3bbcf49330213cece7f44cd4c5ed49e1f061936e1ee7c1e8beb",
+  "pages": 17,
+  "central_claim": "In Adam, raw-gradient dynamics provide information about impending loss excursions beyond recent loss history, even though Adam transforms those gradients before updating the parameters.",
+  "author_scope": "General central idea; empirical coverage and exploratory qualifications stated separately in methods.",
+  "addressed_comments": [
+    "A01",
+    "A02",
+    "A03",
+    "A04",
+    "A05",
+    "A06"
+  ],
+  "page_renders": [
+    {
+      "page": 1,
+      "sha256": "2354b982531cd4dade89840e9450aa171c74b65d5e9e6911d7fc50475c7970e0"
+    },
+    {
+      "page": 2,
+      "sha256": "ef6597b03d9348c94f3712cda361fe7b9639963f8358b041d1a6df429e26bd99"
+    },
+    {
+      "page": 3,
+      "sha256": "0a8993caa3436e04e5dbbdae4a665410ca4d22b7051366b936054743668943e8"
+    },
+    {
+      "page": 4,
+      "sha256": "aa663e9856b5efb03ded918977f37af2e7118eff6c50dd21bbf4320ed738ab05"
+    },
+    {
+      "page": 5,
+      "sha256": "90b9a4aee43786f7f23495eccb68cb5dcbf790a868ad39049c081c50e4739698"
+    },
+    {
+      "page": 6,
+      "sha256": "da99d52639fa61c1f136bcebdf996aade2b45ca1165eea05dba2c3bd8a02b12c"
+    },
+    {
+      "page": 7,
+      "sha256": "7953e19c53dcbc4d3e51df3533c445053e284193b8e2196dc45e0f7467999844"
+    },
+    {
+      "page": 8,
+      "sha256": "c1d0aee51a2c7ae689177abda5e939fc3b1c10132af8069f5d3da442a887a659"
+    },
+    {
+      "page": 9,
+      "sha256": "0e63c1d9e4b924a6ba40eea33b6901c60fbdd2e2925b4705604d978edfbb0565"
+    },
+    {
+      "page": 10,
+      "sha256": "010daa753375ca9b81d88472bd36d2f04eda303b03657a41d3d314dec25791b7"
+    },
+    {
+      "page": 11,
+      "sha256": "33ed2705c38ff28fbdf51d90e4da71a98070a5119e6bd9160dda1e331f130183"
+    },
+    {
+      "page": 12,
+      "sha256": "58a7f10f2e2eec8ea4a65c2cf9da9667d88e35fa8ed9f4aa9c3120b365dff245"
+    },
+    {
+      "page": 13,
+      "sha256": "1442b647516990527ef9e99b4e255a6c1c64c05dbf603f62e34881c773013e20"
+    },
+    {
+      "page": 14,
+      "sha256": "ef82cff0838a27e66bd4832aae06eebf36f7d65ed1fcbfa7b52719560b5191ec"
+    },
+    {
+      "page": 15,
+      "sha256": "b194beac1a0b8fe6b98e874b7339e29ab622965ae4a9a27196fbbdc2f16af7bd"
+    },
+    {
+      "page": 16,
+      "sha256": "7c03b383e36b81fb47fefc9338e1d6f078e40231a4af3b2519065dea1681fa47"
+    },
+    {
+      "page": 17,
+      "sha256": "ec3277048873eadd65c07d6b2cae5b9a53d108d33ad2d518707eb743b9785960"
+    }
+  ],
+  "figure_renders": [
+    {
+      "name": "adam_manuscript_overview",
+      "sha256": "fbc35e7a6c0fe5d451954d9aecd7096344043ee526ccfe48dfad95a886fbec68"
+    },
+    {
+      "name": "adam_manuscript_spikes",
+      "sha256": "0e4acc80a9e7d49d056f46181121e4f2f65e82490f5e0e8b4ba0a807b820233c"
+    }
+  ],
+  "visual_review": "All17 Poppler-rendered pages and both vector figures reviewed: equations and headings legible; no clipped/overlapping labels, legends or table values; compact decimal loss ticks; reference columns balanced. Figure/text references resolve.",
+  "numerical_review": "66 new series /53,777 values,12 forecast-table scalars and all displayed timings/claims verified against existing raw histories; retained57 series /134,560 values,45 GD table scalars and186 math checks pass.",
+  "unchanged_sgd_source_and_figure_verified_against_HEAD": true,
+  "no_new_training_or_cloud": true,
+  "final_rebuild_pixel_identical_to_reviewed_renders": true
+}
