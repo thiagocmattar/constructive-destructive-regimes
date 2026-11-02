@@ -1,0 +1,113 @@
+{
+  "status": "passed",
+  "generator": "12_plot_largest_lr_lag256.py",
+  "generator_sha256": "afdcb1cb514febdda7865d5549b3265d9e57e775a98ac483f71cd873da7a79bb",
+  "source_results_sha256": "f7097576da8de6e81305e823f1ccf60bc3aa366cb52f6ae3a7a75ff896ec60a5",
+  "source_csv_sha256": "20e088a8c9af339d3ae0b75b13bf2ec8544b8c69bb4f4481509b931253760ba4",
+  "rates": {
+    "mlp": 0.04,
+    "resnet": 0.1,
+    "transformer": 0.2
+  },
+  "profiles": [
+    {
+      "task": "mlp",
+      "parent_run_id": "122",
+      "anchor": 500,
+      "lr": 0.04,
+      "points": 256,
+      "plotted_values_sha256": "ff850a6e0586ae6630676305ffdec574838f04d875f192b3319ab89185357761",
+      "exact_json_csv_artist_match": true
+    },
+    {
+      "task": "resnet",
+      "parent_run_id": "120",
+      "anchor": 500,
+      "lr": 0.1,
+      "points": 256,
+      "plotted_values_sha256": "6c5db56b89637c4254a02e7556da5187c1426f227b67ac0d380379bed2c7b7cf",
+      "exact_json_csv_artist_match": true
+    },
+    {
+      "task": "transformer",
+      "parent_run_id": "126",
+      "anchor": 500,
+      "lr": 0.2,
+      "points": 256,
+      "plotted_values_sha256": "46e844938054137b1bdcc6aa066613358a419f52be153b64a166d5c77eff8dc9",
+      "exact_json_csv_artist_match": true
+    },
+    {
+      "task": "mlp",
+      "parent_run_id": "122",
+      "anchor": 2000,
+      "lr": 0.04,
+      "points": 256,
+      "plotted_values_sha256": "ad567ce04521b8f46930ba029bb2eda8643bf0a7e2de07bea6c14dbd8042aef1",
+      "exact_json_csv_artist_match": true
+    },
+    {
+      "task": "resnet",
+      "parent_run_id": "120",
+      "anchor": 2000,
+      "lr": 0.1,
+      "points": 256,
+      "plotted_values_sha256": "8a5ee916ca43e73fef3979a538d87a3722ed184a88138110c27e6a23e1173b3c",
+      "exact_json_csv_artist_match": true
+    },
+    {
+      "task": "transformer",
+      "parent_run_id": "126",
+      "anchor": 2000,
+      "lr": 0.2,
+      "points": 256,
+      "plotted_values_sha256": "f61e5799f50cb227a3d634e45aa78d373b195bdc24923f5b39c5cad7045692c5",
+      "exact_json_csv_artist_match": true
+    },
+    {
+      "task": "mlp",
+      "parent_run_id": "122",
+      "anchor": 3000,
+      "lr": 0.04,
+      "points": 256,
+      "plotted_values_sha256": "7058bad7d3b4581136b3bea948b5e0273663a3839f934ea84c02e57daadaa47c",
+      "exact_json_csv_artist_match": true
+    },
+    {
+      "task": "resnet",
+      "parent_run_id": "120",
+      "anchor": 3000,
+      "lr": 0.1,
+      "points": 256,
+      "plotted_values_sha256": "8ad8c9424b41f0fd59b16b3f6d78740f1410ab6c3d1f5b2d6d455de0a15575c5",
+      "exact_json_csv_artist_match": true
+    },
+    {
+      "task": "transformer",
+      "parent_run_id": "126",
+      "anchor": 3000,
+      "lr": 0.2,
+      "points": 256,
+      "plotted_values_sha256": "c1e4160ac6eb48df6159fa2e8044dd80be67956f2810566c77a805505060d95b",
+      "exact_json_csv_artist_match": true
+    }
+  ],
+  "plotted_points": 2304,
+  "reduction": "Select largest GD LR per architecture; retain every lag 1..256 in order. No parity split, smoothing, averaging, or downsampling.",
+  "figure": "figures/largest_lr_lag256.pdf",
+  "figure_sha256": "16d829d4fdd9d62615d471766367461c3c1327b512fcd33cd2d466e11c929d59",
+  "render": "scratch/largest_lr_lag256.png",
+  "render_sha256": "da448de86fe4a0802f6024f00d23ac5b0fedd2c053e9795b23a4c7a3fbff5ce8",
+  "vector_pdf": true,
+  "text_within_page": true,
+  "visual_review": {
+    "status": "passed",
+    "observed_utc": "2026-11-02T10:07:16.920295+00:00",
+    "method": "Viewed actual vector-PDF render with view_image at original detail",
+    "notes": [
+      "Nine panels: architecture columns and retained-anchor rows; one measured curve per panel.",
+      "All lags 1..256 connect consecutively; no odd/even split or smoothing.",
+      "Linear x axes, cosine y axes, titles, anchor labels and ticks are readable; no clipping."
+    ]
+  }
+}

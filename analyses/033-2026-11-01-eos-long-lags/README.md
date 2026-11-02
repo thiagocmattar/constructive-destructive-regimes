@@ -3,6 +3,10 @@
 [Report](REPORT.md), [primary curves](figures/long_lag_profiles.pdf),
 [common range](figures/common_lag256.pdf), [odd/even gap](figures/alternating_gap.pdf).
 
+[Largest learning rate, all lags 1–256 connected](figures/largest_lr_lag256.pdf)
+shows one curve per architecture/anchor without an odd/even split. See
+[Observation002](observations/002-largest-lr-lag256.md) for sources and caption.
+
 Follow-up to [Analysis024](../024-2026-10-17-eos-gd-lr-calibration/README.md)
 and [Analysis032](../032-2026-11-01-eos-exact-lag10/REPORT.md): 27 anchored profiles at states 500/2000/3000,
 all through lag 256 and up to 2048. Exact streaming products
