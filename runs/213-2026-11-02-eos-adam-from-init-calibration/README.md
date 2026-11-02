@@ -37,3 +37,8 @@ Eleven focused checks and the two-update full5k MLP smoke pass, with output
 hashes and stream/displacement identities verified. The smoke cannot enter LR
 selection. See [verification](../../analyses/036-2026-11-02-controlled-adam-diagnostics/verification.json).
 No cloud resource, production training, publication figure or manuscript edit.
+
+The separate 00_profile_timing.py measures full-objective Transformer mechanics
+for the [Runpod cost estimate](../../analyses/036-2026-11-02-controlled-adam-diagnostics/RUNPOD_ESTIMATE.md).
+Its local timing samples are excluded from scientific LR selection. It changes
+no executed config and creates no cloud resources.

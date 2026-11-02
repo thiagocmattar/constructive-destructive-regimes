@@ -1,0 +1,315 @@
+{
+  "checked_utc": "2026-11-02T11:31:11.366623+00:00",
+  "runpodctl_version": "runpodctl 3.0.1-551d6a4",
+  "live_catalog": [
+    {
+      "available": true,
+      "communityCloud": true,
+      "communityPricePerHr": 0.34,
+      "displayName": "RTX 4090",
+      "gpuId": "NVIDIA GeForce RTX 4090",
+      "memoryInGb": 24,
+      "secureCloud": true,
+      "securePricePerHr": 0.89,
+      "stockStatus": "Low"
+    },
+    {
+      "available": true,
+      "communityCloud": true,
+      "communityPricePerHr": 0.69,
+      "dataCenterAvailability": [
+        {
+          "dataCenterId": "EU-RO-1",
+          "stockStatus": "Low"
+        }
+      ],
+      "displayName": "RTX 5090",
+      "gpuId": "NVIDIA GeForce RTX 5090",
+      "memoryInGb": 32,
+      "secureCloud": true,
+      "securePricePerHr": 1.19,
+      "stockStatus": "Low"
+    }
+  ],
+  "price_source": "runpodctl gpu list --include-unavailable; Secure on-demand",
+  "pricing_url": "https://www.runpod.io/pricing",
+  "storage_url": "https://docs.runpod.io/pods/pricing",
+  "historical_reference_seconds": {
+    "mlp": {
+      "count": 9,
+      "median": 0.04955471574157855,
+      "minimum": 0.04274152021582722,
+      "maximum": 0.05690318298093189
+    },
+    "resnet": {
+      "count": 9,
+      "median": 2.6063284440371035,
+      "minimum": 2.5395703146796222,
+      "maximum": 2.6591260714540113
+    },
+    "transformer": {
+      "count": 3,
+      "median": 6.325205946343885,
+      "minimum": 6.298600439331494,
+      "maximum": 6.329026333753973
+    }
+  },
+  "historical_sources": [
+    {
+      "task": "mlp",
+      "horizon": 256,
+      "seconds_per_update": 0.05245661354274489,
+      "source": "runs/210-2026-11-01-eos-adam-long-lags/artifacts/attempt-01/worker18/059-500/result.json",
+      "sha256": "63cbd3a81e84e1fec3cd9c0db78513d27554b8df4e2ff5dcab4c6d167115aa5e"
+    },
+    {
+      "task": "mlp",
+      "horizon": 256,
+      "seconds_per_update": 0.053493724457439384,
+      "source": "runs/210-2026-11-01-eos-adam-long-lags/artifacts/attempt-01/worker18/059-2000/result.json",
+      "sha256": "4b6a102a4a70c37ca83adf2d0ae6128ebf720937b4557f6654ee07c263a100ac"
+    },
+    {
+      "task": "mlp",
+      "horizon": 256,
+      "seconds_per_update": 0.05398136744861404,
+      "source": "runs/210-2026-11-01-eos-adam-long-lags/artifacts/attempt-01/worker18/059-3000/result.json",
+      "sha256": "ca1909025a77038c7f2ae2fc7b64e52bd62762cbec52c1f26200de25181af9cf"
+    },
+    {
+      "task": "mlp",
+      "horizon": 256,
+      "seconds_per_update": 0.047128266433901445,
+      "source": "runs/210-2026-11-01-eos-adam-long-lags/artifacts/attempt-01/worker18/062-500/result.json",
+      "sha256": "d123457c73b4d4ca9b2be9cf2155a516a23b9be1f1981b0cff745d3582bc5c10"
+    },
+    {
+      "task": "mlp",
+      "horizon": 256,
+      "seconds_per_update": 0.04955471574157855,
+      "source": "runs/210-2026-11-01-eos-adam-long-lags/artifacts/attempt-01/worker18/062-2000/result.json",
+      "sha256": "2b9cd12e7d13c635b40cb5988eb89d8f11567e2159edeac3c57c6c081b8355de"
+    },
+    {
+      "task": "mlp",
+      "horizon": 2048,
+      "seconds_per_update": 0.04741194209816513,
+      "source": "runs/210-2026-11-01-eos-adam-long-lags/artifacts/attempt-01/worker18/062-3000/result.json",
+      "sha256": "52e5104b9083373ac1e06ee1fc3e11068be7cae4e813932ea67ce9f353a81e3f"
+    },
+    {
+      "task": "mlp",
+      "horizon": 2048,
+      "seconds_per_update": 0.04274152021582722,
+      "source": "runs/210-2026-11-01-eos-adam-long-lags/artifacts/attempt-01/worker18/122-500/result.json",
+      "sha256": "545aa6d4463ad580df8909ad321fbd279300aa5d53eb0904849eff8f461aa7b5"
+    },
+    {
+      "task": "mlp",
+      "horizon": 2048,
+      "seconds_per_update": 0.04381147732374302,
+      "source": "runs/210-2026-11-01-eos-adam-long-lags/artifacts/attempt-01/worker18/122-2000/result.json",
+      "sha256": "f3e8261456ade3338069acd9a1255288cc0db60cf074582d03cfde9e3ef48d6b"
+    },
+    {
+      "task": "mlp",
+      "horizon": 2048,
+      "seconds_per_update": 0.05690318298093189,
+      "source": "runs/210-2026-11-01-eos-adam-long-lags/artifacts/attempt-01/worker18/122-3000/result.json",
+      "sha256": "665a1ee3aa014b5acbb4ac139ffc8dccf36fa81a356b04e70d7e4cc7806f44fe"
+    },
+    {
+      "task": "resnet",
+      "horizon": 256,
+      "seconds_per_update": 2.5395703146796222,
+      "source": "runs/210-2026-11-01-eos-adam-long-lags/artifacts/attempt-01/worker9/123-500/result.json",
+      "sha256": "f5b38c33bfbeeccbf3f359506dbfc755432798739a4a02ba899156258d5250f6"
+    },
+    {
+      "task": "resnet",
+      "horizon": 2048,
+      "seconds_per_update": 2.56104958620557,
+      "source": "runs/210-2026-11-01-eos-adam-long-lags/artifacts/attempt-01/worker10/123-2000/result.json",
+      "sha256": "449c9447f59e3f8468183bda0960a87586d468318349298080e372e3c91e7eb8"
+    },
+    {
+      "task": "resnet",
+      "horizon": 2048,
+      "seconds_per_update": 2.6591260714540113,
+      "source": "runs/210-2026-11-01-eos-adam-long-lags/artifacts/attempt-01/worker11/123-3000/result.json",
+      "sha256": "fd0058022293b41ee9a3b31b0b61d9fbac6ff3a15b33da8c0bcfc78409856223"
+    },
+    {
+      "task": "resnet",
+      "horizon": 2048,
+      "seconds_per_update": 2.621880313275369,
+      "source": "runs/210-2026-11-01-eos-adam-long-lags/artifacts/attempt-01/worker12/124-500/result.json",
+      "sha256": "a44eb737a59cbf0a298e39079445ff0c6c69a062dc13df79bc54e66a3d1aa6cd"
+    },
+    {
+      "task": "resnet",
+      "horizon": 2048,
+      "seconds_per_update": 2.619634532061525,
+      "source": "runs/210-2026-11-01-eos-adam-long-lags/artifacts/attempt-01/worker13/124-2000/result.json",
+      "sha256": "7fe375a76340ce3f73bcf7f57901359e8a8f288573540fdbead86ee11ebe641c"
+    },
+    {
+      "task": "resnet",
+      "horizon": 2048,
+      "seconds_per_update": 2.6035335330712996,
+      "source": "runs/210-2026-11-01-eos-adam-long-lags/artifacts/attempt-01/worker14/124-3000/result.json",
+      "sha256": "03a13e89766b8e8b07f36d1ea81ac00b947f5739d38aecde4f176a7cba10c038"
+    },
+    {
+      "task": "resnet",
+      "horizon": 2048,
+      "seconds_per_update": 2.5699198212176952,
+      "source": "runs/210-2026-11-01-eos-adam-long-lags/artifacts/attempt-01/worker15/120-500/result.json",
+      "sha256": "bf4aa880eebe670fb3c63dc99d03270d37332cd9612caf9d0c69a67fe2f6c7c0"
+    },
+    {
+      "task": "resnet",
+      "horizon": 2048,
+      "seconds_per_update": 2.633910084057618,
+      "source": "runs/210-2026-11-01-eos-adam-long-lags/artifacts/attempt-01/worker16/120-2000/result.json",
+      "sha256": "bb1cef65e8e5186d02a5a315f7ef21c38adf7eb07fdfb1214749899f44fcee77"
+    },
+    {
+      "task": "resnet",
+      "horizon": 2048,
+      "seconds_per_update": 2.6063284440371035,
+      "source": "runs/210-2026-11-01-eos-adam-long-lags/artifacts/attempt-01/worker17/120-3000/result.json",
+      "sha256": "dd000de20918f926d2f67249d80f55a861fcfe9c74c4502a2741313feddedfd3"
+    },
+    {
+      "task": "transformer",
+      "horizon": 256,
+      "seconds_per_update": 6.325205946343885,
+      "source": "runs/210-2026-11-01-eos-adam-long-lags/artifacts/attempt-02/worker0/121-500/result.json",
+      "sha256": "01f1d1b5da414eeebff5b8be9885e0deb938113066a80f8cd9262bde835d0c92"
+    },
+    {
+      "task": "transformer",
+      "horizon": 256,
+      "seconds_per_update": 6.298600439331494,
+      "source": "runs/210-2026-11-01-eos-adam-long-lags/artifacts/attempt-01/worker9/121-2000/result.json",
+      "sha256": "3cab3ff8fb2a5a4dccbdffaf68661fc0d46c9ea206f6c77c63a0f88c0cc53799"
+    },
+    {
+      "task": "transformer",
+      "horizon": 256,
+      "seconds_per_update": 6.329026333753973,
+      "source": "runs/210-2026-11-01-eos-adam-long-lags/artifacts/attempt-01/worker11/121-3000/result.json",
+      "sha256": "3f48ef9838ee34468b9bfc1c881f70d3fe1409a051e140fdf77c77b4c91cae88"
+    }
+  ],
+  "historical_results_sha256": "d63c05ec08c4fc7f55629550253589de61088f9932c11ffee408fc58c54b02e1",
+  "local_mechanics": {
+    "source": "runs/213-2026-11-02-eos-adam-from-init-calibration/scratch/transformer-four-stream-timing.json",
+    "sha256": "d7714c95692e6751fe96992f15cd3f533151d1c85fff4b0dd5f53b6cceaa926e",
+    "environment": {
+      "utc": "2026-11-02T11:26:41.176388+00:00",
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "torch": "2.11.0+cu128",
+      "cuda": "12.8",
+      "numpy": "2.5.0",
+      "scipy": "1.18.1",
+      "device": "cuda:0",
+      "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+      "gpu_total_bytes": 12820480000,
+      "matmul_precision": "highest",
+      "tf32": false
+    },
+    "measured_full_update_seconds": [
+      15.856685800012201,
+      16.050395700149238
+    ],
+    "peak_allocated_bytes": 2679967232
+  },
+  "planning_assumptions": {
+    "maximum_concurrent_gpus": 7,
+    "screening_arms": 21,
+    "screening_updates_each": 256,
+    "production_arms": 9,
+    "production_updates_each": 1024,
+    "new_remote_step_seconds": {
+      "mlp": [
+        0.05,
+        0.1
+      ],
+      "resnet": [
+        2.8,
+        3.5
+      ],
+      "transformer": [
+        8.0,
+        16.0
+      ]
+    },
+    "disk_gb_per_worker": 100,
+    "running_storage_usd_per_gb_month": 0.1
+  },
+  "scenarios": [
+    {
+      "case": "lower_planning_scenario",
+      "step_seconds": {
+        "mlp": 0.05,
+        "resnet": 2.8,
+        "transformer": 8.0
+      },
+      "evaluation_checkpoint_allowance_factor": 1.1,
+      "setup_hours_per_worker": 0.25,
+      "retrieval_hours_per_worker": 0.1,
+      "phase_transition_hours_per_main_worker": 0.08333333333333333,
+      "calibration": {
+        "wall_hours": 1.1987111111111113,
+        "gpu_hours": 8.39097777777778,
+        "cost_usd": 7.5845115802469145
+      },
+      "production": {
+        "wall_hours": 2.6864444444444446,
+        "gpu_hours": 11.284533333333334,
+        "cost_usd": 10.199964296296297
+      },
+      "combined_wall_hours": 3.885155555555556,
+      "combined_cost_usd": 17.784475876543212
+    },
+    {
+      "case": "upper_planning_scenario",
+      "step_seconds": {
+        "mlp": 0.1,
+        "resnet": 3.5,
+        "transformer": 16.0
+      },
+      "evaluation_checkpoint_allowance_factor": 1.2,
+      "setup_hours_per_worker": 0.5,
+      "retrieval_hours_per_worker": 0.25,
+      "phase_transition_hours_per_main_worker": 0.16666666666666666,
+      "calibration": {
+        "wall_hours": 2.422533333333333,
+        "gpu_hours": 16.95773333333333,
+        "cost_usd": 15.327906740740737
+      },
+      "production": {
+        "wall_hours": 5.878,
+        "gpu_hours": 22.5704,
+        "cost_usd": 20.401133777777776
+      },
+      "combined_wall_hours": 8.300533333333334,
+      "combined_cost_usd": 35.72904051851852
+    }
+  ],
+  "suggested_calibration_ceiling_usd": 20,
+  "suggested_combined_ceiling_usd": 50,
+  "authorization": "estimate_only_no_launch",
+  "limits": [
+    "Catalog availability is point-in-time without exact GPU counts; seven workers are not reserved.",
+    "Transformer chunk64 is unmeasured on Runpod with the new capture. The 8--16s interval is an explicit planning assumption, not a confidence interval.",
+    "Old cloud Transformer uses chunk512; local full-update measurement is on a 5070Ti Laptop and is not a cloud throughput measurement.",
+    "A local chunk512 attempt was stopped under VRAM pressure and is excluded from throughput inference.",
+    "Estimates assume completed workers are verified and deleted promptly; no paid idle fleet is held for the slowest worker.",
+    "Includes evaluation/checkpoint allowances, setup, retrieval and ephemeral disk; no HVP audit, extra seeds, grid expansion or beyond-1024 production.",
+    "Prices can change. Real timing, retrieval and aggregate spend must be rechecked at launch. No resource was provisioned."
+  ]
+}

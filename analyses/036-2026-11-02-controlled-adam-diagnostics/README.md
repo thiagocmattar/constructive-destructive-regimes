@@ -31,3 +31,9 @@ Reproduce preparation:
 The input verifier hashes pinned data, initial weights, reference model sources
 and scientific dependencies. See [verification.json](verification.json) for
 exact checks, mechanics coverage and environment limitations.
+
+The November2 [parallel Runpod estimate](RUNPOD_ESTIMATE.md) uses live pricing,
+recorded cloud timings and a separately labeled local Transformer mechanics
+profile. Up to seven 4090s project roughly4--8.5h /USD18--36 for screening plus
+the proposed main study; suggested aggregate ceiling USD50. Capacity and new
+remote throughput remain unqualified; this is an estimate, not a launch.
