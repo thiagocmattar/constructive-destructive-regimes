@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "generator": "analyses/036-2026-11-02-controlled-adam-diagnostics/17_verify_peak_temporal.py",
+  "generator_sha256": "ecb1cdd6aa2fd9145322eaaad92008ab946ec4aede0e301371b0a27f437ae0db",
+  "result_sha256": "534cc6ab6238816fe65f4fab000c9934e7b9146c6b855a212dd41dab84ec47c1",
+  "figure_manifest_sha256": "df75b929ba16044fa7e3f68aff812ecb48269df07f0dbcd34fb2e885d805eaa2",
+  "all_source_hashes_verified": true,
+  "state_clock_and_no_future_increment_verified": true,
+  "future_perturbation_feature_invariance_verified": true,
+  "episode_merging_and_censoring_verified": true,
+  "all_primary_targets_and_alarm_labels_rebuilt": true,
+  "forward_predictions": 4534,
+  "per_task_and_per_arm_scores_verified": true,
+  "all_episode_early_alarm_leads_rebuilt": true,
+  "eligible_positive_states": 495,
+  "episodes": 129,
+  "independent_score_max_absolute_error": 2.220446049250313e-16,
+  "all_training_outcomes_precede_test_feature_history": true,
+  "original_figure_points_exact": 1408,
+  "loss_differences_exact": 173,
+  "visual_review": "All27 panels visually reviewed: three selected peaks, exact individual points, signed loss differences, log loss/norms, local retention axes, legible labels and source-clock/footer explanations without overlap or clipping."
+}

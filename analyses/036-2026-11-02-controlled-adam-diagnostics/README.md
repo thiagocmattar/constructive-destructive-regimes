@@ -96,3 +96,14 @@ and adds step-by-step loss differences. All 552 original points match the full
 figure exactly; the added 68 differences are direct adjacent-loss subtractions.
 See [Observation007](observations/007-transformer-peak-zoom.md) and
 transformer_peak_zoom_manifest.json for the selection rule and clock conventions.
+
+The [three-model peak micro view](figures/adam_peak_micro_three_models.pdf) aligns
+all diagnostics to the parameter state where they become available and retains
+the actual-update clock for R_t. Its 27 panels are fully unsmoothed. The
+[temporal analysis](PEAK_TEMPORAL_ANALYSIS.md) covers all nine arms, 129 loss-only
+episodes and five forward test blocks. Projected change adds predictive value
+over loss history, while the standalone threshold has many false alarms.
+[Observation008](observations/008-peak-timing-and-blocked-validation.md) records
+sources, reductions, coverage and limitations; peak_temporal_verification.json
+contains independent checks. The proposal includes untouched-arm validation and
+matched optimizer-state forks at unchanged LR; no new training is launched.

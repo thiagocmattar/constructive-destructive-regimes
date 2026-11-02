@@ -177,3 +177,29 @@ All 552 original points and 68 loss differences pass source, index, numerical
 and visual checks. [Observation007](observations/007-transformer-peak-zoom.md)
 records selection, caption, reduction, clock alignment, coverage and limitations.
 This is a retrospective single-spike view, without new training or cloud cost.
+
+## Repeated peaks and forward-blocked temporal prediction
+
+The [three-column raw micro figure](figures/adam_peak_micro_three_models.pdf)
+shows the largest completed relative loss episode at each highest-LR arm:
+MLP peak 703, ResNet peak 422 and Transformer peak 794. Raw gradient, momentum
+and adaptive diagnostics use their input parameter-state clock; actual R_t
+continues to use the state after the accumulated updates. All 1,408 original
+values and 173 loss differences pass exact source and index checks.
+
+The [full temporal analysis](PEAK_TEMPORAL_ANALYSIS.md) extracts 129 loss-only
+episodes across nine arms, including 45 large episodes and two censored
+recoveries. Fresh crossings above 2 precede 13/17, 3/3, 7/7 large highest-LR episodes
+for MLP/ResNet/Transformer under the fixed 1-8-state warning rule. On 4,534 later
+time-block states, adding continuous projected change to loss history raises
+average precision 0.260 to 0.454; a simple threshold>2 instead has 21% precision.
+The lowest-LR ResNet/Transformer negative controls cross 2 frequently without
+qualifying spikes. Gradient growth is algebraically required by the threshold,
+so it is not independent corroboration. These are exploratory temporal results,
+not causal identification or an Adam stability criterion.
+
+See [Observation008](observations/008-peak-timing-and-blocked-validation.md),
+the frozen analysis protocol, complete source/prediction tables and independent
+verification. A proposal describes untouched-arm validation and separately
+authorized optimizer-state forks with LR held fixed. No new training, seed,
+Hessian/HVP, LR intervention or cloud cost accompanies this analysis.

@@ -20,6 +20,8 @@ Both complete eight-row figures are reviewed: loss/Adam R_t raw with six rows
 smoothed, plus a fully unsmoothed alternative; earlier previews are retained.
 A five-row highest-LR Adam/SGD comparison covers the common first 1,024 updates.
 A raw Transformer LR0.003 zoom covers the peak at794 and return below L_784 at852.
+Three-model state-aligned peak views and blocked forecasts show temporal value
+for projected change, with frequent threshold false alarms; no causal claim.
 All15 calibration/main task Pods/disks deleted after verified acceptance; fresh
 account inventory confirms zero remaining. Retained task cloud storage0GB.
 Combined estimated USD13.89 provisional (main11.62 +calibration2.26).
