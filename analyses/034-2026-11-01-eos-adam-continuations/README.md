@@ -5,6 +5,10 @@ uses the same nine-panel structure as Analysis033, with all consecutive lags
 connected. Adam LRs: MLP 3e-4; ResNet-32 and Transformer 1e-3.
 [Selection, caption and checks](observations/002-largest-lr-lag256.md).
 
+The anchored figures here look forward from a fixed start, cos(g_s, g_(s+k)).
+The backward endpoint definition, cos(g_t, g_(t-k)), has separate GD and Adam
+figures in [Analysis035](../035-2026-11-02-eos-backward-anchors/README.md).
+
 All task cloud deleted; USD 39.35 compute estimate, provisional.
 
 # Analysis034: Adam continuations of the same EOS checkpoints

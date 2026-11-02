@@ -51,6 +51,23 @@ State whether it is exact, approximate, sampled, or a descriptive association.
 No claim that positive alignment improves loss, or that norm control establishes
 stability, is encoded as a measurement rule.
 
+## Backward anchored raw-gradient cosine
+
+[Analysis035](../analyses/035-2026-11-02-eos-backward-anchors/README.md) implements
+the user-defined rho_t(k) = dot(g_t,g_(t-k)) / (norm(g_t)*norm(g_(t-k))). Hold t
+fixed and vary k=1..256; use one complete raw-gradient pair per lag, before
+clipping or optimizer transformation. Endpoint t=start+256 is sampled and
+unapplied. Full training-objective reductions, ordering and parameter scope
+match Analysis033/034. FP32 vectors, FP64 products/norms; zero denominator gives
+undefined/null without epsilon. No centering, smoothing, projection or averaging.
+GPU products are independently checked with CPU NumPy at every lag. Retain
+all pair products, losses, gradient hashes, selected full audit vectors and
+model/optimizer/RNG recovery. Temporary dense histories are discarded only
+after complete reduction. The figure's horizontal coordinate is pair lag;
+the endpoint gradient is the same in every point. This is distinct from the
+historical forward-anchor and moving-adjacent measurements; see
+[definitions](DEFINITIONS.md#fixed-anchor-lag-profiles-and-time-direction).
+
 ## Operational logging convention
 
 Future runs should record status, completed updates, input and supervised tokens,

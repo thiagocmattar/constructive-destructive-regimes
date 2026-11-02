@@ -231,6 +231,12 @@
 <!-- End Analysis034 records -->
 
 
+<!-- Analysis035 records -->
+| Run | Question / hypotheses | Status | Attempts | Observations |
+| --- | --- | --- | --- | --- |
+| [212](212-2026-11-02-eos-backward-anchors/README.md) | Fixed-endpoint backward raw-gradient cosines under GD and cold Adam | Complete; 18 profiles, lags 1-256, exact FP64 products | 13 canonical workers; 18 physical Pods including five retired before training; all retrieved/verified/deleted | [Analysis035](../analyses/035-2026-11-02-eos-backward-anchors/REPORT.md); two reviewed PDFs; identical starts, later replay drift disclosed; USD 9.26 compute provisional |
+<!-- End Analysis035 records -->
+
 <!-- Run213 preparation -->
 | Run | Question / hypotheses | Status | Attempts | Observations |
 | --- | --- | --- | --- | --- |

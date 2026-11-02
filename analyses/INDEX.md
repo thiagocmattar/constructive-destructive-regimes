@@ -64,6 +64,12 @@
 <!-- End Analysis034 records -->
 
 
+<!-- Analysis035 records -->
+| Analysis | Question | Inputs | Status | Outputs |
+| --- | --- | --- | --- | --- |
+| [035](035-2026-11-02-eos-backward-anchors/README.md) | Backward fixed-endpoint gradient cosine, separately for GD and Adam | Run212; nine directly saved Run205 starts; largest source GD rates and Analysis034 calibrated Adam rates | Complete; 18 profiles / 4608 pairs; endpoints 756/2256/3256, lags 1-256 | Two reviewed PDFs, scalar/CPU/vector audits, explicit historical replay discrepancies; task cloud deleted; USD 9.26 provisional |
+<!-- End Analysis035 records -->
+
 <!-- Analysis036 preparation -->
 | Analysis | Question | Source runs / other inputs | Status | Observations / figures |
 | --- | --- | --- | --- | --- |

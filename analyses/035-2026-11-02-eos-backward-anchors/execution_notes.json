@@ -1,0 +1,17 @@
+{
+  "runtime_staging_change": {
+    "epoch": 1793616321.5981023,
+    "reason": "Local SSH upload bottleneck; official PyTorch CDN 10MiB range probe measured129MB/s",
+    "method": "Direct uv installation with42 source package version constraints",
+    "scientific_config_unchanged": true,
+    "allocated_pods_preserved": true
+  },
+  "transient_storage_stall": {
+    "worker": 3,
+    "attempt": 1,
+    "last_observed_stalled_offset": 65,
+    "recovered_without_retry": true,
+    "scientific_inputs_unchanged": true,
+    "diagnosis": "FUSE volume delay; no OOM; original process later resumed at offset114; recovery preflight safely declined to interrupt a healthy process"
+  }
+}

@@ -1,0 +1,746 @@
+{
+  "status": "complete",
+  "failed_workers": [],
+  "pods": [
+    {
+      "id": "tqef6fu6x6zsvv",
+      "name": "cdr-analysis035-worker12-attempt1",
+      "worker": 12,
+      "attempt": 1,
+      "created_epoch": 1793615959.064509,
+      "gpu": "A100 SXM",
+      "price_per_gpu_hour": 1.79,
+      "phase": "212",
+      "host": "64.247.196.128",
+      "port": 16921,
+      "latest_status": {
+        "worker": 12,
+        "run_id": "212",
+        "epoch": 1793616636.9482462,
+        "free_gb": 123485.528064,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T10:50:13.823588+00:00",
+          "elapsed_seconds": 206.86521762702614,
+          "peak_allocated_bytes": 122074112,
+          "peak_reserved_bytes": 132120576,
+          "phase": "backward_products",
+          "job": "adam-122-3000"
+        },
+        "manifest": {
+          "status": "complete",
+          "worker": 12,
+          "run_id": "212",
+          "started_utc": "2026-11-02T10:46:46.958394+00:00",
+          "config_sha256": "64120d831deeb5cab851d7bccba456e192e9fcffb94ea2ffa7f2194600afb0e2",
+          "jobs": [
+            "gd-122-500",
+            "adam-122-500",
+            "gd-122-2000",
+            "adam-122-2000",
+            "gd-122-3000",
+            "adam-122-3000"
+          ],
+          "completed_utc": "2026-11-02T10:50:14.933106+00:00",
+          "elapsed_seconds": 207.97475359309465
+        },
+        "setup_tail": "ia-cuda-cupti\n Downloading numpy\n Downloading nvidia-nvjitlink\n Downloading nvidia-curand\n Downloading sympy\n Downloading nvidia-nvshmem-cu13\n Downloading scipy\n Downloading nvidia-cuda-nvrtc\n Downloading nvidia-cusparse\n Downloading nvidia-cusparselt-cu13\n Downloading nvidia-nccl-cu13\n Downloading nvidia-cusolver\n Downloading nvidia-cufft\n Downloading nvidia-cudnn-cu13\n Downloading triton\n Downloading nvidia-cublas\n Downloading torch\nPrepared 31 packages in 21.92s\nInstalled 31 packages in 367ms\n + cuda-bindings==13.4.4\n + cuda-pathfinder==1.8.4\n + cuda-toolkit==13.0.2\n + filelock==3.20.0\n + fsspec==2024.6.1\n + jinja2==3.1.6\n + markupsafe==3.0.4\n + mpmath==1.3.0\n + networkx==3.3\n + numpy==2.5.0\n + nvidia-cublas==13.1.0.3\n + nvidia-cuda-cupti==13.0.85\n + nvidia-cuda-nvrtc==13.0.88\n + nvidia-cuda-runtime==13.0.96\n + nvidia-cudnn-cu13==9.19.0.56\n + nvidia-cufft==12.0.0.61\n + nvidia-cufile==1.15.1.6\n + nvidia-curand==10.4.0.35\n + nvidia-cusolver==12.0.4.66\n + nvidia-cusparse==12.6.3.3\n + nvidia-cusparselt-cu13==0.8.0\n + nvidia-nccl-cu13==2.28.9\n + nvidia-nvjitlink==13.0.88\n + nvidia-nvshmem-cu13==3.4.5\n + nvidia-nvtx==13.0.85\n + scipy==1.18.1\n + setuptools==81.0.0\n + sympy==1.13.3\n + torch==2.11.0+cu130\n + triton==3.6.0\n + typing-extensions==4.15.0\n2.11.0+cu130 NVIDIA A100-SXM4-80GB\n",
+        "worker_tail": "lp\", \"optimizer\": \"adam\", \"start\": 3000, \"endpoint\": 3256, \"offset\": 254, \"horizon\": 256, \"loss\": 0.040850316639989614, \"norm\": 0.34346115921121784, \"seconds\": 0.01966212794650346, \"loss_units\": 5000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T10:50:13.120759+00:00\", \"elapsed_seconds\": 206.16241030907258, \"peak_allocated_bytes\": 122074112, \"peak_reserved_bytes\": 132120576, \"phase\": \"gradient\", \"job\": \"adam-122-3000\", \"task\": \"mlp\", \"optimizer\": \"adam\", \"start\": 3000, \"endpoint\": 3256, \"offset\": 255, \"horizon\": 256, \"loss\": 0.04056583810597658, \"norm\": 0.30469552762762664, \"seconds\": 0.01979506097268313, \"loss_units\": 5000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T10:50:13.799299+00:00\", \"elapsed_seconds\": 206.84093721804675, \"peak_allocated_bytes\": 122074112, \"peak_reserved_bytes\": 132120576, \"phase\": \"gradient\", \"job\": \"adam-122-3000\", \"task\": \"mlp\", \"optimizer\": \"adam\", \"start\": 3000, \"endpoint\": 3256, \"offset\": 256, \"horizon\": 256, \"loss\": 0.04054326843470335, \"norm\": 0.3513324516770504, \"seconds\": 0.6464746870333329, \"loss_units\": 5000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T10:50:13.823588+00:00\", \"elapsed_seconds\": 206.86521762702614, \"peak_allocated_bytes\": 122074112, \"peak_reserved_bytes\": 132120576, \"phase\": \"backward_products\", \"job\": \"adam-122-3000\"}\n"
+      },
+      "deleted_epoch": 1793616652.9480612,
+      "failed": false
+    },
+    {
+      "id": "l0pqgv4k05lwp9",
+      "name": "cdr-analysis035-worker0-attempt1",
+      "worker": 0,
+      "attempt": 1,
+      "created_epoch": 1793615962.1233642,
+      "gpu": "A100 SXM",
+      "price_per_gpu_hour": 1.79,
+      "phase": "212",
+      "host": "154.54.102.23",
+      "port": 13390,
+      "latest_status": {
+        "worker": 0,
+        "run_id": "212",
+        "epoch": 1793618815.938875,
+        "free_gb": 111503.937110016,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T11:26:11.926563+00:00",
+          "elapsed_seconds": 2386.809848858975,
+          "peak_allocated_bytes": 10327298048,
+          "peak_reserved_bytes": 11219763200,
+          "phase": "backward_products",
+          "job": "gd-126-500"
+        },
+        "manifest": {
+          "status": "complete",
+          "worker": 0,
+          "run_id": "212",
+          "started_utc": "2026-11-02T10:46:25.116737+00:00",
+          "config_sha256": "64120d831deeb5cab851d7bccba456e192e9fcffb94ea2ffa7f2194600afb0e2",
+          "jobs": [
+            "gd-126-500"
+          ],
+          "completed_utc": "2026-11-02T11:26:41.424759+00:00",
+          "elapsed_seconds": 2416.3080780089367
+        },
+        "setup_tail": "ia-cuda-cupti\n Downloading numpy\n Downloading nvidia-nvjitlink\n Downloading sympy\n Downloading nvidia-curand\n Downloading nvidia-nvshmem-cu13\n Downloading scipy\n Downloading nvidia-cuda-nvrtc\n Downloading nvidia-cusparse\n Downloading nvidia-cusparselt-cu13\n Downloading nvidia-nccl-cu13\n Downloading nvidia-cusolver\n Downloading nvidia-cufft\n Downloading triton\n Downloading nvidia-cudnn-cu13\n Downloading nvidia-cublas\n Downloading torch\nPrepared 31 packages in 17.32s\nInstalled 31 packages in 356ms\n + cuda-bindings==13.4.4\n + cuda-pathfinder==1.8.4\n + cuda-toolkit==13.0.2\n + filelock==3.20.0\n + fsspec==2024.6.1\n + jinja2==3.1.6\n + markupsafe==3.0.4\n + mpmath==1.3.0\n + networkx==3.3\n + numpy==2.5.0\n + nvidia-cublas==13.1.0.3\n + nvidia-cuda-cupti==13.0.85\n + nvidia-cuda-nvrtc==13.0.88\n + nvidia-cuda-runtime==13.0.96\n + nvidia-cudnn-cu13==9.19.0.56\n + nvidia-cufft==12.0.0.61\n + nvidia-cufile==1.15.1.6\n + nvidia-curand==10.4.0.35\n + nvidia-cusolver==12.0.4.66\n + nvidia-cusparse==12.6.3.3\n + nvidia-cusparselt-cu13==0.8.0\n + nvidia-nccl-cu13==2.28.9\n + nvidia-nvjitlink==13.0.88\n + nvidia-nvshmem-cu13==3.4.5\n + nvidia-nvtx==13.0.85\n + scipy==1.18.1\n + setuptools==81.0.0\n + sympy==1.13.3\n + torch==2.11.0+cu130\n + triton==3.6.0\n + typing-extensions==4.15.0\n2.11.0+cu130 NVIDIA A100-SXM4-80GB\n",
+        "worker_tail": "optimizer\": \"gd\", \"start\": 500, \"endpoint\": 756, \"offset\": 254, \"horizon\": 256, \"loss\": 6.661592746038013, \"norm\": 0.6386369419148209, \"seconds\": 9.308039763011038, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T11:26:02.329553+00:00\", \"elapsed_seconds\": 2377.21288225404, \"peak_allocated_bytes\": 10327298048, \"peak_reserved_bytes\": 11219763200, \"phase\": \"gradient\", \"job\": \"gd-126-500\", \"task\": \"transformer\", \"optimizer\": \"gd\", \"start\": 500, \"endpoint\": 756, \"offset\": 255, \"horizon\": 256, \"loss\": 6.66106002525615, \"norm\": 0.6388782173929183, \"seconds\": 9.061618610052392, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T11:26:11.914907+00:00\", \"elapsed_seconds\": 2386.7982103249524, \"peak_allocated_bytes\": 10327298048, \"peak_reserved_bytes\": 11219763200, \"phase\": \"gradient\", \"job\": \"gd-126-500\", \"task\": \"transformer\", \"optimizer\": \"gd\", \"start\": 500, \"endpoint\": 756, \"offset\": 256, \"horizon\": 256, \"loss\": 6.66055453563392, \"norm\": 0.6387206392948074, \"seconds\": 9.575783882988617, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T11:26:11.926563+00:00\", \"elapsed_seconds\": 2386.809848858975, \"peak_allocated_bytes\": 10327298048, \"peak_reserved_bytes\": 11219763200, \"phase\": \"backward_products\", \"job\": \"gd-126-500\"}\n"
+      },
+      "deleted_epoch": 1793618856.38194,
+      "failed": false
+    },
+    {
+      "id": "7wnpavri4p2qtq",
+      "name": "cdr-analysis035-worker6-attempt1",
+      "worker": 6,
+      "attempt": 1,
+      "created_epoch": 1793615964.7395875,
+      "gpu": "RTX 5090",
+      "price_per_gpu_hour": 1.19,
+      "phase": "212",
+      "host": "149.36.1.141",
+      "port": 11970,
+      "latest_status": {
+        "worker": 6,
+        "run_id": "212",
+        "epoch": 1793617547.2507699,
+        "free_gb": 807557.176098816,
+        "setup_exit": "0",
+        "worker_exit": "1",
+        "manifest": {
+          "status": "failed",
+          "worker": 6,
+          "run_id": "212",
+          "started_utc": "2026-11-02T11:05:25.043641+00:00",
+          "config_sha256": "64120d831deeb5cab851d7bccba456e192e9fcffb94ea2ffa7f2194600afb0e2",
+          "jobs": [],
+          "error": "AssertionError({'source_gradient_relative_error': 1.5325762323511875e-05, 'source_loss_error': -7.324218564974672e-09, 'initial_tensor_sha256': '2715e4bb9ead5df319c0822bdcca6e5d8757e06345a34545d8d8847d298f8686'})",
+          "completed_utc": "2026-11-02T11:05:31.819664+00:00"
+        },
+        "setup_tail": " Downloading torch\n Downloading nvidia-cuda-cupti\n Downloading numpy\n Downloading scipy\n Downloading nvidia-nvjitlink\n Downloading nvidia-curand\n Downloading nvidia-nvshmem-cu13\n Downloading nvidia-cuda-nvrtc\n Downloading nvidia-cusparse\n Downloading nvidia-cusparselt-cu13\n Downloading triton\n Downloading nvidia-nccl-cu13\n Downloading nvidia-cusolver\n Downloading nvidia-cufft\n Downloading nvidia-cudnn-cu13\n Downloading nvidia-cublas\nPrepared 31 packages in 2m 25s\nInstalled 31 packages in 639ms\n + cuda-bindings==13.4.4\n + cuda-pathfinder==1.8.4\n + cuda-toolkit==13.0.2\n + filelock==3.20.0\n + fsspec==2024.6.1\n + jinja2==3.1.6\n + markupsafe==3.0.4\n + mpmath==1.3.0\n + networkx==3.3\n + numpy==2.5.0\n + nvidia-cublas==13.1.0.3\n + nvidia-cuda-cupti==13.0.85\n + nvidia-cuda-nvrtc==13.0.88\n + nvidia-cuda-runtime==13.0.96\n + nvidia-cudnn-cu13==9.19.0.56\n + nvidia-cufft==12.0.0.61\n + nvidia-cufile==1.15.1.6\n + nvidia-curand==10.4.0.35\n + nvidia-cusolver==12.0.4.66\n + nvidia-cusparse==12.6.3.3\n + nvidia-cusparselt-cu13==0.8.0\n + nvidia-nccl-cu13==2.28.9\n + nvidia-nvjitlink==13.0.88\n + nvidia-nvshmem-cu13==3.4.5\n + nvidia-nvtx==13.0.85\n + scipy==1.18.1\n + setuptools==81.0.0\n + sympy==1.13.3\n + torch==2.11.0+cu130\n + triton==3.6.0\n + typing-extensions==4.15.0\n2.11.0+cu130 NVIDIA GeForce RTX 5090\n",
+        "worker_tail": "Traceback (most recent call last):\n  File \"/workspace/constructive/runs/212-2026-11-02-eos-backward-anchors/01_worker.py\", line 169, in <module>\n    main()\n  File \"/workspace/constructive/runs/212-2026-11-02-eos-backward-anchors/01_worker.py\", line 96, in main\n    assert source_error < 1e-5 and abs(loss-job['source_loss']) < 1e-5, checks\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: {'source_gradient_relative_error': 1.5325762323511875e-05, 'source_loss_error': -7.324218564974672e-09, 'initial_tensor_sha256': '2715e4bb9ead5df319c0822bdcca6e5d8757e06345a34545d8d8847d298f8686'}\n"
+      },
+      "deleted_epoch": 1793617550.3349032,
+      "failed": true
+    },
+    {
+      "id": "4feu1wi5x9xe18",
+      "name": "cdr-analysis035-worker7-attempt1",
+      "worker": 7,
+      "attempt": 1,
+      "created_epoch": 1793615967.0046337,
+      "gpu": "RTX 5090",
+      "price_per_gpu_hour": 1.19,
+      "phase": "212",
+      "host": "68.164.57.16",
+      "port": 11832,
+      "latest_status": {
+        "worker": 7,
+        "run_id": "212",
+        "epoch": 1793616530.9488304,
+        "free_gb": 36.82912256,
+        "setup_exit": "2",
+        "setup_tail": "/tmp/analysis035-inputs.tar.gz: OK\nUsing CPython 3.12.3 interpreter at: /usr/local/bin/python\nCreating virtual environment at: /opt/analysis034-venv\nActivate with: source /opt/analysis034-venv/bin/activate\nUsing Python 3.12.3 environment at: /opt/analysis034-venv\nerror: Failed to fetch: `https://pypi.org/simple/cuda-pathfinder/`\n  Caused by: Request failed after 3 retries\n  Caused by: error sending request for url (https://pypi.org/simple/cuda-pathfinder/)\n  Caused by: operation timed out\n"
+      },
+      "deleted_epoch": 1793616536.3561978,
+      "failed": true
+    },
+    {
+      "id": "sufo7cylvw0aqm",
+      "name": "cdr-analysis035-worker8-attempt1",
+      "worker": 8,
+      "attempt": 1,
+      "created_epoch": 1793615969.438199,
+      "gpu": "RTX 5090",
+      "price_per_gpu_hour": 1.19,
+      "phase": "212",
+      "host": "128.14.31.82",
+      "port": 14893,
+      "latest_status": {
+        "worker": 8,
+        "run_id": "212",
+        "epoch": 1793616468.6210637,
+        "free_gb": 36.829003776,
+        "setup_exit": "0",
+        "worker_exit": "1",
+        "manifest": {
+          "status": "failed",
+          "worker": 8,
+          "run_id": "212",
+          "started_utc": "2026-11-02T10:47:11.194496+00:00",
+          "config_sha256": "64120d831deeb5cab851d7bccba456e192e9fcffb94ea2ffa7f2194600afb0e2",
+          "jobs": [],
+          "error": "AssertionError({'source_gradient_relative_error': 7.499512590152538e-05, 'source_loss_error': 1.220703127469136e-08, 'initial_tensor_sha256': '7640cc1f26814c4a0462d630bff94708442ab15870476512966f69e9ef1065e7'})",
+          "completed_utc": "2026-11-02T10:47:16.563495+00:00"
+        },
+        "setup_tail": "-cuda-cupti\n Downloading numpy\n Downloading nvidia-nvjitlink\n Downloading nvidia-curand\n Downloading sympy\n Downloading nvidia-nvshmem-cu13\n Downloading scipy\n Downloading nvidia-cuda-nvrtc\n Downloading nvidia-cusparse\n Downloading nvidia-cusparselt-cu13\n Downloading nvidia-nccl-cu13\n Downloading nvidia-cusolver\n Downloading nvidia-cufft\n Downloading nvidia-cudnn-cu13\n Downloading nvidia-cublas\n Downloading triton\n Downloading torch\nPrepared 31 packages in 16.37s\nInstalled 31 packages in 269ms\n + cuda-bindings==13.4.4\n + cuda-pathfinder==1.8.4\n + cuda-toolkit==13.0.2\n + filelock==3.20.0\n + fsspec==2024.6.1\n + jinja2==3.1.6\n + markupsafe==3.0.4\n + mpmath==1.3.0\n + networkx==3.3\n + numpy==2.5.0\n + nvidia-cublas==13.1.0.3\n + nvidia-cuda-cupti==13.0.85\n + nvidia-cuda-nvrtc==13.0.88\n + nvidia-cuda-runtime==13.0.96\n + nvidia-cudnn-cu13==9.19.0.56\n + nvidia-cufft==12.0.0.61\n + nvidia-cufile==1.15.1.6\n + nvidia-curand==10.4.0.35\n + nvidia-cusolver==12.0.4.66\n + nvidia-cusparse==12.6.3.3\n + nvidia-cusparselt-cu13==0.8.0\n + nvidia-nccl-cu13==2.28.9\n + nvidia-nvjitlink==13.0.88\n + nvidia-nvshmem-cu13==3.4.5\n + nvidia-nvtx==13.0.85\n + scipy==1.18.1\n + setuptools==81.0.0\n + sympy==1.13.3\n + torch==2.11.0+cu130\n + triton==3.6.0\n + typing-extensions==4.15.0\n2.11.0+cu130 NVIDIA GeForce RTX 5090\n",
+        "worker_tail": "Traceback (most recent call last):\n  File \"/workspace/constructive/runs/212-2026-11-02-eos-backward-anchors/01_worker.py\", line 169, in <module>\n    main()\n  File \"/workspace/constructive/runs/212-2026-11-02-eos-backward-anchors/01_worker.py\", line 96, in main\n    assert source_error < 1e-5 and abs(loss-job['source_loss']) < 1e-5, checks\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: {'source_gradient_relative_error': 7.499512590152538e-05, 'source_loss_error': 1.220703127469136e-08, 'initial_tensor_sha256': '7640cc1f26814c4a0462d630bff94708442ab15870476512966f69e9ef1065e7'}\n"
+      },
+      "deleted_epoch": 1793616468.2250354,
+      "failed": true
+    },
+    {
+      "id": "24cln0l1aje8ps",
+      "name": "cdr-analysis035-worker9-attempt1",
+      "worker": 9,
+      "attempt": 1,
+      "created_epoch": 1793615971.8481002,
+      "gpu": "RTX 5090",
+      "price_per_gpu_hour": 1.19,
+      "phase": "212",
+      "host": "157.157.221.29",
+      "port": 56151,
+      "latest_status": {
+        "worker": 9,
+        "run_id": "212",
+        "epoch": 1793616505.617086,
+        "free_gb": 580963.79396096,
+        "setup_exit": "0",
+        "worker_exit": "1",
+        "manifest": {
+          "status": "failed",
+          "worker": 9,
+          "run_id": "212",
+          "started_utc": "2026-11-02T10:48:03.166242+00:00",
+          "config_sha256": "64120d831deeb5cab851d7bccba456e192e9fcffb94ea2ffa7f2194600afb0e2",
+          "jobs": [],
+          "error": "AssertionError({'source_gradient_relative_error': 7.499778887971492e-05, 'source_loss_error': 1.220703127469136e-08, 'initial_tensor_sha256': '7640cc1f26814c4a0462d630bff94708442ab15870476512966f69e9ef1065e7'})",
+          "completed_utc": "2026-11-02T10:48:08.816710+00:00"
+        },
+        "setup_tail": " Downloading nvidia-cuda-cupti\n Downloading numpy\n Downloading scipy\n Downloading nvidia-nvjitlink\n Downloading nvidia-curand\n Downloading nvidia-nvshmem-cu13\n Downloading nvidia-cuda-nvrtc\n Downloading nvidia-cusparse\n Downloading nvidia-cusparselt-cu13\n Downloading triton\n Downloading torch\n Downloading nvidia-nccl-cu13\n Downloading nvidia-cusolver\n Downloading nvidia-cufft\n Downloading nvidia-cudnn-cu13\n Downloading nvidia-cublas\nPrepared 31 packages in 49.55s\nInstalled 31 packages in 496ms\n + cuda-bindings==13.4.4\n + cuda-pathfinder==1.8.4\n + cuda-toolkit==13.0.2\n + filelock==3.20.0\n + fsspec==2024.6.1\n + jinja2==3.1.6\n + markupsafe==3.0.4\n + mpmath==1.3.0\n + networkx==3.3\n + numpy==2.5.0\n + nvidia-cublas==13.1.0.3\n + nvidia-cuda-cupti==13.0.85\n + nvidia-cuda-nvrtc==13.0.88\n + nvidia-cuda-runtime==13.0.96\n + nvidia-cudnn-cu13==9.19.0.56\n + nvidia-cufft==12.0.0.61\n + nvidia-cufile==1.15.1.6\n + nvidia-curand==10.4.0.35\n + nvidia-cusolver==12.0.4.66\n + nvidia-cusparse==12.6.3.3\n + nvidia-cusparselt-cu13==0.8.0\n + nvidia-nccl-cu13==2.28.9\n + nvidia-nvjitlink==13.0.88\n + nvidia-nvshmem-cu13==3.4.5\n + nvidia-nvtx==13.0.85\n + scipy==1.18.1\n + setuptools==81.0.0\n + sympy==1.13.3\n + torch==2.11.0+cu130\n + triton==3.6.0\n + typing-extensions==4.15.0\n2.11.0+cu130 NVIDIA GeForce RTX 5090\n",
+        "worker_tail": "Traceback (most recent call last):\n  File \"/workspace/constructive/runs/212-2026-11-02-eos-backward-anchors/01_worker.py\", line 169, in <module>\n    main()\n  File \"/workspace/constructive/runs/212-2026-11-02-eos-backward-anchors/01_worker.py\", line 96, in main\n    assert source_error < 1e-5 and abs(loss-job['source_loss']) < 1e-5, checks\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: {'source_gradient_relative_error': 7.499778887971492e-05, 'source_loss_error': 1.220703127469136e-08, 'initial_tensor_sha256': '7640cc1f26814c4a0462d630bff94708442ab15870476512966f69e9ef1065e7'}\n"
+      },
+      "deleted_epoch": 1793616508.646535,
+      "failed": true
+    },
+    {
+      "id": "x7zp3rigursysh",
+      "name": "cdr-analysis035-worker10-attempt1",
+      "worker": 10,
+      "attempt": 1,
+      "created_epoch": 1793615974.354016,
+      "gpu": "RTX 5090",
+      "price_per_gpu_hour": 1.19,
+      "phase": "212",
+      "host": "149.36.0.117",
+      "port": 29002,
+      "latest_status": {
+        "worker": 10,
+        "run_id": "212",
+        "epoch": 1793617383.433691,
+        "free_gb": 807584.061390848,
+        "setup_exit": "0",
+        "worker_exit": "1",
+        "manifest": {
+          "status": "failed",
+          "worker": 10,
+          "run_id": "212",
+          "started_utc": "2026-11-02T11:02:42.202220+00:00",
+          "config_sha256": "64120d831deeb5cab851d7bccba456e192e9fcffb94ea2ffa7f2194600afb0e2",
+          "jobs": [],
+          "error": "AssertionError({'source_gradient_relative_error': 0.00013423502901612126, 'source_loss_error': 1.2207031052646755e-08, 'initial_tensor_sha256': '7731c4135c6580e9859f38be1ea6d19ff7ad02a29ff390c0d7ca434b8e0b0e70'})",
+          "completed_utc": "2026-11-02T11:02:48.608899+00:00"
+        },
+        "setup_tail": " Downloading nvidia-cuda-cupti\n Downloading numpy\n Downloading torch\n Downloading scipy\n Downloading nvidia-nvjitlink\n Downloading nvidia-curand\n Downloading nvidia-nvshmem-cu13\n Downloading nvidia-cuda-nvrtc\n Downloading nvidia-cusparse\n Downloading nvidia-cusparselt-cu13\n Downloading triton\n Downloading nvidia-nccl-cu13\n Downloading nvidia-cusolver\n Downloading nvidia-cufft\n Downloading nvidia-cudnn-cu13\n Downloading nvidia-cublas\nPrepared 31 packages in 47.62s\nInstalled 31 packages in 667ms\n + cuda-bindings==13.4.4\n + cuda-pathfinder==1.8.4\n + cuda-toolkit==13.0.2\n + filelock==3.20.0\n + fsspec==2024.6.1\n + jinja2==3.1.6\n + markupsafe==3.0.4\n + mpmath==1.3.0\n + networkx==3.3\n + numpy==2.5.0\n + nvidia-cublas==13.1.0.3\n + nvidia-cuda-cupti==13.0.85\n + nvidia-cuda-nvrtc==13.0.88\n + nvidia-cuda-runtime==13.0.96\n + nvidia-cudnn-cu13==9.19.0.56\n + nvidia-cufft==12.0.0.61\n + nvidia-cufile==1.15.1.6\n + nvidia-curand==10.4.0.35\n + nvidia-cusolver==12.0.4.66\n + nvidia-cusparse==12.6.3.3\n + nvidia-cusparselt-cu13==0.8.0\n + nvidia-nccl-cu13==2.28.9\n + nvidia-nvjitlink==13.0.88\n + nvidia-nvshmem-cu13==3.4.5\n + nvidia-nvtx==13.0.85\n + scipy==1.18.1\n + setuptools==81.0.0\n + sympy==1.13.3\n + torch==2.11.0+cu130\n + triton==3.6.0\n + typing-extensions==4.15.0\n2.11.0+cu130 NVIDIA GeForce RTX 5090\n",
+        "worker_tail": "Traceback (most recent call last):\n  File \"/workspace/constructive/runs/212-2026-11-02-eos-backward-anchors/01_worker.py\", line 169, in <module>\n    main()\n  File \"/workspace/constructive/runs/212-2026-11-02-eos-backward-anchors/01_worker.py\", line 96, in main\n    assert source_error < 1e-5 and abs(loss-job['source_loss']) < 1e-5, checks\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: {'source_gradient_relative_error': 0.00013423502901612126, 'source_loss_error': 1.2207031052646755e-08, 'initial_tensor_sha256': '7731c4135c6580e9859f38be1ea6d19ff7ad02a29ff390c0d7ca434b8e0b0e70'}\n"
+      },
+      "deleted_epoch": 1793617386.2672558,
+      "failed": true
+    },
+    {
+      "id": "32cf9xkswm1l2s",
+      "name": "cdr-analysis035-worker11-attempt1",
+      "worker": 11,
+      "attempt": 1,
+      "created_epoch": 1793615976.9401956,
+      "gpu": "RTX 4090",
+      "price_per_gpu_hour": 0.89,
+      "phase": "212",
+      "host": "213.173.108.87",
+      "port": 15644,
+      "latest_status": {
+        "worker": 11,
+        "run_id": "212",
+        "epoch": 1793617123.9875832,
+        "free_gb": 579488.208715776,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T10:58:30.828395+00:00",
+          "elapsed_seconds": 687.4772766500246,
+          "peak_allocated_bytes": 3158254592,
+          "peak_reserved_bytes": 3407872000,
+          "phase": "backward_products",
+          "job": "adam-120-3000"
+        },
+        "manifest": {
+          "status": "complete",
+          "worker": 11,
+          "run_id": "212",
+          "started_utc": "2026-11-02T10:47:03.351127+00:00",
+          "config_sha256": "64120d831deeb5cab851d7bccba456e192e9fcffb94ea2ffa7f2194600afb0e2",
+          "jobs": [
+            "adam-120-3000"
+          ],
+          "completed_utc": "2026-11-02T10:58:31.231429+00:00",
+          "elapsed_seconds": 687.8803238410037
+        },
+        "setup_tail": " Downloading nvidia-cuda-cupti\n Downloading numpy\n Downloading scipy\n Downloading nvidia-nvjitlink\n Downloading nvidia-curand\n Downloading nvidia-nvshmem-cu13\n Downloading nvidia-cuda-nvrtc\n Downloading nvidia-cusparse\n Downloading nvidia-cusparselt-cu13\n Downloading triton\n Downloading nvidia-cusolver\n Downloading nvidia-nccl-cu13\n Downloading nvidia-cufft\n Downloading nvidia-cudnn-cu13\n Downloading nvidia-cublas\n Downloading torch\nPrepared 31 packages in 14.49s\nInstalled 31 packages in 323ms\n + cuda-bindings==13.4.4\n + cuda-pathfinder==1.8.4\n + cuda-toolkit==13.0.2\n + filelock==3.20.0\n + fsspec==2024.6.1\n + jinja2==3.1.6\n + markupsafe==3.0.4\n + mpmath==1.3.0\n + networkx==3.3\n + numpy==2.5.0\n + nvidia-cublas==13.1.0.3\n + nvidia-cuda-cupti==13.0.85\n + nvidia-cuda-nvrtc==13.0.88\n + nvidia-cuda-runtime==13.0.96\n + nvidia-cudnn-cu13==9.19.0.56\n + nvidia-cufft==12.0.0.61\n + nvidia-cufile==1.15.1.6\n + nvidia-curand==10.4.0.35\n + nvidia-cusolver==12.0.4.66\n + nvidia-cusparse==12.6.3.3\n + nvidia-cusparselt-cu13==0.8.0\n + nvidia-nccl-cu13==2.28.9\n + nvidia-nvjitlink==13.0.88\n + nvidia-nvshmem-cu13==3.4.5\n + nvidia-nvtx==13.0.85\n + scipy==1.18.1\n + setuptools==81.0.0\n + sympy==1.13.3\n + torch==2.11.0+cu130\n + triton==3.6.0\n + typing-extensions==4.15.0\n2.11.0+cu130 NVIDIA GeForce RTX 4090\n",
+        "worker_tail": "er\": \"adam\", \"start\": 3000, \"endpoint\": 3256, \"offset\": 254, \"horizon\": 256, \"loss\": 0.008500896005630492, \"norm\": 0.011806080391202196, \"seconds\": 2.575807861983776, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T10:58:28.013307+00:00\", \"elapsed_seconds\": 684.6621962509817, \"peak_allocated_bytes\": 3158254592, \"peak_reserved_bytes\": 3407872000, \"phase\": \"gradient\", \"job\": \"adam-120-3000\", \"task\": \"resnet\", \"optimizer\": \"adam\", \"start\": 3000, \"endpoint\": 3256, \"offset\": 255, \"horizon\": 256, \"loss\": 0.00841418578147888, \"norm\": 0.011704434693397315, \"seconds\": 2.587692711967975, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T10:58:30.783351+00:00\", \"elapsed_seconds\": 687.4322388879955, \"peak_allocated_bytes\": 3158254592, \"peak_reserved_bytes\": 3407872000, \"phase\": \"gradient\", \"job\": \"adam-120-3000\", \"task\": \"resnet\", \"optimizer\": \"adam\", \"start\": 3000, \"endpoint\": 3256, \"offset\": 256, \"horizon\": 256, \"loss\": 0.008328803482055669, \"norm\": 0.011602526302857453, \"seconds\": 2.7237712719943374, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T10:58:30.828395+00:00\", \"elapsed_seconds\": 687.4772766500246, \"peak_allocated_bytes\": 3158254592, \"peak_reserved_bytes\": 3407872000, \"phase\": \"backward_products\", \"job\": \"adam-120-3000\"}\n"
+      },
+      "deleted_epoch": 1793617131.0962126,
+      "failed": false
+    },
+    {
+      "id": "tlrs0smrzod7kz",
+      "name": "cdr-analysis035-worker1-attempt1",
+      "worker": 1,
+      "attempt": 1,
+      "created_epoch": 1793616423.3082776,
+      "gpu": "RTX 4090",
+      "price_per_gpu_hour": 0.89,
+      "phase": "212",
+      "host": "203.57.40.93",
+      "port": 10015,
+      "latest_status": {
+        "worker": 1,
+        "run_id": "212",
+        "epoch": 1793618275.6787267,
+        "free_gb": 290864.341188608,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T11:17:28.884549+00:00",
+          "elapsed_seconds": 1672.1583948419866,
+          "peak_allocated_bytes": 10437469696,
+          "peak_reserved_bytes": 11219763200,
+          "phase": "backward_products",
+          "job": "adam-126-500"
+        },
+        "manifest": {
+          "status": "complete",
+          "worker": 1,
+          "run_id": "212",
+          "started_utc": "2026-11-02T10:49:36.726175+00:00",
+          "config_sha256": "64120d831deeb5cab851d7bccba456e192e9fcffb94ea2ffa7f2194600afb0e2",
+          "jobs": [
+            "adam-126-500"
+          ],
+          "completed_utc": "2026-11-02T11:17:42.045640+00:00",
+          "elapsed_seconds": 1685.319487683999
+        },
+        "setup_tail": "-cuda-cupti\n Downloading numpy\n Downloading sympy\n Downloading nvidia-nvjitlink\n Downloading nvidia-curand\n Downloading nvidia-nvshmem-cu13\n Downloading scipy\n Downloading nvidia-cuda-nvrtc\n Downloading nvidia-cusparse\n Downloading nvidia-cusparselt-cu13\n Downloading nvidia-nccl-cu13\n Downloading nvidia-cusolver\n Downloading triton\n Downloading nvidia-cufft\n Downloading nvidia-cudnn-cu13\n Downloading nvidia-cublas\n Downloading torch\nPrepared 31 packages in 24.12s\nInstalled 31 packages in 600ms\n + cuda-bindings==13.4.4\n + cuda-pathfinder==1.8.4\n + cuda-toolkit==13.0.2\n + filelock==3.20.0\n + fsspec==2024.6.1\n + jinja2==3.1.6\n + markupsafe==3.0.4\n + mpmath==1.3.0\n + networkx==3.3\n + numpy==2.5.0\n + nvidia-cublas==13.1.0.3\n + nvidia-cuda-cupti==13.0.85\n + nvidia-cuda-nvrtc==13.0.88\n + nvidia-cuda-runtime==13.0.96\n + nvidia-cudnn-cu13==9.19.0.56\n + nvidia-cufft==12.0.0.61\n + nvidia-cufile==1.15.1.6\n + nvidia-curand==10.4.0.35\n + nvidia-cusolver==12.0.4.66\n + nvidia-cusparse==12.6.3.3\n + nvidia-cusparselt-cu13==0.8.0\n + nvidia-nccl-cu13==2.28.9\n + nvidia-nvjitlink==13.0.88\n + nvidia-nvshmem-cu13==3.4.5\n + nvidia-nvtx==13.0.85\n + scipy==1.18.1\n + setuptools==81.0.0\n + sympy==1.13.3\n + torch==2.11.0+cu130\n + triton==3.6.0\n + typing-extensions==4.15.0\n2.11.0+cu130 NVIDIA GeForce RTX 4090\n",
+        "worker_tail": " \"start\": 500, \"endpoint\": 756, \"offset\": 254, \"horizon\": 256, \"loss\": 2.362543464185041, \"norm\": 0.5059091454380685, \"seconds\": 6.459275350003736, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T11:17:21.992695+00:00\", \"elapsed_seconds\": 1665.2665485129983, \"peak_allocated_bytes\": 10437469696, \"peak_reserved_bytes\": 11219763200, \"phase\": \"gradient\", \"job\": \"adam-126-500\", \"task\": \"transformer\", \"optimizer\": \"adam\", \"start\": 500, \"endpoint\": 756, \"offset\": 255, \"horizon\": 256, \"loss\": 2.3526282258450633, \"norm\": 0.443600289067926, \"seconds\": 6.419532508996781, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T11:17:28.873972+00:00\", \"elapsed_seconds\": 1672.1478202209983, \"peak_allocated_bytes\": 10437469696, \"peak_reserved_bytes\": 11219763200, \"phase\": \"gradient\", \"job\": \"adam-126-500\", \"task\": \"transformer\", \"optimizer\": \"adam\", \"start\": 500, \"endpoint\": 756, \"offset\": 256, \"horizon\": 256, \"loss\": 2.3435896092178976, \"norm\": 0.45863534853184307, \"seconds\": 6.864403236002545, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T11:17:28.884549+00:00\", \"elapsed_seconds\": 1672.1583948419866, \"peak_allocated_bytes\": 10437469696, \"peak_reserved_bytes\": 11219763200, \"phase\": \"backward_products\", \"job\": \"adam-126-500\"}\n"
+      },
+      "deleted_epoch": 1793618335.8391542,
+      "failed": false
+    },
+    {
+      "id": "y6zbacj01kq6dg",
+      "name": "cdr-analysis035-worker2-attempt1",
+      "worker": 2,
+      "attempt": 1,
+      "created_epoch": 1793616426.4483578,
+      "gpu": "RTX 4090",
+      "price_per_gpu_hour": 0.89,
+      "phase": "212",
+      "host": "47.47.180.35",
+      "port": 12287,
+      "latest_status": {
+        "worker": 2,
+        "run_id": "212",
+        "epoch": 1793618227.3997407,
+        "free_gb": 37.02325248,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T11:16:31.135789+00:00",
+          "elapsed_seconds": 1656.532731992891,
+          "peak_allocated_bytes": 10327298048,
+          "peak_reserved_bytes": 11219763200,
+          "phase": "backward_products",
+          "job": "gd-126-2000"
+        },
+        "manifest": {
+          "status": "complete",
+          "worker": 2,
+          "run_id": "212",
+          "started_utc": "2026-11-02T10:48:54.603068+00:00",
+          "config_sha256": "64120d831deeb5cab851d7bccba456e192e9fcffb94ea2ffa7f2194600afb0e2",
+          "jobs": [
+            "gd-126-2000"
+          ],
+          "completed_utc": "2026-11-02T11:16:49.421629+00:00",
+          "elapsed_seconds": 1674.818590800045
+        },
+        "setup_tail": "-cuda-cupti\n Downloading numpy\n Downloading sympy\n Downloading nvidia-nvjitlink\n Downloading scipy\n Downloading nvidia-curand\n Downloading nvidia-nvshmem-cu13\n Downloading nvidia-cuda-nvrtc\n Downloading nvidia-cusparse\n Downloading nvidia-cusparselt-cu13\n Downloading nvidia-nccl-cu13\n Downloading nvidia-cusolver\n Downloading nvidia-cufft\n Downloading triton\n Downloading nvidia-cudnn-cu13\n Downloading nvidia-cublas\n Downloading torch\nPrepared 31 packages in 17.96s\nInstalled 31 packages in 480ms\n + cuda-bindings==13.4.4\n + cuda-pathfinder==1.8.4\n + cuda-toolkit==13.0.2\n + filelock==3.20.0\n + fsspec==2024.6.1\n + jinja2==3.1.6\n + markupsafe==3.0.4\n + mpmath==1.3.0\n + networkx==3.3\n + numpy==2.5.0\n + nvidia-cublas==13.1.0.3\n + nvidia-cuda-cupti==13.0.85\n + nvidia-cuda-nvrtc==13.0.88\n + nvidia-cuda-runtime==13.0.96\n + nvidia-cudnn-cu13==9.19.0.56\n + nvidia-cufft==12.0.0.61\n + nvidia-cufile==1.15.1.6\n + nvidia-curand==10.4.0.35\n + nvidia-cusolver==12.0.4.66\n + nvidia-cusparse==12.6.3.3\n + nvidia-cusparselt-cu13==0.8.0\n + nvidia-nccl-cu13==2.28.9\n + nvidia-nvjitlink==13.0.88\n + nvidia-nvshmem-cu13==3.4.5\n + nvidia-nvtx==13.0.85\n + scipy==1.18.1\n + setuptools==81.0.0\n + sympy==1.13.3\n + torch==2.11.0+cu130\n + triton==3.6.0\n + typing-extensions==4.15.0\n2.11.0+cu130 NVIDIA GeForce RTX 4090\n",
+        "worker_tail": " \"gd\", \"start\": 2000, \"endpoint\": 2256, \"offset\": 254, \"horizon\": 256, \"loss\": 6.198946026943884, \"norm\": 0.6322584909062012, \"seconds\": 6.4011073440779, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T11:16:24.641255+00:00\", \"elapsed_seconds\": 1650.0382072250359, \"peak_allocated_bytes\": 10327298048, \"peak_reserved_bytes\": 11219763200, \"phase\": \"gradient\", \"job\": \"gd-126-2000\", \"task\": \"transformer\", \"optimizer\": \"gd\", \"start\": 2000, \"endpoint\": 2256, \"offset\": 255, \"horizon\": 256, \"loss\": 6.208562901734416, \"norm\": 0.6365582903797042, \"seconds\": 6.385292395018041, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T11:16:31.134983+00:00\", \"elapsed_seconds\": 1656.5319345889147, \"peak_allocated_bytes\": 10327298048, \"peak_reserved_bytes\": 11219763200, \"phase\": \"gradient\", \"job\": \"gd-126-2000\", \"task\": \"transformer\", \"optimizer\": \"gd\", \"start\": 2000, \"endpoint\": 2256, \"offset\": 256, \"horizon\": 256, \"loss\": 6.199158732973042, \"norm\": 0.6445330371250526, \"seconds\": 6.492423755116761, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T11:16:31.135789+00:00\", \"elapsed_seconds\": 1656.532731992891, \"peak_allocated_bytes\": 10327298048, \"peak_reserved_bytes\": 11219763200, \"phase\": \"backward_products\", \"job\": \"gd-126-2000\"}\n"
+      },
+      "deleted_epoch": 1793618277.1982903,
+      "failed": false
+    },
+    {
+      "id": "qd61l6gam4lw82",
+      "name": "cdr-analysis035-worker3-attempt1",
+      "worker": 3,
+      "attempt": 1,
+      "created_epoch": 1793616428.9615207,
+      "gpu": "RTX 4090",
+      "price_per_gpu_hour": 0.89,
+      "phase": "212",
+      "host": "213.192.2.112",
+      "port": 40166,
+      "latest_status": {
+        "worker": 3,
+        "run_id": "212",
+        "epoch": 1793619438.104425,
+        "free_gb": 346302.943592448,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T11:36:27.015620+00:00",
+          "elapsed_seconds": 2715.7894159490243,
+          "peak_allocated_bytes": 10437469696,
+          "peak_reserved_bytes": 11219763200,
+          "phase": "backward_products",
+          "job": "adam-126-2000"
+        },
+        "manifest": {
+          "status": "complete",
+          "worker": 3,
+          "run_id": "212",
+          "started_utc": "2026-11-02T10:51:11.226222+00:00",
+          "config_sha256": "64120d831deeb5cab851d7bccba456e192e9fcffb94ea2ffa7f2194600afb0e2",
+          "jobs": [
+            "adam-126-2000"
+          ],
+          "completed_utc": "2026-11-02T11:36:54.656162+00:00",
+          "elapsed_seconds": 2743.4299716700334
+        },
+        "setup_tail": "-cuda-cupti\n Downloading numpy\n Downloading nvidia-nvjitlink\n Downloading sympy\n Downloading scipy\n Downloading nvidia-curand\n Downloading nvidia-nvshmem-cu13\n Downloading torch\n Downloading nvidia-cuda-nvrtc\n Downloading nvidia-cusparse\n Downloading nvidia-cusparselt-cu13\n Downloading triton\n Downloading nvidia-nccl-cu13\n Downloading nvidia-cusolver\n Downloading nvidia-cufft\n Downloading nvidia-cudnn-cu13\n Downloading nvidia-cublas\nPrepared 31 packages in 1m 42s\nInstalled 31 packages in 722ms\n + cuda-bindings==13.4.4\n + cuda-pathfinder==1.8.4\n + cuda-toolkit==13.0.2\n + filelock==3.20.0\n + fsspec==2024.6.1\n + jinja2==3.1.6\n + markupsafe==3.0.4\n + mpmath==1.3.0\n + networkx==3.3\n + numpy==2.5.0\n + nvidia-cublas==13.1.0.3\n + nvidia-cuda-cupti==13.0.85\n + nvidia-cuda-nvrtc==13.0.88\n + nvidia-cuda-runtime==13.0.96\n + nvidia-cudnn-cu13==9.19.0.56\n + nvidia-cufft==12.0.0.61\n + nvidia-cufile==1.15.1.6\n + nvidia-curand==10.4.0.35\n + nvidia-cusolver==12.0.4.66\n + nvidia-cusparse==12.6.3.3\n + nvidia-cusparselt-cu13==0.8.0\n + nvidia-nccl-cu13==2.28.9\n + nvidia-nvjitlink==13.0.88\n + nvidia-nvshmem-cu13==3.4.5\n + nvidia-nvtx==13.0.85\n + scipy==1.18.1\n + setuptools==81.0.0\n + sympy==1.13.3\n + torch==2.11.0+cu130\n + triton==3.6.0\n + typing-extensions==4.15.0\n2.11.0+cu130 NVIDIA GeForce RTX 4090\n",
+        "worker_tail": "2000, \"endpoint\": 2256, \"offset\": 254, \"horizon\": 256, \"loss\": 2.2533639768041396, \"norm\": 0.9221473768908438, \"seconds\": 6.508980272104964, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T11:36:12.993123+00:00\", \"elapsed_seconds\": 2701.7669349759817, \"peak_allocated_bytes\": 10437469696, \"peak_reserved_bytes\": 11219763200, \"phase\": \"gradient\", \"job\": \"adam-126-2000\", \"task\": \"transformer\", \"optimizer\": \"adam\", \"start\": 2000, \"endpoint\": 2256, \"offset\": 255, \"horizon\": 256, \"loss\": 2.2419168024484097, \"norm\": 0.7032635614730063, \"seconds\": 514.6762594641186, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T11:36:27.004738+00:00\", \"elapsed_seconds\": 2715.7785483298358, \"peak_allocated_bytes\": 10437469696, \"peak_reserved_bytes\": 11219763200, \"phase\": \"gradient\", \"job\": \"adam-126-2000\", \"task\": \"transformer\", \"optimizer\": \"adam\", \"start\": 2000, \"endpoint\": 2256, \"offset\": 256, \"horizon\": 256, \"loss\": 2.2395097746023054, \"norm\": 1.0513367348466098, \"seconds\": 13.99261627998203, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T11:36:27.015620+00:00\", \"elapsed_seconds\": 2715.7894159490243, \"peak_allocated_bytes\": 10437469696, \"peak_reserved_bytes\": 11219763200, \"phase\": \"backward_products\", \"job\": \"adam-126-2000\"}\n"
+      },
+      "deleted_epoch": 1793619513.346164,
+      "failed": false
+    },
+    {
+      "id": "mja6pq14gpxp3m",
+      "name": "cdr-analysis035-worker4-attempt1",
+      "worker": 4,
+      "attempt": 1,
+      "created_epoch": 1793616431.9788682,
+      "gpu": "A100 SXM",
+      "price_per_gpu_hour": 1.79,
+      "phase": "212",
+      "host": "195.26.233.96",
+      "port": 27277,
+      "latest_status": {
+        "worker": 4,
+        "run_id": "212",
+        "epoch": 1793619049.7773814,
+        "free_gb": 218866.414845952,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T11:30:08.319533+00:00",
+          "elapsed_seconds": 2448.839135609567,
+          "peak_allocated_bytes": 10327298048,
+          "peak_reserved_bytes": 11219763200,
+          "phase": "backward_products",
+          "job": "gd-126-3000"
+        },
+        "manifest": {
+          "status": "complete",
+          "worker": 4,
+          "run_id": "212",
+          "started_utc": "2026-11-02T10:49:19.480431+00:00",
+          "config_sha256": "64120d831deeb5cab851d7bccba456e192e9fcffb94ea2ffa7f2194600afb0e2",
+          "jobs": [
+            "gd-126-3000"
+          ],
+          "completed_utc": "2026-11-02T11:30:34.769069+00:00",
+          "elapsed_seconds": 2475.288694662042
+        },
+        "setup_tail": "ia-cuda-cupti\n Downloading numpy\n Downloading nvidia-nvjitlink\n Downloading sympy\n Downloading nvidia-curand\n Downloading nvidia-nvshmem-cu13\n Downloading scipy\n Downloading nvidia-cuda-nvrtc\n Downloading nvidia-cusparse\n Downloading nvidia-cusparselt-cu13\n Downloading nvidia-cusolver\n Downloading nvidia-nccl-cu13\n Downloading nvidia-cufft\n Downloading nvidia-cudnn-cu13\n Downloading triton\n Downloading nvidia-cublas\n Downloading torch\nPrepared 31 packages in 23.45s\nInstalled 31 packages in 628ms\n + cuda-bindings==13.4.4\n + cuda-pathfinder==1.8.4\n + cuda-toolkit==13.0.2\n + filelock==3.20.0\n + fsspec==2024.6.1\n + jinja2==3.1.6\n + markupsafe==3.0.4\n + mpmath==1.3.0\n + networkx==3.3\n + numpy==2.5.0\n + nvidia-cublas==13.1.0.3\n + nvidia-cuda-cupti==13.0.85\n + nvidia-cuda-nvrtc==13.0.88\n + nvidia-cuda-runtime==13.0.96\n + nvidia-cudnn-cu13==9.19.0.56\n + nvidia-cufft==12.0.0.61\n + nvidia-cufile==1.15.1.6\n + nvidia-curand==10.4.0.35\n + nvidia-cusolver==12.0.4.66\n + nvidia-cusparse==12.6.3.3\n + nvidia-cusparselt-cu13==0.8.0\n + nvidia-nccl-cu13==2.28.9\n + nvidia-nvjitlink==13.0.88\n + nvidia-nvshmem-cu13==3.4.5\n + nvidia-nvtx==13.0.85\n + scipy==1.18.1\n + setuptools==81.0.0\n + sympy==1.13.3\n + torch==2.11.0+cu130\n + triton==3.6.0\n + typing-extensions==4.15.0\n2.11.0+cu130 NVIDIA A100-SXM4-80GB\n",
+        "worker_tail": " \"gd\", \"start\": 3000, \"endpoint\": 3256, \"offset\": 254, \"horizon\": 256, \"loss\": 6.0331975572004, \"norm\": 0.5716779622074303, \"seconds\": 8.980852343142033, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T11:29:59.015412+00:00\", \"elapsed_seconds\": 2439.535019060597, \"peak_allocated_bytes\": 10327298048, \"peak_reserved_bytes\": 11219763200, \"phase\": \"gradient\", \"job\": \"gd-126-3000\", \"task\": \"transformer\", \"optimizer\": \"gd\", \"start\": 3000, \"endpoint\": 3256, \"offset\": 255, \"horizon\": 256, \"loss\": 6.0301620366214195, \"norm\": 0.5640880530985812, \"seconds\": 9.308490060269833, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T11:30:08.313326+00:00\", \"elapsed_seconds\": 2448.8329343395308, \"peak_allocated_bytes\": 10327298048, \"peak_reserved_bytes\": 11219763200, \"phase\": \"gradient\", \"job\": \"gd-126-3000\", \"task\": \"transformer\", \"optimizer\": \"gd\", \"start\": 3000, \"endpoint\": 3256, \"offset\": 256, \"horizon\": 256, \"loss\": 6.032049202740476, \"norm\": 0.5625784865433611, \"seconds\": 9.287291117943823, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T11:30:08.319533+00:00\", \"elapsed_seconds\": 2448.839135609567, \"peak_allocated_bytes\": 10327298048, \"peak_reserved_bytes\": 11219763200, \"phase\": \"backward_products\", \"job\": \"gd-126-3000\"}\n"
+      },
+      "deleted_epoch": 1793619100.7431588,
+      "failed": false
+    },
+    {
+      "id": "ak77actm9vs4ae",
+      "name": "cdr-analysis035-worker5-attempt1",
+      "worker": 5,
+      "attempt": 1,
+      "created_epoch": 1793616435.1366198,
+      "gpu": "A100 SXM",
+      "price_per_gpu_hour": 1.79,
+      "phase": "212",
+      "host": "157.157.221.29",
+      "port": 17936,
+      "latest_status": {
+        "worker": 5,
+        "run_id": "212",
+        "epoch": 1793619470.5310328,
+        "free_gb": 578502.062309376,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T11:37:01.176117+00:00",
+          "elapsed_seconds": 2847.0340654840693,
+          "peak_allocated_bytes": 10437469696,
+          "peak_reserved_bytes": 11219763200,
+          "phase": "backward_products",
+          "job": "adam-126-3000"
+        },
+        "manifest": {
+          "status": "complete",
+          "worker": 5,
+          "run_id": "212",
+          "started_utc": "2026-11-02T10:49:34.142077+00:00",
+          "config_sha256": "64120d831deeb5cab851d7bccba456e192e9fcffb94ea2ffa7f2194600afb0e2",
+          "jobs": [
+            "adam-126-3000"
+          ],
+          "completed_utc": "2026-11-02T11:37:41.081881+00:00",
+          "elapsed_seconds": 2886.939864279935
+        },
+        "setup_tail": "y\n Downloading nvidia-cuda-cupti\n Downloading numpy\n Downloading scipy\n Downloading nvidia-nvjitlink\n Downloading nvidia-curand\n Downloading nvidia-nvshmem-cu13\n Downloading nvidia-cuda-nvrtc\n Downloading nvidia-cusparse\n Downloading nvidia-cusparselt-cu13\n Downloading triton\n Downloading nvidia-nccl-cu13\n Downloading nvidia-cusolver\n Downloading nvidia-cufft\n Downloading nvidia-cudnn-cu13\n Downloading torch\n Downloading nvidia-cublas\nPrepared 31 packages in 31.79s\nInstalled 31 packages in 637ms\n + cuda-bindings==13.4.4\n + cuda-pathfinder==1.8.4\n + cuda-toolkit==13.0.2\n + filelock==3.20.0\n + fsspec==2024.6.1\n + jinja2==3.1.6\n + markupsafe==3.0.4\n + mpmath==1.3.0\n + networkx==3.3\n + numpy==2.5.0\n + nvidia-cublas==13.1.0.3\n + nvidia-cuda-cupti==13.0.85\n + nvidia-cuda-nvrtc==13.0.88\n + nvidia-cuda-runtime==13.0.96\n + nvidia-cudnn-cu13==9.19.0.56\n + nvidia-cufft==12.0.0.61\n + nvidia-cufile==1.15.1.6\n + nvidia-curand==10.4.0.35\n + nvidia-cusolver==12.0.4.66\n + nvidia-cusparse==12.6.3.3\n + nvidia-cusparselt-cu13==0.8.0\n + nvidia-nccl-cu13==2.28.9\n + nvidia-nvjitlink==13.0.88\n + nvidia-nvshmem-cu13==3.4.5\n + nvidia-nvtx==13.0.85\n + scipy==1.18.1\n + setuptools==81.0.0\n + sympy==1.13.3\n + torch==2.11.0+cu130\n + triton==3.6.0\n + typing-extensions==4.15.0\n2.11.0+cu130 NVIDIA A100-SXM4-80GB\n",
+        "worker_tail": "\": 3000, \"endpoint\": 3256, \"offset\": 254, \"horizon\": 256, \"loss\": 2.1899716691204634, \"norm\": 0.8903097808587208, \"seconds\": 9.05023020785302, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T11:36:51.066037+00:00\", \"elapsed_seconds\": 2836.923996296013, \"peak_allocated_bytes\": 10437469696, \"peak_reserved_bytes\": 11219763200, \"phase\": \"gradient\", \"job\": \"adam-126-3000\", \"task\": \"transformer\", \"optimizer\": \"adam\", \"start\": 3000, \"endpoint\": 3256, \"offset\": 255, \"horizon\": 256, \"loss\": 2.179999416475152, \"norm\": 0.7486490658141063, \"seconds\": 9.553919088793918, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T11:37:01.143636+00:00\", \"elapsed_seconds\": 2847.0015922810417, \"peak_allocated_bytes\": 10437469696, \"peak_reserved_bytes\": 11219763200, \"phase\": \"gradient\", \"job\": \"adam-126-3000\", \"task\": \"transformer\", \"optimizer\": \"adam\", \"start\": 3000, \"endpoint\": 3256, \"offset\": 256, \"horizon\": 256, \"loss\": 2.169694534092813, \"norm\": 0.6209690023812547, \"seconds\": 10.059898472158238, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T11:37:01.176117+00:00\", \"elapsed_seconds\": 2847.0340654840693, \"peak_allocated_bytes\": 10437469696, \"peak_reserved_bytes\": 11219763200, \"phase\": \"backward_products\", \"job\": \"adam-126-3000\"}\n"
+      },
+      "deleted_epoch": 1793619552.7093892,
+      "failed": false
+    },
+    {
+      "id": "drhzw5kybek2uu",
+      "name": "cdr-analysis035-worker7-attempt2",
+      "worker": 7,
+      "attempt": 2,
+      "created_epoch": 1793616570.2878087,
+      "gpu": "RTX 4090",
+      "price_per_gpu_hour": 0.89,
+      "phase": "212",
+      "host": "47.47.180.52",
+      "port": 14868,
+      "latest_status": {
+        "worker": 7,
+        "run_id": "212",
+        "epoch": 1793617374.6718807,
+        "free_gb": 36.811563008,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T11:02:48.142261+00:00",
+          "elapsed_seconds": 666.8594516739249,
+          "peak_allocated_bytes": 3158254592,
+          "peak_reserved_bytes": 3407872000,
+          "phase": "backward_products",
+          "job": "adam-120-500"
+        },
+        "manifest": {
+          "status": "complete",
+          "worker": 7,
+          "run_id": "212",
+          "started_utc": "2026-11-02T10:51:41.282819+00:00",
+          "config_sha256": "64120d831deeb5cab851d7bccba456e192e9fcffb94ea2ffa7f2194600afb0e2",
+          "jobs": [
+            "adam-120-500"
+          ],
+          "completed_utc": "2026-11-02T11:02:48.732238+00:00",
+          "elapsed_seconds": 667.4494522288442
+        },
+        "setup_tail": "-cuda-cupti\n Downloading numpy\n Downloading sympy\n Downloading scipy\n Downloading nvidia-nvjitlink\n Downloading nvidia-curand\n Downloading nvidia-nvshmem-cu13\n Downloading nvidia-cuda-nvrtc\n Downloading torch\n Downloading nvidia-cusparse\n Downloading nvidia-cusparselt-cu13\n Downloading triton\n Downloading nvidia-nccl-cu13\n Downloading nvidia-cusolver\n Downloading nvidia-cufft\n Downloading nvidia-cudnn-cu13\n Downloading nvidia-cublas\nPrepared 31 packages in 33.86s\nInstalled 31 packages in 484ms\n + cuda-bindings==13.4.4\n + cuda-pathfinder==1.8.4\n + cuda-toolkit==13.0.2\n + filelock==3.20.0\n + fsspec==2024.6.1\n + jinja2==3.1.6\n + markupsafe==3.0.4\n + mpmath==1.3.0\n + networkx==3.3\n + numpy==2.5.0\n + nvidia-cublas==13.1.0.3\n + nvidia-cuda-cupti==13.0.85\n + nvidia-cuda-nvrtc==13.0.88\n + nvidia-cuda-runtime==13.0.96\n + nvidia-cudnn-cu13==9.19.0.56\n + nvidia-cufft==12.0.0.61\n + nvidia-cufile==1.15.1.6\n + nvidia-curand==10.4.0.35\n + nvidia-cusolver==12.0.4.66\n + nvidia-cusparse==12.6.3.3\n + nvidia-cusparselt-cu13==0.8.0\n + nvidia-nccl-cu13==2.28.9\n + nvidia-nvjitlink==13.0.88\n + nvidia-nvshmem-cu13==3.4.5\n + nvidia-nvtx==13.0.85\n + scipy==1.18.1\n + setuptools==81.0.0\n + sympy==1.13.3\n + torch==2.11.0+cu130\n + triton==3.6.0\n + typing-extensions==4.15.0\n2.11.0+cu130 NVIDIA GeForce RTX 4090\n",
+        "worker_tail": ": \"resnet\", \"optimizer\": \"adam\", \"start\": 500, \"endpoint\": 756, \"offset\": 254, \"horizon\": 256, \"loss\": 0.5165773345947264, \"norm\": 1.7149685957124692, \"seconds\": 2.5535495539661497, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T11:02:45.539822+00:00\", \"elapsed_seconds\": 664.257023490034, \"peak_allocated_bytes\": 3158254592, \"peak_reserved_bytes\": 3407872000, \"phase\": \"gradient\", \"job\": \"adam-120-500\", \"task\": \"resnet\", \"optimizer\": \"adam\", \"start\": 500, \"endpoint\": 756, \"offset\": 255, \"horizon\": 256, \"loss\": 0.5132803204345704, \"norm\": 1.379944467850585, \"seconds\": 2.5541892261244357, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T11:02:48.141394+00:00\", \"elapsed_seconds\": 666.8585898750462, \"peak_allocated_bytes\": 3158254592, \"peak_reserved_bytes\": 3407872000, \"phase\": \"gradient\", \"job\": \"adam-120-500\", \"task\": \"resnet\", \"optimizer\": \"adam\", \"start\": 500, \"endpoint\": 756, \"offset\": 256, \"horizon\": 256, \"loss\": 0.5083752404785156, \"norm\": 1.2602647517367098, \"seconds\": 2.5923128351569176, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T11:02:48.142261+00:00\", \"elapsed_seconds\": 666.8594516739249, \"peak_allocated_bytes\": 3158254592, \"peak_reserved_bytes\": 3407872000, \"phase\": \"backward_products\", \"job\": \"adam-120-500\"}\n"
+      },
+      "deleted_epoch": 1793617377.301253,
+      "failed": false
+    },
+    {
+      "id": "6cm11l5plq5z60",
+      "name": "cdr-analysis035-worker8-attempt2",
+      "worker": 8,
+      "attempt": 2,
+      "created_epoch": 1793616573.029362,
+      "gpu": "RTX 4090",
+      "price_per_gpu_hour": 0.89,
+      "phase": "212",
+      "host": "157.157.221.29",
+      "port": 32452,
+      "latest_status": {
+        "worker": 8,
+        "run_id": "212",
+        "epoch": 1793617541.2992523,
+        "free_gb": 579846.842417152,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T11:05:20.813644+00:00",
+          "elapsed_seconds": 725.7325088490034,
+          "peak_allocated_bytes": 3154490368,
+          "peak_reserved_bytes": 3403677696,
+          "phase": "backward_products",
+          "job": "gd-120-2000"
+        },
+        "manifest": {
+          "status": "complete",
+          "worker": 8,
+          "run_id": "212",
+          "started_utc": "2026-11-02T10:53:15.081173+00:00",
+          "config_sha256": "64120d831deeb5cab851d7bccba456e192e9fcffb94ea2ffa7f2194600afb0e2",
+          "jobs": [
+            "gd-120-2000"
+          ],
+          "completed_utc": "2026-11-02T11:05:21.836750+00:00",
+          "elapsed_seconds": 726.7556288779015
+        },
+        "setup_tail": " Downloading nvidia-cuda-cupti\n Downloading numpy\n Downloading scipy\n Downloading nvidia-nvjitlink\n Downloading nvidia-curand\n Downloading nvidia-nvshmem-cu13\n Downloading nvidia-cuda-nvrtc\n Downloading torch\n Downloading nvidia-cusparse\n Downloading nvidia-cusparselt-cu13\n Downloading triton\n Downloading nvidia-nccl-cu13\n Downloading nvidia-cusolver\n Downloading nvidia-cufft\n Downloading nvidia-cudnn-cu13\n Downloading nvidia-cublas\nPrepared 31 packages in 54.42s\nInstalled 31 packages in 839ms\n + cuda-bindings==13.4.4\n + cuda-pathfinder==1.8.4\n + cuda-toolkit==13.0.2\n + filelock==3.20.0\n + fsspec==2024.6.1\n + jinja2==3.1.6\n + markupsafe==3.0.4\n + mpmath==1.3.0\n + networkx==3.3\n + numpy==2.5.0\n + nvidia-cublas==13.1.0.3\n + nvidia-cuda-cupti==13.0.85\n + nvidia-cuda-nvrtc==13.0.88\n + nvidia-cuda-runtime==13.0.96\n + nvidia-cudnn-cu13==9.19.0.56\n + nvidia-cufft==12.0.0.61\n + nvidia-cufile==1.15.1.6\n + nvidia-curand==10.4.0.35\n + nvidia-cusolver==12.0.4.66\n + nvidia-cusparse==12.6.3.3\n + nvidia-cusparselt-cu13==0.8.0\n + nvidia-nccl-cu13==2.28.9\n + nvidia-nvjitlink==13.0.88\n + nvidia-nvshmem-cu13==3.4.5\n + nvidia-nvtx==13.0.85\n + scipy==1.18.1\n + setuptools==81.0.0\n + sympy==1.13.3\n + torch==2.11.0+cu130\n + triton==3.6.0\n + typing-extensions==4.15.0\n2.11.0+cu130 NVIDIA GeForce RTX 4090\n",
+        "worker_tail": "sk\": \"resnet\", \"optimizer\": \"gd\", \"start\": 2000, \"endpoint\": 2256, \"offset\": 254, \"horizon\": 256, \"loss\": 0.7115020947265627, \"norm\": 1.4676975675128925, \"seconds\": 2.7352092940127477, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T11:05:17.973254+00:00\", \"elapsed_seconds\": 722.8921290189028, \"peak_allocated_bytes\": 3154490368, \"peak_reserved_bytes\": 3403677696, \"phase\": \"gradient\", \"job\": \"gd-120-2000\", \"task\": \"resnet\", \"optimizer\": \"gd\", \"start\": 2000, \"endpoint\": 2256, \"offset\": 255, \"horizon\": 256, \"loss\": 0.7160895410156249, \"norm\": 1.5133045217233945, \"seconds\": 2.727959946030751, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T11:05:20.794008+00:00\", \"elapsed_seconds\": 725.712887222995, \"peak_allocated_bytes\": 3154490368, \"peak_reserved_bytes\": 3403677696, \"phase\": \"gradient\", \"job\": \"gd-120-2000\", \"task\": \"resnet\", \"optimizer\": \"gd\", \"start\": 2000, \"endpoint\": 2256, \"offset\": 256, \"horizon\": 256, \"loss\": 0.7178117236328122, \"norm\": 1.5960115876885268, \"seconds\": 2.7885800449876115, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T11:05:20.813644+00:00\", \"elapsed_seconds\": 725.7325088490034, \"peak_allocated_bytes\": 3154490368, \"peak_reserved_bytes\": 3403677696, \"phase\": \"backward_products\", \"job\": \"gd-120-2000\"}\n"
+      },
+      "deleted_epoch": 1793617547.5784187,
+      "failed": false
+    },
+    {
+      "id": "1rn6pg2hizftmk",
+      "name": "cdr-analysis035-worker9-attempt2",
+      "worker": 9,
+      "attempt": 2,
+      "created_epoch": 1793616575.5752962,
+      "gpu": "RTX 4090",
+      "price_per_gpu_hour": 0.89,
+      "phase": "212",
+      "host": "157.157.221.29",
+      "port": 31407,
+      "latest_status": {
+        "worker": 9,
+        "run_id": "212",
+        "epoch": 1793617559.4073627,
+        "free_gb": 579806.260166656,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T11:05:57.482107+00:00",
+          "elapsed_seconds": 726.0708368639462,
+          "peak_allocated_bytes": 3158254592,
+          "peak_reserved_bytes": 3407872000,
+          "phase": "backward_products",
+          "job": "adam-120-2000"
+        },
+        "manifest": {
+          "status": "complete",
+          "worker": 9,
+          "run_id": "212",
+          "started_utc": "2026-11-02T10:53:51.411294+00:00",
+          "config_sha256": "64120d831deeb5cab851d7bccba456e192e9fcffb94ea2ffa7f2194600afb0e2",
+          "jobs": [
+            "adam-120-2000"
+          ],
+          "completed_utc": "2026-11-02T11:05:58.458502+00:00",
+          "elapsed_seconds": 727.0472481418401
+        },
+        "setup_tail": "-cuda-cupti\n Downloading sympy\n Downloading numpy\n Downloading scipy\n Downloading nvidia-nvjitlink\n Downloading nvidia-curand\n Downloading nvidia-nvshmem-cu13\n Downloading nvidia-cuda-nvrtc\n Downloading nvidia-cusparse\n Downloading nvidia-cusparselt-cu13\n Downloading torch\n Downloading triton\n Downloading nvidia-nccl-cu13\n Downloading nvidia-cusolver\n Downloading nvidia-cufft\n Downloading nvidia-cudnn-cu13\n Downloading nvidia-cublas\nPrepared 31 packages in 55.72s\nInstalled 31 packages in 730ms\n + cuda-bindings==13.4.4\n + cuda-pathfinder==1.8.4\n + cuda-toolkit==13.0.2\n + filelock==3.20.0\n + fsspec==2024.6.1\n + jinja2==3.1.6\n + markupsafe==3.0.4\n + mpmath==1.3.0\n + networkx==3.3\n + numpy==2.5.0\n + nvidia-cublas==13.1.0.3\n + nvidia-cuda-cupti==13.0.85\n + nvidia-cuda-nvrtc==13.0.88\n + nvidia-cuda-runtime==13.0.96\n + nvidia-cudnn-cu13==9.19.0.56\n + nvidia-cufft==12.0.0.61\n + nvidia-cufile==1.15.1.6\n + nvidia-curand==10.4.0.35\n + nvidia-cusolver==12.0.4.66\n + nvidia-cusparse==12.6.3.3\n + nvidia-cusparselt-cu13==0.8.0\n + nvidia-nccl-cu13==2.28.9\n + nvidia-nvjitlink==13.0.88\n + nvidia-nvshmem-cu13==3.4.5\n + nvidia-nvtx==13.0.85\n + scipy==1.18.1\n + setuptools==81.0.0\n + sympy==1.13.3\n + torch==2.11.0+cu130\n + triton==3.6.0\n + typing-extensions==4.15.0\n2.11.0+cu130 NVIDIA GeForce RTX 4090\n",
+        "worker_tail": "optimizer\": \"adam\", \"start\": 2000, \"endpoint\": 2256, \"offset\": 254, \"horizon\": 256, \"loss\": 0.13313882064819335, \"norm\": 3.1139173100405073, \"seconds\": 2.5819223299622536, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T11:05:54.729139+00:00\", \"elapsed_seconds\": 723.3178782858886, \"peak_allocated_bytes\": 3158254592, \"peak_reserved_bytes\": 3407872000, \"phase\": \"gradient\", \"job\": \"adam-120-2000\", \"task\": \"resnet\", \"optimizer\": \"adam\", \"start\": 2000, \"endpoint\": 2256, \"offset\": 255, \"horizon\": 256, \"loss\": 0.1411919453430176, \"norm\": 3.5611193527247904, \"seconds\": 2.7893227539025247, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T11:05:57.465420+00:00\", \"elapsed_seconds\": 726.0541591900401, \"peak_allocated_bytes\": 3158254592, \"peak_reserved_bytes\": 3407872000, \"phase\": \"gradient\", \"job\": \"adam-120-2000\", \"task\": \"resnet\", \"optimizer\": \"adam\", \"start\": 2000, \"endpoint\": 2256, \"offset\": 256, \"horizon\": 256, \"loss\": 0.11745059097290039, \"norm\": 2.4167634482730085, \"seconds\": 2.6836148218717426, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T11:05:57.482107+00:00\", \"elapsed_seconds\": 726.0708368639462, \"peak_allocated_bytes\": 3158254592, \"peak_reserved_bytes\": 3407872000, \"phase\": \"backward_products\", \"job\": \"adam-120-2000\"}\n"
+      },
+      "deleted_epoch": 1793617566.093232,
+      "failed": false
+    },
+    {
+      "id": "dp9dz405vcpe9r",
+      "name": "cdr-analysis035-worker10-attempt2",
+      "worker": 10,
+      "attempt": 2,
+      "created_epoch": 1793617424.5467591,
+      "gpu": "RTX 4090",
+      "price_per_gpu_hour": 0.89,
+      "phase": "212",
+      "host": "203.57.40.60",
+      "port": 10045,
+      "latest_status": {
+        "worker": 10,
+        "run_id": "212",
+        "epoch": 1793618251.518854,
+        "free_gb": 290853.373345792,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T11:17:27.415133+00:00",
+          "elapsed_seconds": 687.0829826181289,
+          "peak_allocated_bytes": 3154490368,
+          "peak_reserved_bytes": 3403677696,
+          "phase": "backward_products",
+          "job": "gd-120-3000"
+        },
+        "manifest": {
+          "status": "complete",
+          "worker": 10,
+          "run_id": "212",
+          "started_utc": "2026-11-02T11:06:00.332161+00:00",
+          "config_sha256": "64120d831deeb5cab851d7bccba456e192e9fcffb94ea2ffa7f2194600afb0e2",
+          "jobs": [
+            "gd-120-3000"
+          ],
+          "completed_utc": "2026-11-02T11:17:27.933939+00:00",
+          "elapsed_seconds": 687.6017935189884
+        },
+        "setup_tail": "-cuda-cupti\n Downloading numpy\n Downloading sympy\n Downloading nvidia-nvjitlink\n Downloading nvidia-curand\n Downloading nvidia-nvshmem-cu13\n Downloading scipy\n Downloading nvidia-cuda-nvrtc\n Downloading nvidia-cusparse\n Downloading nvidia-cusparselt-cu13\n Downloading nvidia-nccl-cu13\n Downloading nvidia-cusolver\n Downloading nvidia-cufft\n Downloading triton\n Downloading nvidia-cudnn-cu13\n Downloading nvidia-cublas\n Downloading torch\nPrepared 31 packages in 23.25s\nInstalled 31 packages in 596ms\n + cuda-bindings==13.4.4\n + cuda-pathfinder==1.8.4\n + cuda-toolkit==13.0.2\n + filelock==3.20.0\n + fsspec==2024.6.1\n + jinja2==3.1.6\n + markupsafe==3.0.4\n + mpmath==1.3.0\n + networkx==3.3\n + numpy==2.5.0\n + nvidia-cublas==13.1.0.3\n + nvidia-cuda-cupti==13.0.85\n + nvidia-cuda-nvrtc==13.0.88\n + nvidia-cuda-runtime==13.0.96\n + nvidia-cudnn-cu13==9.19.0.56\n + nvidia-cufft==12.0.0.61\n + nvidia-cufile==1.15.1.6\n + nvidia-curand==10.4.0.35\n + nvidia-cusolver==12.0.4.66\n + nvidia-cusparse==12.6.3.3\n + nvidia-cusparselt-cu13==0.8.0\n + nvidia-nccl-cu13==2.28.9\n + nvidia-nvjitlink==13.0.88\n + nvidia-nvshmem-cu13==3.4.5\n + nvidia-nvtx==13.0.85\n + scipy==1.18.1\n + setuptools==81.0.0\n + sympy==1.13.3\n + torch==2.11.0+cu130\n + triton==3.6.0\n + typing-extensions==4.15.0\n2.11.0+cu130 NVIDIA GeForce RTX 4090\n",
+        "worker_tail": "\": \"resnet\", \"optimizer\": \"gd\", \"start\": 3000, \"endpoint\": 3256, \"offset\": 254, \"horizon\": 256, \"loss\": 0.35399831604003906, \"norm\": 1.7111754393130776, \"seconds\": 2.6247188600245863, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T11:17:24.707366+00:00\", \"elapsed_seconds\": 684.3752170011867, \"peak_allocated_bytes\": 3154490368, \"peak_reserved_bytes\": 3403677696, \"phase\": \"gradient\", \"job\": \"gd-120-3000\", \"task\": \"resnet\", \"optimizer\": \"gd\", \"start\": 3000, \"endpoint\": 3256, \"offset\": 255, \"horizon\": 256, \"loss\": 0.3641385498046874, \"norm\": 1.941377267775948, \"seconds\": 2.6277919358108193, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T11:17:27.401141+00:00\", \"elapsed_seconds\": 687.0689954371192, \"peak_allocated_bytes\": 3154490368, \"peak_reserved_bytes\": 3403677696, \"phase\": \"gradient\", \"job\": \"gd-120-3000\", \"task\": \"resnet\", \"optimizer\": \"gd\", \"start\": 3000, \"endpoint\": 3256, \"offset\": 256, \"horizon\": 256, \"loss\": 0.39690259094238284, \"norm\": 2.2014654106546034, \"seconds\": 2.682618970051408, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T11:17:27.415133+00:00\", \"elapsed_seconds\": 687.0829826181289, \"peak_allocated_bytes\": 3154490368, \"peak_reserved_bytes\": 3403677696, \"phase\": \"backward_products\", \"job\": \"gd-120-3000\"}\n"
+      },
+      "deleted_epoch": 1793618254.172863,
+      "failed": false
+    },
+    {
+      "id": "6id2xk3o11588r",
+      "name": "cdr-analysis035-worker6-attempt2",
+      "worker": 6,
+      "attempt": 2,
+      "created_epoch": 1793617555.7295227,
+      "gpu": "RTX 4090",
+      "price_per_gpu_hour": 0.89,
+      "phase": "212",
+      "host": "203.57.40.92",
+      "port": 10206,
+      "latest_status": {
+        "worker": 6,
+        "run_id": "212",
+        "epoch": 1793618396.248218,
+        "free_gb": 290812.422127616,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T11:19:46.258514+00:00",
+          "elapsed_seconds": 672.821984692011,
+          "peak_allocated_bytes": 3154490368,
+          "peak_reserved_bytes": 3403677696,
+          "phase": "backward_products",
+          "job": "gd-120-500"
+        },
+        "manifest": {
+          "status": "complete",
+          "worker": 6,
+          "run_id": "212",
+          "started_utc": "2026-11-02T11:08:33.436539+00:00",
+          "config_sha256": "64120d831deeb5cab851d7bccba456e192e9fcffb94ea2ffa7f2194600afb0e2",
+          "jobs": [
+            "gd-120-500"
+          ],
+          "completed_utc": "2026-11-02T11:19:46.725055+00:00",
+          "elapsed_seconds": 673.2885351059958
+        },
+        "setup_tail": "-cuda-cupti\n Downloading numpy\n Downloading sympy\n Downloading nvidia-nvjitlink\n Downloading nvidia-curand\n Downloading nvidia-nvshmem-cu13\n Downloading scipy\n Downloading nvidia-cuda-nvrtc\n Downloading nvidia-cusparse\n Downloading nvidia-cusparselt-cu13\n Downloading nvidia-nccl-cu13\n Downloading nvidia-cusolver\n Downloading triton\n Downloading nvidia-cufft\n Downloading nvidia-cudnn-cu13\n Downloading nvidia-cublas\n Downloading torch\nPrepared 31 packages in 23.07s\nInstalled 31 packages in 536ms\n + cuda-bindings==13.4.4\n + cuda-pathfinder==1.8.4\n + cuda-toolkit==13.0.2\n + filelock==3.20.0\n + fsspec==2024.6.1\n + jinja2==3.1.6\n + markupsafe==3.0.4\n + mpmath==1.3.0\n + networkx==3.3\n + numpy==2.5.0\n + nvidia-cublas==13.1.0.3\n + nvidia-cuda-cupti==13.0.85\n + nvidia-cuda-nvrtc==13.0.88\n + nvidia-cuda-runtime==13.0.96\n + nvidia-cudnn-cu13==9.19.0.56\n + nvidia-cufft==12.0.0.61\n + nvidia-cufile==1.15.1.6\n + nvidia-curand==10.4.0.35\n + nvidia-cusolver==12.0.4.66\n + nvidia-cusparse==12.6.3.3\n + nvidia-cusparselt-cu13==0.8.0\n + nvidia-nccl-cu13==2.28.9\n + nvidia-nvjitlink==13.0.88\n + nvidia-nvshmem-cu13==3.4.5\n + nvidia-nvtx==13.0.85\n + scipy==1.18.1\n + setuptools==81.0.0\n + sympy==1.13.3\n + torch==2.11.0+cu130\n + triton==3.6.0\n + typing-extensions==4.15.0\n2.11.0+cu130 NVIDIA GeForce RTX 4090\n",
+        "worker_tail": "20-500\", \"task\": \"resnet\", \"optimizer\": \"gd\", \"start\": 500, \"endpoint\": 756, \"offset\": 254, \"horizon\": 256, \"loss\": 1.5082900854492187, \"norm\": 0.8895804278635576, \"seconds\": 2.565387099981308, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T11:19:43.606185+00:00\", \"elapsed_seconds\": 670.169662993867, \"peak_allocated_bytes\": 3154490368, \"peak_reserved_bytes\": 3403677696, \"phase\": \"gradient\", \"job\": \"gd-120-500\", \"task\": \"resnet\", \"optimizer\": \"gd\", \"start\": 500, \"endpoint\": 756, \"offset\": 255, \"horizon\": 256, \"loss\": 1.513684741210937, \"norm\": 0.8694502333948888, \"seconds\": 2.5697770779952407, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T11:19:46.248756+00:00\", \"elapsed_seconds\": 672.8122324829455, \"peak_allocated_bytes\": 3154490368, \"peak_reserved_bytes\": 3403677696, \"phase\": \"gradient\", \"job\": \"gd-120-500\", \"task\": \"resnet\", \"optimizer\": \"gd\", \"start\": 500, \"endpoint\": 756, \"offset\": 256, \"horizon\": 256, \"loss\": 1.5048898095703127, \"norm\": 0.7355701608019678, \"seconds\": 2.627535698004067, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T11:19:46.258514+00:00\", \"elapsed_seconds\": 672.821984692011, \"peak_allocated_bytes\": 3154490368, \"peak_reserved_bytes\": 3403677696, \"phase\": \"backward_products\", \"job\": \"gd-120-500\"}\n"
+      },
+      "deleted_epoch": 1793618398.8412082,
+      "failed": false
+    }
+  ],
+  "compute_estimate_usd": 9.259649191868968,
+  "billing": "provisional",
+  "closed_epoch": 1793619553.2051282,
+  "cloud_storage_remaining_gb": 0,
+  "network_volumes_created": 0
+}

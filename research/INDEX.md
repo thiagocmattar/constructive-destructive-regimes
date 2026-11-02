@@ -11,6 +11,15 @@ Compute/envelope and production-shaped calibration remain pending.
 Reserved Run213 / Analysis036 / H027; next Run214 / Analysis037 / H028.
 
 
+[Analysis035: backward fixed-endpoint profiles](../analyses/035-2026-11-02-eos-backward-anchors/REPORT.md)
+implements rho_t(k)=cos(g_t,g_(t-k)), k=1-256, with one fixed endpoint per curve.
+Run212 recomputes GD and cold Adam from nine identical saved starts; endpoints
+756/2256/3256 follow exactly 256 updates. All 18 profiles / 4608 pairs and 90 local
+vector audits pass; two PDFs reviewed. Historical forward/adjacent definitions
+remain separate, and substantial later FP32 replay drift is explicitly recorded.
+All 18 task Pods/storage deleted after verified retrieval; USD 9.26 compute provisional.
+One seed, no stability or optimizer-benefit claim; no new hypothesis allocated.
+
 [Analysis034: Adam from identical GD states](../analyses/034-2026-11-01-eos-adam-continuations/REPORT.md)
 completed five-rate calibration and 27 matched-horizon cold-Adam forks.
 Selected constant LRs: mlp 0.0003, resnet 0.001, transformer 0.001; 25 primary, two flagged reconstructions.

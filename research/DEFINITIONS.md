@@ -25,6 +25,32 @@ and a quadratic/Taylor approximation, so gradient reversal can coexist with
 loss decrease. These manuscript relations are distinct from an experiment's
 measurement contract or a convergence guarantee.
 
+## Fixed-anchor lag profiles and time direction
+
+For the user's backward anchored profiles in
+[Analysis035](../analyses/035-2026-11-02-eos-backward-anchors/README.md), fix one
+endpoint t and define rho_t(k) = cos(g_t, g_(t-k)), k=1..256. The reference
+gradient g_t stays fixed for the entire curve. Increasing lag walks backward
+through earlier states; each point uses one pair, without averaging endpoints.
+The gradient is the full-objective raw gradient before optimizer transformation.
+
+Analysis033 and Analysis034's historical anchored profiles instead fix a window
+start s and measure cos(g_s, g_(s+k)). Label these forward anchored profiles.
+Cosine symmetry exchanges the two vectors in a particular pair; it does not
+make forward and backward windows at the same numerical state equivalent.
+Neither definition is a moving adjacent profile cos(g_(u-1), g_u): there the
+pair separation remains one and u moves along the trajectory. Its horizontal
+coordinate counts updates after the fork, rather than pair lag.
+
+An optimizer fork at a GD-trained state has a GD past and a new optimizer future.
+For an entirely Adam backward window, place t after the Adam fork, far enough
+that every compared state is in that continuation. Analysis035 uses t=s+256
+for both optimizers, with starts s=500/2000/3000 and endpoints t=756/2256/3256.
+Endpoint-gradient norms or adjacent cosines cannot recover the other
+retrospective pairs; the relevant vectors or products must be measured.
+
+## Remaining definition choices
+
 Before implementation, decide:
 
 | Choice | Why it matters |

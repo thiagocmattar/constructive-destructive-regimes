@@ -1,0 +1,131 @@
+{
+  "profiles": [
+    {
+      "job": "gd-126-500",
+      "boundaries": 257,
+      "maximum_loss_difference": 3.823958033954966e-05,
+      "maximum_norm_relative_difference": 0.00023508676479089274,
+      "maximum_forward_cosine_difference": 0.0002739156261742648
+    },
+    {
+      "job": "adam-126-500",
+      "boundaries": 257,
+      "maximum_loss_difference": 0.07157544789272752,
+      "maximum_norm_relative_difference": 2.47876203692389,
+      "maximum_forward_cosine_difference": 0.36899703443127224
+    },
+    {
+      "job": "gd-120-3000",
+      "boundaries": 257,
+      "maximum_loss_difference": 0.33418603820800785,
+      "maximum_norm_relative_difference": 1.4718149660022584,
+      "maximum_forward_cosine_difference": 0.6385757021167029
+    },
+    {
+      "job": "adam-120-3000",
+      "boundaries": 257,
+      "maximum_loss_difference": 0.006777912445068313,
+      "maximum_norm_relative_difference": 2.5988804152691003,
+      "maximum_forward_cosine_difference": 0.2747514906041476
+    },
+    {
+      "job": "gd-122-500",
+      "boundaries": 257,
+      "maximum_loss_difference": 2.9727816581726074e-06,
+      "maximum_norm_relative_difference": 4.7609935831083305e-05,
+      "maximum_forward_cosine_difference": 3.306930643504069e-05
+    },
+    {
+      "job": "adam-122-500",
+      "boundaries": 257,
+      "maximum_loss_difference": 0.010895399376749992,
+      "maximum_norm_relative_difference": 1.060774413539415,
+      "maximum_forward_cosine_difference": 0.04703046419381036
+    },
+    {
+      "job": "gd-122-2000",
+      "boundaries": 257,
+      "maximum_loss_difference": 1.6205012798309326e-06,
+      "maximum_norm_relative_difference": 2.4608318417773667e-05,
+      "maximum_forward_cosine_difference": 2.2671357900391764e-05
+    },
+    {
+      "job": "adam-122-2000",
+      "boundaries": 257,
+      "maximum_loss_difference": 0.030802377499639988,
+      "maximum_norm_relative_difference": 1.6204220242323748,
+      "maximum_forward_cosine_difference": 0.09951017879950752
+    },
+    {
+      "job": "gd-122-3000",
+      "boundaries": 257,
+      "maximum_loss_difference": 7.372349500656128e-06,
+      "maximum_norm_relative_difference": 5.770970276297582e-05,
+      "maximum_forward_cosine_difference": 4.365558792540636e-05
+    },
+    {
+      "job": "adam-122-3000",
+      "boundaries": 257,
+      "maximum_loss_difference": 0.0025010034441947937,
+      "maximum_norm_relative_difference": 0.4581192945250592,
+      "maximum_forward_cosine_difference": 0.051640259293512014
+    },
+    {
+      "job": "gd-126-2000",
+      "boundaries": 257,
+      "maximum_loss_difference": 1.3151752368933955e-05,
+      "maximum_norm_relative_difference": 0.0002307452744164662,
+      "maximum_forward_cosine_difference": 0.00019120207167044878
+    },
+    {
+      "job": "adam-126-2000",
+      "boundaries": 257,
+      "maximum_loss_difference": 0.08937798121349205,
+      "maximum_norm_relative_difference": 5.389426639367508,
+      "maximum_forward_cosine_difference": 0.4041037747247681
+    },
+    {
+      "job": "gd-126-3000",
+      "boundaries": 257,
+      "maximum_loss_difference": 1.6284457890591852e-05,
+      "maximum_norm_relative_difference": 0.00033005484575165944,
+      "maximum_forward_cosine_difference": 0.0004097635110489328
+    },
+    {
+      "job": "adam-126-3000",
+      "boundaries": 257,
+      "maximum_loss_difference": 0.09582545574786927,
+      "maximum_norm_relative_difference": 3.2278575154382816,
+      "maximum_forward_cosine_difference": 0.43518057221632
+    },
+    {
+      "job": "gd-120-500",
+      "boundaries": 257,
+      "maximum_loss_difference": 0.1325168359375002,
+      "maximum_norm_relative_difference": 6.762986868990748,
+      "maximum_forward_cosine_difference": 0.8290244118546459
+    },
+    {
+      "job": "adam-120-500",
+      "boundaries": 257,
+      "maximum_loss_difference": 0.06918597167968754,
+      "maximum_norm_relative_difference": 2.455496229625553,
+      "maximum_forward_cosine_difference": 0.47954231512384204
+    },
+    {
+      "job": "gd-120-2000",
+      "boundaries": 257,
+      "maximum_loss_difference": 0.13833449096679695,
+      "maximum_norm_relative_difference": 0.5602264503126251,
+      "maximum_forward_cosine_difference": 0.8449998189901611
+    },
+    {
+      "job": "adam-120-2000",
+      "boundaries": 257,
+      "maximum_loss_difference": 0.09272580413818357,
+      "maximum_norm_relative_difference": 4.602604742408599,
+      "maximum_forward_cosine_difference": 0.5001093181716226
+    }
+  ],
+  "interpretation": "Same source tensors and full objective; later FP32 replay differences are reported, not silently treated as identical historical trajectories. Not a stopping or selection criterion."
+}
