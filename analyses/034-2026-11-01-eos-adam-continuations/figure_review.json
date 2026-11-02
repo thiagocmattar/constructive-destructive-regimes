@@ -1,0 +1,54 @@
+{
+  "status": "passed",
+  "observed_utc": "2026-11-02T04:11:29.306020+00:00",
+  "method": "Viewed all four actual-PDF renders through view_image; full adjacent render also viewed at original detail",
+  "figures": [
+    {
+      "path": "figures/adjacent_first128.pdf",
+      "sha256": "78c3e34e261b05730a9751d6bb3846c574334b52c43dd108784fbe0df58e24da",
+      "pages": 1,
+      "vector": true,
+      "text_inside_page": true,
+      "render": "scratch/adjacent_first128.png",
+      "render_sha256": "eeeecb8749018d6a3b86c93516909c40e5d2eb4883898a768a081d05ef12675c",
+      "visually_inspected": true
+    },
+    {
+      "path": "figures/adjacent_profiles.pdf",
+      "sha256": "5705472ebbca0b454170a42d50552373731d202ff4727c340c4e905c15677769",
+      "pages": 1,
+      "vector": true,
+      "text_inside_page": true,
+      "render": "scratch/adjacent_profiles.png",
+      "render_sha256": "d8112c7ab09a9118ae850c8a369bcf0f57432951390ef0dc13de5b6f86207dea",
+      "visually_inspected": true
+    },
+    {
+      "path": "figures/anchored_profiles.pdf",
+      "sha256": "8db0bb4fcc56c43668ab097d7ae6a55ecf803e44f6b6f5c4e996d2c0ddf28e25",
+      "pages": 1,
+      "vector": true,
+      "text_inside_page": true,
+      "render": "scratch/anchored_profiles.png",
+      "render_sha256": "86ec22cfd42569e3c5225bb709f97978654389e41dafa4d91b16c530d7d3c913",
+      "visually_inspected": true
+    },
+    {
+      "path": "figures/calibration.pdf",
+      "sha256": "f60c120000f2bd0dce876148edd7c10fa94ac4d9348c3faeb1c8f9764bdf1fe5",
+      "pages": 1,
+      "vector": true,
+      "text_inside_page": true,
+      "render": "scratch/calibration.png",
+      "render_sha256": "3ea5bdbc88ef11b238f3cb24d24263261da36e57b718fa8be396c1b64590ad10",
+      "visually_inspected": true
+    }
+  ],
+  "notes": [
+    "Calibration state lines are ordered by LR; selected rates and safeguard markers are readable.",
+    "Full symlog axes start at zero; 256 and 512 ticks are separated; no negative-lag whitespace.",
+    "Titles, axis labels, legends and unqualified-state labels are readable and within pages.",
+    "All raw points are retained; dense late oscillations are supplemented by the linear first-128 view.",
+    "Anchored Adam solid and historical GD dashed are distinct; adjacent curves contain only new Adam results."
+  ]
+}

@@ -1,0 +1,1236 @@
+{
+  "status": "complete",
+  "pods": [
+    {
+      "id": "wpm2zv9s53hin8",
+      "name": "cdr-analysis034-worker0-attempt1",
+      "worker": 0,
+      "attempt": 1,
+      "created_epoch": 1793580851.50052,
+      "gpu": "RTX 5090",
+      "price_per_gpu_hour": 1.19,
+      "phase": "209",
+      "host": "68.164.57.10",
+      "port": 16771,
+      "latest_status": {
+        "worker": 0,
+        "run_id": "209",
+        "epoch": 1793581334.5882847,
+        "free_gb": 15.940161536,
+        "setup_exit": "0",
+        "worker_exit": "1",
+        "manifest": {
+          "status": "failed",
+          "run_id": "209",
+          "worker": 0,
+          "started_utc": "2026-11-02T01:01:42.539384+00:00",
+          "config_sha256": "dec529970782e09fab1c0b4a5c0aeaf0ae5e0e569fc94a55f0981929fb2ef4ff",
+          "windows": [],
+          "error": "AssertionError()",
+          "completed_utc": "2026-11-02T01:01:53.634489+00:00"
+        },
+        "setup_tail": "lling triton at /usr/local/lib/python3.12/dist-packages, outside environment /opt/analysis034-venv\n    Can't uninstall 'triton'. No files were found to uninstall.\n  Attempting uninstall: torch\n    Found existing installation: torch 2.8.0+cu128\n    Not uninstalling torch at /usr/local/lib/python3.12/dist-packages, outside environment /opt/analysis034-venv\n    Can't uninstall 'torch'. No files were found to uninstall.\nERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\ntorchaudio 2.8.0+cu128 requires torch==2.8.0, but you have torch 2.11.0+cu130 which is incompatible.\ntorchvision 0.23.0+cu128 requires torch==2.8.0, but you have torch 2.11.0+cu130 which is incompatible.\nSuccessfully installed cuda-toolkit-13.0.2 nvidia-cublas-13.1.0.3 nvidia-cuda-cupti-13.0.85 nvidia-cuda-nvrtc-13.0.88 nvidia-cuda-runtime-13.0.96 nvidia-cudnn-cu13-9.19.0.56 nvidia-cufft-12.0.0.61 nvidia-cufile-1.15.1.6 nvidia-curand-10.4.0.35 nvidia-cusolver-12.0.4.66 nvidia-cusparse-12.6.3.3 nvidia-cusparselt-cu13-0.8.0 nvidia-nccl-cu13-2.28.9 nvidia-nvjitlink-13.0.88 nvidia-nvshmem-cu13-3.4.5 nvidia-nvtx-13.0.85 torch-2.11.0+cu130 triton-3.6.0\n2.11.0+cu130 2.5.0 1.18.1 NVIDIA GeForce RTX 5090\n",
+        "worker_tail": "/workspace/constructive/cache/eos-multitask/reference/model.py:121: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.self_attn.batch_first was not True(use batch_first for better inference performance)\n  self.transformer_encoder = TransformerEncoder(encoder_layers, nlayers)\nTraceback (most recent call last):\n  File \"/workspace/constructive/runs/209-2026-11-01-eos-adam-calibration/01_worker.py\", line 5, in <module>\n    if __name__ == \"__main__\":main(Path(__file__).parent/\"config.json\")\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/constructive/src/eos_tasks/adam_profile.py\", line 101, in main\n    assert error < cfg['gradient_relative_tolerance'] and abs(loss-baseline_loss) < 1e-5\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "deleted_epoch": 1793581332.8110628,
+      "failed": true
+    },
+    {
+      "id": "otypsv1wvbarru",
+      "name": "cdr-analysis034-worker1-attempt1",
+      "worker": 1,
+      "attempt": 1,
+      "created_epoch": 1793580854.5584345,
+      "gpu": "RTX 5090",
+      "price_per_gpu_hour": 1.19,
+      "phase": "209",
+      "host": "68.164.57.9",
+      "port": 15414,
+      "latest_status": {
+        "worker": 1,
+        "run_id": "209",
+        "epoch": 1793581334.5928674,
+        "free_gb": 15.940165632,
+        "setup_exit": "0",
+        "worker_exit": "1",
+        "manifest": {
+          "status": "failed",
+          "run_id": "209",
+          "worker": 1,
+          "started_utc": "2026-11-02T01:01:42.741175+00:00",
+          "config_sha256": "dec529970782e09fab1c0b4a5c0aeaf0ae5e0e569fc94a55f0981929fb2ef4ff",
+          "windows": [],
+          "error": "AssertionError(('source anchor gradient mismatch', 0.000695946998033642))",
+          "completed_utc": "2026-11-02T01:01:50.211371+00:00"
+        },
+        "setup_tail": "lling triton at /usr/local/lib/python3.12/dist-packages, outside environment /opt/analysis034-venv\n    Can't uninstall 'triton'. No files were found to uninstall.\n  Attempting uninstall: torch\n    Found existing installation: torch 2.8.0+cu128\n    Not uninstalling torch at /usr/local/lib/python3.12/dist-packages, outside environment /opt/analysis034-venv\n    Can't uninstall 'torch'. No files were found to uninstall.\nERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\ntorchaudio 2.8.0+cu128 requires torch==2.8.0, but you have torch 2.11.0+cu130 which is incompatible.\ntorchvision 0.23.0+cu128 requires torch==2.8.0, but you have torch 2.11.0+cu130 which is incompatible.\nSuccessfully installed cuda-toolkit-13.0.2 nvidia-cublas-13.1.0.3 nvidia-cuda-cupti-13.0.85 nvidia-cuda-nvrtc-13.0.88 nvidia-cuda-runtime-13.0.96 nvidia-cudnn-cu13-9.19.0.56 nvidia-cufft-12.0.0.61 nvidia-cufile-1.15.1.6 nvidia-curand-10.4.0.35 nvidia-cusolver-12.0.4.66 nvidia-cusparse-12.6.3.3 nvidia-cusparselt-cu13-0.8.0 nvidia-nccl-cu13-2.28.9 nvidia-nvjitlink-13.0.88 nvidia-nvshmem-cu13-3.4.5 nvidia-nvtx-13.0.85 torch-2.11.0+cu130 triton-3.6.0\n2.11.0+cu130 2.5.0 1.18.1 NVIDIA GeForce RTX 5090\n",
+        "worker_tail": "/workspace/constructive/cache/eos-multitask/reference/model.py:121: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.self_attn.batch_first was not True(use batch_first for better inference performance)\n  self.transformer_encoder = TransformerEncoder(encoder_layers, nlayers)\nTraceback (most recent call last):\n  File \"/workspace/constructive/runs/209-2026-11-01-eos-adam-calibration/01_worker.py\", line 5, in <module>\n    if __name__ == \"__main__\":main(Path(__file__).parent/\"config.json\")\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/constructive/src/eos_tasks/adam_profile.py\", line 93, in main\n    assert error < cfg['gradient_relative_tolerance'], ('source anchor gradient mismatch',error)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('source anchor gradient mismatch', 0.000695946998033642)\n"
+      },
+      "deleted_epoch": 1793581332.9421713,
+      "failed": true,
+      "calibration_complete": true
+    },
+    {
+      "id": "a3bnk4q3absaxu",
+      "name": "cdr-analysis034-worker2-attempt1",
+      "worker": 2,
+      "attempt": 1,
+      "created_epoch": 1793580857.827557,
+      "gpu": "RTX 5090",
+      "price_per_gpu_hour": 1.19,
+      "phase": "209",
+      "host": "162.43.172.170",
+      "port": 11574,
+      "latest_status": {
+        "worker": 2,
+        "run_id": "209",
+        "epoch": 1793582998.3436441,
+        "free_gb": 15.940296704,
+        "setup_exit": "125",
+        "worker_exit": "125",
+        "setup_tail": "Downloading https://pypi.nvidia.com/nvidia-cusparselt-cu13/nvidia_cusparselt_cu13-0.8.0-py3-none-manylinux2014_x86_64.whl (169.9 MB)\n     \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 169.9/169.9 MB 447.7 kB/s eta 0:00:00\nCollecting nvidia-nccl-cu13==2.28.9 (from torch==2.11.0)\n  Downloading nvidia_nccl_cu13-2.28.9-py3-none-manylinux_2_18_x86_64.whl.metadata (2.0 kB)\nCollecting nvidia-nvshmem-cu13==3.4.5 (from torch==2.11.0)\n  Downloading https://pypi.nvidia.com/nvidia-nvshmem-cu13/nvidia_nvshmem_cu13-3.4.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (60.4 MB)\n     \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 60.4/60.4 MB 313.8 kB/s eta 0:00:00\nCollecting triton==3.6.0 (from torch==2.11.0)\n  Downloading https://download-r2.pytorch.org/whl/triton-3.6.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (1.7 kB)\nCollecting nvidia-cublas==13.1.0.3.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == \"Linux\"->torch==2.11.0)\n  Downloading https://pypi.nvidia.com/nvidia-cublas/nvidia_cublas-13.1.0.3-py3-none-manylinux_2_27_x86_64.whl (423.1 MB)\n"
+      },
+      "superseded_by_run": "211",
+      "deleted_epoch": 1793582998.804213,
+      "failed": true,
+      "calibration_complete": true
+    },
+    {
+      "id": "j9wth7dv1gjaqm",
+      "name": "cdr-analysis034-worker3-attempt1",
+      "worker": 3,
+      "attempt": 1,
+      "created_epoch": 1793580861.6628618,
+      "gpu": "RTX 5090",
+      "price_per_gpu_hour": 1.19,
+      "phase": "210",
+      "host": "162.43.172.175",
+      "port": 13377,
+      "latest_status": {
+        "worker": 3,
+        "run_id": "210",
+        "epoch": 1793592030.6050506,
+        "free_gb": 13.143744512,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T04:00:29.613967+00:00",
+          "elapsed_seconds": 8432.082475548843,
+          "peak_allocated_bytes": 10491916800,
+          "peak_reserved_bytes": 11219763200,
+          "phase": "production",
+          "parent": "125",
+          "task": "transformer",
+          "anchor": 500,
+          "lr": 0.001,
+          "lag": 2048,
+          "horizon": 2048,
+          "loss": 0.49328563719043267,
+          "cosine": -0.03669159895669232,
+          "adjacent_cosine": -0.960611529686716,
+          "seconds": 4.333134888904169,
+          "completed_updates": 2048,
+          "loss_units": 2088600,
+          "supervised_tokens": 2088600
+        },
+        "manifest": {
+          "status": "complete",
+          "run_id": "210",
+          "worker": 3,
+          "started_utc": "2026-11-02T01:39:57.531520+00:00",
+          "config_sha256": "f652d299d08821e61be5a2265986819b339efc5ef6dcffc8402bb97298bad6df",
+          "windows": [
+            {
+              "parent_run_id": "125",
+              "anchor": 500,
+              "arms": 1
+            }
+          ],
+          "completed_utc": "2026-11-02T04:00:29.746191+00:00",
+          "elapsed_seconds": 8432.214697908843
+        },
+        "setup_tail": "/tmp/analysis034-210-inputs.tar.gz: OK\n2.11.0+cu130 2.5.0 1.18.1 NVIDIA GeForce RTX 5090\n",
+        "worker_tail": "se\": \"production\", \"parent\": \"125\", \"task\": \"transformer\", \"anchor\": 500, \"lr\": 0.001, \"lag\": 2046, \"horizon\": 2048, \"loss\": 0.49357229634421684, \"cosine\": -0.0043585723633994536, \"adjacent_cosine\": -0.8470222978932408, \"seconds\": 4.096423564944416, \"completed_updates\": 2046, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T04:00:25.277177+00:00\", \"elapsed_seconds\": 8427.745690051, \"peak_allocated_bytes\": 10491916800, \"peak_reserved_bytes\": 11219763200, \"phase\": \"production\", \"parent\": \"125\", \"task\": \"transformer\", \"anchor\": 500, \"lr\": 0.001, \"lag\": 2047, \"horizon\": 2048, \"loss\": 0.49343628923269456, \"cosine\": 0.025774373227669258, \"adjacent_cosine\": -0.9075795798533662, \"seconds\": 4.094780473038554, \"completed_updates\": 2047, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T04:00:29.613967+00:00\", \"elapsed_seconds\": 8432.082475548843, \"peak_allocated_bytes\": 10491916800, \"peak_reserved_bytes\": 11219763200, \"phase\": \"production\", \"parent\": \"125\", \"task\": \"transformer\", \"anchor\": 500, \"lr\": 0.001, \"lag\": 2048, \"horizon\": 2048, \"loss\": 0.49328563719043267, \"cosine\": -0.03669159895669232, \"adjacent_cosine\": -0.960611529686716, \"seconds\": 4.333134888904169, \"completed_updates\": 2048, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n"
+      },
+      "calibration_complete": true,
+      "deleted_epoch": 1793592099.730078
+    },
+    {
+      "id": "if0mwtyx2473ch",
+      "name": "cdr-analysis034-worker4-attempt1",
+      "worker": 4,
+      "attempt": 1,
+      "created_epoch": 1793580864.705214,
+      "gpu": "RTX 5090",
+      "price_per_gpu_hour": 1.19,
+      "phase": "210",
+      "host": "74.2.96.213",
+      "port": 19516,
+      "latest_status": {
+        "worker": 4,
+        "run_id": "210",
+        "epoch": 1793592352.231249,
+        "free_gb": 13.143740416,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T04:05:21.975815+00:00",
+          "elapsed_seconds": 8724.971996617038,
+          "peak_allocated_bytes": 10491916800,
+          "peak_reserved_bytes": 11219763200,
+          "phase": "production",
+          "parent": "125",
+          "task": "transformer",
+          "anchor": 2000,
+          "lr": 0.001,
+          "lag": 2048,
+          "horizon": 2048,
+          "loss": 0.5061268566189672,
+          "cosine": -0.02839320149995954,
+          "adjacent_cosine": 0.6373553058800131,
+          "seconds": 4.5164916849462315,
+          "completed_updates": 2048,
+          "loss_units": 2088600,
+          "supervised_tokens": 2088600
+        },
+        "manifest": {
+          "status": "complete",
+          "run_id": "210",
+          "worker": 4,
+          "started_utc": "2026-11-02T01:39:57.003853+00:00",
+          "config_sha256": "f652d299d08821e61be5a2265986819b339efc5ef6dcffc8402bb97298bad6df",
+          "windows": [
+            {
+              "parent_run_id": "125",
+              "anchor": 2000,
+              "arms": 1
+            }
+          ],
+          "completed_utc": "2026-11-02T04:05:22.113501+00:00",
+          "elapsed_seconds": 8725.109681915026
+        },
+        "setup_tail": "/tmp/analysis034-210-inputs.tar.gz: OK\n2.11.0+cu130 2.5.0 1.18.1 NVIDIA GeForce RTX 5090\n",
+        "worker_tail": "e\": \"production\", \"parent\": \"125\", \"task\": \"transformer\", \"anchor\": 2000, \"lr\": 0.001, \"lag\": 2046, \"horizon\": 2048, \"loss\": 0.5102693684895835, \"cosine\": -0.011535585309001714, \"adjacent_cosine\": 0.5979774542484271, \"seconds\": 4.276628550956957, \"completed_updates\": 2046, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T04:05:17.454817+00:00\", \"elapsed_seconds\": 8720.45100860903, \"peak_allocated_bytes\": 10491916800, \"peak_reserved_bytes\": 11219763200, \"phase\": \"production\", \"parent\": \"125\", \"task\": \"transformer\", \"anchor\": 2000, \"lr\": 0.001, \"lag\": 2047, \"horizon\": 2048, \"loss\": 0.5081544390156686, \"cosine\": -0.045839562753150626, \"adjacent_cosine\": 0.4883052802827971, \"seconds\": 4.275552046019584, \"completed_updates\": 2047, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T04:05:21.975815+00:00\", \"elapsed_seconds\": 8724.971996617038, \"peak_allocated_bytes\": 10491916800, \"peak_reserved_bytes\": 11219763200, \"phase\": \"production\", \"parent\": \"125\", \"task\": \"transformer\", \"anchor\": 2000, \"lr\": 0.001, \"lag\": 2048, \"horizon\": 2048, \"loss\": 0.5061268566189672, \"cosine\": -0.02839320149995954, \"adjacent_cosine\": 0.6373553058800131, \"seconds\": 4.5164916849462315, \"completed_updates\": 2048, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n"
+      },
+      "calibration_complete": true,
+      "deleted_epoch": 1793592407.9943955
+    },
+    {
+      "id": "j55tvxtba1uyhf",
+      "name": "cdr-analysis034-worker5-attempt1",
+      "worker": 5,
+      "attempt": 1,
+      "created_epoch": 1793580867.8267863,
+      "gpu": "RTX 5090",
+      "price_per_gpu_hour": 1.19,
+      "phase": "210",
+      "host": "149.36.1.141",
+      "port": 40488,
+      "latest_status": {
+        "worker": 5,
+        "run_id": "210",
+        "epoch": 1793592268.9284856,
+        "free_gb": 807804.756426752,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T04:04:18.060842+00:00",
+          "elapsed_seconds": 8682.61967157689,
+          "peak_allocated_bytes": 10491916800,
+          "peak_reserved_bytes": 11219763200,
+          "phase": "production",
+          "parent": "125",
+          "task": "transformer",
+          "anchor": 3000,
+          "lr": 0.001,
+          "lag": 2048,
+          "horizon": 2048,
+          "loss": 0.5448618112162457,
+          "cosine": -0.03140822273466973,
+          "adjacent_cosine": 0.5837409878711872,
+          "seconds": 5.024401835165918,
+          "completed_updates": 2048,
+          "loss_units": 2088600,
+          "supervised_tokens": 2088600
+        },
+        "manifest": {
+          "status": "complete",
+          "run_id": "210",
+          "worker": 5,
+          "started_utc": "2026-11-02T01:39:35.441202+00:00",
+          "config_sha256": "f652d299d08821e61be5a2265986819b339efc5ef6dcffc8402bb97298bad6df",
+          "windows": [
+            {
+              "parent_run_id": "125",
+              "anchor": 3000,
+              "arms": 1
+            }
+          ],
+          "completed_utc": "2026-11-02T04:04:18.293994+00:00",
+          "elapsed_seconds": 8682.852813669015
+        },
+        "setup_tail": "/tmp/analysis034-210-inputs.tar.gz: OK\n2.11.0+cu130 2.5.0 1.18.1 NVIDIA GeForce RTX 5090\n",
+        "worker_tail": "phase\": \"production\", \"parent\": \"125\", \"task\": \"transformer\", \"anchor\": 3000, \"lr\": 0.001, \"lag\": 2046, \"horizon\": 2048, \"loss\": 0.5564021863666151, \"cosine\": 0.020573243000274386, \"adjacent_cosine\": 0.608176760131288, \"seconds\": 4.175786458188668, \"completed_updates\": 2046, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T04:04:13.013010+00:00\", \"elapsed_seconds\": 8677.571832520887, \"peak_allocated_bytes\": 10491916800, \"peak_reserved_bytes\": 11219763200, \"phase\": \"production\", \"parent\": \"125\", \"task\": \"transformer\", \"anchor\": 3000, \"lr\": 0.001, \"lag\": 2047, \"horizon\": 2048, \"loss\": 0.5504546787751814, \"cosine\": -0.02094034143688998, \"adjacent_cosine\": 0.3380060253084215, \"seconds\": 4.162025136873126, \"completed_updates\": 2047, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T04:04:18.060842+00:00\", \"elapsed_seconds\": 8682.61967157689, \"peak_allocated_bytes\": 10491916800, \"peak_reserved_bytes\": 11219763200, \"phase\": \"production\", \"parent\": \"125\", \"task\": \"transformer\", \"anchor\": 3000, \"lr\": 0.001, \"lag\": 2048, \"horizon\": 2048, \"loss\": 0.5448618112162457, \"cosine\": -0.03140822273466973, \"adjacent_cosine\": 0.5837409878711872, \"seconds\": 5.024401835165918, \"completed_updates\": 2048, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n"
+      },
+      "calibration_complete": true,
+      "deleted_epoch": 1793592348.390032
+    },
+    {
+      "id": "obpguio7xvtms6",
+      "name": "cdr-analysis034-worker6-attempt1",
+      "worker": 6,
+      "attempt": 1,
+      "created_epoch": 1793580870.647614,
+      "gpu": "RTX 5090",
+      "price_per_gpu_hour": 1.19,
+      "phase": "210",
+      "host": "74.2.96.48",
+      "port": 12406,
+      "latest_status": {
+        "worker": 6,
+        "run_id": "210",
+        "epoch": 1793592217.6346712,
+        "free_gb": 13.143748608,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T04:03:05.841545+00:00",
+          "elapsed_seconds": 8431.39779655682,
+          "peak_allocated_bytes": 10491916800,
+          "peak_reserved_bytes": 11219763200,
+          "phase": "production",
+          "parent": "126",
+          "task": "transformer",
+          "anchor": 500,
+          "lr": 0.001,
+          "lag": 2048,
+          "horizon": 2048,
+          "loss": 0.44630902718552506,
+          "cosine": -0.04851391722344133,
+          "adjacent_cosine": -0.9622038385114995,
+          "seconds": 4.286319965962321,
+          "completed_updates": 2048,
+          "loss_units": 2088600,
+          "supervised_tokens": 2088600
+        },
+        "manifest": {
+          "status": "complete",
+          "run_id": "210",
+          "worker": 6,
+          "started_utc": "2026-11-02T01:42:34.443768+00:00",
+          "config_sha256": "f652d299d08821e61be5a2265986819b339efc5ef6dcffc8402bb97298bad6df",
+          "windows": [
+            {
+              "parent_run_id": "126",
+              "anchor": 500,
+              "arms": 1
+            }
+          ],
+          "completed_utc": "2026-11-02T04:03:05.949535+00:00",
+          "elapsed_seconds": 8431.505782603752
+        },
+        "setup_tail": "/tmp/analysis034-210-inputs.tar.gz: OK\n2.11.0+cu130 2.5.0 1.18.1 NVIDIA GeForce RTX 5090\n",
+        "worker_tail": "hase\": \"production\", \"parent\": \"126\", \"task\": \"transformer\", \"anchor\": 500, \"lr\": 0.001, \"lag\": 2046, \"horizon\": 2048, \"loss\": 0.44684617139434, \"cosine\": -0.006524962853879364, \"adjacent_cosine\": -0.9708655128975409, \"seconds\": 4.108860917855054, \"completed_updates\": 2046, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T04:03:01.552255+00:00\", \"elapsed_seconds\": 8427.108506849036, \"peak_allocated_bytes\": 10491916800, \"peak_reserved_bytes\": 11219763200, \"phase\": \"production\", \"parent\": \"126\", \"task\": \"transformer\", \"anchor\": 500, \"lr\": 0.001, \"lag\": 2047, \"horizon\": 2048, \"loss\": 0.4466136701730527, \"cosine\": 0.029304527187586322, \"adjacent_cosine\": -0.9643254268580822, \"seconds\": 4.105983301997185, \"completed_updates\": 2047, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T04:03:05.841545+00:00\", \"elapsed_seconds\": 8431.39779655682, \"peak_allocated_bytes\": 10491916800, \"peak_reserved_bytes\": 11219763200, \"phase\": \"production\", \"parent\": \"126\", \"task\": \"transformer\", \"anchor\": 500, \"lr\": 0.001, \"lag\": 2048, \"horizon\": 2048, \"loss\": 0.44630902718552506, \"cosine\": -0.04851391722344133, \"adjacent_cosine\": -0.9622038385114995, \"seconds\": 4.286319965962321, \"completed_updates\": 2048, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n"
+      },
+      "calibration_complete": true,
+      "deleted_epoch": 1793592293.492505
+    },
+    {
+      "id": "lnpjnt9ao2mfwe",
+      "name": "cdr-analysis034-worker7-attempt1",
+      "worker": 7,
+      "attempt": 1,
+      "created_epoch": 1793580874.4918928,
+      "gpu": "RTX 5090",
+      "price_per_gpu_hour": 1.19,
+      "phase": "210",
+      "host": "74.2.96.48",
+      "port": 12959,
+      "latest_status": {
+        "worker": 7,
+        "run_id": "210",
+        "epoch": 1793585888.4003701,
+        "free_gb": 13.14787328,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T02:17:44.781712+00:00",
+          "elapsed_seconds": 2108.3680716520175,
+          "peak_allocated_bytes": 10491916800,
+          "peak_reserved_bytes": 11219763200,
+          "phase": "production",
+          "parent": "126",
+          "task": "transformer",
+          "anchor": 2000,
+          "lr": 0.001,
+          "lag": 512,
+          "horizon": 512,
+          "loss": 1.1558720919141414,
+          "cosine": 0.015956124586051824,
+          "adjacent_cosine": -0.3317022283493011,
+          "seconds": 4.244749024044722,
+          "completed_updates": 512,
+          "loss_units": 2088600,
+          "supervised_tokens": 2088600
+        },
+        "manifest": {
+          "status": "complete",
+          "run_id": "210",
+          "worker": 7,
+          "started_utc": "2026-11-02T01:42:36.413656+00:00",
+          "config_sha256": "f652d299d08821e61be5a2265986819b339efc5ef6dcffc8402bb97298bad6df",
+          "windows": [
+            {
+              "parent_run_id": "126",
+              "anchor": 2000,
+              "arms": 1
+            }
+          ],
+          "completed_utc": "2026-11-02T02:17:44.827903+00:00",
+          "elapsed_seconds": 2108.414262812119
+        },
+        "setup_tail": "/tmp/analysis034-210-inputs.tar.gz: OK\n2.11.0+cu130 2.5.0 1.18.1 NVIDIA GeForce RTX 5090\n",
+        "worker_tail": "\"phase\": \"production\", \"parent\": \"126\", \"task\": \"transformer\", \"anchor\": 2000, \"lr\": 0.001, \"lag\": 510, \"horizon\": 512, \"loss\": 1.161253116808209, \"cosine\": 0.034438038864634535, \"adjacent_cosine\": -0.42407244410888084, \"seconds\": 4.097888562828302, \"completed_updates\": 510, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T02:17:40.533891+00:00\", \"elapsed_seconds\": 2104.1202516499907, \"peak_allocated_bytes\": 10491916800, \"peak_reserved_bytes\": 11219763200, \"phase\": \"production\", \"parent\": \"126\", \"task\": \"transformer\", \"anchor\": 2000, \"lr\": 0.001, \"lag\": 511, \"horizon\": 512, \"loss\": 1.1576540730034468, \"cosine\": -0.05767779795312504, \"adjacent_cosine\": -0.21257299370488061, \"seconds\": 4.093629731796682, \"completed_updates\": 511, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T02:17:44.781712+00:00\", \"elapsed_seconds\": 2108.3680716520175, \"peak_allocated_bytes\": 10491916800, \"peak_reserved_bytes\": 11219763200, \"phase\": \"production\", \"parent\": \"126\", \"task\": \"transformer\", \"anchor\": 2000, \"lr\": 0.001, \"lag\": 512, \"horizon\": 512, \"loss\": 1.1558720919141414, \"cosine\": 0.015956124586051824, \"adjacent_cosine\": -0.3317022283493011, \"seconds\": 4.244749024044722, \"completed_updates\": 512, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n"
+      },
+      "calibration_complete": true,
+      "deleted_epoch": 1793585944.3985085
+    },
+    {
+      "id": "lsz3pefz65n5mq",
+      "name": "cdr-analysis034-worker8-attempt1",
+      "worker": 8,
+      "attempt": 1,
+      "created_epoch": 1793580877.605919,
+      "gpu": "RTX 5090",
+      "price_per_gpu_hour": 1.19,
+      "phase": "210",
+      "host": "74.2.96.48",
+      "port": 16884,
+      "latest_status": {
+        "worker": 8,
+        "run_id": "210",
+        "epoch": 1793585896.4531293,
+        "free_gb": 13.14787328,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T02:17:56.255494+00:00",
+          "elapsed_seconds": 2115.7916137669235,
+          "peak_allocated_bytes": 10491916800,
+          "peak_reserved_bytes": 11219763200,
+          "phase": "production",
+          "parent": "126",
+          "task": "transformer",
+          "anchor": 3000,
+          "lr": 0.001,
+          "lag": 512,
+          "horizon": 512,
+          "loss": 1.1430739340946094,
+          "cosine": -0.07011750116982599,
+          "adjacent_cosine": -0.20882596875084752,
+          "seconds": 4.2787476582452655,
+          "completed_updates": 512,
+          "loss_units": 2088600,
+          "supervised_tokens": 2088600
+        },
+        "manifest": {
+          "status": "complete",
+          "run_id": "210",
+          "worker": 8,
+          "started_utc": "2026-11-02T01:42:40.463900+00:00",
+          "config_sha256": "f652d299d08821e61be5a2265986819b339efc5ef6dcffc8402bb97298bad6df",
+          "windows": [
+            {
+              "parent_run_id": "126",
+              "anchor": 3000,
+              "arms": 1
+            }
+          ],
+          "completed_utc": "2026-11-02T02:17:56.298589+00:00",
+          "elapsed_seconds": 2115.8347090641037
+        },
+        "setup_tail": "/tmp/analysis034-210-inputs.tar.gz: OK\n2.11.0+cu130 2.5.0 1.18.1 NVIDIA GeForce RTX 5090\n",
+        "worker_tail": ", \"phase\": \"production\", \"parent\": \"126\", \"task\": \"transformer\", \"anchor\": 3000, \"lr\": 0.001, \"lag\": 510, \"horizon\": 512, \"loss\": 1.1574540212343196, \"cosine\": -0.09049821063802511, \"adjacent_cosine\": -0.671906295575868, \"seconds\": 4.101142555940896, \"completed_updates\": 510, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T02:17:51.973733+00:00\", \"elapsed_seconds\": 2111.509853155352, \"peak_allocated_bytes\": 10491916800, \"peak_reserved_bytes\": 11219763200, \"phase\": \"production\", \"parent\": \"126\", \"task\": \"transformer\", \"anchor\": 3000, \"lr\": 0.001, \"lag\": 511, \"horizon\": 512, \"loss\": 1.1423417048576197, \"cosine\": 0.16140981134820714, \"adjacent_cosine\": -0.6466090951791335, \"seconds\": 4.094606171827763, \"completed_updates\": 511, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T02:17:56.255494+00:00\", \"elapsed_seconds\": 2115.7916137669235, \"peak_allocated_bytes\": 10491916800, \"peak_reserved_bytes\": 11219763200, \"phase\": \"production\", \"parent\": \"126\", \"task\": \"transformer\", \"anchor\": 3000, \"lr\": 0.001, \"lag\": 512, \"horizon\": 512, \"loss\": 1.1430739340946094, \"cosine\": -0.07011750116982599, \"adjacent_cosine\": -0.20882596875084752, \"seconds\": 4.2787476582452655, \"completed_updates\": 512, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n"
+      },
+      "calibration_complete": true,
+      "deleted_epoch": 1793585952.5754967
+    },
+    {
+      "id": "ofs4d9ruskv825",
+      "name": "cdr-analysis034-worker9-attempt1",
+      "worker": 9,
+      "attempt": 1,
+      "created_epoch": 1793580880.7431083,
+      "gpu": "RTX 4090",
+      "price_per_gpu_hour": 0.89,
+      "phase": "210",
+      "host": "81.27.69.179",
+      "port": 39448,
+      "latest_status": {
+        "worker": 9,
+        "run_id": "210",
+        "epoch": 1793585919.864297,
+        "free_gb": 59680.281198592,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T02:18:32.240019+00:00",
+          "elapsed_seconds": 2284.2001713989303,
+          "peak_allocated_bytes": 10492176384,
+          "peak_reserved_bytes": 11240734720,
+          "phase": "production",
+          "parent": "121",
+          "task": "transformer",
+          "anchor": 2000,
+          "lr": 0.001,
+          "lag": 256,
+          "horizon": 256,
+          "loss": 2.4578546970757915,
+          "cosine": 0.0009898720282671305,
+          "adjacent_cosine": -0.9015640162477354,
+          "seconds": 6.95379444793798,
+          "completed_updates": 256,
+          "loss_units": 2088600,
+          "supervised_tokens": 2088600
+        },
+        "manifest": {
+          "status": "complete",
+          "run_id": "210",
+          "worker": 9,
+          "started_utc": "2026-11-02T01:40:28.039870+00:00",
+          "config_sha256": "f652d299d08821e61be5a2265986819b339efc5ef6dcffc8402bb97298bad6df",
+          "windows": [
+            {
+              "parent_run_id": "123",
+              "anchor": 500,
+              "arms": 1
+            },
+            {
+              "parent_run_id": "121",
+              "anchor": 2000,
+              "arms": 1
+            }
+          ],
+          "completed_utc": "2026-11-02T02:18:32.337165+00:00",
+          "elapsed_seconds": 2284.297311921837
+        },
+        "setup_tail": "/tmp/analysis034-210-inputs.tar.gz: OK\n2.11.0+cu130 2.5.0 1.18.1 NVIDIA GeForce RTX 4090\n",
+        "worker_tail": ", \"phase\": \"production\", \"parent\": \"121\", \"task\": \"transformer\", \"anchor\": 2000, \"lr\": 0.001, \"lag\": 254, \"horizon\": 256, \"loss\": 2.460782970650196, \"cosine\": 0.010325772884974759, \"adjacent_cosine\": -0.17817494942786882, \"seconds\": 6.229145660996437, \"completed_updates\": 254, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T02:18:25.273476+00:00\", \"elapsed_seconds\": 2277.233629148919, \"peak_allocated_bytes\": 10492176384, \"peak_reserved_bytes\": 11240734720, \"phase\": \"production\", \"parent\": \"121\", \"task\": \"transformer\", \"anchor\": 2000, \"lr\": 0.001, \"lag\": 255, \"horizon\": 256, \"loss\": 2.459413071255865, \"cosine\": 0.007615780225801147, \"adjacent_cosine\": -0.23141637017879568, \"seconds\": 6.243872460210696, \"completed_updates\": 255, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T02:18:32.240019+00:00\", \"elapsed_seconds\": 2284.2001713989303, \"peak_allocated_bytes\": 10492176384, \"peak_reserved_bytes\": 11240734720, \"phase\": \"production\", \"parent\": \"121\", \"task\": \"transformer\", \"anchor\": 2000, \"lr\": 0.001, \"lag\": 256, \"horizon\": 256, \"loss\": 2.4578546970757915, \"cosine\": 0.0009898720282671305, \"adjacent_cosine\": -0.9015640162477354, \"seconds\": 6.95379444793798, \"completed_updates\": 256, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n"
+      },
+      "calibration_complete": true,
+      "deleted_epoch": 1793586003.6634393
+    },
+    {
+      "id": "ak9do5ynnzdhce",
+      "name": "cdr-analysis034-worker10-attempt1",
+      "worker": 10,
+      "attempt": 1,
+      "created_epoch": 1793580883.9259439,
+      "gpu": "RTX 4090",
+      "price_per_gpu_hour": 0.89,
+      "phase": "210",
+      "host": "81.27.69.179",
+      "port": 38075,
+      "latest_status": {
+        "worker": 10,
+        "run_id": "210",
+        "epoch": 1793588844.8038735,
+        "free_gb": 58707.691241472,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T03:07:06.503641+00:00",
+          "elapsed_seconds": 5250.68294782599,
+          "peak_allocated_bytes": 3159565824,
+          "peak_reserved_bytes": 3407872000,
+          "phase": "production",
+          "parent": "123",
+          "task": "resnet",
+          "anchor": 2000,
+          "lr": 0.001,
+          "lag": 2048,
+          "horizon": 2048,
+          "loss": 0.0007079040086269378,
+          "cosine": -0.03751948953641915,
+          "adjacent_cosine": 0.9424739507494123,
+          "seconds": 2.6669537629932165,
+          "completed_updates": 2048,
+          "loss_units": 50000,
+          "supervised_tokens": null
+        },
+        "manifest": {
+          "status": "complete",
+          "run_id": "210",
+          "worker": 10,
+          "started_utc": "2026-11-02T01:39:35.820709+00:00",
+          "config_sha256": "f652d299d08821e61be5a2265986819b339efc5ef6dcffc8402bb97298bad6df",
+          "windows": [
+            {
+              "parent_run_id": "123",
+              "anchor": 2000,
+              "arms": 1
+            }
+          ],
+          "completed_utc": "2026-11-02T03:07:06.687238+00:00",
+          "elapsed_seconds": 5250.866547700978
+        },
+        "setup_tail": "/tmp/analysis034-210-inputs.tar.gz: OK\n2.11.0+cu130 2.5.0 1.18.1 NVIDIA GeForce RTX 4090\n",
+        "worker_tail": "ed_bytes\": 3407872000, \"phase\": \"production\", \"parent\": \"123\", \"task\": \"resnet\", \"anchor\": 2000, \"lr\": 0.001, \"lag\": 2046, \"horizon\": 2048, \"loss\": 0.0007098664903640747, \"cosine\": 0.03563015125747412, \"adjacent_cosine\": 0.9886455189566383, \"seconds\": 2.548623637005221, \"completed_updates\": 2046, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T03:07:03.823082+00:00\", \"elapsed_seconds\": 5248.002390144975, \"peak_allocated_bytes\": 3159565824, \"peak_reserved_bytes\": 3407872000, \"phase\": \"production\", \"parent\": \"123\", \"task\": \"resnet\", \"anchor\": 2000, \"lr\": 0.001, \"lag\": 2047, \"horizon\": 2048, \"loss\": 0.0007088845968246461, \"cosine\": 0.026492178756887436, \"adjacent_cosine\": 0.9787739980187526, \"seconds\": 2.546640660002595, \"completed_updates\": 2047, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T03:07:06.503641+00:00\", \"elapsed_seconds\": 5250.68294782599, \"peak_allocated_bytes\": 3159565824, \"peak_reserved_bytes\": 3407872000, \"phase\": \"production\", \"parent\": \"123\", \"task\": \"resnet\", \"anchor\": 2000, \"lr\": 0.001, \"lag\": 2048, \"horizon\": 2048, \"loss\": 0.0007079040086269378, \"cosine\": -0.03751948953641915, \"adjacent_cosine\": 0.9424739507494123, \"seconds\": 2.6669537629932165, \"completed_updates\": 2048, \"loss_units\": 50000, \"supervised_tokens\": null}\n"
+      },
+      "calibration_complete": true,
+      "deleted_epoch": 1793588852.9130414
+    },
+    {
+      "id": "cvi7k595z7h430",
+      "name": "cdr-analysis034-worker11-attempt1",
+      "worker": 11,
+      "attempt": 1,
+      "created_epoch": 1793580887.2464771,
+      "gpu": "RTX 4090",
+      "price_per_gpu_hour": 0.89,
+      "phase": "210",
+      "host": "213.173.109.159",
+      "port": 16421,
+      "latest_status": {
+        "worker": 11,
+        "run_id": "210",
+        "epoch": 1793590700.2648602,
+        "free_gb": 592938.933551104,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T03:37:55.222124+00:00",
+          "elapsed_seconds": 7087.228011579951,
+          "peak_allocated_bytes": 10492176384,
+          "peak_reserved_bytes": 11240734720,
+          "phase": "production",
+          "parent": "121",
+          "task": "transformer",
+          "anchor": 3000,
+          "lr": 0.001,
+          "lag": 256,
+          "horizon": 256,
+          "loss": 2.462657531136287,
+          "cosine": -0.011139886322477529,
+          "adjacent_cosine": -0.9410563607474846,
+          "seconds": 7.158002485986799,
+          "completed_updates": 256,
+          "loss_units": 2088600,
+          "supervised_tokens": 2088600
+        },
+        "manifest": {
+          "status": "complete",
+          "run_id": "210",
+          "worker": 11,
+          "started_utc": "2026-11-02T01:39:47.994123+00:00",
+          "config_sha256": "f652d299d08821e61be5a2265986819b339efc5ef6dcffc8402bb97298bad6df",
+          "windows": [
+            {
+              "parent_run_id": "123",
+              "anchor": 3000,
+              "arms": 1
+            },
+            {
+              "parent_run_id": "121",
+              "anchor": 3000,
+              "arms": 1
+            }
+          ],
+          "completed_utc": "2026-11-02T03:37:55.416587+00:00",
+          "elapsed_seconds": 7087.422472456936
+        },
+        "setup_tail": "/tmp/analysis034-210-inputs.tar.gz: OK\n2.11.0+cu130 2.5.0 1.18.1 NVIDIA GeForce RTX 4090\n",
+        "worker_tail": "0, \"phase\": \"production\", \"parent\": \"121\", \"task\": \"transformer\", \"anchor\": 3000, \"lr\": 0.001, \"lag\": 254, \"horizon\": 256, \"loss\": 2.4620063136640575, \"cosine\": -0.006985401614501283, \"adjacent_cosine\": -0.916329068940703, \"seconds\": 6.265552855795249, \"completed_updates\": 254, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T03:37:47.987085+00:00\", \"elapsed_seconds\": 7079.992976092035, \"peak_allocated_bytes\": 10492176384, \"peak_reserved_bytes\": 11240734720, \"phase\": \"production\", \"parent\": \"121\", \"task\": \"transformer\", \"anchor\": 3000, \"lr\": 0.001, \"lag\": 255, \"horizon\": 256, \"loss\": 2.4671613620143287, \"cosine\": 0.014486139163408141, \"adjacent_cosine\": -0.9518951619075784, \"seconds\": 6.294477452989668, \"completed_updates\": 255, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T03:37:55.222124+00:00\", \"elapsed_seconds\": 7087.228011579951, \"peak_allocated_bytes\": 10492176384, \"peak_reserved_bytes\": 11240734720, \"phase\": \"production\", \"parent\": \"121\", \"task\": \"transformer\", \"anchor\": 3000, \"lr\": 0.001, \"lag\": 256, \"horizon\": 256, \"loss\": 2.462657531136287, \"cosine\": -0.011139886322477529, \"adjacent_cosine\": -0.9410563607474846, \"seconds\": 7.158002485986799, \"completed_updates\": 256, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n"
+      },
+      "calibration_complete": true,
+      "deleted_epoch": 1793590773.6063182
+    },
+    {
+      "id": "w076i0x0o5jdlg",
+      "name": "cdr-analysis034-worker12-attempt1",
+      "worker": 12,
+      "attempt": 1,
+      "created_epoch": 1793580890.3598487,
+      "gpu": "RTX 4090",
+      "price_per_gpu_hour": 0.89,
+      "phase": "210",
+      "host": "213.173.109.92",
+      "port": 16998,
+      "latest_status": {
+        "worker": 12,
+        "run_id": "210",
+        "epoch": 1793588976.7448058,
+        "free_gb": 594700.128157696,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T03:09:09.733042+00:00",
+          "elapsed_seconds": 5375.488969582133,
+          "peak_allocated_bytes": 3159565824,
+          "peak_reserved_bytes": 3407872000,
+          "phase": "production",
+          "parent": "124",
+          "task": "resnet",
+          "anchor": 500,
+          "lr": 0.001,
+          "lag": 2048,
+          "horizon": 2048,
+          "loss": 0.0009219453549385074,
+          "cosine": 0.11727155332698477,
+          "adjacent_cosine": 0.882544406313019,
+          "seconds": 2.7475079959258437,
+          "completed_updates": 2048,
+          "loss_units": 50000,
+          "supervised_tokens": null
+        },
+        "manifest": {
+          "status": "complete",
+          "run_id": "210",
+          "worker": 12,
+          "started_utc": "2026-11-02T01:39:34.244084+00:00",
+          "config_sha256": "f652d299d08821e61be5a2265986819b339efc5ef6dcffc8402bb97298bad6df",
+          "windows": [
+            {
+              "parent_run_id": "124",
+              "anchor": 500,
+              "arms": 1
+            }
+          ],
+          "completed_utc": "2026-11-02T03:09:09.952685+00:00",
+          "elapsed_seconds": 5375.70861160499
+        },
+        "setup_tail": "/tmp/analysis034-210-inputs.tar.gz: OK\n2.11.0+cu130 2.5.0 1.18.1 NVIDIA GeForce RTX 4090\n",
+        "worker_tail": "erved_bytes\": 3407872000, \"phase\": \"production\", \"parent\": \"124\", \"task\": \"resnet\", \"anchor\": 500, \"lr\": 0.001, \"lag\": 2046, \"horizon\": 2048, \"loss\": 0.0009248559749126434, \"cosine\": 0.16345856828188837, \"adjacent_cosine\": 0.9186416015599365, \"seconds\": 2.560990792931989, \"completed_updates\": 2046, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T03:09:06.948105+00:00\", \"elapsed_seconds\": 5372.7040350381285, \"peak_allocated_bytes\": 3159565824, \"peak_reserved_bytes\": 3407872000, \"phase\": \"production\", \"parent\": \"124\", \"task\": \"resnet\", \"anchor\": 500, \"lr\": 0.001, \"lag\": 2047, \"horizon\": 2048, \"loss\": 0.0009233988618850712, \"cosine\": -0.07030042949825158, \"adjacent_cosine\": 0.828272705003034, \"seconds\": 2.5635102330707014, \"completed_updates\": 2047, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T03:09:09.733042+00:00\", \"elapsed_seconds\": 5375.488969582133, \"peak_allocated_bytes\": 3159565824, \"peak_reserved_bytes\": 3407872000, \"phase\": \"production\", \"parent\": \"124\", \"task\": \"resnet\", \"anchor\": 500, \"lr\": 0.001, \"lag\": 2048, \"horizon\": 2048, \"loss\": 0.0009219453549385074, \"cosine\": 0.11727155332698477, \"adjacent_cosine\": 0.882544406313019, \"seconds\": 2.7475079959258437, \"completed_updates\": 2048, \"loss_units\": 50000, \"supervised_tokens\": null}\n"
+      },
+      "calibration_complete": true,
+      "deleted_epoch": 1793588983.4159012
+    },
+    {
+      "id": "v2c31xo9ur6nrq",
+      "name": "cdr-analysis034-worker13-attempt1",
+      "worker": 13,
+      "attempt": 1,
+      "created_epoch": 1793580893.9295382,
+      "gpu": "RTX 4090",
+      "price_per_gpu_hour": 0.89,
+      "phase": "210",
+      "host": "81.27.69.177",
+      "port": 23690,
+      "latest_status": {
+        "worker": 13,
+        "run_id": "210",
+        "epoch": 1793588958.7329018,
+        "free_gb": 58688.536969216,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T03:09:07.245621+00:00",
+          "elapsed_seconds": 5371.242811177974,
+          "peak_allocated_bytes": 3159565824,
+          "peak_reserved_bytes": 3407872000,
+          "phase": "production",
+          "parent": "124",
+          "task": "resnet",
+          "anchor": 2000,
+          "lr": 0.001,
+          "lag": 2048,
+          "horizon": 2048,
+          "loss": 0.00047133272945880893,
+          "cosine": 0.04337180104975139,
+          "adjacent_cosine": 0.9907828491671473,
+          "seconds": 2.7377828379394487,
+          "completed_updates": 2048,
+          "loss_units": 50000,
+          "supervised_tokens": null
+        },
+        "manifest": {
+          "status": "complete",
+          "run_id": "210",
+          "worker": 13,
+          "started_utc": "2026-11-02T01:39:36.002833+00:00",
+          "config_sha256": "f652d299d08821e61be5a2265986819b339efc5ef6dcffc8402bb97298bad6df",
+          "windows": [
+            {
+              "parent_run_id": "124",
+              "anchor": 2000,
+              "arms": 1
+            }
+          ],
+          "completed_utc": "2026-11-02T03:09:07.432885+00:00",
+          "elapsed_seconds": 5371.430077682016
+        },
+        "setup_tail": "/tmp/analysis034-210-inputs.tar.gz: OK\n2.11.0+cu130 2.5.0 1.18.1 NVIDIA GeForce RTX 4090\n",
+        "worker_tail": "tes\": 3407872000, \"phase\": \"production\", \"parent\": \"124\", \"task\": \"resnet\", \"anchor\": 2000, \"lr\": 0.001, \"lag\": 2046, \"horizon\": 2048, \"loss\": 0.00047252653658390044, \"cosine\": -0.048901175655627786, \"adjacent_cosine\": 0.9880599765204712, \"seconds\": 2.601009315927513, \"completed_updates\": 2046, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T03:09:04.487714+00:00\", \"elapsed_seconds\": 5368.484917846043, \"peak_allocated_bytes\": 3159565824, \"peak_reserved_bytes\": 3407872000, \"phase\": \"production\", \"parent\": \"124\", \"task\": \"resnet\", \"anchor\": 2000, \"lr\": 0.001, \"lag\": 2047, \"horizon\": 2048, \"loss\": 0.00047192862331867227, \"cosine\": 0.04272331301377455, \"adjacent_cosine\": 0.9886607758809516, \"seconds\": 2.6033861270407215, \"completed_updates\": 2047, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T03:09:07.245621+00:00\", \"elapsed_seconds\": 5371.242811177974, \"peak_allocated_bytes\": 3159565824, \"peak_reserved_bytes\": 3407872000, \"phase\": \"production\", \"parent\": \"124\", \"task\": \"resnet\", \"anchor\": 2000, \"lr\": 0.001, \"lag\": 2048, \"horizon\": 2048, \"loss\": 0.00047133272945880893, \"cosine\": 0.04337180104975139, \"adjacent_cosine\": 0.9907828491671473, \"seconds\": 2.7377828379394487, \"completed_updates\": 2048, \"loss_units\": 50000, \"supervised_tokens\": null}\n"
+      },
+      "calibration_complete": true,
+      "deleted_epoch": 1793588965.0748618
+    },
+    {
+      "id": "cs22vdrjku4z6u",
+      "name": "cdr-analysis034-worker14-attempt1",
+      "worker": 14,
+      "attempt": 1,
+      "created_epoch": 1793580896.9386814,
+      "gpu": "RTX 4090",
+      "price_per_gpu_hour": 0.89,
+      "phase": "210",
+      "host": "47.47.180.44",
+      "port": 14977,
+      "latest_status": {
+        "worker": 14,
+        "run_id": "210",
+        "epoch": 1793588936.0038385,
+        "free_gb": 14.596583424,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T03:08:26.427510+00:00",
+          "elapsed_seconds": 5338.192569066072,
+          "peak_allocated_bytes": 3159565824,
+          "peak_reserved_bytes": 3407872000,
+          "phase": "production",
+          "parent": "124",
+          "task": "resnet",
+          "anchor": 3000,
+          "lr": 0.001,
+          "lag": 2048,
+          "horizon": 2048,
+          "loss": 0.0005413066852092744,
+          "cosine": 0.0029278048708073837,
+          "adjacent_cosine": 0.993416723185878,
+          "seconds": 2.67365360702388,
+          "completed_updates": 2048,
+          "loss_units": 50000,
+          "supervised_tokens": null
+        },
+        "manifest": {
+          "status": "complete",
+          "run_id": "210",
+          "worker": 14,
+          "started_utc": "2026-11-02T01:39:28.234963+00:00",
+          "config_sha256": "f652d299d08821e61be5a2265986819b339efc5ef6dcffc8402bb97298bad6df",
+          "windows": [
+            {
+              "parent_run_id": "124",
+              "anchor": 3000,
+              "arms": 1
+            }
+          ],
+          "completed_utc": "2026-11-02T03:08:26.599639+00:00",
+          "elapsed_seconds": 5338.364696430974
+        },
+        "setup_tail": "/tmp/analysis034-210-inputs.tar.gz: OK\n2.11.0+cu130 2.5.0 1.18.1 NVIDIA GeForce RTX 4090\n",
+        "worker_tail": "_bytes\": 3407872000, \"phase\": \"production\", \"parent\": \"124\", \"task\": \"resnet\", \"anchor\": 3000, \"lr\": 0.001, \"lag\": 2046, \"horizon\": 2048, \"loss\": 0.0005426960647106171, \"cosine\": 0.018201887056627494, \"adjacent_cosine\": 0.9955991584426649, \"seconds\": 2.5937610999681056, \"completed_updates\": 2046, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T03:08:23.744466+00:00\", \"elapsed_seconds\": 5335.509523896966, \"peak_allocated_bytes\": 3159565824, \"peak_reserved_bytes\": 3407872000, \"phase\": \"production\", \"parent\": \"124\", \"task\": \"resnet\", \"anchor\": 3000, \"lr\": 0.001, \"lag\": 2047, \"horizon\": 2048, \"loss\": 0.0005420005947351456, \"cosine\": 0.030831171277520584, \"adjacent_cosine\": 0.9912372336904877, \"seconds\": 2.5927157148253173, \"completed_updates\": 2047, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T03:08:26.427510+00:00\", \"elapsed_seconds\": 5338.192569066072, \"peak_allocated_bytes\": 3159565824, \"peak_reserved_bytes\": 3407872000, \"phase\": \"production\", \"parent\": \"124\", \"task\": \"resnet\", \"anchor\": 3000, \"lr\": 0.001, \"lag\": 2048, \"horizon\": 2048, \"loss\": 0.0005413066852092744, \"cosine\": 0.0029278048708073837, \"adjacent_cosine\": 0.993416723185878, \"seconds\": 2.67365360702388, \"completed_updates\": 2048, \"loss_units\": 50000, \"supervised_tokens\": null}\n"
+      },
+      "calibration_complete": true,
+      "deleted_epoch": 1793588944.2855175
+    },
+    {
+      "id": "9f5xknca95a2zw",
+      "name": "cdr-analysis034-worker15-attempt1",
+      "worker": 15,
+      "attempt": 1,
+      "created_epoch": 1793580899.650959,
+      "gpu": "RTX 4090",
+      "price_per_gpu_hour": 0.89,
+      "phase": "210",
+      "host": "103.196.86.137",
+      "port": 14604,
+      "latest_status": {
+        "worker": 15,
+        "run_id": "210",
+        "epoch": 1793588844.8451617,
+        "free_gb": 371899.620982784,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T03:07:13.711895+00:00",
+          "elapsed_seconds": 5270.0485343809705,
+          "peak_allocated_bytes": 3159565824,
+          "peak_reserved_bytes": 3407872000,
+          "phase": "production",
+          "parent": "120",
+          "task": "resnet",
+          "anchor": 500,
+          "lr": 0.001,
+          "lag": 2048,
+          "horizon": 2048,
+          "loss": 0.000562225457429886,
+          "cosine": 0.05350330505262327,
+          "adjacent_cosine": 0.9895766675252392,
+          "seconds": 2.6898497969377786,
+          "completed_updates": 2048,
+          "loss_units": 50000,
+          "supervised_tokens": null
+        },
+        "manifest": {
+          "status": "complete",
+          "run_id": "210",
+          "worker": 15,
+          "started_utc": "2026-11-02T01:39:23.663382+00:00",
+          "config_sha256": "f652d299d08821e61be5a2265986819b339efc5ef6dcffc8402bb97298bad6df",
+          "windows": [
+            {
+              "parent_run_id": "120",
+              "anchor": 500,
+              "arms": 1
+            }
+          ],
+          "completed_utc": "2026-11-02T03:07:13.916065+00:00",
+          "elapsed_seconds": 5270.2526955890935
+        },
+        "setup_tail": "/tmp/analysis034-210-inputs.tar.gz: OK\n2.11.0+cu130 2.5.0 1.18.1 NVIDIA GeForce RTX 4090\n",
+        "worker_tail": "ved_bytes\": 3407872000, \"phase\": \"production\", \"parent\": \"120\", \"task\": \"resnet\", \"anchor\": 500, \"lr\": 0.001, \"lag\": 2046, \"horizon\": 2048, \"loss\": 0.0005637433022260666, \"cosine\": 0.027184646025423205, \"adjacent_cosine\": 0.9870172529041261, \"seconds\": 2.5496281990781426, \"completed_updates\": 2046, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T03:07:11.007724+00:00\", \"elapsed_seconds\": 5267.344370184932, \"peak_allocated_bytes\": 3159565824, \"peak_reserved_bytes\": 3407872000, \"phase\": \"production\", \"parent\": \"120\", \"task\": \"resnet\", \"anchor\": 500, \"lr\": 0.001, \"lag\": 2047, \"horizon\": 2048, \"loss\": 0.0005629834407567978, \"cosine\": 0.030011823506583324, \"adjacent_cosine\": 0.9951475334164319, \"seconds\": 2.554257655981928, \"completed_updates\": 2047, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T03:07:13.711895+00:00\", \"elapsed_seconds\": 5270.0485343809705, \"peak_allocated_bytes\": 3159565824, \"peak_reserved_bytes\": 3407872000, \"phase\": \"production\", \"parent\": \"120\", \"task\": \"resnet\", \"anchor\": 500, \"lr\": 0.001, \"lag\": 2048, \"horizon\": 2048, \"loss\": 0.000562225457429886, \"cosine\": 0.05350330505262327, \"adjacent_cosine\": 0.9895766675252392, \"seconds\": 2.6898497969377786, \"completed_updates\": 2048, \"loss_units\": 50000, \"supervised_tokens\": null}\n"
+      },
+      "calibration_complete": true,
+      "deleted_epoch": 1793588846.0200953
+    },
+    {
+      "id": "vucy646c2hbbuv",
+      "name": "cdr-analysis034-worker16-attempt1",
+      "worker": 16,
+      "attempt": 1,
+      "created_epoch": 1793580902.9133646,
+      "gpu": "RTX 4090",
+      "price_per_gpu_hour": 0.89,
+      "phase": "210",
+      "host": "213.173.102.146",
+      "port": 27434,
+      "latest_status": {
+        "worker": 16,
+        "run_id": "210",
+        "epoch": 1793588978.7861233,
+        "free_gb": 594697.928835072,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T03:09:34.844259+00:00",
+          "elapsed_seconds": 5399.963973689941,
+          "peak_allocated_bytes": 3159565824,
+          "peak_reserved_bytes": 3407872000,
+          "phase": "production",
+          "parent": "120",
+          "task": "resnet",
+          "anchor": 2000,
+          "lr": 0.001,
+          "lag": 2048,
+          "horizon": 2048,
+          "loss": 0.00020508120566606526,
+          "cosine": 0.016827110581325168,
+          "adjacent_cosine": 0.9967280676538246,
+          "seconds": 2.7785612100269645,
+          "completed_updates": 2048,
+          "loss_units": 50000,
+          "supervised_tokens": null
+        },
+        "manifest": {
+          "status": "complete",
+          "run_id": "210",
+          "worker": 16,
+          "started_utc": "2026-11-02T01:39:34.880297+00:00",
+          "config_sha256": "f652d299d08821e61be5a2265986819b339efc5ef6dcffc8402bb97298bad6df",
+          "windows": [
+            {
+              "parent_run_id": "120",
+              "anchor": 2000,
+              "arms": 1
+            }
+          ],
+          "completed_utc": "2026-11-02T03:09:35.094252+00:00",
+          "elapsed_seconds": 5400.213965157978
+        },
+        "setup_tail": "/tmp/analysis034-210-inputs.tar.gz: OK\n2.11.0+cu130 2.5.0 1.18.1 NVIDIA GeForce RTX 4090\n",
+        "worker_tail": "tes\": 3407872000, \"phase\": \"production\", \"parent\": \"120\", \"task\": \"resnet\", \"anchor\": 2000, \"lr\": 0.001, \"lag\": 2046, \"horizon\": 2048, \"loss\": 0.000205562764108181, \"cosine\": 0.030229760201499912, \"adjacent_cosine\": 0.9979931871700833, \"seconds\": 2.5740334760630503, \"completed_updates\": 2046, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T03:09:32.021661+00:00\", \"elapsed_seconds\": 5397.141377211898, \"peak_allocated_bytes\": 3159565824, \"peak_reserved_bytes\": 3407872000, \"phase\": \"production\", \"parent\": \"120\", \"task\": \"resnet\", \"anchor\": 2000, \"lr\": 0.001, \"lag\": 2047, \"horizon\": 2048, \"loss\": 0.00020532209634780893, \"cosine\": 0.015093932416792138, \"adjacent_cosine\": 0.9974648387154759, \"seconds\": 2.5867093589622527, \"completed_updates\": 2047, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T03:09:34.844259+00:00\", \"elapsed_seconds\": 5399.963973689941, \"peak_allocated_bytes\": 3159565824, \"peak_reserved_bytes\": 3407872000, \"phase\": \"production\", \"parent\": \"120\", \"task\": \"resnet\", \"anchor\": 2000, \"lr\": 0.001, \"lag\": 2048, \"horizon\": 2048, \"loss\": 0.00020508120566606526, \"cosine\": 0.016827110581325168, \"adjacent_cosine\": 0.9967280676538246, \"seconds\": 2.7785612100269645, \"completed_updates\": 2048, \"loss_units\": 50000, \"supervised_tokens\": null}\n"
+      },
+      "calibration_complete": true,
+      "deleted_epoch": 1793588985.3275597
+    },
+    {
+      "id": "qctj3ip8ebm0m8",
+      "name": "cdr-analysis034-worker17-attempt1",
+      "worker": 17,
+      "attempt": 1,
+      "created_epoch": 1793580906.0732923,
+      "gpu": "RTX 4090",
+      "price_per_gpu_hour": 0.89,
+      "phase": "210",
+      "host": "213.173.102.90",
+      "port": 13340,
+      "latest_status": {
+        "worker": 17,
+        "run_id": "210",
+        "epoch": 1793588940.518635,
+        "free_gb": 594683.448786944,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T03:08:37.855329+00:00",
+          "elapsed_seconds": 5343.595402191859,
+          "peak_allocated_bytes": 3159565824,
+          "peak_reserved_bytes": 3407872000,
+          "phase": "production",
+          "parent": "120",
+          "task": "resnet",
+          "anchor": 3000,
+          "lr": 0.001,
+          "lag": 2048,
+          "horizon": 2048,
+          "loss": 7.841058611869811e-05,
+          "cosine": 0.011835717026428483,
+          "adjacent_cosine": 0.9984278963503015,
+          "seconds": 2.7891679401509464,
+          "completed_updates": 2048,
+          "loss_units": 50000,
+          "supervised_tokens": null
+        },
+        "manifest": {
+          "status": "complete",
+          "run_id": "210",
+          "worker": 17,
+          "started_utc": "2026-11-02T01:39:34.259939+00:00",
+          "config_sha256": "f652d299d08821e61be5a2265986819b339efc5ef6dcffc8402bb97298bad6df",
+          "windows": [
+            {
+              "parent_run_id": "120",
+              "anchor": 3000,
+              "arms": 1
+            }
+          ],
+          "completed_utc": "2026-11-02T03:08:38.118535+00:00",
+          "elapsed_seconds": 5343.858608596958
+        },
+        "setup_tail": "/tmp/analysis034-210-inputs.tar.gz: OK\n2.11.0+cu130 2.5.0 1.18.1 NVIDIA GeForce RTX 4090\n",
+        "worker_tail": "_bytes\": 3407872000, \"phase\": \"production\", \"parent\": \"120\", \"task\": \"resnet\", \"anchor\": 3000, \"lr\": 0.001, \"lag\": 2046, \"horizon\": 2048, \"loss\": 7.858339712023733e-05, \"cosine\": 0.015739785728097963, \"adjacent_cosine\": 0.9984987889991774, \"seconds\": 2.560525278095156, \"completed_updates\": 2046, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T03:08:35.022273+00:00\", \"elapsed_seconds\": 5340.762349590892, \"peak_allocated_bytes\": 3159565824, \"peak_reserved_bytes\": 3407872000, \"phase\": \"production\", \"parent\": \"120\", \"task\": \"resnet\", \"anchor\": 3000, \"lr\": 0.001, \"lag\": 2047, \"horizon\": 2048, \"loss\": 7.849678799510004e-05, \"cosine\": 0.018336687515246634, \"adjacent_cosine\": 0.9985925676040853, \"seconds\": 2.562522229971364, \"completed_updates\": 2047, \"loss_units\": 50000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T03:08:37.855329+00:00\", \"elapsed_seconds\": 5343.595402191859, \"peak_allocated_bytes\": 3159565824, \"peak_reserved_bytes\": 3407872000, \"phase\": \"production\", \"parent\": \"120\", \"task\": \"resnet\", \"anchor\": 3000, \"lr\": 0.001, \"lag\": 2048, \"horizon\": 2048, \"loss\": 7.841058611869811e-05, \"cosine\": 0.011835717026428483, \"adjacent_cosine\": 0.9984278963503015, \"seconds\": 2.7891679401509464, \"completed_updates\": 2048, \"loss_units\": 50000, \"supervised_tokens\": null}\n"
+      },
+      "calibration_complete": true,
+      "deleted_epoch": 1793588947.8772807
+    },
+    {
+      "id": "3gug8cpi64ffpb",
+      "name": "cdr-analysis034-worker18-attempt1",
+      "worker": 18,
+      "attempt": 1,
+      "created_epoch": 1793580909.3652787,
+      "gpu": "RTX 4090",
+      "price_per_gpu_hour": 0.89,
+      "phase": "210",
+      "host": "213.173.108.169",
+      "port": 15431,
+      "latest_status": {
+        "worker": 18,
+        "run_id": "210",
+        "epoch": 1793584050.9185922,
+        "free_gb": 601266.571575296,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T01:47:16.808451+00:00",
+          "elapsed_seconds": 462.1750002610497,
+          "peak_allocated_bytes": 111564800,
+          "peak_reserved_bytes": 132120576,
+          "phase": "production",
+          "parent": "122",
+          "task": "mlp",
+          "anchor": 3000,
+          "lr": 0.0003,
+          "lag": 2048,
+          "horizon": 2048,
+          "loss": 0.0025518750480841845,
+          "cosine": 0.49333667179096824,
+          "adjacent_cosine": -0.8978811932037525,
+          "seconds": 0.2603996121324599,
+          "completed_updates": 2048,
+          "loss_units": 5000,
+          "supervised_tokens": null
+        },
+        "manifest": {
+          "status": "complete",
+          "run_id": "210",
+          "worker": 18,
+          "started_utc": "2026-11-02T01:39:34.633478+00:00",
+          "config_sha256": "f652d299d08821e61be5a2265986819b339efc5ef6dcffc8402bb97298bad6df",
+          "windows": [
+            {
+              "parent_run_id": "059",
+              "anchor": 500,
+              "arms": 1
+            },
+            {
+              "parent_run_id": "059",
+              "anchor": 2000,
+              "arms": 1
+            },
+            {
+              "parent_run_id": "059",
+              "anchor": 3000,
+              "arms": 1
+            },
+            {
+              "parent_run_id": "062",
+              "anchor": 500,
+              "arms": 1
+            },
+            {
+              "parent_run_id": "062",
+              "anchor": 2000,
+              "arms": 1
+            },
+            {
+              "parent_run_id": "062",
+              "anchor": 3000,
+              "arms": 1
+            },
+            {
+              "parent_run_id": "122",
+              "anchor": 500,
+              "arms": 1
+            },
+            {
+              "parent_run_id": "122",
+              "anchor": 2000,
+              "arms": 1
+            },
+            {
+              "parent_run_id": "122",
+              "anchor": 3000,
+              "arms": 1
+            }
+          ],
+          "completed_utc": "2026-11-02T01:47:17.053463+00:00",
+          "elapsed_seconds": 462.42001011013053
+        },
+        "setup_tail": "/tmp/analysis034-210-inputs.tar.gz: OK\n2.11.0+cu130 2.5.0 1.18.1 NVIDIA GeForce RTX 4090\n",
+        "worker_tail": "eak_reserved_bytes\": 132120576, \"phase\": \"production\", \"parent\": \"122\", \"task\": \"mlp\", \"anchor\": 3000, \"lr\": 0.0003, \"lag\": 2046, \"horizon\": 2048, \"loss\": 0.0029268338112160563, \"cosine\": 0.5080961096362849, \"adjacent_cosine\": -0.9908898762911098, \"seconds\": 0.010400848928838968, \"completed_updates\": 2046, \"loss_units\": 5000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T01:47:16.505059+00:00\", \"elapsed_seconds\": 461.8716058752034, \"peak_allocated_bytes\": 111564800, \"peak_reserved_bytes\": 132120576, \"phase\": \"production\", \"parent\": \"122\", \"task\": \"mlp\", \"anchor\": 3000, \"lr\": 0.0003, \"lag\": 2047, \"horizon\": 2048, \"loss\": 0.0025231660110875964, \"cosine\": -0.53726696290911, \"adjacent_cosine\": -0.9493447507319905, \"seconds\": 0.02091635181568563, \"completed_updates\": 2047, \"loss_units\": 5000, \"supervised_tokens\": null}\n{\"utc\": \"2026-11-02T01:47:16.808451+00:00\", \"elapsed_seconds\": 462.1750002610497, \"peak_allocated_bytes\": 111564800, \"peak_reserved_bytes\": 132120576, \"phase\": \"production\", \"parent\": \"122\", \"task\": \"mlp\", \"anchor\": 3000, \"lr\": 0.0003, \"lag\": 2048, \"horizon\": 2048, \"loss\": 0.0025518750480841845, \"cosine\": 0.49333667179096824, \"adjacent_cosine\": -0.8978811932037525, \"seconds\": 0.2603996121324599, \"completed_updates\": 2048, \"loss_units\": 5000, \"supervised_tokens\": null}\n"
+      },
+      "calibration_complete": true,
+      "deleted_epoch": 1793584091.218682
+    },
+    {
+      "id": "66igxy0slarto2",
+      "name": "cdr-analysis034-worker0-attempt2",
+      "worker": 0,
+      "attempt": 2,
+      "created_epoch": 1793581339.5093393,
+      "gpu": "RTX 4090",
+      "price_per_gpu_hour": 0.89,
+      "phase": "210",
+      "host": "103.196.86.56",
+      "port": 12232,
+      "latest_status": {
+        "worker": 0,
+        "run_id": "210",
+        "epoch": 1793585208.5563097,
+        "free_gb": 374243.47414528,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T02:06:40.145557+00:00",
+          "elapsed_seconds": 1636.4973357070703,
+          "peak_allocated_bytes": 10491916800,
+          "peak_reserved_bytes": 11219763200,
+          "phase": "production",
+          "parent": "121",
+          "task": "transformer",
+          "anchor": 500,
+          "lr": 0.001,
+          "lag": 256,
+          "horizon": 256,
+          "loss": 2.5354861958967727,
+          "cosine": -0.018796438586349114,
+          "adjacent_cosine": -0.9594221552407863,
+          "seconds": 6.982887455960736,
+          "completed_updates": 256,
+          "loss_units": 2088600,
+          "supervised_tokens": 2088600
+        },
+        "manifest": {
+          "status": "complete",
+          "run_id": "210",
+          "worker": 0,
+          "started_utc": "2026-11-02T01:39:23.648247+00:00",
+          "config_sha256": "f652d299d08821e61be5a2265986819b339efc5ef6dcffc8402bb97298bad6df",
+          "windows": [
+            {
+              "parent_run_id": "121",
+              "anchor": 500,
+              "arms": 1
+            }
+          ],
+          "completed_utc": "2026-11-02T02:06:40.227498+00:00",
+          "elapsed_seconds": 1636.5792756211013
+        },
+        "setup_tail": "/tmp/analysis034-210-inputs.tar.gz: OK\n2.11.0+cu130 2.5.0 1.18.1 NVIDIA GeForce RTX 4090\n",
+        "worker_tail": "200, \"phase\": \"production\", \"parent\": \"121\", \"task\": \"transformer\", \"anchor\": 500, \"lr\": 0.001, \"lag\": 254, \"horizon\": 256, \"loss\": 2.540047736821318, \"cosine\": -0.01074257751558192, \"adjacent_cosine\": -0.9406501635080119, \"seconds\": 6.304417255800217, \"completed_updates\": 254, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T02:06:33.152526+00:00\", \"elapsed_seconds\": 1629.5043347859755, \"peak_allocated_bytes\": 10491916800, \"peak_reserved_bytes\": 11219763200, \"phase\": \"production\", \"parent\": \"121\", \"task\": \"transformer\", \"anchor\": 500, \"lr\": 0.001, \"lag\": 255, \"horizon\": 256, \"loss\": 2.534573816454503, \"cosine\": 0.019756574623412793, \"adjacent_cosine\": -0.9606243920186892, \"seconds\": 6.325207521906123, \"completed_updates\": 255, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T02:06:40.145557+00:00\", \"elapsed_seconds\": 1636.4973357070703, \"peak_allocated_bytes\": 10491916800, \"peak_reserved_bytes\": 11219763200, \"phase\": \"production\", \"parent\": \"121\", \"task\": \"transformer\", \"anchor\": 500, \"lr\": 0.001, \"lag\": 256, \"horizon\": 256, \"loss\": 2.5354861958967727, \"cosine\": -0.018796438586349114, \"adjacent_cosine\": -0.9594221552407863, \"seconds\": 6.982887455960736, \"completed_updates\": 256, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n"
+      },
+      "deleted_epoch": 1793585486.7431157
+    },
+    {
+      "id": "xlqh0qia4zwrfw",
+      "name": "cdr-analysis034-worker1-attempt2",
+      "worker": 1,
+      "attempt": 2,
+      "created_epoch": 1793581342.7603483,
+      "gpu": "RTX 4090",
+      "price_per_gpu_hour": 0.89,
+      "phase": "209",
+      "host": "47.47.180.15",
+      "port": 11438,
+      "latest_status": {
+        "worker": 1,
+        "run_id": "209",
+        "epoch": 1793583000.375023,
+        "free_gb": 14.991454208,
+        "setup_exit": "0",
+        "worker_exit": "0",
+        "progress": {
+          "utc": "2026-11-02T01:29:53.322021+00:00",
+          "elapsed_seconds": 673.0023648459464,
+          "peak_allocated_bytes": 10491916800,
+          "peak_reserved_bytes": 11219763200,
+          "phase": "calibration",
+          "parent": "121",
+          "task": "transformer",
+          "anchor": 2000,
+          "lr": 3e-05,
+          "lag": 39,
+          "horizon": 64,
+          "loss": 6.69463372220028,
+          "cosine": 0.9587597161474175,
+          "adjacent_cosine": 0.9996621058564189,
+          "seconds": 6.50194005202502,
+          "completed_updates": 39,
+          "loss_units": 2088600,
+          "supervised_tokens": 2088600
+        },
+        "manifest": {
+          "status": "complete",
+          "run_id": "209",
+          "worker": 1,
+          "started_utc": "2026-11-02T01:18:40.319675+00:00",
+          "config_sha256": "dec529970782e09fab1c0b4a5c0aeaf0ae5e0e569fc94a55f0981929fb2ef4ff",
+          "windows": [
+            {
+              "parent_run_id": "121",
+              "anchor": 2000,
+              "arms": 2
+            }
+          ],
+          "completed_utc": "2026-11-02T01:29:53.360060+00:00",
+          "elapsed_seconds": 673.0404036329128
+        },
+        "setup_tail": "lling triton at /usr/local/lib/python3.12/dist-packages, outside environment /opt/analysis034-venv\n    Can't uninstall 'triton'. No files were found to uninstall.\n  Attempting uninstall: torch\n    Found existing installation: torch 2.8.0+cu128\n    Not uninstalling torch at /usr/local/lib/python3.12/dist-packages, outside environment /opt/analysis034-venv\n    Can't uninstall 'torch'. No files were found to uninstall.\nERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\ntorchaudio 2.8.0+cu128 requires torch==2.8.0, but you have torch 2.11.0+cu130 which is incompatible.\ntorchvision 0.23.0+cu128 requires torch==2.8.0, but you have torch 2.11.0+cu130 which is incompatible.\nSuccessfully installed cuda-toolkit-13.0.2 nvidia-cublas-13.1.0.3 nvidia-cuda-cupti-13.0.85 nvidia-cuda-nvrtc-13.0.88 nvidia-cuda-runtime-13.0.96 nvidia-cudnn-cu13-9.19.0.56 nvidia-cufft-12.0.0.61 nvidia-cufile-1.15.1.6 nvidia-curand-10.4.0.35 nvidia-cusolver-12.0.4.66 nvidia-cusparse-12.6.3.3 nvidia-cusparselt-cu13-0.8.0 nvidia-nccl-cu13-2.28.9 nvidia-nvjitlink-13.0.88 nvidia-nvshmem-cu13-3.4.5 nvidia-nvtx-13.0.85 torch-2.11.0+cu130 triton-3.6.0\n2.11.0+cu130 2.5.0 1.18.1 NVIDIA GeForce RTX 4090\n",
+        "worker_tail": "d_bytes\": 11219763200, \"phase\": \"calibration\", \"parent\": \"121\", \"task\": \"transformer\", \"anchor\": 2000, \"lr\": 3e-05, \"lag\": 37, \"horizon\": 64, \"loss\": 6.6991730330723955, \"cosine\": 0.963284863225877, \"adjacent_cosine\": 0.9989360629849173, \"seconds\": 6.369013063143939, \"completed_updates\": 37, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T01:29:46.815356+00:00\", \"elapsed_seconds\": 666.4957023591269, \"peak_allocated_bytes\": 10491916800, \"peak_reserved_bytes\": 11219763200, \"phase\": \"calibration\", \"parent\": \"121\", \"task\": \"transformer\", \"anchor\": 2000, \"lr\": 3e-05, \"lag\": 38, \"horizon\": 64, \"loss\": 6.696900809752942, \"cosine\": 0.9616835166660664, \"adjacent_cosine\": 0.9937584646148837, \"seconds\": 6.340312652057037, \"completed_updates\": 38, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n{\"utc\": \"2026-11-02T01:29:53.322021+00:00\", \"elapsed_seconds\": 673.0023648459464, \"peak_allocated_bytes\": 10491916800, \"peak_reserved_bytes\": 11219763200, \"phase\": \"calibration\", \"parent\": \"121\", \"task\": \"transformer\", \"anchor\": 2000, \"lr\": 3e-05, \"lag\": 39, \"horizon\": 64, \"loss\": 6.69463372220028, \"cosine\": 0.9587597161474175, \"adjacent_cosine\": 0.9996621058564189, \"seconds\": 6.50194005202502, \"completed_updates\": 39, \"loss_units\": 2088600, \"supervised_tokens\": 2088600}\n"
+      },
+      "superseded_by_run": "211",
+      "calibration_complete": true,
+      "deleted_epoch": 1793583120.8302612
+    }
+  ],
+  "aggregate_gpu_hours": 38.69385321047571,
+  "compute_estimate_usd": 39.34838866262568,
+  "billing": "provisional",
+  "cloud_storage_remaining_gb": 0,
+  "network_volumes_created": 0,
+  "maximum_total_usd": 50,
+  "closed_epoch": 1793592408.4315746
+}

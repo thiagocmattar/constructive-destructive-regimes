@@ -41,7 +41,13 @@ questions alone do not create experimental commitments.
 
 | H025 | Can recorded optimizer-state summaries predict the magnitude of LR benefit beyond model size and action? | Exploratory candidate; no validated predictor | [Analysis031](../analyses/031-2026-10-31-adam-state-map/REPORT.md), reused Runs187-204 | Early actual/adaptive retention reduce final-benefit MAE about 37% across held-seed folds at 16; no initial feature improves primary prediction. Timing/target sensitivity, three seed clusters and outcome-known feature search limit inference. No controller claim |
 
-Next hypothesis: `H026`. Record the operational meaning,
+<!-- Analysis034 records -->
+| ID | Question / hypothesis | Status | Runs / analyses | Evidence / limits |
+| --- | --- | --- | --- | --- |
+| H026 | How do cold-Adam continuations change anchored and adjacent raw-gradient alignment at the same GD-trained states after training-loss LR calibration? | Completed conditional descriptive comparison | Runs209/210/211; [Analysis034](../analyses/034-2026-11-01-eos-adam-continuations/REPORT.md) | Same 27 retained states and GD horizons, 25 primary; five-rate 64-step calibration, one common rate per model; exact full gradients; optimizer reset, seed uncertainty unestimated; no independent method ranking or stability claim |
+<!-- End Analysis034 records -->
+
+Next hypothesis: `H027`. Record the operational meaning,
 comparison, support/refutation criteria, and scope in the corresponding run
 proposal. Suggested statuses: proposed, active, supported, unsupported,
 inconclusive, withdrawn. Preserve superseded interpretations instead of rewriting

@@ -2,6 +2,16 @@
 
 ## Current state
 
+[Analysis034: Adam from identical GD states](../analyses/034-2026-11-01-eos-adam-continuations/REPORT.md)
+completed five-rate calibration and 27 matched-horizon cold-Adam forks.
+Selected constant LRs: mlp 0.0003, resnet 0.001, transformer 0.001; 25 primary, two flagged reconstructions.
+Exact raw-gradient anchored/adjacent cosines at every boundary, up to lag 2048.
+Terminal 64 median adjacent cosine positive in 10/25 primary profiles.
+Training-only short calibration; optimizer reset, one initialization, no stability
+or independent optimizer-benefit claim. Four PDFs and numerical/vector checks pass.
+All 21 task Pods/storage deleted after verified retrieval; USD 39.35 provisional.
+Runs209/210/211; H026 conditional comparison complete. Next Run212 / Analysis035 / H027.
+
 [Analysis033: exact long-lag profiles](../analyses/033-2026-11-01-eos-long-lags/REPORT.md)
 completed 27 profiles / 36,096 anchored cosines, all through lag 256
 and up to 2048; 25 primary, two previously unqualified Run062 starts.

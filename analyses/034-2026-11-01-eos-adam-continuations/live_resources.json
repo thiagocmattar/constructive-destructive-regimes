@@ -1,0 +1,75 @@
+{
+  "epoch": 1793580593.4582324,
+  "gpus": [
+    {
+      "available": true,
+      "communityCloud": true,
+      "communityPricePerHr": 0.34,
+      "dataCenterAvailability": [
+        {
+          "dataCenterId": "EU-CZ-1",
+          "stockStatus": "Low"
+        },
+        {
+          "dataCenterId": "EU-RO-1",
+          "stockStatus": "Low"
+        },
+        {
+          "dataCenterId": "EUR-IS-1",
+          "stockStatus": "Low"
+        },
+        {
+          "dataCenterId": "EUR-IS-2",
+          "stockStatus": "Low"
+        },
+        {
+          "dataCenterId": "US-IL-1",
+          "stockStatus": "Low"
+        }
+      ],
+      "displayName": "RTX 4090",
+      "gpuId": "NVIDIA GeForce RTX 4090",
+      "memoryInGb": 24,
+      "secureCloud": true,
+      "securePricePerHr": 0.89,
+      "stockStatus": "Low"
+    },
+    {
+      "available": true,
+      "communityCloud": true,
+      "communityPricePerHr": 0.69,
+      "dataCenterAvailability": [
+        {
+          "dataCenterId": "EU-RO-1",
+          "stockStatus": "Low"
+        },
+        {
+          "dataCenterId": "EUR-IS-1",
+          "stockStatus": "Low"
+        },
+        {
+          "dataCenterId": "EUR-NO-1",
+          "stockStatus": "Low"
+        }
+      ],
+      "displayName": "RTX 5090",
+      "gpuId": "NVIDIA GeForce RTX 5090",
+      "memoryInGb": 32,
+      "secureCloud": true,
+      "securePricePerHr": 1.19,
+      "stockStatus": "Low"
+    }
+  ],
+  "template": {
+    "containerDiskInGb": 30,
+    "id": "runpod-torch-v280",
+    "imageName": "runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404",
+    "name": "Runpod Pytorch 2.8.0",
+    "volumeInGb": 50,
+    "volumeMountPath": "/workspace"
+  },
+  "existing_pods": [],
+  "cli_version": "3.0.1-551d6a4",
+  "storage_source": "https://docs.runpod.io/pods/storage/types",
+  "storage_rate_usd_per_gb_month_running": 0.1
+}

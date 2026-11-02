@@ -222,6 +222,14 @@
 | [207](207-2026-11-01-eos-parallel-resnet-lags/README.md) | H020: parallel placement of six later ResNet profiles | Complete; baseline 256 before staged extensions; 3 canonical final profiles | Reused 4090 workers; verified retrieval; joint cloud closed | [Analysis033](../analyses/033-2026-11-01-eos-long-lags/REPORT.md) |
 | [208](208-2026-11-01-eos-checkpoint-handoffs/README.md) | H020: qualified checkpoint handoffs | Complete; 4 canonical final profiles with exact prefixes | Original gradient tolerance; verified retrieval; joint cloud closed | [Analysis033](../analyses/033-2026-11-01-eos-long-lags/REPORT.md) |
 
-Next run: `209-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
+<!-- Analysis034 records -->
+| Run | Question / hypotheses | Status | Attempts | Observations |
+| --- | --- | --- | --- | --- |
+| [209](209-2026-11-01-eos-adam-calibration/README.md) | H026 cold-Adam LR calibration | Complete joint coverage with Run211; 125 canonical arms here, failed/partial originals preserved | All raw evidence locally hash verified; task cloud deleted | [Analysis034](../analyses/034-2026-11-01-eos-adam-continuations/REPORT.md); five rates, training-loss selection only |
+| [210](210-2026-11-01-eos-adam-long-lags/README.md) | H026 Adam at matched retained GD states | Complete; 27 exact anchored/adjacent profiles through matched 256/512/2048 | Verified recovery/vectors; all task cloud deleted; USD 39.35 provisional joint | [Analysis034](../analyses/034-2026-11-01-eos-adam-continuations/REPORT.md); 25 primary, two flagged |
+| [211](211-2026-11-01-eos-parallel-adam-calibration/README.md) | H026 parallel placement of unchanged Adam arms | Complete; 10 arms at two delayed Transformer states, 64 updates each | Reused warm workers; identical scientific inputs, verified retrieval | [Analysis034](../analyses/034-2026-11-01-eos-adam-continuations/REPORT.md); 135 canonical calibration arms jointly |
+<!-- End Analysis034 records -->
+
+Next run: `212-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
 executed IDs and configurations; retry unchanged scientific inputs in a new
 attempt within the same run.

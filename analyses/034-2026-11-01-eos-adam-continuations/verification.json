@@ -1,0 +1,4588 @@
+{
+  "status": "passed",
+  "counts": {
+    "calibration_input_files": 70,
+    "production_input_files": 70,
+    "parallel_input_files": 18,
+    "profiles": 27,
+    "primary": 25,
+    "production_rows": 36123,
+    "production_cosines": 72192,
+    "calibration_arms": 135,
+    "calibration_rows": 8775,
+    "vector_audits": 162,
+    "transferred_files": 1903,
+    "transferred_bytes": 28627515450,
+    "calibration_prefixes_within_1e_minus5": 18
+  },
+  "maximum_cpu_gpu_cosine_error": 3.552713678800501e-15,
+  "vector_audits": [
+    {
+      "phase": "calibration",
+      "key": "059-500",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 1.1102230246251565e-15
+        },
+        {
+          "lag": 2,
+          "anchor_error": 6.661338147750939e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 5.551115123125783e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 7.771561172376096e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "059-500",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 9.992007221626409e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 5.551115123125783e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 3.3306690738754696e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "059-500",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 3.3306690738754696e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 6.938893903907228e-17
+        },
+        {
+          "lag": 63,
+          "anchor_error": 3.885780586188048e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 3.3306690738754696e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "059-500",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 2.7755575615628914e-17
+        },
+        {
+          "lag": 63,
+          "anchor_error": 1.942890293094024e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 1.3877787807814457e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "059-500",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -2.0816681711721685e-17
+        },
+        {
+          "lag": 2,
+          "anchor_error": 1.734723475976807e-17
+        },
+        {
+          "lag": 63,
+          "anchor_error": 2.7755575615628914e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 2.42861286636753e-17
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "059-500",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 2.7755575615628914e-17
+        },
+        {
+          "lag": 255,
+          "anchor_error": -1.3010426069826053e-17
+        },
+        {
+          "lag": 256,
+          "anchor_error": -2.168404344971009e-18
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "059-2000",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 7.771561172376096e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 5.551115123125783e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 5.551115123125783e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 5.551115123125783e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "059-2000",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 5.551115123125783e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 5.551115123125783e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 5.551115123125783e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "059-2000",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 4.440892098500626e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 8.326672684688674e-17
+        },
+        {
+          "lag": 63,
+          "anchor_error": 5.551115123125783e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 4.440892098500626e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "059-2000",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 3.3306690738754696e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 1.0408340855860843e-17
+        },
+        {
+          "lag": 63,
+          "anchor_error": 3.3306690738754696e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "059-2000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 8.326672684688674e-17
+        },
+        {
+          "lag": 2,
+          "anchor_error": -2.0816681711721685e-17
+        },
+        {
+          "lag": 63,
+          "anchor_error": 8.326672684688674e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 1.3877787807814457e-16
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "059-2000",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 3.3306690738754696e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 1.0408340855860843e-17
+        },
+        {
+          "lag": 255,
+          "anchor_error": 1.0408340855860843e-17
+        },
+        {
+          "lag": 256,
+          "anchor_error": 6.938893903907228e-18
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "059-3000",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 1.2212453270876722e-15
+        },
+        {
+          "lag": 2,
+          "anchor_error": 8.881784197001252e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 7.771561172376096e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 7.771561172376096e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "059-3000",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 8.881784197001252e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 6.661338147750939e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 5.551115123125783e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 8.881784197001252e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "059-3000",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 8.881784197001252e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 6.938893903907228e-17
+        },
+        {
+          "lag": 63,
+          "anchor_error": 5.551115123125783e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 4.440892098500626e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "059-3000",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 3.3306690738754696e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -1.734723475976807e-18
+        },
+        {
+          "lag": 63,
+          "anchor_error": 2.7755575615628914e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 4.440892098500626e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "059-3000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 1.3877787807814457e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -6.938893903907228e-17
+        },
+        {
+          "lag": 63,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 1.3877787807814457e-16
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "059-3000",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 3.3306690738754696e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -1.734723475976807e-18
+        },
+        {
+          "lag": 255,
+          "anchor_error": 1.0408340855860843e-17
+        },
+        {
+          "lag": 256,
+          "anchor_error": 8.673617379884035e-18
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "062-500",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 7.771561172376096e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 8.881784197001252e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 9.992007221626409e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 9.992007221626409e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "062-500",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 7.771561172376096e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 8.881784197001252e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 6.661338147750939e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 4.440892098500626e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "062-500",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 5.551115123125783e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 5.551115123125783e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 3.3306690738754696e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "062-500",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 5.551115123125783e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 8.673617379884035e-18
+        },
+        {
+          "lag": 63,
+          "anchor_error": 5.551115123125783e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 3.3306690738754696e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "062-500",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 8.326672684688674e-17
+        },
+        {
+          "lag": 2,
+          "anchor_error": -4.163336342344337e-17
+        },
+        {
+          "lag": 63,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 1.6653345369377348e-16
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "062-500",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 5.551115123125783e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 8.673617379884035e-18
+        },
+        {
+          "lag": 255,
+          "anchor_error": 6.071532165918825e-18
+        },
+        {
+          "lag": 256,
+          "anchor_error": 1.734723475976807e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "062-2000",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 7.771561172376096e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 8.881784197001252e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 3.469446951953614e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "062-2000",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 3.469446951953614e-18
+        },
+        {
+          "lag": 2,
+          "anchor_error": -5.551115123125783e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -2.7755575615628914e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": -4.996003610813204e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "062-2000",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -6.661338147750939e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -6.661338147750939e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 4.440892098500626e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": -2.7755575615628914e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "062-2000",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -5.551115123125783e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -8.881784197001252e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -1.3877787807814457e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 2.7755575615628914e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "062-2000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -2.7755575615628914e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -3.3306690738754696e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 4.163336342344337e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 4.163336342344337e-17
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "062-2000",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -5.551115123125783e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -8.881784197001252e-16
+        },
+        {
+          "lag": 255,
+          "anchor_error": 1.734723475976807e-18
+        },
+        {
+          "lag": 256,
+          "anchor_error": 1.3877787807814457e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "062-3000",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 6.661338147750939e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 5.551115123125783e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -3.3306690738754696e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": -3.885780586188048e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "062-3000",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 4.440892098500626e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -7.771561172376096e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 2.7755575615628914e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 5.551115123125783e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "062-3000",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -5.551115123125783e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -8.881784197001252e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -8.881784197001252e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": -7.771561172376096e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "062-3000",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -6.661338147750939e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -6.661338147750939e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 3.3306690738754696e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 4.440892098500626e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "062-3000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -1.6653345369377348e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -3.3306690738754696e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 2.7755575615628914e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 6.938893903907228e-17
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "062-3000",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -6.661338147750939e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -6.661338147750939e-16
+        },
+        {
+          "lag": 2047,
+          "anchor_error": 8.326672684688674e-17
+        },
+        {
+          "lag": 2048,
+          "anchor_error": -1.6653345369377348e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "122-500",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 5.551115123125783e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 5.551115123125783e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "122-500",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 4.440892098500626e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -6.661338147750939e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 3.3306690738754696e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 1.6653345369377348e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "122-500",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -6.661338147750939e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -5.551115123125783e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 1.942890293094024e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": -1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "122-500",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -5.551115123125783e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -6.661338147750939e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -1.3877787807814457e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 6.938893903907228e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "122-500",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -1.1102230246251565e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -1.1102230246251565e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -1.734723475976807e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 2.7755575615628914e-17
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "122-500",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -5.551115123125783e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -6.661338147750939e-16
+        },
+        {
+          "lag": 2047,
+          "anchor_error": 4.440892098500626e-16
+        },
+        {
+          "lag": 2048,
+          "anchor_error": -1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "122-2000",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 5.551115123125783e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 3.3306690738754696e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "122-2000",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 5.551115123125783e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 8.326672684688674e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "122-2000",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -4.440892098500626e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -7.771561172376096e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 3.3306690738754696e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 5.551115123125783e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "122-2000",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -4.440892098500626e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -6.661338147750939e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 7.771561172376096e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 7.771561172376096e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "122-2000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -1.1102230246251565e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -2.220446049250313e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 5.551115123125783e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 5.551115123125783e-17
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "122-2000",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -4.440892098500626e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -6.661338147750939e-16
+        },
+        {
+          "lag": 2047,
+          "anchor_error": -3.3306690738754696e-16
+        },
+        {
+          "lag": 2048,
+          "anchor_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "122-3000",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 7.771561172376096e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 7.771561172376096e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -4.163336342344337e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": -8.326672684688674e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "122-3000",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 6.661338147750939e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 3.3306690738754696e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -5.551115123125783e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": -2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "122-3000",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -6.661338147750939e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -5.551115123125783e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -5.551115123125783e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": -1.6653345369377348e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "122-3000",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -4.440892098500626e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -6.661338147750939e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 4.440892098500626e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "122-3000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -2.7755575615628914e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -3.3306690738754696e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 6.938893903907228e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 4.163336342344337e-17
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "122-3000",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -4.440892098500626e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -6.661338147750939e-16
+        },
+        {
+          "lag": 2047,
+          "anchor_error": -4.440892098500626e-16
+        },
+        {
+          "lag": 2048,
+          "anchor_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "123-500",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 64,
+          "anchor_error": -1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "123-500",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 2,
+          "anchor_error": -1.1102230246251565e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "123-500",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -1.1102230246251565e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 64,
+          "anchor_error": 3.3306690738754696e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "123-500",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 0.0
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "123-500",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 2,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 8.326672684688674e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 0.0
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "123-500",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -1.1102230246251565e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 255,
+          "anchor_error": -9.540979117872439e-18
+        },
+        {
+          "lag": 256,
+          "anchor_error": 0.0
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "123-2000",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -5.551115123125783e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -3.3306690738754696e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -5.551115123125783e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": -1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "123-2000",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -1.2212453270876722e-15
+        },
+        {
+          "lag": 2,
+          "anchor_error": -5.551115123125783e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -2.7755575615628914e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": -8.326672684688674e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "123-2000",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -3.3306690738754696e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -4.163336342344337e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": -1.6653345369377348e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "123-2000",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -2.7755575615628914e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": -2.7755575615628914e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "123-2000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 6.661338147750939e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 5.551115123125783e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": -1.6653345369377348e-16
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "123-2000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 4.440892098500626e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -1.1102230246251565e-16
+        },
+        {
+          "lag": 2047,
+          "anchor_error": 6.938893903907228e-18
+        },
+        {
+          "lag": 2048,
+          "anchor_error": 6.245004513516506e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "123-3000",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -3.3306690738754696e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 5.551115123125783e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -1.1102230246251565e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "123-3000",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 2,
+          "anchor_error": -4.440892098500626e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -5.551115123125783e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 0.0
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "123-3000",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 8.326672684688674e-17
+        },
+        {
+          "lag": 63,
+          "anchor_error": -1.3877787807814457e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 2.7755575615628914e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "123-3000",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 2,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 64,
+          "anchor_error": -8.326672684688674e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "123-3000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -2.220446049250313e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 1.3877787807814457e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 1.6653345369377348e-16
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "123-3000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -2.220446049250313e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 2047,
+          "anchor_error": -1.0408340855860843e-17
+        },
+        {
+          "lag": 2048,
+          "anchor_error": 5.204170427930421e-18
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "124-500",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 2,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 63,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "124-500",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 2,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 63,
+          "anchor_error": 2.7755575615628914e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": -5.551115123125783e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "124-500",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -5.551115123125783e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -4.85722573273506e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 5.551115123125783e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "124-500",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -1.1102230246251565e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -1.1102230246251565e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 64,
+          "anchor_error": 5.551115123125783e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "124-500",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -6.661338147750939e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 5.551115123125783e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 0.0
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "124-500",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 3.3306690738754696e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 2047,
+          "anchor_error": -1.3877787807814457e-17
+        },
+        {
+          "lag": 2048,
+          "anchor_error": -4.163336342344337e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "124-2000",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 5.551115123125783e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 6.661338147750939e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -1.1102230246251565e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "124-2000",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -3.3306690738754696e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -2.220446049250313e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 3.3306690738754696e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 0.0
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "124-2000",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -6.661338147750939e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -1.1102230246251565e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -4.163336342344337e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "124-2000",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -5.551115123125783e-17
+        },
+        {
+          "lag": 63,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 2.7755575615628914e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "124-2000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -5.551115123125783e-17
+        },
+        {
+          "lag": 2,
+          "anchor_error": -2.220446049250313e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 1.3877787807814457e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 3.382710778154774e-17
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "124-2000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 5.551115123125783e-17
+        },
+        {
+          "lag": 2,
+          "anchor_error": -3.3306690738754696e-16
+        },
+        {
+          "lag": 2047,
+          "anchor_error": 1.3877787807814457e-17
+        },
+        {
+          "lag": 2048,
+          "anchor_error": 6.938893903907228e-18
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "124-3000",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 63,
+          "anchor_error": 1.6653345369377348e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": -5.551115123125783e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "124-3000",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 5.551115123125783e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": -2.7755575615628914e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "124-3000",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -5.551115123125783e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 5.551115123125783e-17
+        },
+        {
+          "lag": 63,
+          "anchor_error": 9.540979117872439e-18
+        },
+        {
+          "lag": 64,
+          "anchor_error": 0.0
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "124-3000",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -1.1102230246251565e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -2.220446049250313e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 64,
+          "anchor_error": 5.204170427930421e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "124-3000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 2,
+          "anchor_error": -1.1102230246251565e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -1.5265566588595902e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": -7.632783294297951e-17
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "124-3000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -2.220446049250313e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 2047,
+          "anchor_error": -3.469446951953614e-18
+        },
+        {
+          "lag": 2048,
+          "anchor_error": -3.469446951953614e-18
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "120-500",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -2.220446049250313e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 63,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "120-500",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 3.3306690738754696e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 1.6653345369377348e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": -1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "120-500",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -5.551115123125783e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 63,
+          "anchor_error": 2.7755575615628914e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 2.7755575615628914e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "120-500",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 2,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -4.163336342344337e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 1.3877787807814457e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "120-500",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -3.3306690738754696e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -1.1102230246251565e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 64,
+          "anchor_error": 1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "120-500",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 2,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 2047,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 2048,
+          "anchor_error": 2.7755575615628914e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "120-2000",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -2.220446049250313e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 63,
+          "anchor_error": -1.6653345369377348e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "120-2000",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -1.1102230246251565e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -3.3306690738754696e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -5.551115123125783e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 0.0
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "120-2000",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -2.220446049250313e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -2.220446049250313e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 64,
+          "anchor_error": 0.0
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "120-2000",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -2.220446049250313e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -5.551115123125783e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 1.3877787807814457e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "120-2000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -1.1102230246251565e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -2.220446049250313e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 1.214306433183765e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 0.0
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "120-2000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -2.220446049250313e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 2047,
+          "anchor_error": 3.469446951953614e-18
+        },
+        {
+          "lag": 2048,
+          "anchor_error": 3.469446951953614e-18
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "120-3000",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -2.220446049250313e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 5.551115123125783e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": -5.551115123125783e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "120-3000",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "120-3000",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 63,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 64,
+          "anchor_error": 0.0
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "120-3000",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 2,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 63,
+          "anchor_error": 4.163336342344337e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 1.0408340855860843e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "120-3000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -2.220446049250313e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 63,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 64,
+          "anchor_error": 0.0
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "120-3000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 2047,
+          "anchor_error": 6.938893903907228e-18
+        },
+        {
+          "lag": 2048,
+          "anchor_error": -3.469446951953614e-18
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "121-500",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 4.440892098500626e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 5.551115123125783e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "121-500",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -3.3306690738754696e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "121-500",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -2.220446049250313e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 3.3306690738754696e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -3.3306690738754696e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": -1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "121-500",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -4.440892098500626e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -1.1102230246251565e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -1.6653345369377348e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 1.6653345369377348e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "121-500",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -1.6653345369377348e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -1.3877787807814457e-17
+        },
+        {
+          "lag": 63,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 64,
+          "anchor_error": 9.71445146547012e-17
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "121-500",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -1.6653345369377348e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -1.3877787807814457e-17
+        },
+        {
+          "lag": 255,
+          "anchor_error": 3.469446951953614e-18
+        },
+        {
+          "lag": 256,
+          "anchor_error": 1.734723475976807e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "121-2000",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 4.440892098500626e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -1.1102230246251565e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": -3.3306690738754696e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "121-2000",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 3.469446951953614e-17
+        },
+        {
+          "lag": 63,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 0.0
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "121-2000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 5.551115123125783e-17
+        },
+        {
+          "lag": 2,
+          "anchor_error": -1.734723475976807e-18
+        },
+        {
+          "lag": 63,
+          "anchor_error": 6.938893903907228e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": -1.3877787807814457e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "121-2000",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 6.661338147750939e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -4.440892098500626e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "121-2000",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 3.3306690738754696e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -3.3306690738754696e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 7.771561172376096e-16
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "121-2000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 5.551115123125783e-17
+        },
+        {
+          "lag": 2,
+          "anchor_error": -1.734723475976807e-18
+        },
+        {
+          "lag": 255,
+          "anchor_error": 4.336808689942018e-18
+        },
+        {
+          "lag": 256,
+          "anchor_error": 2.168404344971009e-19
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "121-3000",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 2,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 63,
+          "anchor_error": 3.3306690738754696e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": -3.3306690738754696e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "121-3000",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 5.551115123125783e-17
+        },
+        {
+          "lag": 63,
+          "anchor_error": -1.6653345369377348e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 3.885780586188048e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "121-3000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -7.771561172376096e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -3.469446951953614e-18
+        },
+        {
+          "lag": 63,
+          "anchor_error": -1.5265566588595902e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": -4.163336342344337e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "121-3000",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -1.1102230246251565e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 6.661338147750939e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 4.440892098500626e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "121-3000",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -1.1102230246251565e-15
+        },
+        {
+          "lag": 2,
+          "anchor_error": 3.3306690738754696e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 3.3306690738754696e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": -1.4432899320127035e-15
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "121-3000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -7.771561172376096e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -3.469446951953614e-18
+        },
+        {
+          "lag": 255,
+          "anchor_error": -8.673617379884035e-18
+        },
+        {
+          "lag": 256,
+          "anchor_error": -3.469446951953614e-18
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "125-500",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -3.3306690738754696e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -2.7755575615628914e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": -2.7755575615628914e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "125-500",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -8.881784197001252e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -5.551115123125783e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -2.0816681711721685e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": -5.551115123125783e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "125-500",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -1.4311468676808659e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 1.4432899320127035e-15
+        },
+        {
+          "lag": 63,
+          "anchor_error": -5.551115123125783e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 3.469446951953614e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "125-500",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -3.3306690738754696e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -4.440892098500626e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 5.551115123125783e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 5.551115123125783e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "125-500",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 5.551115123125783e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 7.771561172376096e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -8.326672684688674e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 2.498001805406602e-16
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "125-500",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 5.551115123125783e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 7.771561172376096e-16
+        },
+        {
+          "lag": 2047,
+          "anchor_error": 1.3877787807814457e-17
+        },
+        {
+          "lag": 2048,
+          "anchor_error": -3.469446951953614e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "125-2000",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 1.4432899320127035e-15
+        },
+        {
+          "lag": 2,
+          "anchor_error": -4.440892098500626e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 1.3877787807814457e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 1.3877787807814457e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "125-2000",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 3.3306690738754696e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -2.7755575615628914e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 2.7755575615628914e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "125-2000",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -2.220446049250313e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -3.3306690738754696e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -3.469446951953614e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 1.0408340855860843e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "125-2000",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 8.881784197001252e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -4.163336342344337e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 8.326672684688674e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "125-2000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -7.771561172376096e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -6.661338147750939e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 2.7755575615628914e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": -1.3877787807814457e-17
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "125-2000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -7.771561172376096e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -6.661338147750939e-16
+        },
+        {
+          "lag": 2047,
+          "anchor_error": 3.469446951953614e-17
+        },
+        {
+          "lag": 2048,
+          "anchor_error": -2.7755575615628914e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "125-3000",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 7.771561172376096e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -5.551115123125783e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 5.551115123125783e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 1.6653345369377348e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "125-3000",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -1.1102230246251565e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -2.220446049250313e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 5.551115123125783e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 5.551115123125783e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "125-3000",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -4.440892098500626e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -7.771561172376096e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 6.938893903907228e-18
+        },
+        {
+          "lag": 64,
+          "anchor_error": 8.326672684688674e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "125-3000",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 4.440892098500626e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -8.881784197001252e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 5.204170427930421e-18
+        },
+        {
+          "lag": 64,
+          "anchor_error": 8.326672684688674e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "125-3000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -8.881784197001252e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 1.3183898417423734e-16
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "125-3000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -8.881784197001252e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 2047,
+          "anchor_error": -1.0408340855860843e-17
+        },
+        {
+          "lag": 2048,
+          "anchor_error": -2.7755575615628914e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "126-500",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -2.220446049250313e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -3.3306690738754696e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -2.220446049250313e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "126-500",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -8.881784197001252e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 5.551115123125783e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 1.6653345369377348e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "126-500",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -7.771561172376096e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 4.440892098500626e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -2.7755575615628914e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": -6.938893903907228e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "126-500",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -1.249000902703301e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 3.3306690738754696e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -4.163336342344337e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": -4.163336342344337e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "126-500",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 63,
+          "anchor_error": 2.0816681711721685e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": -1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "126-500",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 2047,
+          "anchor_error": 5.204170427930421e-17
+        },
+        {
+          "lag": 2048,
+          "anchor_error": 1.3877787807814457e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "126-2000",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 6.661338147750939e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -6.661338147750939e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": -7.771561172376096e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "126-2000",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 63,
+          "anchor_error": -1.6653345369377348e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": 5.551115123125783e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "126-2000",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -2.220446049250313e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 3.447762908503904e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": -1.734723475976807e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "126-2000",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 5.551115123125783e-17
+        },
+        {
+          "lag": 2,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 64,
+          "anchor_error": -8.326672684688674e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "126-2000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -2.220446049250313e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": -8.326672684688674e-17
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "126-2000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 1.1102230246251565e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -2.220446049250313e-16
+        },
+        {
+          "lag": 511,
+          "anchor_error": -5.551115123125783e-17
+        },
+        {
+          "lag": 512,
+          "anchor_error": -1.734723475976807e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "126-3000",
+      "lr": 1e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 5.551115123125783e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 7.771561172376096e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 5.551115123125783e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": -6.661338147750939e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "126-3000",
+      "lr": 3e-05,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 5.551115123125783e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 2.220446049250313e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -2.7755575615628914e-16
+        },
+        {
+          "lag": 64,
+          "anchor_error": -1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "126-3000",
+      "lr": 0.0001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": 7.771561172376096e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": 4.440892098500626e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 6.245004513516506e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": -5.204170427930421e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "126-3000",
+      "lr": 0.0003,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -1.1102230246251565e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -9.992007221626409e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": -2.7755575615628914e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": 2.7755575615628914e-17
+        }
+      ]
+    },
+    {
+      "phase": "calibration",
+      "key": "126-3000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -7.771561172376096e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -4.440892098500626e-16
+        },
+        {
+          "lag": 63,
+          "anchor_error": 1.3877787807814457e-17
+        },
+        {
+          "lag": 64,
+          "anchor_error": -2.0816681711721685e-17
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "key": "126-3000",
+      "lr": 0.001,
+      "checks": [
+        {
+          "lag": 0,
+          "anchor_error": 0.0
+        },
+        {
+          "lag": 1,
+          "anchor_error": -7.771561172376096e-16
+        },
+        {
+          "lag": 2,
+          "anchor_error": -4.440892098500626e-16
+        },
+        {
+          "lag": 511,
+          "anchor_error": 5.551115123125783e-17
+        },
+        {
+          "lag": 512,
+          "anchor_error": 2.7755575615628914e-17
+        }
+      ]
+    }
+  ],
+  "calibration_production_repetition": [
+    {
+      "key": "059-500",
+      "maximum_loss_error": 0.0,
+      "maximum_cosine_error": 0.0,
+      "maximum_norm_relative_error": 0.0,
+      "within_1e_minus5_every_boundary": true
+    },
+    {
+      "key": "059-2000",
+      "maximum_loss_error": 0.0,
+      "maximum_cosine_error": 0.0,
+      "maximum_norm_relative_error": 0.0,
+      "within_1e_minus5_every_boundary": true
+    },
+    {
+      "key": "059-3000",
+      "maximum_loss_error": 0.0,
+      "maximum_cosine_error": 0.0,
+      "maximum_norm_relative_error": 0.0,
+      "within_1e_minus5_every_boundary": true
+    },
+    {
+      "key": "062-500",
+      "maximum_loss_error": 0.0,
+      "maximum_cosine_error": 0.0,
+      "maximum_norm_relative_error": 0.0,
+      "within_1e_minus5_every_boundary": true
+    },
+    {
+      "key": "062-2000",
+      "maximum_loss_error": 0.0,
+      "maximum_cosine_error": 0.0,
+      "maximum_norm_relative_error": 0.0,
+      "within_1e_minus5_every_boundary": true
+    },
+    {
+      "key": "062-3000",
+      "maximum_loss_error": 0.0,
+      "maximum_cosine_error": 0.0,
+      "maximum_norm_relative_error": 0.0,
+      "within_1e_minus5_every_boundary": true
+    },
+    {
+      "key": "122-500",
+      "maximum_loss_error": 0.0,
+      "maximum_cosine_error": 0.0,
+      "maximum_norm_relative_error": 0.0,
+      "within_1e_minus5_every_boundary": true
+    },
+    {
+      "key": "122-2000",
+      "maximum_loss_error": 0.0,
+      "maximum_cosine_error": 0.0,
+      "maximum_norm_relative_error": 0.0,
+      "within_1e_minus5_every_boundary": true
+    },
+    {
+      "key": "122-3000",
+      "maximum_loss_error": 0.0,
+      "maximum_cosine_error": 0.0,
+      "maximum_norm_relative_error": 0.0,
+      "within_1e_minus5_every_boundary": true
+    },
+    {
+      "key": "123-500",
+      "maximum_loss_error": 0.00020805419921865465,
+      "maximum_cosine_error": 0.4307531736144896,
+      "maximum_norm_relative_error": 0.2872485721663163,
+      "within_1e_minus5_every_boundary": false
+    },
+    {
+      "key": "123-2000",
+      "maximum_loss_error": 1.2722167968659548e-05,
+      "maximum_cosine_error": 0.019340895350716175,
+      "maximum_norm_relative_error": 0.008475247811781106,
+      "within_1e_minus5_every_boundary": false
+    },
+    {
+      "key": "123-3000",
+      "maximum_loss_error": 3.291259765658694e-05,
+      "maximum_cosine_error": 0.030340145741979185,
+      "maximum_norm_relative_error": 0.022959089078363304,
+      "within_1e_minus5_every_boundary": false
+    },
+    {
+      "key": "124-500",
+      "maximum_loss_error": 6.038330078017573e-05,
+      "maximum_cosine_error": 0.031991320490072604,
+      "maximum_norm_relative_error": 0.036342520456184246,
+      "within_1e_minus5_every_boundary": false
+    },
+    {
+      "key": "124-2000",
+      "maximum_loss_error": 5.537109375453042e-06,
+      "maximum_cosine_error": 0.018870288770759247,
+      "maximum_norm_relative_error": 0.009628931040286615,
+      "within_1e_minus5_every_boundary": false
+    },
+    {
+      "key": "124-3000",
+      "maximum_loss_error": 4.880371093807234e-06,
+      "maximum_cosine_error": 0.004554767867315679,
+      "maximum_norm_relative_error": 0.008750409247268554,
+      "within_1e_minus5_every_boundary": false
+    },
+    {
+      "key": "120-500",
+      "maximum_loss_error": 3.0249023437178835e-06,
+      "maximum_cosine_error": 0.016197398321668777,
+      "maximum_norm_relative_error": 0.006822033254900939,
+      "within_1e_minus5_every_boundary": false
+    },
+    {
+      "key": "120-2000",
+      "maximum_loss_error": 2.839355468731153e-05,
+      "maximum_cosine_error": 0.14149578174237376,
+      "maximum_norm_relative_error": 0.08597436608284204,
+      "within_1e_minus5_every_boundary": false
+    },
+    {
+      "key": "120-3000",
+      "maximum_loss_error": 2.686828613290837e-05,
+      "maximum_cosine_error": 0.03017426683636759,
+      "maximum_norm_relative_error": 0.027608086705208645,
+      "within_1e_minus5_every_boundary": false
+    },
+    {
+      "key": "121-500",
+      "maximum_loss_error": 0.0,
+      "maximum_cosine_error": 0.0,
+      "maximum_norm_relative_error": 0.0,
+      "within_1e_minus5_every_boundary": true
+    },
+    {
+      "key": "121-2000",
+      "maximum_loss_error": 0.0,
+      "maximum_cosine_error": 0.0,
+      "maximum_norm_relative_error": 0.0,
+      "within_1e_minus5_every_boundary": true
+    },
+    {
+      "key": "121-3000",
+      "maximum_loss_error": 0.0,
+      "maximum_cosine_error": 0.0,
+      "maximum_norm_relative_error": 0.0,
+      "within_1e_minus5_every_boundary": true
+    },
+    {
+      "key": "125-500",
+      "maximum_loss_error": 0.0,
+      "maximum_cosine_error": 0.0,
+      "maximum_norm_relative_error": 0.0,
+      "within_1e_minus5_every_boundary": true
+    },
+    {
+      "key": "125-2000",
+      "maximum_loss_error": 0.0,
+      "maximum_cosine_error": 0.0,
+      "maximum_norm_relative_error": 0.0,
+      "within_1e_minus5_every_boundary": true
+    },
+    {
+      "key": "125-3000",
+      "maximum_loss_error": 0.0,
+      "maximum_cosine_error": 0.0,
+      "maximum_norm_relative_error": 0.0,
+      "within_1e_minus5_every_boundary": true
+    },
+    {
+      "key": "126-500",
+      "maximum_loss_error": 0.0,
+      "maximum_cosine_error": 0.0,
+      "maximum_norm_relative_error": 0.0,
+      "within_1e_minus5_every_boundary": true
+    },
+    {
+      "key": "126-2000",
+      "maximum_loss_error": 0.0,
+      "maximum_cosine_error": 0.0,
+      "maximum_norm_relative_error": 0.0,
+      "within_1e_minus5_every_boundary": true
+    },
+    {
+      "key": "126-3000",
+      "maximum_loss_error": 0.0,
+      "maximum_cosine_error": 0.0,
+      "maximum_norm_relative_error": 0.0,
+      "within_1e_minus5_every_boundary": true
+    }
+  ],
+  "selection_recomputed": true,
+  "source_gd_sha256": "f7097576da8de6e81305e823f1ccf60bc3aa366cb52f6ae3a7a75ff896ec60a5"
+}

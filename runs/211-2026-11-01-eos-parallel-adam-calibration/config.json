@@ -1,0 +1,269 @@
+{
+  "run_id": "211",
+  "analysis": "034",
+  "hypothesis": "H026",
+  "phase": "parallel_calibration",
+  "jobs": [
+    {
+      "parent_run_id": "121",
+      "task": "transformer",
+      "parent_gd_lr": 0.05,
+      "anchor": 2000,
+      "worker": 18,
+      "primary_eligible": true,
+      "parent_mode": "saved_checkpoint",
+      "checkpoint": "runs/205-2026-11-01-eos-exact-lag10/artifacts/attempt-01/worker0/121/state-002000/start.pt",
+      "tensor_sha256": "683c9e5e73a76bfee7bff0fb567307f70d85b3615cded1836e40729ed5c4b7ab",
+      "source_loss": 6.787544823405178,
+      "anchor_gradient": "cache/analysis033-inputs/121-2000/anchor.npy",
+      "data": "cache/eos-multitask/transformer_data.pt",
+      "reference_physical": 64,
+      "physical": 512,
+      "rates": [
+        1e-05
+      ],
+      "horizon": 64,
+      "production_horizon": 256
+    },
+    {
+      "parent_run_id": "121",
+      "task": "transformer",
+      "parent_gd_lr": 0.05,
+      "anchor": 2000,
+      "worker": 9,
+      "primary_eligible": true,
+      "parent_mode": "saved_checkpoint",
+      "checkpoint": "runs/205-2026-11-01-eos-exact-lag10/artifacts/attempt-01/worker0/121/state-002000/start.pt",
+      "tensor_sha256": "683c9e5e73a76bfee7bff0fb567307f70d85b3615cded1836e40729ed5c4b7ab",
+      "source_loss": 6.787544823405178,
+      "anchor_gradient": "cache/analysis033-inputs/121-2000/anchor.npy",
+      "data": "cache/eos-multitask/transformer_data.pt",
+      "reference_physical": 64,
+      "physical": 512,
+      "rates": [
+        3e-05
+      ],
+      "horizon": 64,
+      "production_horizon": 256
+    },
+    {
+      "parent_run_id": "121",
+      "task": "transformer",
+      "parent_gd_lr": 0.05,
+      "anchor": 2000,
+      "worker": 11,
+      "primary_eligible": true,
+      "parent_mode": "saved_checkpoint",
+      "checkpoint": "runs/205-2026-11-01-eos-exact-lag10/artifacts/attempt-01/worker0/121/state-002000/start.pt",
+      "tensor_sha256": "683c9e5e73a76bfee7bff0fb567307f70d85b3615cded1836e40729ed5c4b7ab",
+      "source_loss": 6.787544823405178,
+      "anchor_gradient": "cache/analysis033-inputs/121-2000/anchor.npy",
+      "data": "cache/eos-multitask/transformer_data.pt",
+      "reference_physical": 64,
+      "physical": 512,
+      "rates": [
+        0.0001
+      ],
+      "horizon": 64,
+      "production_horizon": 256
+    },
+    {
+      "parent_run_id": "121",
+      "task": "transformer",
+      "parent_gd_lr": 0.05,
+      "anchor": 2000,
+      "worker": 14,
+      "primary_eligible": true,
+      "parent_mode": "saved_checkpoint",
+      "checkpoint": "runs/205-2026-11-01-eos-exact-lag10/artifacts/attempt-01/worker0/121/state-002000/start.pt",
+      "tensor_sha256": "683c9e5e73a76bfee7bff0fb567307f70d85b3615cded1836e40729ed5c4b7ab",
+      "source_loss": 6.787544823405178,
+      "anchor_gradient": "cache/analysis033-inputs/121-2000/anchor.npy",
+      "data": "cache/eos-multitask/transformer_data.pt",
+      "reference_physical": 64,
+      "physical": 512,
+      "rates": [
+        0.0003
+      ],
+      "horizon": 64,
+      "production_horizon": 256
+    },
+    {
+      "parent_run_id": "121",
+      "task": "transformer",
+      "parent_gd_lr": 0.05,
+      "anchor": 2000,
+      "worker": 15,
+      "primary_eligible": true,
+      "parent_mode": "saved_checkpoint",
+      "checkpoint": "runs/205-2026-11-01-eos-exact-lag10/artifacts/attempt-01/worker0/121/state-002000/start.pt",
+      "tensor_sha256": "683c9e5e73a76bfee7bff0fb567307f70d85b3615cded1836e40729ed5c4b7ab",
+      "source_loss": 6.787544823405178,
+      "anchor_gradient": "cache/analysis033-inputs/121-2000/anchor.npy",
+      "data": "cache/eos-multitask/transformer_data.pt",
+      "reference_physical": 64,
+      "physical": 512,
+      "rates": [
+        0.001
+      ],
+      "horizon": 64,
+      "production_horizon": 256
+    },
+    {
+      "parent_run_id": "121",
+      "task": "transformer",
+      "parent_gd_lr": 0.05,
+      "anchor": 3000,
+      "worker": 16,
+      "primary_eligible": true,
+      "parent_mode": "saved_checkpoint",
+      "checkpoint": "runs/205-2026-11-01-eos-exact-lag10/artifacts/attempt-01/worker0/121/state-003000/start.pt",
+      "tensor_sha256": "7de0f5466d53e5ec09685fbbb65420d64c932e46cd91c9bb515012f0e93548fd",
+      "source_loss": 6.630096961210181,
+      "anchor_gradient": "cache/analysis033-inputs/121-3000/anchor.npy",
+      "data": "cache/eos-multitask/transformer_data.pt",
+      "reference_physical": 64,
+      "physical": 512,
+      "rates": [
+        1e-05
+      ],
+      "horizon": 64,
+      "production_horizon": 256
+    },
+    {
+      "parent_run_id": "121",
+      "task": "transformer",
+      "parent_gd_lr": 0.05,
+      "anchor": 3000,
+      "worker": 17,
+      "primary_eligible": true,
+      "parent_mode": "saved_checkpoint",
+      "checkpoint": "runs/205-2026-11-01-eos-exact-lag10/artifacts/attempt-01/worker0/121/state-003000/start.pt",
+      "tensor_sha256": "7de0f5466d53e5ec09685fbbb65420d64c932e46cd91c9bb515012f0e93548fd",
+      "source_loss": 6.630096961210181,
+      "anchor_gradient": "cache/analysis033-inputs/121-3000/anchor.npy",
+      "data": "cache/eos-multitask/transformer_data.pt",
+      "reference_physical": 64,
+      "physical": 512,
+      "rates": [
+        3e-05
+      ],
+      "horizon": 64,
+      "production_horizon": 256
+    },
+    {
+      "parent_run_id": "121",
+      "task": "transformer",
+      "parent_gd_lr": 0.05,
+      "anchor": 3000,
+      "worker": 10,
+      "primary_eligible": true,
+      "parent_mode": "saved_checkpoint",
+      "checkpoint": "runs/205-2026-11-01-eos-exact-lag10/artifacts/attempt-01/worker0/121/state-003000/start.pt",
+      "tensor_sha256": "7de0f5466d53e5ec09685fbbb65420d64c932e46cd91c9bb515012f0e93548fd",
+      "source_loss": 6.630096961210181,
+      "anchor_gradient": "cache/analysis033-inputs/121-3000/anchor.npy",
+      "data": "cache/eos-multitask/transformer_data.pt",
+      "reference_physical": 64,
+      "physical": 512,
+      "rates": [
+        0.0001
+      ],
+      "horizon": 64,
+      "production_horizon": 256
+    },
+    {
+      "parent_run_id": "121",
+      "task": "transformer",
+      "parent_gd_lr": 0.05,
+      "anchor": 3000,
+      "worker": 12,
+      "primary_eligible": true,
+      "parent_mode": "saved_checkpoint",
+      "checkpoint": "runs/205-2026-11-01-eos-exact-lag10/artifacts/attempt-01/worker0/121/state-003000/start.pt",
+      "tensor_sha256": "7de0f5466d53e5ec09685fbbb65420d64c932e46cd91c9bb515012f0e93548fd",
+      "source_loss": 6.630096961210181,
+      "anchor_gradient": "cache/analysis033-inputs/121-3000/anchor.npy",
+      "data": "cache/eos-multitask/transformer_data.pt",
+      "reference_physical": 64,
+      "physical": 512,
+      "rates": [
+        0.0003
+      ],
+      "horizon": 64,
+      "production_horizon": 256
+    },
+    {
+      "parent_run_id": "121",
+      "task": "transformer",
+      "parent_gd_lr": 0.05,
+      "anchor": 3000,
+      "worker": 13,
+      "primary_eligible": true,
+      "parent_mode": "saved_checkpoint",
+      "checkpoint": "runs/205-2026-11-01-eos-exact-lag10/artifacts/attempt-01/worker0/121/state-003000/start.pt",
+      "tensor_sha256": "7de0f5466d53e5ec09685fbbb65420d64c932e46cd91c9bb515012f0e93548fd",
+      "source_loss": 6.630096961210181,
+      "anchor_gradient": "cache/analysis033-inputs/121-3000/anchor.npy",
+      "data": "cache/eos-multitask/transformer_data.pt",
+      "reference_physical": 64,
+      "physical": 512,
+      "rates": [
+        0.001
+      ],
+      "horizon": 64,
+      "production_horizon": 256
+    }
+  ],
+  "purpose": "Same10 cold-Adam arms at Run121 states2000/3000, parallel placement to avoid delayed setup; no changed model, data, rate, horizon or numerical tolerance",
+  "anchors": [
+    500,
+    2000,
+    3000
+  ],
+  "objective": {
+    "mlp": "complete first5000 images; half squared error summed over outputs and mean over examples",
+    "resnet": "complete50000 images; cross entropy; same50 fixed1000-image train-mode BN groups; no running-stat mutation",
+    "transformer": "all59680 fixed sequences; NLL summed then divided by2088600 target tokens"
+  },
+  "parameter_scope": "all trainable parameters, original model order, no compression",
+  "precision": "FP32 parameters/accumulated gradients; TF32 disabled; exact FP64 diagnostic dot products and norms",
+  "zero_denominator": "null with undefined flag; no epsilon",
+  "validation": "none; complete training objective only",
+  "optimizer": {
+    "name": "Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "amsgrad": false,
+    "foreach": false,
+    "fused": false,
+    "state_initialization": "fresh zero moments and step0 at every original anchor; discard parent SGD optimizer",
+    "schedule": "constant",
+    "clipping": "none"
+  },
+  "task_cache": "cache/eos-multitask",
+  "original_inputs": "cache/eos-multitask/inputs.json",
+  "inputs_manifest": "runs/211-2026-11-01-eos-parallel-adam-calibration/input_manifest.json",
+  "stop_request": "runs/211-2026-11-01-eos-parallel-adam-calibration/stop-request",
+  "gradient_relative_tolerance": 1e-05,
+  "cosine_audit_tolerance": 1e-10,
+  "recovery_every": 32,
+  "calibration_rule": "All5 rates for64 updates at all27 states. Exclude2 historically unqualified states from selection. Require finite coverage, peak loss<=4*initial+1e-6 and final16 mean<=1.05*initial+1e-6 at every primary state. Minimize equal-checkpoint mean log(final16 mean/initial) separately per model; ties choose smaller LR. Cosines and held-out loss never select LR. Conditional best on tested grid, not global optimum.",
+  "production_rule": "Restart Adam fresh at identical original anchor, one selected common LR per model; match each Analysis033 GD terminal lag256/512/2048; no outcome-dependent stopping except finite/budget safeguard.",
+  "retention": "All scalar products/CPU checks each lag; exact g0/g1/g2 and terminal adjacent pair per arm; terminal model/Adam/RNG with last gradient unapplied; source starts retained.",
+  "authorization": "User explicitly authorizes Adam calibration then entire Runpod execution, additional funding and fastest practical parallel execution; prior preference to terminate all task Pods afterwards.",
+  "resource_limits": {
+    "max_total_usd": 50,
+    "graceful_compute_stop_usd": 47,
+    "hard_compute_stop_usd": 49,
+    "max_lease_seconds": 16200,
+    "max_concurrent_gpus": 19,
+    "container_gb": 30,
+    "pod_volume_gb": 15
+  },
+  "inference": "One initialization; checkpoint-dependent forks, no seed error bars. Adam rates selected on short training losses; no SGD curvature identity for Adam, stability or generalization claim."
+}

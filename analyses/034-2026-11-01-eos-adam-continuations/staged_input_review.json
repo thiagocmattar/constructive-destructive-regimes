@@ -1,0 +1,79 @@
+{
+  "status": "passed",
+  "observed_utc": "2026-11-02T04:12:49.128063+00:00",
+  "scoped_staged_files": 254,
+  "all_changes_task_owned": true,
+  "raw_artifacts_and_credentials_excluded": true,
+  "manifests": [
+    {
+      "path": "runs/209-2026-11-01-eos-adam-calibration/input_manifest.json",
+      "sha256": "99b14b341b20604c3a1ec24339ec73d921c5c74a0953fa4c783d7be2d60075b3",
+      "staged_inputs_checked": 9
+    },
+    {
+      "path": "runs/210-2026-11-01-eos-adam-long-lags/input_manifest.json",
+      "sha256": "e0c56cfe74a954de235d04f4264c420e47f3332e0e7d26445e48722b3e223e1c",
+      "staged_inputs_checked": 9
+    },
+    {
+      "path": "runs/211-2026-11-01-eos-parallel-adam-calibration/input_manifest.json",
+      "sha256": "25bbd7408e7ad5c74bcc6c568341af8e4ae3dbb9381808c1e31d803cac5470e8",
+      "staged_inputs_checked": 9
+    }
+  ],
+  "unique_staged_scientific_inputs": {
+    "runs/209-2026-11-01-eos-adam-calibration/01_worker.py": {
+      "bytes": 208,
+      "sha256": "a2d7961dea0c0bd852dbae52b4bf9e2f5d1d2fc15aa174ab6a57209a0bbf07d9"
+    },
+    "runs/209-2026-11-01-eos-adam-calibration/config.json": {
+      "bytes": 24525,
+      "sha256": "dec529970782e09fab1c0b4a5c0aeaf0ae5e0e569fc94a55f0981929fb2ef4ff"
+    },
+    "src/cifar_eos/__init__.py": {
+      "bytes": 80,
+      "sha256": "4cfbf7fc078bcae86b6ddfcbb2a9d87619b6350302c07379b3f4df21fe7eb27c"
+    },
+    "src/cifar_eos/core.py": {
+      "bytes": 11786,
+      "sha256": "c9fab65d551740149d7ff3a79e4b3af1e87ff5e7f3ba7c5cc62201f216434138"
+    },
+    "src/eos_tasks/__init__.py": {
+      "bytes": 78,
+      "sha256": "b827b6bf61d01a83281bbff65204315279e6d343f962a1bbe4e52d5a7f67b86e"
+    },
+    "src/eos_tasks/adam_profile.py": {
+      "bytes": 11792,
+      "sha256": "764394ed57819b58b1a7a0dd09b6c4c5bf162cb3b572f3907e5d25f78e6a9865"
+    },
+    "src/eos_tasks/lag_profile.py": {
+      "bytes": 13952,
+      "sha256": "6b52a7e47cc78e4f4868afd231b113aed263d4c75172614acd54a071ba61b26b"
+    },
+    "src/eos_tasks/production.py": {
+      "bytes": 1375,
+      "sha256": "9cda7703e50d4f32d9e8c3118361c418b600a87e23b3f8d6b175b82e1482b6ce"
+    },
+    "src/eos_tasks/task.py": {
+      "bytes": 6899,
+      "sha256": "28a15439e22ec82e05da41497b2d6c9a33171f29a9e13413d8167804d124c6b0"
+    },
+    "runs/210-2026-11-01-eos-adam-long-lags/01_worker.py": {
+      "bytes": 208,
+      "sha256": "a2d7961dea0c0bd852dbae52b4bf9e2f5d1d2fc15aa174ab6a57209a0bbf07d9"
+    },
+    "runs/210-2026-11-01-eos-adam-long-lags/config.json": {
+      "bytes": 23134,
+      "sha256": "f652d299d08821e61be5a2265986819b339efc5ef6dcffc8402bb97298bad6df"
+    },
+    "runs/211-2026-11-01-eos-parallel-adam-calibration/01_worker.py": {
+      "bytes": 208,
+      "sha256": "a2d7961dea0c0bd852dbae52b4bf9e2f5d1d2fc15aa174ab6a57209a0bbf07d9"
+    },
+    "runs/211-2026-11-01-eos-parallel-adam-calibration/config.json": {
+      "bytes": 10609,
+      "sha256": "0e0c31e079006ef91d42339117acbca0634e38bbbfecab7d999d68afa308ca6c"
+    }
+  },
+  "secret_scan": "No credential keys or token/private-key markers in staged task files; full provider reads retained only in ignored scratch"
+}

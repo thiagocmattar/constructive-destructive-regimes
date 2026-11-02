@@ -57,5 +57,11 @@
 
 | [033](033-2026-11-01-eos-long-lags/README.md) | Exact long-lag damping across nine EOS conditions | Runs205/206/207/208, seed0 | Complete; 27 profiles, 25 primary; common 256, maximum 2048; all task cloud deleted | Four reviewed PDFs, exact CPU/GPU/vector audits; USD 29.48 provisional |
 
-Next analysis: `034-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
+<!-- Analysis034 records -->
+| Analysis | Question | Source runs / other inputs | Status | Observations / figures |
+| --- | --- | --- | --- | --- |
+| [034](034-2026-11-01-eos-adam-continuations/README.md) | Calibrated Adam from identical EOS GD checkpoints | Runs209/210/211; Run205 starts and Analysis033 GD reference | Complete; 27 matched horizons, exact anchored/adjacent raw cosines, 25 primary | Four reviewed PDFs; verified retrieval; task cloud deleted; USD 39.35 provisional |
+<!-- End Analysis034 records -->
+
+Next analysis: `035-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
 an analysis may use manuscript or external inputs without referencing a run.

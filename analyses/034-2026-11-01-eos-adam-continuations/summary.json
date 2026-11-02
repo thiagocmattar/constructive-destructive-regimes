@@ -1,0 +1,46 @@
+{
+  "calibration_input_files": 70,
+  "production_input_files": 70,
+  "parallel_input_files": 18,
+  "profiles": 27,
+  "primary": 25,
+  "production_rows": 36123,
+  "production_cosines": 72192,
+  "calibration_arms": 135,
+  "calibration_rows": 8775,
+  "vector_audits": 162,
+  "transferred_files": 1903,
+  "transferred_bytes": 28627515450,
+  "calibration_prefixes_within_1e_minus5": 18,
+  "selected_rates": {
+    "mlp": 0.0003,
+    "resnet": 0.001,
+    "transformer": 0.001
+  },
+  "primary_terminal_median_adjacent_positive": 10,
+  "primary_terminal_negative_pairs": 17,
+  "primary_terminal_anchor_half_gap_at_most_point1": 22,
+  "pods_deleted": 21,
+  "compute_estimate_usd": 39.34838866262568,
+  "elapsed_minutes": 192.61551757653555,
+  "maximum_lag": 2048,
+  "by_model": {
+    "mlp": {
+      "profiles": 7,
+      "terminal_median_adjacent_positive": 0,
+      "terminal_has_negative_pairs": 7
+    },
+    "resnet": {
+      "profiles": 9,
+      "terminal_median_adjacent_positive": 8,
+      "terminal_has_negative_pairs": 1
+    },
+    "transformer": {
+      "profiles": 9,
+      "terminal_median_adjacent_positive": 2,
+      "terminal_has_negative_pairs": 9
+    }
+  },
+  "cloud_storage_remaining_gb": 0,
+  "billing": "provisional"
+}
