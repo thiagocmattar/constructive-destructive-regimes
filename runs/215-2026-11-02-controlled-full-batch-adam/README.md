@@ -20,8 +20,9 @@ model, Adam, RNG and diagnostic states. Raw audit gradients at0/1/1024 persist.
 The approved eight-row figure layout uses training loss (log), eta*kappa_hat,
 rho for raw/momentum/Adam, separate gradient/momentum norms, and R_t only for
 Adam's actual updates. Training diagnostics remain unsmoothed; plotting keeps
-training loss and R_t unsmoothed and applies16-step trailing means to the six
-other diagnostic rows.
+training loss and R_t unsmoothed and applies 50-step trailing means to the six
+other diagnostic rows, matching manuscript Analysis024 after the user's
+post-completion plotting revision. Earlier previews retain 16-step windows.
 
 Scientific inputs freeze before execution. Production restarts from initialization;
 no calibration history is joined or silently resumed. Adam diagnostics were copied

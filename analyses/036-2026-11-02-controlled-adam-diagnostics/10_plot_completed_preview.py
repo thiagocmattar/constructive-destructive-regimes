@@ -13,7 +13,7 @@ import numpy as np
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 RUN = ROOT/'runs/215-2026-11-02-controlled-full-batch-adam'
-WINDOW = 16
+WINDOW = 50
 TASKS = ['mlp', 'resnet', 'transformer']
 TITLES = ['CIFAR-10 / MLP', 'CIFAR-10 / ResNet-32', 'WikiText-2 / Transformer']
 COLORS = ['#0072B2', '#D55E00', '#009E73']
@@ -43,7 +43,7 @@ def main(output_stem='adam_diagnostics_completed_preview', manifest_name='comple
     counts = {task: sum(r['task'] == task for r in results['conditions']) for task in TASKS}
     manifest = dict(generator=Path(__file__).relative_to(ROOT).as_posix(),
         generator_sha256=sha(__file__), sources={}, window=WINDOW,
-        smoothing='Training loss and cumulative Adam R_t are unsmoothed; the six diagnostic rows use complete 16-observation trailing arithmetic means.',
+        smoothing=f'Training loss and cumulative Adam R_t are unsmoothed; the six diagnostic rows use complete {WINDOW}-observation trailing arithmetic means.',
         clock='Loss states 0..1024; vector measurements associated with applied updates 1..1024.',
         cohort='Complete, locally retrieved, scientifically verified Run215 arms only.',
         completed_counts=counts, omitted_conditions=results['missing'],
@@ -174,7 +174,7 @@ def main(output_stem='adam_diagnostics_completed_preview', manifest_name='comple
     for ax,label in zip(axes[:,0],labels):
         ax.set_ylabel(label)
     fig.subplots_adjust(left=.105,right=.975,top=.925,bottom=.10,hspace=.34,wspace=.29)
-    fig.text(.545,.018,'Training loss and Adam '+r'$R_t$'+' unsmoothed; other rows: 16-step trailing means.',
+    fig.text(.545,.018,'Training loss and Adam '+r'$R_t$'+f' unsmoothed; other rows: {WINDOW}-step trailing means.',
         ha='center',fontsize=8)
     fig.text(.545,.045,
         f'Completed runs only: MLP {counts["mlp"]}/3, ResNet-32 {counts["resnet"]}/3, Transformer {counts["transformer"]}/3.',

@@ -25,8 +25,16 @@ Rows are training loss (log), raw-gradient eta*kappa_hat, consecutive rho for
 raw gradients, stored momentum and adaptive Adam directions, raw-gradient and
 stored-momentum norms (separate log rows), and cumulative R_t only for measured
 Adam parameter updates. Each column has three increasing-LR colors. Loss and
-R_t are unsmoothed; the six diagnostic rows use complete16-observation trailing
-arithmetic means. The norm rows share vertical limits within each column.
+R_t are unsmoothed; the six diagnostic rows use complete 50-observation trailing
+arithmetic means, aligned to the rightmost step, matching manuscript Analysis024.
+No partial windows, padding or filling are used. Norms are averaged in linear
+space before log-axis display. The norm rows share vertical limits within each column.
+
+On November 2, following the user's request to match manuscript Analysis024,
+the complete figure's window changed from 16 to 50 observations. This changes
+only the displayed diagnostic averages; source measurements, loss and R_t are
+unchanged. Earlier calibration and six-arm previews retain their historical
+windows. The fully unsmoothed alternative remains identical.
 
 `figures/adam_diagnostics_full_unsmoothed.pdf`: the identical nine-condition cohort
 and row/column/color arrangement, with every finite recorded value in every row
@@ -53,13 +61,17 @@ raw arrays and rechecks the immutable histories. The source identities and every
 plotted value are in full_diagnostics_manifest.json/full_unsmoothed_manifest.json.
 `12_verify_full_figures.py` independently checks both reductions and PDFs.
 
-Both figures have72 curves across24 panels. The first has72,891 plotted values;
+Both figures have72 curves across24 panels. The first has71,055 plotted values;
 the fully unsmoothed version has73,701. Scalar math.fsum window means agree to
-1.78e-15 absolute error. All raw values and step indices are exact; all losses
+2.67e-15 absolute error. All raw values and step indices are exact; all losses
 and actual-update R_t values agree between versions. Both one-page PDFs pass
 text-boundary/footer checks and final visual review, without clipped labels or
 overlapping text. Renders remain ignored scratch. The earlier paired six-arm
 previews are retained separately.
+
+The 50-step revision was also compared directly against the preceding committed
+manifests: all 72 source arrays and their indices are unchanged, loss and R_t
+plotted arrays are identical, and the fully unsmoothed PDF is byte-identical.
 
 One trajectory per case/LR gives no across-initialization uncertainty or confidence
 bands. MLP uses the same owned5070Ti laptop across its rates. ResNet uses aPRO4000,

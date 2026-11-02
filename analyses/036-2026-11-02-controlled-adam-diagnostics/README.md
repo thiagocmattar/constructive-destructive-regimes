@@ -74,6 +74,9 @@ completed_unsmoothed_verification.json. Both preview versions are retained.
 The complete nine-arm figures are [diagnostic rows smoothed](figures/adam_diagnostics_full.pdf)
 and [fully unsmoothed](figures/adam_diagnostics_full_unsmoothed.pdf). Both keep
 training loss and Adam-update R_t unsmoothed, with all three LRs per column.
+The six diagnostic rows now use complete 50-step trailing arithmetic means,
+matching manuscript Analysis024; the earlier calibration and six-arm previews
+retain their historical 16-step windows.
 See [Observation005](observations/005-complete-production-diagnostics.md) and
 full_diagnostics_verification.json: all72 curves in each version and all source
 identities pass checks. The earlier six-arm previews above remain as snapshots.

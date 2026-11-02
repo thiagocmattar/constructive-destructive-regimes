@@ -118,7 +118,9 @@ clipping, decay, schedule or LR interventions were introduced. The complete
 [diagnostic-row-smoothed figure](figures/adam_diagnostics_full.pdf) and
 [fully unsmoothed figure](figures/adam_diagnostics_full_unsmoothed.pdf) retain
 the requested eight-row layout, raw training loss and only actual-Adam-update
-R_t. Both include all nine arms; the earlier preview files remain separate.
+R_t. The six diagnostic rows use complete 50-step trailing arithmetic means,
+matching manuscript Analysis024. Both include all nine arms; the earlier preview
+files retain their historical 16-step windows.
 
 | Case | LR | Final training loss | Tail64 rho raw | Tail64 rho momentum | Tail64 rho Adam | Final Adam R_t |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -139,7 +141,7 @@ models limit exclusive LR attribution. Negative raw cosine is not a Hessian,
 convergence, stability or generalization result.
 
 Both full figures pass source, numerical and visual checks:72 curves each,
-72,891 values with six diagnostic rows smoothed and73,701 values fully raw.
+71,055 values with six diagnostic rows smoothed and73,701 values fully raw.
 Loss and R_t are identical between versions. See
 [Observation005](observations/005-complete-production-diagnostics.md) for sources,
 reduction, complete split coverage, uncertainty, hardware and reproduction.
