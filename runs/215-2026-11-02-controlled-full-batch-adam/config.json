@@ -1,0 +1,66 @@
+{
+  "run_id": "215",
+  "analysis_id": "036",
+  "hypothesis": "H027",
+  "status": "prepared_for_authorized_execution",
+  "seed": 0,
+  "phase": "full_training_from_initialization",
+  "tasks": [
+    "mlp",
+    "resnet",
+    "transformer"
+  ],
+  "updates": 1024,
+  "physical": {
+    "mlp": 1000,
+    "resnet": 1000,
+    "transformer": 64
+  },
+  "optimizer": {
+    "name": "Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "amsgrad": false,
+    "foreach": false,
+    "fused": false
+  },
+  "checkpoint_every": 64,
+  "evaluate_every": 128,
+  "loss_guard_factor": 10,
+  "maximum_arm_seconds": 14400,
+  "cache": "cache/eos-multitask",
+  "mlp_cache": "cache/cifar10-eos",
+  "input_manifest": "input_manifest.json",
+  "stop_file": "STOP",
+  "notes": [
+    "User approved calibration and requested full Adam with the same nine task/LR combinations.",
+    "One frozen Analysis024 seed0 initialization per case; fresh zero Adam moments.",
+    "1024 full-batch updates per arm; no LR intervention, schedule, clipping, decay or Hessian/HVP.",
+    "Full prepared validation/test splits at states0,128,...,1024; no truncated evaluation.",
+    "Calibration prefixes are preserved separately; production restarts from initialization.",
+    "Main-stage cap USD30 and6h inside the previously quoted USD50 study envelope."
+  ],
+  "learning_rates_by_task": {
+    "mlp": [
+      0.0001,
+      0.0003,
+      0.001
+    ],
+    "resnet": [
+      0.0003,
+      0.001,
+      0.003
+    ],
+    "transformer": [
+      0.0003,
+      0.001,
+      0.003
+    ]
+  },
+  "evaluate_splits": true,
+  "qualification_reference_dir": "cache/eos-adam215-references"
+}

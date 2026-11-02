@@ -1,0 +1,84 @@
+{
+  "config_sha256": "868c271e89bea4641e633d727c7b322a2220085ea1bee63c2dc712389e8e88f4",
+  "input_manifest_sha256": "d90c7fa4554c20e3f812ea7383a0ccfdc543d7bdb221eacb9bb6af88c82a71b1",
+  "task": "mlp",
+  "lr": 0.001,
+  "effective_updates": 1024,
+  "mechanics_only": false,
+  "source_sha256": {
+    "runs/215-2026-11-02-controlled-full-batch-adam/01_train.py": "861afc4b14a31f5ccb9bb7f92c1f8e0d56f0ef3ac39a0d1521f3758fccfe5514",
+    "src/eos_tasks/adam_diagnostics.py": "2d70b9d876c9fb08845f0a2f779d1b90b138c41b530422f44b9da06fe453fc7d"
+  },
+  "run_id": "215",
+  "status": "complete",
+  "started_utc": "2026-11-02T13:16:37.774983+00:00",
+  "full_batch": true,
+  "start_update": 0,
+  "requested_updates": 1024,
+  "seed": 0,
+  "initial_tensor_sha256": "8de1e7c880539f122aa840d5b7c28027310e82bd3ee4e753afef87fe0876a2da",
+  "environment": {
+    "utc": "2026-11-02T13:16:37.774983+00:00",
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "numpy": "2.5.0",
+    "scipy": "1.18.1",
+    "device": "cuda:0",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+    "gpu_total_bytes": 12820480000,
+    "matmul_precision": "highest",
+    "tf32": false
+  },
+  "objective_units": 5000,
+  "loss_units": 5000,
+  "physical": 1000,
+  "resume_from": null,
+  "completed_updates": 1024,
+  "finished_utc": "2026-11-02T13:16:52.676311+00:00",
+  "elapsed_seconds": 14.901416100095958,
+  "final_tensor_sha256": "fccf99cce3255c7014f9a063b9af779e52ee69bb48ebc7a8e77ce059f11f1972",
+  "files": {
+    "audit-gradient-0.pt": {
+      "bytes": 2628904,
+      "sha256": "72e65539c6c953404e3d6f58b561c14a06848e8a2d77b1706c0f04b120cc4952"
+    },
+    "audit-gradient-1.pt": {
+      "bytes": 2628904,
+      "sha256": "cad07513faf135468d2a5a76438345e6e433617cf1f9ba64d300eb11fc408bac"
+    },
+    "audit-gradient-1024.pt": {
+      "bytes": 2628925,
+      "sha256": "5a2adb50981388c745e01fe39e0f37421e8d5a98f665eada3eded0422b559df1"
+    },
+    "boundaries.jsonl": {
+      "bytes": 134483,
+      "sha256": "bd15d446afab7641f01ed12c089b1f606f123b4e92982f2d0ff1deae1fe061be"
+    },
+    "evaluation.jsonl": {
+      "bytes": 1403,
+      "sha256": "4a427843f267edf953a8df1027b6d8b9d0bc03016ec3ac6dcab5bdbe6990c12b"
+    },
+    "events.jsonl": {
+      "bytes": 448977,
+      "sha256": "21105c1a13cf6ee6a65af0e5d05162d24b1f5191867e21fc4ebf52a4d7634a6b"
+    },
+    "final.pt": {
+      "bytes": 55188707,
+      "sha256": "3342b43a21bbac5849cd3fb4a4ecbca04d7f62aa7fe6d9883f51d4c687181928"
+    },
+    "metrics.jsonl": {
+      "bytes": 2792717,
+      "sha256": "3c8bac53f92bde65da67b8bcc80046644f2db3ef7fd818334ebca2b04e7a0157"
+    },
+    "progress.json": {
+      "bytes": 470,
+      "sha256": "b1507a7f40edae47737df2a43164bdc04bececc09fac095623ded1b8777a274a"
+    },
+    "resolved_config.json": {
+      "bytes": 1769,
+      "sha256": "623e219348f49e7cb2d4829b3aff17012c190e0fae21dcf3b309f6dba8e0bbf6"
+    }
+  }
+}

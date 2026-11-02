@@ -1,0 +1,60 @@
+{
+  "status": "authorized_for_execution",
+  "run_id": "215",
+  "analysis_id": "036",
+  "hypothesis": "H027",
+  "steps_per_arm": 1024,
+  "arms": 9,
+  "total_updates": 9216,
+  "same_initialization_as_run": "213",
+  "restart_from_initialization": true,
+  "no_lr_interventions": true,
+  "no_hessians": true,
+  "seeds_per_case": 1,
+  "local_mlp_arms": 3,
+  "maximum_cloud_workers": 6,
+  "maximum_gpu_price_usd_per_hour": 5.29,
+  "live_available_quotes": [
+    {
+      "displayName": "RTX 5090",
+      "gpuId": "NVIDIA GeForce RTX 5090",
+      "securePricePerHr": 1.19,
+      "available": false
+    },
+    {
+      "displayName": "RTX 6000 Ada",
+      "gpuId": "NVIDIA RTX 6000 Ada Generation",
+      "securePricePerHr": 0.99,
+      "available": true
+    },
+    {
+      "displayName": "RTX PRO 4500",
+      "gpuId": "NVIDIA RTX PRO 4500 Blackwell",
+      "securePricePerHr": 0.72,
+      "available": true
+    }
+  ],
+  "qualified_etc_hours": [
+    2.5,
+    8.5
+  ],
+  "maximum_hours": 8.5,
+  "maximum_total_cloud_usd": 45,
+  "prior_calibration_estimate_usd": 2.262821938202852,
+  "prior_overall_envelope_usd": 50,
+  "soft_stop_usd": 41,
+  "compute_stop_usd": 44,
+  "retrieval_margin_minutes": 20,
+  "container_disk_gb_per_worker": 60,
+  "volume_gb_per_worker": 20,
+  "network_volume": false,
+  "retained_local_reserve_gb": 10,
+  "monitoring": "Detached controller and independent20-second guard; manifest/events every update; read-only progress snapshots.",
+  "qualification": "Two full-objective updates, exact source/input hashes, frozen initial tensors, initial gradient relative error<1e-5, full split counts, timing admission gate. Projected per-arm cost gate USD10 Transformer/USD6 ResNet.",
+  "cleanup": "Archive and every file byte/SHA verified before task Pod/dependent disk deletion; unrelated resources preserved.",
+  "image": "pytorch/pytorch@sha256:bfbb4a2b4fdba0fefdb428ea737e626d61bb3daf74a16e1ff935bdb03aa7c3f0",
+  "duration_revision": "Scarce current capacity; within the previously quoted4--8.5h study estimate; cost cap unchanged.",
+  "user_priority": "Continue looking for additional suitable GPUs, including A40/L40S and non-RTX models; prioritize parallel completion within totalUSD50.",
+  "placement_policy": "Heterogeneous GPUs allowed after per-worker numerical qualification; hardware is recorded per arm.",
+  "live_available_quotes_note": "Historical initial quotes; current catalog snapshots and actual per-worker quotes are in scratch and production-status.json."
+}

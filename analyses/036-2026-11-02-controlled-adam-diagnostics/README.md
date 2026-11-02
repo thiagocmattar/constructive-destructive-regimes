@@ -10,8 +10,10 @@ The user requested calibration first and a reduced search informed by
 Analysis034's continuation evidence. [FAST_CALIBRATION.md](FAST_CALIBRATION.md)
 specifies nine arms of 128 updates: MLP rates 1e-4/3e-4/1e-3, and
 ResNet/Transformer rates 3e-4/1e-3/3e-3. This replaces the unexecuted 21-arm
-proposal. The main 1,024-update horizon remains provisional and is not launched
-by this calibration controller.
+proposal. The user subsequently approved the calibration and full training: Run215 executes
+nine fresh 1,024-update arms (9,216 updates total). The three MLP arms are complete
+and verified; cloud placement and training are active. See
+[Run215](../../runs/215-2026-11-02-controlled-full-batch-adam/README.md).
 
 Calibration completed on November 2, 2026: all nine arms /1,152 updates are verified. MLP uses the owned RTX5070Ti
 laptop across all its rates; ResNet and Transformer use matched RTX5090-class

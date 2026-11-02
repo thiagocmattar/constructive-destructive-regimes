@@ -1,0 +1,416 @@
+{
+  "status": "partial_verified",
+  "run_id": "215",
+  "updates_per_arm": 1024,
+  "expected_arms": 9,
+  "completed_arms": 3,
+  "conditions": [
+    {
+      "task": "mlp",
+      "lr": 0.0001,
+      "updates": 1024,
+      "status": "complete",
+      "initial_loss": 0.5967808663845062,
+      "final_loss": 0.023663561325520277,
+      "final_evaluations": {
+        "test": {
+          "loss": 0.6926422302246095,
+          "loss_units": 10000,
+          "objective_units": 10000
+        }
+      },
+      "tail64_cosines": {
+        "raw": -0.9693838902203831,
+        "moment": -0.4092049968694238,
+        "adaptive": -0.07865163563258867,
+        "actual": -0.07865159860445031
+      },
+      "final_R_t": 0.5609201868578433,
+      "parameter_telescoping_error": 0.0,
+      "elapsed_seconds": 15.914105500094593,
+      "environment": {
+        "utc": "2026-11-02T13:15:59.458097+00:00",
+        "python": "3.12.10",
+        "platform": "Windows-11-10.0.26200-SP0",
+        "torch": "2.11.0+cu128",
+        "cuda": "12.8",
+        "numpy": "2.5.0",
+        "scipy": "1.18.1",
+        "device": "cuda:0",
+        "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+        "gpu_total_bytes": 12820480000,
+        "matmul_precision": "highest",
+        "tf32": false
+      },
+      "gd_loss_matches": [
+        {
+          "gd_run": "059",
+          "gd_state": 500,
+          "target_loss": 0.38961104303598404,
+          "first_adam_state": 42,
+          "first_trailing64_state": 76
+        },
+        {
+          "gd_run": "059",
+          "gd_state": 1000,
+          "target_loss": 0.37363753467798233,
+          "first_adam_state": 54,
+          "first_trailing64_state": 88
+        },
+        {
+          "gd_run": "059",
+          "gd_state": 2000,
+          "target_loss": 0.3532533198595047,
+          "first_adam_state": 74,
+          "first_trailing64_state": 106
+        },
+        {
+          "gd_run": "059",
+          "gd_state": 3000,
+          "target_loss": 0.3365076333284378,
+          "first_adam_state": 92,
+          "first_trailing64_state": 124
+        },
+        {
+          "gd_run": "062",
+          "gd_state": 500,
+          "target_loss": 0.3447737619280815,
+          "first_adam_state": 82,
+          "first_trailing64_state": 115
+        },
+        {
+          "gd_run": "062",
+          "gd_state": 1000,
+          "target_loss": 0.30438389256596565,
+          "first_adam_state": 129,
+          "first_trailing64_state": 160
+        },
+        {
+          "gd_run": "062",
+          "gd_state": 2000,
+          "target_loss": 0.24561740458011627,
+          "first_adam_state": 192,
+          "first_trailing64_state": 224
+        },
+        {
+          "gd_run": "062",
+          "gd_state": 3000,
+          "target_loss": 0.21144264936447144,
+          "first_adam_state": 229,
+          "first_trailing64_state": 261
+        },
+        {
+          "gd_run": "122",
+          "gd_state": 500,
+          "target_loss": 0.3295493349432945,
+          "first_adam_state": 99,
+          "first_trailing64_state": 131
+        },
+        {
+          "gd_run": "122",
+          "gd_state": 1000,
+          "target_loss": 0.268673662096262,
+          "first_adam_state": 168,
+          "first_trailing64_state": 199
+        },
+        {
+          "gd_run": "122",
+          "gd_state": 2000,
+          "target_loss": 0.21827969327569008,
+          "first_adam_state": 222,
+          "first_trailing64_state": 253
+        },
+        {
+          "gd_run": "122",
+          "gd_state": 3000,
+          "target_loss": 0.15386888427734377,
+          "first_adam_state": 305,
+          "first_trailing64_state": 337
+        }
+      ],
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0001",
+      "manifest_sha256": "0655ffcc68288a311a1ebb977373418e676dac85b81f64100e7c12822d473072"
+    },
+    {
+      "task": "mlp",
+      "lr": 0.0003,
+      "updates": 1024,
+      "status": "complete",
+      "initial_loss": 0.5967808663845062,
+      "final_loss": 0.011995675042271614,
+      "final_evaluations": {
+        "test": {
+          "loss": 0.7048694946289062,
+          "loss_units": 10000,
+          "objective_units": 10000
+        }
+      },
+      "tail64_cosines": {
+        "raw": -0.92919516520266,
+        "moment": -0.7199093121353344,
+        "adaptive": -0.5421929433437652,
+        "actual": -0.5421928570531394
+      },
+      "final_R_t": 0.37526030047497594,
+      "parameter_telescoping_error": 0.0,
+      "elapsed_seconds": 15.535282100085169,
+      "environment": {
+        "utc": "2026-11-02T13:16:18.797817+00:00",
+        "python": "3.12.10",
+        "platform": "Windows-11-10.0.26200-SP0",
+        "torch": "2.11.0+cu128",
+        "cuda": "12.8",
+        "numpy": "2.5.0",
+        "scipy": "1.18.1",
+        "device": "cuda:0",
+        "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+        "gpu_total_bytes": 12820480000,
+        "matmul_precision": "highest",
+        "tf32": false
+      },
+      "gd_loss_matches": [
+        {
+          "gd_run": "059",
+          "gd_state": 500,
+          "target_loss": 0.38961104303598404,
+          "first_adam_state": 29,
+          "first_trailing64_state": 67
+        },
+        {
+          "gd_run": "059",
+          "gd_state": 1000,
+          "target_loss": 0.37363753467798233,
+          "first_adam_state": 37,
+          "first_trailing64_state": 74
+        },
+        {
+          "gd_run": "059",
+          "gd_state": 2000,
+          "target_loss": 0.3532533198595047,
+          "first_adam_state": 51,
+          "first_trailing64_state": 85
+        },
+        {
+          "gd_run": "059",
+          "gd_state": 3000,
+          "target_loss": 0.3365076333284378,
+          "first_adam_state": 65,
+          "first_trailing64_state": 98
+        },
+        {
+          "gd_run": "062",
+          "gd_state": 500,
+          "target_loss": 0.3447737619280815,
+          "first_adam_state": 58,
+          "first_trailing64_state": 91
+        },
+        {
+          "gd_run": "062",
+          "gd_state": 1000,
+          "target_loss": 0.30438389256596565,
+          "first_adam_state": 95,
+          "first_trailing64_state": 126
+        },
+        {
+          "gd_run": "062",
+          "gd_state": 2000,
+          "target_loss": 0.24561740458011627,
+          "first_adam_state": 142,
+          "first_trailing64_state": 176
+        },
+        {
+          "gd_run": "062",
+          "gd_state": 3000,
+          "target_loss": 0.21144264936447144,
+          "first_adam_state": 172,
+          "first_trailing64_state": 206
+        },
+        {
+          "gd_run": "122",
+          "gd_state": 500,
+          "target_loss": 0.3295493349432945,
+          "first_adam_state": 72,
+          "first_trailing64_state": 104
+        },
+        {
+          "gd_run": "122",
+          "gd_state": 1000,
+          "target_loss": 0.268673662096262,
+          "first_adam_state": 124,
+          "first_trailing64_state": 157
+        },
+        {
+          "gd_run": "122",
+          "gd_state": 2000,
+          "target_loss": 0.21827969327569008,
+          "first_adam_state": 167,
+          "first_trailing64_state": 200
+        },
+        {
+          "gd_run": "122",
+          "gd_state": 3000,
+          "target_loss": 0.15386888427734377,
+          "first_adam_state": 230,
+          "first_trailing64_state": 268
+        }
+      ],
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0003",
+      "manifest_sha256": "856171914d42aaa62a26d70c3bb9a83791838564851c17195feec50946cc5b8a"
+    },
+    {
+      "task": "mlp",
+      "lr": 0.001,
+      "updates": 1024,
+      "status": "complete",
+      "initial_loss": 0.5967808663845062,
+      "final_loss": 0.00952230452094227,
+      "final_evaluations": {
+        "test": {
+          "loss": 0.7770660339355469,
+          "loss_units": 10000,
+          "objective_units": 10000
+        }
+      },
+      "tail64_cosines": {
+        "raw": -0.9506016627787177,
+        "moment": -0.8889188783634341,
+        "adaptive": -0.7936207260939125,
+        "actual": -0.7936207209893564
+      },
+      "final_R_t": 0.2773890341764405,
+      "parameter_telescoping_error": 0.0,
+      "elapsed_seconds": 14.901416100095958,
+      "environment": {
+        "utc": "2026-11-02T13:16:37.774983+00:00",
+        "python": "3.12.10",
+        "platform": "Windows-11-10.0.26200-SP0",
+        "torch": "2.11.0+cu128",
+        "cuda": "12.8",
+        "numpy": "2.5.0",
+        "scipy": "1.18.1",
+        "device": "cuda:0",
+        "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+        "gpu_total_bytes": 12820480000,
+        "matmul_precision": "highest",
+        "tf32": false
+      },
+      "gd_loss_matches": [
+        {
+          "gd_run": "059",
+          "gd_state": 500,
+          "target_loss": 0.38961104303598404,
+          "first_adam_state": 31,
+          "first_trailing64_state": 69
+        },
+        {
+          "gd_run": "059",
+          "gd_state": 1000,
+          "target_loss": 0.37363753467798233,
+          "first_adam_state": 38,
+          "first_trailing64_state": 74
+        },
+        {
+          "gd_run": "059",
+          "gd_state": 2000,
+          "target_loss": 0.3532533198595047,
+          "first_adam_state": 50,
+          "first_trailing64_state": 83
+        },
+        {
+          "gd_run": "059",
+          "gd_state": 3000,
+          "target_loss": 0.3365076333284378,
+          "first_adam_state": 61,
+          "first_trailing64_state": 93
+        },
+        {
+          "gd_run": "062",
+          "gd_state": 500,
+          "target_loss": 0.3447737619280815,
+          "first_adam_state": 55,
+          "first_trailing64_state": 88
+        },
+        {
+          "gd_run": "062",
+          "gd_state": 1000,
+          "target_loss": 0.30438389256596565,
+          "first_adam_state": 82,
+          "first_trailing64_state": 113
+        },
+        {
+          "gd_run": "062",
+          "gd_state": 2000,
+          "target_loss": 0.24561740458011627,
+          "first_adam_state": 116,
+          "first_trailing64_state": 149
+        },
+        {
+          "gd_run": "062",
+          "gd_state": 3000,
+          "target_loss": 0.21144264936447144,
+          "first_adam_state": 135,
+          "first_trailing64_state": 171
+        },
+        {
+          "gd_run": "122",
+          "gd_state": 500,
+          "target_loss": 0.3295493349432945,
+          "first_adam_state": 65,
+          "first_trailing64_state": 97
+        },
+        {
+          "gd_run": "122",
+          "gd_state": 1000,
+          "target_loss": 0.268673662096262,
+          "first_adam_state": 103,
+          "first_trailing64_state": 134
+        },
+        {
+          "gd_run": "122",
+          "gd_state": 2000,
+          "target_loss": 0.21827969327569008,
+          "first_adam_state": 131,
+          "first_trailing64_state": 167
+        },
+        {
+          "gd_run": "122",
+          "gd_state": 3000,
+          "target_loss": 0.15386888427734377,
+          "first_adam_state": 177,
+          "first_trailing64_state": 214
+        }
+      ],
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001",
+      "manifest_sha256": "0a8ae45b014049fcd7350768bef6190f4991802ed6bf9e254c810c3ca2032e12"
+    }
+  ],
+  "incomplete": [],
+  "missing": [
+    [
+      "resnet",
+      0.0003
+    ],
+    [
+      "resnet",
+      0.001
+    ],
+    [
+      "resnet",
+      0.003
+    ],
+    [
+      "transformer",
+      0.0003
+    ],
+    [
+      "transformer",
+      0.001
+    ],
+    [
+      "transformer",
+      0.003
+    ]
+  ],
+  "source_gd_milestones_sha256": "c8242a7c94e66738612cc1124392281dcf5361d067bf387722f391c2b158049b",
+  "interpretation": "One initialization; descriptive matched fixed-LR trajectories. No Hessian, stability or generalization claim."
+}
