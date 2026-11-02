@@ -12,27 +12,10 @@ USD 26.30 provisional / 4.663 hours within USD 40/six hours. Spark project 1.379
 retained with no task measurement active; old queue untouched. H023; no new
 hypothesis. Next Run217 / Analysis038 / H028.
 
-[Analysis036: controlled Adam from initialization](../analyses/036-2026-11-02-controlled-adam-diagnostics/REPORT.md)
-completed Run213 calibration9 x128 and Run215 main9 x1,024 (9,216 main updates).
-One frozen initialization per case, constant LR, no Hessian/HVP or LR intervention.
-All four vector streams, full split evaluations and recovery/audit states verified.
-Both complete eight-row figures are reviewed: loss/Adam R_t raw with six rows
-smoothed, plus a fully unsmoothed alternative; earlier previews are retained.
-A five-row highest-LR Adam/SGD comparison covers the common first 1,024 updates.
-A raw Transformer LR0.003 zoom covers the peak at794 and return below L_784 at852.
-Three-model state-aligned peak views and blocked forecasts show temporal value
-for projected change, with frequent threshold false alarms; no causal claim.
-All15 calibration/main task Pods/disks deleted after verified acceptance; fresh
-account inventory confirms zero remaining. Retained task cloud storage0GB.
-Combined estimated USD13.89 provisional (main11.62 +calibration2.26).
-Run213/215 / Analysis036 / H027 completed as a descriptive single-initialization study.
-The [Adam manuscript revision](../manuscript/draft/revisions/2026-11-02-adam-feedback/README.md)
-centers raw-gradient information beyond recent loss, with two compact views and
-a forward-test table; all six author comments and source-to-display checks are addressed.
-The [next-review evidence package](../analyses/036-2026-11-02-controlled-adam-diagnostics/paper_evidence/README.md)
-now favors a simple overview, spike examples and descriptive recurrence counts.
-Forecasting and onset overlays are withdrawn from the proposed presentation.
-Manuscript unchanged; interventions deferred.
+[Analysis036: archived at the author's request](../analyses/036-2026-11-02-controlled-adam-diagnostics/archive/README.md).
+Only the overview and spike PDFs remain active in figures/; all other analysis
+contents were moved into archive/. Awaiting new scientific directives.
+Completed Run213/215 evidence is preserved; task cloud resources were already deleted.
 
 
 [Analysis035: backward fixed-endpoint profiles](../analyses/035-2026-11-02-eos-backward-anchors/REPORT.md)
