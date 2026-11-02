@@ -90,3 +90,13 @@ norm rows, and R_t only for Adam updates. See
 [Observation002](observations/002-smoothed-adam-composite.md) for exact timing,
 coverage and reduction, and smoothed_composite_verification.json for checks.
 This adds a third reviewed PDF without new training or cloud execution.
+
+## Main-study completed-run preview
+
+The approved Run215 main stage is active. The interim
+[preview](figures/adam_diagnostics_completed_preview.pdf) shows three completed
+MLP rates and ResNet LR0.003 through1,024 updates, using the approved eight rows,
+16-step trailing means and only Adam-update R_t. The remaining ResNet rates and
+all Transformer rates are pending. All32 curves /32,336 values and the rendered
+PDF pass checks. [Observation003](observations/003-completed-production-preview.md)
+records sources, reduction, coverage and limits; no new scientific claim is added.

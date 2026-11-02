@@ -10,6 +10,7 @@ ResNet/Transformer raw gradients reverse despite coherent adaptive directions.
 All9 arms,11 tests and three PDFs verified; eight-row smoothed view added.
 Run215 now executes the approved9 x1,024-update main study from initialization;
 four arms are verified (three MLP, ResNet LR0.003); five cloud arms continue in parallel.
+Completed-run preview adds32 checked curves in the approved eight-row layout.
 Mixed GPUs are qualified per worker; ongoing capacity search prioritizes parallelism.
 Main-stage USD45 /8.5h cap remains inside the USD50 study envelope.
 All5 calibration Pods/disks deleted after verified retrieval; USD2.26 estimated provisional.
