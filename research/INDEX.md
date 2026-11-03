@@ -8,7 +8,7 @@ state, with 128-update continuations. Source audit verifies three events and
 675 extended-context rows; all 28 rise updates have a locally descending actual
 step despite increasing loss. Intermediate Run215 recovery states were overwritten;
 new common prefixes and untreated replay qualification are required. H028 proposed;
-no intervention training or paid execution. Next Run217 / Analysis039 / H029.
+no intervention training or paid execution. Next Run218 / Analysis040 / H029.
 
 [Analysis037: three-case SGD batch-size comparison](../analyses/037-2026-11-02-sgd-batch-extension/REPORT.md)
 completed 348 new continuations plus 198 reused MLP continuations, with all three
@@ -530,3 +530,12 @@ verified copied artifacts and corruption rejection. Small ResNet FP32 replay
 drift is recorded; Transformer short replay is exact. No production training or
 paid allocation has started. The manuscript TODO remains open. Next Run215 / Analysis038; H023 extended,
 no new hypothesis allocated.
+
+## MLP control implementation milestone
+
+[Run217](../runs/217-2026-11-03-mlp-adam-control-foundation/README.md) /
+[Analysis039](../analyses/039-2026-11-03-mlp-control-foundation/README.md) implement
+the A0-only local driver, pre-update completed-step observer, immutable labeled
+forks and separate rolling recovery. Generated tensor/mock contracts pass;
+Run215 remains unchanged. Preparation only: H028 untested, zero neural training,
+intervention arms, remote execution or spending. Next Run218 / Analysis040 / H029.

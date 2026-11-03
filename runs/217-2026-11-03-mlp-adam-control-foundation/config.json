@@ -1,0 +1,55 @@
+{
+  "run_id": "217",
+  "analysis_id": "039",
+  "hypothesis": "H028",
+  "status": "implementation_preparation_only",
+  "arm": "A0",
+  "task": "mlp",
+  "architecture": [
+    3072,
+    200,
+    200,
+    10
+  ],
+  "activation": "tanh",
+  "seed": 0,
+  "physical": 1000,
+  "train_examples": 5000,
+  "objective": "half_squared_error_sum_outputs_mean_images",
+  "optimizer": {
+    "name": "Adam",
+    "lr": 0.001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "amsgrad": false,
+    "foreach": false,
+    "fused": false
+  },
+  "clipping": false,
+  "schedule": null,
+  "precision": {
+    "model": "float32",
+    "gradient": "float32",
+    "moments": "float32",
+    "products": "float64",
+    "tf32": false
+  },
+  "initial": "cache/eos-multitask/mlp_initial_seed0.pt",
+  "initial_tensor_sha256": "8de1e7c880539f122aa840d5b7c28027310e82bd3ee4e753afef87fe0876a2da",
+  "data": "cache/cifar10-eos/data.pt",
+  "data_metadata": "cache/cifar10-eos/inputs.json",
+  "planned_control_endpoint": 785,
+  "checkpoint_every": 32,
+  "snapshots": {
+    "657": "main_fork",
+    "689": "pre_rise",
+    "690": "onset"
+  },
+  "fork_timing": "after 657 complete updates, before evaluating or consuming g_657",
+  "launch_authorized": false,
+  "next_gate": "coordinator assignment and explicit run-plan confirmation"
+}

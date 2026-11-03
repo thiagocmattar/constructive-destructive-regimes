@@ -1,0 +1,39 @@
+{
+  "status": "verified_implementation_only",
+  "run_id": "217",
+  "analysis_id": "039",
+  "hypothesis": "H028",
+  "neural_training": false,
+  "remote_execution": false,
+  "paid_resources": false,
+  "checks": [
+    {
+      "command": "python -m pytest -o addopts= -p no:cacheprovider --basetemp=<unique system temporary directory> -q runs/217-2026-11-03-mlp-adam-control-foundation/test_control.py runs/213-2026-11-02-eos-adam-from-init-calibration/test_diagnostics.py",
+      "result": "36 passed",
+      "seconds": 3.83,
+      "scoped_tests": 25,
+      "reused_tests": 11
+    },
+    {
+      "check": "Read-only size/SHA-256 comparison to frozen Run215 input manifest",
+      "result": "12/12 inherited files match; 14 total entries pinned"
+    },
+    {
+      "command": "python runs/217-2026-11-03-mlp-adam-control-foundation/01_control.py --help",
+      "result": "exit 0; CLI inspected without model construction"
+    },
+    {
+      "command": "git diff --cached --check",
+      "result": "exit 0; scoped staged diff reviewed"
+    },
+    {
+      "check": "Final manifest and staged-byte audit",
+      "result": "14/14 entries verified; staged driver/config match pinned SHA-256; Run215/shared sources unchanged"
+    }
+  ],
+  "limitations": [
+    "No real MLP forward/backward, neural smoke, timing calibration or historical replay qualification.",
+    "CUDA RNG restoration uses mocks; real device resume has not been tested.",
+    "No interventions or empirical treatment-effect claims."
+  ]
+}
