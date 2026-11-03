@@ -1,0 +1,86 @@
+{
+  "generator": "analyses/036-2026-11-02-controlled-adam-diagnostics/05_plot_loss_overview.py",
+  "generator_sha256": "812caf8443651d207d3579a6f029b2ac221b5ed7432bc3a1ae85738e3d7de97f",
+  "sources": {
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/archive/paper_evidence/presentation_manifest.json": "8013d36610d7fccdf25f18565272a4e81550dfba195494d318a7841e5e94c760",
+    "runs/215-2026-11-02-controlled-full-batch-adam/results.json": "c907d1b5ccaa68b3310f13526e98f37fd1c19943eb7631cea46612f75de39572",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0001/boundaries.jsonl": "1ece15455f4e43d8c39495b0c6bc57e9b28296d1c2aff4e0f094b54d8bac432e",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0003/boundaries.jsonl": "00bd2559e33299a21694c3162d7b39fbaa6949883808b5eb2b895b66a0da61cc",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/boundaries.jsonl": "bd15d446afab7641f01ed12c089b1f606f123b4e92982f2d0ff1deae1fe061be",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker17/lr-0.0003/boundaries.jsonl": "70b283eb2777897feb04b13eb9aa68cb68e7e62649ab4b91f6e23a24be5bd0ba",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker4/lr-0.001/boundaries.jsonl": "b47c647c05dbab1defd6d5ab0e653e0ffe236066c483458b63167597e4639d16",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/boundaries.jsonl": "b952c7e4d184e1da70d1dbadd7710de16452aaa7041d1e7df6fa2165ac3e28ee",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker0/lr-0.0003/boundaries.jsonl": "0eeb0a81c45100e25bec785aa6eb826ef8c48840171de0ebe4f6e66dcb18981c",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker15/lr-0.001/boundaries.jsonl": "ff71889f1653f41754a2a66cad38d2868415fd08b43b3d24df25196826fe4a69",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/boundaries.jsonl": "822cccc891250b529fc8bb60d4a391d2002856e8e3c8b7233c145c7fbf15a3f7"
+  },
+  "output": "analyses/036-2026-11-02-controlled-adam-diagnostics/figures/adam_manuscript_overview.pdf",
+  "output_sha256": "af4db6e58f193dd9dd981f92bc994a888ec2b83c2a09c87d87c748a73ad32d15",
+  "panels": 3,
+  "rows": [
+    "training_loss"
+  ],
+  "smoothing": null,
+  "dimensions_inches": [
+    7.16,
+    2.55
+  ],
+  "checks": [
+    {
+      "task": "mlp",
+      "lr": 0.0001,
+      "points": 1025,
+      "exact_prior_loss_values": true
+    },
+    {
+      "task": "mlp",
+      "lr": 0.0003,
+      "points": 1025,
+      "exact_prior_loss_values": true
+    },
+    {
+      "task": "mlp",
+      "lr": 0.001,
+      "points": 1025,
+      "exact_prior_loss_values": true
+    },
+    {
+      "task": "resnet",
+      "lr": 0.0003,
+      "points": 1025,
+      "exact_prior_loss_values": true
+    },
+    {
+      "task": "resnet",
+      "lr": 0.001,
+      "points": 1025,
+      "exact_prior_loss_values": true
+    },
+    {
+      "task": "resnet",
+      "lr": 0.003,
+      "points": 1025,
+      "exact_prior_loss_values": true
+    },
+    {
+      "task": "transformer",
+      "lr": 0.0003,
+      "points": 1025,
+      "exact_prior_loss_values": true
+    },
+    {
+      "task": "transformer",
+      "lr": 0.001,
+      "points": 1025,
+      "exact_prior_loss_values": true
+    },
+    {
+      "task": "transformer",
+      "lr": 0.003,
+      "points": 1025,
+      "exact_prior_loss_values": true
+    }
+  ],
+  "total_points": 9225,
+  "visual_review": "passed: Poppler render reviewed; one row of three log-loss panels, intact LR legends, ordinary numeric ticks, no clipped or overlapping labels"
+}
