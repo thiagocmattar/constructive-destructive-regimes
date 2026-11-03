@@ -24,7 +24,7 @@
 
 @inproceedings{jastrzebski2020break,
   title        = {The Break-Even Point on Optimization Trajectories of Deep Neural Networks},
-  author       = {Jastrz\k{e}bski, Stanis{\l}aw and Daniluk, Micha{\l} and Cho, Kyunghyun},
+  author       = {Jastrz\k{e}bski, Stanis{\l}aw and Szymczak, Maciej and Fort, Stanislav and Arpit, Devansh and Tabor, Jacek and Cho, Kyunghyun and Geras, Krzysztof},
   booktitle    = {International Conference on Learning Representations (ICLR)},
   year         = {2020}
 }
@@ -73,6 +73,7 @@
   author       = {Mandt, Stephan and Hoffman, Matthew D. and Blei, David M.},
   journal      = {Journal of Machine Learning Research},
   volume       = {18},
+  number       = {134},
   pages        = {1--35},
   year         = {2017},
   url          = {https://www.jmlr.org/papers/v18/17-214.html}
@@ -111,11 +112,12 @@
   doi          = {10.48550/arXiv.1812.06162}
 }
 
-@inproceedings{jastrzebski2018three,
+@article{jastrzebski2018three,
   title        = {Three Factors Influencing Minima in SGD},
-  author       = {Jastrzebski, Stanis{\l}aw and Kenton, Zachary and Arpit, Devansh and Ballas, Nicolas and Fischer, Asja and Storkey, Amos and Bengio, Yoshua},
-  booktitle    = {International Conference on Learning Representations (ICLR)},
-  year         = {2018}
+  author       = {Jastrz\k{e}bski, Stanis{\l}aw and Kenton, Zachary and Arpit, Devansh and Ballas, Nicolas and Fischer, Asja and Bengio, Yoshua and Storkey, Amos},
+  journal      = {arXiv preprint arXiv:1711.04623},
+  year         = {2017},
+  url          = {https://arxiv.org/abs/1711.04623}
 }
 
 @article{zhang2021understanding,
@@ -335,15 +337,13 @@
   year={2022}
 }
 
-@article{bertsekas1997nonlinear,
-  title={Nonlinear programming},
+@book{bertsekas1997nonlinear,
+  title={Nonlinear Programming},
   author={Bertsekas, Dimitri P},
-  journal={Journal of the Operational Research Society},
-  volume={48},
-  number={3},
-  pages={334--334},
-  year={1997},
-  publisher={Taylor \& Francis}
+  edition={2},
+  address={Belmont, MA},
+  year={1999},
+  publisher={Athena Scientific}
 }
 
 %---
@@ -488,6 +488,36 @@
   publisher = {PMLR}
 }
 
+
+@inproceedings{chee2018diagnostics,
+  title = {Convergence Diagnostics for Stochastic Gradient Descent with Constant Learning Rate},
+  author = {Chee, Jerry and Toulis, Panos},
+  booktitle = {Proceedings of the 21st International Conference on Artificial Intelligence and Statistics},
+  series = {Proceedings of Machine Learning Research},
+  volume = {84},
+  pages = {1476--1485},
+  year = {2018},
+  url = {https://proceedings.mlr.press/v84/chee18a.html}
+}
+
+@inproceedings{pesme2020diagnostics,
+  title = {On Convergence-Diagnostic Based Step Sizes for Stochastic Gradient Descent},
+  author = {Pesme, Scott and Dieuleveut, Aymeric and Flammarion, Nicolas},
+  booktitle = {Proceedings of the 37th International Conference on Machine Learning},
+  series = {Proceedings of Machine Learning Research},
+  volume = {119},
+  pages = {7641--7651},
+  year = {2020},
+  url = {https://proceedings.mlr.press/v119/pesme20a.html}
+}
+
+@inproceedings{baydin2018hypergradient,
+  title = {Online Learning Rate Adaptation with Hypergradient Descent},
+  author = {Baydin, At{\i}l{\i}m G{\"u}ne{\c{s}} and Cornish, Robert and Mart{\'i}nez Rubio, David and Schmidt, Mark and Wood, Frank},
+  booktitle = {International Conference on Learning Representations},
+  year = {2018},
+  url = {https://arxiv.org/abs/1703.04782}
+}
 
 @article{kingma2014adam,
   title={Adam: A method for stochastic optimization},
@@ -818,7 +848,7 @@
 }
 
 @article{xing2018walk,
-  title={A walk with sgd},
+  title={A Walk with {SGD}},
   author={Xing, Chen and Arpit, Devansh and Tsirigotis, Christos and Bengio, Yoshua},
   journal={arXiv preprint arXiv:1802.08770},
   year={2018}

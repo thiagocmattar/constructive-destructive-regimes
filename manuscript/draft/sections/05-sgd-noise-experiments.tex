@@ -1,6 +1,6 @@
 % Start the batch-size comparison beneath its preceding GD figures.
 \newpage
-\subsection{Mini-Batch Noise and Directional Coherence}
+\subsection{How Sampling Changes the Regime}
 \label{sec:sgd-noise-experiments}
 
 We vary batch size at initialization and after 2,000 GD updates in
@@ -29,23 +29,20 @@ Appendix~\ref{appendix:gd-raw-alignment}.
   \label{fig:sgd-moving-geometry}
 \end{figure*}
 
-The smallest batches weaken trained-state reversal in all three cases.
-Initial-state responses are less uniform: full GD has positive mean cosine
-in the MLP and ResNet and strongly negative mean cosine in the Transformer,
-where reversal develops within the first 200 updates. The MLP's sampled
-paths can also acquire negative mean alignment while its full-GD mean is
-positive. Sampling therefore changes the regime encountered along a path,
-in addition to perturbing gradients at fixed parameter states.
+The smallest batches weaken the trained-state destructive regime in all
+three cases. At initialization, full GD gives a constructive mean for
+MLP and ResNet, while the Transformer develops a strongly destructive
+regime within the first 200 updates. The MLP's sampled paths can instead
+develop negative mean alignment. Sampling therefore influences the
+regime by changing both the observed gradients and the states that
+subsequent updates visit.
 
 For the Transformer at $b=8$, both starting states have mean cosine near
 $-0.26$, yet mean full-data loss falls from initialization and rises after
-GD training. Mean adjacent alignment alone therefore does not order
-training-objective progress.
-
-The MLP's smallest trained-state batch likewise raises mean full-data loss,
-whereas full GD lowers it in both models.
-
-Noise covariance can affect the solutions favored by training~\cite{haochen2021shape},
-but mean cosine alone identifies neither that bias nor a generalization
-benefit. These comparisons describe selected objectives, rates and update
-budgets; they do not select an optimal batch size.
+GD training. The MLP's smallest trained-state batch likewise raises
+mean full-data loss, whereas full GD lowers it in both models.
+These outcomes reinforce the role of the joint diagnostics: cosine
+identifies the directional regime, and gradient magnitudes and loss
+reveal its consequences. The next section examines this distinction
+under Adam, where temporal averaging and adaptive scaling further
+transform the gradient before each step.

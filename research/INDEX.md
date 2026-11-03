@@ -14,15 +14,17 @@ hypothesis. Next Run217 / Analysis038 / H028.
 
 [Analysis036: controlled Adam spike anatomy](../analyses/036-2026-11-02-controlled-adam-diagnostics/README.md)
 uses nine fixed-rate, 1024-update trajectories from matched initial weights.
-The [manuscript integration](../manuscript/draft/revisions/2026-11-03-adam-spike-anatomy/README.md)
+The [current manuscript](../manuscript/draft/revisions/2026-11-03-regime-writing-revision/README.md)
 presents the loss overview, largest recovered spikes at the highest rates,
 fixed-reference event definition, 806-event density, grouped 129-event >10%
 anatomy table and 127-point per-LR regression scatter. Negative pre-rise raw
 cosine occurs in 117/127 defined events; all 129 endpoint gradient norms grow.
 The 10% threshold is operational; observed recovery is required. Regression
 R-squared uses log peak/pre-rise loss; early response, descriptive association,
-prediction and causality remain distinct. The 18-page draft passes raw-history,
-statistical, retained GD/SGD/math, compilation and Poppler visual checks.
+prediction and causality remain distinct. The 17-page writing revision addresses
+12 author comments, reviews 135 prose units and 14 captions, and standardizes
+the regime argument. Raw-history, statistical, retained GD/SGD/math,
+compilation and Poppler visual checks pass.
 Prior forecasting exposition is no longer compiled; sources/history preserved.
 No new training, intervention, cloud resource or hypothesis.
 

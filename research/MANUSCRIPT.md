@@ -1,5 +1,24 @@
 # Manuscript and evidence
 
+## Full-paper writing revision, 2026-11-03
+
+The [current revision](../manuscript/draft/revisions/2026-11-03-regime-writing-revision/README.md)
+applies the author's clarified writing methodology: consistent regimes defined
+by adjacent raw-gradient cosine, direct contribution statements, intuition
+before mathematics, and results that explain their scientific implication.
+It addresses all 12 PDF annotations and reviews 135 prose units plus 14 captions.
+The Adam opening connects projected raw-gradient response to adaptive displacement;
+its early-warning chronology and event-level association are stated positively
+with precise scope. The full-width anatomy table is centered, uses scientific
+LR notation and simpler rounding, and defines all columns in its caption.
+
+Prior gradient-product diagnostics and hypergradient adaptation are positioned
+explicitly; several bibliography records and a derivation cross-reference are
+corrected. All scientific figures and experimental inputs are unchanged.
+The 17-page manuscript passes frozen-data, statistical, mathematical and
+compilation checks, with final visual acceptance recorded in the revision.
+The author's supplied feedback and previous review PDFs remain preserved.
+
 ## Adam spike anatomy, 2026-11-03
 
 The [new revision](../manuscript/draft/revisions/2026-11-03-adam-spike-anatomy/README.md)

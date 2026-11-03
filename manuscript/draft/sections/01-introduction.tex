@@ -1,67 +1,76 @@
 \section{Introduction}
 
-Neural scaling laws have ushered in new paradigms for interpreting deep learning dynamics. By establishing that performance gains follow predictable behavior relative to model size, dataset scale, and compute, stochastic optimization methods have been pushed toward increasingly extended training horizons while operating under tight efficiency constraints~\cite{hestness2017deep, kaplan2020scaling, henighan2020scaling, hoffmann2022chinchilla}. In this regime, optimization stability becomes an important practical requirement, since unstable training may result in slow convergence and high sensitivity to hyperparameter choices. In practice, stability is often maintained through a set of heuristics, such as momentum, batch-size scaling, normalization, and learning-rate schedules~\cite{goyal2017accurate, smith2017cyclical, loshchilov2016sgdr, ioffe2015batch, krogh1991simple}. Yet, despite their effectiveness, it is not fully understood why these mechanisms work, and under what conditions they fail.
-% Yet, despite their effectiveness, there is still no fully satisfactory account of why these mechanisms help to stabilize the optimization trajectory, and under what conditions they fail.
+Neural networks often reduce training loss while successive gradients point
+in nearly opposite directions. This behavior becomes especially visible at
+large learning rates, where rapid overall progress can coexist with oscillation
+and sharp loss spikes~\cite{cohen2021edge, chowdhery2022palm, olmo2025furious}.
+For practitioners, the important question is when such oscillation remains
+productive and when it develops into a damaging excursion. Answering it
+requires diagnostics that expose the changing training dynamics early enough
+to inform a response.
 
-Classical local analyses relate the permissible step size to curvature in
-sharp directions of the loss~\cite{polyak1964methods, bertsekas1997nonlinear}.
-Stochastic extensions, including the break-even point framework, also account
-for curvature variation induced by sampling~\cite{jastrzebski2020break}.
-The Edge-of-Stability literature shows that deep networks can continue to make
-progress while oscillating near, or beyond, the nominal sharpness
-threshold~\cite{cohen2021edge, arora2022understanding, damian2023self}.
-These results motivate a complementary diagnostic question: how do the
-magnitudes and directions of successive gradients combine into parameter
-motion along the observed training trajectory? Gradient information already
-computed during optimization makes this question accessible without estimating
-the full Hessian spectrum or gradient-noise covariance at every update.
+We approach this question through \emph{constructive and destructive regimes}.
+The cosine similarity $\rho_t$ between adjacent raw gradients identifies
+the regime: positive values indicate directional reinforcement, and negative
+values indicate directional opposition. The gradient norm supplies the
+complementary information about the strength of that interaction. Together,
+they distinguish persistent reversal during descent from reversal accompanied
+by rapid gradient amplification. This distinction is central to the paper:
+a destructive regime can sustain loss reduction, while sufficiently strong
+amplification can turn its local oscillations into loss-increasing steps.
 
-To examine these interactions, we describe parameter motion through gradient
-magnitudes and directional alignment. Starting from an untrained reference,
-training changes the parameters through which the model expresses what it has
-learned. Displacement provides a geometric description of that change; it does
-not quantify retained knowledge or establish whether the change improves the
-objective. Positive and negative gradient interactions respectively reinforce
-and cancel components of the accumulated motion. Their effect must be evaluated
-at the relevant temporal horizon and distinguished from loss reduction.
+Classical stability analysis relates step size to the Hessian spectrum, and
+stochastic extensions incorporate variation induced by
+sampling~\cite{polyak1964methods, jastrzebski2020break}. The Edge-of-Stability
+literature establishes that deep networks can continue to improve while
+operating near or beyond the local quadratic stability
+boundary~\cite{cohen2021edge, arora2022understanding, damian2023self}.
+Gradient-product diagnostics and hypergradient methods already exploit
+successive directions to detect optimization phases or adapt the learning
+rate~\cite{chee2018diagnostics, pesme2020diagnostics, baydin2018hypergradient}.
+Our contribution is to connect these temporal interactions to a common
+account of regime, gradient amplification, net parameter motion and loss-spike
+anatomy, using measurements available along the training trajectory.
 
-We develop an exact finite-time decomposition of SGD displacement that retains
-all cross-step interactions. Consecutive-gradient cosine supplies a local online
-diagnostic, while normalized displacement measures the fraction of accumulated
-step length retained as net motion. Local expansions relate gradient changes
-to directional curvature and sampling noise. The distinction between these
-quantities is consequential: a trajectory can reverse successive gradient
-directions while continuing to reduce loss, and sampling can change both the
-measured alignment and the subsequent path.
+The formulation starts from an exact decomposition of SGD displacement into
+individual step magnitudes and interactions across all temporal lags.
+Adjacent-gradient cosine describes the current regime; normalized displacement
+measures how much traveled distance survives as net motion. A local loss
+expansion then shows why destructive steps can either decrease or increase
+loss, depending on gradient-norm growth. The projected-change diagnostic
+$\eta\widehat\kappa_t$ summarizes this interaction and connects it to
+directional curvature. These quantities require linear-time vector operations
+on gradients already computed by training, making them suitable for online
+monitoring.
 
-The same distinction becomes essential under adaptive optimization. Adam
-already computes raw gradients and moment estimates~\cite{kingma2014adam};
-its parameter updates combine temporal averaging, coordinate scaling and the
-learning rate. Monitoring these successive quantities can reveal changes
-that a single alignment statistic would obscure. Raw-gradient diagnostics
-remain informative about the traversed loss landscape even though Adam
-transforms those gradients before updating the parameters. Controlled
-full-batch trajectories reveal repeated loss excursions associated with
-gradient reversal and norm amplification. We examine individual spikes,
-their population anatomy and the association between the pre-rise regime,
-subsequent norm growth and peak magnitude. These observations motivate
-interventions while distinguishing descriptive evidence from a causal
-mechanism or a validated prediction rule.
+We first characterize the regimes in controlled full-batch GD and mini-batch
+SGD experiments on CIFAR-10 and WikiText-2. We then extend the analysis to
+Adam, whose adaptive directions transform the raw gradient before each
+update~\cite{kingma2014adam}. Raw-gradient diagnostics still expose the loss
+landscape encountered along that adaptive path: the largest spikes show
+diagnostic changes before the loss maximum, and the Transformer example
+reveals a warning before its pronounced rise. Across 129 recovered spikes
+larger than 10\%, gradient norms grow in every event and 117 of the 127 defined
+pre-rise cosines identify a destructive regime. Combining that initial regime
+with subsequent norm amplification accounts for a substantial fraction of
+the variation in spike magnitude.
 
-Our contributions are:
+The paper makes three contributions:
 \begin{itemize}
-    \item A displacement-based account of local and cumulative gradient
-    interaction, with explicit connections to curvature, sampling noise and
-    finite-step loss changes;
-    \item Controlled full-batch and mini-batch experiments that distinguish
-    directional reversal, displacement retention and objective progress;
-    \item A practical extension to Adam that separates raw-gradient information,
-    momentum and adaptive directions, supported by controlled training and
-    an exploratory analysis of loss-spike anatomy across models and rates.
+ \item A unified diagnostic formulation linking constructive and destructive
+ regimes, cumulative parameter displacement and local loss changes, with
+ explicit curvature and sampling-noise terms.
+ \item A controlled empirical characterization showing how destructive regimes
+ sustain descent, reduce displacement retention and change under mini-batch
+ sampling.
+ \item An extension to Adam that identifies early signs and recurring anatomy
+ of loss spikes through raw-gradient alignment and amplification, supported by
+ individual events, amplitude distributions and quantitative associations.
 \end{itemize}
 
-The remainder of the paper is organized as follows. Section~\ref{sec:background} reviews
-training-stability perspectives. Section~\ref{sec:displacement} develops the displacement formulation
-and its diagnostics. Section~\ref{sec:gd-experiments} examines full-batch GD and mini-batch
-sampling. Section~\ref{sec:adam-diagnostics} extends the interpretation to Adam
-and outlines the empirical requirements for informed scheduling. Section~\ref{sec:conclusion} concludes.
+Section~\ref{sec:background} positions the diagnostics within stability and
+optimization research. Section~\ref{sec:displacement} develops the formulation,
+and Section~\ref{sec:gd-experiments} characterizes the regimes under GD and SGD.
+Section~\ref{sec:adam-diagnostics} examines their role in Adam loss spikes
+and motivates diagnostic-guided interventions.
+Section~\ref{sec:conclusion} concludes.

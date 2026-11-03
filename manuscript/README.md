@@ -1,6 +1,15 @@
 # Manuscript workspace
 
-Latest revision (2026-11-03, Adam spike anatomy):
+Latest revision (2026-11-03, full-paper writing):
+[review and reproduction](draft/revisions/2026-11-03-regime-writing-revision/README.md).
+The current 17-page manuscript implements the author's writing principles and
+all 12 annotated comments. It develops the constructive/destructive-regime
+argument consistently from the abstract through GD/SGD and Adam spike anatomy,
+strengthens contribution positioning, and improves the grouped anatomy table.
+The revision records 135 reviewed prose units, 14 captions, mathematical/evidence
+checks and a completed task list. Experiments and scientific figures are preserved.
+
+Previous revision (2026-11-03, Adam spike anatomy):
 [review PDF](draft/revisions/2026-11-03-adam-spike-anatomy/revised-manuscript.pdf),
 [scope and reproduction](draft/revisions/2026-11-03-adam-spike-anatomy/README.md).
 The Adam section now follows the approved loss overview, largest-spike examples,

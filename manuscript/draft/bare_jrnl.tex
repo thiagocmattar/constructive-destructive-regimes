@@ -384,7 +384,7 @@
 % not capitalized unless they are the first or last word of the title.
 % Linebreaks \\ can be used within to get better formatting as desired.
 %\title{The Signal and Interference Trade-off in Stochastic Gradient Descent}
-\title{Constructive and Destructive Training Regimes: A Framework for Interpreting SGD Stability}
+\title{Constructive and Destructive Training Regimes: Gradient Diagnostics for Neural Network Stability}
 %% Add stability on the title
 %
 %
@@ -423,14 +423,32 @@ Minas Gerais 35931-008, Brazil (e-mail: fredgfc@ufmg.br; apbraga@ufmg.br).}
 % in the abstract or keywords.
 
 \begin{abstract}
-Parameter updates can reinforce or cancel one another even when training loss continues to decrease. An exact finite-time decomposition of stochastic gradient descent (SGD) displacement separates gradient magnitudes from interactions across all temporal lags. Consecutive-gradient cosine provides a local directional diagnostic, while normalized displacement measures cumulative retention of traveled distance. Local expansions connect these quantities to curvature and sampling noise without identifying alignment sign with stability or objective progress. Full-batch experiments exhibit gradient reversal alongside continued loss reduction. Matched mini-batch continuations show that sampling changes both gradient estimates and the paths traversed through the objective. Under Adam, raw-gradient diagnostics remain informative about the loss landscape traversed by adaptive steps. Controlled full-batch experiments reveal loss spikes associated with pre-rise gradient reversal and norm amplification. Loss-defined events quantify their magnitude and recovery, while descriptive regressions relate the initial regime and subsequent norm growth to relative peak loss. The resulting framework supports the formulation and evaluation of informed learning-rate interventions; it does not prescribe an alignment-maximizing schedule.
+Destructive interactions between successive gradients can accompany sustained
+training progress, yet strong gradient amplification can turn this behavior
+into sharp loss excursions. We develop a diagnostic framework that distinguishes
+constructive and destructive regimes through adjacent-gradient cosine and
+interprets them jointly with gradient magnitude and cumulative parameter
+displacement. An exact SGD displacement decomposition and local loss expansions
+connect these measurements to temporal interference, directional curvature and
+sampling noise. The diagnostics reuse training gradients with linear-time
+vector operations. Controlled CIFAR-10 and WikiText-2 experiments characterize
+productive destructive regimes under full-batch GD and their response to
+mini-batch sampling. Under Adam, raw-gradient dynamics remain informative along
+adaptive trajectories and reveal early signs of developing loss spikes.
+Across 129 recovered spikes larger than 10\%, gradient norms increase in every
+event, and 117 of 127 defined pre-rise cosines identify a destructive regime.
+Joint measures of pre-rise alignment and rise norm amplification explain
+38--94\% of the within-run variation in log relative peak loss.
+These results connect inexpensive online measurements to the anatomy of
+local loss instability and motivate diagnostic-guided interventions.
 \end{abstract}
 
 
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-Stochastic Gradient Descent, Adam, Gradient Alignment, Parameter Displacement, Learning-Rate Scheduling
+Neural Network Optimization, Training Stability, Gradient Alignment,
+Stochastic Gradient Descent, Adam
 \end{IEEEkeywords}
 
 
@@ -517,11 +535,13 @@ For $\theta_{t-1}-\theta_{t-2}=-\eta g_{t-1}$, Taylor expansion gives
 \end{equation}
 Substituting $\nabla\mathcal{L}(\theta_{t-2})=g_{t-1}-\xi_{t-1}$ and
 $g_{t-1}^\top H_{t-1}g_{t-1}=\kappa_t\|g_{t-1}\|^2$ yields
-Eq.~\eqref{eq:loss-curvature} for nonzero $g_{t-1}$.
+Eq.~\eqref{eq:appendix-loss-curvature} for nonzero $g_{t-1}$.
+The projected-gradient relation in Eq.~\eqref{eq:kappa-estimate}
+then gives the alignment form in Eq.~\eqref{eq:loss-curvature}.
 
-The positive term $\eta\xi_{t-1}^\top g_{t-1}$ in that expression cannot be
-interpreted separately as the net effect of noise. Conditional on the
-parameters before the batch is drawn, unbiased sampling gives
+The first-order noise contribution combines with the noise contained in
+the squared gradient norm. Conditional on the parameters before the
+batch is drawn, unbiased sampling gives
 \begin{equation}
 \begin{aligned}
 \mathbb{E}[\|g_{t-1}\|^2\mid\theta_{t-2}]
@@ -545,9 +565,9 @@ retained terms, the expected loss change in the quadratic approximation is
 \end{aligned}
 \label{eq:expected-loss-change}
 \end{equation}
-Sampling still contributes to the curvature-weighted second-order term. This
-conditional calculation does not remove that contribution or the Taylor
-remainder from a nonlinear trajectory.
+Sampling contributes through the curvature-weighted second-order term.
+For a nonlinear objective, the Taylor remainder supplies the additional
+finite-step correction.
 
 \subsection{Two Updates and Consecutive Alignment}
 The displacement over two SGD updates is exactly
@@ -574,10 +594,9 @@ The first-order projection can be written as
 \end{equation}
 Finally, $g_{t-1}^\top g_t=\|g_{t-1}\|\|g_t\|\rho_t$ yields
 a form of Eq.~\eqref{eq:appendix_combined} using consecutive-gradient cosine.
-The same starting Hessian appears
-throughout this expansion. For a nonlinear objective, its remainder is governed
-by the combined displacement; a small cosine alone does not control that
-approximation error.
+The same starting Hessian appears throughout this expansion. For a nonlinear
+objective, the Taylor remainder is governed by the combined displacement
+and the variation of the Hessian along it.
 
 % use section* for acknowledgment
 % \section*{Acknowledgment}
@@ -610,14 +629,9 @@ approximation error.
 % http://www.michaelshell.org/tex/ieeetran/bibtex/
 \input{sections/07-gd-diagnostics}
 
-% Flush appendix floats; reset column space left by the final double-column float.
-\clearpage
-\makeatletter
-\global\@colroom\@colht
-\global\vsize\@colht
-\makeatother
+% Let references follow the final appendix without a nearly empty page.
 \raggedbottom
-\IEEEtriggeratref{17} % Balance the current reference list; revisit after additions.
+\IEEEtriggeratref{11} % Balance references alongside the closing appendix text.
 \bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
 \bibliography{IEEEabrv,bibliography.bib}

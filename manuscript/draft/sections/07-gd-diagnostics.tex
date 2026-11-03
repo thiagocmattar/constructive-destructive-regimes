@@ -8,9 +8,10 @@ error summed over ten output coordinates and averaged over the first
 5,000 training images. ResNet-32 minimizes mean cross-entropy on all
 50,000 training images. The word-level Transformer has two layers,
 two attention heads, and embedding/feed-forward dimensions of 200;
-its objective is token-weighted negative log-likelihood. Learning rates
-are constant and share frozen seed-0 initial tensors within each case.
-There is no momentum, decay, clipping, augmentation, dropout or schedule.
+its objective is token-weighted negative log-likelihood. In the GD
+comparison, constant learning rates share frozen seed-0 initial tensors
+within each case. GD uses no momentum, decay, clipping, augmentation,
+dropout or schedule.
 
 The MLP uses coordinate-wise standardization and ResNet uses channel-wise
 standardization, both based on the complete CIFAR-10 training split.
@@ -28,23 +29,24 @@ vocabulary follows the first-occurrence dictionary over training,
 validation and test text in the PyTorch word-language-model example,
 revision \texttt{13acec6d7c78}~\cite{pytorchWordLanguageModelPinned}.
 The same pinned example supplies the Transformer implementation.
-These comparisons concern training dynamics rather than held-out
-generalization.
+All reported comparisons concern training-objective dynamics.
 
 Physical accumulation uses 1,000-image chunks for the MLP, the fixed
 1,000-image groups for ResNet, and 64-sequence chunks for the Transformer.
 The complete objective is accumulated before each parameter update.
 Training parameters and gradients are FP32, TF32 is disabled, and
-diagnostic reductions are FP64. The nine conditions are paired
-learning-rate comparisons within three model cases, not nine independent
-initializations or a controlled comparison of architectures.
-The gradient diagnostics require vector reductions and retained gradient
-information rather than online eigendecomposition; their runtime and
-memory overhead have not been isolated by a controlled benchmark.
+diagnostic reductions are FP64. The nine conditions give paired
+learning-rate comparisons within three model cases. Architectures,
+objectives and data coverage differ between cases, and each case has
+one initialization. The computational cost stated in
+Section~\ref{subsec:normalized-displacement} is algorithmic; measured
+runtime overhead depends on implementation and is left to a separate
+benchmark.
 
-The first adjacent pair is omitted without a denominator offset.
-The complete 50-observation trailing means aid visualization and do not
-define regime-onset times. Endpoint losses and $R_{3000}$ are unsmoothed.
+Cosines with zero norms and the first unpaired gradient are undefined.
+Complete 50-observation trailing means summarize the GD diagnostic curves;
+pointwise quantities are computed before averaging. Endpoint losses and
+$R_{3000}$ are unsmoothed.
 
 \subsection{Unsmoothed Alignment and Temporal Accounting}
 
@@ -53,9 +55,8 @@ cosines underlying Fig.~\ref{fig:gd-alignment-displacement}(a)--(c).
 Complete trailing means suppress short transients and shift the displayed
 transition relative to the first negative pair. In particular, the MLP
 at $\eta=0.04$ reverses near initialization and then returns to positive
-alignment before its later negative phase. These raw traces distinguish
-such a transient from a persistent pattern without introducing a
-stability threshold or discarding early observations.
+alignment before its later negative phase. These raw traces distinguish transient regime changes from sustained
+destructive phases.
 
 \begin{figure*}[!t]
   \centering
@@ -87,9 +88,9 @@ Table~\ref{tab:gd-temporal-accounting} reports these quantities at $T=3000$.
 The interaction columns use raw gradients and include the factor of two;
 they are not multiplied by $\eta^2$. The total is positive in all nine
 conditions, whereas the adjacent contribution is negative in seven.
-This endpoint result does not assert positivity at every prefix or for
-every individual pair. Comparisons of magnitudes are within each model
-case and its fixed parameterization.
+The positive total demonstrates longer-range reinforcement alongside
+adjacent destruction. Magnitudes are compared within each model and
+its fixed parameterization.
 
 
 \subsection{Retrospective Loss Approximation}
@@ -124,16 +125,15 @@ A transition is eligible only when both
 $|\delta\mathcal L_{t-1}|>h_t(\tau)$ and
 $|\widehat{\delta\mathcal L}_{t-1}|>h_t(\tau)$.
 Each cell prints opposite-sign transitions divided by its eligible count;
-the median discrepancy remains computed over all pairs. These thresholds
-are descriptive sensitivity choices, not calibrated FP32 error bounds.
-Serial transitions are not independent initialization replicates, and
-the comparison is retrospective because it uses the subsequent gradient.
-The discrepancy does not isolate finite-step, nonsmooth or numerical effects.
+the median discrepancy uses all pairs. The thresholds provide a descriptive
+sensitivity analysis. The comparison uses the subsequent gradient and
+repeated transitions within one trajectory; finite-step, nonsmooth
+and numerical effects all contribute to the discrepancy.
 For the highest-rate Transformer, the unthresholded signs disagree in
 $44.2\%$ of transitions; excluding changes below the $10^{-5}$ relative
 threshold leaves $43.7\%$ disagreement. Thus a projected change near two
-is informative about the oscillatory regime but does not by itself
-validate a pointwise nonlinear loss prediction.
+identifies the oscillatory regime at the scale shown in the main
+figures, while stepwise loss signs remain sensitive to nonlinear effects.
 
 
 \subsection{Backward-Lag Measurements}
@@ -143,8 +143,8 @@ full-objective gradients from separately recomputed 256-update
 continuations. Retained states 500, 2000 and 3000 supply common starting
 parameters; their endpoints are states 756, 2256 and 3256 (gradient
 indices 757, 2257 and 3257). Figure~\ref{fig:gd-backward} uses the middle
-endpoint in every model, a common trained-state comparison rather than
-an endpoint chosen for maximum oscillation. Each curve holds that
+endpoint in every model, providing a common trained-state comparison.
+Each curve holds that
 endpoint fixed, includes every lag through 256, and uses no temporal
 averaging or compression. FP64 products of FP32 vectors were checked
 independently on CPU and GPU; selected retained vectors supply additional
@@ -178,9 +178,9 @@ Cosines average all
 199 defined consecutive pairs; retention uses all 200 applied gradients.
 Eight repetitions are averaged within initialization before the three
 initializations receive equal weight. The plotted range represents variation
-among initialization-block means, not sampling confidence. Cases differ in
-objective, architecture, data size and selected learning rate; their contrasts
-do not isolate any one factor.
+among initialization-block means. Cases differ in objective, architecture,
+data size and selected learning rate; the controlled contrasts are
+within each case.
 
 Cloud runs use PyTorch 2.8/CUDA 12.8. The Transformer uses RTX5090 and
 512-sequence physical accumulation, without changing effective batches.
@@ -188,9 +188,9 @@ ResNet uses L40S/RTX4090; seed~2's smallest two batches use GB10/PyTorch
 2.11/CUDA 13 from hash-identical cloud checkpoints. Complete-gradient and
 short replay checks qualify this runtime; a 200-update initial full-GD bridge
 has endpoint parameter relative error $2.36\times10^{-7}$ versus the cloud.
-This does not establish long-trajectory replay. Batch and runtime effects
-are confounded in this block; shading includes initialization and runtime
-variation. Initial full controls for ResNet seed~2 and Transformer seed~0
+Batch and runtime effects are confounded in this block; shading includes
+initialization and runtime variation, and long trajectories can drift
+beyond the short replay agreement. Initial full controls for ResNet seed~2 and Transformer seed~0
 reuse the exact first 200 reference updates, with separate endpoint losses;
 other controls execute independently. Audits of actual increments and endpoint
 displacement quantify FP32 update roundoff.
@@ -203,8 +203,7 @@ checked relative eigenpair residual of at most $0.005$. The Hessian
 objective covers all 5,000 MLP training examples, but only the first
 five fixed ResNet groups and the first 2,500 Transformer sequences.
 Subset measurements follow the computational motivation
-of~\cite{cohen2021edge}; they are not full-objective sharpness for the
-larger models. Reused MLP trajectories requested two largest eigenvalues
+of~\cite{cohen2021edge} and describe sharpness on those fixed subsets. Reused MLP trajectories requested two largest eigenvalues
 and the other runs requested one; we compare only the largest value.
 Table~\ref{tab:gd-spectral-context} retains all nine final measurements.
 
@@ -212,9 +211,8 @@ Maximum pointwise eigenvalue concerns the most curved local direction,
 whereas $\widehat\kappa_t$ concerns realized gradient change across a step.
 Objective coverage and a finite-step Taylor remainder also affect their
 comparison. Final spectral values and the late means in
-Table~\ref{tab:gd-endpoints} use different temporal reductions. Their
-agreement or disagreement therefore does not isolate estimator accuracy
-or the cause of a discrepancy. A state-matched local comparison would pair
+Table~\ref{tab:gd-endpoints} use different temporal reductions. Both coverage and timing must therefore be matched for an
+estimator-accuracy comparison. A state-matched local comparison would pair
 the Hessian at state $s$ with the expansion for gradient index $t=s+2$;
 the spectrum at state 3000 has no matching recorded gradient pair.
 
@@ -261,57 +259,43 @@ the spectrum at state 3000 has no matching recorded gradient pair.
 \subsection{Controlled Adam Measurements and Spike Analysis}
 \label{appendix:adam-measurements}
 
-The Adam comparison reuses the complete objectives and frozen initial tensors
-specified above, with zero initial moments and a constant rate throughout each
-1,024-update arm. All trainable parameters enter the diagnostics. Parameters,
-gradients and optimizer moments are FP32; geometric reductions are FP64, with
-TF32 disabled. No Hessian or Hessian-vector product is evaluated. MLP rates
-share one RTX 5070 Ti; ResNet uses qualified PRO 4000, PRO 6000-partition and
-RTX 4090 workers, and Transformer uses RTX 4090, PRO 4500 SE and RTX 4090,
-in increasing-rate order. Initial gradients are qualified across workers;
-subsequent finite-precision drift and hardware variation limit attribution
-exclusively to rate. Complete held-out splits are evaluated every 128 updates,
-without selecting rates on held-out loss; the figures here concern training loss.
+Adam uses the complete objectives and frozen initial tensors specified
+above. All trainable parameters enter the diagnostics; parameters,
+gradients and moments are FP32, reductions are FP64, and TF32 is disabled.
+All MLP rates use one RTX 5070 Ti. In increasing-rate order, ResNet uses
+PRO 4000, a PRO 6000 partition and RTX 4090; Transformer uses RTX 4090,
+PRO 4500 SE and RTX 4090. Initial-gradient agreement is verified across
+workers. Hardware variation and later finite-precision drift accompany
+the rate comparison. Held-out splits are evaluated every 128 updates;
+rate selection uses training calibration.
 
-A state $s$ denotes parameters $\theta_s$ after $s$ completed updates. The raw
-gradient $g_{s+1}$ is evaluated there; $m_{s+1}$ includes that gradient and is
-available before update $s+1$. Figures~\ref{fig:adam-overview}
-and~\ref{fig:adam-spikes} use this state clock on their horizontal axes.
-All loss and micro-plot observations are unsmoothed. Momentum denotes the
-stored first moment; the relative norms in Fig.~\ref{fig:adam-spikes} divide
-each stream by its value at the first displayed state. Those plotting references
-differ from an event's fixed pre-rise baseline and must not redefine it.
-The first consecutive cosine and projected change are undefined; the
-terminal raw-gradient norm and projected change are recorded without applying
-another update. No zero-denominator value is replaced by zero.
+At state $\theta_s$, the raw gradient is $g_{s+1}$ and the first moment
+$m_{s+1}$ includes that gradient before update $s+1$. This is the clock
+used in the Adam figures. Momentum cosines replace $g$ by $m$ in
+Eq.~\eqref{eq:rho}. Relative norms use the first displayed state, as
+specified in Fig.~\ref{fig:adam-spikes}; event statistics use the fixed
+pre-rise baseline. All losses and micro-plots are unsmoothed.
+Initial adjacent diagnostics and zero-denominator ratios are undefined.
+The terminal raw-gradient diagnostic is recorded after update 1,024
+without applying another update.
 
-Equation~\eqref{eq:adam-spike-boundaries} is applied from state zero to all
-nine complete loss histories, without smoothing, a tolerance or startup
-exclusion. The 806 recovered excursions form the density sample. Recovery
-by update 1,024 and peak increase strictly greater than 10\% define the 129-event
-anatomy sample; two further above-threshold candidates without observed recovery
-are excluded. Local maxima before the first return to the fixed baseline are
-not split into separate samples. The state immediately after recovery,
-$c_i+1$, is retained when available but does not establish sustained recovery.
+Event extraction searches every loss state from initialization,
+using strict increases and the first return in
+Eq.~\eqref{eq:adam-spike-boundaries}. The density includes all 806
+recovered excursions. The anatomy sample keeps 129 with increase
+$>10\%$ and observed recovery; two above-threshold events without
+recovery by update 1,024 are excluded. Two initialization events
+lack pre-rise cosine and projected change, leaving 127 scatter points.
+Each event receives equal weight; recovery summaries first average
+within the event. Standard deviations use denominator $n-1$.
 
-Pre-rise $\rho$ and $\eta\widehat\kappa$ use a single observation at state
-$a_i$. Recovery means use states $p_i+1,\ldots,c_i$ within each event, followed
-by an unweighted summary over event means. Standard deviations use the
-sample denominator $n-1$. Two events starting at initialization lack pre-rise
-cosine and projected change; they remain in loss, duration and norm summaries,
-but not those pre-rise summaries or the 127-point scatter.
-The scatter's seven ordinary least-squares fits use an intercept, separate
-coefficients for each model/LR and $\log_{10}(\mathcal L_{p_i}/\mathcal L_{a_i})$
-as the response. Their $R^2$ values use the same transformed response and fitting
-sample. Dashed lines beyond observed x ranges are extrapolations. Repeated
-events from a trajectory do not provide independent-run uncertainty.
-
-The density is a Gaussian KDE of $\log_{10}$ positive percentage increase.
-Within each model, all recovered events are pooled to set bandwidth to the
-pooled sample standard deviation times pooled $n^{-1/5}$; the same bandwidth
-is used for its three LRs. Each LR density has unit mass in log-percentage
-coordinates. Source hashes, independent event segmentation, original scalar
-histories, metric-specific denominators and exact plotted values are retained
-in Analysis036. The threshold choice, examples and regressions are exploratory.
-No diagnostic-guided intervention or prospective forecasting benefit is tested
-in this presentation.
+The seven scatter fits use ordinary least squares with an intercept,
+separate coefficients per model/rate, and
+$\log_{10}(\mathcal L_{p_i}/\mathcal L_{a_i})$ as response.
+Reported $R^2$ uses that response in the fitting sample; dashed extensions
+are extrapolations. Densities use Gaussian kernels on log percentage
+increase. The common bandwidth within a model is the pooled sample
+standard deviation times pooled $n^{-1/5}$, and each rate's density
+has unit mass in those coordinates. These exploratory event summaries
+describe repeated observations within one initialization per model.
+Analysis036 retains source hashes, segmentation checks and scalar histories.

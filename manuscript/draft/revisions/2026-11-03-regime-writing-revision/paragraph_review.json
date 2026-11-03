@@ -1,0 +1,963 @@
+{
+  "status": "passed",
+  "prose_units": 135,
+  "units": [
+    {
+      "file": "manuscript/draft/sections/01-introduction.tex",
+      "unit": 1,
+      "purpose": "Problem and practical stakes",
+      "status": "reviewed",
+      "opening": "Neural networks often reduce training loss while successive gradients point in nearly opposite directions. This behavior becomes especially visible at large lea"
+    },
+    {
+      "file": "manuscript/draft/sections/01-introduction.tex",
+      "unit": 2,
+      "purpose": "Regime definition and central argument",
+      "status": "reviewed",
+      "opening": "We approach this question through \\emph{constructive and destructive regimes}. The cosine similarity $\\rho_t$ between adjacent raw gradients identifies the regi"
+    },
+    {
+      "file": "manuscript/draft/sections/01-introduction.tex",
+      "unit": 3,
+      "purpose": "Prior work and contribution positioning",
+      "status": "reviewed",
+      "opening": "Classical stability analysis relates step size to the Hessian spectrum, and stochastic extensions incorporate variation induced by sampling~\\cite{polyak1964meth"
+    },
+    {
+      "file": "manuscript/draft/sections/01-introduction.tex",
+      "unit": 4,
+      "purpose": "Diagnostic framework and computation",
+      "status": "reviewed",
+      "opening": "The formulation starts from an exact decomposition of SGD displacement into individual step magnitudes and interactions across all temporal lags. Adjacent-gradi"
+    },
+    {
+      "file": "manuscript/draft/sections/01-introduction.tex",
+      "unit": 5,
+      "purpose": "Empirical progression and principal counts",
+      "status": "reviewed",
+      "opening": "We first characterize the regimes in controlled full-batch GD and mini-batch SGD experiments on CIFAR-10 and WikiText-2. We then extend the analysis to Adam, wh"
+    },
+    {
+      "file": "manuscript/draft/sections/01-introduction.tex",
+      "unit": 6,
+      "purpose": "Three contributions",
+      "status": "reviewed",
+      "opening": "The paper makes three contributions:"
+    },
+    {
+      "file": "manuscript/draft/sections/01-introduction.tex",
+      "unit": 7,
+      "purpose": "Reader roadmap",
+      "status": "reviewed",
+      "opening": "Section~\\ref{sec:background} positions the diagnostics within stability and optimization research. Section~\\ref{sec:displacement} develops the formulation, and "
+    },
+    {
+      "file": "manuscript/draft/sections/02-related-works.tex",
+      "unit": 1,
+      "purpose": "Complementary analytical perspectives",
+      "status": "reviewed",
+      "opening": "Training dynamics reflect both the geometry encountered by an update and its interaction with preceding updates. Curvature-based analyses explain local amplific"
+    },
+    {
+      "file": "manuscript/draft/sections/02-related-works.tex",
+      "unit": 2,
+      "purpose": "Parameter and gradient clock",
+      "status": "reviewed",
+      "opening": "Let $\\theta_t\\in\\mathbb R^p$ denote the parameters after update $t$ and $g_t$ the gradient evaluated at $\\theta_{t-1}$. For a constant learning rate $\\eta>0$, p"
+    },
+    {
+      "file": "manuscript/draft/sections/02-related-works.tex",
+      "unit": 3,
+      "purpose": "Full-gradient update Jacobian",
+      "status": "reviewed",
+      "opening": "In full-batch GD, $g_t=\\nabla\\mathcal L(\\theta_{t-1})$ for the training objective $\\mathcal L$. Writing $H_t=\\nabla^2\\mathcal L(\\theta_{t-1})$, the deterministi"
+    },
+    {
+      "file": "manuscript/draft/sections/02-related-works.tex",
+      "unit": 4,
+      "purpose": "Quadratic contraction assumptions",
+      "status": "reviewed",
+      "opening": "This matrix describes the response to a small parameter perturbation. For a fixed positive-definite quadratic Hessian, each eigencomponent is multiplied by $1-\\"
+    },
+    {
+      "file": "manuscript/draft/sections/02-related-works.tex",
+      "unit": 5,
+      "purpose": "Oscillation versus amplification",
+      "status": "reviewed",
+      "opening": "The component contracts without changing sign when $0<\\eta\\lambda_i<1$, alternates while contracting when $1<\\eta\\lambda_i<2$, and alternates with increasing ma"
+    },
+    {
+      "file": "manuscript/draft/sections/02-related-works.tex",
+      "unit": 6,
+      "purpose": "EoS and prior trajectory geometry",
+      "status": "reviewed",
+      "opening": "Deep-network trajectories repeatedly enter oscillatory regions. Cohen et al.~\\cite{cohen2021edge} show that full-batch GD often approaches $\\lambda_{\\max}\\simeq"
+    },
+    {
+      "file": "manuscript/draft/sections/02-related-works.tex",
+      "unit": 7,
+      "purpose": "Fresh sampling decomposition",
+      "status": "reviewed",
+      "opening": "Mini-batch sampling changes both the estimated direction and the trajectory followed through the objective~\\cite{mandt2017sgd, hu2019diffusion, jastrzebski2018t"
+    },
+    {
+      "file": "manuscript/draft/sections/02-related-works.tex",
+      "unit": 8,
+      "purpose": "Finite-population covariance assumptions",
+      "status": "reviewed",
+      "opening": "where the last equality assumes a uniformly sampled size-$b$ subset of $N>1$ examples without replacement. At a fixed state, let $h_i=\\nabla\\ell_i(\\theta)$ and "
+    },
+    {
+      "file": "manuscript/draft/sections/02-related-works.tex",
+      "unit": 9,
+      "purpose": "Variance interpretation",
+      "status": "reviewed",
+      "opening": "Its trace measures the total squared dispersion around the full gradient. The finite-population factor in Eq.~\\eqref{eq:sgd_noise_decomposition} shows how large"
+    },
+    {
+      "file": "manuscript/draft/sections/02-related-works.tex",
+      "unit": 10,
+      "purpose": "Break-even context and transition to regimes",
+      "status": "reviewed",
+      "opening": "Curvature and stochasticity also interact. The break-even analysis of Jastrzebski et al.~\\cite{jastrzebski2020break} links the early learning rate and batch siz"
+    },
+    {
+      "file": "manuscript/draft/sections/02-related-works.tex",
+      "unit": 11,
+      "purpose": "Prior gradient-product and hypergradient diagnostics",
+      "status": "reviewed",
+      "opening": "Successive gradient products have a substantial history in optimization diagnostics. Chee and Toulis~\\cite{chee2018diagnostics} use them to detect the transitio"
+    },
+    {
+      "file": "manuscript/draft/sections/02-related-works.tex",
+      "unit": 12,
+      "purpose": "Specific contribution beyond prior diagnostics",
+      "status": "reviewed",
+      "opening": "Our focus is the anatomy of the regime that these temporal interactions reveal. We combine adjacent alignment with gradient amplification and cumulative displac"
+    },
+    {
+      "file": "manuscript/draft/sections/02-related-works.tex",
+      "unit": 13,
+      "purpose": "Operational cost of loss spikes",
+      "status": "reviewed",
+      "opening": "Large-model training reports show why early diagnostics matter. PaLM describes approximately 20 loss spikes during 540B-model training and recovers by restartin"
+    },
+    {
+      "file": "manuscript/draft/sections/02-related-works.tex",
+      "unit": 14,
+      "purpose": "Directional information added to norm monitoring",
+      "status": "reviewed",
+      "opening": "Modern recipes therefore monitor gradient norms alongside loss. OLMo~2 uses rolling loss and gradient-norm spike scores in its stability analysis~\\cite{olmo2025"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 1,
+      "purpose": "Three diagnostic questions",
+      "status": "reviewed",
+      "opening": "Our diagnostics answer three connected questions: which directional regime is the optimizer traversing, how strongly are gradients changing, and how much of the"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 2,
+      "purpose": "SGD displacement definition",
+      "status": "reviewed",
+      "opening": "Consider the plain SGD update in Eq.~\\eqref{eq:sgd_map_stability}, with constant learning rate $\\eta>0$. As before, $\\theta_t\\in\\mathbb{R}^p$ denotes the parame"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 3,
+      "purpose": "Exact norm expansion",
+      "status": "reviewed",
+      "opening": "The displacement is the net parameter change produced by $T$ updates. Expanding its squared norm separates individual step magnitudes from interactions between "
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 4,
+      "purpose": "Magnitude and pairwise interaction meaning",
+      "status": "reviewed",
+      "opening": "The terms $\\|g_t\\|^2$ are nonnegative and determine the squared lengths of individual SGD steps through $\\eta^2\\|g_t\\|^2$. In full-batch GD, a larger gradient n"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 5,
+      "purpose": "Pairwise and adjacent cosine definitions",
+      "status": "reviewed",
+      "opening": "To isolate directional alignment from gradient magnitudes, define the cosine similarity between any two nonzero gradients and its consecutive-step form"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 6,
+      "purpose": "Explicit regime and zero-norm definitions",
+      "status": "reviewed",
+      "opening": "We call the adjacent-gradient regime \\emph{constructive} when $\\rho_t>0$ and \\emph{destructive} when $\\rho_t<0$. Zero denotes orthogonal gradients; a zero gradi"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 7,
+      "purpose": "Substitution into full displacement",
+      "status": "reviewed",
+      "opening": "Substituting Eq.~\\eqref{eq:rho} into Eq.~\\eqref{eq:magnitude-interaction} gives"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 8,
+      "purpose": "Local versus cumulative time horizon",
+      "status": "reviewed",
+      "opening": "The exact sum retains interactions across every temporal lag. For given gradient magnitudes, positive pairwise terms reinforce net motion and negative terms can"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 9,
+      "purpose": "Gradient Taylor expansion and sampling",
+      "status": "reviewed",
+      "opening": "For mini-batch SGD, we explicitly incorporate stochastic gradient noise in Eq.~\\eqref{eq:sgd_noise_decomposition}, $g_t=\\nabla\\mathcal{L}(\\theta_{t-1})+\\xi_t$. "
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 10,
+      "purpose": "Remainder and projected equation",
+      "status": "reviewed",
+      "opening": "where $r_t$ is the Taylor remainder. Neglecting $r_t$ recovers the first-order approximation. Taking the inner product with $g_{t-1}$ then gives"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 11,
+      "purpose": "Directional curvature definition",
+      "status": "reviewed",
+      "opening": "Positive curvature reduces the component of the next gradient along the preceding direction. Its strength relative to the preceding squared norm is the directio"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 12,
+      "purpose": "Curvature versus noise interpretation",
+      "status": "reviewed",
+      "opening": "Thus, $\\kappa_t$ measures how strongly a step changes the gradient along the direction actually followed, whereas $\\rho_t$ measures the resulting alignment. Sam"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 13,
+      "purpose": "Cosine normalization",
+      "status": "reviewed",
+      "opening": "Dividing Eq.~\\eqref{eq:rho-expanded} by the two gradient norms gives"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 14,
+      "purpose": "Directional sign threshold",
+      "status": "reviewed",
+      "opening": "In full-batch GD, $\\varepsilon_t=0$. Within this first-order approximation, $\\eta\\kappa_t<1$ retains a positive projection, while $\\eta\\kappa_t>1$ reverses it: "
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 15,
+      "purpose": "Directional minimum and destructive regime",
+      "status": "reviewed",
+      "opening": "The threshold at one also has an optimization interpretation. Along the full-gradient direction, the local quadratic loss model is $\\mathcal L(\\theta_{t-2}-\\alp"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 16,
+      "purpose": "Observable projected-change formula",
+      "status": "reviewed",
+      "opening": "This interpretation leads to a measurable diagnostic. Rearranging Eq.~\\eqref{eq:rho-normalized} gives"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 17,
+      "purpose": "Meaning and curvature approximation",
+      "status": "reviewed",
+      "opening": "This diagnostic measures the change of gradient projected onto its preceding direction, normalized by the preceding squared norm. It combines the regime with th"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 18,
+      "purpose": "Conditional noise expectation",
+      "status": "reviewed",
+      "opening": "Sampling contributes to the regime through its interaction with the preceding noisy gradient. Write $g_{t-1}=\\nabla\\mathcal L(\\theta_{t-2})+\\xi_{t-1}$. Fresh, c"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 19,
+      "purpose": "Negative expected noise contribution",
+      "status": "reviewed",
+      "opening": "Thus, even unbiased sampling noise contributes a systematic nonpositive term to the expected unnormalized interaction between consecutive gradients."
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 20,
+      "purpose": "Exact finite-population variance",
+      "status": "reviewed",
+      "opening": "This contribution is directly related to mini-batch size. Consider a mini-batch of $b$ examples sampled uniformly without replacement from $N>1$ training exampl"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 21,
+      "purpose": "Batch-size interpretation",
+      "status": "reviewed",
+      "opening": "At fixed parameters, smaller batches produce larger sampling variance and, consequently, a larger negative expected noise contribution. For full-batch gradients"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 22,
+      "purpose": "Fixed-state concentrated-norm approximation",
+      "status": "reviewed",
+      "opening": "Noise can weaken directional coherence by enlarging gradient norms relative to their shared signal. For independent estimates at two fixed states, let $\\mu,\\nu$"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 23,
+      "purpose": "Same-state attenuation",
+      "status": "reviewed",
+      "opening": "This attenuation moves either sign toward zero. At the same fixed state, the common full-gradient direction gives the special case"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 24,
+      "purpose": "Evolving trajectory qualification and experiment link",
+      "status": "reviewed",
+      "opening": "Here the expected cosine is nonnegative; the approximation quantifies the dilution of a common direction by sampling. During SGD, a sampled update also changes "
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 25,
+      "purpose": "Cumulative retention intuition",
+      "status": "reviewed",
+      "opening": "The regime describes adjacent directions; normalized displacement describes their cumulative outcome. It compares the straight-line distance from initialization"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 26,
+      "purpose": "Path-length normalization",
+      "status": "reviewed",
+      "opening": "For a nonzero accumulated path length under constant-step plain SGD, the denominator is the total distance traveled in parameter space, while the numerator meas"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 27,
+      "purpose": "All-lag retention identity",
+      "status": "reviewed",
+      "opening": "Using Eq.~\\eqref{eq:magnitude-alignment}, this ratio satisfies"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 28,
+      "purpose": "Geometric examples and joint interpretation",
+      "status": "reviewed",
+      "opening": "Thus $R_T$ incorporates interactions across all temporal lags. When $R_T$ is near one, almost all traveled distance survives as net displacement; when it is nea"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 29,
+      "purpose": "Linear computation and storage cost",
+      "status": "reviewed",
+      "opening": "These diagnostics are inexpensive in computational structure. For $p$ parameters, a norm and an inner product with the retained preceding gradient give $\\rho_t$"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 30,
+      "purpose": "Loss-change definition and question",
+      "status": "reviewed",
+      "opening": "A destructive step can still decrease loss after crossing its directional minimum. The decisive quantity is how strongly the new gradient opposes the preceding "
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 31,
+      "purpose": "Signed loss contributions",
+      "status": "reviewed",
+      "opening": "The magnitude term favors descent. The interference term reinforces it for positive alignment and opposes it for negative alignment: destructive interference co"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 32,
+      "purpose": "Joint reversal/amplification condition",
+      "status": "reviewed",
+      "opening": "The condition requires a destructive regime and sufficient gradient-norm growth: the opposing component of the new gradient must exceed the preceding gradient m"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 33,
+      "purpose": "Curvature substitution",
+      "status": "reviewed",
+      "opening": "Substituting Eq.~\\eqref{eq:rho-normalized} with zero noise gives"
+    },
+    {
+      "file": "manuscript/draft/sections/03-methods.tex",
+      "unit": 34,
+      "purpose": "Productive destructive interval and empirical transition",
+      "status": "reviewed",
+      "opening": "Within the local quadratic model, $1<\\eta\\kappa_t<2$ is a destructive regime with decreasing loss; $\\eta\\kappa_t>2$ produces a loss increase. The projected-chan"
+    },
+    {
+      "file": "manuscript/draft/sections/04-gd-experiments.tex",
+      "unit": 1,
+      "purpose": "Purpose of the controlled sequence",
+      "status": "reviewed",
+      "opening": "We first examine whether destructive regimes sustain descent and how their reversals shape cumulative parameter motion. Full-batch GD isolates these dynamics on"
+    },
+    {
+      "file": "manuscript/draft/sections/04-gd-experiments.tex",
+      "unit": 2,
+      "purpose": "Matched objectives and rate comparison",
+      "status": "reviewed",
+      "opening": "The comparison covers a tanh MLP on 5,000 CIFAR-10 images, ResNet-32 on all 50,000 CIFAR-10 training images, and a word-level Transformer on WikiText-2. Each mi"
+    },
+    {
+      "file": "manuscript/draft/sections/04-gd-experiments.tex",
+      "unit": 3,
+      "purpose": "Destructive descent in the loss curves",
+      "status": "reviewed",
+      "opening": "Figure~\\ref{fig:gd-loss} pairs loss with the projected gradient change $\\eta\\widehat\\kappa_t$. The higher-rate trajectories develop oscillatory loss while conti"
+    },
+    {
+      "file": "manuscript/draft/sections/04-gd-experiments.tex",
+      "unit": 4,
+      "purpose": "Diagnostic insight and appendix audit",
+      "status": "reviewed",
+      "opening": "Consecutive gradients therefore expose an oscillatory regime that is productive over the training horizon. The projected-change diagnostic provides its directio"
+    },
+    {
+      "file": "manuscript/draft/sections/04-gd-experiments.tex",
+      "unit": 5,
+      "purpose": "Regime transition and norm growth",
+      "status": "reviewed",
+      "opening": "Figure~\\ref{fig:gd-alignment-displacement} explains how the destructive regime changes parameter motion. The lowest MLP and Transformer rates remain constructiv"
+    },
+    {
+      "file": "manuscript/draft/sections/04-gd-experiments.tex",
+      "unit": 6,
+      "purpose": "Retention and productive large steps",
+      "status": "reviewed",
+      "opening": "The decreasing $R_t$ quantifies the cancellation associated with these reversals. A growing fraction of the traveled distance is spent moving back and forth, ev"
+    },
+    {
+      "file": "manuscript/draft/sections/04-gd-experiments.tex",
+      "unit": 7,
+      "purpose": "Local destruction with longer-range reinforcement",
+      "status": "reviewed",
+      "opening": "Local destruction coexists with reinforcement over longer horizons. The complete cross-step interaction is positive at the endpoint in all nine trajectories, in"
+    },
+    {
+      "file": "manuscript/draft/sections/04-gd-experiments.tex",
+      "unit": 8,
+      "purpose": "Fixed-endpoint lag interpretation",
+      "status": "reviewed",
+      "opening": "To examine the temporal extent of reversal, we fix one endpoint gradient and compare it with preceding gradients at every lag $k=1,\\ldots,256$. Figure~\\ref{fig:"
+    },
+    {
+      "file": "manuscript/draft/sections/05-sgd-noise-experiments.tex",
+      "unit": 1,
+      "purpose": "Matched continuation and averaging design",
+      "status": "reviewed",
+      "opening": "We vary batch size at initialization and after 2,000 GD updates in the same three model--dataset cases, holding $\\eta=0.02$, $0.1$ and $0.2$ fixed for the MLP, "
+    },
+    {
+      "file": "manuscript/draft/sections/05-sgd-noise-experiments.tex",
+      "unit": 2,
+      "purpose": "Sampling changes the observed regime",
+      "status": "reviewed",
+      "opening": "The smallest batches weaken the trained-state destructive regime in all three cases. At initialization, full GD gives a constructive mean for MLP and ResNet, wh"
+    },
+    {
+      "file": "manuscript/draft/sections/05-sgd-noise-experiments.tex",
+      "unit": 3,
+      "purpose": "Equal-cosine contrasting outcomes and Adam transition",
+      "status": "reviewed",
+      "opening": "For the Transformer at $b=8$, both starting states have mean cosine near $-0.26$, yet mean full-data loss falls from initialization and rises after GD training."
+    },
+    {
+      "file": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "unit": 1,
+      "purpose": "Adam motivation and diagnostic equation references",
+      "status": "reviewed",
+      "opening": "Adam provides a practical test of the central argument: can raw-gradient regimes reveal developing loss instability when the optimizer takes an adaptive step? T"
+    },
+    {
+      "file": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "unit": 2,
+      "purpose": "First/second-moment mechanism",
+      "status": "reviewed",
+      "opening": "Adam~\\cite{kingma2014adam} averages this input through first and second moments,"
+    },
+    {
+      "file": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "unit": 3,
+      "purpose": "Bias correction and adaptive step",
+      "status": "reviewed",
+      "opening": "starting from zero. Bias correction gives $\\widehat m_t=m_t/(1-\\beta_1^t)$ and $\\widehat v_t=v_t/(1-\\beta_2^t)$, followed by"
+    },
+    {
+      "file": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "unit": 4,
+      "purpose": "Why changing raw input matters",
+      "status": "reviewed",
+      "opening": "with coordinatewise operations. The first moment carries information from preceding gradients, while the second moment scales coordinates. A sharp change in the"
+    },
+    {
+      "file": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "unit": 5,
+      "purpose": "Adaptive-path local expansion",
+      "status": "reviewed",
+      "opening": "The connection to the loss landscape follows from the same local expansion used for GD. For full-batch gradients along Adam's step,"
+    },
+    {
+      "file": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "unit": 6,
+      "purpose": "Projected response and sign/magnitude interpretation",
+      "status": "reviewed",
+      "opening": "Thus the diagnostic measures the gradient's projected response to the adaptive displacement. Its exact expression $1-\\rho_t\\|g_t\\|/\\|g_{t-1}\\|$ separates that r"
+    },
+    {
+      "file": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "unit": 7,
+      "purpose": "Matched Adam setup",
+      "status": "reviewed",
+      "opening": "We use the CIFAR-10/MLP, CIFAR-10/ResNet-32 and WikiText-2/Transformer objectives from Section~\\ref{sec:gd-experiments}. Each trajectory starts from the same fr"
+    },
+    {
+      "file": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "unit": 8,
+      "purpose": "Productive trajectories interrupted by spikes",
+      "status": "reviewed",
+      "opening": "Figure~\\ref{fig:adam-overview} shows sustained loss reduction interrupted by transient spikes, especially at larger rates. The highest tested rate attains the l"
+    },
+    {
+      "file": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "unit": 9,
+      "purpose": "Largest-spike selection",
+      "status": "reviewed",
+      "opening": "For each model, we select the largest recovered relative loss spike at its highest tested learning rate. This loss-based rule selects peaks at states 703, 422 a"
+    },
+    {
+      "file": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "unit": 10,
+      "purpose": "Shared destructive rise and amplification",
+      "status": "reviewed",
+      "opening": "All three spikes develop from a destructive raw-gradient regime. As the loss rises, gradient norms grow sharply and $\\eta\\widehat\\kappa$ exceeds two before the "
+    },
+    {
+      "file": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "unit": 11,
+      "purpose": "Concrete early-warning chronology",
+      "status": "reviewed",
+      "opening": "The Transformer gives a particularly clear early warning. At state 788, $\\eta\\widehat\\kappa$ first exceeds two while the loss is only 0.40\\% above its pre-rise "
+    },
+    {
+      "file": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "unit": 12,
+      "purpose": "Constructive segments and shrinking destructive recovery",
+      "status": "reviewed",
+      "opening": "Recovery reveals how the regime changes after amplification. In the displayed ResNet and Transformer events, the gradients enter constructive segments as projec"
+    },
+    {
+      "file": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "unit": 13,
+      "purpose": "Case synthesis and population question",
+      "status": "reviewed",
+      "opening": "These cases connect a visible loss spike to an earlier change in the gradient field traversed by Adam. Their shared feature is amplification within a destructiv"
+    },
+    {
+      "file": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "unit": 14,
+      "purpose": "Fixed-baseline event intuition",
+      "status": "reviewed",
+      "opening": "A spike is an excursion above a fixed pre-rise loss: the loss leaves that level, reaches a maximum, and eventually returns. Keeping the reference fixed treats a"
+    },
+    {
+      "file": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "unit": 15,
+      "purpose": "Anchor definitions and recursive event equations",
+      "status": "reviewed",
+      "opening": "Write $\\mathcal L_s=\\mathcal L(\\theta_s)$ for the loss after $s$ updates. For event $i$, let $a_i$ denote the state immediately before its rise, $p_i$ its highe"
+    },
+    {
+      "file": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "unit": 16,
+      "purpose": "Search termination and loss/time statistics",
+      "status": "reviewed",
+      "opening": "The first elevated loss occurs at $a_i+1$, and the earliest maximum defines $p_i$ if there is a tie. We retain events with observed recovery by $T=1024$ and res"
+    },
+    {
+      "file": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "unit": 17,
+      "purpose": "Amplitude distribution and threshold purpose",
+      "status": "reviewed",
+      "opening": "The distributions in Fig.~\\ref{fig:adam-spike-distribution} show that the selected cases belong to a recurring pattern. Larger learning rates extend the distrib"
+    },
+    {
+      "file": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "unit": 18,
+      "purpose": "Spike severity and recovery cost",
+      "status": "reviewed",
+      "opening": "Table~\\ref{tab:adam-spike-anatomy} exposes the cost of these excursions. Both mean and maximum spike increase grow with learning rate among the eligible rates, "
+    },
+    {
+      "file": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "unit": 19,
+      "purpose": "Population regime/amplification/timing evidence",
+      "status": "reviewed",
+      "opening": "The regime and norm statistics identify the recurring anatomy. Pre-rise $\\rho$ is negative in 117 of 127 defined events, and gradient norms increase from pre-ri"
+    },
+    {
+      "file": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "unit": 20,
+      "purpose": "Joint event descriptor motivation",
+      "status": "reviewed",
+      "opening": "The preceding results suggest that spike severity depends jointly on the regime before the rise and the gradient amplification during it. We summarize this comb"
+    },
+    {
+      "file": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "unit": 21,
+      "purpose": "Signed coordinate and temporal meaning",
+      "status": "reviewed",
+      "opening": "The horizontal coordinate preserves the sign of the pre-rise regime and weights it by the rise norm ratio. More negative values combine stronger initial opposit"
+    },
+    {
+      "file": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "unit": 22,
+      "purpose": "Per-rate regression evidence and interpretation",
+      "status": "reviewed",
+      "opening": "Figure~\\ref{fig:adam-rho-norm-spikes} shows a clear association between this joint descriptor and spike magnitude. Separate fits at each learning rate explain 6"
+    },
+    {
+      "file": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "unit": 23,
+      "purpose": "Intervention rationale and matched-state comparison",
+      "status": "reviewed",
+      "opening": "This anatomy gives a concrete rationale for testing interventions during the developing rise. Gradient clipping directly controls the large input norms implicat"
+    },
+    {
+      "file": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "unit": 24,
+      "purpose": "Scope and prospective next step",
+      "status": "reviewed",
+      "opening": "The present evidence establishes temporal warning signs and within-run associations in three controlled model--dataset cases. Events share trajectories, and the"
+    },
+    {
+      "file": "manuscript/draft/sections/05-conclusion.tex",
+      "unit": 1,
+      "purpose": "Unified diagnostic contribution",
+      "status": "reviewed",
+      "opening": "Constructive and destructive regimes provide an interpretable view of neural-network training through gradients already computed by the optimizer. Adjacent cosi"
+    },
+    {
+      "file": "manuscript/draft/sections/05-conclusion.tex",
+      "unit": 2,
+      "purpose": "Adam warning and population evidence",
+      "status": "reviewed",
+      "opening": "The Adam results establish the relevance of the same raw-gradient view along adaptive trajectories. Diagnostic changes precede the largest loss peaks, and the e"
+    },
+    {
+      "file": "manuscript/draft/sections/05-conclusion.tex",
+      "unit": 3,
+      "purpose": "Practical consequence and future interventions",
+      "status": "reviewed",
+      "opening": "The resulting framework combines inexpensive measurement with a concrete interpretation of the trajectory. It motivates interventions timed to gradient amplific"
+    },
+    {
+      "file": "manuscript/draft/sections/06-loss-appendix.tex",
+      "unit": 1,
+      "purpose": "Exact loss line integral",
+      "status": "reviewed",
+      "opening": "The loss relation in Section~\\ref{subsec:loss-connection} combines gradient magnitude and regime in a single expression. To derive it, consider the SGD update $"
+    },
+    {
+      "file": "manuscript/draft/sections/06-loss-appendix.tex",
+      "unit": 2,
+      "purpose": "Endpoint-gradient approximation",
+      "status": "reviewed",
+      "opening": "Approximating the integral by the average of the full gradients at the two endpoints gives"
+    },
+    {
+      "file": "manuscript/draft/sections/06-loss-appendix.tex",
+      "unit": 3,
+      "purpose": "Quadratic exactness and remainder order",
+      "status": "reviewed",
+      "opening": "This approximation is exact for quadratic objectives. For nonlinear objectives, the approximation error is of third order in the step length when the Hessian is"
+    },
+    {
+      "file": "manuscript/draft/sections/06-loss-appendix.tex",
+      "unit": 4,
+      "purpose": "Endpoint noise substitution",
+      "status": "reviewed",
+      "opening": "Using the stochastic gradient decomposition $g_t=\\nabla\\mathcal{L}(\\theta_{t-1})+\\xi_t$ at both endpoints, we obtain"
+    },
+    {
+      "file": "manuscript/draft/sections/06-loss-appendix.tex",
+      "unit": 5,
+      "purpose": "Cosine and norm factorization",
+      "status": "reviewed",
+      "opening": "Substituting $g_{t-1}^\\top g_t =\\|g_{t-1}\\|\\|g_t\\|\\rho_t$ and factoring the preceding squared gradient norm yields"
+    },
+    {
+      "file": "manuscript/draft/sections/06-loss-appendix.tex",
+      "unit": 6,
+      "purpose": "Main-equation closure",
+      "status": "reviewed",
+      "opening": "which recovers Eq.~\\eqref{eq:loss-curvature}."
+    },
+    {
+      "file": "manuscript/draft/sections/06-loss-appendix.tex",
+      "unit": 7,
+      "purpose": "Projected-change substitution",
+      "status": "reviewed",
+      "opening": "To connect this expression with directional curvature, recall from Eq.~\\eqref{eq:rho-normalized} that"
+    },
+    {
+      "file": "manuscript/draft/sections/06-loss-appendix.tex",
+      "unit": 8,
+      "purpose": "Noise simplification",
+      "status": "reviewed",
+      "opening": "Substituting this relation and using the definition of $\\varepsilon_t$ in Eq.~\\eqref{eq:epsilon} gives"
+    },
+    {
+      "file": "manuscript/draft/sections/06-loss-appendix.tex",
+      "unit": 9,
+      "purpose": "Curvature/regime interpretation",
+      "status": "reviewed",
+      "opening": "Thus, the curvature-based and alignment-based expressions describe the same local loss change to second order. Positive directional curvature counteracts the fi"
+    },
+    {
+      "file": "manuscript/draft/sections/07-gd-diagnostics.tex",
+      "unit": 1,
+      "purpose": "Architectures/objectives and GD controls",
+      "status": "reviewed",
+      "opening": "The tanh MLP has two 200-unit hidden layers and minimizes half-squared error summed over ten output coordinates and averaged over the first 5,000 training image"
+    },
+    {
+      "file": "manuscript/draft/sections/07-gd-diagnostics.tex",
+      "unit": 2,
+      "purpose": "Preprocessing and fixed normalization objective",
+      "status": "reviewed",
+      "opening": "The MLP uses coordinate-wise standardization and ResNet uses channel-wise standardization, both based on the complete CIFAR-10 training split. ResNet's objectiv"
+    },
+    {
+      "file": "manuscript/draft/sections/07-gd-diagnostics.tex",
+      "unit": 3,
+      "purpose": "Transformer targets/vocabulary/coverage",
+      "status": "reviewed",
+      "opening": "For the Transformer, the corpus is arranged into 20 fixed streams and causal chunks of at most 35 tokens. Eight stream-tail tokens and the 20 initial context to"
+    },
+    {
+      "file": "manuscript/draft/sections/07-gd-diagnostics.tex",
+      "unit": 4,
+      "purpose": "Precision and within-case interpretation",
+      "status": "reviewed",
+      "opening": "Physical accumulation uses 1,000-image chunks for the MLP, the fixed 1,000-image groups for ResNet, and 64-sequence chunks for the Transformer. The complete obj"
+    },
+    {
+      "file": "manuscript/draft/sections/07-gd-diagnostics.tex",
+      "unit": 5,
+      "purpose": "Undefined metrics and smoothing",
+      "status": "reviewed",
+      "opening": "Cosines with zero norms and the first unpaired gradient are undefined. Complete 50-observation trailing means summarize the GD diagnostic curves; pointwise quan"
+    },
+    {
+      "file": "manuscript/draft/sections/07-gd-diagnostics.tex",
+      "unit": 6,
+      "purpose": "Unsmoothed transitions",
+      "status": "reviewed",
+      "opening": "Figure~\\ref{fig:gd-raw-alignment} supplies the unsmoothed consecutive cosines underlying Fig.~\\ref{fig:gd-alignment-displacement}(a)--(c). Complete trailing mea"
+    },
+    {
+      "file": "manuscript/draft/sections/07-gd-diagnostics.tex",
+      "unit": 7,
+      "purpose": "Temporal accounting definitions",
+      "status": "reviewed",
+      "opening": "For the complete prefix of $T$ gradients, define the traveled distance and the temporal contributions as"
+    },
+    {
+      "file": "manuscript/draft/sections/07-gd-diagnostics.tex",
+      "unit": 8,
+      "purpose": "Positive total and adjacent destruction",
+      "status": "reviewed",
+      "opening": "Table~\\ref{tab:gd-temporal-accounting} reports these quantities at $T=3000$. The interaction columns use raw gradients and include the factor of two; they are n"
+    },
+    {
+      "file": "manuscript/draft/sections/07-gd-diagnostics.tex",
+      "unit": 9,
+      "purpose": "Retrospective loss surrogate",
+      "status": "reviewed",
+      "opening": "For each gradient pair indexed by $t=2,\\ldots,3000$, let $\\delta\\mathcal L_{t-1}:=\\mathcal L(\\theta_{t-1})-\\mathcal L(\\theta_{t-2})$. We compare this observed c"
+    },
+    {
+      "file": "manuscript/draft/sections/07-gd-diagnostics.tex",
+      "unit": 10,
+      "purpose": "Normalized discrepancy definition",
+      "status": "reviewed",
+      "opening": "The normalized absolute discrepancy is"
+    },
+    {
+      "file": "manuscript/draft/sections/07-gd-diagnostics.tex",
+      "unit": 11,
+      "purpose": "Eligible gradient pairs and denominator",
+      "status": "reviewed",
+      "opening": "The denominator is the magnitude of the first-order full-GD descent term. It is nonzero for every measured pair. Table~\\ref{tab:gd-loss-audit} reports the media"
+    },
+    {
+      "file": "manuscript/draft/sections/07-gd-diagnostics.tex",
+      "unit": 12,
+      "purpose": "Sensitivity-threshold definition",
+      "status": "reviewed",
+      "opening": "For the threshold sensitivity columns, define"
+    },
+    {
+      "file": "manuscript/draft/sections/07-gd-diagnostics.tex",
+      "unit": 13,
+      "purpose": "Audit counts and finite-step interpretation",
+      "status": "reviewed",
+      "opening": "A transition is eligible only when both $|\\delta\\mathcal L_{t-1}|>h_t(\\tau)$ and $|\\widehat{\\delta\\mathcal L}_{t-1}|>h_t(\\tau)$. Each cell prints opposite-sign "
+    },
+    {
+      "file": "manuscript/draft/sections/07-gd-diagnostics.tex",
+      "unit": 14,
+      "purpose": "Backward lag sources and replay scope",
+      "status": "reviewed",
+      "opening": "The backward profiles use the largest GD rate in each model, with exact full-objective gradients from separately recomputed 256-update continuations. Retained s"
+    },
+    {
+      "file": "manuscript/draft/sections/07-gd-diagnostics.tex",
+      "unit": 15,
+      "purpose": "Mini-batch estimator and repetitions",
+      "status": "reviewed",
+      "opening": "The mini-batch comparison uses three initializations for each objective. The MLP reuses the completed 5,000-image experiment at $\\eta=0.02$, with batches $32,12"
+    },
+    {
+      "file": "manuscript/draft/sections/07-gd-diagnostics.tex",
+      "unit": 16,
+      "purpose": "Runtime bridge and hardware variation",
+      "status": "reviewed",
+      "opening": "Cloud runs use PyTorch 2.8/CUDA 12.8. The Transformer uses RTX5090 and 512-sequence physical accumulation, without changing effective batches. ResNet uses L40S/"
+    },
+    {
+      "file": "manuscript/draft/sections/07-gd-diagnostics.tex",
+      "unit": 17,
+      "purpose": "Spectral measurement coverage",
+      "status": "reviewed",
+      "opening": "We measure the largest algebraic Hessian eigenvalue at states $0,100,\\ldots,3000$ using matrix-free Hessian--vector products and a checked relative eigenpair re"
+    },
+    {
+      "file": "manuscript/draft/sections/07-gd-diagnostics.tex",
+      "unit": 18,
+      "purpose": "Directional/spectral comparison clock",
+      "status": "reviewed",
+      "opening": "Maximum pointwise eigenvalue concerns the most curved local direction, whereas $\\widehat\\kappa_t$ concerns realized gradient change across a step. Objective cov"
+    },
+    {
+      "file": "manuscript/draft/sections/07-gd-diagnostics.tex",
+      "unit": 19,
+      "purpose": "Adam precision/hardware/selection",
+      "status": "reviewed",
+      "opening": "Adam uses the complete objectives and frozen initial tensors specified above. All trainable parameters enter the diagnostics; parameters, gradients and moments "
+    },
+    {
+      "file": "manuscript/draft/sections/07-gd-diagnostics.tex",
+      "unit": 20,
+      "purpose": "Adam vector clock and undefined values",
+      "status": "reviewed",
+      "opening": "At state $\\theta_s$, the raw gradient is $g_{s+1}$ and the first moment $m_{s+1}$ includes that gradient before update $s+1$. This is the clock used in the Adam"
+    },
+    {
+      "file": "manuscript/draft/sections/07-gd-diagnostics.tex",
+      "unit": 21,
+      "purpose": "Complete-event sample and aggregation",
+      "status": "reviewed",
+      "opening": "Event extraction searches every loss state from initialization, using strict increases and the first return in Eq.~\\eqref{eq:adam-spike-boundaries}. The density"
+    },
+    {
+      "file": "manuscript/draft/sections/07-gd-diagnostics.tex",
+      "unit": 22,
+      "purpose": "Regression/KDE specification and source provenance",
+      "status": "reviewed",
+      "opening": "The seven scatter fits use ordinary least squares with an intercept, separate coefficients per model/rate, and $\\log_{10}(\\mathcal L_{p_i}/\\mathcal L_{a_i})$ as"
+    },
+    {
+      "file": "manuscript/draft/bare_jrnl.tex:Appendix B",
+      "unit": 1,
+      "purpose": "Indexing and smoothness assumptions",
+      "status": "reviewed",
+      "opening": "We use the same indexing as Section~\\ref{sec:displacement}: $g_{t-1}$ is evaluated at $\\theta_{t-2}$, $g_t$ at $\\theta_{t-1}$, and $H_{t-1}=\\nabla^2\\mathcal{L}("
+    },
+    {
+      "file": "manuscript/draft/bare_jrnl.tex:Appendix B",
+      "unit": 2,
+      "purpose": "One-step Taylor expansion",
+      "status": "reviewed",
+      "opening": "For $\\theta_{t-1}-\\theta_{t-2}=-\\eta g_{t-1}$, Taylor expansion gives"
+    },
+    {
+      "file": "manuscript/draft/bare_jrnl.tex:Appendix B",
+      "unit": 3,
+      "purpose": "Corrected curvature/alignment cross-reference",
+      "status": "reviewed",
+      "opening": "Substituting $\\nabla\\mathcal{L}(\\theta_{t-2})=g_{t-1}-\\xi_{t-1}$ and $g_{t-1}^\\top H_{t-1}g_{t-1}=\\kappa_t\\|g_{t-1}\\|^2$ yields Eq.~\\eqref{eq:appendix-loss-curv"
+    },
+    {
+      "file": "manuscript/draft/bare_jrnl.tex:Appendix B",
+      "unit": 4,
+      "purpose": "Conditional noise products",
+      "status": "reviewed",
+      "opening": "The first-order noise contribution combines with the noise contained in the squared gradient norm. Conditional on the parameters before the batch is drawn, unbi"
+    },
+    {
+      "file": "manuscript/draft/bare_jrnl.tex:Appendix B",
+      "unit": 5,
+      "purpose": "First-order noise cancellation",
+      "status": "reviewed",
+      "opening": "Thus, the contributions from noise variance cancel between the first-order terms when taking their conditional expectation. With finite moments for the retained"
+    },
+    {
+      "file": "manuscript/draft/bare_jrnl.tex:Appendix B",
+      "unit": 6,
+      "purpose": "Remaining second-order contribution",
+      "status": "reviewed",
+      "opening": "Sampling contributes through the curvature-weighted second-order term. For a nonlinear objective, the Taylor remainder supplies the additional finite-step corre"
+    },
+    {
+      "file": "manuscript/draft/bare_jrnl.tex:Appendix B",
+      "unit": 7,
+      "purpose": "Exact two-step displacement",
+      "status": "reviewed",
+      "opening": "The displacement over two SGD updates is exactly"
+    },
+    {
+      "file": "manuscript/draft/bare_jrnl.tex:Appendix B",
+      "unit": 8,
+      "purpose": "Two-step Taylor expansion",
+      "status": "reviewed",
+      "opening": "Expanding around the starting parameters $\\theta_{t-2}$ gives"
+    },
+    {
+      "file": "manuscript/draft/bare_jrnl.tex:Appendix B",
+      "unit": 9,
+      "purpose": "First-order projection identity",
+      "status": "reviewed",
+      "opening": "The first-order projection can be written as"
+    },
+    {
+      "file": "manuscript/draft/bare_jrnl.tex:Appendix B",
+      "unit": 10,
+      "purpose": "Cosine substitution and remainder scope",
+      "status": "reviewed",
+      "opening": "Finally, $g_{t-1}^\\top g_t=\\|g_{t-1}\\|\\|g_t\\|\\rho_t$ yields a form of Eq.~\\eqref{eq:appendix_combined} using consecutive-gradient cosine. The same starting Hess"
+    },
+    {
+      "file": "manuscript/draft/bare_jrnl.tex:abstract",
+      "unit": 1,
+      "purpose": "Problem, formulation, affordability, empirical support and consequence",
+      "status": "reviewed",
+      "opening": "Destructive interactions between successive gradients can accompany sustained training progress, yet strong gradient amplification can turn this behavior into s"
+    }
+  ],
+  "source_hashes": {
+    "manuscript/draft/bare_jrnl.tex": "52327b616016e6f6a141e9f7e079df457c5a140ad6efafa560341a55d6271420",
+    "manuscript/draft/sections/01-introduction.tex": "fc8e42fdd2a08885182d856237c9bb2afba4152bec852cad01855256f05ca880",
+    "manuscript/draft/sections/02-related-works.tex": "62e01c7a5faa76dfbc9f014f3bb4b8d990cc3fc6253e8aa63732cdb0085b8eed",
+    "manuscript/draft/sections/03-methods.tex": "69ef1f2ed873440d740a3f846296212f3e380af305219851908aaa701c486b84",
+    "manuscript/draft/sections/04-gd-experiments.tex": "ff09800c577fb1d8471bd989a205c6eeeff1bf359ee2f82d16da2850ac1a8167",
+    "manuscript/draft/sections/05-sgd-noise-experiments.tex": "212cacfe42f06ae3f4e53d39d5ec9af7721c94a451c13c50c35ac9881815d9db",
+    "manuscript/draft/sections/06-adam-diagnostics.tex": "3ccff150348e66dbad084dbf3516d922eafd9883b26390eb5411c8133c7a95c9",
+    "manuscript/draft/sections/05-conclusion.tex": "93f3c5de114f991cf741c19c28035d397b68ded1d72c019f135155bdadbe076a",
+    "manuscript/draft/sections/06-loss-appendix.tex": "29c4a2963b62e6f9fb6cb1be4fe5416ed51580caddc53b503c2fd6a174917710",
+    "manuscript/draft/sections/07-gd-diagnostics.tex": "992f253f2de34a0004a2a57231b34301af475426eb60c2867933b7bffe6feab5"
+  }
+}

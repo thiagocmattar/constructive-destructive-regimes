@@ -1,0 +1,270 @@
+{
+  "source": "revised-manuscript+feedback.pdf",
+  "source_sha256": "1ca460a9d7b4aef38a50e5f2aabdba302211b13724d3ecf4cfc8dadd1e4d34c9",
+  "comments": [
+    {
+      "id": "C01",
+      "page": 8,
+      "type": "Highlight",
+      "comment": "The argument can be sharper here, right? What is the motivation? Why restate the equations? My take is that adam takes an adaptive step, but the diagnostics from the equations X, Y (ref them here) still is very informative about what is happening on the loss landscape. About the curvature, constructive-destructive regimes, etc. we're measuring different points in space between steps. Those are fed into the adaptive optimizer, so they influence the movement. The goal here is to do a qualitative argument and tell the reader why and how the diagnostic we're proposing can help in adam optimization.",
+      "selected_text": "Although dt determines the step, the raw gradients still reveal variation in local slope along the adaptive trajectory. Their consecutive alignment and magnitudes distinguish directional reversal from a sharp increase in local slope. The first moment shows how this changing input propagates through the optimizer’s memory. The projected-change diagnostic remains exactly com- putable as ηbκt = 1 ∥gt∥ ∥gt−1∥. (27) Under Adam, this is normalized projected raw-gradient change along the realized path; it is not the SGD directional-curvature estimate. A value above two requires negative cosine and a sufficiently large consecutive norm ratio. Thus, reversal and norm growth explain the diagnostic’s increase algebraically, rather than supplying independent confirmations of instability. The reference at two recalls the GD analysis, but does not identify an Adam stability boundary.",
+      "info": {
+        "content": "The argument can be sharper here, right? What is the motivation? Why restate the equations? My take is that adam takes an adaptive step, but the diagnostics from the equations X, Y (ref them here) still is very informative about what is happening on the loss landscape. About the curvature, constructive-destructive regimes, etc. we're measuring different points in space between steps. Those are fed into the adaptive optimizer, so they influence the movement. The goal here is to do a qualitative argument and tell the reader why and how the diagnostic we're proposing can help in adam optimization.",
+        "name": "",
+        "title": "thima",
+        "creationDate": "D:20261103092104-03'00'",
+        "modDate": "D:20261103092326-03'00'",
+        "subject": "Comment on Text",
+        "id": "99eaa833-1a32-4df7-b37d-6e029bb9f578"
+      },
+      "rect": [
+        48.58879852294922,
+        478.99700927734375,
+        563.4110107421875,
+        749.0574951171875
+      ]
+    },
+    {
+      "id": "C02",
+      "page": 9,
+      "type": "Highlight",
+      "comment": "what is this word? aim for clarity",
+      "selected_text": "interspersed",
+      "info": {
+        "content": "what is this word? aim for clarity",
+        "name": "",
+        "title": "thima",
+        "creationDate": "D:20261103092351-03'00'",
+        "modDate": "D:20261103092400-03'00'",
+        "subject": "Comment on Text",
+        "id": "9a1f0856-0a01-4aed-ae18-aecaef9d7f9f"
+      },
+      "rect": [
+        208.19000244140625,
+        700.4375,
+        257.07000732421875,
+        713.192626953125
+      ]
+    },
+    {
+      "id": "C03",
+      "page": 9,
+      "type": "Highlight",
+      "comment": "remove. don't use the excess negative about and afirmative statement.",
+      "selected_text": "its presence alone does not rank the final loss.",
+      "info": {
+        "content": "remove. don't use the excess negative about and afirmative statement.",
+        "name": "",
+        "title": "thima",
+        "creationDate": "D:20261103092421-03'00'",
+        "modDate": "D:20261103092434-03'00'",
+        "subject": "Comment on Text",
+        "id": "43fdc58f-8d61-48b3-88d0-72ce356781d0"
+      },
+      "rect": [
+        311.6029968261719,
+        625.489013671875,
+        563.4110107421875,
+        650.2000122070312
+      ]
+    },
+    {
+      "id": "C04",
+      "page": 10,
+      "type": "Highlight",
+      "comment": "remove",
+      "selected_text": "Their location in the middle or later part of training is an outcome of this maximum- amplitude rule, not an additional temporal filter.",
+      "info": {
+        "content": "remove",
+        "name": "",
+        "title": "thima",
+        "creationDate": "D:20261103092511-03'00'",
+        "modDate": "D:20261103092515-03'00'",
+        "subject": "Comment on Text",
+        "id": "00002d23-acab-4053-b905-80a8c6d4afbf"
+      },
+      "rect": [
+        48.58890151977539,
+        301.90399169921875,
+        300.39599609375,
+        338.5710144042969
+      ]
+    },
+    {
+      "id": "C05",
+      "page": 10,
+      "type": "Highlight",
+      "comment": "remove. its confuse",
+      "selected_text": "with model- dependent timing relative to the raw gradient.",
+      "info": {
+        "content": "remove. its confuse",
+        "name": "",
+        "title": "thima",
+        "creationDate": "D:20261103092747-03'00'",
+        "modDate": "D:20261103092802-03'00'",
+        "subject": "Comment on Text",
+        "id": "a157108f-69fb-4b8d-b537-31ec64726003"
+      },
+      "rect": [
+        48.58890151977539,
+        373.49200439453125,
+        300.3970031738281,
+        398.2040100097656
+      ]
+    },
+    {
+      "id": "C06",
+      "page": 10,
+      "type": "Highlight",
+      "comment": "this is very good. make it clearer and sharper.",
+      "selected_text": "In the Trans- former, the first crossing of two within the excursion is at state 788, when loss is only 0.40% above its pre-rise level. The +10% crossing follows at 790; raw-gradient and momentum norms reach their event maxima at 792 and 793, before loss peaks at 794. The diagnostic thus precedes the pronounced spike and its maximum, while the first small loss increase has already occurred.",
+      "info": {
+        "content": "this is very good. make it clearer and sharper.",
+        "name": "",
+        "title": "thima",
+        "creationDate": "D:20261103093003-03'00'",
+        "modDate": "D:20261103093024-03'00'",
+        "subject": "Comment on Text",
+        "id": "dd92b06d-46f7-475d-8b06-7f6bce6f5ca1"
+      },
+      "rect": [
+        48.58890151977539,
+        385.447998046875,
+        300.3970031738281,
+        481.8890075683594
+      ]
+    },
+    {
+      "id": "C07",
+      "page": 10,
+      "type": "Highlight",
+      "comment": "use the constructive / destructive regime nomenclature.",
+      "selected_text": "The descent separates the models. ResNet and Transformer move toward positive gradient and momentum cosines, lower projected change and a comparatively smooth loss decline. The MLP continues to oscillate: raw cosine remains mostly nega- tive while momentum cosine changes sign, and loss and norms decrease through repeated rebounds. Recovery therefore need not require every raw-gradient pair to become constructive.",
+      "info": {
+        "content": "use the constructive / destructive regime nomenclature.",
+        "name": "",
+        "title": "thima",
+        "creationDate": "D:20261103093043-03'00'",
+        "modDate": "D:20261103093054-03'00'",
+        "subject": "Comment on Text",
+        "id": "d3b7b710-53de-4c2f-b5c0-a9c84fcc0f01"
+      },
+      "rect": [
+        48.58890151977539,
+        480.9460144042969,
+        300.3970031738281,
+        565.4320068359375
+      ]
+    },
+    {
+      "id": "C08",
+      "page": 10,
+      "type": "Highlight",
+      "comment": "I think this is not clear enough. State variables, explain the intuition before the math. Think on the reader.. we're trying to define precisely and also explain the intuition. So it should be easy for the reader to understand. They shouldn't have to think hard.",
+      "selected_text": "To examine repetition without selecting on gradients, write Ls := L(θs) for the recorded training loss. Starting at initial- ization, let ai be the earliest available state with Lai+1 > Lai. Hold the pre-rise reference Lai fixed. When a return is observed within T updates, define the first recovery and peak by ci := min{s : ai < s Ls ≤Lai}, pi := min arg max ai<s<ci Ls. (28) An event is included only when recovery is observed by T = 1024. Search resumes at ci; partial declines and additional local maxima before this return belong to the same event. Thus ai is the last pre-rise state, ai + 1 the first elevated state, pi the loss peak, and ci the first recovered state. Peak increase is 100(Lpi/Lai −1); rise and recovery times are pi−ai and ci− pi, in optimizer updates. The three loss ratios are 1, Lpi/Lai and Lci/Lai",
+      "info": {
+        "content": "I think this is not clear enough. State variables, explain the intuition before the math. Think on the reader.. we're trying to define precisely and also explain the intuition. So it should be easy for the reader to understand. They shouldn't have to think hard.",
+        "name": "",
+        "title": "thima",
+        "creationDate": "D:20261103093235-03'00'",
+        "modDate": "D:20261103093323-03'00'",
+        "subject": "Comment on Text",
+        "id": "c86f31b4-4e11-43dc-ac3a-d1cbb96b466f"
+      },
+      "rect": [
+        48.58879852294922,
+        301.9049987792969,
+        563.4149780273438,
+        749.9694213867188
+      ]
+    },
+    {
+      "id": "C09",
+      "page": 10,
+      "type": "Highlight",
+      "comment": "negation. remove.",
+      "selected_text": "This is an operational amplitude filter chosen for interpretation, not a separation inferred from a density minimum or an optimizer stability threshold.",
+      "info": {
+        "content": "negation. remove.",
+        "name": "",
+        "title": "thima",
+        "creationDate": "D:20261103093809-03'00'",
+        "modDate": "D:20261103093819-03'00'",
+        "subject": "Comment on Text",
+        "id": "e6bb3f1a-a8f6-4b81-9227-4aafc356fb7f"
+      },
+      "rect": [
+        311.6029968261719,
+        532.572998046875,
+        563.4099731445312,
+        569.238037109375
+      ]
+    },
+    {
+      "id": "C10",
+      "page": 10,
+      "type": "Highlight",
+      "comment": "illustrations?",
+      "selected_text": "illustrations",
+      "info": {
+        "content": "illustrations?",
+        "name": "",
+        "title": "thima",
+        "creationDate": "D:20261103093838-03'00'",
+        "modDate": "D:20261103093844-03'00'",
+        "subject": "Comment on Text",
+        "id": "e429dda0-7688-402f-868a-c637cb355625"
+      },
+      "rect": [
+        403.6369934082031,
+        460.8420104980469,
+        451.44000244140625,
+        473.59698486328125
+      ]
+    },
+    {
+      "id": "C11",
+      "page": 10,
+      "type": "Highlight",
+      "comment": "please note.. the text should be insightful and explain / provide insights for the reader. it doesn't need to be overly descriptive.",
+      "selected_text": "Figure 7 places the illustrations within the complete distri- bution of recovered excursions. Small fluctuations coexist with long tails; larger rates populate more severe excursions, al- though the distributions overlap and do not undergo a uniform shift. To focus the anatomy analysis on pronounced changes, we retain events with peak increase strictly greater than 10%. This is an operational amplitude filter chosen for interpretation, not a separation inferred from a density minimum or an optimizer stability threshold. The density retains all amplitudes so that the selection remains visible in context. The filtered sample contains 129 recovered events. Two further above- threshold candidates without observed recovery are excluded. For Table II, pre-rise diagnostics are measured at θai, hence use gradient index ai + 1. Recovery entries first average each event’s diagnostic over the arrival states pi + 1, . . . , ci, then summarize those means across events with equal event weight. They are not values only at ci. The norm-ratio columns instead use the endpoints ∥gpi+1∥/∥gai+1∥and ∥gci+1∥/∥gpi+1∥. The gradient norm’s own maximum need not coincide with the loss peak.",
+      "info": {
+        "content": "please note.. the text should be insightful and explain / provide insights for the reader. it doesn't need to be overly descriptive.",
+        "name": "",
+        "title": "thima",
+        "creationDate": "D:20261103093916-03'00'",
+        "modDate": "D:20261103093942-03'00'",
+        "subject": "Comment on Text",
+        "id": "28a4a90b-4c64-4bdc-b4c6-115a54ee89ec"
+      },
+      "rect": [
+        311.6029968261719,
+        460.8420104980469,
+        563.4149780273438,
+        700.9912109375
+      ]
+    },
+    {
+      "id": "C12",
+      "page": 12,
+      "type": "Highlight",
+      "comment": "THis is a very good table, but it require some improvements:\r- more spacing between columns\r- you can use power scientific notation for \\eta\r- use the entire column / horizontal text space for the table;\r- centralize everything (c)\r- break line on dataset / (line break) model\r\rExplain / define every column on the legend. Although it may be repetitive, some readers do \"dynamical reading\", so they should be able to understand the raw, before, rise, gradient norm ratio, etc on the table legend.\r\rUse max 2 significant digits (i.e. for >100 we don't need decimals; same for >10. for <10 and > 1, use 1 decimal; for <1 use 2 decimals.).",
+      "selected_text": "TABLE II: Anatomy of recovered spikes with peak increase greater than 10%. Cells report mean ± sample SD across events; maximum peak increase has its own subcolumn. Before denotes a single diagnostic at state ai; recovery denotes the event’s mean over states pi + 1, . . . , ci. Norm ratios compare loss-peak/pre-rise and recovered/loss-peak endpoints. N counts included events; dashes indicate no qualifying event. Two initialization events have undefined pre-rise diagnostics, leaving 46 and 38 observations for those entries in the MLP’s middle and highest LR rows. No smoothing or averaging across initializations. Dataset/model η N Peak increase (%) Time (updates) ηbκ (raw) ρ (raw) Gradient norm ratio Mean ± SD Max Rise Recovery Before Recovery Before Recovery Rise Recovery CIFAR-10 MLP 0.0001 8 19.2±6.1 30.9 8.4±2.9 4.4±2.4 1.81±0.38 1.67±0.08 −0.77±0.31 −0.89±0.08 5.32±1.71 0.30±0.07 0.0003 47 42.6±45.8 203.1 5.5±4.4 4.9±4.0 1.35±0.25 1.55±0.18 −0.53±0.29 −0.71±0.24 4.46±3.03 0.33±0.13 0.001 39 94.6±107.5 317.6 6.1±5.9 7.4±7.5 1.36±0.40 1.44±0.26 −0.46±0.38 −0.55±0.30 5.23±3.75 0.31±0.14 CIFAR-10 ResNet-32 0.0003 0 – – – – – – – – – – 0.001 10 104.6±181.7 602.1 7.5±2.2 17.3±11.0 1.34±0.39 1.34±0.25 −0.36±0.42 −0.36±0.26 4.32±2.87 0.43±0.24 0.003 7 179.1±309.2 858.8 6.3±1.3 19.3±20.2 1.74±0.38 1.10±0.37 −0.65±0.28 −0.13±0.42 5.02±4.22 0.34±0.24 WikiText-2 Transformer 0.0003 0 – – – – – – – – – – 0.001 6 33.1±25.5 80.6 6.3±1.9 23.7±9.8 2.06±0.27 0.96±0.16 −0.84±0.10 −0.02±0.12 9.05±3.77 0.09±0.05 0.003 12 82.4±70.3 231.4 6.2±2.7 31.2±16.8 2.17±0.43 0.91±0.19 −0.79±0.22 0.09±0.21 11.43±6.86 0.08±0.08",
+      "info": {
+        "content": "THis is a very good table, but it require some improvements:\r- more spacing between columns\r- you can use power scientific notation for \\eta\r- use the entire column / horizontal text space for the table;\r- centralize everything (c)\r- break line on dataset / (line break) model\r\rExplain / define every column on the legend. Although it may be repetitive, some readers do \"dynamical reading\", so they should be able to understand the raw, before, rise, gradient norm ratio, etc on the table legend.\r\rUse max 2 significant digits (i.e. for >100 we don't need decimals; same for >10. for <10 and > 1, use 1 decimal; for <1 use 2 decimals.).",
+        "name": "",
+        "title": "thima",
+        "creationDate": "D:20261103093410-03'00'",
+        "modDate": "D:20261103093734-03'00'",
+        "subject": "Comment on Text",
+        "id": "7d0f6622-48b2-4370-a7dd-cab68d7a3574"
+      },
+      "rect": [
+        48.58890151977539,
+        51.27099609375,
+        563.4089965820312,
+        255.44097900390625
+      ]
+    }
+  ]
+}

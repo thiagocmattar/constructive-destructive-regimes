@@ -1,30 +1,27 @@
 \section{Conclusion}
 \label{sec:conclusion}
 
-The displacement formulation distinguishes the magnitude of individual updates,
-their local directional interaction and their cumulative accumulation. For
-plain SGD, the exact decomposition retains all temporal lags, while consecutive
-cosine provides a tractable local observation. The curvature and sampling
-relations clarify how that observation can change without determining either
-cumulative displacement or loss improvement. The full-batch and mini-batch
-experiments illustrate these distinctions: gradient reversal can coexist with
-objective progress, and weaker reversal need not improve displacement retention
-or the attained loss.
+Constructive and destructive regimes provide an interpretable view of
+neural-network training through gradients already computed by the optimizer.
+Adjacent cosine identifies the regime, gradient norms measure its
+amplification, and normalized displacement captures cumulative motion.
+The local loss relation explains the central distinction: a destructive
+regime can sustain descent, while sufficiently strong opposing gradients
+can produce loss-increasing steps. Controlled GD and SGD experiments show
+how these regimes evolve with learning rate and mini-batch sampling.
 
-Under Adam, raw-gradient diagnostics remain informative about the loss
-landscape traversed by adaptive steps. Controlled full-batch experiments
-connect loss spikes with a predominantly destructive pre-rise gradient
-regime and sharp norm amplification. The micro-plots resolve projected
-gradient changes before the loss maximum; the event population quantifies
-the variation in timing and recovery across models and rates. A joint
-descriptor of pre-rise reversal and rise norm growth is associated with
-relative peak magnitude, without establishing a causal feedback mechanism
-or a universal instability threshold.
+The Adam results establish the relevance of the same raw-gradient view
+along adaptive trajectories. Diagnostic changes precede the largest
+loss peaks, and the event analysis connects spike magnitude to a
+predominantly destructive initial regime followed by gradient amplification.
+The micro-plots supply temporal evidence, while the distributions and
+regressions show how the pattern repeats across models and rates.
+Together, they identify observable early signs and a consistent anatomy
+of local loss instability.
 
-The practical contribution is a framework for interpreting these measurements
-together and using them to formulate controlled interventions. Developing a
-scheduler or clipping rule requires demonstrating that acting on early
-diagnostics improves subsequent loss at matched budgets, beyond decisions
-based on recent loss and known training settings. Prospective validation,
-controlled interventions and replication across independent runs remain
-future work.
+The resulting framework combines inexpensive measurement with a concrete
+interpretation of the trajectory. It motivates interventions timed to
+gradient amplification within a destructive regime, including learning-rate
+adjustment, gradient clipping and data mixing. Prospective warning rules
+and matched intervention tests are the next step toward using these
+diagnostics to reduce spikes while preserving training progress.

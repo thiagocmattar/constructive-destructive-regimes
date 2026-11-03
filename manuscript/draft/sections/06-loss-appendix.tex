@@ -1,7 +1,8 @@
 \section{Derivation of the Alignment-Based Loss Change}
 \label{appendix:loss-curvature}
 
-Consider the SGD update
+The loss relation in Section~\ref{subsec:loss-connection} combines gradient
+magnitude and regime in a single expression. To derive it, consider the SGD update
 $\theta_{t-1}=\theta_{t-2}-\eta g_{t-1}$.
 The change in the full objective along this step can be
 expressed exactly as
@@ -83,7 +84,8 @@ of $\varepsilon_t$ in Eq.~\eqref{eq:epsilon} gives
 Thus, the curvature-based and alignment-based expressions
 describe the same local loss change to second order.
 Positive directional curvature counteracts the first-order
-loss decrease, while its effect is already incorporated
-into the weighted alignment between consecutive gradients.
+loss decrease. The weighted alignment expresses that effect through
+the regime and gradient-norm ratio: constructive interaction strengthens
+descent, while sufficiently amplified destructive interaction reverses it.
 The noise contributions account for the difference between
 the observed mini-batch gradients and the full gradients.

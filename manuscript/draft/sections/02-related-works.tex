@@ -1,136 +1,130 @@
-\section{Background: Stability Analysis of SGD}
+\section{Background and Related Diagnostics}
 \label{sec:background}
 
-Training stability concerns how perturbations and loss evolve under repeated updates. Overshoot and oscillation are useful symptoms, but can also accompany sustained objective progress. Understanding these dynamics requires examining both the \textit{local curvature} of the loss landscape and the \textit{stochasticity} introduced by mini-batch sampling~\cite{polyak1964methods, bertsekas1997nonlinear, cohen2021edge}.
+Training dynamics reflect both the geometry encountered by an update and
+its interaction with preceding updates. Curvature-based analyses explain
+local amplification; stochastic analyses add sampling variation; temporal
+diagnostics describe how successive directions reinforce or oppose one
+another. We use these perspectives to develop a practical account of
+constructive and destructive regimes.
 
-\subsection{Local Curvature of the Loss Function and Stability}
+\subsection{Curvature, Oscillation and Stability}
 
-Training can be interpreted as a discrete-time dynamical system in which the local curvature of the loss function determines the stability of the updates~\cite{polyak1964methods, bertsekas1997nonlinear}. The curvature indicates how sensitive the loss is to parameter changes in different directions: when curvature is small, updates tend to produce smooth descent toward a minimum, whereas in directions of high curvature the same step can overshoot the minimum and induce oscillatory behavior~\cite{polyak1964methods, bertsekas1997nonlinear, foret2021sharpness}. For this reason, classical analyses of gradient descent relate stability to the spectrum of the Hessian of the loss function, whose eigenvalues quantify directional curvature and indicate how sensitive optimization is to the choice of learning rate~\cite{polyak1964methods, bertsekas1997nonlinear}.
-
-Under this view, let $\theta_t\in\mathbb{R}^p$ denote the parameters after update $t$, and let $g_t$ denote a mini-batch gradient evaluated at $\theta_{t-1}$. For a constant learning rate $\eta>0$, the SGD update is
+Let $\theta_t\in\mathbb R^p$ denote the parameters after update $t$ and
+$g_t$ the gradient evaluated at $\theta_{t-1}$. For a constant learning
+rate $\eta>0$, plain SGD follows
 \begin{equation}
-\theta_t
-= 
-\theta_{t-1} - \eta \, g_t.
-\label{eq:sgd_map_stability}
+ \theta_t=\theta_{t-1}-\eta g_t.
+ \label{eq:sgd_map_stability}
 \end{equation}
-For full-batch GD, $g_t=\nabla\mathcal{L}(\theta_{t-1})$, where $\mathcal{L}$ denotes the full training objective. Defining $H_t:=\nabla^2\mathcal{L}(\theta_{t-1})$, the Jacobian of the deterministic update map is
+In full-batch GD, $g_t=\nabla\mathcal L(\theta_{t-1})$ for the training
+objective $\mathcal L$. Writing $H_t=\nabla^2\mathcal L(\theta_{t-1})$,
+the deterministic update has Jacobian
 \begin{equation}
-J_t
-=
-I - \eta\, H_t.
-\label{eq:jacobian_sgd}
+ J_t=I-\eta H_t.
+ \label{eq:jacobian_sgd}
 \end{equation}
-Consider a small perturbation \(e_{t-1}\) around $\theta_{t-1}$. Under the local linearization of the full-batch GD update, this perturbation evolves as
-\[
-e_t \approx J_t e_{t-1} = (I-\eta H_t)e_{t-1},
-\]
-In a locally quadratic regime near a minimum, the Hessian is approximately constant and admits eigenpairs \((\lambda_i,v_i)\). Decomposing the perturbation as \(e_t=\sum_i \delta_t^{(i)} v_i\), each eigendirection evolves independently according to
-\[
-\delta_t^{(i)}=(1-\eta\lambda_i)\,\delta_{t-1}^{(i)}.
-\]
-Thus, the factor \(1-\eta\lambda_i\) determines whether perturbations along direction \(v_i\) decay or grow. For a positive-definite Hessian, a classical necessary and sufficient condition for linear stability is
+This matrix describes the response to a small parameter perturbation.
+For a fixed positive-definite quadratic Hessian, each eigencomponent is
+multiplied by $1-\eta\lambda_i$, and linear stability requires
 \begin{equation}
-\max_i |1-\eta\lambda_i| < 1
-\; \Leftrightarrow \;
-\eta\,\lambda_{\max}(H_t) < 2,
-\label{eq:quad_stability_condition}
+ \max_i|1-\eta\lambda_i|<1
+ \quad\Longleftrightarrow\quad
+ \eta\lambda_{\max}(H)<2.
+ \label{eq:quad_stability_condition}
 \end{equation}
-which means that all perturbation components contract over time~\cite{polyak1964methods, bertsekas1997nonlinear}. In other words, if \(0<\eta\lambda_i<1\), the perturbation decays monotonically along \(v_i\); if \(1<\eta\lambda_i<2\), it alternates sign while shrinking, producing oscillations around the minimum; and if \(\eta\lambda_i>2\), it alternates sign while growing, leading to divergence. In over-parameterized networks, however, the Hessian spectrum is typically highly anisotropic, with a small number of outlier directions carrying most of the sharpness, while the bulk remains near zero~\cite{sagun2017hessian, ghorbani2019density}. Although this suggests monitoring \(\lambda_{\max}(H_{t})\) as a stability diagnostic, estimating leading Hessian eigenvalues online in large neural networks is computationally expensive, and mini-batch estimates provide only noisy, pointwise proxies of the local geometry.
+The component contracts without changing sign when $0<\eta\lambda_i<1$,
+alternates while contracting when $1<\eta\lambda_i<2$, and alternates
+with increasing magnitude when $\eta\lambda_i>2$~\cite{polyak1964methods,
+bertsekas1997nonlinear}. Thus oscillation and amplification are distinct
+features even in the simplest local model.
 
+Deep-network trajectories repeatedly enter oscillatory regions. Cohen
+et al.~\cite{cohen2021edge} show that full-batch GD often approaches
+$\lambda_{\max}\simeq2/\eta$ while reducing loss over longer timescales.
+Analyses of this Edge-of-Stability behavior explain how nonlinear dynamics
+sustain progress near the quadratic boundary~\cite{arora2022understanding,
+damian2023self}. The trajectory measurements of Xing et al.~\cite{xing2018walk}
+likewise describe steps crossing between sides of a valley. These results
+motivate examining the gradients produced by successive crossings:
+their alignment reveals reversal, and their magnitudes reveal whether
+that reversal is shrinking or growing.
 
-\subsection{Mini-Batch Stochasticity}
+\subsection{Sampling Noise and Local Geometry}
 
-% este parágrafo é bastante redundante com a subseção 3.B
-% In SGD, each update is computed from a subset of the data and therefore provides only a noisy estimate of the full gradient~\cite{mandt2017sgd, hu2019diffusion}. As a result, consecutive mini-batches can induce different update directions, causing the optimization trajectory to fluctuate from one step to the next~\cite{jastrzebski2018three, smith2018bayesian}. The magnitude and structure of this stochasticity depend on the batch size, and they interact with the local geometry of the loss landscape to shape the overall training dynamics~\cite{mandt2017sgd, hu2019diffusion, jastrzebski2018three}. A standard way to formalize this effect is through the covariance of mini-batch gradient noise around the full gradient. However, this quantity is difficult to estimate in practice, since computing it exactly requires access to the full gradient at each optimization step.
-
-% Stochastic optimization adds a second geometric object: the noise covariance. 
-A complementary line of work studies SGD through the lens of stochastic optimization, interpreting the mini-batch gradient as a noisy approximation of the full gradient computed over the entire dataset \cite{mandt2017sgd, hu2019diffusion, mandt2017stochastic, jastrzebski2018three}. In this sense, each SGD step combines a deterministic descent component with a zero-mean random fluctuation induced by sampling, which covariance provides information about how noise is distributed across parameter-space directions and how it may affect trajectory stability. Formally, under fresh, conditionally unbiased sampling, we write the mini-batch gradient as
-
+Mini-batch sampling changes both the estimated direction and the trajectory
+followed through the objective~\cite{mandt2017sgd, hu2019diffusion,
+jastrzebski2018three}. Under fresh, conditionally unbiased sampling, write
 \begin{equation}
-\begin{aligned}
-g_t
-&= \nabla\mathcal{L}(\theta_{t-1}) + \xi_t,\\
-\mathbb{E}[\xi_t\mid \theta_{t-1}]
-&= 0,\\
-\mathrm{Cov}(\xi_t\mid \theta_{t-1})
-&\approx \frac{1}{b}\,\Sigma(\theta_{t-1}),
-\end{aligned}
-\label{eq:sgd_noise_decomposition}
+ \begin{aligned}
+  g_t&=\nabla\mathcal L(\theta_{t-1})+\xi_t,\\
+  \mathbb E[\xi_t\mid\theta_{t-1}]&=0,\\
+  \operatorname{Cov}(\xi_t\mid\theta_{t-1})
+   &=\frac{N-b}{b(N-1)}\Sigma(\theta_{t-1}),
+ \end{aligned}
+ \label{eq:sgd_noise_decomposition}
 \end{equation}
-where \(\xi_t\) is the sampling noise, $b$ is the batch size, and \(\Sigma(\theta_{t-1})\) denotes the covariance matrix of per-sample gradients around the full gradient. At the current parameters, write \(h_i:=\nabla\ell_i(\theta_{t-1})\), where $\ell_i$ is the loss for sample $i$, and \(\mu:=\frac{1}{N}\sum_{i=1}^N h_i=\nabla\mathcal{L}(\theta_{t-1})\), where $N$ is the dataset size. The covariance matrix is
+where the last equality assumes a uniformly sampled size-$b$ subset of
+$N>1$ examples without replacement. At a fixed state, let
+$h_i=\nabla\ell_i(\theta)$ and
+$\mu=N^{-1}\sum_i h_i=\nabla\mathcal L(\theta)$. The per-example covariance is
 \begin{equation}
-\Sigma(\theta_{t-1})
-:=
-\frac{1}{N}\sum_{i=1}^{N}
-\bigl(h_i-\mu\bigr)\bigl(h_i-\mu\bigr)^{\top},
-\label{eq:grad_cov_def}
+ \Sigma(\theta)=\frac{1}{N}\sum_{i=1}^N
+                 (h_i-\mu)(h_i-\mu)^\top.
+ \label{eq:grad_cov_def}
 \end{equation}
-and the scalar dispersion of per-sample gradients around the full gradient is given by the trace of \(\Sigma(\theta_{t-1})\)
-\[
-\mathrm{tr} (\Sigma(\theta_{t-1}))=\frac{1}{N}\sum_{i=1}^{N}\|h_i-\mu\|^2.
-\]
-This makes clear why $\Sigma(\theta_{t-1})$ is generally not a viable online diagnostic: computing it requires access to the full gradient $\mu$ and all per-sample gradients $\{h_i\}_{i=1}^N$ at each training step, which is impractical and incurs at least a full-pass cost per step.
+Its trace measures the total squared dispersion around the full gradient.
+The finite-population factor in Eq.~\eqref{eq:sgd_noise_decomposition}
+shows how larger batches reduce this dispersion.
 
-\subsection{Curvature--Noise Interaction}
+Curvature and stochasticity also interact. The break-even analysis of
+Jastrzebski et al.~\cite{jastrzebski2020break} links the early learning rate
+and batch size to the curvature and gradient variability encountered later.
+In its local one-dimensional quadratic model, variation in sampled curvature
+adds to the mean-square amplification produced by the mean curvature.
+This gives a reason to examine the regime along the evolving path as well
+as the sampling variance at a fixed point. Section~\ref{subsec:sampling-noise}
+makes that distinction explicit for adjacent-gradient alignment.
 
-% Within this curvature--noise viewpoint, two influential trajectory analysis highlight what can (and cannot) be explained by pointwise stability criteria: the \emph{break-even point} for SGD~\cite{jastrzebski2020break} and the \emph{edge-of-stability} (EoS) phenomenon for GD~\cite{cohen2021edge, arora2022understanding, damian2023self}. Both discuss stability along the sharpest direction, but they expose different limitations of purely sharpness-based reasoning.
+\subsection{Temporal Gradient Diagnostics}
 
-The \emph{break-even point} framework of Jastrzebski et al.~\cite{jastrzebski2020break} is an attempt to extend the classical curvature-based stability condition to SGD. The central idea is to analyze stability along the sharpest direction of the loss landscape while explicitly accounting for mini-batch stochasticity. More precisely, the framework proposes a one-dimensional necessary-and-sufficient condition for SGD stability at iteration \(t\),
-\begin{equation}
-(1 - \eta \lambda_{\max}(H_t))^2 + s_t^2 \frac{\eta^2(N-b)}{b(N-1)} \;\le\; 1,
-\label{eq:break_even_condition}
-\end{equation}
-where \(\lambda_{\max}(H_t)\) is the top Hessian eigenvalue, \(N\) is the dataset size, \(b\) is the batch size, and \(s_t^2\) denotes the variance across training examples of the curvature measured along the leading Hessian direction. Large \(s_t^2\) means different mini-batches see substantially different local curvature, while small \(s_t^2\) means they see similar curvature. In this sense, Eq.~\eqref{eq:break_even_condition} can be read as a stochastic extension of the deterministic stability condition in Eq.~\eqref{eq:quad_stability_condition}, so that the first term captures curvature-induced amplification, while the second captures the destabilizing effect of mini-batch stochasticity.
+Successive gradient products have a substantial history in optimization
+diagnostics. Chee and Toulis~\cite{chee2018diagnostics} use them to detect
+the transition toward a stationary phase of constant-step SGD.
+Pesme et al.~\cite{pesme2020diagnostics} analyze the classical
+gradient-product test and show how its small signal relative to variation
+can impair phase detection. Baydin et al.~\cite{baydin2018hypergradient}
+derive online learning-rate adaptation from hypergradients; for ordinary
+gradient descent, the resulting update uses the inner product of successive
+gradients.
 
-Under this definition, the break-even point is defined as the first iteration at which the left-hand side of Eq.~\eqref{eq:break_even_condition} reaches \(1\). Intuitively, it marks the end of an early phase during which the choice of learning rate and batch size can strongly shape the later optimization trajectory. In this sense, a central conjecture of this framework is that, prior to this point, hyperparameters largely determine the maximum curvature and stochasticity levels encountered later in training, thereby setting the regime in which the subsequent dynamics unfold.
+Our focus is the anatomy of the regime that these temporal interactions
+reveal. We combine adjacent alignment with gradient amplification and
+cumulative displacement, then connect those measurements to loss behavior.
+This joint view explains how destructive regimes support sustained descent
+and identifies the additional amplification associated with large loss
+excursions. Extending the same measurements to raw gradients under Adam
+provides a common interpretation across plain and adaptive updates.
 
-% algo como "Apesar da análise local facilitar a interpretação e o tratamento matemático da estabilidade dos algoritmos de otimização, essa abordagem tem fraquezas bem conhecidas. Em especial, ...
-Although the local analysis simplifies both the interpretation and the mathematical treatment of the stability problem, it is subject to well-known limitations. For instance, the Edge-of-Stability (EoS) phenomenon challenges the local-quadratic picture even in deterministic gradient descent (GD). Across architectures and tasks, full-batch GD often exhibits progressive sharpening, with the largest eigenvalue of the Hessian, $\lambda_{\max}(H_t)$, rising until it hovers near (and sometimes above) the nominal threshold $2/\eta$ (Eq.~\ref{eq:quad_stability_condition}), while optimization continues to make progress despite short-term non-monotonicity~\cite{cohen2021edge, arora2022understanding, damian2023self}. Thus, successful training can coexist with local linear instability for extended periods, indicating that sharpness alone does not fully explain and determine trajectory-level behavior.
-
-Together, these results clarify both the value and the limitation of curvature--noise interaction criteria. Quantities such as the leading Hessian eigenvalue $\lambda_{\max}(H_t)$ and the gradient-noise covariance $\Sigma(\theta_{t-1})$ characterize local geometry and stochasticity, but can be expensive to estimate online. Their pointwise values also leave open how successive updates interact and accumulate over a training trajectory. This motivates complementary diagnostics that describe directional reinforcement and cancellation using quantities available during optimization.
-
-\subsection{Practical Stability Analysis in Large-Model Pretraining}
+\subsection{Loss Spikes in Practical Training}
 \label{subsec:practical-stability}
 
-Large-model training reports approach stability through observable symptoms and
-interventions on the training recipe. An instructive example is PaLM:
-Section~5.1 reports approximately 20 loss spikes during training of the
-540B model despite global gradient clipping. The authors recovered by returning
-to a checkpoint about 100 steps before a spike and skipping 200--500 batches.
-Replaying those batches from a different parameter state did not reproduce the
-spikes, suggesting an interaction between data and model state rather than a
-property of the batches alone~\cite{chowdhery2022palm}.
+Large-model training reports show why early diagnostics matter. PaLM
+describes approximately 20 loss spikes during 540B-model training and
+recovers by restarting from an earlier checkpoint and skipping
+batches~\cite{chowdhery2022palm}. OPT reports growing activation norms
+and loss divergence, with recovery through checkpoint restarts and
+learning-rate reduction; tighter gradient clipping also improves early
+stability~\cite{zhang2022opt}. These interventions incur training cost
+and make the timing of a warning practically consequential.
 
-Reports accompanying released model weights provide further operational
-evidence. During OPT-175B training, loss divergence was associated with failures
-of the dynamic loss scale and growing final-layer activation norms. Recovery
-involved reducing the learning rate and restarting from an earlier checkpoint;
-lowering the gradient-clipping threshold from 1.0 to 0.3 also improved stability
-early in training~\cite{zhang2022opt}. These observations motivate monitoring
-the numerical state of training alongside the loss.
-
-OLMo~2 makes this diagnostic process explicit by measuring a rolling spike
-score on training loss and gradient norm, and using controlled ablations to
-study initialization, normalization, and optimizer settings. Its revised recipe
-combines global gradient clipping with changes including query--key
-normalization, reordered normalization, and a logit regularizer
-($z$-loss)~\cite{olmo2025furious}. In Llama~3, the authors report a stable
-pretraining recipe with few loss spikes and no interventions for divergence;
-they use learning-rate warmup and a staged batch-size schedule, and emphasize
-FP32 gradient accumulation and reduction for numerical
-stability~\cite{grattafiori2024llama3}. These reports document both failure
-recovery and recipes that avoid recurrent failures, rather than a universal
-instability mechanism.
-
-Loss, gradient norm, and activation statistics are practical monitoring signals,
-but gradient magnitude alone does not describe the relationship between
-successive directions. A large gradient can reinforce or oppose its predecessor,
-and a sequence of individually bounded steps can still exhibit cumulative
-cancellation. We therefore seek a complementary description that can be
-computed from training gradients and interpreted through their temporal
-geometry. The following section develops parameter displacement and
-consecutive-gradient cosine similarity for this purpose, connecting the latter
-to directional curvature and gradient noise without requiring online Hessian
-eigendecomposition.
+Modern recipes therefore monitor gradient norms alongside loss.
+OLMo~2 uses rolling loss and gradient-norm spike scores in its stability
+analysis~\cite{olmo2025furious}, while Llama~3 emphasizes numerical
+precision, warmup and batch-size scheduling in a largely stable
+pretraining recipe~\cite{grattafiori2024llama3}. Adjacent-gradient cosine
+adds a directional interpretation to such magnitude measurements:
+it identifies whether a growing gradient reinforces or opposes the
+preceding one. The following section develops this combination into
+diagnostics of constructive and destructive training.
 

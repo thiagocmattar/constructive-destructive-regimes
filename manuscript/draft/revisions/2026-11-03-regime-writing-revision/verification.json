@@ -1,0 +1,92 @@
+{
+  "retained_math": {
+    "quadratic_noise_and_attenuation_checks": 186,
+    "max_absolute_error": 1.7763568394002505e-14,
+    "orthogonal_retention": true,
+    "opposing_cancellation": true,
+    "zero_gradient_exception": true
+  },
+  "additional_math": {
+    "cases": 328,
+    "max_absolute_error": 5.684341886080802e-14,
+    "coverage": [
+      "Adam projected curvature response on quadratics",
+      "Exact finite-population covariance",
+      "All-pair displacement and retention"
+    ]
+  },
+  "retained_gd_sgd_evidence": {
+    "curves": 57,
+    "points": 134560,
+    "endpoint_rows": 9,
+    "displayed_scalars": 45,
+    "backward_endpoints": 9,
+    "preserved_comments": 28,
+    "source_hashes": 12,
+    "vector_figures": 4,
+    "transformer_state_example": {
+      "0": {
+        "mean_rho": -0.25949575516214246,
+        "loss_change": -3.505136604351701
+      },
+      "2000": {
+        "mean_rho": -0.25844491207239656,
+        "loss_change": 0.0642658936333953
+      }
+    },
+    "displayed_state_example_scalars": 1,
+    "sgd_curves": 6,
+    "sgd_points": 28,
+    "sgd_initialization_scalars": 84,
+    "displayed_runtime_bridge_scalars": 1
+  },
+  "adam_claims": {
+    "recovered_events": 806,
+    "anatomy_events": 129,
+    "excluded_without_recovery": 2,
+    "negative_prerise": 117,
+    "defined_prerise": 127,
+    "eta_above_two_before": 21,
+    "norm_grows_to_peak": 129,
+    "eta_max_before": 82,
+    "eta_max_coincident": 29,
+    "eta_max_after": 18,
+    "largest_increase": 858.7697586669618
+  },
+  "preserved_author_comments": 12,
+  "pages": 17,
+  "placements": {
+    "sec:displacement": 3,
+    "sec:gd-experiments": 5,
+    "sec:adam-diagnostics": 7,
+    "sec:conclusion": 12,
+    "fig:adam-overview": 10,
+    "fig:adam-spikes": 10,
+    "fig:adam-spike-distribution": 11,
+    "tab:adam-spike-anatomy": 11,
+    "fig:adam-rho-norm-spikes": 12
+  },
+  "status": "passed",
+  "pdf_sha256": "7cf8bea2e50e99962c9a0ab6ecec485a7f234ae30cb2099f1a9e80f1be552f69",
+  "active_figures": 9,
+  "verifier_sha256": "fad2e3954dab9239fe31954ecdd87b9f25e53f3694efec96208ebca4d5b8c9c7",
+  "evidence_manifest_sha256": "9300ed7ce3f87cc7552dc5a7bffd513df7c39b08c64d6ca39b222baa9f6253f5",
+  "build": "pdflatex/BibTeX; zero overfull boxes or unresolved references",
+  "source_hashes": {
+    "manuscript/draft/bare_jrnl.tex": "52327b616016e6f6a141e9f7e079df457c5a140ad6efafa560341a55d6271420",
+    "manuscript/draft/bibliography.bib": "4f952b4970588551e07eaf8147d5391b301f885a85eb7a0fd708a1fa5883bf98",
+    "manuscript/draft/sections/01-introduction.tex": "fc8e42fdd2a08885182d856237c9bb2afba4152bec852cad01855256f05ca880",
+    "manuscript/draft/sections/02-related-works.tex": "62e01c7a5faa76dfbc9f014f3bb4b8d990cc3fc6253e8aa63732cdb0085b8eed",
+    "manuscript/draft/sections/03-methods.tex": "69ef1f2ed873440d740a3f846296212f3e380af305219851908aaa701c486b84",
+    "manuscript/draft/sections/04-gd-experiments.tex": "ff09800c577fb1d8471bd989a205c6eeeff1bf359ee2f82d16da2850ac1a8167",
+    "manuscript/draft/sections/04-results.tex": "afc1f30d1c6f3dba8e3d3cdeaa0d04947fc8df54e9131871db16390062a77d45",
+    "manuscript/draft/sections/05-conclusion.tex": "93f3c5de114f991cf741c19c28035d397b68ded1d72c019f135155bdadbe076a",
+    "manuscript/draft/sections/05-sgd-noise-experiments.tex": "212cacfe42f06ae3f4e53d39d5ec9af7721c94a451c13c50c35ac9881815d9db",
+    "manuscript/draft/sections/06-adam-diagnostics.tex": "3ccff150348e66dbad084dbf3516d922eafd9883b26390eb5411c8133c7a95c9",
+    "manuscript/draft/sections/06-appendix.tex": "210ed113fe474b3171f6640c7fe8dc417bd35586d981ae2d1e8fcd89a6a6732c",
+    "manuscript/draft/sections/06-loss-appendix.tex": "29c4a2963b62e6f9fb6cb1be4fe5416ed51580caddc53b503c2fd6a174917710",
+    "manuscript/draft/sections/07-gd-diagnostics.tex": "992f253f2de34a0004a2a57231b34301af475426eb60c2867933b7bffe6feab5",
+    "manuscript/draft/tables/analysis036_spike_anatomy.tex": "58f64b4185394d5ab1e11a995c3716355dd634d6cf0d23a874d25f0b5f885e95"
+  },
+  "visual_review": "All 17 final pages inspected in Poppler contact sheets; detailed review of title, mathematics, Adam narrative, figures/table, conclusion and references. No clipping or overlap; centered full-width anatomy table is legible."
+}
