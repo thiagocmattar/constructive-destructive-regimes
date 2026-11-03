@@ -5,8 +5,8 @@ Training dynamics reflect both the geometry encountered by an update and
 its interaction with preceding updates. Curvature-based analyses explain
 local amplification; stochastic analyses add sampling variation; temporal
 diagnostics describe how successive directions reinforce or oppose one
-another. We connect them through curvature information recovered from
-training gradients and interpreted through constructive/destructive regimes.
+another. We use these perspectives to develop a practical account of
+constructive and destructive regimes.
 
 \subsection{Curvature, Oscillation and Stability}
 
@@ -96,15 +96,15 @@ gradient-product test and show how its small signal relative to variation
 can impair phase detection. Baydin et al.~\cite{baydin2018hypergradient}
 derive online learning-rate adaptation from hypergradients; for ordinary
 gradient descent, the resulting update uses the inner product of successive
-gradients. Reusing gradient differences to approximate curvature also
-underlies the two-point step sizes of Barzilai and
-Borwein~\cite{barzilai1988two}.
+gradients.
 
-We use this curvature information to explain the regime's anatomy:
-adjacent alignment identifies reversal, norm growth determines its strength,
-and cumulative displacement measures its accumulated effect. This joint
-interpretation distinguishes productive destructive descent from amplified
-loss excursions and extends to raw-gradient response under Adam.
+Our focus is the anatomy of the regime that these temporal interactions
+reveal. We combine adjacent alignment with gradient amplification and
+cumulative displacement, then connect those measurements to loss behavior.
+This joint view explains how destructive regimes support sustained descent
+and identifies the additional amplification associated with large loss
+excursions. Extending the same measurements to raw gradients under Adam
+provides a common interpretation across plain and adaptive updates.
 
 \subsection{Loss Spikes in Practical Training}
 \label{subsec:practical-stability}

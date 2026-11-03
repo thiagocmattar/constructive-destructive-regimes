@@ -1,0 +1,72 @@
+{
+  "retained_math": {
+    "quadratic_noise_and_attenuation_checks": 186,
+    "max_absolute_error": 1.7763568394002505e-14,
+    "orthogonal_retention": true,
+    "opposing_cancellation": true,
+    "zero_gradient_exception": true
+  },
+  "additional_math": {
+    "cases": 508,
+    "max_absolute_error": 5.684341886080802e-14,
+    "coverage": [
+      "Adam projected curvature response on quadratics",
+      "Exact finite-population covariance",
+      "All-pair displacement and retention",
+      "Nonquadratic path-average curvature, noise correction and local error bound"
+    ]
+  },
+  "retained_gd_sgd_evidence": {
+    "curves": 57,
+    "points": 134560,
+    "endpoint_rows": 9,
+    "displayed_scalars": 45,
+    "backward_endpoints": 9,
+    "preserved_comments": 28,
+    "source_hashes": 12,
+    "vector_figures": 4,
+    "transformer_state_example": {
+      "0": {
+        "mean_rho": -0.25949575516214246,
+        "loss_change": -3.505136604351701
+      },
+      "2000": {
+        "mean_rho": -0.25844491207239656,
+        "loss_change": 0.0642658936333953
+      }
+    },
+    "displayed_state_example_scalars": 1,
+    "sgd_curves": 6,
+    "sgd_points": 28,
+    "sgd_initialization_scalars": 84,
+    "displayed_runtime_bridge_scalars": 1
+  },
+  "adam_claims": {
+    "recovered_events": 806,
+    "anatomy_events": 129,
+    "excluded_without_recovery": 2,
+    "negative_prerise": 117,
+    "defined_prerise": 127,
+    "eta_above_two_before": 21,
+    "norm_grows_to_peak": 129,
+    "eta_max_before": 82,
+    "eta_max_coincident": 29,
+    "eta_max_after": 18,
+    "largest_increase": 858.7697586669618
+  },
+  "preserved_author_comments": 12,
+  "pages": 14,
+  "status": "passed",
+  "restoration": {
+    "restored_sources": 5,
+    "retained_sources": 18,
+    "preserved_previous_revision": 17
+  },
+  "pdf_sha256": "fca3307bfbd0434215ccd118ef2ab9ba5e4ccc9070ab764e5091aa56b5af977a",
+  "active_figures": 8,
+  "verifier_sha256": "d84183a58ae89232f41a957893b254d720eb3f9090d58509b5ad27fbc4230ae8",
+  "reused_verifier_sha256": "c39552b2a7e76e96da765e49b2acdd78465fe686e7eca6689a66b7077701febf",
+  "restoration_manifest_sha256": "741c05604932cc710710be570a1ca419a650925823abfdb86f96dca6d51e4622",
+  "build": "pdflatex/BibTeX; zero overfull boxes or unresolved references",
+  "visual_review": "review.json"
+}

@@ -1,0 +1,53 @@
+{
+  "request": "Create a new revision and restore Sections I-IV to before the curvature-focused pass.",
+  "baseline_commit": "a4bbf0d22c1e8e9a4ac126a0a05fd2e630424343",
+  "curvature_pass_commit": "91fc1d4654322dd298091cab2ee134c718eb60bc",
+  "working_head_at_start": "9af24113bebd3d76a3bad5cabda78690fa69b7c9",
+  "restored_sources": {
+    "manuscript/draft/sections/01-introduction.tex": "fc8e42fdd2a08885182d856237c9bb2afba4152bec852cad01855256f05ca880",
+    "manuscript/draft/sections/02-related-works.tex": "62e01c7a5faa76dfbc9f014f3bb4b8d990cc3fc6253e8aa63732cdb0085b8eed",
+    "manuscript/draft/sections/03-methods.tex": "69ef1f2ed873440d740a3f846296212f3e380af305219851908aaa701c486b84",
+    "manuscript/draft/sections/04-gd-experiments.tex": "e32a32448f5009ef1de8cc0c3d3e8bb3c9b9c4c54a9d7ea821399da8dd9b4230",
+    "manuscript/draft/sections/05-sgd-noise-experiments.tex": "da9cddf66b12eaaca8d4a779e1fda27fc966ae1f417e0907a3a2362573a0143d"
+  },
+  "retained_sources": {
+    "manuscript/draft/bare_jrnl.tex": "0c8b3fccff9cdf619d09993827d0b8f5ac4bfcf611e803d6e41169f1b5992286",
+    "manuscript/draft/bibliography.bib": "0f5e043b14e62d8a9ec58b40355b356b97ad4423dd1e310b44bcffc4c42b5868",
+    "manuscript/draft/sections/04-results.tex": "afc1f30d1c6f3dba8e3d3cdeaa0d04947fc8df54e9131871db16390062a77d45",
+    "manuscript/draft/sections/05-conclusion.tex": "adbafaee90e32c48211d5193e4b299034977ec4ba23c21698231eb932005edf4",
+    "manuscript/draft/sections/06-adam-diagnostics.tex": "4bfa2e0f9e5b97a9b4852bc6df6bcf1145975fd951571c8e56efa157a76157d9",
+    "manuscript/draft/sections/06-appendix.tex": "210ed113fe474b3171f6640c7fe8dc417bd35586d981ae2d1e8fcd89a6a6732c",
+    "manuscript/draft/sections/06-loss-appendix.tex": "20a6cc9df4c7d179fd715192112e4c746ece0e9002777295c9491c2053107eae",
+    "manuscript/draft/sections/07-gd-diagnostics.tex": "40fa6cbcacbb97cc09625bb46350dd26d16a4565531114baabaa33cf7674ce10",
+    "manuscript/draft/tables/analysis024_endpoints.tex": "5bc85f3955a20399504e2c8733462715dc09f3c868a3391b81e5a3a1c8159877",
+    "manuscript/draft/tables/analysis024_loss_audit.tex": "88d4d3d74733c1dd733024aad1cf63c32e7db576bd4542d2c085de81b977d7bf",
+    "manuscript/draft/tables/analysis024_spectral_context.tex": "ef682f6f1786a5e34b9eef54754f46279c42dc7d4e5957d8a796631eee1ecb90",
+    "manuscript/draft/tables/analysis024_temporal_accounting.tex": "7d0a145131c535bc6c36840f7cf46028a09564e4d82158a484ed3211c176db94",
+    "manuscript/draft/tables/analysis027_contrasts.tex": "4a40553ba0385c1fee2302bf407bf6b10fd18a97dd27c5f87952aefe9aeef5a2",
+    "manuscript/draft/tables/analysis027_hvp_errors.tex": "90858ddc0298c6b4ac62bda76a6ee511dcb53bb63e735860172468147e0e9f8d",
+    "manuscript/draft/tables/analysis028_schedules.tex": "f3a9a67c4c978f3fcacd588605511884f89605aa5b2e56ae75647d76ad6a688b",
+    "manuscript/draft/tables/analysis028_streams.tex": "70a9acf71c0c4ddade331e11642f386276e09ad0952ab148fa5a3aec1780fba7",
+    "manuscript/draft/tables/analysis036_forecast.tex": "6ef8a20a9cbc5604a2b2532035339d460d6c13bd984978c44271a39cbf599cac",
+    "manuscript/draft/tables/analysis036_spike_anatomy.tex": "58f64b4185394d5ab1e11a995c3716355dd634d6cf0d23a874d25f0b5f885e95"
+  },
+  "preserved_previous_revision": {
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/00_extract_feedback.py": "8e4333333d56774658b24c7c51b04a138bc22324267c4f9a758b200c0710fe47",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/01_prepare_table.py": "1714456d1fc9c53c0e9b47fb216cf624e82b352a90afb5aebdfa0b0328d05c08",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/02_build_and_verify.py": "c39552b2a7e76e96da765e49b2acdd78465fe686e7eca6689a66b7077701febf",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/APPENDIX_REVIEW.md": "6368fbebe0772cdb9dc7882b6665f9226959925f677e64a79d69d9d4874ce645",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/CURVATURE_REVIEW.md": "9999c38874b1b3ed695d59a2060c6a68096d2fb7f95bfdd217352469be473bed",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/evidence_manifest.json": "9300ed7ce3f87cc7552dc5a7bffd513df7c39b08c64d6ca39b222baa9f6253f5",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/feedback.json": "56ab3861f3e0085d9234171429c2f82c142d171bf8baa756b1f4c7e7b38722ea",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/feedback.md": "171270601d38032e773f29428b31d8182f8d5ac1bd068ad564b3dce79accd845",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/paragraph_review.json": "7945fe31437d26d874e9a7899b683729486edac97e502a5bd8eb18599bfbabea",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/PARAGRAPH_REVIEW.md": "641c466735194e241558e04fd37bc547c26a1b9b96de15db25cf67e6a0fb595b",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/README.md": "fe7405b98c99bd28ec653c1414c3658ba349c21a7853ec13c7053af6515d46ae",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/review.json": "355aaf94f99dfdf4e6cc66ec8cd912a1635270860b0646914fbde8c1ad72d07b",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/REVIEW.md": "50073a6e4c554fb3810e2ac5cafcea34f54c3ac75212d2fa44085a5083ff8e50",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/revised-manuscript.pdf": "34a1d851293c4d3fc8bad5e15f2608d66380e743ee1697ac47aeb9130c8ec789",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/TASKS.md": "2a0e5ac97826b94ec85e8e631aedf68e68572b22a294e879cded4fc435e925ed",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/verification.json": "5cea7ecb686bdd66350190a835ac55346cac94e75df6ff44d3b0437a2b558c5a",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/WRITING_PRINCIPLES.md": "d30e4f23e445da1608e8a0919e0c7cc867efc103d343170f73e478cc8c03ae6c"
+  },
+  "scope": "Sections I-IV restored exactly; abstract, title, keywords, Adam, conclusion, appendices, tables, bibliography and figures retained."
+}

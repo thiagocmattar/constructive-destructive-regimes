@@ -22,7 +22,7 @@ hypothesis. Next Run217 / Analysis038 / H028.
 
 [Analysis036: controlled Adam spike anatomy](../analyses/036-2026-11-02-controlled-adam-diagnostics/README.md)
 uses nine fixed-rate, 1024-update trajectories from matched initial weights.
-The [current manuscript](../manuscript/draft/revisions/2026-11-03-regime-writing-revision/README.md)
+The [current manuscript](../manuscript/draft/revisions/2026-11-03-sections-i-iv-restored/README.md)
 presents the loss overview, largest recovered spikes at the highest rates,
 fixed-reference event definition, 806-event density, grouped 129-event >10%
 anatomy table and 127-point per-LR regression scatter. Negative pre-rise raw
@@ -33,6 +33,8 @@ prediction and causality remain distinct. The writing revision addresses
 12 author comments and standardizes the regime argument. Following the initial
 135-unit/14-caption review, appendix shortening reduces the PDF to 14 pages:
 one derivation, concise measurement conventions, and no appendix floats.
+The latest separate revision restores Sections I-IV exactly to `a4bbf0d`,
+before the curvature-focused pass; other sections and prior PDFs are preserved.
 The central contribution is curvature estimation from training gradients,
 with an exact smooth-GD path-average identity and one-gradient online storage.
 Raw-history, statistical, retained GD/SGD/math,

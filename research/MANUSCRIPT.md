@@ -1,8 +1,18 @@
 # Manuscript and evidence
 
+## Selective restoration of Sections I-IV, 2026-11-03
+
+The [current revision](../manuscript/draft/revisions/2026-11-03-sections-i-iv-restored/README.md)
+restores Sections I-IV byte for byte from `a4bbf0d`, the concise-appendix
+version immediately preceding the curvature-focused pass. The abstract, title,
+keywords, Adam section, conclusion, appendices and scientific assets remain
+unchanged. The prior revision folder and PDF are preserved. The new 14-page
+review passes source-hash, frozen-evidence, mathematical, compilation and
+visual checks. No new scientific analysis or experiment is introduced.
+
 ## Full-paper writing revision, 2026-11-03
 
-The [current revision](../manuscript/draft/revisions/2026-11-03-regime-writing-revision/README.md)
+The [preceding writing revision](../manuscript/draft/revisions/2026-11-03-regime-writing-revision/README.md)
 applies the author's clarified writing methodology: consistent regimes defined
 by adjacent raw-gradient cosine, direct contribution statements, intuition
 before mathematics, and results that explain their scientific implication.

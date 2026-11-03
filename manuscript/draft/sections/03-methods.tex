@@ -4,11 +4,10 @@
 Our diagnostics answer three connected questions: which directional regime
 is the optimizer traversing, how strongly are gradients changing, and how
 much of the resulting motion accumulates? Adjacent-gradient cosine
-$\rho_t$ identifies the regime; the projected change
-$\eta\widehat\kappa_t$ gives a directional-curvature estimate from
-training gradients; normalized displacement $R_T$ supplies the cumulative
-view. We derive their connection to the Hessian and local loss changes
-without requiring Hessian computation during monitoring.
+$\rho_t$, the projected change $\eta\widehat\kappa_t$, and normalized
+displacement $R_T$ supply these local and cumulative views. We first derive
+them for plain SGD, then explain how destructive regimes can sustain
+descent or develop loss-increasing steps.
 
 Consider the plain SGD update in Eq.~\eqref{eq:sgd_map_stability}, with constant
 learning rate $\eta>0$. As before, $\theta_t\in\mathbb{R}^p$ denotes the
@@ -72,7 +71,7 @@ and negative terms cancel it. The adjacent statistic $\rho_t$ makes the
 current regime observable online; longer-lag interactions determine how
 that local behavior contributes to motion over the full training horizon.
 
-\subsection{Estimating Directional Curvature from Training Gradients}
+\subsection{Directional Curvature and Consecutive Alignment}
 
 For mini-batch SGD, we explicitly incorporate stochastic gradient noise in
 Eq.~\eqref{eq:sgd_noise_decomposition},
@@ -139,8 +138,7 @@ destructive regime: the next gradient opposes a component of the preceding
 step. The loss-increase boundary depends additionally on the strength of
 that opposition, as derived in Section~\ref{subsec:loss-connection}.
 
-Curvature can therefore be estimated from the two gradients already
-available along the training path. Rearranging
+This interpretation leads to a measurable diagnostic. Rearranging
 Eq.~\eqref{eq:rho-normalized} gives
 \begin{equation}
  \begin{aligned}
@@ -151,20 +149,14 @@ Eq.~\eqref{eq:rho-normalized} gives
  \end{aligned}
   \label{eq:kappa-estimate}
 \end{equation}
-Dividing by $\eta$ estimates the directional curvature $\kappa_t$.
-For smooth full-batch GD, $\widehat\kappa_t$ is exactly the directional
-curvature averaged along the completed step; on a quadratic objective,
-it equals $\kappa_t$. Appendix~\ref{appendix:loss-curvature} derives
-this identity and bounds the pointwise approximation error for a varying
-Hessian. Under SGD, $\varepsilon_t/\eta$ gives the sampling contribution.
-The estimate concerns the traversed direction, complementing the
-largest-eigenvalue criterion in Eq.~\eqref{eq:quad_stability_condition}.
-
-One retained gradient and scalar norms supply $\rho_t$ and
-$\widehat\kappa_t$ in $O(p)$ operations and additional memory.
-The estimate is available after each ordinary backward pass, before
-the next update, with no Hessian, Hessian--vector product or extra
-gradient evaluation. Curvature monitoring becomes part of training itself.
+This diagnostic measures the change of gradient projected onto its
+preceding direction, normalized by the preceding squared norm.
+It combines the regime with the relative gradient magnitude in one
+observable quantity. In full GD, a small Taylor remainder gives a
+directional-curvature estimate; under SGD, the explicit noise term
+describes the sampling contribution. The diagnostic concerns the
+direction actually traversed, complementing the largest-eigenvalue
+criterion in Eq.~\eqref{eq:quad_stability_condition}.
 
 
 \subsection{Noise Contribution under Mini-Batch Sampling}
@@ -275,10 +267,14 @@ Absolute displacement can keep growing while its retained fraction falls.
 Together, $\rho_t$, gradient norms and $R_T$ describe the local regime,
 the size of its steps and the fraction retained over time.
 
-Computing $R_T$ adds a running gradient sum and a scalar sum of norms,
-with $O(p)$ work and storage independent of $T$. The exact all-pair
-identity is evaluated through these sums. Explicit lag profiles require
-retained history beyond the one-gradient buffer used for online curvature.
+These diagnostics are inexpensive in computational structure.
+For $p$ parameters, a norm and an inner product with the retained preceding
+gradient give $\rho_t$ and $\eta\widehat\kappa_t$ in $O(p)$ operations and
+$O(p)$ additional storage per update. Computing $R_T$ adds a running vector
+sum and a scalar sum of norms, also with $O(p)$ work and storage independent
+of $T$. All use gradients already produced by the training backward pass;
+the exact all-pair identity is evaluated through these sums. Explicit
+lag profiles are a separate measurement requiring retained history.
 
 \subsection{From Destructive Descent to Loss Increase}
 \label{subsec:loss-connection}
@@ -323,9 +319,8 @@ Substituting Eq.~\eqref{eq:rho-normalized} with zero noise gives
 \end{equation}
 Within the local quadratic model, $1<\eta\kappa_t<2$ is a destructive
 regime with decreasing loss; $\eta\kappa_t>2$ produces a loss increase.
-Thus the local GD loss-increase condition lies within the destructive
-regime. The curvature estimate makes its amplification observable through
-gradient reversal and norm growth, without computing $H_{t-1}$.
-Nonlinear remainder and SGD noise terms delimit this approximation.
-We now examine these regimes, their cumulative motion and the loss spikes
-that develop along neural-network training trajectories.
+The projected-change diagnostic expresses the same transition through
+observable gradient reversal and amplification. Nonlinear remainder and
+SGD noise terms delimit this approximation. We now test how the predicted
+regimes appear in neural-network training and how their signatures
+relate to cumulative motion and loss spikes.

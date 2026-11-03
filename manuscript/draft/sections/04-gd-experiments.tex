@@ -2,7 +2,7 @@
 \begin{figure*}[!t]
   \centering
   \includegraphics[width=\textwidth]{figures/analysis024/gd_loss_projected_change.pdf}
-  \caption{Training loss and the gradient-based curvature diagnostic under full-batch GD.
+  \caption{Training loss and projected gradient change under full-batch GD.
   Columns identify the dataset/model; colors identify learning rates within
   each column. Top: unsmoothed full-objective loss on logarithmic axes.
   Bottom: complete 50-pair trailing means of the pointwise
@@ -47,23 +47,22 @@ objectives, architectures, precision and measurement details.
 
 \subsection{Descent in a Destructive Regime}
 
-Figure~\ref{fig:gd-loss} pairs loss with the learning-rate-scaled
-directional-curvature estimate $\eta\widehat\kappa_t$, computed entirely
-from consecutive gradients. The higher-rate trajectories develop oscillatory
+Figure~\ref{fig:gd-loss} pairs loss with the projected gradient change
+$\eta\widehat\kappa_t$. The higher-rate trajectories develop oscillatory
 loss while continuing to improve over longer timescales; their late
 projected change approaches two. Their negative adjacent cosines
 in Fig.~\ref{fig:gd-alignment-displacement} identify a sustained
 destructive regime. Equation~\eqref{eq:loss-rise-curvature}
 explains why this value is informative: in the local quadratic model,
 it separates a loss-decreasing step from one that reverses the preceding
-progress. The observed pattern gives a view of curvature-driven
+progress. The observed pattern gives a gradient-based view of the
 oscillatory descent associated with the Edge of Stability~\cite{cohen2021edge}.
 
 
 Consecutive gradients therefore expose an oscillatory regime that is
-productive over the training horizon. The curvature estimate makes this
-regime observable without Hessian computation. The corresponding local
-loss approximation has finite-step error:
+productive over the training horizon. The projected-change diagnostic
+provides its directional interpretation using inexpensive vector
+reductions. Its pointwise accuracy depends on the local approximation:
 at the highest Transformer rate, the unsmoothed noise-free expression
 in Eq.~\eqref{eq:loss-curvature} disagrees with the observed loss-change
 sign in 44.2\% of 2,999 transitions. This finite-step discrepancy
