@@ -58,7 +58,11 @@ questions alone do not create experimental commitments.
 | --- | --- | --- | --- | --- |
 | H028 | Can matched Adam interventions reduce selected loss excursions without degrading subsequent optimization, and can that benefit transfer to a causal online policy? | Selected-fork treatments and combined hold/cosine promising; one-step rule unsupported | [Analysis040](../analyses/040-2026-11-03-mlp-step-actions/REPORT.md); [Analysis041](../analyses/041-2026-11-03-mlp-temporary-lr/REPORT.md); [Analysis042](../analyses/042-2026-11-03-mlp-lr-cooldown/REPORT.md) | Run218 A1/A4 pass the128-update screen. Run219 one-step rule is worse than fixed controls. Run220 eight-update hold/cosine lowers mean/final training loss2.26%/4.30% versus always-half, but retriggers keep365/367 updates below base. Abrupt hold remains worse. One selected development seed/state; no incremental timing or held-out gain. Exact controls/resume and original UTC audit failure retained |
 
-Next hypothesis: `H029`. Record the operational meaning,
+| ID | Question / hypothesis | Status | Runs / analyses | Evidence / limits |
+| --- | --- | --- | --- | --- |
+| H029 | How do fixed-step gradient clipping, decoupled decay and LR schedules change optimization response at each model's highest LR? | Active; qualification passed on Spark, production running | Run221 qualification / [Run222](../runs/222-2026-11-03-spark-matched-interventions/README.md); [Analysis043](../analyses/043-2026-11-03-spark-fixed-step-interventions/README.md) | Three model/dataset cases, exact warm state1024, ten primary conditions x64 updates. Original cross-GPU ResNet gradient gate failure retained; exact same-Spark control/resume required. Historical before period explicitly crosses hardware. One seed/state; short-term responses, no treatment conclusions yet |
+
+Next hypothesis: `H030`. Record the operational meaning,
 comparison, support/refutation criteria, and scope in the corresponding run
 proposal. Suggested statuses: proposed, active, supported, unsupported,
 inconclusive, withdrawn. Preserve superseded interpretations instead of rewriting

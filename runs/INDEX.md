@@ -244,7 +244,7 @@
 | [215](215-2026-11-02-controlled-full-batch-adam/README.md) | H027 controlled Adam full training from frozen initialization | Complete;9 x1,024 updates, all four streams and full splits verified | Attempt01; three local arms, six production/four pre-production Pods; all retrieved/verified/deleted; USD11.62 main provisional | [Analysis036](../analyses/036-2026-11-02-controlled-adam-diagnostics/README.md); two complete figures, no schedules/Hessians/seed sweep |
 <!-- End Run213 preparation -->
 
-Next run: `221-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
+Next run: `223-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
 executed IDs and configurations; retry unchanged scientific inputs in a new
 attempt within the same run.
 
@@ -278,3 +278,10 @@ attempt within the same run.
 | Run | Question | Status | Records |
 | --- | --- | --- | --- |
 | [220](220-2026-11-03-mlp-lr-cooldown/README.md) | H028: eight-update hold and cosine recovery versus one-step/fixed controls | Complete5 x367 updates; exact replay; UTC audit correction retained; zero cloud | [Analysis042](../analyses/042-2026-11-03-mlp-lr-cooldown/REPORT.md); clean four-arm figure, no timing/generalization claim |
+
+## Overnight fixed-step Spark interventions
+
+| Run | Question | Status | Records |
+| --- | --- | --- | --- |
+| [221](221-2026-11-03-spark-fixed-step-interventions/README.md) | H029 capacity and warm-parent transfer qualification | ResNet cross-GPU gradient gate failed before treatments; exact tensors/close loss retained | Nine mechanics updates; preserved failed gate and source |
+| [222](222-2026-11-03-spark-matched-interventions/README.md) | H029 matched same-Spark intervention responses from state1024 | Running; ten primary conditions x3 cases x64 updates, exact same-Spark replay passed | [Analysis043](../analyses/043-2026-11-03-spark-fixed-step-interventions/README.md); owned Spark, cutoff07:45 BRT November4 |

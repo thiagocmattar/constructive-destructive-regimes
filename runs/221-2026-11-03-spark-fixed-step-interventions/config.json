@@ -1,0 +1,146 @@
+{
+  "run_id": "221",
+  "analysis_id": "043",
+  "hypothesis": "H029",
+  "seed": 0,
+  "start_state": 1024,
+  "updates": 64,
+  "end_state": 1088,
+  "cases": {
+    "mlp": {
+      "lr": 0.001,
+      "physical": 1000,
+      "units": 5000
+    },
+    "resnet": {
+      "lr": 0.003,
+      "physical": 1000,
+      "units": 50000
+    },
+    "transformer": {
+      "lr": 0.003,
+      "physical": 64,
+      "units": 2088600
+    }
+  },
+  "arms": [
+    {
+      "id": "unchanged",
+      "kind": "fixed",
+      "ratio": 1.0,
+      "primary": true
+    },
+    {
+      "id": "fixed_half",
+      "kind": "fixed",
+      "ratio": 0.5,
+      "primary": true
+    },
+    {
+      "id": "fixed_quarter",
+      "kind": "fixed",
+      "ratio": 0.25,
+      "primary": true
+    },
+    {
+      "id": "cosine32_floor0p5",
+      "kind": "cosine",
+      "ratio": 0.5,
+      "duration": 32,
+      "primary": true
+    },
+    {
+      "id": "cosine32_floor0p25",
+      "kind": "cosine",
+      "ratio": 0.25,
+      "duration": 32,
+      "primary": true
+    },
+    {
+      "id": "cosine32_floor0p1",
+      "kind": "cosine",
+      "ratio": 0.1,
+      "duration": 32,
+      "primary": true
+    },
+    {
+      "id": "clip_median_x1",
+      "kind": "clip",
+      "factor": 1.0,
+      "primary": true
+    },
+    {
+      "id": "clip_median_x2",
+      "kind": "clip",
+      "factor": 2.0,
+      "primary": true
+    },
+    {
+      "id": "adamw_0p01",
+      "kind": "decay",
+      "weight_decay": 0.01,
+      "primary": true
+    },
+    {
+      "id": "adamw_0p1",
+      "kind": "decay",
+      "weight_decay": 0.1,
+      "primary": true
+    },
+    {
+      "id": "cosine8_floor0p25",
+      "kind": "cosine",
+      "ratio": 0.25,
+      "duration": 8,
+      "primary": false
+    },
+    {
+      "id": "cosine64_floor0p25",
+      "kind": "cosine",
+      "ratio": 0.25,
+      "duration": 64,
+      "primary": false
+    }
+  ],
+  "primary_conditions": 10,
+  "primary_branches": 30,
+  "primary_updates": 1920,
+  "optional_conditions": 2,
+  "optional_branches": 6,
+  "compute_deadline_utc": "2026-11-04T10:45:00+00:00",
+  "report_deadline_local": "2026-11-04 08:00 America/Sao_Paulo",
+  "checkpoint_every": 16,
+  "previous_states_for_threshold": [
+    960,
+    1023
+  ],
+  "before_plot_states": [
+    960,
+    1024
+  ],
+  "betas": [
+    0.9,
+    0.999
+  ],
+  "eps": 1e-08,
+  "weight_decay_scope": "parameters with ndim >=2; biases and normalization vectors excluded",
+  "cosine": "eta(k)=base*(floor+(1-floor)*(1+cos(pi*min(k,duration)/duration))/2), k=state-1024; no restarts",
+  "precision": "FP32 parameters/gradients/moments, FP64 diagnostic products; TF32 disabled; deterministic algorithms; foreach/fused false",
+  "data_policy": "same prepared data, objective reductions, normalization and physical partitions as Run215; full objectives on every update",
+  "parent_policy": "exact weights/moments/global age from authenticated Run215 final states; contemporary unchanged Spark controls; historical preperiod hardware transition disclosed",
+  "bridge_gates": {
+    "max_relative_gradient_error": 0.001,
+    "max_relative_loss_error": 0.0001
+  },
+  "runtime_profile_seconds": {
+    "mlp": 0.0174,
+    "resnet": 15.0,
+    "transformer": 35.0
+  },
+  "estimated_primary_hours": 9.1,
+  "cloud_spend_usd": 0,
+  "optional_admission": "entire extra condition across all three cases requires projected remaining cost*1.25 plus300s before compute deadline",
+  "launch_authorized": true,
+  "authorization": "User authorized multiple literature-backed intervention tests at highest LR for all three cases on idle Spark until tomorrow morning; fixed checkpoint1024 selected after production-shaped timing.",
+  "interpretation": "single selected seed/state; short-term controlled training responses, not long-term convergence, held-out benefit or optimal hyperparameters"
+}

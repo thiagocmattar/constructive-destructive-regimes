@@ -1,0 +1,50 @@
+{
+  "status": "completed",
+  "mechanics_only": true,
+  "updates": 9,
+  "results": {
+    "mlp": {
+      "name": "mlp",
+      "lr": 0.001,
+      "physical": 1000,
+      "update_seconds": [
+        0.3173152720555663,
+        0.017311607021838427,
+        0.016564765013754368
+      ],
+      "peak_allocated_bytes": 272017408,
+      "objective_units": 5000,
+      "parameters": 656810
+    },
+    "resnet": {
+      "name": "resnet",
+      "lr": 0.003,
+      "physical": 1000,
+      "update_seconds": [
+        14.99154941411689,
+        14.818360828794539,
+        14.86509688384831
+      ],
+      "peak_allocated_bytes": 3374482944,
+      "objective_units": 50000,
+      "parameters": 464250
+    },
+    "transformer": {
+      "name": "transformer",
+      "lr": 0.003,
+      "physical": 64,
+      "update_seconds": [
+        34.83413951192051,
+        34.740400437265635,
+        34.697707161772996
+      ],
+      "peak_allocated_bytes": 1628493312,
+      "objective_units": 2088600,
+      "parameters": 13828478
+    }
+  },
+  "torch": "2.11.0+cu130",
+  "numpy": "2.5.0",
+  "scipy": "1.18.1",
+  "cuda": "13.0"
+}

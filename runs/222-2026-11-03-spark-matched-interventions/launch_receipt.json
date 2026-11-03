@@ -1,0 +1,20 @@
+{
+  "status": "started",
+  "run_id": "222",
+  "pid": 2439138,
+  "pgid": 2439138,
+  "started_utc": "2026-11-03T19:52:04.455731-03:00",
+  "command": [
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=90",
+    "42775",
+    "/home/tcml-spark/experiments/constructive-destructive-regimes/analysis037-sgd-helper-2026-11-02/venv/bin/python",
+    "-u",
+    "/home/tcml-spark/experiments/constructive-destructive-regimes/interventions-2026-11-03/runs/222-2026-11-03-spark-matched-interventions/01_driver.py"
+  ],
+  "root": "/home/tcml-spark/experiments/constructive-destructive-regimes/interventions-2026-11-03",
+  "source_manifest_sha256": "759fbb0ad76e721e1fbaddde8ee467bc843637cceffbf755accbd27361311fc7",
+  "deadline_utc": "2026-11-04T10:45:00+00:00",
+  "cloud_spend_usd": 0
+}

@@ -1,0 +1,92 @@
+{
+  "files": [
+    {
+      "path": "src/eos_tasks/__init__.py",
+      "bytes": 78,
+      "sha256": "b827b6bf61d01a83281bbff65204315279e6d343f962a1bbe4e52d5a7f67b86e"
+    },
+    {
+      "path": "src/eos_tasks/task.py",
+      "bytes": 6899,
+      "sha256": "28a15439e22ec82e05da41497b2d6c9a33171f29a9e13413d8167804d124c6b0"
+    },
+    {
+      "path": "src/eos_tasks/production.py",
+      "bytes": 1375,
+      "sha256": "9cda7703e50d4f32d9e8c3118361c418b600a87e23b3f8d6b175b82e1482b6ce"
+    },
+    {
+      "path": "src/cifar_eos/__init__.py",
+      "bytes": 80,
+      "sha256": "4cfbf7fc078bcae86b6ddfcbb2a9d87619b6350302c07379b3f4df21fe7eb27c"
+    },
+    {
+      "path": "src/cifar_eos/core.py",
+      "bytes": 11786,
+      "sha256": "c9fab65d551740149d7ff3a79e4b3af1e87ff5e7f3ba7c5cc62201f216434138"
+    },
+    {
+      "path": "cache/eos-multitask/inputs.json",
+      "bytes": 7492,
+      "sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f"
+    },
+    {
+      "path": "cache/cifar10-eos/inputs.json",
+      "bytes": 3252,
+      "sha256": "a5eea01295c437f42135294619765dea9d2ba7befc9f785a3936f7366f9144f0"
+    },
+    {
+      "path": "cache/eos-multitask/reference/model.py",
+      "bytes": 6367,
+      "sha256": "9d2a01d0076146232bb10b21f642b2c27435ae33aaaa9fbd1f80a357ff84c196"
+    },
+    {
+      "path": "cache/eos-multitask/reference/resnet_cifar.py",
+      "bytes": 4252,
+      "sha256": "7a98f29fed2635bfc80b6cbea00d0d08e92122125789483e2600aa82fc5735c9"
+    },
+    {
+      "path": "runs/221-2026-11-03-spark-fixed-step-interventions/00_profile.py",
+      "bytes": 2197,
+      "sha256": "8e8521f47944d9b4be3d4cffee857dc2a0301d4a4d88a88be09f266771210544"
+    },
+    {
+      "path": "cache/cifar10-eos/data.pt",
+      "bytes": 184491697,
+      "sha256": "2e4761c655a66a7e578efeb30950b9e39deeafd618f519cbc4ec823ff867985e"
+    },
+    {
+      "path": "cache/eos-multitask/resnet_data.pt",
+      "bytes": 737762437,
+      "sha256": "0a71ff06ddf09c355f82712bcb57f973e987916269e26ed278133e008b88564a"
+    },
+    {
+      "path": "cache/eos-multitask/transformer_data.pt",
+      "bytes": 40838081,
+      "sha256": "6be25abd18302070e46ac69cd47316212f9a3b62f24ededebc63f2a0d8e3db35"
+    },
+    {
+      "path": "cache/eos-multitask/mlp_initial_seed0.pt",
+      "bytes": 2630285,
+      "sha256": "b64c58838e736a667ca27e02e825ffd26bd1864097a7a999bcb01a418adafa7c"
+    },
+    {
+      "path": "cache/eos-multitask/resnet_initial_seed0.pt",
+      "bytes": 1891855,
+      "sha256": "8cc004193b85f35c74c301530ffee7ac8b624d05c646da0e261fc9c8e56fde14"
+    },
+    {
+      "path": "cache/eos-multitask/transformer_initial_seed0.pt",
+      "bytes": 59324915,
+      "sha256": "37ce7e65ba47c7cb091a0be1479325ac88ef481b018bec0970cc9eaf71662402"
+    }
+  ],
+  "links": {
+    "cache/cifar10-eos/data.pt": "cifar-eos-calibration-2026-10-13/cache/cifar10-eos/data.pt",
+    "cache/eos-multitask/resnet_data.pt": "analysis037-sgd-helper-2026-11-02/cache/eos-multitask/resnet_data.pt",
+    "cache/eos-multitask/transformer_data.pt": "eos-multitask-2026-10-14/cache/eos-multitask/transformer_data.pt",
+    "cache/eos-multitask/mlp_initial_seed0.pt": "eos-multitask-2026-10-14/cache/eos-multitask/mlp_initial_seed0.pt",
+    "cache/eos-multitask/resnet_initial_seed0.pt": "eos-multitask-2026-10-14/cache/eos-multitask/resnet_initial_seed0.pt",
+    "cache/eos-multitask/transformer_initial_seed0.pt": "eos-multitask-2026-10-14/cache/eos-multitask/transformer_initial_seed0.pt"
+  }
+}

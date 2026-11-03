@@ -1,0 +1,36 @@
+{
+  "status": "gate_failed",
+  "results": {
+    "mlp": {
+      "status": "passed",
+      "gradient_relative_error": 3.6168443708560305e-07,
+      "loss_relative_error": 1.2225540736583694e-08,
+      "model_moments_exact": true,
+      "loss": 0.009522304404526949,
+      "original_loss": 0.00952230452094227,
+      "gradient_norm": 0.7367176420902356,
+      "updates": 0
+    },
+    "resnet": {
+      "status": "outside_gradient_gate",
+      "gradient_relative_error": 0.008718747306333798,
+      "loss_relative_error": 2.780628120822121e-07,
+      "model_moments_exact": true,
+      "loss": 0.0008317044782638551,
+      "original_loss": 0.0008317042469978334,
+      "gradient_norm": 0.0016980484046210833,
+      "updates": 0
+    },
+    "transformer": {
+      "status": "passed",
+      "gradient_relative_error": 2.677261987899959e-06,
+      "loss_relative_error": 4.7419358557264794e-11,
+      "model_moments_exact": true,
+      "loss": 0.6162664000056295,
+      "original_loss": 0.6162663999764065,
+      "gradient_norm": 0.17086071863587352,
+      "updates": 0
+    }
+  },
+  "updates": 0
+}

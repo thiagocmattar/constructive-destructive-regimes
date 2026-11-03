@@ -1,0 +1,35 @@
+{
+  "mlp": {
+    "original_checkpoint": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/final.pt",
+    "original_sha256": "3342b43a21bbac5849cd3fb4a4ecbca04d7f62aa7fe6d9883f51d4c687181928",
+    "compact_checkpoint": "runs/221-2026-11-03-spark-fixed-step-interventions/artifacts/parents/mlp-state-001024.pt",
+    "compact_sha256": "9314ab5c0fbd77608233f10e33c7d12c15ad18d3021f35da40317f3444861f54",
+    "bytes": 13150657,
+    "history": "runs/221-2026-11-03-spark-fixed-step-interventions/artifacts/parents/mlp-history.json",
+    "history_sha256": "5c74a6e2edf3b89c60349d2bc011f8b61ac0bc72cc3f9104bdeeebc02e6f96ce",
+    "clipping_threshold_reference_median64": 0.754178587823245,
+    "source_note": "Fixed NumPy median of historical raw full-objective norms at states960..1023; no treatment outcomes used."
+  },
+  "resnet": {
+    "original_checkpoint": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/final.pt",
+    "original_sha256": "a79c111d626a18cc66602bd309c7a859d6e6b9b5163c0732d1e7c2cc9e352cdd",
+    "compact_checkpoint": "runs/221-2026-11-03-spark-fixed-step-interventions/artifacts/parents/resnet-state-001024.pt",
+    "compact_sha256": "ed33d1be31943c9ecfffbbf9303c62bbecea8ef31b97ff0d25935dec6f1e9982",
+    "bytes": 9410599,
+    "history": "runs/221-2026-11-03-spark-fixed-step-interventions/artifacts/parents/resnet-history.json",
+    "history_sha256": "a54c132b7dfbff88caa8869d16172fd3c9778c2ce6c15cd0fd58159765a0688b",
+    "clipping_threshold_reference_median64": 0.0018601596289618749,
+    "source_note": "Fixed NumPy median of historical raw full-objective norms at states960..1023; no treatment outcomes used."
+  },
+  "transformer": {
+    "original_checkpoint": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/final.pt",
+    "original_sha256": "f7970e52be5990eff3b1fd47097034fd6dc486b7fd907762eebddde0556f75b3",
+    "compact_checkpoint": "runs/221-2026-11-03-spark-fixed-step-interventions/artifacts/parents/transformer-state-001024.pt",
+    "compact_sha256": "edc4b23aff8df5c6f9ae60f024a229488a4dd2068f994c2e9191d20337a7a729",
+    "bytes": 280609924,
+    "history": "runs/221-2026-11-03-spark-fixed-step-interventions/artifacts/parents/transformer-history.json",
+    "history_sha256": "9583979a856cc6691f59d3f5ffcb989bc5afe8a62c8c3e89d811b01e3b0e3d51",
+    "clipping_threshold_reference_median64": 0.31280553094335695,
+    "source_note": "Fixed NumPy median of historical raw full-objective norms at states960..1023; no treatment outcomes used."
+  }
+}
