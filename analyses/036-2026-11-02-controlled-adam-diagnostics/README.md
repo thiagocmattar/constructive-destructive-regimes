@@ -14,6 +14,7 @@ magnitude cutoff, or startup exclusion is used. Earlier exploratory work stays i
 - [First-rise companion scatter](observations/006-first-rise-eta-peak-scatter.md): 129 points measured immediately after the first loss increase; 13 measurements coincide with the loss peak.
 - [Gradient norm rise ratio versus peak loss ratio](observations/007-gradient-rise-peak-scatter.md): 129 events; linear x and logarithmic y axes, no smoothing.
 - [Pre-rise cosine times gradient norm rise ratio](observations/008-rho-gradient-rise-peak-scatter.md): 127 defined signed products versus logarithmic peak/pre-rise loss ratio, with seven per-LR log-response regressions and descriptive in-sample R-squared.
+- [Peak-increase histograms](observations/009-peak-increase-histogram.md): separate alternative to the density figure, with all 806 recovered excursions, common half-decade bins and per-LR percentage normalization.
 
 ## Coverage
 

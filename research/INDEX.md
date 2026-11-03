@@ -20,6 +20,8 @@ are source-verified with an independent segmentation. A [3 x 3 descriptive panel
 summarizes peak increases and durations for the 806 recovered events. Earlier work remains archived;
 The loss-only overview and [per-LR peak densities](../analyses/036-2026-11-02-controlled-adam-diagnostics/figures/adam_peak_increase_density.pdf)
 use three model columns; densities cover 806 recovered events on log-percent axes.
+A separate [histogram alternative](../analyses/036-2026-11-02-controlled-adam-diagnostics/observations/009-peak-increase-histogram.md)
+uses the same cohort and axes, common half-decade bins, and per-LR percentage normalization.
 [Anatomy above 10%](../analyses/036-2026-11-02-controlled-adam-diagnostics/spike_anatomy/README.md)
 includes 129 complete events (recovery by update 1024 required), with before/rise/recovery
 diagnostics and a grouped text/LaTeX table. Pre-rise reversal is common;
