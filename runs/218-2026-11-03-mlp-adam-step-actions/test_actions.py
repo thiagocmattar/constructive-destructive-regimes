@@ -52,7 +52,7 @@ def new_branch(parent, arm):
     return task, opt, obs, identity, branch
 
 
-@pytest.mark.parametrize('arm', a.SUPPORTED)
+@pytest.mark.parametrize('arm', a.MOMENT_PRESERVING)
 def test_native_fp32_moments_and_age_identical_under_common_gradients(arm):
     task, opt, obs = h.setup(); plain, ref, _ = h.setup()
     branch = blank_branch(arm, task.model, cap=.0001 if arm == 'A4' else None)
@@ -309,7 +309,7 @@ def test_parent_validation_is_strict_and_never_relaxes_a0(parent_file,tmp_path):
         a.base.checkpoint(task.model,opt,obs,identity,h.data_state(),'invalid')
 
 
-@pytest.mark.parametrize('arm', ['A3','A5','A6','A7','unknown'])
+@pytest.mark.parametrize('arm', ['A7','unknown'])
 def test_unsupported_arms_fail_explicitly_before_any_update(arm):
     task,opt,obs=h.setup(); before=copy.deepcopy(task.model.state_dict())
     with pytest.raises(NotImplementedError,match='unsupported'):

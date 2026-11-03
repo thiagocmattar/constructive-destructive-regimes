@@ -97,8 +97,8 @@ an analysis may use manuscript or external inputs without referencing a run.
 | --- | --- | --- | --- | --- |
 | [039](039-2026-11-03-mlp-control-foundation/README.md) | H028 control implementation contracts | Run217; unchanged Run215 inputs | Verified preparation only; no neural experiment | Observer clocks, unchanged Adam, immutable fork/recovery and exact mock resume |
 
-## Moment-preserving action contracts
+## Adam intervention implementation contracts
 
 | Analysis | Question | Inputs | Status | Records |
 | --- | --- | --- | --- | --- |
-| [040](040-2026-11-03-mlp-step-actions/README.md) | H028 scalar-step intervention implementation | Run218; unchanged accepted Run217/Run215 inputs | Verified preparation only;104 contracts, zero neural training | A1/A2/A4/A8, native-moment equivalence, explicit branch provenance/resume |
+| [040](040-2026-11-03-mlp-step-actions/README.md) | H028 intervention implementation | Run218; unchanged Run217/Run215 inputs | Verified preparation only;150 contracts, zero neural training | A0-A6/A8, raw/input/numerator/history contracts; A7 pending |

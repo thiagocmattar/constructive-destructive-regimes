@@ -1,43 +1,41 @@
-# Analysis040: moment-preserving action implementation contracts
+# Analysis040: Adam intervention implementation contracts
 
-Preparation only; H028 reused, no new hypothesis. [Run218](../../runs/218-2026-11-03-mlp-adam-step-actions/README.md)
-owns the new source/config/tests and branch identity records. The future matched
-counterfactual is A0 from the identical common parent; no neural comparison has
-been executed. The definitions follow the frozen Analysis038 protocol and the
-coordinator's16a9f02 execution plan, without editing either.
+Mutable preparation under Run218; H028 reused, no neural experiment or new
+hypothesis/run ID. The future counterfactual is unchanged A0 from the exact same
+common parent. The accepted scalar-action implementation is4cd84ac0; this
+increment adds A3/A5/A6 and leaves A7 explicitly unsupported. No manuscript edit.
 
-- A0 retains its native Adam parameter-application path. A1/A2 weights match
-  native half/quarter-LR Adam from inherited state; all five implemented arms
-  preserve native FP32 m/v/age under identical supplied gradients.
-- Modified arms stage the current ordinary moments exactly once at zero LR,
-  then apply a scalar through the verified native FP32 parameter expression.
-  Same-step tests inspect moment age and direction before any outgoing motion.
-- A4's fixed median uses only64 prior ideal complete proposal norms and the
-  original base LR, with explicit prior-state clocks. Raw/actual norm streams
-  are adversarially changed in tests without changing the selected definition.
-  Missing, zero, nonfinite or misindexed threshold histories are unusable.
-- A4 bounds the ideal proposal; an FP32 rounding example exceeds that ideal
-  bound in the actual applied increment. The distinct outgoing audit records
-  the excess and the difference from the chosen ideal proposal.
-- A8's formula, interior/floor/cap cases, strict alignment tolerance, signed
-  geometry, zero/missing/nonfinite history and nonfinite derived quantities
-  have explicit eligibility/fallback tests. The rule never reads the current
-  outgoing increment and supplies no monotone-loss guarantee.
-- Decision fields and outgoing audits have separate availability clocks.
-  Branch retention and cumulative rounding use the fork origin and per-step
-  chosen alphas; an inherited constant-LR cumulative formula is not reused.
-- Every arm branches through the exact parent scientific identity and file
-  hash, preserving moments/age/RNG/history. A generated stochastic-oracle
-  continuation reproduces after save/resume for all five arms. Wrong arm,
-  parent, implementation, action transformation, file hash, origin or cap is
-  rejected. Immutable branch/fork bytes survive rolling recovery and failures.
-- Final verification:104 contract checks pass,20 source/config/reference entries
-  match, and the accepted Run217/Run215 inputs are unchanged. H028 remains
-  untested; these are engineering contracts, with no neural mechanism,
-  performance, stability or generalization conclusion.
+- A0/A1/A2/A4/A8 retain their accepted contracts. All eight implemented arms
+  reproduce a generated stochastic-oracle continuation after branch save/resume,
+  retaining the same parent and complete optimizer/observer/RNG state.
+- A3's cap uses64 strictly preceding raw complete-gradient norms. Native Adam
+  fed the independently calculated clipped vector matches its weights/moments;
+  an adversarial two-contribution example distinguishes global from per-chunk
+  clipping. Raw diagnostics remain raw and the actual FP32 input is separate.
+- Zero A3 input is defined without division; moments still decay/age. Missing,
+  zero-median, nonfinite or misindexed prior thresholds are explicitly unusable.
+  Fixed caps and input clipping counts/geometries survive recovery.
+- A5 updates ordinary stored moments from raw g but applies a raw numerator.
+  Independent calculations distinguish its reference adaptive direction from
+  the applied direction. Zero raw g can yield no applied motion despite nonzero
+  inherited moments. Invalid m_hat-based applied-rounding fields are omitted.
+- A6 retains the common parent's v and age, persists beta2=.99 and uses the
+  stable1-.999^f*.99^k correction throughout application, direction capture,
+  rounding and resume. Independent constant/mixed-gradient checks cover the
+  first and multiple changed steps; using1-.99^(f+k) gives a different result.
+- A6's validator checks its declared history/recipe separately; the unchanged
+  A0 validator rejects the switched optimizer. Wrong arm, numerator, cap/history,
+  stream clock, source/parent, normalization/position or optimizer recipe is
+  rejected. The authenticated parent is always loaded before treatment setup.
+- Decision inputs and outgoing audits have separate clocks. Checkpoints retain
+  raw/input/applied histories, all moment ages and method counters. Staged-moment
+  overflow fails before parameter motion and preserves last good recovery.
+- Final150 generated tensor/mock/contracts pass;21 input/source/reference hashes
+  match, including14 unchanged foundation entries. These are engineering checks.
+  H028 remains untested; no neural treatment effect, mechanism, speed, stability
+  or generalization conclusion is supported by this implementation milestone.
 
-Implemented: A0/A1/A2/A4/A8. Explicitly unsupported: A3/A5/A6/A7. No production
-MLP, neural smoke/calibration, remote execution, spending or manuscript change.
-Ready for coordinator inspection and the next bounded assignment. CUDA numerical
-application, timing and real-device replay remain unqualified. Next IDs are
-Run219 / Analysis041 / H029, subject to a fresh registry check.
+[Run218](../../runs/218-2026-11-03-mlp-adam-step-actions/README.md) contains the
+source/config/manifest/tests/verification. No real MLP, neural smoke/calibration,
+remote execution or spending. A7 and real-device execution/qualification remain
+outside this milestone. Next Run219 / Analysis041 / H029 remains unchanged.

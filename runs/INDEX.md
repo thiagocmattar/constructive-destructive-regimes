@@ -261,8 +261,8 @@ attempt within the same run.
 | --- | --- | --- | --- |
 | [217](217-2026-11-03-mlp-adam-control-foundation/README.md) | H028: unchanged Adam control, pre-update observer and immutable forks | Prepared; unit/contract checks only, zero neural training | [Analysis039](../analyses/039-2026-11-03-mlp-control-foundation/README.md); no interventions or spending |
 
-## Moment-preserving action implementation
+## Adam intervention implementation preparation
 
 | Run | Question | Status | Records |
 | --- | --- | --- | --- |
-| [218](218-2026-11-03-mlp-adam-step-actions/README.md) | H028: A1/A2/A4/A8 scalar-step branches against A0 | Prepared;104 contract checks, no neural execution | [Analysis040](../analyses/040-2026-11-03-mlp-step-actions/README.md); explicit parent identity and immutable branch recovery |
+| [218](218-2026-11-03-mlp-adam-step-actions/README.md) | H028: A1-A6/A8 interventions against A0; A7 pending | Prepared;150 contract checks, no neural execution | [Analysis040](../analyses/040-2026-11-03-mlp-step-actions/README.md); explicit parent identity and immutable branch recovery |

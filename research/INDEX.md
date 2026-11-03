@@ -537,11 +537,11 @@ forks and separate rolling recovery. Generated tensor/mock contracts pass;
 Run215 remains unchanged. Preparation only: H028 untested, zero neural training,
 intervention arms, remote execution or spending. Next Run219 / Analysis041 / H029.
 
-## Adam scalar-step implementation milestone
+## Adam intervention implementation milestones
 
 [Run218](../runs/218-2026-11-03-mlp-adam-step-actions/README.md) /
-[Analysis040](../analyses/040-2026-11-03-mlp-step-actions/README.md) add A1/A2/A4/A8
-with A0 retained, ordinary FP32 moments/age, prior-only fixed proposal caps,
-transported-secant eligibility/fallbacks and explicit parent/branch identities.
-104 tensor/mock/accepted contracts pass. Preparation only; H028 untested, no
+[Analysis040](../analyses/040-2026-11-03-mlp-step-actions/README.md) implement
+A0-A6/A8: prior-only raw/proposal clipping, raw-numerator ablation, historical
+beta2 correction and transported-secant actions with authenticated fork/resume.
+150 tensor/mock/contracts pass. A7 remains pending. Preparation only; H028 untested, no
 neural training, remote work, spending or manuscript edit. Next Run219 / Analysis041 / H029.

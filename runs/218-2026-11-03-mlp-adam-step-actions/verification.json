@@ -3,40 +3,48 @@
   "run_id": "218",
   "analysis_id": "040",
   "hypothesis": "H028",
+  "accepted_step_actions_commit": "4cd84ac0b427b8fe5a051b1e93e159989f126361",
   "implemented_arms": [
     "A0",
     "A1",
     "A2",
+    "A3",
     "A4",
+    "A5",
+    "A6",
     "A8"
+  ],
+  "unsupported_arms": [
+    "A7"
   ],
   "neural_training": false,
   "remote_execution": false,
   "paid_resources": false,
   "checks": [
     {
-      "command": "python -m pytest -o addopts= -p no:cacheprovider --basetemp=<unique system temporary directory> -q runs/218-2026-11-03-mlp-adam-step-actions/test_actions.py runs/217-2026-11-03-mlp-adam-control-foundation/test_control.py runs/213-2026-11-02-eos-adam-from-init-calibration/test_diagnostics.py",
-      "result": "104 passed",
-      "seconds": 8.01,
-      "new_tests": 68,
-      "accepted_existing_tests": 36
+      "command": "python -m pytest -o addopts= -p no:cacheprovider --basetemp=<unique system temporary directory> -q runs/218-2026-11-03-mlp-adam-step-actions/test_moment_treatments.py runs/218-2026-11-03-mlp-adam-step-actions/test_actions.py runs/217-2026-11-03-mlp-adam-control-foundation/test_control.py runs/213-2026-11-02-eos-adam-from-init-calibration/test_diagnostics.py",
+      "result": "150 passed",
+      "seconds": 13.29,
+      "new_treatment_tests": 46,
+      "updated_action_tests": 68,
+      "foundation_tests": 25,
+      "original_diagnostic_tests": 11
     },
     {
       "command": "python runs/218-2026-11-03-mlp-adam-step-actions/01_actions.py --help",
-      "result": "exit 0; no model constructed"
+      "result": "exit0; A0-A6/A8 offered, A7 excluded; no model constructed"
     },
     {
       "check": "Read-only implementation_identity validation",
-      "result": "20/20 file identities and pinned native Adam source match; all14 accepted foundation entries unchanged; no model constructed"
+      "result": "21/21 source/config/input/reference identities and native Adam source match;14 accepted foundation entries unchanged"
     },
     {
       "command": "git diff --cached --check",
-      "result": "exit 0;12 scoped files reviewed; staged source/config hashes match; concurrent manuscript and earlier unrelated edits preserved"
+      "result": "exit0;13 scoped files reviewed; staged driver/helper/config match pinned hashes; unrelated registry edits preserved; Run215/Run217/manuscript untouched"
     }
   ],
   "limitations": [
-    "Generated vectors/oracles only; no real MLP, neural smoke, timing calibration or historical replay.",
-    "Native CPU parameter application checked; real GPU numerical replay remains unqualified.",
-    "No treatment-effect or monotone-loss claim; A3/A5/A6/A7 are unsupported."
+    "No real MLP, neural smoke/calibration, real-device numerical qualification or historical replay.",
+    "A7 unsupported; no neural treatment-effect, speed or monotone-loss claim."
   ]
 }

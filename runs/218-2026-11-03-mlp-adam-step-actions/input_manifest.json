@@ -81,13 +81,13 @@
     },
     {
       "path": "runs/218-2026-11-03-mlp-adam-step-actions/01_actions.py",
-      "bytes": 23266,
-      "sha256": "a2b6effa80fad2149184f94241d692c4fd02a78b29584660beb113343cdd5877"
+      "bytes": 25826,
+      "sha256": "49a7ee0a112742779b130629eaee00df48dbf2c11280c5bdd7a39bb0e7f9e9ee"
     },
     {
       "path": "runs/218-2026-11-03-mlp-adam-step-actions/config.json",
-      "bytes": 804,
-      "sha256": "1112b304fad8d6364172bc54764e655fbb228b8ff44e5e97491c9b4195da5e41"
+      "bytes": 944,
+      "sha256": "365da5407961193517d24ed31dff6d85b65dc34a32a770e3f5cb2bd2e782c54d"
     },
     {
       "path": "analyses/038-2026-11-03-adam-spike-intervention-design/PROTOCOL.md",
@@ -103,11 +103,19 @@
       "path": "manuscript/2026-11-03-research-program/pilot_plan.json",
       "bytes": 5944,
       "sha256": "0ade3f43c4bc73bae3500d59b29678f32caec6a2b09c05f04661ab6359d36398"
+    },
+    {
+      "path": "runs/218-2026-11-03-mlp-adam-step-actions/moment_treatments.py",
+      "bytes": 12939,
+      "sha256": "1b9d97e6b8dcd8dd01ce87799516ecb2d03053a200739f3108adce32c4485f60"
     }
   ],
   "notes": [
     "No executed inputs changed; Run217 is imported with its accepted source hash checked before import.",
     "The native Adam single-tensor source hash is additionally pinned in config.json.",
-    "Definition documents are read-only provenance; no manuscript edit or neural execution."
-  ]
+    "Definition documents are read-only provenance; no manuscript edit or neural execution.",
+    "Run218 remains unexecuted mutable preparation: A3/A5/A6 added without changing Run215/Run217 inputs or allocating another run."
+  ],
+  "accepted_step_actions_commit": "4cd84ac0b427b8fe5a051b1e93e159989f126361",
+  "accepted_step_actions_manifest_sha256": "17d39d221067af23bcb9703db73b0f2c93fa872af565b7d2f541f8f925b1fe50"
 }

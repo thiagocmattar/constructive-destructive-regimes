@@ -1,106 +1,120 @@
-# Run218: moment-preserving Adam step actions
+# Run218: Adam intervention implementation preparation
 
-Implementation/preparation only, 3 November 2026; H028 / Analysis040. Implements
-A0, A1, A2, A4 and A8. A3/A5/A6/A7 raise explicit unsupported-arm errors.
-No production MLP, neural smoke/calibration, remote command, rental, spending or
-manuscript edit occurred. The accepted Run217 foundation and all Run215 inputs
-remain unchanged. One planned run owns this implementation, not one per arm.
+Mutable, unexecuted preparation; H028 / Analysis040,3 November2026. Implemented:
+A0/A1/A2/A3/A4/A5/A6/A8. A7 Armijo remains explicitly unsupported. No new run or
+hypothesis is allocated for this increment. Accepted foundations are commits
+9af24113 (Run217) and4cd84ac0 (Run218 scalar actions); their source snapshots
+remain in Git. All frozen Run215/Run217 scientific inputs remain unchanged.
+No real MLP, neural smoke/calibration, remote execution, spending or manuscript
+edit occurred. Engineering checks do not establish treatment benefit.
 
-## Fixed scientific contract and application
+## Matched scientific inputs
 
-The parent is the original complete-objective CIFAR-10 tanh MLP: unchanged
-3072-200-200-10, same prepared5,000 images, physical1,000 chunks, half squared
-error summed over outputs/averaged over images, frozen seed0 initialization,
-Adam LR0.001, betas(0.9,0.999), eps1e-8, no decay/clipping/schedule, FP32
-parameters/gradients/moments, FP64 products, TF32 off, foreach/fused false.
-The planned fork remains after657 updates before consuming g_657; each branch
-has at most128 new updates. These are implementation requirements, not a launch.
+The parent retains the original3072-200-200-10 tanh CIFAR-10 MLP, same prepared
+5,000 images and normalization, physical1,000-image chunks, half squared error
+summed over outputs/averaged over images, exact seed0 weights, Adam LR0.001,
+betas(0.9,0.999), epsilon1e-8, no decay/schedule/pre-existing clipping, FP32
+parameters/gradients/moments and FP64 products; TF32 off, foreach/fused false.
+The planned fork remains after657 complete updates before consuming g_657,
+with up to128 branch updates. No physical partition or objective was changed.
 
-`01_actions.py` imports the accepted Run217 driver only after checking its pinned
-SHA-256. It never modifies that file, its source/config/manifest or strict A0
-checks. A0 calls ordinary `Adam.step()` directly. Every modified arm calls one
-native Adam step with LR0 to stage the current FP32 m/v and age, verifies no
-parameter motion, then applies the selected scalar using the pinned native
-single-tensor FP32 `addcdiv_` parameter expression. There is no second moment
-recurrence. The local native Adam source hash is pinned and verified at CLI
-preparation; native equivalence is tested independently under common gradients.
+The accepted A0 source is imported only after its pinned hash matches. Parent
+loading still uses its exact source/config/input/runtime and optimizer-age
+validators. A0 keeps native Adam.step(); the accepted A1/A2/A4/A8 paths remain.
 
-- A1/A2 apply fixed alpha=0.0005/0.00025. Weights match native Adam at those LRs,
-  including an inherited optimizer age. Moments retain the original recurrences.
-- A4 fixes C_d once from the median of the64 strictly preceding ideal complete
-  proposals `norm(-0.001*d)` at gradient states[f-64,f-1], where d is reconstructed
-  in FP64 from actual FP32 moments. At f657 these are states593..656. It applies
-  alpha=0.001*min(1,C_d/norm(-0.001*d)). A zero proposal stays zero; a zero prior
-  median makes this fork's threshold unusable and raises, rather than inventing
-  a replacement. Neither raw-gradient norms nor rounded increments set C_d.
-- A8 uses g_current, the current ordinary staged d, the preceding raw gradient
-  and previous ACTUAL increment s. With y=g_current-g_previous, it forms
-  k_hat=(s dot y)/(s dot s) and alpha_hat=(g dot d)/(k_hat*(d dot d)). It requires
-  finite inputs/reductions/proposal, nonzero s/d, g dot d>0 and
-  s dot y>1e-8*norm(s)*norm(y). If valid, alpha=min(0.001,max(0.00005,alpha_hat));
-  otherwise the selector returns base LR with an exact reason. The alignment
-  tolerance is a development choice, not certified curvature resolution.
-  Nonfinite raw training gradients/parameters independently fail the execution
-  contract rather than being silently applied.
+## Implemented methods
 
-The nominal optimizer-group LR is restored to0.001 at every complete boundary.
-The branch identity and chosen-alpha records explicitly declare the applied
-transformation. This permits the unchanged strict A0 state/age validator to
-check ordinary moments; it does not treat a branch as an A0 resume.
+- A1/A2 apply half/quarter base LR, preserving ordinary moments and age.
+- A3 freezes C_g from64 strictly preceding RAW complete-gradient norms
+  [f-64,f-1] (593..656 at the planned fork). One FP32 global transform
+  h=g*min(1,C_g/norm(g)) occurs after full accumulation and before either
+  native moment recurrence. A zero g gives zero h with factor1. A zero median
+  makes the threshold unusable and raises. Native Adam consumes h exactly once;
+  original p.grad references and retained raw g are restored/preserved. The
+  independently logged h is the actual FP32 optimizer input, not the ideal
+  real-valued scaling. No per-chunk clipping or extra objective pass occurs.
+- A4 freezes the median of64 preceding IDEAL complete Adam proposal norms,
+  not raw or actual-step norms. It scales the ordinary proposal at fixed cap;
+  rounded FP32 motion can exceed the ideal cap and is audited separately.
+- A5 updates ordinary m/v once from raw g. Only the applied numerator changes:
+  d_applied=g/(sqrt(v_hat)+epsilon), while the reference adaptive direction
+  still uses m_hat. Reference/applied direction streams and norms stay distinct.
+  The inherited m_hat-based applied-rounding fields are omitted; the outgoing
+  audit compares the actual increment with -base_lr*d_applied. A zero raw input
+  can therefore apply zero motion while the inherited moments continue decaying.
+- A6 authenticates the ordinary parent first, preserves v_f and global age f,
+  then persists beta2=0.99 in the treatment optimizer. After k new gradients,
+  v=.99*v+.01*g^2 and the bias denominator is1-.999^f*.99^k. It is evaluated
+  stably using -expm1(f*log1p(.999-1)+k*log1p(.99-1)). The first moment keeps
+  beta1=.9 and global age f+k. Native zero-LR staging advances m/v/age once;
+  explicit parameter application uses the HISTORY-CORRECT denominator, never
+  native1-.99^(f+k). Direction streams, ideal proposals, audits and resumed
+  suffixes all use the same correction. The nominal group beta2 stays .99;
+  it is not masked as .999 to pass an A0 check.
+- A8 retains its prior-actual-step transported-secant rule, strict1e-8 alignment
+  tolerance,0.05*base floor, base-LR cap and explicit base-LR fallbacks. It uses
+  current raw/staged direction and prior history, never the outgoing increment.
+  No method here establishes monotone loss or resolved next-direction curvature.
 
-## Availability, diagnostics and recovery
+A3/A5/A6 live in run-local `moment_treatments.py`. The new branches stage native
+FP32 moments once at zero LR, then apply the explicit FP32 parameter expression.
+The native single-tensor Adam source hash is pinned. The ordinary A0 validators
+remain unchanged. A6 has a separate explicit optimizer/history and checkpoint
+validator that requires the switched beta, exact global/changed ages, correction,
+precision, data/normalization, observer and RNG state; it cannot masquerade as A0.
 
-The inherited observer captures g_current/g_previous/s_previous before moment
-staging. Modified-arm directions use age t+1 after consuming g_t once, before
-parameter application. `choose_action` has no outgoing-increment argument.
-A0's alpha is fixed a priori; its direction is captured after its native step
-and explicitly labeled as such. `actions.jsonl` contains decision/ideal-proposal
-fields only. Outgoing increment norms, rounding residuals and any A4 actual-cap
-excess live in post-update `action_audit` under `metrics.jsonl` and the retained
-observer history. A cap on the ideal proposal does not imply the same exact
-bound on the rounded FP32 increment; the tests exhibit that distinction.
+## Availability and diagnostics
 
-Inherited stream histories remain complete. The foundation's constant-LR
-cumulative rounding formula is removed from new branch rows because alpha can
-vary. Each branch separately retains fork-origin parameters, accumulated ideal
-and actual increments, path length, displacement/retention from the fork,
-rounding residual, and A8 fallback/floor/upper-cap/clamp fractions. Zero path
-length gives null retention plus its reason. Current-step rounding audits use
-the chosen alpha rather than the nominal base LR.
+The inherited pre-update observer always receives the RAW complete gradient.
+A3/A5/A6 log actual optimizer-input geometry separately, with clipping factor,
+input count and fraction. Their last complete FP32 input and FP64 applied
+direction are checkpointed. Input and applied-direction geometries start at the
+fork; inherited raw/moment/reference/actual histories retain the common prefix.
+A5's adaptive stream is explicitly the ordinary reference from its actual stored
+moments; its applied stream is the raw-numerator direction. A6's adaptive and
+applied streams both use the actual historical beta2 correction.
 
-`branch_from_parent` requires an expected parent file hash AND the independently
-validated exact scientific identity from Run217 preparation. The ordinary A0
-loader checks source/config/input/runtime, normalization/order, moments/ages,
-observer and RNG state. The declared fork age is checked; no optimizer reset is
-allowed. The new identity includes the parent SHA-256/size/scientific identity,
-fork age, exact arm transformation (including A4's64 values and fixed cap), and
-new implementation/config/input identities. The output separately records the
-parent path for provenance without requiring a fixed physical file location.
+`actions.jsonl` contains input transforms, numerator/bias choices, direction age,
+ideal norms, alpha and availability fields. Outgoing increment norms and rounding
+residuals live separately in post-update `action_audit` in `metrics.jsonl`.
+The old constant-LR cumulative audit is removed from branch rows; branch totals
+accumulate the actual per-step chosen ideal proposal and actual increment from
+the same fork origin. Undefined zero-path retention remains null with a reason.
+All eight methods preserve the existing observation clock and raw history.
 
-Branch snapshots are marked as branches. Loading one requires its own hash,
-expected full branch identity, validated original parent origin and fixed cap;
-changing arm, parent, transformation or implementation is rejected. The accepted
-A0 CLI cannot silently resume a branch because its expected identity differs.
-Checkpoints preserve model/moments/ages, RNG, data normalization/order, diagnostic
-history and branch counters/accumulations. Branch start and endpoint snapshots
-are immutable and saved before that boundary's gradient. Rolling `recovery.pt`
-is separate, initially/every32 branch updates/at graceful stop/endpoint. A failed
-step leaves the last good recovery and explicit exception/traceback status.
-Resume uses a new output directory; original parent and fork bytes are retained.
+## Authenticated forks and recovery
 
-## Verification and remaining work
+Every branch requires a parent file SHA-256 and an independently constructed
+expected A0 scientific identity. Its new identity pins that parent/age, exact
+input transform, fixed raw/proposal threshold values, numerator or beta2 history,
+and current implementation/config/input identities. A3's raw threshold, A4's
+proposal threshold, A6 fork/changed age/log-product/correction, treatment stream
+prefixes/counters and last input/direction persist through resume.
 
-`test_actions.py` uses generated vectors and an algebraic gradient oracle.
-Together with the accepted contracts,104 checks pass (68 new +36 existing).
-The20-entry manifest pins all14 accepted foundation entries, its manifest, the
-new driver/config and the three read-only method-definition documents. See
-`verification.json` and [Analysis040](../../analyses/040-2026-11-03-mlp-step-actions/README.md).
+Branch start/end snapshots remain immutable and precede their current gradient;
+rolling recovery remains separate. Resume needs the exact arm/parent/transform/
+implementation, fixed cap/origin and file hash. A6 uses branch-specific restore
+rather than relaxing the ordinary loader. Unsupported A7, wrong arm/numerator,
+cap/history/stream age, altered normalization/position or optimizer recipe is
+rejected. Nonfinite/negative new-treatment moments fail before applying motion
+and cannot replace the last good recovery. SIGINT/termination stop at boundaries.
 
-Safe CLI inspection: `python runs/218-2026-11-03-mlp-adam-step-actions/01_actions.py --help`.
-Actual invocation requires --arm, --parent, --parent-sha256, a new --output,
-optionally --updates (max128), and --device. Resume additionally requires both
---resume and --resume-sha256, retaining the same parent and arm. Neural execution
-still needs a later coordinator assignment and run-plan confirmation. Real-device
-application/replay qualification, timing, held-out evaluations, moment-changing
-arms and empirical treatment comparisons remain outside this milestone. No
-monotone-loss, stability, generalization or treatment-benefit claim is established.
+## Checks and remaining readiness
+
+150 unit/contracts pass:46 new treatment checks,68 updated Run218 action checks,
+25 accepted Run217 contracts and11 original diagnostic unit checks. Tests use
+only generated tensors/algebraic oracles and unique system pytest temp paths.
+They include independent NumPy/native calculations, full-vector clipping versus
+per-chunk alternatives, A5 reference/applied separation, A6 constant and mixed
+histories, first/multiple changed steps, all-arm stochastic-oracle save/resume,
+corruption rejection, availability clocks and overflow recovery preservation.
+The21-file manifest pins14 unchanged accepted foundation entries, its manifest,
+the current driver/helper/config and three read-only method-definition documents.
+Exact checks are in verification.json and Analysis040.
+
+Safe inspection: `python runs/218-2026-11-03-mlp-adam-step-actions/01_actions.py --help`.
+Actual invocation still requires --arm, --parent, --parent-sha256 and a new
+--output; resume additionally requires --resume and --resume-sha256 with the same
+parent/arm. No training launch is authorized by this preparation. A7, real-device
+qualification, neural smoke/timing/replay and empirical comparisons remain later
+assignments. No speed, optimization benefit, stability or generalization claim.

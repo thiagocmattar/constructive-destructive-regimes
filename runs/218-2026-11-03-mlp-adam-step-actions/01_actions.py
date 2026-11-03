@@ -1,4 +1,4 @@
-"""Run218: A0/A1/A2/A4/A8 branches; no training on import or --help."""
+"""Run218: A0-A6/A8 branches; A7 unsupported; no training on import or --help."""
 import argparse
 import copy
 import hashlib
@@ -26,7 +26,12 @@ base = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(base)
 from src.eos_tasks.adam_diagnostics import adam_streams
 
-SUPPORTED = ('A0', 'A1', 'A2', 'A4', 'A8')
+spec = importlib.util.spec_from_file_location('run218_moment_treatments', HERE/'moment_treatments.py')
+treatments = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(treatments)
+
+SUPPORTED = ('A0', 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A8')
+MOMENT_PRESERVING = ('A0', 'A1', 'A2', 'A4', 'A8')
 BASE_LR = .001
 
 
@@ -68,6 +73,8 @@ def choose_action(arm, gradient, direction, previous_gradient=None, previous_inc
     row = dict(arm=arm, alpha=BASE_LR, alpha_hat=None, kappa_sec=None,
                fallback=False, fallback_reason=None, floor_active=False, upper_cap_active=False,
                proposal_clip_factor=1., secant_tolerance=1e-8, loss_decrease_guarantee=False)
+    if arm in treatments.ARMS:
+        return row
     if arm in ('A0', 'A1', 'A2'):
         row['alpha'] = BASE_LR*{'A0': 1., 'A1': .5, 'A2': .25}[arm]
         return row
@@ -133,6 +140,16 @@ def transformation(arm, observer):
     common = dict(arm=arm, base_lr=BASE_LR, ordinary_moments=True, reset_optimizer_age=False)
     if arm in ('A0', 'A1', 'A2'):
         return dict(common, action='fixed_lr_multiplier', multiplier={'A0': 1., 'A1': .5, 'A2': .25}[arm])
+    if arm == 'A3':
+        return dict(common,ordinary_moments=False,action='global_raw_full_objective_gradient_clip',
+                    threshold=treatments.raw_cap(observer),input_transform='one_global_clip_after_complete_accumulation',
+                    numerator='bias_corrected_first_moment')
+    if arm == 'A5':
+        return dict(common,action='current_raw_gradient_numerator',input_transform='identity',numerator='current_raw_gradient')
+    if arm == 'A6':
+        return dict(common,ordinary_moments=False,action='history_corrected_beta2_switch',input_transform='identity',
+                    numerator='bias_corrected_first_moment',beta2_history=dict(beta2_before=.999,beta2_after=.99,
+                    fork_age=observer.completed_updates,correction='1-0.999^f*0.99^k'))
     if arm == 'A4':
         return dict(common, action='complete_ideal_adam_proposal_clip', threshold=fixed_proposal_cap(observer))
     return dict(common, action='cap_only_transported_secant', secant_alignment_tolerance=1e-8,
@@ -147,7 +164,8 @@ def implementation_identity():
         raise ValueError('Native Adam source differs from the verified staging/application reference.')
     return dict(config_sha256=base.file_hash(HERE/'config.json'), manifest_sha256=base.file_hash(HERE/'input_manifest.json'),
                 files=manifest['files'], foundation_commit='9af24113bebd3d76a3bad5cabda78690fa69b7c9',
-                native_adam_source_sha256=native_source_hash())
+                native_adam_source_sha256=native_source_hash(),
+                accepted_step_actions_commit='4cd84ac0b427b8fe5a051b1e93e159989f126361')
 
 
 def branch_from_parent(parent, parent_sha256, expected_parent_identity, model, optimizer, observer,
@@ -170,9 +188,11 @@ def branch_from_parent(parent, parent_sha256, expected_parent_identity, model, o
                     transformation=spec, implementation=copy.deepcopy(implementation))
     origin = base.flat(model.parameters()).detach().double().cpu()
     branch = dict(arm=arm, fork_update=expected_fork, fork_parameters=origin.clone(), updates=0,
-                  cap=spec['threshold']['cap'] if arm == 'A4' else None, path_length=0.,
+                  cap=spec['threshold']['cap'] if arm in ('A3','A4') else None, path_length=0.,
                   actual_total=torch.zeros_like(origin), ideal_total=torch.zeros_like(origin),
                   actions=[], fallback_count=0, floor_count=0, upper_cap_count=0)
+    if arm in treatments.ARMS:
+        treatments.initialize(branch,optimizer)
     return identity, branch
 
 
@@ -198,7 +218,12 @@ def update(optimizer, observer, gradient, branch, observation=None):
     completed = observer.completed_updates
     if branch['updates'] != completed-branch['fork_update']:
         raise ValueError('Branch/observer update clock differs.')
-    base.check_optimizer(optimizer, completed)
+    if arm == 'A6':
+        treatments.check_optimizer(optimizer,completed,branch)
+    else:
+        base.check_optimizer(optimizer, completed)
+    if arm in treatments.ARMS:
+        treatments.validate_branch(branch)
     if len(optimizer.param_groups) != 1 or any(optimizer.param_groups[0].get(k, False) for k in ['capturable', 'differentiable', 'decoupled_weight_decay']):
         raise ValueError('Requires one ordinary noncapturable/nondifferentiable Adam group.')
     parameters = optimizer.param_groups[0]['params']
@@ -211,7 +236,12 @@ def update(optimizer, observer, gradient, branch, observation=None):
         raise ValueError('Supplied pre-update observation clock differs.')
     before = base.flat(parameters).detach().double()
     group = optimizer.param_groups[0]
-    if arm == 'A0':
+    if arm in treatments.ARMS:
+        h,vectors,details=treatments.stage_apply(optimizer,gradient,branch)
+        direction=vectors['applied']; reference_direction=vectors['reference']
+        action=choose_action(arm,gradient,direction)
+        action.update(details)
+    elif arm == 'A0':
         # The accepted reference remains a native, unmodified step.
         optimizer.step()
         direction = adam_streams(optimizer, completed+1)['adaptive']
@@ -234,21 +264,27 @@ def update(optimizer, observer, gradient, branch, observation=None):
         raise ValueError('Nonfinite parameters after action.')
     # The foundation's current-step rounding audit needs this step's chosen LR.
     # Restore the nominal A0 group recipe at every checkpoint/step boundary.
-    group['lr'] = action['alpha']
-    try:
-        post = observer.accept(gradient, optimizer, before, after, pre)
-    finally:
-        group['lr'] = BASE_LR
+    if arm in treatments.ARMS:
+        post=treatments.accept(observer,optimizer,gradient,h,vectors,details,before,after,pre,branch)
+    else:
+        reference_direction=direction
+        group['lr'] = action['alpha']
+        try:
+            post = observer.accept(gradient, optimizer, before, after, pre)
+        finally:
+            group['lr'] = BASE_LR
     # The inherited constant-LR cumulative expression is invalid for varying alpha.
-    post.pop('cumulative_step_rounding_residual_norm')
-    observer.history[-1]['post'].pop('cumulative_step_rounding_residual_norm')
+    post.pop('cumulative_step_rounding_residual_norm',None)
+    observer.history[-1]['post'].pop('cumulative_step_rounding_residual_norm',None)
     delta, ideal = after-before, -action['alpha']*direction
     action.update(gradient_state=completed, direction_moment_age=completed+1,
                   alpha_available_before_parameter_update=completed+1,
                   direction_capture_phase='after_native_A0_apply' if arm == 'A0' else 'after_moment_staging_before_apply',
                   decision_requires_outgoing_increment=False,
-                  ordinary_ideal_proposal_norm=float((BASE_LR*direction).norm()),
+                  ordinary_ideal_proposal_norm=float((BASE_LR*reference_direction).norm()),
                   chosen_ideal_proposal_norm=float(ideal.norm()))
+    if arm == 'A6':
+        action['history_corrected_reference_ideal_proposal_norm']=action.pop('ordinary_ideal_proposal_norm')
     audit = dict(available_after_update=completed+1, actual_increment_norm=float(delta.norm()),
                  ideal_actual_rounding_residual_norm=float((delta-ideal).norm()))
     if arm == 'A4':
@@ -269,6 +305,8 @@ def update(optimizer, observer, gradient, branch, observation=None):
                 fallback_fraction=branch['fallback_count']/branch['updates'],
                 clamp_fraction=(branch['floor_count']+branch['upper_cap_count'])/branch['updates'],
                 floor_fraction=branch['floor_count']/branch['updates'], upper_cap_fraction=branch['upper_cap_count']/branch['updates'])
+    if arm in treatments.ARMS:
+        post['input_clip_fraction']=branch['input_clip_count']/branch['updates']
     observer.history[-1]['post'] = copy.deepcopy(post)
     return pre, post
 
@@ -277,10 +315,12 @@ def save_branch(path, model, optimizer, observer, identity, data_state, branch, 
     require_arm(identity['arm'])
     if identity['arm'] != branch['arm'] or branch['updates'] != observer.completed_updates-branch['fork_update']:
         raise ValueError('Branch identity/clock differs.')
-    expected_cap = identity['transformation']['threshold']['cap'] if identity['arm'] == 'A4' else None
+    treatments.validate_branch(branch,identity)
+    expected_cap = identity['transformation']['threshold']['cap'] if identity['arm'] in ('A3','A4') else None
     if branch['cap'] != expected_cap:
         raise ValueError('Fixed branch cap differs from its declared transformation.')
-    payload = base.checkpoint(model, optimizer, observer, identity, data_state, label)
+    payload = (treatments.checkpoint(base,model,optimizer,observer,identity,data_state,branch,label) if identity['arm']=='A6'
+               else base.checkpoint(model, optimizer, observer, identity, data_state, label))
     payload.update(checkpoint_kind='branch', branch_state=copy.deepcopy(branch))
     base.save_checkpoint(path, payload, immutable=immutable)
 
@@ -299,7 +339,11 @@ def load_branch(path, sha256, model, optimizer, observer, identity, data_state, 
         raise ValueError('Branch state/parent origin/clock differs.')
     if any(row['arm'] != identity['arm'] or row['gradient_state'] != state['fork_update']+i for i, row in enumerate(state['actions'])):
         raise ValueError('Branch action history differs.')
-    base.load_checkpoint(path, model, optimizer, observer, identity, data_state)
+    treatments.validate_branch(state,identity)
+    if identity['arm']=='A6':
+        treatments.restore(base,saved,model,optimizer,observer,identity,data_state,state)
+    else:
+        base.load_checkpoint(path, model, optimizer, observer, identity, data_state)
     if base.file_hash(path) != sha256:
         raise ValueError('Branch changed during load.')
     return copy.deepcopy(state)
