@@ -10,6 +10,7 @@ Single-seed exploratory result,3 November2026. All eight approved arms completed
 half learning rate and Adam proposal clipping. This is a **descriptive selection
 after the exploratory screen, not independent confirmation**. The aligned panels
 retain all 129 states without smoothing, with common scales within each row.
+Rows show training loss, adjacent raw cosine and raw-gradient norm (log scale).
 The original eight-arm figure and every method in the tables remain available;
 the severe raw-numerator and transported-secant failures are outside this focal view.
 

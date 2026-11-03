@@ -1,6 +1,6 @@
 # Observation002: descriptive three-method focal view
 
-Question: make the existing loss/cosine comparison readable while retaining its
+Question: make the existing loss/cosine/gradient-norm comparison readable while retaining its
 real oscillations. This introduces no training, new observations or new test.
 
 Sources: aligned_diagnostics.csv, from the completed Run218 local pilot.
@@ -10,14 +10,15 @@ presentation after the exploratory screen, not as independent confirmation.
 All eight methods and severe A5/A8 failures remain in the original report/table
 and figures/local_pilot.pdf, which are unchanged.
 
-Reduction:03_focal_comparison.py. Raw loss and raw_adjacent_cosine are plotted
+Reduction:03_focal_comparison.py. Raw loss, raw_adjacent_cosine and raw_gradient_norm are plotted
 unchanged, without smoothing/downsampling/normalization. Three columns share a
-loss scale and a cosine scale; the gray vertical line marks the original pre-rise
-state 689. All 774 plotted scalar values match the source CSV exactly. One-page
+loss scale, cosine scale and logarithmic raw-gradient-norm scale; the gray vertical line marks the original pre-rise
+state 689. All 1,161 plotted scalar values match the source CSV exactly. One-page
 PDF rendered with PyMuPDF and visually reviewed; labels and scales are clear.
 
 Caption: Descriptive three-method view of the existing seed0 local full-objective
-MLP pilot. Loss above, adjacent raw-gradient cosine below; all 129 states retained,
+MLP pilot. Rows show loss, adjacent raw-gradient cosine and the full raw
+(pre-Adam) gradient norm on a log scale; all 129 states retained,
 common scales within each row. Selection follows exploratory screening and is
 not independent confirmation. The fluctuations are full-objective dynamics under
 the checked fixed numerical recipe, without random minibatch sampling.
@@ -31,4 +32,4 @@ clarity does not reduce scientific uncertainty. See REPORT.md for context.
 Artifact: figures/focal_three_arm.pdf. Original raw evidence is untouched.
 
 Source CSV SHA-256: `ec86e7a3044cfabb849022809603733407367090c5356e7734835b820799e102`.
-Figure SHA-256: `98f701065dc1a58fac21bf07139085d2bbe274349101d761ffb34be3605c5acc`.
+Figure SHA-256: `3fde79d8e3e7379f142354e083a0b49f4908f89a7427ba5f1373d50f4315004e`.
