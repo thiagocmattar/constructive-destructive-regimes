@@ -17,13 +17,14 @@ and WikiText-2/Transformer. Each point is one recovered >10% event; colors ident
 the three constant learning rates within each model, as in the overview and density
 figures. The x-coordinate is one unsmoothed diagnostic at the last pre-rise parameter
 state a (paper index a+1), using gradients at states a-1 and a. The y-coordinate is
-100 times (peak loss / fixed pre-rise loss minus one), expressed in percent.
-Both axes are linear and shared. No fit, averaging, smoothing, jitter or uncertainty
+peak loss / fixed pre-rise loss, equivalently 1 + percentage increase / 100.
+The y-axis is logarithmic: 1 means no increase, 2 means +100%, and 10 means +900%.
+Both axes are shared; x remains linear. No fit, averaging, smoothing, jitter or uncertainty
 band is applied. Typography and 7.16 x 2.55 inch layout follow Analysis024.
 
 Observation: the plotted points span overlapping pre-rise diagnostic values across
-spike magnitudes. The largest ResNet increase is visible without clipping; the
-common y-axis consequently compresses smaller increases in the other panels.
+spike magnitudes. All points remain visible on a common logarithmic loss-ratio
+axis; lower-amplitude events are more separated than on the previous linear-percent view.
 This is an exploratory view, without a correlation or predictive-performance claim.
 
 Coverage and limits: only three models, three constant LRs per model and one frozen
@@ -36,7 +37,7 @@ gradient change along its trajectory, not a direct directional-curvature estimat
 No new training, cloud resources, interventions or manuscript changes.
 
 Verification: source SHA-256 matches the anatomy manifest; event selection,
-undefined initialization cases and peak percentage identity checked. Artist
+undefined initialization cases, peak percentage identity and loss-ratio identity checked. Artist
 coordinates equal source values exactly; every point lies within the common axes.
 PDF contains one vector page with embedded fonts and text inside the page.
 Poppler rendering visually reviewed: all panels, points, legends and labels are

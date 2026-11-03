@@ -24,7 +24,7 @@ use three model columns; densities cover 806 recovered events on log-percent axe
 includes 129 complete events (recovery by update 1024 required), with before/rise/recovery
 diagnostics and a grouped text/LaTeX table. Pre-rise reversal is common;
 recovery alignment is model-dependent. A [pre-rise diagnostic scatter](../analyses/036-2026-11-02-controlled-adam-diagnostics/observations/005-prerise-eta-peak-scatter.md)
-plots 127 defined event pairs against peak percentage increase, without smoothing.
+plots 127 defined event pairs against peak/pre-rise loss ratio on a logarithmic y-axis, without smoothing.
 Manuscript unchanged; no new training or cloud resources.
 
 

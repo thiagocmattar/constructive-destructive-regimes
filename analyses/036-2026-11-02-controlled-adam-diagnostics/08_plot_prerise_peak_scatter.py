@@ -7,6 +7,7 @@ import fitz
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+from matplotlib.ticker import FuncFormatter, NullFormatter
 import numpy as np
 import pandas as pd
 
@@ -32,12 +33,14 @@ def main():
     source = pd.read_csv(SOURCE, float_precision='round_trip')
     assert len(source) == 129 and source.recovery_state.notna().all()
     assert source.peak_change_percent.gt(10).all() and source.spike_id.is_unique
-    plotted = source.dropna(subset=['eta_kappa_hat_raw_before', 'peak_change_percent'])
+    plotted = source.dropna(subset=['eta_kappa_hat_raw_before', 'peak_change_percent']).copy()
     omitted = source.loc[~source.spike_id.isin(plotted.spike_id)]
     assert len(plotted) == 127 and len(omitted) == 2 and omitted.before_state.eq(0).all()
     np.testing.assert_allclose(plotted.peak_change_percent,
         100 * (plotted.loss_peak / plotted.loss_before - 1), rtol=1e-12)
     assert np.isfinite(plotted[['eta_kappa_hat_raw_before', 'peak_change_percent']]).all().all()
+    plotted['peak_loss_ratio'] = 1 + plotted.peak_change_percent / 100
+    np.testing.assert_allclose(plotted.peak_loss_ratio, plotted.loss_peak / plotted.loss_before, rtol=1e-12)
     plt.rcParams.update({'font.family': 'Times New Roman', 'mathtext.fontset': 'stix',
         'font.size': 9, 'axes.labelsize': 9.5, 'axes.titlesize': 9,
         'xtick.labelsize': 8.5, 'ytick.labelsize': 8.5, 'axes.spines.top': False,
@@ -48,7 +51,7 @@ def main():
         rates = [.0001, .0003, .001] if task == 'mlp' else [.0003, .001, .003]
         for lr, color in zip(rates, COLORS):
             group = plotted.loc[plotted.task.eq(task) & plotted.learning_rate.eq(lr)]
-            points = group[['eta_kappa_hat_raw_before', 'peak_change_percent']].to_numpy()
+            points = group[['eta_kappa_hat_raw_before', 'peak_loss_ratio']].to_numpy()
             artist = ax.scatter(points[:, 0], points[:, 1], s=17, color=color,
                 alpha=.8, linewidths=.25, edgecolors='white', label=rf'$\eta={lr:g}$')
             np.testing.assert_array_equal(np.asarray(artist.get_offsets()), points)
@@ -58,14 +61,17 @@ def main():
         ax.legend(loc='lower center', bbox_to_anchor=(.5, 1.015), ncol=3,
             frameon=False, fontsize=7.6, handlelength=1., columnspacing=.5,
             handletextpad=.25, borderaxespad=0, scatterpoints=1)
-        ax.set(xlim=(.6, 3.1), ylim=(0, 920), xticks=[1, 2, 3],
-            yticks=[0, 200, 400, 600, 800], xlabel=r'Pre-rise $\eta\widehat{\kappa}$ (raw)')
+        ax.set_yscale('log')
+        ax.set(xlim=(.6, 3.1), ylim=(1, 11), xticks=[1, 2, 3],
+            yticks=[1, 2, 5, 10], xlabel=r'Pre-rise $\eta\widehat{\kappa}$ (raw)')
+        ax.yaxis.set_major_formatter(FuncFormatter(lambda value, position: f'{value:g}'))
+        ax.yaxis.set_minor_formatter(NullFormatter())
         ax.grid(alpha=.16, lw=.5)
         ax.set_axisbelow(True)
         ax.tick_params(length=2.5, width=.6)
-        assert all(.6 < x < 3.1 and 0 < y < 920
+        assert all(.6 < x < 3.1 and 1 < y < 11
             for group in groups if group['task'] == task for x, y in group['coordinates'])
-    axes[0].set_ylabel('Peak increase (%)')
+    axes[0].set_ylabel('Peak / pre-rise loss')
     fig.subplots_adjust(left=.08, right=.975, bottom=.2, top=.745, wspace=.31)
     fig.canvas.draw()
     bounds = fig.get_tightbbox(fig.canvas.get_renderer()).transformed(fig.dpi_scale_trans)
@@ -87,11 +93,11 @@ def main():
         cohort='Peak increase >10% and recovery observed by update 1024; current anatomy sample.',
         selected_events=129, plotted_events=127, omitted_undefined_prerise_ids=omitted.spike_id.tolist(),
         x='eta_kappa_hat_raw_before: one measurement at state a, before first loss rise; paper index a+1.',
-        y='100*(loss_peak/loss_before-1), in percent.',
-        reduction='One unsmoothed point per event; no averaging, fitting or jitter; shared linear axes.',
+        y='1 + peak_change_percent/100 = loss_peak/loss_before; log axis, with 1 meaning no increase.',
+        reduction='One unsmoothed point per event; no averaging, fitting or jitter; shared linear x and logarithmic y axes.',
         palette='Established increasing-LR colors within each model; per-panel legends give numeric LR, including empty groups.',
         groups=groups, checks=dict(source_hash=True, selection=True, magnitude_identity=True,
-            exact_scatter_coordinates=True, no_clipped_points=True, embedded_fonts=True, pdf_text_inside_page=True),
+            ratio_identity=True, exact_scatter_coordinates=True, no_clipped_points=True, embedded_fonts=True, pdf_text_inside_page=True),
         visual_review='pending')
     MANIFEST.write_text(json.dumps(record, indent=2, allow_nan=False) + '\n', encoding='utf-8')
     print('Verified 127 event points from 129 complete >10% events; two undefined initialization diagnostics omitted.')
