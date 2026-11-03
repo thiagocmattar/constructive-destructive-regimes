@@ -1,0 +1,67 @@
+{
+  "run_id": "219",
+  "analysis_id": "041",
+  "hypothesis": "H028",
+  "rung": "controlled_full_objective_mlp_development",
+  "seed": 0,
+  "conditions": [
+    "unchanged",
+    "always_half",
+    "temporary"
+  ],
+  "base_lr": 0.001,
+  "reduced_lr": 0.0005,
+  "threshold": 1.8,
+  "threshold_comparison": ">=",
+  "start_state": 657,
+  "end_state": 1024,
+  "updates_per_condition": 367,
+  "main_updates": 1101,
+  "nominal_training_images": 5505000,
+  "zoom_states": [
+    673,
+    745
+  ],
+  "historical_event": [
+    689,
+    703,
+    729
+  ],
+  "hard_worker_seconds": 600,
+  "expected_minutes": [
+    1,
+    3
+  ],
+  "cloud_spend_usd": 0,
+  "parent_sha256": "359097d026b45f8f0b8a33665aca4ad0382e52835745ceaeccf027ed29539ba4",
+  "notation": "\\eta\\widehat\\kappa_t",
+  "rule": "fixed two absolute LRs; available pre-update raw pair; undefined finite case uses base with reason",
+  "approved_plan_commit": "5107aff",
+  "architecture": [
+    3072,
+    200,
+    200,
+    10
+  ],
+  "activation": "tanh",
+  "train_images": 5000,
+  "physical_chunk_images": 1000,
+  "objective": "half squared error summed across outputs and averaged over images",
+  "betas": [
+    0.9,
+    0.999
+  ],
+  "epsilon": 1e-08,
+  "weight_decay": 0,
+  "precision": {
+    "model": "FP32",
+    "gradients": "FP32",
+    "moments": "FP32",
+    "products": "FP64"
+  },
+  "tf32": false,
+  "foreach": false,
+  "fused": false,
+  "launch_authorized": true,
+  "extra_methods": false
+}

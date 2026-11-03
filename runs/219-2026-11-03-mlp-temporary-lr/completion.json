@@ -1,0 +1,43 @@
+{
+  "status": "completed_with_recorded_control_recovery",
+  "run_id": "219",
+  "analysis_id": "041",
+  "hypothesis": "H028",
+  "canonical_main_updates": 1101,
+  "nominal_image_update_exposures": 5505000,
+  "qualification_updates": 16,
+  "recovery_replayed_updates": 19,
+  "actual_updates": 1136,
+  "actual_gradient_calls": 1144,
+  "active_worker_seconds": 37.26410470018163,
+  "elapsed_training_recovery_span_seconds": 218.335523,
+  "cloud_spend_usd": 0,
+  "conditions": {
+    "unchanged": {
+      "status": "completed",
+      "mean_loss": 0.014722543842176975,
+      "final_loss": 0.00952230452094227
+    },
+    "always_half": {
+      "status": "completed",
+      "mean_loss": 0.009793960583226232,
+      "final_loss": 0.006726064486429095
+    },
+    "temporary": {
+      "status": "completed",
+      "mean_loss": 0.06381673884022301,
+      "final_loss": 0.05916404165327549
+    }
+  },
+  "parent_sha256": "359097d026b45f8f0b8a33665aca4ad0382e52835745ceaeccf027ed29539ba4",
+  "canonical_control_sources": [
+    "001-local/conditions/unchanged:states<881",
+    "002-control-recovery/unchanged:states>=881"
+  ],
+  "report": "analyses/041-2026-11-03-mlp-temporary-lr/REPORT.md",
+  "unchanged_Run215_368_exact": true,
+  "overlap_Run218_exact": {
+    "unchanged": true,
+    "always_half": true
+  }
+}

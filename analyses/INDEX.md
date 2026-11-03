@@ -76,7 +76,7 @@
 | [036](036-2026-11-02-controlled-adam-diagnostics/README.md) | Controlled fixed-rate Adam and loss-spike anatomy | Runs213/215; Analysis024/029/034 | Complete: 806 recovered excursions; 129 above 10%; 127 defined regression points; integrated in the 18-page draft | [Event definition](036-2026-11-02-controlled-adam-diagnostics/loss_spike_definition.md); [event data](036-2026-11-02-controlled-adam-diagnostics/spike_dataset/loss_spikes.csv); [manuscript integration and evidence](036-2026-11-02-controlled-adam-diagnostics/observations/010-manuscript-spike-anatomy.md); source figures/data preserved; earlier exploration in archive/ |
 <!-- End Analysis036 preparation -->
 
-Next analysis: `041-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
+Next analysis: `042-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
 an analysis may use manuscript or external inputs without referencing a run.
 
 ## Active batch-size extension
@@ -102,3 +102,9 @@ an analysis may use manuscript or external inputs without referencing a run.
 | Analysis | Question | Inputs | Status | Records |
 | --- | --- | --- | --- | --- |
 | [040](040-2026-11-03-mlp-step-actions/README.md) | H028 selected-fork MLP intervention pilot | Run218; exact Run215 replay, same authenticated fork | Complete8 x128 branches; single-seed exploratory | [Report](040-2026-11-03-mlp-step-actions/REPORT.md); A1/A4 pass training screen, A5/A8 negative; A7 deferred |
+
+## Temporary LR outcome
+
+| Analysis | Question | Inputs | Status | Records |
+| --- | --- | --- | --- | --- |
+| [041](041-2026-11-03-mlp-temporary-lr/REPORT.md) | H028: temporary reduction using $\eta\widehat\kappa_t$ | Run219, authenticated Run218 state657;367 updates per condition | Complete;18 reductions/36 switches, worse progress than fixed controls | Predeclared zoom and full view, direct clock/replay checks, failed control attempt preserved |

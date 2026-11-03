@@ -2,6 +2,14 @@
 
 ## Current state
 
+[Analysis041: temporary LR using $\eta\widehat\kappa_t$](../analyses/041-2026-11-03-mlp-temporary-lr/REPORT.md)
+completed three 367-update continuations from the authenticated state657 parent.
+The fixed1.8 rule reduces LR on18 updates with36 switches but gives worse mean/
+final training loss and larger replacement excursions than fixed controls.
+Always-half remains strongest in this selected case. Exact replay/overlap checks
+pass; a Windows I/O failure/recovery and19 replayed updates are retained. Active
+workers37.26s; zero cloud cost, no tuning or manuscript change.
+
 [Analysis040: local matched MLP pilot](../analyses/040-2026-11-03-mlp-step-actions/REPORT.md)
 completed all8 x128-update arms from the exact state657 fork; historical and
 contemporary replay pass. Half LR and proposal clipping meet the training screen;
@@ -14,7 +22,7 @@ state, with 128-update continuations. Source audit verifies three events and
 675 extended-context rows; all 28 rise updates have a locally descending actual
 step despite increasing loss. Intermediate Run215 recovery states were overwritten;
 new common prefixes and untreated replay qualification are required. H028 proposed;
-no intervention training or paid execution. Next Run219 / Analysis041 / H029.
+no intervention training or paid execution. Next Run220 / Analysis042 / H029.
 
 [Analysis037: three-case SGD batch-size comparison](../analyses/037-2026-11-02-sgd-batch-extension/REPORT.md)
 completed 348 new continuations plus 198 reused MLP continuations, with all three
@@ -540,7 +548,7 @@ no new hypothesis allocated.
 the A0-only local driver, pre-update completed-step observer, immutable labeled
 forks and separate rolling recovery. Generated tensor/mock contracts pass;
 Run215 remains unchanged. Preparation only: H028 untested, zero neural training,
-intervention arms, remote execution or spending. Next Run219 / Analysis041 / H029.
+intervention arms, remote execution or spending. Next Run220 / Analysis042 / H029.
 
 ## Adam intervention implementation milestones
 
@@ -552,4 +560,4 @@ After explicit approval, the local pilot completed8 x128 branches and the657-upd
 prefix in64.06s. Exact historical/contemporary replay passes; A1 half LR and A4
 proposal clipping meet the training screen, while A5/A8 create larger excursions.
 [Empirical report](../analyses/040-2026-11-03-mlp-step-actions/REPORT.md). Single seed;
-no remote work, rental or manuscript edit. A7 deferred. Next Run219 / Analysis041 / H029.
+no remote work, rental or manuscript edit. A7 deferred. Next Run220 / Analysis042 / H029.

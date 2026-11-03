@@ -56,7 +56,7 @@ questions alone do not create experimental commitments.
 
 | ID | Question / hypothesis | Status | Runs / analyses | Evidence / limits |
 | --- | --- | --- | --- | --- |
-| H028 | Can matched Adam interventions reduce selected loss excursions without degrading subsequent optimization, and can that benefit transfer to a causal online policy? | Conditionally supported at selected seed0 MLP fork; online transfer untested | [Analysis040 empirical report](../analyses/040-2026-11-03-mlp-step-actions/REPORT.md); Run218; [original design](../analyses/038-2026-11-03-adam-spike-intervention-design/README.md) | Eight128-update arms from exact state657. A1 half LR and A4 proposal clipping meet the training-loss screen; A2/A3/A5/A6/A8 do not. Historical/contemporary replay qualifies. A7 deferred; one selected event/seed cannot establish online or population benefit |
+| H028 | Can matched Adam interventions reduce selected loss excursions without degrading subsequent optimization, and can that benefit transfer to a causal online policy? | Simple selected-fork treatments supported; tested temporary rule unsupported | [Analysis040](../analyses/040-2026-11-03-mlp-step-actions/REPORT.md); [Analysis041](../analyses/041-2026-11-03-mlp-temporary-lr/REPORT.md) | Run218 A1/A4 pass the128-update training screen. Run219 tests the fixed $\eta\widehat\kappa_t\geq1.8$ temporary-half rule through1024:18 reductions,36 switches, worse mean/final loss than always-half. One seed/state; no generalization or incremental timing value established. Original failure/replay evidence retained |
 
 Next hypothesis: `H029`. Record the operational meaning,
 comparison, support/refutation criteria, and scope in the corresponding run
