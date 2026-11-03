@@ -22,24 +22,19 @@ hypothesis. Next Run217 / Analysis038 / H028.
 
 [Analysis036: controlled Adam spike anatomy](../analyses/036-2026-11-02-controlled-adam-diagnostics/README.md)
 uses nine fixed-rate, 1024-update trajectories from matched initial weights.
-The [current manuscript](../manuscript/draft/revisions/2026-11-03-sections-i-iv-restored/README.md)
-presents the loss overview, largest recovered spikes at the highest rates,
-fixed-reference event definition, 806-event density, grouped 129-event >10%
-anatomy table and 127-point per-LR regression scatter. Negative pre-rise raw
-cosine occurs in 117/127 defined events; all 129 endpoint gradient norms grow.
-The 10% threshold is operational; observed recovery is required. Regression
-R-squared uses log peak/pre-rise loss; early response, descriptive association,
-prediction and causality remain distinct. The writing revision addresses
-12 author comments and standardizes the regime argument. Following the initial
-135-unit/14-caption review, appendix shortening reduces the PDF to 14 pages:
-one derivation, concise measurement conventions, and no appendix floats.
-The latest separate revision restores Sections I-IV exactly to `a4bbf0d`,
-before the curvature-focused pass; other sections and prior PDFs are preserved.
-The central contribution is curvature estimation from training gradients,
-with an exact smooth-GD path-average identity and one-gradient online storage.
-Raw-history, statistical, retained GD/SGD/math,
-compilation and Poppler visual checks pass.
-Prior forecasting exposition is no longer compiled; sources/history preserved.
+The [current manuscript](../manuscript/draft/revisions/2026-11-03-original-argument-restored/README.md)
+restores the original framing and main text from `bba6203`, before the broad
+writing revision, with updated methods, GD/SGD experiments and Adam spike
+analysis already integrated. The 15-page review retains the shortened
+appendices and current figures/tables; broken references are accepted by the
+author. Source equality, evidence and visual checks pass with the documented
+unresolved temporal-accounting table reference. All prior PDFs are preserved.
+The Adam evidence includes the loss overview, largest recovered spikes,
+fixed-reference definition, 806-event density, grouped 129-event >10% anatomy
+table and 127-point per-LR regression scatter. Pre-rise cosine is negative
+in 117/127 defined events; all 129 endpoint gradient norms grow. Recovery is
+required and the 10% threshold is operational. R-squared uses log peak/pre-rise
+loss; temporal association, prospective prediction and causality remain distinct.
 No new training, intervention, cloud resource or hypothesis.
 
 [Analysis035: backward fixed-endpoint profiles](../analyses/035-2026-11-02-eos-backward-anchors/REPORT.md)

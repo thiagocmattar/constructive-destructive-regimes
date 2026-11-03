@@ -9,7 +9,7 @@
   $\eta\widehat\kappa_t$, with the local quadratic loss-change boundary
   at two. Loss at index $t$ is evaluated at $\theta_t$; gradient diagnostics
   use $g_t$ at $\theta_{t-1}$. Each model uses one shared initialization.
-  Trailing means summarize sustained regimes.}
+  Smoothing summarizes the regime and does not identify its exact onset.}
   \label{fig:gd-loss}
 \end{figure*}
 
@@ -21,17 +21,17 @@
   (logarithmic scale), and normalized displacement. Cosines and norms use
   complete 50-observation trailing means; $R_t$ is the unsmoothed ratio
   over the complete prefix through update $t$. Colors and column ordering
-  match Fig.~\ref{fig:gd-loss}.}
+  match Fig.~\ref{fig:gd-loss}. Raw cosine traces appear in
+  Appendix~\ref{appendix:gd-raw-alignment}.}
   \label{fig:gd-alignment-displacement}
 \end{figure*}
 
-\section{Constructive and Destructive Regimes in GD and SGD}
+\section{Empirical Characterization of Gradient Interference}
 \label{sec:gd-experiments}
 
-We first examine whether destructive regimes sustain descent and how
-their reversals shape cumulative parameter motion. Full-batch GD isolates
-these dynamics on fixed objectives; matched mini-batch continuations then
-show how sampling changes the regimes encountered during training.
+We use full-batch GD to characterize directional overshoot, its effect on
+cumulative motion, and its coexistence with loss reduction. We then vary
+batch size to examine how sampling changes these signatures.
 
 The comparison covers a tanh MLP on 5,000 CIFAR-10 images, ResNet-32 on
 all 50,000 CIFAR-10 training images, and a word-level Transformer on
@@ -40,62 +40,62 @@ WikiText-2. Each minimizes its complete fixed training objective for
 Within each model, rates share one frozen initialization and data preparation;
 they were selected by earlier training calibrations to expose contrasting
 dynamics, without test-loss selection. Plain GD uses no momentum, weight
-decay, clipping or schedule. The three cases test whether the same
-geometric signatures recur across different objectives and architectures.
-Appendix~\ref{appendix:gd-raw-alignment} specifies
+decay, clipping or schedule. These comparisons test whether the same
+geometric signatures recur across the three objectives; they do not isolate
+architecture effects. Appendix~\ref{appendix:gd-raw-alignment} specifies
 objectives, architectures, precision and measurement details.
 
-\subsection{Descent in a Destructive Regime}
+\subsection{A Gradient-Based View of Oscillatory Descent}
 
 Figure~\ref{fig:gd-loss} pairs loss with the projected gradient change
 $\eta\widehat\kappa_t$. The higher-rate trajectories develop oscillatory
 loss while continuing to improve over longer timescales; their late
-projected change approaches two. Their negative adjacent cosines
-in Fig.~\ref{fig:gd-alignment-displacement} identify a sustained
-destructive regime. Equation~\eqref{eq:loss-rise-curvature}
+projected change approaches two. Equation~\eqref{eq:loss-rise-curvature}
 explains why this value is informative: in the local quadratic model,
 it separates a loss-decreasing step from one that reverses the preceding
 progress. The observed pattern gives a gradient-based view of the
 oscillatory descent associated with the Edge of Stability~\cite{cohen2021edge}.
 
 
-Consecutive gradients therefore expose an oscillatory regime that is
-productive over the training horizon. The projected-change diagnostic
-provides its directional interpretation using inexpensive vector
-reductions. Its pointwise accuracy depends on the local approximation:
-at the highest Transformer rate, the unsmoothed noise-free expression
-in Eq.~\eqref{eq:loss-curvature} disagrees with the observed loss-change
-sign in 44.2\% of 2,999 transitions. This finite-step discrepancy
-qualifies the interpretation of individual updates within the sustained regime.
+The diagnostic requires consecutive gradients rather than Hessian--vector
+products or an eigensolver. It estimates curvature along the realized step
+when the local approximation applies; it does not estimate the largest
+Hessian eigenvalue that defines spectral EoS. This distinction permits a
+practical interpretation without treating the two quantities as interchangeable.
+The same local model explains the regime but does not reliably predict
+every nonlinear loss fluctuation: the stepwise approximation check and
+spectral coverage are retained in Appendix~\ref{appendix:gd-raw-alignment}.
 
-\subsection{Gradient Magnitude and Cumulative Motion}
+\subsection{Reversal, Step Magnitude and Displacement Retention}
 
-Figure~\ref{fig:gd-alignment-displacement} explains how the destructive
-regime changes parameter motion. The lowest MLP and Transformer rates
-remain constructive, whereas the other seven conditions develop
-nearly opposing adjacent gradients. In the MLP and ResNet, this transition
+Figure~\ref{fig:gd-alignment-displacement} shows how the oscillatory regime
+changes parameter motion. Persistent negative cosine means that successive
+updates repeatedly oppose the preceding direction, consistent with
+overshooting its local directional minimum. The lowest MLP and Transformer
+rates retain positive alignment, whereas the other seven conditions
+approach nearly opposing gradients. In the MLP and ResNet, the transition
 also accompanies growing gradient norms: the steps become larger even as
 their directions increasingly cancel. These fluctuations arise without
 mini-batch sampling.
 
 
-The decreasing $R_t$ quantifies the cancellation associated with these
-reversals. A growing fraction of the traveled distance is spent moving
-back and forth, even as the parameters move farther from initialization.
-Table~\ref{tab:gd-endpoints} shows the resulting combination:
-within every model, the highest tested rate
+The decreasing $R_t$ shows that larger steps need not translate into
+proportionally larger net motion. Repeated reversals consume path length,
+so the retained fraction can become small even while parameters continue
+to move away from initialization. This is a geometric inefficiency,
+not evidence of slower optimization. Table~\ref{tab:gd-endpoints} makes
+the distinction concrete: within every model, the highest tested rate
 has the lowest retention, the largest absolute displacement, and the
 lowest final training loss. A rate can therefore be large relative to
 local directional minima yet productive over the full training horizon.
 
-Local destruction coexists with reinforcement over longer horizons.
-The complete cross-step interaction is positive at the endpoint in all
+Adjacent cancellation also does not determine the sign of the complete
+cross-step interaction. That total is positive at the endpoint in all
 nine trajectories, including the seven with negative accumulated
-lag-one interaction in Eq.~\eqref{eq:magnitude-interaction}. Longer-range
+lag-one interaction (Table~\ref{tab:gd-temporal-accounting}). Longer-range
 reinforcement can coexist with repeated local reversal. Together,
 $\rho_t$, gradient norms and $R_t$ distinguish local overshoot, step size
-and retained motion. Their joint interpretation explains how oscillatory
-training continues to make objective progress.
+and retained motion; loss establishes whether this motion improves the objective.
 
 \begin{table*}[!t]
   \centering
@@ -117,14 +117,13 @@ training continues to make objective progress.
 To examine the temporal extent of reversal, we fix one endpoint gradient
 and compare it with preceding gradients at every lag $k=1,\ldots,256$.
 Figure~\ref{fig:gd-backward} uses the largest tested rate for each model
-and the common endpoint after 2,256 updates. Strongly opposing and
-reinforcing pairs recur at longer separations, including after
-intermediate lags with near-zero similarity.
+and the common endpoint after 2,256 updates. Near-zero similarity at some
+lags does not imply that directional memory has disappeared: strongly
+opposing and reinforcing pairs can reappear at longer separations.
 The varying amplitude and sign pattern show that oscillation extends
 beyond a single adjacent pair, while its persistence depends on the
-model and part of the trajectory. Adjacent cosine identifies the local
-regime within this longer temporal structure; cumulative retention
-summarizes its net geometric effect.
+model and part of the trajectory. This temporal structure explains why
+a lag-one statistic cannot summarize the complete interference term.
 
 \begin{figure*}[!t]
   \centering
@@ -138,6 +137,7 @@ summarizes its net geometric effect.
   Rates are $0.04$ (MLP), $0.1$ (ResNet-32) and $0.2$ (Transformer).
   These are separately recomputed 256-update GD continuations from
   retained state 2000, with one initialization and no smoothing or
-  endpoint averaging.}
+  endpoint averaging. Appendix~\ref{appendix:gd-raw-alignment} records
+  the additional endpoints and numerical replay scope.}
   \label{fig:gd-backward}
 \end{figure*}

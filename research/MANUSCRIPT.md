@@ -1,8 +1,22 @@
 # Manuscript and evidence
 
-## Selective restoration of Sections I-IV, 2026-11-03
+## Original argument restored, 2026-11-03
 
-The [current revision](../manuscript/draft/revisions/2026-11-03-sections-i-iv-restored/README.md)
+The [current revision](../manuscript/draft/revisions/2026-11-03-original-argument-restored/README.md)
+uses `bba6203`, before the broad writing pass, for the title, abstract, keywords
+and all main sections. This is the version beginning with "Neural scaling laws
+have ushered in new paradigms for interpreting deep learning dynamics." It
+already contains the updated methodology, controlled GD/SGD experiments and
+complete Adam spike analysis. The author wants this broader argument as the
+starting point for their next review. The shortened appendices and existing
+figure/table assets remain unchanged. Broken references are explicitly accepted;
+the temporal-accounting table label is unresolved. The 15-page PDF passes source,
+evidence and layout checks with that recorded exception. Earlier PDFs remain
+preserved, including the preceding restoration that used the wrong baseline.
+
+## Superseded restoration of Sections I-IV, 2026-11-03
+
+The [preceding restoration](../manuscript/draft/revisions/2026-11-03-sections-i-iv-restored/README.md)
 restores Sections I-IV byte for byte from `a4bbf0d`, the concise-appendix
 version immediately preceding the curvature-focused pass. The abstract, title,
 keywords, Adam section, conclusion, appendices and scientific assets remain

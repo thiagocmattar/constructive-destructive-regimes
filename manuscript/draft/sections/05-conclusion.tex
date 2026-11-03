@@ -1,29 +1,30 @@
 \section{Conclusion}
 \label{sec:conclusion}
 
-Consecutive training gradients make directional curvature observable
-without Hessian computation. For smooth full-batch GD, the estimate
-equals curvature averaged along the step and approximates its starting-point
-value; one retained gradient and linear-time reductions support online
-monitoring. Adjacent cosine identifies constructive and destructive regimes,
-and the norm ratio expresses the amplification entering the estimate.
-The local loss relation explains the distinction: destructive training
-can sustain descent, while sufficiently amplified reversal produces
-loss-increasing steps. Controlled GD and SGD experiments characterize
-these regimes and their cumulative displacement.
+The displacement formulation distinguishes the magnitude of individual updates,
+their local directional interaction and their cumulative accumulation. For
+plain SGD, the exact decomposition retains all temporal lags, while consecutive
+cosine provides a tractable local observation. The curvature and sampling
+relations clarify how that observation can change without determining either
+cumulative displacement or loss improvement. The full-batch and mini-batch
+experiments illustrate these distinctions: gradient reversal can coexist with
+objective progress, and weaker reversal need not improve displacement retention
+or the attained loss.
 
-Under Adam, the same measurements reveal projected curvature response
-along adaptive trajectories. Diagnostic changes precede the largest
-loss peaks, and the event analysis connects spike magnitude to a
-predominantly destructive initial regime followed by gradient amplification.
-The micro-plots supply temporal evidence, while the distributions and
-regressions show how the pattern repeats across models and rates.
-Together, they identify observable early signs and a consistent anatomy
-of local loss instability.
+Under Adam, raw-gradient diagnostics remain informative about the loss
+landscape traversed by adaptive steps. Controlled full-batch experiments
+connect loss spikes with a predominantly destructive pre-rise gradient
+regime and sharp norm amplification. The micro-plots resolve projected
+gradient changes before the loss maximum; the event population quantifies
+the variation in timing and recovery across models and rates. A joint
+descriptor of pre-rise reversal and rise norm growth is associated with
+relative peak magnitude, without establishing a causal feedback mechanism
+or a universal instability threshold.
 
-This connection between curvature, regime and amplification provides an
-interpretable basis for stabilization heuristics. Learning-rate adjustment,
-clipping and momentum act on the step or gradient dynamics exposed by
-the diagnostics. Prospective warning rules and matched intervention tests
-can turn this online information into decisions that attenuate spikes
-while preserving training progress.
+The practical contribution is a framework for interpreting these measurements
+together and using them to formulate controlled interventions. Developing a
+scheduler or clipping rule requires demonstrating that acting on early
+diagnostics improves subsequent loss at matched budgets, beyond decisions
+based on recent loss and known training settings. Prospective validation,
+controlled interventions and replication across independent runs remain
+future work.

@@ -1,0 +1,81 @@
+{
+  "request": "Restore the broader original argument from the pre-writing-revision snapshot, with the updated methodology, controlled GD/SGD experiments and complete Adam spike analysis already integrated. Retain the shortened appendices and existing figures/tables; broken references are accepted.",
+  "baseline_commit": "bba6203a3c5b5705ba6440df9530be90d57d729d",
+  "superseded_baseline": "a4bbf0d22c1e8e9a4ac126a0a05fd2e630424343",
+  "working_head_at_start": "d7bb04f0c81e8e841529f9f2f6df57611e69c227",
+  "expected_introduction_opening": "Neural scaling laws have ushered in new paradigms for interpreting deep learning dynamics.",
+  "restored_sources": {
+    "manuscript/draft/sections/01-introduction.tex": "2af8f02cdb45618f6e306665b094f613f9120de7213680a2e201d4c81547351e",
+    "manuscript/draft/sections/02-related-works.tex": "a021e3313e2dca6ebf0081ecb022152ae9db97eaf27a7f6085256e8ffad045a4",
+    "manuscript/draft/sections/03-methods.tex": "e6266f3479995166414ff0dff73f809961cd1f3a9affe3b358fa54412ff76d14",
+    "manuscript/draft/sections/04-gd-experiments.tex": "c6b059ed1f7c8f33444340a570876268304650987edc73ab9ecc952595cc41e1",
+    "manuscript/draft/sections/05-sgd-noise-experiments.tex": "b3c9df8b28b8d3f4830e57eb90df29fbfdb14b6914d3ba0e4865adbb8796a944",
+    "manuscript/draft/sections/06-adam-diagnostics.tex": "3285ca33f73925b11fb6ca8b612ba7e5036b97e025c93084b9c9795bfafd64e0",
+    "manuscript/draft/sections/05-conclusion.tex": "54220b70b20b23af9f0fe042d1951a264720bd82d59d8b33eec591835190f3ac"
+  },
+  "retained_sources": {
+    "manuscript/draft/bibliography.bib": "0f5e043b14e62d8a9ec58b40355b356b97ad4423dd1e310b44bcffc4c42b5868",
+    "manuscript/draft/sections/04-results.tex": "afc1f30d1c6f3dba8e3d3cdeaa0d04947fc8df54e9131871db16390062a77d45",
+    "manuscript/draft/sections/06-appendix.tex": "210ed113fe474b3171f6640c7fe8dc417bd35586d981ae2d1e8fcd89a6a6732c",
+    "manuscript/draft/sections/06-loss-appendix.tex": "20a6cc9df4c7d179fd715192112e4c746ece0e9002777295c9491c2053107eae",
+    "manuscript/draft/tables/analysis024_endpoints.tex": "5bc85f3955a20399504e2c8733462715dc09f3c868a3391b81e5a3a1c8159877",
+    "manuscript/draft/tables/analysis024_loss_audit.tex": "88d4d3d74733c1dd733024aad1cf63c32e7db576bd4542d2c085de81b977d7bf",
+    "manuscript/draft/tables/analysis024_spectral_context.tex": "ef682f6f1786a5e34b9eef54754f46279c42dc7d4e5957d8a796631eee1ecb90",
+    "manuscript/draft/tables/analysis024_temporal_accounting.tex": "7d0a145131c535bc6c36840f7cf46028a09564e4d82158a484ed3211c176db94",
+    "manuscript/draft/tables/analysis027_contrasts.tex": "4a40553ba0385c1fee2302bf407bf6b10fd18a97dd27c5f87952aefe9aeef5a2",
+    "manuscript/draft/tables/analysis027_hvp_errors.tex": "90858ddc0298c6b4ac62bda76a6ee511dcb53bb63e735860172468147e0e9f8d",
+    "manuscript/draft/tables/analysis028_schedules.tex": "f3a9a67c4c978f3fcacd588605511884f89605aa5b2e56ae75647d76ad6a688b",
+    "manuscript/draft/tables/analysis028_streams.tex": "70a9acf71c0c4ddade331e11642f386276e09ad0952ab148fa5a3aec1780fba7",
+    "manuscript/draft/tables/analysis036_forecast.tex": "6ef8a20a9cbc5604a2b2532035339d460d6c13bd984978c44271a39cbf599cac",
+    "manuscript/draft/tables/analysis036_spike_anatomy.tex": "58f64b4185394d5ab1e11a995c3716355dd634d6cf0d23a874d25f0b5f885e95",
+    "manuscript/draft/sections/07-gd-diagnostics.tex": "40fa6cbcacbb97cc09625bb46350dd26d16a4565531114baabaa33cf7674ce10"
+  },
+  "preserved_previous_revision": {
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/00_extract_feedback.py": "8e4333333d56774658b24c7c51b04a138bc22324267c4f9a758b200c0710fe47",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/01_prepare_table.py": "1714456d1fc9c53c0e9b47fb216cf624e82b352a90afb5aebdfa0b0328d05c08",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/02_build_and_verify.py": "c39552b2a7e76e96da765e49b2acdd78465fe686e7eca6689a66b7077701febf",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/APPENDIX_REVIEW.md": "6368fbebe0772cdb9dc7882b6665f9226959925f677e64a79d69d9d4874ce645",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/CURVATURE_REVIEW.md": "9999c38874b1b3ed695d59a2060c6a68096d2fb7f95bfdd217352469be473bed",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/evidence_manifest.json": "9300ed7ce3f87cc7552dc5a7bffd513df7c39b08c64d6ca39b222baa9f6253f5",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/feedback.json": "56ab3861f3e0085d9234171429c2f82c142d171bf8baa756b1f4c7e7b38722ea",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/feedback.md": "171270601d38032e773f29428b31d8182f8d5ac1bd068ad564b3dce79accd845",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/paragraph_review.json": "7945fe31437d26d874e9a7899b683729486edac97e502a5bd8eb18599bfbabea",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/PARAGRAPH_REVIEW.md": "641c466735194e241558e04fd37bc547c26a1b9b96de15db25cf67e6a0fb595b",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/README.md": "fe7405b98c99bd28ec653c1414c3658ba349c21a7853ec13c7053af6515d46ae",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/review.json": "355aaf94f99dfdf4e6cc66ec8cd912a1635270860b0646914fbde8c1ad72d07b",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/REVIEW.md": "50073a6e4c554fb3810e2ac5cafcea34f54c3ac75212d2fa44085a5083ff8e50",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/revised-manuscript.pdf": "34a1d851293c4d3fc8bad5e15f2608d66380e743ee1697ac47aeb9130c8ec789",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/TASKS.md": "2a0e5ac97826b94ec85e8e631aedf68e68572b22a294e879cded4fc435e925ed",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/verification.json": "5cea7ecb686bdd66350190a835ac55346cac94e75df6ff44d3b0437a2b558c5a",
+    "manuscript/draft/revisions/2026-11-03-regime-writing-revision/WRITING_PRINCIPLES.md": "d30e4f23e445da1608e8a0919e0c7cc867efc103d343170f73e478cc8c03ae6c",
+    "manuscript/draft/revisions/2026-11-03-sections-i-iv-restored/01_build_and_verify.py": "d84183a58ae89232f41a957893b254d720eb3f9090d58509b5ad27fbc4230ae8",
+    "manuscript/draft/revisions/2026-11-03-sections-i-iv-restored/README.md": "bc1d26709947484e39a7db4e34e58f54eb11f676922f4be584d6e7f9b1d20dde",
+    "manuscript/draft/revisions/2026-11-03-sections-i-iv-restored/restoration_manifest.json": "741c05604932cc710710be570a1ca419a650925823abfdb86f96dca6d51e4622",
+    "manuscript/draft/revisions/2026-11-03-sections-i-iv-restored/review.json": "a512cdbf661eff69b86f45ecb23c30ea981c56a73419baf90b2f6119416b185f",
+    "manuscript/draft/revisions/2026-11-03-sections-i-iv-restored/revised-manuscript.pdf": "fca3307bfbd0434215ccd118ef2ab9ba5e4ccc9070ab764e5091aa56b5af977a",
+    "manuscript/draft/revisions/2026-11-03-sections-i-iv-restored/verification.json": "644d7fcebaf53fc8f6f09277d24a35734f1c306c38af648c37a28fd64f4ae2b0",
+    "manuscript/draft/revisions/2026-11-03-adam-spike-anatomy/01_prepare_assets.py": "3d5ede2910d8b7e756af85105f3d59957c1ccb5ebb0d0f15ad9e56582e046f50",
+    "manuscript/draft/revisions/2026-11-03-adam-spike-anatomy/02_build_and_verify.py": "3fdd3da45ef67e425a62f857d77e395637d96d2d3e7bc328de2c8a66eeaf681a",
+    "manuscript/draft/revisions/2026-11-03-adam-spike-anatomy/evidence_manifest.json": "a9c6ae8399d384ec3b6046f766aef6366d0f1efed1f3354858185f494b211456",
+    "manuscript/draft/revisions/2026-11-03-adam-spike-anatomy/README.md": "5e9f658e8fceb8798bc3cbd2818678d2aa36bc23f9ec214006aaad854af6d062",
+    "manuscript/draft/revisions/2026-11-03-adam-spike-anatomy/review.json": "733992dd00462c021e9e11be6e22ab228ffc7d1806291ddf3ca8e72179fe6976",
+    "manuscript/draft/revisions/2026-11-03-adam-spike-anatomy/revised-manuscript+feedback.pdf": "1ca460a9d7b4aef38a50e5f2aabdba302211b13724d3ecf4cfc8dadd1e4d34c9",
+    "manuscript/draft/revisions/2026-11-03-adam-spike-anatomy/revised-manuscript.pdf": "a11b9072cd8f530ae941750926bc525e35137af3e4fccbb9b8e05246f83249f2",
+    "manuscript/draft/revisions/2026-11-03-adam-spike-anatomy/verification.json": "7ce3ba98b5b1a465c7ed54c1412f870bdd459d409905f17636945a0e40894aa0"
+  },
+  "reference_policy": "Author explicitly accepts broken references. Do not restore removed appendix figures or tables or edit the restored Sections I-IV to repair their references.",
+  "allowed_unresolved_labels": [
+    "tab:gd-temporal-accounting"
+  ],
+  "restored_front_matter": {
+    "path": "manuscript/draft/bare_jrnl.tex",
+    "before_sha256": "0c8b3fccff9cdf619d09993827d0b8f5ac4bfcf611e803d6e41169f1b5992286",
+    "after_sha256": "ed68fbaf6d802ed96e172b8e0f31be13324274ca9d1cea3eb42961790f26e1af",
+    "regions": {
+      "title": "969498fe0b689fccfab7b967f4d729b18d5e974f5910182c2c5696e939eb5627",
+      "abstract": "eb571d30f2c6cb0edd93896919759d655f2455553d9ac045095334c448ca5619",
+      "keywords": "1daf73003e6a25d937fcaef02544b25f6880f96e5ac5f771418e7e04d3d6c3c5"
+    }
+  },
+  "scope": "Title, abstract, keywords and all seven main-body source files match bba6203; appendix sources, bibliography and table/figure assets retain their current versions."
+}

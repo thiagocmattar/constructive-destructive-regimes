@@ -1,0 +1,76 @@
+{
+  "retained_math": {
+    "quadratic_noise_and_attenuation_checks": 186,
+    "max_absolute_error": 1.7763568394002505e-14,
+    "orthogonal_retention": true,
+    "opposing_cancellation": true,
+    "zero_gradient_exception": true
+  },
+  "additional_math": {
+    "cases": 508,
+    "max_absolute_error": 5.684341886080802e-14,
+    "coverage": [
+      "Adam projected curvature response on quadratics",
+      "Exact finite-population covariance",
+      "All-pair displacement and retention",
+      "Nonquadratic path-average curvature, noise correction and local error bound"
+    ]
+  },
+  "retained_gd_sgd_evidence": {
+    "curves": 57,
+    "points": 134560,
+    "endpoint_rows": 9,
+    "displayed_scalars": 45,
+    "backward_endpoints": 9,
+    "preserved_comments": 28,
+    "source_hashes": 12,
+    "vector_figures": 4,
+    "transformer_state_example": {
+      "0": {
+        "mean_rho": -0.25949575516214246,
+        "loss_change": -3.505136604351701
+      },
+      "2000": {
+        "mean_rho": -0.25844491207239656,
+        "loss_change": 0.0642658936333953
+      }
+    },
+    "displayed_state_example_scalars": 1,
+    "sgd_curves": 6,
+    "sgd_points": 28,
+    "sgd_initialization_scalars": 84,
+    "displayed_runtime_bridge_scalars": 1
+  },
+  "adam_claims": {
+    "recovered_events": 806,
+    "anatomy_events": 129,
+    "excluded_without_recovery": 2,
+    "negative_prerise": 117,
+    "defined_prerise": 127,
+    "eta_above_two_before": 21,
+    "norm_grows_to_peak": 129,
+    "eta_max_before": 82,
+    "eta_max_coincident": 29,
+    "eta_max_after": 18,
+    "largest_increase": 858.7697586669618
+  },
+  "known_broken_references": [
+    "tab:gd-temporal-accounting"
+  ],
+  "reference_policy": "Author explicitly accepts broken references. Do not restore removed appendix figures or tables or edit the restored Sections I-IV to repair their references.",
+  "pages": 15,
+  "introduction_opening_verified_in_pdf": "Neural scaling laws have ushered in new paradigms for interpreting deep learning dynamics.",
+  "status": "passed_with_author_accepted_broken_reference",
+  "restoration": {
+    "restored_sources": 7,
+    "retained_sources": 15,
+    "preserved_previous_revision": 31
+  },
+  "pdf_sha256": "dde19ef3e817a4c81f6fea809c663beee3639ccb96803830801e5152c74cb48b",
+  "active_figures": 8,
+  "verifier_sha256": "4c47e6ce1c39dd94e59095b0e13c425c7cfeabd1ae46edd00ee4f6c3c0018762",
+  "reused_verifier_sha256": "c39552b2a7e76e96da765e49b2acdd78465fe686e7eca6689a66b7077701febf",
+  "restoration_manifest_sha256": "40cfd65f4030e3a98e4d118a45f9219c5481ee52988dc3b547dfe0598519ecfe",
+  "build": "pdflatex/BibTeX; zero overfull boxes; author-accepted broken references recorded",
+  "visual_review": "review.json"
+}

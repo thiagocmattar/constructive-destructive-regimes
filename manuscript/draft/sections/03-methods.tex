@@ -1,13 +1,12 @@
 \section{Characterizing Constructive and Destructive Regimes}
 \label{sec:displacement}
 
-Our diagnostics answer three connected questions: which directional regime
-is the optimizer traversing, how strongly are gradients changing, and how
-much of the resulting motion accumulates? Adjacent-gradient cosine
-$\rho_t$, the projected change $\eta\widehat\kappa_t$, and normalized
-displacement $R_T$ supply these local and cumulative views. We first derive
-them for plain SGD, then explain how destructive regimes can sustain
-descent or develop loss-increasing steps.
+Loss spikes and oscillatory updates motivate practical diagnostics that can be
+computed from gradients already available during training. We develop these
+diagnostics by relating parameter displacement, gradient magnitudes and alignment, 
+curvature and sampling noise. 
+The proposed quantities characterize constructive and destructive regimes, 
+and inform possible interventions without the additional overhead of computing Hessians.
 
 Consider the plain SGD update in Eq.~\eqref{eq:sgd_map_stability}, with constant
 learning rate $\eta>0$. As before, $\theta_t\in\mathbb{R}^p$ denotes the
@@ -17,9 +16,13 @@ at $\theta_{t-1}$. Summing the updates gives the displacement from initializatio
   \Delta_T:=\theta_T-\theta_0=-\eta\sum_{t=1}^T g_t.
   \label{eq:displacement}
 \end{equation}
-The displacement is the net parameter change produced by $T$ updates.
-Expanding its squared norm separates individual step magnitudes from
-interactions between steps:
+For a model trained from scratch, $\theta_0$ represents the initialized model that has not
+yet learned from the training data. After $T$ updates, the trained parameters
+$\theta_T$ encode what the model has learned within that training budget.
+The displacement $\Delta_T$ captures the net parameter change produced
+by training.
+Expanding the squared displacement separates gradient magnitudes from the interactions 
+between different steps 
 \begin{equation}
 \begin{aligned}
   \|\Delta_T\|^2
@@ -34,29 +37,23 @@ gradient norm indicates a steeper local loss and, therefore, a larger first-orde
 along the negative gradient. The cross-step terms
 $g_u^\top g_t$ describe how these steps interact -- positive inner products
 reinforce the displacement, whereas negative inner products cancel
-part of it. This decomposition provides the geometric basis for
-interpreting reinforcement and cancellation along a training trajectory.
+part of it. Large gradient norms can therefore coexist with cancellation along the training trajectory, and
+destructive interference (i.e. persistent $g_u^\top g_t < 0$) can limit displacement growth.
 
 To isolate directional alignment from gradient magnitudes, define the cosine
 similarity between any two nonzero gradients and its consecutive-step form
 \begin{equation}
 \begin{aligned}
   \rho_{u,t}&:=\frac{g_u^\top g_t}{\|g_u\|\|g_t\|},
-       &&1\leq u<t\leq T,\\
-  \rho_t&:=\rho_{t-1,t},&&t=2,\ldots,T.
+       &&1\leq u<t\leq T.
 \end{aligned}
 \label{eq:rho}
 \end{equation}
-We call the adjacent-gradient regime \emph{constructive} when $\rho_t>0$
-and \emph{destructive} when $\rho_t<0$. Zero denotes orthogonal
-gradients; a zero gradient norm leaves its cosine undefined.
-Persistent signs identify sustained regimes, while sign changes mark
-transitions between them. These definitions refer to raw gradients
-throughout the paper; under plain SGD, their signs also describe the
-interaction between consecutive updates.
-
-Substituting Eq.~\eqref{eq:rho} into Eq.~\eqref{eq:magnitude-interaction}
-gives
+In this setup, the alignment between consecutive gradients is
+$\rho_t:=\rho_{t-1,t}$, $t=2,\ldots,T$.
+Substituting into Eq.~\eqref{eq:magnitude-interaction}
+expresses the squared displacement entirely through gradient norms and
+directional alignment
 \begin{equation}
 \begin{aligned}
 \|\Delta_T\|^2={}&\eta^2\sum_{t=1}^T\|g_t\|^2\\
@@ -65,11 +62,12 @@ gives
 \end{aligned}
 \label{eq:magnitude-alignment}
 \end{equation}
-The exact sum retains interactions across every temporal lag.
-For given gradient magnitudes, positive pairwise terms reinforce net motion
-and negative terms cancel it. The adjacent statistic $\rho_t$ makes the
-current regime observable online; longer-lag interactions determine how
-that local behavior contributes to motion over the full training horizon.
+For fixed gradient norms, positive $\rho_{u,t}$ increases the squared net
+displacement, negative $\rho_{u,t}$ contributes cancellation, and orthogonal
+gradients have no pairwise contribution. In practice, 
+$\rho_t$ provides an online diagnostic of the
+interaction between successive updates: persistent positive or negative
+values characterize constructive or destructive regimes.
 
 \subsection{Directional Curvature and Consecutive Alignment}
 
@@ -132,38 +130,31 @@ $\mathcal L(\theta_{t-2}-\alpha g_{t-1})\approx
 \mathcal L(\theta_{t-2})-\alpha\|g_{t-1}\|^2+
 \alpha^2\kappa_t\|g_{t-1}\|^2/2$.
 For $\kappa_t>0$, its directional minimum is at $\alpha=1/\kappa_t$.
-Negative alignment therefore identifies a step beyond this directional
-minimum under the approximation. This is the geometric meaning of the
-destructive regime: the next gradient opposes a component of the preceding
-step. The loss-increase boundary depends additionally on the strength of
-that opposition, as derived in Section~\ref{subsec:loss-connection}.
+Negative alignment therefore indicates that the step has passed this
+directional minimum under the approximation. Other gradient components
+may remain: this threshold identifies directional overshoot, rather than
+a stationary point or the loss-increase boundary derived below.
 
 This interpretation leads to a measurable diagnostic. Rearranging
 Eq.~\eqref{eq:rho-normalized} gives
 \begin{equation}
- \begin{aligned}
   \eta\widehat\kappa_t
-  &:=1-\rho_t\frac{\|g_t\|}{\|g_{t-1}\|}\\
-  &=-\frac{g_{t-1}^{\top}(g_t-g_{t-1})}{\|g_{t-1}\|^2}
-    \approx \eta\kappa_t-\varepsilon_t.
- \end{aligned}
+  :=1-\rho_t\frac{\|g_t\|}{\|g_{t-1}\|}
+  \approx \eta\kappa_t-\varepsilon_t.
   \label{eq:kappa-estimate}
 \end{equation}
-This diagnostic measures the change of gradient projected onto its
-preceding direction, normalized by the preceding squared norm.
-It combines the regime with the relative gradient magnitude in one
-observable quantity. In full GD, a small Taylor remainder gives a
-directional-curvature estimate; under SGD, the explicit noise term
-describes the sampling contribution. The diagnostic concerns the
-direction actually traversed, complementing the largest-eigenvalue
-criterion in Eq.~\eqref{eq:quad_stability_condition}.
+The left-hand side uses only consecutive gradients: it measures their
+finite-step projected change without a Hessian evaluation. In full GD it
+estimates directional curvature when the Taylor remainder is small; in
+SGD it also contains sampling noise. It characterizes the realized step,
+whereas Eq.~\eqref{eq:quad_stability_condition} concerns perturbations
+along the most curved local direction.
 
 
 \subsection{Noise Contribution under Mini-Batch Sampling}
 \label{subsec:sampling-noise}
 
-Sampling contributes to the regime through its interaction with the
-preceding noisy gradient. Write
+Unbiased sampling does not make the noise interaction vanish. Write
 $g_{t-1}=\nabla\mathcal L(\theta_{t-2})+\xi_{t-1}$.
 Fresh, conditionally unbiased batches give
 $\mathbb E[g_{t-1}^{\top}\xi_t]=0$ and
@@ -224,9 +215,10 @@ tests its expression along evolving trajectories.
 \subsection{Normalized Displacement and Cumulative Interference}
 \label{subsec:normalized-displacement}
 
-The regime describes adjacent directions; normalized displacement
-describes their cumulative outcome. It compares the straight-line distance
-from initialization with the total distance traveled:
+While the consecutive cosine similarity $\rho_t$ measures local lag-1
+directional alignment, it does not capture interactions between
+more distant updates (lag$\geq2$). To measure their cumulative effect,
+we define the normalized displacement
 \begin{equation}
   R_T:=
   \frac{\|\Delta_T\|}
@@ -236,8 +228,8 @@ from initialization with the total distance traveled:
   \qquad 0\leq R_T\leq1,
   \label{eq:normalized-displacement}
 \end{equation}
-For a nonzero accumulated path length under constant-step plain
-SGD, the denominator is the total distance traveled
+For constant-step plain
+SGD, the denominator represents the total distance traveled
 in parameter space, while the numerator measures the net
 displacement from initialization. Thus, $R_T$ quantifies the
 fraction of accumulated step length retained as net displacement.
@@ -256,32 +248,23 @@ R_T^2
 \end{aligned}
 \label{eq:cumulative-interference}
 \end{equation}
-Thus $R_T$ incorporates interactions across all temporal lags.
+Unlike $\rho_t$, which considers only adjacent gradients,
+$R_T$ incorporates interactions across all temporal lags.
 When $R_T$ is near one, almost all traveled distance survives as net
 displacement; when it is near zero, little does. Repeated back-and-forth
 steps and weakly coherent sampled directions both suggest low retention.
 For example, equal-length orthogonal updates give $R_T=1/\sqrt T$,
 whereas equal opposing pairs cancel exactly. We therefore expect small
 $R_T$ when such behavior persists over a substantial part of an SGD path.
-Absolute displacement can keep growing while its retained fraction falls.
-Together, $\rho_t$, gradient norms and $R_T$ describe the local regime,
-the size of its steps and the fraction retained over time.
+Its value is relative to traveled distance: absolute displacement can
+still grow, and the sign of the complete interaction in
+Eq.~\eqref{eq:cumulative-interference} requires the full decomposition.
 
-These diagnostics are inexpensive in computational structure.
-For $p$ parameters, a norm and an inner product with the retained preceding
-gradient give $\rho_t$ and $\eta\widehat\kappa_t$ in $O(p)$ operations and
-$O(p)$ additional storage per update. Computing $R_T$ adds a running vector
-sum and a scalar sum of norms, also with $O(p)$ work and storage independent
-of $T$. All use gradients already produced by the training backward pass;
-the exact all-pair identity is evaluated through these sums. Explicit
-lag profiles are a separate measurement requiring retained history.
-
-\subsection{From Destructive Descent to Loss Increase}
+\subsection{Directional Overshoot and Loss Increase}
 \label{subsec:loss-connection}
 
-A destructive step can still decrease loss after crossing its directional
-minimum. The decisive quantity is how strongly the new gradient opposes
-the preceding one. Define the full-objective change of that step as
+Directional overshoot need not undo the loss decrease already made along
+a step. Define its full-objective change as
 $\delta\mathcal L_{t-1}:=\mathcal L(\theta_{t-1})-
 \mathcal L(\theta_{t-2})$.
 The second-order approximation derived in Appendix~\ref{appendix:loss-curvature}
@@ -304,12 +287,10 @@ a loss increase precisely when
   \rho_t<-\frac{\|g_{t-1}\|}{\|g_t\|}.
   \label{eq:loss-rise-alignment}
 \end{equation}
-The condition requires a destructive regime and sufficient gradient-norm
-growth: the opposing component of the new gradient must exceed the
-preceding gradient magnitude. This is the distinction that makes the
-joint diagnostic useful. The sign identifies the regime, while the norm
-ratio determines whether its destructive contribution can overwhelm
-the descent term.
+This requires both negative alignment and gradient-norm growth. Neither
+alone suffices: the opposing component of the new gradient must exceed
+the preceding gradient magnitude. Large norms can therefore accompany
+descent, just as negative cosine can accompany a smaller loss decrease.
 
 Substituting Eq.~\eqref{eq:rho-normalized} with zero noise gives
 \begin{equation}
@@ -317,10 +298,10 @@ Substituting Eq.~\eqref{eq:rho-normalized} with zero noise gives
   \frac{\eta}{2}\|g_{t-1}\|^2(\eta\kappa_t-2).
   \label{eq:loss-rise-curvature}
 \end{equation}
-Within the local quadratic model, $1<\eta\kappa_t<2$ is a destructive
-regime with decreasing loss; $\eta\kappa_t>2$ produces a loss increase.
-The projected-change diagnostic expresses the same transition through
-observable gradient reversal and amplification. Nonlinear remainder and
-SGD noise terms delimit this approximation. We now test how the predicted
-regimes appear in neural-network training and how their signatures
-relate to cumulative motion and loss spikes.
+The two thresholds distinguish overshooting the directional minimum
+($\eta\kappa_t>1$) from overshooting far enough to raise the loss
+($\eta\kappa_t>2$). Between them, the gradients oppose each other while
+the step still improves the objective. These are local quadratic
+predictions; finite-step nonlinear effects and the explicit SGD noise
+term can change the observed sign. A transient increase becomes a loss
+peak only if subsequent updates recover.

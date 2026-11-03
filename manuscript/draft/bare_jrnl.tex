@@ -384,7 +384,7 @@
 % not capitalized unless they are the first or last word of the title.
 % Linebreaks \\ can be used within to get better formatting as desired.
 %\title{The Signal and Interference Trade-off in Stochastic Gradient Descent}
-\title{Constructive and Destructive Training Regimes: Gradient Diagnostics for Neural Network Stability}
+\title{Constructive and Destructive Training Regimes: A Framework for Interpreting SGD Stability}
 %% Add stability on the title
 %
 %
@@ -423,35 +423,14 @@ Minas Gerais 35931-008, Brazil (e-mail: fredgfc@ufmg.br; apbraga@ufmg.br).}
 % in the abstract or keywords.
 
 \begin{abstract}
-Curvature governs how gradients change along a learning step.
-We develop an online diagnostic framework that estimates
-directional curvature from consecutive training gradients, without computing
-the Hessian or its vector products. Under full-batch gradient descent, the
-estimator equals directional curvature averaged along a smooth step and
-approximates curvature at its starting point. It requires one retained
-gradient vector and linear-time reductions, with no additional backward pass.
-Adjacent-gradient cosine identifies constructive and destructive regimes;
-the curvature estimate combines this alignment with gradient-norm growth.
-A local loss analysis explains how destructive regimes sustain descent and
-how amplified reversal produces loss-increasing steps. Controlled CIFAR-10
-and WikiText-2 experiments characterize these regimes under GD and sampling.
-Under Adam, the same measurements reveal curvature response along adaptive
-steps and early signs of developing loss spikes.
-Across 129 recovered spikes larger than 10\%, gradient norms increase in every
-event, and 117 of 127 defined pre-rise cosines identify a destructive regime.
-Joint measures of pre-rise alignment and rise norm amplification explain
-38--94\% of the within-run variation in log relative peak loss.
-The framework makes curvature-related instability observable during training
-and provides a basis for interpreting stabilization heuristics and designing
-diagnostic-guided interventions.
+Parameter updates can reinforce or cancel one another even when training loss continues to decrease. An exact finite-time decomposition of stochastic gradient descent (SGD) displacement separates gradient magnitudes from interactions across all temporal lags. Consecutive-gradient cosine provides a local directional diagnostic, while normalized displacement measures cumulative retention of traveled distance. Local expansions connect these quantities to curvature and sampling noise without identifying alignment sign with stability or objective progress. Full-batch experiments exhibit gradient reversal alongside continued loss reduction. Matched mini-batch continuations show that sampling changes both gradient estimates and the paths traversed through the objective. Under Adam, raw-gradient diagnostics remain informative about the loss landscape traversed by adaptive steps. Controlled full-batch experiments reveal loss spikes associated with pre-rise gradient reversal and norm amplification. Loss-defined events quantify their magnitude and recovery, while descriptive regressions relate the initial regime and subsequent norm growth to relative peak loss. The resulting framework supports the formulation and evaluation of informed learning-rate interventions; it does not prescribe an alignment-maximizing schedule.
 \end{abstract}
 
 
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-Training Stability, Directional Curvature, Gradient Alignment,
-Stochastic Gradient Descent, Adam
+Stochastic Gradient Descent, Adam, Gradient Alignment, Parameter Displacement, Learning-Rate Scheduling
 \end{IEEEkeywords}
 
 

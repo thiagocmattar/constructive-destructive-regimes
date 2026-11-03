@@ -16,7 +16,17 @@ current argument to evidence, advisor discussion and simulated reviews. Its
 existing-data checks, optional interventions and the submission stopping rule.
 This planning record does not change the current draft or authorize training.
 
-Latest revision (2026-11-03, Sections I-IV restored):
+Latest revision (2026-11-03, original argument restored):
+[review and reproduction](draft/revisions/2026-11-03-original-argument-restored/README.md).
+The title, abstract, keywords and main text return to `bba6203`, before the
+full writing revision. That snapshot already includes the updated methods,
+controlled GD/SGD experiments and complete Adam spike analysis. The introduction
+starts with "Neural scaling laws have ushered in new paradigms for interpreting
+deep learning dynamics." The shortened appendices and current figures/tables
+are unchanged; broken references are intentionally retained at the author's
+request. The separate 15-page PDF is verified and visually reviewed.
+
+Superseded baseline restoration (2026-11-03, Sections I-IV):
 [review and reproduction](draft/revisions/2026-11-03-sections-i-iv-restored/README.md).
 Sections I-IV exactly match commit `a4bbf0d`, immediately before the
 curvature-focused pass. The abstract, Adam section, conclusion, concise
