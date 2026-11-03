@@ -74,6 +74,8 @@ def main():
                         va='bottom', fontsize=9)
             else:
                 ax.set_title(f'({chr(97 + col)}) ' + titles[col] + '\n' + rf'$\eta={lr:g}$', pad=8)
+            ax.axvspan(example['episode_onset'], example['peak_state'],
+                       color='.5', alpha=.12, linewidth=0, zorder=-1)
             ax.axvline(example['episode_onset'], color='.65', lw=.7, ls=':', zorder=0)
             ax.axvline(example['peak_state'], color='.4', lw=.7, ls='--', zorder=0)
             ax.set_xlim(states[0] - .5, states[-1] + .5)
@@ -106,6 +108,7 @@ def main():
     renderer = fig.canvas.get_renderer()
     assert legend.get_window_extent(renderer).y1 < min(ax.xaxis.label.get_window_extent(renderer).y0 for ax in axes[-1])
     assert sum(len(ax.lines) for ax in axes.flat) == 51
+    assert sum(len(ax.patches) for ax in axes.flat) == 12
     fig.savefig(PDF, metadata={'CreationDate': None, 'ModDate': None})
     plt.close(fig)
     with fitz.open(PDF) as doc:

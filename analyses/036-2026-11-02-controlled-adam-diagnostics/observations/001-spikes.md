@@ -19,6 +19,11 @@ denote raw gradients and orange dashed curves denote stored Adam first moments
 in both the cosine and norm rows; the shared legend is below the plots.
 Norms are divided by their value at the first displayed state. Light dotted
 vertical lines mark episode onset; dark dashed lines mark the selected peak.
+Light gray shading highlights the interval between these existing vertical
+markers in every panel: states 697–703, 418–422 and 790–794, respectively.
+It highlights the displayed rise segment, rather than redefining the complete
+fixed-reference excursion or its recovery boundary. The curves, markers and
+window limits are unchanged.
 Loss and vector diagnostics use parameter state t; moment diagnostics incorporate
 g_t before update t+1. Consecutive momentum cosines compare these successive
 stored moments; positive bias correction does not change their cosine.
