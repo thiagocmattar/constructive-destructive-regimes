@@ -1,0 +1,213 @@
+{
+  "status": "passed",
+  "source_sha256": "3811c2ab3598f9280d7add0cfcbca2f9f00d0c6c4fcf2663174256a74078a6e8",
+  "sources": [
+    {
+      "path": "runs/220-2026-11-03-mlp-lr-cooldown/artifacts/attempts/002-audit-continuation/conditions/unchanged/boundaries.jsonl",
+      "sha256": "928db4e297c9d83b7675760a457850a2525466efefe96050cabc6b24ad2bc70e",
+      "bytes": 358736
+    },
+    {
+      "path": "runs/220-2026-11-03-mlp-lr-cooldown/artifacts/attempts/002-audit-continuation/conditions/unchanged/decisions.jsonl",
+      "sha256": "02e53eb566bf31816362742c9ee1ffe1ea3dfe7537dc079c8047d1814f4e815d",
+      "bytes": 110915
+    },
+    {
+      "path": "runs/220-2026-11-03-mlp-lr-cooldown/artifacts/attempts/002-audit-continuation/conditions/always_half/boundaries.jsonl",
+      "sha256": "fe77fb50d3e9c03ad9de16716f69b039937479819369966141424d2d555735fb",
+      "bytes": 366466
+    },
+    {
+      "path": "runs/220-2026-11-03-mlp-lr-cooldown/artifacts/attempts/002-audit-continuation/conditions/always_half/decisions.jsonl",
+      "sha256": "374fa41fcfe0dcd708093faf3ac21d1acf89a599d44a19c82b8402893c485ec3",
+      "bytes": 112359
+    },
+    {
+      "path": "runs/220-2026-11-03-mlp-lr-cooldown/artifacts/attempts/002-audit-continuation/conditions/hold8/boundaries.jsonl",
+      "sha256": "57778f3d035e226bfd3be8e04c3c906edf7dba129bc759d479e67c03db9a026a",
+      "bytes": 360372
+    },
+    {
+      "path": "runs/220-2026-11-03-mlp-lr-cooldown/artifacts/attempts/002-audit-continuation/conditions/hold8/decisions.jsonl",
+      "sha256": "45dc0da795ad7752350bcd17cb4d52c90520c5fd22c67bbc1a59e6d8e0214aa2",
+      "bytes": 109336
+    },
+    {
+      "path": "runs/220-2026-11-03-mlp-lr-cooldown/artifacts/attempts/002-audit-continuation/conditions/hold8_cosine8/boundaries.jsonl",
+      "sha256": "f4c61c80786a524fc8458131871a7198d8babc5a52ed057d795eef4255b8d69f",
+      "bytes": 363095
+    },
+    {
+      "path": "runs/220-2026-11-03-mlp-lr-cooldown/artifacts/attempts/002-audit-continuation/conditions/hold8_cosine8/decisions.jsonl",
+      "sha256": "ecc6dc1c59f80a2a05ad8a91dda3c433ffd8d1fc03d7dbfe4c4083b171c2de73",
+      "bytes": 112558
+    }
+  ],
+  "conditions": [
+    "always_half",
+    "hold8",
+    "hold8_cosine8"
+  ],
+  "reference": "unchanged",
+  "columns": 3,
+  "rows": [
+    "loss",
+    "rho",
+    "gradient_norm",
+    "eta_kappa_hat",
+    "lr_over_base"
+  ],
+  "all_trajectory_lines_solid": true,
+  "independent_y_axes": true,
+  "y_limits": {
+    "paired_three_column": {
+      "always_half": {
+        "loss": [
+          0.005810054487583182,
+          0.0630433523305814
+        ],
+        "rho": [
+          -1.136253905087617,
+          1.1397539595596742
+        ],
+        "gradient_norm": [
+          0.0029963361662380494,
+          3.8004769719308165
+        ],
+        "eta_kappa_hat": [
+          -0.3749099167023786,
+          3.0532295924486217
+        ],
+        "lr_over_base": [
+          0.46499999999999997,
+          1.035
+        ]
+      },
+      "hold8": {
+        "loss": [
+          0.0060122952150562774,
+          0.06290238945330257
+        ],
+        "rho": [
+          -1.1358680367110536,
+          1.1338556858036315
+        ],
+        "gradient_norm": [
+          0.005778358423304878,
+          3.64065268361555
+        ],
+        "eta_kappa_hat": [
+          -5.572659038742239,
+          4.435495018463319
+        ],
+        "lr_over_base": [
+          0.46499999999999997,
+          1.035
+        ]
+      },
+      "hold8_cosine8": {
+        "loss": [
+          0.005543193756966731,
+          0.06323757334335374
+        ],
+        "rho": [
+          -1.1361997909985406,
+          1.1389267870552202
+        ],
+        "gradient_norm": [
+          0.003058778886216794,
+          3.795352322030034
+        ],
+        "eta_kappa_hat": [
+          -2.1620684099124285,
+          3.7697675565909594
+        ],
+        "lr_over_base": [
+          0.46499999999999997,
+          1.035
+        ]
+      }
+    },
+    "paired_three_column_zoom": {
+      "always_half": {
+        "loss": [
+          0.009956274950404414,
+          0.060860615275618535
+        ],
+        "rho": [
+          -1.1219415261100707,
+          1.0182240327905907
+        ],
+        "gradient_norm": [
+          0.005201913964105251,
+          3.665769299052256
+        ],
+        "eta_kappa_hat": [
+          -0.35051038369519616,
+          2.680265302195976
+        ],
+        "lr_over_base": [
+          0.46499999999999997,
+          1.035
+        ]
+      },
+      "hold8": {
+        "loss": [
+          0.009956274950404414,
+          0.060860615275618535
+        ],
+        "rho": [
+          -1.1329674253380293,
+          1.1336659261810973
+        ],
+        "gradient_norm": [
+          0.09852297261649955,
+          3.024116960832639
+        ],
+        "eta_kappa_hat": [
+          -4.805279349596651,
+          4.124576394623765
+        ],
+        "lr_over_base": [
+          0.46499999999999997,
+          1.035
+        ]
+      },
+      "hold8_cosine8": {
+        "loss": [
+          0.009956274950404414,
+          0.060860615275618535
+        ],
+        "rho": [
+          -1.1195500153812528,
+          0.9816680830786578
+        ],
+        "gradient_norm": [
+          0.008022403810869811,
+          3.5633363389922335
+        ],
+        "eta_kappa_hat": [
+          -1.5015123517372417,
+          3.7265536088598723
+        ],
+        "lr_over_base": [
+          0.46499999999999997,
+          1.035
+        ]
+      }
+    }
+  },
+  "rho_definition": "cosine between current and immediately previous raw full-objective gradient",
+  "unique_source_boundary_rows": 1472,
+  "paired_table_rows": 2208,
+  "plotted_scalar_checks": 13230,
+  "no_smoothing_or_data_changes": true,
+  "no_training": true,
+  "terminal_lr_is_plot_closure_only": true,
+  "values_sha256": "4a3705cb1e0fca4ac759796ebec0adc6ecb160a927f34a53c93fa10695b1ecbc",
+  "pdf_sha256": {
+    "paired_three_column.pdf": "29a411df4f39e716e4fea8c759af6d613fb55e0fdeb0c38e8c9da3b0bdca9afc",
+    "paired_three_column_zoom.pdf": "ab0d8245f12bd6abdba438e97ccbe186d82256fcadbdd074774795b24f5e1c5b"
+  },
+  "visual_review": "Full and fixed-zoom PDFs rendered and inspected: three paired columns, five legible rows, solid strokes, independent Y axes; no collisions or clipping."
+}

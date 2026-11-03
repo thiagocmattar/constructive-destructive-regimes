@@ -6,12 +6,15 @@ hold still produces repeated excursions. Repeated triggers keep the cosine
 policy below base LR for365/367 updates; this is not evidence that its timing
 beats a matched fixed-rate or open-loop schedule.
 
-[Clean four-arm figure](figures/focal_four_arm.pdf) omits the one-step series at
-the author's request. [Clean fixed zoom](figures/focal_four_arm_zoom.pdf) uses
-the same predeclared673..745 window. Full five-arm evidence remains in
-[full view](figures/full_continuation.pdf) and [fixed zoom](figures/fixed_zoom.pdf).
-All views include raw gradient norms as the third row. No training was repeated
-for the cleaner figure.
+[Paired three-column figure](figures/paired_three_column.pdf) compares unchanged
+Adam with half LR, eight-update cooldown, and cooldown plus cosine recovery in
+separate columns. All trajectories are solid; each panel uses its own Y range
+while retaining both full curves. Rows are loss, raw adjacent-gradient $\rho_t$,
+gradient norm, $\eta\widehat\kappa_t$, and actual LR. The [paired fixed zoom](figures/paired_three_column_zoom.pdf)
+uses the same predeclared673..745 window. [Observation002](observations/002-paired-comparison.md)
+records definitions and13,230 exact plotted-value checks. The one-step series
+remains omitted from the primary figure. Earlier four-arm and full five-arm
+overlays remain available; no measurements or training changed.
 
 ## Frozen comparison
 
