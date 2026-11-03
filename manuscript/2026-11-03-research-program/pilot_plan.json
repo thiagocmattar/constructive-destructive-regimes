@@ -1,0 +1,92 @@
+{
+  "status": "design_specification_not_launch_ready",
+  "training_launched": false,
+  "run_id": null,
+  "analysis_id": null,
+  "hypothesis_id": null,
+  "purpose": "Explore matched action effects and qualify new instrumentation before independent confirmation",
+  "rung": "controlled_full_objective_mlp_development",
+  "scientific_contract": {
+    "model": "Existing tanh MLP, 3072-200-200-10",
+    "dataset": "Pinned first 5000 CIFAR-10 images, existing prepared normalization",
+    "objective": "Half squared error summed across ten outputs and averaged over all 5000 images",
+    "physical_chunk_images": 1000,
+    "optimizer": "Adam",
+    "betas": [0.9, 0.999],
+    "epsilon": 1e-8,
+    "base_learning_rate": 0.001,
+    "weight_decay": 0,
+    "schedule": "constant",
+    "seed": 0,
+    "initialization": "Exact frozen Run215/Analysis024 seed0 tensors; verify hashes before execution",
+    "model_gradient_moment_precision": "FP32",
+    "diagnostic_reductions": "FP64",
+    "tf32": false,
+    "foreach": false,
+    "fused": false
+  },
+  "fork": {
+    "completed_updates": 657,
+    "formal_historical_prerise": 689,
+    "prefix_reconstruction_required": true,
+    "reset_adam_moments": false,
+    "clipping_scale_prior_states": 64,
+    "branch_updates": 128,
+    "immutable_snapshot": "Before consuming the fork gradient, including prior gradient and actual step",
+    "require_same_machine_untreated_replay": true,
+    "historical_event_timing_tolerance_states": 2,
+    "historical_event_peak_ratio_relative_tolerance": 0.05,
+    "reselection_rule": "If historical replay fails, record and amend design before treatment inspection"
+  },
+  "arms": [
+    {"id": "A0", "action": "ordinary_adam"},
+    {"id": "A1", "action": "lr_multiplier", "multiplier": 0.5},
+    {"id": "A2", "action": "lr_multiplier", "multiplier": 0.25},
+    {"id": "A3", "action": "global_raw_gradient_clip", "threshold": "median_prior64_raw_norms", "placement": "after full accumulation and before both moment updates"},
+    {"id": "A4", "action": "global_adam_proposal_clip", "threshold": "median_prior64_complete_proposal_norms", "moments": "ordinary Adam unchanged"},
+    {"id": "A5", "action": "current_gradient_numerator", "moments": "continue both ordinary moments; bypass m_hat only in applied numerator"},
+    {"id": "A6", "action": "beta2_switch", "beta2_after_fork": 0.99, "second_moment_bias_correction": "1 - 0.999^fork_age * 0.99^new_age"},
+    {"id": "A7", "action": "full_objective_armijo", "coefficient": 1e-4, "shrink_factor": 0.5, "maximum_trials": 8, "fallback": "preconditioned raw-gradient descent if ordinary direction is not descending", "on_exhaustion": "restore complete state, mark stalled, stop", "require_measured_nonincrease": true},
+    {"id": "A8", "action": "cap_only_transported_secant", "formula": "alpha_hat=(g_current dot d_current)/((s_previous dot y)/(s_previous dot s_previous) * (d_current dot d_current))", "y_definition": "g_current-g_previous", "s_definition": "previous actual applied increment", "eligibility": "finite inputs, reductions and alpha_hat; nonzero s_previous and d_current; g_current dot d_current > 0; secant_alignment_condition", "secant_alignment_condition": "s_previous dot y > 1e-8 * norm(s_previous) * norm(y)", "tolerance_interpretation": "development tolerance on secant alignment; not proof of numerical curvature resolution", "alpha_floor_multiple_of_base": 0.05, "alpha_cap_multiple_of_base": 1.0, "invalid_case": "base learning rate with reason logged", "moments": "ordinary Adam unchanged", "loss_decrease_guarantee": false}
+  ],
+  "work_counts": {
+    "prefix_optimizer_updates": 657,
+    "branch_optimizer_updates": 1152,
+    "total_nominal_optimizer_updates": 1809,
+    "nominal_training_images_seen": 9045000,
+    "maximum_extra_armijo_full_training_forwards": 1024,
+    "mechanics_qualification_and_evaluation_excluded_from_counts": true
+  },
+  "capture": {
+    "pre_update": ["raw_gradient", "previous_raw_gradient", "previous_actual_increment", "s_dot_y", "s_dot_previous_gradient", "raw_Q", "step_Q", "same_parity_norm_growth", "pair_sum_difference_norms", "chosen_alpha", "fallback_reason"],
+    "post_update": ["actual_increment", "input_moment_adaptive_actual_streams", "roundoff_audit", "cost_counters"],
+    "full_loss_every_state": true,
+    "selected_dense_history": "Declared short windows only; no unrestricted full-history dumping",
+    "checkpoint_every_branch_updates": 32,
+    "retain_immutable_fork_and_endpoint": true,
+    "rolling_crash_recovery_separate": true
+  },
+  "evaluation": {
+    "primary": ["fixed_untreated_baseline_peak_excess", "fixed_untreated_baseline_excess_area", "mean_training_loss", "final_training_loss", "time_to_target", "full_cost"],
+    "retain_delayed_replacement_and_censored_events": true,
+    "full_cifar_test_images_at_fork_and_endpoint": 10000,
+    "heldout_test_use": "descriptive only; never method or threshold selection",
+    "confirmation_claim": false
+  },
+  "execution_envelope": {
+    "device": "owned local GPU, production-shaped memory check required",
+    "cloud_charge_usd": 0,
+    "expected_local_minutes_planning_range": [5, 15],
+    "expected_runtime_measured_for_new_methods": false,
+    "hard_local_minutes": 30,
+    "source_of_expectation": "Historical MLP median0.01168seconds/update and complete1024-update arm14.90seconds; allowance adds unmeasured qualification, state and trial costs"
+  },
+  "readiness_remaining": [
+    "Author confirms this concrete run plan before neural smoke or training",
+    "Allocate current independent run and analysis IDs",
+    "Implement new run-local driver and pre-update observation; do not edit frozen Run215",
+    "Freeze exact code, cache, config and initialization byte hashes",
+    "Pass focused optimizer, clock, rollback, clipping and resume tests",
+    "After run-plan confirmation, run mechanics smoke and measure new-method runtime, memory and complete evaluation overhead"
+  ]
+}

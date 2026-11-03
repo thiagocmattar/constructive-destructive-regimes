@@ -1,0 +1,121 @@
+{
+  "status": "passed",
+  "purpose": "Mathematical design preflight only; no empirical finding or training",
+  "numpy_version": "2.3.5",
+  "random_seed": 20261103,
+  "quadratic_cases": 140,
+  "smooth_nonquadratic_cases": 90,
+  "transport_bound_checks": 690,
+  "identity_check_counts": {
+    "quadratic_actual_step_secant": 140,
+    "chat_direction_formula_equals_actual_secant": 140,
+    "completed_direction_line_optimum": 140,
+    "quadratic_loss_change_q_step": 140,
+    "bb1_current_direction_equivalence": 140,
+    "endpoint_noise_projection": 140,
+    "quartic_path_average_identity": 90,
+    "nonidentifiability_same_old_gradient": 3,
+    "nonidentifiability_same_new_gradient": 3,
+    "unseen_curvature_secant_is_one": 3,
+    "tiny_positive_curvature_cap": 1
+  },
+  "maximum_normalized_identity_errors": {
+    "quadratic_actual_step_secant": 7.09960798514413e-16,
+    "chat_direction_formula_equals_actual_secant": 2.1250848629547793e-16,
+    "completed_direction_line_optimum": 2.6557962165325567e-17,
+    "quadratic_loss_change_q_step": 3.339404864956383e-15,
+    "bb1_current_direction_equivalence": 6.4045605372332885e-18,
+    "endpoint_noise_projection": 2.8543944475166984e-14,
+    "quartic_path_average_identity": 5.2477123837883875e-15,
+    "nonidentifiability_same_old_gradient": 0.0,
+    "nonidentifiability_same_new_gradient": 0.0,
+    "unseen_curvature_secant_is_one": 0.0,
+    "tiny_positive_curvature_cap": 0.0
+  },
+  "nonidentifiability_counterexamples": [
+    {
+      "unseen_curvature": 1.0,
+      "identical_previous_secant": 1.0,
+      "scalar_transported_alpha": 1.0,
+      "exact_current_line_alpha": 1.0,
+      "exact_loss_change_at_transported_alpha": -0.5
+    },
+    {
+      "unseen_curvature": 100.0,
+      "identical_previous_secant": 1.0,
+      "scalar_transported_alpha": 1.0,
+      "exact_current_line_alpha": 0.01,
+      "exact_loss_change_at_transported_alpha": 49.0
+    },
+    {
+      "unseen_curvature": 10000.0,
+      "identical_previous_secant": 1.0,
+      "scalar_transported_alpha": 1.0,
+      "exact_current_line_alpha": 0.0001,
+      "exact_loss_change_at_transported_alpha": 4999.0
+    }
+  ],
+  "bounded_period2_control": {
+    "method": "Normalized-gradient descent, eta=1 on f(x)=x^2/2, x0=0.25",
+    "equivalent_toy": "Adam beta1=beta2=0, epsilon=0, all gradients nonzero; not default Adam",
+    "states": 128,
+    "gradients": [
+      0.25,
+      -0.75
+    ],
+    "losses": [
+      0.03125,
+      0.28125
+    ],
+    "adjacent_sign_and_growth_gate_hits": 64,
+    "q_raw_above_two_hits": 64,
+    "lag2_growth_min": 1.0,
+    "lag2_growth_max": 1.0,
+    "pair_loss_envelope": 0.28125,
+    "scope": "Negative control for progressive envelope growth or runaway instability. Each cycle DOES meet the current >10% recovered-excursion definition; therefore these are not false positives for that detector."
+  },
+  "explicit_guard_cases": {
+    "zero_previous_step": {
+      "status": "unavailable",
+      "reason": "zero_previous_step"
+    },
+    "zero_current_direction": {
+      "status": "unavailable",
+      "reason": "zero_current_direction"
+    },
+    "non_descending_current_direction": {
+      "status": "unavailable",
+      "reason": "non_descending_current_direction"
+    },
+    "zero_secant_curvature": {
+      "status": "unavailable",
+      "reason": "nonpositive_secant_curvature"
+    },
+    "negative_secant_curvature": {
+      "status": "unavailable",
+      "reason": "nonpositive_secant_curvature"
+    },
+    "nonfinite_input": {
+      "status": "unavailable",
+      "reason": "nonfinite_input"
+    },
+    "tiny_positive_curvature": {
+      "status": "valid_proposal",
+      "kappa_hat": 1e-20,
+      "alpha_raw": 1e+20,
+      "alpha_capped": 0.1,
+      "clamp_active": true,
+      "guarantee": "No future loss-decrease or stability guarantee"
+    }
+  },
+  "guarantees": [
+    "Exact quadratic scalar-line and secant identities within numerical tolerance",
+    "Analytic transport bound numerically checked on synthetic smooth objectives"
+  ],
+  "limitations": [
+    "Finite random checks do not prove a theorem",
+    "No guarantee that previous secant curvature is predictive for current Adam direction",
+    "No guarantee of future decrease from scalar caps or empirical reliability gates",
+    "No default-Adam training, neural-network training, HVP workload or cloud action"
+  ]
+}

@@ -1,5 +1,13 @@
 # Manuscript workspace
 
+## Active research program
+
+The [temporal geometry and intervention program](2026-11-03-research-program/README.md)
+expands the closing plan into new observability, matched-intervention and
+independent-confirmation experiments. Its [execution specifications](2026-11-03-research-program/EXECUTION.md)
+and [first local pilot design](2026-11-03-research-program/pilot_plan.json) record
+scientific comparisons, budget gates and remaining launch preparation.
+
 ## Paper evidence and submission plan
 
 The [3 November consolidation](2026-11-03-paper-convergence/README.md) maps the
