@@ -82,9 +82,11 @@ def main():
                     [reference.slope, reference.intercept, reference.rvalue ** 2],
                     rtol=1e-11, atol=1e-13)
                 np.testing.assert_allclose(design.T @ residual, 0, atol=1e-10)
-                line_x = np.linspace(x.min(), x.max(), 200)
+                line_x = np.linspace(-16, 2.5, 200)
                 line_y = 10 ** (intercept + slope * line_x)
-                line, = ax.plot(line_x, line_y, color=color, lw=1.1, zorder=1)
+                line, = ax.plot(line_x, line_y, color=color, lw=1.1, ls='--', zorder=1)
+                assert line.get_linestyle() == '--'
+                np.testing.assert_array_equal(line.get_xdata()[[0, -1]], [-16, 2.5])
                 np.testing.assert_array_equal(line.get_ydata(), line_y)
                 ax.text(.97, .96 - .11 * annotation_row,
                     rf'$R^2={r_squared:.2f}$', transform=ax.transAxes,
@@ -92,7 +94,8 @@ def main():
                 annotation_row += 1
                 regression = dict(n=len(x), intercept=float(intercept), slope=float(slope),
                     r_squared_log10_loss_ratio=float(r_squared), sse_log10=sse, sst_log10=sst,
-                    x_range=[float(x.min()), float(x.max())],
+                    observed_x_range=[float(x.min()), float(x.max())],
+                    displayed_x_range=[-16, 2.5], line_style='dashed',
                     line_x=line_x.tolist(), line_y=line_y.tolist())
             groups.append(dict(task=task, learning_rate=lr, count=len(group), color=color,
                 spike_ids=group.spike_id.tolist(), coordinates=points.tolist(), regression=regression))
@@ -135,7 +138,7 @@ def main():
         x='rho_raw_before * gradient_rise_ratio = rho_(a+1) * ||g_(p+1)|| / ||g_(a+1)||; signed pre-rise consecutive cosine times endpoint rise norm ratio; no negation or absolute value.',
         y='1 + peak_change_percent/100 = loss_peak/loss_before; log axis, with 1 meaning no increase.',
         reduction='One unsmoothed point per event; no averaging or jitter; shared linear x and logarithmic y axes.',
-        regression='Separate equal-event-weight OLS with intercept per task/LR: log10(loss_peak/loss_before) = intercept + slope*x. R-squared is in-sample on log10 loss ratios. Lines are back-transformed and limited to each group observed x range; standard axes clipping applies. Empty groups have no fit.',
+        regression='Separate equal-event-weight OLS with intercept per task/LR: log10(loss_peak/loss_before) = intercept + slope*x. R-squared is in-sample on log10 loss ratios. Dashed back-transformed lines extend over the full panel x range (-16..2.5), including extrapolation beyond observed group support; standard axes clipping applies. Empty groups have no fit.',
         palette='Established increasing-LR colors within each model; per-panel legends give numeric LR, including empty groups.',
         groups=groups, checks=dict(source_hash=True, selection=True, magnitude_identity=True,
             ratio_identity=True, gradient_endpoint_ratio_identity=True, signed_product_identity=True, exact_scatter_coordinates=True, no_clipped_points=True, independent_scipy_regressions=True, ols_residual_orthogonality=True, seven_regression_lines=True, embedded_fonts=True, pdf_text_inside_page=True),

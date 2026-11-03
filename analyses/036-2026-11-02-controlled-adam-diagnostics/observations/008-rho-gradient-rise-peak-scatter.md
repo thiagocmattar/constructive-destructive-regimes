@@ -17,8 +17,10 @@ no increase, 2 meaning +100%, and 10 meaning +900%. All points are unsmoothed;
 no averaging or jitter. Colored lines are separate per-LR ordinary least squares
 fits with intercept to log10(peak/pre-rise loss) versus x. Their color-matched
 R-squared labels use this same log response and the same observations used to
-fit each line. Back-transformed fitted lines are drawn only over each group's
-observed x range, with standard plot clipping. Empty LR groups have no fit.
+fit each line. Dashed back-transformed fitted lines extend across the full panel
+x range (-16..2.5), including extrapolation beyond each group's observed samples,
+with standard plot clipping. Empty LR groups have no fit. Extrapolated segments
+are visual extensions of the fitted relationship, without supporting observations.
 Layout, typography and LR colors match the
 existing 7.16 x 2.55 inch Analysis024-style figures.
 
