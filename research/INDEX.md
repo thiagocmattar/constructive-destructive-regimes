@@ -18,7 +18,9 @@ extracts 812 candidate excursions from all nine Run215 Adam histories: 806 recov
 tolerance or amplitude cutoff. Event losses, durations and optimizer diagnostics
 are source-verified with an independent segmentation. A [3 x 3 descriptive panel](../analyses/036-2026-11-02-controlled-adam-diagnostics/figures/adam_spike_descriptive_statistics.pdf)
 summarizes peak increases and durations for the 806 recovered events. Earlier work remains archived;
-Overview now retains only training loss in one row of three panels; manuscript unchanged. No new training or cloud resources.
+The loss-only overview and [per-LR peak densities](../analyses/036-2026-11-02-controlled-adam-diagnostics/figures/adam_peak_increase_density.pdf)
+use three model columns; densities cover 806 recovered events on log-percent axes.
+Manuscript unchanged. No new training or cloud resources.
 
 
 [Analysis035: backward fixed-endpoint profiles](../analyses/035-2026-11-02-eos-backward-anchors/REPORT.md)
