@@ -26,6 +26,8 @@ diagnostics and a grouped text/LaTeX table. Pre-rise reversal is common;
 recovery alignment is model-dependent. A [pre-rise diagnostic scatter](../analyses/036-2026-11-02-controlled-adam-diagnostics/observations/005-prerise-eta-peak-scatter.md)
 plots 127 defined event pairs against peak/pre-rise loss ratio on a logarithmic y-axis, without smoothing. A [first-rise companion](../analyses/036-2026-11-02-controlled-adam-diagnostics/observations/006-first-rise-eta-peak-scatter.md)
 uses all 129 events immediately after the first loss increase; 13 are already at their peak.
+The [gradient norm rise-ratio scatter](../analyses/036-2026-11-02-controlled-adam-diagnostics/observations/007-gradient-rise-peak-scatter.md)
+compares 129 endpoint gradient norm ratios with logarithmic peak/pre-rise loss ratios.
 Manuscript unchanged; no new training or cloud resources.
 
 
