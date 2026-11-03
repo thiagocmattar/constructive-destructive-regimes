@@ -56,7 +56,7 @@ questions alone do not create experimental commitments.
 
 | ID | Question / hypothesis | Status | Runs / analyses | Evidence / limits |
 | --- | --- | --- | --- | --- |
-| H028 | Can matched Adam interventions reduce selected loss excursions without degrading subsequent optimization, and can that benefit transfer to a causal online policy? | Proposed for author evaluation | [Analysis038](../analyses/038-2026-11-03-adam-spike-intervention-design/README.md); Run215 source evidence | Eight-arm, three-case fork pilot; explicit raw-gradient versus Adam-step clipping, LR, numerator/second-moment ablations and full-objective acceptance safeguard. Earlier prefixes require reconstruction. No intervention outcomes; selected seed0 events cannot validate an online controller or seed robustness |
+| H028 | Can matched Adam interventions reduce selected loss excursions without degrading subsequent optimization, and can that benefit transfer to a causal online policy? | Conditionally supported at selected seed0 MLP fork; online transfer untested | [Analysis040 empirical report](../analyses/040-2026-11-03-mlp-step-actions/REPORT.md); Run218; [original design](../analyses/038-2026-11-03-adam-spike-intervention-design/README.md) | Eight128-update arms from exact state657. A1 half LR and A4 proposal clipping meet the training-loss screen; A2/A3/A5/A6/A8 do not. Historical/contemporary replay qualifies. A7 deferred; one selected event/seed cannot establish online or population benefit |
 
 Next hypothesis: `H029`. Record the operational meaning,
 comparison, support/refutation criteria, and scope in the corresponding run

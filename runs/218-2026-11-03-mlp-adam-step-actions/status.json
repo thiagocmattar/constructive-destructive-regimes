@@ -1,8 +1,11 @@
 {
-  "status": "prepared",
-  "scientific_status": "implementation_contracts_only",
+  "status": "completed",
+  "scientific_status": "single_seed_exploratory_selected_fork",
   "run_id": "218",
   "analysis_id": "040",
+  "completed_main_updates": 1681,
+  "completed_branch_updates": 1024,
+  "qualification_updates": 12,
   "implemented_arms": [
     "A0",
     "A1",
@@ -13,11 +16,11 @@
     "A6",
     "A8"
   ],
-  "neural_training_started": false,
-  "completed_neural_updates": 0,
-  "next_gate": "coordinator review and next bounded assignment",
-  "unsupported_arms": [
+  "deferred_arms": [
     "A7"
   ],
-  "accepted_step_actions_commit": "4cd84ac0b427b8fe5a051b1e93e159989f126361"
+  "attempt": "runs/218-2026-11-03-mlp-adam-step-actions/artifacts/attempts/001-20261103T172300Z-local-pilot",
+  "worker_elapsed_seconds": 64.06114630005322,
+  "historical_qualified": true,
+  "cloud_spend_usd": 0
 }

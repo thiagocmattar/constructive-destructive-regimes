@@ -265,4 +265,4 @@ attempt within the same run.
 
 | Run | Question | Status | Records |
 | --- | --- | --- | --- |
-| [218](218-2026-11-03-mlp-adam-step-actions/README.md) | H028: A1-A6/A8 interventions against A0; A7 pending | Prepared;150 contract checks, no neural execution | [Analysis040](../analyses/040-2026-11-03-mlp-step-actions/README.md); explicit parent identity and immutable branch recovery |
+| [218](218-2026-11-03-mlp-adam-step-actions/README.md) | H028: matched local MLP interventions against A0; A7 deferred | Complete8 x128 branches plus657 prefix;64.06s, no rental | [Analysis040](../analyses/040-2026-11-03-mlp-step-actions/README.md); explicit parent identity and immutable branch recovery |

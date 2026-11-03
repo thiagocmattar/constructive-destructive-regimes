@@ -1,3 +1,9 @@
+> Empirical pilot completed after explicit approval:8 complete128-update arms,
+> exact historical689/703/729 event and bitwise contemporary control. A1/A4 meet
+> the training screen. [Compact report](REPORT.md), [figure](figures/local_pilot.pdf)
+> and [numeric table](comparison.csv).64.06s worker, zero cloud cost; single seed.
+> Preparation notes below describe the earlier implementation-only milestones.
+
 # Analysis040: Adam intervention implementation contracts
 
 Mutable preparation under Run218; H028 reused, no neural experiment or new

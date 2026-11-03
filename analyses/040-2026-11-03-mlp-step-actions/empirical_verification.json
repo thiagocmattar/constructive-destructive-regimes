@@ -1,0 +1,41 @@
+{
+  "status": "passed_direct_checks",
+  "boundaries": 1032,
+  "updates": 1024,
+  "main_updates": 1681,
+  "plotted_scalar_values_checked": 6192,
+  "parent_sha256": "359097d026b45f8f0b8a33665aca4ad0382e52835745ceaeccf027ed29539ba4",
+  "all_forks_identical": true,
+  "historical": {
+    "states": 786,
+    "exact_loss_match": true,
+    "max_absolute_loss_difference": 0.0,
+    "event": {
+      "before_state": 689,
+      "onset_state": 690,
+      "peak_state": 703,
+      "recovery_state": 729,
+      "end_state": 729,
+      "right_censored": false,
+      "peak_over_prerise": 4.176298843053216,
+      "before_difference": 0,
+      "peak_difference": 0,
+      "recovery_difference": 0,
+      "ratio_relative_difference": -1.1202261340770292e-11
+    },
+    "qualified": true,
+    "contemporary_replay": "bitwise parameters/moments/RNG/previous-gradient/increment; all5 boundary losses exact"
+  },
+  "checks": [
+    "all8 statuses completed;129 consecutive boundary observations and128 actions each",
+    "all8 branch starts: exact parent weights/moments/age/RNG/raw gradient/actual increment",
+    "independent scalar sums agree with reported area and128-state mean",
+    "all6192 plotted scalars match original boundaries/actions and emitted CSV exactly; no smoothing or truncation",
+    "all final held-out evaluations cover10000 images; no heldout-based selection",
+    "raw artifact inventory records file sizes and SHA-256; parent unchanged"
+  ],
+  "source_sha256": "8d83209eab70b7c6397f2c6b32f459dfcc6b91c52afbd4217764e33ca09945a0",
+  "figure_sha256": "981d8ca0270da9f183f7ef6a7aab0b7bdabf47176be617294bc5ad1086767ad2",
+  "visual_review": "one-page PDF rendered with PyMuPDF and inspected: title/legend/axes clear; all8 curves included",
+  "unit_suite_rerun_for_execution": false
+}

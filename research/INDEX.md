@@ -2,6 +2,12 @@
 
 ## Current state
 
+[Analysis040: local matched MLP pilot](../analyses/040-2026-11-03-mlp-step-actions/REPORT.md)
+completed all8 x128-update arms from the exact state657 fork; historical and
+contemporary replay pass. Half LR and proposal clipping meet the training screen;
+raw numerator/secant arms worsen excursions. Single seed,64.06s worker, zero
+rental; all raw evidence retained locally. A7 deferred, no manuscript edit.
+
 [Analysis038: Adam spike intervention design](../analyses/038-2026-11-03-adam-spike-intervention-design/PROTOCOL.md)
 proposes eight matched arms per model, 32 updates before each formal pre-rise
 state, with 128-update continuations. Source audit verifies three events and
@@ -543,5 +549,8 @@ intervention arms, remote execution or spending. Next Run219 / Analysis041 / H02
 [Analysis040](../analyses/040-2026-11-03-mlp-step-actions/README.md) implement
 A0-A6/A8: prior-only raw/proposal clipping, raw-numerator ablation, historical
 beta2 correction and transported-secant actions with authenticated fork/resume.
-150 tensor/mock/contracts pass. A7 remains pending. Preparation only; H028 untested, no
-neural training, remote work, spending or manuscript edit. Next Run219 / Analysis041 / H029.
+After explicit approval, the local pilot completed8 x128 branches and the657-update
+prefix in64.06s. Exact historical/contemporary replay passes; A1 half LR and A4
+proposal clipping meet the training screen, while A5/A8 create larger excursions.
+[Empirical report](../analyses/040-2026-11-03-mlp-step-actions/REPORT.md). Single seed;
+no remote work, rental or manuscript edit. A7 deferred. Next Run219 / Analysis041 / H029.

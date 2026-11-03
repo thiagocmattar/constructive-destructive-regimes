@@ -101,4 +101,4 @@ an analysis may use manuscript or external inputs without referencing a run.
 
 | Analysis | Question | Inputs | Status | Records |
 | --- | --- | --- | --- | --- |
-| [040](040-2026-11-03-mlp-step-actions/README.md) | H028 intervention implementation | Run218; unchanged Run217/Run215 inputs | Verified preparation only;150 contracts, zero neural training | A0-A6/A8, raw/input/numerator/history contracts; A7 pending |
+| [040](040-2026-11-03-mlp-step-actions/README.md) | H028 selected-fork MLP intervention pilot | Run218; exact Run215 replay, same authenticated fork | Complete8 x128 branches; single-seed exploratory | [Report](040-2026-11-03-mlp-step-actions/REPORT.md); A1/A4 pass training screen, A5/A8 negative; A7 deferred |

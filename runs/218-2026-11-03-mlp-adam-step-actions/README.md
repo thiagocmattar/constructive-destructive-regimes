@@ -1,3 +1,10 @@
+> Completed approved local pilot: all8 x128 branches,657-update prefix,
+> historical event and contemporary replay qualified. Worker64.06s, zero cloud
+> spending. A1/A4 pass the selected-fork training screen; A5/A8 worsen excursions.
+> See [empirical report](../../analyses/040-2026-11-03-mlp-step-actions/REPORT.md).
+> Original preparation/implementation notes below remain as provenance. Frozen
+> config flags do not supersede the later explicit attempt authorization.
+
 # Run218: Adam intervention implementation preparation
 
 Mutable, unexecuted preparation; H028 / Analysis040,3 November2026. Implemented:
