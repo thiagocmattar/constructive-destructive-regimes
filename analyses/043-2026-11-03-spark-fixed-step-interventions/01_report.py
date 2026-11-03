@@ -135,6 +135,6 @@ def main():
   f"Run222 actual updates: {main_updates} main + {qa_updates} qualification; recorded full gradient calls: {gradients}. Separate Run221 mechanics:9 updates and3 zero-update warm-parent gradient calls. Cloud spendUSD0; owned Spark.",'',
   'Final interpretation and5-10 factual findings are added after terminal retrieval and numerical/visual verification. The failed Run221 cross-GPU gradient gate remains part of the evidence.']
  lines+=['','Available response figures:','']+[f"- [{name}](figures/{name})" for name in sorted(figure_hashes)]
- (HERE/'REPORT.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
+ (HERE/'REPORT.md').write_text('\n'.join(lines).rstrip()+'\n',encoding='utf-8')
  print(json.dumps(dict(status=manifest['status'],primary_completed=result['primary_completed'],main_updates=main_updates,qualification_updates=qa_updates,figures=len(figure_hashes),plotted_scalar_checks=plotted),indent=2))
 if __name__=='__main__':main()

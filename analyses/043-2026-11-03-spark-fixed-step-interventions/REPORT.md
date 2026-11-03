@@ -19,4 +19,3 @@ Run222 actual updates: 102 main + 12 qualification; recorded full gradient calls
 Final interpretation and5-10 factual findings are added after terminal retrieval and numerical/visual verification. The failed Run221 cross-GPU gradient gate remains part of the evidence.
 
 Available response figures:
-
