@@ -4,6 +4,28 @@ Single-seed exploratory result,3 November2026. All eight approved arms completed
 
 **A1 half LR and A4 proposal clipping meet the prespecified pilot screen.** A1 has the strongest training result; this does not establish an online trigger or generalization benefit.
 
+## Focal view and scientific reading
+
+[Three-method focal figure (PDF)](figures/focal_three_arm.pdf): unchanged Adam,
+half learning rate and Adam proposal clipping. This is a **descriptive selection
+after the exploratory screen, not independent confirmation**. The aligned panels
+retain all 129 states without smoothing, with common scales within each row.
+The original eight-arm figure and every method in the tables remain available;
+the severe raw-numerator and transported-secant failures are outside this focal view.
+
+Every update uses the same complete 5,000-image objective and fixed physical
+chunks; the checked replay was exact. The jagged traces here reflect deterministic
+full-objective oscillations, rather than random minibatch-sampling noise. Half LR
+is strongest at this fork. Proposal clipping reduces excursion size but leaves
+or replaces events. Quarter LR (A2) also removes most excursions, yet its final
+loss is 3.19% worse than A0 and misses the predeclared 1% final-loss margin. The A8
+transported-secant failure remains negative evidence for that rule at this fork.
+
+This is one seed, one selected state and a 128-update horizon. There is no
+established incremental benefit from diagnostic-based timing beyond the simple
+step-size controls, and no generalization claim. A clearer figure adds no new
+observations and does not resolve that scientific uncertainty.
+
 ## Fixed-reference training comparison
 
 B=L_A0(689)=0.013039679266512394. Peak excess is max(0,L/B-1); area is the discrete sum of positive excess on the unchanged97-state window689..785. Mean loss covers exactly128 post-fork states658..785. Target=0.95B=0.012387695303186773. Time-to-target is first observed attainment from fork657, including initial checkpoint/observation overhead; nonattainment is censored.
