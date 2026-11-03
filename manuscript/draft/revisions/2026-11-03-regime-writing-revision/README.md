@@ -4,7 +4,8 @@ This revision implements the author's spoken writing guidance and the 12
 annotations in the preceding Adam-spike review PDF. The clarification
 "methodology of writing" is applied throughout: experiments, event selection,
 raw measurements and scientific figure assets remain unchanged. The author's
-follow-up shortens the appendices in this same revision and deliverable.
+follow-ups shorten the appendices and restore online curvature estimation as
+the central contribution in this same revision and deliverable.
 
 Deliverable: [revised-manuscript.pdf](revised-manuscript.pdf).
 The active sources are in the manuscript draft.
@@ -17,20 +18,26 @@ The active sources are in the manuscript draft.
 - [Paragraph review](PARAGRAPH_REVIEW.md): the initial full-paper pass over
   135 prose units and 14 captions, followed by the
   [appendix review](APPENDIX_REVIEW.md).
+- [Curvature review](CURVATURE_REVIEW.md): original-paper comparison, formal
+  estimator, online cost, heuristic interpretation and added mathematical checks.
 - [Extracted feedback](feedback.md) and [original annotation metadata](feedback.json).
 - [Evidence manifest](evidence_manifest.json), [verification](verification.json)
   and [final visual acceptance](review.json).
 
 ## Argument and presentation
 
-The paper now develops a consistent sequence: inexpensive gradient diagnostics;
+The paper now develops a consistent sequence: directional-curvature estimation
+from training gradients without Hessian computation;
 constructive/destructive regimes defined by adjacent raw-gradient cosine;
 productive destructive descent; amplification and local loss increase;
 controlled GD/SGD characterization; and early signs plus recurring anatomy
-of Adam loss spikes. The title now covers neural-network stability, including
+of Adam loss spikes and implications for stabilization heuristics. The title covers neural-network stability, including
 the Adam extension. Abstract, contributions, background, results and conclusion
 follow the same argument.
 
+The main estimator uses one retained gradient and linear reductions. The
+appendix gives its exact smooth-GD path-average identity and pointwise error
+bound; the sampling term and Adam's adaptive curvature response are explicit.
 The Adam section motivates the diagnostics through the raw-gradient response
 along an adaptive displacement. Individual events supply temporal evidence;
 the full event population and per-rate regressions support the recurring
@@ -59,10 +66,10 @@ From the repository root:
 The table script reruns the prior independent Adam raw-history audit in
 ignored scratch destinations before formatting the new table. The builder
 checks the frozen figures and data, retained GD/SGD evidence, 186 previous
-mathematical cases and 328 additional mathematical cases, then compiles with
+mathematical cases and 508 additional mathematical cases, then compiles with
 pdflatex/BibTeX and renders every page with Poppler. The added cases check
 the Adam projected-response relation, finite-population covariance and
-all-pair displacement.
+all-pair displacement, and nonlinear path-average identities and their error bound.
 
 Build/render scratch is under tmp/pdfs/manuscript-regime-writing-2026-11-03/.
 Rebuilding resets visual acceptance to pending: inspect the new rendering

@@ -1,5 +1,30 @@
-\section{Derivation of the Alignment-Based Loss Change}
+\section{Curvature Estimation and Local Loss Change}
 \label{appendix:loss-curvature}
+
+Write $H(\theta)=\nabla^2\mathcal L(\theta)$ and assume the objective
+is twice continuously differentiable along the plain-SGD step.
+Integrate its gradient derivative on
+$\theta_{t-2}-s\eta g_{t-1}$, add the endpoint-noise difference, and
+project onto $-g_{t-1}/(\eta\|g_{t-1}\|^2)$. The result is
+\begin{equation}
+ \widehat\kappa_t=
+ \int_0^1\frac{g_{t-1}^{\top}
+ H(\theta_{t-2}-s\eta g_{t-1})g_{t-1}}
+ {\|g_{t-1}\|^2}\,ds-\frac{\varepsilon_t}{\eta}.
+ \label{eq:path-curvature}
+\end{equation}
+If $H$ is $L_H$-Lipschitz in operator norm on the step, its
+full-batch specialization satisfies
+\begin{equation}
+ |\widehat\kappa_t-\kappa_t|
+ \leq\int_0^1 L_Hs\eta\|g_{t-1}\|\,ds
+ =\frac{L_H\eta}{2}\|g_{t-1}\|.
+ \label{eq:curvature-error-bound}
+\end{equation}
+This bounds the difference between the measured path average and the
+starting-point directional curvature. For Adam, integrate along its
+adaptive step and project onto the preceding raw gradient. This gives
+the exact path-average form of Eq.~\eqref{eq:adam-projected-change}.
 
 Consider $\theta_{t-1}=\theta_{t-2}-\eta g_{t-1}$ and write
 $\delta\mathcal L_{t-1}=\mathcal L(\theta_{t-1})-\mathcal L(\theta_{t-2})$.

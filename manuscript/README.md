@@ -10,8 +10,11 @@ The initial pass reviewed 135 prose units and 14 captions. The subsequent append
 review consolidates the loss derivation, condenses measurement conventions, and
 removes three supplementary tables and one repeated figure from compilation.
 The appendices contain no figures or tables. Experimental assets are preserved;
-eight main figures and two tables remain compiled. Checks and task lists are
-recorded in the revision folder.
+eight main figures and two tables remain compiled. The latest pass restores
+curvature estimation without Hessian computation as a central contribution,
+with a formal path-average identity, an error bound and one-gradient online
+storage. It reconnects the diagnostics to the original motivation of explaining
+stabilization heuristics. Checks and task lists are in the revision folder.
 
 Previous revision (2026-11-03, Adam spike anatomy):
 [review PDF](draft/revisions/2026-11-03-adam-spike-anatomy/revised-manuscript.pdf),
@@ -62,7 +65,7 @@ files initially match the archive bytes. The inventory is an immutable baseline,
 not a manifest to refresh after editorial edits.
 
 Entry point: [draft/bare_jrnl.tex](draft/bare_jrnl.tex). Section text is in
-`draft/sections/`; the two-step derivation is in the main file. Existing figure
+`draft/sections/`; the concise curvature/loss derivation is in `06-loss-appendix.tex`. Existing figure
 PDFs and `bibliography.bib` are carried over exactly. Keep original assets until
 their replacement is explicitly part of an editing task.
 

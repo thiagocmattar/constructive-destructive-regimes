@@ -5,9 +5,10 @@ in nearly opposite directions. This behavior becomes especially visible at
 large learning rates, where rapid overall progress can coexist with oscillation
 and sharp loss spikes~\cite{cohen2021edge, chowdhery2022palm, olmo2025furious}.
 For practitioners, the important question is when such oscillation remains
-productive and when it develops into a damaging excursion. Answering it
-requires diagnostics that expose the changing training dynamics early enough
-to inform a response.
+productive and when it develops into a damaging excursion. Learning-rate
+schedules, momentum and clipping help manage this behavior. Explaining their
+effect requires an observable connection between the traversed curvature,
+successive gradient interactions and loss.
 
 We approach this question through \emph{constructive and destructive regimes}.
 The cosine similarity $\rho_t$ between adjacent raw gradients identifies
@@ -18,6 +19,8 @@ they distinguish persistent reversal during descent from reversal accompanied
 by rapid gradient amplification. This distinction is central to the paper:
 a destructive regime can sustain loss reduction, while sufficiently strong
 amplification can turn its local oscillations into loss-increasing steps.
+We make this transition accessible through a directional-curvature estimate
+computed from gradients already produced during training.
 
 Classical stability analysis relates step size to the Hessian spectrum, and
 stochastic extensions incorporate variation induced by
@@ -28,20 +31,19 @@ boundary~\cite{cohen2021edge, arora2022understanding, damian2023self}.
 Gradient-product diagnostics and hypergradient methods already exploit
 successive directions to detect optimization phases or adapt the learning
 rate~\cite{chee2018diagnostics, pesme2020diagnostics, baydin2018hypergradient}.
-Our contribution is to connect these temporal interactions to a common
-account of regime, gradient amplification, net parameter motion and loss-spike
-anatomy, using measurements available along the training trajectory.
+Our contribution connects these temporal interactions to curvature estimation,
+regime transitions, net parameter motion and the anatomy of loss spikes.
 
-The formulation starts from an exact decomposition of SGD displacement into
-individual step magnitudes and interactions across all temporal lags.
-Adjacent-gradient cosine describes the current regime; normalized displacement
-measures how much traveled distance survives as net motion. A local loss
-expansion then shows why destructive steps can either decrease or increase
-loss, depending on gradient-norm growth. The projected-change diagnostic
-$\eta\widehat\kappa_t$ summarizes this interaction and connects it to
-directional curvature. These quantities require linear-time vector operations
-on gradients already computed by training, making them suitable for online
-monitoring.
+The central measurement is $\eta\widehat\kappa_t$, which combines adjacent
+cosine with the gradient-norm ratio. Under full-batch GD, dividing by the
+learning rate gives the directional curvature averaged along the completed
+step, with a controlled approximation to the starting-point curvature.
+Retaining the preceding gradient makes this estimate available at every
+ordinary backward pass using $O(p)$ vector operations for $p$ parameters.
+Neither a Hessian nor a Hessian--vector product is evaluated. Local loss
+expansions connect the estimate to destructive amplification, while an exact
+SGD displacement decomposition and normalized displacement describe how
+these interactions accumulate over the trajectory.
 
 We first characterize the regimes in controlled full-batch GD and mini-batch
 SGD experiments on CIFAR-10 and WikiText-2. We then extend the analysis to
@@ -57,9 +59,10 @@ the variation in spike magnitude.
 
 The paper makes three contributions:
 \begin{itemize}
- \item A unified diagnostic formulation linking constructive and destructive
- regimes, cumulative parameter displacement and local loss changes, with
- explicit curvature and sampling-noise terms.
+ \item An online directional-curvature estimate from consecutive gradients,
+ with a formal path-average interpretation, explicit sampling-noise terms,
+ and one-gradient storage. It connects constructive/destructive regimes to
+ local loss changes and cumulative parameter displacement.
  \item A controlled empirical characterization showing how destructive regimes
  sustain descent, reduce displacement retention and change under mini-batch
  sampling.
@@ -72,5 +75,5 @@ Section~\ref{sec:background} positions the diagnostics within stability and
 optimization research. Section~\ref{sec:displacement} develops the formulation,
 and Section~\ref{sec:gd-experiments} characterizes the regimes under GD and SGD.
 Section~\ref{sec:adam-diagnostics} examines their role in Adam loss spikes
-and motivates diagnostic-guided interventions.
+and their implications for stabilization heuristics and interventions.
 Section~\ref{sec:conclusion} concludes.

@@ -7,12 +7,13 @@
     "zero_gradient_exception": true
   },
   "additional_math": {
-    "cases": 328,
+    "cases": 508,
     "max_absolute_error": 5.684341886080802e-14,
     "coverage": [
       "Adam projected curvature response on quadratics",
       "Exact finite-population covariance",
-      "All-pair displacement and retention"
+      "All-pair displacement and retention",
+      "Nonquadratic path-average curvature, noise correction and local error bound"
     ]
   },
   "retained_gd_sgd_evidence": {
@@ -69,37 +70,32 @@
     "appendix:gd-raw-alignment": 13
   },
   "status": "passed",
-  "pdf_sha256": "a1b23f857e23d23dbefddef44086fba681cbbc9a9d81502cfc435036a78a74e6",
+  "pdf_sha256": "34a1d851293c4d3fc8bad5e15f2608d66380e743ee1697ac47aeb9130c8ec789",
   "active_figures": 8,
-  "verifier_sha256": "d0e6f93e3f056fa5b4e24181bfa24597388f5edd6dd49f15f28d38bca4facc6c",
+  "verifier_sha256": "c39552b2a7e76e96da765e49b2acdd78465fe686e7eca6689a66b7077701febf",
   "evidence_manifest_sha256": "9300ed7ce3f87cc7552dc5a7bffd513df7c39b08c64d6ca39b222baa9f6253f5",
   "build": "pdflatex/BibTeX; zero overfull boxes or unresolved references",
   "source_hashes": {
-    "manuscript/draft/bare_jrnl.tex": "c171d73888faa5d54cd154e4e70afd2fb7328ffbf82a7a06c61a1d757aaee55d",
-    "manuscript/draft/bibliography.bib": "4f952b4970588551e07eaf8147d5391b301f885a85eb7a0fd708a1fa5883bf98",
-    "manuscript/draft/sections/01-introduction.tex": "fc8e42fdd2a08885182d856237c9bb2afba4152bec852cad01855256f05ca880",
-    "manuscript/draft/sections/02-related-works.tex": "62e01c7a5faa76dfbc9f014f3bb4b8d990cc3fc6253e8aa63732cdb0085b8eed",
-    "manuscript/draft/sections/03-methods.tex": "69ef1f2ed873440d740a3f846296212f3e380af305219851908aaa701c486b84",
-    "manuscript/draft/sections/04-gd-experiments.tex": "e32a32448f5009ef1de8cc0c3d3e8bb3c9b9c4c54a9d7ea821399da8dd9b4230",
+    "manuscript/draft/bare_jrnl.tex": "0c8b3fccff9cdf619d09993827d0b8f5ac4bfcf611e803d6e41169f1b5992286",
+    "manuscript/draft/bibliography.bib": "0f5e043b14e62d8a9ec58b40355b356b97ad4423dd1e310b44bcffc4c42b5868",
+    "manuscript/draft/sections/01-introduction.tex": "f4133594618e00c18f9e3b64eea1ee1f960b86723d625686c46775061dfb1bf9",
+    "manuscript/draft/sections/02-related-works.tex": "05371c94c5b54a9cb4f2159157253e327a034b894bc046481125021d74593f88",
+    "manuscript/draft/sections/03-methods.tex": "d36cb2625bb73aaedc2613807fac8709586d57061dc594545e6ea2c55743bab8",
+    "manuscript/draft/sections/04-gd-experiments.tex": "2c316b486417efcce3188e194b4035cf64c7a1d20dc6a1ddf93a4a30f23d6108",
     "manuscript/draft/sections/04-results.tex": "afc1f30d1c6f3dba8e3d3cdeaa0d04947fc8df54e9131871db16390062a77d45",
-    "manuscript/draft/sections/05-conclusion.tex": "93f3c5de114f991cf741c19c28035d397b68ded1d72c019f135155bdadbe076a",
+    "manuscript/draft/sections/05-conclusion.tex": "adbafaee90e32c48211d5193e4b299034977ec4ba23c21698231eb932005edf4",
     "manuscript/draft/sections/05-sgd-noise-experiments.tex": "da9cddf66b12eaaca8d4a779e1fda27fc966ae1f417e0907a3a2362573a0143d",
-    "manuscript/draft/sections/06-adam-diagnostics.tex": "3ccff150348e66dbad084dbf3516d922eafd9883b26390eb5411c8133c7a95c9",
+    "manuscript/draft/sections/06-adam-diagnostics.tex": "4bfa2e0f9e5b97a9b4852bc6df6bcf1145975fd951571c8e56efa157a76157d9",
     "manuscript/draft/sections/06-appendix.tex": "210ed113fe474b3171f6640c7fe8dc417bd35586d981ae2d1e8fcd89a6a6732c",
-    "manuscript/draft/sections/06-loss-appendix.tex": "2b4570f262c6f17c2f3df257facd74c9e9d872f16ee945e6baa6bfd520426277",
+    "manuscript/draft/sections/06-loss-appendix.tex": "20a6cc9df4c7d179fd715192112e4c746ece0e9002777295c9491c2053107eae",
     "manuscript/draft/sections/07-gd-diagnostics.tex": "40fa6cbcacbb97cc09625bb46350dd26d16a4565531114baabaa33cf7674ce10",
     "manuscript/draft/tables/analysis036_spike_anatomy.tex": "58f64b4185394d5ab1e11a995c3716355dd634d6cf0d23a874d25f0b5f885e95"
   },
-  "visual_review": "All 14 pages reviewed in Poppler contact sheets; detailed inspection of pages 12-14 confirms legible equations, concise conventions and balanced reference columns. Final render is pixel-identical to the accepted layout after line-ending normalization. No clipping or overlap.",
-  "appendix_shortening": {
-    "previous_pages": 17,
-    "current_pages": 14,
-    "appendices": 2,
-    "appendix_figures": 0,
-    "appendix_tables": 0,
-    "main_figures": 8,
-    "main_tables": 2,
-    "removed_tables": 3,
-    "removed_figures": 1
-  }
+  "visual_review": "All 14 pages reviewed through Poppler contact sheets; detailed inspection of pages 1, 4, 12, 13 and 14 checks the abstract, online estimator, curvature identity/error bound, loss derivation and balanced references. No clipping or overlap; eight figure assets are unchanged.",
+  "curvature_review_sha256": "9999c38874b1b3ed695d59a2060c6a68096d2fb7f95bfdd217352469be473bed",
+  "appendices": 2,
+  "appendix_floats": 0,
+  "main_tables": 2,
+  "original_submission_sha256": "6687a3903ed05c0b1629c7065f935d9e940fa4d10a6d659512cb5f2566699eea",
+  "original_archive_sha256": "185580d6a356ea5ad27794ab3c54b3983e3ee4d616dfd9dad0d72a15f0d1819c"
 }

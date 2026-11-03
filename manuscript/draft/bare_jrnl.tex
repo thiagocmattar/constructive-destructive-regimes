@@ -423,31 +423,34 @@ Minas Gerais 35931-008, Brazil (e-mail: fredgfc@ufmg.br; apbraga@ufmg.br).}
 % in the abstract or keywords.
 
 \begin{abstract}
-Destructive interactions between successive gradients can accompany sustained
-training progress, yet strong gradient amplification can turn this behavior
-into sharp loss excursions. We develop a diagnostic framework that distinguishes
-constructive and destructive regimes through adjacent-gradient cosine and
-interprets them jointly with gradient magnitude and cumulative parameter
-displacement. An exact SGD displacement decomposition and local loss expansions
-connect these measurements to temporal interference, directional curvature and
-sampling noise. The diagnostics reuse training gradients with linear-time
-vector operations. Controlled CIFAR-10 and WikiText-2 experiments characterize
-productive destructive regimes under full-batch GD and their response to
-mini-batch sampling. Under Adam, raw-gradient dynamics remain informative along
-adaptive trajectories and reveal early signs of developing loss spikes.
+Curvature governs how gradients change along a learning step.
+We develop an online diagnostic framework that estimates
+directional curvature from consecutive training gradients, without computing
+the Hessian or its vector products. Under full-batch gradient descent, the
+estimator equals directional curvature averaged along a smooth step and
+approximates curvature at its starting point. It requires one retained
+gradient vector and linear-time reductions, with no additional backward pass.
+Adjacent-gradient cosine identifies constructive and destructive regimes;
+the curvature estimate combines this alignment with gradient-norm growth.
+A local loss analysis explains how destructive regimes sustain descent and
+how amplified reversal produces loss-increasing steps. Controlled CIFAR-10
+and WikiText-2 experiments characterize these regimes under GD and sampling.
+Under Adam, the same measurements reveal curvature response along adaptive
+steps and early signs of developing loss spikes.
 Across 129 recovered spikes larger than 10\%, gradient norms increase in every
 event, and 117 of 127 defined pre-rise cosines identify a destructive regime.
 Joint measures of pre-rise alignment and rise norm amplification explain
 38--94\% of the within-run variation in log relative peak loss.
-These results connect inexpensive online measurements to the anatomy of
-local loss instability and motivate diagnostic-guided interventions.
+The framework makes curvature-related instability observable during training
+and provides a basis for interpreting stabilization heuristics and designing
+diagnostic-guided interventions.
 \end{abstract}
 
 
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-Neural Network Optimization, Training Stability, Gradient Alignment,
+Training Stability, Directional Curvature, Gradient Alignment,
 Stochastic Gradient Descent, Adam
 \end{IEEEkeywords}
 
@@ -546,7 +549,7 @@ Stochastic Gradient Descent, Adam
 
 % Let references follow the final appendix without a nearly empty page.
 \raggedbottom
-\IEEEtriggeratref{18} % Balance the last reference page after the concise appendices.
+\IEEEtriggeratref{13} % Balance the last reference page after the concise appendices.
 \bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
 \bibliography{IEEEabrv,bibliography.bib}

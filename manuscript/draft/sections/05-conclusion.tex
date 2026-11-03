@@ -1,16 +1,18 @@
 \section{Conclusion}
 \label{sec:conclusion}
 
-Constructive and destructive regimes provide an interpretable view of
-neural-network training through gradients already computed by the optimizer.
-Adjacent cosine identifies the regime, gradient norms measure its
-amplification, and normalized displacement captures cumulative motion.
-The local loss relation explains the central distinction: a destructive
-regime can sustain descent, while sufficiently strong opposing gradients
-can produce loss-increasing steps. Controlled GD and SGD experiments show
-how these regimes evolve with learning rate and mini-batch sampling.
+Consecutive training gradients make directional curvature observable
+without Hessian computation. For smooth full-batch GD, the estimate
+equals curvature averaged along the step and approximates its starting-point
+value; one retained gradient and linear-time reductions support online
+monitoring. Adjacent cosine identifies constructive and destructive regimes,
+and the norm ratio expresses the amplification entering the estimate.
+The local loss relation explains the distinction: destructive training
+can sustain descent, while sufficiently amplified reversal produces
+loss-increasing steps. Controlled GD and SGD experiments characterize
+these regimes and their cumulative displacement.
 
-The Adam results establish the relevance of the same raw-gradient view
+Under Adam, the same measurements reveal projected curvature response
 along adaptive trajectories. Diagnostic changes precede the largest
 loss peaks, and the event analysis connects spike magnitude to a
 predominantly destructive initial regime followed by gradient amplification.
@@ -19,9 +21,9 @@ regressions show how the pattern repeats across models and rates.
 Together, they identify observable early signs and a consistent anatomy
 of local loss instability.
 
-The resulting framework combines inexpensive measurement with a concrete
-interpretation of the trajectory. It motivates interventions timed to
-gradient amplification within a destructive regime, including learning-rate
-adjustment, gradient clipping and data mixing. Prospective warning rules
-and matched intervention tests are the next step toward using these
-diagnostics to reduce spikes while preserving training progress.
+This connection between curvature, regime and amplification provides an
+interpretable basis for stabilization heuristics. Learning-rate adjustment,
+clipping and momentum act on the step or gradient dynamics exposed by
+the diagnostics. Prospective warning rules and matched intervention tests
+can turn this online information into decisions that attenuate spikes
+while preserving training progress.

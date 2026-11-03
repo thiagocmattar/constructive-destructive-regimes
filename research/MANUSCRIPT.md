@@ -20,6 +20,12 @@ consolidated loss derivation and concise measurement conventions replace the
 long appendices. Three supplementary tables and the repeated raw-cosine figure
 are no longer compiled; their assets and source records remain preserved.
 The important finite-step loss-sign limitation is retained in the main text.
+A further pass restores directional-curvature estimation without Hessian
+computation as the central practical contribution, checked against the original
+submission's online-diagnostic and heuristic motivation. The concise appendix
+derives the exact smooth-GD path average and its pointwise error bound;
+sampling noise and Adam's bilinear response remain explicit. One retained
+gradient and linear reductions provide the online implementation contract.
 The manuscript passes frozen-data, statistical, mathematical and compilation
 checks, with final visual acceptance recorded in the revision.
 The author's supplied feedback and previous review PDFs remain preserved.

@@ -1,13 +1,12 @@
 \section{Diagnosing Loss Spikes under Adam}
 \label{sec:adam-diagnostics}
 
-Adam provides a practical test of the central argument: can raw-gradient
-regimes reveal developing loss instability when the optimizer takes an
-adaptive step? The diagnostics in Eqs.~\eqref{eq:rho}
-and~\eqref{eq:kappa-estimate} measure how the loss gradient changes between
-successive parameter states. That information remains relevant along
-Adam's path because the raw gradients both describe the encountered
-landscape and supply the input to its adaptive update.
+Adam tests whether curvature information recovered from training gradients
+remains useful along adaptive steps. The diagnostics in
+Eqs.~\eqref{eq:rho} and~\eqref{eq:kappa-estimate} monitor the regime and
+projected gradient change using the same one-gradient buffer. The raw
+gradients reveal the encountered loss geometry while also supplying
+the input to Adam's adaptive update.
 
 Adam~\cite{kingma2014adam} averages this input through first and second
 moments,
@@ -42,8 +41,12 @@ expansion used for GD. For full-batch gradients along Adam's step,
  \end{aligned}
  \label{eq:adam-projected-change}
 \end{equation}
-Thus the diagnostic measures the gradient's projected response to the
-adaptive displacement. Its exact expression
+Here the Hessian acts on the adaptive direction, so the diagnostic measures
+a projected curvature response along that displacement. The path-average
+version is exact on a smooth step (Appendix~\ref{appendix:loss-curvature});
+the Rayleigh quotient in Eq.~\eqref{eq:kappa} applies when the step follows
+the raw gradient. Both responses are observed without evaluating the
+Hessian. The exact expression
 $1-\rho_t\|g_t\|/\|g_{t-1}\|$ separates that response into the current
 regime and relative gradient magnitude. In a destructive regime, an
 increase in the opposing gradient component raises
@@ -293,17 +296,20 @@ These results extend the micro-plots: the destructive regime
 and gradient amplification jointly organize the severity of
 repeated spikes across the three cases.
 
-This anatomy gives a concrete rationale for testing interventions
-during the developing rise. Gradient clipping directly controls
-the large input norms implicated by the analysis, consistent with
+This anatomy connects curvature-related instability to familiar
+stabilization mechanisms. Learning-rate reduction shortens the step
+relative to the traversed curvature; clipping caps the optimizer's input norm;
+momentum averages changing directions; data mixing changes both their
+alignment and sampling variability. Gradient clipping directly controls
+the large input norms implicated here, consistent with
 its use against exploding gradients~\cite{pascanu2013difficulty}
 and theoretical accounts of adaptivity under gradient-dependent
-smoothness~\cite{zhang2020clipping}. For Adam, clipping changes both
-moment streams; learning-rate adjustment changes the adaptive step,
-and data mixing changes the gradients entering it.
-The observed early diagnostic response motivates applying these
-interventions before the pronounced loss increase and comparing
-them with unchanged continuations from the same saved state.
+smoothness~\cite{zhang2020clipping}. In Adam it also changes both moment
+streams. The diagnostics expose which component changes during a spike,
+providing a mechanistic hypothesis for why a stabilization choice helps
+and when it may be useful. Their early response motivates testing
+interventions before the pronounced rise against unchanged continuations
+from the same saved state.
 
 The present evidence establishes temporal warning signs and
 within-run associations in three controlled model--dataset cases.

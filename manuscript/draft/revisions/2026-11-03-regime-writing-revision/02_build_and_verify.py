@@ -71,11 +71,48 @@ def extra_math():
         retention = np.sqrt(lhs)/np.linalg.norm(g, axis=1).sum()
         assert 0 <= retention <= 1
         checks += 1
+    # Smooth, nonquadratic objectives: independently integrate the Hessian
+    # along the step, including the SGD endpoint-noise correction and Adam
+    # bilinear response. Three-node quadrature is exact for this quartic loss.
+    nodes, weights = np.polynomial.legendre.leggauss(3)
+    nodes, weights = (nodes+1)/2, weights/2
+    for _ in range(60):
+        a = rng.normal(size=(5, 5))
+        a = (a+a.T)/2
+        coefficient = rng.uniform(.05, .3)
+        x = rng.normal(size=5)
+        eta = rng.uniform(.005, .08)
+        def gradient(z):
+            return a@z+coefficient*z**3
+        def hessian(z):
+            return a+np.diag(3*coefficient*z*z)
+        for mode in ['gd', 'sgd', 'adam']:
+            noise = rng.normal(scale=.1, size=5) if mode == 'sgd' else np.zeros(5)
+            next_noise = rng.normal(scale=.1, size=5) if mode == 'sgd' else np.zeros(5)
+            g = gradient(x)+noise
+            direction = g if mode != 'adam' else (
+                .9*rng.normal(size=5)+.1*g)/np.sqrt(rng.uniform(.1, 2., size=5))
+            step = -eta*direction
+            y = x+step
+            next_g = gradient(y)+next_noise
+            estimate = -g@(next_g-g)/(eta*(g@g))
+            integrated = sum(w*(g@hessian(x+s*step)@direction)/(g@g)
+                             for s,w in zip(nodes, weights))
+            epsilon = g@(next_noise-noise)/(g@g)
+            errors.append(abs(estimate-integrated+epsilon/eta))
+            if mode == 'gd':
+                start_curvature = g@hessian(x)@g/(g@g)
+                lipschitz = 6*coefficient*max(np.max(abs(x)), np.max(abs(y)))
+                assert abs(estimate-start_curvature) <= lipschitz*eta*np.linalg.norm(g)/2+1e-12
+                # The same directional estimate is the scalar secant curvature.
+                errors.append(abs(estimate-step@(next_g-g)/(step@step)))
+            checks += 1
     assert max(errors) < 1e-10
     return dict(cases=checks, max_absolute_error=float(max(errors)),
                 coverage=['Adam projected curvature response on quadratics',
                           'Exact finite-population covariance',
-                          'All-pair displacement and retention'])
+                          'All-pair displacement and retention',
+                          'Nonquadratic path-average curvature, noise correction and local error bound'])
 
 
 def check_sources():

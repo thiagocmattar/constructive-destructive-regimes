@@ -7,7 +7,9 @@ terminology, correct mathematics/evidence, and a useful transition. Retained
 equations and captions were reviewed as well; see REVIEW.md. The subsequent
 appendix shortening and its affected main-text passages are reviewed in
 [APPENDIX_REVIEW.md](APPENDIX_REVIEW.md); the original source hashes in the JSON
-record identify the initial pass, not the shortened version.
+record identify the initial pass, not the shortened version. The later
+curvature-focused changes and review coverage are documented in
+[CURVATURE_REVIEW.md](CURVATURE_REVIEW.md).
 
 ## 01-introduction.tex
 

@@ -74,3 +74,14 @@ annotated PDF and prior revision. No change to the experiments is requested.
 - [x] Recompile the same PDF and check the reduced appendix and page layout.
 - [x] Record the disposition of removed material and refresh acceptance records.
 - [x] Review and commit only this follow-up's changes locally.
+
+## Restore curvature estimation as the central contribution
+
+- [x] Compare the original submitted paper and source archive with the current argument.
+- [x] Restore online curvature estimation and the interpretation of stabilization heuristics.
+- [x] State the smooth-GD path-average identity, local error bound, noise term and Adam response.
+- [x] Specify one retained gradient buffer, linear work and no additional backward pass.
+- [x] Position the curvature connection alongside existing secant and gradient-product methods.
+- [x] Verify the added mathematical statements on nonquadratic objectives.
+- [x] Rebuild and inspect the same PDF while preserving the concise appendices.
+- [x] Update review records and commit the verified revision locally.

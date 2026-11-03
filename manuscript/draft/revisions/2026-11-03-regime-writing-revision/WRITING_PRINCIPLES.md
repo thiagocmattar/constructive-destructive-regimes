@@ -15,9 +15,14 @@ show the same diagnostic pattern around substantial loss spikes despite adaptive
 updates. The projected-change diagnostic summarizes this sign-and-magnitude
 interaction; inspecting its components reveals the anatomy behind the signal.
 
-The practical contribution is inexpensive, interpretable monitoring of training
-dynamics, including early warning signs of developing spikes. The paper should
-make this value visible from the abstract through the conclusion.
+The central practical contribution is directional-curvature estimation from
+training gradients without Hessian computation. In smooth full-batch GD the
+estimate is exactly the curvature averaged along the step, with a bounded
+approximation to starting-point curvature. One retained gradient buffer and
+linear-time reductions make it available during the ordinary training loop.
+This connects the regimes to local loss instability and restores the original
+paper's motivation: inexpensive online diagnostics that help explain why
+stabilization heuristics work and inform future interventions.
 
 ## Principles
 
@@ -37,8 +42,10 @@ make this value visible from the abstract through the conclusion.
 6. **State supported findings affirmatively.** Replace repeated "not X" sentences
    with what a measurement establishes. Place essential scope once, near the
    relevant inference or in the measurement appendix.
-7. **Make affordability concrete.** State vector operation/storage complexity
-   and reuse of training gradients. Do not invent measured runtime savings.
+7. **Make curvature estimation and its affordability explicit.** State the
+   formal quantity, reuse of training gradients, one additional gradient buffer,
+   and absence of extra backward passes or Hessian--vector products. Distinguish
+   this algorithmic cost from a measured wall-clock overhead.
 8. **Make temporal evidence concrete.** Show the early diagnostic and the later
    loss outcome with exact timing. Use "early warning of a developing spike"
    for the observed lead; reserve predictive accuracy for evaluated forecasting.

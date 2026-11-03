@@ -9,7 +9,10 @@ This document records the initial full-paper pass (`f05098a`). The author's
 subsequent appendix-shortening request is evaluated in
 [APPENDIX_REVIEW.md](APPENDIX_REVIEW.md), which supersedes the initial appendix
 layout and duplicate-derivation decisions. Current build and visual acceptance
-records describe the shortened 14-page PDF.
+records describe the current 14-page PDF. A further
+[curvature-focused review](CURVATURE_REVIEW.md) restores the original online
+diagnostic/heuristic motivation and formalizes the estimator's path-average
+interpretation, pointwise error bound and one-gradient implementation cost.
 
 ## Responses to the PDF comments
 

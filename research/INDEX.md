@@ -25,6 +25,8 @@ prediction and causality remain distinct. The writing revision addresses
 12 author comments and standardizes the regime argument. Following the initial
 135-unit/14-caption review, appendix shortening reduces the PDF to 14 pages:
 one derivation, concise measurement conventions, and no appendix floats.
+The central contribution is curvature estimation from training gradients,
+with an exact smooth-GD path-average identity and one-gradient online storage.
 Raw-history, statistical, retained GD/SGD/math,
 compilation and Poppler visual checks pass.
 Prior forecasting exposition is no longer compiled; sources/history preserved.
