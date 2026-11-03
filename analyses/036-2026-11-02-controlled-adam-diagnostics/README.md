@@ -13,6 +13,7 @@ magnitude cutoff, or startup exclusion is used. Earlier exploratory work stays i
 - [Pre-rise projected-change versus peak-increase scatter](observations/005-prerise-eta-peak-scatter.md): 127 unsmoothed points from the current recovered >10% anatomy sample; two undefined initialization diagnostics omitted.
 - [First-rise companion scatter](observations/006-first-rise-eta-peak-scatter.md): 129 points measured immediately after the first loss increase; 13 measurements coincide with the loss peak.
 - [Gradient norm rise ratio versus peak loss ratio](observations/007-gradient-rise-peak-scatter.md): 129 events; linear x and logarithmic y axes, no smoothing.
+- [Pre-rise cosine times gradient norm rise ratio](observations/008-rho-gradient-rise-peak-scatter.md): 127 defined signed products versus logarithmic peak/pre-rise loss ratio.
 
 ## Coverage
 

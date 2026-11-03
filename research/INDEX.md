@@ -28,6 +28,8 @@ plots 127 defined event pairs against peak/pre-rise loss ratio on a logarithmic 
 uses all 129 events immediately after the first loss increase; 13 are already at their peak.
 The [gradient norm rise-ratio scatter](../analyses/036-2026-11-02-controlled-adam-diagnostics/observations/007-gradient-rise-peak-scatter.md)
 compares 129 endpoint gradient norm ratios with logarithmic peak/pre-rise loss ratios.
+A [pre-rise cosine product view](../analyses/036-2026-11-02-controlled-adam-diagnostics/observations/008-rho-gradient-rise-peak-scatter.md)
+multiplies the rise ratio by signed pre-rise raw cosine for 127 defined events.
 Manuscript unchanged; no new training or cloud resources.
 
 
