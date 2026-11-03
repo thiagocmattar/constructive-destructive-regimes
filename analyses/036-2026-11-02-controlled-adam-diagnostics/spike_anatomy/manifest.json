@@ -1,6 +1,6 @@
 {
   "generator": "analyses/036-2026-11-02-controlled-adam-diagnostics/07_spike_anatomy.py",
-  "generator_sha256": "dd58363f2c75863f97b8be3968fb683b01f43b21e99819cff74b84fb34f38fa3",
+  "generator_sha256": "a8ac3665eda4806171ed8752775497486a48fb013c9ab17c75e315f9fd079eb6",
   "status": "passed",
   "sources": {
     "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_dataset/loss_spikes.csv": "d35e901cc68a1bce5379129b4ce74f4d1b8896c3c0ccfaf643d4647558e4500d",
@@ -30,11 +30,17 @@
     "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker4/lr-0.001/boundaries.jsonl": "b47c647c05dbab1defd6d5ab0e653e0ffe236066c483458b63167597e4639d16",
     "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker4/lr-0.001/metrics.jsonl": "586c7a961f0a410e280e3286f8d044df28a29cc99c7a988798ce43f6a60cbfc8"
   },
-  "selection": "peak_change_percent > 10 (strict); existing event boundaries unchanged",
-  "selected_events": 131,
-  "recovered_events": 129,
-  "censored_events": 2,
-  "summaries": "Mean, sample SD (N-1), min and max over recovered events; per-metric n records missing values.",
+  "selection": "peak_change_percent > 10 (strict) and recovery observed by update 1024; boundaries unchanged",
+  "selected_events": 129,
+  "exclusion_note": {
+    "criterion": "Require observed recovery by the 1024-update horizon.",
+    "excluded_above_threshold_events": 2,
+    "excluded_spike_ids": [
+      "mlp-lr0.001-0124",
+      "transformer-lr0.003-0038"
+    ]
+  },
+  "summaries": "Mean, sample SD (N-1), min and max over included complete events; per-metric n records missing values.",
   "phase_clock": "Rise arrival states a+1..p; recovery arrival states p+1..c; before diagnostics at state a.",
   "checks": {
     "source_hashes": true,
@@ -46,10 +52,10 @@
     "nine_task_lr_groups": true
   },
   "outputs": {
-    "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_anatomy/events_gt10.csv": "ea4fba5d009625dbed88421afc044c2f3a48e046f74cc7266d0bc671d539eb30",
-    "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_anatomy/README.md": "67591c99733d3215b1e8a2ab21ecd89eac6190c5a907a0535a6f974bfde50b1c",
-    "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_anatomy/summary_gt10.csv": "a99934302811cb1461770f628205dbf990d6d2e296d03f493f208133ff9a36ef",
-    "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_anatomy/table_gt10.md": "f6e8acd113758c70ffe37d92808219f26f5b83139ecc82cf7eae47217a43bf0b",
-    "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_anatomy/table_gt10.tex": "88ba4e1bc988369fb08729da26560c35afa18e63f9f8e44a10e49cd1a1e5a29d"
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_anatomy/events_gt10.csv": "b9cec0f2decef649d6399828e43de27266aafdce9cd697a4cc0037b535f5b9b6",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_anatomy/README.md": "cbea5262a2496560f5ae2301823ff8730b0b01fec76a1277dc0d4b970f99a592",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_anatomy/summary_gt10.csv": "c5f216e728fbce6ef5323d5d2fd01eb3a8222dc401b4bae38aa9077103fa4d09",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_anatomy/table_gt10.md": "d2209408b976d19f5b396f6846c017100fd6f4cf20641d06ca5d3c0c7f9cfd28",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_anatomy/table_gt10.tex": "50c43412c40d45ae15199e3bf212804671e0b42acae5cdc9da4e92afe98df523"
   }
 }

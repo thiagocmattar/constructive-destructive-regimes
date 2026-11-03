@@ -96,11 +96,9 @@ SUMMARY_METRICS = [
 
 def summarize(all_events, task, lr, metric):
     group = all_events.loc[all_events.task.eq(task) & all_events.learning_rate.eq(lr)]
-    complete = group.loc[~group.right_censored]
-    values = complete[metric].dropna().to_numpy(dtype=float) if metric in complete else np.array([])
+    values = group[metric].dropna().to_numpy(dtype=float) if metric in group else np.array([])
     assert np.isfinite(values).all()
-    record = dict(task=task, learning_rate=lr, selected_events=len(group),
-        recovered_events=len(complete), censored_events=int(group.right_censored.sum()), metric=metric, n=len(values))
+    record = dict(task=task, learning_rate=lr, selected_events=len(group), metric=metric, n=len(values))
     record.update(mean=None if not len(values) else float(np.mean(values)),
         std=None if len(values) < 2 else float(np.std(values, ddof=1)),
         min=None if not len(values) else float(min(values)), max=None if not len(values) else float(max(values)))
@@ -120,20 +118,21 @@ def write_table(summary, original):
             return '--'
         text = f'{s["mean"]:.2f} ± {s["std"]:.2f}' if s['std'] is not None else f'{s["mean"]:.2f} ± NA'
         return text + (f' [{s["max"]:.2f}]' if maximum else '')
-    headers = ['Dataset / model', 'LR', 'N (censored)', 'Peak increase %, mean ± SD [max]',
+    headers = ['Dataset / model', 'LR', 'N', 'Peak increase %, mean ± SD [max]',
         'Time [rise; recovery]', 'ηκ̂ [before; recovery]', 'ρ [before; recovery]', 'Gradient norm ratio [rise; recovery]']
     md = ['| ' + ' | '.join(headers) + ' |', '| --- | ---: | ---: | --- | --- | --- | --- | --- |']
     tex = ['% Observed peak increase >10%; descriptive statistics over recovered events only.',
         '% Cells: mean +/- sample SD; bracketed maximum only for peak increase.',
-        '% N counts all selected events, with censored counts in parentheses.',
+        '% Inclusion criterion: recovery must be observed by update 1024; N counts included events only.',
+        '% Two above-threshold candidates without observed recovery were excluded from the sample.',
         '% Time and gradient-ratio pairs are [rise; recovery]; projected-change/rho pairs are [before; mean recovery].',
         r'\begin{tabular}{llrccccc}', r'\hline',
-        r'Dataset/model & $\eta$ & $N$ (cens.) & Peak increase (\%) & Time $[\uparrow;\downarrow]$ & $\eta\widehat\kappa$ $[\mathrm{before};\downarrow]$ & $\rho$ $[\mathrm{before};\downarrow]$ & $\|g\|$ ratio $[\uparrow;\downarrow]$ \\', r'\hline']
+        r'Dataset/model & $\eta$ & $N$ & Peak increase (\%) & Time $[\uparrow;\downarrow]$ & $\eta\widehat\kappa$ $[\mathrm{before};\downarrow]$ & $\rho$ $[\mathrm{before};\downarrow]$ & $\|g\|$ ratio $[\uparrow;\downarrow]$ \\', r'\hline']
     for task, label in zip(TASKS, LABELS):
         rates = sorted(original.loc[original.task.eq(task), 'learning_rate'].unique())
         for index, lr in enumerate(rates):
             s = get(task, lr, 'peak_change_percent')
-            count = f'{s["selected_events"]} ({s["censored_events"]})'
+            count = str(s['selected_events'])
             def pair(first, second):
                 left, right = value(task, lr, first), value(task, lr, second)
                 return '--' if left == right == '--' else '[' + left + '; ' + right + ']'
@@ -147,6 +146,8 @@ def write_table(summary, original):
             tex.append(' & '.join(tex_cells) + r' \\')
         tex.append(r'\hline')
     tex.append(r'\end{tabular}')
+    md += ['', 'Inclusion criteria: peak increase >10% and recovery observed by update 1,024. '
+        'Two candidates without observed recovery were excluded; N counts the 129 included events only.']
     (OUT / 'table_gt10.md').write_text('\n'.join(md) + '\n', encoding='utf-8')
     (OUT / 'table_gt10.tex').write_text('\n'.join(tex) + '\n', encoding='utf-8')
 
@@ -160,7 +161,10 @@ def main():
     assert provenance['verification']['status'] == 'passed'
     assert sha(event_path) == provenance['outputs'][event_path.relative_to(HERE).as_posix()]
     original = pd.read_csv(event_path, float_precision='round_trip')
-    selected = original.loc[original.peak_change_percent.gt(THRESHOLD_PERCENT)].copy()
+    candidates = original.loc[original.peak_change_percent.gt(THRESHOLD_PERCENT)].copy()
+    excluded = candidates.loc[candidates.recovery_state.isna()]
+    selected = candidates.loc[candidates.recovery_state.notna()].copy()
+    assert not selected.right_censored.any()
     sources = {p.relative_to(ROOT).as_posix(): sha(p) for p in [event_path, source_manifest,
         HERE / '02_extract_loss_spikes.py', extract.RUN / 'results.json', extract.RUN / 'config.json']}
     for path in [extract.RUN / 'results.json', extract.RUN / 'config.json']:
@@ -195,12 +199,14 @@ def main():
                 assert extra['gradient_max_state_full_event'] == a + int(np.argmax(full_gradient))
             rows.append(dict(event, **extra))
     events = pd.DataFrame(rows).sort_values(['task', 'learning_rate', 'before_state'])
-    assert len(events) == len(selected) == 131
+    assert len(events) == len(selected) == 129
     assert set(events.spike_id) == set(selected.spike_id)
-    assert sum(events.right_censored) == 2
+    assert not events.right_censored.any() and not events.peak_is_provisional.any()
+    removed_flags = ['right_censored', 'peak_is_provisional']
+    events = events.drop(columns=removed_flags)
     events.to_csv(OUT / 'events_gt10.csv', index=False)
     restored = pd.read_csv(OUT / 'events_gt10.csv', float_precision='round_trip')
-    original_columns = [name for name in original.columns if name != 'spike_id']
+    original_columns = [name for name in original.columns if name not in ['spike_id', *removed_flags]]
     pd.testing.assert_frame_equal(selected.set_index('spike_id').sort_index()[original_columns],
         restored.set_index('spike_id').sort_index()[original_columns], check_dtype=False, check_exact=True)
     summary = [summarize(events, task, float(lr), metric) for task in TASKS
@@ -212,16 +218,18 @@ def main():
     write_table(summary, original)
     record = dict(generator=Path(__file__).relative_to(ROOT).as_posix(), generator_sha256=sha(__file__),
         status='passed',
-        sources=sources, selection='peak_change_percent > 10 (strict); existing event boundaries unchanged',
-        selected_events=len(events), recovered_events=int((~events.right_censored).sum()), censored_events=2,
-        summaries='Mean, sample SD (N-1), min and max over recovered events; per-metric n records missing values.',
+        sources=sources, selection='peak_change_percent > 10 (strict) and recovery observed by update 1024; boundaries unchanged',
+        selected_events=len(events),
+        exclusion_note=dict(criterion='Require observed recovery by the 1024-update horizon.',
+            excluded_above_threshold_events=len(excluded), excluded_spike_ids=excluded.spike_id.tolist()),
+        summaries='Mean, sample SD (N-1), min and max over included complete events; per-metric n records missing values.',
         phase_clock='Rise arrival states a+1..p; recovery arrival states p+1..c; before diagnostics at state a.',
         checks=dict(source_hashes=True, original_event_values_preserved=True, before_identity=True, independent_means_and_stds=True,
             independent_phase_membership=True, signed_full_event_extrema=True, nine_task_lr_groups=True),
         outputs={p.relative_to(ROOT).as_posix(): sha(p) for p in OUT.iterdir() if p.suffix in ['.csv', '.md', '.tex']})
     (OUT / 'manifest.json').write_text(json.dumps(record, indent=2, allow_nan=False) + '\n', encoding='utf-8')
     print((OUT / 'table_gt10.md').read_text(encoding='utf-8'))
-    print('Verified 131 selected events, 129 recovered summaries, 2 censored; no figures generated.')
+    print('Verified sample: 129 complete events; 2 above-threshold events without observed recovery excluded and documented.')
 
 
 if __name__ == '__main__':

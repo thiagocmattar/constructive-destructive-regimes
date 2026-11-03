@@ -34,17 +34,20 @@ The new operation is a filter, not a new segmentation:
 
 $$100(\mathcal L_p/\mathcal L_a-1)>10.$$
 
-It selects 131 observed events: 129 recovered and 2 censored. Every summary of
-amplitude, timing and anatomy uses the common recovered cohort, so there are
-no provisional peaks or imputed recovery times in those statistics. The main
-N column counts all selected observed events, with censored counts in
-parentheses. Rows with no qualifying events are retained and show missing
-statistics, not zeros.
+An additional inclusion criterion requires recovery to be observed by the
+1,024-update horizon. The analysis sample therefore contains **129 complete
+events**. Two above-threshold candidates without an observed recovery are
+excluded from the sample and its occurrence counts: `mlp-lr0.001-0124` and
+`transformer-lr0.003-0038`. Their source records remain preserved for provenance.
+No separate incomplete-event category or flags are included in the analysis
+sample or table. N counts the included complete events only. All descriptive
+values are unchanged from the previous recovered-event summaries. Rows with
+no qualifying events are retained and show missing statistics, not zeros.
 
 There is no startup exclusion. Two selected MLP events start at initialization,
 where previous-gradient cosine and projected change are undefined. Pre-rise
 cosine/projected-change summaries therefore use 46 rather than 47 observations
-at MLP LR 0.0003, and 38 rather than 39 recovered observations at LR 0.001.
+at MLP LR 0.0003, and 38 rather than 39 sample observations at LR 0.001.
 All other metric-specific missingness is recorded through n in the summary CSV.
 Sample standard deviations use n-1; none is presented as a standard error.
 
@@ -156,6 +159,6 @@ consistent with selected trajectories, with the model-dependent recovery and
 algebraic coupling stated explicitly. Intervention remains deferred.
 
 Verification checks source SHA-256/clock identities, preservation of all
-original event columns in a CSV round trip, the pre-rise projected-change
+retained original event columns in a CSV round trip, the pre-rise projected-change
 identity, phase membership, gradient ratio telescoping, full-event maximum
 placement, and independent mean/SD calculations. No new training or cloud use.

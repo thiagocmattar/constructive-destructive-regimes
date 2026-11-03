@@ -21,7 +21,7 @@ summarizes peak increases and durations for the 806 recovered events. Earlier wo
 The loss-only overview and [per-LR peak densities](../analyses/036-2026-11-02-controlled-adam-diagnostics/figures/adam_peak_increase_density.pdf)
 use three model columns; densities cover 806 recovered events on log-percent axes.
 [Anatomy above 10%](../analyses/036-2026-11-02-controlled-adam-diagnostics/spike_anatomy/README.md)
-covers 131 observed events (129 recovered, 2 censored), with before/rise/recovery
+includes 129 complete events (recovery by update 1024 required), with before/rise/recovery
 diagnostics and a grouped text/LaTeX table. Pre-rise reversal is common;
 recovery alignment is model-dependent. Manuscript unchanged; no new training or cloud resources.
 
