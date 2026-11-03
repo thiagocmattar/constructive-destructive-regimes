@@ -21,9 +21,11 @@ anatomy table and 127-point per-LR regression scatter. Negative pre-rise raw
 cosine occurs in 117/127 defined events; all 129 endpoint gradient norms grow.
 The 10% threshold is operational; observed recovery is required. Regression
 R-squared uses log peak/pre-rise loss; early response, descriptive association,
-prediction and causality remain distinct. The 17-page writing revision addresses
-12 author comments, reviews 135 prose units and 14 captions, and standardizes
-the regime argument. Raw-history, statistical, retained GD/SGD/math,
+prediction and causality remain distinct. The writing revision addresses
+12 author comments and standardizes the regime argument. Following the initial
+135-unit/14-caption review, appendix shortening reduces the PDF to 14 pages:
+one derivation, concise measurement conventions, and no appendix floats.
+Raw-history, statistical, retained GD/SGD/math,
 compilation and Poppler visual checks pass.
 Prior forecasting exposition is no longer compiled; sources/history preserved.
 No new training, intervention, cloud resource or hypothesis.

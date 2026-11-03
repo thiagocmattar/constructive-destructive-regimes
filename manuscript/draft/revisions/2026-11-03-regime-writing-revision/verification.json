@@ -54,7 +54,7 @@
     "largest_increase": 858.7697586669618
   },
   "preserved_author_comments": 12,
-  "pages": 17,
+  "pages": 14,
   "placements": {
     "sec:displacement": 3,
     "sec:gd-experiments": 5,
@@ -64,29 +64,42 @@
     "fig:adam-spikes": 10,
     "fig:adam-spike-distribution": 11,
     "tab:adam-spike-anatomy": 11,
-    "fig:adam-rho-norm-spikes": 12
+    "fig:adam-rho-norm-spikes": 12,
+    "appendix:loss-curvature": 12,
+    "appendix:gd-raw-alignment": 13
   },
   "status": "passed",
-  "pdf_sha256": "7cf8bea2e50e99962c9a0ab6ecec485a7f234ae30cb2099f1a9e80f1be552f69",
-  "active_figures": 9,
-  "verifier_sha256": "fad2e3954dab9239fe31954ecdd87b9f25e53f3694efec96208ebca4d5b8c9c7",
+  "pdf_sha256": "a1b23f857e23d23dbefddef44086fba681cbbc9a9d81502cfc435036a78a74e6",
+  "active_figures": 8,
+  "verifier_sha256": "d0e6f93e3f056fa5b4e24181bfa24597388f5edd6dd49f15f28d38bca4facc6c",
   "evidence_manifest_sha256": "9300ed7ce3f87cc7552dc5a7bffd513df7c39b08c64d6ca39b222baa9f6253f5",
   "build": "pdflatex/BibTeX; zero overfull boxes or unresolved references",
   "source_hashes": {
-    "manuscript/draft/bare_jrnl.tex": "52327b616016e6f6a141e9f7e079df457c5a140ad6efafa560341a55d6271420",
+    "manuscript/draft/bare_jrnl.tex": "c171d73888faa5d54cd154e4e70afd2fb7328ffbf82a7a06c61a1d757aaee55d",
     "manuscript/draft/bibliography.bib": "4f952b4970588551e07eaf8147d5391b301f885a85eb7a0fd708a1fa5883bf98",
     "manuscript/draft/sections/01-introduction.tex": "fc8e42fdd2a08885182d856237c9bb2afba4152bec852cad01855256f05ca880",
     "manuscript/draft/sections/02-related-works.tex": "62e01c7a5faa76dfbc9f014f3bb4b8d990cc3fc6253e8aa63732cdb0085b8eed",
     "manuscript/draft/sections/03-methods.tex": "69ef1f2ed873440d740a3f846296212f3e380af305219851908aaa701c486b84",
-    "manuscript/draft/sections/04-gd-experiments.tex": "ff09800c577fb1d8471bd989a205c6eeeff1bf359ee2f82d16da2850ac1a8167",
+    "manuscript/draft/sections/04-gd-experiments.tex": "e32a32448f5009ef1de8cc0c3d3e8bb3c9b9c4c54a9d7ea821399da8dd9b4230",
     "manuscript/draft/sections/04-results.tex": "afc1f30d1c6f3dba8e3d3cdeaa0d04947fc8df54e9131871db16390062a77d45",
     "manuscript/draft/sections/05-conclusion.tex": "93f3c5de114f991cf741c19c28035d397b68ded1d72c019f135155bdadbe076a",
-    "manuscript/draft/sections/05-sgd-noise-experiments.tex": "212cacfe42f06ae3f4e53d39d5ec9af7721c94a451c13c50c35ac9881815d9db",
+    "manuscript/draft/sections/05-sgd-noise-experiments.tex": "da9cddf66b12eaaca8d4a779e1fda27fc966ae1f417e0907a3a2362573a0143d",
     "manuscript/draft/sections/06-adam-diagnostics.tex": "3ccff150348e66dbad084dbf3516d922eafd9883b26390eb5411c8133c7a95c9",
     "manuscript/draft/sections/06-appendix.tex": "210ed113fe474b3171f6640c7fe8dc417bd35586d981ae2d1e8fcd89a6a6732c",
-    "manuscript/draft/sections/06-loss-appendix.tex": "29c4a2963b62e6f9fb6cb1be4fe5416ed51580caddc53b503c2fd6a174917710",
-    "manuscript/draft/sections/07-gd-diagnostics.tex": "992f253f2de34a0004a2a57231b34301af475426eb60c2867933b7bffe6feab5",
+    "manuscript/draft/sections/06-loss-appendix.tex": "2b4570f262c6f17c2f3df257facd74c9e9d872f16ee945e6baa6bfd520426277",
+    "manuscript/draft/sections/07-gd-diagnostics.tex": "40fa6cbcacbb97cc09625bb46350dd26d16a4565531114baabaa33cf7674ce10",
     "manuscript/draft/tables/analysis036_spike_anatomy.tex": "58f64b4185394d5ab1e11a995c3716355dd634d6cf0d23a874d25f0b5f885e95"
   },
-  "visual_review": "All 17 final pages inspected in Poppler contact sheets; detailed review of title, mathematics, Adam narrative, figures/table, conclusion and references. No clipping or overlap; centered full-width anatomy table is legible."
+  "visual_review": "All 14 pages reviewed in Poppler contact sheets; detailed inspection of pages 12-14 confirms legible equations, concise conventions and balanced reference columns. Final render is pixel-identical to the accepted layout after line-ending normalization. No clipping or overlap.",
+  "appendix_shortening": {
+    "previous_pages": 17,
+    "current_pages": 14,
+    "appendices": 2,
+    "appendix_figures": 0,
+    "appendix_tables": 0,
+    "main_figures": 8,
+    "main_tables": 2,
+    "removed_tables": 3,
+    "removed_figures": 1
+  }
 }

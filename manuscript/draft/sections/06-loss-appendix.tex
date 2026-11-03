@@ -1,91 +1,67 @@
 \section{Derivation of the Alignment-Based Loss Change}
 \label{appendix:loss-curvature}
 
-The loss relation in Section~\ref{subsec:loss-connection} combines gradient
-magnitude and regime in a single expression. To derive it, consider the SGD update
-$\theta_{t-1}=\theta_{t-2}-\eta g_{t-1}$.
-The change in the full objective along this step can be
-expressed exactly as
+Consider $\theta_{t-1}=\theta_{t-2}-\eta g_{t-1}$ and write
+$\delta\mathcal L_{t-1}=\mathcal L(\theta_{t-1})-\mathcal L(\theta_{t-2})$.
+Integrating the full gradient along the step gives
 \begin{equation}
 \begin{aligned}
-&\mathcal{L}(\theta_{t-1})-\mathcal{L}(\theta_{t-2})\\
-&\quad=-\eta\int_0^1
-g_{t-1}^\top
+\delta\mathcal L_{t-1}
+=-\eta\int_0^1 g_{t-1}^\top
 \nabla\mathcal{L}(\theta_{t-2}-s\eta g_{t-1})\,ds.
 \end{aligned}
 \label{eq:appendix-loss-integral}
 \end{equation}
-Approximating the integral by the average of the full gradients
-at the two endpoints gives
+The trapezoidal approximation replaces the integrand by its endpoint
+average. Substituting
+$\nabla\mathcal L(\theta_{t-2})=g_{t-1}-\xi_{t-1}$ and
+$\nabla\mathcal L(\theta_{t-1})=g_t-\xi_t$ yields
 \begin{equation}
 \begin{aligned}
-&\mathcal{L}(\theta_{t-1})-\mathcal{L}(\theta_{t-2})\\
-&\quad\approx-\frac{\eta}{2}g_{t-1}^\top
-\left(
-\nabla\mathcal{L}(\theta_{t-2})
-+\nabla\mathcal{L}(\theta_{t-1})
-\right).
-\end{aligned}
-\label{eq:appendix-loss-average}
-\end{equation}
-This approximation is exact for quadratic objectives.
-For nonlinear objectives, the approximation error is of
-third order in the step length when the Hessian is locally
-Lipschitz continuous.
-
-Using the stochastic gradient decomposition
-$g_t=\nabla\mathcal{L}(\theta_{t-1})+\xi_t$
-at both endpoints, we obtain
-\begin{equation}
-\begin{aligned}
-&\mathcal{L}(\theta_{t-1})-\mathcal{L}(\theta_{t-2})\\
-&\quad\approx-\frac{\eta}{2}g_{t-1}^\top
-(g_{t-1}+g_t-\xi_{t-1}-\xi_t)\\
-&\quad=-\frac{\eta}{2}
+\delta\mathcal L_{t-1}
+&\approx-\frac{\eta}{2}
 \left(\|g_{t-1}\|^2+g_{t-1}^\top g_t\right)\\
-&\qquad+\frac{\eta}{2}
+&\quad+\frac{\eta}{2}
 g_{t-1}^\top(\xi_{t-1}+\xi_t).
 \end{aligned}
 \label{eq:appendix-loss-gradient}
 \end{equation}
-Substituting
-$g_{t-1}^\top g_t
-=\|g_{t-1}\|\|g_t\|\rho_t$
-and factoring the preceding squared gradient norm yields
-\begin{equation}
-\begin{aligned}
-&\mathcal{L}(\theta_{t-1})-\mathcal{L}(\theta_{t-2})\\
-&\quad\approx
--\frac{\eta}{2}\|g_{t-1}\|^2
-\left(1+\rho_t\frac{\|g_t\|}{\|g_{t-1}\|}\right)\\
-&\qquad+\frac{\eta}{2}
-g_{t-1}^\top(\xi_{t-1}+\xi_t),
-\end{aligned}
-\end{equation}
-which recovers Eq.~\eqref{eq:loss-curvature}.
+The substitution $g_{t-1}^\top g_t=\|g_{t-1}\|\|g_t\|\rho_t$
+recovers Eq.~\eqref{eq:loss-curvature}. The expression is exact on
+quadratic objectives. A locally Lipschitz Hessian bounds its error
+by a constant times $\|\eta g_{t-1}\|^3$.
 
-To connect this expression with directional curvature,
-recall from Eq.~\eqref{eq:rho-normalized} that
-\begin{equation}
-  \rho_t\frac{\|g_t\|}{\|g_{t-1}\|}
-  \approx 1-\eta\kappa_t+\varepsilon_t.
-\end{equation}
-Substituting this relation and using the definition
-of $\varepsilon_t$ in Eq.~\eqref{eq:epsilon} gives
+Using $\rho_t\|g_t\|/\|g_{t-1}\|
+\approx1-\eta\kappa_t+\varepsilon_t$ and
+Eq.~\eqref{eq:epsilon} gives the equivalent curvature form,
 \begin{equation}
 \begin{aligned}
-&\mathcal{L}(\theta_{t-1})-\mathcal{L}(\theta_{t-2})\\
-&\quad\approx-\eta\|g_{t-1}\|^2
+\delta\mathcal L_{t-1}
+&\approx-\eta\|g_{t-1}\|^2
 \left(1-\frac{\eta\kappa_t}{2}\right)
-+\eta\xi_{t-1}^\top g_{t-1}.
+\\&\quad+\eta\xi_{t-1}^\top g_{t-1}.
 \end{aligned}
 \label{eq:appendix-loss-curvature}
 \end{equation}
-Thus, the curvature-based and alignment-based expressions
-describe the same local loss change to second order.
-Positive directional curvature counteracts the first-order
-loss decrease. The weighted alignment expresses that effect through
-the regime and gradient-norm ratio: constructive interaction strengthens
-descent, while sufficiently amplified destructive interaction reverses it.
-The noise contributions account for the difference between
-the observed mini-batch gradients and the full gradients.
+It also follows directly from a second-order Taylor expansion at
+$\theta_{t-2}$. With zero noise, the conditions for a loss-increasing
+step reduce to Eqs.~\eqref{eq:loss-rise-alignment}
+and~\eqref{eq:loss-rise-curvature}.
+
+The noise term has a simple conditional interpretation. Given
+$\theta_{t-2}$, unbiased sampling gives
+$\mathbb E[\|g_{t-1}\|^2]=\|\nabla\mathcal L(\theta_{t-2})\|^2
++\mathbb E[\|\xi_{t-1}\|^2]$ and
+$\mathbb E[\xi_{t-1}^\top g_{t-1}]=\mathbb E[\|\xi_{t-1}\|^2]$.
+Their first-order variance terms cancel, leaving
+\begin{equation}
+\begin{aligned}
+\mathbb E[\delta\mathcal L_{t-1}\mid\theta_{t-2}]
+&\approx-\eta\|\nabla\mathcal L(\theta_{t-2})\|^2\\
+&\quad+\frac{\eta^2}{2}\mathbb E[
+g_{t-1}^\top H_{t-1}g_{t-1}\mid\theta_{t-2}].
+\end{aligned}
+\label{eq:expected-loss-change}
+\end{equation}
+Thus sampling contributes through curvature at second order. A nonlinear
+objective also contributes the finite-step remainder.

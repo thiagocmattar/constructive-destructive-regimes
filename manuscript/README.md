@@ -2,12 +2,16 @@
 
 Latest revision (2026-11-03, full-paper writing):
 [review and reproduction](draft/revisions/2026-11-03-regime-writing-revision/README.md).
-The current 17-page manuscript implements the author's writing principles and
+The current 14-page manuscript implements the author's writing principles and
 all 12 annotated comments. It develops the constructive/destructive-regime
 argument consistently from the abstract through GD/SGD and Adam spike anatomy,
 strengthens contribution positioning, and improves the grouped anatomy table.
-The revision records 135 reviewed prose units, 14 captions, mathematical/evidence
-checks and a completed task list. Experiments and scientific figures are preserved.
+The initial pass reviewed 135 prose units and 14 captions. The subsequent appendix
+review consolidates the loss derivation, condenses measurement conventions, and
+removes three supplementary tables and one repeated figure from compilation.
+The appendices contain no figures or tables. Experimental assets are preserved;
+eight main figures and two tables remain compiled. Checks and task lists are
+recorded in the revision folder.
 
 Previous revision (2026-11-03, Adam spike anatomy):
 [review PDF](draft/revisions/2026-11-03-adam-spike-anatomy/revised-manuscript.pdf),
@@ -42,7 +46,8 @@ This revision builds into ignored `tmp/pdfs/` and delivers to `draft/`,
 superseding the older `artifacts/` output convention for the current review.
 
 The 2026-11-02 build used seven figures, including two Analysis036 manuscript views;
-the current build uses nine, including the four approved Adam figures.
+the current build uses eight, including the four approved Adam figures.
+The extra raw GD cosine figure remains available but is no longer compiled.
 The other 26 are preserved in the [figure archive](archive/2026-11-02-unused-figures/README.md),
 with hashes and original paths. Inactive legacy sections reference that archive.
 

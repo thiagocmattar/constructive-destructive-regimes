@@ -21,8 +21,7 @@
   (logarithmic scale), and normalized displacement. Cosines and norms use
   complete 50-observation trailing means; $R_t$ is the unsmoothed ratio
   over the complete prefix through update $t$. Colors and column ordering
-  match Fig.~\ref{fig:gd-loss}. Raw cosine traces appear in
-  Appendix~\ref{appendix:gd-raw-alignment}.}
+  match Fig.~\ref{fig:gd-loss}.}
   \label{fig:gd-alignment-displacement}
 \end{figure*}
 
@@ -63,9 +62,11 @@ oscillatory descent associated with the Edge of Stability~\cite{cohen2021edge}.
 Consecutive gradients therefore expose an oscillatory regime that is
 productive over the training horizon. The projected-change diagnostic
 provides its directional interpretation using inexpensive vector
-reductions. Appendix~\ref{appendix:gd-raw-alignment} evaluates the
-finite-step loss approximation and supplies complementary spectral
-measurements with their objective coverage.
+reductions. Its pointwise accuracy depends on the local approximation:
+at the highest Transformer rate, the unsmoothed noise-free expression
+in Eq.~\eqref{eq:loss-curvature} disagrees with the observed loss-change
+sign in 44.2\% of 2,999 transitions. This finite-step discrepancy
+qualifies the interpretation of individual updates within the sustained regime.
 
 \subsection{Gradient Magnitude and Cumulative Motion}
 
@@ -90,7 +91,7 @@ local directional minima yet productive over the full training horizon.
 Local destruction coexists with reinforcement over longer horizons.
 The complete cross-step interaction is positive at the endpoint in all
 nine trajectories, including the seven with negative accumulated
-lag-one interaction (Table~\ref{tab:gd-temporal-accounting}). Longer-range
+lag-one interaction in Eq.~\eqref{eq:magnitude-interaction}. Longer-range
 reinforcement can coexist with repeated local reversal. Together,
 $\rho_t$, gradient norms and $R_t$ distinguish local overshoot, step size
 and retained motion. Their joint interpretation explains how oscillatory
@@ -137,7 +138,6 @@ summarizes its net geometric effect.
   Rates are $0.04$ (MLP), $0.1$ (ResNet-32) and $0.2$ (Transformer).
   These are separately recomputed 256-update GD continuations from
   retained state 2000, with one initialization and no smoothing or
-  endpoint averaging. Appendix~\ref{appendix:gd-raw-alignment} records
-  the additional endpoints and numerical replay scope.}
+  endpoint averaging.}
   \label{fig:gd-backward}
 \end{figure*}

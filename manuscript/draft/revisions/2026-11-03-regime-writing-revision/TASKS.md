@@ -63,3 +63,14 @@ annotated PDF and prior revision. No change to the experiments is requested.
 - [x] Record paragraph audit, comment responses, evidence sources and final PDF hash.
 - [x] Update manuscript/research entry points without altering unrelated work.
 - [x] Review staged diff and commit only this task's verified changes locally.
+
+## Appendix shortening requested after the full-paper pass
+
+- [x] Assess each appendix item by its contribution to the reader's argument.
+- [x] Consolidate the loss derivation; remove its duplicate and the unused two-step expansion.
+- [x] Remove the three supplementary tables and repeated raw-cosine figure from compilation.
+- [x] Retain essential objective, sampling, indexing and statistical conventions concisely.
+- [x] Preserve the finite-step loss-sign limitation in the main text and repair references.
+- [x] Recompile the same PDF and check the reduced appendix and page layout.
+- [x] Record the disposition of removed material and refresh acceptance records.
+- [x] Review and commit only this follow-up's changes locally.

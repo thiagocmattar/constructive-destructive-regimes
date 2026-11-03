@@ -3,7 +3,8 @@
 This revision implements the author's spoken writing guidance and the 12
 annotations in the preceding Adam-spike review PDF. The clarification
 "methodology of writing" is applied throughout: experiments, event selection,
-raw measurements and scientific figures remain unchanged.
+raw measurements and scientific figure assets remain unchanged. The author's
+follow-up shortens the appendices in this same revision and deliverable.
 
 Deliverable: [revised-manuscript.pdf](revised-manuscript.pdf).
 The active sources are in the manuscript draft.
@@ -13,7 +14,9 @@ The active sources are in the manuscript draft.
   mathematical review, visual verification and commit.
 - [Review and comment responses](REVIEW.md): all 12 dispositions, mathematical
   audit, evidence checks and primary-source literature positioning.
-- [Paragraph review](PARAGRAPH_REVIEW.md): 135 prose units and 14 captions.
+- [Paragraph review](PARAGRAPH_REVIEW.md): the initial full-paper pass over
+  135 prose units and 14 captions, followed by the
+  [appendix review](APPENDIX_REVIEW.md).
 - [Extracted feedback](feedback.md) and [original annotation metadata](feedback.json).
 - [Evidence manifest](evidence_manifest.json), [verification](verification.json)
   and [final visual acceptance](review.json).
@@ -36,11 +39,14 @@ scientific LR notation, simpler rounding and a self-contained caption.
 Essential scope appears with the relevant mathematical assumptions and the
 measurement appendix. Prospective detection and interventions remain future work.
 
-The 17-page PDF places the Adam section on pages 7--12, with the approved
+The current 14-page PDF (previously 17 pages) places the Adam section on pages 7--12, with the approved
 overview and micro-plots on page 10, density and anatomy table on page 11,
-and regression scatter on page 12. All nine scientific figure PDFs are
-unchanged. Historical review snapshots and the supplied annotated PDF are
-preserved.
+and regression scatter on page 12. The appendices now contain one consolidated
+loss derivation and essential measurement conventions on pages 12--13, with no
+tables or figures. Eight main-text figures and two tables remain compiled;
+the three removed supplementary tables and raw-cosine figure remain in the
+research materials. The preceding full pass is preserved in commit `f05098a`;
+the supplied annotated PDF and earlier review snapshots are preserved.
 
 ## Reproduction
 

@@ -5,6 +5,12 @@ writing, not the experimental methodology. The supplied annotated PDF is
 preserved in the preceding revision folder. Its 12 comments and original
 metadata are recorded in [feedback.json](feedback.json).
 
+This document records the initial full-paper pass (`f05098a`). The author's
+subsequent appendix-shortening request is evaluated in
+[APPENDIX_REVIEW.md](APPENDIX_REVIEW.md), which supersedes the initial appendix
+layout and duplicate-derivation decisions. Current build and visual acceptance
+records describe the shortened 14-page PDF.
+
 ## Responses to the PDF comments
 
 | Comment | Resolution |

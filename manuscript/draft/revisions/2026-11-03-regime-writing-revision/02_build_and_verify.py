@@ -140,7 +140,6 @@ def main():
     expected = {str((ROOT/f['target']).resolve()) for f in evidence['figures']}
     expected |= {str((ROOT/f['target']).resolve())
                  for f in read(RETAINED/'figure_manifest.json')['figures']}
-    expected.add(str((DRAFT/'figures/analysis024/eos_gd_rho_3k.pdf').resolve()))
     recorded = set()
     for line in (SCRATCH/'bare_jrnl.fls').read_text().splitlines():
         if line.startswith('INPUT '):
@@ -148,7 +147,7 @@ def main():
             p = p if p.is_absolute() else DRAFT/p
             if p.suffix == '.pdf' and p.resolve().is_relative_to((DRAFT/'figures').resolve()):
                 recorded.add(str(p.resolve()))
-    assert expected == recorded and len(recorded) == 9
+    assert expected == recorded and len(recorded) == 8
     pdf = SCRATCH/'bare_jrnl.pdf'
     with fitz.open(pdf) as document:
         text = '\n'.join(page.get_text() for page in document)
@@ -159,14 +158,15 @@ def main():
         r'\}\{\{[^}]+\}\{(\d+)\}', auxiliary).group(1)) for label in [
         'sec:displacement', 'sec:gd-experiments', 'sec:adam-diagnostics', 'sec:conclusion',
         'fig:adam-overview', 'fig:adam-spikes', 'fig:adam-spike-distribution',
-        'tab:adam-spike-anatomy', 'fig:adam-rho-norm-spikes']}
+        'tab:adam-spike-anatomy', 'fig:adam-rho-norm-spikes',
+        'appendix:loss-curvature', 'appendix:gd-raw-alignment']}
     result = subprocess.run(['pdftoppm', '-r', '100', '-png', str(pdf), str(SCRATCH/'review')],
                             stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=120)
     assert result.returncode == 0, result.stderr.decode(errors='replace')
     for target in [DRAFT/'bare_jrnl.pdf', HERE/'revised-manuscript.pdf']:
         shutil.copyfile(pdf, target)
     record.update(status='awaiting_visual_review', pdf_sha256=sha(pdf),
-                  active_figures=9, verifier_sha256=sha(__file__),
+                  active_figures=8, verifier_sha256=sha(__file__),
                   evidence_manifest_sha256=sha(HERE/'evidence_manifest.json'),
                   build='pdflatex/BibTeX; zero overfull boxes or unresolved references',
                   source_hashes={p.relative_to(ROOT).as_posix(): sha(p) for p in [

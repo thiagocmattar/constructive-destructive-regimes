@@ -15,8 +15,13 @@ LR notation and simpler rounding, and defines all columns in its caption.
 Prior gradient-product diagnostics and hypergradient adaptation are positioned
 explicitly; several bibliography records and a derivation cross-reference are
 corrected. All scientific figures and experimental inputs are unchanged.
-The 17-page manuscript passes frozen-data, statistical, mathematical and
-compilation checks, with final visual acceptance recorded in the revision.
+The author's follow-up shortens the manuscript from 17 to 14 pages: one
+consolidated loss derivation and concise measurement conventions replace the
+long appendices. Three supplementary tables and the repeated raw-cosine figure
+are no longer compiled; their assets and source records remain preserved.
+The important finite-step loss-sign limitation is retained in the main text.
+The manuscript passes frozen-data, statistical, mathematical and compilation
+checks, with final visual acceptance recorded in the revision.
 The author's supplied feedback and previous review PDFs remain preserved.
 
 ## Adam spike anatomy, 2026-11-03

@@ -513,91 +513,6 @@ Stochastic Gradient Descent, Adam
 %\appendix[Two-Step Loss Reduction]
 \appendices
 \input{sections/06-loss-appendix}
-\section{Derivation of the Local Loss Changes}
-\label{appendix:two_step}
-
-We use the same indexing as Section~\ref{sec:displacement}: $g_{t-1}$ is
-evaluated at $\theta_{t-2}$, $g_t$ at $\theta_{t-1}$, and
-$H_{t-1}=\nabla^2\mathcal{L}(\theta_{t-2})$. The loss is assumed twice
-continuously differentiable along the displacements considered below. The
-relations retain second-order terms and omit the Taylor remainders; they are
-exact when the objective is quadratic.
-
-\subsection{One Update and Directional Curvature}
-For $\theta_{t-1}-\theta_{t-2}=-\eta g_{t-1}$, Taylor expansion gives
-\begin{equation}
-\begin{aligned}
-&\mathcal{L}(\theta_{t-1})-\mathcal{L}(\theta_{t-2})\\
-&\quad\approx-\eta\nabla\mathcal{L}(\theta_{t-2})^\top g_{t-1}
- +\frac{\eta^2}{2}g_{t-1}^\top H_{t-1}g_{t-1}.
-\end{aligned}
-\label{eq:appendix_step1}
-\end{equation}
-Substituting $\nabla\mathcal{L}(\theta_{t-2})=g_{t-1}-\xi_{t-1}$ and
-$g_{t-1}^\top H_{t-1}g_{t-1}=\kappa_t\|g_{t-1}\|^2$ yields
-Eq.~\eqref{eq:appendix-loss-curvature} for nonzero $g_{t-1}$.
-The projected-gradient relation in Eq.~\eqref{eq:kappa-estimate}
-then gives the alignment form in Eq.~\eqref{eq:loss-curvature}.
-
-The first-order noise contribution combines with the noise contained in
-the squared gradient norm. Conditional on the parameters before the
-batch is drawn, unbiased sampling gives
-\begin{equation}
-\begin{aligned}
-\mathbb{E}[\|g_{t-1}\|^2\mid\theta_{t-2}]
- &=\|\nabla\mathcal{L}(\theta_{t-2})\|^2\\
- &\quad+\mathbb{E}[\|\xi_{t-1}\|^2\mid\theta_{t-2}],\\
-\mathbb{E}[\xi_{t-1}^\top g_{t-1}\mid\theta_{t-2}]
- &=\mathbb{E}[\|\xi_{t-1}\|^2\mid\theta_{t-2}].
-\end{aligned}
-\label{eq:appendix-noise-cancellation}
-\end{equation}
-Thus, the contributions from noise variance cancel between the first-order
-terms when taking their conditional expectation. With finite moments for the
-retained terms, the expected loss change in the quadratic approximation is
-\begin{equation}
-\begin{aligned}
-&\mathbb{E}[\mathcal{L}(\theta_{t-1})-\mathcal{L}(\theta_{t-2})
-              \mid\theta_{t-2}]\\
-&\quad\approx-\eta\|\nabla\mathcal{L}(\theta_{t-2})\|^2\\
-&\qquad+\frac{\eta^2}{2}\mathbb{E}[
-  g_{t-1}^\top H_{t-1}g_{t-1}\mid\theta_{t-2}].
-\end{aligned}
-\label{eq:expected-loss-change}
-\end{equation}
-Sampling contributes through the curvature-weighted second-order term.
-For a nonlinear objective, the Taylor remainder supplies the additional
-finite-step correction.
-
-\subsection{Two Updates and Consecutive Alignment}
-The displacement over two SGD updates is exactly
-\[
-  \theta_t-\theta_{t-2}=-\eta(g_{t-1}+g_t).
-\]
-Expanding around the starting parameters $\theta_{t-2}$ gives
-\begin{equation}
-\begin{aligned}
-&\mathcal{L}(\theta_t)-\mathcal{L}(\theta_{t-2})\\
-&\quad\approx-\eta\nabla\mathcal{L}(\theta_{t-2})^\top(g_{t-1}+g_t)\\
-&\qquad+\frac{\eta^2}{2}(g_{t-1}+g_t)^\top
-                        H_{t-1}(g_{t-1}+g_t).
-\end{aligned}
-\label{eq:appendix_combined}
-\end{equation}
-The first-order projection can be written as
-\begin{equation}
-\begin{aligned}
-&\nabla\mathcal{L}(\theta_{t-2})^\top(g_{t-1}+g_t)\\
-&\quad=\|g_{t-1}\|^2+g_{t-1}^\top g_t
-       -\xi_{t-1}^\top(g_{t-1}+g_t).
-\end{aligned}
-\end{equation}
-Finally, $g_{t-1}^\top g_t=\|g_{t-1}\|\|g_t\|\rho_t$ yields
-a form of Eq.~\eqref{eq:appendix_combined} using consecutive-gradient cosine.
-The same starting Hessian appears throughout this expansion. For a nonlinear
-objective, the Taylor remainder is governed by the combined displacement
-and the variation of the Hessian along it.
-
 % use section* for acknowledgment
 % \section*{Acknowledgment}
 
@@ -631,7 +546,7 @@ and the variation of the Hessian along it.
 
 % Let references follow the final appendix without a nearly empty page.
 \raggedbottom
-\IEEEtriggeratref{11} % Balance references alongside the closing appendix text.
+\IEEEtriggeratref{18} % Balance the last reference page after the concise appendices.
 \bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
 \bibliography{IEEEabrv,bibliography.bib}
