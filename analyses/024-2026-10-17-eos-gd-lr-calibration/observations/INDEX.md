@@ -1,5 +1,9 @@
 # Analysis024 observations
 
+- [010: Curvature and spectral overlay](010-curvature-spectral-overlay.md):
+  279 retained Hessian measurements added to the manuscript overview, with
+  verified arrays, complete/subset coverage and gradient-clock alignment.
+
 - [009: Author-feedback figures](009-author-feedback-figures.md): loss/projected
   change and cosine/norm/retention composites, revised endpoint table, unchanged
   scientific arrays, and the 2026-11-02 manuscript revision.

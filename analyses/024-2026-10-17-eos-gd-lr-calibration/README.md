@@ -232,3 +232,14 @@ The [author-feedback observation](observations/009-author-feedback-figures.md) r
 view and its unchanged source evidence. Reproduce the current manuscript
 through `manuscript/draft/revisions/2026-11-02-feedback/`; earlier paper
 validators refer to their historical snapshots. No training or cloud work.
+
+## Author-feedback spectral comparison, 2026-11-03
+
+[Observation010](observations/010-curvature-spectral-overlay.md) records the
+new Figure 1 overlay of 279 retained eigenvalue measurements on the unchanged
+loss and gradient diagnostic curves. Coverage and indexing are explicit;
+all 53,838 plotted values are checked against retained raw records.
+The new PDF preserves the previous figure under its existing filename.
+The [current manuscript revision](../../manuscript/draft/revisions/2026-11-03-original-argument-feedback/README.md)
+also removes the endpoint table from compilation while retaining its source.
+No new training or Hessian computation.

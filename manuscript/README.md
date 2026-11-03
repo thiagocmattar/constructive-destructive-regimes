@@ -16,7 +16,15 @@ current argument to evidence, advisor discussion and simulated reviews. Its
 existing-data checks, optional interventions and the submission stopping rule.
 This planning record does not change the current draft or authorize training.
 
-Latest revision (2026-11-03, original argument restored):
+Latest revision (2026-11-03, author's 41 annotations):
+[checklist, dispositions and reproduction](draft/revisions/2026-11-03-original-argument-feedback/README.md).
+The 13-page paper revises Sections II-IV following all 41 comments, adds
+retained spectra to the GD overview and removes the endpoint table from
+compilation. The original introduction, front matter, Adam section, conclusion
+and existing assets are preserved. Mathematical, source, figure and full-page
+visual checks pass; no unresolved references or overfull boxes remain.
+
+Previous revision (2026-11-03, original argument restored):
 [review and reproduction](draft/revisions/2026-11-03-original-argument-restored/README.md).
 The title, abstract, keywords and main text return to `bba6203`, before the
 full writing revision. That snapshot already includes the updated methods,

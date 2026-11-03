@@ -1,8 +1,26 @@
 # Manuscript and evidence
 
+## Author-feedback revision of Sections II-IV, 2026-11-03
+
+The [current revision](../manuscript/draft/revisions/2026-11-03-original-argument-feedback/README.md)
+extracts and addresses all 41 annotations in the original-argument feedback PDF.
+It clarifies stability/EoS context, separates Hessian-free directional-curvature
+estimation, boxes the curvature and local loss-increase relations, and explains
+the controlled regimes, lag alternation and mini-batch attenuation.
+Figure 1 overlays all 279 retained spectra with full/subset coverage explicit.
+The endpoint table is removed from compilation; no historical asset is deleted.
+
+The 13-page PDF preserves the introduction, front matter, Adam section and
+conclusion. The four controlled figures appear on pages 5-7 before Adam.
+All 934 numerical mathematical checks, retained-data comparisons, 29 protected
+file hashes and full-page visual checks pass. No overfull boxes or unresolved
+references remain. This is manuscript editing and retained-data visualization,
+with no training, Hessian computation or remote execution.
+
+
 ## Original argument restored, 2026-11-03
 
-The [current revision](../manuscript/draft/revisions/2026-11-03-original-argument-restored/README.md)
+The [preceding restoration](../manuscript/draft/revisions/2026-11-03-original-argument-restored/README.md)
 uses `bba6203`, before the broad writing pass, for the title, abstract, keywords
 and all main sections. This is the version beginning with "Neural scaling laws
 have ushered in new paradigms for interpreting deep learning dynamics." It

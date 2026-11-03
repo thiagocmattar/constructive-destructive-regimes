@@ -1,0 +1,115 @@
+{
+  "retained_math": {
+    "quadratic_noise_and_attenuation_checks": 186,
+    "max_absolute_error": 1.7763568394002505e-14,
+    "orthogonal_retention": true,
+    "opposing_cancellation": true,
+    "zero_gradient_exception": true
+  },
+  "additional_math": {
+    "cases": 508,
+    "max_absolute_error": 5.684341886080802e-14,
+    "coverage": [
+      "Adam projected curvature response on quadratics",
+      "Exact finite-population covariance",
+      "All-pair displacement and retention",
+      "Nonquadratic path-average curvature, noise correction and local error bound"
+    ]
+  },
+  "retained_gd_sgd_evidence": {
+    "curves": 57,
+    "points": 134560,
+    "endpoint_rows": 9,
+    "displayed_scalars": 45,
+    "backward_endpoints": 9,
+    "preserved_comments": 28,
+    "source_hashes": 12,
+    "vector_figures": 4,
+    "transformer_state_example": {
+      "0": {
+        "mean_rho": -0.25949575516214246,
+        "loss_change": -3.505136604351701
+      },
+      "2000": {
+        "mean_rho": -0.25844491207239656,
+        "loss_change": 0.0642658936333953
+      }
+    },
+    "displayed_state_example_scalars": 1,
+    "sgd_curves": 6,
+    "sgd_points": 28,
+    "sgd_initialization_scalars": 84,
+    "displayed_runtime_bridge_scalars": 1
+  },
+  "adam_claims": {
+    "recovered_events": 806,
+    "anatomy_events": 129,
+    "excluded_without_recovery": 2,
+    "negative_prerise": 117,
+    "defined_prerise": 127,
+    "eta_above_two_before": 21,
+    "norm_grows_to_peak": 129,
+    "eta_max_before": 82,
+    "eta_max_coincident": 29,
+    "eta_max_after": 18,
+    "largest_increase": 858.7697586669618
+  },
+  "new_mathematical_checks": {
+    "quadratic_cases": 240,
+    "maximum_scaled_error": 2.4649740607238157e-15,
+    "orthogonal_100_step_retention": 0.1,
+    "angle_examples_degrees": [
+      120,
+      101.5
+    ]
+  },
+  "pages": 13,
+  "introduction_opening_verified_in_pdf": "Neural scaling laws have ushered in new paradigms for interpreting deep learning dynamics",
+  "page_text_lengths": [
+    6080,
+    5174,
+    4850,
+    5327,
+    3864,
+    3319,
+    2996,
+    5799,
+    1776,
+    6049,
+    3972,
+    4044,
+    7932
+  ],
+  "status": "passed",
+  "protected_files": 29,
+  "source_checks": {
+    "annotation_count": 41,
+    "boxed_relations": 2,
+    "endpoint_table_compiled": false
+  },
+  "active_figures": 8,
+  "active_tables": 1,
+  "spectral_points": 279,
+  "new_figure_points": 53838,
+  "pdf_sha256": "5c6d1b9c644a138f2baf5068255abfbd040e2a0d20c423ea30705ef3cf02f4bb",
+  "verifier_sha256": "9cffcf60f3f0e33e8d02fcfd00ca3feff1dd7eb33688def24fd0431bd014f36d",
+  "source_sha256": {
+    "manuscript/draft/bare_jrnl.tex": "3819a270062a76148ca94e694cb668a7e322849fa1dd841bf6938109fcfd192f",
+    "manuscript/draft/bibliography.bib": "c6079c5efa41a5ae44b4451d80ca5e14f03238a34f5d7a63b83fec460ac32c48",
+    "manuscript/draft/sections/01-introduction.tex": "2af8f02cdb45618f6e306665b094f613f9120de7213680a2e201d4c81547351e",
+    "manuscript/draft/sections/02-related-works.tex": "95f41516afaea938e551db33af0003c0f190fc8e69554d49dd45e00c6d462664",
+    "manuscript/draft/sections/03-methods.tex": "9f38ec2be01ac49d2e33fdfa0ef0097b8c5cb13b5140d0cf3fae9b5abe17790f",
+    "manuscript/draft/sections/04-controlled-figures.tex": "c8c8b131c9f85201c62079556489fadf076e1c804062820ef3031de56b946447",
+    "manuscript/draft/sections/04-gd-experiments.tex": "9104e80ff6b413d0714dcedac1e61fba8df5dde3c7f15af1526bbe8fa1ca1ff2",
+    "manuscript/draft/sections/04-results.tex": "afc1f30d1c6f3dba8e3d3cdeaa0d04947fc8df54e9131871db16390062a77d45",
+    "manuscript/draft/sections/05-conclusion.tex": "54220b70b20b23af9f0fe042d1951a264720bd82d59d8b33eec591835190f3ac",
+    "manuscript/draft/sections/05-sgd-noise-experiments.tex": "da463be238d89e6fa886fd71709a2009c4d707daa1e853d800c65cd5018c2d33",
+    "manuscript/draft/sections/06-adam-diagnostics.tex": "3285ca33f73925b11fb6ca8b612ba7e5036b97e025c93084b9c9795bfafd64e0",
+    "manuscript/draft/sections/06-appendix.tex": "210ed113fe474b3171f6640c7fe8dc417bd35586d981ae2d1e8fcd89a6a6732c",
+    "manuscript/draft/sections/06-loss-appendix.tex": "2b6e4191f8e67c86b821925ca4c48faa66f6e395ee93cbba41133a9c2442e82d",
+    "manuscript/draft/sections/07-gd-diagnostics.tex": "0782e0f4c399a823306164054d5e1c453be53fdbd9b4b48123c50a0bed4b2342"
+  },
+  "build": "pdflatex/BibTeX; no overfull boxes, undefined or multiply defined references",
+  "visual_review": "All 13 Poppler-rendered pages inspected; see review.json.",
+  "review_sha256": "ce5e003b30eb56b03797a1417f683a59e134458534a89008e27246dce786a691"
+}

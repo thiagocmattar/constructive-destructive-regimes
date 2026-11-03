@@ -27,11 +27,11 @@ adaptive step and project onto the preceding raw gradient. This gives
 the exact path-average form of Eq.~\eqref{eq:adam-projected-change}.
 
 Consider $\theta_{t-1}=\theta_{t-2}-\eta g_{t-1}$ and write
-$\delta\mathcal L_{t-1}=\mathcal L(\theta_{t-1})-\mathcal L(\theta_{t-2})$.
+$\Delta\mathcal L_{t-1}=\mathcal L(\theta_{t-1})-\mathcal L(\theta_{t-2})$.
 Integrating the full gradient along the step gives
 \begin{equation}
 \begin{aligned}
-\delta\mathcal L_{t-1}
+\Delta\mathcal L_{t-1}
 =-\eta\int_0^1 g_{t-1}^\top
 \nabla\mathcal{L}(\theta_{t-2}-s\eta g_{t-1})\,ds.
 \end{aligned}
@@ -43,7 +43,7 @@ $\nabla\mathcal L(\theta_{t-2})=g_{t-1}-\xi_{t-1}$ and
 $\nabla\mathcal L(\theta_{t-1})=g_t-\xi_t$ yields
 \begin{equation}
 \begin{aligned}
-\delta\mathcal L_{t-1}
+\Delta\mathcal L_{t-1}
 &\approx-\frac{\eta}{2}
 \left(\|g_{t-1}\|^2+g_{t-1}^\top g_t\right)\\
 &\quad+\frac{\eta}{2}
@@ -61,7 +61,7 @@ Using $\rho_t\|g_t\|/\|g_{t-1}\|
 Eq.~\eqref{eq:epsilon} gives the equivalent curvature form,
 \begin{equation}
 \begin{aligned}
-\delta\mathcal L_{t-1}
+\Delta\mathcal L_{t-1}
 &\approx-\eta\|g_{t-1}\|^2
 \left(1-\frac{\eta\kappa_t}{2}\right)
 \\&\quad+\eta\xi_{t-1}^\top g_{t-1}.
@@ -81,7 +81,7 @@ $\mathbb E[\xi_{t-1}^\top g_{t-1}]=\mathbb E[\|\xi_{t-1}\|^2]$.
 Their first-order variance terms cancel, leaving
 \begin{equation}
 \begin{aligned}
-\mathbb E[\delta\mathcal L_{t-1}\mid\theta_{t-2}]
+\mathbb E[\Delta\mathcal L_{t-1}\mid\theta_{t-2}]
 &\approx-\eta\|\nabla\mathcal L(\theta_{t-2})\|^2\\
 &\quad+\frac{\eta^2}{2}\mathbb E[
 g_{t-1}^\top H_{t-1}g_{t-1}\mid\theta_{t-2}].

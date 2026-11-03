@@ -27,6 +27,14 @@ Adam losses and micro-plots are unsmoothed. All claims concern training
 objectives. Matched tensors give one initialization per full-batch model;
 independent hardware executions can develop finite-precision drift.
 
+The GD spectral comparison reuses largest algebraic Hessian eigenvalues
+at states $0,100,\ldots,3000$, with relative eigenpair residual at most
+$0.005$. MLP spectra cover its complete 5,000-image objective; ResNet
+uses its first five fixed normalization groups, and the Transformer
+its first 2,500 sequences. These latter spectra characterize subset
+objectives. The earlier MLP solver requested two eigenvalues and the
+other runs one; the comparison consistently uses the largest.
+
 \subsection{Sampling and Trajectory Comparisons}
 
 Stochastic batches are independent uniform subsets without replacement;

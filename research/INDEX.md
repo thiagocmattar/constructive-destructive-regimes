@@ -28,13 +28,12 @@ hypothesis. Next Run217 / Analysis038 / H028.
 
 [Analysis036: controlled Adam spike anatomy](../analyses/036-2026-11-02-controlled-adam-diagnostics/README.md)
 uses nine fixed-rate, 1024-update trajectories from matched initial weights.
-The [current manuscript](../manuscript/draft/revisions/2026-11-03-original-argument-restored/README.md)
-restores the original framing and main text from `bba6203`, before the broad
-writing revision, with updated methods, GD/SGD experiments and Adam spike
-analysis already integrated. The 15-page review retains the shortened
-appendices and current figures/tables; broken references are accepted by the
-author. Source equality, evidence and visual checks pass with the documented
-unresolved temporal-accounting table reference. All prior PDFs are preserved.
+The [current manuscript](../manuscript/draft/revisions/2026-11-03-original-argument-feedback/README.md)
+addresses all 41 author annotations in Sections II-IV, adds the retained GD
+spectral overlay and removes the endpoint table from compilation. The 13-page
+review preserves the original introduction, front matter, Adam section,
+conclusion and prior assets; source, mathematical, figure and page checks pass.
+No overfull boxes or unresolved references remain.
 The Adam evidence includes the loss overview, largest recovered spikes,
 fixed-reference definition, 806-event density, grouped 129-event >10% anatomy
 table and 127-point per-LR regression scatter. Pre-rise cosine is negative
