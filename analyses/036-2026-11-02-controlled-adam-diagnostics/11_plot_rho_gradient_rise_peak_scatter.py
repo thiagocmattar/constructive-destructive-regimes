@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter, NullFormatter
 import numpy as np
 import pandas as pd
+from scipy.stats import linregress
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -56,14 +57,45 @@ def main():
     groups = []
     for col, (task, ax) in enumerate(zip(TASKS, axes)):
         rates = [.0001, .0003, .001] if task == 'mlp' else [.0003, .001, .003]
+        annotation_row = 0
         for lr, color in zip(rates, COLORS):
             group = plotted.loc[plotted.task.eq(task) & plotted.learning_rate.eq(lr)]
             points = group[['rho_times_gradient_rise_ratio', 'peak_loss_ratio']].to_numpy()
             artist = ax.scatter(points[:, 0], points[:, 1], s=17, color=color,
                 alpha=.8, linewidths=.25, edgecolors='white', label=rf'$\eta={lr:g}$')
             np.testing.assert_array_equal(np.asarray(artist.get_offsets()), points)
+            regression = None
+            if len(group) >= 2:
+                x, log_y = points[:, 0], np.log10(points[:, 1])
+                design = np.column_stack([np.ones(len(x)), x])
+                coefficients, _, rank, _ = np.linalg.lstsq(design, log_y, rcond=None)
+                assert rank == 2
+                intercept, slope = coefficients
+                fitted = design @ coefficients
+                residual = log_y - fitted
+                sse = float(residual @ residual)
+                sst = float(np.sum((log_y - log_y.mean()) ** 2))
+                assert sst > 0
+                r_squared = 1 - sse / sst
+                reference = linregress(x, log_y)
+                np.testing.assert_allclose([slope, intercept, r_squared],
+                    [reference.slope, reference.intercept, reference.rvalue ** 2],
+                    rtol=1e-11, atol=1e-13)
+                np.testing.assert_allclose(design.T @ residual, 0, atol=1e-10)
+                line_x = np.linspace(x.min(), x.max(), 200)
+                line_y = 10 ** (intercept + slope * line_x)
+                line, = ax.plot(line_x, line_y, color=color, lw=1.1, zorder=1)
+                np.testing.assert_array_equal(line.get_ydata(), line_y)
+                ax.text(.97, .96 - .11 * annotation_row,
+                    rf'$R^2={r_squared:.2f}$', transform=ax.transAxes,
+                    ha='right', va='top', color=color, fontsize=8)
+                annotation_row += 1
+                regression = dict(n=len(x), intercept=float(intercept), slope=float(slope),
+                    r_squared_log10_loss_ratio=float(r_squared), sse_log10=sse, sst_log10=sst,
+                    x_range=[float(x.min()), float(x.max())],
+                    line_x=line_x.tolist(), line_y=line_y.tolist())
             groups.append(dict(task=task, learning_rate=lr, count=len(group), color=color,
-                spike_ids=group.spike_id.tolist(), coordinates=points.tolist()))
+                spike_ids=group.spike_id.tolist(), coordinates=points.tolist(), regression=regression))
         ax.set_title(f'({chr(97 + col)}) ' + TITLES[col], pad=26)
         ax.legend(loc='lower center', bbox_to_anchor=(.5, 1.015), ncol=3,
             frameon=False, fontsize=7.6, handlelength=1., columnspacing=.5,
@@ -85,6 +117,7 @@ def main():
     assert bounds.x0 >= 0 and bounds.y0 >= 0
     assert bounds.x1 <= fig.bbox.width and bounds.y1 <= fig.bbox.height
     assert sum(group['count'] for group in groups) == 127
+    assert sum(group['regression'] is not None for group in groups) == 7
     fig.savefig(PDF, metadata={'CreationDate': None, 'ModDate': None})
     plt.close(fig)
     with fitz.open(PDF) as doc:
@@ -101,13 +134,18 @@ def main():
         selected_events=129, plotted_events=127, omitted_undefined_prerise_ids=omitted.spike_id.tolist(),
         x='rho_raw_before * gradient_rise_ratio = rho_(a+1) * ||g_(p+1)|| / ||g_(a+1)||; signed pre-rise consecutive cosine times endpoint rise norm ratio; no negation or absolute value.',
         y='1 + peak_change_percent/100 = loss_peak/loss_before; log axis, with 1 meaning no increase.',
-        reduction='One unsmoothed point per event; no averaging, fitting or jitter; shared linear x and logarithmic y axes.',
+        reduction='One unsmoothed point per event; no averaging or jitter; shared linear x and logarithmic y axes.',
+        regression='Separate equal-event-weight OLS with intercept per task/LR: log10(loss_peak/loss_before) = intercept + slope*x. R-squared is in-sample on log10 loss ratios. Lines are back-transformed and limited to each group observed x range; standard axes clipping applies. Empty groups have no fit.',
         palette='Established increasing-LR colors within each model; per-panel legends give numeric LR, including empty groups.',
         groups=groups, checks=dict(source_hash=True, selection=True, magnitude_identity=True,
-            ratio_identity=True, gradient_endpoint_ratio_identity=True, signed_product_identity=True, exact_scatter_coordinates=True, no_clipped_points=True, embedded_fonts=True, pdf_text_inside_page=True),
+            ratio_identity=True, gradient_endpoint_ratio_identity=True, signed_product_identity=True, exact_scatter_coordinates=True, no_clipped_points=True, independent_scipy_regressions=True, ols_residual_orthogonality=True, seven_regression_lines=True, embedded_fonts=True, pdf_text_inside_page=True),
         visual_review='pending')
     MANIFEST.write_text(json.dumps(record, indent=2, allow_nan=False) + '\n', encoding='utf-8')
     print('Verified 127 signed pre-rise cosine times rise norm ratio points; two undefined initialization cosines omitted.')
+    for group in groups:
+        if group['regression'] is not None:
+            print(group['task'], group['learning_rate'], 'n=', group['count'],
+                'log-response R2=', round(group['regression']['r_squared_log10_loss_ratio'], 6))
 
 
 if __name__ == '__main__':

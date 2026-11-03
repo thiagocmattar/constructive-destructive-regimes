@@ -14,7 +14,12 @@ state p with the last pre-rise state a. The product retains its sign, without
 negation or absolute value. The shared x-axis is linear (-16..2.5).
 The shared logarithmic y-axis (1..11) is loss_peak / loss_before, with 1 meaning
 no increase, 2 meaning +100%, and 10 meaning +900%. All points are unsmoothed;
-no averaging, jitter or regression. Layout, typography and LR colors match the
+no averaging or jitter. Colored lines are separate per-LR ordinary least squares
+fits with intercept to log10(peak/pre-rise loss) versus x. Their color-matched
+R-squared labels use this same log response and the same observations used to
+fit each line. Back-transformed fitted lines are drawn only over each group's
+observed x range, with standard plot clipping. Empty LR groups have no fit.
+Layout, typography and LR colors match the
 existing 7.16 x 2.55 inch Analysis024-style figures.
 
 Sources and coverage: current anatomy events with peak increase >10% and observed
@@ -27,7 +32,12 @@ Observation and limits: 117 of 127 products are negative, reflecting the sign of
 the pre-rise cosine. Larger loss ratios tend toward more negative products in
 parts of the scatter, with substantial dispersion. Visual straightness on this
 semilog plot concerns log(loss ratio) versus x, not linear loss ratio versus x.
-No fit or correlation estimate is introduced. This mixes a pre-rise cosine with
+The descriptive in-sample R-squared values, in ascending eligible LR order, are
+MLP [0.6690,0.6942,0.6729], ResNet [0.9031,0.9418], Transformer [0.5383,0.3834].
+The fit includes an intercept and gives each event equal weight. There are no
+confidence intervals, hypothesis tests, held-out scores or predictive-performance
+claims; group sizes range from 6 to 46 and extreme observations can influence
+the fits. This mixes a pre-rise cosine with
 a retrospective multi-update norm ratio, so it is neither a prospective predictor
 nor the pointwise eta*kappa_hat expression (which uses a consecutive norm ratio).
 The two axes share loss-defined event endpoints. Selection on future amplitude
@@ -38,6 +48,10 @@ cloud execution, intervention or manuscript change.
 Verification: source SHA-256, amplitude/recovery criteria, unique IDs, missing
 initialization cosines, cosine bounds, endpoint norm ratio, signed product and
 loss-ratio identities checked. Artist coordinates match computed values exactly;
-all points are inside the common axes. One vector PDF page, embedded fonts and
+all points are inside the common axes. NumPy least-squares slopes, intercepts
+and residual-based R-squared independently agree with SciPy linregress for all
+seven eligible groups; OLS residuals are orthogonal to the design columns.
+All seven fit lines and their back-transform coordinates are checked.
+One vector PDF page, embedded fonts and
 text within page bounds. Poppler render visually reviewed: readable panels,
 legends and labels, with no clipping or overlap.
