@@ -1,0 +1,15 @@
+{
+  "status": "pass",
+  "scope": "Design and existing-evidence verification only; no intervention execution",
+  "checks": {
+    "source_audit": "3075 loss states, 3072 optimizer records, 12 tensor-file size/SHA-256 checks; independent event segmentation",
+    "csv_coverage": "3 cases / 675 extended-context rows",
+    "python_syntax": "pass",
+    "local_markdown_links": 12,
+    "first_order_descent_can_increase_quadratic_loss": "pass",
+    "raw_clipping_need_not_shrink_adam_step": "pass",
+    "variable_beta2_history_and_bias_correction": "pass",
+    "quadratic_armijo_acceptance_and_rejection": "pass",
+    "work_arithmetic": "24x128+1795=4867; 3x3x4x1024=36864"
+  }
+}

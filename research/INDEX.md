@@ -2,6 +2,14 @@
 
 ## Current state
 
+[Analysis038: Adam spike intervention design](../analyses/038-2026-11-03-adam-spike-intervention-design/PROTOCOL.md)
+proposes eight matched arms per model, 32 updates before each formal pre-rise
+state, with 128-update continuations. Source audit verifies three events and
+675 extended-context rows; all 28 rise updates have a locally descending actual
+step despite increasing loss. Intermediate Run215 recovery states were overwritten;
+new common prefixes and untreated replay qualification are required. H028 proposed;
+no intervention training or paid execution. Next Run217 / Analysis039 / H029.
+
 [Analysis037: three-case SGD batch-size comparison](../analyses/037-2026-11-02-sgd-batch-extension/REPORT.md)
 completed 348 new continuations plus 198 reused MLP continuations, with all three
 initializations and sampling repetitions retained. The one-row mean-cosine figure and 16-page

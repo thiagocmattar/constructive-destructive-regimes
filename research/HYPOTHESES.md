@@ -54,7 +54,11 @@ questions alone do not create experimental commitments.
 | H027 | How do raw, first-moment, adaptive-direction and actual-step geometry differ across smooth/oscillatory full-batch Adam LR conditions from identical initialization? | Complete descriptive study | [Analysis036 report](../analyses/036-2026-11-02-controlled-adam-diagnostics/REPORT.md), Runs213/215 | Calibration9 x128 and main9 x1,024; four streams and full split evaluations verified. One initialization, no Hessians or LR interventions. Raw-gradient projected change under Adam is a diagnostic, without a curvature, stability or convergence identification |
 <!-- End H027 proposal -->
 
-Next hypothesis: `H028`. Record the operational meaning,
+| ID | Question / hypothesis | Status | Runs / analyses | Evidence / limits |
+| --- | --- | --- | --- | --- |
+| H028 | Can matched Adam interventions reduce selected loss excursions without degrading subsequent optimization, and can that benefit transfer to a causal online policy? | Proposed for author evaluation | [Analysis038](../analyses/038-2026-11-03-adam-spike-intervention-design/README.md); Run215 source evidence | Eight-arm, three-case fork pilot; explicit raw-gradient versus Adam-step clipping, LR, numerator/second-moment ablations and full-objective acceptance safeguard. Earlier prefixes require reconstruction. No intervention outcomes; selected seed0 events cannot validate an online controller or seed robustness |
+
+Next hypothesis: `H029`. Record the operational meaning,
 comparison, support/refutation criteria, and scope in the corresponding run
 proposal. Suggested statuses: proposed, active, supported, unsupported,
 inconclusive, withdrawn. Preserve superseded interpretations instead of rewriting

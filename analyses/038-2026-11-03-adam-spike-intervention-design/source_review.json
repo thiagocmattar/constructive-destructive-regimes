@@ -1,0 +1,305 @@
+{
+  "status": "verified_read_only_source_audit",
+  "generator": "analyses/038-2026-11-03-adam-spike-intervention-design/01_audit_sources.py",
+  "generator_sha256": "be7a9954d2f5e7ce910a234aabc88423836a9056c26fa5ffd134e1268cabaa04",
+  "sources": {
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_dataset/loss_spikes.csv": {
+      "bytes": 1240273,
+      "sha256": "d35e901cc68a1bce5379129b4ce74f4d1b8896c3c0ccfaf643d4647558e4500d"
+    },
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_dataset/manifest.json": {
+      "bytes": 8688,
+      "sha256": "bef7421d30a1cb4cb2715d21f5fad97434b3b8c55b4ff08f9f15e753fea6dc0d"
+    },
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/figures/adam_manuscript_spikes.pdf": {
+      "bytes": 88241,
+      "sha256": "1cf1e8485ea348e7738f51c77ee4ce1b8e027eed97ac18fd4347969802f09bc6"
+    },
+    "runs/215-2026-11-02-controlled-full-batch-adam/config.json": {
+      "bytes": 1669,
+      "sha256": "868c271e89bea4641e633d727c7b322a2220085ea1bee63c2dc712389e8e88f4"
+    },
+    "runs/215-2026-11-02-controlled-full-batch-adam/input_manifest.json": {
+      "bytes": 10088,
+      "sha256": "d90c7fa4554c20e3f812ea7383a0ccfdc543d7bdb221eacb9bb6af88c82a71b1"
+    },
+    "runs/215-2026-11-02-controlled-full-batch-adam/01_train.py": {
+      "bytes": 10138,
+      "sha256": "861afc4b14a31f5ccb9bb7f92c1f8e0d56f0ef3ac39a0d1521f3758fccfe5514"
+    },
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/manifest.json": {
+      "bytes": 3014,
+      "sha256": "0a8ae45b014049fcd7350768bef6190f4991802ed6bf9e254c810c3ca2032e12"
+    },
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/boundaries.jsonl": {
+      "bytes": 134483,
+      "sha256": "bd15d446afab7641f01ed12c089b1f606f123b4e92982f2d0ff1deae1fe061be"
+    },
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/metrics.jsonl": {
+      "bytes": 2792717,
+      "sha256": "3c8bac53f92bde65da67b8bcc80046644f2db3ef7fd818334ebca2b04e7a0157"
+    },
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/audit-gradient-0.pt": {
+      "bytes": 2628904,
+      "sha256": "72e65539c6c953404e3d6f58b561c14a06848e8a2d77b1706c0f04b120cc4952"
+    },
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/audit-gradient-1.pt": {
+      "bytes": 2628904,
+      "sha256": "cad07513faf135468d2a5a76438345e6e433617cf1f9ba64d300eb11fc408bac"
+    },
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/audit-gradient-1024.pt": {
+      "bytes": 2628925,
+      "sha256": "5a2adb50981388c745e01fe39e0f37421e8d5a98f665eada3eded0422b559df1"
+    },
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/final.pt": {
+      "bytes": 55188707,
+      "sha256": "3342b43a21bbac5849cd3fb4a4ecbca04d7f62aa7fe6d9883f51d4c687181928"
+    },
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/manifest.json": {
+      "bytes": 2936,
+      "sha256": "6162fb3eee941231f44bc006c92d74a702f0ab52bad560a78dc4ae36848a71c0"
+    },
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/boundaries.jsonl": {
+      "bytes": 135167,
+      "sha256": "b952c7e4d184e1da70d1dbadd7710de16452aaa7041d1e7df6fa2165ac3e28ee"
+    },
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/metrics.jsonl": {
+      "bytes": 2782726,
+      "sha256": "c9572aaa98f3e9f8c0378b6ff2b5ce60d8e3383e563c358485c5afffaf5945ca"
+    },
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/audit-gradient-0.pt": {
+      "bytes": 1858664,
+      "sha256": "f0895de4ad218182e5fd46f7b5a2ff3f1b630b87dca50b3f9d5d7336ffb7f9a7"
+    },
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/audit-gradient-1.pt": {
+      "bytes": 1858664,
+      "sha256": "72331f09f684510ebf537c6ae55c0a9a6a089f6c4fe21f8c701362f723b17bda"
+    },
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/audit-gradient-1024.pt": {
+      "bytes": 1858685,
+      "sha256": "1a09900e22c544f3b55d9ef1fab74f641834d120ec0d11cba45eda8ce57a7895"
+    },
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/final.pt": {
+      "bytes": 39124846,
+      "sha256": "a79c111d626a18cc66602bd309c7a859d6e6b9b5163c0732d1e7c2cc9e352cdd"
+    },
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/manifest.json": {
+      "bytes": 2949,
+      "sha256": "96fd00453edef0c3f0096716cb550ef3f86d25466e06be1b29165beaa5739327"
+    },
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/boundaries.jsonl": {
+      "bytes": 131901,
+      "sha256": "822cccc891250b529fc8bb60d4a391d2002856e8e3c8b7233c145c7fbf15a3f7"
+    },
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/metrics.jsonl": {
+      "bytes": 2779085,
+      "sha256": "3ae6e2af2400caea6e3a40ed2d06db31068524c39ef7e55ec931d16362b62574"
+    },
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/audit-gradient-0.pt": {
+      "bytes": 55315624,
+      "sha256": "6d2be14d4cdb3927061079d88299c6c815663ba880cc49327817483b90f6659d"
+    },
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/audit-gradient-1.pt": {
+      "bytes": 55315624,
+      "sha256": "f320d9cf916484e89c48895bebf126efce933a7ec60bc99dc8737d808571f183"
+    },
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/audit-gradient-1024.pt": {
+      "bytes": 55315645,
+      "sha256": "271c3ef6260e03cd237708125b907c8d450451612ddf9afb71cbfbc79325cf9b"
+    },
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/final.pt": {
+      "bytes": 1165633485,
+      "sha256": "f7970e52be5990eff3b1fd47097034fd6dc486b7fd907762eebddde0556f75b3"
+    }
+  },
+  "coverage": {
+    "source_arms": 3,
+    "loss_states": 3075,
+    "metric_rows": 3072,
+    "extended_context_rows": 675,
+    "selected_rise_updates": 28,
+    "selected_rise_first_order_descent_updates": 28
+  },
+  "cases": [
+    {
+      "task": "mlp",
+      "learning_rate": 0.001,
+      "seed": 0,
+      "spike_id": "mlp-lr0.001-0101",
+      "before_state": 689,
+      "onset_state": 690,
+      "peak_state": 703,
+      "recovery_state": 729,
+      "peak_loss_ratio": 4.176298843053216,
+      "main_fork": 657,
+      "late_fork": 689,
+      "reactive_fork": 690,
+      "horizon_updates": 128,
+      "main_end": 785,
+      "history_start": 593,
+      "history_end": 656,
+      "raw_gradient_clip_threshold": 0.6265010026436088,
+      "adam_proposal_cap": 0.03731126674420039,
+      "pre64_negative_raw_cosines": 61,
+      "pre64_non_descent_adam_directions": 0,
+      "rise_updates": 14,
+      "rise_first_order_descent_updates": 14,
+      "untreated_rise_gradient_cap_exceedances": 6,
+      "untreated_rise_step_cap_exceedances": 5,
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001",
+      "source_gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU"
+    },
+    {
+      "task": "resnet",
+      "learning_rate": 0.003,
+      "seed": 0,
+      "spike_id": "resnet-lr0.003-0044",
+      "before_state": 415,
+      "onset_state": 416,
+      "peak_state": 422,
+      "recovery_state": 482,
+      "peak_loss_ratio": 9.587697586669618,
+      "main_fork": 383,
+      "late_fork": 415,
+      "reactive_fork": 416,
+      "horizon_updates": 128,
+      "main_end": 511,
+      "history_start": 319,
+      "history_end": 382,
+      "raw_gradient_clip_threshold": 1.3080322342996549,
+      "adam_proposal_cap": 0.1469269046550969,
+      "pre64_negative_raw_cosines": 26,
+      "pre64_non_descent_adam_directions": 0,
+      "rise_updates": 7,
+      "rise_first_order_descent_updates": 7,
+      "untreated_rise_gradient_cap_exceedances": 5,
+      "untreated_rise_step_cap_exceedances": 4,
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003",
+      "source_gpu": "NVIDIA GeForce RTX 4090"
+    },
+    {
+      "task": "transformer",
+      "learning_rate": 0.003,
+      "seed": 0,
+      "spike_id": "transformer-lr0.003-0036",
+      "before_state": 787,
+      "onset_state": 788,
+      "peak_state": 794,
+      "recovery_state": 855,
+      "peak_loss_ratio": 3.3140280202882266,
+      "main_fork": 755,
+      "late_fork": 787,
+      "reactive_fork": 788,
+      "horizon_updates": 128,
+      "main_end": 883,
+      "history_start": 691,
+      "history_end": 754,
+      "raw_gradient_clip_threshold": 0.30194034365099875,
+      "adam_proposal_cap": 1.5410458244528866,
+      "pre64_negative_raw_cosines": 15,
+      "pre64_non_descent_adam_directions": 0,
+      "rise_updates": 7,
+      "rise_first_order_descent_updates": 7,
+      "untreated_rise_gradient_cap_exceedances": 7,
+      "untreated_rise_step_cap_exceedances": 3,
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003",
+      "source_gpu": "NVIDIA GeForce RTX 4090"
+    }
+  ],
+  "details": [
+    {
+      "task": "mlp",
+      "retained_states": [
+        {
+          "path": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/audit-gradient-0.pt",
+          "bytes": 2628904,
+          "sha256": "72e65539c6c953404e3d6f58b561c14a06848e8a2d77b1706c0f04b120cc4952"
+        },
+        {
+          "path": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/audit-gradient-1.pt",
+          "bytes": 2628904,
+          "sha256": "cad07513faf135468d2a5a76438345e6e433617cf1f9ba64d300eb11fc408bac"
+        },
+        {
+          "path": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/audit-gradient-1024.pt",
+          "bytes": 2628925,
+          "sha256": "5a2adb50981388c745e01fe39e0f37421e8d5a98f665eada3eded0422b559df1"
+        },
+        {
+          "path": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/final.pt",
+          "bytes": 55188707,
+          "sha256": "3342b43a21bbac5849cd3fb4a4ecbca04d7f62aa7fe6d9883f51d4c687181928"
+        }
+      ],
+      "historical_update_seconds_median": 0.011715449974872172,
+      "main_fork_loss": 0.01467586844228208,
+      "formal_baseline_loss": 0.013039679266512394,
+      "peak_loss": 0.05445759743452072
+    },
+    {
+      "task": "resnet",
+      "retained_states": [
+        {
+          "path": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/audit-gradient-0.pt",
+          "bytes": 1858664,
+          "sha256": "f0895de4ad218182e5fd46f7b5a2ff3f1b630b87dca50b3f9d5d7336ffb7f9a7"
+        },
+        {
+          "path": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/audit-gradient-1.pt",
+          "bytes": 1858664,
+          "sha256": "72331f09f684510ebf537c6ae55c0a9a6a089f6c4fe21f8c701362f723b17bda"
+        },
+        {
+          "path": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/audit-gradient-1024.pt",
+          "bytes": 1858685,
+          "sha256": "1a09900e22c544f3b55d9ef1fab74f641834d120ec0d11cba45eda8ce57a7895"
+        },
+        {
+          "path": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/final.pt",
+          "bytes": 39124846,
+          "sha256": "a79c111d626a18cc66602bd309c7a859d6e6b9b5163c0732d1e7c2cc9e352cdd"
+        }
+      ],
+      "historical_update_seconds_median": 2.6047785109840333,
+      "main_fork_loss": 0.22698346893310553,
+      "formal_baseline_loss": 0.10733382568359376,
+      "peak_loss": 1.0290842614746094
+    },
+    {
+      "task": "transformer",
+      "retained_states": [
+        {
+          "path": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/audit-gradient-0.pt",
+          "bytes": 55315624,
+          "sha256": "6d2be14d4cdb3927061079d88299c6c815663ba880cc49327817483b90f6659d"
+        },
+        {
+          "path": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/audit-gradient-1.pt",
+          "bytes": 55315624,
+          "sha256": "f320d9cf916484e89c48895bebf126efce933a7ec60bc99dc8737d808571f183"
+        },
+        {
+          "path": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/audit-gradient-1024.pt",
+          "bytes": 55315645,
+          "sha256": "271c3ef6260e03cd237708125b907c8d450451612ddf9afb71cbfbc79325cf9b"
+        },
+        {
+          "path": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/final.pt",
+          "bytes": 1165633485,
+          "sha256": "f7970e52be5990eff3b1fd47097034fd6dc486b7fd907762eebddde0556f75b3"
+        }
+      ],
+      "historical_update_seconds_median": 9.222679827944376,
+      "main_fork_loss": 0.6910510377811772,
+      "formal_baseline_loss": 0.6474194649208057,
+      "peak_loss": 2.1455662476275608
+    }
+  ],
+  "proposed_work": {
+    "main_arms": 24,
+    "main_continuation_updates": 3072,
+    "replay_prefix_updates": 1795,
+    "nominal_main_total_updates": 4867
+  },
+  "interpretation": "Historical reductions only; thresholds and future intervention arms remain proposals."
+}
