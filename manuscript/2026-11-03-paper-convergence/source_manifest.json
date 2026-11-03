@@ -1,0 +1,533 @@
+{
+  "snapshot_date": "2026-11-03",
+  "timezone": "America/Sao_Paulo",
+  "repository": "C:\\Users\\thima\\Documents\\Doutorado\\exps\\constructive-destructive-regimes",
+  "repository_head": "e93830113231a077df4ede39fff23613e2aa2b1e",
+  "manuscript_pdf_sha256": "34a1d851293c4d3fc8bad5e15f2608d66380e743ee1697ac47aeb9130c8ec789",
+  "audit_scope": "Selected source/data checks and registry triage; not a rerun of all historical verification.",
+  "archive_scope": "Analysis036 historical forecasts read as provenance at the user request for consolidation; not restored as active evidence definitions.",
+  "sources": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 6884,
+      "sha256": "bffde9cb38b4d353f1eb2bfd6f3a97ac5c30e5fac5cb23175bfa53d23c5c3e78"
+    },
+    {
+      "path": "analyses/001-2026-10-03-model-scale-geometry/README.md",
+      "bytes": 3809,
+      "sha256": "5f988dc8ab9654ee80a314bb373e9192c45cb71f53d8a8a94ce527b189bbb5dd"
+    },
+    {
+      "path": "analyses/002-2026-10-04-scale-seed-replication/README.md",
+      "bytes": 5174,
+      "sha256": "02871f585b1f93d5ce1104c590871171225ab21f4d8b8e1ba063c96046180334"
+    },
+    {
+      "path": "analyses/003-2026-10-04-raw-gradient-regimes/README.md",
+      "bytes": 7033,
+      "sha256": "cfac87cc85ad03e3172f0a77f81b88302c180fb1e4ec082e252a8890aa8b2235"
+    },
+    {
+      "path": "analyses/003-2026-10-04-raw-gradient-regimes/REPORT.md",
+      "bytes": 9942,
+      "sha256": "3c047c9657d8fb7e36fcb521e4c5a621427ceda928bf63cc4572ce5682962ec1"
+    },
+    {
+      "path": "analyses/004-2026-10-04-lr-schedule-intervention/observations/001-schedule-intervention.md",
+      "bytes": 9382,
+      "sha256": "181353f05f8401ef255f17142cb06a7ce28853c29f583c9ca814a8d77ac449ed"
+    },
+    {
+      "path": "analyses/004-2026-10-04-lr-schedule-intervention/README.md",
+      "bytes": 6408,
+      "sha256": "43ca230056b64f696b75757cf2bb0e8f9986f8f1ece2f7d34ded0a3e8cc473f9"
+    },
+    {
+      "path": "analyses/004-2026-10-04-lr-schedule-intervention/REPORT.md",
+      "bytes": 3622,
+      "sha256": "a91f920f2f06efdb35d540d76b9cd403f9e085d561a0c648a4a1044e69e162cc"
+    },
+    {
+      "path": "analyses/005-2026-10-04-temporal-lag-profiles/README.md",
+      "bytes": 8596,
+      "sha256": "25022cadd1cc56937c1798a8d21392cd2f0b75b0cfec822c2d3e817116fe1780"
+    },
+    {
+      "path": "analyses/005-2026-10-04-temporal-lag-profiles/REPORT.md",
+      "bytes": 10968,
+      "sha256": "fa72b1e0b4e51bc6d9a21b423cf17d8222ced2ab10c42bab623b8e8f0b66c417"
+    },
+    {
+      "path": "analyses/006-2026-10-07-cumulative-geometry-slopes/README.md",
+      "bytes": 4199,
+      "sha256": "c881e9935b8e6ed2c10bd852b8e10a87c08a12121e1bba7e069b0de818926d48"
+    },
+    {
+      "path": "analyses/006-2026-10-07-cumulative-geometry-slopes/REPORT.md",
+      "bytes": 7628,
+      "sha256": "54dc8cd211addfb6f703f2e6f976909cf8f14503d006cf7d36f2ca9294c7b17f"
+    },
+    {
+      "path": "analyses/007-2026-10-08-spark-runpod-timing/README.md",
+      "bytes": 2907,
+      "sha256": "f21da2c4ca9aca1478e928b46a14a5314ce7137455ff7a99337a0af4f2cbb0f4"
+    },
+    {
+      "path": "analyses/008-2026-10-08-no-decay-momentum/README.md",
+      "bytes": 13798,
+      "sha256": "309069eb4b4459c5e3cd1bee6c9d12299c6b9d17c4b369fe7ba365abd50e1903"
+    },
+    {
+      "path": "analyses/009-2026-10-09-intermediate-lr/README.md",
+      "bytes": 8479,
+      "sha256": "15f6aae4ff4b2702a8672a3b002203e7a54e69efa7c0be8e7a98fb946a5d57b5"
+    },
+    {
+      "path": "analyses/010-2026-10-10-rosenbrock-controlled/README.md",
+      "bytes": 6251,
+      "sha256": "69fd6e9a148a681008d36947cbbf70b8e6da1b538bed425dbd748cdce3f278c9"
+    },
+    {
+      "path": "analyses/011-2026-10-10-rosenbrock-lr/README.md",
+      "bytes": 5581,
+      "sha256": "383e791c60cf7364623c2279aff8cc5ad670728fb0a461774d1a7baf75b40a83"
+    },
+    {
+      "path": "analyses/012-2026-10-10-rosenbrock-adamw-lr/README.md",
+      "bytes": 4712,
+      "sha256": "4e3dd6ce17514d55efaf211acbe62a4883b7277d7a841f226b2e10d70219f880"
+    },
+    {
+      "path": "analyses/013-2026-10-10-rosenbrock-adamw-new-start/README.md",
+      "bytes": 5214,
+      "sha256": "8788787df0f5e816014db79da6a6ddfea8bb76f084f3c55b0af0e01dc9105af0"
+    },
+    {
+      "path": "analyses/014-2026-10-10-rosenbrock-gradient-noise/README.md",
+      "bytes": 6071,
+      "sha256": "2677653eb972c32d10925e98b054ed5f7d2efb8012556d7479304e4bef6c100a"
+    },
+    {
+      "path": "analyses/015-2026-10-10-spark-high-lr/README.md",
+      "bytes": 5058,
+      "sha256": "932d200a0b88087b31d28a99bcd0e70851954db491ff95e18434a4d02a42a25c"
+    },
+    {
+      "path": "analyses/016-2026-10-11-rosenbrock-hessian/README.md",
+      "bytes": 2678,
+      "sha256": "5b8d733fbbcb31d747edb7c1b972634c6e3edeb2e422e2b5d35abff622a5ff4e"
+    },
+    {
+      "path": "analyses/017-2026-10-12-rosenbrock-kappa-identity/README.md",
+      "bytes": 3309,
+      "sha256": "dc090c5f22ad2d93333050772c25236713c0e404e6fc954625e91029b7050ef9"
+    },
+    {
+      "path": "analyses/018-2026-10-12-rosenbrock-kappa-noise/README.md",
+      "bytes": 2160,
+      "sha256": "0f1459c661a4ec83dbae64deeb1185ac64f443424f7cb8c229f8866cbbc36269"
+    },
+    {
+      "path": "analyses/019-2026-10-13-cifar10-eos-lr/README.md",
+      "bytes": 8710,
+      "sha256": "0d3038976aab588a789b67650e15cf7dac2a3e46c58da530a0e9cdb773c5e32f"
+    },
+    {
+      "path": "analyses/019-2026-10-13-cifar10-eos-lr/REPORT.md",
+      "bytes": 11203,
+      "sha256": "acd5a52e7158cb7b59596800bcb3112b2b5c757bffd0a67d35b5c029e868fcbb"
+    },
+    {
+      "path": "analyses/020-2026-10-14-eos-multitask/README.md",
+      "bytes": 4493,
+      "sha256": "d8ce59908258b1e3bb01ef12a362d91680aa0abb5748db32d069c9c0180282ae"
+    },
+    {
+      "path": "analyses/020-2026-10-14-eos-multitask/REPORT.md",
+      "bytes": 7223,
+      "sha256": "be77aa7e1920062fdcd36d72656be4b892232c35a80eef85e3c3a83bab6883af"
+    },
+    {
+      "path": "analyses/021-2026-10-15-eos-multitask-lr/README.md",
+      "bytes": 1771,
+      "sha256": "57749ef29c35bdca1e041b43859fbd3eee014dadc206472e13958c91911251b2"
+    },
+    {
+      "path": "analyses/021-2026-10-15-eos-multitask-lr/REPORT.md",
+      "bytes": 5326,
+      "sha256": "583c589c0a717375c9dbb70727978a6a5aa522a0b63870c5ff578d669c1287e8"
+    },
+    {
+      "path": "analyses/022-2026-10-15-eos-long-horizon-plan/README.md",
+      "bytes": 13914,
+      "sha256": "d10b4867d1f5ca7c31f3db23cba9031a6264c1497fa0f6a97c4ebed33a897afb"
+    },
+    {
+      "path": "analyses/023-2026-10-15-eos-smallest-lr-calibration/README.md",
+      "bytes": 11619,
+      "sha256": "af1782c0b843e059defd6a937d2c5ccfd7516cd1cadf790cfa5187644dc1b421"
+    },
+    {
+      "path": "analyses/024-2026-10-17-eos-gd-lr-calibration/observations/007-section-iv-critical-review.md",
+      "bytes": 12131,
+      "sha256": "0ac3f1f955987121bbb79af8f38341a056f856163eb4678aa556daafe93fcf87"
+    },
+    {
+      "path": "analyses/024-2026-10-17-eos-gd-lr-calibration/README.md",
+      "bytes": 14289,
+      "sha256": "66a54cda149bf8de927cf72aac2938b548c5b51c40af5e0816f031177240525a"
+    },
+    {
+      "path": "analyses/025-2026-10-17-pythia-descent-mechanism/README.md",
+      "bytes": 18287,
+      "sha256": "acfc5921d012029af0d4c79bf2e95ee953a6c335546e42948384494092dd420a"
+    },
+    {
+      "path": "analyses/025-2026-10-17-pythia-descent-mechanism/REPORT.md",
+      "bytes": 22589,
+      "sha256": "df9098ca72f4b1afa1252d12bbaaf1e45834e12e2cfa3ae213b42fef3fbeca36"
+    },
+    {
+      "path": "analyses/026-2026-10-23-fixed-ce-curvature/README.md",
+      "bytes": 7444,
+      "sha256": "3f83857f748a5f70b5c7cacba0dc34f3cb6f693016b74c099bb18b67f58e66a0"
+    },
+    {
+      "path": "analyses/026-2026-10-23-fixed-ce-curvature/REPORT.md",
+      "bytes": 13882,
+      "sha256": "ede446380c3a8a77221e7e55b58c30c61c1bf4bae7c15b9e1f83ef95b886f855"
+    },
+    {
+      "path": "analyses/027-2026-10-30-minibatch-noise/README.md",
+      "bytes": 4507,
+      "sha256": "d5c402e09d06a9b9a895cc1f0d0be618b6204422fdc86f69ffbacfe8e1fd28c4"
+    },
+    {
+      "path": "analyses/027-2026-10-30-minibatch-noise/REPORT.md",
+      "bytes": 9209,
+      "sha256": "38d117d7a66d5a9634b2417d66eb561852436d27f4e49b7d6953c410d0d4ea39"
+    },
+    {
+      "path": "analyses/028-2026-10-30-adam-diagnostics/README.md",
+      "bytes": 10725,
+      "sha256": "8e025f064cd3c2950a76f9c24c7d721cd7032a46e606342c6311a7ebeb6579cb"
+    },
+    {
+      "path": "analyses/029-2026-10-30-pythia-adam-diagnostics/README.md",
+      "bytes": 5602,
+      "sha256": "b9a37c0ff44ce461f437a42aba9c82fc7d3b89fdef6731ae468cd87065f5d33d"
+    },
+    {
+      "path": "analyses/029-2026-10-30-pythia-adam-diagnostics/REPORT.md",
+      "bytes": 14899,
+      "sha256": "80321c8f2f5114d443614059faa832deb60a29c327b8b574a2384dcb0d70433b"
+    },
+    {
+      "path": "analyses/030-2026-10-30-adam-lr-decisions/README.md",
+      "bytes": 12570,
+      "sha256": "b908e0be894b563a6e1d5d168e80e328318418b29aa0cc9827d49cb5621e47f2"
+    },
+    {
+      "path": "analyses/030-2026-10-30-adam-lr-decisions/REPORT.md",
+      "bytes": 2705,
+      "sha256": "69a5c1701b38b2ac952e85da4839428694114b134a04b7ada1faa78ea55d6270"
+    },
+    {
+      "path": "analyses/031-2026-10-31-adam-state-map/README.md",
+      "bytes": 5523,
+      "sha256": "f5f831ab42b80e215a005723e52a88cb979440559c9776729d0d1e6e3f7e78d1"
+    },
+    {
+      "path": "analyses/031-2026-10-31-adam-state-map/REPORT.md",
+      "bytes": 8218,
+      "sha256": "13af069bb82b17c58182f77b0fc51f0940253bdc71372bdcca7c8fd973e2bd55"
+    },
+    {
+      "path": "analyses/032-2026-11-01-eos-exact-lag10/README.md",
+      "bytes": 4696,
+      "sha256": "87557567587abdfb60c4103362f4803e4ae75d0ccacc1458bbaeb6886733471b"
+    },
+    {
+      "path": "analyses/032-2026-11-01-eos-exact-lag10/REPORT.md",
+      "bytes": 7530,
+      "sha256": "a23b1e03337793913ee2e5711a59601732db3239e95191146e51149b8193cfca"
+    },
+    {
+      "path": "analyses/033-2026-11-01-eos-long-lags/README.md",
+      "bytes": 2249,
+      "sha256": "c9a2f07544ad93ef8b6a28a234e4490101e06df043ded0e116b97f97da07f177"
+    },
+    {
+      "path": "analyses/033-2026-11-01-eos-long-lags/REPORT.md",
+      "bytes": 14708,
+      "sha256": "80d55f41326d73ced4067f1214f244f11975a1f614bb2d609df0710a16f20479"
+    },
+    {
+      "path": "analyses/034-2026-11-01-eos-adam-continuations/README.md",
+      "bytes": 3258,
+      "sha256": "d1af2566c00512b9a40f4b51e4454adfc8f2356bddeb36822409f65f2d0e61ed"
+    },
+    {
+      "path": "analyses/034-2026-11-01-eos-adam-continuations/REPORT.md",
+      "bytes": 11191,
+      "sha256": "6d0fc8509e10f022c862f2752ebbb57e0343a75244f9d5254127a89e850337dd"
+    },
+    {
+      "path": "analyses/035-2026-11-02-eos-backward-anchors/README.md",
+      "bytes": 4162,
+      "sha256": "de0f8328d06e229cd85710fd60b62eb0a029c065145238632f90782630f8cc4d"
+    },
+    {
+      "path": "analyses/035-2026-11-02-eos-backward-anchors/REPORT.md",
+      "bytes": 6228,
+      "sha256": "837b35e1ea69affa19807a3ebb88635c074e804a1dc9f24996f22935f9239183"
+    },
+    {
+      "path": "analyses/036-2026-11-02-controlled-adam-diagnostics/archive/paper_evidence/PROTOCOL.md",
+      "bytes": 5474,
+      "sha256": "c7f025fb359afe8774befd4f888492a3c60077f4ef15832a0df57e00b26f11ad"
+    },
+    {
+      "path": "analyses/036-2026-11-02-controlled-adam-diagnostics/archive/paper_evidence/TABLES.md",
+      "bytes": 8766,
+      "sha256": "1a82cb9818c074c58c66ce68773afe304221c38f7c4e95715854c41541f63577"
+    },
+    {
+      "path": "analyses/036-2026-11-02-controlled-adam-diagnostics/archive/peak_forecasts.csv",
+      "bytes": 1223283,
+      "sha256": "039bcadf4d92f807e239685d83cca6b6fe3e42ec71c126c43a62c7ea8885788f"
+    },
+    {
+      "path": "analyses/036-2026-11-02-controlled-adam-diagnostics/archive/PEAK_TEMPORAL_ANALYSIS.md",
+      "bytes": 11149,
+      "sha256": "5851b8ee1f2a8e9d88b707b28b5c9e8814ef0e7a259d283528cff0780e39b430"
+    },
+    {
+      "path": "analyses/036-2026-11-02-controlled-adam-diagnostics/archive/PEAK_TEMPORAL_PROTOCOL.md",
+      "bytes": 6652,
+      "sha256": "d27ea7f3b805af86deccc80116d889596a3642ad5c865e8894668d2dbc0a45ff"
+    },
+    {
+      "path": "analyses/036-2026-11-02-controlled-adam-diagnostics/archive/peak_temporal_results.json",
+      "bytes": 314028,
+      "sha256": "534cc6ab6238816fe65f4fab000c9934e7b9146c6b855a212dd41dab84ec47c1"
+    },
+    {
+      "path": "analyses/036-2026-11-02-controlled-adam-diagnostics/README.md",
+      "bytes": 9374,
+      "sha256": "e91fd64fd55acba46c55ca1910adc5b4f5e0b367f55c2f6fe592f3851547dfb2"
+    },
+    {
+      "path": "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_dataset/loss_spikes.csv",
+      "bytes": 1240273,
+      "sha256": "d35e901cc68a1bce5379129b4ce74f4d1b8896c3c0ccfaf643d4647558e4500d"
+    },
+    {
+      "path": "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_dataset/manifest.json",
+      "bytes": 8688,
+      "sha256": "bef7421d30a1cb4cb2715d21f5fad97434b3b8c55b4ff08f9f15e753fea6dc0d"
+    },
+    {
+      "path": "analyses/037-2026-11-02-sgd-batch-extension/README.md",
+      "bytes": 5532,
+      "sha256": "576a21335eadfc782e0f8782c2d078ebb6381629dc2311904338011103d96a25"
+    },
+    {
+      "path": "analyses/037-2026-11-02-sgd-batch-extension/REPORT.md",
+      "bytes": 8885,
+      "sha256": "16c4000d10833c7dcc0388736eef437d037243f3901fdcb454849af251dde4e2"
+    },
+    {
+      "path": "analyses/038-2026-11-03-adam-spike-intervention-design/PROTOCOL.md",
+      "bytes": 23667,
+      "sha256": "3e3efb7738b4631a29a622ec7c3cdfa5fc507f5f05bf55428e9349cd539f6515"
+    },
+    {
+      "path": "analyses/038-2026-11-03-adam-spike-intervention-design/README.md",
+      "bytes": 2187,
+      "sha256": "d4921612a786b82d194bb9a71a6175239a0a63d0011808f224fa9c5905cef25b"
+    },
+    {
+      "path": "analyses/038-2026-11-03-adam-spike-intervention-design/source_review.json",
+      "bytes": 13557,
+      "sha256": "6feb5baeb37d8115a4765125201bc2cdc3f172a6ed8ef565b62a0426331bd058"
+    },
+    {
+      "path": "analyses/INDEX.md",
+      "bytes": 20480,
+      "sha256": "738d0b430ec1879e8662764755d93287021772e9718ad14faef8436d5e9193e4"
+    },
+    {
+      "path": "manuscript/draft/bare_jrnl.tex",
+      "bytes": 24839,
+      "sha256": "0c8b3fccff9cdf619d09993827d0b8f5ac4bfcf611e803d6e41169f1b5992286"
+    },
+    {
+      "path": "manuscript/draft/bibliography.bib",
+      "bytes": 31634,
+      "sha256": "0f5e043b14e62d8a9ec58b40355b356b97ad4423dd1e310b44bcffc4c42b5868"
+    },
+    {
+      "path": "manuscript/draft/revisions/2026-11-03-regime-writing-revision/CURVATURE_REVIEW.md",
+      "bytes": 4411,
+      "sha256": "9999c38874b1b3ed695d59a2060c6a68096d2fb7f95bfdd217352469be473bed"
+    },
+    {
+      "path": "manuscript/draft/revisions/2026-11-03-regime-writing-revision/review.json",
+      "bytes": 1393,
+      "sha256": "355aaf94f99dfdf4e6cc66ec8cd912a1635270860b0646914fbde8c1ad72d07b"
+    },
+    {
+      "path": "manuscript/draft/revisions/2026-11-03-regime-writing-revision/revised-manuscript.pdf",
+      "bytes": 2149056,
+      "sha256": "34a1d851293c4d3fc8bad5e15f2608d66380e743ee1697ac47aeb9130c8ec789"
+    },
+    {
+      "path": "manuscript/draft/revisions/2026-11-03-regime-writing-revision/verification.json",
+      "bytes": 4874,
+      "sha256": "5cea7ecb686bdd66350190a835ac55346cac94e75df6ff44d3b0437a2b558c5a"
+    },
+    {
+      "path": "manuscript/draft/sections/01-introduction.tex",
+      "bytes": 4951,
+      "sha256": "f4133594618e00c18f9e3b64eea1ee1f960b86723d625686c46775061dfb1bf9"
+    },
+    {
+      "path": "manuscript/draft/sections/02-related-works.tex",
+      "bytes": 6526,
+      "sha256": "05371c94c5b54a9cb4f2159157253e327a034b894bc046481125021d74593f88"
+    },
+    {
+      "path": "manuscript/draft/sections/03-methods.tex",
+      "bytes": 14963,
+      "sha256": "d36cb2625bb73aaedc2613807fac8709586d57061dc594545e6ea2c55743bab8"
+    },
+    {
+      "path": "manuscript/draft/sections/04-gd-experiments.tex",
+      "bytes": 7571,
+      "sha256": "2c316b486417efcce3188e194b4035cf64c7a1d20dc6a1ddf93a4a30f23d6108"
+    },
+    {
+      "path": "manuscript/draft/sections/04-results.tex",
+      "bytes": 19260,
+      "sha256": "afc1f30d1c6f3dba8e3d3cdeaa0d04947fc8df54e9131871db16390062a77d45"
+    },
+    {
+      "path": "manuscript/draft/sections/05-conclusion.tex",
+      "bytes": 1650,
+      "sha256": "adbafaee90e32c48211d5193e4b299034977ec4ba23c21698231eb932005edf4"
+    },
+    {
+      "path": "manuscript/draft/sections/05-sgd-noise-experiments.tex",
+      "bytes": 2620,
+      "sha256": "da9cddf66b12eaaca8d4a779e1fda27fc966ae1f417e0907a3a2362573a0143d"
+    },
+    {
+      "path": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "bytes": 16070,
+      "sha256": "4bfa2e0f9e5b97a9b4852bc6df6bcf1145975fd951571c8e56efa157a76157d9"
+    },
+    {
+      "path": "manuscript/draft/sections/06-appendix.tex",
+      "bytes": 5555,
+      "sha256": "210ed113fe474b3171f6640c7fe8dc417bd35586d981ae2d1e8fcd89a6a6732c"
+    },
+    {
+      "path": "manuscript/draft/sections/06-loss-appendix.tex",
+      "bytes": 3472,
+      "sha256": "20a6cc9df4c7d179fd715192112e4c746ece0e9002777295c9491c2053107eae"
+    },
+    {
+      "path": "manuscript/draft/sections/07-gd-diagnostics.tex",
+      "bytes": 3512,
+      "sha256": "40fa6cbcacbb97cc09625bb46350dd26d16a4565531114baabaa33cf7674ce10"
+    },
+    {
+      "path": "manuscript/draft/tables/analysis036_spike_anatomy.tex",
+      "bytes": 3053,
+      "sha256": "58f64b4185394d5ab1e11a995c3716355dd634d6cf0d23a874d25f0b5f885e95"
+    },
+    {
+      "path": "manuscript/README.md",
+      "bytes": 12248,
+      "sha256": "dda73b1a123290b1f8f0a1af831e8bd2e0f36ef7a8b794deb59cc6c55cfc7d80"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2958,
+      "sha256": "64673e9e240ab730e55d76c8977ec4377e6b8faa00fcafc8964c17f132779ea4"
+    },
+    {
+      "path": "research/COMPUTE.md",
+      "bytes": 4065,
+      "sha256": "86548b8f785173348d019274a64513029e4cfb50ee894c40de719bc6e88caa0c"
+    },
+    {
+      "path": "research/DATA.md",
+      "bytes": 2611,
+      "sha256": "632679d5ddfd396cd887ed78361d80b225b7b74737a83cf40879ef8f06cd8251"
+    },
+    {
+      "path": "research/DEFINITIONS.md",
+      "bytes": 5055,
+      "sha256": "0e3366227d882ab71387e7ca2293e999b5f1e7cfa3e8d18d88a6b8ef7f55c848"
+    },
+    {
+      "path": "research/findings/README.md",
+      "bytes": 17155,
+      "sha256": "c8205f73794c43d79b7fda62c0e243341290dc162098412be40629b8771257c6"
+    },
+    {
+      "path": "research/HYPOTHESES.md",
+      "bytes": 20163,
+      "sha256": "0d0a3e45ed1ffe473aeee5d7493d66976783112935a2671efde67d0b5d61c15b"
+    },
+    {
+      "path": "research/INDEX.md",
+      "bytes": 39454,
+      "sha256": "0b1e7c275ad1a56c47f6c6a041b774222ad395a8d2d84a4845b822c35e220c91"
+    },
+    {
+      "path": "research/MANUSCRIPT.md",
+      "bytes": 34419,
+      "sha256": "0e12adc256ee8436e27992d7a57d9e35f565f17c01fe751b0423f73b3fb696cd"
+    },
+    {
+      "path": "research/METHODS.md",
+      "bytes": 3328,
+      "sha256": "7897121ee95965efc40635c84d3d0cf63da0bd315b6ae0aa4bd004ab040283f9"
+    },
+    {
+      "path": "research/METRICS.md",
+      "bytes": 5759,
+      "sha256": "99b8db7dc9900b10b944b89b79c91e7d88150b07543a78b73ae1f4d29eb0fd24"
+    },
+    {
+      "path": "research/REVIEW_CONTEXT.md",
+      "bytes": 1649,
+      "sha256": "89dfe7355f85a3593910dc69addce285fb96e98274212b1413a65f55a3e51240"
+    },
+    {
+      "path": "runs/INDEX.md",
+      "bytes": 64634,
+      "sha256": "dfb172bcfed049d4b946fdd63c37132b5871ee872b98d136c4153e5a50822d3b"
+    }
+  ],
+  "supplied_advisor_transcript": {
+    "path": "C:\\Users\\thima\\Downloads\\Cristiano _ Thiago - 2026_10_19 11_01 GMT-03_00 - Notes by Gemini.md",
+    "bytes": 52063,
+    "sha256": "fa3c70e5fa6f58038bb1773b72d77619bb1dfb87f3ac5eafd032f5f4af139bfc",
+    "note": "Automatic transcript, discussion evidence only; original not copied."
+  },
+  "related_chats": "session_snapshot.json",
+  "web_sources": [
+    "https://doi.org/10.1093/imanum/8.1.141",
+    "https://proceedings.neurips.cc/paper_files/paper/2024/hash/1ac83203e88eb6cf6b30642f0239b932-Abstract-Conference.html",
+    "https://proceedings.mlr.press/v306/bai26o.html",
+    "https://arxiv.org/abs/2501.06842",
+    "https://proceedings.mlr.press/v235/zhu24h.html",
+    "https://ai.ieee.org/research/",
+    "https://www.computer.org/digital-library/journals/tp/cfp-ieee-pattern-analysis-machine-intelligence"
+  ],
+  "web_access_note": "BB publisher metadata verified via search; DOI direct fetch failed. TNNLS scope corroborated on official IEEE AI page; direct CIS fetch failed."
+}

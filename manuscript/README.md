@@ -1,5 +1,13 @@
 # Manuscript workspace
 
+## Paper evidence and submission plan
+
+The [3 November consolidation](2026-11-03-paper-convergence/README.md) maps the
+current argument to evidence, advisor discussion and simulated reviews. Its
+[bounded work queue](2026-11-03-paper-convergence/NEXT_ACTIONS.md) distinguishes
+existing-data checks, optional interventions and the submission stopping rule.
+This planning record does not change the current draft or authorize training.
+
 Latest revision (2026-11-03, full-paper writing):
 [review and reproduction](draft/revisions/2026-11-03-regime-writing-revision/README.md).
 The current 14-page manuscript implements the author's writing principles and
