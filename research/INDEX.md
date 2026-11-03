@@ -20,7 +20,10 @@ are source-verified with an independent segmentation. A [3 x 3 descriptive panel
 summarizes peak increases and durations for the 806 recovered events. Earlier work remains archived;
 The loss-only overview and [per-LR peak densities](../analyses/036-2026-11-02-controlled-adam-diagnostics/figures/adam_peak_increase_density.pdf)
 use three model columns; densities cover 806 recovered events on log-percent axes.
-Manuscript unchanged. No new training or cloud resources.
+[Anatomy above 10%](../analyses/036-2026-11-02-controlled-adam-diagnostics/spike_anatomy/README.md)
+covers 131 observed events (129 recovered, 2 censored), with before/rise/recovery
+diagnostics and a grouped text/LaTeX table. Pre-rise reversal is common;
+recovery alignment is model-dependent. Manuscript unchanged; no new training or cloud resources.
 
 
 [Analysis035: backward fixed-endpoint profiles](../analyses/035-2026-11-02-eos-backward-anchors/REPORT.md)
