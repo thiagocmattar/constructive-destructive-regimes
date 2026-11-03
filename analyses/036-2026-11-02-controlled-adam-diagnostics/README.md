@@ -10,6 +10,7 @@ magnitude cutoff, or startup exclusion is used. Earlier exploratory work stays i
 - [Per-run counts](spike_dataset/summary.csv) and [source hashes](spike_dataset/manifest.json)
 - Reproduce: `python analyses/036-2026-11-02-controlled-adam-diagnostics/02_extract_loss_spikes.py --baseline pre-rise`
 - Verify: `python analyses/036-2026-11-02-controlled-adam-diagnostics/03_verify_loss_spikes.py`
+- [Pre-rise projected-change versus peak-increase scatter](observations/005-prerise-eta-peak-scatter.md): 127 unsmoothed points from the current recovered >10% anatomy sample; two undefined initialization diagnostics omitted.
 
 ## Coverage
 
