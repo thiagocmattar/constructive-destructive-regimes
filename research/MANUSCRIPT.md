@@ -1,5 +1,34 @@
 # Manuscript and evidence
 
+## Adam spike anatomy, 2026-11-03
+
+The [new revision](../manuscript/draft/revisions/2026-11-03-adam-spike-anatomy/README.md)
+implements the author's sequence: Adam/raw-gradient motivation, controlled
+loss overview, largest recovered spikes at the highest rates, fixed-reference
+event definition, all-amplitude density, grouped >10% anatomy table, and signed
+pre-rise-cosine/rise-norm-product regressions. The four approved Analysis036
+figures are copied exactly; the grouped table is independently regenerated.
+Abstract, introduction, conclusion and Adam measurement details match this
+descriptive presentation. The prior forecast/AP table and protocol are no
+longer compiled; historical records and supplied originals remain preserved.
+
+The micro-plot shading marks the +10% crossing through the peak, distinct from
+the full event. The table includes 129 events with observed recovery and >10%
+increase; the density includes all 806 recovered excursions. Negative pre-rise
+cosine occurs in 117/127 defined cases and all 129 endpoint gradient norms grow.
+The prose distinguishes a pre-peak signal from a universal pre-onset warning,
+example constructive recovery from model-dependent population recovery, and
+retrospective association from prediction or causality. The 10% cutoff is an
+operational choice. Clipping/scheduling/data-mixing interventions remain future
+work, with primary clipping references and Adam moment effects discussed.
+
+Independent segmentation, raw-history phase checks, table reductions, selection,
+timing/counts, regression values and copied-asset hashes pass. The retained
+57 GD/SGD curves, 134560 values and 186 mathematical checks also pass. The
+18-page review compiles without overfull boxes or unresolved references;
+Poppler page review is recorded with the deliverable hash in the revision.
+No new training, cloud resources, run or hypothesis.
+
 ## Adam-section author feedback, 2026-11-02
 
 The [new revision](../manuscript/draft/revisions/2026-11-02-adam-feedback/README.md)

@@ -38,12 +38,15 @@ The same distinction becomes essential under adaptive optimization. Adam
 already computes raw gradients and moment estimates~\cite{kingma2014adam};
 its parameter updates combine temporal averaging, coordinate scaling and the
 learning rate. Monitoring these successive quantities can reveal changes
-that a single alignment statistic would obscure. Raw-gradient dynamics
-provide information about impending loss excursions beyond recent loss
-history, even though Adam transforms those gradients before updating the
-parameters. We examine this claim through controlled training and forward-time
-comparisons, distinguishing predictive information from a demonstrated
-improvement in learning-rate decisions.
+that a single alignment statistic would obscure. Raw-gradient diagnostics
+remain informative about the traversed loss landscape even though Adam
+transforms those gradients before updating the parameters. Controlled
+full-batch trajectories reveal repeated loss excursions associated with
+gradient reversal and norm amplification. We examine individual spikes,
+their population anatomy and the association between the pre-rise regime,
+subsequent norm growth and peak magnitude. These observations motivate
+interventions while distinguishing descriptive evidence from a causal
+mechanism or a validated prediction rule.
 
 Our contributions are:
 \begin{itemize}
@@ -54,7 +57,7 @@ Our contributions are:
     directional reversal, displacement retention and objective progress;
     \item A practical extension to Adam that separates raw-gradient information,
     momentum and adaptive directions, supported by controlled training and
-    an exploratory assessment of loss-spike warnings beyond recent loss.
+    an exploratory analysis of loss-spike anatomy across models and rates.
 \end{itemize}
 
 The remainder of the paper is organized as follows. Section~\ref{sec:background} reviews

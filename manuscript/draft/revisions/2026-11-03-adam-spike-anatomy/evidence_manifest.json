@@ -1,0 +1,812 @@
+{
+  "generator_sha256": "3d5ede2910d8b7e756af85105f3d59957c1ccb5ebb0d0f15ad9e56582e046f50",
+  "sources": {
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_dataset/loss_spikes.csv": "d35e901cc68a1bce5379129b4ce74f4d1b8896c3c0ccfaf643d4647558e4500d",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_dataset/manifest.json": "bef7421d30a1cb4cb2715d21f5fad97434b3b8c55b4ff08f9f15e753fea6dc0d",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/02_extract_loss_spikes.py": "ceea5a9d2d0265bc83d45858961763f898afffce15febd6e7982385ea56e6542",
+    "runs/215-2026-11-02-controlled-full-batch-adam/results.json": "c907d1b5ccaa68b3310f13526e98f37fd1c19943eb7631cea46612f75de39572",
+    "runs/215-2026-11-02-controlled-full-batch-adam/config.json": "868c271e89bea4641e633d727c7b322a2220085ea1bee63c2dc712389e8e88f4",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0001/manifest.json": "0655ffcc68288a311a1ebb977373418e676dac85b81f64100e7c12822d473072",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0001/boundaries.jsonl": "1ece15455f4e43d8c39495b0c6bc57e9b28296d1c2aff4e0f094b54d8bac432e",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0001/metrics.jsonl": "9e1d16738fea6715aee387c362e5e5f49caf372b77e832994bc2a28980a969ca",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0003/manifest.json": "856171914d42aaa62a26d70c3bb9a83791838564851c17195feec50946cc5b8a",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0003/boundaries.jsonl": "00bd2559e33299a21694c3162d7b39fbaa6949883808b5eb2b895b66a0da61cc",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0003/metrics.jsonl": "5f3e2f82765b29b6cd124ec7fb727480910b6c820b681f5b74d76be7378a4cf3",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/manifest.json": "0a8ae45b014049fcd7350768bef6190f4991802ed6bf9e254c810c3ca2032e12",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/boundaries.jsonl": "bd15d446afab7641f01ed12c089b1f606f123b4e92982f2d0ff1deae1fe061be",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/metrics.jsonl": "3c8bac53f92bde65da67b8bcc80046644f2db3ef7fd818334ebca2b04e7a0157",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker15/lr-0.001/manifest.json": "06416f93b915dae3be94e2f6c9b205de1b25a512a807904d14cf73d53aebe77f",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker15/lr-0.001/boundaries.jsonl": "ff71889f1653f41754a2a66cad38d2868415fd08b43b3d24df25196826fe4a69",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker15/lr-0.001/metrics.jsonl": "ecb5acb6fcbc82ef54833160aa5ec4b2f76d5784a07ae3a649f02571fd41ded3",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/manifest.json": "6162fb3eee941231f44bc006c92d74a702f0ab52bad560a78dc4ae36848a71c0",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/boundaries.jsonl": "b952c7e4d184e1da70d1dbadd7710de16452aaa7041d1e7df6fa2165ac3e28ee",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/metrics.jsonl": "c9572aaa98f3e9f8c0378b6ff2b5ce60d8e3383e563c358485c5afffaf5945ca",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/manifest.json": "96fd00453edef0c3f0096716cb550ef3f86d25466e06be1b29165beaa5739327",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/boundaries.jsonl": "822cccc891250b529fc8bb60d4a391d2002856e8e3c8b7233c145c7fbf15a3f7",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/metrics.jsonl": "3ae6e2af2400caea6e3a40ed2d06db31068524c39ef7e55ec931d16362b62574",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker4/lr-0.001/manifest.json": "be5c9081f50634dcf658d3b532555e99e50aea2fac57b1651da43b950ad4cedf",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker4/lr-0.001/boundaries.jsonl": "b47c647c05dbab1defd6d5ab0e653e0ffe236066c483458b63167597e4639d16",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker4/lr-0.001/metrics.jsonl": "586c7a961f0a410e280e3286f8d044df28a29cc99c7a988798ce43f6a60cbfc8",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker0/lr-0.0003/boundaries.jsonl": "0eeb0a81c45100e25bec785aa6eb826ef8c48840171de0ebe4f6e66dcb18981c",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker0/lr-0.0003/metrics.jsonl": "5983695e1071ab62c0cd1c9a71d000e7e5ad07f1d11390eb99baf38cb232c669",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker17/lr-0.0003/boundaries.jsonl": "70b283eb2777897feb04b13eb9aa68cb68e7e62649ab4b91f6e23a24be5bd0ba",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker17/lr-0.0003/metrics.jsonl": "811298ff7f5eb6a6982d7c8c24fe3c3b7372d15717276b1fe79af5055ec4a5c6",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_anatomy/events_gt10.csv": "b9cec0f2decef649d6399828e43de27266aafdce9cd697a4cc0037b535f5b9b6",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_anatomy/summary_gt10.csv": "c5f216e728fbce6ef5323d5d2fd01eb3a8222dc401b4bae38aa9077103fa4d09",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_anatomy/manifest.json": "fe69a9c57aa3e0166dcfa721fd19c7fc85a3a2e8cae2bf9e325cebcdccfc3aeb",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/loss_overview_manifest.json": "a2c4bb5c1be5c0258c4c2f9988b25796130a3d0ecd196fedda27a2c710121eec",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/peak_density_manifest.json": "8d8f8f56e9234756561712b831fafdbf478fddafa9a9595dcf284d5924b1d0b4",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/rho_gradient_rise_peak_scatter_manifest.json": "c038921618f0d0ca2534dd3191bd9336199a7415e9415f4963a6519853739a0e",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/01_plot_spikes.py": "d4ed082fa9d0bbe2ed8a9171e5e0af57bcc914fe21442566a6d3f4607ea098ea"
+  },
+  "figures": [
+    {
+      "source": "analyses/036-2026-11-02-controlled-adam-diagnostics/figures/adam_manuscript_overview.pdf",
+      "target": "manuscript/draft/figures/analysis036/adam_manuscript_overview.pdf",
+      "sha256": "af4db6e58f193dd9dd981f92bc994a888ec2b83c2a09c87d87c748a73ad32d15"
+    },
+    {
+      "source": "analyses/036-2026-11-02-controlled-adam-diagnostics/figures/adam_manuscript_spikes.pdf",
+      "target": "manuscript/draft/figures/analysis036/adam_manuscript_spikes.pdf",
+      "sha256": "1cf1e8485ea348e7738f51c77ee4ce1b8e027eed97ac18fd4347969802f09bc6"
+    },
+    {
+      "source": "analyses/036-2026-11-02-controlled-adam-diagnostics/figures/adam_peak_increase_density.pdf",
+      "target": "manuscript/draft/figures/analysis036/adam_peak_increase_density.pdf",
+      "sha256": "5618655941c213634bea569564f25718c34c84604ee25a8be58a42a3eb1e70d8"
+    },
+    {
+      "source": "analyses/036-2026-11-02-controlled-adam-diagnostics/figures/adam_rho_gradient_rise_peak_scatter.pdf",
+      "target": "manuscript/draft/figures/analysis036/adam_rho_gradient_rise_peak_scatter.pdf",
+      "sha256": "2c1882e86f3bd4788c4508ab824d018b0fbf713f5e80cfc26dfa29fb75667106"
+    }
+  ],
+  "table": {
+    "path": "manuscript/draft/tables/analysis036_spike_anatomy.tex",
+    "sha256": "290f8a55abf696711eb9fa2a2b093f5a2fdb0581365c28fe9f31ef766f41fae4",
+    "rows": [
+      {
+        "task": "mlp",
+        "learning_rate": 0.0001,
+        "n": 8,
+        "stats": {
+          "peak_change_percent": {
+            "n": 8,
+            "mean": 19.1637546588088,
+            "std": 6.06768024568317,
+            "max": 30.906585478840952
+          },
+          "rise_steps": {
+            "n": 8,
+            "mean": 8.375,
+            "std": 2.9246489410818914,
+            "max": 11
+          },
+          "recovery_steps": {
+            "n": 8,
+            "mean": 4.375,
+            "std": 2.38671920665766,
+            "max": 10.0
+          },
+          "eta_kappa_hat_raw_before": {
+            "n": 8,
+            "mean": 1.81273573942934,
+            "std": 0.38050699489061307,
+            "max": 2.1520331746196706
+          },
+          "eta_kappa_hat_raw_recovery_mean": {
+            "n": 8,
+            "mean": 1.666789324850596,
+            "std": 0.07679246080552471,
+            "max": 1.7724106180986419
+          },
+          "rho_raw_before": {
+            "n": 8,
+            "mean": -0.7654768128229493,
+            "std": 0.3130002468602763,
+            "max": -0.05398240080070753
+          },
+          "rho_raw_recovery_mean": {
+            "n": 8,
+            "mean": -0.8854788830686933,
+            "std": 0.08363659144797905,
+            "max": -0.7480313932266696
+          },
+          "gradient_rise_ratio": {
+            "n": 8,
+            "mean": 5.319160984564487,
+            "std": 1.7055917013087036,
+            "max": 8.437767695260458
+          },
+          "gradient_recovery_ratio": {
+            "n": 8,
+            "mean": 0.2994710734702682,
+            "std": 0.0688643636615632,
+            "max": 0.39677309704386077
+          }
+        },
+        "cells": [
+          "\\multirow{3}{*}{\\shortstack{CIFAR-10\\\\MLP}}",
+          "0.0001",
+          "8",
+          "$19.2\\mathord{\\pm}6.1$",
+          "30.9",
+          "$8.4\\mathord{\\pm}2.9$",
+          "$4.4\\mathord{\\pm}2.4$",
+          "$1.81\\mathord{\\pm}0.38$",
+          "$1.67\\mathord{\\pm}0.08$",
+          "$-0.77\\mathord{\\pm}0.31$",
+          "$-0.89\\mathord{\\pm}0.08$",
+          "$5.32\\mathord{\\pm}1.71$",
+          "$0.30\\mathord{\\pm}0.07$"
+        ]
+      },
+      {
+        "task": "mlp",
+        "learning_rate": 0.0003,
+        "n": 47,
+        "stats": {
+          "peak_change_percent": {
+            "n": 47,
+            "mean": 42.594881079559705,
+            "std": 45.76052778431098,
+            "max": 203.11271377538134
+          },
+          "rise_steps": {
+            "n": 47,
+            "mean": 5.51063829787234,
+            "std": 4.358262220624039,
+            "max": 16
+          },
+          "recovery_steps": {
+            "n": 47,
+            "mean": 4.851063829787234,
+            "std": 3.9616571159721583,
+            "max": 16.0
+          },
+          "eta_kappa_hat_raw_before": {
+            "n": 46,
+            "mean": 1.348302564769567,
+            "std": 0.25073320348768596,
+            "max": 2.04398427650143
+          },
+          "eta_kappa_hat_raw_recovery_mean": {
+            "n": 47,
+            "mean": 1.5540543904258206,
+            "std": 0.17937315875668755,
+            "max": 1.8143752264004493
+          },
+          "rho_raw_before": {
+            "n": 46,
+            "mean": -0.5330413822122549,
+            "std": 0.2921651312976853,
+            "max": 0.44880125189654796
+          },
+          "rho_raw_recovery_mean": {
+            "n": 47,
+            "mean": -0.7089146666612999,
+            "std": 0.2402883220453428,
+            "max": 0.385374801491206
+          },
+          "gradient_rise_ratio": {
+            "n": 47,
+            "mean": 4.462950032927123,
+            "std": 3.0250986390734473,
+            "max": 14.32927617298154
+          },
+          "gradient_recovery_ratio": {
+            "n": 47,
+            "mean": 0.33315139957737877,
+            "std": 0.13113283554346972,
+            "max": 0.644268543594974
+          }
+        },
+        "cells": [
+          "",
+          "0.0003",
+          "47",
+          "$42.6\\mathord{\\pm}45.8$",
+          "203.1",
+          "$5.5\\mathord{\\pm}4.4$",
+          "$4.9\\mathord{\\pm}4.0$",
+          "$1.35\\mathord{\\pm}0.25$",
+          "$1.55\\mathord{\\pm}0.18$",
+          "$-0.53\\mathord{\\pm}0.29$",
+          "$-0.71\\mathord{\\pm}0.24$",
+          "$4.46\\mathord{\\pm}3.03$",
+          "$0.33\\mathord{\\pm}0.13$"
+        ]
+      },
+      {
+        "task": "mlp",
+        "learning_rate": 0.001,
+        "n": 39,
+        "stats": {
+          "peak_change_percent": {
+            "n": 39,
+            "mean": 94.62535267068199,
+            "std": 107.45351469622217,
+            "max": 317.6298843053216
+          },
+          "rise_steps": {
+            "n": 39,
+            "mean": 6.076923076923077,
+            "std": 5.891048585888216,
+            "max": 21
+          },
+          "recovery_steps": {
+            "n": 39,
+            "mean": 7.410256410256411,
+            "std": 7.475285415138794,
+            "max": 26.0
+          },
+          "eta_kappa_hat_raw_before": {
+            "n": 38,
+            "mean": 1.3624112493640694,
+            "std": 0.39650476190144507,
+            "max": 2.9391280762919663
+          },
+          "eta_kappa_hat_raw_recovery_mean": {
+            "n": 39,
+            "mean": 1.4409927238844125,
+            "std": 0.2642541794773735,
+            "max": 1.7594335847354783
+          },
+          "rho_raw_before": {
+            "n": 38,
+            "mean": -0.4570813885872382,
+            "std": 0.38462951319926436,
+            "max": 0.6772214856430285
+          },
+          "rho_raw_recovery_mean": {
+            "n": 39,
+            "mean": -0.5517315234678338,
+            "std": 0.3011184610476376,
+            "max": 0.4702840425001605
+          },
+          "gradient_rise_ratio": {
+            "n": 39,
+            "mean": 5.227113705827244,
+            "std": 3.7525817793912006,
+            "max": 14.993549629203356
+          },
+          "gradient_recovery_ratio": {
+            "n": 39,
+            "mean": 0.3118347838760591,
+            "std": 0.13697766230128866,
+            "max": 0.6052364770342821
+          }
+        },
+        "cells": [
+          "",
+          "0.001",
+          "39",
+          "$94.6\\mathord{\\pm}107.5$",
+          "317.6",
+          "$6.1\\mathord{\\pm}5.9$",
+          "$7.4\\mathord{\\pm}7.5$",
+          "$1.36\\mathord{\\pm}0.40$",
+          "$1.44\\mathord{\\pm}0.26$",
+          "$-0.46\\mathord{\\pm}0.38$",
+          "$-0.55\\mathord{\\pm}0.30$",
+          "$5.23\\mathord{\\pm}3.75$",
+          "$0.31\\mathord{\\pm}0.14$"
+        ]
+      },
+      {
+        "task": "resnet",
+        "learning_rate": 0.0003,
+        "n": 0,
+        "stats": {
+          "peak_change_percent": {
+            "n": 0,
+            "mean": null,
+            "std": null,
+            "max": null
+          },
+          "rise_steps": {
+            "n": 0,
+            "mean": null,
+            "std": null,
+            "max": null
+          },
+          "recovery_steps": {
+            "n": 0,
+            "mean": null,
+            "std": null,
+            "max": null
+          },
+          "eta_kappa_hat_raw_before": {
+            "n": 0,
+            "mean": null,
+            "std": null,
+            "max": null
+          },
+          "eta_kappa_hat_raw_recovery_mean": {
+            "n": 0,
+            "mean": null,
+            "std": null,
+            "max": null
+          },
+          "rho_raw_before": {
+            "n": 0,
+            "mean": null,
+            "std": null,
+            "max": null
+          },
+          "rho_raw_recovery_mean": {
+            "n": 0,
+            "mean": null,
+            "std": null,
+            "max": null
+          },
+          "gradient_rise_ratio": {
+            "n": 0,
+            "mean": null,
+            "std": null,
+            "max": null
+          },
+          "gradient_recovery_ratio": {
+            "n": 0,
+            "mean": null,
+            "std": null,
+            "max": null
+          }
+        },
+        "cells": [
+          "\\multirow{3}{*}{\\shortstack{CIFAR-10\\\\ResNet-32}}",
+          "0.0003",
+          "0",
+          "--",
+          "--",
+          "--",
+          "--",
+          "--",
+          "--",
+          "--",
+          "--",
+          "--",
+          "--"
+        ]
+      },
+      {
+        "task": "resnet",
+        "learning_rate": 0.001,
+        "n": 10,
+        "stats": {
+          "peak_change_percent": {
+            "n": 10,
+            "mean": 104.58976096510814,
+            "std": 181.7029832363903,
+            "max": 602.1146168736052
+          },
+          "rise_steps": {
+            "n": 10,
+            "mean": 7.5,
+            "std": 2.223610677354389,
+            "max": 11
+          },
+          "recovery_steps": {
+            "n": 10,
+            "mean": 17.3,
+            "std": 11.035800328426067,
+            "max": 40.0
+          },
+          "eta_kappa_hat_raw_before": {
+            "n": 10,
+            "mean": 1.3410156885977529,
+            "std": 0.3861492442078022,
+            "max": 2.0008974115651235
+          },
+          "eta_kappa_hat_raw_recovery_mean": {
+            "n": 10,
+            "mean": 1.344119809458304,
+            "std": 0.25376019675745026,
+            "max": 1.6590364412733307
+          },
+          "rho_raw_before": {
+            "n": 10,
+            "mean": -0.36495564751464177,
+            "std": 0.4228845254593397,
+            "max": 0.3021035121606664
+          },
+          "rho_raw_recovery_mean": {
+            "n": 10,
+            "mean": -0.364094513708193,
+            "std": 0.26189218922136054,
+            "max": 0.1551863606888396
+          },
+          "gradient_rise_ratio": {
+            "n": 10,
+            "mean": 4.31532913064084,
+            "std": 2.8748172620751236,
+            "max": 9.355834098174777
+          },
+          "gradient_recovery_ratio": {
+            "n": 10,
+            "mean": 0.4301338987416044,
+            "std": 0.2400584653197241,
+            "max": 0.8641988703406197
+          }
+        },
+        "cells": [
+          "",
+          "0.001",
+          "10",
+          "$104.6\\mathord{\\pm}181.7$",
+          "602.1",
+          "$7.5\\mathord{\\pm}2.2$",
+          "$17.3\\mathord{\\pm}11.0$",
+          "$1.34\\mathord{\\pm}0.39$",
+          "$1.34\\mathord{\\pm}0.25$",
+          "$-0.36\\mathord{\\pm}0.42$",
+          "$-0.36\\mathord{\\pm}0.26$",
+          "$4.32\\mathord{\\pm}2.87$",
+          "$0.43\\mathord{\\pm}0.24$"
+        ]
+      },
+      {
+        "task": "resnet",
+        "learning_rate": 0.003,
+        "n": 7,
+        "stats": {
+          "peak_change_percent": {
+            "n": 7,
+            "mean": 179.05825152862232,
+            "std": 309.2256029393029,
+            "max": 858.7697586669618
+          },
+          "rise_steps": {
+            "n": 7,
+            "mean": 6.285714285714286,
+            "std": 1.2535663410560174,
+            "max": 8
+          },
+          "recovery_steps": {
+            "n": 7,
+            "mean": 19.285714285714285,
+            "std": 20.19665224498263,
+            "max": 60.0
+          },
+          "eta_kappa_hat_raw_before": {
+            "n": 7,
+            "mean": 1.7351444620106757,
+            "std": 0.378779023992054,
+            "max": 2.142690517605087
+          },
+          "eta_kappa_hat_raw_recovery_mean": {
+            "n": 7,
+            "mean": 1.0995657400683434,
+            "std": 0.37021807764405024,
+            "max": 1.4808854848327946
+          },
+          "rho_raw_before": {
+            "n": 7,
+            "mean": -0.6467865134281688,
+            "std": 0.2794496191323597,
+            "max": -0.03551499920116505
+          },
+          "rho_raw_recovery_mean": {
+            "n": 7,
+            "mean": -0.1332337543371718,
+            "std": 0.42417845491426864,
+            "max": 0.4912149579776068
+          },
+          "gradient_rise_ratio": {
+            "n": 7,
+            "mean": 5.018153109659961,
+            "std": 4.2210783829408856,
+            "max": 13.755030186460115
+          },
+          "gradient_recovery_ratio": {
+            "n": 7,
+            "mean": 0.34187479942944005,
+            "std": 0.23517001289781175,
+            "max": 0.6199297686710137
+          }
+        },
+        "cells": [
+          "",
+          "0.003",
+          "7",
+          "$179.1\\mathord{\\pm}309.2$",
+          "858.8",
+          "$6.3\\mathord{\\pm}1.3$",
+          "$19.3\\mathord{\\pm}20.2$",
+          "$1.74\\mathord{\\pm}0.38$",
+          "$1.10\\mathord{\\pm}0.37$",
+          "$-0.65\\mathord{\\pm}0.28$",
+          "$-0.13\\mathord{\\pm}0.42$",
+          "$5.02\\mathord{\\pm}4.22$",
+          "$0.34\\mathord{\\pm}0.24$"
+        ]
+      },
+      {
+        "task": "transformer",
+        "learning_rate": 0.0003,
+        "n": 0,
+        "stats": {
+          "peak_change_percent": {
+            "n": 0,
+            "mean": null,
+            "std": null,
+            "max": null
+          },
+          "rise_steps": {
+            "n": 0,
+            "mean": null,
+            "std": null,
+            "max": null
+          },
+          "recovery_steps": {
+            "n": 0,
+            "mean": null,
+            "std": null,
+            "max": null
+          },
+          "eta_kappa_hat_raw_before": {
+            "n": 0,
+            "mean": null,
+            "std": null,
+            "max": null
+          },
+          "eta_kappa_hat_raw_recovery_mean": {
+            "n": 0,
+            "mean": null,
+            "std": null,
+            "max": null
+          },
+          "rho_raw_before": {
+            "n": 0,
+            "mean": null,
+            "std": null,
+            "max": null
+          },
+          "rho_raw_recovery_mean": {
+            "n": 0,
+            "mean": null,
+            "std": null,
+            "max": null
+          },
+          "gradient_rise_ratio": {
+            "n": 0,
+            "mean": null,
+            "std": null,
+            "max": null
+          },
+          "gradient_recovery_ratio": {
+            "n": 0,
+            "mean": null,
+            "std": null,
+            "max": null
+          }
+        },
+        "cells": [
+          "\\multirow{3}{*}{\\shortstack{WikiText-2\\\\Transformer}}",
+          "0.0003",
+          "0",
+          "--",
+          "--",
+          "--",
+          "--",
+          "--",
+          "--",
+          "--",
+          "--",
+          "--",
+          "--"
+        ]
+      },
+      {
+        "task": "transformer",
+        "learning_rate": 0.001,
+        "n": 6,
+        "stats": {
+          "peak_change_percent": {
+            "n": 6,
+            "mean": 33.095803329150066,
+            "std": 25.496305924265304,
+            "max": 80.6146292149001
+          },
+          "rise_steps": {
+            "n": 6,
+            "mean": 6.333333333333333,
+            "std": 1.8618986725025255,
+            "max": 8
+          },
+          "recovery_steps": {
+            "n": 6,
+            "mean": 23.666666666666668,
+            "std": 9.83192080250175,
+            "max": 39.0
+          },
+          "eta_kappa_hat_raw_before": {
+            "n": 6,
+            "mean": 2.059022389845577,
+            "std": 0.26575825738776965,
+            "max": 2.4179416135445333
+          },
+          "eta_kappa_hat_raw_recovery_mean": {
+            "n": 6,
+            "mean": 0.9625115179359648,
+            "std": 0.15800122814511386,
+            "max": 1.1543745451360423
+          },
+          "rho_raw_before": {
+            "n": 6,
+            "mean": -0.8377408580796342,
+            "std": 0.09672488027002399,
+            "max": -0.6927254944022058
+          },
+          "rho_raw_recovery_mean": {
+            "n": 6,
+            "mean": -0.022117851022923993,
+            "std": 0.11642714496685538,
+            "max": 0.15742339504053904
+          },
+          "gradient_rise_ratio": {
+            "n": 6,
+            "mean": 9.046942682831713,
+            "std": 3.7675882075159475,
+            "max": 14.446090343104316
+          },
+          "gradient_recovery_ratio": {
+            "n": 6,
+            "mean": 0.09364414939849319,
+            "std": 0.05113959411742342,
+            "max": 0.17177180257886054
+          }
+        },
+        "cells": [
+          "",
+          "0.001",
+          "6",
+          "$33.1\\mathord{\\pm}25.5$",
+          "80.6",
+          "$6.3\\mathord{\\pm}1.9$",
+          "$23.7\\mathord{\\pm}9.8$",
+          "$2.06\\mathord{\\pm}0.27$",
+          "$0.96\\mathord{\\pm}0.16$",
+          "$-0.84\\mathord{\\pm}0.10$",
+          "$-0.02\\mathord{\\pm}0.12$",
+          "$9.05\\mathord{\\pm}3.77$",
+          "$0.09\\mathord{\\pm}0.05$"
+        ]
+      },
+      {
+        "task": "transformer",
+        "learning_rate": 0.003,
+        "n": 12,
+        "stats": {
+          "peak_change_percent": {
+            "n": 12,
+            "mean": 82.39389983031062,
+            "std": 70.30938976547986,
+            "max": 231.40280202882266
+          },
+          "rise_steps": {
+            "n": 12,
+            "mean": 6.166666666666667,
+            "std": 2.6911752530120077,
+            "max": 11
+          },
+          "recovery_steps": {
+            "n": 12,
+            "mean": 31.166666666666668,
+            "std": 16.775703932301692,
+            "max": 61.0
+          },
+          "eta_kappa_hat_raw_before": {
+            "n": 12,
+            "mean": 2.174707205832111,
+            "std": 0.42568340181985853,
+            "max": 2.7768278227931593
+          },
+          "eta_kappa_hat_raw_recovery_mean": {
+            "n": 12,
+            "mean": 0.9135694498041863,
+            "std": 0.19470274487990138,
+            "max": 1.2949938314243579
+          },
+          "rho_raw_before": {
+            "n": 12,
+            "mean": -0.7927019440741506,
+            "std": 0.22086379442041204,
+            "max": -0.18893439311667382
+          },
+          "rho_raw_recovery_mean": {
+            "n": 12,
+            "mean": 0.08592931002935725,
+            "std": 0.2128868033718482,
+            "max": 0.37089599473846974
+          },
+          "gradient_rise_ratio": {
+            "n": 12,
+            "mean": 11.432919055394809,
+            "std": 6.861815224255646,
+            "max": 30.222471538536688
+          },
+          "gradient_recovery_ratio": {
+            "n": 12,
+            "mean": 0.07746883759114083,
+            "std": 0.07814442193541998,
+            "max": 0.214124677948948
+          }
+        },
+        "cells": [
+          "",
+          "0.003",
+          "12",
+          "$82.4\\mathord{\\pm}70.3$",
+          "231.4",
+          "$6.2\\mathord{\\pm}2.7$",
+          "$31.2\\mathord{\\pm}16.8$",
+          "$2.17\\mathord{\\pm}0.43$",
+          "$0.91\\mathord{\\pm}0.19$",
+          "$-0.79\\mathord{\\pm}0.22$",
+          "$0.09\\mathord{\\pm}0.21$",
+          "$11.43\\mathord{\\pm}6.86$",
+          "$0.08\\mathord{\\pm}0.08$"
+        ]
+      }
+    ]
+  },
+  "claims": {
+    "recovered_events": 806,
+    "anatomy_events": 129,
+    "excluded_without_recovery": 2,
+    "negative_prerise": 117,
+    "defined_prerise": 127,
+    "eta_above_two_before": 21,
+    "norm_grows_to_peak": 129,
+    "eta_max_before": 82,
+    "eta_max_coincident": 29,
+    "eta_max_after": 18,
+    "largest_increase": 858.7697586669618
+  },
+  "examples": [
+    {
+      "task": "mlp",
+      "lr": 0.001,
+      "before": 689,
+      "peak": 703,
+      "recovery": 729,
+      "first_above_10pct": 697,
+      "first_eta_above_two": 691,
+      "gradient_max": 703,
+      "momentum_max": 702
+    },
+    {
+      "task": "resnet",
+      "lr": 0.003,
+      "before": 415,
+      "peak": 422,
+      "recovery": 482,
+      "first_above_10pct": 418,
+      "first_eta_above_two": 415,
+      "gradient_max": 421,
+      "momentum_max": 422
+    },
+    {
+      "task": "transformer",
+      "lr": 0.003,
+      "before": 787,
+      "peak": 794,
+      "recovery": 855,
+      "first_above_10pct": 790,
+      "first_eta_above_two": 788,
+      "gradient_max": 792,
+      "momentum_max": 793
+    }
+  ],
+  "status": "scientific_checks_passed",
+  "checks": [
+    "Independent 806-event segmentation",
+    "129 event anchors and phase means checked against raw histories",
+    "Independent mean/sample-SD/max table reductions",
+    "Largest recovered examples at highest LR",
+    "Pre-rise counts and timing counts",
+    "Independent log-response regression R-squared",
+    "Byte-identical figure copies"
+  ]
+}

@@ -1,5 +1,10 @@
 # Analysis036: fixed-level loss-spike dataset
 
+The approved loss overview, spike examples, density, anatomy table and regression
+scatter are now [integrated into the manuscript](observations/010-manuscript-spike-anatomy.md).
+The integration preserves source figures/data and documents the event criteria,
+clock alignment and descriptive interpretation.
+
 Current work isolates loss-only excursions from all nine completed Run215 Adam histories.
 The fixed pre-rise reference was selected by the author. No smoothing, tolerance,
 magnitude cutoff, or startup exclusion is used. Earlier exploratory work stays in archive/.

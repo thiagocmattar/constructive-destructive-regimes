@@ -271,53 +271,47 @@ RTX 4090 workers, and Transformer uses RTX 4090, PRO 4500 SE and RTX 4090,
 in increasing-rate order. Initial gradients are qualified across workers;
 subsequent finite-precision drift and hardware variation limit attribution
 exclusively to rate. Complete held-out splits are evaluated every 128 updates,
-without selecting rates on held-out loss; the main figures concern training loss.
+without selecting rates on held-out loss; the figures here concern training loss.
 
 A state $s$ denotes parameters $\theta_s$ after $s$ completed updates. The raw
 gradient $g_{s+1}$ is evaluated there; $m_{s+1}$ includes that gradient and is
 available before update $s+1$. Figures~\ref{fig:adam-overview}
-and~\ref{fig:adam-spikes} align these quantities to state $s$, avoiding an
-artificial one-update lead or lag. The overview omits the unapplied terminal
-gradient and uses complete 50-observation trailing arithmetic means of each
-pointwise diagnostic, with no padding. Norms are averaged before logarithmic
-display. The spike views contain every observation in their windows. A zero
-norm leaves cosine undefined; no zero denominator occurs in the reported pairs.
+and~\ref{fig:adam-spikes} use this state clock on their horizontal axes.
+All loss and micro-plot observations are unsmoothed. Momentum denotes the
+stored first moment; the relative norms in Fig.~\ref{fig:adam-spikes} divide
+each stream by its value at the first displayed state. Those plotting references
+differ from an event's fixed pre-rise baseline and must not redefine it.
+The first consecutive cosine and projected change are undefined; the
+terminal raw-gradient norm and projected change are recorded without applying
+another update. No zero-denominator value is replaced by zero.
 
-The loss-only episode analysis begins at state 64. An episode starts at a
-10\% rise above the minimum over the preceding 16 states, retains this fixed
-baseline through rebounds, and ends at the first loss strictly below it.
-Episodes still open at state 1,024 remain censored. There are 129 episodes,
-45 reaching at least 50\% above baseline, and two censored recoveries.
-The examples select the largest completed peak/baseline ratio at each
-highest-rate arm. Their plotting baselines are the losses ten states before
-the peaks, which can differ from the episode baselines.
+Equation~\eqref{eq:adam-spike-boundaries} is applied from state zero to all
+nine complete loss histories, without smoothing, a tolerance or startup
+exclusion. The 806 recovered excursions form the density sample. Recovery
+by update 1,024 and peak increase strictly greater than 10\% define the 129-event
+anatomy sample; two further above-threshold candidates without observed recovery
+are excluded. Local maxima before the first return to the fixed baseline are
+not split into separate samples. The state immediately after recovery,
+$c_i+1$, is retained when available but does not establish sustained recovery.
 
-For forecasting, eligible states $s\geq64$ have loss less than 5\% above
-the minimum over $s-16,\ldots,s$. The target is any loss at least 10\%
-above $\mathcal L(\theta_s)$ in the next eight updates. The baseline uses
-task/rate indicators, $s/1024$, log current loss, log-loss changes over one,
-four and eight states, and current log draw-up from the 16-state minimum.
-We compare it with the same features plus continuous projected gradient
-change. Fixed L2-logistic models use $C=1$, training-only standardization
-and no class reweighting or hyperparameter search. Expanding training
-prefixes precede five test blocks beginning at states 384, 512, 640, 768
-and 896. A 24-state gap ensures all training outcomes precede the earliest
-test loss-history input. Final states without complete future coverage
-are omitted. No random state split is used.
+Pre-rise $\rho$ and $\eta\widehat\kappa$ use a single observation at state
+$a_i$. Recovery means use states $p_i+1,\ldots,c_i$ within each event, followed
+by an unweighted summary over event means. Standard deviations use the
+sample denominator $n-1$. Two events starting at initialization lack pre-rise
+cosine and projected change; they remain in loss, duration and norm summaries,
+but not those pre-rise summaries or the 127-point scatter.
+The scatter's seven ordinary least-squares fits use an intercept, separate
+coefficients for each model/LR and $\log_{10}(\mathcal L_{p_i}/\mathcal L_{a_i})$
+as the response. Their $R^2$ values use the same transformed response and fitting
+sample. Dashed lines beyond observed x ranges are extrapolations. Repeated
+events from a trajectory do not provide independent-run uncertainty.
 
-The 4,534 eligible forward-test states contain 495 positive targets.
-Average precision rises from 0.260 to 0.454 with projected change; Brier
-score falls from 0.11972 to 0.08685. Both improve in all five blocks.
-Crossing the horizons 4/8/16 with rise thresholds 5\%/10\%/25\% retains
-an average-precision improvement in all nine settings. Adding gradient
-and momentum levels/growth together with projected change instead gives
-pooled average precision 0.395: more diagnostics do not uniformly improve
-the forecast. The fixed above-two rule has 704 false-positive states among
-891 alarms. Episode-warning coverage and state-level alarm precision use
-different denominators and should not be equated.
-
-The inspected Transformer example motivated this retrospective analysis.
-Later blocks are held out from fitting, but the analysis is exploratory;
-repeated states and episodes do not provide independent-run uncertainty.
-There is no intervention testing whether a diagnostic-guided rate change
-prevents a spike or improves subsequent loss.
+The density is a Gaussian KDE of $\log_{10}$ positive percentage increase.
+Within each model, all recovered events are pooled to set bandwidth to the
+pooled sample standard deviation times pooled $n^{-1/5}$; the same bandwidth
+is used for its three LRs. Each LR density has unit mass in log-percentage
+coordinates. Source hashes, independent event segmentation, original scalar
+histories, metric-specific denominators and exact plotted values are retained
+in Analysis036. The threshold choice, examples and regressions are exploratory.
+No diagnostic-guided intervention or prospective forecasting benefit is tested
+in this presentation.

@@ -1,6 +1,17 @@
 # Manuscript workspace
 
-Latest author-feedback revision (2026-11-02, Adam section):
+Latest revision (2026-11-03, Adam spike anatomy):
+[review PDF](draft/revisions/2026-11-03-adam-spike-anatomy/revised-manuscript.pdf),
+[scope and reproduction](draft/revisions/2026-11-03-adam-spike-anatomy/README.md).
+The Adam section now follows the approved loss overview, largest-spike examples,
+fixed-reference event definition, all-amplitude density, grouped >10% anatomy
+table and cosine/norm-product regressions. Four Analysis036 PDFs are copied
+without modification. The abstract, introduction, conclusion and Adam appendix
+follow the descriptive evidence; the prior forecasting exposition is no longer
+compiled. The review has 18 pages and nine active figures. Source data, earlier
+reviews and the GD/SGD sections/figures are preserved.
+
+Earlier author-feedback revision (2026-11-02, Adam section):
 [review PDF](draft/revisions/2026-11-02-adam-feedback/revised-manuscript.pdf),
 [TODO](draft/revisions/2026-11-02-adam-feedback/TODO.md), and
 [comment dispositions / reproduction](draft/revisions/2026-11-02-adam-feedback/README.md).
@@ -21,8 +32,8 @@ multirow grouping. All 348 new trajectories and the manuscript checks pass.
 This revision builds into ignored `tmp/pdfs/` and delivers to `draft/`,
 superseding the older `artifacts/` output convention for the current review.
 
-`draft/figures/` now contains only the seven figures used by the active build,
-including the two new Analysis036 manuscript views.
+The 2026-11-02 build used seven figures, including two Analysis036 manuscript views;
+the current build uses nine, including the four approved Adam figures.
 The other 26 are preserved in the [figure archive](archive/2026-11-02-unused-figures/README.md),
 with hashes and original paths. Inactive legacy sections reference that archive.
 

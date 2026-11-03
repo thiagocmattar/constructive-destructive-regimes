@@ -12,29 +12,19 @@ USD 26.30 provisional / 4.663 hours within USD 40/six hours. Spark project 1.379
 retained with no task measurement active; old queue untouched. H023; no new
 hypothesis. Next Run217 / Analysis038 / H028.
 
-[Analysis036: fixed-level loss-spike dataset](../analyses/036-2026-11-02-controlled-adam-diagnostics/README.md)
-extracts 812 candidate excursions from all nine Run215 Adam histories: 806 recovered,
-6 right-censored. The author selected a fixed pre-rise reference; no smoothing,
-tolerance or amplitude cutoff. Event losses, durations and optimizer diagnostics
-are source-verified with an independent segmentation. A [3 x 3 descriptive panel](../analyses/036-2026-11-02-controlled-adam-diagnostics/figures/adam_spike_descriptive_statistics.pdf)
-summarizes peak increases and durations for the 806 recovered events. Earlier work remains archived;
-The loss-only overview and [per-LR peak densities](../analyses/036-2026-11-02-controlled-adam-diagnostics/figures/adam_peak_increase_density.pdf)
-use three model columns; densities cover 806 recovered events on log-percent axes.
-A separate [histogram alternative](../analyses/036-2026-11-02-controlled-adam-diagnostics/observations/009-peak-increase-histogram.md)
-uses the same cohort and axes, common half-decade bins, and per-LR percentage normalization.
-[Anatomy above 10%](../analyses/036-2026-11-02-controlled-adam-diagnostics/spike_anatomy/README.md)
-includes 129 complete events (recovery by update 1024 required), with before/rise/recovery
-diagnostics and a grouped text/LaTeX table. Pre-rise reversal is common;
-recovery alignment is model-dependent. A [pre-rise diagnostic scatter](../analyses/036-2026-11-02-controlled-adam-diagnostics/observations/005-prerise-eta-peak-scatter.md)
-plots 127 defined event pairs against peak/pre-rise loss ratio on a logarithmic y-axis, without smoothing. A [first-rise companion](../analyses/036-2026-11-02-controlled-adam-diagnostics/observations/006-first-rise-eta-peak-scatter.md)
-uses all 129 events immediately after the first loss increase; 13 are already at their peak.
-The [gradient norm rise-ratio scatter](../analyses/036-2026-11-02-controlled-adam-diagnostics/observations/007-gradient-rise-peak-scatter.md)
-compares 129 endpoint gradient norm ratios with logarithmic peak/pre-rise loss ratios.
-A [pre-rise cosine product view](../analyses/036-2026-11-02-controlled-adam-diagnostics/observations/008-rho-gradient-rise-peak-scatter.md)
-multiplies the rise ratio by signed pre-rise raw cosine for 127 defined events,
-with seven per-LR log-response regression lines and descriptive in-sample R-squared.
-Manuscript unchanged; no new training or cloud resources.
-
+[Analysis036: controlled Adam spike anatomy](../analyses/036-2026-11-02-controlled-adam-diagnostics/README.md)
+uses nine fixed-rate, 1024-update trajectories from matched initial weights.
+The [manuscript integration](../manuscript/draft/revisions/2026-11-03-adam-spike-anatomy/README.md)
+presents the loss overview, largest recovered spikes at the highest rates,
+fixed-reference event definition, 806-event density, grouped 129-event >10%
+anatomy table and 127-point per-LR regression scatter. Negative pre-rise raw
+cosine occurs in 117/127 defined events; all 129 endpoint gradient norms grow.
+The 10% threshold is operational; observed recovery is required. Regression
+R-squared uses log peak/pre-rise loss; early response, descriptive association,
+prediction and causality remain distinct. The 18-page draft passes raw-history,
+statistical, retained GD/SGD/math, compilation and Poppler visual checks.
+Prior forecasting exposition is no longer compiled; sources/history preserved.
+No new training, intervention, cloud resource or hypothesis.
 
 [Analysis035: backward fixed-endpoint profiles](../analyses/035-2026-11-02-eos-backward-anchors/REPORT.md)
 implements rho_t(k)=cos(g_t,g_(t-k)), k=1-256, with one fixed endpoint per curve.
