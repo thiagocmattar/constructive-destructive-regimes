@@ -244,7 +244,7 @@
 | [215](215-2026-11-02-controlled-full-batch-adam/README.md) | H027 controlled Adam full training from frozen initialization | Complete;9 x1,024 updates, all four streams and full splits verified | Attempt01; three local arms, six production/four pre-production Pods; all retrieved/verified/deleted; USD11.62 main provisional | [Analysis036](../analyses/036-2026-11-02-controlled-adam-diagnostics/README.md); two complete figures, no schedules/Hessians/seed sweep |
 <!-- End Run213 preparation -->
 
-Next run: `220-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
+Next run: `221-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
 executed IDs and configurations; retry unchanged scientific inputs in a new
 attempt within the same run.
 
@@ -272,3 +272,9 @@ attempt within the same run.
 | Run | Question | Status | Records |
 | --- | --- | --- | --- |
 | [219](219-2026-11-03-mlp-temporary-lr/README.md) | H028: temporary half LR using available $\eta\widehat\kappa_t\geq1.8$ versus fixed controls | Complete3 x367 canonical updates; control I/O recovery retained; zero cloud cost | [Analysis041](../analyses/041-2026-11-03-mlp-temporary-lr/REPORT.md); temporary rule inferior, no tuning |
+
+## Cooldown and cosine recovery
+
+| Run | Question | Status | Records |
+| --- | --- | --- | --- |
+| [220](220-2026-11-03-mlp-lr-cooldown/README.md) | H028: eight-update hold and cosine recovery versus one-step/fixed controls | Complete5 x367 updates; exact replay; UTC audit correction retained; zero cloud | [Analysis042](../analyses/042-2026-11-03-mlp-lr-cooldown/REPORT.md); clean four-arm figure, no timing/generalization claim |

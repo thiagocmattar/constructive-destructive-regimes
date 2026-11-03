@@ -1,5 +1,15 @@
 # Consolidated findings
 
+[Analysis042: cooldown and cosine recovery](../../analyses/042-2026-11-03-mlp-lr-cooldown/REPORT.md)
+compares five matched367-update MLP continuations from state657. Eight-update
+hold plus eight-update cosine recovery lowers mean/final training loss2.26%/4.30%
+relative to always-half here; abrupt hold is20.24%/3.25% worse. Repeated triggers
+prevent any complete cosine recovery after the first reduction, keeping365/367
+updates below base. No fixed-rate/exposure-matched control establishes incremental
+timing value; the training gain is not a held-out gain. One selected development
+seed/state, exact replay/resume, original UTC audit failure retained,57.75s local
+work and zero cloud cost. Clean figures omit the one-step series only visually.
+
 [Analysis037's three-case SGD comparison](../../analyses/037-2026-11-02-sgd-batch-extension/REPORT.md)
 adds 348 verified ResNet/Transformer continuations and reuses 198 MLP continuations,
 with three initialization blocks per case. Smallest trained-state batches weaken

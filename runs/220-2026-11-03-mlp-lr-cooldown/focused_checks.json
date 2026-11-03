@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "tests": 20,
+  "seconds": 3.67,
+  "command": "python -m pytest runs/220-2026-11-03-mlp-lr-cooldown/test_policy.py runs/219-2026-11-03-mlp-temporary-lr/test_policy.py --import-mode=importlib -q",
+  "initial_collection_issue": "Default import mode collided on two test_policy.py basenames; importlib collection resolved it. No neural training during tests.",
+  "full_implementation_suite_rerun": false
+}

@@ -1,0 +1,227 @@
+{
+  "run_id": "220",
+  "analysis_id": "042",
+  "hypothesis": "H028",
+  "rung": "controlled_full_objective_mlp_development",
+  "seed": 0,
+  "conditions": [
+    "unchanged",
+    "always_half",
+    "temporary",
+    "hold8",
+    "hold8_cosine8"
+  ],
+  "base_lr": 0.001,
+  "reduced_lr": 0.0005,
+  "threshold": 1.8,
+  "threshold_comparison": ">=",
+  "start_state": 657,
+  "end_state": 1024,
+  "updates_per_condition": 367,
+  "main_updates": 1835,
+  "nominal_training_images": 9175000,
+  "zoom_states": [
+    673,
+    745
+  ],
+  "historical_event": [
+    689,
+    703,
+    729
+  ],
+  "hard_worker_seconds": 600,
+  "expected_minutes": [
+    1,
+    3
+  ],
+  "cloud_spend_usd": 0,
+  "parent_sha256": "359097d026b45f8f0b8a33665aca4ad0382e52835745ceaeccf027ed29539ba4",
+  "notation": "\\eta\\widehat\\kappa_t",
+  "rule": "threshold >=1.8 resets eight-update absolute-half hold including current update; optional next eight updates cosine recover to base; no compounding; undefined continues active schedule or uses base if inactive",
+  "architecture": [
+    3072,
+    200,
+    200,
+    10
+  ],
+  "activation": "tanh",
+  "train_images": 5000,
+  "physical_chunk_images": 1000,
+  "objective": "half squared error summed across outputs and averaged over images",
+  "betas": [
+    0.9,
+    0.999
+  ],
+  "epsilon": 1e-08,
+  "weight_decay": 0,
+  "precision": {
+    "model": "FP32",
+    "gradients": "FP32",
+    "moments": "FP32",
+    "products": "FP64"
+  },
+  "tf32": false,
+  "foreach": false,
+  "fused": false,
+  "launch_authorized": true,
+  "extra_methods": false,
+  "hold_updates": 8,
+  "recovery_updates": 8,
+  "qualification_updates": 108,
+  "qualification_gradient_calls": 117,
+  "expected_retained_gib": 3,
+  "cosine_recovery": "lr(k)=0.0005+(0.001-0.0005)*(1-cos(pi*k/8))/2, k=1..8 after eight-update hold",
+  "predeclared_comparisons": [
+    "hold8 versus temporary: persistence",
+    "hold8_cosine8 versus hold8: smooth recovery",
+    "all versus unchanged and always_half: progress and excursion controls"
+  ],
+  "exploratory_choice": "N=8 and recovery=8 chosen before these results; selected starting state and one development seed; no tuning grid",
+  "status": "completed",
+  "started_utc": "2026-11-03T18:53:30.487623+00:00",
+  "reason": "Qualification compared fresh UTC timestamps. Scientific inputs unchanged.",
+  "infrastructure_source_sha256": "e29d3ba015238ef9d6b5f42afc666d34c6d58a68930bda056de4387ec322db2b",
+  "scientific_manifest_sha256": "db619fdd3d041c6517c1a2632b8ece0a7882fbb4f65badb7d50f22f7047169be",
+  "source_attempt": "001-local",
+  "prior_worker_seconds": 9.018602899974212,
+  "worker_elapsed_seconds": 48.736139400163665,
+  "finished_utc": "2026-11-03T18:54:19.077787+00:00",
+  "results": {
+    "unchanged": {
+      "status": "completed",
+      "updates": 367,
+      "runner_seconds": 8.131045799935237,
+      "endpoint_test": {
+        "loss": 0.7770660339355469,
+        "loss_units": 10000,
+        "objective_units": 10000
+      },
+      "endpoint_test_seconds": 0.003203100059181452,
+      "peak_allocated_bytes": 325459456,
+      "policy_state": {
+        "updates": 367,
+        "hold_remaining": 0,
+        "recovery_position": 0,
+        "last_lr": 0.001,
+        "half_updates": 0,
+        "below_base_updates": 0,
+        "switches_within": 0,
+        "switches_with_entry": 0,
+        "triggers": 0,
+        "retriggers": 0,
+        "undefined_updates": 0
+      }
+    },
+    "always_half": {
+      "status": "completed",
+      "updates": 367,
+      "runner_seconds": 8.032571900170296,
+      "endpoint_test": {
+        "loss": 0.7828646301269533,
+        "loss_units": 10000,
+        "objective_units": 10000
+      },
+      "endpoint_test_seconds": 0.0033346000127494335,
+      "peak_allocated_bytes": 325459456,
+      "policy_state": {
+        "updates": 367,
+        "hold_remaining": 0,
+        "recovery_position": 0,
+        "last_lr": 0.0005,
+        "half_updates": 367,
+        "below_base_updates": 367,
+        "switches_within": 0,
+        "switches_with_entry": 1,
+        "triggers": 0,
+        "retriggers": 0,
+        "undefined_updates": 0
+      }
+    },
+    "temporary": {
+      "status": "completed",
+      "updates": 367,
+      "runner_seconds": 8.084903399925679,
+      "endpoint_test": {
+        "loss": 0.6603653747558595,
+        "loss_units": 10000,
+        "objective_units": 10000
+      },
+      "endpoint_test_seconds": 0.0044386000372469425,
+      "peak_allocated_bytes": 325459456,
+      "policy_state": {
+        "updates": 367,
+        "hold_remaining": 0,
+        "recovery_position": 0,
+        "last_lr": 0.001,
+        "half_updates": 18,
+        "below_base_updates": 18,
+        "switches_within": 36,
+        "switches_with_entry": 36,
+        "triggers": 18,
+        "retriggers": 0,
+        "undefined_updates": 0
+      }
+    },
+    "hold8": {
+      "status": "completed",
+      "updates": 367,
+      "runner_seconds": 8.135201500030234,
+      "endpoint_test": {
+        "loss": 0.7785980346679687,
+        "loss_units": 10000,
+        "objective_units": 10000
+      },
+      "endpoint_test_seconds": 0.00311879999935627,
+      "peak_allocated_bytes": 325459456,
+      "policy_state": {
+        "updates": 367,
+        "hold_remaining": 7,
+        "recovery_position": 0,
+        "last_lr": 0.0005,
+        "half_updates": 337,
+        "below_base_updates": 337,
+        "switches_within": 37,
+        "switches_with_entry": 37,
+        "triggers": 77,
+        "retriggers": 55,
+        "undefined_updates": 0
+      }
+    },
+    "hold8_cosine8": {
+      "status": "completed",
+      "updates": 367,
+      "runner_seconds": 8.002986600156873,
+      "endpoint_test": {
+        "loss": 0.785676873779297,
+        "loss_units": 10000,
+        "objective_units": 10000
+      },
+      "endpoint_test_seconds": 0.0031735000666230917,
+      "peak_allocated_bytes": 325459456,
+      "policy_state": {
+        "updates": 367,
+        "hold_remaining": 4,
+        "recovery_position": 0,
+        "last_lr": 0.0005,
+        "half_updates": 276,
+        "below_base_updates": 365,
+        "switches_within": 110,
+        "switches_with_entry": 110,
+        "triggers": 59,
+        "retriggers": 58,
+        "undefined_updates": 0
+      }
+    }
+  },
+  "total_active_worker_seconds": 57.75476050004363,
+  "qualification": {
+    "status": "passed",
+    "updates": 108,
+    "gradient_calls": 117,
+    "audit_correction": "Exclude only observer.history[*].pre.utc; altered scientific scalar still fails synthetic check.",
+    "checks": [
+      "three original policies first five Run219 boundaries exact",
+      "both new policies24 direct versus12+12 resumed weights/moments/RNG/policy/full numeric observer exact"
+    ]
+  }
+}

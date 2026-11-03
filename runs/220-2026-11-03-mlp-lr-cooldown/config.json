@@ -1,0 +1,80 @@
+{
+  "run_id": "220",
+  "analysis_id": "042",
+  "hypothesis": "H028",
+  "rung": "controlled_full_objective_mlp_development",
+  "seed": 0,
+  "conditions": [
+    "unchanged",
+    "always_half",
+    "temporary",
+    "hold8",
+    "hold8_cosine8"
+  ],
+  "base_lr": 0.001,
+  "reduced_lr": 0.0005,
+  "threshold": 1.8,
+  "threshold_comparison": ">=",
+  "start_state": 657,
+  "end_state": 1024,
+  "updates_per_condition": 367,
+  "main_updates": 1835,
+  "nominal_training_images": 9175000,
+  "zoom_states": [
+    673,
+    745
+  ],
+  "historical_event": [
+    689,
+    703,
+    729
+  ],
+  "hard_worker_seconds": 600,
+  "expected_minutes": [
+    1,
+    3
+  ],
+  "cloud_spend_usd": 0,
+  "parent_sha256": "359097d026b45f8f0b8a33665aca4ad0382e52835745ceaeccf027ed29539ba4",
+  "notation": "\\eta\\widehat\\kappa_t",
+  "rule": "threshold >=1.8 resets eight-update absolute-half hold including current update; optional next eight updates cosine recover to base; no compounding; undefined continues active schedule or uses base if inactive",
+  "architecture": [
+    3072,
+    200,
+    200,
+    10
+  ],
+  "activation": "tanh",
+  "train_images": 5000,
+  "physical_chunk_images": 1000,
+  "objective": "half squared error summed across outputs and averaged over images",
+  "betas": [
+    0.9,
+    0.999
+  ],
+  "epsilon": 1e-08,
+  "weight_decay": 0,
+  "precision": {
+    "model": "FP32",
+    "gradients": "FP32",
+    "moments": "FP32",
+    "products": "FP64"
+  },
+  "tf32": false,
+  "foreach": false,
+  "fused": false,
+  "launch_authorized": true,
+  "extra_methods": false,
+  "hold_updates": 8,
+  "recovery_updates": 8,
+  "qualification_updates": 108,
+  "qualification_gradient_calls": 117,
+  "expected_retained_gib": 3,
+  "cosine_recovery": "lr(k)=0.0005+(0.001-0.0005)*(1-cos(pi*k/8))/2, k=1..8 after eight-update hold",
+  "predeclared_comparisons": [
+    "hold8 versus temporary: persistence",
+    "hold8_cosine8 versus hold8: smooth recovery",
+    "all versus unchanged and always_half: progress and excursion controls"
+  ],
+  "exploratory_choice": "N=8 and recovery=8 chosen before these results; selected starting state and one development seed; no tuning grid"
+}

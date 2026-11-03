@@ -76,7 +76,7 @@
 | [036](036-2026-11-02-controlled-adam-diagnostics/README.md) | Controlled fixed-rate Adam and loss-spike anatomy | Runs213/215; Analysis024/029/034 | Complete: 806 recovered excursions; 129 above 10%; 127 defined regression points; integrated in the 18-page draft | [Event definition](036-2026-11-02-controlled-adam-diagnostics/loss_spike_definition.md); [event data](036-2026-11-02-controlled-adam-diagnostics/spike_dataset/loss_spikes.csv); [manuscript integration and evidence](036-2026-11-02-controlled-adam-diagnostics/observations/010-manuscript-spike-anatomy.md); source figures/data preserved; earlier exploration in archive/ |
 <!-- End Analysis036 preparation -->
 
-Next analysis: `042-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
+Next analysis: `043-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
 an analysis may use manuscript or external inputs without referencing a run.
 
 ## Active batch-size extension
@@ -108,3 +108,9 @@ an analysis may use manuscript or external inputs without referencing a run.
 | Analysis | Question | Inputs | Status | Records |
 | --- | --- | --- | --- | --- |
 | [041](041-2026-11-03-mlp-temporary-lr/REPORT.md) | H028: temporary reduction using $\eta\widehat\kappa_t$ | Run219, authenticated Run218 state657;367 updates per condition | Complete;18 reductions/36 switches, worse progress than fixed controls | Predeclared zoom and full view, direct clock/replay checks, failed control attempt preserved |
+
+## Cooldown and cosine recovery
+
+| Analysis | Question | Inputs | Status | Records |
+| --- | --- | --- | --- | --- |
+| [042](042-2026-11-03-mlp-lr-cooldown/REPORT.md) | H028: persistence and gradual LR recovery | Run220; five matched367-update arms from state657 | Complete; cosine mean/final training loss2.26%/4.30% below always-half;365/367 updates below base | [Clean four-arm figure](042-2026-11-03-mlp-lr-cooldown/figures/focal_four_arm.pdf); raw/clock/replay checks and audit correction retained; one development seed |
