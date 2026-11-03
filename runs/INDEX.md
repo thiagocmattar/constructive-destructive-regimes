@@ -244,7 +244,7 @@
 | [215](215-2026-11-02-controlled-full-batch-adam/README.md) | H027 controlled Adam full training from frozen initialization | Complete;9 x1,024 updates, all four streams and full splits verified | Attempt01; three local arms, six production/four pre-production Pods; all retrieved/verified/deleted; USD11.62 main provisional | [Analysis036](../analyses/036-2026-11-02-controlled-adam-diagnostics/README.md); two complete figures, no schedules/Hessians/seed sweep |
 <!-- End Run213 preparation -->
 
-Next run: `218-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
+Next run: `219-YYYY-MM-DD-slug`. Record calibration-only work as such. Preserve
 executed IDs and configurations; retry unchanged scientific inputs in a new
 attempt within the same run.
 
@@ -260,3 +260,9 @@ attempt within the same run.
 | Run | Question | Status | Records |
 | --- | --- | --- | --- |
 | [217](217-2026-11-03-mlp-adam-control-foundation/README.md) | H028: unchanged Adam control, pre-update observer and immutable forks | Prepared; unit/contract checks only, zero neural training | [Analysis039](../analyses/039-2026-11-03-mlp-control-foundation/README.md); no interventions or spending |
+
+## Moment-preserving action implementation
+
+| Run | Question | Status | Records |
+| --- | --- | --- | --- |
+| [218](218-2026-11-03-mlp-adam-step-actions/README.md) | H028: A1/A2/A4/A8 scalar-step branches against A0 | Prepared;104 contract checks, no neural execution | [Analysis040](../analyses/040-2026-11-03-mlp-step-actions/README.md); explicit parent identity and immutable branch recovery |

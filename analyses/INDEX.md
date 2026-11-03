@@ -76,7 +76,7 @@
 | [036](036-2026-11-02-controlled-adam-diagnostics/README.md) | Controlled fixed-rate Adam and loss-spike anatomy | Runs213/215; Analysis024/029/034 | Complete: 806 recovered excursions; 129 above 10%; 127 defined regression points; integrated in the 18-page draft | [Event definition](036-2026-11-02-controlled-adam-diagnostics/loss_spike_definition.md); [event data](036-2026-11-02-controlled-adam-diagnostics/spike_dataset/loss_spikes.csv); [manuscript integration and evidence](036-2026-11-02-controlled-adam-diagnostics/observations/010-manuscript-spike-anatomy.md); source figures/data preserved; earlier exploration in archive/ |
 <!-- End Analysis036 preparation -->
 
-Next analysis: `040-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
+Next analysis: `041-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
 an analysis may use manuscript or external inputs without referencing a run.
 
 ## Active batch-size extension
@@ -96,3 +96,9 @@ an analysis may use manuscript or external inputs without referencing a run.
 | Analysis | Question | Inputs | Status | Records |
 | --- | --- | --- | --- | --- |
 | [039](039-2026-11-03-mlp-control-foundation/README.md) | H028 control implementation contracts | Run217; unchanged Run215 inputs | Verified preparation only; no neural experiment | Observer clocks, unchanged Adam, immutable fork/recovery and exact mock resume |
+
+## Moment-preserving action contracts
+
+| Analysis | Question | Inputs | Status | Records |
+| --- | --- | --- | --- | --- |
+| [040](040-2026-11-03-mlp-step-actions/README.md) | H028 scalar-step intervention implementation | Run218; unchanged accepted Run217/Run215 inputs | Verified preparation only;104 contracts, zero neural training | A1/A2/A4/A8, native-moment equivalence, explicit branch provenance/resume |

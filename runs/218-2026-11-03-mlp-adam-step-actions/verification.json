@@ -1,0 +1,42 @@
+{
+  "status": "verified_implementation_only",
+  "run_id": "218",
+  "analysis_id": "040",
+  "hypothesis": "H028",
+  "implemented_arms": [
+    "A0",
+    "A1",
+    "A2",
+    "A4",
+    "A8"
+  ],
+  "neural_training": false,
+  "remote_execution": false,
+  "paid_resources": false,
+  "checks": [
+    {
+      "command": "python -m pytest -o addopts= -p no:cacheprovider --basetemp=<unique system temporary directory> -q runs/218-2026-11-03-mlp-adam-step-actions/test_actions.py runs/217-2026-11-03-mlp-adam-control-foundation/test_control.py runs/213-2026-11-02-eos-adam-from-init-calibration/test_diagnostics.py",
+      "result": "104 passed",
+      "seconds": 8.01,
+      "new_tests": 68,
+      "accepted_existing_tests": 36
+    },
+    {
+      "command": "python runs/218-2026-11-03-mlp-adam-step-actions/01_actions.py --help",
+      "result": "exit 0; no model constructed"
+    },
+    {
+      "check": "Read-only implementation_identity validation",
+      "result": "20/20 file identities and pinned native Adam source match; all14 accepted foundation entries unchanged; no model constructed"
+    },
+    {
+      "command": "git diff --cached --check",
+      "result": "exit 0;12 scoped files reviewed; staged source/config hashes match; concurrent manuscript and earlier unrelated edits preserved"
+    }
+  ],
+  "limitations": [
+    "Generated vectors/oracles only; no real MLP, neural smoke, timing calibration or historical replay.",
+    "Native CPU parameter application checked; real GPU numerical replay remains unqualified.",
+    "No treatment-effect or monotone-loss claim; A3/A5/A6/A7 are unsupported."
+  ]
+}

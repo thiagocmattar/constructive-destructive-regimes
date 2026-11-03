@@ -1,0 +1,33 @@
+{
+  "run_id": "218",
+  "analysis_id": "040",
+  "hypothesis": "H028",
+  "status": "implementation_preparation_only",
+  "implemented_arms": [
+    "A0",
+    "A1",
+    "A2",
+    "A4",
+    "A8"
+  ],
+  "unsupported_arms": [
+    "A3",
+    "A5",
+    "A6",
+    "A7"
+  ],
+  "foundation_run": "217",
+  "foundation_commit": "9af24113bebd3d76a3bad5cabda78690fa69b7c9",
+  "fork_update": 657,
+  "branch_updates": 128,
+  "checkpoint_every": 32,
+  "base_lr": 0.001,
+  "prior_proposal_norms": 64,
+  "secant_alignment_tolerance": 1e-08,
+  "alpha_floor_multiple": 0.05,
+  "alpha_cap_multiple": 1.0,
+  "native_adam_source_sha256": "7fe852bb8ee5b8deb5ddf3407c2aee5f9961b7d74857a20adf5b9f8d20b5ef22",
+  "training_launched": false,
+  "launch_authorized": false,
+  "next_gate": "coordinator review and next bounded assignment"
+}

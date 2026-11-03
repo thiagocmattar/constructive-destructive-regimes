@@ -8,7 +8,7 @@ state, with 128-update continuations. Source audit verifies three events and
 675 extended-context rows; all 28 rise updates have a locally descending actual
 step despite increasing loss. Intermediate Run215 recovery states were overwritten;
 new common prefixes and untreated replay qualification are required. H028 proposed;
-no intervention training or paid execution. Next Run218 / Analysis040 / H029.
+no intervention training or paid execution. Next Run219 / Analysis041 / H029.
 
 [Analysis037: three-case SGD batch-size comparison](../analyses/037-2026-11-02-sgd-batch-extension/REPORT.md)
 completed 348 new continuations plus 198 reused MLP continuations, with all three
@@ -535,4 +535,13 @@ no new hypothesis allocated.
 the A0-only local driver, pre-update completed-step observer, immutable labeled
 forks and separate rolling recovery. Generated tensor/mock contracts pass;
 Run215 remains unchanged. Preparation only: H028 untested, zero neural training,
-intervention arms, remote execution or spending. Next Run218 / Analysis040 / H029.
+intervention arms, remote execution or spending. Next Run219 / Analysis041 / H029.
+
+## Adam scalar-step implementation milestone
+
+[Run218](../runs/218-2026-11-03-mlp-adam-step-actions/README.md) /
+[Analysis040](../analyses/040-2026-11-03-mlp-step-actions/README.md) add A1/A2/A4/A8
+with A0 retained, ordinary FP32 moments/age, prior-only fixed proposal caps,
+transported-secant eligibility/fallbacks and explicit parent/branch identities.
+104 tensor/mock/accepted contracts pass. Preparation only; H028 untested, no
+neural training, remote work, spending or manuscript edit. Next Run219 / Analysis041 / H029.

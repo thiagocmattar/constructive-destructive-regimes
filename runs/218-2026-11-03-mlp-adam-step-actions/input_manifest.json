@@ -1,0 +1,113 @@
+{
+  "schema": 1,
+  "run_id": "218",
+  "status": "verified_implementation_preparation_only",
+  "foundation_commit": "9af24113bebd3d76a3bad5cabda78690fa69b7c9",
+  "files": [
+    {
+      "path": "cache/eos-multitask/inputs.json",
+      "bytes": 7492,
+      "sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f"
+    },
+    {
+      "path": "cache/cifar10-eos/inputs.json",
+      "bytes": 3252,
+      "sha256": "a5eea01295c437f42135294619765dea9d2ba7befc9f785a3936f7366f9144f0"
+    },
+    {
+      "path": "cache/cifar10-eos/data.pt",
+      "bytes": 184491697,
+      "sha256": "2e4761c655a66a7e578efeb30950b9e39deeafd618f519cbc4ec823ff867985e"
+    },
+    {
+      "path": "cache/eos-multitask/mlp_initial_seed0.pt",
+      "bytes": 2630285,
+      "sha256": "b64c58838e736a667ca27e02e825ffd26bd1864097a7a999bcb01a418adafa7c"
+    },
+    {
+      "path": "src/eos_tasks/__init__.py",
+      "bytes": 78,
+      "sha256": "b827b6bf61d01a83281bbff65204315279e6d343f962a1bbe4e52d5a7f67b86e"
+    },
+    {
+      "path": "src/eos_tasks/production.py",
+      "bytes": 1375,
+      "sha256": "9cda7703e50d4f32d9e8c3118361c418b600a87e23b3f8d6b175b82e1482b6ce"
+    },
+    {
+      "path": "src/eos_tasks/task.py",
+      "bytes": 6899,
+      "sha256": "28a15439e22ec82e05da41497b2d6c9a33171f29a9e13413d8167804d124c6b0"
+    },
+    {
+      "path": "src/eos_tasks/adam_diagnostics.py",
+      "bytes": 4027,
+      "sha256": "2d70b9d876c9fb08845f0a2f779d1b90b138c41b530422f44b9da06fe453fc7d"
+    },
+    {
+      "path": "src/cifar_eos/__init__.py",
+      "bytes": 80,
+      "sha256": "4cfbf7fc078bcae86b6ddfcbb2a9d87619b6350302c07379b3f4df21fe7eb27c"
+    },
+    {
+      "path": "src/cifar_eos/core.py",
+      "bytes": 11786,
+      "sha256": "c9fab65d551740149d7ff3a79e4b3af1e87ff5e7f3ba7c5cc62201f216434138"
+    },
+    {
+      "path": "runs/215-2026-11-02-controlled-full-batch-adam/01_train.py",
+      "bytes": 10138,
+      "sha256": "861afc4b14a31f5ccb9bb7f92c1f8e0d56f0ef3ac39a0d1521f3758fccfe5514"
+    },
+    {
+      "path": "runs/215-2026-11-02-controlled-full-batch-adam/config.json",
+      "bytes": 1669,
+      "sha256": "868c271e89bea4641e633d727c7b322a2220085ea1bee63c2dc712389e8e88f4"
+    },
+    {
+      "path": "runs/217-2026-11-03-mlp-adam-control-foundation/01_control.py",
+      "bytes": 21739,
+      "sha256": "01a434fc1bb42090d1ccedcf7cd86b4c022b117e2d5dd78bf06e9bd71ba7bdd0"
+    },
+    {
+      "path": "runs/217-2026-11-03-mlp-adam-control-foundation/config.json",
+      "bytes": 1329,
+      "sha256": "376989cf4ec98e8ceb2e403257cddc344a93b155b033ae26e092a7810c4132ef"
+    },
+    {
+      "path": "runs/217-2026-11-03-mlp-adam-control-foundation/input_manifest.json",
+      "bytes": 2801,
+      "sha256": "4bb80581c8563c013eaf6334f8ce669255df72ccf0ba3a1a4424b19961188f92"
+    },
+    {
+      "path": "runs/218-2026-11-03-mlp-adam-step-actions/01_actions.py",
+      "bytes": 23266,
+      "sha256": "a2b6effa80fad2149184f94241d692c4fd02a78b29584660beb113343cdd5877"
+    },
+    {
+      "path": "runs/218-2026-11-03-mlp-adam-step-actions/config.json",
+      "bytes": 804,
+      "sha256": "1112b304fad8d6364172bc54764e655fbb228b8ff44e5e97491c9b4195da5e41"
+    },
+    {
+      "path": "analyses/038-2026-11-03-adam-spike-intervention-design/PROTOCOL.md",
+      "bytes": 23667,
+      "sha256": "3e3efb7738b4631a29a622ec7c3cdfa5fc507f5f05bf55428e9349cd539f6515"
+    },
+    {
+      "path": "manuscript/2026-11-03-research-program/EXECUTION.md",
+      "bytes": 18822,
+      "sha256": "b04bdb277689a8d79a4cfbf76340f9a601d27641d95130bb11605d5fa56fa605"
+    },
+    {
+      "path": "manuscript/2026-11-03-research-program/pilot_plan.json",
+      "bytes": 5944,
+      "sha256": "0ade3f43c4bc73bae3500d59b29678f32caec6a2b09c05f04661ab6359d36398"
+    }
+  ],
+  "notes": [
+    "No executed inputs changed; Run217 is imported with its accepted source hash checked before import.",
+    "The native Adam single-tensor source hash is additionally pinned in config.json.",
+    "Definition documents are read-only provenance; no manuscript edit or neural execution."
+  ]
+}
