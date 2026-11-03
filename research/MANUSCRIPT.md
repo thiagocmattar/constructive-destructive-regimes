@@ -1,8 +1,24 @@
 # Manuscript and evidence
 
+## Second author-feedback pass, 2026-11-03
+
+The [current revision](../manuscript/draft/revisions/2026-11-03-original-argument-feedback-feedback/README.md)
+addresses the next 30 annotations in sequence. Explicit deletions are removed,
+regime terminology and mathematical presentation are simplified, and Adam's raw
+gradients are clearly separated from its adaptive step. A schematic marks the
+fixed pre-rise baseline, first rise, peak and recovery. The aggregate discussion
+uses verified percentages and emphasizes the joint explanatory role of reversal
+and norm growth. The existing event dataset, regressions and empirical figures
+are unchanged; the GD overview only loses a legend parenthesis.
+
+The 13-page review passes all 934 numerical mathematical cases, data checks,
+37 protected-file hashes and full-page visual inspection. It has nine figures
+and one table, with no unresolved references or overfull boxes. The previous
+revision, supplied feedback and original introduction remain preserved.
+
 ## Author-feedback revision of Sections II-IV, 2026-11-03
 
-The [current revision](../manuscript/draft/revisions/2026-11-03-original-argument-feedback/README.md)
+The [preceding revision](../manuscript/draft/revisions/2026-11-03-original-argument-feedback/README.md)
 extracts and addresses all 41 annotations in the original-argument feedback PDF.
 It clarifies stability/EoS context, separates Hessian-free directional-curvature
 estimation, boxes the curvature and local loss-increase relations, and explains

@@ -125,9 +125,6 @@ spikes in loss and gradient norm while evaluating initialization,
 normalization, and optimizer choices~\cite{olmo2025furious}. Kimi~K2's
 MuonClip optimizer uses attention-logit-based rescaling of query and key
 weights and reports training without loss spikes~\cite{kimi2025k2}.
-Llama~3 reports few spikes and no divergence interventions, while
-DeepSeek-V3 reports no irrecoverable spikes or checkpoint
-rollbacks~\cite{grattafiori2024llama3, deepseek2024v3}.
 
 Gradient norms are thus already useful monitoring signals. Their
 relationship to stability becomes clearer when magnitude is combined

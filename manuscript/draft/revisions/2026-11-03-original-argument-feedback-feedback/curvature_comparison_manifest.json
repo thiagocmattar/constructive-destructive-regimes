@@ -1,0 +1,331 @@
+{
+  "status": "passed",
+  "generator": "manuscript/draft/revisions/2026-11-03-original-argument-feedback-feedback/01_prepare_figures.py",
+  "generator_sha256": "12edde55ca9a6ae8e6f68d65569ec31ddc80b22702acb48df50424627285fa59",
+  "sources": {
+    "analyses/024-2026-10-17-eos-gd-lr-calibration/single_rows_figure_manifest.json": "2d6fcb8edefa9ba99df3c595d190a89bf1d402341cab44d7cb11096eb8c1752a",
+    "analyses/024-2026-10-17-eos-gd-lr-calibration/mlp_learning_rates_figure_manifest.json": "272cfdc89ea919a8ec3c0665a9ead53ae1100ee5f3288dd17f012ecc39d720bb",
+    "analyses/024-2026-10-17-eos-gd-lr-calibration/derived/single_rows_curves.npz": "6f12a75b08b8e79742e174a1c24f7fb4964519a00371ed41f77e26fb72e971ed",
+    "analyses/024-2026-10-17-eos-gd-lr-calibration/derived/mlp_learning_rates_curves.npz": "cdfd735aa56f2b760ecaaa8e3155551205f8463e118cb67215c7c8caf88c3a0b",
+    "analyses/024-2026-10-17-eos-gd-lr-calibration/results.json": "c9147f0c1cb0d4d2c5a6e3ed80f354f64da8463162db293e58e0001c4605c3f3",
+    "analyses/024-2026-10-17-eos-gd-lr-calibration/cohort.json": "1de4ab6aa26dd693b3ecc3dd84e6c8af004d2c01042319f6a76db456d18dc37b",
+    "analyses/020-2026-10-14-eos-multitask/07_plot_training.py": "aa9a39fc11ca0af48464159558b23a026008ad051a0c599e7224afdcef57ef43",
+    "analyses/024-2026-10-17-eos-gd-lr-calibration/curvature_comparison_manifest.json": "827d0d08eb2259114222347cf18590f02ef7f781227e4226607850d223b19145"
+  },
+  "curves": [
+    {
+      "tag": "loss_run059",
+      "points": 3001,
+      "x_sha256": "613f1a2e882fae2b540d0a7da475ce368be19f869c2396bae69128f62e21ca40",
+      "y_sha256": "c9c9b907c40fb557d0d4058550f8290aa2a5153babdcd2b8e6df31b4eaf5562b"
+    },
+    {
+      "tag": "eta_kappa_hat_run059",
+      "points": 2950,
+      "x_sha256": "680f64c7dfab01bbbf30f7b18849a5f42801f16554b44b305f64910e6d9f5d5c",
+      "y_sha256": "ad034625789990da9d9f0f4efb5ab9e6c5697e52f562a42274d93d316acac5aa"
+    },
+    {
+      "tag": "eta_lambda_max_run059",
+      "points": 31,
+      "x_sha256": "7df0170b377c15548e2a37df505c4e89211e3d348107ab81c7ddb5d438d8e891",
+      "y_sha256": "679024e2905d2089196f9b5205223aba56a8382f2bc386b74cd3406632102691"
+    },
+    {
+      "tag": "loss_run062",
+      "points": 3001,
+      "x_sha256": "613f1a2e882fae2b540d0a7da475ce368be19f869c2396bae69128f62e21ca40",
+      "y_sha256": "e8acf4e3ff551188fcabd26c88d345650a41c4a0e4ad77e3c97ea5eb11075a25"
+    },
+    {
+      "tag": "eta_kappa_hat_run062",
+      "points": 2950,
+      "x_sha256": "680f64c7dfab01bbbf30f7b18849a5f42801f16554b44b305f64910e6d9f5d5c",
+      "y_sha256": "281c64c8e5c209c6a261afb15fab390944a1583b833e670db3d3cf921c5a5cad"
+    },
+    {
+      "tag": "eta_lambda_max_run062",
+      "points": 31,
+      "x_sha256": "7df0170b377c15548e2a37df505c4e89211e3d348107ab81c7ddb5d438d8e891",
+      "y_sha256": "e53188d85f1c45afc0d0ca21ceeffaf0c0f4a109bea86187dbefb0bae394c553"
+    },
+    {
+      "tag": "loss_run122",
+      "points": 3001,
+      "x_sha256": "613f1a2e882fae2b540d0a7da475ce368be19f869c2396bae69128f62e21ca40",
+      "y_sha256": "e7497c7f07726a2ebc8162b23af7a29b602a7b2938cca1749c05822cd2039b5d"
+    },
+    {
+      "tag": "eta_kappa_hat_run122",
+      "points": 2950,
+      "x_sha256": "680f64c7dfab01bbbf30f7b18849a5f42801f16554b44b305f64910e6d9f5d5c",
+      "y_sha256": "eede8e3e8c7d43dc0fbf6bc472a3ee5034e4f652610397b9c304e9cd75b29d39"
+    },
+    {
+      "tag": "eta_lambda_max_run122",
+      "points": 31,
+      "x_sha256": "7df0170b377c15548e2a37df505c4e89211e3d348107ab81c7ddb5d438d8e891",
+      "y_sha256": "51e98ffcfddf3d640255023aa3e343d0281ded6daaa6c85d36ca359c53ed929a"
+    },
+    {
+      "tag": "loss_run123",
+      "points": 3001,
+      "x_sha256": "613f1a2e882fae2b540d0a7da475ce368be19f869c2396bae69128f62e21ca40",
+      "y_sha256": "c9b7dd5d6850fbce590e92e9de31e4f53cc49c4d041fdc6debd94a68e1af99b9"
+    },
+    {
+      "tag": "eta_kappa_hat_run123",
+      "points": 2950,
+      "x_sha256": "680f64c7dfab01bbbf30f7b18849a5f42801f16554b44b305f64910e6d9f5d5c",
+      "y_sha256": "456931065e4cbf76673b9fce041a7dd4baf2cc1ebe82983584ae4b3ad8cf8cc3"
+    },
+    {
+      "tag": "eta_lambda_max_run123",
+      "points": 31,
+      "x_sha256": "7df0170b377c15548e2a37df505c4e89211e3d348107ab81c7ddb5d438d8e891",
+      "y_sha256": "2cdeb37a442b9cb0710815354bae3fa709be46f893f0be7c494e037b96536429"
+    },
+    {
+      "tag": "loss_run124",
+      "points": 3001,
+      "x_sha256": "613f1a2e882fae2b540d0a7da475ce368be19f869c2396bae69128f62e21ca40",
+      "y_sha256": "c0e4df7aabd80a6b68c61189c14cdfc0b18f6cdda944eda6b5ed78089a4e4157"
+    },
+    {
+      "tag": "eta_kappa_hat_run124",
+      "points": 2950,
+      "x_sha256": "680f64c7dfab01bbbf30f7b18849a5f42801f16554b44b305f64910e6d9f5d5c",
+      "y_sha256": "f335eb2d90a407a59a66544d72e2412a7a8d61442c34abf2a0f43152c65ee36f"
+    },
+    {
+      "tag": "eta_lambda_max_run124",
+      "points": 31,
+      "x_sha256": "7df0170b377c15548e2a37df505c4e89211e3d348107ab81c7ddb5d438d8e891",
+      "y_sha256": "f9331bc278960969e8bb82f210fb9392c75f114fed8af8baa632602b498fbb5c"
+    },
+    {
+      "tag": "loss_run120",
+      "points": 3001,
+      "x_sha256": "613f1a2e882fae2b540d0a7da475ce368be19f869c2396bae69128f62e21ca40",
+      "y_sha256": "a977d0885cc8d64c8c836cf19e0c9004da82914fae2935fe69710e52c433cfe6"
+    },
+    {
+      "tag": "eta_kappa_hat_run120",
+      "points": 2950,
+      "x_sha256": "680f64c7dfab01bbbf30f7b18849a5f42801f16554b44b305f64910e6d9f5d5c",
+      "y_sha256": "1b2b296a4efaed052e403a793474435ed8ce8981cb22e2b6eb1cdb4f384919df"
+    },
+    {
+      "tag": "eta_lambda_max_run120",
+      "points": 31,
+      "x_sha256": "7df0170b377c15548e2a37df505c4e89211e3d348107ab81c7ddb5d438d8e891",
+      "y_sha256": "7ca7801c79f63b0f0d0aa89e4993531bde6e39e89a5236210762b0827bdebdf0"
+    },
+    {
+      "tag": "loss_run121",
+      "points": 3001,
+      "x_sha256": "613f1a2e882fae2b540d0a7da475ce368be19f869c2396bae69128f62e21ca40",
+      "y_sha256": "0f8979cd422fb8817fb7404777c9cb6e49ba5a873dabf2c3a508434a0238a592"
+    },
+    {
+      "tag": "eta_kappa_hat_run121",
+      "points": 2950,
+      "x_sha256": "680f64c7dfab01bbbf30f7b18849a5f42801f16554b44b305f64910e6d9f5d5c",
+      "y_sha256": "a0aebecd67fee0a7e9061f848031dd29e9dd15f407ac624f288c749ca00110e0"
+    },
+    {
+      "tag": "eta_lambda_max_run121",
+      "points": 31,
+      "x_sha256": "7df0170b377c15548e2a37df505c4e89211e3d348107ab81c7ddb5d438d8e891",
+      "y_sha256": "f04622586bf9ea70a3e454da17b65d2bac86b6c853aaafda91562d8154532eed"
+    },
+    {
+      "tag": "loss_run125",
+      "points": 3001,
+      "x_sha256": "613f1a2e882fae2b540d0a7da475ce368be19f869c2396bae69128f62e21ca40",
+      "y_sha256": "954177e7afe4e69595db68b61ae0b100b7bbabf4692c4f0b5d14c6b405c57d6c"
+    },
+    {
+      "tag": "eta_kappa_hat_run125",
+      "points": 2950,
+      "x_sha256": "680f64c7dfab01bbbf30f7b18849a5f42801f16554b44b305f64910e6d9f5d5c",
+      "y_sha256": "62d47d1f637437b315d8ef5f64f3ef2c60d9e1299a304b3f315cfa24d7f2f925"
+    },
+    {
+      "tag": "eta_lambda_max_run125",
+      "points": 31,
+      "x_sha256": "7df0170b377c15548e2a37df505c4e89211e3d348107ab81c7ddb5d438d8e891",
+      "y_sha256": "5b6679930f5b1039f54be0ac01d92f20cf0c4dfdf9972417078bfa4981bcf937"
+    },
+    {
+      "tag": "loss_run126",
+      "points": 3001,
+      "x_sha256": "613f1a2e882fae2b540d0a7da475ce368be19f869c2396bae69128f62e21ca40",
+      "y_sha256": "f3498e1153d9004ba4e1eaf62d330da4e94abf083f738d7b93c8da2a67da17b6"
+    },
+    {
+      "tag": "eta_kappa_hat_run126",
+      "points": 2950,
+      "x_sha256": "680f64c7dfab01bbbf30f7b18849a5f42801f16554b44b305f64910e6d9f5d5c",
+      "y_sha256": "fa8dc98852da46ce9cdaaf2710a9f636268220b7aede4f5323f6313814e1af5b"
+    },
+    {
+      "tag": "eta_lambda_max_run126",
+      "points": 31,
+      "x_sha256": "7df0170b377c15548e2a37df505c4e89211e3d348107ab81c7ddb5d438d8e891",
+      "y_sha256": "7cd627cbdb06b194ea5686cc40e3e6be87ad50c4bfa6627dd4e385268281b8cf"
+    }
+  ],
+  "runs": [
+    {
+      "run_id": "059",
+      "task": "mlp",
+      "lr": 0.004,
+      "raw_source_sha256": {
+        "metrics.jsonl": "b26bd47afdbe92c915d4973fc3aa07b546a68663216360e3c490d46ae1e730e0",
+        "curvature.jsonl": "577d016029be4a4f996f3be5cdf82330bd75f0b00f461ba2acbe2ae61c98105f",
+        "manifest.json": "a05368ff98b228924923e8a1e556461ee49ef24dcf442d0c4dc3bd26acd25e12"
+      },
+      "spectral_states": 31,
+      "spectral_min": 0.283121337890625,
+      "spectral_max": 0.3168271484375,
+      "spectral_final": 0.3168271484375,
+      "late_eta_kappa_hat": 4.374569342767398e-05
+    },
+    {
+      "run_id": "062",
+      "task": "mlp",
+      "lr": 0.02,
+      "raw_source_sha256": {
+        "metrics.jsonl": "c94770a13d0f6668a4e6f1be577239b472a0c105fc5e098d6901d2514e620243",
+        "curvature.jsonl": "a0cd312d5948ce6a8ee2e350e9ea112c160070c468ff4625d5bce70ef55f7d1d",
+        "manifest.json": "7d0957c123fc2db7ee5459b33e135593ec4f912a8444d132c0cd7f6108dd9a6e"
+      },
+      "spectral_states": 31,
+      "spectral_min": 1.4034071350097657,
+      "spectral_max": 2.2157057189941405,
+      "spectral_final": 2.2157057189941405,
+      "late_eta_kappa_hat": 1.9923919788069446
+    },
+    {
+      "run_id": "122",
+      "task": "mlp",
+      "lr": 0.04,
+      "raw_source_sha256": {
+        "metrics.jsonl": "fe7b59d109c43684942e3fd8ac3c5b8ae057e6b7d94049fecea34df466439f04",
+        "curvature.jsonl": "2cdfd2e7ff456999e27af93cfe00cdbddb1f18596b3812b728517015c1b0864a",
+        "manifest.json": "610cf8d026ac19d2d1aed30096e8207c9e2f8cf2daeae7e99214896d66762335"
+      },
+      "spectral_states": 31,
+      "spectral_min": 1.9166848754882813,
+      "spectral_max": 3.1467184448242187,
+      "spectral_final": 2.325853729248047,
+      "late_eta_kappa_hat": 1.9819801447089347
+    },
+    {
+      "run_id": "123",
+      "task": "resnet",
+      "lr": 0.025,
+      "raw_source_sha256": {
+        "metrics.jsonl": "3d70f0ae7a2976fc5c33bd65aee7d936abc1092dab9b973b01a202dba01a0511",
+        "curvature.jsonl": "a5e5ceee1b2a057bf264bb734a4238ad5798ff35edeb6de3f0f2e9586462afdb",
+        "manifest.json": "87e37a982f85895e6b35c3fe56ff885f6634570fda9ff81c287d854a2c1c4c99"
+      },
+      "spectral_states": 31,
+      "spectral_min": 0.019965849816799164,
+      "spectral_max": 2.81762809753418,
+      "spectral_final": 2.81762809753418,
+      "late_eta_kappa_hat": 1.973992053246837
+    },
+    {
+      "run_id": "124",
+      "task": "resnet",
+      "lr": 0.05,
+      "raw_source_sha256": {
+        "metrics.jsonl": "14665f159b35fb548b78294ef87a076243087666ed13d29af031ed03d515df36",
+        "curvature.jsonl": "f20f62d5f4f3dac424834b1103fc7ef97c97861c4911590f3271d0e8eb2a5e91",
+        "manifest.json": "bb83d522fc50b255e73beb7b5ade04fc22750130a1065cd2044fbc5bf4f4183b"
+      },
+      "spectral_states": 31,
+      "spectral_min": 0.03993169069290162,
+      "spectral_max": 5.737495040893555,
+      "spectral_final": 2.6599254608154297,
+      "late_eta_kappa_hat": 1.9746286894507197
+    },
+    {
+      "run_id": "120",
+      "task": "resnet",
+      "lr": 0.1,
+      "raw_source_sha256": {
+        "metrics.jsonl": "73fba39ec0d4247adb98b4afa0f7c8e703230f6e3e9f3b7fb709f3c18804cb8b",
+        "curvature.jsonl": "f25ba4e672344321f58c887f1aaa9befbac1bb496d2d113ce5939c609fd6c943",
+        "manifest.json": "3a993c15613a450d97500ea9772cdbd4755ab50b94be2848636b8113132dbdf7"
+      },
+      "spectral_states": 31,
+      "spectral_min": 0.07986339330673219,
+      "spectral_max": 3.461435699462891,
+      "spectral_final": 3.2488494873046876,
+      "late_eta_kappa_hat": 1.97069939716022
+    },
+    {
+      "run_id": "121",
+      "task": "transformer",
+      "lr": 0.05,
+      "raw_source_sha256": {
+        "metrics.jsonl": "a6f549e780e53986fd09f3341cf71337beadca11d1164fb6883aad90ff9490f3",
+        "curvature.jsonl": "5eff6b382dfdbcc682e8d94545fed24dcd6980c432e8b5d6a65583ff2c046559",
+        "manifest.json": "09c293ce6658cfcfee0bb2889fe97702732f3b1f1561ce7040bfdd5756ed11be"
+      },
+      "spectral_states": 31,
+      "spectral_min": 0.12840845584869384,
+      "spectral_max": 1.7228544235229493,
+      "spectral_final": 1.7228544235229493,
+      "late_eta_kappa_hat": 0.0001963146709027368
+    },
+    {
+      "run_id": "125",
+      "task": "transformer",
+      "lr": 0.1,
+      "raw_source_sha256": {
+        "metrics.jsonl": "0f20797974f6b74e724276bf124d6e1a5bf979a3a3ec633ecc3aac3947d39963",
+        "curvature.jsonl": "6c4335e3cb0e6c1afaba77e0bec3f3cb78f2bbd1e87d845d29b8bb739558fb34",
+        "manifest.json": "0fe89f4cd8c682e8acc29703f41b0ec1456557b96835047bc79b51c7e8ada413"
+      },
+      "spectral_states": 31,
+      "spectral_min": 0.2568169116973877,
+      "spectral_max": 2.398144340515137,
+      "spectral_final": 2.2751832962036134,
+      "late_eta_kappa_hat": 1.9753884656006189
+    },
+    {
+      "run_id": "126",
+      "task": "transformer",
+      "lr": 0.2,
+      "raw_source_sha256": {
+        "metrics.jsonl": "07e0d3223e4ce5e258d17172a7bfeabbf2747dd9b6ce3028748df2b2947d521d",
+        "curvature.jsonl": "7d7e007eeb9900dd518355480b06098dfad9cb98169161fb2c3368f196365e64",
+        "manifest.json": "43278b19c9526d6d24f4603c3de366e044206a7c57ef2f3ec182d17a868266dc"
+      },
+      "spectral_states": 31,
+      "spectral_min": 0.5136338233947754,
+      "spectral_max": 3.348635482788086,
+      "spectral_final": 3.1202476501464846,
+      "late_eta_kappa_hat": 1.9936709974086362
+    }
+  ],
+  "pdf": "manuscript/draft/revisions/2026-11-03-original-argument-feedback-feedback/figures/gd_loss_projected_change_spectral_clean.pdf",
+  "pdf_sha256": "9b46696a5d8a7e068e96ffa26b4925d0ddd5ef1804049b71f927f79e8856bafa",
+  "manuscript_copy": "manuscript/draft/figures/analysis024/gd_loss_projected_change_spectral_clean.pdf",
+  "spectral_points": 279,
+  "plotted_points": 53838,
+  "coverage": {
+    "mlp": "all 5000 images",
+    "resnet": "first 5 fixed 1000-image groups of 50",
+    "transformer": "first 2500 of 59680 sequences"
+  },
+  "clocks": "Loss at theta_s; gradient pair t uses states t-2 and t-1; spectrum at state s plotted at t=s+2. Final spectrum t=3002 has no recorded gradient pair.",
+  "reduction": "Loss and spectra unsmoothed; eta*kappa_hat is unchanged complete trailing 50-pair arithmetic mean.",
+  "uncertainty": "One shared initialization per model; spectra are retained point estimates, not uncertainty intervals.",
+  "change": "C12: delete (retained measurements) from the legend; every curve is identical.",
+  "visual_review": "review.json"
+}

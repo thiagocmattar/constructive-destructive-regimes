@@ -13,14 +13,9 @@ Each minimizes its fixed training objective for 3,000 updates.
 The constant learning rates are $\{0.004,0.02,0.04\}$ for the MLP,
 $\{0.025,0.05,0.1\}$ for ResNet, and $\{0.05,0.1,0.2\}$ for the Transformer.
 Within each model, all rates share one frozen initialization and data
-preparation. Prior training calibrations selected contrasting regimes;
-test loss did not guide selection. Plain GD uses no momentum, weight
-decay, clipping, or schedule. These three cases test recurrence across
-objectives and architectures, conditional on their matched initializations.
+preparation.
 Appendix~\ref{appendix:gd-raw-alignment} specifies the objectives and
 measurement conventions.
-
-\subsection{Curvature and Oscillatory Convergence}
 
 Figure~\ref{fig:gd-loss} shows a clear separation between smooth and
 oscillatory convergence. The lowest MLP and Transformer rates produce
@@ -45,8 +40,8 @@ response throughout training, with no additional Hessian computation.
 
 \subsection{Destructive Regimes and Displacement Retention}
 
-The loss oscillations coincide with a transition to destructive
-alignment in Fig.~\ref{fig:gd-alignment-displacement}. The lowest MLP and
+The loss oscillations coincide with a transition to a destructive
+regime in Fig.~\ref{fig:gd-alignment-displacement}. The lowest MLP and
 Transformer rates retain positive cosine, while the other seven
 conditions develop nearly opposing consecutive gradients. In the MLP
 and ResNet, this transition also accompanies growing gradient norms:

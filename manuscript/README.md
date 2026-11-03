@@ -16,7 +16,15 @@ current argument to evidence, advisor discussion and simulated reviews. Its
 existing-data checks, optional interventions and the submission stopping rule.
 This planning record does not change the current draft or authorize training.
 
-Latest revision (2026-11-03, author's 41 annotations):
+Latest revision (2026-11-03, author's next 30 annotations):
+[original argument / feedback / feedback](draft/revisions/2026-11-03-original-argument-feedback-feedback/README.md).
+The 13-page paper deletes passages marked remove, simplifies the equations and
+section structure, clarifies raw-gradient diagnostics under Adam, and adds a
+compact spike-boundary illustration. Event frequencies use percentages. All
+30 dispositions, verification and the review report are in the revision folder.
+The original introduction, prior revisions and empirical assets are preserved.
+
+Previous revision (2026-11-03, author's 41 annotations):
 [checklist, dispositions and reproduction](draft/revisions/2026-11-03-original-argument-feedback/README.md).
 The 13-page paper revises Sections II-IV following all 41 comments, adds
 retained spectra to the GD overview and removes the endpoint table from

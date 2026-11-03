@@ -60,10 +60,7 @@ Constructive and destructive behavior are thus encoded directly in the
 SGD update equations. For fixed norms, positive alignment increases net
 displacement, whereas negative alignment limits it through cancellation.
 We identify a \emph{constructive regime} by persistent $\rho_t>0$ and
-a \emph{destructive regime} by persistent $\rho_t<0$. For plain SGD, these
-are also the cosines between successive parameter updates. They describe
-how learning changes the parameters; the associated loss determines
-whether those changes improve the objective.
+a \emph{destructive regime} by persistent $\rho_t<0$.
 
 \subsection{Directional Curvature and Consecutive Alignment}
 
@@ -90,7 +87,7 @@ the preceding gradient yields
 \label{eq:rho-expanded}
 \end{equation}
 Define the curvature along the preceding gradient and the normalized
-sampling contribution as
+noise contribution as
 \begin{equation}
   \kappa_t:=\frac{g_{t-1}^\top H_{t-1}g_{t-1}}{\|g_{t-1}\|^2},
   \label{eq:kappa}
@@ -108,7 +105,7 @@ the central relation
   \label{eq:rho-normalized}
 \end{equation}
 In full-batch GD, $\varepsilon_t=0$ and the norm ratio is positive.
-Within this approximation, $\rho_t\propto1-\eta\kappa_t$:
+Within this approximation, $\rho_t\propto1-\eta\kappa_t$, so
 $\eta\kappa_t<1$ gives constructive alignment, while $\eta\kappa_t>1$
 gives destructive alignment. The boundary $\eta\kappa_t=1$ separates
 the two regimes. At this boundary the gradients are orthogonal if
@@ -117,11 +114,9 @@ both are nonzero; a vanishing gradient leaves the cosine undefined.
 This relation supports two interpretations. From a representation-learning
 perspective, a destructive update opposes parameter changes made by its
 predecessor, providing a mechanism for repeatedly overwriting learned
-structure. Gradient conflicts also arise in catastrophic forgetting:
-continual-learning methods constrain updates against gradients of earlier
-tasks to preserve their losses~\cite{lopezpaz2017gem}. Establishing forgetting
-in our setting would additionally require measuring retention of learned
-behavior. From an optimization perspective, negative alignment indicates
+structure. Even with iid data from a fixed distribution, successive
+updates can repeatedly undo previously accumulated parameter changes.
+From an optimization perspective, negative alignment indicates
 that a GD step has passed the minimum along its preceding direction in
 the local quadratic model. The optimizer then partially reverses that
 step. Such reversals can coexist with convergence; the magnitude of the
@@ -133,18 +128,13 @@ returning gradient determines when they instead increase the loss.
 Equation~\eqref{eq:rho-normalized} turns consecutive training gradients
 into a directional-curvature estimator:
 \begin{equation}
-\begin{aligned}
   \eta\widehat\kappa_t
-  &:=1-\rho_t\frac{\|g_t\|}{\|g_{t-1}\|}\\
-  &=-\frac{g_{t-1}^\top(g_t-g_{t-1})}{\|g_{t-1}\|^2}
+  :=1-\rho_t\frac{\|g_t\|}{\|g_{t-1}\|}
    \approx\eta\kappa_t-\varepsilon_t.
-\end{aligned}
 \label{eq:kappa-estimate}
 \end{equation}
 Its computation requires retaining one additional gradient and taking
-norms and an inner product: $O(p)$ storage and arithmetic for $p$
-parameters, with no additional backward pass, Hessian--vector product,
-or eigensolver. Thus curvature information can be monitored at every
+norms and an inner product. Thus curvature information can be monitored at every
 training step using gradients the optimizer already needs.
 
 The measured projected change has a precise geometric meaning. In smooth
@@ -184,8 +174,6 @@ Smaller batches therefore increase the magnitude of this negative
 unnormalized contribution at fixed parameters; full-batch evaluation
 eliminates it.
 
-Cosine attenuation also depends on normalization: sampling increases
-gradient variability relative to the direction shared between batches.
 For two independent gradients sampled at the same fixed state $\theta$,
 concentration of their norms gives the approximation
 \begin{equation}
@@ -258,11 +246,7 @@ of this opposing contribution depends jointly on reversal and gradient
 growth. In full-batch GD with nonzero gradients, the approximation
 predicts $\Delta\mathcal L_{t-1}>0$ precisely when
 \begin{equation}
-  \boxed{\begin{aligned}
-  \rho_t&<-\frac{\|g_{t-1}\|}{\|g_t\|}\\
-  \Longleftrightarrow\quad
-  g_{t-1}^\top g_t&<-\|g_{t-1}\|^2.
-  \end{aligned}}
+  \boxed{\rho_t<-\frac{\|g_{t-1}\|}{\|g_t\|}.}
   \label{eq:loss-rise-alignment}
 \end{equation}
 Two conditions are necessary: $\rho_t<0$ and

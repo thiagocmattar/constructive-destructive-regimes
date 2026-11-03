@@ -1,0 +1,54 @@
+{
+  "status": "passed",
+  "pdf_sha256": "2a549813a0bff3ff7d2b4a7f995a21f820c19f35c46f055b03dac0ca080f595f",
+  "pages_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "method": "Poppler 100-dpi page renders, full-page visual inspection, and 150-dpi standalone figure inspection.",
+  "checks": [
+    "Equations and mathematical fonts legible; no clipping or overfull boxes.",
+    "Original introduction opening and front matter preserved.",
+    "Literal removals checked against all 30 annotations and source diff.",
+    "Raw-gradient and momentum streams distinguished in the Adam prose.",
+    "Schematic baseline and all four event instants labeled clearly.",
+    "Definition schematic, density and anatomy table follow the intended order on page 10.",
+    "All empirical plot coordinates, tables and datasets preserved."
+  ],
+  "render_sha256": {
+    "review-01.png": "286ba89e7389e361dcd16c35b39c05ca3e68c03e81a6d138e1559f07923f91ed",
+    "review-02.png": "13d96a3275fee61954cc02fc82045024a0c420e10390f2f5b85a6f0eaf3d801d",
+    "review-03.png": "78f2c26828a93e5f50466a786da18d126988659eb682d9a88b15bb39f3f78b00",
+    "review-04.png": "f4bfd23d6b29d740e17f318e0a514c87c6f845e51d3db367b1f7a2c5312c7897",
+    "review-05.png": "a6c5608b6b0a4a28db37c746c3cc7e2067dedd0f22edde233c146cd50931c915",
+    "review-06.png": "f43b154ed02af2fde5feb28566e7b80714ff395d09152b2cc5cf68f34c38b9ab",
+    "review-07.png": "9fa3110be779a5d940527dc867e1c759359792cc0b4751b25750252e1b69d0f2",
+    "review-08.png": "40fb49e76e1f3ffd6f632528c377fea4315b8b1a57804bb786c5f8bb7c909b2f",
+    "review-09.png": "778c0d10914e3a2386c57fb4def6f31ec7fe283341c82507e8b1125168774f5a",
+    "review-10.png": "05f256de154c83ef38748bad5c29c6f846eeccb45b7b6c009cf71bf03e70dc0e",
+    "review-11.png": "ccbca924e2a75978f25853ab7a80ad951d908bb7cf88543fd304aee3f30bf44c",
+    "review-12.png": "7a8390dba2e3a19611e6af60a5032c262b24157c4f6f6e383012a4ae852c6bb8",
+    "review-13.png": "97fb236bf7794837652c51c8213e129e1929c55f4c9dbceeddf61f2b3e624715"
+  },
+  "figures": [
+    {
+      "path": "manuscript/draft/revisions/2026-11-03-original-argument-feedback-feedback/figures/gd_loss_projected_change_spectral_clean.pdf",
+      "sha256": "9b46696a5d8a7e068e96ffa26b4925d0ddd5ef1804049b71f927f79e8856bafa"
+    },
+    {
+      "path": "manuscript/draft/revisions/2026-11-03-original-argument-feedback-feedback/figures/adam_spike_definition.pdf",
+      "sha256": "f97e760090032ffa08be1e72e84c038007725d7dd9c8dd31ddb45d2dec7d504a"
+    }
+  ]
+}

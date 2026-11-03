@@ -45,11 +45,11 @@ hypothesis. Next Run217 / Analysis038 / H028.
 
 [Analysis036: controlled Adam spike anatomy](../analyses/036-2026-11-02-controlled-adam-diagnostics/README.md)
 uses nine fixed-rate, 1024-update trajectories from matched initial weights.
-The [current manuscript](../manuscript/draft/revisions/2026-11-03-original-argument-feedback/README.md)
-addresses all 41 author annotations in Sections II-IV, adds the retained GD
-spectral overlay and removes the endpoint table from compilation. The 13-page
-review preserves the original introduction, front matter, Adam section,
-conclusion and prior assets; source, mathematical, figure and page checks pass.
+The [current manuscript](../manuscript/draft/revisions/2026-11-03-original-argument-feedback-feedback/README.md)
+addresses the next 30 author annotations: literal deletions, clearer raw-gradient
+semantics under Adam, simpler equations, verified percentages and a compact
+spike-boundary sketch. The 13-page review preserves the original introduction,
+prior revisions and empirical assets; source, mathematical and page checks pass.
 No overfull boxes or unresolved references remain.
 The Adam evidence includes the loss overview, largest recovered spikes,
 fixed-reference definition, 806-event density, grouped 129-event >10% anatomy

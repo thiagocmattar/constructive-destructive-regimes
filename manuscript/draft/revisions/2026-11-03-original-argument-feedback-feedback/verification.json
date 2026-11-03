@@ -1,0 +1,143 @@
+{
+  "retained_math": {
+    "quadratic_noise_and_attenuation_checks": 186,
+    "max_absolute_error": 1.7763568394002505e-14,
+    "orthogonal_retention": true,
+    "opposing_cancellation": true,
+    "zero_gradient_exception": true
+  },
+  "additional_math": {
+    "cases": 508,
+    "max_absolute_error": 5.684341886080802e-14,
+    "coverage": [
+      "Adam projected curvature response on quadratics",
+      "Exact finite-population covariance",
+      "All-pair displacement and retention",
+      "Nonquadratic path-average curvature, noise correction and local error bound"
+    ]
+  },
+  "retained_gd_sgd_evidence": {
+    "curves": 57,
+    "points": 134560,
+    "endpoint_rows": 9,
+    "displayed_scalars": 45,
+    "backward_endpoints": 9,
+    "preserved_comments": 28,
+    "source_hashes": 12,
+    "vector_figures": 4,
+    "transformer_state_example": {
+      "0": {
+        "mean_rho": -0.25949575516214246,
+        "loss_change": -3.505136604351701
+      },
+      "2000": {
+        "mean_rho": -0.25844491207239656,
+        "loss_change": 0.0642658936333953
+      }
+    },
+    "displayed_state_example_scalars": 1,
+    "sgd_curves": 6,
+    "sgd_points": 28,
+    "sgd_initialization_scalars": 84,
+    "displayed_runtime_bridge_scalars": 1
+  },
+  "adam_claims": {
+    "recovered_events": 806,
+    "anatomy_events": 129,
+    "excluded_without_recovery": 2,
+    "negative_prerise": 117,
+    "defined_prerise": 127,
+    "eta_above_two_before": 21,
+    "norm_grows_to_peak": 129,
+    "eta_max_before": 82,
+    "eta_max_coincident": 29,
+    "eta_max_after": 18,
+    "largest_increase": 858.7697586669618
+  },
+  "new_mathematical_checks": {
+    "quadratic_cases": 240,
+    "maximum_scaled_error": 2.4649740607238157e-15,
+    "orthogonal_100_step_retention": 0.1,
+    "angle_examples_degrees": [
+      120,
+      101.5
+    ]
+  },
+  "pages": 13,
+  "introduction_opening_verified_in_pdf": "Neural scaling laws have ushered in new paradigms for interpreting deep learning dynamics",
+  "page_text_lengths": [
+    6080,
+    5174,
+    4598,
+    5119,
+    4240,
+    3215,
+    3022,
+    5852,
+    1776,
+    2798,
+    4469,
+    5098,
+    6260
+  ],
+  "status": "passed",
+  "protected_files": 37,
+  "source_checks": {
+    "annotation_count": 30,
+    "boxed_relations": 2,
+    "old_adam_equation_removed": true,
+    "literal_deletions_checked": true
+  },
+  "active_figures": 9,
+  "active_tables": 1,
+  "percentages": {
+    "source": "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_anatomy/events_gt10.csv",
+    "source_sha256": "b9cec0f2decef649d6399828e43de27266aafdce9cd697a4cc0037b535f5b9b6",
+    "numerators": [
+      117,
+      129,
+      21,
+      82,
+      29,
+      18
+    ],
+    "denominators": [
+      127,
+      129,
+      127,
+      129,
+      129,
+      129
+    ],
+    "percentages": [
+      92.1259842519685,
+      100.0,
+      16.53543307086614,
+      63.565891472868216,
+      22.48062015503876,
+      13.953488372093023
+    ]
+  },
+  "spectral_points": 279,
+  "new_figure_points": 53838,
+  "pdf_sha256": "2a549813a0bff3ff7d2b4a7f995a21f820c19f35c46f055b03dac0ca080f595f",
+  "verifier_sha256": "002e87d24c0b4bb10b7f3935ee96eb9448af5d8a4ca4fb96ef957aa532b6e910",
+  "source_sha256": {
+    "manuscript/draft/bare_jrnl.tex": "3819a270062a76148ca94e694cb668a7e322849fa1dd841bf6938109fcfd192f",
+    "manuscript/draft/bibliography.bib": "c6079c5efa41a5ae44b4451d80ca5e14f03238a34f5d7a63b83fec460ac32c48",
+    "manuscript/draft/sections/01-introduction.tex": "2af8f02cdb45618f6e306665b094f613f9120de7213680a2e201d4c81547351e",
+    "manuscript/draft/sections/02-related-works.tex": "53c77629112618cfc99273f154fdebc79a88c663588edd4390655ec3a738b6c7",
+    "manuscript/draft/sections/03-methods.tex": "e883036b3935208f42ff2db6695a41b9bd71b3f55c454b2bfbf5489656ab853c",
+    "manuscript/draft/sections/04-controlled-figures.tex": "0ac9c1742d83d635da7145a9078709efc7884c85aa4d822e5f19952e88ec5066",
+    "manuscript/draft/sections/04-gd-experiments.tex": "797a1ff88c382e2640c735b74df52c36f890067b76651d24452d5adfb27e049f",
+    "manuscript/draft/sections/04-results.tex": "afc1f30d1c6f3dba8e3d3cdeaa0d04947fc8df54e9131871db16390062a77d45",
+    "manuscript/draft/sections/05-conclusion.tex": "54220b70b20b23af9f0fe042d1951a264720bd82d59d8b33eec591835190f3ac",
+    "manuscript/draft/sections/05-sgd-noise-experiments.tex": "da463be238d89e6fa886fd71709a2009c4d707daa1e853d800c65cd5018c2d33",
+    "manuscript/draft/sections/06-adam-diagnostics.tex": "072ce6849e2ee1718b0188a9331ae3c05fd10eb397d9512abdf1d093a6b3ce65",
+    "manuscript/draft/sections/06-appendix.tex": "210ed113fe474b3171f6640c7fe8dc417bd35586d981ae2d1e8fcd89a6a6732c",
+    "manuscript/draft/sections/06-loss-appendix.tex": "ffcc25fe504aa09bf7ba7a4b79f682daace6f9967425c806549dc5273f53fe38",
+    "manuscript/draft/sections/07-gd-diagnostics.tex": "0782e0f4c399a823306164054d5e1c453be53fdbd9b4b48123c50a0bed4b2342"
+  },
+  "build": "pdflatex/BibTeX; no overfull boxes, undefined or multiply defined references",
+  "review_file": "review.json"
+}

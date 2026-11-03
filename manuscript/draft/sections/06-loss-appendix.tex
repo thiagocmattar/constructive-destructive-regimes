@@ -22,9 +22,21 @@ full-batch specialization satisfies
  \label{eq:curvature-error-bound}
 \end{equation}
 This bounds the difference between the measured path average and the
-starting-point directional curvature. For Adam, integrate along its
-adaptive step and project onto the preceding raw gradient. This gives
-the exact path-average form of Eq.~\eqref{eq:adam-projected-change}.
+starting-point directional curvature.
+
+For full-batch Adam, the displacement is $-\eta d_{t-1}$.
+Integrating the gradient along that step gives the corresponding identity
+for the same raw-gradient diagnostic in Eq.~\eqref{eq:kappa-estimate}:
+\begin{equation}
+ \widehat\kappa_t=
+ \int_0^1\frac{g_{t-1}^{\top}
+ H(\theta_{t-2}-s\eta d_{t-1})d_{t-1}}
+ {\|g_{t-1}\|^2}\,ds.
+ \label{eq:adam-gradient-response}
+\end{equation}
+Here $d_{t-1}$ determines the displacement, while $g_{t-1}$ determines
+the projection of the gradient response. This separates the optimizer's
+chosen direction from the raw loss slope measured by the diagnostic.
 
 Consider $\theta_{t-1}=\theta_{t-2}-\eta g_{t-1}$ and write
 $\Delta\mathcal L_{t-1}=\mathcal L(\theta_{t-1})-\mathcal L(\theta_{t-2})$.
