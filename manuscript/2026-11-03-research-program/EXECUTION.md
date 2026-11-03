@@ -1,6 +1,6 @@
 # Experiment specifications and execution gates
 
-This is the forward program chosen for design and preparation, following the author's request for a stronger paper. All empirical stages are proposed. No training or paid calibration has been launched. New run/analysis/hypothesis IDs are allocated only when the selected experiment is implemented; the earlier Run217/Analysis039/H029 pointers must be rechecked against the then-current registries.
+This is the mutable forward program chosen for design and preparation, following the author's request for a stronger paper. The approved local Run218/Analysis040 eight-arm MLP pilot has now completed in 64.06 seconds with zero cloud spending; see [its empirical report](../../analyses/040-2026-11-03-mlp-step-actions/REPORT.md). The next proposed assignment is the focused E3 visualization pilot below. Broader E1-E4 work and Armijo remain proposed. New scientific inputs require a new run; allocate IDs from the current registries, not the historical pointers in the original preparation notes below.
 
 ## E0 Completed mathematical preparation
 
@@ -78,6 +78,90 @@ Freeze one action selected by E1/E2. Compare identical action magnitude/duration
 For direction-changing treatments, include a native-direction control rescaled to the same treatment step norm; this asks whether the direction adds value beyond scale. For a scalar-step candidate, record and compare cumulative step scale, intervention counts and a prespecified timing placebo if needed. A gain attributable to smaller steps is a scale finding. An expensive HVP or line-search oracle may be used offline to interpret action quality, never hidden in the cheap method's cost.
 
 The raw-gate idea uses current/previous gradients before the outgoing update. Global clipping does not change the current pair's cosine; it changes subsequent motion and, for Adam input clipping, both moment recurrences. Filtering a gradient, skipping an applied step, freezing moments and rollback/retry must be distinct named arms.
+
+### Next proposed test: temporary LR reduction around the MLP spike
+
+Status: design for discussion, not a launch instruction. This is a controlled
+full-objective MLP development pilot, reusing the authenticated seed-0 state 657
+from Run218. It asks whether temporary diagnostic-conditioned LR reduction can
+mitigate the selected excursion while retaining useful training progress and
+spending fewer updates at reduced LR than the always-half comparator.
+
+**Manuscript terminology.** Use exactly `\eta\widehat\kappa_t` in prose,
+captions and diagnostic axes, as defined in the active editable
+[`03-methods.tex`](../draft/sections/03-methods.tex) and
+[`06-adam-diagnostics.tex`](../draft/sections/06-adam-diagnostics.tex):
+
+\[
+\eta\widehat\kappa_t
+=1-\rho_t\frac{\|g_t\|}{\|g_{t-1}\|}.
+\]
+
+Keep `\kappa_t` for the directional curvature defined in the methods and
+`\rho_t` for consecutive raw-gradient cosine. Use the manuscript's estimated
+quantity for the measured diagnostic; do not replace it with a new scalar
+name or call it an LR cap. Under Adam it remains the observed projected
+raw-gradient change along the realized path. With a varying LR, compute the
+same observed gradient-pair expression directly; do not rescale it into a
+forecast of curvature or presume that halving LR halves the next diagnostic.
+Executed source fields and raw artifacts retain their original names.
+
+**One fixed candidate rule.** At each optimizer boundary, compute the diagnostic
+from the current and preceding available raw gradients before applying the
+outgoing update. If it is at least 1.8, use LR 0.0005 for that update; otherwise
+use the base LR 0.001. Always choose between these two absolute values: no
+compounding reductions, permanent first-alert drop, smoothing, persistence,
+threshold grid or changed Adam moments. A finite-gradient boundary with an
+undefined diagnostic uses base LR and logs the reason; ordinary nonfinite
+training failures retain their existing failure handling. The value 1.8 is a
+candidate heuristic selected for this development discussion, not an Adam
+stability boundary or a validated optimum. Previously inspected untreated
+states 657..784 meet the 0.8 threshold at 127/128 boundaries and the 1.8 threshold at 71/128; these are
+retrospective control frequencies, not intervention frequencies after feedback.
+
+| Condition | Applied LR |
+| --- | --- |
+| Unchanged Adam | 0.001 throughout |
+| Always-half LR | 0.0005 throughout |
+| Temporary diagnostic-conditioned reduction | 0.0005 when the available diagnostic is at least 1.8; otherwise 0.001 |
+
+All three conditions start from the identical complete state 657 and continue
+to state 1024: 367 updates each, 1,101 total, 5,505,000 nominal training-image
+update exposures. Preserve Run218's 5,000 CIFAR-10 images, tanh MLP, half-squared
+error reduction, Adam betas (0.9, 0.999), epsilon 1e-8, no decay or pre-existing
+clipping/schedule, and numerical recipe. Reuse the saved parent rather than
+retraining its prefix. Boundary/evaluation/qualification work is additional and
+must be counted separately. Zero cloud spending; provisional local expectation
+1-3 minutes, hard limit 10 minutes, based on the earlier 64.06-second pilot,
+not a new measured timing. Neural qualification and production both require
+explicit confirmation of this revised plan. Retain the parent, per-update
+scalar histories, start/end/recovery state and status; do not add a dense
+all-step vector archive just for these plots.
+
+**Figure contract.** Fix the event using the unchanged control: pre-rise 689,
+peak 703, recovery 729. Use the same calendar-state zoom 673..745 for all three
+conditions, including treatments with no peak or a shifted peak. Three stacked
+panels share the state axis: unsmoothed training loss; measured
+`\eta\widehat\kappa_t` with the 1.8 threshold; and actual applied LR divided by
+base LR, drawn as a step function. Shade the conditioned method's intervention
+intervals consistently across panels. Align the diagnostic and outgoing LR to
+the same decision boundary; the resulting loss appears after that update.
+Include a separate full continuation view 657..1024 to expose delayed/replacement
+excursions and LR recovery. Do not recenter each condition on its own peak or
+crop the comparison after observing the treatment.
+
+**Readout.** Use the shared reference B = untreated loss at state 689 for peak/area over states 689..1024; report mean and
+final training loss over the complete continuation (post-update states 658..1024), later/censored excursions,
+reduced-LR update fraction and LR-switch count. Frequent LR alternation or an
+almost-always-reduced LR is a result, not permission to tune the rule silently.
+Endpoint held-out evaluations may be descriptive but do not select the rule.
+A favorable development result would combine lower excursion severity with
+competitive progress and fewer reduced-LR updates than always-half. This
+single selected event cannot establish robustness, generalization, or a special
+advantage of diagnostic timing over an equally frequent alternative trigger.
+Independent replication and a timing/budget control would be needed for those
+stronger claims. Start with this one MLP example before considering the other
+manuscript spike examples.
 
 ## E4 Confirmation and practical AdamW
 
