@@ -11,3 +11,5 @@ Run223 is in progress. MLP and ResNet results are verified; Transformer remains 
 ## Matching MLP and ResNet interventions
 
 [Immediate half LR](figures/mlp_resnet_fixed_half.pdf) and [cosine32-to-half](figures/mlp_resnet_cosine32_half.pdf) each show MLP and ResNet side by side, paired with their own unchanged controls. [Comparison observation](observations/004-mlp-resnet-side-by-side.md) records sources, scope and caveats.125 artifact files and14752 plotted values verified; both vector renders inspected. Generate with03_mlp_resnet_preview.py. Transformer and the final three-model figures remain pending.
+
+[Single-figure preliminary overview](figures/all_results_preliminary.pdf) places both interventions side by side for each model. MLP and ResNet are complete; Transformer shows a verified control snapshot through778 with interventions pending. See observations/005-all-results-preliminary.md for coverage and provenance.

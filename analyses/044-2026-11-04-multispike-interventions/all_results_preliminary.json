@@ -1,0 +1,137 @@
+{
+  "status": "preliminary",
+  "snapshot_brt": "04 Nov 2026, 10:26 BRT",
+  "coverage": {
+    "mlp": {
+      "unchanged": 800,
+      "fixed_half": 800,
+      "cosine32_half": 800
+    },
+    "resnet": {
+      "unchanged": 576,
+      "fixed_half": 576,
+      "cosine32_half": 576
+    },
+    "transformer": {
+      "unchanged": 778
+    }
+  },
+  "artifact_files_verified": 133,
+  "plotted_values_verified": 17742,
+  "sources": [
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/control/boundaries.jsonl",
+      "sha256": "def47bc333c45f5778d81a4450aa812cd91bf110604c05c6140e6846871c9d48"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/fixed_half/boundaries.jsonl",
+      "sha256": "ba78994f553755ec014f731ef0bc0cb07292c4fd3404c86d46695d37d96472a0"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/cosine32_half/boundaries.jsonl",
+      "sha256": "e3bd6c782fd919c63e85f7da142cbbffb7d709d6fc39062a5e79dc772ed93ab5"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/prefix/boundaries.jsonl",
+      "sha256": "05896f1ff766343626db323dfa50a4994a2062f73f09e43156e1797b696231db"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/duqoihms8w1gle/payload/worker/control/boundaries.jsonl",
+      "sha256": "b63d89ba5a7c63718b9b14848abf76f3e7ae8699ea67918406c96a778405aaa1"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/duqoihms8w1gle/payload/worker/fixed_half/boundaries.jsonl",
+      "sha256": "fa43447feeb313243395f83277b36065544031b5c7dad9f488f789f6e243b4f7"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/duqoihms8w1gle/payload/worker/cosine32_half/boundaries.jsonl",
+      "sha256": "960083417bc6f958d3a4a7da24f36482ae09def27797902d01b8b31f13f168d3"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/duqoihms8w1gle/payload/worker/prefix/boundaries.jsonl",
+      "sha256": "0914f153b13710eafd7a31de046e292ed4b3014a655f5b587a264f6ac3255119"
+    },
+    {
+      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/159vjccj7w3996/control/boundaries.jsonl",
+      "sha256": "517a01ba76f51f930bea739973129e632a1c0d2b3ad97c92b65f3fcffc17d2db"
+    },
+    {
+      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/159vjccj7w3996/historical_qualification.json",
+      "sha256": "f44f25eb89a584964dc1ad3fb3054c6d6342f943a6241b7bcc08b2d910230db6"
+    },
+    {
+      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/159vjccj7w3996/manifest.json",
+      "sha256": "2f848542775557b3099d809765e411aa987e265160ed31c4d0fa3e4ae08bf40b"
+    },
+    {
+      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/159vjccj7w3996/prefix/boundaries.jsonl",
+      "sha256": "eba639bcdede0f36783210de668c18a3e3e63882efe15a511a4738c6d0ece0c4"
+    },
+    {
+      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/159vjccj7w3996/qualification/direct/boundaries.jsonl",
+      "sha256": "83b88fc86fafcb7fc84d40ca8f29cf023881e80b77dffb0c887b12f9460cdca8"
+    },
+    {
+      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/159vjccj7w3996/qualification/one/boundaries.jsonl",
+      "sha256": "98346f8f13db649a96ba535c913a41c86a21bc8cbf4331bdc02c5c1e4acee7fd"
+    },
+    {
+      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/159vjccj7w3996/qualification/qualification.json",
+      "sha256": "e7714bdbfccdae23df3a7cdb846ecc59663a02198f08673bf1f0c31cc2aa588f"
+    },
+    {
+      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/159vjccj7w3996/qualification/resumed/boundaries.jsonl",
+      "sha256": "9e6ab5d7d1cef7aaca1ca4a2750e0f17728aac004849b8d8b5a85934f6a76f5b"
+    }
+  ],
+  "live_snapshots": [
+    {
+      "pod": "159vjccj7w3996",
+      "role": "leader",
+      "utc": "2026-11-04T13:26:44.593436+00:00",
+      "files": [
+        {
+          "path": "control/boundaries.jsonl",
+          "bytes": 66711,
+          "sha256": "517a01ba76f51f930bea739973129e632a1c0d2b3ad97c92b65f3fcffc17d2db"
+        },
+        {
+          "path": "historical_qualification.json",
+          "bytes": 1661,
+          "sha256": "f44f25eb89a584964dc1ad3fb3054c6d6342f943a6241b7bcc08b2d910230db6"
+        },
+        {
+          "path": "manifest.json",
+          "bytes": 210,
+          "sha256": "2f848542775557b3099d809765e411aa987e265160ed31c4d0fa3e4ae08bf40b"
+        },
+        {
+          "path": "prefix/boundaries.jsonl",
+          "bytes": 154309,
+          "sha256": "eba639bcdede0f36783210de668c18a3e3e63882efe15a511a4738c6d0ece0c4"
+        },
+        {
+          "path": "qualification/direct/boundaries.jsonl",
+          "bytes": 854,
+          "sha256": "83b88fc86fafcb7fc84d40ca8f29cf023881e80b77dffb0c887b12f9460cdca8"
+        },
+        {
+          "path": "qualification/one/boundaries.jsonl",
+          "bytes": 570,
+          "sha256": "98346f8f13db649a96ba535c913a41c86a21bc8cbf4331bdc02c5c1e4acee7fd"
+        },
+        {
+          "path": "qualification/qualification.json",
+          "bytes": 114,
+          "sha256": "e7714bdbfccdae23df3a7cdb846ecc59663a02198f08673bf1f0c31cc2aa588f"
+        },
+        {
+          "path": "qualification/resumed/boundaries.jsonl",
+          "bytes": 570,
+          "sha256": "9e6ab5d7d1cef7aaca1ca4a2750e0f17728aac004849b8d8b5a85934f6a76f5b"
+        }
+      ]
+    }
+  ],
+  "pdf_sha256": "457182273f7f8bd99f4d6dca11ada342a9811a31afa96bf455a0510e5d8507d0"
+}
