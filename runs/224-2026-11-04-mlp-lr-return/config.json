@@ -1,0 +1,34 @@
+{
+  "run_id": "224",
+  "hypothesis": "H031",
+  "analysis_id": "045",
+  "seed": 0,
+  "case": "mlp",
+  "base_lr": 0.001,
+  "start": 512,
+  "return_state": 650,
+  "return_ratio": 0.75,
+  "end": 800,
+  "plot_start": 448,
+  "arms": [
+    {
+      "id": "fixed_half_return075",
+      "parent_arm": "fixed_half",
+      "kind": "fixed",
+      "ratio": 0.5
+    },
+    {
+      "id": "cosine32_half_return075",
+      "parent_arm": "cosine32_half",
+      "kind": "cosine",
+      "ratio": 0.5,
+      "duration": 32
+    }
+  ],
+  "parent_run": "runs/223-2026-11-04-multispike-interventions",
+  "parent_worker": "runs/223-2026-11-04-multispike-interventions/artifacts/worker",
+  "runtime_limit_seconds": 1800,
+  "authorization": "User requested both MLP interventions followed by permanent 0.75x base LR from state650 through800, on Spark only.",
+  "measurement": "Same Run223 full5000-image objective, physical1000, FP32 Adam/model/gradient, FP64 raw diagnostics. Outgoing update at650 uses0.00075; boundary800 is unapplied. Retain full warm512, transition650 and endpoint800 recovery.",
+  "comparison": "Reuse hash-verified Run223 fresh same-Spark unchanged and both permanent-half continuations. Require exact fork gradient and two-update tensor replay, plus exact branch metrics through state650 before acceptance."
+}

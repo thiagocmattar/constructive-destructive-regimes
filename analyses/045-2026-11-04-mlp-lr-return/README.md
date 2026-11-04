@@ -1,0 +1,9 @@
+# Analysis045: MLP LR return at state650
+
+Completed2026-11-04. Run224 / H031, compared with completed Run223 MLP evidence. See [findings](FINDINGS.md), [paired vector figure](figures/mlp_lr_return_paired.pdf), [source-verified values](plotted_values.csv), and [quantitative results](results.json).
+
+Run224 repeats immediate half and cosine32-to-half from exact Spark warm state512, then changes outgoing updates650..799 to0.75x base LR. Boundary800 is unapplied. Same seed0, full5000-image CIFAR-10 objective and physical1000 partitions, frozen model/order/precision/Adam. Reused counterfactuals are the fresh Run223 same-Spark unchanged curve and each matching held-half continuation. No claim of bitwise replay of the original historical cross-GPU curves.
+
+Run01_report.py regenerates the PDF, source-value CSV and results from hash-verified local artifacts. It verifies82 source artifact files across both runs and10584 plotted observations. Each of two columns shows unchanged (gray), matching held-half (blue), and return075 (pink), in five rows: logarithmic loss, raw rho, raw gradient norm, eta kappa hat, applied/base LR. Curves are solid and unsmoothed, axes independent. Gray shading marks common pre-fork context448..512, black vertical line the512 fork, pink vertical line the650 LR return. All plotted states were computed on Spark; there is no hardware transition within this figure. LR extends its last applied interval to800 without implying an update at800. The vector PDF was rendered and visually inspected.
+
+Primary reduction: mean loss at states651..800, last32 states769..800 and endpoint800. Count >10% excursions with peaks after650 using the unchanged Analysis036 loss-only fixed-pre-rise/recovery detector. Record full event ratios, onset/recovery and censoring; event count alone is insufficient. Attributed effects are within one selected MLP/seed/window, without a general stability or held-out improvement claim.

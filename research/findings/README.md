@@ -240,3 +240,5 @@ primary prediction. A common best action remains, so scheduling value is unresol
 This is a candidate for independent validation, not a confirmed prediction law;
 all feature/fold outcomes and four reviewed figures are in the
 [report](../../analyses/031-2026-10-31-adam-state-map/REPORT.md). No new training.
+
+- [MLP LR return at650 (Analysis045)](../../analyses/045-2026-11-04-mlp-lr-return/FINDINGS.md): abrupt0.75x restoration after a smooth half-LR period brings back large spikes; exact matched comparison, one seed/window.

@@ -585,3 +585,7 @@ no remote work, rental or manuscript edit. A7 deferred. Next Run223 / Analysis04
 ## Active follow-up: Run223 / Analysis044 / H030
 
 [Run223](../runs/223-2026-11-04-multispike-interventions/README.md) tests persistent half LR and cosine32 to half across multiple spikes, replacing the unsuitable late-window design for this question. Approved three-model windows and USD15 cloud ceiling are frozen. Spark MLP complete and hash-verified with fresh same-Spark control; cloud cases pending. No new three-case finding yet. Next Run224 / Analysis045 / H031.
+
+## Completed follow-up: Run224 / Analysis045 / H031
+
+[Analysis045](../analyses/045-2026-11-04-mlp-lr-return/README.md): returning both MLP schedules to0.75x at650 restores spikes; post-return mean loss is57.4%/45.4% above matching held-half controls. Exact pre-return history/replay and26 new transferred artifacts verified. Spark only. Run223 cloud cases remain active. Next Run225 / Analysis046 / H032.

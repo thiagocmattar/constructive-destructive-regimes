@@ -1,0 +1,100 @@
+{
+  "manifest": {
+    "status": "completed",
+    "started_utc": "2026-11-04T11:21:30.111981+00:00",
+    "gpu": "NVIDIA GB10",
+    "torch": "2.11.0+cu130",
+    "cuda": "13.0",
+    "results": {
+      "fixed_half_return075": {
+        "status": "completed",
+        "case": "mlp",
+        "arm": "fixed_half_return075",
+        "start_state": 512,
+        "end_state": 800,
+        "started_utc": "2026-11-04T11:21:30.845430+00:00",
+        "identity": {
+          "run": "224",
+          "config_sha256": "37047c3e40d7d677bf6b69d54a1454ebf2a664517514fc37c4fdbbe443de93c4",
+          "manifest_sha256": "0017f672b7b43a7be5b2250e85fb8a806dd720706e5cdd30135aa54164ba6180",
+          "parent_checkpoint_sha256": "6d90f4cd6cc52877a765cf46bd5166ca50c5f882c1b0e6901748659b6d65e7e5"
+        },
+        "evaluation": {
+          "test": {
+            "loss": 0.7507230163574219,
+            "loss_units": 10000,
+            "objective_units": 10000
+          }
+        },
+        "completed_state": 800,
+        "updates": 288,
+        "elapsed_seconds": 2.0459543797187507,
+        "finished_utc": "2026-11-04T11:21:32.891385+00:00",
+        "prefix_parity": {
+          "exact": true,
+          "boundaries": 139,
+          "fields": [
+            "loss",
+            "raw_gradient_norm",
+            "rho",
+            "eta_kappa_hat",
+            "parameter_norm"
+          ],
+          "actual_update_rows": 138
+        }
+      },
+      "cosine32_half_return075": {
+        "status": "completed",
+        "case": "mlp",
+        "arm": "cosine32_half_return075",
+        "start_state": 512,
+        "end_state": 800,
+        "started_utc": "2026-11-04T11:21:32.930114+00:00",
+        "identity": {
+          "run": "224",
+          "config_sha256": "37047c3e40d7d677bf6b69d54a1454ebf2a664517514fc37c4fdbbe443de93c4",
+          "manifest_sha256": "0017f672b7b43a7be5b2250e85fb8a806dd720706e5cdd30135aa54164ba6180",
+          "parent_checkpoint_sha256": "6d90f4cd6cc52877a765cf46bd5166ca50c5f882c1b0e6901748659b6d65e7e5"
+        },
+        "evaluation": {
+          "test": {
+            "loss": 0.7539349975585937,
+            "loss_units": 10000,
+            "objective_units": 10000
+          }
+        },
+        "completed_state": 800,
+        "updates": 288,
+        "elapsed_seconds": 1.7610969892702997,
+        "finished_utc": "2026-11-04T11:21:34.691211+00:00",
+        "prefix_parity": {
+          "exact": true,
+          "boundaries": 139,
+          "fields": [
+            "loss",
+            "raw_gradient_norm",
+            "rho",
+            "eta_kappa_hat",
+            "parameter_norm"
+          ],
+          "actual_update_rows": 138
+        }
+      }
+    },
+    "finished_utc": "2026-11-04T11:21:34.695377+00:00",
+    "elapsed_seconds": 4.583417215850204
+  },
+  "qualification": {
+    "status": "passed",
+    "fork_gradient_exact": true,
+    "two_update_tensor_replay_exact": true,
+    "parent_sha256": "6d90f4cd6cc52877a765cf46bd5166ca50c5f882c1b0e6901748659b6d65e7e5"
+  },
+  "receipt": {
+    "path": "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/run224-spark-output.tar.gz",
+    "sha256": "53fa738c031aa5f8dfb84ab2c29b299164d258ddc38079822afbb69f163abbc9",
+    "status": "completed",
+    "verified": true,
+    "files": 26
+  }
+}

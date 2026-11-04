@@ -1,0 +1,329 @@
+{
+  "status": "completed",
+  "summary": {
+    "unchanged": {
+      "mean_513_800": 0.020804167521823222,
+      "mean_651_800": 0.01727967229904607,
+      "last32_mean": 0.013458456061925972,
+      "final_loss": 0.03025020658969879,
+      "max_loss_651_800": 0.04823051206767559,
+      "events_gt10_after650": [
+        {
+          "before_state": 666,
+          "onset_state": 667,
+          "peak_state": 683,
+          "recovery_state": 702,
+          "end_state": 702,
+          "right_censored": false,
+          "ratio": 3.4160689175343504
+        },
+        {
+          "before_state": 702,
+          "onset_state": 703,
+          "peak_state": 704,
+          "recovery_state": 706,
+          "end_state": 706,
+          "right_censored": false,
+          "ratio": 1.1151483550328587
+        },
+        {
+          "before_state": 706,
+          "onset_state": 707,
+          "peak_state": 716,
+          "recovery_state": 719,
+          "end_state": 719,
+          "right_censored": false,
+          "ratio": 2.1253011081857167
+        },
+        {
+          "before_state": 719,
+          "onset_state": 720,
+          "peak_state": 727,
+          "recovery_state": 733,
+          "end_state": 733,
+          "right_censored": false,
+          "ratio": 1.7759759977962415
+        },
+        {
+          "before_state": 733,
+          "onset_state": 734,
+          "peak_state": 744,
+          "recovery_state": 751,
+          "end_state": 751,
+          "right_censored": false,
+          "ratio": 1.5759794443400823
+        },
+        {
+          "before_state": 751,
+          "onset_state": 752,
+          "peak_state": 766,
+          "recovery_state": 769,
+          "end_state": 769,
+          "right_censored": false,
+          "ratio": 1.6517377981107133
+        },
+        {
+          "before_state": 770,
+          "onset_state": 771,
+          "peak_state": 773,
+          "recovery_state": 777,
+          "end_state": 777,
+          "right_censored": false,
+          "ratio": 1.3036965917403016
+        },
+        {
+          "before_state": 783,
+          "onset_state": 784,
+          "peak_state": 799,
+          "recovery_state": null,
+          "end_state": 800,
+          "right_censored": true,
+          "ratio": 3.154144519238262
+        }
+      ],
+      "events_count_after650": 8,
+      "min_rho_651_800": -0.9969484774622652,
+      "max_gradient_norm_651_800": 2.2355555009192445
+    },
+    "fixed_half": {
+      "mean_513_800": 0.01559460096298911,
+      "mean_651_800": 0.01297240421253567,
+      "last32_mean": 0.011151445283758221,
+      "final_loss": 0.010726135107688606,
+      "max_loss_651_800": 0.015483011025935411,
+      "events_gt10_after650": [],
+      "events_count_after650": 0,
+      "min_rho_651_800": 0.9987642235703444,
+      "max_gradient_norm_651_800": 0.008983014292896534
+    },
+    "fixed_half_return075": {
+      "mean_513_800": 0.019473605960633397,
+      "mean_651_800": 0.020420093808012706,
+      "last32_mean": 0.015966597486112732,
+      "final_loss": 0.01427121413871646,
+      "max_loss_651_800": 0.13364661671221256,
+      "events_gt10_after650": [
+        {
+          "before_state": 663,
+          "onset_state": 664,
+          "peak_state": 671,
+          "recovery_state": 709,
+          "end_state": 709,
+          "right_censored": false,
+          "ratio": 9.007365743243842
+        },
+        {
+          "before_state": 723,
+          "onset_state": 724,
+          "peak_state": 732,
+          "recovery_state": 744,
+          "end_state": 744,
+          "right_censored": false,
+          "ratio": 2.470530627074669
+        },
+        {
+          "before_state": 744,
+          "onset_state": 745,
+          "peak_state": 746,
+          "recovery_state": 748,
+          "end_state": 748,
+          "right_censored": false,
+          "ratio": 1.1419700889259767
+        },
+        {
+          "before_state": 755,
+          "onset_state": 756,
+          "peak_state": 766,
+          "recovery_state": 775,
+          "end_state": 775,
+          "right_censored": false,
+          "ratio": 2.291381751726733
+        },
+        {
+          "before_state": 775,
+          "onset_state": 776,
+          "peak_state": 777,
+          "recovery_state": 780,
+          "end_state": 780,
+          "right_censored": false,
+          "ratio": 1.2226528234728014
+        },
+        {
+          "before_state": 780,
+          "onset_state": 781,
+          "peak_state": 790,
+          "recovery_state": 798,
+          "end_state": 798,
+          "right_censored": false,
+          "ratio": 2.338529960277508
+        },
+        {
+          "before_state": 798,
+          "onset_state": 799,
+          "peak_state": 800,
+          "recovery_state": null,
+          "end_state": 800,
+          "right_censored": true,
+          "ratio": 1.2289659297503783
+        }
+      ],
+      "events_count_after650": 7,
+      "min_rho_651_800": -0.9990831601534021,
+      "max_gradient_norm_651_800": 4.338799923859696
+    },
+    "cosine32_half": {
+      "mean_513_800": 0.015333468483327629,
+      "mean_651_800": 0.012661528449195127,
+      "last32_mean": 0.01091733616340207,
+      "final_loss": 0.010508841485716403,
+      "max_loss_651_800": 0.01506102317944169,
+      "events_gt10_after650": [],
+      "events_count_after650": 0,
+      "min_rho_651_800": 0.9943597142175691,
+      "max_gradient_norm_651_800": 0.0088008086732691
+    },
+    "cosine32_half_return075": {
+      "mean_513_800": 0.018325315289985156,
+      "mean_651_800": 0.018405874317977577,
+      "last32_mean": 0.013649595199240139,
+      "final_loss": 0.012054109713062644,
+      "max_loss_651_800": 0.0939082633703947,
+      "events_gt10_after650": [
+        {
+          "before_state": 663,
+          "onset_state": 664,
+          "peak_state": 672,
+          "recovery_state": 703,
+          "end_state": 703,
+          "right_censored": false,
+          "ratio": 6.497147641871271
+        },
+        {
+          "before_state": 710,
+          "onset_state": 711,
+          "peak_state": 720,
+          "recovery_state": 729,
+          "end_state": 729,
+          "right_censored": false,
+          "ratio": 2.0856337482123455
+        },
+        {
+          "before_state": 729,
+          "onset_state": 730,
+          "peak_state": 731,
+          "recovery_state": 734,
+          "end_state": 734,
+          "right_censored": false,
+          "ratio": 1.2589450042422474
+        },
+        {
+          "before_state": 734,
+          "onset_state": 735,
+          "peak_state": 736,
+          "recovery_state": 738,
+          "end_state": 738,
+          "right_censored": false,
+          "ratio": 1.1483613596793438
+        },
+        {
+          "before_state": 738,
+          "onset_state": 739,
+          "peak_state": 750,
+          "recovery_state": 765,
+          "end_state": 765,
+          "right_censored": false,
+          "ratio": 2.6566310897024024
+        },
+        {
+          "before_state": 765,
+          "onset_state": 766,
+          "peak_state": 767,
+          "recovery_state": 769,
+          "end_state": 769,
+          "right_censored": false,
+          "ratio": 1.1530422754926901
+        },
+        {
+          "before_state": 769,
+          "onset_state": 770,
+          "peak_state": 771,
+          "recovery_state": 773,
+          "end_state": 773,
+          "right_censored": false,
+          "ratio": 1.1095878143512206
+        },
+        {
+          "before_state": 777,
+          "onset_state": 778,
+          "peak_state": 788,
+          "recovery_state": 792,
+          "end_state": 792,
+          "right_censored": false,
+          "ratio": 1.9835231233888209
+        },
+        {
+          "before_state": 792,
+          "onset_state": 793,
+          "peak_state": 795,
+          "recovery_state": 798,
+          "end_state": 798,
+          "right_censored": false,
+          "ratio": 1.3936937600515944
+        },
+        {
+          "before_state": 798,
+          "onset_state": 799,
+          "peak_state": 800,
+          "recovery_state": null,
+          "end_state": 800,
+          "right_censored": true,
+          "ratio": 1.1491261297822504
+        }
+      ],
+      "events_count_after650": 10,
+      "min_rho_651_800": -0.9993199115664626,
+      "max_gradient_norm_651_800": 3.558227886010952
+    }
+  },
+  "return_vs_held_half_pct": {
+    "fixed_half": {
+      "mean_651_800": 57.41179101002791,
+      "last32_mean": 43.179624522461225,
+      "final_loss": 33.05085191856947
+    },
+    "cosine32_half": {
+      "mean_651_800": 45.36850264035548,
+      "last32_mean": 25.026792204103398,
+      "final_loss": 14.70445842623629
+    }
+  },
+  "source_file_checks": 82,
+  "plotted_scalar_checks": 10584,
+  "pdf_sha256": "c7a6eb4d93b2d1734af362b9362ae2573560bc79c30edf3914d2276543916414",
+  "source_files": [
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/prefix/boundaries.jsonl",
+      "sha256": "05896f1ff766343626db323dfa50a4994a2062f73f09e43156e1797b696231db"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/control/boundaries.jsonl",
+      "sha256": "def47bc333c45f5778d81a4450aa812cd91bf110604c05c6140e6846871c9d48"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/fixed_half/boundaries.jsonl",
+      "sha256": "ba78994f553755ec014f731ef0bc0cb07292c4fd3404c86d46695d37d96472a0"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/cosine32_half/boundaries.jsonl",
+      "sha256": "e3bd6c782fd919c63e85f7da142cbbffb7d709d6fc39062a5e79dc772ed93ab5"
+    },
+    {
+      "path": "runs/224-2026-11-04-mlp-lr-return/artifacts/spark/payload/worker/fixed_half_return075/boundaries.jsonl",
+      "sha256": "c2b0aea31d92d6098038f1ab229215f2bca9de97c4cd64d37f1a48cb0ecd8f68"
+    },
+    {
+      "path": "runs/224-2026-11-04-mlp-lr-return/artifacts/spark/payload/worker/cosine32_half_return075/boundaries.jsonl",
+      "sha256": "65f462225dc6b54172cc42aeee473fcc076f9c94347fe17925e5aa546c2c86b7"
+    }
+  ]
+}

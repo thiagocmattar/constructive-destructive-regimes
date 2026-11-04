@@ -289,3 +289,7 @@ attempt within the same run.
 ## Run223: multi-spike interventions (2026-11-04)
 
 [Run223](223-2026-11-04-multispike-interventions/README.md) is running: seed0, highest LR, fixed_half and cosine32_half, approved windows512..800/256..576/544..928. Up to3 Runpod GPUs plus Spark, totalUSD15. Historical reuse is qualified; otherwise fresh same-worker control. Next Run224.
+
+## Run224: MLP return to0.75x at650
+
+[Run224](224-2026-11-04-mlp-lr-return/README.md) completed two matched Spark continuations512..800. Exact history through650 verified; raising LR restores large spikes and worsens post-return mean loss versus held-half. H031 / Analysis045. No cloud rental.

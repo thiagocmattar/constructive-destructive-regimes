@@ -1,0 +1,33 @@
+{
+  "schedule_test": "passed synthetic Adam800 updates per schedule, exact boundary placement and clocks",
+  "terminal_artifacts_verified": 26,
+  "source_files_rechecked": 82,
+  "transition_and_endpoint_checks": [
+    {
+      "arm": "fixed_half_return075",
+      "state": 650,
+      "adam_clock_verified": true,
+      "gradient_norm_abs_difference": 3.139849491518021e-16
+    },
+    {
+      "arm": "fixed_half_return075",
+      "state": 800,
+      "adam_clock_verified": true,
+      "gradient_norm_abs_difference": 1.587618925213974e-14
+    },
+    {
+      "arm": "cosine32_half_return075",
+      "state": 650,
+      "adam_clock_verified": true,
+      "gradient_norm_abs_difference": 2.8622937353617317e-16
+    },
+    {
+      "arm": "cosine32_half_return075",
+      "state": 800,
+      "adam_clock_verified": true,
+      "gradient_norm_abs_difference": 1.199040866595169e-14
+    }
+  ],
+  "source_inputs_frozen": true,
+  "render_inspected": true
+}

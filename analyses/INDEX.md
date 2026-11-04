@@ -124,3 +124,7 @@ an analysis may use manuscript or external inputs without referencing a run.
 ## Analysis044: multi-spike interventions (2026-11-04)
 
 [Analysis044](044-2026-11-04-multispike-interventions/README.md) prepares the Run223 paired comparisons and raw diagnostic figures. Three-case conclusions pending. Next Analysis045.
+
+## Analysis045: MLP LR return
+
+[Analysis045](045-2026-11-04-mlp-lr-return/README.md) compares Run224 return-to0.75x at650 against Run223 unchanged and held-half controls. Two-column five-row vector figure and source-verified values; large renewed transients, single-seed scope.
