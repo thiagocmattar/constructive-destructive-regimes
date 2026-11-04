@@ -2,15 +2,15 @@
   "status": "running",
   "snapshot": {
     "path": "/home/tcml-spark/experiments/constructive-destructive-regimes/interventions-2026-11-03/run222-transfer-scalars.tar.gz",
-    "bytes": 543170,
-    "sha256": "3cf0d610cf97da32e1d383c7e7179e32a716d9b03c731c4ba11b5262358140cf",
+    "bytes": 575474,
+    "sha256": "a528ba5569b58dcdbb33a7fc037080cf23775ab6b0edd01ac2e56a000560c599",
     "status": "running",
-    "files": 228,
+    "files": 238,
     "final": false,
     "verified": true,
-    "retrieved_utc": "20261104T083012Z",
-    "payload_root": "runs/222-2026-11-03-spark-matched-interventions/artifacts/snapshots/20261104T083012Z/payload",
-    "retained_bytes": 2272818
+    "retrieved_utc": "20261104T090007Z",
+    "payload_root": "runs/222-2026-11-03-spark-matched-interventions/artifacts/snapshots/20261104T090007Z/payload",
+    "retained_bytes": 2403499
   },
   "primary_completed": 30,
   "primary_total": 30,
@@ -26,7 +26,7 @@
     "mlp/adamw_0p01": "completed",
     "mlp/adamw_0p1": "completed",
     "mlp/cosine8_floor0p25": "completed",
-    "mlp/cosine64_floor0p25": "queued",
+    "mlp/cosine64_floor0p25": "completed",
     "resnet/unchanged": "completed",
     "resnet/fixed_half": "completed",
     "resnet/fixed_quarter": "completed",
@@ -38,7 +38,7 @@
     "resnet/adamw_0p01": "completed",
     "resnet/adamw_0p1": "completed",
     "resnet/cosine8_floor0p25": "completed",
-    "resnet/cosine64_floor0p25": "queued",
+    "resnet/cosine64_floor0p25": "running",
     "transformer/unchanged": "completed",
     "transformer/fixed_half": "completed",
     "transformer/fixed_quarter": "completed",
@@ -49,7 +49,7 @@
     "transformer/clip_median_x2": "completed",
     "transformer/adamw_0p01": "completed",
     "transformer/adamw_0p1": "completed",
-    "transformer/cosine8_floor0p25": "running",
+    "transformer/cosine8_floor0p25": "completed",
     "transformer/cosine64_floor0p25": "queued"
   },
   "skipped_optional": [],
@@ -82,9 +82,9 @@
       "fork_raw_gradient_norm": 0.17086071863587352
     }
   },
-  "main_updates": 2066,
+  "main_updates": 2186,
   "qualification_updates": 12,
-  "Run222_full_gradient_calls": 2119,
+  "Run222_full_gradient_calls": 2241,
   "comparison": [
     {
       "case": "mlp",
@@ -349,6 +349,30 @@
       "uphill_actual_updates": 6,
       "runner_seconds": 0.8650904097594321,
       "endpoint_evaluation": "{\"test\": {\"loss\": 0.7808407470703125, \"loss_units\": 10000, \"objective_units\": 10000}}"
+    },
+    {
+      "case": "mlp",
+      "condition": "cosine64_floor0p25",
+      "status": "completed",
+      "updates": 64,
+      "fork_loss": 0.009522304404526949,
+      "mean_post_loss": 0.00576533849198313,
+      "final_loss": 0.00496371736517176,
+      "mean_loss_change_vs_unchanged_percent": -44.90699364960425,
+      "final_loss_change_vs_unchanged_percent": -39.21783916049185,
+      "peak_post_loss": 0.009850404225289822,
+      "positive_excess_area": 0.04419583155023821,
+      "mean_raw_rho": -0.23844262805060645,
+      "eta_kappa_hat_std": 0.5188690651032526,
+      "mean_raw_gradient_norm": 0.17044785411300895,
+      "final_parameter_norm": 18.938104925342433,
+      "mean_actual_increment_norm": 0.009663331927989896,
+      "clipped_updates": 0,
+      "mean_lr_over_base": 0.630859375,
+      "mean_decay_increment_norm": 0.0,
+      "uphill_actual_updates": 0,
+      "runner_seconds": 0.48403757717460394,
+      "endpoint_evaluation": "{\"test\": {\"loss\": 0.7851147216796877, \"loss_units\": 10000, \"objective_units\": 10000}}"
     },
     {
       "case": "resnet",
@@ -853,9 +877,33 @@
       "uphill_actual_updates": 0,
       "runner_seconds": 2289.325340908952,
       "endpoint_evaluation": "{\"test\": {\"loss\": 18.849525594647222, \"loss_units\": 245550, \"objective_units\": 7020}, \"valid\": {\"loss\": 19.100350284528215, \"loss_units\": 217630, \"objective_units\": 6220}}"
+    },
+    {
+      "case": "transformer",
+      "condition": "cosine8_floor0p25",
+      "status": "completed",
+      "updates": 64,
+      "fork_loss": 0.6162664000056295,
+      "mean_post_loss": 0.5724738925879775,
+      "final_loss": 0.5532505365985563,
+      "mean_loss_change_vs_unchanged_percent": 4.862479640397055,
+      "final_loss_change_vs_unchanged_percent": 8.338347631633924,
+      "peak_post_loss": 0.6116432295874777,
+      "positive_excess_area": 0.0,
+      "mean_raw_rho": 0.787549080236954,
+      "eta_kappa_hat_std": 0.17401273118792965,
+      "mean_raw_gradient_norm": 0.03362579779953273,
+      "final_parameter_norm": 854.1837162980369,
+      "mean_actual_increment_norm": 0.2959804574420324,
+      "clipped_updates": 0,
+      "mean_lr_over_base": 0.302734375,
+      "mean_decay_increment_norm": 0.0,
+      "uphill_actual_updates": 0,
+      "runner_seconds": 2291.5426056669094,
+      "endpoint_evaluation": "{\"test\": {\"loss\": 18.1456193526013, \"loss_units\": 245550, \"objective_units\": 7020}, \"valid\": {\"loss\": 18.387827134751348, \"loss_units\": 217630, \"objective_units\": 6220}}"
     }
   ],
-  "plotted_scalar_checks": 28506,
+  "plotted_scalar_checks": 31416,
   "figure_sha256": {
     "fixed_half.pdf": "daf7823972efd9e3385b7fc9c85a5f8239865b861ccb577d07b8c0ef2309194f",
     "fixed_quarter.pdf": "17bc231b0bf01c8a6dc274a905651961e41b9fc6af32a43b8e5af764fb7179b1",
@@ -867,7 +915,8 @@
     "adamw_0p01.pdf": "eac4dd06e5f235f2d286a94971d39b76ad2b7795b963551758ba1a553767318d",
     "adamw_0p01_increments.pdf": "7b5d7f215b2797e3d610852517c30d68d6acd035b56e8a5ce49ea4e543941922",
     "adamw_0p1.pdf": "3e397a3cc57595886bd1fc7ae9671501e87aac3e6dbb18db80b37a894ceaaa97",
-    "adamw_0p1_increments.pdf": "0a36a0bac5dae62373c18272ed2996020241a2a9a7346c5a14b81a0b302a895c"
+    "adamw_0p1_increments.pdf": "0a36a0bac5dae62373c18272ed2996020241a2a9a7346c5a14b81a0b302a895c",
+    "cosine8_floor0p25.pdf": "5a2416b07499a056f2e82e6facb91d71607f2bffdcedd21595137b92ae752a5f"
   },
   "source_sha256": "ca12a82d69c3bf21c10e1a8caf12f3a4fc833eea4cf50bd888c9026c0c540fa2",
   "no_smoothing": true,
