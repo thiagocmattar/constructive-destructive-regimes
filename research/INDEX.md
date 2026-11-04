@@ -597,3 +597,7 @@ no remote work, rental or manuscript edit. A7 deferred. Next Run223 / Analysis04
 ## Completed follow-up: Run226 / Analysis047 / H033
 
 [Analysis047](../analyses/047-2026-11-04-mlp-cosine-floors/README.md): cosine32-to0.75x lowers MLP mean loss17.24% versus unchanged but retains7 excursions, including a5.01x peak at659 while LR is constant. Cosine32-to0.5x lowers mean26.30%, with only one early excursion. Figures pair each intervention only with unchanged, in separate columns, as requested. Exact reuse/18 new artifacts verified; Spark only. Run223 remains active. Next Run227 / Analysis048 / H034.
+
+## Figure synthesis: Analysis048
+
+[Analysis048](../analyses/048-2026-11-04-mlp-three-paths-to075/README.md) assembles the requested three paths to0.75x from Runs223-226, each paired only with unchanged baseline.119 source artifacts and10584 plotted values reverified; vector figure inspected. No new training/hypothesis. Run223 remains active. Next Run227 / Analysis049 / H034.

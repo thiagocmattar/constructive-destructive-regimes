@@ -1,0 +1,15 @@
+# Observation: history-dependent responses at a shared final LR
+
+Sources: Run223 prefix/unchanged control, Run226 cosine32_three_quarters, Run224 cosine32_half_return075 and Run225 cosine32_half_rise70. Exact source paths and SHA-256 hashes are in results.json. Generation:01_report.py. Coverage: displayed states448..800, summary mean513..800, post-return mean651..800, last32 states769..800 and endpoint800. No smoothing or resampling; all native observations retained.
+
+- The three interventions end at the same0.75x applied LR but follow different schedules and parameter/Adam-state histories. These are comparisons of entire schedules, not a controlled isolation of instantaneous LR at a common later state.
+- Relative to unchanged, mean training loss513..800 is17.24% lower for direct cosine32-to0.75x,11.92% lower for the abrupt-return schedule and3.64% higher for the cosine70-return schedule.
+- The largest post-fork losses are0.067123,0.093908 and0.244160 respectively, versus unchanged0.055063. The corresponding largest peaks occur at659,672 and716; inspect independent y-scales when comparing amplitudes.
+- Last32-state means are7.98%,1.42% and18.64% above unchanged respectively. Thus the whole-window average and the late-window average answer different questions.
+- The direct0.75x trajectory develops its large spike while LR has been constant since544. The two return paths develop large spikes after their increases begin. This view does not establish a unique spike mechanism or universal LR threshold.
+- Excursion counts use the unchanged Analysis036 fixed-pre-rise/recovery detector with >10% threshold and peaks after512. Counts16/7/11/3 for unchanged/direct/abrupt/cosine-rise include the initial decay period; these differ from the after650 counts reported in Analysis045/046. A long unrecovered excursion groups multiple oscillations, so fewer events do not imply smaller instability.
+- All final comparisons include right-censoring at800. The unchanged endpoint lies inside a spike; endpoint loss alone can misrepresent the schedule comparison. One selected seed/model/window provides no between-seed uncertainty or general stability/generalization guarantee.
+
+Caption: MLP/CIFAR-10, seed0 and matched Adam warm state512, three paths ending at0.75x base LR. Each colored intervention is paired only with the identical gray unchanged baseline. Left: cosine32 down to0.75x and hold. Center: cosine32 down to0.5x, hold, then abrupt return to0.75x at650. Right: the same initial reduction/hold followed by a70-step cosine rise over650..720. Five rows show raw unsmoothed diagnostics, with independent panel ranges and explicit fork/rise markers. Same Spark hardware throughout; endpoint800 has no additional update.
+
+Validation:119 artifact size/SHA checks,10584 plotted-scalar/source checks, complete0..800 trace indexing and common state512 loss. Existing run-level exact gradient/tensor replay qualifications are preserved. One-page vector PDF rendered and visually inspected; no raster objects, clipping or legend collisions. This is a derived figure with no new training or cost.

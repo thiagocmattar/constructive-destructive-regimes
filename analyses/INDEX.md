@@ -136,3 +136,7 @@ an analysis may use manuscript or external inputs without referencing a run.
 ## Analysis047: baseline-only cosine floors
 
 [Analysis047](047-2026-11-04-mlp-cosine-floors/README.md) shows cosine32-to0.75x and0.5x side by side, each only against unchanged LR. Five raw diagnostic rows and independent scales;0.75x reduces mean loss but retains large late spikes.
+
+## Analysis048: three paths to0.75x
+
+[Analysis048](048-2026-11-04-mlp-three-paths-to075/README.md) places direct cosine32-to0.75x, abrupt restoration and cosine70 restoration side by side, each only against unchanged LR. Five raw diagnostic rows, independent scales; existing verified evidence only. No training.
