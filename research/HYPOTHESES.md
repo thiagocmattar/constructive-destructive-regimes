@@ -87,3 +87,7 @@ Status: partial loss benefit, spike suppression incomplete in this selected wind
 ## H034: can a second cosine32 decay suppress later spikes?
 
 Status: supported within the selected MLP development window, with a residual initial spike. [Run227 / Analysis050](../analyses/050-2026-11-04-mlp-two-stage-decay/FINDINGS.md). Second decay650..682 from0.75x to0.5x lowers first peak48.77% and response mean27.66% versus matched held0.75x, with no >10% excursion after682. Exact observed pre-intervention replay; one seed, post-inspection timing, no universal stability or held-out benefit claim.
+
+## H035: does global norm clipping1.0 suppress repeated MLP spikes?
+
+Status: contradicted in the selected single-seed window. [Run228 / Analysis051](../analyses/051-2026-11-04-mlp-global-clipping/FINDINGS.md). Exact warm512..800; full-gradient clipping before Adam, unchanged LR. Active43.4% of updates; mean loss+48.01%, maximum3.82x despite smaller initial peak. Input norm cap does not bound actual Adam steps. Other thresholds/models and mechanisms remain untested.

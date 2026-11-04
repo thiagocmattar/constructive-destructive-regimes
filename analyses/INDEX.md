@@ -148,3 +148,7 @@ an analysis may use manuscript or external inputs without referencing a run.
 ## Analysis050: two-stage decay versus two controls
 
 [Analysis050](050-2026-11-04-mlp-two-stage-decay/README.md) pairs the new trajectory with unchanged LR and cosine32 held at0.75x. The second decay reduces the first spike and post650 mean loss; no >10% excursion after682 in this window.
+
+## Analysis051: MLP global clipping response
+
+[Analysis051](051-2026-11-04-mlp-global-clipping/README.md) compares Run228 global norm clipping1.0 with unchanged same-Spark control. Early peak reduced, later instability worse; five-row vector figure and73 artifact checks.

@@ -609,3 +609,7 @@ no remote work, rental or manuscript edit. A7 deferred. Next Run223 / Analysis04
 ## Completed follow-up: Run227 / Analysis050 / H034
 
 [Analysis050](../analyses/050-2026-11-04-mlp-two-stage-decay/README.md): a second cosine32 decay from0.75x at650 to0.5x at682 reduces the first MLP peak48.77% and mean651..800 loss27.66% versus held0.75x; no >10% excursions after682. Exact prefix/update replay and20 new artifacts verified. Selected development timing, one seed, Spark only. Next Run228 / Analysis051 / H035.
+
+## Completed follow-up: Run228 / Analysis051 / H035
+
+[Analysis051](../analyses/051-2026-11-04-mlp-global-clipping/README.md): global norm clipping1.0 before Adam reduces the first MLP peak but worsens mean loss48.01% and maximum3.82x across512..800. Exact control reuse,73 artifacts verified, Spark only. Single seed/window; no universal rejection of clipping. Next Run229 / Analysis052 / H036.

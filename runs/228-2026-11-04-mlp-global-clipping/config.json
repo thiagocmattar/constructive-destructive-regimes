@@ -1,0 +1,25 @@
+{
+  "run_id": "228",
+  "analysis_id": "051",
+  "hypothesis": "H035",
+  "seed": 0,
+  "case": "mlp",
+  "base_lr": 0.001,
+  "start": 512,
+  "end": 800,
+  "plot_start": 448,
+  "clip_threshold": 1.0,
+  "arms": [
+    {
+      "id": "global_clip1",
+      "kind": "clip",
+      "factor": 1.0
+    }
+  ],
+  "parent_run": "runs/223-2026-11-04-multispike-interventions",
+  "parent_worker": "runs/223-2026-11-04-multispike-interventions/artifacts/worker",
+  "runtime_limit_seconds": 1800,
+  "authorization": "User requested global norm clipping1.0 for MLP on Spark before considering other models.",
+  "comparison": "Same Run223 seed0 full5000-image objective, physical1000, warm Adam(.9,.999),eps1e-8,no weight decay. LR0.001 unchanged. Reuse fresh same-Spark unchanged control after exact fork-gradient and two-update tensor replay.",
+  "measurement": "Global FP64 L2 norm of accumulated full-objective raw gradient; multiply every FP32 parameter gradient by min(1,1/norm) before Adam moments. Raw history remains unclipped.288 updates512..799; endpoint800 observed only. Log clip factor, raw/input norms, moments and actual increments each update; retain recovery/end."
+}

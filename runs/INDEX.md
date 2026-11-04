@@ -305,3 +305,7 @@ attempt within the same run.
 ## Run227: two-stage MLP cosine decay
 
 [Run227](227-2026-11-04-mlp-two-stage-decay/README.md) completed cosine32-to0.75x from512 then cosine32-to0.5x from650. Exact prior-history replay; retained baseline/single-decay controls. Spark only, H034 / Analysis050.
+
+## Run228: MLP global clipping1.0
+
+[Run228](228-2026-11-04-mlp-global-clipping/README.md) completed288 matched Spark updates512..800 with global gradient clipping1.0 before Adam, unchanged LR. Exact baseline replay passed;125 updates clipped. Mean loss+48.01%, maximum3.82x versus unchanged. H035 / Analysis051.
