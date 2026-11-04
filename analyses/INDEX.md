@@ -123,7 +123,7 @@ an analysis may use manuscript or external inputs without referencing a run.
 
 ## Analysis044: multi-spike interventions (2026-11-04)
 
-[Analysis044](044-2026-11-04-multispike-interventions/README.md) prepares the Run223 paired comparisons and raw diagnostic figures. Three-case conclusions pending. Next Analysis045.
+[Analysis044](044-2026-11-04-multispike-interventions/FINDINGS.md) completed the three-case comparison and3 verified vector figures. Mean loss changes immediate/cosine half: MLP-25.04%/-26.30%, ResNet+27.20%/+0.62%, Transformer-9.66%/-10.68%. Fresh controls, exact replay;47,456 plotted values checked. No universal suppression or historical bitwise replay claim.
 
 ## Analysis045: MLP LR return
 

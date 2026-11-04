@@ -1,0 +1,205 @@
+{
+  "status": "completed",
+  "utc": "2026-11-04T15:34:17.082268+00:00",
+  "all_transfer_archives_and_files_verified": true,
+  "transfers": [
+    {
+      "worker": "159vjccj7w3996",
+      "files": 60,
+      "archive_sha256": "cb8734d7e9807c1fffc4be475b821d1c0192f8cf205daa4052554e1b0176f4f7"
+    },
+    {
+      "worker": "2kvwqfqw35eqma",
+      "files": 25,
+      "archive_sha256": "2b0de7addb21f665c309d3e956d9475af1496f23f1fadc9449ccbf2201fa0e3f"
+    },
+    {
+      "worker": "31sl91sax515rd",
+      "files": 10,
+      "archive_sha256": "1971b9ff93cb32213df3421e9a0f8801eb394f7105e366b8ae4889b431bed3ec"
+    },
+    {
+      "worker": "d227m6sq2uxs2z",
+      "files": 10,
+      "archive_sha256": "a23dc21c17bccbbfb7844209910d0c10c0b47c86471a13e8ab103640dd5d90ed"
+    },
+    {
+      "worker": "di6xenf6qagbx4",
+      "files": 5,
+      "archive_sha256": "afbf7d77e3a65b25b96d01da50d94cbe2775a9e8e85a37557321c467ce6a568b"
+    },
+    {
+      "worker": "duqoihms8w1gle",
+      "files": 69,
+      "archive_sha256": "68aed65d4ed89c86911089cf818274f1064ac9a45c44018236ba86351a90bc1d"
+    },
+    {
+      "worker": "spark",
+      "files": 56,
+      "archive_sha256": "424f1773f278eb2c7fe1e293fc95dcec911cd05a4fba99f421ae59ebc89185c1"
+    }
+  ],
+  "total_files": 235,
+  "all_task_pods_absent_from_provider_inventory": true,
+  "retained_task_cloud_storage_gb": 0,
+  "unrelated_resources_unchanged": true,
+  "estimated_usd": 7.583464043856992,
+  "budget_usd": 15,
+  "pods": [
+    {
+      "id": "d227m6sq2uxs2z",
+      "role": "leader",
+      "case": "transformer",
+      "gpu": "RTX PRO 4500 SE",
+      "price_per_gpu_hour": 0.72,
+      "created_epoch": 1793789578.60747,
+      "deleted_epoch": 1793789694.7319043,
+      "terminal_status": null,
+      "setup_error": "RuntimeError('{\\'status\\': \\'failed\\', \\'mode\\': \\'calibrate\\', \\'case\\': \\'transformer\\', \\'started_utc\\': \\'2026-11-04T10:54:50.827993+00:00\\', \\'gpu\\': \\'NVIDIA RTX PRO 4500 Blackwell Server Edition\\', \\'torch\\': \\'2.11.0+cu130\\', \\'cuda\\': \\'13.0\\', \\'results\\': {}, \\'exception\\': \"TypeError(\\'list indices must be integers or slices, not str\\')\", \\'traceback\\': \\'Traceback (most recent call last):\\\\n  File \"/workspace/cdr223/runs/223-2026-11-04-multispike-interventions/01_worker.py\", line 201, in main\\\\n    c=prepare(a.case,cfg)\\\\n      ^^^^^^^^^^^^^^^^^^^\\\\n  File \"/workspace/cdr223/runs/223-2026-11-04-multispike-interventions/01_worker.py\", line 138, in prepare\\\\n    model=model_for(case,cache,shared[\\\\\\'wikitext\\\\\\'][\\\\\\'vocabulary_size\\\\\\']).to(\\\\\\'cuda:0\\\\\\');init=shared[\\\\\\'initial\\\\\\'][case][\\\\\\'0\\\\\\']\\\\n                                                                                        ~~~~~~~~~~~~~~~~~~~~~~~^^^^^\\\\nTypeError: list indices must be integers or slices, not str\\\\n\\', \\'finished_utc\\': \\'2026-11-04T10:54:51.241432+00:00\\', \\'elapsed_seconds\\': 0.41621887288056314}')"
+    },
+    {
+      "id": "duqoihms8w1gle",
+      "role": "leader",
+      "case": "resnet",
+      "gpu": "RTX 4090",
+      "price_per_gpu_hour": 0.89,
+      "created_epoch": 1793789695.7031817,
+      "deleted_epoch": 1793794204.3436644,
+      "terminal_status": "completed",
+      "setup_error": null
+    },
+    {
+      "id": "31sl91sax515rd",
+      "role": "leader",
+      "case": "transformer",
+      "gpu": "A100 SXM",
+      "price_per_gpu_hour": 1.79,
+      "created_epoch": 1793789870.741881,
+      "deleted_epoch": 1793790107.5390716,
+      "terminal_status": null,
+      "setup_error": "AssertionError((8.528683610928505, 'Admission cost too high'))"
+    },
+    {
+      "id": "p234yt5bqq39lt",
+      "role": "leader",
+      "case": "transformer",
+      "gpu": "A100 SXM",
+      "price_per_gpu_hour": 1.79,
+      "created_epoch": 1793790142.9689162,
+      "deleted_epoch": 1793790305.5000496,
+      "terminal_status": null,
+      "setup_error": null
+    },
+    {
+      "id": "159vjccj7w3996",
+      "role": "leader",
+      "case": "transformer",
+      "gpu": "L40S",
+      "price_per_gpu_hour": 1.09,
+      "created_epoch": 1793790191.4893947,
+      "deleted_epoch": 1793805090.4296184,
+      "terminal_status": "completed",
+      "setup_error": null
+    },
+    {
+      "id": "di6xenf6qagbx4",
+      "role": "follower",
+      "case": "transformer",
+      "gpu": "L40S",
+      "price_per_gpu_hour": 1.09,
+      "created_epoch": 1793800439.8008711,
+      "deleted_epoch": 1793801578.5184546,
+      "terminal_status": null,
+      "setup_error": "TimeoutExpired(['scp', '-o', 'BatchMode=yes', '-o', 'IdentitiesOnly=yes', '-o', 'ConnectTimeout=12', '-o', 'ServerAliveInterval=15', '-o', 'ServerAliveCountMax=3', '-o', 'StrictHostKeyChecking=accept-new', '-o', 'UserKnownHostsFile=C:\\\\Users\\\\thima\\\\Documents\\\\Doutorado\\\\exps\\\\constructive-destructive-regimes\\\\runs\\\\223-2026-11-04-multispike-interventions\\\\scratch\\\\known-hosts', '-i', 'C:\\\\Users\\\\thima\\\\.ssh\\\\id_ed25519_runpod', '-P', '28002', '-q', 'C:\\\\Users\\\\thima\\\\Documents\\\\Doutorado\\\\exps\\\\constructive-destructive-regimes\\\\runs\\\\223-2026-11-04-multispike-interventions\\\\scratch\\\\159vjccj7w3996-reference.pt', 'root@81.27.69.178:/workspace/reference.pt'], 900)"
+    },
+    {
+      "id": "2kvwqfqw35eqma",
+      "role": "follower",
+      "case": "transformer",
+      "gpu": "L40S",
+      "price_per_gpu_hour": 1.09,
+      "created_epoch": 1793801792.6808832,
+      "deleted_epoch": 1793806128.5800686,
+      "terminal_status": "completed",
+      "setup_error": null
+    }
+  ],
+  "billing_status": "Provisional: posted provider buckets lag final leader/follower lifetimes; all resources deleted, no ongoing task cloud billing.",
+  "spark_storage": "791 MiB retained for Run223 plus authorized MLP follow-ups; owned hardware, zero rental.",
+  "posted_provider_usd": 5.770514101837762,
+  "billing_by_pod": [
+    {
+      "pod_id": "d227m6sq2uxs2z",
+      "gpu_usd": 0.023034999147057533,
+      "disk_usd": 0.00046296301297843456,
+      "posted_usd": 0.023497962160035968,
+      "latest_bucket_end": "2026-11-04T11:00:00Z",
+      "error": null
+    },
+    {
+      "pod_id": "duqoihms8w1gle",
+      "gpu_usd": 1.1144473664462566,
+      "disk_usd": 0.014351851656101644,
+      "posted_usd": 1.1287992181023583,
+      "latest_bucket_end": "2026-11-04T13:00:00Z",
+      "error": null
+    },
+    {
+      "pod_id": "31sl91sax515rd",
+      "gpu_usd": 0.11729969456791878,
+      "disk_usd": 0.0013888889225199819,
+      "posted_usd": 0.11868858349043876,
+      "latest_bucket_end": "2026-11-04T12:00:00Z",
+      "error": null
+    },
+    {
+      "pod_id": "p234yt5bqq39lt",
+      "gpu_usd": 0.08045453578233719,
+      "disk_usd": 0.00046296301297843456,
+      "posted_usd": 0.08091749879531562,
+      "latest_bucket_end": "2026-11-04T12:00:00Z",
+      "error": null
+    },
+    {
+      "pod_id": "159vjccj7w3996",
+      "gpu_usd": 3.7704771235585213,
+      "disk_usd": 0.03888888820074499,
+      "posted_usd": 3.8093660117592663,
+      "latest_bucket_end": "2026-11-04T15:00:00Z",
+      "error": null
+    },
+    {
+      "pod_id": "di6xenf6qagbx4",
+      "gpu_usd": 0.3445323407649994,
+      "disk_usd": 0.004166666651144624,
+      "posted_usd": 0.348699007416144,
+      "latest_bucket_end": "2026-11-04T15:00:00Z",
+      "error": null
+    },
+    {
+      "pod_id": "2kvwqfqw35eqma",
+      "gpu_usd": 0.25776804238557816,
+      "disk_usd": 0.002777777728624642,
+      "posted_usd": 0.2605458201142028,
+      "latest_bucket_end": "2026-11-04T15:00:00Z",
+      "error": null
+    }
+  ],
+  "spark_unrelated_pid458832_status": "Tsl preserved; no task worker remains",
+  "controller_and_guard": "Exited after production-closed marker; no live task cloud resources",
+  "no_scientific_delivery_attempt": {
+    "pod_id": "p234yt5bqq39lt",
+    "reason": "Interrupted setup: no scientific source/control directory or artifact files delivered; no worker launched; retirement tombstone retained in scratch."
+  },
+  "run221_resnet_cross_gpu_gradient_gate": {
+    "status": "failed_preserved",
+    "relative_error": 0.008718747306333798,
+    "historical_bitwise_replay_claimed": false
+  },
+  "final_analysis": {
+    "path": "analyses/044-2026-11-04-multispike-interventions",
+    "schedule_geometry_checks": 8896,
+    "plotted_scalar_checks": 47456,
+    "vector_figures_rendered_inspected": 3
+  }
+}

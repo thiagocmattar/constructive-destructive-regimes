@@ -10,6 +10,9 @@ def read(p):return json.loads(p.read_text())
 def rows(p):return [json.loads(x) for x in p.read_text().splitlines() if x.strip()]
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
+    if (RUN/'scratch/production-closed.json').exists():
+        import runpy
+        runpy.run_path(str(HERE/'01_report.py'),run_name='__main__');return
     spec=importlib.util.spec_from_file_location('cloud223',RUN/'02_cloud.py');cloud=importlib.util.module_from_spec(spec);spec.loader.exec_module(cloud)
     snapshot=HERE/'scratch/all_results_snapshot'/datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ');snapshot.mkdir(exist_ok=True,parents=True)
     cfg=read(RUN/'config.json');sources=[];verified=0;series={};provenance={}

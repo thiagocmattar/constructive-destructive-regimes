@@ -1,0 +1,589 @@
+{
+  "status": "completed",
+  "source_checks": 8896,
+  "results": [
+    {
+      "case": "mlp",
+      "arm": "unchanged",
+      "start": 512,
+      "end": 800,
+      "control": "fresh same-worker control",
+      "mean_loss": 0.020804167521823222,
+      "final_loss": 0.03025020658969879,
+      "last32_mean": 0.013458456061925972,
+      "mean_change_pct": 0.0,
+      "final_change_pct": 0.0,
+      "maximum_loss": 0.055062638595700264,
+      "events_gt10": 16,
+      "censored_gt10": 1,
+      "largest_own_reference_ratio": 3.4160689175343504,
+      "events": [
+        {
+          "before_state": 512,
+          "onset_state": 513,
+          "peak_state": 522,
+          "recovery_state": 529,
+          "end_state": 529,
+          "right_censored": false,
+          "peak_ratio": 2.3881012787738043
+        },
+        {
+          "before_state": 529,
+          "onset_state": 530,
+          "peak_state": 530,
+          "recovery_state": 532,
+          "end_state": 532,
+          "right_censored": false,
+          "peak_ratio": 1.329819120918593
+        },
+        {
+          "before_state": 532,
+          "onset_state": 533,
+          "peak_state": 534,
+          "recovery_state": 536,
+          "end_state": 536,
+          "right_censored": false,
+          "peak_ratio": 1.2153782986433481
+        },
+        {
+          "before_state": 536,
+          "onset_state": 537,
+          "peak_state": 546,
+          "recovery_state": 549,
+          "end_state": 549,
+          "right_censored": false,
+          "peak_ratio": 1.9420823497259287
+        },
+        {
+          "before_state": 549,
+          "onset_state": 550,
+          "peak_state": 560,
+          "recovery_state": 569,
+          "end_state": 569,
+          "right_censored": false,
+          "peak_ratio": 1.7324679942135848
+        },
+        {
+          "before_state": 569,
+          "onset_state": 570,
+          "peak_state": 580,
+          "recovery_state": 585,
+          "end_state": 585,
+          "right_censored": false,
+          "peak_ratio": 1.2227029455451985
+        },
+        {
+          "before_state": 595,
+          "onset_state": 596,
+          "peak_state": 602,
+          "recovery_state": 612,
+          "end_state": 612,
+          "right_censored": false,
+          "peak_ratio": 1.4399285020281745
+        },
+        {
+          "before_state": 612,
+          "onset_state": 613,
+          "peak_state": 620,
+          "recovery_state": 653,
+          "end_state": 653,
+          "right_censored": false,
+          "peak_ratio": 1.7832082973374797
+        },
+        {
+          "before_state": 666,
+          "onset_state": 667,
+          "peak_state": 683,
+          "recovery_state": 702,
+          "end_state": 702,
+          "right_censored": false,
+          "peak_ratio": 3.4160689175343504
+        },
+        {
+          "before_state": 702,
+          "onset_state": 703,
+          "peak_state": 704,
+          "recovery_state": 706,
+          "end_state": 706,
+          "right_censored": false,
+          "peak_ratio": 1.1151483550328587
+        },
+        {
+          "before_state": 706,
+          "onset_state": 707,
+          "peak_state": 716,
+          "recovery_state": 719,
+          "end_state": 719,
+          "right_censored": false,
+          "peak_ratio": 2.1253011081857167
+        },
+        {
+          "before_state": 719,
+          "onset_state": 720,
+          "peak_state": 727,
+          "recovery_state": 733,
+          "end_state": 733,
+          "right_censored": false,
+          "peak_ratio": 1.7759759977962415
+        },
+        {
+          "before_state": 733,
+          "onset_state": 734,
+          "peak_state": 744,
+          "recovery_state": 751,
+          "end_state": 751,
+          "right_censored": false,
+          "peak_ratio": 1.5759794443400823
+        },
+        {
+          "before_state": 751,
+          "onset_state": 752,
+          "peak_state": 766,
+          "recovery_state": 769,
+          "end_state": 769,
+          "right_censored": false,
+          "peak_ratio": 1.6517377981107133
+        },
+        {
+          "before_state": 770,
+          "onset_state": 771,
+          "peak_state": 773,
+          "recovery_state": 777,
+          "end_state": 777,
+          "right_censored": false,
+          "peak_ratio": 1.3036965917403016
+        },
+        {
+          "before_state": 783,
+          "onset_state": 784,
+          "peak_state": 799,
+          "recovery_state": null,
+          "end_state": 800,
+          "right_censored": true,
+          "peak_ratio": 3.154144519238262
+        }
+      ]
+    },
+    {
+      "case": "mlp",
+      "arm": "fixed_half",
+      "start": 512,
+      "end": 800,
+      "control": "fresh same-worker control",
+      "mean_loss": 0.01559460096298911,
+      "final_loss": 0.010726135107688606,
+      "last32_mean": 0.011151445283758221,
+      "mean_change_pct": -25.040975820682863,
+      "final_change_pct": -64.54194428099802,
+      "maximum_loss": 0.02305707847699523,
+      "events_gt10": 0,
+      "censored_gt10": 0,
+      "largest_own_reference_ratio": 1,
+      "events": []
+    },
+    {
+      "case": "mlp",
+      "arm": "cosine32_half",
+      "start": 512,
+      "end": 800,
+      "control": "fresh same-worker control",
+      "mean_loss": 0.015333468483327629,
+      "final_loss": 0.010508841485716403,
+      "last32_mean": 0.01091733616340207,
+      "mean_change_pct": -26.29616894190513,
+      "final_change_pct": -65.2602653983361,
+      "maximum_loss": 0.026892120484262705,
+      "events_gt10": 1,
+      "censored_gt10": 0,
+      "largest_own_reference_ratio": 1.166328184687137,
+      "events": [
+        {
+          "before_state": 512,
+          "onset_state": 513,
+          "peak_state": 520,
+          "recovery_state": 523,
+          "end_state": 523,
+          "right_censored": false,
+          "peak_ratio": 1.166328184687137
+        }
+      ]
+    },
+    {
+      "case": "resnet",
+      "arm": "unchanged",
+      "start": 256,
+      "end": 576,
+      "control": "fresh same-worker control",
+      "mean_loss": 0.17649629460182786,
+      "final_loss": 0.006702044448852539,
+      "last32_mean": 0.0082409339261055,
+      "mean_change_pct": 0.0,
+      "final_change_pct": 0.0,
+      "maximum_loss": 0.49185978393554686,
+      "events_gt10": 4,
+      "censored_gt10": 0,
+      "largest_own_reference_ratio": 4.115298491704021,
+      "events": [
+        {
+          "before_state": 286,
+          "onset_state": 287,
+          "peak_state": 293,
+          "recovery_state": 302,
+          "end_state": 302,
+          "right_censored": false,
+          "peak_ratio": 1.3193211721806362
+        },
+        {
+          "before_state": 319,
+          "onset_state": 320,
+          "peak_state": 323,
+          "recovery_state": 339,
+          "end_state": 339,
+          "right_censored": false,
+          "peak_ratio": 1.8399112778647833
+        },
+        {
+          "before_state": 354,
+          "onset_state": 355,
+          "peak_state": 362,
+          "recovery_state": 381,
+          "end_state": 381,
+          "right_censored": false,
+          "peak_ratio": 2.5704271215230845
+        },
+        {
+          "before_state": 404,
+          "onset_state": 405,
+          "peak_state": 415,
+          "recovery_state": 439,
+          "end_state": 439,
+          "right_censored": false,
+          "peak_ratio": 4.115298491704021
+        }
+      ]
+    },
+    {
+      "case": "resnet",
+      "arm": "fixed_half",
+      "start": 256,
+      "end": 576,
+      "control": "fresh same-worker control",
+      "mean_loss": 0.22450798612213135,
+      "final_loss": 0.054456703567504865,
+      "last32_mean": 0.0760786843943596,
+      "mean_change_pct": 27.202662599017692,
+      "final_change_pct": 712.538681041252,
+      "maximum_loss": 0.8951674365234378,
+      "events_gt10": 4,
+      "censored_gt10": 0,
+      "largest_own_reference_ratio": 14.499458696360245,
+      "events": [
+        {
+          "before_state": 323,
+          "onset_state": 324,
+          "peak_state": 327,
+          "recovery_state": 334,
+          "end_state": 334,
+          "right_censored": false,
+          "peak_ratio": 1.177319405237358
+        },
+        {
+          "before_state": 355,
+          "onset_state": 356,
+          "peak_state": 362,
+          "recovery_state": 375,
+          "end_state": 375,
+          "right_censored": false,
+          "peak_ratio": 1.5465486656620144
+        },
+        {
+          "before_state": 405,
+          "onset_state": 406,
+          "peak_state": 410,
+          "recovery_state": 429,
+          "end_state": 429,
+          "right_censored": false,
+          "peak_ratio": 2.478569586191578
+        },
+        {
+          "before_state": 495,
+          "onset_state": 496,
+          "peak_state": 504,
+          "recovery_state": 569,
+          "end_state": 569,
+          "right_censored": false,
+          "peak_ratio": 14.499458696360245
+        }
+      ]
+    },
+    {
+      "case": "resnet",
+      "arm": "cosine32_half",
+      "start": 256,
+      "end": 576,
+      "control": "fresh same-worker control",
+      "mean_loss": 0.17759415248167515,
+      "final_loss": 0.023741887931823736,
+      "last32_mean": 0.028416782590150836,
+      "mean_change_pct": 0.622028854670309,
+      "final_change_pct": 254.2484403529821,
+      "maximum_loss": 0.5441395819091799,
+      "events_gt10": 3,
+      "censored_gt10": 0,
+      "largest_own_reference_ratio": 4.795728048798695,
+      "events": [
+        {
+          "before_state": 319,
+          "onset_state": 320,
+          "peak_state": 323,
+          "recovery_state": 331,
+          "end_state": 331,
+          "right_censored": false,
+          "peak_ratio": 1.2080242288967613
+        },
+        {
+          "before_state": 354,
+          "onset_state": 355,
+          "peak_state": 360,
+          "recovery_state": 378,
+          "end_state": 378,
+          "right_censored": false,
+          "peak_ratio": 1.789549264912014
+        },
+        {
+          "before_state": 423,
+          "onset_state": 424,
+          "peak_state": 429,
+          "recovery_state": 458,
+          "end_state": 458,
+          "right_censored": false,
+          "peak_ratio": 4.795728048798695
+        }
+      ]
+    },
+    {
+      "case": "transformer",
+      "arm": "unchanged",
+      "start": 544,
+      "end": 928,
+      "control": "fresh same-worker control",
+      "mean_loss": 0.8326768610106758,
+      "final_loss": 0.8272112228216767,
+      "last32_mean": 0.9374637999265666,
+      "mean_change_pct": 0.0,
+      "final_change_pct": 0.0,
+      "maximum_loss": 1.9465555250545379,
+      "events_gt10": 5,
+      "censored_gt10": 1,
+      "largest_own_reference_ratio": 3.076436914821848,
+      "events": [
+        {
+          "before_state": 557,
+          "onset_state": 558,
+          "peak_state": 562,
+          "recovery_state": 596,
+          "end_state": 596,
+          "right_censored": false,
+          "peak_ratio": 2.0063525857892524
+        },
+        {
+          "before_state": 623,
+          "onset_state": 624,
+          "peak_state": 629,
+          "recovery_state": 665,
+          "end_state": 665,
+          "right_censored": false,
+          "peak_ratio": 1.805243171182769
+        },
+        {
+          "before_state": 688,
+          "onset_state": 689,
+          "peak_state": 698,
+          "recovery_state": 747,
+          "end_state": 747,
+          "right_censored": false,
+          "peak_ratio": 2.355639434430607
+        },
+        {
+          "before_state": 793,
+          "onset_state": 794,
+          "peak_state": 799,
+          "recovery_state": 855,
+          "end_state": 855,
+          "right_censored": false,
+          "peak_ratio": 3.076436914821848
+        },
+        {
+          "before_state": 899,
+          "onset_state": 900,
+          "peak_state": 911,
+          "recovery_state": null,
+          "end_state": 928,
+          "right_censored": true,
+          "peak_ratio": 2.9887956184349385
+        }
+      ]
+    },
+    {
+      "case": "transformer",
+      "arm": "fixed_half",
+      "start": 544,
+      "end": 928,
+      "control": "fresh same-worker control",
+      "mean_loss": 0.7522360230451829,
+      "final_loss": 0.61941495800959,
+      "last32_mean": 0.6348009669007921,
+      "mean_change_pct": -9.660510785403176,
+      "final_change_pct": -25.12009739220882,
+      "maximum_loss": 1.6019203605823558,
+      "events_gt10": 2,
+      "censored_gt10": 0,
+      "largest_own_reference_ratio": 2.2364291063562542,
+      "events": [
+        {
+          "before_state": 710,
+          "onset_state": 711,
+          "peak_state": 716,
+          "recovery_state": 766,
+          "end_state": 766,
+          "right_censored": false,
+          "peak_ratio": 2.2364291063562542
+        },
+        {
+          "before_state": 847,
+          "onset_state": 848,
+          "peak_state": 859,
+          "recovery_state": 901,
+          "end_state": 901,
+          "right_censored": false,
+          "peak_ratio": 1.6913811825760505
+        }
+      ]
+    },
+    {
+      "case": "transformer",
+      "arm": "cosine32_half",
+      "start": 544,
+      "end": 928,
+      "control": "fresh same-worker control",
+      "mean_loss": 0.7437860440844881,
+      "final_loss": 0.6157324011851157,
+      "last32_mean": 0.6309241739141751,
+      "mean_change_pct": -10.675307683978986,
+      "final_change_pct": -25.565274720910047,
+      "maximum_loss": 1.4499671282170554,
+      "events_gt10": 2,
+      "censored_gt10": 0,
+      "largest_own_reference_ratio": 2.0214474047550257,
+      "events": [
+        {
+          "before_state": 692,
+          "onset_state": 693,
+          "peak_state": 699,
+          "recovery_state": 746,
+          "end_state": 746,
+          "right_censored": false,
+          "peak_ratio": 2.0214474047550257
+        },
+        {
+          "before_state": 847,
+          "onset_state": 848,
+          "peak_state": 853,
+          "recovery_state": 904,
+          "end_state": 904,
+          "right_censored": false,
+          "peak_ratio": 2.01765876346413
+        }
+      ]
+    }
+  ],
+  "source_files": [
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/prefix/boundaries.jsonl",
+      "sha256": "05896f1ff766343626db323dfa50a4994a2062f73f09e43156e1797b696231db"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/control/boundaries.jsonl",
+      "sha256": "def47bc333c45f5778d81a4450aa812cd91bf110604c05c6140e6846871c9d48"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/fixed_half/boundaries.jsonl",
+      "sha256": "ba78994f553755ec014f731ef0bc0cb07292c4fd3404c86d46695d37d96472a0"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/fixed_half/metrics.jsonl",
+      "sha256": "bc2561d31ac7fd88f3e1f506e119894a8ef813c2f38cff845ea7658c1a3a2654"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/cosine32_half/boundaries.jsonl",
+      "sha256": "e3bd6c782fd919c63e85f7da142cbbffb7d709d6fc39062a5e79dc772ed93ab5"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/cosine32_half/metrics.jsonl",
+      "sha256": "656130342af89f5c0bd0a69a9e26bdd70c15c314db30838bcaf32309fde22e67"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/duqoihms8w1gle/payload/worker/prefix/boundaries.jsonl",
+      "sha256": "0914f153b13710eafd7a31de046e292ed4b3014a655f5b587a264f6ac3255119"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/duqoihms8w1gle/payload/worker/control/boundaries.jsonl",
+      "sha256": "b63d89ba5a7c63718b9b14848abf76f3e7ae8699ea67918406c96a778405aaa1"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/duqoihms8w1gle/payload/worker/fixed_half/boundaries.jsonl",
+      "sha256": "fa43447feeb313243395f83277b36065544031b5c7dad9f488f789f6e243b4f7"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/duqoihms8w1gle/payload/worker/fixed_half/metrics.jsonl",
+      "sha256": "1c85327723b6d38957a7dedc00cdb9200680b755bf5ab9c9ed3df49a3e5f0472"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/duqoihms8w1gle/payload/worker/cosine32_half/boundaries.jsonl",
+      "sha256": "960083417bc6f958d3a4a7da24f36482ae09def27797902d01b8b31f13f168d3"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/duqoihms8w1gle/payload/worker/cosine32_half/metrics.jsonl",
+      "sha256": "84d43f2c1dfb4b77e9abfcc2a1c2fb8577f72be9473438265e8baf7ed2c4c4c4"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/159vjccj7w3996/payload/worker/prefix/boundaries.jsonl",
+      "sha256": "eba639bcdede0f36783210de668c18a3e3e63882efe15a511a4738c6d0ece0c4"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/159vjccj7w3996/payload/worker/control/boundaries.jsonl",
+      "sha256": "fda9f8d4de7160faf7dd764d7aeee513213087de76463a5500e042733bf30ae5"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/159vjccj7w3996/payload/worker/fixed_half/boundaries.jsonl",
+      "sha256": "1b03e051ee10ddcd08c2160688809864b7643ee8d0298c5bd019171dc5f83c48"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/159vjccj7w3996/payload/worker/fixed_half/metrics.jsonl",
+      "sha256": "0615596bcbd44bb3836ab8a1ff0a24d1566c94e744e7e2edeaec54eaf940d89e"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/2kvwqfqw35eqma/payload/worker/cosine32_half/boundaries.jsonl",
+      "sha256": "be743f9d8264483216f183fec01683ca902576ff588b5a0cfefcbcaaf7c4a3ca"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/2kvwqfqw35eqma/payload/worker/cosine32_half/metrics.jsonl",
+      "sha256": "a3204d4696cc8546a0eaed37ccce29f14c37904f005d63c951f6597d70e9defc"
+    }
+  ],
+  "plotted_scalar_checks": 47456,
+  "pdfs": [
+    {
+      "path": "analyses/044-2026-11-04-multispike-interventions/figures/fixed_half.pdf",
+      "sha256": "a6cbebcc4c99a7c93882b26c59248eb03c355ffd7c995e280386c32151de06d1"
+    },
+    {
+      "path": "analyses/044-2026-11-04-multispike-interventions/figures/cosine32_half.pdf",
+      "sha256": "05f4658c509046e03578925101311bcfdf3d25a849872128fb1985067330c957"
+    },
+    {
+      "path": "analyses/044-2026-11-04-multispike-interventions/figures/all_results_preliminary.pdf",
+      "sha256": "90222db09ee8baacd7777f7a815a9ae42ff3995278063d8c7c0f44dd50e85ba5"
+    }
+  ]
+}

@@ -248,3 +248,8 @@ all feature/fold outcomes and four reviewed figures are in the
 - [Cosine32 floors versus unchanged (Analysis047)](../../analyses/047-2026-11-04-mlp-cosine-floors/FINDINGS.md):0.75x lowers mean loss yet retains large late spikes at constant LR;0.5x suppresses post-decay excursions in this single MLP window.
 
 - [Two-stage MLP cosine decay (Analysis050)](../../analyses/050-2026-11-04-mlp-two-stage-decay/FINDINGS.md): second decay650..682 reduces peak amplitude/recovery duration and mean loss versus held0.75x; first spike persists, later >10% excursions absent within800. Selected single-seed evidence.
+
+
+## Persistent LR reductions across multiple spikes (Run223 / Analysis044)
+
+[Controlled findings](../../analyses/044-2026-11-04-multispike-interventions/FINDINGS.md): half LR and cosine32 half lower mean training loss for MLP25.04%/26.30% and Transformer9.66%/10.68%, but raise it for ResNet27.20%/0.62%. Spikes are removed in MLP immediate-half, remain in larger models. Three fresh controls, exact same-worker/cross-worker replay; historical reuse failed. Single seed and selected windows, no generalization or universal threshold claim. All235 files/7 archives verified;3 vector figures reviewed. All task Pods deleted, estimatedUSD7.58 withinUSD15; billing provisional.

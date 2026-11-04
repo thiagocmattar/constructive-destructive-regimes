@@ -582,9 +582,9 @@ proposal clipping meet the training screen, while A5/A8 create larger excursions
 [Empirical report](../analyses/040-2026-11-03-mlp-step-actions/REPORT.md). Single seed;
 no remote work, rental or manuscript edit. A7 deferred. Next Run223 / Analysis044 / H030.
 
-## Active follow-up: Run223 / Analysis044 / H030
+## Completed: Run223 / Analysis044 / H030
 
-[Run223](../runs/223-2026-11-04-multispike-interventions/README.md) tests persistent half LR and cosine32 to half across multiple spikes, replacing the unsuitable late-window design for this question. Approved three-model windows and USD15 cloud ceiling are frozen. Spark MLP complete and hash-verified with fresh same-Spark control; cloud cases pending. No new three-case finding yet. Next Run224 / Analysis045 / H031.
+[Run223 / Analysis044](../analyses/044-2026-11-04-multispike-interventions/FINDINGS.md) completed all three frozen windows with fresh controls. Immediate/cosine half mean loss changes: MLP-25.04%/-26.30%, ResNet+27.20%/+0.62%, Transformer-9.66%/-10.68%. Spikes persist in larger models. Exact replay and235 files/7 archives verified;3 vector figures inspected. All task Pods deleted; estimatedUSD7.58 of15, billing provisional. No manuscript edit or push. Current next IDs remain Run228 / Analysis051 / H035.
 
 ## Completed follow-up: Run224 / Analysis045 / H031
 

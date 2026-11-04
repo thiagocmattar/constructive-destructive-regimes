@@ -1,0 +1,23 @@
+# Run223: persistent LR reductions across multiple spikes
+
+Completed on2026-11-04. Source: `results.json`, source boundaries/metrics linked there, and Run223 `completion.json`. The fixed windows and seed0 were frozen before the new runs: MLP512..800, ResNet256..576, Transformer544..928. Each arm uses the same complete objective and warm model/Adam state as its contemporary unchanged control.
+
+| Case | Immediate half: mean loss change | Cosine32 half: mean loss change | >10% excursions: unchanged / immediate / cosine |
+|---|---:|---:|---:|
+| MLP | -25.04% | -26.30% |16 /0 /1|
+| ResNet-32 | +27.20% | +0.62% |4 /4 /3|
+| Transformer | -9.66% | -10.68% |5 /2 /2|
+
+Mean loss averages states after the fork through the endpoint, giving each completed update's resulting objective equal weight. Excursions follow Analysis036's recovery-based detector and use each event's own pre-rise loss as reference; counts alone are not a stability score.
+
+- **MLP suppression is strong in this window.** Immediate half removes all detected >10% excursions; cosine has one early1.166x excursion at520, before reaching its floor at544. Mean training loss falls25.04% and26.30%, respectively. Last32-state means fall17.14% and18.88%.
+- **The MLP endpoint overstates the average benefit.** Its unchanged control has a right-censored event peaking at799. Endpoint improvements of64.54%/65.26% should be read alongside the smaller mean/tail effects, not treated as a general gain estimate.
+- **Immediate half is unfavorable for ResNet here.** Mean loss rises27.20%; the late event peaks at504 with loss0.89517 and14.50x its own reference, compared with the unchanged maximum0.49186. There are still four detected events, now displaced in time.
+- **Cosine helps ResNet relative to immediate half, but does not improve on unchanged.** Mean loss is0.62% above unchanged; final loss is0.02374 versus0.00670, and the last32-state mean is244.82% higher. Three excursions remain, including a4.80x event at429. No training-progress benefit is supported for this treatment/control comparison.
+- **Transformer improves in the earlier, wider window.** Mean loss falls9.66%/10.68% and final loss becomes0.61941/0.61573 versus0.82721 unchanged. Last32-state means fall32.29%/32.70%. This differs from the unfavorable short late-window response in Run222; intervention timing and the comparison window matter.
+- **Transformer spikes are reduced in count, not eliminated.** Fixed-half peaks at716 and859; cosine at699 and853. Unchanged has five events, one right-censored at the window end. Maximum losses are1.60192/1.44997 versus1.94656 unchanged. Recurrent raw-gradient reversals persist even when mean loss improves.
+- **Cosine has a modest mean-loss advantage over immediate half in all three cases, without universal suppression.** The MLP response does not transfer uniformly to ResNet or Transformer. Raw rho and eta kappa hat characterize adjacent raw gradients, not Adam update alignment or a proved stability threshold; these runs do not identify a mechanism or establish held-out benefit.
+- **Controls and replay are qualified, with historical failures retained.** Historical exact reuse failed in all three cases, so all comparisons use fresh same-worker controls. Same-worker resume tests pass; Transformer cosine moved between L40S workers only after exact fork-gradient and two-update model/moment/history/RNG replay. Run221's0.8719% ResNet cross-GPU gradient-gate failure remains unchanged; no historical bitwise replay claim is made.
+- **All authorized work is accounted for.**235 transferred files across7 archives pass independent size/SHA checks;8,896 schedule/geometry checks and47,456 plotted scalar checks pass. All3 final vector figures were rendered and inspected. All7 task Pods, including failures, are deleted;0GB task cloud storage remains. Estimated totalUSD7.58 including failures/storage is belowUSD15; posted providerUSD5.77 is incomplete and billing remains provisional. Owned Spark retains791MiB across this study and its authorized MLP follow-ups, with the unrelated suspended PID458832 preserved. Single seed and selected windows limit generalization; no new variants, manuscript edits or push.
+
+Figures: `figures/fixed_half.pdf`, `figures/cosine32_half.pdf`, and the requested combined overview at the stable `figures/all_results_preliminary.pdf` path (now labeled complete). Raw solid curves, independent scales, shared-prefix shading, intervention forks and the Transformer cosine hardware boundary are shown. Each treatment is paired only with its unchanged control. Generate all three with `01_report.py`; the original previews and their observations remain historical records.

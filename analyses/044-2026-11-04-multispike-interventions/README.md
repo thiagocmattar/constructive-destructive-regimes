@@ -1,15 +1,9 @@
 # Analysis044: multi-spike intervention response
 
-Run223 is in progress. MLP and ResNet results are verified; Transformer remains pending. Compare two approved policies with qualified historical or fresh same-worker controls across all three highest-LR cases. Five rows: logarithmic training loss, raw rho, raw gradient norm, eta kappa hat, applied/base LR. Solid unsmoothed curves, independent panel ranges, fixed windows and explicit fork/hardware provenance. Audit displaced/censored excursions and loss progress.
+Completed2026-11-04. [Nine findings](FINDINGS.md) and [source-audited report](REPORT.md) compare the two approved policies with fresh same-worker controls across all three highest-LR cases. Mean loss changes for immediate half/cosine32 half are MLP-25.04%/-26.30%, ResNet+27.20%/+0.62%, Transformer-9.66%/-10.68%. Historical control reuse failed in every case; no historical bitwise replay is claimed.
 
-[Verified MLP preliminary figure](figures/mlp_preliminary_paired.pdf) and [seven scoped findings](observations/002-mlp-preliminary.md) are available; the Transformer case remains in progress.
+[Immediate half](figures/fixed_half.pdf), [cosine32 half](figures/cosine32_half.pdf), and [combined overview](figures/all_results_preliminary.pdf) show the complete windows. Each comparison uses unchanged baseline, five raw metric rows, solid unsmoothed curves and independent scales. The Transformer cosine worker switch and exact replay are explicit. See [final figure observation](observations/006-final-results.md).
 
-## ResNet preliminary result
+All235 transferred files and7 archive hashes pass verification;8,896 schedule/geometry checks and47,456 plotted values pass. All3 vector renders inspected. Run223 task Pods deleted and0GB task cloud storage retained. EstimatedUSD7.58 total, with provider billing still provisional. No manuscript change or push. Generate final figures/report with01_report.py;04_all_results_preview.py now delegates to final local reporting once production is closed.
 
-[Verified case-level findings](observations/003-resnet-preliminary.md): both arms completed and69 files verified; task Pod deletion confirmed. Mean loss versus fresh unchanged control:+27.20% fixed half,+0.62% cosine32 half. Transformer still pending; final three-model figures/report remain incomplete.
-
-## Matching MLP and ResNet interventions
-
-[Immediate half LR](figures/mlp_resnet_fixed_half.pdf) and [cosine32-to-half](figures/mlp_resnet_cosine32_half.pdf) each show MLP and ResNet side by side, paired with their own unchanged controls. [Comparison observation](observations/004-mlp-resnet-side-by-side.md) records sources, scope and caveats.125 artifact files and14752 plotted values verified; both vector renders inspected. Generate with03_mlp_resnet_preview.py. Transformer and the final three-model figures remain pending.
-
-[Single-figure preliminary overview](figures/all_results_preliminary.pdf) places both interventions side by side for each model. MLP and ResNet are complete; Transformer control is complete through928; the11:28 BRT snapshot includes fixed-half through741 and cosine through586, with exact cross-worker replay verified. See observations/005-all-results-preliminary.md for coverage and provenance.
+Earlier partial observations and paired previews are retained as development history. The requested all_results_preliminary.pdf path now contains the completed combined figure; its former partial versions remain in Git history.

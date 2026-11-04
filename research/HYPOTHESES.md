@@ -70,7 +70,7 @@ executed evidence. A run may address multiple hypotheses or be calibration-only.
 
 ## H030: persistent LR reductions across multiple large spikes
 
-Status: running, single-seed controlled experiment. Run223 / Analysis044. Question: do immediate half LR and cosine32 to half reduce repeated loss excursions, including the largest historical region, without sacrificing training progress? Fixed windows MLP512..800, ResNet256..576, Transformer544..928; original full objectives and highest LRs. Qualified historical controls or fresh same-worker unchanged controls. Evaluate event counts/amplitudes/censoring alongside mean, final and last32-state loss; no generalization or universal stability claim.
+Status: completed; partial support with model-dependent effects. [Run223 / Analysis044](../analyses/044-2026-11-04-multispike-interventions/FINDINGS.md). MLP/Transformer mean loss improves but ResNet does not; spikes remain in both larger models. Exact replay passed, historical reuse failed, all235 files verified. Single-seed controlled experiment. Question: do immediate half LR and cosine32 to half reduce repeated loss excursions, including the largest historical region, without sacrificing training progress? Fixed windows MLP512..800, ResNet256..576, Transformer544..928; original full objectives and highest LRs. Qualified historical controls or fresh same-worker unchanged controls. Evaluate event counts/amplitudes/censoring alongside mean, final and last32-state loss; no generalization or universal stability claim.
 
 ## H031: does a smooth low-LR interval permit a later0.75x LR?
 

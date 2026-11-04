@@ -1,0 +1,9 @@
+# Final figures and source verification
+
+Source and reduction: Run223 terminal artifacts; `01_report.py`, `results.json`, `figure_values.csv`, and Run223 `completion.json`. All235 transferred files and7 archive hashes were independently verified; executed science/config/source remains frozen. Historical control reuse failed for every case, and all controls are fresh same-worker continuations. Exact resume and cross-worker replay gates are retained.
+
+Caption: each three-column figure compares one intervention with unchanged for MLP, ResNet and Transformer. The combined six-column figure shows both comparisons side by side for each model. Five rows show logarithmic training loss, raw rho, raw gradient norm, eta kappa hat and actual/base LR. Gray shading marks the shared prefix; the solid vertical line marks the fork. Transformer cosine changes L40S workers at544 after exact replay, explicitly labeled. All curves are unsmoothed and continuous, and axes have independent ranges. Coverage: MLP448..800, ResNet192..576, Transformer480..928.
+
+Validation:8,896 schedule/gradient-identity checks and47,456 plotted source-value checks pass. PDFs contain vector paths and no raster images; all three full-page renders were visually inspected for clipping, legends, boundaries and scales. LR intervals extend to the final observation without implying an extra update. Final snapshots are complete; `all_results_preliminary.pdf` retains its requested path but is clearly labeled complete. The11:28 BRT partial preview is retained in Git history and timestamped local snapshot directories.
+
+Interpretation and uncertainty: see the nine scoped findings in `FINDINGS.md`. Seed0 and selected windows only. MLP and Transformer unchanged have censored final events. Event counts do not establish convergence, generalization, a universal learning-rate threshold or Adam-curvature identification. Run221's cross-GPU failure remains separate from Run223's exact replay success.

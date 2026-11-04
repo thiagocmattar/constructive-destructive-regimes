@@ -288,7 +288,7 @@ attempt within the same run.
 
 ## Run223: multi-spike interventions (2026-11-04)
 
-[Run223](223-2026-11-04-multispike-interventions/README.md) is running: seed0, highest LR, fixed_half and cosine32_half, approved windows512..800/256..576/544..928. Up to3 Runpod GPUs plus Spark, totalUSD15. Historical reuse is qualified; otherwise fresh same-worker control. Next Run224.
+[Run223](223-2026-11-04-multispike-interventions/README.md) completed six treatments and three fresh controls in frozen windows512..800/256..576/544..928. Exact replay passed;235 files/7 archives verified. All7 task Pods deleted,0GB cloud storage; estimatedUSD7.58 of15, billing provisional. Analysis044: MLP/Transformer mean loss improves; ResNet does not. Single seed; no historical bitwise replay.
 
 ## Run224: MLP return to0.75x at650
 
