@@ -285,3 +285,7 @@ attempt within the same run.
 | --- | --- | --- | --- |
 | [221](221-2026-11-03-spark-fixed-step-interventions/README.md) | H029 capacity and warm-parent transfer qualification | ResNet cross-GPU gradient gate failed before treatments; exact tensors/close loss retained | Nine mechanics updates; preserved failed gate and source |
 | [222](222-2026-11-03-spark-matched-interventions/README.md) | H029 matched Spark interventions from warm state 1024 | Completed/verified: 30 primary + 6 optional branches; 2,304 main + 12 qualification updates, no failure | [Analysis043 findings](../analyses/043-2026-11-03-spark-fixed-step-interventions/FINDINGS.md); all checkpoints retained, worker exited 06:52 BRT, zero cloud cost |
+
+## Run223: multi-spike interventions (2026-11-04)
+
+[Run223](223-2026-11-04-multispike-interventions/README.md) is running: seed0, highest LR, fixed_half and cosine32_half, approved windows512..800/256..576/544..928. Up to3 Runpod GPUs plus Spark, totalUSD15. Historical reuse is qualified; otherwise fresh same-worker control. Next Run224.

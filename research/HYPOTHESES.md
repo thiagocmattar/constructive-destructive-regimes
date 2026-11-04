@@ -67,3 +67,7 @@ comparison, support/refutation criteria, and scope in the corresponding run
 proposal. Suggested statuses: proposed, active, supported, unsupported,
 inconclusive, withdrawn. Preserve superseded interpretations instead of rewriting
 executed evidence. A run may address multiple hypotheses or be calibration-only.
+
+## H030: persistent LR reductions across multiple large spikes
+
+Status: running, single-seed controlled experiment. Run223 / Analysis044. Question: do immediate half LR and cosine32 to half reduce repeated loss excursions, including the largest historical region, without sacrificing training progress? Fixed windows MLP512..800, ResNet256..576, Transformer544..928; original full objectives and highest LRs. Qualified historical controls or fresh same-worker unchanged controls. Evaluate event counts/amplitudes/censoring alongside mean, final and last32-state loss; no generalization or universal stability claim.

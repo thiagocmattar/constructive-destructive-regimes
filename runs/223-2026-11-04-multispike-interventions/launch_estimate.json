@@ -1,0 +1,17 @@
+{
+  "status": "running",
+  "resnet": {
+    "gpu": "RTX4090",
+    "measured_seconds_per_update": 3.3963490531314164
+  },
+  "transformer": {
+    "gpu": "L40S",
+    "measured_seconds_per_update": 10.152300151996315
+  },
+  "cloud_spend_estimate_usd": 0.4900911890757672,
+  "conditional_remaining_hours": [
+    3.5,
+    4.5
+  ],
+  "assumptions": "Fresh Transformer control and same-GPU follower; capacity, exact replay and event gate must pass. Guard12/14/15 unchanged."
+}

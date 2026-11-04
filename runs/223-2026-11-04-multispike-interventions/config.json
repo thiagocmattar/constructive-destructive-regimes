@@ -1,0 +1,64 @@
+{
+  "run_id": "223",
+  "analysis_id": "044",
+  "hypothesis": "H030",
+  "seed": 0,
+  "cases": {
+    "mlp": {
+      "lr": 0.001,
+      "physical": 1000,
+      "start": 512,
+      "end": 800,
+      "plot_start": 448,
+      "peak": 703,
+      "worker": "local-mlp"
+    },
+    "resnet": {
+      "lr": 0.003,
+      "physical": 1000,
+      "start": 256,
+      "end": 576,
+      "plot_start": 192,
+      "peak": 422,
+      "worker": "worker18"
+    },
+    "transformer": {
+      "lr": 0.003,
+      "physical": 64,
+      "start": 544,
+      "end": 928,
+      "plot_start": 480,
+      "peak": 794,
+      "worker": "worker23"
+    }
+  },
+  "arms": [
+    {
+      "id": "fixed_half",
+      "kind": "fixed",
+      "ratio": 0.5
+    },
+    {
+      "id": "cosine32_half",
+      "kind": "cosine",
+      "ratio": 0.5,
+      "duration": 32
+    }
+  ],
+  "control": {
+    "id": "unchanged",
+    "kind": "fixed",
+    "ratio": 1.0
+  },
+  "budget_usd": 15,
+  "maximum_live_cloud_gpus": 3,
+  "soft_budget_usd": 12,
+  "stop_compute_usd": 14,
+  "maximum_wall_hours": 8,
+  "checkpoint_every": 32,
+  "control_reuse": "Exact all-prefix loss/norm values plus 8-update exact historical overlap and same GPU model, torch/CUDA required. This is observed-trace replay, not proof of historical intermediate tensor identity. Otherwise retain a fresh same-worker unchanged continuation.",
+  "cross_worker_gate": "Exact fork gradient and 2-step model/optimizer/history/RNG equality; do not run a treatment on a divergent worker.",
+  "event_gate": "At least 3 >10% excursions with peaks after fork, and a >=2x excursion peaking within32 states of historical selected peak. No window/seed retuning.",
+  "precision": "FP32 model/gradient/Adam; FP64 diagnostics; TF32 disabled; fixed full objectives; foreach/fused false",
+  "authorization": "User approved windows, two interventions, up to3 Runpod GPUs plus Spark and totalUSD15; requested results notification."
+}
