@@ -1,6 +1,6 @@
 # Spark fixed-step intervention responses
 
-Status: running. Completed primary branches: 17/30.
+Status: running. Completed primary branches: 19/30.
 
 All interventions start from the same saved state1024, with warm Adam moments. Contemporary unchanged Spark continuations are the controls. The historical before period uses prior hardware and is explicitly separated at the intervention boundary.
 
@@ -14,6 +14,7 @@ Ten primary conditions test fixed LR reductions, cosine floors, global clipping 
 | mlp | cosine32_floor0p5 | -45.876% | -39.306% | 0/64 |
 | mlp | cosine32_floor0p25 | -45.722% | -37.338% | 0/64 |
 | mlp | cosine32_floor0p1 | -45.519% | -36.015% | 0/64 |
+| mlp | clip_median_x1 | -16.585% | +21.956% | 15/64 |
 | resnet | unchanged | +0.000% | +0.000% | 0/64 |
 | resnet | fixed_half | +4.838% | +9.696% | 0/64 |
 | resnet | fixed_quarter | +7.436% | +15.114% | 0/64 |
@@ -25,17 +26,19 @@ Ten primary conditions test fixed LR reductions, cosine floors, global clipping 
 | transformer | fixed_quarter | +5.922% | +9.099% | 0/64 |
 | transformer | cosine32_floor0p5 | +1.582% | +3.449% | 0/64 |
 | transformer | cosine32_floor0p25 | +2.687% | +6.129% | 0/64 |
+| transformer | cosine32_floor0p1 | +3.492% | +8.179% | 0/64 |
 
 Negative percentages mean lower unregularized training loss. Complete held-out endpoints are descriptive; no tuning or generalization claim. Queued, failed and interrupted branches are retained in results.json.
 
 [Numeric comparison](comparison.csv), [aligned values](aligned_values.csv), and [status/verification](results.json). Main figures have three model/dataset columns, solid curves, independent Y ranges and five rows: loss, raw rho, raw gradient norm, projected raw change and LR. No smoothing or unreported clipping of curves. Weight-decay companions show post-intervention parameter, actual-increment and decay-increment norms; no unrecorded historical weight norms are invented.
 
-Run222 actual updates: 1110 main + 12 qualification; recorded full gradient calls: 1148. Separate Run221 mechanics:9 updates and3 zero-update warm-parent gradient calls. Cloud spendUSD0; owned Spark.
+Run222 actual updates: 1234 main + 12 qualification; recorded full gradient calls: 1274. Separate Run221 mechanics:9 updates and3 zero-update warm-parent gradient calls. Cloud spendUSD0; owned Spark.
 
 Final interpretation and5-10 factual findings are added after terminal retrieval and numerical/visual verification. The failed Run221 cross-GPU gradient gate remains part of the evidence.
 
 Available response figures:
 
+- [cosine32_floor0p1.pdf](figures/cosine32_floor0p1.pdf)
 - [cosine32_floor0p25.pdf](figures/cosine32_floor0p25.pdf)
 - [cosine32_floor0p5.pdf](figures/cosine32_floor0p5.pdf)
 - [fixed_half.pdf](figures/fixed_half.pdf)
