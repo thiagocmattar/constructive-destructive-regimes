@@ -8,3 +8,4 @@
 - [006: complete 32-step cosine response to one tenth LR](006-cosine32-tenth-response.md)
 - [007: complete historical-median clipping response](007-clipping-median-response.md)
 - [008: inactive double-median clipping across three cases](008-clipping-double-median-response.md)
+- [009: complete decoupled decay 0.01 response](009-decay-0p01-response.md)
