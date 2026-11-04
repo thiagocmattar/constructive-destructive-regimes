@@ -1,6 +1,6 @@
 {
   "status": "partial",
-  "source_checks": 2976,
+  "source_checks": 5344,
   "results": [
     {
       "case": "mlp",
@@ -207,6 +207,159 @@
           "peak_ratio": 1.166328184687137
         }
       ]
+    },
+    {
+      "case": "resnet",
+      "arm": "unchanged",
+      "start": 256,
+      "end": 576,
+      "control": "fresh same-worker control",
+      "mean_loss": 0.17649629460182786,
+      "final_loss": 0.006702044448852539,
+      "last32_mean": 0.0082409339261055,
+      "mean_change_pct": 0.0,
+      "final_change_pct": 0.0,
+      "maximum_loss": 0.49185978393554686,
+      "events_gt10": 4,
+      "censored_gt10": 0,
+      "largest_own_reference_ratio": 4.115298491704021,
+      "events": [
+        {
+          "before_state": 286,
+          "onset_state": 287,
+          "peak_state": 293,
+          "recovery_state": 302,
+          "end_state": 302,
+          "right_censored": false,
+          "peak_ratio": 1.3193211721806362
+        },
+        {
+          "before_state": 319,
+          "onset_state": 320,
+          "peak_state": 323,
+          "recovery_state": 339,
+          "end_state": 339,
+          "right_censored": false,
+          "peak_ratio": 1.8399112778647833
+        },
+        {
+          "before_state": 354,
+          "onset_state": 355,
+          "peak_state": 362,
+          "recovery_state": 381,
+          "end_state": 381,
+          "right_censored": false,
+          "peak_ratio": 2.5704271215230845
+        },
+        {
+          "before_state": 404,
+          "onset_state": 405,
+          "peak_state": 415,
+          "recovery_state": 439,
+          "end_state": 439,
+          "right_censored": false,
+          "peak_ratio": 4.115298491704021
+        }
+      ]
+    },
+    {
+      "case": "resnet",
+      "arm": "fixed_half",
+      "start": 256,
+      "end": 576,
+      "control": "fresh same-worker control",
+      "mean_loss": 0.22450798612213135,
+      "final_loss": 0.054456703567504865,
+      "last32_mean": 0.0760786843943596,
+      "mean_change_pct": 27.202662599017692,
+      "final_change_pct": 712.538681041252,
+      "maximum_loss": 0.8951674365234378,
+      "events_gt10": 4,
+      "censored_gt10": 0,
+      "largest_own_reference_ratio": 14.499458696360245,
+      "events": [
+        {
+          "before_state": 323,
+          "onset_state": 324,
+          "peak_state": 327,
+          "recovery_state": 334,
+          "end_state": 334,
+          "right_censored": false,
+          "peak_ratio": 1.177319405237358
+        },
+        {
+          "before_state": 355,
+          "onset_state": 356,
+          "peak_state": 362,
+          "recovery_state": 375,
+          "end_state": 375,
+          "right_censored": false,
+          "peak_ratio": 1.5465486656620144
+        },
+        {
+          "before_state": 405,
+          "onset_state": 406,
+          "peak_state": 410,
+          "recovery_state": 429,
+          "end_state": 429,
+          "right_censored": false,
+          "peak_ratio": 2.478569586191578
+        },
+        {
+          "before_state": 495,
+          "onset_state": 496,
+          "peak_state": 504,
+          "recovery_state": 569,
+          "end_state": 569,
+          "right_censored": false,
+          "peak_ratio": 14.499458696360245
+        }
+      ]
+    },
+    {
+      "case": "resnet",
+      "arm": "cosine32_half",
+      "start": 256,
+      "end": 576,
+      "control": "fresh same-worker control",
+      "mean_loss": 0.17759415248167515,
+      "final_loss": 0.023741887931823736,
+      "last32_mean": 0.028416782590150836,
+      "mean_change_pct": 0.622028854670309,
+      "final_change_pct": 254.2484403529821,
+      "maximum_loss": 0.5441395819091799,
+      "events_gt10": 3,
+      "censored_gt10": 0,
+      "largest_own_reference_ratio": 4.795728048798695,
+      "events": [
+        {
+          "before_state": 319,
+          "onset_state": 320,
+          "peak_state": 323,
+          "recovery_state": 331,
+          "end_state": 331,
+          "right_censored": false,
+          "peak_ratio": 1.2080242288967613
+        },
+        {
+          "before_state": 354,
+          "onset_state": 355,
+          "peak_state": 360,
+          "recovery_state": 378,
+          "end_state": 378,
+          "right_censored": false,
+          "peak_ratio": 1.789549264912014
+        },
+        {
+          "before_state": 423,
+          "onset_state": 424,
+          "peak_state": 429,
+          "recovery_state": 458,
+          "end_state": 458,
+          "right_censored": false,
+          "peak_ratio": 4.795728048798695
+        }
+      ]
     }
   ],
   "source_files": [
@@ -225,6 +378,22 @@
     {
       "path": "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/cosine32_half/metrics.jsonl",
       "sha256": "656130342af89f5c0bd0a69a9e26bdd70c15c314db30838bcaf32309fde22e67"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/duqoihms8w1gle/payload/worker/fixed_half/boundaries.jsonl",
+      "sha256": "fa43447feeb313243395f83277b36065544031b5c7dad9f488f789f6e243b4f7"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/duqoihms8w1gle/payload/worker/fixed_half/metrics.jsonl",
+      "sha256": "1c85327723b6d38957a7dedc00cdb9200680b755bf5ab9c9ed3df49a3e5f0472"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/duqoihms8w1gle/payload/worker/cosine32_half/boundaries.jsonl",
+      "sha256": "960083417bc6f958d3a4a7da24f36482ae09def27797902d01b8b31f13f168d3"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/duqoihms8w1gle/payload/worker/cosine32_half/metrics.jsonl",
+      "sha256": "84d43f2c1dfb4b77e9abfcc2a1c2fb8577f72be9473438265e8baf7ed2c4c4c4"
     }
   ]
 }
