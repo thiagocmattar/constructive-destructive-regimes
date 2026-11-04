@@ -91,3 +91,7 @@ Status: supported within the selected MLP development window, with a residual in
 ## H035: does global norm clipping1.0 suppress repeated MLP spikes?
 
 Status: contradicted in the selected single-seed window. [Run228 / Analysis051](../analyses/051-2026-11-04-mlp-global-clipping/FINDINGS.md). Exact warm512..800; full-gradient clipping before Adam, unchanged LR. Active43.4% of updates; mean loss+48.01%, maximum3.82x despite smaller initial peak. Input norm cap does not bound actual Adam steps. Other thresholds/models and mechanisms remain untested.
+
+## H036: does clipping0.5 improve on clipping1.0 and unchanged MLP training?
+
+Status: partial support for peak reduction, no mean-loss benefit over unchanged. [Run229 / Analysis052](../analyses/052-2026-11-04-mlp-clipping-thresholds/FINDINGS.md). Same exact512..800 fork, LR0.001, seed0. Mean loss31.03% below1.0 but2.08% above unchanged; maximum15.32% below unchanged.238/288 clipped updates, oscillations remain. Post-inspection single-window evidence; no universal threshold claim.

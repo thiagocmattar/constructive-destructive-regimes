@@ -1,0 +1,38 @@
+{
+  "status": "completed",
+  "sources": [
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/prefix/boundaries.jsonl",
+      "sha256": "05896f1ff766343626db323dfa50a4994a2062f73f09e43156e1797b696231db"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/control/boundaries.jsonl",
+      "sha256": "def47bc333c45f5778d81a4450aa812cd91bf110604c05c6140e6846871c9d48"
+    },
+    {
+      "path": "runs/228-2026-11-04-mlp-global-clipping/artifacts/spark/payload/worker/global_clip1/boundaries.jsonl",
+      "sha256": "066bdb0b37638d8f22deebcec478a7f2ce7e7d1d3351f40cf30cdc6492b1093f"
+    },
+    {
+      "path": "runs/229-2026-11-04-mlp-clipping-half/artifacts/spark/payload/worker/global_clip05/boundaries.jsonl",
+      "sha256": "97dc87453700116d5758c60804ca589bc7610d3ef42ef8392a8e9be3a43ad4de"
+    },
+    {
+      "path": "runs/228-2026-11-04-mlp-global-clipping/artifacts/spark/payload/worker/global_clip1/metrics.jsonl",
+      "sha256": "2c4c76e53be3a0b3b767444412a69178f87e3341bc1711d920da326b548db26a"
+    },
+    {
+      "path": "runs/229-2026-11-04-mlp-clipping-half/artifacts/spark/payload/worker/global_clip05/metrics.jsonl",
+      "sha256": "9c60a699078b83f2a7afe702cb0699d58cdd6fe27800ecf356412d98e7183417"
+    }
+  ],
+  "reduction": "none; raw per-state curves, means513..800, last32 states769..800; retained Analysis036 excursion detector",
+  "caption": "MLP clipping1.0 and0.5, each versus same-Spark unchanged baseline; green is recorded Adam-input norm",
+  "coverage": "Shared prefix448..512; response513..800; clipped input512..799",
+  "uncertainty": "One seed, post-inspection threshold selection, no confidence intervals or mechanism/generalization claim",
+  "script": "01_report.py",
+  "source_file_checks": 90,
+  "plotted_scalar_checks": 7632,
+  "pdf_sha256": "5503c69dedf10e4809c96d75d19132d289809182cf39d4adbfe230f15785addd",
+  "render_inspected": true
+}

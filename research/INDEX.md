@@ -613,3 +613,7 @@ no remote work, rental or manuscript edit. A7 deferred. Next Run223 / Analysis04
 ## Completed follow-up: Run228 / Analysis051 / H035
 
 [Analysis051](../analyses/051-2026-11-04-mlp-global-clipping/README.md): global norm clipping1.0 before Adam reduces the first MLP peak but worsens mean loss48.01% and maximum3.82x across512..800. Exact control reuse,73 artifacts verified, Spark only. Single seed/window; no universal rejection of clipping. Next Run229 / Analysis052 / H036.
+
+## Completed follow-up: Run229 / Analysis052 / H036
+
+[Analysis052](../analyses/052-2026-11-04-mlp-clipping-thresholds/README.md): clipping0.5 reduces MLP mean loss31.03% versus1.0 but remains2.08% above unchanged, despite a15.32% lower maximum. Exact replay,90 artifact checks, Spark only. Next Run230 / Analysis053 / H037.

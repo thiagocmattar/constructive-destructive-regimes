@@ -1,0 +1,51 @@
+{
+  "status": "completed",
+  "worker": {
+    "status": "completed",
+    "started_utc": "2026-11-04T22:55:35.298334+00:00",
+    "gpu": "NVIDIA GB10",
+    "torch": "2.11.0+cu130",
+    "cuda": "13.0",
+    "results": {
+      "global_clip05": {
+        "status": "completed",
+        "case": "mlp",
+        "arm": "global_clip05",
+        "start_state": 512,
+        "end_state": 800,
+        "started_utc": "2026-11-04T22:55:36.012123+00:00",
+        "identity": {
+          "run": "229",
+          "config_sha256": "764d06578abb649ca557985955ca82e847e76649007a8ff8d8bc94f7cf306c2e",
+          "manifest_sha256": "5c074bf7d7e4de1fc89f7cb1ebc59d4796c646cb4207e731348f6606d9b4a796",
+          "parent_checkpoint_sha256": "6d90f4cd6cc52877a765cf46bd5166ca50c5f882c1b0e6901748659b6d65e7e5"
+        },
+        "evaluation": {
+          "test": {
+            "loss": 0.7527294738769532,
+            "loss_units": 10000,
+            "objective_units": 10000
+          }
+        },
+        "completed_state": 800,
+        "updates": 288,
+        "elapsed_seconds": 1.9622984719462693,
+        "finished_utc": "2026-11-04T22:55:37.974421+00:00",
+        "common_initial_boundaries_exact": 2,
+        "clipped_updates": 238,
+        "clip_factor_min": 0.3301367013432115
+      }
+    },
+    "finished_utc": "2026-11-04T22:55:37.977194+00:00",
+    "elapsed_seconds": 2.6788792447187006
+  },
+  "receipt": {
+    "path": "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/run229-spark-output.tar.gz",
+    "sha256": "94ebcd0e45d7ed3bbdf8a91bf67650176e2e6b149627cb6b8950b61a1c7911fb",
+    "status": "completed",
+    "verified": true,
+    "files": 17
+  },
+  "cloud_cost_usd": 0,
+  "analysis": "052"
+}

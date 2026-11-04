@@ -309,3 +309,7 @@ attempt within the same run.
 ## Run228: MLP global clipping1.0
 
 [Run228](228-2026-11-04-mlp-global-clipping/README.md) completed288 matched Spark updates512..800 with global gradient clipping1.0 before Adam, unchanged LR. Exact baseline replay passed;125 updates clipped. Mean loss+48.01%, maximum3.82x versus unchanged. H035 / Analysis051.
+
+## Run229: MLP global clipping0.5
+
+[Run229](229-2026-11-04-mlp-clipping-half/README.md) completed288 Spark updates512..800 at global gradient cap0.5 before Adam, unchanged LR. Exact control reuse;238 updates clipped. Mean loss31.03% below clipping1.0 but2.08% above unchanged. H036 / Analysis052.

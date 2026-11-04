@@ -152,3 +152,7 @@ an analysis may use manuscript or external inputs without referencing a run.
 ## Analysis051: MLP global clipping response
 
 [Analysis051](051-2026-11-04-mlp-global-clipping/README.md) compares Run228 global norm clipping1.0 with unchanged same-Spark control. Early peak reduced, later instability worse; five-row vector figure and73 artifact checks.
+
+## Analysis052: MLP clipping thresholds
+
+[Analysis052](052-2026-11-04-mlp-clipping-thresholds/README.md) compares0.5 and1.0 each against unchanged LR, including raw and clipped norms. Smaller cap reduces peak severity but does not improve mean loss over baseline.90 artifact checks; independent panel ranges.

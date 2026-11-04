@@ -1,0 +1,573 @@
+{
+  "status": "completed",
+  "summary": {
+    "unchanged": {
+      "mean_513_800": 0.020804167521823222,
+      "last32_mean": 0.013458456061925972,
+      "final_loss": 0.03025020658969879,
+      "max_loss_513_800": 0.055062638595700264,
+      "events_count": 16,
+      "events_gt10": [
+        {
+          "before_state": 512,
+          "onset_state": 513,
+          "peak_state": 522,
+          "recovery_state": 529,
+          "end_state": 529,
+          "right_censored": false,
+          "ratio": 2.3881012787738043,
+          "peak_loss": 0.055062638595700264
+        },
+        {
+          "before_state": 529,
+          "onset_state": 530,
+          "peak_state": 530,
+          "recovery_state": 532,
+          "end_state": 532,
+          "right_censored": false,
+          "ratio": 1.329819120918593,
+          "peak_loss": 0.030159158166497946
+        },
+        {
+          "before_state": 532,
+          "onset_state": 533,
+          "peak_state": 534,
+          "recovery_state": 536,
+          "end_state": 536,
+          "right_censored": false,
+          "ratio": 1.2153782986433481,
+          "peak_loss": 0.02715998748317361
+        },
+        {
+          "before_state": 536,
+          "onset_state": 537,
+          "peak_state": 546,
+          "recovery_state": 549,
+          "end_state": 549,
+          "right_censored": false,
+          "ratio": 1.9420823497259287,
+          "peak_loss": 0.04223682079464197
+        },
+        {
+          "before_state": 549,
+          "onset_state": 550,
+          "peak_state": 560,
+          "recovery_state": 569,
+          "end_state": 569,
+          "right_censored": false,
+          "ratio": 1.7324679942135848,
+          "peak_loss": 0.036116250324994326
+        },
+        {
+          "before_state": 569,
+          "onset_state": 570,
+          "peak_state": 580,
+          "recovery_state": 585,
+          "end_state": 585,
+          "right_censored": false,
+          "ratio": 1.2227029455451985,
+          "peak_loss": 0.02480573346838355
+        },
+        {
+          "before_state": 595,
+          "onset_state": 596,
+          "peak_state": 602,
+          "recovery_state": 612,
+          "end_state": 612,
+          "right_censored": false,
+          "ratio": 1.4399285020281745,
+          "peak_loss": 0.026035254821181297
+        },
+        {
+          "before_state": 612,
+          "onset_state": 613,
+          "peak_state": 620,
+          "recovery_state": 653,
+          "end_state": 653,
+          "right_censored": false,
+          "ratio": 1.7832082973374797,
+          "peak_loss": 0.03131407406181097
+        },
+        {
+          "before_state": 666,
+          "onset_state": 667,
+          "peak_state": 683,
+          "recovery_state": 702,
+          "end_state": 702,
+          "right_censored": false,
+          "ratio": 3.4160689175343504,
+          "peak_loss": 0.04823051206767559
+        },
+        {
+          "before_state": 702,
+          "onset_state": 703,
+          "peak_state": 704,
+          "recovery_state": 706,
+          "end_state": 706,
+          "right_censored": false,
+          "ratio": 1.1151483550328587,
+          "peak_loss": 0.015258173923939466
+        },
+        {
+          "before_state": 706,
+          "onset_state": 707,
+          "peak_state": 716,
+          "recovery_state": 719,
+          "end_state": 719,
+          "right_censored": false,
+          "ratio": 2.1253011081857167,
+          "peak_loss": 0.02833064179867506
+        },
+        {
+          "before_state": 719,
+          "onset_state": 720,
+          "peak_state": 727,
+          "recovery_state": 733,
+          "end_state": 733,
+          "right_censored": false,
+          "ratio": 1.7759759977962415,
+          "peak_loss": 0.022478641476482153
+        },
+        {
+          "before_state": 733,
+          "onset_state": 734,
+          "peak_state": 744,
+          "recovery_state": 751,
+          "end_state": 751,
+          "right_censored": false,
+          "ratio": 1.5759794443400823,
+          "peak_loss": 0.019205102929845452
+        },
+        {
+          "before_state": 751,
+          "onset_state": 752,
+          "peak_state": 766,
+          "recovery_state": 769,
+          "end_state": 769,
+          "right_censored": false,
+          "ratio": 1.6517377981107133,
+          "peak_loss": 0.019577991450205445
+        },
+        {
+          "before_state": 770,
+          "onset_state": 771,
+          "peak_state": 773,
+          "recovery_state": 777,
+          "end_state": 777,
+          "right_censored": false,
+          "ratio": 1.3036965917403016,
+          "peak_loss": 0.013670964632183313
+        },
+        {
+          "before_state": 783,
+          "onset_state": 784,
+          "peak_state": 799,
+          "recovery_state": null,
+          "end_state": 800,
+          "right_censored": true,
+          "ratio": 3.154144519238262,
+          "peak_loss": 0.030629032757133245
+        }
+      ],
+      "min_rho": -0.9969484774622652,
+      "max_raw_gradient_norm": 2.2355555009192445,
+      "max_optimizer_input_norm": 2.2355555009192445,
+      "mean_actual_step_norm": 0.041787487522059984,
+      "max_actual_step_norm": 0.09366249789754973
+    },
+    "global_clip1": {
+      "mean_513_800": 0.030792351501683395,
+      "last32_mean": 0.0641294403540087,
+      "final_loss": 0.02442448539659381,
+      "max_loss_513_800": 0.21015971899032593,
+      "events_count": 13,
+      "events_gt10": [
+        {
+          "before_state": 512,
+          "onset_state": 513,
+          "peak_state": 519,
+          "recovery_state": 532,
+          "end_state": 532,
+          "right_censored": false,
+          "ratio": 1.3545897350602898,
+          "peak_loss": 0.03123288182541728
+        },
+        {
+          "before_state": 533,
+          "onset_state": 534,
+          "peak_state": 545,
+          "recovery_state": 547,
+          "end_state": 547,
+          "right_censored": false,
+          "ratio": 1.4001741673232926,
+          "peak_loss": 0.030324758030474186
+        },
+        {
+          "before_state": 547,
+          "onset_state": 548,
+          "peak_state": 579,
+          "recovery_state": 581,
+          "end_state": 581,
+          "right_censored": false,
+          "ratio": 1.353478195462682,
+          "peak_loss": 0.028644133359193802
+        },
+        {
+          "before_state": 582,
+          "onset_state": 583,
+          "peak_state": 586,
+          "recovery_state": 589,
+          "end_state": 589,
+          "right_censored": false,
+          "ratio": 1.258932398943546,
+          "peak_loss": 0.024894559755921364
+        },
+        {
+          "before_state": 589,
+          "onset_state": 590,
+          "peak_state": 591,
+          "recovery_state": 598,
+          "end_state": 598,
+          "right_censored": false,
+          "ratio": 1.3765964136093616,
+          "peak_loss": 0.026073649991303682
+        },
+        {
+          "before_state": 598,
+          "onset_state": 599,
+          "peak_state": 601,
+          "recovery_state": 603,
+          "end_state": 603,
+          "right_censored": false,
+          "ratio": 1.390384366768627,
+          "peak_loss": 0.02578668436035514
+        },
+        {
+          "before_state": 603,
+          "onset_state": 604,
+          "peak_state": 605,
+          "recovery_state": 624,
+          "end_state": 624,
+          "right_censored": false,
+          "ratio": 1.3782741032149302,
+          "peak_loss": 0.02490743761882186
+        },
+        {
+          "before_state": 624,
+          "onset_state": 625,
+          "peak_state": 628,
+          "recovery_state": 630,
+          "end_state": 630,
+          "right_censored": false,
+          "ratio": 1.60964119512869,
+          "peak_loss": 0.027173687238246202
+        },
+        {
+          "before_state": 630,
+          "onset_state": 631,
+          "peak_state": 664,
+          "recovery_state": 665,
+          "end_state": 665,
+          "right_censored": false,
+          "ratio": 1.788011138958441,
+          "peak_loss": 0.027966868598014116
+        },
+        {
+          "before_state": 665,
+          "onset_state": 666,
+          "peak_state": 667,
+          "recovery_state": 685,
+          "end_state": 685,
+          "right_censored": false,
+          "ratio": 1.8038911625258913,
+          "peak_loss": 0.027492853812873363
+        },
+        {
+          "before_state": 685,
+          "onset_state": 686,
+          "peak_state": 692,
+          "recovery_state": 693,
+          "end_state": 693,
+          "right_censored": false,
+          "ratio": 1.8519243880473084,
+          "peak_loss": 0.027153615839779377
+        },
+        {
+          "before_state": 693,
+          "onset_state": 694,
+          "peak_state": 703,
+          "recovery_state": 762,
+          "end_state": 762,
+          "right_censored": false,
+          "ratio": 8.149439698817227,
+          "peak_loss": 0.11071397736668587
+        },
+        {
+          "before_state": 762,
+          "onset_state": 763,
+          "peak_state": 774,
+          "recovery_state": null,
+          "end_state": 800,
+          "right_censored": true,
+          "ratio": 16.582526501378908,
+          "peak_loss": 0.21015971899032593
+        }
+      ],
+      "min_rho": -0.9862627717567332,
+      "max_raw_gradient_norm": 3.9550756624501555,
+      "max_optimizer_input_norm": 1.0000000423227366,
+      "mean_actual_step_norm": 0.05706750460178725,
+      "max_actual_step_norm": 0.18368060685783627
+    },
+    "global_clip05": {
+      "mean_513_800": 0.02123772102155878,
+      "last32_mean": 0.016752828916651197,
+      "final_loss": 0.016690470976755023,
+      "max_loss_513_800": 0.04662971291691065,
+      "events_count": 17,
+      "events_gt10": [
+        {
+          "before_state": 516,
+          "onset_state": 517,
+          "peak_state": 518,
+          "recovery_state": 519,
+          "end_state": 519,
+          "right_censored": false,
+          "ratio": 1.1055333638693396,
+          "peak_loss": 0.024178501218557358
+        },
+        {
+          "before_state": 526,
+          "onset_state": 527,
+          "peak_state": 528,
+          "recovery_state": 529,
+          "end_state": 529,
+          "right_censored": false,
+          "ratio": 1.1087583838341375,
+          "peak_loss": 0.023433522786945105
+        },
+        {
+          "before_state": 529,
+          "onset_state": 530,
+          "peak_state": 531,
+          "recovery_state": 536,
+          "end_state": 536,
+          "right_censored": false,
+          "ratio": 1.1051340043993376,
+          "peak_loss": 0.0227587865665555
+        },
+        {
+          "before_state": 536,
+          "onset_state": 537,
+          "peak_state": 538,
+          "recovery_state": 539,
+          "end_state": 539,
+          "right_censored": false,
+          "ratio": 1.1521858486151246,
+          "peak_loss": 0.023534349631518126
+        },
+        {
+          "before_state": 539,
+          "onset_state": 540,
+          "peak_state": 541,
+          "recovery_state": 542,
+          "end_state": 542,
+          "right_censored": false,
+          "ratio": 1.1890769985797591,
+          "peak_loss": 0.023482167162001133
+        },
+        {
+          "before_state": 542,
+          "onset_state": 543,
+          "peak_state": 543,
+          "recovery_state": 547,
+          "end_state": 547,
+          "right_censored": false,
+          "ratio": 1.220039460474143,
+          "peak_loss": 0.023884437046945095
+        },
+        {
+          "before_state": 547,
+          "onset_state": 548,
+          "peak_state": 549,
+          "recovery_state": 550,
+          "end_state": 550,
+          "right_censored": false,
+          "ratio": 1.2059600784409954,
+          "peak_loss": 0.023365953471511602
+        },
+        {
+          "before_state": 550,
+          "onset_state": 551,
+          "peak_state": 552,
+          "recovery_state": 553,
+          "end_state": 553,
+          "right_censored": false,
+          "ratio": 1.2913405368237398,
+          "peak_loss": 0.02432915521785617
+        },
+        {
+          "before_state": 553,
+          "onset_state": 554,
+          "peak_state": 554,
+          "recovery_state": 555,
+          "end_state": 555,
+          "right_censored": false,
+          "ratio": 1.3898226514899135,
+          "peak_loss": 0.025881204288452864
+        },
+        {
+          "before_state": 555,
+          "onset_state": 556,
+          "peak_state": 562,
+          "recovery_state": 563,
+          "end_state": 563,
+          "right_censored": false,
+          "ratio": 1.2976301106064956,
+          "peak_loss": 0.023636963218450546
+        },
+        {
+          "before_state": 563,
+          "onset_state": 564,
+          "peak_state": 564,
+          "recovery_state": 577,
+          "end_state": 577,
+          "right_censored": false,
+          "ratio": 1.307021956818945,
+          "peak_loss": 0.02348670456558466
+        },
+        {
+          "before_state": 577,
+          "onset_state": 578,
+          "peak_state": 581,
+          "recovery_state": 582,
+          "end_state": 582,
+          "right_censored": false,
+          "ratio": 1.2463642186610566,
+          "peak_loss": 0.02203008159995079
+        },
+        {
+          "before_state": 582,
+          "onset_state": 583,
+          "peak_state": 586,
+          "recovery_state": 587,
+          "end_state": 587,
+          "right_censored": false,
+          "ratio": 1.2582781874482494,
+          "peak_loss": 0.022211672738194466
+        },
+        {
+          "before_state": 587,
+          "onset_state": 588,
+          "peak_state": 588,
+          "recovery_state": 600,
+          "end_state": 600,
+          "right_censored": false,
+          "ratio": 1.2714374404325868,
+          "peak_loss": 0.02190407272428274
+        },
+        {
+          "before_state": 600,
+          "onset_state": 601,
+          "peak_state": 609,
+          "recovery_state": 610,
+          "end_state": 610,
+          "right_censored": false,
+          "ratio": 1.473847959481451,
+          "peak_loss": 0.024545985739678144
+        },
+        {
+          "before_state": 610,
+          "onset_state": 611,
+          "peak_state": 611,
+          "recovery_state": 612,
+          "end_state": 612,
+          "right_censored": false,
+          "ratio": 1.5800362498289167,
+          "peak_loss": 0.025024135131388903
+        },
+        {
+          "before_state": 612,
+          "onset_state": 613,
+          "peak_state": 677,
+          "recovery_state": null,
+          "end_state": 800,
+          "right_censored": true,
+          "ratio": 3.000232230898215,
+          "peak_loss": 0.04662971291691065
+        }
+      ],
+      "min_rho": -0.9947710646409766,
+      "max_raw_gradient_norm": 1.5145241288401858,
+      "max_optimizer_input_norm": 0.5000000260942715,
+      "mean_actual_step_norm": 0.038485456985315275,
+      "max_actual_step_norm": 0.09772330486882247
+    }
+  },
+  "vs_unchanged_pct": {
+    "global_clip1": {
+      "mean_513_800": 48.01049582677479,
+      "last32_mean": 376.4992363086219,
+      "final_loss": -19.258450932658544,
+      "max_loss_513_800": 281.6738978555541
+    },
+    "global_clip05": {
+      "mean_513_800": 2.08397427717677,
+      "last32_mean": 24.47808901382842,
+      "final_loss": -44.82526614400483,
+      "max_loss_513_800": -15.315149970760988
+    }
+  },
+  "clipping": {
+    "global_clip1": {
+      "updates": 288,
+      "clipped_updates": 125,
+      "fraction": 0.4340277777777778,
+      "first_clipped_state": 518,
+      "min_factor": 0.25283966359837057
+    },
+    "global_clip05": {
+      "updates": 288,
+      "clipped_updates": 238,
+      "fraction": 0.8263888888888888,
+      "first_clipped_state": 513,
+      "min_factor": 0.3301367013432115
+    }
+  },
+  "qualification": {
+    "status": "passed",
+    "fork_gradient_exact": true,
+    "two_update_tensor_replay_exact": true,
+    "parent_sha256": "6d90f4cd6cc52877a765cf46bd5166ca50c5f882c1b0e6901748659b6d65e7e5"
+  },
+  "source_file_checks": 90,
+  "geometry_checks": 867,
+  "plotted_scalar_checks": 7632,
+  "pdf_sha256": "5503c69dedf10e4809c96d75d19132d289809182cf39d4adbfe230f15785addd",
+  "sources": [
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/prefix/boundaries.jsonl",
+      "sha256": "05896f1ff766343626db323dfa50a4994a2062f73f09e43156e1797b696231db"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/control/boundaries.jsonl",
+      "sha256": "def47bc333c45f5778d81a4450aa812cd91bf110604c05c6140e6846871c9d48"
+    },
+    {
+      "path": "runs/228-2026-11-04-mlp-global-clipping/artifacts/spark/payload/worker/global_clip1/boundaries.jsonl",
+      "sha256": "066bdb0b37638d8f22deebcec478a7f2ce7e7d1d3351f40cf30cdc6492b1093f"
+    },
+    {
+      "path": "runs/229-2026-11-04-mlp-clipping-half/artifacts/spark/payload/worker/global_clip05/boundaries.jsonl",
+      "sha256": "97dc87453700116d5758c60804ca589bc7610d3ef42ef8392a8e9be3a43ad4de"
+    },
+    {
+      "path": "runs/228-2026-11-04-mlp-global-clipping/artifacts/spark/payload/worker/global_clip1/metrics.jsonl",
+      "sha256": "2c4c76e53be3a0b3b767444412a69178f87e3341bc1711d920da326b548db26a"
+    },
+    {
+      "path": "runs/229-2026-11-04-mlp-clipping-half/artifacts/spark/payload/worker/global_clip05/metrics.jsonl",
+      "sha256": "9c60a699078b83f2a7afe702cb0699d58cdd6fe27800ecf356412d98e7183417"
+    }
+  ]
+}
