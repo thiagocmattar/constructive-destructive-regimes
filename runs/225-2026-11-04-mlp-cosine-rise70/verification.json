@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "schedule_test": "Independent analytic cosine schedule, endpoint/midpoint/monotonicity and synthetic Adam clock checks passed.",
+  "all_288_applied_lrs_verified": true,
+  "max_lr_abs_error": 1.0842021724855044e-19,
+  "all_geometry_rows_checked": true,
+  "max_projected_change_identity_abs_error": 1.3322676295501878e-15,
+  "checkpoint_checks": [
+    {
+      "state": 650,
+      "adam_clock_verified": true,
+      "gradient_norm_cpu_abs_error": 2.8622937353617317e-16
+    },
+    {
+      "state": 720,
+      "adam_clock_verified": true,
+      "gradient_norm_cpu_abs_error": 4.8405723873656825e-14
+    },
+    {
+      "state": 800,
+      "adam_clock_verified": true,
+      "gradient_norm_cpu_abs_error": 1.63202784619898e-14
+    }
+  ],
+  "source_artifact_hash_checks": 101,
+  "new_transferred_files": 19,
+  "plotted_scalar_checks": 10584,
+  "vector_pdf_render_inspected": true
+}

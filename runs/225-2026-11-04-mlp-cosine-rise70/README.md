@@ -1,0 +1,13 @@
+# Run225: MLP cosine rise over 70 steps
+
+H032 / Analysis046. Authorized and timing confirmed by the user on 2026-11-04. One MLP branch on Spark: cosine32 from base LR 0.001 at state 512 to 0.0005 at 544; hold through state 650; cosine70 rise from 0.0005 at 650 to 0.00075 at 720; hold through the final applied update at 799. Observe endpoint 800 without applying an update. During the rise, LR/base = 0.5 + 0.125[1-cos(pi*(state-650)/70)]. No restart or reset of Adam moments/clocks.
+
+Match Run223 seed 0, original model/data/order, full 5000-image CIFAR-10 training objective with physical partitions of 1000, FP32 model/raw gradients/Adam and FP64 diagnostics. Counterfactuals reuse completed Run223 cosine32 held-half and fresh same-Spark unchanged, plus Run224 cosine32 abrupt return at 650. No prefix/control rerun. Require exact warm512 gradient and two-update tensor replay, exact scalar/update history through 650, and full transition650 model/moments/previous and current gradient/RNG equality to Run224.
+
+Retain recovery and complete checkpoints at 650, 720 and 800. Record every boundary's full training loss, raw gradient norm, raw rho, normalized projected gradient change, and every actual applied LR/update diagnostic. Full 10000-image endpoint test loss is secondary. Compare post650 mean, last32 and final training loss, excursion counts/ratios/recovery/censoring, and diagnostics against each matched comparator. Single selected seed/window; no universal stability or generalization claim.
+
+Compute plan: 288 treatment updates plus two replay qualification updates. Prior MLP branches took 2-3 seconds; allow several minutes for staging, verification and reporting. Task timeout 1800 seconds. Spark only, no additional cloud rental; Run223 controllers/budget remain untouched, and unrelated suspended Spark PID458832 is preserved. New scientific run, frozen source/config/manifest; no manuscript edit or push.
+
+## Completed and verified
+
+Completed 2026-11-04 at 11:30:14 UTC on NVIDIA GB10. Worker time 2.73 seconds, including qualification and the 288-update branch (2.00 seconds), excluding staging/import/hash/transfer. Exact warm512 replay, exact scalar/update prefix, and full transition650 tensor/moments/history/RNG replay passed. All 19 transferred artifacts were size/SHA-verified. Every applied LR and checkpoint650/720/800 Adam clock/current gradient passed local checks. [Analysis046](../../analyses/046-2026-11-04-mlp-cosine-rise70/README.md) reports the delayed but larger spike and worse post-return training loss. No additional cloud spending or manuscript edit.

@@ -242,3 +242,5 @@ all feature/fold outcomes and four reviewed figures are in the
 [report](../../analyses/031-2026-10-31-adam-state-map/REPORT.md). No new training.
 
 - [MLP LR return at650 (Analysis045)](../../analyses/045-2026-11-04-mlp-lr-return/FINDINGS.md): abrupt0.75x restoration after a smooth half-LR period brings back large spikes; exact matched comparison, one seed/window.
+
+- [MLP cosine70 restoration (Analysis046)](../../analyses/046-2026-11-04-mlp-cosine-rise70/FINDINGS.md): smooth restoration delays but amplifies the large spike and worsens training loss versus abrupt rise and held-half; matched single-seed evidence.

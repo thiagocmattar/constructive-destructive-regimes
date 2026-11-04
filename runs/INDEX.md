@@ -293,3 +293,7 @@ attempt within the same run.
 ## Run224: MLP return to0.75x at650
 
 [Run224](224-2026-11-04-mlp-lr-return/README.md) completed two matched Spark continuations512..800. Exact history through650 verified; raising LR restores large spikes and worsens post-return mean loss versus held-half. H031 / Analysis045. No cloud rental.
+
+## Run225: MLP cosine70 restoration
+
+[Run225](225-2026-11-04-mlp-cosine-rise70/README.md) completed the user-confirmed cosine rise from 0.5x at650 to0.75x at720, held to800. Exact shared state650 verified; the delayed spike is larger than abrupt restoration. Spark only. H032 / Analysis046.

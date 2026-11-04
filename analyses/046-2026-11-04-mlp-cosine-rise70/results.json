@@ -1,0 +1,328 @@
+{
+  "status": "completed",
+  "summary": {
+    "unchanged": {
+      "mean_513_800": 0.020804167521823222,
+      "mean_651_800": 0.01727967229904607,
+      "mean_651_720": 0.01986451817543379,
+      "mean_721_800": 0.015017932157206815,
+      "last32_mean": 0.013458456061925972,
+      "final_loss": 0.03025020658969879,
+      "max_loss_651_800": 0.04823051206767559,
+      "events_gt10_after650": [
+        {
+          "before_state": 666,
+          "onset_state": 667,
+          "peak_state": 683,
+          "recovery_state": 702,
+          "end_state": 702,
+          "right_censored": false,
+          "ratio": 3.4160689175343504,
+          "peak_loss": 0.04823051206767559,
+          "peak_lr_ratio": 1.0
+        },
+        {
+          "before_state": 702,
+          "onset_state": 703,
+          "peak_state": 704,
+          "recovery_state": 706,
+          "end_state": 706,
+          "right_censored": false,
+          "ratio": 1.1151483550328587,
+          "peak_loss": 0.015258173923939466,
+          "peak_lr_ratio": 1.0
+        },
+        {
+          "before_state": 706,
+          "onset_state": 707,
+          "peak_state": 716,
+          "recovery_state": 719,
+          "end_state": 719,
+          "right_censored": false,
+          "ratio": 2.1253011081857167,
+          "peak_loss": 0.02833064179867506,
+          "peak_lr_ratio": 1.0
+        },
+        {
+          "before_state": 719,
+          "onset_state": 720,
+          "peak_state": 727,
+          "recovery_state": 733,
+          "end_state": 733,
+          "right_censored": false,
+          "ratio": 1.7759759977962415,
+          "peak_loss": 0.022478641476482153,
+          "peak_lr_ratio": 1.0
+        },
+        {
+          "before_state": 733,
+          "onset_state": 734,
+          "peak_state": 744,
+          "recovery_state": 751,
+          "end_state": 751,
+          "right_censored": false,
+          "ratio": 1.5759794443400823,
+          "peak_loss": 0.019205102929845452,
+          "peak_lr_ratio": 1.0
+        },
+        {
+          "before_state": 751,
+          "onset_state": 752,
+          "peak_state": 766,
+          "recovery_state": 769,
+          "end_state": 769,
+          "right_censored": false,
+          "ratio": 1.6517377981107133,
+          "peak_loss": 0.019577991450205445,
+          "peak_lr_ratio": 1.0
+        },
+        {
+          "before_state": 770,
+          "onset_state": 771,
+          "peak_state": 773,
+          "recovery_state": 777,
+          "end_state": 777,
+          "right_censored": false,
+          "ratio": 1.3036965917403016,
+          "peak_loss": 0.013670964632183313,
+          "peak_lr_ratio": 1.0
+        },
+        {
+          "before_state": 783,
+          "onset_state": 784,
+          "peak_state": 799,
+          "recovery_state": null,
+          "end_state": 800,
+          "right_censored": true,
+          "ratio": 3.154144519238262,
+          "peak_loss": 0.030629032757133245,
+          "peak_lr_ratio": 1.0
+        }
+      ],
+      "events_count_after650": 8,
+      "min_rho_651_800": -0.9969484774622652,
+      "max_gradient_norm_651_800": 2.2355555009192445
+    },
+    "held_half": {
+      "mean_513_800": 0.015333468483327629,
+      "mean_651_800": 0.012661528449195127,
+      "mean_651_720": 0.013886452931910754,
+      "mean_721_800": 0.011589719526818953,
+      "last32_mean": 0.01091733616340207,
+      "final_loss": 0.010508841485716403,
+      "max_loss_651_800": 0.01506102317944169,
+      "events_gt10_after650": [],
+      "events_count_after650": 0,
+      "min_rho_651_800": 0.9943597142175691,
+      "max_gradient_norm_651_800": 0.0088008086732691
+    },
+    "abrupt075": {
+      "mean_513_800": 0.018325315289985156,
+      "mean_651_800": 0.018405874317977577,
+      "mean_651_720": 0.021626655394876643,
+      "mean_721_800": 0.015587690875690896,
+      "last32_mean": 0.013649595199240139,
+      "final_loss": 0.012054109713062644,
+      "max_loss_651_800": 0.0939082633703947,
+      "events_gt10_after650": [
+        {
+          "before_state": 663,
+          "onset_state": 664,
+          "peak_state": 672,
+          "recovery_state": 703,
+          "end_state": 703,
+          "right_censored": false,
+          "ratio": 6.497147641871271,
+          "peak_loss": 0.0939082633703947,
+          "peak_lr_ratio": 0.75
+        },
+        {
+          "before_state": 710,
+          "onset_state": 711,
+          "peak_state": 720,
+          "recovery_state": 729,
+          "end_state": 729,
+          "right_censored": false,
+          "ratio": 2.0856337482123455,
+          "peak_loss": 0.028678113128989935,
+          "peak_lr_ratio": 0.75
+        },
+        {
+          "before_state": 729,
+          "onset_state": 730,
+          "peak_state": 731,
+          "recovery_state": 734,
+          "end_state": 734,
+          "right_censored": false,
+          "ratio": 1.2589450042422474,
+          "peak_loss": 0.01651835860684514,
+          "peak_lr_ratio": 0.75
+        },
+        {
+          "before_state": 734,
+          "onset_state": 735,
+          "peak_state": 736,
+          "recovery_state": 738,
+          "end_state": 738,
+          "right_censored": false,
+          "ratio": 1.1483613596793438,
+          "peak_loss": 0.014558455441147089,
+          "peak_lr_ratio": 0.75
+        },
+        {
+          "before_state": 738,
+          "onset_state": 739,
+          "peak_state": 750,
+          "recovery_state": 765,
+          "end_state": 765,
+          "right_censored": false,
+          "ratio": 2.6566310897024024,
+          "peak_loss": 0.033265603706240654,
+          "peak_lr_ratio": 0.75
+        },
+        {
+          "before_state": 765,
+          "onset_state": 766,
+          "peak_state": 767,
+          "recovery_state": 769,
+          "end_state": 769,
+          "right_censored": false,
+          "ratio": 1.1530422754926901,
+          "peak_loss": 0.013699725503101945,
+          "peak_lr_ratio": 0.75
+        },
+        {
+          "before_state": 769,
+          "onset_state": 770,
+          "peak_state": 771,
+          "recovery_state": 773,
+          "end_state": 773,
+          "right_censored": false,
+          "ratio": 1.1095878143512206,
+          "peak_loss": 0.012696269899606705,
+          "peak_lr_ratio": 0.75
+        },
+        {
+          "before_state": 777,
+          "onset_state": 778,
+          "peak_state": 788,
+          "recovery_state": 792,
+          "end_state": 792,
+          "right_censored": false,
+          "ratio": 1.9835231233888209,
+          "peak_loss": 0.022331956308335066,
+          "peak_lr_ratio": 0.75
+        },
+        {
+          "before_state": 792,
+          "onset_state": 793,
+          "peak_state": 795,
+          "recovery_state": 798,
+          "end_state": 798,
+          "right_censored": false,
+          "ratio": 1.3936937600515944,
+          "peak_loss": 0.015154803870245814,
+          "peak_lr_ratio": 0.75
+        },
+        {
+          "before_state": 798,
+          "onset_state": 799,
+          "peak_state": 800,
+          "recovery_state": null,
+          "end_state": 800,
+          "right_censored": true,
+          "ratio": 1.1491261297822504,
+          "peak_loss": 0.012054109713062644,
+          "peak_lr_ratio": null
+        }
+      ],
+      "events_count_after650": 10,
+      "min_rho_651_800": -0.9993199115664626,
+      "max_gradient_norm_651_800": 3.558227886010952
+    },
+    "cosine70_rise": {
+      "mean_513_800": 0.021560484907240607,
+      "mean_651_800": 0.024617399983108045,
+      "mean_651_720": 0.026218919149999107,
+      "mean_721_800": 0.023216070712078363,
+      "last32_mean": 0.015967708590324037,
+      "final_loss": 0.015544620109722018,
+      "max_loss_651_800": 0.24416035413742065,
+      "events_gt10_after650": [
+        {
+          "before_state": 708,
+          "onset_state": 709,
+          "peak_state": 716,
+          "recovery_state": 778,
+          "end_state": 778,
+          "right_censored": false,
+          "ratio": 19.067418950298467,
+          "peak_loss": 0.24416035413742065,
+          "peak_lr_ratio": 0.7479911985748287
+        },
+        {
+          "before_state": 788,
+          "onset_state": 789,
+          "peak_state": 798,
+          "recovery_state": null,
+          "end_state": 800,
+          "right_censored": true,
+          "ratio": 3.421391918207028,
+          "peak_loss": 0.04091838886961341,
+          "peak_lr_ratio": 0.75
+        }
+      ],
+      "events_count_after650": 2,
+      "min_rho_651_800": -0.9993869331383428,
+      "max_gradient_norm_651_800": 5.853039490290015
+    }
+  },
+  "cosine70_vs_comparator_pct": {
+    "unchanged": {
+      "mean_651_800": 42.464507179728514,
+      "mean_721_800": 54.588997133919136,
+      "last32_mean": 18.644430808796496,
+      "final_loss": -48.6131770253249,
+      "max_loss_651_800": 406.23628833718845
+    },
+    "held_half": {
+      "mean_651_800": 94.42676357665914,
+      "mean_721_800": 100.3160702755204,
+      "last32_mean": 46.26011649116579,
+      "final_loss": 47.919446028853294,
+      "max_loss_651_800": 1521.1405508670869
+    },
+    "abrupt075": {
+      "mean_651_800": 33.74751754695773,
+      "mean_721_800": 48.93848548333721,
+      "last32_mean": 16.98301932948858,
+      "final_loss": 28.957015322971746,
+      "max_loss_651_800": 159.99879603182404
+    }
+  },
+  "source_file_checks": 101,
+  "plotted_scalar_checks": 10584,
+  "pdf_sha256": "845eb345d7c2dd73c1784f4f03ac42f930ba8d77b288e7b50135e7e3b05db479",
+  "source_files": [
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/prefix/boundaries.jsonl",
+      "sha256": "05896f1ff766343626db323dfa50a4994a2062f73f09e43156e1797b696231db"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/control/boundaries.jsonl",
+      "sha256": "def47bc333c45f5778d81a4450aa812cd91bf110604c05c6140e6846871c9d48"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/cosine32_half/boundaries.jsonl",
+      "sha256": "e3bd6c782fd919c63e85f7da142cbbffb7d709d6fc39062a5e79dc772ed93ab5"
+    },
+    {
+      "path": "runs/224-2026-11-04-mlp-lr-return/artifacts/spark/payload/worker/cosine32_half_return075/boundaries.jsonl",
+      "sha256": "65f462225dc6b54172cc42aeee473fcc076f9c94347fe17925e5aa546c2c86b7"
+    },
+    {
+      "path": "runs/225-2026-11-04-mlp-cosine-rise70/artifacts/spark/payload/worker/cosine32_half_rise70/boundaries.jsonl",
+      "sha256": "6df101f3e9bb89bcb81138f061bb5af4b1623e624c149feda8a85129b119d6ad"
+    }
+  ]
+}

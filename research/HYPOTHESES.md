@@ -75,3 +75,7 @@ Status: running, single-seed controlled experiment. Run223 / Analysis044. Questi
 ## H031: does a smooth low-LR interval permit a later0.75x LR?
 
 Status: unsupported for the selected MLP return at650. [Run224 / Analysis045](../analyses/045-2026-11-04-mlp-lr-return/FINDINGS.md). Both initial half-LR schedules develop new large spikes after an abrupt return to0.75x, despite exact matching histories through650. Mean651..800 loss rises57.4%/45.4% versus held-half. One seed/window; gradual restoration, other times and models untested.
+
+## H032: can a70-step cosine rise prevent restoration spikes?
+
+Status: contradicted for this selected MLP schedule/window. [Run225 / Analysis046](../analyses/046-2026-11-04-mlp-cosine-rise70/FINDINGS.md). Rise650..720 from0.5x to0.75x delays the peak but increases its height2.60x and post650 mean loss33.75% versus abrupt restoration. Exact transition state, one seed. Other timings/durations/models remain untested; endpoint test loss moves in a different direction from training-loss stability.

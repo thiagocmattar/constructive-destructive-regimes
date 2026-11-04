@@ -128,3 +128,7 @@ an analysis may use manuscript or external inputs without referencing a run.
 ## Analysis045: MLP LR return
 
 [Analysis045](045-2026-11-04-mlp-lr-return/README.md) compares Run224 return-to0.75x at650 against Run223 unchanged and held-half controls. Two-column five-row vector figure and source-verified values; large renewed transients, single-seed scope.
+
+## Analysis046: MLP cosine70 restoration
+
+[Analysis046](046-2026-11-04-mlp-cosine-rise70/README.md) compares gradual restoration with unchanged, held-half and abrupt-rise controls. Three paired columns, five diagnostic rows, verified raw values; delayed but larger spike and worse training loss.

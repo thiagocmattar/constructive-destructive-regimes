@@ -589,3 +589,7 @@ no remote work, rental or manuscript edit. A7 deferred. Next Run223 / Analysis04
 ## Completed follow-up: Run224 / Analysis045 / H031
 
 [Analysis045](../analyses/045-2026-11-04-mlp-lr-return/README.md): returning both MLP schedules to0.75x at650 restores spikes; post-return mean loss is57.4%/45.4% above matching held-half controls. Exact pre-return history/replay and26 new transferred artifacts verified. Spark only. Run223 cloud cases remain active. Next Run225 / Analysis046 / H032.
+
+## Completed follow-up: Run225 / Analysis046 / H032
+
+[Analysis046](../analyses/046-2026-11-04-mlp-cosine-rise70/README.md): cosine70 restoration over650..720 delays the large MLP peak to716 but increases its height2.60x versus abrupt restoration. Mean651..800 loss is33.75% higher than abrupt and94.43% higher than held-half. Exact transition650 and19 new transferred artifacts verified; Spark only. Run223 remains active. Next Run226 / Analysis047 / H033.

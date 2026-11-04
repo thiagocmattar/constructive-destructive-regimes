@@ -1,0 +1,11 @@
+# Analysis046: MLP cosine70 LR restoration
+
+Completed 2026-11-04. Run225 / H032. See [findings](FINDINGS.md), [vector figure](figures/mlp_cosine70_rise_paired.pdf), [results](results.json), and [source-value table](plotted_values.csv). The experiment uses the user-confirmed rise timing, 650 to 720, holding 0.75x until endpoint800.
+
+Same seed0 MLP, full5000-image CIFAR-10 objective, physical1000 partitions, frozen Run223 model/data/Adam/precision. New branch starts at authenticated warm512; cosine32 down to0.5x, hold to650, cosine70 up to0.75x by720, hold thereafter. Existing same-Spark trajectories supply unchanged, cosine32 held-half and cosine32 abrupt-return controls. Full transition650 tensor/moment/history/RNG equality with Run224 passed. No historical cross-GPU bitwise replay claim.
+
+Figure contract: three paired columns show the new green trajectory against each gray comparator; five rows show log training loss, raw rho, raw gradient norm, normalized projected gradient change and applied/base LR. All curves solid and unsmoothed, each panel independently ranged. Common pre-fork context448..512 is gray-shaded; the650..720 rise interval is green-shaded. Vertical markers identify512,650,720. Every plotted state is on Spark, so no hardware boundary is present. LR ends at800 by closing the799..800 applied interval, not by applying an extra update.
+
+The primary mean uses states651..800; ramp-response mean uses651..720; post-ramp response uses721..800. Last32 uses769..800. Excursions use the unchanged Analysis036 fixed-pre-rise loss/recovery detector, >10% threshold, peak after650, explicit recovery/censoring. This groups multiple local oscillations until loss returns below the pre-rise baseline; event counts are not counts of all local peaks. A smaller count may conceal a longer, larger excursion. One selected seed/window limits interpretation.
+
+Run01_report.py regenerates the vector PDF, quantitative JSON and CSV from verified local artifacts. It rechecks101 source artifact hashes and10584 plotted scalars. The one-page PDF has no raster image objects and passed rendered visual inspection. Run225 verification.json independently checks the schedule, checkpoint clocks and projected-gradient identity. No further neural training occurs in analysis.

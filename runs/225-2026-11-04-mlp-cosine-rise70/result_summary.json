@@ -1,0 +1,64 @@
+{
+  "manifest": {
+    "status": "completed",
+    "started_utc": "2026-11-04T11:30:12.055813+00:00",
+    "gpu": "NVIDIA GB10",
+    "torch": "2.11.0+cu130",
+    "cuda": "13.0",
+    "results": {
+      "cosine32_half_rise70": {
+        "status": "completed",
+        "case": "mlp",
+        "arm": "cosine32_half_rise70",
+        "start_state": 512,
+        "end_state": 800,
+        "started_utc": "2026-11-04T11:30:12.780147+00:00",
+        "identity": {
+          "run": "225",
+          "config_sha256": "ae9f4e1e11b3232804a20549f275f55b7372b8c4bb343785488d53d8179df8a5",
+          "manifest_sha256": "6ceafdfbf6aafe4dd5ace06f5ef6f56560e8385f6db3dc363e940cfd6f2badc2",
+          "parent_checkpoint_sha256": "6d90f4cd6cc52877a765cf46bd5166ca50c5f882c1b0e6901748659b6d65e7e5"
+        },
+        "evaluation": {
+          "test": {
+            "loss": 0.7449183593750001,
+            "loss_units": 10000,
+            "objective_units": 10000
+          }
+        },
+        "completed_state": 800,
+        "updates": 288,
+        "elapsed_seconds": 2.0003957957960665,
+        "finished_utc": "2026-11-04T11:30:14.780542+00:00",
+        "transition650_tensor_replay_exact": true,
+        "prefix_parity": {
+          "exact": true,
+          "boundaries": 139,
+          "fields": [
+            "loss",
+            "raw_gradient_norm",
+            "rho",
+            "eta_kappa_hat",
+            "parameter_norm"
+          ],
+          "actual_update_rows": 138
+        }
+      }
+    },
+    "finished_utc": "2026-11-04T11:30:14.790468+00:00",
+    "elapsed_seconds": 2.734682995826006
+  },
+  "qualification": {
+    "status": "passed",
+    "fork_gradient_exact": true,
+    "two_update_tensor_replay_exact": true,
+    "parent_sha256": "6d90f4cd6cc52877a765cf46bd5166ca50c5f882c1b0e6901748659b6d65e7e5"
+  },
+  "receipt": {
+    "path": "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/run225-spark-output.tar.gz",
+    "sha256": "1cef01d0c439cdde745980425d7ad1831f288f5c59921ec07067049c3308250c",
+    "status": "completed",
+    "verified": true,
+    "files": 19
+  }
+}

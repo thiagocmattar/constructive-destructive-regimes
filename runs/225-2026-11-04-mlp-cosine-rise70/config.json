@@ -1,0 +1,30 @@
+{
+  "run_id": "225",
+  "hypothesis": "H032",
+  "analysis_id": "046",
+  "seed": 0,
+  "case": "mlp",
+  "base_lr": 0.001,
+  "start": 512,
+  "return_state": 650,
+  "return_ratio": 0.75,
+  "end": 800,
+  "plot_start": 448,
+  "arms": [
+    {
+      "id": "cosine32_half_rise70",
+      "parent_arm": "cosine32_half",
+      "kind": "cosine",
+      "ratio": 0.5,
+      "duration": 32
+    }
+  ],
+  "parent_run": "runs/223-2026-11-04-multispike-interventions",
+  "parent_worker": "runs/223-2026-11-04-multispike-interventions/artifacts/worker",
+  "runtime_limit_seconds": 1800,
+  "authorization": "User selected: cosine rise starts650, reaches0.75x at720, holds to800; initial cosine32 down from512 unchanged. Spark only.",
+  "measurement": "Same Run223 full5000-image objective, physical1000, FP32 Adam/model/gradient, FP64 diagnostics. LR650 is0.0005, LR685 is0.000625, LR720..799 is0.00075. Boundary800 is unapplied. Save complete states650,720,800.",
+  "comparison": "Reuse completed Run223 same-Spark unchanged and cosine32 held-half, and Run224 abrupt-rise trajectory. Exact fork gradient/two-update replay and state650 model/moments/history/RNG/current-gradient match required.",
+  "rise_duration": 70,
+  "transition_reference": "runs/224-2026-11-04-mlp-lr-return/artifacts/worker/cosine32_half_return075/state650.pt"
+}
