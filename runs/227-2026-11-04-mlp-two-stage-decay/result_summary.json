@@ -1,0 +1,58 @@
+{
+  "manifest": {
+    "status": "completed",
+    "started_utc": "2026-11-04T12:05:34.620317+00:00",
+    "gpu": "NVIDIA GB10",
+    "torch": "2.11.0+cu130",
+    "cuda": "13.0",
+    "results": {
+      "cosine32_075_then_05": {
+        "status": "completed",
+        "case": "mlp",
+        "arm": "cosine32_075_then_05",
+        "start_state": 512,
+        "end_state": 800,
+        "started_utc": "2026-11-04T12:05:35.330985+00:00",
+        "identity": {
+          "run": "227",
+          "config_sha256": "f8e0337a7512a6411469a9214ed4c63ebd28779c94ca3e7ad561268ab54a8da9",
+          "manifest_sha256": "6cf0794deac4b7b994392fce3fbbc4fcf519e519de77affdde7b640f7575882b",
+          "parent_checkpoint_sha256": "6d90f4cd6cc52877a765cf46bd5166ca50c5f882c1b0e6901748659b6d65e7e5"
+        },
+        "evaluation": {
+          "test": {
+            "loss": 0.7654337280273439,
+            "loss_units": 10000,
+            "objective_units": 10000
+          }
+        },
+        "completed_state": 800,
+        "updates": 288,
+        "elapsed_seconds": 1.95343387266621,
+        "finished_utc": "2026-11-04T12:05:37.284418+00:00",
+        "pre_second_decay_replay": {
+          "exact": true,
+          "boundaries512_through651": 140,
+          "updates512_through650": 139,
+          "state544_tensors_exact": true
+        },
+        "common_states_512_513_exact": true
+      }
+    },
+    "finished_utc": "2026-11-04T12:05:37.294360+00:00",
+    "elapsed_seconds": 2.674071179702878
+  },
+  "qualification": {
+    "status": "passed",
+    "fork_gradient_exact": true,
+    "two_update_tensor_replay_exact": true,
+    "parent_sha256": "6d90f4cd6cc52877a765cf46bd5166ca50c5f882c1b0e6901748659b6d65e7e5"
+  },
+  "receipt": {
+    "path": "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/run227-spark-output.tar.gz",
+    "sha256": "63c36ec8f38492eccabef3e68e9bfba6df7dada163ec2823fc717f6894021829",
+    "status": "completed",
+    "verified": true,
+    "files": 20
+  }
+}

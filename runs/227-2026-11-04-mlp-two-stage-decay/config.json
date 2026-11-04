@@ -1,0 +1,29 @@
+{
+  "run_id": "227",
+  "analysis_id": "050",
+  "hypothesis": "H034",
+  "seed": 0,
+  "case": "mlp",
+  "base_lr": 0.001,
+  "start": 512,
+  "end": 800,
+  "plot_start": 448,
+  "arms": [
+    {
+      "id": "cosine32_075_then_05",
+      "kind": "cosine",
+      "ratio": 0.75,
+      "duration": 32
+    }
+  ],
+  "parent_run": "runs/223-2026-11-04-multispike-interventions",
+  "parent_worker": "runs/223-2026-11-04-multispike-interventions/artifacts/worker",
+  "runtime_limit_seconds": 1800,
+  "authorization": "User requested cosine32 down to0.75x starting512, then another cosine32 down to0.5x starting650; compare with unchanged baseline and decay-to0.75x without second decay. Spark follow-up.",
+  "comparison": "Reuse Run223 fresh same-Spark unchanged and Run226 cosine32-to0.75x. Match seed0, full5000-image objective, physical1000, native Adam/model/data/order/precision. Exact fork and pre-second-decay replay required.",
+  "measurement": "LR512=.001, LR544..650=.00075, LR666=.000625, LR682..799=.0005. Endpoint800 unapplied. Retain complete states544,650,682,800. Raw full gradients each boundary, FP64 diagnostics.",
+  "second_start": 650,
+  "second_duration": 32,
+  "second_ratio": 0.5,
+  "reference_folder": "runs/226-2026-11-04-mlp-cosine75/artifacts/worker/cosine32_three_quarters"
+}

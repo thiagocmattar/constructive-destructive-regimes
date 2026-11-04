@@ -1,0 +1,11 @@
+# Analysis050: two-stage cosine decay
+
+Completed2026-11-04. Run227 / H034 with retained Run223/226 controls. [Findings](FINDINGS.md), [paired vector figure](figures/mlp_two_stage_decay_paired.pdf), [results](results.json), [source values](plotted_values.csv).
+
+The new trajectory decays from base0.001 to0.00075 over512..544, holds until650, then decays to0.0005 over650..682 and holds to the final applied update799. Endpoint800 is observed and unapplied. Same seed0 MLP/CIFAR-10 full5000-image objective, physical1000 partitions, frozen native Adam/model/data/order/precision and Spark as the retained controls. No optimizer reset. Run223 provides the fresh same-Spark unchanged control; Run226 provides the matching single cosine32 decay held at0.75x. No controls were rerun.
+
+Two paired columns compare only the new green curve and the named gray comparator: unchanged on the left, single-decay held0.75x on the right. Five raw unsmoothed solid-curve rows: log loss, rho, gradient norm, normalized projected gradient change, applied/base LR. Display448..800 with independent axes. Gray shading marks pre-fork context; vertical512 marks the common fork,650 and682 mark the shaded second-decay interval. All data are on Spark; no hardware boundary occurs in the displayed interval.
+
+Mean651..800 is the primary second-intervention response; state651 is still shared because update650 retains the original0.75x LR. Mean683..800 covers response after reaching the second floor. Last32 uses769..800. Excursions use the unchanged Analysis036 fixed-pre-rise/recovery detector, >10% amplitude and peaks after650; preserve recovery/censoring and do not equate event counts with every local peak. Whole513..800 means are retained separately. The timing was chosen after earlier trajectories were inspected: this is a selected development window, not prospective validation or a general stability guarantee.
+
+Run01_report.py reproduces the PDF/JSON/CSV and checks94 source artifact files and7056 plotted scalars. Existing run-level replay checks establish common warm state and exact pre-second-decay observed history. New checkpoint/analytic LR/geometry checks are in Run227 verification.json. One-page vector PDF has no raster image objects and passed rendered visual inspection.

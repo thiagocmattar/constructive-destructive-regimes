@@ -301,3 +301,7 @@ attempt within the same run.
 ## Run226: MLP cosine32 to0.75x
 
 [Run226](226-2026-11-04-mlp-cosine75/README.md) completed one matched Spark branch512..800, reaching0.75x at544 and holding. Reuses Run223 unchanged and cosine32-to0.5x. H033 / Analysis047; no control rerun or cloud rental.
+
+## Run227: two-stage MLP cosine decay
+
+[Run227](227-2026-11-04-mlp-two-stage-decay/README.md) completed cosine32-to0.75x from512 then cosine32-to0.5x from650. Exact prior-history replay; retained baseline/single-decay controls. Spark only, H034 / Analysis050.

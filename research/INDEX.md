@@ -605,3 +605,7 @@ no remote work, rental or manuscript edit. A7 deferred. Next Run223 / Analysis04
 ## Figure synthesis: Analysis049
 
 [Analysis049](../analyses/049-2026-11-04-mlp-direct-abrupt-overlay/README.md) provides the requested direct two-path overlay from Runs224/226, sharing the Run223 prefix.100 artifact checks and3528 plotted values verified; vector render inspected. No new training/hypothesis. Next Run227 / Analysis050 / H034.
+
+## Completed follow-up: Run227 / Analysis050 / H034
+
+[Analysis050](../analyses/050-2026-11-04-mlp-two-stage-decay/README.md): a second cosine32 decay from0.75x at650 to0.5x at682 reduces the first MLP peak48.77% and mean651..800 loss27.66% versus held0.75x; no >10% excursions after682. Exact prefix/update replay and20 new artifacts verified. Selected development timing, one seed, Spark only. Next Run228 / Analysis051 / H035.

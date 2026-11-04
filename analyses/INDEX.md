@@ -144,3 +144,7 @@ an analysis may use manuscript or external inputs without referencing a run.
 ## Analysis049: direct-decay versus abrupt-restoration overlay
 
 [Analysis049](049-2026-11-04-mlp-direct-abrupt-overlay/README.md) directly overlays cosine32-to0.75x and cosine32-to0.5x followed by an abrupt rise at650, as requested. Five raw rows, no baseline curve, existing verified data only.
+
+## Analysis050: two-stage decay versus two controls
+
+[Analysis050](050-2026-11-04-mlp-two-stage-decay/README.md) pairs the new trajectory with unchanged LR and cosine32 held at0.75x. The second decay reduces the first spike and post650 mean loss; no >10% excursion after682 in this window.

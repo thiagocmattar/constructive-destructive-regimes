@@ -83,3 +83,7 @@ Status: contradicted for this selected MLP schedule/window. [Run225 / Analysis04
 ## H033: is cosine32-to0.75x sufficient to suppress repeated MLP spikes?
 
 Status: partial loss benefit, spike suppression incomplete in this selected window. [Run226 / Analysis047](../analyses/047-2026-11-04-mlp-cosine-floors/FINDINGS.md). Mean loss17.24% below unchanged, but7 excursions and a5.01x peak while LR is constant. Exact same-Spark control reuse. Ongoing LR variation is not necessary for spikes here; no mechanism or universal threshold established.
+
+## H034: can a second cosine32 decay suppress later spikes?
+
+Status: supported within the selected MLP development window, with a residual initial spike. [Run227 / Analysis050](../analyses/050-2026-11-04-mlp-two-stage-decay/FINDINGS.md). Second decay650..682 from0.75x to0.5x lowers first peak48.77% and response mean27.66% versus matched held0.75x, with no >10% excursion after682. Exact observed pre-intervention replay; one seed, post-inspection timing, no universal stability or held-out benefit claim.
