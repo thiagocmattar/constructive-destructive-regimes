@@ -1,16 +1,16 @@
 {
-  "status": "running",
+  "status": "completed",
   "snapshot": {
-    "path": "/home/tcml-spark/experiments/constructive-destructive-regimes/interventions-2026-11-03/run222-transfer-scalars.tar.gz",
-    "bytes": 575474,
-    "sha256": "a528ba5569b58dcdbb33a7fc037080cf23775ab6b0edd01ac2e56a000560c599",
-    "status": "running",
-    "files": 238,
-    "final": false,
+    "path": "/home/tcml-spark/experiments/constructive-destructive-regimes/interventions-2026-11-03/run222-transfer-final.tar.gz",
+    "bytes": 3351642623,
+    "sha256": "b24f34a121e658c5c8da03ca0d051819a1c6ee0c8b97322bed2043b15d22c0d1",
+    "status": "completed",
+    "files": 347,
+    "final": true,
     "verified": true,
-    "retrieved_utc": "20261104T090007Z",
-    "payload_root": "runs/222-2026-11-03-spark-matched-interventions/artifacts/snapshots/20261104T090007Z/payload",
-    "retained_bytes": 2403499
+    "retrieved_utc": "20261104T100016Z",
+    "payload_root": "runs/222-2026-11-03-spark-matched-interventions/artifacts/snapshots/20261104T100016Z/payload",
+    "retained_bytes": 7304120224
   },
   "primary_completed": 30,
   "primary_total": 30,
@@ -38,7 +38,7 @@
     "resnet/adamw_0p01": "completed",
     "resnet/adamw_0p1": "completed",
     "resnet/cosine8_floor0p25": "completed",
-    "resnet/cosine64_floor0p25": "running",
+    "resnet/cosine64_floor0p25": "completed",
     "transformer/unchanged": "completed",
     "transformer/fixed_half": "completed",
     "transformer/fixed_quarter": "completed",
@@ -50,7 +50,7 @@
     "transformer/adamw_0p01": "completed",
     "transformer/adamw_0p1": "completed",
     "transformer/cosine8_floor0p25": "completed",
-    "transformer/cosine64_floor0p25": "queued"
+    "transformer/cosine64_floor0p25": "completed"
   },
   "skipped_optional": [],
   "qualification": {
@@ -82,9 +82,9 @@
       "fork_raw_gradient_norm": 0.17086071863587352
     }
   },
-  "main_updates": 2186,
+  "main_updates": 2304,
   "qualification_updates": 12,
-  "Run222_full_gradient_calls": 2241,
+  "Run222_full_gradient_calls": 2361,
   "comparison": [
     {
       "case": "mlp",
@@ -639,6 +639,30 @@
       "endpoint_evaluation": "{\"test\": {\"loss\": 2.277753295898438, \"loss_units\": 10000, \"objective_units\": 10}}"
     },
     {
+      "case": "resnet",
+      "condition": "cosine64_floor0p25",
+      "status": "completed",
+      "updates": 64,
+      "fork_loss": 0.0008317044782638551,
+      "mean_post_loss": 0.000770203884318471,
+      "final_loss": 0.0007359714233875275,
+      "mean_loss_change_vs_unchanged_percent": 2.022093567951311,
+      "final_loss_change_vs_unchanged_percent": 7.046081337651988,
+      "peak_post_loss": 0.0008291005373001098,
+      "positive_excess_area": 0.0,
+      "mean_raw_rho": 0.9971745738079271,
+      "eta_kappa_hat_std": 0.002188422462850322,
+      "mean_raw_gradient_norm": 0.0015803801779961896,
+      "final_parameter_norm": 60.02064626699988,
+      "mean_actual_increment_norm": 0.0018932754940615853,
+      "clipped_updates": 0,
+      "mean_lr_over_base": 0.630859375,
+      "mean_decay_increment_norm": 0.0,
+      "uphill_actual_updates": 0,
+      "runner_seconds": 987.0278159370646,
+      "endpoint_evaluation": "{\"test\": {\"loss\": 2.2912740478515627, \"loss_units\": 10000, \"objective_units\": 10}}"
+    },
+    {
       "case": "transformer",
       "condition": "unchanged",
       "status": "completed",
@@ -901,9 +925,33 @@
       "uphill_actual_updates": 0,
       "runner_seconds": 2291.5426056669094,
       "endpoint_evaluation": "{\"test\": {\"loss\": 18.1456193526013, \"loss_units\": 245550, \"objective_units\": 7020}, \"valid\": {\"loss\": 18.387827134751348, \"loss_units\": 217630, \"objective_units\": 6220}}"
+    },
+    {
+      "case": "transformer",
+      "condition": "cosine64_floor0p25",
+      "status": "completed",
+      "updates": 64,
+      "fork_loss": 0.6162664000056295,
+      "mean_post_loss": 0.5521156162778662,
+      "final_loss": 0.5284234470103325,
+      "mean_loss_change_vs_unchanged_percent": 1.1333675136732113,
+      "final_loss_change_vs_unchanged_percent": 3.4766698119838457,
+      "peak_post_loss": 0.6116432295874777,
+      "positive_excess_area": 0.0,
+      "mean_raw_rho": 0.45749930011519896,
+      "eta_kappa_hat_std": 0.22647010994317415,
+      "mean_raw_gradient_norm": 0.04003294710199518,
+      "final_parameter_norm": 857.9081738727891,
+      "mean_actual_increment_norm": 0.5326908596485977,
+      "clipped_updates": 0,
+      "mean_lr_over_base": 0.630859375,
+      "mean_decay_increment_norm": 0.0,
+      "uphill_actual_updates": 0,
+      "runner_seconds": 2290.416950984858,
+      "endpoint_evaluation": "{\"test\": {\"loss\": 18.687807870723883, \"loss_units\": 245550, \"objective_units\": 7020}, \"valid\": {\"loss\": 18.93449381817047, \"loss_units\": 217630, \"objective_units\": 6220}}"
     }
   ],
-  "plotted_scalar_checks": 31416,
+  "plotted_scalar_checks": 34326,
   "figure_sha256": {
     "fixed_half.pdf": "daf7823972efd9e3385b7fc9c85a5f8239865b861ccb577d07b8c0ef2309194f",
     "fixed_quarter.pdf": "17bc231b0bf01c8a6dc274a905651961e41b9fc6af32a43b8e5af764fb7179b1",
@@ -916,9 +964,10 @@
     "adamw_0p01_increments.pdf": "7b5d7f215b2797e3d610852517c30d68d6acd035b56e8a5ce49ea4e543941922",
     "adamw_0p1.pdf": "3e397a3cc57595886bd1fc7ae9671501e87aac3e6dbb18db80b37a894ceaaa97",
     "adamw_0p1_increments.pdf": "0a36a0bac5dae62373c18272ed2996020241a2a9a7346c5a14b81a0b302a895c",
-    "cosine8_floor0p25.pdf": "5a2416b07499a056f2e82e6facb91d71607f2bffdcedd21595137b92ae752a5f"
+    "cosine8_floor0p25.pdf": "5a2416b07499a056f2e82e6facb91d71607f2bffdcedd21595137b92ae752a5f",
+    "cosine64_floor0p25.pdf": "8394e76285105460eec8a7c039590ab22a39b1bc0afa25edd24b381cb6fd0c19"
   },
-  "source_sha256": "ca12a82d69c3bf21c10e1a8caf12f3a4fc833eea4cf50bd888c9026c0c540fa2",
+  "source_sha256": "d0bf555d61f97ece9ac971cc474a2fef8eb07925f615bb9c533f7cb33732b1e0",
   "no_smoothing": true,
   "independent_y_ranges": true,
   "solid_lines": true,

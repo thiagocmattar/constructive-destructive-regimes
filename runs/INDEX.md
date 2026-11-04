@@ -284,4 +284,4 @@ attempt within the same run.
 | Run | Question | Status | Records |
 | --- | --- | --- | --- |
 | [221](221-2026-11-03-spark-fixed-step-interventions/README.md) | H029 capacity and warm-parent transfer qualification | ResNet cross-GPU gradient gate failed before treatments; exact tensors/close loss retained | Nine mechanics updates; preserved failed gate and source |
-| [222](222-2026-11-03-spark-matched-interventions/README.md) | H029 matched same-Spark intervention responses from state1024 | Running; ten primary conditions x3 cases x64 updates, exact same-Spark replay passed | [Analysis043](../analyses/043-2026-11-03-spark-fixed-step-interventions/README.md); owned Spark, cutoff07:45 BRT November4 |
+| [222](222-2026-11-03-spark-matched-interventions/README.md) | H029 matched Spark interventions from warm state 1024 | Completed/verified: 30 primary + 6 optional branches; 2,304 main + 12 qualification updates, no failure | [Analysis043 findings](../analyses/043-2026-11-03-spark-fixed-step-interventions/FINDINGS.md); all checkpoints retained, worker exited 06:52 BRT, zero cloud cost |

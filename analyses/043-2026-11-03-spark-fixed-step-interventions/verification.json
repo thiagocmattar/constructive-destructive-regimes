@@ -1,0 +1,266 @@
+{
+  "status": "passed",
+  "source_sha256": "c239b3d092cdd60bcc5ab38223c2d5d0a50dd33278a4ffa1993fbd17ed3141bf",
+  "snapshot": {
+    "path": "/home/tcml-spark/experiments/constructive-destructive-regimes/interventions-2026-11-03/run222-transfer-final.tar.gz",
+    "bytes": 3351642623,
+    "sha256": "b24f34a121e658c5c8da03ca0d051819a1c6ee0c8b97322bed2043b15d22c0d1",
+    "status": "completed",
+    "files": 347,
+    "final": true,
+    "verified": true,
+    "retrieved_utc": "20261104T100016Z",
+    "payload_root": "runs/222-2026-11-03-spark-matched-interventions/artifacts/snapshots/20261104T100016Z/payload",
+    "retained_bytes": 7304120224
+  },
+  "terminal_inventory_files": 337,
+  "transferred_files": 347,
+  "frozen_inputs_verified": 31,
+  "executed_source_copies_verified": 19,
+  "main_updates": 2304,
+  "qualification_updates": 12,
+  "full_gradient_calls": 2361,
+  "checkpoints_validated": 45,
+  "same_Spark_replay_exact": true,
+  "inactive_clipping_checkpoints_exact": [
+    "mlp/clip_median_x2",
+    "resnet/clip_median_x1",
+    "resnet/clip_median_x2",
+    "transformer/clip_median_x2"
+  ],
+  "coverage": {
+    "mlp/unchanged": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "mlp/fixed_half": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "mlp/fixed_quarter": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "mlp/cosine32_floor0p5": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "mlp/cosine32_floor0p25": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "mlp/cosine32_floor0p1": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "mlp/clip_median_x1": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "mlp/clip_median_x2": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "mlp/adamw_0p01": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "mlp/adamw_0p1": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "mlp/cosine8_floor0p25": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "mlp/cosine64_floor0p25": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "resnet/unchanged": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "resnet/fixed_half": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "resnet/fixed_quarter": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "resnet/cosine32_floor0p5": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "resnet/cosine32_floor0p25": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "resnet/cosine32_floor0p1": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "resnet/clip_median_x1": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "resnet/clip_median_x2": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "resnet/adamw_0p01": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "resnet/adamw_0p1": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "resnet/cosine8_floor0p25": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "resnet/cosine64_floor0p25": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "transformer/unchanged": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "transformer/fixed_half": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "transformer/fixed_quarter": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "transformer/cosine32_floor0p5": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "transformer/cosine32_floor0p25": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "transformer/cosine32_floor0p1": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "transformer/clip_median_x1": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "transformer/clip_median_x2": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "transformer/adamw_0p01": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "transformer/adamw_0p1": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "transformer/cosine8_floor0p25": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    },
+    "transformer/cosine64_floor0p25": {
+      "state": 1088,
+      "updates": 64,
+      "gradient_boundaries": 65,
+      "finite": true
+    }
+  },
+  "optional_admission_verified": {
+    "cosine8_floor0p25": {
+      "start_utc": "2026-11-04T08:03:14.839218+00:00",
+      "required_seconds": 4363.913750000001,
+      "available_seconds": 9705.160782
+    },
+    "cosine64_floor0p25": {
+      "start_utc": "2026-11-04T08:57:48.335667+00:00",
+      "required_seconds": 4363.913750000001,
+      "available_seconds": 6431.664333
+    }
+  },
+  "finished_utc": "2026-11-04T09:52:26.619010+00:00",
+  "elapsed_worker_seconds": 39620.61489325203,
+  "retained_failed_ResNet_gradient_relative_error": 0.008718747306333798,
+  "no_historical_bitwise_replay_claim": true,
+  "local_verification_torch": "2.11.0+cu128"
+}

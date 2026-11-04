@@ -11,3 +11,4 @@
 - [009: complete decoupled decay 0.01 response](009-decay-0p01-response.md)
 - [010: primary grid complete; decoupled decay 0.1 response](010-decay-0p1-response.md)
 - [011: complete optional eight-step cosine response](011-cosine8-quarter-response.md)
+- [012: terminal verification and final cosine duration](012-final-suite-and-cosine64-response.md)

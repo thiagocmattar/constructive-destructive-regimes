@@ -2,14 +2,16 @@
 
 ## Current state
 
-[Analysis043: fixed-step Spark interventions](../analyses/043-2026-11-03-spark-fixed-step-interventions/README.md)
-is running ten primary conditions across all three highest-LR model/dataset
-cases from exact warm state1024 for64 new updates. Run221 retains the ResNet
-cross-GPU gradient gate failure; Run222 requires exact same-Spark controls and
-resume, which all three cases pass. Native control production and verified
-retrieval/reporting are active. Cutoff07:45 BRT November4; report08:00 BRT.
-Owned Spark, zero cloud cost, no manuscript edit. H029 active; no treatment
-outcomes claimed. Next Run223 / Analysis044 / H030.
+[Analysis043: fixed-step Spark interventions](../analyses/043-2026-11-03-spark-fixed-step-interventions/FINDINGS.md)
+completed all 36 matched branches from warm state 1024, with 64 full-objective
+updates each. LR reductions lower MLP mean training loss about 45-47% here,
+while slowing ResNet/Transformer progress despite smoother raw diagnostics.
+Double-median clipping never activates; decay reduces norms without lowering
+mean/final task loss. All 347 transferred files, 45 endpoints and 13 PDFs pass
+verification; exact within-Spark replay passes. Run221's ResNet cross-GPU gradient
+gate failure remains retained, with no historical bitwise replay claim. The Spark
+worker exited 06:52 BRT before cutoff; zero cloud cost, no manuscript edit or push.
+H029 complete with model-dependent short responses. Next Run223 / Analysis044 / H030.
 
 [Analysis042: cooldown and cosine recovery](../analyses/042-2026-11-03-mlp-lr-cooldown/REPORT.md)
 completes five matched367-update arms. Cosine recovery improves mean/final

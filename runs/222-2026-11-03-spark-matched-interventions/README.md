@@ -1,45 +1,53 @@
 # Run222: matched Spark fixed-step interventions
 
-User-authorized overnight H029 / Analysis043 production. Before treatment runs,
-Run221's cross-GPU gradient gate failed for ResNet (relative difference0.00872
-versus0.001 gate), despite exact loaded weights/moments and loss relative error
-2.78e-7. That qualification is retained. This new run measures matched Spark
-responses from exact transferred state1024; it makes no historical bitwise
-trajectory claim. All interventions use the same current Spark baseline.
+Completed all 36 branches without failure: ten primary conditions and two optional
+cosine durations across the three highest-LR model/dataset cases. Each starts
+from exact transferred warm state 1024 and performs 64 full-objective updates to
+1088, with warm Adam moments and no prefix retraining. MLP uses LR 0.001;
+ResNet-32 and Transformer use 0.003. The optional durations were admitted only
+by the frozen worker's time rule.
 
-The fixed ten-condition primary grid and two optional cosine durations remain
-as proposed in [Run221 protocol](../221-2026-11-03-spark-fixed-step-interventions/PROTOCOL.md),
-with the amended qualification described in [config](config.json). Every case
-must pass exact same-parent Spark loss/norm/rho observations and2 direct versus
-1+1 restored weights/moments/previous raw gradient/RNG before production.
-The frozen tested Run221 scientific helpers are reused without editing them.
+[Analysis043 findings](../../analyses/043-2026-11-03-spark-fixed-step-interventions/FINDINGS.md),
+[all 13 response PDFs](../../analyses/043-2026-11-03-spark-fixed-step-interventions/REPORT.md),
+[final retrieval receipt](retrieval.json), [completion record](completion.json),
+and [verification](../../analyses/043-2026-11-03-spark-fixed-step-interventions/verification.json).
 
-Step1024 to1088; MLP LR0.001, ResNet/Transformer0.003; same full original
-objectives and physical partitions. Global raw-gradient clipping, decoupled
-matrix/tensor decay and fixed/cosine LR changes preserve task-only Adam clocks.
-Fifteen focused mathematical/native-optimizer checks pass in Run221.
+The frozen [config](config.json) tests unchanged highest LR, fixed half/quarter,
+cosine32 floors 0.5/0.25/0.1, global raw-gradient clipping at 1x/2x historical
+median and decoupled decay 0.01/0.1. Optional cosine durations 8/64 use floor
+0.25. The [Run221 protocol](../221-2026-11-03-spark-fixed-step-interventions/PROTOCOL.md)
+pins literature motivation, prepared data, objectives and optimizer semantics.
+Fifteen focused mathematical/native-optimizer checks passed before launch.
+No executed scientific source, config, horizon, seed or variant was changed.
 
-Detached Spark only; compute deadline2026-11-04 07:45 BRT, report08:00 BRT.
-Primary ETC about9.1h before buffer. Zero cloud cost. Raw status/progress,
-full scalar histories, exact source/config identity and rolling/immutable
-checkpoints are retained; the historical preperiod hardware handover is explicit.
-[Analysis043](../../analyses/043-2026-11-03-spark-fixed-step-interventions/README.md)
-will report before/after figures and outcomes. No manuscript edit or push.
+Run221's transfer qualification is retained: ResNet relative gradient difference
+0.0087187473 exceeds the frozen 0.001 gate despite exact model/moment tensors and
+loss relative error 2.78e-7. Run222 uses fresh matched Spark controls and requires
+exact same-parent observations plus two direct versus one-plus-one restored
+weights/moments/previous raw gradient/RNG. All three cases pass, and the downloaded
+checkpoints independently reproduce those equalities. Historical bitwise replay
+is not claimed; the before/after hardware handover is explicit in every main figure.
 
-Launch verified: all three cases pass exact within-Spark qualification; primary
-production is running. [Launch receipt](launch_receipt.json), [retrieval](retrieval.json),
-and [active follow-up](monitor.json) record ownership and collection.03_collect.py
-handles verified partial/final snapshots, including Windows long paths.
+The worker launched at 2026-11-03 22:52 UTC and finished at 2026-11-04 09:52:26
+UTC (06:52 BRT), before the 07:45 BRT cutoff. Run222 records 2,304 main updates,
+12 qualification updates and 2,361 full-gradient calls. All 347 transferred files
+cover the 337-file terminal inventory and pass size/SHA256 checks. All 31 frozen
+inputs, 19 executed source copies and 45 endpoint checkpoints are verified.
+Raw evidence remains under artifacts/snapshots, selected by retrieval.json.
 
-Collection and reporting from the repository root:
+The final local payload plus archive occupies about 10.66 GB; the isolated Spark
+task directory retains about 7.31 GB allocated. The worker PID/PGID2439138 has
+exited; unrelated suspended PID458832 is preserved. Owned Spark, USD 0 cloud
+spending, no manuscript edit or push. The follow-up monitor record is in
+[monitor.json](monitor.json).
 
-    python runs/222-2026-11-03-spark-matched-interventions/03_collect.py
+Collection and reproduction from the repository root:
+
+    python runs/222-2026-11-03-spark-matched-interventions/03_collect.py --final
     python analyses/043-2026-11-03-spark-fixed-step-interventions/01_report.py
+    python analyses/043-2026-11-03-spark-fixed-step-interventions/02_verify_final.py
 
-Use03_collect.py --final only after terminal manifest and inventory. It downloads
-all task artifacts with archive/per-file SHA256 verification; exact snapshots
-remain under artifacts/snapshots and artifacts/latest_snapshot.json selects one.
-Source data and failed qualification are never overwritten. Monitor automation
-spark-intervention-suite checks every30 minutes, stays quiet during healthy
-progress, and is to pause after final verified findings/report/commit. Worker
-PID/PGID2439138 is task-owned; old suspended PID458832 is unrelated.
+The collector supports Windows long paths and verifies archive/per-file hashes.
+Use --final only after terminal manifest and inventory. One selected seed/state
+and a 64-update horizon support short response findings, not universal stability,
+long-term convergence, optimal hyperparameters or held-out benefit claims.

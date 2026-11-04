@@ -119,4 +119,4 @@ an analysis may use manuscript or external inputs without referencing a run.
 
 | Analysis | Question | Inputs | Status | Records |
 | --- | --- | --- | --- | --- |
-| [043](043-2026-11-03-spark-fixed-step-interventions/README.md) | H029: clipping, decay and LR schedules at a fixed warm state | Run221 qualification / Run222 matched Spark continuations; all three highest-LR cases | Running ten primary conditions x64 updates from1024; exact same-Spark qualification passes | Before/after response generator and verified retrieval; historical hardware boundary explicit; no treatment conclusions yet |
+| [043](043-2026-11-03-spark-fixed-step-interventions/README.md) | H029 fixed-step clipping, decay and LR schedules | Run221 qualification / Run222 matched highest-LR Spark controls, all three cases | Complete: 36 branches, 13 reviewed PDFs, 34,326 source-value checks and 45 verified endpoints | [Eight findings](043-2026-11-03-spark-fixed-step-interventions/FINDINGS.md); MLP LR benefit, model-dependent responses; failed cross-GPU gate retained |

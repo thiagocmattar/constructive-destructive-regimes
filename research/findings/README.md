@@ -1,5 +1,17 @@
 # Consolidated findings
 
+[Analysis043: fixed-step Spark interventions](../../analyses/043-2026-11-03-spark-fixed-step-interventions/FINDINGS.md)
+completes 36 matched 64-update branches from exact warm state 1024 at the three
+highest tested Adam rates. LR reductions lower MLP mean training loss about
+45-47%, while slowing ResNet and Transformer progress despite smoother raw
+diagnostics. Double-median clipping is inactive in all cases; median clipping
+has mixed effects. Both decay values shrink norms without lowering mean/final
+training loss. Fresh Spark controls and exact within-Spark replay qualify these
+short responses; the failed historical ResNet cross-GPU gradient gate is retained.
+One selected seed/state, unequal LR exposure and a short horizon limit scope;
+no universal convergence proxy or held-out benefit is established. All raw
+checkpoints and 13 reviewed vector figures are retained, with zero cloud cost.
+
 [Analysis042: cooldown and cosine recovery](../../analyses/042-2026-11-03-mlp-lr-cooldown/REPORT.md)
 compares five matched367-update MLP continuations from state657. Eight-update
 hold plus eight-update cosine recovery lowers mean/final training loss2.26%/4.30%

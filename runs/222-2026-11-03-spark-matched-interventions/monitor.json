@@ -1,9 +1,16 @@
 {
   "automation_id": "spark-intervention-suite",
-  "status": "ACTIVE",
+  "status": "DELETED",
   "cadence_minutes": 30,
   "mode": "thread heartbeat",
   "notification_intent": "Stay quiet during healthy non-actionable progress; completion, failure, material deadline issue or decision only.",
   "compute_deadline_utc": "2026-11-04T10:45:00+00:00",
-  "report_target": "2026-11-04 08:00 BRT"
+  "report_target": "2026-11-04 08:00 BRT",
+  "stopped_utc": "2026-11-04T10:18:23.568146+00:00",
+  "reason": "All authorized branches, artifact verification, figures and consolidated findings complete.",
+  "delete_receipt": {
+    "automationId": "spark-intervention-suite",
+    "mode": "delete",
+    "deleteStatus": "deleted"
+  }
 }
