@@ -140,3 +140,7 @@ an analysis may use manuscript or external inputs without referencing a run.
 ## Analysis048: three paths to0.75x
 
 [Analysis048](048-2026-11-04-mlp-three-paths-to075/README.md) places direct cosine32-to0.75x, abrupt restoration and cosine70 restoration side by side, each only against unchanged LR. Five raw diagnostic rows, independent scales; existing verified evidence only. No training.
+
+## Analysis049: direct-decay versus abrupt-restoration overlay
+
+[Analysis049](049-2026-11-04-mlp-direct-abrupt-overlay/README.md) directly overlays cosine32-to0.75x and cosine32-to0.5x followed by an abrupt rise at650, as requested. Five raw rows, no baseline curve, existing verified data only.

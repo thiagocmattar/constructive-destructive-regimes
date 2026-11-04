@@ -601,3 +601,7 @@ no remote work, rental or manuscript edit. A7 deferred. Next Run223 / Analysis04
 ## Figure synthesis: Analysis048
 
 [Analysis048](../analyses/048-2026-11-04-mlp-three-paths-to075/README.md) assembles the requested three paths to0.75x from Runs223-226, each paired only with unchanged baseline.119 source artifacts and10584 plotted values reverified; vector figure inspected. No new training/hypothesis. Run223 remains active. Next Run227 / Analysis049 / H034.
+
+## Figure synthesis: Analysis049
+
+[Analysis049](../analyses/049-2026-11-04-mlp-direct-abrupt-overlay/README.md) provides the requested direct two-path overlay from Runs224/226, sharing the Run223 prefix.100 artifact checks and3528 plotted values verified; vector render inspected. No new training/hypothesis. Next Run227 / Analysis050 / H034.
