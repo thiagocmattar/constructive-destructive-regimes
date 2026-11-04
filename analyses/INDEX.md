@@ -132,3 +132,7 @@ an analysis may use manuscript or external inputs without referencing a run.
 ## Analysis046: MLP cosine70 restoration
 
 [Analysis046](046-2026-11-04-mlp-cosine-rise70/README.md) compares gradual restoration with unchanged, held-half and abrupt-rise controls. Three paired columns, five diagnostic rows, verified raw values; delayed but larger spike and worse training loss.
+
+## Analysis047: baseline-only cosine floors
+
+[Analysis047](047-2026-11-04-mlp-cosine-floors/README.md) shows cosine32-to0.75x and0.5x side by side, each only against unchanged LR. Five raw diagnostic rows and independent scales;0.75x reduces mean loss but retains large late spikes.

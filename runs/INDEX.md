@@ -297,3 +297,7 @@ attempt within the same run.
 ## Run225: MLP cosine70 restoration
 
 [Run225](225-2026-11-04-mlp-cosine-rise70/README.md) completed the user-confirmed cosine rise from 0.5x at650 to0.75x at720, held to800. Exact shared state650 verified; the delayed spike is larger than abrupt restoration. Spark only. H032 / Analysis046.
+
+## Run226: MLP cosine32 to0.75x
+
+[Run226](226-2026-11-04-mlp-cosine75/README.md) completed one matched Spark branch512..800, reaching0.75x at544 and holding. Reuses Run223 unchanged and cosine32-to0.5x. H033 / Analysis047; no control rerun or cloud rental.

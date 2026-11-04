@@ -1,0 +1,16 @@
+# Cosine32 floors: baseline comparisons
+
+Source: completed Run226 and Run223 same-Spark evidence, results.json and plotted_values.csv. Each intervention is compared with the unchanged base-LR control under the original selected MLP window.
+
+- The new0.75x branch passes exact warm512 gradient and two-update model/moments/history/RNG replay against the retained control. Its first two observed states512/513 match unchanged exactly because update512 uses the original base LR. This supports reusing the completed same-Spark control without rerunning it.
+- Both schedules decay over512..544 and then hold their respective floors through800. Every applied new LR matches the specified cosine equation; there is no restoration or hidden LR change near the later spikes.
+- Versus unchanged, cosine32-to0.75x lowers mean loss513..800 by17.24% (0.017218 vs0.020804). It reduces >10% excursions from16 to7, but does not eliminate them. The final excursion is right-censored at800.
+- The largest0.75x excursion starts at651, peaks at659 with loss0.067123 (5.01x its pre-rise loss), and recovers at686. Its maximum exceeds the unchanged window maximum0.055063. Fewer excursions therefore do not imply smaller worst excursions.
+- The0.75x branch's last32-state mean is0.014532,7.98% above unchanged0.013458. Its endpoint loss is lower than unchanged, but the control ends inside an unresolved spike; the mean and tail average show why endpoint alone is insufficient.
+- Versus unchanged, cosine32-to0.5x lowers mean loss by26.30% (0.015333) and last32-state mean by18.88% (0.010917). Its only >10% excursion peaks at520 (1.166x pre-rise loss) and recovers at523, during the decay; none is detected after the decay reaches its floor.
+- For0.75x, post-decay raw rho reaches-0.99942 and maximum gradient norm reaches2.94789, compared with baseline-0.99695 and2.23556. The0.5x path settles near positive alignment and small gradient/projected-change values later in the window. These are raw-gradient diagnostics, not an Adam stability theorem.
+- The large0.75x spike occurs115 state indices after reaching the constant floor at544. Thus ongoing LR variation or an abrupt restoration is not necessary for spikes in this selected case. This observation does not identify the mechanism, a universal safe LR, or a Hessian threshold; it separates a fixed-level continuation from the earlier restoration experiments.
+
+Caption: MLP/CIFAR-10 seed0, identical warm state512 and unchanged baseline. Left: cosine32 from base0.001 to0.00075, held after544. Right: cosine32 to0.0005, held after544. Each intervention appears only alongside the same gray unchanged trajectory. Five rows show unsmoothed log training loss, raw rho, raw gradient norm, normalized projected gradient change and applied/base LR. Independent axes; all curves computed on Spark. Initial shaded region is shared context. Endpoint800 is unapplied; final baseline and0.75x excursions are right-censored. Interpret mean loss, event magnitude/duration and censoring together.
+
+Verification:74 artifact SHA/size checks,7056 plotted scalar checks, all288 new applied LRs, independent raw projected-gradient identity and state544/800 checkpoint clocks/current gradients. PDF rendered and inspected. New worker4.29seconds, excluding staging/import/transfer. No cloud rental or new control training.

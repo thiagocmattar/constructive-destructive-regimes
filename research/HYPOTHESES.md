@@ -79,3 +79,7 @@ Status: unsupported for the selected MLP return at650. [Run224 / Analysis045](..
 ## H032: can a70-step cosine rise prevent restoration spikes?
 
 Status: contradicted for this selected MLP schedule/window. [Run225 / Analysis046](../analyses/046-2026-11-04-mlp-cosine-rise70/FINDINGS.md). Rise650..720 from0.5x to0.75x delays the peak but increases its height2.60x and post650 mean loss33.75% versus abrupt restoration. Exact transition state, one seed. Other timings/durations/models remain untested; endpoint test loss moves in a different direction from training-loss stability.
+
+## H033: is cosine32-to0.75x sufficient to suppress repeated MLP spikes?
+
+Status: partial loss benefit, spike suppression incomplete in this selected window. [Run226 / Analysis047](../analyses/047-2026-11-04-mlp-cosine-floors/FINDINGS.md). Mean loss17.24% below unchanged, but7 excursions and a5.01x peak while LR is constant. Exact same-Spark control reuse. Ongoing LR variation is not necessary for spikes here; no mechanism or universal threshold established.

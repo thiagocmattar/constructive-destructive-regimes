@@ -1,0 +1,25 @@
+{
+  "run_id": "226",
+  "analysis_id": "047",
+  "hypothesis": "H033",
+  "seed": 0,
+  "case": "mlp",
+  "base_lr": 0.001,
+  "start": 512,
+  "end": 800,
+  "plot_start": 448,
+  "arms": [
+    {
+      "id": "cosine32_three_quarters",
+      "kind": "cosine",
+      "ratio": 0.75,
+      "duration": 32
+    }
+  ],
+  "parent_run": "runs/223-2026-11-04-multispike-interventions",
+  "parent_worker": "runs/223-2026-11-04-multispike-interventions/artifacts/worker",
+  "runtime_limit_seconds": 1800,
+  "authorization": "User requested cosine32 down to0.75x without a rise, compared side by side with existing cosine32 down to0.5x; each intervention plotted only against unchanged baseline LR.",
+  "comparison": "Reuse completed Run223 fresh same-Spark unchanged and cosine32_half. Same seed0 full5000-image CIFAR10 objective, physical1000, model/data/order and Adam. No full control or half-floor rerun.",
+  "measurement": "Full raw gradient diagnostics every state. LR512=.001, LR528=.000875, LR544..799=.00075. Endpoint800 unapplied. Complete Adam/RNG/gradient states at544 and800 retained. FP32 model/gradient/Adam, FP64 products; TF32 off, deterministic execution."
+}

@@ -593,3 +593,7 @@ no remote work, rental or manuscript edit. A7 deferred. Next Run223 / Analysis04
 ## Completed follow-up: Run225 / Analysis046 / H032
 
 [Analysis046](../analyses/046-2026-11-04-mlp-cosine-rise70/README.md): cosine70 restoration over650..720 delays the large MLP peak to716 but increases its height2.60x versus abrupt restoration. Mean651..800 loss is33.75% higher than abrupt and94.43% higher than held-half. Exact transition650 and19 new transferred artifacts verified; Spark only. Run223 remains active. Next Run226 / Analysis047 / H033.
+
+## Completed follow-up: Run226 / Analysis047 / H033
+
+[Analysis047](../analyses/047-2026-11-04-mlp-cosine-floors/README.md): cosine32-to0.75x lowers MLP mean loss17.24% versus unchanged but retains7 excursions, including a5.01x peak at659 while LR is constant. Cosine32-to0.5x lowers mean26.30%, with only one early excursion. Figures pair each intervention only with unchanged, in separate columns, as requested. Exact reuse/18 new artifacts verified; Spark only. Run223 remains active. Next Run227 / Analysis048 / H034.

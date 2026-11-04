@@ -1,0 +1,52 @@
+{
+  "manifest": {
+    "status": "completed",
+    "started_utc": "2026-11-04T11:51:17.002273+00:00",
+    "gpu": "NVIDIA GB10",
+    "torch": "2.11.0+cu130",
+    "cuda": "13.0",
+    "results": {
+      "cosine32_three_quarters": {
+        "status": "completed",
+        "case": "mlp",
+        "arm": "cosine32_three_quarters",
+        "start_state": 512,
+        "end_state": 800,
+        "started_utc": "2026-11-04T11:51:17.760179+00:00",
+        "identity": {
+          "run": "226",
+          "config_sha256": "5ca9cf999112c7a6d81f4691fa226d2472baecd0122937de1d5f67e06b16671c",
+          "manifest_sha256": "ee920ea6eb9f5d3152ee81d6710ae3807dc3fc97dc08c15efbec28fe9beede36",
+          "parent_checkpoint_sha256": "6d90f4cd6cc52877a765cf46bd5166ca50c5f882c1b0e6901748659b6d65e7e5"
+        },
+        "evaluation": {
+          "test": {
+            "loss": 0.7646686889648437,
+            "loss_units": 10000,
+            "objective_units": 10000
+          }
+        },
+        "completed_state": 800,
+        "updates": 288,
+        "elapsed_seconds": 3.525641051121056,
+        "finished_utc": "2026-11-04T11:51:21.285820+00:00",
+        "common_states_512_513_exact": true
+      }
+    },
+    "finished_utc": "2026-11-04T11:51:21.288637+00:00",
+    "elapsed_seconds": 4.286386938765645
+  },
+  "qualification": {
+    "status": "passed",
+    "fork_gradient_exact": true,
+    "two_update_tensor_replay_exact": true,
+    "parent_sha256": "6d90f4cd6cc52877a765cf46bd5166ca50c5f882c1b0e6901748659b6d65e7e5"
+  },
+  "receipt": {
+    "path": "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/run226-spark-output.tar.gz",
+    "sha256": "1ed6f810dc5b957f34649902126dbe964e34c70c2e8204456f8644a73110ac8b",
+    "status": "completed",
+    "verified": true,
+    "files": 18
+  }
+}

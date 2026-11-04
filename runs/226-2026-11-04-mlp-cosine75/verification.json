@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "schedule_test": "Independent cosine reduction equation, endpoint/midpoint/floor and monotonicity passed.",
+  "all_288_applied_lrs_verified": true,
+  "max_lr_abs_error": 1.0842021724855044e-19,
+  "all_geometry_rows_checked": true,
+  "max_projected_change_identity_abs_error": 8.881784197001252e-16,
+  "checkpoint_checks": [
+    {
+      "state": 544,
+      "adam_clock_verified": true,
+      "gradient_norm_cpu_abs_error": 4.496403249731884e-15
+    },
+    {
+      "state": 800,
+      "adam_clock_verified": true,
+      "gradient_norm_cpu_abs_error": 1.9872992140790302e-14
+    }
+  ],
+  "source_artifact_hash_checks": 74,
+  "new_transferred_files": 18,
+  "plotted_scalar_checks": 7056,
+  "vector_pdf_render_inspected": true
+}

@@ -244,3 +244,5 @@ all feature/fold outcomes and four reviewed figures are in the
 - [MLP LR return at650 (Analysis045)](../../analyses/045-2026-11-04-mlp-lr-return/FINDINGS.md): abrupt0.75x restoration after a smooth half-LR period brings back large spikes; exact matched comparison, one seed/window.
 
 - [MLP cosine70 restoration (Analysis046)](../../analyses/046-2026-11-04-mlp-cosine-rise70/FINDINGS.md): smooth restoration delays but amplifies the large spike and worsens training loss versus abrupt rise and held-half; matched single-seed evidence.
+
+- [Cosine32 floors versus unchanged (Analysis047)](../../analyses/047-2026-11-04-mlp-cosine-floors/FINDINGS.md):0.75x lowers mean loss yet retains large late spikes at constant LR;0.5x suppresses post-decay excursions in this single MLP window.
