@@ -11,7 +11,7 @@ def rows(p):return [json.loads(x) for x in p.read_text().splitlines() if x.strip
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
     spec=importlib.util.spec_from_file_location('cloud223',RUN/'02_cloud.py');cloud=importlib.util.module_from_spec(spec);spec.loader.exec_module(cloud)
-    snapshot=HERE/'scratch/all_results_snapshot';snapshot.mkdir(exist_ok=True,parents=True)
+    snapshot=HERE/'scratch/all_results_snapshot'/datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ');snapshot.mkdir(exist_ok=True,parents=True)
     cfg=read(RUN/'config.json');sources=[];verified=0;series={};provenance={}
     for case,folder in [('mlp','spark'),('resnet','duqoihms8w1gle')]:
         base=RUN/'artifacts'/folder;worker=base/'payload/worker'
@@ -40,9 +40,12 @@ def main():
             prefix=rows(dest/'prefix/boundaries.jsonl');series['transformer']['unchanged']=prefix
             if (dest/'control/boundaries.jsonl').exists():series['transformer']['unchanged']=prefix[:-1]+rows(dest/'control/boundaries.jsonl')
             leader_prefix=prefix
+            leader_ready=read(dest/'READY.json');assert leader_ready['event_gate']['passed']
         for arm in ['fixed_half','cosine32_half']:
             if (dest/arm/'boundaries.jsonl').exists():
-                if pod['role']=='follower':assert read(dest/'cross_worker_qualification.json')['two_update_replay_exact']
+                if pod['role']=='follower':
+                    gate=read(dest/'cross_worker_qualification.json');assert gate['status']=='passed' and gate['two_update_replay_exact'] and gate['fork_raw_gradient_exact']
+                    assert gate['parent_sha256']==leader_ready['parent_sha256'] and gate['reference_sha256']==leader_ready['reference_sha256']
                 series['transformer'][arm]=leader_prefix[:-1]+rows(dest/arm/'boundaries.jsonl')
     metrics=[('loss','Training loss (log)'),('rho',r'Raw $\rho_t$'),('raw_gradient_norm',r'$\|g_t\|$'),('eta_kappa_hat',r'$\eta\widehat\kappa_t$'),('applied_lr','Applied / base LR')]
     arms=[('fixed_half','Immediate half','#0072B2'),('cosine32_half','Cosine32 to half','#009E73')]
@@ -67,10 +70,14 @@ def main():
                 if ri==0:
                     ax.set_yscale('log');ax.set_title(case.upper()+' | '+title+'\n'+provenance.get(case,'pending')+' | base LR '+str(sp['lr']),fontsize=10);ax.legend(fontsize=8,loc='best')
                     if arm not in series[case]:ax.text(.5,.20,'Intervention pending',ha='center',transform=ax.transAxes,fontsize=10,bbox=dict(facecolor='white',edgecolor='#bbbbbb',alpha=.95))
+                if ri==0 and arm in series[case] and coverage[case][arm]<sp['end']:
+                    ax.text(.98,.03,'Through step '+str(coverage[case][arm])+' / '+str(sp['end']),ha='right',va='bottom',transform=ax.transAxes,fontsize=8,bbox=dict(facecolor='white',edgecolor='none',alpha=.9))
+                if case=='transformer' and arm=='cosine32_half' and ri==4:
+                    ax.text(sp['start']+8,.68,'Worker switch\n(exact replay)',fontsize=7,ha='left',va='bottom')
                 if ri==4:ax.set_ylim(.45,1.06);ax.set_xlabel('Completed optimizer updates')
     stamp=datetime.datetime.now(datetime.timezone.utc).astimezone(datetime.timezone(datetime.timedelta(hours=-3))).strftime('%d %b %Y, %H:%M BRT')
     fig.suptitle('Run223 preliminary | '+stamp+'\nEach intervention versus unchanged baseline | seed 0 | solid, unsmoothed curves | independent panel scales',fontsize=14)
-    fig.supxlabel('Gray region: shared prefix. Vertical line: intervention fork. Each shown trajectory stays on its named GPU; Transformer snapshot is incomplete.\nMLP: 5,000 images; ResNet: 50,000 images; Transformer: 2,088,600 targets. No historical control reuse.',fontsize=10)
+    fig.supxlabel('Gray region: shared prefix. Vertical line: intervention fork. Transformer cosine switches L40S workers at the fork; exact gradient/two-update replay passed. Other curves stay on one worker.\nMLP: 5,000 images; ResNet: 50,000 images; Transformer: 2,088,600 targets. No historical control reuse.',fontsize=10)
     for row in values:
         source=next(r for r in series[row['case']][row['series']] if r['state']==row['state']);value=source[row['metric']]
         if row['metric']=='applied_lr':value/=cfg['cases'][row['case']]['lr']

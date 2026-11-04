@@ -1,6 +1,6 @@
 {
   "status": "preliminary",
-  "snapshot_brt": "04 Nov 2026, 10:26 BRT",
+  "snapshot_brt": "04 Nov 2026, 11:28 BRT",
   "coverage": {
     "mlp": {
       "unchanged": 800,
@@ -13,11 +13,13 @@
       "cosine32_half": 576
     },
     "transformer": {
-      "unchanged": 778
+      "unchanged": 928,
+      "fixed_half": 741,
+      "cosine32_half": 586
     }
   },
-  "artifact_files_verified": 133,
-  "plotted_values_verified": 17742,
+  "artifact_files_verified": 140,
+  "plotted_values_verified": 21085,
   "sources": [
     {
       "path": "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/control/boundaries.jsonl",
@@ -52,48 +54,91 @@
       "sha256": "0914f153b13710eafd7a31de046e292ed4b3014a655f5b587a264f6ac3255119"
     },
     {
-      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/159vjccj7w3996/control/boundaries.jsonl",
-      "sha256": "517a01ba76f51f930bea739973129e632a1c0d2b3ad97c92b65f3fcffc17d2db"
+      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/20261104T142851Z/159vjccj7w3996/READY.json",
+      "sha256": "bd2c5a729455e4756f42a138f56d2889c24d2530737066886dbd1bcb0842e57c"
     },
     {
-      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/159vjccj7w3996/historical_qualification.json",
+      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/20261104T142851Z/159vjccj7w3996/control/boundaries.jsonl",
+      "sha256": "fda9f8d4de7160faf7dd764d7aeee513213087de76463a5500e042733bf30ae5"
+    },
+    {
+      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/20261104T142851Z/159vjccj7w3996/event_gate.json",
+      "sha256": "cb433bd801fcf3aae9469f525bb2628aa58413af7d2bbd24c0e09d1f756d8127"
+    },
+    {
+      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/20261104T142851Z/159vjccj7w3996/fixed_half/boundaries.jsonl",
+      "sha256": "c51d1a171718ebe7376f8d0775d6a4ce41494275b8dd79d23c251b769c41252b"
+    },
+    {
+      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/20261104T142851Z/159vjccj7w3996/historical_qualification.json",
       "sha256": "f44f25eb89a584964dc1ad3fb3054c6d6342f943a6241b7bcc08b2d910230db6"
     },
     {
-      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/159vjccj7w3996/manifest.json",
+      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/20261104T142851Z/159vjccj7w3996/manifest.json",
       "sha256": "2f848542775557b3099d809765e411aa987e265160ed31c4d0fa3e4ae08bf40b"
     },
     {
-      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/159vjccj7w3996/prefix/boundaries.jsonl",
+      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/20261104T142851Z/159vjccj7w3996/prefix/boundaries.jsonl",
       "sha256": "eba639bcdede0f36783210de668c18a3e3e63882efe15a511a4738c6d0ece0c4"
     },
     {
-      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/159vjccj7w3996/qualification/direct/boundaries.jsonl",
+      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/20261104T142851Z/159vjccj7w3996/qualification/direct/boundaries.jsonl",
       "sha256": "83b88fc86fafcb7fc84d40ca8f29cf023881e80b77dffb0c887b12f9460cdca8"
     },
     {
-      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/159vjccj7w3996/qualification/one/boundaries.jsonl",
+      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/20261104T142851Z/159vjccj7w3996/qualification/one/boundaries.jsonl",
       "sha256": "98346f8f13db649a96ba535c913a41c86a21bc8cbf4331bdc02c5c1e4acee7fd"
     },
     {
-      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/159vjccj7w3996/qualification/qualification.json",
+      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/20261104T142851Z/159vjccj7w3996/qualification/qualification.json",
       "sha256": "e7714bdbfccdae23df3a7cdb846ecc59663a02198f08673bf1f0c31cc2aa588f"
     },
     {
-      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/159vjccj7w3996/qualification/resumed/boundaries.jsonl",
+      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/20261104T142851Z/159vjccj7w3996/qualification/resumed/boundaries.jsonl",
       "sha256": "9e6ab5d7d1cef7aaca1ca4a2750e0f17728aac004849b8d8b5a85934f6a76f5b"
+    },
+    {
+      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/20261104T142851Z/2kvwqfqw35eqma/cosine32_half/boundaries.jsonl",
+      "sha256": "23f5060bef3baa820dc36cd500564ce90c5ce518e2866c80c1388ff631af8af2"
+    },
+    {
+      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/20261104T142851Z/2kvwqfqw35eqma/cross_worker2/boundaries.jsonl",
+      "sha256": "d1c91a450ada6a552350c9f8cee93bc8cf3495e5445d59c56d4fca7bf68bc9ab"
+    },
+    {
+      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/20261104T142851Z/2kvwqfqw35eqma/cross_worker_qualification.json",
+      "sha256": "f2b14ea9edfcd0a6632cd8466675eb95def778c519647ff3834574bdc183d4fa"
+    },
+    {
+      "path": "analyses/044-2026-11-04-multispike-interventions/scratch/all_results_snapshot/20261104T142851Z/2kvwqfqw35eqma/manifest.json",
+      "sha256": "51bf2eef1e231fb0cc90d108627350e5f04cf3a1020e2d18e8557944c53857b8"
     }
   ],
   "live_snapshots": [
     {
       "pod": "159vjccj7w3996",
       "role": "leader",
-      "utc": "2026-11-04T13:26:44.593436+00:00",
+      "utc": "2026-11-04T14:29:07.949214+00:00",
       "files": [
         {
+          "path": "READY.json",
+          "bytes": 1415,
+          "sha256": "bd2c5a729455e4756f42a138f56d2889c24d2530737066886dbd1bcb0842e57c"
+        },
+        {
           "path": "control/boundaries.jsonl",
-          "bytes": 66711,
-          "sha256": "517a01ba76f51f930bea739973129e632a1c0d2b3ad97c92b65f3fcffc17d2db"
+          "bytes": 109235,
+          "sha256": "fda9f8d4de7160faf7dd764d7aeee513213087de76463a5500e042733bf30ae5"
+        },
+        {
+          "path": "event_gate.json",
+          "bytes": 1086,
+          "sha256": "cb433bd801fcf3aae9469f525bb2628aa58413af7d2bbd24c0e09d1f756d8127"
+        },
+        {
+          "path": "fixed_half/boundaries.jsonl",
+          "bytes": 56404,
+          "sha256": "c51d1a171718ebe7376f8d0775d6a4ce41494275b8dd79d23c251b769c41252b"
         },
         {
           "path": "historical_qualification.json",
@@ -131,7 +176,34 @@
           "sha256": "9e6ab5d7d1cef7aaca1ca4a2750e0f17728aac004849b8d8b5a85934f6a76f5b"
         }
       ]
+    },
+    {
+      "pod": "2kvwqfqw35eqma",
+      "role": "follower",
+      "utc": "2026-11-04T14:29:11.605755+00:00",
+      "files": [
+        {
+          "path": "cosine32_half/boundaries.jsonl",
+          "bytes": 12735,
+          "sha256": "23f5060bef3baa820dc36cd500564ce90c5ce518e2866c80c1388ff631af8af2"
+        },
+        {
+          "path": "cross_worker2/boundaries.jsonl",
+          "bytes": 854,
+          "sha256": "d1c91a450ada6a552350c9f8cee93bc8cf3495e5445d59c56d4fca7bf68bc9ab"
+        },
+        {
+          "path": "cross_worker_qualification.json",
+          "bytes": 272,
+          "sha256": "f2b14ea9edfcd0a6632cd8466675eb95def778c519647ff3834574bdc183d4fa"
+        },
+        {
+          "path": "manifest.json",
+          "bytes": 212,
+          "sha256": "51bf2eef1e231fb0cc90d108627350e5f04cf3a1020e2d18e8557944c53857b8"
+        }
+      ]
     }
   ],
-  "pdf_sha256": "457182273f7f8bd99f4d6dca11ada342a9811a31afa96bf455a0510e5d8507d0"
+  "pdf_sha256": "3aabf58c77977c7ed12c97cbea230d05d246c02a5516cb0dce8729dae892d45d"
 }
