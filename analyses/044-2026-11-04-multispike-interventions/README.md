@@ -7,3 +7,7 @@ Run223 is in progress. MLP and ResNet results are verified; Transformer remains 
 ## ResNet preliminary result
 
 [Verified case-level findings](observations/003-resnet-preliminary.md): both arms completed and69 files verified; task Pod deletion confirmed. Mean loss versus fresh unchanged control:+27.20% fixed half,+0.62% cosine32 half. Transformer still pending; final three-model figures/report remain incomplete.
+
+## Matching MLP and ResNet interventions
+
+[Immediate half LR](figures/mlp_resnet_fixed_half.pdf) and [cosine32-to-half](figures/mlp_resnet_cosine32_half.pdf) each show MLP and ResNet side by side, paired with their own unchanged controls. [Comparison observation](observations/004-mlp-resnet-side-by-side.md) records sources, scope and caveats.125 artifact files and14752 plotted values verified; both vector renders inspected. Generate with03_mlp_resnet_preview.py. Transformer and the final three-model figures remain pending.
