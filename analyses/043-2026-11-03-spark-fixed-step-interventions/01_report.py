@@ -93,7 +93,7 @@ def main():
   fig.suptitle('Fixed-step response: '+condition,y=.995,fontsize=14)
   fig.text(.5,.962,'Intervention at saved state1024;64 further full-objective updates; seed0; independent Y ranges.',ha='center',fontsize=10)
   fig.text(.5,.02,'Gray before0: shared historical trajectory. At0: hardware handover to Spark for ALL arms. Solid, unsmoothed observations.',ha='center',fontsize=9)
-  path=HERE/'figures'/(condition+'.pdf');fig.savefig(path);fig.savefig(HERE/'scratch'/(condition+'.png'),dpi=150);plt.close(fig);figure_hashes[path.name]=sha(path)
+  path=HERE/'figures'/(condition+'.pdf');fig.savefig(path,metadata={'CreationDate':None,'ModDate':None});fig.savefig(HERE/'scratch'/(condition+'.png'),dpi=150);plt.close(fig);figure_hashes[path.name]=sha(path)
   with fitz.open(path) as pdf:pdf[0].get_pixmap(matrix=fitz.Matrix(1.,1.)).save(HERE/'scratch'/(condition+'_pdf_review.png'))
   if arm['kind']=='decay':
    comp,axs=plt.subplots(3,3,figsize=(15,8),sharex=True,sharey=False)
@@ -114,7 +114,7 @@ def main():
     axs[0,col].legend(frameon=False,fontsize=8)
    comp.suptitle('Decoupled weight-decay response: '+condition,y=.98)
    comp.text(.5,.025,'Post-intervention observations only; weight norms were not stored throughout the historical before period.',ha='center',fontsize=9)
-   path=HERE/'figures'/(condition+'_increments.pdf');comp.savefig(path);comp.savefig(HERE/'scratch'/(condition+'_increments.png'),dpi=150);plt.close(comp);figure_hashes[path.name]=sha(path)
+   path=HERE/'figures'/(condition+'_increments.pdf');comp.savefig(path,metadata={'CreationDate':None,'ModDate':None});comp.savefig(HERE/'scratch'/(condition+'_increments.png'),dpi=150);plt.close(comp);figure_hashes[path.name]=sha(path)
    with fitz.open(path) as pdf:pdf[0].get_pixmap(matrix=fitz.Matrix(1.,1.)).save(HERE/'scratch'/(condition+'_increments_pdf_review.png'))
  csv_out(HERE/'comparison.csv',summary);csv_out(HERE/'aligned_values.csv',aligned)
  primary=[a['id'] for a in cfg['arms'] if a['primary']];expected=[c+'/'+a for a in primary for c in CASES]
