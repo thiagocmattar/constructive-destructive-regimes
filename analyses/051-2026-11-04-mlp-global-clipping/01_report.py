@@ -49,7 +49,7 @@ def main():
     effects={metric:100*(summary['global_clip1'][metric]/summary['unchanged'][metric]-1) for metric in ['mean_513_800','last32_mean','final_loss','max_loss_513_800']}
     clipped=[m for m in metrics['global_clip1'] if m['clip_factor']<1]
     clipping=dict(updates=288,clipped_updates=len(clipped),fraction=len(clipped)/288,first_clipped_state=clipped[0]['state'],min_factor=min(m['clip_factor'] for m in clipped))
-    panels=[('loss','Training loss (log scale)'),('rho',r'Raw gradient $\rho_t$'),('raw_gradient_norm',r'Raw gradient norm $\|g_t\|$'),('eta_kappa_hat',r'$\eta\widehat\kappa_t$'),('applied_lr','Applied LR / base LR')]
+    panels=[('loss','Training loss (log scale)'),('rho',r'Raw gradient $\rho_t$'),('raw_gradient_norm','Gradient norm'),('eta_kappa_hat',r'$\eta\widehat\kappa_t$'),('applied_lr','Applied LR / base LR')]
     plt.rcParams.update({'font.size':10,'pdf.fonttype':42})
     fig,axes=plt.subplots(5,1,figsize=(9,11),sharex=True,layout='constrained'); values=[]
     for ax,(metric,ylabel) in zip(axes,panels):
@@ -59,6 +59,13 @@ def main():
             values.extend(dict(series=name,metric=metric,state=x,value=y) for x,y in zip(xx,yy))
             if metric=='applied_lr': xx+=[800]; yy+=[yy[-1]]
             ax.plot(xx,yy,color=color,lw=.95,ls='-',label=label,drawstyle='steps-post' if metric=='applied_lr' else 'default')
+        if metric=='raw_gradient_norm':
+            mm=metrics['global_clip1']
+            assert [m['state'] for m in mm]==list(range(512,800))
+            ax.plot([m['state'] for m in mm],[m['optimizer_input_norm'] for m in mm],color='#009E73',lw=1.3,ls='-',label='After clipping (Adam input)')
+            values.extend(dict(series='global_clip1',metric='optimizer_input_norm',state=m['state'],value=m['optimizer_input_norm']) for m in mm)
+            handles,_=ax.get_legend_handles_labels()
+            ax.legend(handles,['Baseline: raw','Clipping run: raw','Clipping run: after clipping'],loc='upper left',fontsize=8)
         ax.axvspan(448,512,color='#eeeeee',zorder=-3); ax.axvline(512,color='#444444',lw=.8)
         ax.grid(alpha=.14); ax.set_ylabel(ylabel); ax.set_xlim(448,800); ax.spines[['top','right']].set_visible(False)
     axes[0].set_yscale('log'); axes[0].legend(loc='upper left',fontsize=9)
@@ -66,16 +73,16 @@ def main():
     axes[4].set_ylim(.94,1.06); axes[4].set_yticks([1]); axes[4].text(.5,.2,'Both LR curves coincide: base LR stays 0.001',ha='center',transform=axes[4].transAxes,fontsize=9)
     axes[4].set_xlabel('Completed optimizer updates'); axes[4].set_xticks([448,512,560,608,656,704,752,800])
     fig.suptitle('MLP / CIFAR-10 | global gradient clipping before Adam\nSeed 0 | full 5,000-image objective | same Spark / exact fork replay',fontsize=13)
-    fig.supxlabel('Raw diagnostics shown; only optimizer input is capped. No hardware change at the fork.\nClipped 125 / 288 updates (43.4%); minimum gradient scale 0.253.',fontsize=9)
+    fig.supxlabel('Green: recorded gradient norm after clipping, states512-799. Other diagnostics remain raw.\nClipped 125 / 288 updates (43.4%); minimum gradient scale 0.253.',fontsize=9)
     pdf=HERE/'figures/mlp_global_clipping.pdf'; fig.savefig(pdf); plt.close(fig)
     import fitz
     doc=fitz.open(pdf); assert len(doc)==1 and not doc[0].get_images(); doc[0].get_pixmap(matrix=fitz.Matrix(1.5,1.5)).save(HERE/'scratch/mlp_global_clipping.png')
     for r in values:
-        val=series[r['series']][r['state']][r['metric']]
+        val=metrics[r['series']][r['state']-512][r['metric']] if r['metric']=='optimizer_input_norm' else series[r['series']][r['state']][r['metric']]
         if r['metric']=='applied_lr': val/=.001
         assert val==r['value']
     with (HERE/'plotted_values.csv').open('w',newline='') as f:
         writer=csv.DictWriter(f,fieldnames=list(values[0])); writer.writeheader(); writer.writerows(values)
-    result=dict(status='completed',summary=summary,clipping_vs_unchanged_pct=effects,clipping=clipping,qualification=qualification,source_file_checks=checked,geometry_checks=geometry_checks,plotted_scalar_checks=len(values),pdf_sha256=sha(pdf),sources=[dict(path=p.relative_to(ROOT).as_posix(),sha256=sha(p)) for p in [BASE/'prefix/boundaries.jsonl',*paths.values()]])
+    result=dict(status='completed',summary=summary,clipping_vs_unchanged_pct=effects,clipping=clipping,qualification=qualification,source_file_checks=checked,geometry_checks=geometry_checks,plotted_scalar_checks=len(values),pdf_sha256=sha(pdf),sources=[dict(path=p.relative_to(ROOT).as_posix(),sha256=sha(p)) for p in [BASE/'prefix/boundaries.jsonl',*paths.values(),NEW/'global_clip1/metrics.jsonl']])
     (HERE/'results.json').write_text(json.dumps(result,indent=2)+'\n'); print(json.dumps({k:v for k,v in result.items() if k!='summary'},indent=2));print(json.dumps({n:{k:v for k,v in s.items() if k!='events_gt10'} for n,s in summary.items()},indent=2))
 if __name__=='__main__': main()

@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "request": "Show clipped gradient norm on the existing figure",
+  "source": "Run228 global_clip1/metrics.jsonl: optimizer_input_norm",
+  "coverage": "288 recorded Adam inputs at states512..799; no outgoing update at800",
+  "reduction": "none; solid unsmoothed green curve alongside both raw gradients",
+  "caption": "Raw gradient versus actual post-clipping input to Adam; only the latter is capped at1.0",
+  "caveat": "No clipped rho or clipped eta-kappa plotted; no new training",
+  "script": "01_report.py",
+  "source_file_checks": 73,
+  "plotted_scalar_checks": 3816,
+  "pdf_sha256": "902aa2122e8d09d1795f3fbc87f56bbcaed02e304d796df2157f24946c1fe102",
+  "render_inspected": true
+}
