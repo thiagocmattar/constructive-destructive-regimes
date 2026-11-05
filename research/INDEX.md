@@ -2,6 +2,14 @@
 
 ## Current state
 
+[Analysis055: Adam directional amplification](../analyses/055-2026-11-05-adam-directional-amplification/FINDINGS.md)
+completes the nine-arm descriptive comparison and five reviewed PDFs.
+Reversal has higher local matched future-rise frequency in six arms, with
+three zero ties; support is limited and residual imbalance remains. Low-rate
+controls reject a universal Q>2 alarm. All 9,216 states and 46,098 plotted points
+pass independent checks. Argument/evidence map and tests2-5/>200M backlog are
+organized separately. No fitted classifier, training, cloud or manuscript edit.
+
 [Analysis043: fixed-step Spark interventions](../analyses/043-2026-11-03-spark-fixed-step-interventions/FINDINGS.md)
 completed all 36 matched branches from warm state 1024, with 64 full-objective
 updates each. LR reductions lower MLP mean training loss about 45-47% here,

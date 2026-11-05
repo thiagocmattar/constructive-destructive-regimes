@@ -76,7 +76,7 @@
 | [036](036-2026-11-02-controlled-adam-diagnostics/README.md) | Controlled fixed-rate Adam and loss-spike anatomy | Runs213/215; Analysis024/029/034 | Complete: 806 recovered excursions; 129 above 10%; 127 defined regression points; integrated in the 18-page draft | [Event definition](036-2026-11-02-controlled-adam-diagnostics/loss_spike_definition.md); [event data](036-2026-11-02-controlled-adam-diagnostics/spike_dataset/loss_spikes.csv); [manuscript integration and evidence](036-2026-11-02-controlled-adam-diagnostics/observations/010-manuscript-spike-anatomy.md); [multi-spike review figure](036-2026-11-02-controlled-adam-diagnostics/observations/011-multiple-spikes.md): 19 excursions, linear relative norms; source figures/data preserved; earlier exploration in archive/ |
 <!-- End Analysis036 preparation -->
 
-Next analysis: `044-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
+Next analysis: `056-YYYY-MM-DD-slug`. Analysis numbering is independent of runs;
 an analysis may use manuscript or external inputs without referencing a run.
 
 ## Active batch-size extension
@@ -158,3 +158,7 @@ an analysis may use manuscript or external inputs without referencing a run.
 [Analysis052](052-2026-11-04-mlp-clipping-thresholds/README.md) compares0.5 and1.0 each against unchanged LR, including raw and clipped norms. Smaller cap reduces peak severity but does not improve mean loss over baseline.90 artifact checks; independent panel ranges.
 
 [Analysis053](053-2026-11-05-mlp-cosine32-clip1/README.md) compares the combined policy, decay alone and clipping alone with the matched MLP baseline.
+
+## Analysis055: Adam directional amplification (2026-11-05)
+
+[Analysis055](055-2026-11-05-adam-directional-amplification/README.md) organizes the argument, evidence map and deferred work, and completes the nine-arm descriptive test. Five reviewed vector PDFs cover full trajectories, joint geometry and fixed context matching. Six primary arms favor reversal and three tie at zero, with sparse/limited support; low-rate controls reject a universal alarm. All 9,216 states, 812 events, 4,534 old labels and 46,098 plotted points pass checks. No classifier, new training, cloud work or manuscript edit. See [findings](055-2026-11-05-adam-directional-amplification/FINDINGS.md).
