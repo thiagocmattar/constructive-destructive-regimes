@@ -1,0 +1,30 @@
+{
+  "run_id": "230",
+  "analysis_id": "053",
+  "hypothesis": "H037",
+  "seed": 0,
+  "case": "mlp",
+  "base_lr": 0.001,
+  "start": 512,
+  "end": 800,
+  "plot_start": 448,
+  "clip_threshold": 1.0,
+  "arms": [
+    {
+      "id": "cosine32_half_clip1",
+      "kind": "cosine",
+      "ratio": 0.5,
+      "duration": 32
+    }
+  ],
+  "parent_run": "runs/223-2026-11-04-multispike-interventions",
+  "parent_worker": "runs/223-2026-11-04-multispike-interventions/artifacts/worker",
+  "runtime_limit_seconds": 1800,
+  "authorization": "Combined cosine32 half LR and global clipping at 1 on owned Spark, MLP.",
+  "comparison": "Four matched cells: original LR or cosine32 to half, each with or without global clipping C=1. Same Run223 warm state512 and seed0. Run only the combined cell.",
+  "measurement": "Global FP64 L2 norm of accumulated full-objective raw gradient; multiply every FP32 parameter gradient by min(1,1/norm) before Adam moments. Raw history remains unclipped.288 updates512..799; endpoint800 observed only. Log clip factor, raw/input norms, moments and actual increments each update; retain recovery/end.",
+  "gradient_policy": {
+    "kind": "clip",
+    "factor": 1
+  }
+}

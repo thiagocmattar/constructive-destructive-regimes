@@ -156,3 +156,5 @@ an analysis may use manuscript or external inputs without referencing a run.
 ## Analysis052: MLP clipping thresholds
 
 [Analysis052](052-2026-11-04-mlp-clipping-thresholds/README.md) compares0.5 and1.0 each against unchanged LR, including raw and clipped norms. Smaller cap reduces peak severity but does not improve mean loss over baseline.90 artifact checks; independent panel ranges.
+
+[Analysis053](053-2026-11-05-mlp-cosine32-clip1/README.md) compares the combined policy, decay alone and clipping alone with the matched MLP baseline.

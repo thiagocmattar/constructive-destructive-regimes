@@ -95,3 +95,7 @@ Status: contradicted in the selected single-seed window. [Run228 / Analysis051](
 ## H036: does clipping0.5 improve on clipping1.0 and unchanged MLP training?
 
 Status: partial support for peak reduction, no mean-loss benefit over unchanged. [Run229 / Analysis052](../analyses/052-2026-11-04-mlp-clipping-thresholds/FINDINGS.md). Same exact512..800 fork, LR0.001, seed0. Mean loss31.03% below1.0 but2.08% above unchanged; maximum15.32% below unchanged.238/288 clipped updates, oscillations remain. Post-inspection single-window evidence; no universal threshold claim.
+
+## H037 | Does global clipping at 1 add to cosine32 decay to half LR?
+
+[Analysis053](../analyses/053-2026-11-05-mlp-cosine32-clip1/README.md) found zero incremental effect in the selected MLP window. The maximum eligible gradient norm was 0.927 and all 288 update records and terminal model and optimizer states matched cosine alone.

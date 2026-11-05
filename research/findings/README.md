@@ -257,3 +257,5 @@ all feature/fold outcomes and four reviewed figures are in the
 - [MLP global gradient clipping1.0 (Analysis051)](../../analyses/051-2026-11-04-mlp-global-clipping/FINDINGS.md): early peak reduction gives way to larger later spikes; mean loss+48.01% and maximum3.82x against exact matched unchanged control. Single-seed Spark evidence.
 
 - [MLP clipping thresholds0.5 versus1.0 (Analysis052)](../../analyses/052-2026-11-04-mlp-clipping-thresholds/FINDINGS.md): smaller cap markedly reduces severe bursts versus1.0, yet mean and tail loss remain above unchanged; exact same-Spark single-window comparison.
+
+[Combined MLP cosine decay and clipping](../../analyses/053-2026-11-05-mlp-cosine32-clip1/README.md) produced the same trajectory as cosine alone. The cap of 1 stayed inactive throughout this seed and window.

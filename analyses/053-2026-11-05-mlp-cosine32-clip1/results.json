@@ -1,0 +1,81 @@
+{
+  "summary": {
+    "Baseline": {
+      "mean": 0.020804167521823222,
+      "maximum": 0.055062638595700264,
+      "last32": 0.013458456061925972,
+      "endpoint": 0.03025020658969879,
+      "peak_states_gt10": [
+        522,
+        530,
+        534,
+        546,
+        560,
+        580,
+        602,
+        620,
+        683,
+        704,
+        716,
+        727,
+        744,
+        766,
+        773,
+        799
+      ],
+      "clipped_updates": 0,
+      "largest_raw_input": 2.2355555009192445
+    },
+    "Clipping only": {
+      "mean": 0.030792351501683395,
+      "maximum": 0.21015971899032593,
+      "last32": 0.0641294403540087,
+      "endpoint": 0.02442448539659381,
+      "peak_states_gt10": [
+        519,
+        545,
+        579,
+        586,
+        591,
+        601,
+        605,
+        628,
+        664,
+        667,
+        692,
+        703,
+        774
+      ],
+      "clipped_updates": 125,
+      "largest_raw_input": 3.9550756624501555
+    },
+    "Cosine only": {
+      "mean": 0.015333468483327629,
+      "maximum": 0.026892120484262705,
+      "last32": 0.01091733616340207,
+      "endpoint": 0.010508841485716403,
+      "peak_states_gt10": [
+        520
+      ],
+      "clipped_updates": 0,
+      "largest_raw_input": 0.9267452615442358
+    },
+    "Cosine + clipping": {
+      "mean": 0.015333468483327629,
+      "maximum": 0.026892120484262705,
+      "last32": 0.01091733616340207,
+      "endpoint": 0.010508841485716403,
+      "peak_states_gt10": [
+        520
+      ],
+      "clipped_updates": 0,
+      "largest_raw_input": 0.9267452615442358
+    }
+  },
+  "matched_cosine_boundaries": 289,
+  "matched_cosine_updates": 288,
+  "exact_cosine_endpoint_checkpoint_fields": true,
+  "verified_files": 90,
+  "plotted_values": 11160,
+  "pdf_sha256": "7366cc718cd0e4976a5069fa38d92f2a4322553864cff5e2874a37e982667c79"
+}
