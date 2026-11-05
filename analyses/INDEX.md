@@ -173,4 +173,15 @@ Both pairing offsets and two-update losses pass independent checks. Four new
 vector PDFs and the revised 16-page paper are reviewed; no training/cloud work.
 Next analysis: 057. No new hypothesis or run.
 
+## Analysis057: Adam response, memory and manuscript revision
+
+[Analysis057](057-2026-11-05-adam-response-memory/README.md) reuses frozen
+Run215 / Analyses036 and 055 to add incidence, eight severity specifications,
+112 fits and complete-event cross-alignments. All 794 rise-phase updates are
+locally descending. Two PDFs and the 18-page manuscript pass numerical and
+visual review; the analytical memory bridge awaits neural HVP calibration.
+[Observation001](057-2026-11-05-adam-response-memory/observations/001-response-memory.md)
+records limits; the manuscript revision retains a TODO and staged compute plan.
+No new training or cloud cost. Next analysis: 058; no new run or hypothesis.
+
 [Analysis054](054-2026-11-05-resnet-clip1/README.md) compares training loss, raw gradient geometry and clipped inputs on ResNet over states 256 through 576.

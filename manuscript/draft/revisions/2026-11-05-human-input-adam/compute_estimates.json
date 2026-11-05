@@ -1,0 +1,117 @@
+{
+  "status": "planning_only_not_launched",
+  "price_checked_utc": "2026-11-05T12:24:52.666062+00:00",
+  "timing_scope": "Historical same-project workloads; new HVP/probe overhead unmeasured.",
+  "measured_cloud": [
+    {
+      "task": "transformer",
+      "lr": 0.0003,
+      "seconds": 9285.236400261987,
+      "updates": 1024
+    },
+    {
+      "task": "resnet",
+      "lr": 0.003,
+      "seconds": 2674.244687240105,
+      "updates": 1024
+    },
+    {
+      "task": "transformer",
+      "lr": 0.003,
+      "seconds": 9429.605161688989,
+      "updates": 1024
+    }
+  ],
+  "cloud_baseline_hours_per_1024": {
+    "resnet": 0.7428457464555848,
+    "transformer": 2.599283550270969
+  },
+  "spark": {
+    "resnet": {
+      "branch_seconds_min": 977.0606876490638,
+      "branch_seconds_max": 987.0278159370646,
+      "projected_1024_hours": 4.3598444869365816
+    },
+    "transformer": {
+      "branch_seconds_min": 2282.1082352898084,
+      "branch_seconds_max": 2294.1286579938605,
+      "projected_1024_hours": 10.174503688880899
+    }
+  },
+  "remaining_eight_resnet_plus_eight_transformer_baseline_gpu_hours": 26.73703437381243,
+  "branch_4032_updates_cloud_baseline_gpu_hours": 4.386544701953602,
+  "stages": [
+    {
+      "stage": "A",
+      "scenario_gpu_hours": [
+        5,
+        8
+      ],
+      "maximum_gpu_hours": 12,
+      "usd_per_hour_including_disk": 0.9011111111111111,
+      "scenario_usd": [
+        4.5055555555555555,
+        7.208888888888889
+      ],
+      "maximum_hours_usd": 10.813333333333333,
+      "proposed_cap_usd": 12
+    },
+    {
+      "stage": "B+C",
+      "scenario_gpu_hours": [
+        38,
+        45
+      ],
+      "maximum_gpu_hours": 60,
+      "usd_per_hour_including_disk": 0.9011111111111111,
+      "scenario_usd": [
+        34.242222222222225,
+        40.55
+      ],
+      "maximum_hours_usd": 54.06666666666666,
+      "proposed_cap_usd": 55
+    },
+    {
+      "stage": "D_optional",
+      "scenario_gpu_hours": [
+        3,
+        8
+      ],
+      "maximum_gpu_hours": 16,
+      "usd_per_hour_including_disk": 0.9011111111111111,
+      "scenario_usd": [
+        2.703333333333333,
+        7.208888888888889
+      ],
+      "maximum_hours_usd": 14.417777777777777,
+      "proposed_cap_usd": 15
+    },
+    {
+      "stage": "E_optional",
+      "scenario_gpu_hours": [
+        20,
+        48
+      ],
+      "maximum_gpu_hours": 60,
+      "usd_per_hour_including_disk": 1.8108333333333333,
+      "scenario_usd": [
+        36.21666666666667,
+        86.92
+      ],
+      "maximum_hours_usd": 108.64999999999999,
+      "proposed_cap_usd": 120
+    }
+  ],
+  "core_scenario_usd": [
+    38.74777777777778,
+    47.75888888888888
+  ],
+  "core_proposed_cap_usd": 70,
+  "optional_caps_excluded_from_core": true,
+  "sources": {
+    "runs/215-2026-11-02-controlled-full-batch-adam/results.json": "c907d1b5ccaa68b3310f13526e98f37fd1c19943eb7631cea46612f75de39572",
+    "analyses/043-2026-11-03-spark-fixed-step-interventions/results.json": "69c83bd98f0f7c8bf4267a0e5234bf39c726132553b2d04afe1062c47c103e09",
+    "manuscript/draft/revisions/2026-11-05-human-input-adam/compute_quote.json": "d7175d9d935b9159a40a28c5f681d0f8ac6ed9c3cfc29b6ab298bf06394327a2",
+    "manuscript/draft/revisions/2026-11-05-human-input-adam/03_estimate_compute.py": "3da053e5ff436aa1bab0644c9a9e6a12c5f26da08cb6b873004a7d73e18db5ba"
+  }
+}

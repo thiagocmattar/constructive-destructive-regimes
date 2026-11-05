@@ -2,6 +2,15 @@
 
 ## Current state
 
+[Analysis057: Adam response and memory](../analyses/057-2026-11-05-adam-response-memory/observations/001-response-memory.md)
+completes the Adam author-input manuscript revision from retained evidence.
+All 794 rise-phase updates are locally descending; log-norm plus cosine worsens
+all seven held-out-rate severity fits despite in-sample gains. Threshold/censoring
+accounting, two new PDFs and the analytic memory bridge are verified. The revision
+includes an explicit TODO and Runpod/Spark/local plan (core expected USD39-48,
+proposed USD70 ceiling; pilot first). No new training or cloud spend.
+Next analysis: 058; no run or hypothesis allocated.
+
 [Analysis056: GD paired displacement](../analyses/056-2026-11-05-gd-paired-displacement/observations/001-paired-displacement.md)
 completes the author-requested GD/SGD manuscript revision from retained evidence.
 All nine runs have positive all-pair interaction despite seven with negative

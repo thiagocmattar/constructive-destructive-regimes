@@ -1,5 +1,18 @@
 # Manuscript workspace
 
+## Current Adam revision, 5 November 2026
+
+[Adam author-input revision](draft/revisions/2026-11-05-human-input-adam/README.md)
+reframes the Adam section around projected gradient response, memory and loss
+excursion phases. Analysis057 adds threshold/censoring incidence, eight severity
+specifications, held-out-rate comparisons and complete-event current-slope checks.
+All 794 rise-phase steps have descending first-order contributions; alignment's
+in-sample severity gains do not transfer uniformly across rates. The analytical
+one-HVP connection is qualified and awaits neural calibration. Two new PDFs,
+an incidence table and the current manuscript pass evidence and visual checks.
+The revision includes a TODO and staged Runpod/Spark/local plan; no new training
+or paid execution. Earlier GD/SGD sources and publication assets are preserved.
+
 ## Current GD/SGD revision, 5 November 2026
 
 [Author-input revision](draft/revisions/2026-11-05-human-input/README.md)

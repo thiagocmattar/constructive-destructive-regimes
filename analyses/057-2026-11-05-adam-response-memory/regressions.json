@@ -1,0 +1,2102 @@
+[
+  {
+    "arm": "mlp:0.0001",
+    "task": "mlp",
+    "lr": 0.0001,
+    "model": "rho",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 8,
+    "test_n": 8,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      0.1059279767944884,
+      -0.08921858892436611
+    ],
+    "mse": 0.0015013191990981604,
+    "r2": 0.31247910239214705
+  },
+  {
+    "arm": "mlp:0.0001",
+    "task": "mlp",
+    "lr": 0.0001,
+    "model": "rho",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 84,
+    "test_n": 8,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      0.21444408255137576,
+      -0.3886061258833656
+    ],
+    "mse": 0.12321967545134628,
+    "r2": -55.427774932970095
+  },
+  {
+    "arm": "mlp:0.0001",
+    "task": "mlp",
+    "lr": 0.0001,
+    "model": "A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 8,
+    "test_n": 8,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      0.04534992052572588,
+      0.024228034785395536
+    ],
+    "mse": 0.0006895193354419334,
+    "r2": 0.6842383999979653
+  },
+  {
+    "arm": "mlp:0.0001",
+    "task": "mlp",
+    "lr": 0.0001,
+    "model": "A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 84,
+    "test_n": 8,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.02287923723582739,
+      0.08899818868413091
+    ],
+    "mse": 0.0877061839329949,
+    "r2": -39.16456616260825
+  },
+  {
+    "arm": "mlp:0.0001",
+    "task": "mlp",
+    "lr": 0.0001,
+    "model": "rho+A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 8,
+    "test_n": 8,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      0.04616589196484449,
+      0.016432631548469523,
+      0.026439441249503665
+    ],
+    "mse": 0.0006788193115255488,
+    "r2": 0.6891384172973094
+  },
+  {
+    "arm": "mlp:0.0001",
+    "task": "mlp",
+    "lr": 0.0001,
+    "model": "rho+A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 84,
+    "test_n": 8,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      -0.08262248112301546,
+      -0.16101457881775635,
+      0.08475562032535017
+    ],
+    "mse": 0.1197627726093878,
+    "r2": -53.8447052258258
+  },
+  {
+    "arm": "mlp:0.0001",
+    "task": "mlp",
+    "lr": 0.0001,
+    "model": "rho+A+rho*A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 8,
+    "test_n": 8,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      0.16197429504085892,
+      0.12794083748364563,
+      -0.014600309873254669,
+      -0.04255444734312168
+    ],
+    "mse": 0.0005054501918930394,
+    "r2": 0.7685318552942565
+  },
+  {
+    "arm": "mlp:0.0001",
+    "task": "mlp",
+    "lr": 0.0001,
+    "model": "rho+A+rho*A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 84,
+    "test_n": 8,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      0.1474787493380238,
+      0.2727142112637074,
+      0.010964629976799006,
+      -0.12646565177467045
+    ],
+    "mse": 0.181223254254683,
+    "r2": -81.99019589401085
+  },
+  {
+    "arm": "mlp:0.0001",
+    "task": "mlp",
+    "lr": 0.0001,
+    "model": "rho*A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 8,
+    "test_n": 8,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      0.09707837620327744,
+      -0.017476246033543832
+    ],
+    "mse": 0.0007228300452511642,
+    "r2": 0.668983943036545
+  },
+  {
+    "arm": "mlp:0.0001",
+    "task": "mlp",
+    "lr": 0.0001,
+    "model": "rho*A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 84,
+    "test_n": 8,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      0.09165256092358771,
+      -0.11650807807952655
+    ],
+    "mse": 0.2340179215797692,
+    "r2": -106.1672243967137
+  },
+  {
+    "arm": "mlp:0.0001",
+    "task": "mlp",
+    "lr": 0.0001,
+    "model": "logA",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 8,
+    "test_n": 8,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      0.00017086098357497646,
+      0.10736019362128738
+    ],
+    "mse": 0.0009300303353027496,
+    "r2": 0.5740977059948514
+  },
+  {
+    "arm": "mlp:0.0001",
+    "task": "mlp",
+    "lr": 0.0001,
+    "model": "logA",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 84,
+    "test_n": 8,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.2545714404469,
+      0.48435074636318143
+    ],
+    "mse": 0.14343239729178114,
+    "r2": -64.68408010190508
+  },
+  {
+    "arm": "mlp:0.0001",
+    "task": "mlp",
+    "lr": 0.0001,
+    "model": "rho+logA",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 8,
+    "test_n": 8,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      -0.017037330350663942,
+      0.03933536075074569,
+      0.13654760135356964
+    ],
+    "mse": 0.0008900504685257556,
+    "r2": 0.5924062668320622
+  },
+  {
+    "arm": "mlp:0.0001",
+    "task": "mlp",
+    "lr": 0.0001,
+    "model": "rho+logA",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 84,
+    "test_n": 8,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      -0.29203188609417063,
+      -0.13214696238751433,
+      0.46356912499342817
+    ],
+    "mse": 0.1734276027865052,
+    "r2": -78.42022003673871
+  },
+  {
+    "arm": "mlp:0.0001",
+    "task": "mlp",
+    "lr": 0.0001,
+    "model": "rho+logA+rho*logA",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 8,
+    "test_n": 8,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      0.18052486273252796,
+      0.2798994557007541,
+      -0.057829572891750974,
+      -0.2282735983999193
+    ],
+    "mse": 0.0005362969106033907,
+    "r2": 0.7544057695499743
+  },
+  {
+    "arm": "mlp:0.0001",
+    "task": "mlp",
+    "lr": 0.0001,
+    "model": "rho+logA+rho*logA",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 84,
+    "test_n": 8,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      0.0546551261696491,
+      0.5036512586122216,
+      0.13116094383847807,
+      -0.5711527619081707
+    ],
+    "mse": 0.25263415351173973,
+    "r2": -114.69242576337359
+  },
+  {
+    "arm": "mlp:0.0003",
+    "task": "mlp",
+    "lr": 0.0003,
+    "model": "rho",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 46,
+    "test_n": 46,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      0.16473384551907566,
+      -0.2859994037132648
+    ],
+    "mse": 0.06337943993214054,
+    "r2": 0.09728461233983043
+  },
+  {
+    "arm": "mlp:0.0003",
+    "task": "mlp",
+    "lr": 0.0003,
+    "model": "rho",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 46,
+    "test_n": 46,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      0.28962722256989293,
+      -0.33082829642380496
+    ],
+    "mse": 0.0856854296939816,
+    "r2": -0.22042031242068205
+  },
+  {
+    "arm": "mlp:0.0003",
+    "task": "mlp",
+    "lr": 0.0003,
+    "model": "A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 46,
+    "test_n": 46,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.006895199560484881,
+      0.07182561381649584
+    ],
+    "mse": 0.023583177984208184,
+    "r2": 0.6641040425875175
+  },
+  {
+    "arm": "mlp:0.0003",
+    "task": "mlp",
+    "lr": 0.0003,
+    "model": "A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 46,
+    "test_n": 46,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.04330248385251849,
+      0.09543911662790812
+    ],
+    "mse": 0.033542015654035084,
+    "r2": 0.5222599995131711
+  },
+  {
+    "arm": "mlp:0.0003",
+    "task": "mlp",
+    "lr": 0.0003,
+    "model": "rho+A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 46,
+    "test_n": 46,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      -0.09512398624614114,
+      -0.18645021791599203,
+      0.06935290831346058
+    ],
+    "mse": 0.02073550459748094,
+    "r2": 0.7046635456058683
+  },
+  {
+    "arm": "mlp:0.0003",
+    "task": "mlp",
+    "lr": 0.0003,
+    "model": "rho+A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 46,
+    "test_n": 46,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      -0.04169276228676544,
+      0.0056576983619530535,
+      0.09568247411510528
+    ],
+    "mse": 0.03374644872064328,
+    "r2": 0.5193482528146935
+  },
+  {
+    "arm": "mlp:0.0003",
+    "task": "mlp",
+    "lr": 0.0003,
+    "model": "rho+A+rho*A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 46,
+    "test_n": 46,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      0.12314803163848348,
+      0.1976415254567086,
+      0.012773181654781834,
+      -0.09574567324199988
+    ],
+    "mse": 0.017344265471551466,
+    "r2": 0.7529650728123168
+  },
+  {
+    "arm": "mlp:0.0003",
+    "task": "mlp",
+    "lr": 0.0003,
+    "model": "rho+A+rho*A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 46,
+    "test_n": 46,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      0.030382436857976744,
+      0.16149670888310896,
+      0.06878299428490514,
+      -0.04648578341457397
+    ],
+    "mse": 0.02892526053882449,
+    "r2": 0.5880165901050352
+  },
+  {
+    "arm": "mlp:0.0003",
+    "task": "mlp",
+    "lr": 0.0003,
+    "model": "rho*A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 46,
+    "test_n": 46,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      0.07814312299515562,
+      -0.09467105647535139
+    ],
+    "mse": 0.02146927074150002,
+    "r2": 0.6942124909758606
+  },
+  {
+    "arm": "mlp:0.0003",
+    "task": "mlp",
+    "lr": 0.0003,
+    "model": "rho*A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 46,
+    "test_n": 46,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      0.12483972442027635,
+      -0.10414399515148245
+    ],
+    "mse": 0.026943804696122918,
+    "r2": 0.6162385289718189
+  },
+  {
+    "arm": "mlp:0.0003",
+    "task": "mlp",
+    "lr": 0.0003,
+    "model": "logA",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 46,
+    "test_n": 46,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.1793116246505119,
+      0.3743332256559818
+    ],
+    "mse": 0.023364631344975215,
+    "r2": 0.6672168093517592
+  },
+  {
+    "arm": "mlp:0.0003",
+    "task": "mlp",
+    "lr": 0.0003,
+    "model": "logA",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 46,
+    "test_n": 46,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.28246664729273935,
+      0.509492293394319
+    ],
+    "mse": 0.03526489182038601,
+    "r2": 0.4977210192371835
+  },
+  {
+    "arm": "mlp:0.0003",
+    "task": "mlp",
+    "lr": 0.0003,
+    "model": "rho+logA",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 46,
+    "test_n": 46,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      -0.2624231191459431,
+      -0.18764317860962604,
+      0.3615838389664232
+    ],
+    "mse": 0.020478771252925843,
+    "r2": 0.7083202068339177
+  },
+  {
+    "arm": "mlp:0.0003",
+    "task": "mlp",
+    "lr": 0.0003,
+    "model": "rho+logA",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 46,
+    "test_n": 46,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      -0.27360623201773226,
+      0.09430391012253958,
+      0.5365134216830773
+    ],
+    "mse": 0.04008279086460265,
+    "r2": 0.42909952923878325
+  },
+  {
+    "arm": "mlp:0.0003",
+    "task": "mlp",
+    "lr": 0.0003,
+    "model": "rho+logA+rho*logA",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 46,
+    "test_n": 46,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      0.07732902116039486,
+      0.4266365273571997,
+      0.08958869364576186,
+      -0.47750904941984545
+    ],
+    "mse": 0.016776819488221895,
+    "r2": 0.7610472240803938
+  },
+  {
+    "arm": "mlp:0.0003",
+    "task": "mlp",
+    "lr": 0.0003,
+    "model": "rho+logA+rho*logA",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 46,
+    "test_n": 46,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      -0.35918126617072466,
+      -0.06568403127414141,
+      0.6284067272110985,
+      0.15096170100427783
+    ],
+    "mse": 0.046590831942012925,
+    "r2": 0.3364052922686728
+  },
+  {
+    "arm": "mlp:0.001",
+    "task": "mlp",
+    "lr": 0.001,
+    "model": "rho",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 38,
+    "test_n": 38,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      0.2774533775002034,
+      -0.5272561211526896
+    ],
+    "mse": 0.17141640119623816,
+    "r2": 0.18937202135267428
+  },
+  {
+    "arm": "mlp:0.001",
+    "task": "mlp",
+    "lr": 0.001,
+    "model": "rho",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 54,
+    "test_n": 38,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      0.18780834020679998,
+      -0.1906611401798789
+    ],
+    "mse": 0.24702681005207286,
+    "r2": -0.1681895215788911
+  },
+  {
+    "arm": "mlp:0.001",
+    "task": "mlp",
+    "lr": 0.001,
+    "model": "A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 38,
+    "test_n": 38,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      0.001881346026549617,
+      0.09846929316775435
+    ],
+    "mse": 0.07505563303272651,
+    "r2": 0.6450619913449113
+  },
+  {
+    "arm": "mlp:0.001",
+    "task": "mlp",
+    "lr": 0.001,
+    "model": "A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 54,
+    "test_n": 38,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.014853873523627792,
+      0.06711679723319051
+    ],
+    "mse": 0.12172146389041401,
+    "r2": 0.42437932693196023
+  },
+  {
+    "arm": "mlp:0.001",
+    "task": "mlp",
+    "lr": 0.001,
+    "model": "rho+A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 38,
+    "test_n": 38,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      -0.04240886619628422,
+      -0.17633083731565802,
+      0.09154835228436142
+    ],
+    "mse": 0.0712506978553883,
+    "r2": 0.6630555257451508
+  },
+  {
+    "arm": "mlp:0.001",
+    "task": "mlp",
+    "lr": 0.001,
+    "model": "rho+A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 54,
+    "test_n": 38,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      -0.04410416701146451,
+      -0.06259973796216903,
+      0.06576228102769406
+    ],
+    "mse": 0.12141011317982436,
+    "r2": 0.4258517041106571
+  },
+  {
+    "arm": "mlp:0.001",
+    "task": "mlp",
+    "lr": 0.001,
+    "model": "rho+A+rho*A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 38,
+    "test_n": 38,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      0.17127907753743288,
+      0.26762291670855226,
+      0.009323904334211874,
+      -0.1425704949298446
+    ],
+    "mse": 0.061909848041348525,
+    "r2": 0.7072283945649489
+  },
+  {
+    "arm": "mlp:0.001",
+    "task": "mlp",
+    "lr": 0.001,
+    "model": "rho+A+rho*A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 54,
+    "test_n": 38,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      0.04964077678967549,
+      0.10365300037554118,
+      0.04168260782786768,
+      -0.03997606154013855
+    ],
+    "mse": 0.11719925739525963,
+    "r2": 0.4457648366300442
+  },
+  {
+    "arm": "mlp:0.001",
+    "task": "mlp",
+    "lr": 0.001,
+    "model": "rho*A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 38,
+    "test_n": 38,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      0.1372015629026257,
+      -0.12923679788935152
+    ],
+    "mse": 0.06917962014544579,
+    "r2": 0.6728496500291524
+  },
+  {
+    "arm": "mlp:0.001",
+    "task": "mlp",
+    "lr": 0.001,
+    "model": "rho*A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 54,
+    "test_n": 38,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      0.09411772707985373,
+      -0.07197756977512325
+    ],
+    "mse": 0.1420531998483799,
+    "r2": 0.32823056924611316
+  },
+  {
+    "arm": "mlp:0.001",
+    "task": "mlp",
+    "lr": 0.001,
+    "model": "logA",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 38,
+    "test_n": 38,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.2808764979430097,
+      0.563146494763886
+    ],
+    "mse": 0.06430213338279007,
+    "r2": 0.6959152797337705
+  },
+  {
+    "arm": "mlp:0.001",
+    "task": "mlp",
+    "lr": 0.001,
+    "model": "logA",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 54,
+    "test_n": 38,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.156533754628883,
+      0.33031313766022924
+    ],
+    "mse": 0.13195159846007284,
+    "r2": 0.3760010314501936
+  },
+  {
+    "arm": "mlp:0.001",
+    "task": "mlp",
+    "lr": 0.001,
+    "model": "rho+logA",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 38,
+    "test_n": 38,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      -0.2920601922220105,
+      -0.10243368339892811,
+      0.5380394820182834
+    ],
+    "mse": 0.06308320611580674,
+    "r2": 0.701679585480813
+  },
+  {
+    "arm": "mlp:0.001",
+    "task": "mlp",
+    "lr": 0.001,
+    "model": "rho+logA",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 54,
+    "test_n": 38,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      -0.17525874406652361,
+      -0.047773234654568064,
+      0.3241926816874986
+    ],
+    "mse": 0.13221657632238173,
+    "r2": 0.3747479514216153
+  },
+  {
+    "arm": "mlp:0.001",
+    "task": "mlp",
+    "lr": 0.001,
+    "model": "rho+logA+rho*logA",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 38,
+    "test_n": 38,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      -0.019460682917649005,
+      0.3900907605965567,
+      0.23847866501186038,
+      -0.4953603822142782
+    ],
+    "mse": 0.058971811360418236,
+    "r2": 0.7211223668991814
+  },
+  {
+    "arm": "mlp:0.001",
+    "task": "mlp",
+    "lr": 0.001,
+    "model": "rho+logA+rho*logA",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 54,
+    "test_n": 38,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      -0.0654858912080513,
+      0.14975304264369418,
+      0.23691100671138804,
+      -0.14912528959208174
+    ],
+    "mse": 0.12913916789355112,
+    "r2": 0.38930101260319594
+  },
+  {
+    "arm": "resnet:0.001",
+    "task": "resnet",
+    "lr": 0.001,
+    "model": "rho",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 10,
+    "test_n": 10,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      0.19136013368232122,
+      -0.8809182399837185
+    ],
+    "mse": 0.1836194547144172,
+    "r2": 0.40483385654578585
+  },
+  {
+    "arm": "resnet:0.001",
+    "task": "resnet",
+    "lr": 0.001,
+    "model": "rho",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 7,
+    "test_n": 10,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.1577475793497093,
+      -1.2977403740573707
+    ],
+    "mse": 0.25038623642119295,
+    "r2": 0.18842253977614176
+  },
+  {
+    "arm": "resnet:0.001",
+    "task": "resnet",
+    "lr": 0.001,
+    "model": "A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 10,
+    "test_n": 10,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.1856097127143583,
+      0.16185693186597605
+    ],
+    "mse": 0.11365667313905252,
+    "r2": 0.6316043747367973
+  },
+  {
+    "arm": "resnet:0.001",
+    "task": "resnet",
+    "lr": 0.001,
+    "model": "A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 7,
+    "test_n": 10,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.24400438801121502,
+      0.18445387382685144
+    ],
+    "mse": 0.11898499990876239,
+    "r2": 0.6143336574289593
+  },
+  {
+    "arm": "resnet:0.001",
+    "task": "resnet",
+    "lr": 0.001,
+    "model": "rho+A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 10,
+    "test_n": 10,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      -0.21406962376942074,
+      -0.46046179613634186,
+      0.12950986917764273
+    ],
+    "mse": 0.08731436579365714,
+    "r2": 0.7169877536212876
+  },
+  {
+    "arm": "resnet:0.001",
+    "task": "resnet",
+    "lr": 0.001,
+    "model": "rho+A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 7,
+    "test_n": 10,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      -0.43214014017665997,
+      -0.3555605564264004,
+      0.17611693800127193
+    ],
+    "mse": 0.10318368925204305,
+    "r2": 0.6655504805031169
+  },
+  {
+    "arm": "resnet:0.001",
+    "task": "resnet",
+    "lr": 0.001,
+    "model": "rho+A+rho*A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 10,
+    "test_n": 10,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      0.2545591971080759,
+      0.6832837840773032,
+      -0.05975072497564837,
+      -0.3649757306073755
+    ],
+    "mse": 0.011439430047925987,
+    "r2": 0.9629213501612485
+  },
+  {
+    "arm": "resnet:0.001",
+    "task": "resnet",
+    "lr": 0.001,
+    "model": "rho+A+rho*A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 7,
+    "test_n": 10,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      -3.818408934125541,
+      -4.509951289319438,
+      1.163136470180433,
+      1.18036303610408
+    ],
+    "mse": 2.887696910794473,
+    "r2": -8.359898364447385
+  },
+  {
+    "arm": "resnet:0.001",
+    "task": "resnet",
+    "lr": 0.001,
+    "model": "rho*A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 10,
+    "test_n": 10,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      0.05507292936647249,
+      -0.2182596366475151
+    ],
+    "mse": 0.02991012275926966,
+    "r2": 0.9030522531473408
+  },
+  {
+    "arm": "resnet:0.001",
+    "task": "resnet",
+    "lr": 0.001,
+    "model": "rho*A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 7,
+    "test_n": 10,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.02117699853185116,
+      -0.19501563403048927
+    ],
+    "mse": 0.04869560828668497,
+    "r2": 0.8421628174845691
+  },
+  {
+    "arm": "resnet:0.001",
+    "task": "resnet",
+    "lr": 0.001,
+    "model": "logA",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 10,
+    "test_n": 10,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.44122601128610633,
+      0.7484654165036284
+    ],
+    "mse": 0.10661026042808057,
+    "r2": 0.6544439277944976
+  },
+  {
+    "arm": "resnet:0.001",
+    "task": "resnet",
+    "lr": 0.001,
+    "model": "logA",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 7,
+    "test_n": 10,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.8959435346814452,
+      1.1382606118857075
+    ],
+    "mse": 0.16315023316330066,
+    "r2": 0.47118078949488684
+  },
+  {
+    "arm": "resnet:0.001",
+    "task": "resnet",
+    "lr": 0.001,
+    "model": "rho+logA",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 10,
+    "test_n": 10,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      -0.41241915932028245,
+      -0.4194449715838968,
+      0.6057784193849365
+    ],
+    "mse": 0.08563199703740096,
+    "r2": 0.7224408191806324
+  },
+  {
+    "arm": "resnet:0.001",
+    "task": "resnet",
+    "lr": 0.001,
+    "model": "rho+logA",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 7,
+    "test_n": 10,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      -1.166897740863342,
+      -0.5604959019447839,
+      1.0721919398329476
+    ],
+    "mse": 0.19513545916905103,
+    "r2": 0.36750700591372254
+  },
+  {
+    "arm": "resnet:0.001",
+    "task": "resnet",
+    "lr": 0.001,
+    "model": "rho+logA+rho*logA",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 10,
+    "test_n": 10,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      0.2556642396279705,
+      0.9488044550225581,
+      -0.19160243724241355,
+      -1.4421039390938588
+    ],
+    "mse": 0.016630950040545493,
+    "r2": 0.9460940649616579
+  },
+  {
+    "arm": "resnet:0.001",
+    "task": "resnet",
+    "lr": 0.001,
+    "model": "rho+logA+rho*logA",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 7,
+    "test_n": 10,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      0.9722860308394888,
+      2.1260097126414186,
+      -0.6584493208234432,
+      -2.1189578207105657
+    ],
+    "mse": 0.10119739651104269,
+    "r2": 0.6719886555443778
+  },
+  {
+    "arm": "resnet:0.003",
+    "task": "resnet",
+    "lr": 0.003,
+    "model": "rho",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 7,
+    "test_n": 7,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.1577475793497093,
+      -1.2977403740573707
+    ],
+    "mse": 0.4372639273471294,
+    "r2": 0.20496454109138762
+  },
+  {
+    "arm": "resnet:0.003",
+    "task": "resnet",
+    "lr": 0.003,
+    "model": "rho",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 10,
+    "test_n": 7,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      0.19136013368232122,
+      -0.8809182399837185
+    ],
+    "mse": 0.4552157295179506,
+    "r2": 0.17232448463005234
+  },
+  {
+    "arm": "resnet:0.003",
+    "task": "resnet",
+    "lr": 0.003,
+    "model": "A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 7,
+    "test_n": 7,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.24400438801121502,
+      0.18445387382685144
+    ],
+    "mse": 0.030385255498473835,
+    "r2": 0.9447533765342897
+  },
+  {
+    "arm": "resnet:0.003",
+    "task": "resnet",
+    "lr": 0.003,
+    "model": "A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 10,
+    "test_n": 7,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.1856097127143583,
+      0.16185693186597605
+    ],
+    "mse": 0.041208571868315724,
+    "r2": 0.9250743685968725
+  },
+  {
+    "arm": "resnet:0.003",
+    "task": "resnet",
+    "lr": 0.003,
+    "model": "rho+A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 7,
+    "test_n": 7,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      -0.43214014017665997,
+      -0.3555605564264004,
+      0.17611693800127193
+    ],
+    "mse": 0.02298445795425066,
+    "r2": 0.9582095436312617
+  },
+  {
+    "arm": "resnet:0.003",
+    "task": "resnet",
+    "lr": 0.003,
+    "model": "rho+A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 10,
+    "test_n": 7,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      -0.21406962376942074,
+      -0.46046179613634186,
+      0.12950986917764273
+    ],
+    "mse": 0.05610190711296685,
+    "r2": 0.89799523199224
+  },
+  {
+    "arm": "resnet:0.003",
+    "task": "resnet",
+    "lr": 0.003,
+    "model": "rho+A+rho*A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 7,
+    "test_n": 7,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      -3.818408934125541,
+      -4.509951289319438,
+      1.163136470180433,
+      1.18036303610408
+    ],
+    "mse": 0.016867704042583025,
+    "r2": 0.9693310561756365
+  },
+  {
+    "arm": "resnet:0.003",
+    "task": "resnet",
+    "lr": 0.003,
+    "model": "rho+A+rho*A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 10,
+    "test_n": 7,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      0.2545591971080759,
+      0.6832837840773032,
+      -0.05975072497564837,
+      -0.3649757306073755
+    ],
+    "mse": 0.1384397029322606,
+    "r2": 0.7482882399660075
+  },
+  {
+    "arm": "resnet:0.003",
+    "task": "resnet",
+    "lr": 0.003,
+    "model": "rho*A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 7,
+    "test_n": 7,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.02117699853185116,
+      -0.19501563403048927
+    ],
+    "mse": 0.032006160469534875,
+    "r2": 0.9418062390118026
+  },
+  {
+    "arm": "resnet:0.003",
+    "task": "resnet",
+    "lr": 0.003,
+    "model": "rho*A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 10,
+    "test_n": 7,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      0.05507292936647249,
+      -0.2182596366475151
+    ],
+    "mse": 0.0649699382575681,
+    "r2": 0.8818713334272738
+  },
+  {
+    "arm": "resnet:0.003",
+    "task": "resnet",
+    "lr": 0.003,
+    "model": "logA",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 7,
+    "test_n": 7,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.8959435346814452,
+      1.1382606118857075
+    ],
+    "mse": 0.04409899677656911,
+    "r2": 0.9198189835773124
+  },
+  {
+    "arm": "resnet:0.003",
+    "task": "resnet",
+    "lr": 0.003,
+    "model": "logA",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 10,
+    "test_n": 7,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.44122601128610633,
+      0.7484654165036284
+    ],
+    "mse": 0.11073816442972548,
+    "r2": 0.7986553157718141
+  },
+  {
+    "arm": "resnet:0.003",
+    "task": "resnet",
+    "lr": 0.003,
+    "model": "rho+logA",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 7,
+    "test_n": 7,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      -1.166897740863342,
+      -0.5604959019447839,
+      1.0721919398329476
+    ],
+    "mse": 0.02477503290634167,
+    "r2": 0.9549539113009601
+  },
+  {
+    "arm": "resnet:0.003",
+    "task": "resnet",
+    "lr": 0.003,
+    "model": "rho+logA",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 10,
+    "test_n": 7,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      -0.41241915932028245,
+      -0.4194449715838968,
+      0.6057784193849365
+    ],
+    "mse": 0.1173870353830208,
+    "r2": 0.7865663053619047
+  },
+  {
+    "arm": "resnet:0.003",
+    "task": "resnet",
+    "lr": 0.003,
+    "model": "rho+logA+rho*logA",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 7,
+    "test_n": 7,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      0.9722860308394888,
+      2.1260097126414186,
+      -0.6584493208234432,
+      -2.1189578207105657
+    ],
+    "mse": 0.023643992278984585,
+    "r2": 0.9570103750245301
+  },
+  {
+    "arm": "resnet:0.003",
+    "task": "resnet",
+    "lr": 0.003,
+    "model": "rho+logA+rho*logA",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 10,
+    "test_n": 7,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      0.2556642396279705,
+      0.9488044550225581,
+      -0.19160243724241355,
+      -1.4421039390938588
+    ],
+    "mse": 0.03384069006701295,
+    "r2": 0.9384706881254965
+  },
+  {
+    "arm": "transformer:0.001",
+    "task": "transformer",
+    "lr": 0.001,
+    "model": "rho",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 6,
+    "test_n": 6,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      1.3707303553103696,
+      1.311292238468931
+    ],
+    "mse": 0.01251612866828253,
+    "r2": 0.5171613984167222
+  },
+  {
+    "arm": "transformer:0.001",
+    "task": "transformer",
+    "lr": 0.001,
+    "model": "rho",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 12,
+    "test_n": 6,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      0.9310350012046253,
+      0.49412937440747695
+    ],
+    "mse": 0.07768617168928656,
+    "r2": -1.9969236890212216
+  },
+  {
+    "arm": "transformer:0.001",
+    "task": "transformer",
+    "lr": 0.001,
+    "model": "A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 6,
+    "test_n": 6,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.11883493769925434,
+      0.04322368579869238
+    ],
+    "mse": 0.00382212797218493,
+    "r2": 0.852552576433737
+  },
+  {
+    "arm": "transformer:0.001",
+    "task": "transformer",
+    "lr": 0.001,
+    "model": "A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 12,
+    "test_n": 6,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      0.10399866265222212,
+      0.03807767908844155
+    ],
+    "mse": 0.0352092981539409,
+    "r2": -0.3582800827590338
+  },
+  {
+    "arm": "transformer:0.001",
+    "task": "transformer",
+    "lr": 0.001,
+    "model": "rho+A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 6,
+    "test_n": 6,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      0.5632957984874758,
+      0.7286374033148583,
+      0.0352959896455014
+    ],
+    "mse": 0.0004263412699877361,
+    "r2": 0.9835528997780458
+  },
+  {
+    "arm": "transformer:0.001",
+    "task": "transformer",
+    "lr": 0.001,
+    "model": "rho+A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 12,
+    "test_n": 6,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      -0.6235451014546888,
+      -0.6906518054885167,
+      0.0538271770377754
+    ],
+    "mse": 0.04225763484734842,
+    "r2": -0.6301859669768237
+  },
+  {
+    "arm": "transformer:0.001",
+    "task": "transformer",
+    "lr": 0.001,
+    "model": "rho+A+rho*A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 6,
+    "test_n": 6,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      -0.013236744416866083,
+      0.018799564320483776,
+      0.08856132158009927,
+      0.06711360732117967
+    ],
+    "mse": 0.00020775935641310166,
+    "r2": 0.9919852024715475
+  },
+  {
+    "arm": "transformer:0.001",
+    "task": "transformer",
+    "lr": 0.001,
+    "model": "rho+A+rho*A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 12,
+    "test_n": 6,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      0.4708212866609145,
+      0.9592445152281805,
+      0.004751114636005971,
+      -0.09588120940086009
+    ],
+    "mse": 0.04484936878850318,
+    "r2": -0.7301680960351693
+  },
+  {
+    "arm": "transformer:0.001",
+    "task": "transformer",
+    "lr": 0.001,
+    "model": "rho*A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 6,
+    "test_n": 6,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.08094142658883552,
+      -0.04740064698613328
+    ],
+    "mse": 0.01196703339819772,
+    "r2": 0.5383440180086413
+  },
+  {
+    "arm": "transformer:0.001",
+    "task": "transformer",
+    "lr": 0.001,
+    "model": "rho*A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 12,
+    "test_n": 6,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.030125480603059248,
+      -0.07048975100129701
+    ],
+    "mse": 0.06493426220323932,
+    "r2": -1.5049892972501864
+  },
+  {
+    "arm": "transformer:0.001",
+    "task": "transformer",
+    "lr": 0.001,
+    "model": "logA",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 6,
+    "test_n": 6,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.48236775163404955,
+      0.3548465367143503
+    ],
+    "mse": 0.006321585534098756,
+    "r2": 0.7561302220543438
+  },
+  {
+    "arm": "transformer:0.001",
+    "task": "transformer",
+    "lr": 0.001,
+    "model": "logA",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 12,
+    "test_n": 6,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.8783772828339788,
+      0.6129125481497176
+    ],
+    "mse": 0.040025044463064395,
+    "r2": -0.5440586309909199
+  },
+  {
+    "arm": "transformer:0.001",
+    "task": "transformer",
+    "lr": 0.001,
+    "model": "rho+logA",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 6,
+    "test_n": 6,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      0.40841618266124835,
+      0.9023328538023639,
+      0.29142592435634884
+    ],
+    "mse": 0.0005998066483684737,
+    "r2": 0.9768610717423755
+  },
+  {
+    "arm": "transformer:0.001",
+    "task": "transformer",
+    "lr": 0.001,
+    "model": "rho+logA",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 12,
+    "test_n": 6,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      -1.2523992428916981,
+      -0.2812719796948314,
+      0.6782182007687713
+    ],
+    "mse": 0.04827705594003497,
+    "r2": -0.8623990529687304
+  },
+  {
+    "arm": "transformer:0.001",
+    "task": "transformer",
+    "lr": 0.001,
+    "model": "rho+logA+rho*logA",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 6,
+    "test_n": 6,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      -0.7974925365416743,
+      -0.5836154294545304,
+      0.8051539150319329,
+      0.6390082542720822
+    ],
+    "mse": 0.0003394304898796724,
+    "r2": 0.9869056840647902
+  },
+  {
+    "arm": "transformer:0.001",
+    "task": "transformer",
+    "lr": 0.001,
+    "model": "rho+logA+rho*logA",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 12,
+    "test_n": 6,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      0.6703754570574644,
+      2.6152064770784538,
+      0.04208693302693223,
+      -1.0349137126863148
+    ],
+    "mse": 0.06655320963934742,
+    "r2": -1.567443937722857
+  },
+  {
+    "arm": "transformer:0.003",
+    "task": "transformer",
+    "lr": 0.003,
+    "model": "rho",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 12,
+    "test_n": 12,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      0.9310350012046253,
+      0.49412937440747695
+    ],
+    "mse": 0.10665408361857386,
+    "r2": 0.09286193787259478
+  },
+  {
+    "arm": "transformer:0.003",
+    "task": "transformer",
+    "lr": 0.003,
+    "model": "rho",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 6,
+    "test_n": 12,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      1.3707303553103696,
+      1.311292238468931
+    ],
+    "mse": 0.17980689388726798,
+    "r2": -0.5293336339691606
+  },
+  {
+    "arm": "transformer:0.003",
+    "task": "transformer",
+    "lr": 0.003,
+    "model": "A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 12,
+    "test_n": 12,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      0.10399866265222212,
+      0.03807767908844155
+    ],
+    "mse": 0.054992793254015855,
+    "r2": 0.5322630488127572
+  },
+  {
+    "arm": "transformer:0.003",
+    "task": "transformer",
+    "lr": 0.003,
+    "model": "A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 6,
+    "test_n": 12,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.11883493769925434,
+      0.04322368579869238
+    ],
+    "mse": 0.08303165986945288,
+    "r2": 0.29378063667428
+  },
+  {
+    "arm": "transformer:0.003",
+    "task": "transformer",
+    "lr": 0.003,
+    "model": "rho+A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 12,
+    "test_n": 12,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      -0.6235451014546888,
+      -0.6906518054885167,
+      0.0538271770377754
+    ],
+    "mse": 0.044369278513833536,
+    "r2": 0.6226205320653968
+  },
+  {
+    "arm": "transformer:0.003",
+    "task": "transformer",
+    "lr": 0.003,
+    "model": "rho+A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 6,
+    "test_n": 12,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      0.5632957984874758,
+      0.7286374033148583,
+      0.0352959896455014
+    ],
+    "mse": 0.12002215933591509,
+    "r2": -0.020839196572195462
+  },
+  {
+    "arm": "transformer:0.003",
+    "task": "transformer",
+    "lr": 0.003,
+    "model": "rho+A+rho*A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 12,
+    "test_n": 12,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      0.4708212866609145,
+      0.9592445152281805,
+      0.004751114636005971,
+      -0.09588120940086009
+    ],
+    "mse": 0.027251186986488287,
+    "r2": 0.7682171360451364
+  },
+  {
+    "arm": "transformer:0.003",
+    "task": "transformer",
+    "lr": 0.003,
+    "model": "rho+A+rho*A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 6,
+    "test_n": 12,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      -0.013236744416866083,
+      0.018799564320483776,
+      0.08856132158009927,
+      0.06711360732117967
+    ],
+    "mse": 0.24298759468573183,
+    "r2": -1.0667121997176614
+  },
+  {
+    "arm": "transformer:0.003",
+    "task": "transformer",
+    "lr": 0.003,
+    "model": "rho*A",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 12,
+    "test_n": 12,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.030125480603059248,
+      -0.07048975100129701
+    ],
+    "mse": 0.07249261160069691,
+    "r2": 0.383419696884831
+  },
+  {
+    "arm": "transformer:0.003",
+    "task": "transformer",
+    "lr": 0.003,
+    "model": "rho*A",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 6,
+    "test_n": 12,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.08094142658883552,
+      -0.04740064698613328
+    ],
+    "mse": 0.13366191867113822,
+    "r2": -0.13685111502333025
+  },
+  {
+    "arm": "transformer:0.003",
+    "task": "transformer",
+    "lr": 0.003,
+    "model": "logA",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 12,
+    "test_n": 12,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.8783772828339788,
+      0.6129125481497176
+    ],
+    "mse": 0.034855898163775496,
+    "r2": 0.7035358530942268
+  },
+  {
+    "arm": "transformer:0.003",
+    "task": "transformer",
+    "lr": 0.003,
+    "model": "logA",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 6,
+    "test_n": 12,
+    "rank": 2,
+    "parameters": 2,
+    "coefficients": [
+      -0.48236775163404955,
+      0.3548465367143503
+    ],
+    "mse": 0.08988781008805602,
+    "r2": 0.2354661810815556
+  },
+  {
+    "arm": "transformer:0.003",
+    "task": "transformer",
+    "lr": 0.003,
+    "model": "rho+logA",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 12,
+    "test_n": 12,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      -1.2523992428916981,
+      -0.2812719796948314,
+      0.6782182007687713
+    ],
+    "mse": 0.03225732305643713,
+    "r2": 0.725637832757694
+  },
+  {
+    "arm": "transformer:0.003",
+    "task": "transformer",
+    "lr": 0.003,
+    "model": "rho+logA",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 6,
+    "test_n": 12,
+    "rank": 3,
+    "parameters": 3,
+    "coefficients": [
+      0.40841618266124835,
+      0.9023328538023639,
+      0.29142592435634884
+    ],
+    "mse": 0.11065548376492661,
+    "r2": 0.05882833830091727
+  },
+  {
+    "arm": "transformer:0.003",
+    "task": "transformer",
+    "lr": 0.003,
+    "model": "rho+logA+rho*logA",
+    "scope": "in_sample",
+    "status": "defined",
+    "train_n": 12,
+    "test_n": 12,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      0.6703754570574644,
+      2.6152064770784538,
+      0.04208693302693223,
+      -1.0349137126863148
+    ],
+    "mse": 0.022355463825668647,
+    "r2": 0.8098573308706889
+  },
+  {
+    "arm": "transformer:0.003",
+    "task": "transformer",
+    "lr": 0.003,
+    "model": "rho+logA+rho*logA",
+    "scope": "held_out_rate",
+    "status": "defined",
+    "train_n": 6,
+    "test_n": 12,
+    "rank": 4,
+    "parameters": 4,
+    "coefficients": [
+      -0.7974925365416743,
+      -0.5836154294545304,
+      0.8051539150319329,
+      0.6390082542720822
+    ],
+    "mse": 0.1449265697629509,
+    "r2": -0.23266173394452383
+  }
+]

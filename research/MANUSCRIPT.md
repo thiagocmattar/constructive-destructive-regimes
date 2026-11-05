@@ -1,5 +1,17 @@
 # Manuscript and evidence
 
+## Adam response and memory revision, 5 November 2026
+
+[Revision and experiment plan](../manuscript/draft/revisions/2026-11-05-human-input-adam/README.md)
+integrates the author's Adam proposal and Analysis057's retained-data checks.
+The paper distinguishes projected response, current-slope/update alignment,
+severity association and the analytical curvature comparison. It reports all
+794 rise-phase steps as locally descending, retains censored candidates and
+limits alignment claims using norm baselines and complete-rate holdouts.
+The raw-gradient/memory identities are checked mathematically; neural HVP,
+independent-seed, state-intervention, stochastic and scale tests remain in TODO.
+The current PDF is rebuilt and reviewed; no training or cloud resource created.
+
 ## GD/SGD author-input revision, 2026-11-05
 
 The [current revision](../manuscript/draft/revisions/2026-11-05-human-input/README.md)

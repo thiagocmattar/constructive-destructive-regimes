@@ -1,12 +1,30 @@
-\section{Raw-Gradient Diagnostics under Adam}
+\section{Gradient Response and Optimizer Memory during Adam Loss Excursions}
 \label{sec:adam-diagnostics}
 
-Adam~\cite{kingma2014adam} transforms the raw gradient through first- and
-second-moment estimates,
+The GD experiments distinguish local gradient reversal from the longer-term
+reduction of the objective. Under Adam, a further distinction is necessary:
+the current loss slope and the optimizer's update depend on different
+information. We examine how changes in the raw gradient accompany the rise
+and recovery of loss-defined excursions, and how the first-moment state
+responds along these trajectories. The purpose is to characterize event
+anatomy and its relationship to optimizer state.
+
+Bai et al.~\cite{bai2026adaptive} identify a mechanism involving delayed
+second-moment adaptation and preconditioned curvature, including momentum
+and stochastic Transformer experiments. Their directional proxy requires
+one Hessian--vector product (HVP). We relate our
+projected-gradient response to their directional quantity below. The
+relationship makes explicit the roles of first-moment response and
+curvature variation along the realized step.
+
+\subsection{Loss-Slope Measurements along Adam Trajectories}
+
+Adam~\cite{kingma2014adam} transforms the raw gradient through first-
+and second-moment estimates,
 \begin{equation}
 \begin{aligned}
- m_t&=\beta_1m_{t-1}+(1-\beta_1)g_t,\\
- v_t&=\beta_2v_{t-1}+(1-\beta_2)g_t^{\odot2},
+m_t&=\beta_1m_{t-1}+(1-\beta_1)g_t,\\
+v_t&=\beta_2v_{t-1}+(1-\beta_2)g_t^{\odot2},
 \end{aligned}
 \label{eq:adam-moments}
 \end{equation}
@@ -14,20 +32,43 @@ with zero initial moments. Bias correction gives
 $\widehat m_t=m_t/(1-\beta_1^t)$ and
 $\widehat v_t=v_t/(1-\beta_2^t)$, followed by
 \begin{equation}
- d_t=\frac{\widehat m_t}{\sqrt{\widehat v_t}+\epsilon},
- \qquad \theta_t=\theta_{t-1}-\eta d_t,
- \label{eq:adam-direction}
+d_t=\frac{\widehat m_t}{\sqrt{\widehat v_t}+\epsilon},
+\qquad \theta_t=\theta_{t-1}-\eta d_t,
+\label{eq:adam-direction}
 \end{equation}
-where operations are coordinatewise. Throughout this section, $g_t$ is
-the raw loss gradient and $\rho_t$ remains the cosine between consecutive
-raw gradients, as in Section~\ref{sec:displacement}.
-We evaluate $\eta\widehat\kappa_t$ using the same diagnostic in
-Eq.~\eqref{eq:kappa-estimate}. Although $d_t$ determines the step,
-$g_t$ describes the local loss slope. Changes in its direction and norm
-reveal how that slope varies across the states visited by Adam.
-Comparing raw-gradient and first-moment measurements then shows how this
-response propagates through the optimizer's memory. Momentum cosines
-are labeled separately in the figures.
+where operations are coordinatewise and
+$g_t=\nabla\mathcal L(\theta_{t-1})$ in the full-objective experiments.
+
+Although $d_t$ determines the step, $g_t$ describes the local loss slope.
+Changes in its direction and norm reveal how that slope varies across
+the states visited by Adam. We retain $\rho_t$ for consecutive raw-gradient
+cosine and denote the projected change by
+\begin{equation}
+\begin{aligned}
+z_{t+1}
+&:=1-\frac{g_t^\top g_{t+1}}{\|g_t\|^2}\\
+&=1-\rho_{t+1}\frac{\|g_{t+1}\|}{\|g_t\|}.
+\end{aligned}
+\label{eq:adam-projected-response}
+\end{equation}
+This is the same numerical statistic denoted
+$\eta\widehat\kappa_{t+1}$ in Eq.~\eqref{eq:kappa-estimate}.
+For nonzero consecutive gradients, $z_{t+1}>1$ is equivalent to negative
+alignment, while $z_{t+1}>2$ means
+$g_t^\top g_{t+1}<-\|g_t\|^2$: the opposing projection exceeds the preceding
+gradient's magnitude. These are geometric statements about the raw
+gradients. The reference value two is not used as a universal loss-rise
+threshold for Adam.
+
+Consecutive first-moment cosines are labeled separately. They describe
+the evolution of optimizer memory, while cross-alignment with the current
+gradient, such as $\cos(g_t,\widehat m_t)$ or $\cos(g_t,d_t)$, answers
+whether that memory and the actual update agree with the current slope.
+We use both cross-alignments recorded at every optimizer boundary, and
+the inner product of the raw gradient with the actual applied increment
+to assess its first-order loss contribution.
+
+\paragraph{Controlled trajectories.}
 
 We reuse the CIFAR-10/MLP, CIFAR-10/ResNet-32 and WikiText-2/Transformer
 objectives from Section~\ref{sec:gd-experiments}. Each Adam trajectory starts
@@ -52,52 +93,13 @@ Appendix~\ref{appendix:adam-measurements}.
  \label{fig:adam-overview}
 \end{figure*}
 
-Figure~\ref{fig:adam-overview} shows overall convergence with
-transient loss spikes, especially at larger rates. The largest tested rate
-attains the lowest final training loss in each model despite these excursions.
-These excursions interrupt trajectories whose longer-term loss continues
-to decrease. We next examine their gradient dynamics before summarizing
-the spike distribution across the nine arms.
+Figure~\ref{fig:adam-overview} shows transient excursions within trajectories
+whose longer-term training loss decreases. At 1,024 updates, the largest
+tested rate attains the lowest final loss within each model's sweep.
+We define the events using loss alone, then describe their population
+statistics and individual temporal structure.
 
-\subsection{Anatomy of Individual Spikes}
-
-For each model, we select the recovered excursion with the largest
-peak/pre-rise loss ratio at its highest tested rate. Selection uses only
-loss, with no condition on a diagnostic. The selected peaks occur at
-states 703, 422 and 794 for MLP, ResNet and Transformer, respectively.
-
-\begin{figure*}[tp]
- \centering
- \includegraphics[width=\textwidth]{figures/analysis036/adam_manuscript_spikes.pdf}
- \caption{Largest recovered relative loss spike at each model's highest
- Adam rate. Rows show loss, raw-gradient projected change, consecutive
- cosines of raw gradients and first moments, and their relative norms.
- All observations are unsmoothed. At parameter state $s$, vector diagnostics
- refer to $g_{s+1}$ and $m_{s+1}$. Norms are divided by their value at the
- first displayed state. Gray bands mark the pronounced rise from the first
- +10\% crossing to the loss peak (697--703, 418--422 and 790--794), rather
- than the entire excursion through recovery. The horizontal dotted loss
- reference is the first displayed loss. Windows begin ten states before
- the peak and end at the first later loss below that displayed reference.}
- \label{fig:adam-spikes}
-\end{figure*}
-
-All three examples in Fig.~\ref{fig:adam-spikes} enter the pronounced rise
-with negative raw-gradient cosine. During the rise, the gradient norm
-increases sharply and $\eta\widehat\kappa$ exceeds two before the loss
-maximum. Momentum norms also grow.
-
-The descent separates the models. ResNet and Transformer return to
-constructive regimes, with positive gradient and momentum cosines,
-falling $\eta\widehat\kappa$ and a comparatively smooth loss decline.
-The MLP continues to oscillate: raw cosine remains mostly negative,
-momentum cosine alternates between signs, and loss and norms decrease
-through repeated rebounds. Together, the examples expose developing
-spikes through destructive alignment and sharp gradient growth.
-The early increase in $\eta\widehat\kappa$ motivates intervention before
-the loss reaches its maximum.
-
-\subsection{Loss-Defined Events and Their Distribution}
+\subsection{Loss-Defined Excursions and Their Distribution}
 
 To examine repetition without selecting on gradients, write
 $\mathcal L_s:=\mathcal L(\theta_s)$ for the recorded training loss.
@@ -115,7 +117,8 @@ For an event recovered within $T$ updates, define
 \end{equation}
 If several states attain the maximum, $p_i$ is the earliest one.
 Figure~\ref{fig:adam-spike-definition} illustrates these boundaries.
-An event is included only when recovery is observed by $T=1024$.
+Recovery summaries include only events recovered by $T=1024$;
+incidence counts also retain right-censored events at that horizon.
 Search resumes at $c_i$; partial declines and additional local maxima
 before this return belong to the same event. Thus $a_i$ is the last
 pre-rise state, $a_i+1$ the first elevated state, $p_i$ the loss peak,
@@ -153,14 +156,58 @@ $\mathcal L_{c_i}/\mathcal L_{a_i}\leq1$.
  \label{fig:adam-spike-distribution}
 \end{figure*}
 
-Figure~\ref{fig:adam-spike-distribution} places the illustrations within
-the complete distribution of recovered excursions. Small fluctuations
-coexist with long tails; larger rates populate more severe excursions,
-although the distributions overlap and do not undergo a uniform shift.
-To focus the anatomy analysis on pronounced changes, we retain events
-with peak increase strictly greater than 10\%.
-The filtered sample contains 129 recovered events. Two further
-above-threshold candidates without observed recovery are excluded.
+The detector identifies 812 candidates: 806 recover within the observation
+horizon and six remain right-censored. Figure~\ref{fig:adam-spike-distribution}
+summarizes all 806 recovered excursions, including small fluctuations.
+Larger learning rates populate
+more severe excursions, although the distributions overlap and do not
+undergo a uniform shift. The densities describe severity conditional on
+an observed recovered event; each learning-rate density is normalized
+separately and does not represent event frequency.
+
+For the anatomy analysis, we retain events with a peak increase strictly
+greater than 10\%. This gives 129 recovered events. Two additional
+above-threshold candidates have not recovered by update 1,024 and are
+reported separately as unrecovered; the recovery statistics below concern
+the recovered sample. Two initialization events have undefined pre-rise
+cosine, leaving 127 events for analyses requiring that measurement.
+Repeating the strict cutoff at 5\% and 20\% yields 206 and 74 recovered
+events, respectively, with two censored candidates at each cutoff.
+Table~\ref{tab:adam-incidence} reports counts by trajectory, update
+occupancy and absolute loss increases. These thresholds change the
+reported population; 10\% is an operational definition, not a dynamical
+boundary. Events within one trajectory are dependent, and 84 of the
+127 defined pre-rise observations come from the two larger-rate MLP arms.
+
+\subsection{Amplification and Recovery across Events}
+
+Among qualifying recovered events, both the mean and maximum percentage
+increase grow with learning rate in every model with more than one eligible
+rate. The largest increase is 858.8\% for ResNet at $\eta=0.003$.
+Mean recovery takes 17--19 updates versus 6--8 for the ResNet rise,
+and 24--31 versus about 6 for the Transformer. MLP rise and recovery
+times are more comparable. A brief amplification can therefore be
+followed by a considerably longer return to the pre-rise loss.
+
+Pre-rise raw-gradient cosine is negative in 92.1\% of the events with a
+defined measurement. At the loss peak, the gradient norm exceeds its
+pre-rise value in every included event. The projected response is above
+two before the first loss increase in 16.5\% of defined cases.
+Its full-event maximum precedes the loss peak in 63.6\% of events,
+coincides in 22.5\%, and follows in 14.0\%. These percentages describe
+the phase ordering within the observed events.
+
+Ordinary oscillatory training provides an essential reference. In the
+lowest-rate ResNet and Transformer arms, respectively, 726/953 and
+764/953 eligible states have negative raw cosine, and 186/953 and
+215/953 have $z>2$, yet none is followed by a loss rise of at least
+10\% within eight updates. Eligibility here requires state $s\ge64$,
+a complete eight-update future and current loss less than 5\% above
+the trailing 16-state minimum (including the current state).
+These complete-trajectory controls use a different, fixed-horizon
+outcome from the recovered-event definition. They establish that
+reversal and $z>2$ can accompany ordinary training; they do not provide
+event-duration-matched controls or a forecasting evaluation.
 
 \begin{table*}[tp]
  \caption{Anatomy of recovered spikes with peak increase greater than 10\%.
@@ -180,20 +227,6 @@ above-threshold candidates without observed recovery are excluded.
  \input{tables/analysis036_spike_anatomy}
 \end{table*}
 
-\begin{figure*}[tp]
- \centering
- \includegraphics[width=\textwidth]{figures/analysis036/adam_rho_gradient_rise_peak_scatter.pdf}
- \caption{Pre-rise raw-gradient cosine times rise norm ratio versus
- peak/pre-rise loss for 127 recovered spikes above 10\%; two initialization
- events have undefined pre-rise cosine. One unsmoothed point per event.
- Colors identify LRs. Separate per-LR least-squares fits with intercept use
- $\log_{10}$(peak/pre-rise loss) as the response; color-matched $R^2$ values
- are descriptive in-sample scores on that log response. Dashed lines extend
- across each panel, including extrapolation beyond observed samples.
- The y-axis is a loss ratio: 1 denotes no increase and 2 denotes +100\%.}
- \label{fig:adam-rho-norm-spikes}
-\end{figure*}
-
 For Table~\ref{tab:adam-spike-anatomy}, pre-rise diagnostics are measured
 at $\theta_{a_i}$, hence use gradient index $a_i+1$. Recovery entries
 first average each event's diagnostic over the arrival states
@@ -204,48 +237,236 @@ $\|g_{p_i+1}\|/\|g_{a_i+1}\|$ and
 $\|g_{c_i+1}\|/\|g_{p_i+1}\|$. The gradient norm's own maximum need not
 coincide with the loss peak.
 
-Among qualifying events, both the mean increase and the maximum increase
-grow with LR in every model with more than one eligible rate. The largest
-increase is 858.8\% for ResNet at $\eta=0.003$. Mean recovery takes
-17--19 updates versus 6--8 for the ResNet rise, and 24--31 versus about
-6 for the Transformer. MLP rise and recovery times are more comparable.
-Thus, a short amplification can be followed by a much longer descent,
-without implying that all intermediate loss changes are monotonic.
+\paragraph{Individual trajectories.}
+For each model, we illustrate the recovered excursion with the largest
+peak/pre-rise loss ratio at its highest tested rate. Selection uses
+loss alone, with no condition on a gradient diagnostic. The peaks occur
+at states 703, 422, and 794 for the MLP, ResNet, and Transformer.
 
-Pre-rise raw cosine is negative in 92.1\% of events with a defined
-pre-rise measurement. The gradient norm at the loss peak exceeds its
-pre-rise value in 100\% of events. Projected change is already above two
-before the first loss increase in 16.5\% of defined cases. Its full-event
-maximum precedes the loss peak in 63.6\% of events, coincides in 22.5\%
-and follows in 14.0\%.
+\begin{figure*}[tp]
+ \centering
+ \includegraphics[width=\textwidth]{figures/analysis036/adam_manuscript_spikes.pdf}
+ \caption{Largest recovered relative loss spike at each model's highest
+ Adam rate. Rows show loss, raw-gradient projected change, consecutive
+ cosines of raw gradients and first moments, and their relative norms.
+ All observations are unsmoothed. At parameter state $s$, vector diagnostics
+ refer to $g_{s+1}$ and $m_{s+1}$. Norms are divided by their value at the
+ first displayed state. Gray bands mark the pronounced rise from the first
+ +10\% crossing to the loss peak (697--703, 418--422 and 790--794), rather
+ than the entire excursion through recovery. The horizontal dotted loss
+ reference is the first displayed loss. Windows begin ten states before
+ the peak and end at the first later loss below that displayed reference.}
+ \label{fig:adam-spikes}
+\end{figure*}
 
-\subsection{Reversal, Norm Amplification and Possible Interventions}
+All three examples in Fig.~\ref{fig:adam-spikes} enter the pronounced rise
+with negative raw-gradient cosine. During the rise, raw-gradient norms
+increase sharply, the projected response exceeds two before the loss
+maximum, and first-moment norms grow.
 
-To relate the initial regime to amplification during an event, we plot
+Recovery distinguishes the examples. ResNet and Transformer return to
+positive raw-gradient and consecutive first-moment alignment, with a
+falling projected response and a comparatively smooth loss decline.
+The MLP continues to oscillate: its raw-gradient cosine remains mostly
+negative, first-moment cosine alternates, and loss and norms decrease
+through repeated rebounds. Thus, the illustrations share reversal and
+amplification during the rise while exhibiting different recovery
+patterns. Population-level phase comparisons are needed to determine
+how consistently these patterns recur across initializations.
+
+\subsection{Alignment and Norm Amplification as Severity Descriptors}
+
+To relate the initial gradient regime to subsequent amplification, define
 \begin{equation}
- \rho_{a_i+1}\frac{\|g_{p_i+1}\|}{\|g_{a_i+1}\|}
- \quad\text{against}\quad
- \frac{\mathcal L_{p_i}}{\mathcal L_{a_i}}.
- \label{eq:adam-event-product}
+A_i:=\frac{\|g_{p_i+1}\|}{\|g_{a_i+1}\|},
+\qquad x_i:=\rho_{a_i+1}A_i,
+\label{eq:adam-event-product}
 \end{equation}
-This combines the pre-rise consecutive cosine with the subsequent rise
-norm ratio. Figure~\ref{fig:adam-rho-norm-spikes} shows that a destructive
-initial regime combined with gradient amplification explains a substantial
-part of spike magnitude: the per-rate fits account for 67--69\% of
-log-loss-ratio variation for the MLP, 90--94\% for ResNet, and 38--54\%
-for the Transformer. This relationship connects the individual spike
-examples to the broader event sample. Reversal identifies the regime;
-gradient growth explains how strongly that reversal is amplified.
+and compare $x_i$ with the peak/pre-rise loss ratio. The descriptor
+combines an initial adjacent-gradient angle with a later norm ratio;
+it is a retrospective event summary.
 
-This anatomy motivates testing whether intervention during reversal and
-early norm growth can attenuate the subsequent excursion. Gradient-norm
-clipping was proposed to address exploding gradients~\cite{pascanu2013difficulty},
-and analyses allowing smoothness to grow with gradient norm provide a
-further rationale for adaptive scaling~\cite{zhang2020clipping}. Learning-rate
-adjustment and data-mixing interventions provide other tests of the proposed
-interaction between the current regime and subsequent gradient growth.
-These tests should isolate states before pronounced excursions, compare
-matched interventions with unchanged continuations, and measure both spike
-attenuation and later loss at equal budgets. Establishing prospective
-warning information also requires non-spike comparisons. Such interventions
-and predictive validation remain future work.
+\begin{figure*}[tp]
+ \centering
+ \includegraphics[width=\textwidth]{figures/analysis057/adam_severity_product_supported.pdf}
+ \caption{Pre-rise raw-gradient cosine times rise norm ratio versus
+ peak/pre-rise loss for 127 recovered spikes above 10\%; two initialization
+ events have undefined pre-rise cosine. One unsmoothed point per event.
+ Colors identify LRs. Separate per-LR least-squares fits with intercept use
+ $\log_{10}$(peak/pre-rise loss) as the response. The $R^2$ values in the
+ text are descriptive in-sample scores on that log response. Dashed fits are
+ restricted to the observed predictor range for each LR; sample sizes
+ are shown in the legends. Scores are reported in the text.
+ The y-axis is a loss ratio: 1 denotes no increase and 2 denotes +100\%.}
+ \label{fig:adam-rho-norm-spikes}
+\end{figure*}
+
+Figure~\ref{fig:adam-rho-norm-spikes} reports separate per-rate fits to
+$\log_{10}(\mathcal L_{p_i}/\mathcal L_{a_i})$. Their descriptive,
+in-sample $R^2$ values are 0.67--0.69 for the MLP, 0.90--0.94 for ResNet,
+and 0.38--0.54 for the Transformer. These associations connect the
+individual examples to the event population.
+
+The composite fit does not by itself establish the contribution of
+alignment beyond norm amplification. On a fixed one-dimensional quadratic
+$\mathcal L(x)=\lambda x^2/2$, the loss ratio equals the squared
+gradient-norm ratio exactly. Consequently, norm amplification alone can
+explain substantial severity variation even without an additional
+alignment effect.
+
+We therefore compare cosine-only, norm-only, additive and interaction
+fits on the same 127 events, with an intercept and a common log-loss-ratio
+response. Both $A_i$ and $\log A_i$ norm specifications are retained.
+Figure~\ref{fig:adam-severity-ablation} shows the log-norm comparison
+alongside the original product. Adding cosine to $\log A_i$ increases
+within-run $R^2$ by 0.006--0.221; adding an interaction increases model
+flexibility further. The largest additive gain occurs in the six-event
+middle-rate Transformer sample, making replication particularly important.
+
+When one complete rate trajectory is held out and the remaining rates
+of the same model provide the fit, adding cosine to $\log A_i$ increases
+held-out squared error in all seven eligible folds. In the linear-$A_i$
+family it increases error in five of seven folds. Some fits have negative
+held-out $R^2$, indicating poor transfer relative to that fold's mean.
+These comparisons share one initialization across rates and test transfer
+across rates, not independent-seed generalization. Thus the event
+associations establish neither a consistently transferable alignment
+contribution nor a universal severity law.
+The additive cosine coefficient also changes sign across trajectories,
+with positive coefficients in the lowest-rate MLP and middle-rate
+Transformer, and negative coefficients in the other five fits.
+
+\begin{figure*}[tp]
+ \centering
+ \includegraphics[width=\textwidth]{figures/analysis057/adam_severity_ablation.pdf}
+ \caption{Severity descriptors on identical recovered-event samples.
+ Each point is a within-trajectory ordinary-least-squares $R^2$ for
+ $\log(\mathcal L_p/\mathcal L_a)$, with an intercept. Legends name the
+ predictors; additive and interaction fits have more coefficients.
+ Lowest-rate ResNet/Transformer arms have no qualifying events and
+ supply no fit. Sample sizes count dependent events, not independent
+ initializations. These in-sample improvements do not persist uniformly
+ when a complete learning-rate trajectory is held out.}
+ \label{fig:adam-severity-ablation}
+\end{figure*}
+
+\paragraph{Current slope versus optimizer direction.}
+Across all 129 recovered events, every one of the 794 outgoing steps
+from $a_i$ through $p_i-1$ has
+$g_{s+1}^{\top}(\theta_{s+1}-\theta_s)<0$. Thus each rise interval
+consists of locally descending steps, although the loss increases
+overall. During recovery, 1,374 of 1,376 outgoing steps have the same
+negative first-order contribution. Event-mean
+$\cos(g_t,d_t)$ during rise ranges from 0.071 to 0.767 across the
+seven eligible trajectories. Negative consecutive raw-gradient cosine
+therefore need not mean that Adam moves against the current local
+descent direction. First-order descent alone also does not ensure
+a decrease over the finite applied step.
+
+\subsection{Connecting Gradient Response to Optimizer State}
+
+For a full objective that is twice continuously differentiable along
+the update, with $g_t\ne0$ and $\eta>0$, write
+\begin{equation}
+P_t:=\operatorname{diag}
+\left((\sqrt{\widehat v_t}+\epsilon)^{-1}\right),
+\qquad d_t=P_t\widehat m_t,
+\end{equation}
+and define the starting Hessian $H_t=\nabla^2\mathcal L(\theta_{t-1})$
+and its average along the update,
+\begin{equation}
+\overline H_t:=
+\int_0^1\nabla^2\mathcal L(\theta_{t-1}-u\eta d_t)\,du.
+\end{equation}
+The gradient integral gives
+$g_{t+1}-g_t=-\eta\overline H_td_t$, hence
+\begin{equation}
+\frac{z_{t+1}}{\eta}
+=
+\frac{g_t^\top\overline H_tP_t\widehat m_t}{\|g_t\|^2}.
+\label{eq:adam-response-integral}
+\end{equation}
+Thus the response is a mixed curvature projection involving the current
+slope and realized Adam direction. The classical-Hessian identity requires
+this path regularity; it is not automatically valid across nonsmooth
+activation boundaries. The projected response itself remains computable
+where the recorded gradients exist.
+
+With our indexing, the frozen-time directional proxy of
+Bai et al.~\cite{bai2026adaptive} is
+\begin{equation}
+\begin{aligned}
+\lambda_{B,t}
+&:=c_t\frac{g_t^\top P_tH_tg_t}{\|g_t\|^2},\\
+c_t&:=\frac{1-\beta_1}{(1+\beta_1)(1-\beta_1^t)}.
+\end{aligned}
+\label{eq:adam-bai-reference}
+\end{equation}
+Let $e_t:=\widehat m_t-c_tg_t$. Hessian symmetry yields the exact
+discrepancy decomposition
+\begin{equation}
+\begin{aligned}
+\frac{z_{t+1}}{\eta}-\lambda_{B,t}
+={}&\frac{g_t^\top H_tP_te_t}{\|g_t\|^2}\\
+&+\frac{g_t^\top(\overline H_t-H_t)d_t}{\|g_t\|^2}.
+\end{aligned}
+\label{eq:adam-response-discrepancy}
+\end{equation}
+The first term measures the effect of departure from the proportional
+first-moment response $c_tg_t$. The second measures variation of curvature
+along the finite update. This separates the difference between two
+diagnostics; causal attribution of spike formation requires additional
+controlled experiments. A single HVP $h_t=H_tg_t$ computes both
+$\lambda_{B,t}=c_t(P_tg_t)^\top h_t/\|g_t\|^2$ and the first term
+$(P_te_t)^\top h_t/\|g_t\|^2$. Their difference from $z_{t+1}/\eta$
+has not yet been measured on these neural trajectories.
+
+The first-moment departure is directly connected to adjacent gradient
+sums. Let $a=(1-\beta_1)/(1+\beta_1)$ and $r_t^{(m)}=m_t-ag_t$. Substitution
+into Eq.~\eqref{eq:adam-moments} gives
+\begin{equation}
+r_t^{(m)}=\beta_1r_{t-1}^{(m)}+\beta_1a(g_t+g_{t-1}),
+\qquad t\ge2,
+\label{eq:adam-memory-residual}
+\end{equation}
+with $e_t=r_t^{(m)}/(1-\beta_1^t)$. The adjacent sums used in the GD pairing
+analysis thus drive departure from the alternating first-moment response.
+Settled constant-amplitude alternation makes $e_t$ small. The approximation
+$z_{t+1}\approx\eta\lambda_{B,t}$ additionally requires both weighted
+correction terms in Eq.~\eqref{eq:adam-response-discrepancy} to be small;
+the preconditioner can magnify a small memory residual.
+
+For exact alternation starting at $m_0=0$, the finite-time expression is
+$m_t=a[1-(-\beta_1)^t]g_t$; a later alternating segment additionally
+inherits its initial memory. Near-opposition alone therefore does not
+establish the proportionality when gradient magnitudes or directions
+change rapidly.
+
+If the Hessian is $M$-Lipschitz along the step, the discrepancy obeys
+\begin{equation}
+\begin{aligned}
+|z_{t+1}-\eta\lambda_{B,t}|
+\leq{}&
+\eta\frac{\|H_tg_t\|\,\|P_te_t\|}{\|g_t\|^2}\\
+&+\frac{M\eta^2\|d_t\|^2}{2\|g_t\|}.
+\end{aligned}
+\label{eq:adam-response-error-bound}
+\end{equation}
+The bound follows from Cauchy--Schwarz and
+$\|\overline H_t-H_t\|\leq M\eta\|d_t\|/2$.
+It characterizes diagnostic approximation under the stated regularity
+conditions; it does not assert a general theorem for the occurrence
+or recovery of Adam spikes.
+
+\paragraph{Scope of the current empirical findings.}
+The full-batch experiments document recovered-excursion anatomy through
+changes in the loss slope and first-moment state. The analytic connection
+above identifies conditions under which that response approximates a
+preconditioned-curvature quantity and specifies sources of discrepancy.
+The reported event associations are descriptive. Ordinary-trajectory
+controls and feature comparisons limit their specificity, while retained
+cross-alignments distinguish reversal from an uphill first-order step.
+Independent initializations, event-duration-matched controls and direct
+measurement of the curvature discrepancy remain necessary. Stochastic
+Adam monitoring and an overhead advantage over the one-HVP baseline
+at larger scale are also untested here.

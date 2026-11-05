@@ -127,6 +127,16 @@ MuonClip optimizer uses attention-logit-based rescaling of query and key
 weights and reports training without loss spikes~\cite{kimi2025k2}.
 
 Gradient norms are thus already useful monitoring signals. Their
+interpretation under Adam also depends on optimizer memory. Bai
+et al.~\cite{bai2026adaptive} study delayed second-moment adaptation
+and a directional preconditioned-curvature proxy computed with one HVP.
+Their study includes momentum and stochastic Transformer training.
+Our comparison concerns the relationship between that proxy and the
+response computed from consecutive gradients, including first-moment
+and finite-step corrections. A measured computational advantage requires
+comparison with this one-HVP baseline.
+
+The gradient norm's
 relationship to stability becomes clearer when magnitude is combined
 with direction: a growing gradient can reinforce or oppose its
 predecessor. We develop this connection through constructive and
