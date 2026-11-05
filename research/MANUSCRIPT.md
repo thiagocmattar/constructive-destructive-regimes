@@ -1,5 +1,14 @@
 # Manuscript and evidence
 
+## Reviewer-led experiment priorities, 5 November 2026
+
+[Independent reviews and ranked tests](../manuscript/draft/revisions/2026-11-05-experiment-priorities/README.md)
+recommend retained-data GD/actual-Adam/Pythia audits first, then a bounded
+independent-seed, fixed-checkpoint clipping comparison if new training is chosen.
+A nine-anchor smooth-MLP HVP calibration is optional. The review distinguishes
+replication from novelty and preserves disagreements about secondary experiments.
+No manuscript edits, scientific reductions, launches, spending or new registry IDs.
+
 ## Submission synthesis and closure, 5 November 2026
 
 [Revision package](../manuscript/draft/revisions/2026-11-05-submission-synthesis/README.md)
