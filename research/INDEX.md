@@ -638,3 +638,5 @@ no remote work, rental or manuscript edit. A7 deferred. Next Run223 / Analysis04
 [Analysis052](../analyses/052-2026-11-04-mlp-clipping-thresholds/README.md): clipping0.5 reduces MLP mean loss31.03% versus1.0 but remains2.08% above unchanged, despite a15.32% lower maximum. Exact replay,90 artifact checks, Spark only. Next Run230 / Analysis053 / H037.
 
 [Run230 / Analysis053 / H037](../analyses/053-2026-11-05-mlp-cosine32-clip1/README.md) found zero activations of clipping at 1 under cosine32 decay to half LR. Exact agreement with cosine alone through state 800.
+
+[Run231 / Analysis054 / H038](../analyses/054-2026-11-05-resnet-clip1/FINDINGS.md) found a 52% lower maximum and 28% lower mean training loss under clipping at 1, with higher late loss.

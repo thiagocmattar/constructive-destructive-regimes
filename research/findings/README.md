@@ -270,3 +270,5 @@ all feature/fold outcomes and four reviewed figures are in the
 - [MLP clipping thresholds0.5 versus1.0 (Analysis052)](../../analyses/052-2026-11-04-mlp-clipping-thresholds/FINDINGS.md): smaller cap markedly reduces severe bursts versus1.0, yet mean and tail loss remain above unchanged; exact same-Spark single-window comparison.
 
 [Combined MLP cosine decay and clipping](../../analyses/053-2026-11-05-mlp-cosine32-clip1/README.md) produced the same trajectory as cosine alone. The cap of 1 stayed inactive throughout this seed and window.
+
+[ResNet clipping at 1](../../analyses/054-2026-11-05-resnet-clip1/FINDINGS.md) suppressed the largest loss spikes and increased the final 32-state mean by 78%.

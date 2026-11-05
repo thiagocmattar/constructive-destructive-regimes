@@ -315,3 +315,5 @@ attempt within the same run.
 [Run229](229-2026-11-04-mlp-clipping-half/README.md) completed288 Spark updates512..800 at global gradient cap0.5 before Adam, unchanged LR. Exact control reuse;238 updates clipped. Mean loss31.03% below clipping1.0 but2.08% above unchanged. H036 / Analysis052.
 
 [Run230](230-2026-11-05-mlp-cosine32-clip1/README.md) paired cosine32 to half LR with global clipping at 1 on the MLP. All 288 updates matched cosine alone.
+
+[Run231](231-2026-11-05-resnet-clip1/README.md) tested ResNet clipping at 1 with a fresh same-Spark control and constant LR 0.003.

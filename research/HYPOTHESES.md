@@ -99,3 +99,7 @@ Status: partial support for peak reduction, no mean-loss benefit over unchanged.
 ## H037 | Does global clipping at 1 add to cosine32 decay to half LR?
 
 [Analysis053](../analyses/053-2026-11-05-mlp-cosine32-clip1/README.md) found zero incremental effect in the selected MLP window. The maximum eligible gradient norm was 0.927 and all 288 update records and terminal model and optimizer states matched cosine alone.
+
+## H038 | Does clipping at 1 suppress repeated ResNet loss spikes?
+
+[Analysis054](../analyses/054-2026-11-05-resnet-clip1/FINDINGS.md) found lower peak severity and lower window-mean loss alongside more excursions above 10% and higher endpoint loss on this seed.

@@ -172,3 +172,5 @@ separate immediate cancellation, cumulative interaction and objective progress.
 Both pairing offsets and two-update losses pass independent checks. Four new
 vector PDFs and the revised 16-page paper are reviewed; no training/cloud work.
 Next analysis: 057. No new hypothesis or run.
+
+[Analysis054](054-2026-11-05-resnet-clip1/README.md) compares training loss, raw gradient geometry and clipped inputs on ResNet over states 256 through 576.
