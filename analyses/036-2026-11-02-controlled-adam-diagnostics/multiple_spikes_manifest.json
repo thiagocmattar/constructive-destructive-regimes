@@ -1,6 +1,6 @@
 {
   "generator": "analyses/036-2026-11-02-controlled-adam-diagnostics/13_plot_multiple_spikes.py",
-  "generator_sha256": "50d835063bee0c51ac545065189c333741c850a2715594c83c124f1b9bf3dab1",
+  "generator_sha256": "595e78ab5b7d421295b822c332b3f59499ce90e88ae6cb35bfea10bba2727794",
   "sources": {
     "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_dataset/manifest.json": "bef7421d30a1cb4cb2715d21f5fad97434b3b8c55b4ff08f9f15e753fea6dc0d",
     "runs/215-2026-11-02-controlled-full-batch-adam/results.json": "c907d1b5ccaa68b3310f13526e98f37fd1c19943eb7631cea46612f75de39572",
@@ -20,6 +20,7 @@
     5.6
   ],
   "smoothing": null,
+  "norm_scale": "linear",
   "clock": "Parameter state s; vector diagnostics use raw gradient g_(s+1).",
   "norm_reduction": "Raw-gradient norm divided by its first displayed value; linear y-axis.",
   "selection": "Manual loss-only windows near author ranges, with context and completed recovery.",

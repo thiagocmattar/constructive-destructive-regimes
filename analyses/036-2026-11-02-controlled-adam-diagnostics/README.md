@@ -7,6 +7,9 @@ remain unchanged. The simplified figure uses only raw-gradient diagnostics,
 with green curves and no gradient/momentum legend; all 12 unsmoothed curves /
 3,608 values pass source checks.
 
+[Log-scale relative-norm alternative](observations/012-multiple-spikes-lognorm.md):
+the same 12 green curves and windows, with only the bottom row's y-axis changed.
+
 The approved loss overview, spike examples, density, anatomy table and regression
 scatter are now [integrated into the manuscript](observations/010-manuscript-spike-anatomy.md).
 The integration preserves source figures/data and documents the event criteria,

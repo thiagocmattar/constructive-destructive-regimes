@@ -1,4 +1,5 @@
 """Plot loss-selected multi-spike windows; retain the original micro-plots."""
+import argparse
 import csv
 import hashlib
 import json
@@ -30,7 +31,10 @@ def sha(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
-def main():
+def main(norm_scale='linear'):
+    pdf = PDF if norm_scale == 'linear' else PDF.with_stem(PDF.stem + '_lognorm')
+    manifest = MANIFEST if norm_scale == 'linear' else HERE / 'multiple_spikes_lognorm_manifest.json'
+    observation = '011-multiple-spikes.md' if norm_scale == 'linear' else '012-multiple-spikes-lognorm.md'
     dataset_path = HERE / 'spike_dataset/manifest.json'
     dataset = read(dataset_path)
     results_path = ROOT / 'runs/215-2026-11-02-controlled-full-batch-adam/results.json'
@@ -114,7 +118,8 @@ def main():
             np.testing.assert_array_equal(line.get_ydata(), values)
             assert line.get_color() == GREEN and line.get_linestyle() == '-'
             curves.append(dict(task=task, lr=lr, key=key, x=states.tolist(), y=values.tolist(),
-                               normalization_divisor=divisor, yscale='log' if row == 0 else 'linear'))
+                               normalization_divisor=divisor,
+                               yscale='log' if row == 0 else norm_scale if row == 3 else 'linear'))
         for row in range(4):
             ax = axes[row, col]
             if row:
@@ -137,8 +142,17 @@ def main():
             if row == 1:
                 ax.axhline(2, color='.45', ls=(0, (4, 3)), lw=.7)
             if row == 3:
-                ax.set_ylim(bottom=0)
-                assert ax.get_yscale() == 'linear'
+                if norm_scale == 'log':
+                    assert np.all(np.asarray(values_by_key[3]) > 0)
+                    ax.set_yscale('log')
+                    span = np.log10(ax.get_ylim()[1] / ax.get_ylim()[0])
+                    ax.yaxis.set_major_locator(LogLocator(base=10,
+                        subs=(1, 2, 5) if span < 2 else (1,), numticks=4))
+                    ax.yaxis.set_major_formatter(FuncFormatter(lambda v, p: f'{v:g}'))
+                    ax.yaxis.set_minor_formatter(NullFormatter())
+                else:
+                    ax.set_ylim(bottom=0)
+                assert ax.get_yscale() == norm_scale
         axes[0, col].set_yscale('log')
         axes[0, col].yaxis.set_minor_formatter(NullFormatter())
         axes[0, col].yaxis.set_major_locator(LogLocator(base=10, subs=(1, 2, 5), numticks=4))
@@ -158,9 +172,9 @@ def main():
     assert bounds.x1 <= fig.bbox.width + 1 and bounds.y1 <= fig.bbox.height + 1
     assert len(curves) == 12 and sum(len(ax.lines) for ax in axes.flat) == 18
     assert sum(len(ax.patches) for ax in axes.flat) == 4 * sum(len(w['highlighted_events']) for w in windows)
-    fig.savefig(PDF, metadata={'CreationDate': None, 'ModDate': None})
+    fig.savefig(pdf, metadata={'CreationDate': None, 'ModDate': None})
     plt.close(fig)
-    with fitz.open(PDF) as doc:
+    with fitz.open(pdf) as doc:
         assert len(doc) == 1 and not doc[0].get_images()
         for font in doc[0].get_fonts(full=True):
             assert doc.extract_font(font[0])[3]
@@ -168,20 +182,22 @@ def main():
             assert 0 <= word[0] < word[2] <= doc[0].rect.width + .01
             assert 0 <= word[1] < word[3] <= doc[0].rect.height + .01
     record = dict(generator=Path(__file__).relative_to(ROOT).as_posix(), generator_sha256=sha(__file__),
-        sources=sources, output=PDF.relative_to(ROOT).as_posix(), output_sha256=sha(PDF),
-        dimensions_inches=[7.16, 5.6], smoothing=None,
+        sources=sources, output=pdf.relative_to(ROOT).as_posix(), output_sha256=sha(pdf),
+        dimensions_inches=[7.16, 5.6], smoothing=None, norm_scale=norm_scale,
         clock='Parameter state s; vector diagnostics use raw gradient g_(s+1).',
-        norm_reduction='Raw-gradient norm divided by its first displayed value; linear y-axis.',
+        norm_reduction=f'Raw-gradient norm divided by its first displayed value; {norm_scale} y-axis.',
         selection='Manual loss-only windows near author ranges, with context and completed recovery.',
         windows=windows, curves=curves, total_points=sum(len(c['y']) for c in curves),
         checks=dict(source_hashes=True, exact_archive_arrays=True, projected_change_identity=True,
                     event_boundaries=True, endpoints_outside_open_events=True, embedded_fonts=True,
                     vector_pdf=True, text_inside_page=True, gradient_only=True, solid_green_curves=True),
-        visual_review='See observations/011-multiple-spikes.md.')
-    MANIFEST.write_text(json.dumps(record, indent=2) + '\n', encoding='utf-8', newline='\n')
+        visual_review=f'See observations/{observation}.')
+    manifest.write_text(json.dumps(record, indent=2) + '\n', encoding='utf-8', newline='\n')
     print(f'Verified {len(curves)} unsmoothed curves / {record["total_points"]:,} points; '
           f'{sum(len(w["highlighted_events"]) for w in windows)} complete >10% excursions.')
 
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--norm-scale', choices=['linear', 'log'], default='linear')
+    main(parser.parse_args().norm_scale)
