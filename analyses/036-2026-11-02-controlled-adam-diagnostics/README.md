@@ -3,7 +3,9 @@
 New review figure (2026-11-05): [multiple-spike windows with linear relative norms](observations/011-multiple-spikes.md)
 shows MLP 465-744, ResNet 215-495 and Transformer 525-865, including the last
 large spike's recovery in each panel. The original micro-plots and manuscript
-remain unchanged; all 18 unsmoothed curves / 5,412 values pass source checks.
+remain unchanged. The simplified figure uses only raw-gradient diagnostics,
+with green curves and no gradient/momentum legend; all 12 unsmoothed curves /
+3,608 values pass source checks.
 
 The approved loss overview, spike examples, density, anatomy table and regression
 scatter are now [integrated into the manuscript](observations/010-manuscript-spike-anatomy.md).

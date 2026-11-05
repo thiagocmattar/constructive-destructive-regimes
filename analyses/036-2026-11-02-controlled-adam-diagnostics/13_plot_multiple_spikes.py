@@ -8,7 +8,6 @@ import fitz
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from matplotlib.lines import Line2D
 from matplotlib.patches import Patch
 from matplotlib.ticker import FuncFormatter, LogLocator, MaxNLocator, NullFormatter
 import numpy as np
@@ -20,7 +19,7 @@ MANIFEST = HERE / 'multiple_spikes_manifest.json'
 # Author-requested approximate ranges, adjusted using loss and recovery only.
 WINDOWS = [('mlp', .001, 465, 744), ('resnet', .003, 215, 495),
            ('transformer', .003, 525, 865)]
-BLUE, ORANGE, GREEN = '#0072B2', '#D55E00', '#009E73'
+GREEN = '#009E73'
 
 
 def read(path):
@@ -48,9 +47,9 @@ def main():
         events = list(csv.DictReader(stream))
     results, archive = read(results_path), read(archive_path)
     titles = ['CIFAR-10 / MLP', 'CIFAR-10 / ResNet-32', 'WikiText-2 / Transformer']
-    keys = ['loss', 'projected', 'raw_cosine', 'moment_cosine', 'gradient', 'momentum']
+    keys = ['loss', 'projected', 'raw_cosine', 'gradient']
     archived_rows = ['training_loss_log', 'eta_kappa_hat_raw', 'rho_raw',
-                     'rho_momentum', 'raw_gradient_norm_log', 'momentum_norm_log']
+                     'raw_gradient_norm_log']
     plt.rcParams.update({'font.family': 'Times New Roman', 'mathtext.fontset': 'stix',
         'font.size': 9, 'axes.labelsize': 9.5, 'axes.titlesize': 9,
         'xtick.labelsize': 8.5, 'ytick.labelsize': 8.5, 'axes.spines.top': False,
@@ -96,11 +95,9 @@ def main():
             [boundaries[t]['loss'] for t in states],
             [metrics[t]['projected_gradient_change'] for t in states],
             [metrics[t]['streams']['raw']['cosine'] for t in states],
-            [metrics[t]['streams']['moment']['cosine'] for t in states],
-            [metrics[t]['streams']['raw']['norm'] for t in states],
-            [metrics[t]['streams']['moment']['norm'] for t in states]]
+            [metrics[t]['streams']['raw']['norm'] for t in states]]
         np.testing.assert_array_equal(values_by_key[0], [metrics[t]['loss_before'] for t in states])
-        for key, old_row, row, values in zip(keys, archived_rows, [0, 1, 2, 2, 3, 3], values_by_key):
+        for key, old_row, row, values in zip(keys, archived_rows, range(4), values_by_key):
             values = np.asarray(values)
             old = next(c for c in archive['curves'] if c['task'] == task and c['lr'] == lr and c['row'] == old_row)
             old_states = np.asarray(old['x']) - (key != 'loss')
@@ -112,12 +109,10 @@ def main():
             divisor = float(values[0]) if row == 3 else 1.
             assert divisor > 0
             values = values / divisor
-            momentum = key in ['momentum', 'moment_cosine']
-            color = ORANGE if momentum else BLUE if key in ['gradient', 'raw_cosine'] else GREEN
-            line, = axes[row, col].plot(states, values, color=color, lw=.8,
-                                       ls='--' if momentum else '-')
+            line, = axes[row, col].plot(states, values, color=GREEN, lw=.8, ls='-')
             np.testing.assert_array_equal(line.get_xdata(), states)
             np.testing.assert_array_equal(line.get_ydata(), values)
+            assert line.get_color() == GREEN and line.get_linestyle() == '-'
             curves.append(dict(task=task, lr=lr, key=key, x=states.tolist(), y=values.tolist(),
                                normalization_divisor=divisor, yscale='log' if row == 0 else 'linear'))
         for row in range(4):
@@ -152,10 +147,8 @@ def main():
     for ax, label in zip(axes[:, 0], ['Training loss', r'$\eta\widehat\kappa_t$',
                                      r'$\rho_t$', 'Relative norm']):
         ax.set_ylabel(label)
-    legend = fig.legend(handles=[Line2D([], [], color=BLUE, label='Gradient'),
-        Line2D([], [], color=ORANGE, ls='--', label='Momentum'),
-        Patch(facecolor='.5', alpha=.12, label='Rise of >10% spike')], frameon=False,
-        fontsize=8, loc='lower center', bbox_to_anchor=(.54, .01), ncol=3, handlelength=1.5)
+    legend = fig.legend(handles=[Patch(facecolor='.5', alpha=.12, label='Rise of >10% spike')],
+        frameon=False, fontsize=8, loc='lower center', bbox_to_anchor=(.54, .01), handlelength=1.5)
     fig.subplots_adjust(left=.105, right=.975, top=.90, bottom=.145, hspace=.48, wspace=.32)
     fig.canvas.draw()
     renderer = fig.canvas.get_renderer()
@@ -163,6 +156,7 @@ def main():
     bounds = fig.get_tightbbox(renderer).transformed(fig.dpi_scale_trans)
     assert bounds.x0 >= -1 and bounds.y0 >= -1
     assert bounds.x1 <= fig.bbox.width + 1 and bounds.y1 <= fig.bbox.height + 1
+    assert len(curves) == 12 and sum(len(ax.lines) for ax in axes.flat) == 18
     assert sum(len(ax.patches) for ax in axes.flat) == 4 * sum(len(w['highlighted_events']) for w in windows)
     fig.savefig(PDF, metadata={'CreationDate': None, 'ModDate': None})
     plt.close(fig)
@@ -176,13 +170,14 @@ def main():
     record = dict(generator=Path(__file__).relative_to(ROOT).as_posix(), generator_sha256=sha(__file__),
         sources=sources, output=PDF.relative_to(ROOT).as_posix(), output_sha256=sha(PDF),
         dimensions_inches=[7.16, 5.6], smoothing=None,
-        clock='Parameter state s; vector diagnostics use g_(s+1), m_(s+1).',
-        norm_reduction='Each stream divided by its own value at the first displayed state; linear y-axis.',
+        clock='Parameter state s; vector diagnostics use raw gradient g_(s+1).',
+        norm_reduction='Raw-gradient norm divided by its first displayed value; linear y-axis.',
         selection='Manual loss-only windows near author ranges, with context and completed recovery.',
         windows=windows, curves=curves, total_points=sum(len(c['y']) for c in curves),
         checks=dict(source_hashes=True, exact_archive_arrays=True, projected_change_identity=True,
                     event_boundaries=True, endpoints_outside_open_events=True, embedded_fonts=True,
-                    vector_pdf=True, text_inside_page=True), visual_review='See observations/011-multiple-spikes.md.')
+                    vector_pdf=True, text_inside_page=True, gradient_only=True, solid_green_curves=True),
+        visual_review='See observations/011-multiple-spikes.md.')
     MANIFEST.write_text(json.dumps(record, indent=2) + '\n', encoding='utf-8', newline='\n')
     print(f'Verified {len(curves)} unsmoothed curves / {record["total_points"]:,} points; '
           f'{sum(len(w["highlighted_events"]) for w in windows)} complete >10% excursions.')

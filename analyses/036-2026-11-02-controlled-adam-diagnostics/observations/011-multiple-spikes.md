@@ -4,6 +4,10 @@ Date: 2026-11-05. Requested extension of the retained single-spike figure for
 reconsidering the Adam section. The original figure, manuscript copy, TeX and
 raw evidence are unchanged.
 
+Author's presentation revision: retain only raw-gradient diagnostics, draw
+all data curves in green and remove momentum curves and the stream legend.
+The windows, event bands and retained numerical values are unchanged.
+
 Output: [multiple-spike figure](../figures/adam_manuscript_spikes_multiple.pdf).
 Generator: [13_plot_multiple_spikes.py](../13_plot_multiple_spikes.py).
 Provenance and exact plotted arrays: [manifest](../multiple_spikes_manifest.json).
@@ -47,26 +51,27 @@ to complete fixed-reference excursions with peak increase strictly above
 
 ## Reduction and caption
 
-All 18 curves / 5,412 plotted values are unsmoothed, with every recorded state
+All 12 curves / 3,608 plotted values are unsmoothed, with every recorded state
 shown and no temporal averaging or downsampling. The four rows retain loss,
-raw-gradient projected change, consecutive raw-gradient/first-moment cosine,
-and the two relative norms. Each norm is divided by its own value at the
-first displayed state, as in the original figure. **Both norm curves now use
-a linear y-axis starting at zero.** Loss retains its logarithmic y-axis;
+raw-gradient projected change, consecutive raw-gradient cosine,
+and relative raw-gradient norm. The norm is divided by its value at the
+first displayed state, as in the original figure. **The norm curve uses
+a linear y-axis starting at zero.** All data curves are solid green;
+the only legend entry identifies the gray rise bands.
+Loss retains its logarithmic y-axis;
 projected change and cosine remain linear. Relative norm heights across
 models have different normalization denominators and are not absolute-norm
 comparisons.
 
 Suggested caption: Repeated loss excursions during full-batch Adam at the
 highest tested learning rate for each model. Rows show training loss,
-normalized projected raw-gradient change, consecutive cosines of raw gradients
-and stored first moments, and their relative norms. Blue solid and orange
-dashed curves denote gradients and first moments in the bottom two rows.
-Loss uses logarithmic axes; relative norms use linear axes and each stream
-is normalized by its own first displayed value. Gray bands span pre-rise
+normalized projected raw-gradient change, consecutive raw-gradient cosine
+and relative raw-gradient norm. All data curves are green.
+Loss uses logarithmic axes; relative gradient norms use linear axes and
+are normalized by their first displayed value. Gray bands span pre-rise
 state to loss peak for every complete >10% excursion in the window. All
 observations are unsmoothed. At parameter state s, loss is evaluated at
-theta_s and vector diagnostics use g_(s+1), m_(s+1); the horizontal coordinate
+theta_s and vector diagnostics use g_(s+1); the horizontal coordinate
 counts completed optimizer updates. Dashed horizontal references mark
 projected change two and cosine zero. One initialization per model.
 
@@ -88,7 +93,7 @@ second-order curvature, smoothness estimates or prospective spike prediction.
 ## Verification
 
 The generator verifies source SHA-256 hashes against the event dataset's
-manifest, all 18 curves against the archived unsmoothed arrays, loss equality
+manifest, all 12 curves against the archived unsmoothed arrays, loss equality
 between boundary and gradient logs, complete source clocks, the projected
 change identity, and all 19 highlighted events' peak/recovery boundaries.
 It also checks normalization, linear norm axes, exact plotted artist arrays,
@@ -105,8 +110,11 @@ source-data hashes, source-array checks and event-boundary checks pass
 independently of that documentation hash.
 An independent read-only audit also matches all 812 event boundaries across
 the nine trajectories using the legacy streaming detector, verifies every
-scientific input/output hash in the event manifest, and checks all 5,412
+scientific input/output hash in the event manifest, and checks all 3,608
 new plotted values directly against the raw logs. Only the README hash
 differs; neither the event data nor its manifest was modified.
+The simplified figure's twelve retained curves match their previous arrays
+exactly; all six momentum curves are omitted. PDF checks confirm that the
+stream legend labels are absent.
 
 No new run, analysis ID, hypothesis, cloud resource or billable execution.
