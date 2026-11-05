@@ -1,77 +1,127 @@
-\section{Empirical Characterization of Constructive and Destructive Regimes}
+% Evidence: Analysis024; Analysis035; Analysis056/observations/001-paired-displacement.md.
+\section{Gradient Reversal and Progress in GD and SGD}
 \label{sec:gd-experiments}
 
-We test how constructive and destructive regimes emerge during training,
-how the gradient-based curvature estimate relates to their onset, and
-how repeated reversal shapes accumulated parameter change. Full-batch
-GD isolates these dynamics from sampling noise. We then vary batch size
-to examine how stochasticity changes the observed alignment.
+Full-batch GD can continue reducing the training objective while successive
+gradients become nearly antiparallel. In each of the three controlled
+learning-rate sweeps below, the largest tested rate reaches the lowest
+training loss after 3,000 updates, although net displacement is only
+2.6--5.4\% of path length. We ask how much motion survives adjacent
+reversals, how that motion accumulates, and how it accompanies loss
+reduction. We then examine the alignment observed during SGD.
 
-The comparison uses a tanh MLP on 5,000 CIFAR-10 images, ResNet-32 on all
-50,000 CIFAR-10 training images, and a word-level Transformer on WikiText-2.
-Each minimizes its fixed training objective for 3,000 updates.
-The constant learning rates are $\{0.004,0.02,0.04\}$ for the MLP,
-$\{0.025,0.05,0.1\}$ for ResNet, and $\{0.05,0.1,0.2\}$ for the Transformer.
-Within each model, all rates share one frozen initialization and data
-preparation.
-Appendix~\ref{appendix:gd-raw-alignment} specifies the objectives and
-measurement conventions.
+Oscillatory descent at the edge of stability is established by
+Cohen et al.~\cite{cohen2021edge}, with self-stabilization analyzed by
+Damian et al.~\cite{damian2023self}. Singh et al.~\cite{singh2025directionality}
+study directionality at the trajectory and individual-update scales.
+Our measurements quantify the distinction between local reversal,
+cumulative interaction and objective progress using the training gradients.
 
-Figure~\ref{fig:gd-loss} shows a clear separation between smooth and
-oscillatory convergence. The lowest MLP and Transformer rates produce
-smooth loss curves and $\eta\widehat\kappa_t$ near zero. At higher rates,
-the loss develops fluctuations while its longer-term trend continues
-downward; the estimated scaled curvature approaches two. ResNet enters
-this regime at every tested rate, with earlier transitions at larger
-learning rates.
+\paragraph{Controlled design.}
+We train a tanh MLP on 5,000 CIFAR-10 images, ResNet-32 on all 50,000
+CIFAR-10 training images, and a word-level Transformer on WikiText-2.
+Each minimizes its fixed objective for 3,000 full-batch updates.
+Constant learning rates are $\{0.004,0.02,0.04\}$ for the MLP,
+$\{0.025,0.05,0.1\}$ for ResNet and $\{0.05,0.1,0.2\}$ for the Transformer.
+Within each model, the rates share one frozen initialization and data
+preparation. The comparison is conditional on that initialization;
+the later batch-size study uses three initialization blocks.
+Appendix~\ref{appendix:gd-raw-alignment} specifies the fixed objectives,
+parameter scope and numerical conventions.
 
-The retained Hessian measurements place these signatures in their
-spectral context. As sharpness grows, the trajectories develop the
-oscillations associated with EoS, while the inexpensive gradient
-diagnostic identifies the curvature response along the direction
-actually followed. In the oscillatory regime, $\eta\widehat\kappa_t$
-remains close to the local loss-change boundary even when
-$\eta\lambda_{\max}$ is larger. The distinction is expected: directional
-curvature depends on the gradient's orientation, whereas the leading
-eigenvalue describes the sharpest direction. ResNet and Transformer
-spectra additionally use fixed subsets of their training objectives.
-The comparison therefore supports monitoring the realized curvature
-response throughout training, with no additional Hessian computation.
+\subsection{The Onset of Sustained Gradient Reversal}
 
-\subsection{Destructive Regimes and Displacement Retention}
+Figures~\ref{fig:gd-loss} and~\ref{fig:gd-alignment-displacement} show the
+transition from positively aligned updates to oscillatory loss reduction.
+The lowest MLP and Transformer rates give smooth loss curves, positive
+consecutive cosine and $\eta\widehat\kappa_t$ near zero. The other seven
+conditions develop nearly opposing consecutive gradients while the loss
+continues to decrease over longer timescales. ResNet exhibits reversal
+at every tested rate, with an earlier transition at larger rates.
+The highest-rate MLP also has a brief initial reversal before its later
+sustained negative phase.
 
-The loss oscillations coincide with a transition to a destructive
-regime in Fig.~\ref{fig:gd-alignment-displacement}. The lowest MLP and
-Transformer rates retain positive cosine, while the other seven
-conditions develop nearly opposing consecutive gradients. In the MLP
-and ResNet, this transition also accompanies growing gradient norms:
-larger steps increasingly reverse preceding parameter changes. The
-joint behavior directly exposes the magnitude and directional factors
-in Eq.~\eqref{eq:loss-rise-alignment}.
+The secant statistic expresses this geometry in curvature terms.
+By Eq.~\eqref{eq:kappa-estimate}, nearly opposite gradients with similar
+norms necessarily give $\eta\widehat\kappa_t$ near two. Over the last
+1,000 observations in the seven reversing conditions, mean adjacent
+norm ratios range from approximately 1.000 to 1.003 and mean scaled secants from
+1.97 and 1.99. These are linked descriptions of the measured gradients,
+not independent confirmation of a mechanism. One marks the exact sign
+change of consecutive alignment; two is the quadratic-model loss-change
+threshold. The displayed 50-pair trailing means summarize regimes,
+whereas those thresholds apply to the unsmoothed stepwise quantities.
 
-Normalized displacement then declines strongly. The larger steps
-accumulate path length faster than net parameter change, so $R_t$
-falls even as training continues to reduce the loss. At the highest
-rates, the retained fraction after 3,000 updates is approximately
-2.6\% for the MLP, 3.7\% for ResNet, and 5.4\% for the Transformer.
-Nevertheless, each highest-rate condition reaches its model's lowest
-final training loss. Destructive regimes therefore sustain convergence
-despite extensive local reversal. The risk of an upward loss excursion
-depends on how strongly gradient growth amplifies that reversal.
+The Hessian checkpoints provide spectral context. They measure maximal
+rather than gradient-direction curvature, at a parameter state rather
+than averaged along an update under the smooth full-GD interpretation.
+For ResNet and Transformer they also use fixed subset objectives.
+These three differences prevent attributing the numerical gap solely
+to gradient orientation or using it as an independent estimator-fidelity
+test. The secant statistic remains available at every update without
+additional gradient evaluations or Hessian-vector products.
 
-\subsection{Oscillation across Temporal Lags}
+\subsection{Local Reversal Coexists with Substantial Loss Reduction}
 
-We next ask whether destructive alignment reflects an isolated pair
-of updates or a recurring temporal structure. Figure~\ref{fig:gd-backward}
-fixes the gradient after 2,256 updates and compares it with the preceding
-256 gradients, using the highest rate for each model. The first lags
-alternate between strongly negative odd-lag and strongly positive
-even-lag alignment. This is direct evidence of repeated back-and-forth
-motion: a gradient can oppose its immediate predecessor while reinforcing
-the direction from two steps earlier.
+In Fig.~\ref{fig:gd-alignment-displacement}, reversal accompanies growing
+gradient norms for the MLP and ResNet. These larger opposing steps
+accumulate path length faster than displacement from initialization.
+At the highest tested rates, $R_{3000}$ is 2.6\%, 3.7\% and 5.4\% for
+the MLP, ResNet and Transformer, respectively. Yet their final training
+losses, 0.1539, 0.4898 and 6.0697, are the lowest within their respective
+sweeps. Persistent local reversal therefore coexists with substantial
+training-loss reduction; its sign alone does not establish a causal
+benefit or an asymptotic convergence result.
 
-The early oscillation envelope contracts, rapidly for the MLP and ResNet
-and more slowly for the Transformer. Across the full window, alignment
-can strengthen again, so the envelope is not monotone. These recurrences
-explain how local destructive interference coexists with reinforcement
-over longer lags and why net progress survives repeated reversals.
+The zero-cross-term reference makes these small path ratios interpretable.
+At the highest rates, $R_{3000}^{\perp}$ is 1.99\%, 2.02\% and 1.84\%,
+respectively. The measured ratios exceed these references, giving
+$Q_{3000}=1.66$, $3.43$ and $8.67$. Indeed, $Q_{3000}>1$ in all nine
+conditions: total interaction across all pairs is positive even though
+cumulative adjacent interaction is negative in the seven reversing runs.
+Here ``destructive'' identifies opposing local displacements; a small
+$R_T$ measures path geometry, not lost learning or wasted computation.
+
+Pairing the updates locates this cancellation more precisely.
+At the highest rates, $C_{3000}$ is 0.114, 0.156 and 0.086, while
+$D_{3000}$ is 0.225, 0.240 and 0.630. Thus adjacent pairing removes
+most of the original path length. The smaller residual displacements
+accumulate more coherently in the Transformer than in the other two
+cases, where substantial further turning remains. Shifting the pairing
+by one update, with boundary singletons retained, changes each factor
+for these three runs by less than 0.004 in absolute value
+(Table~\ref{tab:gd-paired-endpoints}).
+
+This geometric accounting does not imply descent after every pair.
+Over states 2000--3000, the full-objective loss decreases by 0.0644,
+0.3048 and 0.1867, respectively, yet only 49.2\%, 49.6\% and 77.2\%
+of the 500 nonoverlapping two-update changes are negative.
+The alternate offset gives 50.9\%, 48.9\% and 74.9\% over 499 interior
+pairs, with a negative total change in each case.
+Figure~\ref{fig:gd-two-step-loss} retains both offsets' unsmoothed changes.
+The residual motion accompanies net objective reduction across the
+window without guaranteeing the sign of each local loss change.
+
+\subsection{Reversal Has Structure across Temporal Lags}
+
+Figure~\ref{fig:gd-backward} fixes the gradient after 2,256 updates and
+compares it with the preceding 256 gradients, using the largest rate
+for each model. The shortest lags alternate between negative odd-lag
+and positive even-lag alignment. The envelope contracts more rapidly
+for the MLP and ResNet than for the Transformer, and can strengthen
+again at longer lags.
+
+The same analysis at endpoint states 756 and 3256 gives negative
+odd-lag and positive even-lag means over lags 1--32 in all nine
+model--endpoint combinations. For the Transformer, every one of these
+32 lags has the corresponding sign at all three endpoints. The MLP
+and ResNet have sign exceptions within that range as their envelopes
+contract or change phase. These are three sampled endpoints in
+separately recomputed continuations from saved states, not exhaustive
+temporal coverage or exact replays of the earlier trajectories.
+
+Lag correlations establish recurring organization. Alternation alone
+cannot establish net motion: the sequence $v,-v,v,-v,\ldots$ has the
+same ideal odd--even pattern but zero displacement after each pair.
+The paired factors above supply the missing magnitude accounting,
+while loss measurements establish objective reduction separately.

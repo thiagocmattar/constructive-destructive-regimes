@@ -2,6 +2,14 @@
 
 ## Current state
 
+[Analysis056: GD paired displacement](../analyses/056-2026-11-05-gd-paired-displacement/observations/001-paired-displacement.md)
+completes the author-requested GD/SGD manuscript revision from retained evidence.
+All nine runs have positive all-pair interaction despite seven with negative
+adjacent interaction; paired factors locate cancellation without implying local
+descent. Both offsets, nine lag endpoints and 546 SGD paths are checked.
+Four new PDFs and the 16-page manuscript pass numerical and visual review.
+No training or cloud cost. Next analysis: 057; no run or hypothesis allocated.
+
 [Analysis055: Adam directional amplification](../analyses/055-2026-11-05-adam-directional-amplification/FINDINGS.md)
 completes the nine-arm descriptive comparison and five reviewed PDFs.
 Reversal has higher local matched future-rise frequency in six arms, with

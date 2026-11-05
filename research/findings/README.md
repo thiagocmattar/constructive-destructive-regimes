@@ -1,5 +1,16 @@
 # Consolidated findings
 
+[Analysis056: paired GD displacement](../../analyses/056-2026-11-05-gd-paired-displacement/observations/001-paired-displacement.md)
+separates adjacent cancellation from accumulation of the remaining motion in
+nine existing 3,000-update GD runs. At the highest tested rates, C/D are
+0.114/0.225 (MLP), 0.156/0.240 (ResNet), and 0.086/0.630 (Transformer).
+All nine Q>1, even though seven cumulative adjacent interactions are negative.
+Every highest-rate final loss is best within its three-rate sweep, while only
+49.2%, 49.6% and 77.2% of late two-update changes decrease loss. Pair-offset
+sensitivity and source checks pass. One initialization per GD model; these are
+geometric/descriptive findings, not causal benefit or convergence guarantees.
+The 16-page manuscript and four new publication figures are verified.
+
 [Analysis043: fixed-step Spark interventions](../../analyses/043-2026-11-03-spark-fixed-step-interventions/FINDINGS.md)
 completes 36 matched 64-update branches from exact warm state 1024 at the three
 highest tested Adam rates. LR reductions lower MLP mean training loss about

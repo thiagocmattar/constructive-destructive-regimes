@@ -1,0 +1,160 @@
+% Proposed revision of the supplied experimental section.
+% Keep the existing figure and section labels when integrating this file.
+% Add gd-sgd-references.bib to the manuscript bibliography, or map the three
+% citation keys below to entries already present in the main bibliography.
+% AUTHOR CHECK: The supplied files contain the batch-size protocol but no
+% results paragraph or underlying plot/data. The final subsection therefore
+% describes the verified design and its interpretation without inventing a
+% model-specific trend. Insert the observed results at the marked location.
+
+\section{Gradient Reversal and Progress in GD and SGD}
+\label{sec:gd-experiments}
+
+Full-batch GD can continue reducing the training objective while successive
+gradients become nearly antiparallel. In the three controlled problems
+examined here, the largest tested learning rate achieves the lowest final
+training loss within its model's sweep, although net displacement is only
+2.6--5.4\% of the traveled parameter distance. We examine this coexistence
+through consecutive alignment, directional curvature, cumulative motion,
+and correlations across temporal lags. We then study how batch size changes
+the alignment observed during SGD continuations.
+
+Oscillatory descent at the edge of stability is established in prior
+work~\cite{cohen2021edge,damian2023selfstabilization}; optimization trajectories
+have also been studied through their directionality at different
+timescales~\cite{singh2025directionality}. Our experiments connect the
+gradient geometry of these oscillations to the distinction between local
+reversal, accumulated parameter displacement, and training-loss reduction.
+
+\paragraph{Controlled design.}
+We train a tanh MLP on 5,000 CIFAR-10 images, ResNet-32 on all 50,000
+CIFAR-10 training images, and a word-level Transformer on WikiText-2.
+Each model minimizes its fixed training objective for 3,000 full-batch
+updates. The constant learning rates are $\{0.004,0.02,0.04\}$ for the MLP,
+$\{0.025,0.05,0.1\}$ for ResNet, and $\{0.05,0.1,0.2\}$ for the Transformer.
+Within each model, the three rates share one frozen initialization and
+data preparation. These comparisons isolate the effect of learning rate
+within each controlled run; the batch-size study below uses three
+initialization blocks. Appendix~\ref{appendix:gd-raw-alignment} specifies
+the objectives and measurement conventions.
+
+\subsection{The Onset of Sustained Gradient Reversal}
+
+Figures~\ref{fig:gd-loss} and~\ref{fig:gd-alignment-displacement} show the
+transition from positively aligned updates to oscillatory training.
+The lowest MLP and Transformer rates produce smooth loss curves,
+positive consecutive cosine, and $\eta\widehat\kappa_t$ near zero.
+The other seven conditions develop nearly opposing consecutive gradients
+while the loss continues to decrease over longer timescales.
+ResNet exhibits this behavior at every tested rate, with an earlier
+transition at larger learning rates.
+
+The directional secant statistic expresses the same transition in
+curvature terms. By Eq.~\eqref{eq:kappa-estimate}, nearly opposite gradients
+with comparable consecutive norms give $\eta\widehat\kappa_t$ near two.
+Alignment, adjacent norm ratio, and secant curvature therefore provide
+linked descriptions of the observed geometry. In smooth full-batch GD,
+the statistic measures directional curvature averaged along the preceding
+step. One marks the sign change of consecutive alignment, and two is the
+loss-change threshold in the quadratic approximation. The displayed
+trailing means summarize regimes; the threshold interpretation applies
+to the unsmoothed stepwise quantities.
+
+The Hessian checkpoints in Fig.~\ref{fig:gd-loss} provide spectral context.
+Their interpretation differs from that of the secant statistic in three
+respects: they measure maximal rather than gradient-direction curvature,
+they are pointwise rather than averaged along an update, and the ResNet
+and Transformer measurements use fixed subset objectives. These differences
+must be considered jointly when comparing the curves. The full-batch
+gradient statistic remains available throughout each trajectory without
+additional gradient evaluations or Hessian-vector products.
+
+\subsection{Local Reversal Coexists with Substantial Loss Reduction}
+
+Figure~\ref{fig:gd-alignment-displacement} relates consecutive reversal
+to accumulated motion. In the MLP and ResNet, the transition is accompanied
+by increasing gradient norms. Larger steps then contribute substantial
+path length while opposing a component of the preceding update.
+The normalized displacement $R_t$ decreases as traveled distance grows
+faster than displacement from initialization.
+
+After 3,000 updates at the highest tested rate, net displacement is
+approximately 2.6\% of path length for the MLP, 3.7\% for ResNet, and
+5.4\% for the Transformer. Yet each of these runs has the lowest final
+training loss among its model's three tested rates. Thus, pronounced
+local reversal and a small displacement-to-path-length ratio coexist
+with substantial objective reduction in these experiments.
+
+Here, ``destructive'' describes opposing parameter displacements.
+The ratio $R_t$ measures the geometry of the traveled path; it does not
+measure the fraction of learning retained. A small ratio can also arise
+from changes in direction without opposing steps, so the evidence for
+local reversal comes from the consecutive cosines. Likewise, the sign
+of consecutive alignment alone does not determine the sum of interactions
+across all temporal lags in Eq.~\eqref{eq:magnitude-interaction}.
+
+\subsection{Reversal Has Structure across Temporal Lags}
+
+We next examine whether negative consecutive alignment is part of a
+recurring temporal pattern. Figure~\ref{fig:gd-backward} fixes the gradient
+after 2,256 updates and compares it with the preceding 256 gradients,
+using the highest rate for each model. The short lags alternate between
+strongly negative odd-lag and strongly positive even-lag alignment.
+The early envelope contracts more rapidly for the MLP and ResNet than
+for the Transformer. Alignment can strengthen again at longer lags,
+so the envelope is not monotone over the full window.
+
+These measurements identify structured alternation at the selected
+endpoint in each run. To relate this structure to displacement, note
+that the exact motion over two consecutive updates is
+\begin{equation}
+  \theta_t-\theta_{t-2}=-\eta(g_{t-1}+g_t).
+  \label{eq:gd-two-step-displacement}
+\end{equation}
+Opposing components cancel within this sum, while the remaining
+component determines the two-step displacement. Its magnitude depends
+on both alignment and the two gradient norms. The lag correlations
+establish recurring reversal; the loss measurements separately
+establish that the trajectory continues reducing the objective.
+% AUTHOR: A paired-displacement analysis of the existing raw logs can
+% quantify what survives each reversal and how those displacements add up.
+% Do not insert its conclusion until the calculation has been performed.
+
+\subsection{Observed Alignment under Mini-Batch Sampling}
+\label{sec:sgd-noise-experiments}
+
+The preceding full-batch runs isolate gradient geometry from sampling
+noise. Figure~\ref{fig:sgd-moving-geometry} examines how the observed
+alignment changes in 200-update continuations at different batch sizes,
+started either at initialization or after 2,000 full-batch GD updates.
+Each continuation contributes 199 adjacent sampled-gradient pairs.
+Repetitions are averaged within each initialization, then the three
+initialization blocks receive equal weight; shading shows their range.
+The full-batch continuations provide a deterministic reference.
+
+% AUTHOR: Specify the learning rate(s) used for these continuations, the
+% learning rate used to produce each 2,000-update checkpoint, and the
+% number of repetitions within each initialization. Neither supplied file
+% provides these details. Do not infer them from the lag experiment.
+% AUTHOR: Insert the model-specific result here, verified from the actual
+% figure or data: describe which signs persist at large batch sizes,
+% whether smaller batches move either sign toward zero, and any exception.
+% Report seed variation when it changes the conclusion. Do not state that
+% noise alone causes the observed trend in these moving trajectories.
+
+The sampling unit is held consistent with the defined objective.
+ResNet mini-batches contain whole fixed 1,000-image normalization groups;
+Transformer batch sizes count prepared sequences. This distinction
+matters when relating batch size to gradient sampling variance.
+
+These continuations measure sampled-gradient alignment along evolving
+trajectories. Changing batch size affects both the observed gradients
+and the subsequent parameter states. Accordingly, a change in sampled
+cosine can reflect a change in the visibility of the full-gradient
+geometry, a change in the geometry itself, or both. This is the distinction
+motivated by the noise decomposition in
+Section~\ref{subsec:sampling-noise}; the present continuations characterize
+the combined effect during SGD.
+% AUTHOR: A complementary control can independently resample gradients
+% at two frozen endpoints with known positive or negative full-gradient
+% alignment. This holds the geometry fixed while testing sampling effects.

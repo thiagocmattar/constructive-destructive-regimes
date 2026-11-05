@@ -162,3 +162,13 @@ an analysis may use manuscript or external inputs without referencing a run.
 ## Analysis055: Adam directional amplification (2026-11-05)
 
 [Analysis055](055-2026-11-05-adam-directional-amplification/README.md) organizes the argument, evidence map and deferred work, and completes the nine-arm descriptive test. Five reviewed vector PDFs cover full trajectories, joint geometry and fixed context matching. Six primary arms favor reversal and three tie at zero, with sparse/limited support; low-rate controls reject a universal alarm. All 9,216 states, 812 events, 4,534 old labels and 46,098 plotted points pass checks. No classifier, new training, cloud work or manuscript edit. See [findings](055-2026-11-05-adam-directional-amplification/FINDINGS.md).
+
+## Analysis056: GD paired displacement and manuscript revision
+
+[Analysis056](056-2026-11-05-gd-paired-displacement/README.md) reanalyzes all nine
+Analysis024 runs, nine Analysis035 backward profiles and 546 Analysis037/027
+SGD continuations. C/D and the observed-length zero-cross-term reference
+separate immediate cancellation, cumulative interaction and objective progress.
+Both pairing offsets and two-update losses pass independent checks. Four new
+vector PDFs and the revised 16-page paper are reviewed; no training/cloud work.
+Next analysis: 057. No new hypothesis or run.

@@ -49,6 +49,63 @@ batch and runtime remain confounded in this block.
 The backward-lag curves also use separate continuations, whose later
 floating-point paths can differ from the original GD trajectories.
 
+\subsection{Pairing, Boundary Treatment and Loss Changes}
+\label{appendix:gd-pairing}
+
+The primary partition uses $(g_1,g_2),\ldots,(g_{2999},g_{3000})$.
+The alternate partition pairs $(g_2,g_3),\ldots,(g_{2998},g_{2999})$
+and retains $g_1$ and $g_{3000}$ as singleton segments. Thus both
+partitions cover the same full path and have the same total displacement.
+Primed factors in Table~\ref{tab:gd-paired-endpoints} use the alternate
+segment-length sum in Eq.~\eqref{eq:paired-displacement}.
+No displacement norm for a cropped window is inferred by subtracting
+prefix norms. Pair norms use unsmoothed statistics, evaluated as
+$(a-b)^2+2ab(1+\rho)$ before the square root to reduce cancellation
+error when $\rho$ is close to $-1$.
+
+The algebra refers to $-\eta\sum_t g_t$; actual FP32 parameter
+updates include rounding. At update 3000 the recorded displacement
+norms agree with $\eta\|\sum_tg_t\|$ to relative error below
+$9.6\times10^{-8}$ across all nine runs.
+The table reports deterministic reductions of one initialization,
+without a sampling uncertainty estimate.
+
+\begin{table*}[!t]
+ \centering
+ \caption{Pairing-offset sensitivity and cumulative-interaction references
+ at $T=3000$. Primed factors retain boundary singletons after shifting
+ the pairing. $R_T=C_TD_T=C_T^{\prime}D_T^{\prime}$, up to rounding.
+ All nine $Q_T>1$, including the seven conditions with negative
+ cumulative adjacent interaction.}
+ \label{tab:gd-paired-endpoints}
+ \small
+ \input{tables/analysis056_pairs}
+\end{table*}
+
+For loss changes, the primary pairs telescope exactly over states
+2000--3000. Alternate interior pairs cover states 2001--2999;
+their 499 changes exclude the two boundary updates.
+Figure~\ref{fig:gd-two-step-loss} shows every change at the largest rate
+per model. Counts in the main text use strict signs. Discarding changes
+no larger than $10^{-6}$ times the larger endpoint loss leaves all
+primary late-window counts unchanged. It removes two near-zero
+alternate-offset Transformer changes; the other late-window counts
+are unchanged. These dependent observations describe the selected
+trajectories and are not independent replication units.
+
+\begin{figure*}[!t]
+ \centering
+ \includegraphics[width=\textwidth]{figures/analysis056/gd_two_step_loss_changes.pdf}
+ \caption{\textbf{Pairing does not ensure local descent.}
+ Every unsmoothed two-update full-training-loss change in the last
+ 1,000 updates at the highest rate per model. Offset 0 contains 500
+ pairs over states 2000--3000; offset 1 contains 499 interior pairs
+ over states 2001--2999. The horizontal line is zero. Separate vertical
+ scales preserve each model's variation. Each window has negative
+ total change despite positive individual changes.}
+ \label{fig:gd-two-step-loss}
+\end{figure*}
+
 \subsection{Adam Event Summaries}
 \label{appendix:adam-measurements}
 

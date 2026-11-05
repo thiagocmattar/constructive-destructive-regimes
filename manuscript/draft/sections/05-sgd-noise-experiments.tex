@@ -1,38 +1,53 @@
-\subsection{Mini-Batch Attenuation of Directional Alignment}
+% Evidence: Analysis037 and Analysis056's independent block aggregation.
+\subsection{Observed Alignment under Mini-Batch Sampling}
 \label{sec:sgd-noise-experiments}
 
-To test the effect of sampling, we vary batch size at initialization
-and after 2,000 GD updates in the same three model--dataset cases.
-Learning rates remain fixed at $0.02$, $0.1$, and $0.2$ for the MLP,
-ResNet, and Transformer, respectively. Each starting state receives
-200-update continuations, with three initializations, eight sampling
-repetitions per stochastic condition, and one full-GD control per
-initialization. Figure~\ref{fig:sgd-moving-geometry} summarizes mean
-consecutive-gradient cosine over these continuations. Sampling units
-and objective coverage are specified in
-Appendix~\ref{appendix:gd-raw-alignment}; equal update budgets imply
-different amounts of data exposure.
+Figure~\ref{fig:sgd-moving-geometry} compares 200-update continuations
+from initialization and from states reached after 2,000 full-GD updates.
+Both the reference trajectories and their continuations use constant
+learning rates 0.02, 0.1 and 0.2 for the MLP, ResNet and Transformer,
+respectively. Each stochastic condition has eight sampling repetitions
+in each of three initialization blocks; full GD has one continuation
+per block. We average the 199 adjacent cosines within a continuation,
+then repetitions within a block, then the three blocks equally.
+Shading shows the block range, not a confidence interval.
 
-From the trained states, the smallest batches move the strongly
-negative full-GD alignment toward zero in all three cases. This
-attenuation is consistent with sampling weakening the coherent
-back-and-forth motion of the destructive regime. The response need
-not be monotone across intermediate batch sizes: sampling changes
-both the measured gradient and the trajectory itself.
+From the trained states, full-GD mean cosines are $-0.991$, $-0.967$
+and $-0.993$. The smallest tested batches move them toward zero, to
+$-0.384$, $-0.612$ and $-0.258$, respectively. This ordering holds
+in every initialization block. From initialization, full GD is
+positively aligned for the MLP and ResNet (0.994 and 0.999), whereas
+the Transformer already develops reversal within the 200-update
+window, giving a mean of $-0.827$. The smallest ResNet batch reduces
+the positive mean to 0.418; the smallest Transformer batch gives
+$-0.259$. MLP batches of 32--512 instead change the mean sign to
+negative in all three blocks, with a nonmonotone response across
+these smaller batches. Batch size therefore changes the observed
+signature differently across starting states and models.
 
-The initial-state comparison makes this dependence on the trajectory
-visible. Full GD has positive mean cosine in the MLP and ResNet,
-but negative mean cosine in the Transformer, where reversal develops
-within the 200-update window. Smaller MLP batches can also induce
-negative mean alignment despite a positive full-GD mean. Thus the
-batch size influences which regime training reaches as well as the
-coherence within that regime.
+Each update draws a fresh uniform subset without replacement,
+independently across updates. Within a repetition, batch sizes share
+prefixes of the same random permutation. MLP batches count images;
+ResNet samples whole fixed 1,000-image normalization groups; Transformer
+batches count prepared sequences. Thus $N=50$ and $b$ is the number
+of groups for ResNet in Eq.~\eqref{eq:finite-population-noise}, although
+the figure labels image counts. Appendix~\ref{appendix:gd-raw-alignment}
+specifies the Transformer token weighting and runtime qualification.
+Equal update budgets imply unequal data exposure.
 
-Directional attenuation alone does not determine objective progress.
-For the Transformer at $b=8$, mean cosine is near $-0.26$ from both
-starting states, yet mean full-data loss falls
-from initialization and rises from the trained state. Together with
-the full-batch results, this motivates reading alignment alongside
-gradient magnitude and loss: the same directional regime can support
-descent or an upward excursion depending on the gradient's growth
-and the state being traversed.
+These are moving trajectories. Changing batch size affects both the
+sampled gradients and the subsequent parameter states, so weaker
+sampled cosine does not establish weaker underlying full-gradient
+reversal. A control that independently samples at two frozen endpoints
+with known full-gradient alignment would isolate measurement attenuation;
+the present experiment measures the combined sampling and trajectory
+effects. The same-state approximation in
+Eq.~\eqref{eq:noise-cosine-approx} cannot supply a negative-alignment
+reference for that control.
+
+Observed alignment also does not order objective progress. For the
+Transformer at $b=8$, mean cosine is about $-0.26$ from both starts,
+but the mean full-training-loss change is $-3.505$ from initialization
+and $+0.064$ from the trained state. Together with the GD results,
+this separates a local directional signature from cumulative motion
+and objective reduction.

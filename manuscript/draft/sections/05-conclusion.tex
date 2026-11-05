@@ -6,10 +6,7 @@ their local directional interaction and their cumulative accumulation. For
 plain SGD, the exact decomposition retains all temporal lags, while consecutive
 cosine provides a tractable local observation. The curvature and sampling
 relations clarify how that observation can change without determining either
-cumulative displacement or loss improvement. The full-batch and mini-batch
-experiments illustrate these distinctions: gradient reversal can coexist with
-objective progress, and weaker reversal need not improve displacement retention
-or the attained loss.
+cumulative displacement or loss improvement. The full-batch experiments show negative consecutive interaction alongside positive total interaction across all pairs. Pairing adjacent updates identifies substantial immediate cancellation, followed by model-dependent accumulation of the residual motion. Neither factor guarantees a local loss decrease. The mini-batch continuations further show that observed alignment changes with both sampling and the evolving trajectory; weaker reversal alone does not order the attained loss.
 
 Under Adam, raw-gradient diagnostics remain informative about the loss
 landscape traversed by adaptive steps. Controlled full-batch experiments

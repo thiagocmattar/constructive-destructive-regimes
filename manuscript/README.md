@@ -1,5 +1,17 @@
 # Manuscript workspace
 
+## Current GD/SGD revision, 5 November 2026
+
+[Author-input revision](draft/revisions/2026-11-05-human-input/README.md)
+reorganizes Section IV around reversal, paired displacement and loss reduction.
+Analysis056 adds C/D, the zero-cross-term reference, three-endpoint lag coverage
+and exact two-update loss changes from retained evidence. Model-specific SGD
+results distinguish sampling from changing trajectories. Selected abstract,
+introduction, methods and conclusion passages now agree with those findings.
+The current 16-page PDF passes numerical/source checks and full-page visual
+review, with ten figures, two tables and no unresolved references/overfull boxes.
+No new training or cloud cost; supplied proposals and prior figures preserved.
+
 ## Active research program
 
 The [temporal geometry and intervention program](2026-11-03-research-program/README.md)
@@ -16,7 +28,7 @@ current argument to evidence, advisor discussion and simulated reviews. Its
 existing-data checks, optional interventions and the submission stopping rule.
 This planning record does not change the current draft or authorize training.
 
-Latest revision (2026-11-03, author's next 30 annotations):
+Earlier revision (2026-11-03, author's next 30 annotations):
 [original argument / feedback / feedback](draft/revisions/2026-11-03-original-argument-feedback-feedback/README.md).
 The 13-page paper deletes passages marked remove, simplifies the equations and
 section structure, clarifies raw-gradient diagnostics under Adam, and adds a

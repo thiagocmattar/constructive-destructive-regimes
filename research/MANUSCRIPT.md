@@ -1,5 +1,21 @@
 # Manuscript and evidence
 
+## GD/SGD author-input revision, 2026-11-05
+
+The [current revision](../manuscript/draft/revisions/2026-11-05-human-input/README.md)
+implements the supplied argument structure and retained-data analyses.
+[Analysis056](../analyses/056-2026-11-05-gd-paired-displacement/observations/001-paired-displacement.md)
+quantifies adjacent cancellation versus residual accumulation, adds R_perp/Q,
+checks both pair offsets and two-update losses, and summarizes all nine existing
+GD backward profiles. All nine trajectories have positive all-pair interaction;
+seven have negative adjacent interaction. The SGD subsection reports verified
+model-specific trends and the combined sampling/trajectory scope. The abstract,
+introduction, methods and conclusion receive coordinated corrections.
+The 16-page current PDF and review copy are identical, visually reviewed and
+free of unresolved references and overfull boxes. Source hashes, 26,991 pair
+norms, 546 SGD continuations and plotted values pass checks. No new training,
+cloud spending, hypothesis or modification of prior experimental evidence.
+
 ## Second author-feedback pass, 2026-11-03
 
 The [current revision](../manuscript/draft/revisions/2026-11-03-original-argument-feedback-feedback/README.md)
