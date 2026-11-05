@@ -1,0 +1,18 @@
+{
+  "parent": "runs/223-2026-11-04-multispike-interventions",
+  "case": "resnet",
+  "seed": 0,
+  "start": 256,
+  "end": 576,
+  "lr": 0.003,
+  "cap": 1.0,
+  "max_seconds": 21600,
+  "treatment": {
+    "id": "global_clip1",
+    "kind": "clip",
+    "factor": 1.0
+  },
+  "control": "Reuse 4090 only on exact fork gradient and two-update replay. Otherwise run a fresh matched Spark control.",
+  "analysis": "054",
+  "hypothesis": "H038"
+}

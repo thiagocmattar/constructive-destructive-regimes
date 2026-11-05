@@ -1,0 +1,77 @@
+{
+  "status": "completed_verified",
+  "manifest": {
+    "status": "completed",
+    "started_utc": "2026-11-05T09:29:30.987293+00:00",
+    "results": {
+      "clipping": {
+        "status": "completed",
+        "case": "resnet",
+        "arm": "global_clip1",
+        "start_state": 256,
+        "end_state": 576,
+        "started_utc": "2026-11-05T09:31:35.681444+00:00",
+        "identity": {
+          "run": "231",
+          "parent_sha256": "b1a3b910fb1e3b570f68261f5a4db920ff53aaf161560fd267d0498df96d3cb1",
+          "config_sha256": "ef2eeb018a35c6bf19810e18d1ea05cc75ff4e459be58f910cbeeb94045a858e",
+          "manifest_sha256": "b0292b63909e438ccbfa43829232351423ca08d682359b8fcc2a645e798218ce"
+        },
+        "evaluation": {
+          "test": {
+            "loss": 1.584899890136719,
+            "loss_units": 10000,
+            "objective_units": 10
+          }
+        },
+        "completed_state": 576,
+        "updates": 320,
+        "elapsed_seconds": 4850.225685496815,
+        "finished_utc": "2026-11-05T10:52:25.907129+00:00"
+      },
+      "control": {
+        "status": "completed",
+        "case": "resnet",
+        "arm": "unchanged",
+        "start_state": 256,
+        "end_state": 576,
+        "started_utc": "2026-11-05T10:52:25.924764+00:00",
+        "identity": {
+          "run": "231",
+          "parent_sha256": "b1a3b910fb1e3b570f68261f5a4db920ff53aaf161560fd267d0498df96d3cb1",
+          "config_sha256": "ef2eeb018a35c6bf19810e18d1ea05cc75ff4e459be58f910cbeeb94045a858e",
+          "manifest_sha256": "b0292b63909e438ccbfa43829232351423ca08d682359b8fcc2a645e798218ce"
+        },
+        "evaluation": {
+          "test": {
+            "loss": 1.4631024658203122,
+            "loss_units": 10000,
+            "objective_units": 10
+          }
+        },
+        "completed_state": 576,
+        "updates": 320,
+        "elapsed_seconds": 4849.479674975853,
+        "finished_utc": "2026-11-05T12:13:15.404440+00:00"
+      }
+    },
+    "gpu": "NVIDIA GB10",
+    "torch": "2.11.0+cu130",
+    "cross_gpu_gradient_exact": false,
+    "cross_gpu_relative_error": 0.0001332112284790417,
+    "exact_spark_replay": true,
+    "cross_gpu_two_updates_exact": false,
+    "baseline": "fresh_spark",
+    "finished_utc": "2026-11-05T12:13:15.406147+00:00",
+    "elapsed_seconds": 9824.418755912688
+  },
+  "receipt": {
+    "path": "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/run231-spark-output.tar.gz",
+    "sha256": "28649bea28f68d6f50d7c6a28a609d4e8ee2f0820aa5217aca90dba757e0f45c",
+    "status": "completed",
+    "verified": true,
+    "files": 38
+  },
+  "cloud_cost_usd": 0,
+  "analysis": "054"
+}
