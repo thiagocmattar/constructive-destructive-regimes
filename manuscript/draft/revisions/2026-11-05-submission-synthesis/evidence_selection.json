@@ -1,0 +1,646 @@
+{
+  "purpose": "Submission closure: independently selected existing evidence, no pooled effect across distinct objectives/studies",
+  "source_results": [
+    {
+      "path": "analyses/004-2026-10-04-lr-schedule-intervention/results.json",
+      "sha256": "b15537ab31b1a97b80e3fee5ef98392830e7ab5da36da2160c97fe6fea93f682"
+    },
+    {
+      "path": "analyses/025-2026-10-17-pythia-descent-mechanism/results.json",
+      "sha256": "425e7738e27e104c6f44b954e20363b84e6631933c833a82e70e366de53c52e8"
+    },
+    {
+      "path": "analyses/043-2026-11-03-spark-fixed-step-interventions/results.json",
+      "sha256": "69c83bd98f0f7c8bf4267a0e5234bf39c726132553b2d04afe1062c47c103e09"
+    },
+    {
+      "path": "analyses/051-2026-11-04-mlp-global-clipping/results.json",
+      "sha256": "984161a4946fe1f51a9231c5a94d62f48225673646461b1e70d52a94a49de1b5"
+    },
+    {
+      "path": "analyses/054-2026-11-05-resnet-clip1/results.json",
+      "sha256": "92c937d04550ef6825d0508a37259d37a3d1766b79932f07dfa30da14ec27c3d"
+    },
+    {
+      "path": "analyses/003-2026-10-04-raw-gradient-regimes/replication_check.json",
+      "sha256": "f9747c2b94bcf11fc73def72e9a46317eda53c1f28160047fa541c834733ff2b"
+    }
+  ],
+  "protocol_sources": [
+    {
+      "path": "analyses/028-2026-10-30-adam-diagnostics/observations/001-adam-extension.md",
+      "sha256": "97cf4036e1d3240ee661d01820047d250de86a10cd80f26397498792dd7f74aa"
+    },
+    {
+      "path": "analyses/025-2026-10-17-pythia-descent-mechanism/REPORT.md",
+      "sha256": "df9098ca72f4b1afa1252d12bbaaf1e45834e12e2cfa3ae213b42fef3fbeca36"
+    },
+    {
+      "path": "analyses/043-2026-11-03-spark-fixed-step-interventions/FINDINGS.md",
+      "sha256": "ae0ff596013fcdf130269e72dea8a4ba13ab66ba98d5defef6f0915957bd9ae0"
+    },
+    {
+      "path": "analyses/051-2026-11-04-mlp-global-clipping/FINDINGS.md",
+      "sha256": "bb4fc66f93b5a68e2cc8d8d1b4018a6e2ffeb3cd7ce25482fc3a9aa56faeb75c"
+    },
+    {
+      "path": "analyses/054-2026-11-05-resnet-clip1/FINDINGS.md",
+      "sha256": "c5dbfea6fe7d4f317d87476189fd32136b85fbafd25d5dbd6cdc214dcba99ad4"
+    },
+    {
+      "path": "runs/002-2026-10-03-pythia14m-adamw-adaptive-geometry/config.json",
+      "sha256": "69049495bc5e366a4f0956d3747779d6e9134886a9c545df6db56ef877c8d78e"
+    },
+    {
+      "path": "analyses/025-2026-10-17-pythia-descent-mechanism/probe.json",
+      "sha256": "8a52f4e0f3e793277956cddf3ac6df6b35c5bcf39593af8ee2ab16fbde24863c"
+    }
+  ],
+  "recommended_table_rows": [
+    {
+      "id": "pythia_schedule_14M",
+      "cohort": "004",
+      "source_fields": "records[size].primary.{D_unconditional_negative_intensity,median_raw_cosine,F_negative_frequency}; records[size].terminal_validation_loss",
+      "comparison": "Original cosine decay / hold midpoint LR / accelerated decay; all branches share update-356 state",
+      "outcome": "Full token-weighted validation loss at update 712; descriptive raw cosine over affected pairs 358..712",
+      "values": [
+        {
+          "variant": "original",
+          "run": "011-2026-10-04-pythia14m-lr-original-seed1235",
+          "negative_intensity": 0.06807789271961581,
+          "median_raw_cosine": 0.1940552421622686,
+          "negative_fraction": 0.3183098591549296,
+          "validation_loss": 5.182014485720386
+        },
+        {
+          "variant": "hold",
+          "run": "012-2026-10-04-pythia14m-lr-hold-seed1235",
+          "negative_intensity": 0.36203962591994804,
+          "median_raw_cosine": -0.3581510242135213,
+          "negative_fraction": 0.9690140845070423,
+          "validation_loss": 5.067428711292225
+        },
+        {
+          "variant": "accelerated",
+          "run": "013-2026-10-04-pythia14m-lr-accelerated-seed1235",
+          "negative_intensity": 0.022166869339989223,
+          "median_raw_cosine": 0.330620524356861,
+          "negative_fraction": 0.11267605633802817,
+          "validation_loss": 5.217632993573656
+        }
+      ],
+      "interpretation": "Holding LR increases local cancellation and attains the lowest validation loss; faster decay restores alignment but attains the highest validation loss."
+    },
+    {
+      "id": "pythia_schedule_70M",
+      "cohort": "004",
+      "source_fields": "records[size].primary.{D_unconditional_negative_intensity,median_raw_cosine,F_negative_frequency}; records[size].terminal_validation_loss",
+      "comparison": "Original cosine decay / hold midpoint LR / accelerated decay; all branches share update-356 state",
+      "outcome": "Full token-weighted validation loss at update 712; descriptive raw cosine over affected pairs 358..712",
+      "values": [
+        {
+          "variant": "original",
+          "run": "014-2026-10-04-pythia70m-lr-original-seed1235",
+          "negative_intensity": 0.15905429532993381,
+          "median_raw_cosine": -0.10856431051399207,
+          "negative_fraction": 0.6816901408450704,
+          "validation_loss": 4.055890218512298
+        },
+        {
+          "variant": "hold",
+          "run": "015-2026-10-04-pythia70m-lr-hold-seed1235",
+          "negative_intensity": 0.32011993450089865,
+          "median_raw_cosine": -0.3112423923174234,
+          "negative_fraction": 0.9295774647887324,
+          "validation_loss": 3.9845693924336976
+        },
+        {
+          "variant": "accelerated",
+          "run": "016-2026-10-04-pythia70m-lr-accelerated-seed1235",
+          "negative_intensity": 0.09809426013407899,
+          "median_raw_cosine": -0.0064957462676957,
+          "negative_fraction": 0.5154929577464789,
+          "validation_loss": 4.1041633738881265
+        }
+      ],
+      "interpretation": "Holding LR increases local cancellation and attains the lowest validation loss; faster decay restores alignment but attains the highest validation loss."
+    },
+    {
+      "id": "pythia_no_preconditioning",
+      "cohort": "025",
+      "source_fields": "branch_effects[fork=225].tau, native_final_probe_loss, ablated_final_probe_loss; 100*expm1(mean(tau)) over seeds",
+      "comparison": "Remove coordinate scaling, retaining native-parent adaptive-step norm schedule, vs native AdamW",
+      "outcome": "Paired fixed-probe endpoint loss after 50 updates; geometric mean ratio across three seeds",
+      "values": [
+        {
+          "size": "14M",
+          "seeds": [
+            1234,
+            1235,
+            1236
+          ],
+          "mean_tau": 0.23775005481717487,
+          "geometric_mean_loss_penalty_percent": 26.839212470023416,
+          "tau_range": [
+            0.2007158993622875,
+            0.26505747457743556
+          ],
+          "source_rows": [
+            {
+              "run": "137-2026-10-17-pythia14m-no-precond-fork225-seed1234",
+              "parent": "127-2026-10-17-pythia14m-descent-baseline-seed1234",
+              "size": "14M",
+              "seed": 1234,
+              "fork": 225,
+              "endpoint": 275,
+              "initial_probe_loss": 5.834537919610739,
+              "native_final_probe_loss": 5.690366378054023,
+              "ablated_final_probe_loss": 7.417426101863384,
+              "native_log_loss_change": -0.02502043556628522,
+              "ablated_log_loss_change": 0.24003703901115037,
+              "tau": 0.26505747457743556
+            },
+            {
+              "run": "143-2026-10-17-pythia14m-no-precond-fork225-seed1235",
+              "parent": "130-2026-10-17-pythia14m-descent-baseline-seed1235",
+              "size": "14M",
+              "seed": 1235,
+              "fork": 225,
+              "endpoint": 275,
+              "initial_probe_loss": 5.830968160182238,
+              "native_final_probe_loss": 5.692587658762932,
+              "ablated_final_probe_loss": 7.291007272899151,
+              "native_log_loss_change": -0.02401813395709661,
+              "ablated_log_loss_change": 0.2234586565547049,
+              "tau": 0.24747679051180158
+            },
+            {
+              "run": "149-2026-10-17-pythia14m-no-precond-fork225-seed1236",
+              "parent": "133-2026-10-17-pythia14m-descent-baseline-seed1236",
+              "size": "14M",
+              "seed": 1236,
+              "fork": 225,
+              "endpoint": 275,
+              "initial_probe_loss": 5.801676049828529,
+              "native_final_probe_loss": 5.658333592116833,
+              "ablated_final_probe_loss": 6.916053682565689,
+              "native_log_loss_change": -0.025017419404182353,
+              "ablated_log_loss_change": 0.17569847995810514,
+              "tau": 0.2007158993622875
+            }
+          ]
+        },
+        {
+          "size": "31M",
+          "seeds": [
+            1234,
+            1235,
+            1236
+          ],
+          "mean_tau": 0.45676565553507553,
+          "geometric_mean_loss_penalty_percent": 57.89588206299958,
+          "tau_range": [
+            0.4155626823442094,
+            0.5045902415763236
+          ],
+          "source_rows": [
+            {
+              "run": "139-2026-10-17-pythia31m-no-precond-fork225-seed1234",
+              "parent": "128-2026-10-17-pythia31m-descent-baseline-seed1234",
+              "size": "31M",
+              "seed": 1234,
+              "fork": 225,
+              "endpoint": 275,
+              "initial_probe_loss": 5.476360224187374,
+              "native_final_probe_loss": 5.315007921308279,
+              "ablated_final_probe_loss": 8.05342272669077,
+              "native_log_loss_change": -0.02990618545847435,
+              "ablated_log_loss_change": 0.38565649688573506,
+              "tau": 0.4155626823442094
+            },
+            {
+              "run": "145-2026-10-17-pythia31m-no-precond-fork225-seed1235",
+              "parent": "131-2026-10-17-pythia31m-descent-baseline-seed1235",
+              "size": "31M",
+              "seed": 1235,
+              "fork": 225,
+              "endpoint": 275,
+              "initial_probe_loss": 5.411661844700575,
+              "native_final_probe_loss": 5.275654077529907,
+              "ablated_final_probe_loss": 8.738101173192263,
+              "native_log_loss_change": -0.025453558439126694,
+              "ablated_log_loss_change": 0.4791366831371969,
+              "tau": 0.5045902415763236
+            },
+            {
+              "run": "151-2026-10-17-pythia31m-no-precond-fork225-seed1236",
+              "parent": "134-2026-10-17-pythia31m-descent-baseline-seed1236",
+              "size": "31M",
+              "seed": 1236,
+              "fork": 225,
+              "endpoint": 275,
+              "initial_probe_loss": 5.426668778061867,
+              "native_final_probe_loss": 5.274328593164682,
+              "ablated_final_probe_loss": 8.272985380142927,
+              "native_log_loss_change": -0.028474070639369364,
+              "ablated_log_loss_change": 0.4216699720453242,
+              "tau": 0.45014404268469366
+            }
+          ]
+        },
+        {
+          "size": "70M",
+          "seeds": [
+            1234,
+            1235,
+            1236
+          ],
+          "mean_tau": 0.7251008646439766,
+          "geometric_mean_loss_penalty_percent": 106.49393688370981,
+          "tau_range": [
+            0.6600090120700581,
+            0.778978140550582
+          ],
+          "source_rows": [
+            {
+              "run": "141-2026-10-17-pythia70m-no-precond-fork225-seed1234",
+              "parent": "129-2026-10-17-pythia70m-descent-baseline-seed1234",
+              "size": "70M",
+              "seed": 1234,
+              "fork": 225,
+              "endpoint": 275,
+              "initial_probe_loss": 5.214692953974009,
+              "native_final_probe_loss": 4.994702763855457,
+              "ablated_final_probe_loss": 9.663799710571766,
+              "native_log_loss_change": -0.04310230565128877,
+              "ablated_log_loss_change": 0.6169067064187693,
+              "tau": 0.6600090120700581
+            },
+            {
+              "run": "147-2026-10-17-pythia70m-no-precond-fork225-seed1235",
+              "parent": "132-2026-10-17-pythia70m-descent-baseline-seed1235",
+              "size": "70M",
+              "seed": 1235,
+              "fork": 225,
+              "endpoint": 275,
+              "initial_probe_loss": 5.080610455945134,
+              "native_final_probe_loss": 4.841386891901493,
+              "ablated_final_probe_loss": 10.109915439039469,
+              "native_log_loss_change": -0.04823019526881251,
+              "ablated_log_loss_change": 0.6880852460424771,
+              "tau": 0.7363154413112897
+            },
+            {
+              "run": "153-2026-10-17-pythia70m-no-precond-fork225-seed1236",
+              "parent": "135-2026-10-17-pythia70m-descent-baseline-seed1236",
+              "size": "70M",
+              "seed": 1236,
+              "fork": 225,
+              "endpoint": 275,
+              "initial_probe_loss": 5.145783616229892,
+              "native_final_probe_loss": 4.826662205159664,
+              "ablated_final_probe_loss": 10.518475838005543,
+              "native_log_loss_change": -0.06402249010641171,
+              "ablated_log_loss_change": 0.7149556504441705,
+              "tau": 0.778978140550582
+            }
+          ]
+        }
+      ],
+      "interpretation": "Coordinate scaling changes finite-step outcome even at matched adaptive-component norm; this is not a retuned momentum comparison or an Adam spike-mechanism test."
+    },
+    {
+      "id": "transformer_half_late",
+      "cohort": "043",
+      "source_fields": "comparison[case=transformer,condition in {unchanged,fixed_half}]",
+      "comparison": "Half fixed LR vs unchanged LR, both from same warm state 1024",
+      "outcome": "Mean full-objective training loss, states 1025..1088; final loss at 1088",
+      "values": [
+        {
+          "case": "transformer",
+          "condition": "unchanged",
+          "status": "completed",
+          "updates": 64,
+          "fork_loss": 0.6162664000056295,
+          "mean_post_loss": 0.5459282429245919,
+          "final_loss": 0.5106691662675974,
+          "mean_loss_change_vs_unchanged_percent": 0.0,
+          "final_loss_change_vs_unchanged_percent": 0.0,
+          "peak_post_loss": 0.6116432295874777,
+          "positive_excess_area": 0.0,
+          "mean_raw_rho": -0.29945924335574103,
+          "eta_kappa_hat_std": 0.5647715624909984,
+          "mean_raw_gradient_norm": 0.12639552373835014,
+          "final_parameter_norm": 861.926546774631,
+          "mean_actual_increment_norm": 0.7519044554623231,
+          "clipped_updates": 0,
+          "mean_lr_over_base": 1.0,
+          "mean_decay_increment_norm": 0.0,
+          "uphill_actual_updates": 0,
+          "runner_seconds": 2282.1082352898084,
+          "endpoint_evaluation": "{\"test\": {\"loss\": 19.226208066076158, \"loss_units\": 245550, \"objective_units\": 7020}, \"valid\": {\"loss\": 19.48391610806257, \"loss_units\": 217630, \"objective_units\": 6220}}"
+        },
+        {
+          "case": "transformer",
+          "condition": "fixed_half",
+          "status": "completed",
+          "updates": 64,
+          "fork_loss": 0.6162664000056295,
+          "mean_post_loss": 0.5635821695276619,
+          "final_loss": 0.5354623525886714,
+          "mean_loss_change_vs_unchanged_percent": 3.233744879820888,
+          "final_loss_change_vs_unchanged_percent": 4.855038831164138,
+          "peak_post_loss": 0.6128586756410264,
+          "positive_excess_area": 0.0,
+          "mean_raw_rho": 0.5886950919724978,
+          "eta_kappa_hat_std": 0.10573649135196188,
+          "mean_raw_gradient_norm": 0.03853415249839406,
+          "final_parameter_norm": 856.2024895409276,
+          "mean_actual_increment_norm": 0.4274773314792383,
+          "clipped_updates": 0,
+          "mean_lr_over_base": 0.5,
+          "mean_decay_increment_norm": 0.0,
+          "uphill_actual_updates": 0,
+          "runner_seconds": 2284.5090136970393,
+          "endpoint_evaluation": "{\"test\": {\"loss\": 18.511233877074424, \"loss_units\": 245550, \"objective_units\": 7020}, \"valid\": {\"loss\": 18.755597135009825, \"loss_units\": 217630, \"objective_units\": 6220}}"
+        }
+      ],
+      "interpretation": "Raw alignment becomes positive and projected-change variation falls, while mean and final training loss worsen."
+    },
+    {
+      "id": "mlp_clip1",
+      "cohort": "051",
+      "source_fields": "summary; clipping_vs_unchanged_pct; clipping",
+      "comparison": "Global full-gradient L2 cap 1 before both Adam moment updates, vs unchanged un-clipped control",
+      "outcome": "Full training objective over states 513..800; late mean over final 32 states",
+      "values": [
+        {
+          "condition": "unchanged",
+          "mean_513_800": 0.020804167521823222,
+          "last32_mean": 0.013458456061925972,
+          "final_loss": 0.03025020658969879,
+          "max_loss_513_800": 0.055062638595700264,
+          "events_count": 16,
+          "mean_actual_step_norm": 0.041787487522059984,
+          "max_actual_step_norm": 0.09366249789754973,
+          "max_optimizer_input_norm": 2.2355555009192445
+        },
+        {
+          "condition": "global_clip1",
+          "mean_513_800": 0.030792351501683395,
+          "last32_mean": 0.0641294403540087,
+          "final_loss": 0.02442448539659381,
+          "max_loss_513_800": 0.21015971899032593,
+          "events_count": 13,
+          "mean_actual_step_norm": 0.05706750460178725,
+          "max_actual_step_norm": 0.18368060685783627,
+          "max_optimizer_input_norm": 1.0000000423227366
+        }
+      ],
+      "changes_percent": {
+        "mean_513_800": 48.01049582677479,
+        "last32_mean": 376.4992363086219,
+        "final_loss": -19.258450932658544,
+        "max_loss_513_800": 281.6738978555541
+      },
+      "clipping": {
+        "updates": 288,
+        "clipped_updates": 125,
+        "fraction": 0.4340277777777778,
+        "first_clipped_state": 518,
+        "min_factor": 0.25283966359837057
+      },
+      "interpretation": "Initial peak reduction and fewer excursions coexist with worse mean/tail loss and a larger maximum; endpoint alone misleadingly improves."
+    },
+    {
+      "id": "resnet_clip1",
+      "cohort": "054",
+      "source_fields": "summary; percent_vs_baseline",
+      "comparison": "Global full-gradient L2 cap 1 before both Adam moment updates, vs unchanged un-clipped control",
+      "outcome": "Full training objective over states 257..576; late mean over final 32 states",
+      "values": [
+        {
+          "condition": "Unclipped",
+          "mean_loss": 0.27171449395883085,
+          "tail_mean": 0.04541658511519432,
+          "maximum": 1.1222555505371095,
+          "endpoint": 0.03008946418762208,
+          "clipped": 0,
+          "max_input": 15.92553356987281,
+          "max_raw": 15.92553356987281,
+          "max_step": 0.6001177397261958,
+          "excursion_count": 4
+        },
+        {
+          "condition": "Clipping at 1",
+          "mean_loss": 0.19475257863664627,
+          "tail_mean": 0.08085339959383012,
+          "maximum": 0.5369747302246095,
+          "endpoint": 0.0752641951751709,
+          "clipped": 318,
+          "max_input": 1.0000000528836965,
+          "max_raw": 7.641134509732674,
+          "max_step": 0.1579786942858492,
+          "excursion_count": 26
+        }
+      ],
+      "changes_percent": {
+        "mean_loss": -28.3245528057276,
+        "tail_mean": 78.02615363694582,
+        "maximum": -52.152187621828695,
+        "endpoint": 150.13471395124532
+      },
+      "clipping": null,
+      "interpretation": "Lower maximum and mean loss coexist with worse late/endpoint loss; excursion count increases as episodes change."
+    }
+  ],
+  "protocols": {
+    "004": {
+      "models": "Pythia-14M/70M initialized from scratch",
+      "seed": 1235,
+      "dataset": "MiniPile; packed 2048-token sequences; full pass 712 updates",
+      "horizon": "Shared checkpoint356, then356 optimizer updates through712",
+      "batch": "1024 sequences/update, microbatch4; final tail311 sequences",
+      "objective": "Token-weighted next-token cross entropy",
+      "optimizer": "AdamW beta=(0.9,0.95), epsilon1e-8, global raw-gradient clip1 before moments, decay0.1 excluding biases/LayerNorm",
+      "rates": "Held midpoint LR0.0005179103055; original/accelerated cosine floor0.0001 at575/466",
+      "validation": "All500 documents,339 packed sequences,693329 supervised targets including tail",
+      "precision": "FP16 dynamic loss scale, FP32 parameters/moments, FP64 geometry",
+      "hardware": "All six branches RTX5090; matched contemporary controls; near rather than bitwise archived replay",
+      "limits": "One seed/state; LR also scales decoupled weight decay; no separate decay effect or geometry mediation identified",
+      "original_lr_recipe": "Linear1% warmup to0.001, then original712-update GPT-NeoX v1 pre-step cosine schedule with0.0001 floor."
+    },
+    "025": {
+      "models": "Pythia-14M/31M/70M, scratch initial tensors from original seed cohorts",
+      "seeds": [
+        1234,
+        1235,
+        1236
+      ],
+      "horizon": "9 native trajectories follow first350updates of original712-update LR clock;18 matched50-update branches after175and225, with unchanged calendar clock.",
+      "batch": "1024 length2048 sequences/update, microbatch4",
+      "objective": "Training token-weighted MiniPile NLL; comparison on fixed128-sequence probe with262016 supervised targets",
+      "probe": "Disjoint from the union of the three350-update training prefixes in this intervention study; same corpus, not independent test distribution.",
+      "optimizer": "AdamW beta=(0.9,0.95), epsilon1e-8, clip1 before moments, decay0.1 excluding biases/LayerNorm; original712-step warmup/cosine schedule",
+      "intervention": "Set branch adaptive vector to bias-corrected branch momentum normalized to native parent adaptive-step length for each calendar update; preserve branch moment updates and decay rule",
+      "precision_hardware": "FP32 parameters/moments, FP16 scaled training; twoRTX4090 workers; FP32 fixed probe and FP64 reductions",
+      "limits": "Norm matched before decay/FP32 rounding, not full update; no scalar-LR retuning; three seeds with order/init coupled; two forks share each parent; no unique onset or size mediation"
+    },
+    "043": {
+      "models": "MLP/CIFAR10, ResNet32/CIFAR10, Transformer/WikiText2; selected row Transformer",
+      "seed": 0,
+      "horizon": "64 updates from shared warm model/Adam state1024 to1088",
+      "objective": "Full fixed objectives: MLP5000-image mean half-squared error; ResNet50000-image mean cross-entropy; Transformer2088600-target token-weighted NLL",
+      "optimizer": "Adam beta=(0.9,0.999), epsilon1e-8; native fixed LR0.001MLP/0.003ResNet/Transformer; no clipping/decay for selected half-LR comparison",
+      "selected_change": "Transformer0.003 to0.0015 throughout64 updates",
+      "precision_hardware": "FP32 training, FP64 geometry; fresh same-GB10/Spark controls and exact within-Spark replay",
+      "limits": "One selected seed/warm state; 64-update training outcome; historical cross-GPU ResNet qualification failure retained and old prefix not treatment comparator"
+    },
+    "051": {
+      "model": "Tanh MLP3072-200-200-10/CIFAR10",
+      "seed": 0,
+      "horizon": "288 full-objective updates from warm512 through800",
+      "objective": "5000-image mean half-squared error, summed output errors; fixed physical1000-image chunks",
+      "optimizer": "Warm Adam beta=(0.9,0.999), epsilon1e-8, fixedLR0.001; no weight decay",
+      "clipping": "Global L2 clip1 before both moments; raw-gradient metrics remain pre-clipping",
+      "control": "Fresh Run223 same-Spark unchanged control; exact shared fork and2-update replay",
+      "hardware_precision": "GB10/Spark, FP32 parameters/gradients, FP64 diagnostic reductions",
+      "limits": "One seed/window; post-fork loss means, tails and maxima are distinct endpoints; not a universal rejection of clipping"
+    },
+    "054": {
+      "model": "ResNet32/CIFAR10",
+      "seed": 0,
+      "horizon": "320 full-objective updates from warm256 through576",
+      "objective": "All50000 images mean cross-entropy, fixed physical1000-image normalization groups",
+      "optimizer": "Warm Adam beta=(0.9,0.999), epsilon1e-8, fixedLR0.003; no weight decay",
+      "clipping": "Global L2 clip1 before both moments; raw geometry stays pre-clipping",
+      "control": "Fresh same-Spark unchanged control; both inherit same RTX4090 checkpoint; within-Spark2-update replay exact; fork gradient difference0.0133% acrossGPU",
+      "hardware_precision": "GB10/Spark, FP32 training and FP64 geometry",
+      "limits": "One selected seed/window; mean/maximum improve but late/end loss worsen; count is not severity; archived4090 trajectory is context only"
+    }
+  },
+  "compact_reduction_checks": {
+    "gd_positive_all_pair": 9,
+    "gd_negative_adjacent_interaction": 7,
+    "adam_rise_steps": 794,
+    "adam_rise_locally_descending": 794,
+    "held_rate_logA_plus_cosine_worsens": 7,
+    "held_rate_folds": 7,
+    "all18_preconditioning_taus_positive": true
+  },
+  "verification_scope": "Selected display values are checked against original analysis results, with independent reductions from16 hash-pinned raw scalar histories for schedules, Transformer halfLR, MLP clipping and ResNet clipping. This is not a new neural experiment or replacement for all owning-study raw/checkpoint audits.",
+  "raw_scalar_sources": [
+    {
+      "path": "runs/011-2026-10-04-pythia14m-lr-original-seed1235/artifacts/attempt-01/full-pass/events.jsonl",
+      "sha256": "b9a748f4c55509f51b329aebc31cb737b3ab4e050bd382b91d56b754898d59cc",
+      "cohort": "004",
+      "condition": "011-2026-10-04-pythia14m-lr-original-seed1235",
+      "kind": "events"
+    },
+    {
+      "path": "runs/012-2026-10-04-pythia14m-lr-hold-seed1235/artifacts/attempt-01/full-pass/events.jsonl",
+      "sha256": "63155f0d702c28058d226f3e0e1c3f5fc3ecf1e49ce3ae68296f89ee5619c250",
+      "cohort": "004",
+      "condition": "012-2026-10-04-pythia14m-lr-hold-seed1235",
+      "kind": "events"
+    },
+    {
+      "path": "runs/013-2026-10-04-pythia14m-lr-accelerated-seed1235/artifacts/attempt-01/full-pass/events.jsonl",
+      "sha256": "87932b42e4cf368b441cc1ae19d6c83ebb5cf6af739de55b92f1dd1c40c5679d",
+      "cohort": "004",
+      "condition": "013-2026-10-04-pythia14m-lr-accelerated-seed1235",
+      "kind": "events"
+    },
+    {
+      "path": "runs/014-2026-10-04-pythia70m-lr-original-seed1235/artifacts/attempt-01/full-pass/events.jsonl",
+      "sha256": "c11408448c1ebf983f4e2829f93d49ea987ed0a79f37e1cb231225db318f00e7",
+      "cohort": "004",
+      "condition": "014-2026-10-04-pythia70m-lr-original-seed1235",
+      "kind": "events"
+    },
+    {
+      "path": "runs/015-2026-10-04-pythia70m-lr-hold-seed1235/artifacts/attempt-01/full-pass/events.jsonl",
+      "sha256": "4f181961d61ed4b7a3e2b7acc16e076135c321c6a799a416a10edfce3668774b",
+      "cohort": "004",
+      "condition": "015-2026-10-04-pythia70m-lr-hold-seed1235",
+      "kind": "events"
+    },
+    {
+      "path": "runs/016-2026-10-04-pythia70m-lr-accelerated-seed1235/artifacts/attempt-01/full-pass/events.jsonl",
+      "sha256": "fe579c0086e4ef00da23241c9c099ce5d7790e917ed7e90111b8cc396790b8ff",
+      "cohort": "004",
+      "condition": "016-2026-10-04-pythia70m-lr-accelerated-seed1235",
+      "kind": "events"
+    },
+    {
+      "path": "runs/222-2026-11-03-spark-matched-interventions/artifacts/snapshots/20261104T100016Z/payload/runs/222-2026-11-03-spark-matched-interventions/artifacts/attempts/001-spark/conditions/transformer/unchanged/boundaries.jsonl",
+      "sha256": "4dfd300f388e8db73bdba59b525b201a67a2c46271779b7478c09a4b22f14ae4",
+      "cohort": "043",
+      "condition": "unchanged",
+      "kind": "boundaries"
+    },
+    {
+      "path": "runs/222-2026-11-03-spark-matched-interventions/artifacts/snapshots/20261104T100016Z/payload/runs/222-2026-11-03-spark-matched-interventions/artifacts/attempts/001-spark/conditions/transformer/fixed_half/boundaries.jsonl",
+      "sha256": "a6b015dd2c4352f0d287dc3a1b7cc15f8b51fd634e43136a2cb0a21cf5108eb2",
+      "cohort": "043",
+      "condition": "fixed_half",
+      "kind": "boundaries"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/control/metrics.jsonl",
+      "sha256": "8d83e9910f0abb2dedca2a3788583a7ee1e4f0ee5eb2ff1177acd4328b80bf29",
+      "cohort": "051",
+      "condition": "unchanged",
+      "kind": "metrics"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/control/boundaries.jsonl",
+      "sha256": "def47bc333c45f5778d81a4450aa812cd91bf110604c05c6140e6846871c9d48",
+      "cohort": "051",
+      "condition": "unchanged",
+      "kind": "boundaries"
+    },
+    {
+      "path": "runs/228-2026-11-04-mlp-global-clipping/artifacts/spark/payload/worker/global_clip1/metrics.jsonl",
+      "sha256": "2c4c76e53be3a0b3b767444412a69178f87e3341bc1711d920da326b548db26a",
+      "cohort": "051",
+      "condition": "global_clip1",
+      "kind": "metrics"
+    },
+    {
+      "path": "runs/228-2026-11-04-mlp-global-clipping/artifacts/spark/payload/worker/global_clip1/boundaries.jsonl",
+      "sha256": "066bdb0b37638d8f22deebcec478a7f2ce7e7d1d3351f40cf30cdc6492b1093f",
+      "cohort": "051",
+      "condition": "global_clip1",
+      "kind": "boundaries"
+    },
+    {
+      "path": "runs/231-2026-11-05-resnet-clip1/artifacts/spark/payload/worker/control/metrics.jsonl",
+      "sha256": "246366496ba54b0d77982a8efaefceaf12de0613176dbb5c205c71cc3bdb8b52",
+      "cohort": "054",
+      "condition": "Unclipped",
+      "kind": "metrics"
+    },
+    {
+      "path": "runs/231-2026-11-05-resnet-clip1/artifacts/spark/payload/worker/control/boundaries.jsonl",
+      "sha256": "8c12f575f0f404f46870e63b8960095070af3f24416574d7057ad7ab3a7a5959",
+      "cohort": "054",
+      "condition": "Unclipped",
+      "kind": "boundaries"
+    },
+    {
+      "path": "runs/231-2026-11-05-resnet-clip1/artifacts/spark/payload/worker/clipping/metrics.jsonl",
+      "sha256": "cf96f64652c1423838c1fe860504681ba5e19318cc8b99d350da17daee3e5be9",
+      "cohort": "054",
+      "condition": "Clipping at 1",
+      "kind": "metrics"
+    },
+    {
+      "path": "runs/231-2026-11-05-resnet-clip1/artifacts/spark/payload/worker/clipping/boundaries.jsonl",
+      "sha256": "b8c5acbc077dd3141880d40a47a6767d252cb693e32893f465d1d2bbe717667c",
+      "cohort": "054",
+      "condition": "Clipping at 1",
+      "kind": "boundaries"
+    }
+  ]
+}

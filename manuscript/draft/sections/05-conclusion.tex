@@ -1,28 +1,29 @@
 \section{Conclusion}
 \label{sec:conclusion}
 
-The displacement formulation distinguishes the magnitude of individual updates,
-their local directional interaction and their cumulative accumulation. For
-plain SGD, the exact decomposition retains all temporal lags, while consecutive
-cosine provides a tractable local observation. The curvature and sampling
-relations clarify how that observation can change without determining either
-cumulative displacement or loss improvement. The full-batch experiments show negative consecutive interaction alongside positive total interaction across all pairs. Pairing adjacent updates identifies substantial immediate cancellation, followed by model-dependent accumulation of the residual motion. Neither factor guarantees a local loss decrease. The mini-batch continuations further show that observed alignment changes with both sampling and the evolving trajectory; weaker reversal alone does not order the attained loss.
+Constructive and destructive gradient interactions describe how parameter
+changes reinforce or cancel one another at a specified temporal scale.
+The displacement decomposition and paired factors make that description
+quantitative: adjacent cancellation and coherent accumulation of residual
+motion can occur together. The controlled GD results demonstrate this
+coexistence, with loss measurements establishing progress separately.
 
-Under Adam, loss-defined excursions connect amplification and recovery
-with changes in the raw loss slope. Ordinary-trajectory controls show
-that reversal and a projected response above two also occur without a
-pronounced short-horizon loss rise. Norm amplification accounts for
-substantial severity variation, while the incremental contribution of
-alignment varies and does not transfer consistently across rates.
-All recorded rise-phase steps have a locally descending first-order
-component, distinguishing raw-gradient reversal from an uphill update.
+The curvature and sampling relations explain the scope of the local
+diagnostic. Consecutive gradients recover a classical directional secant
+under plain GD; sampling and optimizer transformations change its
+interpretation. The Adam results make that distinction concrete: every
+measured rise-phase step in the recovered-event sample points locally
+downhill, although the finite trajectory rises in loss. Matched interventions
+and Pythia training further show that making raw-gradient alignment more
+positive, clipping the optimizer input or suppressing a particular excursion
+does not consistently improve the
+chosen loss outcome.
 
-The analytical Adam extension relates projected gradient response to a
-one-HVP preconditioned-curvature proxy through first-moment discrepancy
-and finite-step curvature variation. Adjacent gradient sums drive the
-memory residual, connecting this interpretation to GD pairing. These
-identities specify a calibration question; agreement on the neural
-trajectories has not yet been established. Independent initializations,
-matched optimizer-state experiments and same-objective stochastic probes
-are the next tests. Claims of practical monitoring advantage additionally
-require measured overhead and fidelity against the one-HVP baseline.
+This framework turns a qualitative observation of oscillatory training into
+an account of where cancellation occurs, which vectors participate, and how
+the measured motion relates to the objective. Its immediate use is to
+formulate and evaluate explanations of training behavior. Whether an
+intervention should reduce cancellation, preserve it while controlling step
+magnitude, or modify optimizer memory is a separate empirical question.
+The present evidence establishes the diagnostic distinctions needed to ask
+that question precisely; it does not select a universally beneficial action.

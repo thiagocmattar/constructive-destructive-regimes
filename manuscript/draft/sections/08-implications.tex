@@ -1,0 +1,158 @@
+% Evidence: Analyses003/004/025/028/043/051/054.
+% Exact selections and provenance: revisions/2026-11-05-submission-synthesis/evidence_selection.json.
+\section{Implications for Diagnosis and Intervention}
+\label{sec:implications}
+
+The preceding experiments locate cancellation and relate it to the observed
+loss response. We now examine how these distinctions inform intervention
+assessment. Language-model runs and matched changes to learning rate,
+coordinate scaling and clipping provide complementary tests: an intervention
+can alter gradient geometry, the optimizer's transformation, or both, while
+its benefit depends on the objective and observation window.
+Table~\ref{tab:submission-interventions} summarizes selected comparisons from
+these studies. They illustrate different diagnostic questions; their effect
+sizes are evaluated within each study and are not pooled.
+
+\subsection{Language-Model Training and Optimizer Transformations}
+
+We train randomly initialized Pythia configurations~\cite{biderman2023pythia}
+with 14M, 31M and 70M parameters on MiniPile~\cite{kaddour2023minipile}.
+The full-pass comparison uses three paired initialization/data-order seeds
+per size and 712 AdamW updates. Each full update accumulates 1,024 sequences
+of length 2,048, with microbatches of four; the final update includes the
+remaining 311 sequences. Training uses token-weighted next-token
+cross-entropy, AdamW coefficients $(0.9,0.95)$, $\epsilon=10^{-8}$,
+global gradient clipping at one before the moment updates, and decay
+0.1 excluding biases and LayerNorm parameters. The rate warms up linearly
+over the first 1\% of the 712-update schedule to $10^{-3}$, then follows
+cosine decay with a $10^{-4}$ floor. Parameters and moments
+use FP32, training uses dynamically scaled FP16, and geometric reductions
+use FP64. These raw-gradient measurements precede the transformations
+that determine the applied update; their cumulative sum is not the
+actual AdamW parameter displacement.
+
+Across all three seed blocks, larger models attain lower validation loss
+while exhibiting more frequent negative adjacent raw-gradient cosine.
+Nevertheless, total raw-gradient interaction is positive in all nine runs.
+Replacing all cross-step terms by the lag-one contribution underestimates
+the squared cumulative gradient norm by 97.90--98.57\%. The distinction
+between local cancellation and cumulative interaction thus also matters
+in stochastic language-model training. Architecture and initialization
+scales vary with model size, so this comparison does not identify a
+dimensional mechanism for the loss ordering.
+
+For a matched schedule comparison, the 14M and 70M models each branch
+from their seed-1235 checkpoint after update 356. We compare the original
+cosine decay, holding the current rate $5.1791\times10^{-4}$, and advancing
+the decay clock twice as fast, all through update 712. Branches share
+weights, moments, data position and future batches. Validation covers
+all 500 documents and 693,329 supervised targets, including the short tail.
+Holding the rate produces the most negative median cosine and the lowest
+validation loss at both sizes; accelerated decay shifts cosine upward
+but yields the highest loss. The schedule affects local geometry without
+making positive alignment a performance target. Because the rate also
+scales AdamW decay, this comparison concerns the complete schedule change.
+
+An additional component intervention tests why the optimizer stream matters.
+Across the same three sizes and three seed blocks, nine native trajectories
+follow the first 350 updates of the original 712-update learning-rate clock
+and supply matched forks after updates 175 and 225. Each of the
+18 branches removes coordinate scaling for 50 updates: its own bias-corrected
+first moment is normalized to the native parent's adaptive-step length
+at each corresponding update. The branch continues updating its moments
+and applies the same decay rule to its own weights. A fixed 128-sequence
+probe, with 262,016 supervised targets, supplies a common token-weighted
+objective. It is disjoint from the union of the three 350-update
+training prefixes in this intervention study.
+All 18 branches have higher endpoint probe loss than their native controls.
+Table~\ref{tab:submission-interventions} reports the later fork's paired
+geometric-mean penalties across seeds. Coordinate scaling changes the
+finite-step response even when the adaptive-component length is matched.
+This intervention isolates a specific direction substitution at the native
+scale; it leaves the performance of independently tuned momentum methods
+and mediation of the model-size gap open.
+
+\begin{table*}[tp]
+ \caption{Selected matched interventions. Each row uses its own control,
+ objective and time window. In the first two rows, entries follow original
+ decay / held rate / accelerated decay; cosine medians use affected pairs
+ 358--712 and validation loss is measured at update 712. Scaling-ablation
+ penalties are $100[\exp(\operatorname{mean}_{\mathrm{seed}}
+ \log(\mathcal L_{\mathrm{ablated}}/\mathcal L_{\mathrm{native}}))-1]$
+ on the fixed probe. Other percentages compare the indicated training-loss
+ statistic with its matched unchanged control; positive means higher loss.
+ These selected development comparisons are not independent confirmations
+ of a common intervention effect.}
+ \label{tab:submission-interventions}
+ \centering
+ \footnotesize
+ \setlength{\tabcolsep}{3pt}
+ \renewcommand{\arraystretch}{1.12}
+ \input{tables/submission_interventions}
+\end{table*}
+
+\subsection{The Response Window Changes the Intervention Assessment}
+
+The full-objective interventions inherit the Adam states and objectives
+of Section~\ref{sec:adam-diagnostics}: 5,000-image half-squared error for
+the MLP, 50,000-image cross-entropy for ResNet, and 2,088,600-target
+negative log-likelihood for the Transformer. All use seed zero,
+$(\beta_1,\beta_2)=(0.9,0.999)$ and $\epsilon=10^{-8}$.
+Treatment and control share a warm checkpoint and numerical environment,
+with verified within-environment replay. We use fresh controls when
+cross-device historical replay does not qualify. Learning rates remain
+0.001 for the MLP and 0.003 for ResNet/Transformer unless explicitly changed;
+the selected comparisons use no weight decay.
+
+From Transformer state 1,024, halving the rate for 64 updates changes mean
+raw cosine from $-0.299$ to $+0.589$, while mean and final training losses
+become 3.23\% and 4.86\% higher than unchanged Adam. More positive
+raw-gradient alignment therefore accompanies slower progress in this window.
+
+Clipping supplies a different distinction: a cap on the gradient entering
+Adam acts before the moments and coordinate scaling. We apply global
+norm clipping at one over MLP states 512--800 and ResNet states 256--576,
+with raw-gradient diagnostics measured before clipping. The cap activates
+on 125/288 and 318/320 updates, respectively. The recorded parameter motion
+shows why input clipping and step control differ: the MLP's mean actual
+step norm increases from 0.04179 to 0.05707 and its maximum from 0.09366
+to 0.18368, whereas ResNet's maximum decreases from 0.600 to 0.158.
+The cap bounds the input to Adam; moment history and coordinate scaling
+determine how that input contributes to parameter displacement.
+In the MLP, the first peak
+shrinks, but a later excursion makes the maximum loss 3.82 times the
+control and raises mean loss by 48.01\%. Its final loss is nevertheless
+19.26\% lower. In ResNet, clipping lowers window-average loss by 28.32\%
+and the maximum by 52.15\%, but raises the last-32-state mean by 78.03\%.
+Endpoint, average and excursion severity can thus support different
+assessments of the same intervention. These examples concern selected
+warm states; they establish neither a generally preferred clipping
+threshold nor a uniform benefit from reducing step size.
+
+\subsection{Using the Diagnostics and Interpreting Their Scope}
+
+A constructive use begins by identifying the vector stream and the
+question being asked. Raw gradients describe the changing local objective;
+actual increments describe parameter motion. Adjacent cosine and norm
+ratios locate reversal and amplification. The factors $C_T$ and $D_T$
+separate cancellation within adjacent pairs from turning between their
+residual displacements; the sign of $Q_T-1$ identifies the sign of the
+all-pair interaction. Under adaptive optimization, alignment between
+the current gradient and the actual increment additionally tests the
+first-order loss contribution. Loss measured on a common objective then determines
+whether the observed motion accompanies progress. An intervention can
+be assessed against matched states with this same sequence of measurements,
+including its activation, replacement excursions and later loss response.
+The resulting diagnosis specifies what changed and which outcome it affected,
+without requiring a forecasting rule.
+
+The evidence has a defined scope. GD and full-batch Adam sweeps use one
+initialization per model; the SGD and Pythia comparisons supply three
+initialization blocks under their respective recipes. Selected intervention
+windows and repeated events do not add independent seeds. Parameter-space
+geometry depends on parameterization and does not directly measure change
+in represented functions or stored knowledge. Observational model-size
+comparisons, finite training horizons and same-corpus probes also constrain
+generalization. The measurements provide a basis for formulating and testing
+future intervention hypotheses; the present paper proposes no new training
+method or validated predictive signal.

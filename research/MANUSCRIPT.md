@@ -1,5 +1,20 @@
 # Manuscript and evidence
 
+## Submission synthesis and closure, 5 November 2026
+
+[Revision package](../manuscript/draft/revisions/2026-11-05-submission-synthesis/README.md)
+contains a scientific synthesis, central argument, source-pinned evidence
+selection, revised 18-page manuscript and two adversarial review rounds.
+The contribution is diagnostic: adjacent cancellation, cumulative motion
+and loss progress are measured separately, with raw-gradient versus applied
+update semantics explicit. Existing Pythia/scaling, schedule and clipping
+studies now show the practical consequences. The classical BB1 relationship
+and relevant prior work are credited; the uncalibrated Adam/HVP bridge is
+supporting theory in an appendix. Numerical, source and complete PDF checks
+pass. No known correctness/framing blocker remains within scope; significance
+and limited full-batch seed coverage remain reviewer judgments. No new run,
+analysis, hypothesis, experiment or spending; prior records/assets preserved.
+
 ## Adam response and memory revision, 5 November 2026
 
 [Revision and experiment plan](../manuscript/draft/revisions/2026-11-05-human-input-adam/README.md)

@@ -1,0 +1,27 @@
+% Generated values verified against revisions/2026-11-05-submission-synthesis/evidence_selection.json.
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.24\textwidth}>{\raggedright\arraybackslash}p{0.25\textwidth}>{\raggedright\arraybackslash}p{0.27\textwidth}}
+\toprule
+Case and replication & Matched comparison & Diagnostic or treatment response & Loss outcome \\
+\midrule
+Pythia-14M; one seed & Three schedules, updates 357--712
+ & Median raw $\rho$: $0.194/-0.358/0.331$
+ & Full validation: $5.1820/5.0674/5.2176$ \\
+Pythia-70M; one seed & Same schedule comparison
+ & Median raw $\rho$: $-0.109/-0.311/-0.006$
+ & Full validation: $4.0559/3.9846/4.1042$ \\
+Pythia-14M/31M/70M; three seeds
+ & Remove coordinate scaling; updates 226--275
+ & Native-parent adaptive-step norm matched at each update
+ & Fixed-probe penalties: $26.84/57.90/106.49\%$ \\
+\midrule
+Transformer; one seed & Half LR; 64 updates from state 1,024
+ & Mean raw $\rho$: $-0.299\to+0.589$
+ & Mean $+3.23\%$; final $+4.86\%$ \\
+MLP; one seed & Raw gradient cap 1; 288 updates from state 512
+ & Clipping active on $125/288$ updates
+ & Mean $+48.01\%$; maximum $3.82\times$; final $-19.26\%$ \\
+ResNet-32; one seed & Raw gradient cap 1; 320 updates from state 256
+ & Clipping active on $318/320$ updates
+ & Mean $-28.32\%$; maximum $-52.15\%$; last-32 mean $+78.03\%$ \\
+\bottomrule
+\end{tabular}
