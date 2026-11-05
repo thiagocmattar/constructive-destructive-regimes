@@ -1,11 +1,15 @@
-\section{Related Work and Diagnostic Scope}
+\section{Stability Analysis of SGD}
 \label{sec:background}
 
-Our subject is temporal interaction along a training path. We position this
-measurement question relative to curvature, sampling, gradient-based
-diagnostics and adaptive optimization.
+Intuitively, smooth optimization occurs when updates reinforce each other
+and gradually shift parameters toward a minimum of the loss. Larger steps
+can overshoot, oscillate, and partially undo preceding parameter changes.
+Understanding when such behavior remains productive, and when it produces
+instability, requires examining how successive updates interact. Two factors
+are central to this analysis: the \textit{local curvature} of the loss
+landscape and the \textit{stochasticity} introduced by mini-batch sampling.
 
-\subsection{Curvature and Local Stability}
+\subsection{Local Curvature of the Loss Function and Stability}
 
 Training is a discrete-time dynamical system whose local response depends
 on curvature. A step that produces smooth descent in a shallow direction
@@ -46,9 +50,9 @@ can be much sharper than the spectral bulk~\cite{sagun2017hessian,
 ghorbani2019density}. Monitoring $\lambda_{\max}(H_t)$ therefore provides
 valuable stability information, but doing so throughout training is
 expensive. Even matrix-free eigensolvers require repeated Hessian--vector
-products beyond the ordinary gradient computation. Consecutive gradients instead provide a directional secant, a classical
-source of curvature information~\cite{barzilai1988two}. It observes the
-realized step and cannot recover the entire spectrum.
+products beyond the ordinary gradient computation. An online diagnostic
+that recovers curvature information from those existing gradients would
+make this geometric analysis accessible during routine training.
 
 \subsection{Mini-Batch Stochasticity}
 
@@ -76,7 +80,7 @@ $\mu:=N^{-1}\sum_i h_i=\nabla\mathcal L(\theta_{t-1})$,
 Its trace measures gradient variability, while its directional structure
 describes how sampling perturbs the trajectory. Exact evaluation requires
 per-example information absent from the aggregated training gradient.
-For a diagnostic based on aggregated gradients, the question is how this
+For an inexpensive online diagnostic, the practical question is how this
 sampling variability changes the alignment of the gradients already
 being computed.
 
@@ -105,53 +109,38 @@ progress. They also make the interaction between successive updates
 central to understanding convergence: the trajectory can repeatedly
 reverse in sharp directions while continuing to descend elsewhere.
 
-\subsection{Gradient-Based Diagnostics and Their Scope}
-
-Consecutive-gradient inner products are established diagnostic quantities.
-Chee and Toulis~\cite{chee2018diagnostics} use a Pflug-type statistic to detect
-stationarity under constant-step SGD. Pesme et al.~\cite{pesme2020diagnostics}
-analyze limitations of this test, including on quadratic objectives, and
-propose a different convergence diagnostic. Hypergradient descent uses
-adjacent gradient products to adapt the learning rate~\cite{baydin2018hypergradient}.
-Barzilai--Borwein methods obtain step sizes from successive parameter and
-gradient differences~\cite{barzilai1988two}; the full-GD secant used here is
-the inverse of the first Barzilai--Borwein step size when that reciprocal
-exists. These connections place our local observations within established
-optimization tools. Our use is descriptive: we combine them with all-lag
-and paired displacement to identify the temporal scale of cancellation.
-
-Gradient diversity~\cite{yin2018gradient} and multi-task gradient
-surgery~\cite{yu2020gradient} instead study gradients evaluated at a shared
-parameter state. Temporal reversal on a fixed objective is not evidence of
-conflicting tasks or erased representations. Similarly, trajectory
-directionality~\cite{singh2025directionality} and EoS analyses characterize
-organization beyond an individual update. Our empirical question is how much
-motion remains after neighboring reversals and how that motion accompanies
-measured loss changes.
-
-\subsection{Monitoring and Adaptive Optimization}
+\subsection{Practical Stability Analysis in Large-Model Pretraining}
 \label{subsec:practical-stability}
 
-Large-model training reports motivate monitoring loss and gradient norms
-alongside interventions such as recovery, learning-rate reduction and
-clipping~\cite{chowdhery2022palm,zhang2022opt,olmo2025furious}.
-Under Adam, those raw-gradient measurements must be distinguished from
-moment estimates and preconditioned updates~\cite{kingma2014adam}.
-Bai et al.~\cite{bai2026adaptive} analyze delayed second-moment adaptation
-and Adam loss spikes, using a directional preconditioned-curvature proxy
-computed with one Hessian--vector product. Our Adam experiments examine the
-raw gradient and the applied step separately; an analytical comparison with
-that proxy states the memory and finite-step corrections explicitly.
-We make no measured overhead or predictive-accuracy comparison with it.
+Practitioners address spikes through monitoring, recovery, and preventive
+changes to the training recipe. PaLM recovered from spikes by returning
+to an earlier checkpoint and skipping batches~\cite{chowdhery2022palm}.
+OPT combined checkpoint recovery with learning-rate reduction and a
+tighter gradient-clipping threshold~\cite{zhang2022opt}. These interventions
+act on both the magnitude of the update and the state from which training
+continues.
 
-High-probability analyses study optimization and generalization guarantees
-under stochastic assumptions~\cite{li2022heavy,lei2026generalization}.
-Our finite-path identities describe realized motion and supply no
-probabilistic iterate or generalization bound.
+Recent open-weight reports also emphasize prevention. OLMo~2 tracks
+spikes in loss and gradient norm while evaluating initialization,
+normalization, and optimizer choices~\cite{olmo2025furious}. Kimi~K2's
+MuonClip optimizer uses attention-logit-based rescaling of query and key
+weights and reports training without loss spikes~\cite{kimi2025k2}.
 
-This paper therefore addresses a measurement gap rather than an unexplained
-existence of oscillations: an adjacent angle, cumulative path ratio, and
-objective change answer different questions. Assigning them a single label
-of constructive or destructive behavior obscures those distinctions. We specify their
-relationships, measure them together and use matched interventions to examine
-which changes in geometry accompany the chosen loss outcome.
+Gradient norms are thus already useful monitoring signals. Their
+interpretation under Adam also depends on optimizer memory. Bai
+et al.~\cite{bai2026adaptive} study delayed second-moment adaptation
+and a directional preconditioned-curvature proxy computed with one HVP.
+Their study includes momentum and stochastic Transformer training.
+Our comparison concerns the relationship between that proxy and the
+response computed from consecutive gradients, including first-moment
+and finite-step corrections. A measured computational advantage requires
+comparison with this one-HVP baseline.
+
+The gradient norm's
+relationship to stability becomes clearer when magnitude is combined
+with direction: a growing gradient can reinforce or oppose its
+predecessor. We develop this connection through constructive and
+destructive regimes, showing how consecutive gradients estimate
+directional curvature and reveal the conditions for a local loss
+increase. This provides a geometric interpretation of signals available
+during training, using one retained gradient and no Hessian computation.

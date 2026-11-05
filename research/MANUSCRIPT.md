@@ -1,5 +1,13 @@
 # Manuscript and evidence
 
+## Active draft restored, 5 November 2026
+
+The author requested archiving the review-session draft and restoring the
+pre-review manuscript at commit `89ec071`. Sources and PDF now match that
+baseline. The [archive](../manuscript/archive/2026-11-05-review-session/README.md)
+contains the reviewed PDF and a verified source/figure snapshot. The review and
+experiment-priority records below are historical, not the active draft status.
+
 ## Reviewer-led experiment priorities, 5 November 2026
 
 [Independent reviews and ranked tests](../manuscript/draft/revisions/2026-11-05-experiment-priorities/README.md)

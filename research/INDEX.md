@@ -2,13 +2,10 @@
 
 ## Current state
 
-[Submission synthesis and revised paper](../manuscript/draft/revisions/2026-11-05-submission-synthesis/README.md)
-close the current diagnostic argument using existing GD/SGD, Adam, Pythia
-and matched-intervention evidence. The 18-page draft and source-linked
-synthesis pass two adversarial rounds, numerical checks and full-page review.
-No correctness/framing blocker remains within the chosen scope; novelty and
-replication risks are explicit. The earlier expansion plan remains future
-work. No new training, cloud spending or registry ID; next Analysis058.
+The active manuscript has been restored to its pre-review version (`89ec071`)
+at the author's request. The reviewed PDF, TeX, figures and tables are preserved
+in the [review-session archive](../manuscript/archive/2026-11-05-review-session/README.md).
+No experiment or scientific evidence was changed; next Analysis058.
 
 [Analysis057: Adam response and memory](../analyses/057-2026-11-05-adam-response-memory/observations/001-response-memory.md)
 completes the Adam author-input manuscript revision from retained evidence.

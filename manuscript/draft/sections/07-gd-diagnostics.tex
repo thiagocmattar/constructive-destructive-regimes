@@ -19,16 +19,12 @@ padding. Architecture and the 33,278-word first-occurrence dictionary over
 training, validation and test text follow PyTorch example revision
 \texttt{13acec6d7c78}~\cite{pytorchWordLanguageModelPinned}.
 
-The ResNet and Transformer use ReLU nonlinearities. Their endpoint
-secants remain directly measurable, but classical-Hessian path-average
-identities are not asserted across nonsmooth activation boundaries.
-
 Diagnostics cover all trainable parameters. Parameters, gradients and Adam
 moments use FP32; reductions use FP64, with TF32 disabled. Initial unpaired
 cosines and zero-denominator ratios are undefined. The GD plots' trailing
 means summarize sustained regimes and can delay a displayed transition;
-Adam losses and micro-plots are unsmoothed. The controlled GD/SGD/Adam claims concern training
-objectives; the Pythia schedule comparison separately reports validation loss. Matched tensors give one initialization per full-batch model;
+Adam losses and micro-plots are unsmoothed. All claims concern training
+objectives. Matched tensors give one initialization per full-batch model;
 independent hardware executions can develop finite-precision drift.
 
 The GD spectral comparison reuses largest algebraic Hessian eigenvalues
@@ -124,9 +120,12 @@ Two excursions above 10\% without observed recovery remain in incidence
 and occupancy counts but do not enter recovery summaries.
 Two retained initialization events have undefined pre-rise diagnostics.
 Each event has equal weight; recovery diagnostics first average within
-the event, and sample SD uses denominator $n-1$. The retrospective severity fits use
-ordinary least squares with an intercept on log relative peak loss.
-Natural-log and base-10-log outcomes give identical $R^2$ and fitted loss ratios.
+the event, and sample SD uses denominator $n-1$. The scatter uses
+per-rate ordinary least squares with an intercept on log relative
+peak loss. Its $R^2$ describes the fitting sample; fitted lines stop at
+each rate's observed predictor range. Natural-log and base-10-log outcomes
+give identical $R^2$ and fitted loss ratios. For the density, each model's pooled log-percentage SD
+times pooled $n^{-1/5}$ sets the common Gaussian bandwidth.
 Events within a trajectory can be dependent.
 
 \begin{table*}[tp]
@@ -163,9 +162,7 @@ increment. This differs from the arrival-state convention of
 Table~\ref{tab:adam-spike-anatomy}; it aligns the gradient with the step
 whose first-order contribution is being measured.
 
-For the severity comparison, define
-$A_i=\|g_{p_i+1}\|/\|g_{a_i+1}\|$ and use pre-rise
-$\rho=\rho_{a_i+1}$. The comparison fits eight specifications with an intercept:
+The severity comparison fits eight specifications with an intercept:
 $\rho$, $A$, $\rho+A$, $\rho+A+\rho A$, $\rho A$, $\log A$,
 $\rho+\log A$, and $\rho+\log A+\rho\log A$.
 Coefficients are fitted by ordinary least squares; the held-out-rate

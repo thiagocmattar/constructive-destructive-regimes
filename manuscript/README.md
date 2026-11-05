@@ -1,17 +1,11 @@
 # Manuscript workspace
 
-## Submission synthesis, 5 November 2026
+## Active draft restored, 5 November 2026
 
-[Scientific synthesis and revised manuscript](draft/revisions/2026-11-05-submission-synthesis/README.md)
-close the current argument around temporal gradient interaction, cumulative
-parameter motion and objective progress. The 18-page draft retains the
-constructive/destructive framing, credits classical secant/diagnostic work,
-condenses Adam spike analysis and integrates existing Pythia and matched
-intervention evidence. Two adversarial review rounds, raw-value checks and
-full-page visual review pass within the stated diagnostic scope. Remaining
-novelty/replication risks and venue packaging are explicit; acceptance is not
-predicted. No training or cloud spending. Earlier experiment plans remain
-future work, not prerequisites for this bounded contribution.
+At the author's request, `draft/bare_jrnl.tex`, its sources and PDF are restored
+to the version before the review session (commit `89ec071`). The reviewed draft,
+including its figures and TeX sources, is preserved in the
+[review-session archive](archive/2026-11-05-review-session/README.md).
 
 ## Current Adam revision, 5 November 2026
 

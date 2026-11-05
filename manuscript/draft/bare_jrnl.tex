@@ -375,15 +375,6 @@
 \usepackage[normalem]{ulem}
 
 
-\ifCLASSINFOpdf
-\pdfinfo{
- /Title (Constructive and Destructive Training Regimes: Diagnosing Gradient Interaction)
- /Author (Thiago Mattar; Cristiano L. Castro; Frederico Coelho; Yan G. Ferreira; Antonio P. Braga)
- /Subject (Temporal gradient interaction, parameter motion and objective progress)
- /Keywords (Gradient descent, Adam, gradient alignment, parameter displacement)
-}
-\fi
-
 \begin{document}
 
 %
@@ -393,8 +384,8 @@
 % not capitalized unless they are the first or last word of the title.
 % Linebreaks \\ can be used within to get better formatting as desired.
 %\title{The Signal and Interference Trade-off in Stochastic Gradient Descent}
-\title{Constructive and Destructive Training Regimes: Diagnosing Gradient Interaction}
-% Diagnostic scope: geometry and objective response are distinct.
+\title{Constructive and Destructive Training Regimes: A Framework for Interpreting SGD Stability}
+%% Add stability on the title
 %
 %
 % author names and IEEE memberships
@@ -432,26 +423,7 @@ Minas Gerais 35931-008, Brazil (e-mail: fredgfc@ufmg.br; apbraga@ufmg.br).}
 % in the abstract or keywords.
 
 \begin{abstract}
-Training updates can repeatedly oppose one another while the loss continues
-to decrease. Interpreting this behavior requires distinguishing local
-cancellation, cumulative parameter motion and objective progress. We develop
-a diagnostic account of constructive and destructive gradient interaction
-using an exact displacement decomposition over all temporal lags. A paired
-factorization locates cancellation within neighboring updates and measures
-how their residual motion accumulates. Classical secant relations connect
-consecutive gradients to directional curvature under smooth gradient descent,
-with explicit qualifications for sampling, finite steps and adaptive updates.
-Across nine controlled full-batch trajectories, total cross-step interaction
-is positive although adjacent interaction is negative in seven. Matched
-stochastic continuations show that similar mean gradient cosines can accompany
-opposite loss changes. Under Adam, all 794 measured rise-phase steps in the
-recovered-excursion sample have descending first-order contributions despite
-net loss increases. Existing Pythia and matched intervention experiments
-further show that more positive raw-gradient alignment or input clipping
-need not improve the
-chosen loss outcome. These findings establish a framework for interpreting
-training geometry and assessing intervention hypotheses, without treating
-alignment sign as a stability guarantee or an optimization target.
+Parameter updates can reinforce or cancel one another even when training loss continues to decrease. An exact finite-time decomposition of stochastic gradient descent (SGD) displacement separates gradient magnitudes from interactions across all temporal lags. Consecutive-gradient cosine provides a local directional diagnostic, while normalized displacement measures net motion relative to traveled distance. Pairing adjacent updates separates immediate cancellation from accumulation of the residual motion. Local expansions connect these quantities to curvature and sampling noise without identifying alignment sign with stability or objective progress. Full-batch experiments exhibit gradient reversal alongside continued loss reduction. Matched mini-batch continuations show that sampling changes both gradient estimates and the paths traversed through the objective. Under Adam, loss-defined events organize amplification and recovery, while ordinary-trajectory controls and norm-only comparisons limit the specificity of reversal. Recorded rise-phase updates have descending first-order contributions despite an overall loss increase. An analytical extension relates projected gradient response to preconditioned curvature through optimizer memory and finite-step variation. Adjacent gradient sums drive the memory residual, connecting Adam response to GD pairing. These identities motivate direct curvature calibration; stochastic Adam validation and a measured monitoring-cost advantage remain open.
 \end{abstract}
 
 
@@ -489,7 +461,6 @@ Stochastic Gradient Descent, Adam, Gradient Alignment, Parameter Displacement, O
 \input{sections/05-sgd-noise-experiments}
 % Let the optimizer extension follow the compact SGD discussion without a forced column break.
 \input{sections/06-adam-diagnostics}
-\input{sections/08-implications}
 \input{sections/05-conclusion}
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -554,12 +525,11 @@ Stochastic Gradient Descent, Adam, Gradient Alignment, Parameter Displacement, O
 % The IEEEtran BibTeX style support page is at:
 % http://www.michaelshell.org/tex/ieeetran/bibtex/
 \input{sections/07-gd-diagnostics}
-\input{sections/09-adam-memory}
 
 % Let references follow the final appendix without a nearly empty page.
 \raggedbottom
 % Reference-column balance is set after the current page layout is checked.
-\IEEEtriggeratref{16}
+\IEEEtriggeratref{18}
 \bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
 \bibliography{IEEEabrv,bibliography.bib}
