@@ -1,5 +1,16 @@
 # Manuscript workspace
 
+## Submission readiness review, 5 November 2026
+
+The [review against the previous submission](2026-11-05-submission-readiness/README.md)
+assesses the actual 18-page draft and supplied reviewer/advisor feedback.
+It maps each objection to its present disposition and proposes
+[12 surgical changes](2026-11-05-submission-readiness/SURGICAL_CHANGES.md),
+including restoration of the retained one-step loss audit and clearer
+contribution positioning. Its source inventory identifies the reviewed snapshot;
+historical restoration/page-count descriptions below are not used as its baseline.
+The manuscript and supplied PDFs are unchanged. No new experiment or cloud work.
+
 ## Active draft restored, 5 November 2026
 
 At the author's request, `draft/bare_jrnl.tex`, its sources and PDF are restored

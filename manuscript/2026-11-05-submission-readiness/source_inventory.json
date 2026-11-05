@@ -1,0 +1,629 @@
+{
+  "review_date": "2026-11-05",
+  "pdf_pages": 18,
+  "active_tex_files": 14,
+  "figures": 11,
+  "tables": 3,
+  "checks": {
+    "all_inputs_exist": true,
+    "all_assets_exist": true,
+    "references_resolved_in_source": true,
+    "citations_present_in_bibliography": true,
+    "no_pdf_double_question_marks": true
+  },
+  "files": [
+    {
+      "path": "manuscript/draft/bare_jrnl.tex",
+      "bytes": 24880,
+      "sha256": "08fa130c1e4c43599d82f8c3108ed71fb368d516c547c7139c92f10ef910d93a",
+      "anchors": [
+        {
+          "line": 387,
+          "text": "\\title{Constructive and Destructive Training Regimes: A Framework for Interpreting SGD Stability}"
+        }
+      ]
+    },
+    {
+      "path": "manuscript/draft/sections/01-introduction.tex",
+      "bytes": 11466,
+      "sha256": "4f8100fbfd9d428fa828012c351ab3d83654e8d0e3f1bdaf70fddf9f414f5e4d",
+      "anchors": [
+        {
+          "line": 1,
+          "text": "\\section{Introduction}"
+        }
+      ]
+    },
+    {
+      "path": "manuscript/draft/sections/02-related-works.tex",
+      "bytes": 7345,
+      "sha256": "7fd62a63468b4de7caff0f9ca82bf3eba4d78ffcd80581a52d1da1561c5abbea",
+      "anchors": [
+        {
+          "line": 1,
+          "text": "\\section{Stability Analysis of SGD}"
+        },
+        {
+          "line": 2,
+          "text": "\\label{sec:background}"
+        },
+        {
+          "line": 12,
+          "text": "\\subsection{Local Curvature of the Loss Function and Stability}"
+        },
+        {
+          "line": 25,
+          "text": "\\label{eq:sgd_map_stability}"
+        },
+        {
+          "line": 31,
+          "text": "\\label{eq:jacobian_sgd}"
+        },
+        {
+          "line": 40,
+          "text": "\\label{eq:quad_stability_condition}"
+        },
+        {
+          "line": 57,
+          "text": "\\subsection{Mini-Batch Stochasticity}"
+        },
+        {
+          "line": 70,
+          "text": "\\label{eq:sgd_noise_decomposition}"
+        },
+        {
+          "line": 78,
+          "text": "\\label{eq:grad_cov_def}"
+        },
+        {
+          "line": 87,
+          "text": "\\subsection{Curvature, Noise and the Edge of Stability}"
+        },
+        {
+          "line": 112,
+          "text": "\\subsection{Practical Stability Analysis in Large-Model Pretraining}"
+        },
+        {
+          "line": 113,
+          "text": "\\label{subsec:practical-stability}"
+        }
+      ]
+    },
+    {
+      "path": "manuscript/draft/sections/03-methods.tex",
+      "bytes": 14025,
+      "sha256": "cdb5c87ded80678233be596c07c565daa47b6ac1f8eec6c322d5eb7fd96a977b",
+      "anchors": [
+        {
+          "line": 1,
+          "text": "\\section{Constructive and Destructive Regimes}"
+        },
+        {
+          "line": 2,
+          "text": "\\label{sec:displacement}"
+        },
+        {
+          "line": 18,
+          "text": "\\label{eq:displacement}"
+        },
+        {
+          "line": 30,
+          "text": "\\label{eq:magnitude-interaction}"
+        },
+        {
+          "line": 47,
+          "text": "\\label{eq:rho}"
+        },
+        {
+          "line": 57,
+          "text": "\\label{eq:magnitude-alignment}"
+        },
+        {
+          "line": 65,
+          "text": "\\subsection{Directional Curvature and Consecutive Alignment}"
+        },
+        {
+          "line": 76,
+          "text": "\\label{eq:gradient-evolution}"
+        },
+        {
+          "line": 87,
+          "text": "\\label{eq:rho-expanded}"
+        },
+        {
+          "line": 93,
+          "text": "\\label{eq:kappa}"
+        },
+        {
+          "line": 98,
+          "text": "\\label{eq:epsilon}"
+        },
+        {
+          "line": 105,
+          "text": "\\label{eq:rho-normalized}"
+        },
+        {
+          "line": 123,
+          "text": "\\subsection{Estimating Curvature without Hessian Computation}"
+        },
+        {
+          "line": 124,
+          "text": "\\label{subsec:curvature-diagnostic}"
+        },
+        {
+          "line": 132,
+          "text": "\\label{eq:kappa-estimate}"
+        },
+        {
+          "line": 151,
+          "text": "\\subsection{Noise Contribution under Mini-Batch Sampling}"
+        },
+        {
+          "line": 152,
+          "text": "\\label{subsec:sampling-noise}"
+        },
+        {
+          "line": 162,
+          "text": "\\label{eq:noise-expectation}"
+        },
+        {
+          "line": 169,
+          "text": "\\label{eq:finite-population-noise}"
+        },
+        {
+          "line": 182,
+          "text": "\\label{eq:noise-cosine-approx}"
+        },
+        {
+          "line": 194,
+          "text": "\\subsection{Normalized Displacement and Cumulative Interference}"
+        },
+        {
+          "line": 195,
+          "text": "\\label{subsec:normalized-displacement}"
+        },
+        {
+          "line": 206,
+          "text": "\\label{eq:normalized-displacement}"
+        },
+        {
+          "line": 228,
+          "text": "\\label{eq:zero-interaction-reference}"
+        },
+        {
+          "line": 243,
+          "text": "\\label{eq:paired-displacement}"
+        },
+        {
+          "line": 254,
+          "text": "\\label{eq:pair-norm}"
+        },
+        {
+          "line": 261,
+          "text": "\\subsection{Conditions for Loss Decrease and Spike Formation}"
+        },
+        {
+          "line": 262,
+          "text": "\\label{subsec:loss-connection}"
+        },
+        {
+          "line": 277,
+          "text": "\\label{eq:loss-curvature}"
+        },
+        {
+          "line": 286,
+          "text": "\\label{eq:loss-rise-alignment}"
+        },
+        {
+          "line": 300,
+          "text": "\\label{eq:loss-rise-curvature}"
+        }
+      ]
+    },
+    {
+      "path": "manuscript/draft/sections/04-controlled-figures.tex",
+      "bytes": 4285,
+      "sha256": "deefcb7d49e0fa501cdbac6096885d3b5a1fc6888e180856416b618d308e739d",
+      "anchors": [
+        {
+          "line": 20,
+          "text": "\\label{fig:gd-loss}"
+        },
+        {
+          "line": 40,
+          "text": "\\label{fig:gd-alignment-displacement}"
+        },
+        {
+          "line": 60,
+          "text": "\\label{fig:gd-backward}"
+        },
+        {
+          "line": 78,
+          "text": "\\label{fig:sgd-moving-geometry}"
+        }
+      ]
+    },
+    {
+      "path": "manuscript/draft/sections/04-gd-experiments.tex",
+      "bytes": 7401,
+      "sha256": "b3f4246851fcc9dab31d3e5542fe79dde7a366be6d2625a512c5cc2e0c01ec9d",
+      "anchors": [
+        {
+          "line": 2,
+          "text": "\\section{Gradient Reversal and Progress in GD and SGD}"
+        },
+        {
+          "line": 3,
+          "text": "\\label{sec:gd-experiments}"
+        },
+        {
+          "line": 20,
+          "text": "\\paragraph{Controlled design.}"
+        },
+        {
+          "line": 32,
+          "text": "\\subsection{The Onset of Sustained Gradient Reversal}"
+        },
+        {
+          "line": 64,
+          "text": "\\subsection{Local Reversal Coexists with Substantial Loss Reduction}"
+        },
+        {
+          "line": 105,
+          "text": "\\subsection{Reversal Has Structure across Temporal Lags}"
+        }
+      ]
+    },
+    {
+      "path": "manuscript/draft/sections/05-sgd-noise-experiments.tex",
+      "bytes": 3094,
+      "sha256": "41d62d46a015e7d9e9d696eb102fe0d9a01aa95c260201ad2f648584a3d519b7",
+      "anchors": [
+        {
+          "line": 2,
+          "text": "\\subsection{Observed Alignment under Mini-Batch Sampling}"
+        },
+        {
+          "line": 3,
+          "text": "\\label{sec:sgd-noise-experiments}"
+        }
+      ]
+    },
+    {
+      "path": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "bytes": 23544,
+      "sha256": "c6af98c772b77a4dba3a85a01026c9bccc8d45bbafe7de1eb3283788969a0a31",
+      "anchors": [
+        {
+          "line": 1,
+          "text": "\\section{Gradient Response and Optimizer Memory during Adam Loss Excursions}"
+        },
+        {
+          "line": 2,
+          "text": "\\label{sec:adam-diagnostics}"
+        },
+        {
+          "line": 20,
+          "text": "\\subsection{Loss-Slope Measurements along Adam Trajectories}"
+        },
+        {
+          "line": 29,
+          "text": "\\label{eq:adam-moments}"
+        },
+        {
+          "line": 37,
+          "text": "\\label{eq:adam-direction}"
+        },
+        {
+          "line": 52,
+          "text": "\\label{eq:adam-projected-response}"
+        },
+        {
+          "line": 71,
+          "text": "\\paragraph{Controlled trajectories.}"
+        },
+        {
+          "line": 93,
+          "text": "\\label{fig:adam-overview}"
+        },
+        {
+          "line": 102,
+          "text": "\\subsection{Loss-Defined Excursions and Their Distribution}"
+        },
+        {
+          "line": 116,
+          "text": "\\label{eq:adam-spike-boundaries}"
+        },
+        {
+          "line": 141,
+          "text": "\\label{fig:adam-spike-definition}"
+        },
+        {
+          "line": 156,
+          "text": "\\label{fig:adam-spike-distribution}"
+        },
+        {
+          "line": 182,
+          "text": "\\subsection{Amplification and Recovery across Events}"
+        },
+        {
+          "line": 222,
+          "text": "\\label{tab:adam-spike-anatomy}"
+        },
+        {
+          "line": 240,
+          "text": "\\paragraph{Individual trajectories.}"
+        },
+        {
+          "line": 259,
+          "text": "\\label{fig:adam-spikes}"
+        },
+        {
+          "line": 277,
+          "text": "\\subsection{Alignment and Norm Amplification as Severity Descriptors}"
+        },
+        {
+          "line": 283,
+          "text": "\\label{eq:adam-event-product}"
+        },
+        {
+          "line": 301,
+          "text": "\\label{fig:adam-rho-norm-spikes}"
+        },
+        {
+          "line": 350,
+          "text": "\\label{fig:adam-severity-ablation}"
+        },
+        {
+          "line": 353,
+          "text": "\\paragraph{Current slope versus optimizer direction.}"
+        },
+        {
+          "line": 366,
+          "text": "\\subsection{Connecting Gradient Response to Optimizer State}"
+        },
+        {
+          "line": 387,
+          "text": "\\label{eq:adam-response-integral}"
+        },
+        {
+          "line": 403,
+          "text": "\\label{eq:adam-bai-reference}"
+        },
+        {
+          "line": 413,
+          "text": "\\label{eq:adam-response-discrepancy}"
+        },
+        {
+          "line": 430,
+          "text": "\\label{eq:adam-memory-residual}"
+        },
+        {
+          "line": 453,
+          "text": "\\label{eq:adam-response-error-bound}"
+        },
+        {
+          "line": 461,
+          "text": "\\paragraph{Scope of the current empirical findings.}"
+        }
+      ]
+    },
+    {
+      "path": "manuscript/draft/tables/analysis036_spike_anatomy.tex",
+      "bytes": 3053,
+      "sha256": "58f64b4185394d5ab1e11a995c3716355dd634d6cf0d23a874d25f0b5f885e95",
+      "anchors": []
+    },
+    {
+      "path": "manuscript/draft/sections/05-conclusion.tex",
+      "bytes": 2153,
+      "sha256": "3bb469f64a79033bb30c1a160a7e8c21dd422e8e38abd2689d36c18b722670c0",
+      "anchors": [
+        {
+          "line": 1,
+          "text": "\\section{Conclusion}"
+        },
+        {
+          "line": 2,
+          "text": "\\label{sec:conclusion}"
+        }
+      ]
+    },
+    {
+      "path": "manuscript/draft/sections/06-loss-appendix.tex",
+      "bytes": 3896,
+      "sha256": "ffcc25fe504aa09bf7ba7a4b79f682daace6f9967425c806549dc5273f53fe38",
+      "anchors": [
+        {
+          "line": 1,
+          "text": "\\section{Curvature Estimation and Local Loss Change}"
+        },
+        {
+          "line": 2,
+          "text": "\\label{appendix:loss-curvature}"
+        },
+        {
+          "line": 14,
+          "text": "\\label{eq:path-curvature}"
+        },
+        {
+          "line": 22,
+          "text": "\\label{eq:curvature-error-bound}"
+        },
+        {
+          "line": 35,
+          "text": "\\label{eq:adam-gradient-response}"
+        },
+        {
+          "line": 50,
+          "text": "\\label{eq:appendix-loss-integral}"
+        },
+        {
+          "line": 64,
+          "text": "\\label{eq:appendix-loss-gradient}"
+        },
+        {
+          "line": 81,
+          "text": "\\label{eq:appendix-loss-curvature}"
+        },
+        {
+          "line": 101,
+          "text": "\\label{eq:expected-loss-change}"
+        }
+      ]
+    },
+    {
+      "path": "manuscript/draft/sections/07-gd-diagnostics.tex",
+      "bytes": 9305,
+      "sha256": "d508022cf0a4f526eccec95e0fc49a379aaea40674260801b73dde26b575444b",
+      "anchors": [
+        {
+          "line": 1,
+          "text": "\\section{Essential Measurement Conventions}"
+        },
+        {
+          "line": 2,
+          "text": "\\label{appendix:gd-raw-alignment}"
+        },
+        {
+          "line": 4,
+          "text": "\\subsection{Fixed Objectives and Numerical Scope}"
+        },
+        {
+          "line": 38,
+          "text": "\\subsection{Sampling and Trajectory Comparisons}"
+        },
+        {
+          "line": 52,
+          "text": "\\subsection{Pairing, Boundary Treatment and Loss Changes}"
+        },
+        {
+          "line": 53,
+          "text": "\\label{appendix:gd-pairing}"
+        },
+        {
+          "line": 80,
+          "text": "\\label{tab:gd-paired-endpoints}"
+        },
+        {
+          "line": 106,
+          "text": "\\label{fig:gd-two-step-loss}"
+        },
+        {
+          "line": 109,
+          "text": "\\subsection{Adam Event Summaries}"
+        },
+        {
+          "line": 110,
+          "text": "\\label{appendix:adam-measurements}"
+        },
+        {
+          "line": 141,
+          "text": "\\label{tab:adam-incidence}"
+        }
+      ]
+    },
+    {
+      "path": "manuscript/draft/tables/analysis056_pairs.tex",
+      "bytes": 875,
+      "sha256": "a45af104543053f88e2a1cf0718a28be86e560c4aca3420e36a53a832a29bbd9",
+      "anchors": []
+    },
+    {
+      "path": "manuscript/draft/tables/analysis057_incidence.tex",
+      "bytes": 727,
+      "sha256": "666a8d0fa6e4a699af6c26d66331c5b27c9ffc064c8a3553e555b10163f49ed1",
+      "anchors": []
+    },
+    {
+      "path": "manuscript/draft/figures/analysis056/gd_loss_curvature.pdf",
+      "bytes": 536219,
+      "sha256": "510d8f1c7be4232216cd62f2faf69e8bab4821be26b3c6c7e222a110abc942ac"
+    },
+    {
+      "path": "manuscript/draft/figures/analysis056/gd_reversal_paired_displacement.pdf",
+      "bytes": 1140701,
+      "sha256": "bfd78c9866c9746000ad9eb688f1544f485895c0059a4bfc39c0dc9b40f05534"
+    },
+    {
+      "path": "manuscript/draft/figures/analysis056/gd_lag_endpoints.pdf",
+      "bytes": 76241,
+      "sha256": "1eb657abc9f0ff7225f50dc7e59422cbb4c6c6b56a5200f774991035b35ce20c"
+    },
+    {
+      "path": "manuscript/draft/figures/analysis037/sgd_batch_size_compact.pdf",
+      "bytes": 60753,
+      "sha256": "6f6c258c03ce9d49774c5fface2021a898c54df1cad8dc8c0e709c973b1bd5c4"
+    },
+    {
+      "path": "manuscript/draft/figures/analysis036/adam_manuscript_overview.pdf",
+      "bytes": 126889,
+      "sha256": "af4db6e58f193dd9dd981f92bc994a888ec2b83c2a09c87d87c748a73ad32d15"
+    },
+    {
+      "path": "manuscript/draft/figures/analysis036/adam_spike_definition.pdf",
+      "bytes": 31310,
+      "sha256": "f97e760090032ffa08be1e72e84c038007725d7dd9c8dd31ddb45d2dec7d504a"
+    },
+    {
+      "path": "manuscript/draft/figures/analysis036/adam_peak_increase_density.pdf",
+      "bytes": 354539,
+      "sha256": "5618655941c213634bea569564f25718c34c84604ee25a8be58a42a3eb1e70d8"
+    },
+    {
+      "path": "manuscript/draft/figures/analysis036/adam_manuscript_spikes.pdf",
+      "bytes": 88241,
+      "sha256": "1cf1e8485ea348e7738f51c77ee4ce1b8e027eed97ac18fd4347969802f09bc6"
+    },
+    {
+      "path": "manuscript/draft/figures/analysis057/adam_severity_product_supported.pdf",
+      "bytes": 53561,
+      "sha256": "0e4db623698a51bef3a8ba438bd982929b4cd5d69c5cb8f500b3613a108dbaee"
+    },
+    {
+      "path": "manuscript/draft/figures/analysis057/adam_severity_ablation.pdf",
+      "bytes": 43858,
+      "sha256": "74838082e47f15894ce5f51968f9584259b49f2ea0d7df3dc39f02f9ff3abe7b"
+    },
+    {
+      "path": "manuscript/draft/figures/analysis056/gd_two_step_loss_changes.pdf",
+      "bytes": 78834,
+      "sha256": "363cfacc6e98977415322b494cc0ee3f23ceebf83f2be1d65674d0512ce4562f"
+    },
+    {
+      "path": "manuscript/draft/bare_jrnl.pdf",
+      "bytes": 2954489,
+      "sha256": "7e523e83701670fd1ba361c4c3a1ab457d3a6113838917dcff8554e28c88d976"
+    },
+    {
+      "path": "manuscript/draft/bibliography.bib",
+      "bytes": 33998,
+      "sha256": "93480cf2d3b2520486a7d46bdefdf4530e6f8c45a3241636353024bb2b5d9709"
+    },
+    {
+      "path": "manuscript/draft/previous-submission/rejection_email.pdf",
+      "bytes": 1148364,
+      "sha256": "9cf9e5a5c72f91903bd8c5ec55e9e14ebdef12f064db33a5eea0542c163e2577"
+    },
+    {
+      "path": "manuscript/draft/previous-submission/stab (1).pdf",
+      "bytes": 110145,
+      "sha256": "eb6723f4a45e6763ef4f8ded604e2b40cbad31710d9d0c2fd2f26740fcdb05b7"
+    },
+    {
+      "path": "manuscript/draft/previous-submission/TNNLS_2026_P_48775_reviews_tnnls (1).pdf",
+      "bytes": 169033,
+      "sha256": "c5216f8482661e129053e1c9039790257d542d3bd013e8cdb9d4b1c93b82d8fa"
+    },
+    {
+      "path": "manuscript/draft/previous-submission/_IEEE__Constructive_and_Destructive_Training_Regimes__A_Framework_for_Interpreting_SGD_Stability (7).pdf",
+      "bytes": 2215483,
+      "sha256": "2e1ce8c1f4c339380ed11ea5e664f10e7973898876b9a3c75c4a894894e4fb93"
+    },
+    {
+      "path": "analyses/024-2026-10-17-eos-gd-lr-calibration/section_iv_review_checks.json",
+      "bytes": 13318,
+      "sha256": "6f72f04d768ab68ff445e5f49635140d2386b9a38ab4939787fc0a9f1cfcc39e"
+    }
+  ]
+}
