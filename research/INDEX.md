@@ -69,6 +69,9 @@ in 117/127 defined events; all 129 endpoint gradient norms grow. Recovery is
 required and the 10% threshold is operational. R-squared uses log peak/pre-rise
 loss; temporal association, prospective prediction and causality remain distinct.
 No new training, intervention, cloud resource or hypothesis.
+A [multi-spike review figure](../analyses/036-2026-11-02-controlled-adam-diagnostics/observations/011-multiple-spikes.md)
+now shows 19 complete >10% excursions with linear relative norms; the original
+figure and manuscript are preserved (2026-11-05).
 
 [Analysis035: backward fixed-endpoint profiles](../analyses/035-2026-11-02-eos-backward-anchors/REPORT.md)
 implements rho_t(k)=cos(g_t,g_(t-k)), k=1-256, with one fixed endpoint per curve.
