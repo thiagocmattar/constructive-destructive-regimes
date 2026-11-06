@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "raw_scalar_checks": 69354,
+  "unchanged_original_plot_values": 48006,
+  "projected_change_identities": 12144,
+  "source_files": 63,
+  "pdfs": [
+    "00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer",
+    "01-persistent-half-lr-cifar10-mlp-resnet-wikitext2-transformer",
+    "02-lr-floors-and-abrupt-return-cifar10-mlp",
+    "03-lr-return-styles-cifar10-mlp",
+    "04-two-stage-decay-cifar10-mlp",
+    "05-gradient-clipping-cifar10-mlp-resnet",
+    "06-lr-schedules-minipile-pythia14m-70m"
+  ],
+  "original_plot_tables": {
+    "analyses/044-2026-11-04-multispike-interventions/figure_values.csv": "3374a36016d900f3a77d382d9160a632efb5250c2161ca5644432a44cf1ba981",
+    "analyses/045-2026-11-04-mlp-lr-return/plotted_values.csv": "36fe167e446115e40a09fcf9557e99f29717153de826fd4b5fca84ecf5e9baf3",
+    "analyses/046-2026-11-04-mlp-cosine-rise70/plotted_values.csv": "4807573cffab34b37b7a00cfe42d606ecda659988e1e7e5cfa2d3b06b7659792",
+    "analyses/047-2026-11-04-mlp-cosine-floors/plotted_values.csv": "5deaf9560a15b80e7b0d1f173b9f639f0d3a96f16dd8873a314496cb6b310ef4",
+    "analyses/050-2026-11-04-mlp-two-stage-decay/plotted_values.csv": "05b872a7fd1385779240ce914ca20f3a1bac62e1b7f22d1660acabfb58df42c4",
+    "analyses/052-2026-11-04-mlp-clipping-thresholds/plotted_values.csv": "526c152318f24829550ba6d025bf40b62c89cc762c17c658a45c7b0c31bd69fc",
+    "analyses/054-2026-11-05-resnet-clip1/plotted_values.csv": "fbad950bfb8dc2c08bb56320b2faae6d42db99aa2e2c070b215a4687bd69e813"
+  },
+  "figure00": "byte-identical to verified Analysis055 original",
+  "notes": [
+    "Pythia includes raw tail update 712 and undefined first cosine/q is omitted.",
+    "ResNet clipping uses fresh same-Spark control; shaded prefix is historical RTX4090.",
+    "No smoothing; no raw vector, training state or scientific input modified."
+  ]
+}

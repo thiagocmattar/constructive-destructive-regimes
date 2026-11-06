@@ -1,5 +1,16 @@
 # Research index
 
+## Intervention consolidation, 6 November 2026
+
+[Analysis058](../analyses/058-2026-11-06-intervention-consolidation/README.md)
+collects seven numbered paper-style intervention figures from retained evidence.
+Immediate half LR, MLP schedule variants, clipping and Pythia schedules retain
+their matched controls and full declared windows. All 69,354 plotted values and
+seven vector PDFs pass numerical/visual checks. No new training, spending or
+manuscript edit; the 6 November manuscript rollback remains intact.
+Next analysis: 059; no run or hypothesis allocated.
+
+
 ## Current state
 
 The active manuscript has been restored to its pre-review version (`89ec071`)

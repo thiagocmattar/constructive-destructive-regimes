@@ -1,5 +1,16 @@
 # Analysis registry
 
+## Analysis058: matched intervention figure consolidation
+
+[Analysis058](058-2026-11-06-intervention-consolidation/README.md) consolidates
+seven numbered publication PDFs (00--06): high-rate overview, immediate half LR,
+MLP floors/return, return styles, two-stage decay, MLP/ResNet clipping, and
+Pythia schedules. Existing raw evidence only; 69,354 plotted scalar checks,
+48,006 exact original-plot matches, 63 source hashes and seven visual reviews
+pass. Pythia norms/cosines support the projected-change row; raw tail retained.
+No training, cloud work or manuscript change. Next analysis: 059.
+
+
 `000-template/` is a template, not Analysis 000.
 
 | Analysis | Question | Source runs / other inputs | Status | Observations / figures |
