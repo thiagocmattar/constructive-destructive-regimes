@@ -7,7 +7,7 @@ the optimizer contain two complementary signals: how strongly the loss
 changes locally, and whether the next update reinforces or opposes the
 preceding one. We first show how these interactions determine accumulated
 parameter change. We then connect consecutive alignment to curvature,
-obtaining a secant estimator and a joint condition on gradient
+obtaining an inexpensive estimator and a joint condition on gradient
 reversal and growth that explains when the loss can increase.
 
 Consider the plain SGD update in Eq.~\eqref{eq:sgd_map_stability}, with
@@ -111,14 +111,16 @@ gives destructive alignment. The boundary $\eta\kappa_t=1$ separates
 the two regimes. At this boundary the gradients are orthogonal if
 both are nonzero; a vanishing gradient leaves the cosine undefined.
 
-Destructive alignment means that an update opposes a component of the
-preceding parameter displacement. It does not establish overwriting of
-learned representations, which would require a functional measurement.
+This relation supports two interpretations. From a representation-learning
+perspective, a destructive update opposes parameter changes made by its
+predecessor, providing a mechanism for repeatedly overwriting learned
+structure. Even with iid data from a fixed distribution, successive
+updates can repeatedly undo previously accumulated parameter changes.
 From an optimization perspective, negative alignment indicates
 that a GD step has passed the minimum along its preceding direction in
 the local quadratic model. The optimizer then partially reverses that
-step. Such reversals can coexist with loss reduction; within the same
-approximation, the returning gradient's magnitude determines the loss sign.
+step. Such reversals can coexist with convergence; the magnitude of the
+returning gradient determines when they instead increase the loss.
 
 \subsection{Estimating Curvature without Hessian Computation}
 \label{subsec:curvature-diagnostic}
@@ -186,10 +188,8 @@ cosine toward zero. Along an evolving SGD trajectory, sampling also
 changes the next parameter state and its curvature. The negative term
 in Eq.~\eqref{eq:noise-expectation} alone therefore does not determine
 how a negative cosine changes. Section~\ref{sec:sgd-noise-experiments}
-measures the combined sampling and trajectory effects on observed
-alignment during training. The same-state approximation above has a
-nonnegative numerator and cannot test attenuation of a negative
-full-gradient cosine between distinct states.
+tests the attenuation of constructive and destructive alignment on
+actual training trajectories.
 
 \subsection{Normalized Displacement and Cumulative Interference}
 \label{subsec:normalized-displacement}
@@ -210,51 +210,15 @@ denominator is the traveled distance and the numerator is displacement
 from initialization. Equation~\eqref{eq:magnitude-alignment} shows that
 $R_T^2$ incorporates the interactions between every pair of steps.
 Thus $R_T$ summarizes the cumulative effect of their magnitudes and
-alignment, while $\rho_t$ identifies the local regime. It measures
-parameter-path geometry, not a fraction of useful learning retained.
+alignment, while $\rho_t$ identifies the local regime.
 
 Aligned steps give $R_T=1$. Equal opposing pairs give zero, and
-equal-length orthogonal steps give $R_T=1/\sqrt T$, or about 1.83\%
-after 3,000 updates. A small $R_T$ therefore does not by itself imply
-negative cumulative interaction. With the observed gradient lengths,
-the zero-cross-term reference and its associated energy ratio are
-\begin{equation}
-\begin{aligned}
- R_T^{\perp}&:=\frac{\sqrt{\sum_{t=1}^T\|g_t\|^2}}
-                         {\sum_{t=1}^T\|g_t\|},\\
- Q_T&:=\left(\frac{R_T}{R_T^{\perp}}\right)^2
- =1+\frac{2\sum_{u<t}g_u^\top g_t}{\sum_{t=1}^T\|g_t\|^2}.
-\end{aligned}
-\label{eq:zero-interaction-reference}
-\end{equation}
-For nonzero gradient energy, $Q_T<1$, $Q_T=1$ and $Q_T>1$ mean
-negative, zero and positive total cross-step interaction, respectively.
-The reference is algebraic; it does not assume random independent steps.
-
-To locate cancellation across timescales, combine adjacent updates.
-For $T=2J$, let $h_j=g_{2j-1}+g_{2j}$, so that
-$\theta_{2j}-\theta_{2j-2}=-\eta h_j$. Define
-\begin{equation}
-\begin{aligned}
- C_T&:=\frac{\sum_{j=1}^J\|h_j\|}{\sum_{t=1}^T\|g_t\|},
- &D_T&:=\frac{\|\sum_{j=1}^Jh_j\|}{\sum_{j=1}^J\|h_j\|},\\
- &&R_T&=C_TD_T.
-\end{aligned}
-\label{eq:paired-displacement}
-\end{equation}
-Here $C_T$ measures the path length remaining after cancellation within
-pairs; $D_T$ measures how coherently those pair displacements accumulate.
-Both lie in $[0,1]$ when their denominators are nonzero. If the original
-path length is positive but all pair sums vanish, $C_T=R_T=0$ and $D_T$
-is undefined. Each pair norm follows from
-the raw norms and cosine,
-\begin{equation}
- \|h_j\|^2=\|g_{2j-1}\|^2+\|g_{2j}\|^2
-       +2\rho_{2j}\|g_{2j-1}\|\|g_{2j}\|.
- \label{eq:pair-norm}
-\end{equation}
-The factorization distinguishes immediate cancellation from subsequent
-turning; neither factor alone determines whether the objective decreases.
+equal-length orthogonal steps give $R_T=1/\sqrt T$. Even without direct
+cancellation, orthogonal steps retain only 10\% of their traveled
+distance after 100 updates, or 1\% after 10,000. The example shows how
+weak directional reinforcement limits net movement relative to path
+length. Low $R_T$ therefore reveals repeated reversal or weak coherence;
+its effect on learning is assessed jointly with the loss.
 
 \input{sections/04-controlled-figures}
 
@@ -299,13 +263,10 @@ The equivalent curvature form is
   \frac{\eta}{2}\|g_{t-1}\|^2(\eta\kappa_t-2).
   \label{eq:loss-rise-curvature}
 \end{equation}
-It summarizes the same joint effect in the quadratic model:
-$\eta\kappa_t=1$ marks the alignment boundary, while
-$\eta\kappa_t=2$ marks its loss-change threshold. Between them,
-destructive updates still decrease the quadratic objective.
-For the measured secant statistic, crossing one is exactly equivalent
-to negative consecutive cosine; crossing two predicts the loss sign
-only under the stated approximation. The expressions are exact for quadratic
+It summarizes the same joint effect: $\eta\kappa_t=1$ marks the
+constructive--destructive boundary, while $\eta\kappa_t=2$ marks
+the loss-increase boundary. Between them, destructive updates still
+decrease the objective. The expressions are exact for quadratic
 objectives; for nonlinear losses their accuracy depends on variation
 along the step, with sampling adding the explicit noise contribution.
 A sequence of upward steps followed by recovery forms the spike

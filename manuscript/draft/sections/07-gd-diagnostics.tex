@@ -49,63 +49,6 @@ batch and runtime remain confounded in this block.
 The backward-lag curves also use separate continuations, whose later
 floating-point paths can differ from the original GD trajectories.
 
-\subsection{Pairing, Boundary Treatment and Loss Changes}
-\label{appendix:gd-pairing}
-
-The primary partition uses $(g_1,g_2),\ldots,(g_{2999},g_{3000})$.
-The alternate partition pairs $(g_2,g_3),\ldots,(g_{2998},g_{2999})$
-and retains $g_1$ and $g_{3000}$ as singleton segments. Thus both
-partitions cover the same full path and have the same total displacement.
-Primed factors in Table~\ref{tab:gd-paired-endpoints} use the alternate
-segment-length sum in Eq.~\eqref{eq:paired-displacement}.
-No displacement norm for a cropped window is inferred by subtracting
-prefix norms. Pair norms use unsmoothed statistics, evaluated as
-$(a-b)^2+2ab(1+\rho)$ before the square root to reduce cancellation
-error when $\rho$ is close to $-1$.
-
-The algebra refers to $-\eta\sum_t g_t$; actual FP32 parameter
-updates include rounding. At update 3000 the recorded displacement
-norms agree with $\eta\|\sum_tg_t\|$ to relative error below
-$9.6\times10^{-8}$ across all nine runs.
-The table reports deterministic reductions of one initialization,
-without a sampling uncertainty estimate.
-
-\begin{table*}[!t]
- \centering
- \caption{Pairing-offset sensitivity and cumulative-interaction references
- at $T=3000$. Primed factors retain boundary singletons after shifting
- the pairing. $R_T=C_TD_T=C_T^{\prime}D_T^{\prime}$, up to rounding.
- All nine $Q_T>1$, including the seven conditions with negative
- cumulative adjacent interaction.}
- \label{tab:gd-paired-endpoints}
- \small
- \input{tables/analysis056_pairs}
-\end{table*}
-
-For loss changes, the primary pairs telescope exactly over states
-2000--3000. Alternate interior pairs cover states 2001--2999;
-their 499 changes exclude the two boundary updates.
-Figure~\ref{fig:gd-two-step-loss} shows every change at the largest rate
-per model. Counts in the main text use strict signs. Discarding changes
-no larger than $10^{-6}$ times the larger endpoint loss leaves all
-primary late-window counts unchanged. It removes two near-zero
-alternate-offset Transformer changes; the other late-window counts
-are unchanged. These dependent observations describe the selected
-trajectories and are not independent replication units.
-
-\begin{figure*}[!t]
- \centering
- \includegraphics[width=\textwidth]{figures/analysis056/gd_two_step_loss_changes.pdf}
- \caption{\textbf{Pairing does not ensure local descent.}
- Every unsmoothed two-update full-training-loss change in the last
- 1,000 updates at the highest rate per model. Offset 0 contains 500
- pairs over states 2000--3000; offset 1 contains 499 interior pairs
- over states 2001--2999. The horizontal line is zero. Separate vertical
- scales preserve each model's variation. Each window has negative
- total change despite positive individual changes.}
- \label{fig:gd-two-step-loss}
-\end{figure*}
-
 \subsection{Adam Event Summaries}
 \label{appendix:adam-measurements}
 
@@ -116,58 +59,12 @@ ResNet and Transformer learning-rate arms; initial-gradient agreement
 is checked, while subsequent finite-precision drift remains possible.
 Rate selection uses training calibration.
 
-Two excursions above 10\% without observed recovery remain in incidence
-and occupancy counts but do not enter recovery summaries.
+Two excursions above 10\% without observed recovery are excluded.
 Two retained initialization events have undefined pre-rise diagnostics.
 Each event has equal weight; recovery diagnostics first average within
 the event, and sample SD uses denominator $n-1$. The scatter uses
 per-rate ordinary least squares with an intercept on log relative
-peak loss. Its $R^2$ describes the fitting sample; fitted lines stop at
-each rate's observed predictor range. Natural-log and base-10-log outcomes
-give identical $R^2$ and fitted loss ratios. For the density, each model's pooled log-percentage SD
+peak loss. Its $R^2$ describes the fitting sample; dashed extensions
+extrapolate. For the density, each model's pooled log-percentage SD
 times pooled $n^{-1/5}$ sets the common Gaussian bandwidth.
 Events within a trajectory can be dependent.
-
-\begin{table*}[tp]
- \centering
- \caption{Adam event incidence and threshold sensitivity per 1,024-update
- trajectory. $N_q$ counts recovered events strictly above $q$\%; $C_{10}$
- counts censored candidates above 10\%. Occupancy is the fraction of
- outgoing updates in the union of intervals $[a_i,c_i)$ (or $[a_i,1024)$
- if censored), for events above 10\%. The cosine column reports negative
- over defined pre-rise measurements in the recovered sample. Mean
- $\Delta\mathcal L$ is the absolute peak minus pre-rise loss of recovered
- events above 10\%, in each model's objective units.}
- \label{tab:adam-incidence}
- \small
- \setlength{\tabcolsep}{4pt}
- \input{tables/analysis057_incidence}
-\end{table*}
-
-The censored highest-rate MLP event starts at state 942, has an observed
-peak/pre-rise ratio 2.908 at state 954 and remains unrecovered for 82
-observed updates. The highest-rate Transformer event starts at 982,
-has an observed ratio 2.219 at 992 and remains unrecovered for 42 updates.
-Their maxima are provisional; no eventual recovery time is imputed.
-For all events, positive loss excess sums
-$\sum_{s=a_i+1}^{e_i}\max(0,\mathcal L_s-\mathcal L_{a_i})$ use observed
-end $e_i=c_i$ or 1024 and are retained with the per-event records.
-
-For cross-alignments, rise uses outgoing states $a_i,\ldots,p_i-1$ and
-recovery uses $p_i,\ldots,c_i-1$. Each event first contributes its mean
-cosine, then events receive equal weight within a trajectory. Counts of
-locally descending steps instead weight each outgoing update once and
-use the recorded raw-gradient dot product with the actual FP32 parameter
-increment. This differs from the arrival-state convention of
-Table~\ref{tab:adam-spike-anatomy}; it aligns the gradient with the step
-whose first-order contribution is being measured.
-
-The severity comparison fits eight specifications with an intercept:
-$\rho$, $A$, $\rho+A$, $\rho+A+\rho A$, $\rho A$, $\log A$,
-$\rho+\log A$, and $\rho+\log A+\rho\log A$.
-Coefficients are fitted by ordinary least squares; the held-out-rate
-comparison trains on all eligible events at the other rates of the same
-model. The seven test samples contain 8, 46, 38, 10, 7, 6 and 12 events
-in increasing-rate order within MLP, ResNet and Transformer.
-No random split of events or tuning on held-out rates is used.
-These small, dependent samples do not supply independent-seed uncertainty.

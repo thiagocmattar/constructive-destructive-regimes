@@ -423,14 +423,14 @@ Minas Gerais 35931-008, Brazil (e-mail: fredgfc@ufmg.br; apbraga@ufmg.br).}
 % in the abstract or keywords.
 
 \begin{abstract}
-Parameter updates can reinforce or cancel one another even when training loss continues to decrease. An exact finite-time decomposition of stochastic gradient descent (SGD) displacement separates gradient magnitudes from interactions across all temporal lags. Consecutive-gradient cosine provides a local directional diagnostic, while normalized displacement measures net motion relative to traveled distance. Pairing adjacent updates separates immediate cancellation from accumulation of the residual motion. Local expansions connect these quantities to curvature and sampling noise without identifying alignment sign with stability or objective progress. Full-batch experiments exhibit gradient reversal alongside continued loss reduction. Matched mini-batch continuations show that sampling changes both gradient estimates and the paths traversed through the objective. Under Adam, loss-defined events organize amplification and recovery, while ordinary-trajectory controls and norm-only comparisons limit the specificity of reversal. Recorded rise-phase updates have descending first-order contributions despite an overall loss increase. An analytical extension relates projected gradient response to preconditioned curvature through optimizer memory and finite-step variation. Adjacent gradient sums drive the memory residual, connecting Adam response to GD pairing. These identities motivate direct curvature calibration; stochastic Adam validation and a measured monitoring-cost advantage remain open.
+Parameter updates can reinforce or cancel one another even when training loss continues to decrease. An exact finite-time decomposition of stochastic gradient descent (SGD) displacement separates gradient magnitudes from interactions across all temporal lags. Consecutive-gradient cosine provides a local directional diagnostic, while normalized displacement measures cumulative retention of traveled distance. Local expansions connect these quantities to curvature and sampling noise without identifying alignment sign with stability or objective progress. Full-batch experiments exhibit gradient reversal alongside continued loss reduction. Matched mini-batch continuations show that sampling changes both gradient estimates and the paths traversed through the objective. Under Adam, raw-gradient diagnostics remain informative about the loss landscape traversed by adaptive steps. Controlled full-batch experiments reveal loss spikes associated with pre-rise gradient reversal and norm amplification. Loss-defined events quantify their magnitude and recovery, while descriptive regressions relate the initial regime and subsequent norm growth to relative peak loss. The resulting framework supports the formulation and evaluation of informed learning-rate interventions; it does not prescribe an alignment-maximizing schedule.
 \end{abstract}
 
 
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-Stochastic Gradient Descent, Adam, Gradient Alignment, Parameter Displacement, Optimizer Memory
+Stochastic Gradient Descent, Adam, Gradient Alignment, Parameter Displacement, Learning-Rate Scheduling
 \end{IEEEkeywords}
 
 
@@ -529,7 +529,6 @@ Stochastic Gradient Descent, Adam, Gradient Alignment, Parameter Displacement, O
 % Let references follow the final appendix without a nearly empty page.
 \raggedbottom
 % Reference-column balance is set after the current page layout is checked.
-\IEEEtriggeratref{18}
 \bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
 \bibliography{IEEEabrv,bibliography.bib}

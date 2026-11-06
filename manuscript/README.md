@@ -1,5 +1,29 @@
 # Manuscript workspace
 
+## Active draft rollback, 6 November 2026
+
+At the author's request, active TeX sources and bibliography are restored exactly
+to `295b7590c2d17ee80419da1f71d9486e0ae919c0`, the baseline recorded in
+`draft/revisions/2026-11-05-human-input/baseline_manifest.json`.
+This is the 3 November feedback-feedback revision with the subsequent author
+introduction edits (`f9131dd`) retained. Later revision folders, figures, tables,
+and research evidence remain preserved. Historical entries below do not describe
+the current draft state.
+
+The rebuilt `draft/bare_jrnl.pdf` has 13 pages. Figure 1 has only the two
+curvature-series legend entries, without reversal/loss-threshold legend entries.
+Section III-D analyzes R_T without paired factorization. The Adam section has
+no z_t notation or "Connecting Gradient Response to Optimizer State" subsection.
+
+Verification: restored files match baseline Git blobs byte for byte;
+pdflatex/BibTeX build passes without overfull boxes, unresolved references,
+or multiply defined labels. Rendered pages were reviewed, with Figure 1
+inspected at full size. PDF SHA-256: `031592675c0be142a35b132d9ffc3b8bc5915ff939019d5c3da7f899f3af1590`.
+Build logs and the pre-rollback PDF are retained in ignored
+`tmp/pdfs/rollback-2026-11-06/`. The compiled draft PDF remains ignored under
+the existing repository convention. No experiments or cloud work were run.
+
+
 ## Submission readiness review, 5 November 2026
 
 The [review against the previous submission](2026-11-05-submission-readiness/README.md)

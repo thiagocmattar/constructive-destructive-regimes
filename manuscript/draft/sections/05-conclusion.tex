@@ -6,23 +6,25 @@ their local directional interaction and their cumulative accumulation. For
 plain SGD, the exact decomposition retains all temporal lags, while consecutive
 cosine provides a tractable local observation. The curvature and sampling
 relations clarify how that observation can change without determining either
-cumulative displacement or loss improvement. The full-batch experiments show negative consecutive interaction alongside positive total interaction across all pairs. Pairing adjacent updates identifies substantial immediate cancellation, followed by model-dependent accumulation of the residual motion. Neither factor guarantees a local loss decrease. The mini-batch continuations further show that observed alignment changes with both sampling and the evolving trajectory; weaker reversal alone does not order the attained loss.
+cumulative displacement or loss improvement. The full-batch and mini-batch
+experiments illustrate these distinctions: gradient reversal can coexist with
+objective progress, and weaker reversal need not improve displacement retention
+or the attained loss.
 
-Under Adam, loss-defined excursions connect amplification and recovery
-with changes in the raw loss slope. Ordinary-trajectory controls show
-that reversal and a projected response above two also occur without a
-pronounced short-horizon loss rise. Norm amplification accounts for
-substantial severity variation, while the incremental contribution of
-alignment varies and does not transfer consistently across rates.
-All recorded rise-phase steps have a locally descending first-order
-component, distinguishing raw-gradient reversal from an uphill update.
+Under Adam, raw-gradient diagnostics remain informative about the loss
+landscape traversed by adaptive steps. Controlled full-batch experiments
+connect loss spikes with a predominantly destructive pre-rise gradient
+regime and sharp norm amplification. The micro-plots resolve projected
+gradient changes before the loss maximum; the event population quantifies
+the variation in timing and recovery across models and rates. A joint
+descriptor of pre-rise reversal and rise norm growth is associated with
+relative peak magnitude, without establishing a causal feedback mechanism
+or a universal instability threshold.
 
-The analytical Adam extension relates projected gradient response to a
-one-HVP preconditioned-curvature proxy through first-moment discrepancy
-and finite-step curvature variation. Adjacent gradient sums drive the
-memory residual, connecting this interpretation to GD pairing. These
-identities specify a calibration question; agreement on the neural
-trajectories has not yet been established. Independent initializations,
-matched optimizer-state experiments and same-objective stochastic probes
-are the next tests. Claims of practical monitoring advantage additionally
-require measured overhead and fidelity against the one-HVP baseline.
+The practical contribution is a framework for interpreting these measurements
+together and using them to formulate controlled interventions. Developing a
+scheduler or clipping rule requires demonstrating that acting on early
+diagnostics improves subsequent loss at matched budgets, beyond decisions
+based on recent loss and known training settings. Prospective validation,
+controlled interventions and replication across independent runs remain
+future work.
