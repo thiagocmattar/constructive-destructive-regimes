@@ -740,3 +740,13 @@ carry68.14% of hidden-change energy, but the null component also oscillates.
 Existing-head transmission of hidden changes dominates output motion; no
 unique initiating cause established. Verified/reviewed; Spark worker exited,
 4.718GB retained, zero cloud cost. Next Run241 / independent Analysis063.
+
+## Oscillation in the first hidden layer, 7 November 2026
+
+[Analysis062 earlier-hidden extension](../analyses/062-2026-11-07-mlp-gradient-amplification/observations/011-first-hidden-oscillation.md)
+uses exact Run241 replay to show oscillation already in the first tanh
+representation: alignment correlation0.99590 with the second hidden layer,
+shared dominant temporal SVD structure. Second tanh retains86.84--89.30%
+of displacement norm; upstream representation changes dominate H2 motion.
+Verified/reviewed; worker exited,5.457GB retained on owned Spark, zero cloud
+cost. No unique initiating cause claimed. Next Run242 / independent Analysis063.

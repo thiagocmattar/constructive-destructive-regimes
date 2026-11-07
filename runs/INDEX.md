@@ -397,3 +397,12 @@ final hidden activations and outputs447..801. User correction: analyze raw
 gradients, not gradient changes. Exact native/control/output qualification
 passes;45 input and13 artifact hashes verified. Worker13.766s, exited,4.718GB
 retained on owned Spark including archive, zero cloud cost. Next run:241.
+
+## Run241: first-hidden oscillation and transmission (7 November 2026)
+
+[Run241](241-2026-11-07-mlp-first-hidden-oscillation/README.md), H042 / Analysis062,
+captures first-hidden activations and second preactivations447..801 on an exact
+Adam control replay. All355 gradients/H2/output arrays and full512/800/801
+states match prior evidence.47 input and12 artifact identities verified.
+Worker18.354s, exited;5.457GB retained including archive on owned Spark,
+zero cloud cost. Next run:242.

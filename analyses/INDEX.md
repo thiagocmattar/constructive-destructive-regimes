@@ -273,3 +273,11 @@ of hidden motion, despite4.45--4.92% activation energy; the null component
 also oscillates. Hidden motion through the existing head dominates output
 motion.17,650 coefficients and1,765 cosines verified; two PDFs reviewed.
 Next independent analysis remains063.
+
+Analysis062 earlier-hidden extension: [observation011](062-2026-11-07-mlp-gradient-amplification/observations/011-first-hidden-oscillation.md)
+uses Run241 to trace the oscillation into the first200-dimensional hidden
+representation. Alignment correlation with H2 is0.99590; top-ten temporal
+subspace overlap0.99861. The second tanh attenuates displacement while preserving
+reversal structure. First-hidden changes contribute82.70% by signed projection
+to H2 motion, second-layer weights17.36%. Independent checks and two figures
+pass; no unique initiating cause established. Next independent analysis063.

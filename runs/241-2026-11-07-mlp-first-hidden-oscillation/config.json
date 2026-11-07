@@ -1,0 +1,20 @@
+{
+  "run_id": "241",
+  "analysis_id": "062",
+  "hypothesis": "H042",
+  "seed": 0,
+  "start": 0,
+  "end": 801,
+  "diagnostic_start": 447,
+  "physical_batch": 1000,
+  "parent_run": "runs/223-2026-11-04-multispike-interventions",
+  "parent_worker": "runs/223-2026-11-04-multispike-interventions/artifacts/worker",
+  "runtime_limit_seconds": 600,
+  "checkpoint_every": 64,
+  "authorization": "User asks to trace the same representation oscillation backward into the previous 200-dimensional hidden layer. Capture H1 and Z2 and second-layer weights/biases on an exact unchanged control replay, then compare fixed SVDs and consecutive alignments with H2 and outputs, and decompose transmission through the second linear layer and tanh.",
+  "hidden_layer": "first tanh H1 and second linear preactivation Z2; H2 verified against Run240",
+  "svd_change_states": [
+    448,
+    800
+  ]
+}
