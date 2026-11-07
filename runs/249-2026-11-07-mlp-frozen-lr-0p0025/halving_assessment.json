@@ -1,0 +1,33 @@
+{
+  "run": "runs/249-2026-11-07-mlp-frozen-lr-0p0025",
+  "lr": 0.0025,
+  "status": "peak_present",
+  "states": [
+    500,
+    800
+  ],
+  "absolute_tolerance": 1e-08,
+  "loss_start": 0.028335351031273603,
+  "loss_final": 0.026651037856936455,
+  "loss_mean": 0.0282050895000316,
+  "loss_max": 0.07244779821485281,
+  "peak_state": 707,
+  "maximum_adjacent_increase": 0.014940749853849411,
+  "increases_above_tolerance": 63,
+  "positive_variation": 0.10245831124484539,
+  "boundaries_sha256": "531670bf0219aa79995e4ce4e466aa759814d1bf6195744029ed861baaeeea9c",
+  "manifest": {
+    "status": "completed",
+    "started_utc": "2026-11-07T19:33:01.174469+00:00",
+    "gpu": "NVIDIA GB10",
+    "torch": "2.11.0+cu130",
+    "cuda": "13.0",
+    "completed_state": 801,
+    "intervention_updates": 301,
+    "dense_states": 53,
+    "peak_allocated_bytes": 456728064,
+    "intervention_elapsed_seconds": 7.773808084893972,
+    "finished_utc": "2026-11-07T19:33:10.192293+00:00",
+    "elapsed_seconds": 9.017851698212326
+  }
+}

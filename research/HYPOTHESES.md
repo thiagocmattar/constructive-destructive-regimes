@@ -210,3 +210,12 @@ excursions at the stronger rate. This is not a unique-cause result or threshold
 estimate. One seed/fork; full data, unchanged native moments/clocks, verified
 qualification, retrieval and dense reductions. Keep iterating this same analysis.
 Next unused hypothesis:H046; next run247. No new analysis without user request.
+
+H045 adaptive extension: [Runs247-251](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/003-lr-halving.md)
+test0.01/0.005/0.0025/0.00125/0.000625 from the same frozen state500. Loss maxima
+are12.5043/2.58580/0.0724478/0.0283371/0.0283354. At0.0025 the peak is delayed to707;
+0.00125 has only a0.006% first-step bump, while0.000625 strictly decreases through800.
+The user requested halving until no peak and confirmed stopping. Conservative
+rule: no adjacent increase or excess over loss500 above1e-8. This is finite-window
+selection, not a universal threshold or optimal-LR result. All interventions
+remain compared with unchanged Adam in the same analysis. Next run252; H046 unused.

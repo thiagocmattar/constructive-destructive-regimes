@@ -1,0 +1,143 @@
+{
+  "status": "verified",
+  "stop_lr": 0.000625,
+  "stop_run": "runs/251-2026-11-07-mlp-frozen-lr-0p000625",
+  "criterion": {
+    "loss_states": [
+      500,
+      800
+    ],
+    "absolute_tolerance": 1e-08,
+    "all_finite": true,
+    "maximum_adjacent_loss_increase_at_most": 1e-08,
+    "maximum_loss_at_most_start_plus": 1e-08
+  },
+  "records": [
+    {
+      "run": "runs/247-2026-11-07-mlp-frozen-lr-0p01",
+      "lr": 0.01,
+      "status": "peak_present",
+      "states": [
+        500,
+        800
+      ],
+      "absolute_tolerance": 1e-08,
+      "loss_start": 0.028335351031273603,
+      "loss_final": 0.03491636645048857,
+      "loss_mean": 0.46097214487489574,
+      "loss_max": 12.504343509674072,
+      "peak_state": 505,
+      "maximum_adjacent_increase": 7.310726881027222,
+      "increases_above_tolerance": 58,
+      "positive_variation": 19.26085367333144,
+      "boundaries_sha256": "0dd0d126242308556b3a358cf6f9d2a9a717186e71c593400d87105e3c464bd7"
+    },
+    {
+      "run": "runs/248-2026-11-07-mlp-frozen-lr-0p005",
+      "lr": 0.005,
+      "status": "peak_present",
+      "states": [
+        500,
+        800
+      ],
+      "absolute_tolerance": 1e-08,
+      "loss_start": 0.028335351031273603,
+      "loss_final": 0.02819130616262555,
+      "loss_mean": 0.10158603982938039,
+      "loss_max": 2.5857999324798584,
+      "peak_state": 505,
+      "maximum_adjacent_increase": 2.1115224584937096,
+      "increases_above_tolerance": 59,
+      "positive_variation": 6.359147877432406,
+      "boundaries_sha256": "b01295f89a5a45e786236fc8edf252c6a0d91086fe73cf1415e9d391089a483d"
+    },
+    {
+      "run": "runs/249-2026-11-07-mlp-frozen-lr-0p0025",
+      "lr": 0.0025,
+      "status": "peak_present",
+      "states": [
+        500,
+        800
+      ],
+      "absolute_tolerance": 1e-08,
+      "loss_start": 0.028335351031273603,
+      "loss_final": 0.026651037856936455,
+      "loss_mean": 0.0282050895000316,
+      "loss_max": 0.07244779821485281,
+      "peak_state": 707,
+      "maximum_adjacent_increase": 0.014940749853849411,
+      "increases_above_tolerance": 63,
+      "positive_variation": 0.10245831124484539,
+      "boundaries_sha256": "531670bf0219aa79995e4ce4e466aa759814d1bf6195744029ed861baaeeea9c"
+    },
+    {
+      "run": "runs/250-2026-11-07-mlp-frozen-lr-0p00125",
+      "lr": 0.00125,
+      "status": "peak_present",
+      "states": [
+        500,
+        800
+      ],
+      "absolute_tolerance": 1e-08,
+      "loss_start": 0.028335351031273603,
+      "loss_final": 0.02690985193476081,
+      "loss_mean": 0.027556537150829237,
+      "loss_max": 0.02833705162629485,
+      "peak_state": 501,
+      "maximum_adjacent_increase": 1.7005950212478638e-06,
+      "increases_above_tolerance": 1,
+      "positive_variation": 1.7005950212478638e-06,
+      "boundaries_sha256": "07d2b31a4ffe3281f40053461f60cd3dd58ac0ad654ede8f55f84993aee81a1e"
+    },
+    {
+      "run": "runs/251-2026-11-07-mlp-frozen-lr-0p000625",
+      "lr": 0.000625,
+      "status": "passed",
+      "states": [
+        500,
+        800
+      ],
+      "absolute_tolerance": 1e-08,
+      "loss_start": 0.028335351031273603,
+      "loss_final": 0.027487821877002716,
+      "loss_mean": 0.02787532616078705,
+      "loss_max": 0.028335351031273603,
+      "peak_state": 500,
+      "maximum_adjacent_increase": -2.4456530809402466e-06,
+      "increases_above_tolerance": 0,
+      "positive_variation": 0,
+      "boundaries_sha256": "1d4e9a3f89dfb1d1c7aed6d3852c43803d60828ee2dd00a6c94dc181b13057cb"
+    }
+  ],
+  "all_fork500_model_optimizer_rng_gradients_exactly_identical": true,
+  "first_pass_in_requested_halving_sequence": true,
+  "source_hashes": {
+    "runs/245-2026-11-07-mlp-frozen-lr-double/artifacts/spark/payload/worker/fork500.pt": "bea970d6536f845074fd8a0ab3c5a329b0f550517f3ad01e6948e0290809037c",
+    "runs/247-2026-11-07-mlp-frozen-lr-0p01/config.json": "7e342fc3dd21c863247eb20246d68f01551c906a7e69f3b6f2bbb89818eedfca",
+    "runs/247-2026-11-07-mlp-frozen-lr-0p01/halving_assessment.json": "42c47cee86b7f3c9efe4c23ec6f5c2f9ebf082342ee012bc657698600c10479a",
+    "runs/247-2026-11-07-mlp-frozen-lr-0p01/verification.json": "17b51aff8b972a3f638d1ed455eb793174c0e9073c7b06a7bfbefd43579f4d67",
+    "runs/247-2026-11-07-mlp-frozen-lr-0p01/retrieval.json": "f16a28a457e47b17696aa0b54102bb9257d34aac8439e8ef4b32fd1da9cb07cc",
+    "runs/247-2026-11-07-mlp-frozen-lr-0p01/artifacts/spark/payload/worker/fork500.pt": "1aba8303b7491749c413dd17fada3ea6f8c0fcf4ae14d5797e9faba876f82a59",
+    "runs/248-2026-11-07-mlp-frozen-lr-0p005/config.json": "011c7abba0f296356a5d81483220f4fcc5eaf8df9aaf235af5b5b46eaed01908",
+    "runs/248-2026-11-07-mlp-frozen-lr-0p005/halving_assessment.json": "c39ae6294979b619bc2fa931fa1b1d7343b22814b20fa822d553452bf4c6a6b3",
+    "runs/248-2026-11-07-mlp-frozen-lr-0p005/verification.json": "5d0203700a60be5bfae389c9c2d450728c9dfeef384fa3ac30a6909ae2be16c1",
+    "runs/248-2026-11-07-mlp-frozen-lr-0p005/retrieval.json": "f232d5073a82e7fdc750588dbd919ebe9d5213eb060d67dfe5725b98d7ecd424",
+    "runs/248-2026-11-07-mlp-frozen-lr-0p005/artifacts/spark/payload/worker/fork500.pt": "4a12778006bd5cf34bb1c141b3a9d2e9995ae342d76585eb7e78d75e2c183496",
+    "runs/249-2026-11-07-mlp-frozen-lr-0p0025/config.json": "0f657c191c6317368718c8808910f1509a39cea4ed932b335d8ba1e5ec3cf862",
+    "runs/249-2026-11-07-mlp-frozen-lr-0p0025/halving_assessment.json": "32acc643296ae1068d25fec33efec7386d51a4e86ab2f15178ca83c391e2d3ea",
+    "runs/249-2026-11-07-mlp-frozen-lr-0p0025/verification.json": "52db2494cd48822417203b7069f6d9859ca8ef9959fa2b763a8699792900dabf",
+    "runs/249-2026-11-07-mlp-frozen-lr-0p0025/retrieval.json": "0b31076f9e472f8fe444986195c068bc9598e9c647bed8a3146d4b61f06e80a5",
+    "runs/249-2026-11-07-mlp-frozen-lr-0p0025/artifacts/spark/payload/worker/fork500.pt": "83bca670e07178baefde492e2ad312d930ce2ff0b6a81b039dd82a49aff2d0ea",
+    "runs/250-2026-11-07-mlp-frozen-lr-0p00125/config.json": "306a50bdda7ca10ecab6224687826a484cf171313071d9a4a4c83c3108cd6493",
+    "runs/250-2026-11-07-mlp-frozen-lr-0p00125/halving_assessment.json": "72e50a8c2d7cd96c8cc782046a2ba4486f2f5f7250b423aa69d4b5aba98718f0",
+    "runs/250-2026-11-07-mlp-frozen-lr-0p00125/verification.json": "322138af9c84cf1775c061faf74396296c382edcf20831b070ecb6a6885e0b23",
+    "runs/250-2026-11-07-mlp-frozen-lr-0p00125/retrieval.json": "5527560baa2684a7ec3023b0e6b01d5b12affc90ae4ee566382067b24638160b",
+    "runs/250-2026-11-07-mlp-frozen-lr-0p00125/artifacts/spark/payload/worker/fork500.pt": "aa50fc66d7fbeff705bce999f275066ac38c2544b7247bda9ab16bc69967415c",
+    "runs/251-2026-11-07-mlp-frozen-lr-0p000625/config.json": "c70fa9a664b5fd1381e6ec398f307c9260d42b6cd7f561b871d2be7b53dad34a",
+    "runs/251-2026-11-07-mlp-frozen-lr-0p000625/halving_assessment.json": "6ca483788e76a8cf8e3a3d93981d0b57f742c1a7448e177d57e3ac88b6506930",
+    "runs/251-2026-11-07-mlp-frozen-lr-0p000625/verification.json": "15d018f41f668aeefa3a6b2c2695f8f72310d0d1d46f8a561cc3b0b409839b22",
+    "runs/251-2026-11-07-mlp-frozen-lr-0p000625/retrieval.json": "b056cd79f52740f15c9a3e2b3f9f513ba6377fa3079a77240e36dc5734498d0b",
+    "runs/251-2026-11-07-mlp-frozen-lr-0p000625/artifacts/spark/payload/worker/fork500.pt": "ac5eea7dbcab6cc364b4b35a7491ceee36d10818481157990dfbe62cfe632e08"
+  },
+  "generator_sha256": "f658ec7fc13158ce406e271a03e5213ed53311bd9755940a7c077887405cc8cf"
+}

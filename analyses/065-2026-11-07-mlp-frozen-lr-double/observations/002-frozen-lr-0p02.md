@@ -1,5 +1,8 @@
 # I3: a 10x increase over Intervention 2 causes severe overshoot
 
+This records I3. The subsequent [halving extension](003-lr-halving.md) adds I4-I8
+to the current four-page PDF, while preserving all I3 measurements below.
+
 ## Conclusion
 
 With first-linear weights/biases still frozen, **Adam LR 0.02 from state 500**
@@ -57,7 +60,7 @@ Recovery after the excursion must not be mistaken for improvement over baseline.
 ## Figure, source evidence and verification
 
 [Figure 01](../figures/01-frozen-first-linear-double-lr-cifar10-mlp.pdf) now has
-three intervention columns, each overlaid with unchanged Adam. Page 1 retains
+eight intervention columns in groups of four, each overlaid with unchanged Adam. Page 1 retains
 the eight diagnostics, including eta kappa hat and full/later-layer gradient
 norms, over 448-800. Common log scales for loss, norms, output RMS and LR show
 the large dynamic range; the projected-gradient diagnostic uses a symmetric-log

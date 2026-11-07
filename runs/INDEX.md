@@ -450,3 +450,14 @@ identities,22/22 retrieved files, LR-only starting changes, exact first-layer
 constancy and independent diagnostics pass. Worker runtimes7.76s/7.96s; peak
 456.7MB each. Workers exited,2.021/1.911GB retained on owned Spark, zero cloud cost.
 Executed inputs and dense evidence preserved. Next run247; no new analysis.
+
+## Runs247-251: adaptive halving of frozen-MLP learning rate
+
+I4-I8 set LR0.01/0.005/0.0025/0.00125/0.000625 at500, each from the same qualified
+full frozen state500, continuing through801. See the ongoing
+[Analysis065 observation](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/003-lr-halving.md).
+Halving stops at0.000625: all losses500-800 decrease. At0.0025 a delayed peak occurs
+at707;0.00125 has only a0.006% initial bump. All67 input identities per run,110
+retrieved files, complete fork equality and independent diagnostics verified.
+Workers exited;40.62s total,456.7MB peak per GPU worker,10.034GB retained on owned
+Spark, no cloud cost. One collection retry, no scientific rerun. Next run252.

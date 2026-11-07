@@ -1,0 +1,43 @@
+{
+  "run_id": "250",
+  "analysis_id": "065",
+  "hypothesis": "H045",
+  "seed": 0,
+  "freeze_state": 448,
+  "fork": 500,
+  "end": 801,
+  "qualification_end": 501,
+  "diagnostic_start": 499,
+  "dense_capture_end": 551,
+  "primary_window": [
+    500,
+    550
+  ],
+  "secondary_window": [
+    500,
+    800
+  ],
+  "physical_batch": 1000,
+  "base_lr": 0.001,
+  "intervention_lr": 0.00125,
+  "runtime_limit_seconds": 600,
+  "checkpoint_every": 64,
+  "native_run": "runs/223-2026-11-04-multispike-interventions",
+  "parent_run": "runs/244-2026-11-07-mlp-freeze-first-linear",
+  "parent_worker": "runs/244-2026-11-07-mlp-freeze-first-linear/artifacts/attempt-01/worker",
+  "intervention": "I7: freeze first-linear weights/biases from448; Adam LR0.00125 from500; same moments/clocks and parent fork500",
+  "authorization": "User requests continued LR halving until no peak, within existing MLP analysis065",
+  "retention": "Dense full gradients and five representations499..551; full-data rolling diagnostics500..800; full fork500, qualification501, recovery and final801 states",
+  "control": "Primary comparator is unchanged Adam. Reconstruct the frozen parent from448 and qualify through501, then restore500 and change only LR.",
+  "endpoints": "Loss mean/max/final and positive variation; eta_kappa_hat, raw-gradient alignment/norm, updated-layer norm, per-layer representation cosine/RMS and actual parameter increments",
+  "adaptive_stop_rule": {
+    "loss_states": [
+      500,
+      800
+    ],
+    "absolute_tolerance": 1e-08,
+    "all_finite": true,
+    "maximum_adjacent_loss_increase_at_most": 1e-08,
+    "maximum_loss_at_most_start_plus": 1e-08
+  }
+}

@@ -1,9 +1,9 @@
 {
   "status": "numeric_checks_passed",
-  "pages": 2,
-  "pdf_sha256": "22e7f4be7597c170575d12f03635cdfee7275ba854e82051fe6dd53c61e7cd79",
-  "source_sha256": "1b6379fde2832af97be74434ed0e7d5531f9f74e52b3c65765d66614a7fbae52",
-  "generator_sha256": "b83bf2f297fc7d7b32df05592e1d957315001495057e87d3985b1211b2fc2ee0",
+  "pages": 4,
+  "pdf_sha256": "c2e3bd3640546d18b2602a05c98c3b764b73b7f4ab42642cabc4d320d5b141aa",
+  "source_sha256": "31b98aa2a57baf58c2732d344c3bc2d697b7c3cbee26922bb19b67c164154bbe",
+  "generator_sha256": "a6105d92c9983412225595ea57fd9cc5ff95112c37feaa3e907bd4b934d4c812",
   "full_window": [
     448,
     800
@@ -14,15 +14,22 @@
   ],
   "overview_rows": 8,
   "columns": [
-    "freeze versus unchanged baseline",
-    "freeze + LR0.002 versus unchanged baseline",
-    "freeze + LR0.02 versus unchanged baseline"
+    "I1: freeze linear 1 versus unchanged baseline",
+    "I2: freeze + LR 0.002 at 500 versus unchanged baseline",
+    "I3: freeze + LR 0.02 at 500 versus unchanged baseline",
+    "I4: freeze + LR 0.01 at 500 versus unchanged baseline",
+    "I5: freeze + LR 0.005 at 500 versus unchanged baseline",
+    "I6: freeze + LR 0.0025 at 500 versus unchanged baseline",
+    "I7: freeze + LR 0.00125 at 500 versus unchanged baseline",
+    "I8: freeze + LR 0.000625 at 500 versus unchanged baseline"
   ],
   "scales": {
     "loss_norms_output_rms": "log",
     "eta_kappa_hat": "symlog, linear threshold1",
     "layer_rms": "symlog, linear threshold0.0001"
   },
+  "maximum_interventions_per_page": 4,
+  "shared_scales_across_pages": true,
   "same_baseline_in_every_column": true,
   "matched_axis_scales": true,
   "zero_motion_cosines_undefined": true

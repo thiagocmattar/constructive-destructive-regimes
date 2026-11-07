@@ -9,7 +9,12 @@ import numpy as np
 
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1]
 RUNS={'double':ROOT/'runs/245-2026-11-07-mlp-frozen-lr-double',
-      'high':ROOT/'runs/246-2026-11-07-mlp-frozen-lr-0p02'}
+      'high':ROOT/'runs/246-2026-11-07-mlp-frozen-lr-0p02',
+      'mid':ROOT/'runs/247-2026-11-07-mlp-frozen-lr-0p01',
+      'halve_005':ROOT/'runs/248-2026-11-07-mlp-frozen-lr-0p005',
+      'halve_0025':ROOT/'runs/249-2026-11-07-mlp-frozen-lr-0p0025',
+      'halve_00125':ROOT/'runs/250-2026-11-07-mlp-frozen-lr-0p00125',
+      'halve_000625':ROOT/'runs/251-2026-11-07-mlp-frozen-lr-0p000625'}
 PARENT=ROOT/'runs/244-2026-11-07-mlp-freeze-first-linear/artifacts/spark/payload/worker'
 OLD=HERE.parent/'064-2026-11-07-mlp-freeze-first-linear'
 
@@ -71,12 +76,25 @@ def main():
             independent_verification=verify_dense(raw,high,rep),
             qualification=json.loads((raw/'qualification.json').read_text()),
             freeze_verification=json.loads((raw/'freeze_verification.json').read_text()))
+        assessment=run/'halving_assessment.json'
+        if assessment.exists():
+            q=json.loads(assessment.read_text());assert q['boundaries_sha256']==sha(raw/'boundaries.jsonl')
+            loss=np.array([high[t]['loss'] for t in range(500,801)]);change=np.diff(loss)
+            assert q['states']==[500,800] and q['absolute_tolerance']==1e-8
+            passed=bool(np.isfinite(loss).all() and change.max()<=1e-8 and loss.max()<=loss[0]+1e-8)
+            assert (q['status']=='passed')==passed
+            np.testing.assert_allclose([q['loss_start'],q['loss_final'],q['loss_max'],q['maximum_adjacent_increase']],
+                [loss[0],loss[-1],loss.max(),change.max()],rtol=0,atol=0)
+            assert q['increases_above_tolerance']==int(np.sum(change>1e-8))
+            run_records[arm]['halving_assessment']=q;sources.append(assessment)
         sources += [run/'config.json',run/'input_manifest.json',run/'retrieval.json',run/'verification.json',
                     raw/'inventory.json',raw/'boundaries.jsonl',raw/'representations.jsonl']
     curves={'control':copy.deepcopy(previous['curves']['control']),
             'freeze':copy.deepcopy(previous['curves']['freeze']),
             'double':copy.deepcopy(previous['curves']['freeze']),
-            'high':copy.deepcopy(previous['curves']['freeze'])}
+            'high':copy.deepcopy(previous['curves']['freeze']),
+            'mid':copy.deepcopy(previous['curves']['freeze'])}
+    for arm in RUNS:curves.setdefault(arm,copy.deepcopy(previous['curves']['freeze']))
     states=list(range(448,801));mapping={'gradient_rho':'rho','raw_gradient_norm':'raw_gradient_norm',
         'eta_kappa_hat':'eta_kappa_hat','loss':'loss','active_gradient_norm':'active_gradient_norm','active_gradient_rho':'active_gradient_rho'}
     for arm in curves:
@@ -113,7 +131,7 @@ def main():
     baseline_comparisons=[]
     for a,b in [(450,500),(500,550),(500,800),(448,800)]:
         window=f'{a}-{b}';reference=next(m for m in metrics if m['window']==window and m['arm']=='control')
-        for arm in ['freeze','double','high']:
+        for arm in ['freeze',*RUNS]:
             intervention=next(m for m in metrics if m['window']==window and m['arm']==arm)
             baseline_comparisons.append(dict(window=window,intervention=arm,reference='control',
                 percent_change={key:100*(intervention[key]/reference[key]-1) for key in
@@ -130,7 +148,9 @@ def main():
         analysis_scope='One ongoing MLP intervention analysis; 064 is the retained first-stage source, 065 is the current workspace.',
         intervention_sets={'control':[], 'freeze':['Freeze first-linear weights and biases from state448'],
             'double':['Freeze first-linear weights and biases from state448','Adam LR0.002 at state500'],
-            'high':['Freeze first-linear weights and biases from state448','Adam LR0.02 at state500 (10x I2)']},
+            'high':['Freeze first-linear weights and biases from state448','Adam LR0.02 at state500 (10x I2)'],
+            'mid':['Freeze first-linear weights and biases from state448','Adam LR0.01 at state500 (half I3)'],
+            **{arm:['Freeze first-linear weights and biases from state448',f"Adam LR{run_records[arm]['lr']} at state500 (successive halving)"] for arm in RUNS if arm.startswith('halve_')}},
         run_verifications={arm:{k:v for k,v in record.items() if k not in ['boundaries','representations']} for arm,record in run_records.items()},
         sources={p.relative_to(ROOT).as_posix():sha(p) for p in sources},generator_sha256=sha(Path(__file__)))
     dump(HERE/'comparison.json',result)

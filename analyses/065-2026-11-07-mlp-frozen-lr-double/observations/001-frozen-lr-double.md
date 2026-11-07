@@ -3,6 +3,8 @@
 This observation records I1 and I2. The subsequent [I3 extension](002-frozen-lr-0p02.md)
 adds LR 0.02 to the same analysis and current figure; all original measurements
 below are retained. I3 is now the third baseline-comparison column.
+The subsequent [halving extension](003-lr-halving.md) adds I4-I8; the current PDF
+uses four pages, with matched scales and unchanged baseline in every column.
 
 ## Conclusion
 
@@ -75,8 +77,8 @@ losses, explaining its lower long-window mean despite a worse endpoint.
 
 ## Measurements and figure caption
 
-[Figure 01](../figures/01-frozen-first-linear-double-lr-cifar10-mlp.pdf) puts I1,
-I2 and the subsequent I3 side by side; each overlays the same unchanged baseline with matching
+[Figure 01](../figures/01-frozen-first-linear-double-lr-cifar10-mlp.pdf) puts the
+interventions side by side in groups of four; each overlays unchanged baseline with matching
 axis scales. Page 1 covers 448-800: loss; projected-gradient diagnostic;
 gradient cosine; full and later-layer gradient norms; output-change cosine;
 output coordinate RMS; and later-layer LR. Page 2 traces all five learned

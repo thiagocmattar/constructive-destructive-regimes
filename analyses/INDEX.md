@@ -344,3 +344,11 @@ at504, ends0.308132 at800 (baseline0.0302502), with first layer exactly fixed.
 Runs245/246 and both PDF pages verified; owned Spark workers exited, no cloud cost.
 064 is preserved first-stage evidence,065 is the continuing workspace. Do not
 allocate another analysis until the user requests it; these are one study.
+
+Analysis064/065 halving extension: [observation003](065-2026-11-07-mlp-frozen-lr-double/observations/003-lr-halving.md)
+adds I4-I8, rates0.01/0.005/0.0025/0.00125/0.000625 at500 with first layer frozen.
+The strict finite-window no-peak rule first passes at0.000625;0.00125 has a tiny
+0.006% initial bump, and0.0025 a delayed peak at707. All full forks match exactly.
+Four-page PDF retains I1-I8, each against unchanged Adam, with common scales
+across pages. All source/retrieval/diagnostic checks and visual QA pass. User
+confirmed stopping; no further run or new analysis is scheduled.

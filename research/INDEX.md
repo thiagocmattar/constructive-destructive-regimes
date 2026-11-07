@@ -2,16 +2,17 @@
 
 ## Ongoing MLP interventions, 7 November 2026
 
-[Analysis 064/065](../analyses/065-2026-11-07-mlp-frozen-lr-double/README.md) is
-one continuing study: I1 freezes first-linear weights/biases at448, I2 additionally
-sets Adam LR0.002 at500, and I3 sets LR0.02 at500. Every intervention is compared
-with unchanged Adam in the same three-column figure. I1/I2 suppress excursions
-but have22.27%/20.58% higher mean loss448-800. I3 overshoots to107.099 at504 and
-recovers to0.308132 at800 versus baseline0.0302502, despite exact first-layer
-constancy. Runs245/246 completed on owned Spark in7.76s/7.96s; sources, retrieval,
-checkpoints, dense reductions and both PDF pages verified. Workers exited;
-2.021/1.911GB retained, zero cloud cost. Continue this analysis until the user
-requests another; next run247, next unused hypothesisH046.
+[Analysis064/065](../analyses/065-2026-11-07-mlp-frozen-lr-double/README.md) remains
+one study; I1-I8 each compare with unchanged Adam. First-layer freezing suppresses
+original excursions but does not uniformly improve training progress. LR0.02
+from500 overshoots to107.099; halving through0.01/0.005/0.0025/0.00125/0.000625
+ends at a strictly decreasing500-800 trajectory. At0.0025 a delayed peak appears
+at707;0.00125 has only a0.006% first-step bump. The strict rule is recorded;
+0.000625 is the first pass along this sequence, not the largest stable rate.
+Runs247-251, full-state fork equality, all source/retrieval identities and dense
+reductions verified. Four PDF pages reviewed. Workers exited,40.62s total,
+10.034GB retained on owned Spark, zero cloud cost. No further runs after stopping.
+Continue in065 until user requests another analysis; next run252, unused H046.
 
 ## First-layer freeze intervention, 7 November 2026
 

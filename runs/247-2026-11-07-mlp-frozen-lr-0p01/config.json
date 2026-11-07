@@ -1,0 +1,33 @@
+{
+  "run_id": "247",
+  "analysis_id": "065",
+  "hypothesis": "H045",
+  "seed": 0,
+  "freeze_state": 448,
+  "fork": 500,
+  "end": 801,
+  "qualification_end": 501,
+  "diagnostic_start": 499,
+  "dense_capture_end": 551,
+  "primary_window": [
+    500,
+    550
+  ],
+  "secondary_window": [
+    500,
+    800
+  ],
+  "physical_batch": 1000,
+  "base_lr": 0.001,
+  "intervention_lr": 0.01,
+  "runtime_limit_seconds": 600,
+  "checkpoint_every": 64,
+  "native_run": "runs/223-2026-11-04-multispike-interventions",
+  "parent_run": "runs/244-2026-11-07-mlp-freeze-first-linear",
+  "parent_worker": "runs/244-2026-11-07-mlp-freeze-first-linear/artifacts/attempt-01/worker",
+  "intervention": "I4: first-linear weights/biases frozen from448; Adam LR0.01 for outgoing updates t>=500 (half I3, 10x baseline); moments and clocks continue",
+  "authorization": "User requests another intervention with half I3 learning rate,0.01, in the same MLP analysis065; Spark execution authorized",
+  "retention": "Dense full gradients and five representations499..551; full-data rolling diagnostics500..800; full fork500, qualification501, recovery and final801 states",
+  "control": "Primary comparator is unchanged Adam. Reconstruct the frozen parent from448 and qualify through501, then restore500 and change only LR.",
+  "endpoints": "Loss mean/max/final and positive variation; eta_kappa_hat, raw-gradient alignment/norm, updated-layer norm, per-layer representation cosine/RMS and actual parameter increments"
+}

@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "input_files_checked": 67,
+  "tests": {
+    "status": "passed",
+    "checks": [
+      "5.0x baseline LR has expected FP32 increments and preserves first-step moments versus low LR",
+      "warm Adam moments and clocks preserved",
+      "all later-layer parameters exactly native on first step",
+      "first weight and bias exactly fixed across steps",
+      "RNG and raw gradients unchanged by suppression",
+      "undefined zero cosine and negative cosine"
+    ]
+  },
+  "source_archive_sha256": "a24955625c201dcfd72d07ff98a5bd9870d2bde1bdb6962cdfc16c4b0e37e6bc",
+  "root": "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04",
+  "python": "/home/tcml-spark/experiments/constructive-destructive-regimes/analysis037-sgd-helper-2026-11-02/venv/bin/python"
+}
