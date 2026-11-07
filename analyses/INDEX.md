@@ -321,3 +321,14 @@ refits MLP 450-500 and adds Figure 04 while preserving the 448-800 analysis.
 Fixed basis does not establish fixed instantaneous motion; rotation remains
 untested. Numerical checks and all seven pages reviewed. No new run or cloud cost.
 Next independent analysis remains 064.
+
+## Analysis 064: freezing the first MLP projection
+
+[Observation](064-2026-11-07-mlp-freeze-first-linear/observations/001-freeze-first-linear.md)
+and two-page figure compare continued Adam with first-layer freezing from 448.
+All other optimizer/data settings match. Over 450-500, output reversals fall 51/51
+to 4/51; maximum output displacement falls 87.38%. Extended mean loss448-800 is
+22.27% higher, separating spike suppression from training progress. Fixed-stage
+cosines/SVD fractions remain undefined. Eta kappa hat and full/updated-layer
+gradient norms included. Exact qualification and independent reductions pass;
+no task process remains. Next independent analysis 065.

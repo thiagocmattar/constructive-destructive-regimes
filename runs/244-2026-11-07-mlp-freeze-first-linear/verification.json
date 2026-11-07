@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "source_files": 54,
+  "retrieved_files": 21,
+  "complete_state512_matches_historical": true,
+  "prefix_pairs_exact": 449,
+  "first_layer_fork_matches_retained_state448": true,
+  "frozen_weight_bias_bitwise_equal": true,
+  "all_four_later_parameter_tensors_changed": true,
+  "all_adam_groups_unchanged": true,
+  "all_final_clocks": 801,
+  "final_parameters_finite": true,
+  "checkpoints": {
+    "fork.pt": "9df77e174ccc672851e2c5b629afc76b9ed324ab76e3ab2f0fc44d2e42d82fd7",
+    "qualification512.pt": "fa65ffdbd7949b371d6176dcc2818f06c2132e23e2e55749cb1aea59e52bda72",
+    "end.pt": "fd69c35fbd89e25cf533cb586b04651fc757495339ca406d089f85dcf83ef819"
+  },
+  "generator_sha256": "5d2b723b17527160782f8062598e060bab1a34521b99ac3ca129ae0b0ddcc693"
+}

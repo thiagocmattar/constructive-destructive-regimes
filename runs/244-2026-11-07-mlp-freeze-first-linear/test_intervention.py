@@ -1,0 +1,34 @@
+import copy
+import json
+import torch
+from intervention import freeze_first_step, cosine
+
+torch.manual_seed(7)
+m = torch.nn.Sequential(torch.nn.Flatten(), torch.nn.Linear(6,5), torch.nn.Tanh(),
+                        torch.nn.Linear(5,5), torch.nn.Tanh(), torch.nn.Linear(5,2))
+o = torch.optim.Adam(m.parameters(), lr=.001, foreach=False, fused=False)
+x, y = torch.randn(9,2,3), torch.randn(9,2)
+for _ in range(3):
+    o.zero_grad(); ((m(x)-y).square().sum()/18).backward(); o.step()
+base = copy.deepcopy(m); bo = torch.optim.Adam(base.parameters(), lr=.001, foreach=False, fused=False)
+bo.load_state_dict(copy.deepcopy(o.state_dict()))
+fixed = {n: p.detach().clone() for n,p in m[1].named_parameters()}
+for opt, model in [(o,m),(bo,base)]:
+    opt.zero_grad(); ((model(x)-y).square().sum()/18).backward()
+rng = torch.get_rng_state().clone()
+freeze_first_step(m,o,fixed); bo.step()
+assert torch.equal(rng,torch.get_rng_state())
+assert all(torch.equal(p,fixed[n]) for n,p in m[1].named_parameters())
+for (name,p),(_,q) in zip(m.named_parameters(),base.named_parameters()):
+    if not name.startswith('1.'): assert torch.equal(p,q),name
+    for k,v in o.state[p].items(): assert torch.equal(v,bo.state[q][k]),(name,k)
+assert all(int(o.state[p]['step'])==4 for p in m.parameters())
+assert all(torch.equal(p.grad,q.grad) for p,q in zip(m.parameters(),base.parameters()))
+assert cosine(torch.zeros(4),torch.ones(4)) is None
+assert cosine(torch.ones(4),-torch.ones(4)) == -1
+for _ in range(2):
+    o.zero_grad(); ((m(x)-y).square().sum()/18).backward(); freeze_first_step(m,o,fixed)
+    assert all(torch.equal(p,fixed[n]) for n,p in m[1].named_parameters())
+print(json.dumps(dict(status='passed',checks=['warm Adam moments and clocks preserved',
+    'all later-layer parameters exactly native on first step','first weight and bias exactly fixed across steps',
+    'RNG and raw gradients unchanged by suppression','undefined zero cosine and negative cosine'])))

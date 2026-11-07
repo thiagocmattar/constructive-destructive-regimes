@@ -1,5 +1,16 @@
 # Research index
 
+## First-layer freeze intervention, 7 November 2026
+
+[Run 244 / Analysis 064](../analyses/064-2026-11-07-mlp-freeze-first-linear/README.md)
+freezes the first MLP weights/biases at 448 with all Adam settings unchanged.
+Output reversals450-500 fall 51/51 to 4/51 and maximum output RMS falls 87.38%;
+mean loss448-800 rises 22.27%. This supports a causal contribution to the observed
+oscillation, not a unique first-layer cause. Figure includes eta kappa hat and
+full/updated-layer gradient norms. Full-state qualification,54 input/21 retrieval
+hashes, numerical checks and both pages pass. Worker exited,2.067GB retained on
+owned Spark, zero cloud cost. Next Run 245 / Analysis 065 / H045.
+
 ## Architecture-wide oscillation tracing, 7 November 2026
 
 The [five-page technical report](../analyses/063-2026-11-07-architecture-instability-tracing/report/instability-tracing-report.pdf)

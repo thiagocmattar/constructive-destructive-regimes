@@ -428,3 +428,13 @@ maximum relative loss discrepancy is 0.270%. Retained states and transfers are
 verified, both cloud workers deleted, Spark calibration workers exited. See the
 run for timing, provisional cost and retention. No causal intervention.
 Next run:244.
+
+## Run 244: persistent first-linear MLP freeze
+
+[Run 244](244-2026-11-07-mlp-freeze-first-linear/README.md), H044 / Analysis 064:
+freeze first weights/biases at 448, keep native Adam moments/clocks and LR0.001,
+update later layers through 801. Full 5000-example diagnostics; dense 447-501 and
+rolling 447-801 records. All 449 prefix pairs and full historical state 512 match;
+first-step remaining parameters/moments match native. 54 input and21 downloaded
+artifact identities verified. Worker 14.80s including qualification, peak 406.4MB,
+owned Spark, 2.067GB retained, no cloud charge, worker exited. Next run 245.

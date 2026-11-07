@@ -185,3 +185,15 @@ observer parity and replay qualification pass. This does not identify a unique
 causal origin; attention internals, local-parameter transmission and matched
 interventions remain open. One seed, selected windows and declared probes.
 Next hypothesis:H044.
+
+## H044: first-layer updates contribute to the MLP oscillation
+
+[Run 244 / Analysis 064](../analyses/064-2026-11-07-mlp-freeze-first-linear/README.md)
+freezes first-linear weights/biases at 448 while preserving native Adam state,
+clocks, LR and later-layer updates. Output reversals450-500 fall 51/51 to 4/51;
+maximum output RMS falls 87.38% and loss at 474 falls 46.43%. Extended mean loss
+448-800 is 22.27% higher. Supports a causal contribution of first-layer motion to
+this oscillation, without identifying a unique initiating mechanism or a uniform
+optimization benefit. First layer contains 93.57% of parameters; no matched
+later-layer freeze or rescue control. One seed/fork; no generalization inference.
+Low-dimensional concentration persists after damping. Next hypothesis:H045.

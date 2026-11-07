@@ -1,5 +1,14 @@
 # Deferred causal tests
 
+7 November2026 update: the user subsequently authorized a persistent first-layer
+freeze. [Run244 / Analysis064](../064-2026-11-07-mlp-freeze-first-linear/README.md)
+freezes first-linear weights/biases from448 through801 with native Adam clocks
+and all remaining learning rates unchanged. Downstream oscillation is strongly
+suppressed, but extended mean training loss is higher. This completes that
+persistent-freeze test; the other variants below remain pending.
+
+- [x] Persistent first-layer parameter freeze, matched continued-Adam control.
+
 User decision, 7 November2026: keep these pending while applying representation
 tracing to ResNet/CIFAR-10 and Transformer/WikiText-2. No architecture or optimizer
 intervention is authorized by the tracing protocol itself.
