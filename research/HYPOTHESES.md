@@ -197,3 +197,16 @@ this oscillation, without identifying a unique initiating mechanism or a uniform
 optimization benefit. First layer contains 93.57% of parameters; no matched
 later-layer freeze or rescue control. One seed/fork; no generalization inference.
 Low-dimensional concentration persists after damping. Next hypothesis:H045.
+
+## H045: learning-rate changes with the first MLP layer held fixed
+
+[Runs245-246 / ongoing Analysis064-065](../analyses/065-2026-11-07-mlp-frozen-lr-double/README.md)
+retain the freeze from448 and set LR0.002 or0.02 at500. Each complete intervention
+is compared with unchanged Adam, with I1 as a supplementary incremental reference.
+I2 preserves spike suppression but mean loss448-800 remains20.58% above baseline.
+I3 overshoots to107.099 at504 and ends800 at0.308132 versus baseline0.0302502.
+Exact first-layer constancy shows that later-layer updates can generate large
+excursions at the stronger rate. This is not a unique-cause result or threshold
+estimate. One seed/fork; full data, unchanged native moments/clocks, verified
+qualification, retrieval and dense reductions. Keep iterating this same analysis.
+Next unused hypothesis:H046; next run247. No new analysis without user request.

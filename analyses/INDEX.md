@@ -332,3 +332,15 @@ to 4/51; maximum output displacement falls 87.38%. Extended mean loss448-800 is
 cosines/SVD fractions remain undefined. Eta kappa hat and full/updated-layer
 gradient norms included. Exact qualification and independent reductions pass;
 no task process remains. Next independent analysis 065.
+
+## Analysis 064/065: ongoing MLP intervention study
+
+[Current workspace and combined figure](065-2026-11-07-mlp-frozen-lr-double/README.md)
+continues064's first-layer freeze. I1 freezes from448; I2 also sets LR0.002 at500;
+I3 instead sets LR0.02 at500. Every intervention column overlays unchanged Adam,
+including eta kappa hat, full/later-gradient norms and representation diagnostics.
+I1/I2 suppress excursions but have higher long-window mean loss. I3 peaks107.099
+at504, ends0.308132 at800 (baseline0.0302502), with first layer exactly fixed.
+Runs245/246 and both PDF pages verified; owned Spark workers exited, no cloud cost.
+064 is preserved first-stage evidence,065 is the continuing workspace. Do not
+allocate another analysis until the user requests it; these are one study.

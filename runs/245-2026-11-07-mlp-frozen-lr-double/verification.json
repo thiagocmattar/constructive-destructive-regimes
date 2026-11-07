@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "source_files": 66,
+  "retrieved_files": 22,
+  "exact_parent_boundary_and_gradient_states": [
+    448,
+    501
+  ],
+  "complete_start500_differs_only_in_lr": true,
+  "starting_moments_and_clocks_unchanged": true,
+  "first_layer_fixed_from448": true,
+  "remaining_four_parameter_tensors_changed": true,
+  "final_lr": 0.002,
+  "all_final_clocks": 801,
+  "first_changed_step_moments_match_control": true,
+  "first_step_double_increment_max_error": 1.4901161193847656e-08,
+  "final_parameters_finite": true,
+  "checkpoints": {
+    "fork500.pt": "bea970d6536f845074fd8a0ab3c5a329b0f550517f3ad01e6948e0290809037c",
+    "intervention_start500.pt": "04ccc4ebba36d338ff5d81250990565d87c5e1f805220a91770c6f0bcbff66f2",
+    "qualification501.pt": "67a78c12ba1937a0251cca0833c72635290e432825036879208fa03a831af457",
+    "end.pt": "6677f27d14274e37e60f2ae4b32043abd8321801c3a5185e16ba75a9e34154e8"
+  },
+  "worker_log_note": "One PyTorch warning on scalar conversion in a read-only first-step increment check; no backward pass or gradient mutation in that check.",
+  "generator_sha256": "de8cd09eb85417cc273a318cda6b82776fbb01eea7f837186b591c1771e83d62"
+}

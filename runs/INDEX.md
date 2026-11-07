@@ -438,3 +438,15 @@ rolling 447-801 records. All 449 prefix pairs and full historical state 512 matc
 first-step remaining parameters/moments match native. 54 input and21 downloaded
 artifact identities verified. Worker 14.80s including qualification, peak 406.4MB,
 owned Spark, 2.067GB retained, no cloud charge, worker exited. Next run 245.
+
+## Runs 245-246: frozen-first-layer learning-rate interventions
+
+[Run245](245-2026-11-07-mlp-frozen-lr-double/README.md) is I2: freeze from448 plus
+LR0.002 at500. [Run246](246-2026-11-07-mlp-frozen-lr-0p02/README.md) is I3: same
+freeze and LR0.02 at500 (10x I2). Both branch from the same qualified state500,
+continue to801, and compare with unchanged Adam in the continuing Analysis064/065.
+I2 retains damping; I3 peaks107.099 at504 and ends800 at0.308132. All66/67 source
+identities,22/22 retrieved files, LR-only starting changes, exact first-layer
+constancy and independent diagnostics pass. Worker runtimes7.76s/7.96s; peak
+456.7MB each. Workers exited,2.021/1.911GB retained on owned Spark, zero cloud cost.
+Executed inputs and dense evidence preserved. Next run247; no new analysis.

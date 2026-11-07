@@ -1,5 +1,11 @@
 # Analysis 064: freezing the first MLP projection
 
+**Study continuity:** 064 and 065 are one ongoing MLP intervention analysis.
+This directory preserves the first-stage evidence. Continue iterations in
+[065](../065-2026-11-07-mlp-frozen-lr-double/README.md), where the combined figure
+compares each cumulative intervention with unchanged Adam. Do not create another
+analysis until the user asks; separate executed configurations retain run IDs.
+
 H044 / Run 244. Compare the qualified retained Adam control with a continuation
 from state 448 in which only first-linear weights and biases remain fixed.
 All other learning-rate, optimizer, data and precision choices are matched.

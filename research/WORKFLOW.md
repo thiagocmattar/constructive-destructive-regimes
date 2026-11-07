@@ -28,6 +28,14 @@ Keep numbered scripts beside their config and evidence. Add only needed files;
 do not create empty training/plotting scripts. Analysis may be independent of runs
 or combine several runs; it owns its reductions, figures, and observations.
 
+Iterate a related intervention study within its current analysis. Define each
+intervention by its complete set of baseline changes, including inherited ones.
+Always compare every intervention with the unchanged baseline; comparisons
+between interventions are supplementary. Keep distinct run IDs for changed
+executed scientific inputs, without automatically allocating another analysis.
+For the current MLP work, 064 and 065 are one study; continue in 065 and preserve
+064 as its first-stage evidence. Open no further analysis until the user asks.
+
 Implement scientific measurement only after its contract is explicit. Run focused
 tests and a labeled smoke check. Measure production-shaped memory, complete update
 times, validation, diagnostics, checkpoints, and transfer costs. Small synthetic

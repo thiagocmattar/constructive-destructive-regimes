@@ -1,0 +1,29 @@
+{
+  "status": "numeric_checks_passed",
+  "pages": 2,
+  "pdf_sha256": "22e7f4be7597c170575d12f03635cdfee7275ba854e82051fe6dd53c61e7cd79",
+  "source_sha256": "1b6379fde2832af97be74434ed0e7d5531f9f74e52b3c65765d66614a7fbae52",
+  "generator_sha256": "b83bf2f297fc7d7b32df05592e1d957315001495057e87d3985b1211b2fc2ee0",
+  "full_window": [
+    448,
+    800
+  ],
+  "layer_window": [
+    500,
+    550
+  ],
+  "overview_rows": 8,
+  "columns": [
+    "freeze versus unchanged baseline",
+    "freeze + LR0.002 versus unchanged baseline",
+    "freeze + LR0.02 versus unchanged baseline"
+  ],
+  "scales": {
+    "loss_norms_output_rms": "log",
+    "eta_kappa_hat": "symlog, linear threshold1",
+    "layer_rms": "symlog, linear threshold0.0001"
+  },
+  "same_baseline_in_every_column": true,
+  "matched_axis_scales": true,
+  "zero_motion_cosines_undefined": true
+}

@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "source_files": 67,
+  "retrieved_files": 22,
+  "exact_parent_boundary_and_gradient_states": [
+    448,
+    501
+  ],
+  "complete_start500_differs_only_in_lr": true,
+  "starting_moments_and_clocks_unchanged": true,
+  "first_layer_fixed_from448": true,
+  "remaining_four_parameter_tensors_changed": true,
+  "final_lr": 0.02,
+  "all_final_clocks": 801,
+  "first_changed_step_moments_match_control": true,
+  "first_step_scaled_increment_max_error": 1.4901161193847656e-07,
+  "first_step_lr_ratio": 20.0,
+  "final_parameters_finite": true,
+  "checkpoints": {
+    "fork500.pt": "fff1295f2b07cff332531ac31f7b8e0a02af6819e364619d70c84a2989843c84",
+    "intervention_start500.pt": "ddc27beebc764f41c91e889dbab36074d20b587173293092fe44883efe4d884d",
+    "qualification501.pt": "c7db52db29fd9006973b80b6030489c0b70ed2920d49a514f64ccfdca388735b",
+    "end.pt": "6386a128b7821c77248b5e1e5c5fc7df909454cac0893206f45750e21819f20d"
+  },
+  "generator_sha256": "8bf9efedb64827b46e671de667147aa42e016a0bec5a435ed38ccf77eac983a2"
+}

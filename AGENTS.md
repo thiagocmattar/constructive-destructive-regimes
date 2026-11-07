@@ -63,6 +63,14 @@ executable permission system.
 - Every figure needs a local observation with sources, reduction, caption,
   coverage, uncertainty, caveats, and generating script. Publication figures use
   PDF; scratch renders remain ignored. Consolidate supported findings upward.
+- Treat an intervention as the complete set of changes to the unchanged baseline.
+  Every intervention must be compared with that no-intervention baseline; a
+  comparison with another intervention is supplementary. Cumulative changes can
+  build on earlier interventions without starting a separate analysis.
+- The current MLP intervention work in Analyses 064 and 065 is one ongoing
+  analysis. Continue in `analyses/065-2026-11-07-mlp-frozen-lr-double/`, retaining
+  064 as its first-stage evidence. Do not open another analysis until the user
+  requests it. Changed executed scientific inputs still receive separate run IDs.
 - Keep `research/INDEX.md` compact. Update registries and records at closeout.
 - Preserve supplied manuscript/review originals. Edit `manuscript/draft/` for
   requested changes and tie new empirical claims to observations and artifacts.

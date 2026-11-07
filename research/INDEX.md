@@ -1,5 +1,18 @@
 # Research index
 
+## Ongoing MLP interventions, 7 November 2026
+
+[Analysis 064/065](../analyses/065-2026-11-07-mlp-frozen-lr-double/README.md) is
+one continuing study: I1 freezes first-linear weights/biases at448, I2 additionally
+sets Adam LR0.002 at500, and I3 sets LR0.02 at500. Every intervention is compared
+with unchanged Adam in the same three-column figure. I1/I2 suppress excursions
+but have22.27%/20.58% higher mean loss448-800. I3 overshoots to107.099 at504 and
+recovers to0.308132 at800 versus baseline0.0302502, despite exact first-layer
+constancy. Runs245/246 completed on owned Spark in7.76s/7.96s; sources, retrieval,
+checkpoints, dense reductions and both PDF pages verified. Workers exited;
+2.021/1.911GB retained, zero cloud cost. Continue this analysis until the user
+requests another; next run247, next unused hypothesisH046.
+
 ## First-layer freeze intervention, 7 November 2026
 
 [Run 244 / Analysis 064](../analyses/064-2026-11-07-mlp-freeze-first-linear/README.md)
