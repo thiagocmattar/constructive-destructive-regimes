@@ -12,6 +12,12 @@ coverage, expected support/refutation evidence, and limits. Reuse authorization
 already given in the conversation. Ask only for missing scientific choices or
 execution authority.
 
+For architecture-level tracing of spikes or oscillations, use the
+[representation tracing workflow](INSTABILITY_TRACING.md). It carries the probe,
+stochastic-context, time-indexing, cost and evidence-retention decisions needed
+to reuse Analysis 063 on a different model or training setup. It is a diagnostic
+procedure; matched causal interventions remain a separately specified comparison.
+
 ## 2. Allocate and implement
 
 Use the next independent run or analysis number and the local date:

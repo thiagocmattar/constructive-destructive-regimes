@@ -1,5 +1,17 @@
 # Consolidated findings
 
+[Architecture-wide representation tracing](../../analyses/063-2026-11-07-architecture-instability-tracing/observations/004-consolidated-instability-tracing.md)
+consolidates the selected MLP, ResNet and Transformer Adam trajectories. Loss
+excursions accompany growing, reversing representation changes with concentrated
+temporal spectra. MLP preserves nearly the same reversal pattern across layers;
+ResNet becomes more output-like deeper in its residual stages; Transformer
+attention outputs can reverse while embeddings still move forward. This supports
+a descriptive cross-architecture pattern, not a universal first-layer cause,
+rank-ten mechanism or prospective predictor. Single seeds, unequal windows and
+output spaces, and fixed probes for ResNet/Transformer limit transfer. Causal
+interventions remain pending. The reusable protocol is in
+[INSTABILITY_TRACING.md](../INSTABILITY_TRACING.md).
+
 [Analysis056: paired GD displacement](../../analyses/056-2026-11-05-gd-paired-displacement/observations/001-paired-displacement.md)
 separates adjacent cancellation from accumulation of the remaining motion in
 nine existing 3,000-update GD runs. At the highest tested rates, C/D are

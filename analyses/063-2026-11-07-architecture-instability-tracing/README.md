@@ -1,5 +1,9 @@
 # Analysis 063: architecture-wide oscillation tracing
 
+Start with the [consolidated motivation, per-update algorithm, results and conclusions](observations/004-consolidated-instability-tracing.md).
+The [reusable workflow guide](../../research/INSTABILITY_TRACING.md) specifies
+probe choices, computational costs and adaptation to future training setups.
+
 ## Conclusions first
 
 The ResNet and Transformer show loss-associated representation reversals, but **the location

@@ -24,6 +24,13 @@ Record the intended meaning when it matters; do not silently alter a hypothesis.
    for paper work.
 5. `research/WORKFLOW.md` and `research/RUNPOD.md` for cloud experiments.
 
+For requests to trace loss spikes or representation oscillations backward through
+a network, read `research/INSTABILITY_TRACING.md` and its linked formal method.
+It specifies probe selection, per-update/window indexing, stochastic-context
+controls, computational costs, retention and verification. Adapt the measurement
+contract to the requested architecture; tracing does not by itself authorize or
+establish a causal intervention. Existing user authorization still governs scope.
+
 ## Scope and authorization
 
 This bootstrap establishes the workflow. It does not choose the first hypothesis,

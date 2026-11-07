@@ -307,3 +307,9 @@ into the same two-page architecture diagnostic. Six streams match their prior
 cosines/norms/spectra/coefficients; both pages reviewed. Full objective equals
 the diagnostic set; raw outputs retain the squared-error contract. No new run
 or cloud execution. Next independent analysis remains064.
+
+Analysis063 consolidation: [observation004](063-2026-11-07-architecture-instability-tracing/observations/004-consolidated-instability-tracing.md)
+formalizes motivation, per-update and fixed-window methodology, three-case results
+and conclusions before interventions. The reusable workflow records probe choices,
+stochastic-context controls, cost scaling and evidence retention. Documentation
+only; no new run or hypothesis. Next independent analysis remains064.

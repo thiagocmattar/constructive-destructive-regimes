@@ -17,6 +17,11 @@ adds the matching two-page diagnostic over448--800 using all5000 training images
 and all five learned representations. Prior numerical results reproduced; both
 pages reviewed. No new training, cloud cost or causal intervention.
 
+The [consolidated scientific section](../analyses/063-2026-11-07-architecture-instability-tracing/observations/004-consolidated-instability-tracing.md)
+now separates motivation, per-update/window method, results and conclusions.
+[Reusable workflow](INSTABILITY_TRACING.md), linked from AGENTS.md, covers probe
+selection, stochastic training, computation/storage costs and verification.
+
 ## MLP gradient amplification, 7 November 2026
 
 [Analysis062](../analyses/062-2026-11-07-mlp-gradient-amplification/observations/001-gradient-amplification.md)

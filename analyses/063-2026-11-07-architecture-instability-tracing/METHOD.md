@@ -1,5 +1,9 @@
 # Consecutive-representation oscillation tracing
 
+Read the [consolidated scientific section](observations/004-consolidated-instability-tracing.md)
+for the three-case evidence and the [reusable workflow guide](../../research/INSTABILITY_TRACING.md)
+for probe selection, stochastic-training adaptations, computational costs and retention.
+
 ## Purpose and conclusion contract
 
 Locate where a loss-associated oscillation is first observable along a network's
@@ -27,6 +31,13 @@ probe-wide conclusions hold for all examples. For BatchNorm, retain the original
 complete statistic group; for language retain token positions, masks and context.
 Disable stochastic measurement drift by preserving the original model contract,
 not by silently switching training-mode normalization to evaluation mode.
+
+For future minibatch setups, preserve the native objective/update batches and
+label native losses/gradients by their actual sampling coverage. A fixed/full
+reference loss or fixed-probe gradient is an additional diagnostic with its own
+cost. Freeze diagnostic stochastic choices and verify repeated probes at fixed
+weights; restore training RNG and buffers. The current three cases use full-
+objective gradients, which must not be silently assumed in a different setup.
 
 ## 2. Inventory actual computational stages
 
@@ -211,7 +222,9 @@ Render publication PDFs and inspect their numerical and visual contents.
 Inputs: qualified state theta_s and optimizer state; fixed training objective;
         fixed ordered probe Q; time window [a,b]; ordered computational stages.
 1. Validate source hashes, model mode, data grouping, masks and snapshot hooks.
-2. Continue the original optimizer; log full loss and raw gradient at every t.
+2. Continue the original optimizer; log native loss/raw gradient and probe loss.
+   Label native coverage: full objective in the current cases; otherwise the
+   original training batch. Additional reference evaluations are explicit.
 3. For t=a-1,...,b+1, capture each A_l(theta_t,Q) without changing training state.
 4. For every stage l:
      build delta rows A_l(t+1)-A_l(t), t=a-1,...,b;

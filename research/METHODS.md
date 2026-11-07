@@ -61,3 +61,8 @@ The method describes where loss-associated reversals become observable; it does
 not identify a unique causal source without matched interventions. Run 243 applies
 it to ResNet/CIFAR-10 and Transformer/WikiText-2. This is an optional diagnostic,
 not an addition to the default baseline metrics.
+
+The [consolidated motivation, algorithm, results and conclusions](../analyses/063-2026-11-07-architecture-instability-tracing/observations/004-consolidated-instability-tracing.md)
+state the current evidence across MLP, ResNet and Transformer. Follow the
+[reusable execution guide](INSTABILITY_TRACING.md) for new architectures,
+including fixed-probe decisions, stochastic training, cost scaling and retention.
