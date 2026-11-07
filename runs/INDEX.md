@@ -332,3 +332,19 @@ Exact retained-Adam replay and GD resume pass. No loss increases or>10% spikes;
 mean loss+2.30% and last32 mean+55.74% versus Adam. Worker3.73s; zero cloud cost.
 Both workers exited;80 artifact files verified, audit/recovery/final states
 retained locally and on owned Spark. Next run:234.
+
+## Runs234--235: MLP GD rate extension (7 November 2026)
+
+[Run234](234-2026-11-07-mlp-gd-learning-rates/README.md), H040 / Analysis060,
+ran GD LR 0.04 then 0.08 from the original Adam state512. LR0.04 completed
+288 updates; LR0.08 applied35 before infinite loss at547 (finite through546).
+Exact replay/resume and all68 artifact hashes pass; overflow independently
+reproduced from recovery544. Worker4.16s; scientific outcome retained as failed
+for0.08, with no retuning. Mean0.04 loss is394.45% above Adam.
+
+[Run235](235-2026-11-07-mlp-gd-lr0p03/README.md) adds the user-selected
+intermediate0.03 rate:288 updates, worker3.84s, all39 artifacts verified.
+Mean loss0.0439842 and maximum0.302456; no independent-seed confirmation.
+Analysis060 now shows columns0.02/0.03/0.04; earlier0.08 figure archived.
+All task workers exited, recovery evidence retained, zero cloud cost.
+Next run:236.

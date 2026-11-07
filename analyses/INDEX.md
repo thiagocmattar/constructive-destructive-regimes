@@ -222,3 +222,12 @@ with Adam at.001 from identical state512. No loss increases or>10% excursions
 under GD, but mean/tail loss+2.30%/+55.74%. Both optimizer and LR change.
 All3528 plotted scalars and vector render pass. Both analyses use owned Spark,
 one seed/window, exact control reuse and no new full controls. Next analysis:061.
+
+### Analysis060 extension: GD learning rates
+
+[Analysis060 Observation003](060-2026-11-07-mlp-adam-to-gd/observations/003-intermediate-gd-rate.md)
+adds Runs234--235 and regenerates the same PDF with columns0.02/0.03/0.04.
+Mean losses0.0212831/0.0439842/0.102867; maxima0.0220705/0.302456/1.61503.
+Same original state512 and qualified retained Adam control. All10,584 plotted
+scalars verified; shared row ranges and vector render reviewed. Earlier0.08
+overflow at547 and its three-rate figure remain archived. Next analysis:061.

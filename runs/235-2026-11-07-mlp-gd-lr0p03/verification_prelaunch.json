@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "input_files_checked": 42,
+  "tests": {
+    "status": "passed",
+    "rates": [
+      0.03
+    ],
+    "checks": [
+      "switch preserves weights",
+      "zero momentum/decay",
+      "exact FP32 GD formula",
+      "exact optimizer resume"
+    ]
+  },
+  "source_archive_sha256": "eef883d406887677937c52d8a3d3fb1f0ec3ca1611a5c974edd240eda26e790a",
+  "root": "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04",
+  "python": "/home/tcml-spark/experiments/constructive-destructive-regimes/analysis037-sgd-helper-2026-11-02/venv/bin/python"
+}

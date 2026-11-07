@@ -1,5 +1,17 @@
 # Research index
 
+## GD learning-rate extension, 7 November 2026
+
+[Analysis060](../analyses/060-2026-11-07-mlp-adam-to-gd/observations/003-intermediate-gd-rate.md)
+adds Runs234--235: GD0.03/0.04 mean losses0.0439842/0.102867; GD0.08 overflows
+at547. Same original state512 and exactly qualified retained Adam control.
+The current PDF shows0.02/0.03/0.04 with10,584 verified plotted scalars;
+the0.08 comparison and original single-rate figure remain archived. All107
+new artifacts verified;611 scientific updates plus16 qualification updates and
+3 failure-audit replay updates. Workers exited; about408MB retained on owned
+Spark including archives, zero cloud cost. Exploratory one-seed/window results;
+no manuscript edits. Next Run236 / Analysis061 / H041.
+
 ## MLP beta2 and GD interventions, 7 November 2026
 
 [Analysis059](../analyses/059-2026-11-07-mlp-beta2-reduction/README.md) completes

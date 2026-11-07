@@ -1,0 +1,23 @@
+{
+  "run_id": "235",
+  "analysis_id": "060",
+  "hypothesis": "H040",
+  "seed": 0,
+  "case": "mlp",
+  "start": 512,
+  "end": 800,
+  "plot_start": 448,
+  "adam_control_lr": 0.001,
+  "momentum": 0.0,
+  "weight_decay": 0.0,
+  "parent_run": "runs/223-2026-11-04-multispike-interventions",
+  "parent_worker": "runs/223-2026-11-04-multispike-interventions/artifacts/worker",
+  "runtime_limit_seconds": 600,
+  "checkpoint_every": 32,
+  "intervention": "Independently reload original Run223 Adam state512 and switch to plain full-batch GD at LR0.03 through800. Retain matched Adam and existing GD0.02/0.04 controls.",
+  "comparison": "Retained same-Spark Adam(.9,.999),LR.001 control; qualify exact fork gradient and two-update Adam reference before any GD. Original seed0,5000-image full MSE,physical1000,FP32 vectors and FP64 diagnostics; endpoint800; complete10000-image endpoint test loss secondary.",
+  "authorization": "User requested intermediate GD LR0.03 on Spark and an Analysis060 figure with columns0.02,0.03,0.04. Same original fork/horizon/objective/seed. No cloud spending.",
+  "gd_lrs": [
+    0.03
+  ]
+}

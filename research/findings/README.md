@@ -281,3 +281,10 @@ all feature/fold outcomes and four reviewed figures are in the
   GD at LR.02 removes all observed loss increases/spikes but raises mean/tail
   training loss2.30%/55.74% relative to continued Adam at.001. Optimizer and LR
   both change; smoother diagnostics do not establish faster optimization.
+
+- [GD rate extension (Analysis060)](../../analyses/060-2026-11-07-mlp-adam-to-gd/observations/003-intermediate-gd-rate.md):
+  GD0.03/0.04 increase mean training loss111.42%/394.45% versus retained Adam;
+  peaks0.302456/1.61503 versus0.0220705 atGD0.02. GD0.08 overflows at547,
+  archived with finite-prefix coverage. All directions remain locally descending,
+  illustrating that gradient-dot-step sign does not guarantee finite-step loss
+  decrease. Same selected seed/window;0.03 chosen after earlier results.

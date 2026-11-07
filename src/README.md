@@ -21,3 +21,10 @@ horizon. Run058 remains unchanged; Analysis019 inventories the executed source
 bytes and retains an immutable copy in each Spark attempt. Its mathematical
 verification covers loss reductions/accumulation, HVP/eigenpairs, optimizer
 vectors, prefix identities and checkpoint continuity. No generic trainer is added.
+
+`eos_tasks/gd_intervention.py` promotes the frozen Run233 plain-GD trajectory
+for Run234's second use. It accepts explicit learning rates and independently
+reloads the authenticated warm Adam parent for each branch. Full-gradient
+loss, raw-vector diagnostics, actual FP32 step residuals and recovery state
+are retained. Run233 remains unchanged; Run234 pins the promoted bytes in its
+input manifest and verifies exact control replay, GD resume and overflow.

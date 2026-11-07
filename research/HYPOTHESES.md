@@ -122,3 +122,11 @@ completed288 updates512..800; no loss increases or>10% excursions, but mean/tail
 loss+2.30%/+55.74% against Adam(.9,.999),LR.001. Both optimizer and LR change;
 one seed/window, exact retained-control and GD resume checks. Partial benefit
 on excursion outcomes without mean/tail training-loss benefit. Next hypothesis:H041.
+
+H040 extension,7 November: [Runs234--235 / Analysis060](../analyses/060-2026-11-07-mlp-adam-to-gd/observations/003-intermediate-gd-rate.md)
+compare GD rates from the same warm parent. LR0.03/0.04 raise mean loss111.42%/
+394.45% against Adam; both have an unrecovered excursion. LR0.08 overflows at547.
+LR0.03 was requested after viewing earlier results, so this is exploratory rate
+selection. The apparent smoothing benefit at0.02 does not extend uniformly to
+larger GD rates. Within-GD comparisons vary LR alone; Adam comparisons change
+both optimizer and LR. One seed/window; no universal threshold. H041 remains next.

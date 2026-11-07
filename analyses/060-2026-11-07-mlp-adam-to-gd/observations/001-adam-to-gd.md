@@ -1,5 +1,11 @@
 # Plain GD after the warm Adam fork
 
+Historical single-rate observation. Its original figure, results, plotted values
+and generator are preserved in [the snapshot](../archive/2026-11-07-single-rate/README.md).
+The current figure is extended by [Observation002](002-gd-learning-rates.md);
+all original numerical values remain unchanged. Relative output references
+below describe the archived version.
+
 Source: Run233 attempt01, owned Spark GB10, plus retained Run223 unchanged
 same-Spark control. Generator `../01_report.py`; full reductions, event lists
 and source/PDF hashes in `../results.json`, plotted values in
