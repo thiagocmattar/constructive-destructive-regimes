@@ -37,6 +37,8 @@ overshoot; all 87 actual increments start downhill, but 42 increase loss.
 - [Definitions and equations: coherence, prediction reversals and dispersion](observations/002-coherence-prediction-changes-and-dispersion.md)
 - [Seven-row control figure, states448--800, with coherence and output-change alignment](figures/03-control-coherence-448-800.pdf)
 - [Temporal overlay and scatter: gradient versus output-change alignment](figures/04-gradient-output-alignment-comparison.pdf)
+- [Loss, alignment overlay and tall mean-output heatmap](figures/05-network-output-heatmap.pdf)
+- [Mean-output heatmap definitions and caption](observations/005-mean-output-heatmap.md)
 - [Alignment comparison definitions, statistics and caption](observations/004-gradient-output-alignment-comparison.md)
 - [Extended-window definitions, sources and verification](observations/003-control-coherence-448-800.md)
 - [Complete diagnostic time course](figures/01-gradient-amplification.pdf)
