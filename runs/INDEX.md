@@ -388,3 +388,12 @@ cosines for448..800. All801 reference pairs and full512/800 states match;
 independent CPU reductions and extra-step reconstruction pass. Worker12.297s,
 43 inputs and10 artifacts verified, worker exited, about183MB retained on
 owned Spark including archive, zero cloud cost. Next run:240.
+
+## Run240: raw-gradient and hidden/output SVD histories (7 November 2026)
+
+[Run240](240-2026-11-07-mlp-hidden-change-svd/README.md), H042 / Analysis062,
+replays the unchanged Adam control through801 and retains all raw gradients,
+final hidden activations and outputs447..801. User correction: analyze raw
+gradients, not gradient changes. Exact native/control/output qualification
+passes;45 input and13 artifact hashes verified. Worker13.766s, exited,4.718GB
+retained on owned Spark including archive, zero cloud cost. Next run:241.

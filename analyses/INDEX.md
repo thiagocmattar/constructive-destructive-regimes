@@ -265,3 +265,11 @@ as final panel(g) of the existing control figure448--800. Complete outputs
 447..801 support every point; all2,118 earlier curve values remain unchanged.
 The seven-row vector PDF contains2,471 verified values and was visually reviewed.
 See [updated observation003](062-2026-11-07-mlp-gradient-amplification/observations/003-control-coherence-448-800.md).
+
+Analysis062 three-space extension: [observation010](062-2026-11-07-mlp-gradient-amplification/observations/010-gradient-output-hidden-svd-results.md)
+uses Run240 raw gradients and consecutive output/hidden changes. Top10 SVD
+modes retain99.04/98.16/97.40% energy. Fixed-head visible directions carry68.14%
+of hidden motion, despite4.45--4.92% activation energy; the null component
+also oscillates. Hidden motion through the existing head dominates output
+motion.17,650 coefficients and1,765 cosines verified; two PDFs reviewed.
+Next independent analysis remains063.

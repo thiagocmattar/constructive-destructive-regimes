@@ -730,3 +730,13 @@ no remote work, rental or manuscript edit. A7 deferred. Next Run223 / Analysis04
 [Run230 / Analysis053 / H037](../analyses/053-2026-11-05-mlp-cosine32-clip1/README.md) found zero activations of clipping at 1 under cosine32 decay to half LR. Exact agreement with cosine alone through state 800.
 
 [Run231 / Analysis054 / H038](../analyses/054-2026-11-05-resnet-clip1/FINDINGS.md) found a 52% lower maximum and 28% lower mean training loss under clipping at 1, with higher late loss.
+
+## Hidden-representation oscillation, 7 November 2026
+
+[Analysis062 three-space extension](../analyses/062-2026-11-07-mlp-gradient-amplification/observations/010-gradient-output-hidden-svd-results.md)
+compares raw-gradient and output/hidden-change SVDs using exact Run240 replay.
+Hidden/output alignment correlation0.99847;10 visible directions per example
+carry68.14% of hidden-change energy, but the null component also oscillates.
+Existing-head transmission of hidden changes dominates output motion; no
+unique initiating cause established. Verified/reviewed; Spark worker exited,
+4.718GB retained, zero cloud cost. Next Run241 / independent Analysis063.

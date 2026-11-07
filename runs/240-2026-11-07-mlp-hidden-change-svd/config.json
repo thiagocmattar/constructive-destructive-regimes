@@ -1,0 +1,21 @@
+{
+  "run_id": "240",
+  "analysis_id": "062",
+  "hypothesis": "H042",
+  "seed": 0,
+  "start": 0,
+  "end": 801,
+  "diagnostic_start": 447,
+  "physical_batch": 1000,
+  "parent_run": "runs/223-2026-11-04-multispike-interventions",
+  "parent_worker": "runs/223-2026-11-04-multispike-interventions/artifacts/worker",
+  "runtime_limit_seconds": 600,
+  "checkpoint_every": 64,
+  "authorization": "User requests SVDs of consecutive raw-gradient, function-output and hidden-representation changes and a test of broad versus output-sensitive hidden oscillation. Exact unchanged Adam replay; all 5000 examples; use existing Analysis062 window and seed.",
+  "hidden_layer": "second tanh, before final linear",
+  "fixed_head_state": 448,
+  "svd_change_states": [
+    448,
+    800
+  ]
+}
