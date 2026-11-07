@@ -1,0 +1,118 @@
+{
+  "status": "completed",
+  "device": "cpu",
+  "examples": 5000,
+  "events": [
+    {
+      "baseline": 465,
+      "incoming": 473,
+      "peak": 474,
+      "crosses": [
+        {
+          "jacobian_state": 465,
+          "direction_state": 465,
+          "step_norm": 0.028781923016000525,
+          "mean_tangent_energy": 0.014439252320570268,
+          "directional_gain": 4.174962179081047
+        },
+        {
+          "jacobian_state": 465,
+          "direction_state": 473,
+          "step_norm": 0.07811024690434384,
+          "mean_tangent_energy": 0.20266926316424339,
+          "directional_gain": 5.763495171763899
+        },
+        {
+          "jacobian_state": 473,
+          "direction_state": 465,
+          "step_norm": 0.028781923016000525,
+          "mean_tangent_energy": 0.01457632109950313,
+          "directional_gain": 4.19473139166189
+        },
+        {
+          "jacobian_state": 473,
+          "direction_state": 473,
+          "step_norm": 0.07811024690434384,
+          "mean_tangent_energy": 0.2017882273365883,
+          "directional_gain": 5.750954107964031
+        }
+      ]
+    },
+    {
+      "baseline": 492,
+      "incoming": 492,
+      "peak": 493,
+      "crosses": [
+        {
+          "jacobian_state": 492,
+          "direction_state": 492,
+          "step_norm": 0.035261785745618446,
+          "mean_tangent_energy": 0.025712609356630528,
+          "directional_gain": 4.547458805850523
+        }
+      ]
+    },
+    {
+      "baseline": 502,
+      "incoming": 502,
+      "peak": 503,
+      "crosses": [
+        {
+          "jacobian_state": 502,
+          "direction_state": 502,
+          "step_norm": 0.039828206399486435,
+          "mean_tangent_energy": 0.04050951570910671,
+          "directional_gain": 5.053447713336823
+        }
+      ]
+    },
+    {
+      "baseline": 512,
+      "incoming": 521,
+      "peak": 522,
+      "crosses": [
+        {
+          "jacobian_state": 512,
+          "direction_state": 512,
+          "step_norm": 0.02642034570541879,
+          "mean_tangent_energy": 0.011513978630961055,
+          "directional_gain": 4.061385496358928
+        },
+        {
+          "jacobian_state": 512,
+          "direction_state": 521,
+          "step_norm": 0.08816968973024443,
+          "mean_tangent_energy": 0.2518638085133303,
+          "directional_gain": 5.691982688784625
+        },
+        {
+          "jacobian_state": 521,
+          "direction_state": 512,
+          "step_norm": 0.02642034570541879,
+          "mean_tangent_energy": 0.011428493067325123,
+          "directional_gain": 4.046280523923858
+        },
+        {
+          "jacobian_state": 521,
+          "direction_state": 521,
+          "step_norm": 0.08816968973024443,
+          "mean_tangent_energy": 0.25190691804603643,
+          "directional_gain": 5.692469793733028
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "cache/cifar10-eos/data.pt": "2e4761c655a66a7e578efeb30950b9e39deeafd618f519cbc4ec823ff867985e",
+    "state465.pt": "3280d9d283c7f78d419048013a5f38a8fa2395ca3a552efc064f03ecbd279e08",
+    "state473.pt": "8be120272ced886b118db9420d0aebf42c01b5fdb0858b600bd876608f790149",
+    "state492.pt": "453d65d1ec4c14e3ed6db43dc9c97560a9e84cb69e3ff49f9fbc366e1dc81161",
+    "state502.pt": "3c09a7593569ff2017008299d3cf5f711b544146822c802647a3bb62798a67d9",
+    "state512.pt": "6ee2987ef17a5ba74d683f9ca6e679f6edc6b6ddfddd44080dc1e37858335082",
+    "state521.pt": "bef5f1ef90bd30c69accd6d7db60ee8cb9fa55fa296309d07cc4a4181efe58f9"
+  },
+  "generator_sha256": "8dff06ae4dd596c56e24d08aa9ab93c68a2cd91096d429e186702903c9bfa4d3",
+  "diagnostics_sha256": "e71af2bd2b4dbfccfdc4ab7f39255aad4fc44c5b4c5a831f98ef6ea191c81312",
+  "additional_training_updates": 0,
+  "elapsed_seconds": 1.5309999999590218
+}

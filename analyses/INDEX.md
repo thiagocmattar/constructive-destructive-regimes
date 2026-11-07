@@ -242,3 +242,14 @@ Tanh attenuates changes but most occur in unsaturated entries; hidden changes
 align with the head's row space. Measured incoming steps overshoot lower-loss
 regions. Two reviewed vector PDFs,1,372 plotted points, exact control replay,
 full-example post hoc probes and independent verification. Next analysis:062.
+
+## Analysis062: MLP gradient amplification and output oscillations
+
+[Analysis062](062-2026-11-07-mlp-gradient-amplification/README.md), Run237 / H042,
+addresses the RMSNorm hypothesis. The MLP has no normalization layer. Large
+peaks show4.13x/5.33x batch-gradient growth,1.63x/1.88x individual-gradient RMS
+and strongly reduced cancellation. Crossed Jacobian/direction probes favor
+larger updates along existing sensitive directions. Exact output-space loss
+terms expose overshoot; Adam denominators do not collapse. Two reviewed vector
+PDFs,1,334 plotted values, full-example reductions, exact replay and independent
+CPU/GPU checks. Single-seed/window limits retained. Next analysis:063.

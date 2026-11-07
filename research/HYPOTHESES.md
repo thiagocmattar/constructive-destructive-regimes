@@ -144,3 +144,17 @@ changes rather than preventing loss oscillation. Static recombinations are
 reference-dependent, not retrained interventions or unique causal shares.
 One seed/window and declared post hoc probes; no universal instability claim.
 Next hypothesis:H042.
+
+## H042: small normalization scales versus coherent MLP gradient spikes
+
+Question: could near-zero normalization inputs explain abrupt MLP loss peaks,
+and what internal quantities spike with loss? [Run237 / Analysis062](../analyses/062-2026-11-07-mlp-gradient-amplification/observations/001-gradient-amplification.md)
+finds no dynamic normalization and no sudden Adam denominator collapse. Exact
+control replay shows growing, nearly reversing output changes and much less
+cancellation between per-example gradients. Tanh attenuates backpropagation;
+mean sensitivity changes little. Crossed Jacobian/direction probes favor larger
+increments along already sensitive directions. All87 actual steps initially
+point downhill,42 increase loss; exact output-space terms quantify overshoot.
+This does not uniquely identify the oscillation's initiating cause or exclude
+existing Adam preconditioning/momentum. Exploratory one seed and selected window.
+Next hypothesis:H043.

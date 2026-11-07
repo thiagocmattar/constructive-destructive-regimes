@@ -358,3 +358,14 @@ model/optimizer/RNG/gradients match retained control. Captures88 internal states
 Weight/activation magnitude explosion is not observed; hidden-feature changes
 and finite-step overshoot dominate these selected peaks. Worker12.895s; all42
 artifacts verified, worker exited, zero cloud cost. Next run:237.
+
+## Run237: MLP gradient amplification (7 November 2026)
+
+[Run237](237-2026-11-07-mlp-gradient-amplification/README.md), H042 / Analysis062,
+replays535 unchanged Adam updates with536 exact reference pairs and15 exact
+anchors. Captures88 backward/per-example gradient states and87 actual-step,
+Adam-denominator and directional-curvature probes. No dynamic normalization or
+sudden Adam denominator collapse; spikes accompany reduced gradient cancellation
+and growing output oscillations. Worker10.458s,28 artifacts verified, worker
+exited, about391MB retained on owned Spark including archive, zero cloud cost.
+Next run:238.

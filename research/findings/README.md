@@ -296,3 +296,11 @@ all feature/fold outcomes and four reviewed figures are in the
   of excess loss. Hidden RMS stays similar, tanh attenuates changes, and the
   final head has spectral norm below one. Bias/head-parameter changes are small in the
   defined allocations. One seed/window; no universal or unique causal claim.
+
+- [Gradient amplification inside MLP Adam spikes (Analysis062)](../../analyses/062-2026-11-07-mlp-gradient-amplification/observations/001-gradient-amplification.md):
+  No RMSNorm or sudden Adam denominator collapse. At two large peaks, batch
+  gradients grow4.13x/5.33x versus individual-gradient RMS1.63x/1.88x; reduced
+  cancellation is substantial. Predictions nearly reverse each step, and
+  crossed-Jacobian probes locate growing increments in already sensitive
+  directions. Exact output-space loss terms quantify finite-step overshoot.
+  One seed/window; no unique initiating cause or general stability threshold.

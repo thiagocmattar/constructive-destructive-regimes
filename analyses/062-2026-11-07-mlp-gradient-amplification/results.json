@@ -1,0 +1,509 @@
+{
+  "status": "completed",
+  "events": [
+    {
+      "before": 465,
+      "peak": 474,
+      "recovery": 485,
+      "losses": [
+        0.028187875635921955,
+        0.05367295630276203,
+        0.02771882899105549
+      ],
+      "gradient_norm": [
+        0.48814885953144477,
+        2.01761808837119,
+        0.595017998160451
+      ],
+      "unit_gradient_rms": [
+        4.098002878052197,
+        6.665675966706275,
+        4.130070831999008
+      ],
+      "coherence": [
+        0.014189269578937487,
+        0.09161984019509292,
+        0.020756073742982887
+      ],
+      "gradient_norm_ratio": 4.133202503653955,
+      "unit_gradient_rms_ratio": 1.6265669315182394,
+      "coherence_ratio": 6.456980726555027,
+      "parameter_jacobian_rms_ratio": 1.0049642961159366,
+      "input_jacobian_rms_ratio": 1.0087476907470507,
+      "fraction_examples_loss_increased": 0.897,
+      "top1pct_positive_loss_increase_share": 0.07406145947806583,
+      "incoming_previous_output_change_cosine": -0.9850513031595576,
+      "incoming_outgoing_output_change_cosine": -0.983809899927316,
+      "incoming_step": {
+        "state": 473,
+        "linear": -0.09454391089459484,
+        "tangent_linear": -0.09454391434559942,
+        "gauss_newton_quadratic": 0.10089412091200546,
+        "residual_curvature_quadratic": 0.0015679102589635922,
+        "predicted_loss_change": 0.007918120276374216,
+        "actual_loss_change": 0.005968161858618259,
+        "ggn_over_descent": 1.0671667795135993,
+        "directional_parameter_gain": 5.75095407747863
+      },
+      "exact_incoming_output_loss_identity": {
+        "residual_dot_output_change": -0.0926295945186955,
+        "output_change_energy": 0.09859775866204543,
+        "actual_loss_change": 0.005968164143349927
+      },
+      "backward_gains": {
+        "head": [
+          0.7765566515847135,
+          0.8142538467361133,
+          0.7810851234485662
+        ],
+        "tanh2": [
+          0.8833655909075527,
+          0.8827403545593009,
+          0.8825137267138887
+        ],
+        "W2": [
+          1.236224239281426,
+          1.2565095669904105,
+          1.2496644062788047
+        ],
+        "tanh1": [
+          0.30234672318622297,
+          0.34558474942002143,
+          0.30428327684494366
+        ],
+        "W1": [
+          1.1464204778639453,
+          1.140514599091324,
+          1.1640758779349631
+        ]
+      },
+      "peak_neuron_energy_concentration": {
+        "dz1": {
+          "top1_fraction": 0.051837270560257866,
+          "top10pct_fraction": 0.4347248626496956
+        },
+        "dz2": {
+          "top1_fraction": 0.03566274686401404,
+          "top10pct_fraction": 0.30552664529337825
+        }
+      }
+    },
+    {
+      "before": 492,
+      "peak": 493,
+      "recovery": 508,
+      "losses": [
+        0.026213943492621183,
+        0.029460657853633165,
+        0.02446722984313965
+      ],
+      "gradient_norm": [
+        0.5267116083239426,
+        0.8419557140522037,
+        0.5539677503506711
+      ],
+      "unit_gradient_rms": [
+        3.978776759128391,
+        4.356952049102254,
+        3.877979318707162
+      ],
+      "coherence": [
+        0.017524540322427114,
+        0.03734332091215184,
+        0.02040600496864429
+      ],
+      "gradient_norm_ratio": 1.598513685186101,
+      "unit_gradient_rms_ratio": 1.0950481298319206,
+      "coherence_ratio": 2.130915859993289,
+      "parameter_jacobian_rms_ratio": 1.0006610291929154,
+      "input_jacobian_rms_ratio": 1.0011469479881026,
+      "fraction_examples_loss_increased": 0.6346,
+      "top1pct_positive_loss_increase_share": 0.12675751167457133,
+      "incoming_previous_output_change_cosine": -0.4156860738820331,
+      "incoming_outgoing_output_change_cosine": -0.9521396009907356,
+      "incoming_step": {
+        "state": 492,
+        "linear": -0.00976947450496954,
+        "tangent_linear": -0.009769474853476994,
+        "gauss_newton_quadratic": 0.012856305551366728,
+        "residual_curvature_quadratic": 0.00011016627782131703,
+        "predicted_loss_change": 0.0031969973242185054,
+        "actual_loss_change": 0.003246714361011982,
+        "ggn_over_descent": 1.3159669483580696,
+        "directional_parameter_gain": 4.547458841480082
+      },
+      "exact_incoming_output_loss_identity": {
+        "residual_dot_output_change": -0.009652888934966521,
+        "output_change_energy": 0.01289960364998645,
+        "actual_loss_change": 0.0032467147150199265
+      },
+      "backward_gains": {
+        "head": [
+          0.781853810814846,
+          0.7864099433128989,
+          0.7863544095297607
+        ],
+        "tanh2": [
+          0.8828559256296369,
+          0.8820706670592912,
+          0.8837369709313538
+        ],
+        "W2": [
+          1.2410390637226052,
+          1.243082856016809,
+          1.2528668058539358
+        ],
+        "tanh1": [
+          0.29970876681491654,
+          0.3117679928213954,
+          0.2984663911269503
+        ],
+        "W1": [
+          1.162344705285683,
+          1.1558301152397887,
+          1.1683270596753061
+        ]
+      },
+      "peak_neuron_energy_concentration": {
+        "dz1": {
+          "top1_fraction": 0.027603599811945163,
+          "top10pct_fraction": 0.35478373155619686
+        },
+        "dz2": {
+          "top1_fraction": 0.01870715755581555,
+          "top10pct_fraction": 0.24623399141876026
+        }
+      }
+    },
+    {
+      "before": 502,
+      "peak": 503,
+      "recovery": 505,
+      "losses": [
+        0.027541513554751873,
+        0.02866172604262829,
+        0.027433043345808983
+      ],
+      "gradient_norm": [
+        0.8023201076625975,
+        0.8968640138422566,
+        0.8283311223927837
+      ],
+      "unit_gradient_rms": [
+        4.238053289237936,
+        4.373354588368762,
+        4.251111236207126
+      ],
+      "coherence": [
+        0.03583954824035395,
+        0.04205559822139628,
+        0.03796671482584999
+      ],
+      "gradient_norm_ratio": 1.1178381362709382,
+      "unit_gradient_rms_ratio": 1.031925341636078,
+      "coherence_ratio": 1.1734410807679574,
+      "parameter_jacobian_rms_ratio": 1.0007187377360247,
+      "input_jacobian_rms_ratio": 1.0010927536606673,
+      "fraction_examples_loss_increased": 0.5508,
+      "top1pct_positive_loss_increase_share": 0.15114214797609932,
+      "incoming_previous_output_change_cosine": -0.8947388284408021,
+      "incoming_outgoing_output_change_cosine": -0.9691162483137497,
+      "incoming_step": {
+        "state": 502,
+        "linear": -0.01928255053719761,
+        "tangent_linear": -0.019282551311932787,
+        "gauss_newton_quadratic": 0.02025475823902176,
+        "residual_curvature_quadratic": 0.00024050822026250334,
+        "predicted_loss_change": 0.0012127159220866534,
+        "actual_loss_change": 0.0011202124878764153,
+        "ggn_over_descent": 1.0504190407772396,
+        "directional_parameter_gain": 5.05344763966213
+      },
+      "exact_incoming_output_loss_identity": {
+        "residual_dot_output_change": -0.01902036468387176,
+        "output_change_energy": 0.02014057603083996,
+        "actual_loss_change": 0.0011202113469681967
+      },
+      "backward_gains": {
+        "head": [
+          0.7845854393806702,
+          0.7863673794801275,
+          0.7875238949491604
+        ],
+        "tanh2": [
+          0.8849401257469229,
+          0.884457470991488,
+          0.8841311104715106
+        ],
+        "W2": [
+          1.2468251835693773,
+          1.2496429965683697,
+          1.2530221449510652
+        ],
+        "tanh1": [
+          0.3106335086991215,
+          0.3147900001471673,
+          0.312050713659558
+        ],
+        "W1": [
+          1.1721131582884892,
+          1.1748255135164,
+          1.1803749715175544
+        ]
+      },
+      "peak_neuron_energy_concentration": {
+        "dz1": {
+          "top1_fraction": 0.03143042567451953,
+          "top10pct_fraction": 0.3931192214053154
+        },
+        "dz2": {
+          "top1_fraction": 0.029712233106324967,
+          "top10pct_fraction": 0.25416725673996016
+        }
+      }
+    },
+    {
+      "before": 512,
+      "peak": 522,
+      "recovery": 529,
+      "losses": [
+        0.02305707847699523,
+        0.055062638595700264,
+        0.022679143119603395
+      ],
+      "gradient_norm": [
+        0.4095962404847691,
+        2.1838779216272717,
+        0.4730965163713477
+      ],
+      "unit_gradient_rms": [
+        3.7219803114384824,
+        6.993229810185253,
+        3.7212698707068426
+      ],
+      "coherence": [
+        0.012110547589757265,
+        0.09752166672135033,
+        0.01616282113700434
+      ],
+      "gradient_norm_ratio": 5.331782144881477,
+      "unit_gradient_rms_ratio": 1.878900269486511,
+      "coherence_ratio": 8.052622393708374,
+      "parameter_jacobian_rms_ratio": 1.0036299120921786,
+      "input_jacobian_rms_ratio": 1.00676224902165,
+      "fraction_examples_loss_increased": 0.929,
+      "top1pct_positive_loss_increase_share": 0.06398695958005024,
+      "incoming_previous_output_change_cosine": -0.9899883740505139,
+      "incoming_outgoing_output_change_cosine": -0.990211894384327,
+      "incoming_step": {
+        "state": 521,
+        "linear": -0.11845234391246204,
+        "tangent_linear": -0.11845234824828559,
+        "gauss_newton_quadratic": 0.1259534593301747,
+        "residual_curvature_quadratic": 0.0025597646305189317,
+        "predicted_loss_change": 0.010060880048231604,
+        "actual_loss_change": 0.006154928356409073,
+        "ggn_over_descent": 1.0633260193082892,
+        "directional_parameter_gain": 5.692469766044005
+      },
+      "exact_incoming_output_loss_identity": {
+        "residual_dot_output_change": -0.11532514669997972,
+        "output_change_energy": 0.12148007565401812,
+        "actual_loss_change": 0.006154928954038387
+      },
+      "backward_gains": {
+        "head": [
+          0.7857311313159493,
+          0.8073420660479136,
+          0.7880015386338919
+        ],
+        "tanh2": [
+          0.8832581986548631,
+          0.8903222725865777,
+          0.8826962476544503
+        ],
+        "W2": [
+          1.2490394185982205,
+          1.3040631741239606,
+          1.2513466457326157
+        ],
+        "tanh1": [
+          0.2955856121672389,
+          0.34887703128934416,
+          0.29548945867792353
+        ],
+        "W1": [
+          1.1664210261653245,
+          1.1930218443357148,
+          1.1681807792481704
+        ]
+      },
+      "peak_neuron_energy_concentration": {
+        "dz1": {
+          "top1_fraction": 0.05579696197069476,
+          "top10pct_fraction": 0.4871981476123293
+        },
+        "dz2": {
+          "top1_fraction": 0.033446290545540054,
+          "top10pct_fraction": 0.37893191405856824
+        }
+      }
+    }
+  ],
+  "coverage": {
+    "states": [
+      448,
+      535
+    ],
+    "examples": 5000,
+    "updates": 87,
+    "seeds": [
+      0
+    ]
+  },
+  "all_updates_initially_downhill": true,
+  "loss_increasing_updates": 42,
+  "linear_network_prediction_rmse": 0.0002646652215908643,
+  "second_order_prediction_rmse": 0.0007212027499421458,
+  "loss_change_rms": 0.004579160790839919,
+  "linear_network_prediction_sign_accuracy": 0.9770114942528736,
+  "minimum_denominator_ratio": 0.9986173423108967,
+  "minimum_absolute_denominator": 2.160526481240065e-05,
+  "maximum_epsilon_near_fraction": 0.0,
+  "old_denominator_step_norm_ratio_range": [
+    0.9990431267421965,
+    1.0128023850746397
+  ],
+  "output_increment_cosine_range": [
+    -0.990211894384327,
+    -0.904387450116584,
+    0.11943908425103922
+  ],
+  "cross_jacobian": {
+    "status": "completed",
+    "device": "cuda:0",
+    "examples": 5000,
+    "events": [
+      {
+        "baseline": 465,
+        "incoming": 473,
+        "peak": 474,
+        "crosses": [
+          {
+            "jacobian_state": 465,
+            "direction_state": 465,
+            "step_norm": 0.028781924268300754,
+            "mean_tangent_energy": 0.014439253401276643,
+            "directional_gain": 4.174962153666219
+          },
+          {
+            "jacobian_state": 465,
+            "direction_state": 473,
+            "step_norm": 0.07811025012242714,
+            "mean_tangent_energy": 0.20266928240784382,
+            "directional_gain": 5.763495207936356
+          },
+          {
+            "jacobian_state": 473,
+            "direction_state": 465,
+            "step_norm": 0.028781924268300754,
+            "mean_tangent_energy": 0.014576322023123069,
+            "directional_gain": 4.194731342047641
+          },
+          {
+            "jacobian_state": 473,
+            "direction_state": 473,
+            "step_norm": 0.07811025012242714,
+            "mean_tangent_energy": 0.2017882418240109,
+            "directional_gain": 5.750954077474454
+          }
+        ]
+      },
+      {
+        "baseline": 492,
+        "incoming": 492,
+        "peak": 493,
+        "crosses": [
+          {
+            "jacobian_state": 492,
+            "direction_state": 492,
+            "step_norm": 0.03526178666684804,
+            "mean_tangent_energy": 0.02571261110273345,
+            "directional_gain": 4.547458841451561
+          }
+        ]
+      },
+      {
+        "baseline": 502,
+        "incoming": 502,
+        "peak": 503,
+        "crosses": [
+          {
+            "jacobian_state": 502,
+            "direction_state": 502,
+            "step_norm": 0.039828207358193354,
+            "mean_tangent_energy": 0.04050951647804352,
+            "directional_gain": 5.053447639656358
+          }
+        ]
+      },
+      {
+        "baseline": 512,
+        "incoming": 521,
+        "peak": 522,
+        "crosses": [
+          {
+            "jacobian_state": 512,
+            "direction_state": 512,
+            "step_norm": 0.026420343948817537,
+            "mean_tangent_energy": 0.011513977504928294,
+            "directional_gain": 4.0613855677913016
+          },
+          {
+            "jacobian_state": 512,
+            "direction_state": 521,
+            "step_norm": 0.08816969026687174,
+            "mean_tangent_energy": 0.25186381490915355,
+            "directional_gain": 5.691982726412535
+          },
+          {
+            "jacobian_state": 521,
+            "direction_state": 512,
+            "step_norm": 0.026420343948817537,
+            "mean_tangent_energy": 0.011428491917815817,
+            "directional_gain": 4.046280589454625
+          },
+          {
+            "jacobian_state": 521,
+            "direction_state": 521,
+            "step_norm": 0.08816969026687174,
+            "mean_tangent_energy": 0.2519069186603494,
+            "directional_gain": 5.692469766027914
+          }
+        ]
+      }
+    ],
+    "source_sha256": {
+      "cache/cifar10-eos/data.pt": "2e4761c655a66a7e578efeb30950b9e39deeafd618f519cbc4ec823ff867985e",
+      "state465.pt": "3280d9d283c7f78d419048013a5f38a8fa2395ca3a552efc064f03ecbd279e08",
+      "state473.pt": "8be120272ced886b118db9420d0aebf42c01b5fdb0858b600bd876608f790149",
+      "state492.pt": "453d65d1ec4c14e3ed6db43dc9c97560a9e84cb69e3ff49f9fbc366e1dc81161",
+      "state502.pt": "3c09a7593569ff2017008299d3cf5f711b544146822c802647a3bb62798a67d9",
+      "state512.pt": "6ee2987ef17a5ba74d683f9ca6e679f6edc6b6ddfddd44080dc1e37858335082",
+      "state521.pt": "bef5f1ef90bd30c69accd6d7db60ee8cb9fa55fa296309d07cc4a4181efe58f9"
+    },
+    "generator_sha256": "8dff06ae4dd596c56e24d08aa9ab93c68a2cd91096d429e186702903c9bfa4d3",
+    "diagnostics_sha256": "e71af2bd2b4dbfccfdc4ab7f39255aad4fc44c5b4c5a831f98ef6ea191c81312",
+    "additional_training_updates": 0,
+    "elapsed_seconds": 1.2783414870500565
+  },
+  "sources": {
+    "backward.jsonl": "49e5ae77d44d3d2c96d210e7fce12de9003cdd771d3331a336655b8c3db06fb2",
+    "adam.jsonl": "e21eaf74bf9b10bee58d39ddb490e336b388405ec46e8e6935a496887110acb0",
+    "directional.jsonl": "721eb3fc23b40c873079ce7524ec78e17bade72e0c34d7230c52e0943f9cbe5f",
+    "output_vectors.pt": "7ec1fe8cd66d1e63d405ef6854d0b1dafe94206fa02753df937602b8e7c28887",
+    "architecture_audit.json": "bded1d491ae7171dde2a5480f01411d2440389b103f0ec00163d677e26274557",
+    "qualification.json": "500c23f47674b8b00ca1bc9fd77d0404364266bdc312ee6d394cbedf536212ec"
+  },
+  "generator_sha256": "da821bb80e8d97f6f5af13fbf3428689c62db1d5a0f80148937bd580d488f351"
+}

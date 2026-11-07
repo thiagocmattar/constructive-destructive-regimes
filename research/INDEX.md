@@ -1,5 +1,17 @@
 # Research index
 
+## MLP gradient amplification, 7 November 2026
+
+[Analysis062](../analyses/062-2026-11-07-mlp-gradient-amplification/observations/001-gradient-amplification.md)
+completes Run237 / H042. The MLP has no RMSNorm; Adam denominators do not
+collapse. Exact replay shows reduced cancellation between example gradients,
+growing output oscillations and larger increments along already sensitive
+directions. Crossed-Jacobian probes and exact output loss identities support
+finite-step overshoot; no unique initiating cause established. All536 reference
+pairs,15 anchors,57 inputs and28 artifacts verified; two vector figures reviewed.
+Worker exited, about391MB retained on owned Spark, zero cloud cost.
+Next Run238 / Analysis063 / H043.
+
 ## MLP Adam spike internals, 7 November 2026
 
 [Analysis061](../analyses/061-2026-11-07-mlp-adam-spike-internals/observations/001-spike-internals.md)

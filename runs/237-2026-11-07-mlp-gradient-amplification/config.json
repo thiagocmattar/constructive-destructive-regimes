@@ -1,0 +1,21 @@
+{
+  "run_id": "237",
+  "analysis_id": "062",
+  "hypothesis": "H042",
+  "seed": 0,
+  "start": 0,
+  "end": 535,
+  "diagnostic_start": 448,
+  "physical_batch": 1000,
+  "lr": 0.001,
+  "betas": [0.9, 0.999],
+  "eps": 1e-8,
+  "parent_run": "runs/223-2026-11-04-multispike-interventions",
+  "parent_worker": "runs/223-2026-11-04-multispike-interventions/artifacts/worker",
+  "internal_run": "runs/236-2026-11-07-mlp-adam-spike-internals",
+  "internal_worker": "runs/236-2026-11-07-mlp-adam-spike-internals/artifacts/attempt-01/worker",
+  "anchors": [465, 473, 474, 485, 492, 493, 502, 503, 505, 508, 512, 521, 522, 529, 535],
+  "runtime_limit_seconds": 1200,
+  "checkpoint_every": 32,
+  "authorization": "User requests deeper Spark diagnostics of what spikes with loss, including a proposed RMSNorm small-input gradient mechanism. No RMSNorm exists in this MLP. Examine exact control forward/backward geometry, sample-gradient coherence, Adam denominators and local update response without changing training inputs or optimizer."
+}
