@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "review": "All pages rendered with Poppler and visually inspected after final changes; no clipping, overlapping labels or illegible equations. Legends moved clear of trajectories.",
+  "artifacts": {
+    "report/instability-tracing-report.pdf": {
+      "pdf_sha256": "c4b4ae095a32e5dc5d854e1fa25d79f986c91ff83723381399d02fde2f836cfe",
+      "pages_reviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "render_dpi": 110,
+      "render_hashes": {
+        "report-1.png": "bacd4f2cfc213f44d653016aae90abb0d0eb95ea81a42f1318ba2df0d30327c9",
+        "report-2.png": "64e3c293b4c5ee38e5b294679cae5d0268629454a797e2662f57adeb2d8d7b2a",
+        "report-3.png": "55f5e81b8f47527f882121e58f9614ff4839d09676e897130ef5b68547146c12",
+        "report-4.png": "8260060897fe53b33dcd1ddc1e91a37f9cf5e37c409cc74e0577a73e9d055f82",
+        "report-5.png": "110d9e875ebf17780ecab59b0e814b1e23bfb2ffadbd3b1ce798d29b7b031807"
+      },
+      "status": "passed"
+    },
+    "figures/04-mlp-instability-trace-450-500.pdf": {
+      "pdf_sha256": "22a5e7d17ca5932fc6f55fe8a771ee117d08ecaa7d498ca91b9063f628c5d4d6",
+      "pages_reviewed": [
+        1,
+        2
+      ],
+      "render_dpi": 90,
+      "render_hashes": {
+        "mlp-1.png": "f0ae3340c549f4da42ea248fb8ffb6453a3f910e9f83064b8f3dc9d0ccec4180",
+        "mlp-2.png": "25a4025190cca175107060903d81c61f3876342f455dd3514d9e4e6956e7e725"
+      },
+      "status": "passed"
+    }
+  },
+  "numerical_closeout": "Six refitted 51-row streams; cosines and RMS match source slices; Gram singular values/reconstruction, spectra/sign counts, source hashes, Python syntax and PDF text bounds pass.",
+  "previous_448_800_results_and_pdfs_preserved": true,
+  "new_training": false
+}

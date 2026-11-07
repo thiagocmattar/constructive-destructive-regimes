@@ -2,6 +2,11 @@
 
 ## Architecture-wide oscillation tracing, 7 November 2026
 
+The [five-page technical report](../analyses/063-2026-11-07-architecture-instability-tracing/report/instability-tracing-report.pdf)
+consolidates the method, formal algorithm, findings and costs. MLP is newly fitted
+on 450-500; fixed SVD patterns are explicitly distinguished from potentially
+rotating motion. All seven report/companion pages reviewed; no new training.
+
 [Analysis063](../analyses/063-2026-11-07-architecture-instability-tracing/README.md)
 completes Run243 / H043 with a [formal tracing algorithm](../analyses/063-2026-11-07-architecture-instability-tracing/METHOD.md)
 and standardized ResNet/CIFAR-10 and Transformer/WikiText-2 diagnostics. ResNet's

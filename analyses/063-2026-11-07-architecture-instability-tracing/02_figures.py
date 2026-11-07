@@ -21,11 +21,12 @@ def short(name):
 def axis(ax):
     ax.grid(alpha=.2);ax.spines[['top','right']].set_visible(False)
 
-def main(case_filter=None):
+def main(case_filter=None, mlp_event=False):
     (HERE/'figures').mkdir(exist_ok=True);audit={}
     for case in ['resnet','transformer','mlp']:
         if case_filter and case!=case_filter:continue
-        r=json.loads((HERE/(case+'_results.json')).read_text());t=np.array(r['states']);stages=[s for s in r['stages'] if s['name']!='raw_gradient'];names=[s['name'] for s in stages];curves=r['curves']
+        source=HERE/('mlp_450_500_results.json' if case=='mlp' and mlp_event else case+'_results.json')
+        r=json.loads(source.read_text());t=np.array(r['states']);stages=[s for s in r['stages'] if s['name']!='raw_gradient'];names=[s['name'] for s in stages];curves=r['curves']
         title='ResNet-32 / CIFAR-10' if case=='resnet' else 'Transformer / WikiText-2'
         probe='1,000 fixed images; complete original BatchNorm group' if case=='resnet' else '64 fixed sequences; all supervised positions and output coordinates'
         if case=='mlp':
@@ -33,6 +34,7 @@ def main(case_filter=None):
             probe='All 5,000 fixed training images; diagnostic set equals the full training objective'
         output='output' if case=='mlp' else 'output.log_probabilities'
         path=HERE/'figures'/({'resnet':'01','transformer':'02','mlp':'03'}[case]+'-'+case+'-instability-trace.pdf')
+        if case=='mlp' and mlp_event:path=HERE/'figures/04-mlp-instability-trace-450-500.pdf'
         with PdfPages(path) as pdf:
             height=max(12,5+len(stages)*.17)
             fig=plt.figure(figsize=(14,height));grid=fig.add_gridspec(3,3,height_ratios=[1.4,1.2,max(4,len(stages)*.15)],width_ratios=[2.7,2.7,1.4],hspace=.22,wspace=.12)
@@ -73,7 +75,7 @@ def main(case_filter=None):
             for a in axes[-1]:a.set_xlabel('Completed optimizer updates')
             if case=='mlp':
                 fig.suptitle(title+' - every learned representation',fontsize=16,y=1-.16/detail_height,va='top')
-                fig.text(.5,1-.52/detail_height,'Basis fitted once over steps 448-800; signs fixed once. P = all sample-feature coordinates at that layer.',ha='center',va='top',fontsize=10)
+                fig.text(.5,1-.52/detail_height,f'Basis fitted once over steps {t[0]}-{t[-1]}; signs fixed once. P = all sample-feature coordinates at that layer.',ha='center',va='top',fontsize=10)
                 fig.tight_layout(rect=[.04,.02,1,1-1/detail_height])
             else:
                 fig.suptitle(title+' - selected architecture landmarks',fontsize=16,y=.99)
@@ -83,9 +85,12 @@ def main(case_filter=None):
         # The same arrays used by artists are explicitly checked against the table.
         assert rho.shape==(len(stages),len(t)) and rms.shape==rho.shape
         for i,s in enumerate(stages):assert int(np.sum(rho[i]<0))==s['negative']
-        audit[case]=dict(pdf_sha256=sha(path),pages=2,stages=len(stages),time_rows=len(t),heatmap_values=int(rho.size+rms.size),source_sha256=sha(HERE/(case+'_results.json')))
+        audit[case]=dict(pdf_sha256=sha(path),pages=2,stages=len(stages),time_rows=len(t),heatmap_values=int(rho.size+rms.size),source_sha256=sha(source))
     audit_name='mlp_figure_verification.json' if case_filter=='mlp' else 'figure_verification.json'
+    if mlp_event:audit_name='mlp_450_500_figure_verification.json'
     (HERE/audit_name).write_text(json.dumps(dict(status='numeric_checks_passed',figures=audit,generator_sha256=sha(Path(__file__))),indent=2)+'\n',newline='\n')
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--case',choices=['resnet','transformer','mlp']);a=p.parse_args();main(a.case)
+    p=argparse.ArgumentParser();p.add_argument('--case',choices=['resnet','transformer','mlp']);p.add_argument('--mlp-event',action='store_true');a=p.parse_args()
+    if a.mlp_event and a.case!='mlp':p.error('--mlp-event requires --case mlp')
+    main(a.case,a.mlp_event)

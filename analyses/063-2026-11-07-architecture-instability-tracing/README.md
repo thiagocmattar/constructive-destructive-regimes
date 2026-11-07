@@ -1,5 +1,13 @@
 # Analysis 063: architecture-wide oscillation tracing
 
+For a concise, self-contained account, read the [five-page technical report](report/instability-tracing-report.pdf)
+([LaTeX source](report/instability-tracing-report.tex)). It includes a formal
+algorithm, probe decisions, dimensions, three-case results, costs and the
+fixed-basis-versus-rotating-motion distinction. The report freshly fits the MLP
+over **450-500**, with a [matching two-page figure](figures/04-mlp-instability-trace-450-500.pdf)
+and [window-specific observation](observations/005-technical-report-event-window.md).
+The earlier 448-800 fit below is preserved and has different spectral summaries.
+
 Start with the [consolidated motivation, per-update algorithm, results and conclusions](observations/004-consolidated-instability-tracing.md).
 The [reusable workflow guide](../../research/INSTABILITY_TRACING.md) specifies
 probe choices, computational costs and adaptation to future training setups.
@@ -71,6 +79,12 @@ analysis; `05_target_readout.py` extracts correct-label log-probabilities from
 captured full outputs before discarding the large derived caches.
 `06_mlp_trace.py` adapts the previously audited MLP Grams; reproduce the companion
 with that script followed by `02_figures.py --case mlp`.
+
+For the event-window report, run `07_mlp_event_window.py`, then
+`02_figures.py --case mlp --mlp-event`, `08_report_assets.py`, and
+`09_build_report.py`. These only reduce existing local evidence and compile
+the report; they launch no training. The build needs NumPy, threadpoolctl,
+Matplotlib, PyMuPDF and a LaTeX installation with algorithm/algpseudocode.
 
 The ResNet/Transformer figures have the same contract: full/probe loss, gradient/output alignment,
 all measured architecture boundaries, displacement magnitude, SVD concentration

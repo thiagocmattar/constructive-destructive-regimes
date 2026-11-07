@@ -133,7 +133,7 @@ $$
 uses one **fixed pattern** for the whole window. Fix its sign once (largest
 absolute temporal coefficient positive in this implementation; a largest spatial
 coordinate convention is equally valid). Sign changes indicate reversal along
-that pattern. A per-step SVD would rotate the basis and does not provide this
+that pattern. Refitting local SVDs allows the basis to change and does not provide this
 test. Near-degenerate singular values make individual modes ambiguous; retain
 subspace comparisons and energy coverage rather than overinterpreting mode 1.
 Zero coefficients do not count as strictly negative sign products.
@@ -142,6 +142,20 @@ motion. Always inspect its amplitude and the mode's energy alongside the count.
 An uncentered leading mode can also describe steady drift rather than the
 oscillation of interest; negative full-vector cosine need not coincide with a
 sign change in that particular mode.
+
+**Fixed basis does not establish fixed motion.** For example,
+$\Delta A_t=\cos(\phi_t)v_1+\sin(\phi_t)v_2$ can rotate within a fixed
+two-dimensional span. A concentrated whole-window spectrum does not establish
+that local dominant axes or subspaces remain stationary. Testing that requires
+explicit local-window SVDs and principal-angle/subspace comparisons, respecting
+sign ambiguity and near-degenerate modes. No such rotation test has been run
+here. Cross-layer temporal overlap is a separate statistic.
+
+For a new event window, refit the corresponding Gram submatrix; merely cropping
+coefficients retains the old basis. The [technical report](report/instability-tracing-report.pdf)
+uses a newly fitted MLP 450-500 window, while the earlier 448-800 analysis remains
+available. Keep the preceding displacement for the first cosine but exclude it
+from the fitted SVD rows.
 
 ## 5. Backtrack from outputs through the computation graph
 

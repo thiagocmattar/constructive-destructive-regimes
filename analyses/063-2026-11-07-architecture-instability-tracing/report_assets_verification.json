@@ -1,0 +1,35 @@
+{
+  "status": "numeric_checks_passed",
+  "sources": {
+    "mlp_450_500_results.json": "c2fc4492a455045c3c1223b4d3294d6b6eac504646e71f27f15fa2ef98ae597e",
+    "resnet_results.json": "cb878406fb85d935b7370cd0aa1751ba16eda0606d157541f9dc9c43644c9f15",
+    "transformer_results.json": "962f0b0712dedff8423f8a89b2e65d032157f217685077eba3344b10c2a88357"
+  },
+  "generator_sha256": "6e9173c19f5d1aadc5d261e413bdb0cdf6b8ec84171f34ad50012c33d4a48e22",
+  "artifacts": {
+    "report/figures/architecture-comparison.pdf": "89db2dea0cac402b09f50b760c07878928b24483c73d4450458e2539864a8d45",
+    "report/figures/mlp-layer-detail.pdf": "77bf2fa4eae31e008d9f1d0456bb2b240b7ec8f62172dbf31c75d35fa408e1e6",
+    "report/results-table.tex": "a995e561c38021d764ff77ed286743b0c1a4a75351a14d998091ddfaa5208e7a"
+  },
+  "plotted_windows": {
+    "mlp": [
+      450,
+      500
+    ],
+    "resnet": [
+      280,
+      310
+    ],
+    "transformer": [
+      552,
+      600
+    ]
+  },
+  "peaks": {
+    "mlp": 474,
+    "resnet": 293,
+    "transformer": 562
+  },
+  "mlp_svd_refitted": true,
+  "plot_reduction": "No smoothing or sample averaging; RMS scaled only in overview row d"
+}

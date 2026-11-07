@@ -4,6 +4,10 @@ This section consolidates the MLP, ResNet and Transformer diagnostics before
 causal interventions. It describes the measured trajectories, not a universal
 instability law. [Reusable execution guide](../../../research/INSTABILITY_TRACING.md).
 
+The [subsequent technical report](../report/instability-tracing-report.pdf) refits
+MLP on 450-500 for an event-scale comparison. This earlier note retains the
+448-800 results; do not mix its MLP spectra/overlaps with the shorter fit.
+
 ## 1. Motivation
 
 A loss spike and reversing gradients identify an optimization event but do not
@@ -103,6 +107,13 @@ features; they do not identify individual neurons. Report squared singular-energ
 fractions, top-one/top-ten coverage and modes needed for 95%/99%. The displayed
 coefficient alpha/sqrt(P) has the same scale as displacement coordinate RMS.
 For a gradient SVD, stack the raw g_t vectors instead of representation differences.
+
+Fixed patterns do not imply fixed instantaneous motion. Changing relative
+coefficients can rotate a displacement within their common span. Whole-window
+concentration therefore does not establish that local dominant axes/subspaces
+remain stationary; that requires a separate sliding-window/principal-angle test,
+which has not been performed here. Cross-layer temporal overlap below does not
+measure that rotation.
 
 Compare layers of different widths through their temporal bases:
 

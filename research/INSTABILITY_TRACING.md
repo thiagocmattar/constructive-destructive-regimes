@@ -127,6 +127,23 @@ required no new capture; this does not make fresh MLP tracing cost-free.
 
 ## 4. Execute, verify and hand off
 
+### Keep fixed basis and changing motion distinct
+
+Fit one SVD per layer over the declared window: its spatial patterns are fixed
+by construction, while their coefficients change at each update. Sign changes
+establish reversal along a fixed component. Relative coefficients can also
+rotate the motion inside the fitted span; high top-k energy does not establish
+a stationary instantaneous direction or local dominant subspace. Cross-layer
+temporal overlap is not a subspace-rotation test. A requested rotation test needs
+explicit local windows and principal angles/subspace overlap, with mode signs
+and near-degeneracy handled; it has not been performed in Analysis 063.
+
+When shortening a window, refit the Gram submatrix and all SVD summaries.
+Cropping existing coefficients retains the old basis and answers a different
+question. Keep the predecessor displacement for the first cosine, but exclude
+that predecessor from the fitted rows. The [five-page technical report](../analyses/063-2026-11-07-architecture-instability-tracing/report/instability-tracing-report.pdf)
+illustrates this with MLP 450-500, while preserving the earlier 448-800 analysis.
+
 1. Qualify observer/plain-forward parity and unchanged training gradients,
    RNG/buffers. Clone values before in-place operations. Verify fixed inputs.
 2. Continue training unchanged with detached logging and recovery state when

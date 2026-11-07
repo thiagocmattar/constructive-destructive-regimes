@@ -313,3 +313,11 @@ formalizes motivation, per-update and fixed-window methodology, three-case resul
 and conclusions before interventions. The reusable workflow records probe choices,
 stochastic-context controls, cost scaling and evidence retention. Documentation
 only; no new run or hypothesis. Next independent analysis remains064.
+
+Analysis 063 technical report: [five-page PDF](063-2026-11-07-architecture-instability-tracing/report/instability-tracing-report.pdf)
+with a formal algorithm, matrix dimensions, probes, costs and three-case findings.
+[Observation 005](063-2026-11-07-architecture-instability-tracing/observations/005-technical-report-event-window.md)
+refits MLP 450-500 and adds Figure 04 while preserving the 448-800 analysis.
+Fixed basis does not establish fixed instantaneous motion; rotation remains
+untested. Numerical checks and all seven pages reviewed. No new run or cloud cost.
+Next independent analysis remains 064.
