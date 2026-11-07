@@ -206,3 +206,19 @@ records limits; the manuscript revision retains a TODO and staged compute plan.
 No new training or cloud cost. Next analysis: 058; no new run or hypothesis.
 
 [Analysis054](054-2026-11-05-resnet-clip1/README.md) compares training loss, raw gradient geometry and clipped inputs on ResNet over states 256 through 576.
+
+## Analysis059: MLP beta2 reductions
+
+[Analysis059](059-2026-11-07-mlp-beta2-reduction/README.md) compares Run232's
+three beta2 reductions with retained Adam. Native moment/clock continuation;
+bias correction changes at the fork. Mean losses rise16.78%/18.16%/127.02%,
+with one long censored excursion for0.5. Three-column figure matches Analysis058
+Figure04's rows with beta2 last; all10,584 plotted scalars and render verified.
+
+## Analysis060: warm Adam-to-GD switch
+
+[Analysis060](060-2026-11-07-mlp-adam-to-gd/README.md) compares plain GD at.02
+with Adam at.001 from identical state512. No loss increases or>10% excursions
+under GD, but mean/tail loss+2.30%/+55.74%. Both optimizer and LR change.
+All3528 plotted scalars and vector render pass. Both analyses use owned Spark,
+one seed/window, exact control reuse and no new full controls. Next analysis:061.

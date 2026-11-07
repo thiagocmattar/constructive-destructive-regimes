@@ -317,3 +317,18 @@ attempt within the same run.
 [Run230](230-2026-11-05-mlp-cosine32-clip1/README.md) paired cosine32 to half LR with global clipping at 1 on the MLP. All 288 updates matched cosine alone.
 
 [Run231](231-2026-11-05-resnet-clip1/README.md) tested ResNet clipping at 1 with a fresh same-Spark control and constant LR 0.003.
+
+## Runs232--233: MLP optimizer interventions (7 November 2026)
+
+[Run232](232-2026-11-07-mlp-beta2-reduction/README.md), H039 / Analysis059,
+completed three beta2=.95/.9/.5 branches from exact state512 through800.
+All864 updates verified; unchanged control and observer replay exact. Native
+bias correction changes with beta2, with warm moments/clocks retained.
+Mean training loss+16.78%/+18.16%/+127.02%. Worker12.15s; zero cloud cost.
+
+[Run233](233-2026-11-07-mlp-adam-to-gd/README.md), H040 / Analysis060,
+completed288 plain-GD updates at LR.02 from the original untreated state512.
+Exact retained-Adam replay and GD resume pass. No loss increases or>10% spikes;
+mean loss+2.30% and last32 mean+55.74% versus Adam. Worker3.73s; zero cloud cost.
+Both workers exited;80 artifact files verified, audit/recovery/final states
+retained locally and on owned Spark. Next run:234.

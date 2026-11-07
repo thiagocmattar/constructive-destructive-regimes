@@ -1,0 +1,22 @@
+{
+  "run_id": "232",
+  "analysis_id": "059",
+  "hypothesis": "H039",
+  "seed": 0,
+  "case": "mlp",
+  "start": 512,
+  "end": 800,
+  "plot_start": 448,
+  "base_lr": 0.001,
+  "beta1": 0.9,
+  "original_beta2": 0.999,
+  "beta2_values": [0.95, 0.9, 0.5],
+  "epsilon": 1e-8,
+  "parent_run": "runs/223-2026-11-04-multispike-interventions",
+  "parent_worker": "runs/223-2026-11-04-multispike-interventions/artifacts/worker",
+  "runtime_limit_seconds": 600,
+  "checkpoint_every": 32,
+  "intervention": "At state512 before its outgoing update, set native Adam beta2; preserve exp_avg, exp_avg_sq, optimizer step count and RNG. Native bias correction uses 1-new_beta2**step; no moment rescaling, reset, product-history correction, clipping or weight decay.",
+  "comparison": "Reuse Run223 unchanged beta2=.999 same-Spark control only after exact fork-gradient and two-update model/optimizer/gradient-history/RNG replay. Fixed 5000-image full MSE objective, physical1000, LR.001, FP32 model/gradients/moments and FP64 diagnostics; states512..800, one seed.",
+  "authorization": "User requested beta2 reductions to .95,.9,.5, first on MLP using owned Spark. No other model or paid resource authorized."
+}

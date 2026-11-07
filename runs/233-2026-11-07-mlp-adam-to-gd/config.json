@@ -1,0 +1,21 @@
+{
+  "run_id": "233",
+  "analysis_id": "060",
+  "hypothesis": "H040",
+  "seed": 0,
+  "case": "mlp",
+  "start": 512,
+  "end": 800,
+  "plot_start": 448,
+  "adam_control_lr": 0.001,
+  "gd_lr": 0.02,
+  "momentum": 0.0,
+  "weight_decay": 0.0,
+  "parent_run": "runs/223-2026-11-04-multispike-interventions",
+  "parent_worker": "runs/223-2026-11-04-multispike-interventions/artifacts/worker",
+  "runtime_limit_seconds": 600,
+  "checkpoint_every": 32,
+  "intervention": "Load exact Run223 Adam state512, then replace the update rule with plain full-batch gradient descent at LR0.02; no momentum, adaptive scaling, clipping or decay. This jointly changes optimizer and learning rate, not an isolated optimizer effect.",
+  "comparison": "Retained same-Spark Adam(.9,.999),LR.001 control; qualify exact fork gradient and two-update Adam reference before any GD. Original seed0,5000-image full MSE,physical1000,FP32 vectors and FP64 diagnostics; endpoint800; complete10000-image endpoint test loss secondary.",
+  "authorization": "User requested an additional intervention on Spark: change Adam to GD using high LR0.02. Same fork/horizon inferred from the ongoing matched-intervention experiment. No other models or cloud spending."
+}

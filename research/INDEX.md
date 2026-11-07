@@ -1,5 +1,18 @@
 # Research index
 
+## MLP beta2 and GD interventions, 7 November 2026
+
+[Analysis059](../analyses/059-2026-11-07-mlp-beta2-reduction/README.md) completes
+Run232: beta2=.95/.9/.5 raises window-mean training loss16.78%/18.16%/127.02%.
+Native bias correction changes with beta2; original moments/clocks retained.
+[Analysis060](../analyses/060-2026-11-07-mlp-adam-to-gd/README.md) completes
+Run233: GD at.02 removes observed spikes but raises mean/tail loss2.30%/55.74%
+versus continued Adam at.001. Exact state512 control replay passes in both.
+All1152 scientific updates,80 artifacts and14,112 plotted scalars verified;
+two vector PDFs visually reviewed. Workers exited; owned Spark retains about
+525MB including archives, zero cloud cost. One seed/window; no manuscript edit.
+Next Run234 / Analysis061 / H041.
+
 ## Intervention consolidation, 6 November 2026
 
 Additional [Analysis058 Figure 08](../analyses/058-2026-11-06-intervention-consolidation/observations/008-spike-optimizer-zoom.md)

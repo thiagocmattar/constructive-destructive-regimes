@@ -272,3 +272,12 @@ all feature/fold outcomes and four reviewed figures are in the
 [Combined MLP cosine decay and clipping](../../analyses/053-2026-11-05-mlp-cosine32-clip1/README.md) produced the same trajectory as cosine alone. The cap of 1 stayed inactive throughout this seed and window.
 
 [ResNet clipping at 1](../../analyses/054-2026-11-05-resnet-clip1/FINDINGS.md) suppressed the largest loss spikes and increased the final 32-state mean by 78%.
+
+- [MLP beta2 reductions (Analysis059)](../../analyses/059-2026-11-07-mlp-beta2-reduction/observations/001-beta2-reduction.md):
+  Native beta2=.95/.9/.5 raises mean training loss16.78%/18.16%/127.02% in the
+  matched512..800 window. Lower endpoint test loss is secondary and unreplicated;
+  native bias-correction changes preclude a memory-only interpretation.
+- [Warm Adam-to-GD switch (Analysis060)](../../analyses/060-2026-11-07-mlp-adam-to-gd/observations/001-adam-to-gd.md):
+  GD at LR.02 removes all observed loss increases/spikes but raises mean/tail
+  training loss2.30%/55.74% relative to continued Adam at.001. Optimizer and LR
+  both change; smoother diagnostics do not establish faster optimization.

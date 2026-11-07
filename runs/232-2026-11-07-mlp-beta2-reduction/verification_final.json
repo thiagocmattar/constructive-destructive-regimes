@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "source_files": 41,
+  "artifact_files": 41,
+  "exact_control_replay": true,
+  "exact_added_instrumentation_replay": true,
+  "first_step_recurrence_and_direction_audit": true,
+  "arms": {
+    "beta2_0p95": {
+      "updates": 288,
+      "boundaries": 289,
+      "first_moment_max_abs_error": 1.396983861055856e-10,
+      "second_moment_max_abs_error": 2.987081523971036e-11,
+      "parameter_step_max_abs_rounding": 1.1856314208191776e-08,
+      "first_adaptive_cosine": 0.4897640695691534,
+      "final_loss": 0.019172469154000282,
+      "fork_projected_change_roundoff": 2.220446049250313e-16,
+      "first_bias_correction2": 0.9999999999962657,
+      "old_bias_correction2": 0.40145685685590815
+    },
+    "beta2_0p9": {
+      "updates": 288,
+      "boundaries": 289,
+      "first_moment_max_abs_error": 1.396983861055856e-10,
+      "second_moment_max_abs_error": 2.086433093352949e-11,
+      "parameter_step_max_abs_rounding": 7.378113120459773e-09,
+      "first_adaptive_cosine": 0.4852730730520763,
+      "final_loss": 0.015884966356679797,
+      "fork_projected_change_roundoff": 2.220446049250313e-16,
+      "first_bias_correction2": 1.0,
+      "old_bias_correction2": 0.40145685685590815
+    },
+    "beta2_0p5": {
+      "updates": 288,
+      "boundaries": 289,
+      "first_moment_max_abs_error": 1.396983861055856e-10,
+      "second_moment_max_abs_error": 1.7479351299698465e-11,
+      "parameter_step_max_abs_rounding": 7.436733562293796e-09,
+      "first_adaptive_cosine": 0.4377584427583911,
+      "final_loss": 0.03475925559177995,
+      "fork_projected_change_roundoff": 2.220446049250313e-16,
+      "first_bias_correction2": 1.0,
+      "old_bias_correction2": 0.40145685685590815
+    }
+  },
+  "verifier_sha256": "64f2ba55ccf0e72e9c73a6d053cbd3a9905fbf6d3df9c4ffe278e624ec6e6c2f"
+}

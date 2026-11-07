@@ -103,3 +103,22 @@ Status: partial support for peak reduction, no mean-loss benefit over unchanged.
 ## H038 | Does clipping at 1 suppress repeated ResNet loss spikes?
 
 [Analysis054](../analyses/054-2026-11-05-resnet-clip1/FINDINGS.md) found lower peak severity and lower window-mean loss alongside more excursions above 10% and higher endpoint loss on this seed.
+
+## H039: reducing Adam beta2 from a warm MLP state
+
+Question: how do native beta2 changes to.95/.9/.5 affect repeated loss excursions
+and training progress against retained.999 Adam? Completed descriptive comparison:
+[Run232 / Analysis059](../analyses/059-2026-11-07-mlp-beta2-reduction/README.md).
+Exact state512..800,seed0,LR.001; m/v/global clock retained, native bias-correction
+denominator changes immediately. Mean/tail training loss is higher for all three;
+test endpoint lower in this one seed. The0.5 branch has a long censored excursion.
+No memory-only mechanism, generalization or universal stability inference.
+
+## H040: switching warm Adam to plain GD at LR0.02
+
+Question: does the specified GD switch suppress the selected MLP spikes while
+maintaining training progress? [Run233 / Analysis060](../analyses/060-2026-11-07-mlp-adam-to-gd/README.md)
+completed288 updates512..800; no loss increases or>10% excursions, but mean/tail
+loss+2.30%/+55.74% against Adam(.9,.999),LR.001. Both optimizer and LR change;
+one seed/window, exact retained-control and GD resume checks. Partial benefit
+on excursion outcomes without mean/tail training-loss benefit. Next hypothesis:H041.
