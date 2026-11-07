@@ -1,4 +1,4 @@
-"""Preserve the manuscript spike windows; add current-moment cross-geometry."""
+"""Preserve manuscript spike windows; add moment and adaptive cross-geometry."""
 import csv
 import hashlib
 import json
@@ -40,17 +40,18 @@ def main():
     for p in [manuscript, SOURCE / '01_plot_spikes.py', SOURCE / 'figures/adam_manuscript_spikes.pdf']:
         sources[p.relative_to(ROOT).as_posix()] = sha(p)
     keys = ['loss', 'projected', 'raw_cosine', 'moment_cosine', 'gradient', 'momentum',
-            'gradient_current_moment_cosine', 'moment_over_gradient_norm', 'unbiased_moment_over_gradient_norm']
+            'gradient_current_moment_cosine', 'moment_over_gradient_norm', 'unbiased_moment_over_gradient_norm',
+            'gradient_adaptive_cosine']
     old_rows = ['training_loss_log', 'eta_kappa_hat_raw', 'rho_raw', 'rho_momentum',
                 'raw_gradient_norm_log', 'momentum_norm_log']
-    row_indices = [0, 1, 2, 2, 3, 3, 4, 5, 5]
+    row_indices = [0, 1, 2, 2, 3, 3, 4, 5, 5, 6]
     titles = ['CIFAR-10 / MLP', 'CIFAR-10 / ResNet-32', 'WikiText-2 / Transformer']
     plt.rcParams.update({'font.family': 'Times New Roman', 'mathtext.fontset': 'stix',
         'font.size': 9, 'axes.labelsize': 9.5, 'axes.titlesize': 9,
         'xtick.labelsize': 8.5, 'ytick.labelsize': 8.5, 'axes.spines.top': False,
         'axes.spines.right': False, 'axes.linewidth': .7, 'pdf.fonttype': 42,
         'path.simplify': False})
-    fig, axes = plt.subplots(6, 3, figsize=(7.16, 7.8), sharex='col')
+    fig, axes = plt.subplots(7, 3, figsize=(7.16, 9.1), sharex='col')
     curves, plotted, ratio_differences = [], [], {}
     for col, example in enumerate(examples):
         task, lr = example['task'], example['lr']
@@ -81,7 +82,7 @@ def main():
             else:
                 values = np.asarray([metrics[s][key] for s in states])
                 assert np.isfinite(values).all()
-                if row == 4:
+                if row in [4, 6]:
                     assert np.all(np.abs(values) <= 1)
                 else:
                     numerator = [metrics[s]['streams']['moment']['norm'] if index == 7 else metrics[s]['unbiased_moment_norm'] for s in states]
@@ -99,7 +100,7 @@ def main():
                                x=states.tolist(), y=values.tolist()))
             plotted.extend(dict(task=task, lr=lr, metric=key, state=int(s), value=float(v)) for s, v in zip(states, values))
         ratio_differences[task] = max(abs(metrics[s]['moment_over_gradient_norm'] - metrics[s]['unbiased_moment_over_gradient_norm']) for s in states)
-        for row in range(6):
+        for row in range(7):
             ax = axes[row, col]
             if row:
                 ax.text(0, 1.035, f'({chr(97 + row * 3 + col)})', transform=ax.transAxes, va='bottom', fontsize=9)
@@ -113,7 +114,7 @@ def main():
             ax.grid(alpha=.16, lw=.5)
             ax.tick_params(length=2.5, width=.6)
             ax.margins(y=.1)
-            if row in [2, 4]:
+            if row in [2, 4, 6]:
                 ax.set(ylim=(-1.06, 1.06), yticks=[-1, 0, 1])
                 ax.axhline(0, color='.45', ls=(0, (4, 3)), lw=.7)
             if row == 1:
@@ -130,21 +131,22 @@ def main():
         axes[0, col].yaxis.set_major_formatter(FuncFormatter(lambda v, p: f'{v:g}'))
         axes[-1, col].set_xlabel(r'Parameter state $t$')
     for ax, label in zip(axes[:, 0], ['Training loss', r'$\eta\widehat\kappa_t$', r'$\rho_t$',
-                                     'Relative norm', r'$\cos(g_t,m_t)$', 'Momentum / gradient']):
+                                     'Relative norm', r'$\cos(g_t,m_t)$', 'Momentum / gradient',
+                                     r'$\cos(g_t,d_t)$']):
         ax.set_ylabel(label)
     legend = fig.legend(handles=[Line2D([], [], color=BLUE, label='Gradient'),
         Line2D([], [], color=ORANGE, ls='--', label='Momentum'),
         Line2D([], [], color=ORANGE, label=r'$\|m_t\|/\|g_t\|$'),
         Line2D([], [], color=PURPLE, ls='--', label=r'$\|\hat m_t\|/\|g_t\|$')],
         frameon=False, fontsize=8, loc='lower center', bbox_to_anchor=(.54, .008), ncol=4, handlelength=1.5)
-    fig.subplots_adjust(left=.105, right=.975, top=.925, bottom=.10, hspace=.48, wspace=.31)
+    fig.subplots_adjust(left=.105, right=.975, top=.935, bottom=.085, hspace=.48, wspace=.31)
     fig.canvas.draw()
     renderer = fig.canvas.get_renderer()
     assert legend.get_window_extent(renderer).y1 < min(ax.xaxis.label.get_window_extent(renderer).y0 for ax in axes[-1])
     bbox = fig.get_tightbbox(renderer).transformed(fig.dpi_scale_trans)
     assert bbox.x0 >= 0 and bbox.y0 >= 0 and bbox.x1 <= fig.bbox.width and bbox.y1 <= fig.bbox.height
-    assert len(curves) == 27 and len(plotted) == 1584
-    assert sum(len(ax.patches) for ax in axes.flat) == 18
+    assert len(curves) == 30 and len(plotted) == 1760
+    assert sum(len(ax.patches) for ax in axes.flat) == 21
     pdf = HERE / 'figures' / NAME
     fig.savefig(pdf, metadata={'CreationDate': None, 'ModDate': None})
     plt.close(fig)
@@ -167,11 +169,11 @@ def main():
     manifest = dict(generator=Path(__file__).relative_to(ROOT).as_posix(), generator_sha256=sha(__file__),
         sources=sources, outputs={p.relative_to(HERE).as_posix(): sha(p) for p in [pdf, table]},
         examples=examples, curves=curves, smoothing=None, checked_values=len(plotted),
-        original_values_preserved=1056, added_values=528, maximum_ratio_difference=ratio_differences,
+        original_values_preserved=1056, added_values=704, maximum_ratio_difference=ratio_differences,
         checks='Source hashes, original curve equality, update/state alignment, ratio identities, artist and CSV read-back, PDF bounds/fonts/vector checks passed.',
         visual_review='See observations/008-spike-optimizer-zoom.md')
     (HERE / 'spike_optimizer_zoom_manifest.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8', newline='\n')
-    print(f'PASS: 27 curves / 1,584 values, 1,056 original values preserved. Ratio differences: {ratio_differences}')
+    print(f'PASS: 30 curves / 1,760 values, 1,056 original values preserved. Ratio differences: {ratio_differences}')
 
 
 if __name__ == '__main__':

@@ -23,6 +23,7 @@ No spike detector is refitted and no new event counts are estimated here.
 - [08: Spike optimizer zoom](008-spike-optimizer-zoom.md); generated and checked
   by `../05_spike_optimizer_zoom.py`, with `../spike_optimizer_zoom_manifest.json`.
   Preserves the manuscript micro-plot windows and historical episode shading.
+  Seven rows include current gradient/momentum and gradient/Adam-direction cosines.
 
 Figures 01--06 are unsmoothed, with log loss and linear diagnostic axes.
 Axis limits are independent across panels. A dimensionless projected gradient

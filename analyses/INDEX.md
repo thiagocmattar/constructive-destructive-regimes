@@ -3,8 +3,8 @@
 ## Analysis058: matched intervention figure consolidation
 
 Additional [Figure 08](058-2026-11-06-intervention-consolidation/observations/008-spike-optimizer-zoom.md)
-recreates the manuscript spike zoom with current gradient/momentum cosine and
-momentum/gradient norm ratios. All 1,584 values verified; original windows and
+recreates the manuscript spike zoom with gradient/momentum and gradient/Adam
+cosines and momentum/gradient norm ratios. All 1,760 values verified; original windows and
 1,056 values preserved. Nine publication PDFs; no new training or manuscript edit.
 
 7 November extension: [Figure 07](058-2026-11-06-intervention-consolidation/observations/007-optimizer-overview.md)

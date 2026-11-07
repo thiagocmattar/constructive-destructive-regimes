@@ -16,7 +16,7 @@ Source analyses, scientific inputs, and raw evidence remain unchanged.
 | [05: Clipping](figures/05-gradient-clipping-cifar10-mlp-resnet.pdf) | MLP caps 0.5/1; ResNet cap 1; matched unclipped controls | Model- and window-dependent tradeoffs; raw/input norms differ |
 | [06: Pythia schedules](figures/06-lr-schedules-minipile-pythia14m-70m.pdf) | Original, held and accelerated decay; 14M/70M | All requested diagnostics available; alignment recovery does not rank validation loss |
 | [07: High-LR optimizer overview](figures/07-high-lr-optimizer-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf) | Figure 00 extended with momentum norm and adjacent momentum/Adam-direction cosines | Original four rows preserved; three additional rows use the same Run215 trajectories |
-| [08: Spike optimizer zoom](figures/08-adam-spike-optimizer-zoom-cifar10-mlp-resnet-wikitext2-transformer.pdf) | Manuscript spike windows with current gradient/momentum cosine and momentum/gradient norm ratios | Original four rows preserved; corrected and uncorrected ratios coincide at recorded precision |
+| [08: Spike optimizer zoom](figures/08-adam-spike-optimizer-zoom-cifar10-mlp-resnet-wikitext2-transformer.pdf) | Manuscript spike windows with gradient/momentum and gradient/Adam cosines and momentum/gradient norm ratios | Original four rows preserved; corrected and uncorrected ratios coincide at recorded precision |
 
 Captions, coverage and limitations: [observation index](observations/INDEX.md).
 The four-row Figure 02 omits rho; its third column uses only the immediate-half
@@ -46,7 +46,8 @@ adjacent first-moment cosine, and adjacent adaptive Adam-direction cosine.
 Seven rows, three columns, unsmoothed; see [Observation007](observations/007-optimizer-overview.md)
 for optimizer timing, vector definitions and full coverage.
 08: manuscript spike micro-plots extended with cos(g_t,m_t) and a row containing
-both uncorrected and bias-corrected momentum-to-gradient norm ratios. Six rows,
+both uncorrected and bias-corrected momentum-to-gradient norm ratios, followed
+by cos(g_t,d_t) for the LR-free Adam direction. Seven rows,
 three columns; original windows and shading preserved. See
 [Observation008](observations/008-spike-optimizer-zoom.md).
 
@@ -99,7 +100,7 @@ The 9,210 added values cover all available momentum norms and adjacent moment/di
 cosines. Its one-page 7.16 x 9.5-inch PDF passes embedded-font, vector and text-bounds
 checks, and the full-size render was inspected. Figure 00 remains byte-identical.
 
-Figure 08: 27 unsmoothed curves / 1,584 verified values, including 1,056 preserved
-original values and 528 added values. Ratio identities, state alignment, source
+Figure 08: 30 unsmoothed curves / 1,760 verified values, including 1,056 preserved
+original values and 704 added values. Ratio identities, state alignment, source
 hashes, artist/CSV read-back and PDF font/vector/bounds checks pass. The 7.16 x
-7.8-inch render was visually reviewed. The manuscript figure remains untouched.
+9.1-inch render was visually reviewed. The manuscript figure remains untouched.

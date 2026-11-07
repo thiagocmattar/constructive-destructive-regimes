@@ -1,8 +1,9 @@
-# 08: Spike zoom with current momentum alignment and norm ratios
+# 08: Spike zoom with gradient/optimizer alignment and norm ratios
 
 Requested 7 November 2026: recreate the manuscript's
 `manuscript/draft/figures/analysis036/adam_manuscript_spikes.pdf` in Analysis058,
 adding current gradient/momentum cosine and momentum-to-gradient norm ratios.
+Follow-up: add cos(g_t,d_t) as a seventh row using the recorded Adam direction.
 Generator and checks: `../05_spike_optimizer_zoom.py`. Sources, hashes, exact
 curves and check counts: `../spike_optimizer_zoom_manifest.json`; plotted table:
 `../spike_optimizer_zoom_values.csv`. No training, cloud spending or manuscript edit.
@@ -44,9 +45,16 @@ norm ratios, not the ratio of the independently normalized curves in row 4.
 Both ratios match exactly at recorded precision throughout these late windows;
 the solid orange and dashed purple curves overlap. Both are retained explicitly.
 
+Row 7 is cos(g_t,d_t), from `gradient_adaptive_cosine`, with
+d_t = m_hat_t/(sqrt(v_hat_t)+epsilon), epsilon=1e-8. The direction uses the
+current moments for the outgoing update, excludes the learning-rate factor,
+and has no minus sign. Thus positive cosine indicates that -d_t is locally
+descending; it does not guarantee loss decrease for the finite Adam step.
+This cross-cosine is distinct from adjacent Adam-direction alignment.
+
 All new measurements use the same whole-model parameter scope, FP32 stored
 moments and FP64 norm/cosine reductions as Run215. The denominator is positive
-at all displayed states; all 528 added values are finite. No smoothing,
+at all displayed states; all 704 added values are finite. No smoothing,
 subsampling, epsilon substitution, new normalization or event selection.
 Loss and relative norms retain logarithmic axes; cross-cosine and norm ratios
 use linear axes, with the ratio axis starting at zero.
@@ -56,9 +64,10 @@ use linear axes, with the ratio axis starting at zero.
 Zoomed full-batch Adam loss excursions on CIFAR-10/MLP, CIFAR-10/ResNet-32 and
 WikiText-2/Transformer. The original rows show training loss, projected gradient
 change, adjacent raw-gradient and first-moment cosines, and their norms relative
-to their respective crop-start values. Two added rows show current-gradient/
+to their respective crop-start values. Three added rows show current-gradient/
 current-moment cosine and uncorrected/bias-corrected momentum-to-gradient norm
-ratios. All points are unsmoothed. Gray shading, onset/peak markers and loss
+ratios, followed by current-gradient/Adam-direction cosine. All points are
+unsmoothed. Gray shading, onset/peak markers and loss
 references reproduce the manuscript's historical example definitions.
 
 ## Observation, uncertainty and limits
@@ -74,13 +83,15 @@ change under Adam is not an identified Hessian curvature or universal threshold.
 
 ## Verification and visual review
 
-27 curves / 1,584 points pass source hashes, preservation checks, state/update
+30 curves / 1,760 points pass source hashes, preservation checks, state/update
 alignment, direct raw-record comparison for the added fields, independent norm
 ratio identities, Matplotlib artist checks and CSV round-trip checks. Original
 15 archived curves match exactly; the three original moment-cosine curves match
-the full unsmoothed manifest and stored moments exactly. The 18 shaded panels
-preserve the three historical intervals. One-page 7.16 x 7.8-inch PDF has embedded
+the full unsmoothed manifest and stored moments exactly. All 1,584 values from
+the preceding six-row version remain identical; 176 gradient/Adam cosines were added.
+The 21 shaded panels preserve the three historical intervals.
+One-page 7.16 x 9.1-inch PDF has embedded
 fonts, vector curves and text inside page bounds. The full-size render was
-inspected: six rows, panel labels, markers, axes and the four-entry legend are
+inspected: seven rows, panel labels, markers, axes and the four-entry legend are
 legible with no clipping or overlap. The ratio curves intentionally coincide.
 Scratch PNG remains ignored under `tmp/pdfs/analysis058/`.

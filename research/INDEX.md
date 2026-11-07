@@ -3,8 +3,8 @@
 ## Intervention consolidation, 6 November 2026
 
 Additional [Analysis058 Figure 08](../analyses/058-2026-11-06-intervention-consolidation/observations/008-spike-optimizer-zoom.md)
-extends the manuscript spike zoom with cos(g_t,m_t) and momentum/gradient norm
-ratios. All 1,584 values and the six-row render verified; original windows and
+extends the manuscript spike zoom with cos(g_t,m_t), cos(g_t,d_t) and momentum/gradient
+norm ratios. All 1,760 values and the seven-row render verified; original windows and
 manuscript figure preserved. Nine PDFs now; no training or cloud cost.
 
 7 November: [Analysis058 Figure 07](../analyses/058-2026-11-06-intervention-consolidation/observations/007-optimizer-overview.md)
