@@ -12,6 +12,11 @@ source is established. Both cloud workers deleted after verified retrieval;
 MLP causal interventions remain TODO. Next Run244 / Analysis064 / H044.
 
 
+The [MLP companion](../analyses/063-2026-11-07-architecture-instability-tracing/observations/003-mlp-standardized-trace.md)
+adds the matching two-page diagnostic over448--800 using all5000 training images
+and all five learned representations. Prior numerical results reproduced; both
+pages reviewed. No new training, cloud cost or causal intervention.
+
 ## MLP gradient amplification, 7 November 2026
 
 [Analysis062](../analyses/062-2026-11-07-mlp-gradient-amplification/observations/001-gradient-amplification.md)

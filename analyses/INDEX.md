@@ -300,3 +300,10 @@ outputs reverse strongly while embeddings can still move forward. Two standardiz
 two-page figures and observations retain every measured stage, full/probe coverage,
 replay qualification and source hashes. The first learned stage is not established
 as a universal causal origin. MLP causal tests remain TODO. Next analysis:064.
+
+Analysis063 MLP companion: [Figure03](063-2026-11-07-architecture-instability-tracing/observations/003-mlp-standardized-trace.md)
+puts all five learned MLP representations, steps448--800 and all5000 examples
+into the same two-page architecture diagnostic. Six streams match their prior
+cosines/norms/spectra/coefficients; both pages reviewed. Full objective equals
+the diagnostic set; raw outputs retain the squared-error contract. No new run
+or cloud execution. Next independent analysis remains064.

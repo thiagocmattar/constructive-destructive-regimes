@@ -2,7 +2,7 @@
 
 ## Conclusions first
 
-Both networks show loss-associated representation reversals, but **the location
+The ResNet and Transformer show loss-associated representation reversals, but **the location
 and temporal structure differ**. The first learned layer is not a universal
 explanation of the output oscillation, and these measurements do not establish a
 unique causal source.
@@ -48,6 +48,11 @@ denominators and local Jacobians were not measured here.
   [two-page vector figure](figures/01-resnet-instability-trace.pdf).
 - [Transformer standardized observation](observations/002-transformer-trace.md)
   and [two-page vector figure](figures/02-transformer-instability-trace.pdf).
+- [MLP companion observation](observations/003-mlp-standardized-trace.md) and
+  [matching two-page figure](figures/03-mlp-instability-trace.pdf), reusing all
+  5,000 examples over steps 448-800 from Analysis 062. Its diagnostic set equals
+  its full training objective; raw outputs retain the original squared-error
+  contract. No new training is required.
 - [ResNet every-stage table](resnet_stages.csv) and
   [Transformer every-stage table](transformer_stages.csv), with complete spectra
   and histories in the corresponding `*_results.json` files.
@@ -55,12 +60,15 @@ denominators and local Jacobians were not measured here.
 - [Run 243 execution and integrity record](../../runs/243-2026-11-07-architecture-instability-tracing/README.md).
 
 `01_reduce.py` produces the numerical tables; `02_figures.py` generates both
-PDFs; `03_observations.py` regenerates the standardized observations;
+ResNet/Transformer PDFs (and the MLP companion after adaptation);
+`03_observations.py` regenerates the ResNet/Transformer observations;
 `04_verify_mlp_reference.py` checks the common method against the prior MLP
 analysis; `05_target_readout.py` extracts correct-label log-probabilities from
 captured full outputs before discarding the large derived caches.
+`06_mlp_trace.py` adapts the previously audited MLP Grams; reproduce the companion
+with that script followed by `02_figures.py --case mlp`.
 
-Both figures have the same contract: full/probe loss, gradient/output alignment,
+The ResNet/Transformer figures have the same contract: full/probe loss, gradient/output alignment,
 all measured architecture boundaries, displacement magnitude, SVD concentration
 and temporal overlap, followed by landmark coefficient histories. The correct-
 label readout retains individual examples/tokens; its negative mean reproduces

@@ -3,6 +3,8 @@
 The [causal intervention tests remain TODO](TODO.md) while
 [Analysis063](../063-2026-11-07-architecture-instability-tracing/README.md)
 formalizes and applies the tracing method to ResNet and the Transformer.
+The [MLP companion figure](../063-2026-11-07-architecture-instability-tracing/figures/03-mlp-instability-trace.pdf)
+reuses this analysis in the same two-page architecture-trace layout.
 
 [Input distributions and intervention options](observations/013-input-distributions-and-intervention-options.md)
 verify that all3072 coordinates are already individually standardized: actual

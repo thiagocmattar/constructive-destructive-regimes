@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "pdf_sha256": "300c1aee57580903ff0e8eb8acbb75e49d9acba191838731807af02e01cd9633",
+  "pages": [
+    {
+      "page": 1,
+      "text_within_page": true,
+      "visual_review": "passed",
+      "render_sha256": "ffe531cb7624e13951a4106773a447e20e2b06bbbc68bf5532ad9f6c34e25dc5"
+    },
+    {
+      "page": 2,
+      "text_within_page": true,
+      "visual_review": "passed",
+      "render_sha256": "ec3d648cbe8a4600c08bec09bc1ba672ebaaa1a6a4fe4cd134cc236ed4e642c2"
+    }
+  ],
+  "previous_pdfs_unchanged": {
+    "01-resnet-instability-trace.pdf": "c91566f9fa22962d9102906c522e41dbb80f29c627db73f941ecf8ea0e152047",
+    "02-transformer-instability-trace.pdf": "bf50a24fdb7398debb4005311afb6fcdf35d808ace0653c8bd47fc6c96d8e3bd"
+  },
+  "numerical_verification": "Six streams x 353 cosines, norms, singular energies and signed leading coefficients checked against prior audited analysis",
+  "coverage": "All 5000 training examples, 353 outgoing updates, five learned representations",
+  "new_training": false,
+  "cloud_cost_usd": 0
+}
