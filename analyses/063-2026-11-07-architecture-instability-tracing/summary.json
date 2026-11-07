@@ -1,0 +1,122 @@
+{
+  "resnet": {
+    "stages": 133,
+    "states": 31,
+    "peak": {
+      "state": 293,
+      "loss": 0.4582402575683593,
+      "raw_gradient_norm": 4.454732509802595,
+      "rho": -0.7269431263883248,
+      "probe_loss": 0.43210046386718753,
+      "elapsed_seconds": 367.94105897285044,
+      "step_seconds": 20.202327026054263
+    },
+    "output": {
+      "index": 130,
+      "name": "output.log_probabilities",
+      "shape": [
+        1000,
+        10
+      ],
+      "coordinates": 10000,
+      "negative": 25,
+      "defined": 31,
+      "top1": 0.24027967114059193,
+      "top10": 0.8797245374437137,
+      "rank95": 16,
+      "rank99": 24,
+      "leading_sign_flips": 23,
+      "correlation_with_output": 1.0,
+      "temporal_top10_overlap": 0.9999999999999988,
+      "output_energy_captured": 0.8797245374437135,
+      "change_rms_min": 0.5370571370358734,
+      "change_rms_max": 1.8719644024010218,
+      "vector_kind": "representation displacement",
+      "activation_rms_min": 7.615730308856201,
+      "activation_rms_max": 8.27440802145902
+    },
+    "target_readout": {
+      "index": 132,
+      "name": "output.correct_label_log_probability",
+      "shape": [
+        1000
+      ],
+      "coordinates": 1000,
+      "negative": 29,
+      "defined": 31,
+      "top1": 0.24007421519874336,
+      "top10": 0.8814225765481668,
+      "rank95": 16,
+      "rank99": 24,
+      "leading_sign_flips": 21,
+      "correlation_with_output": 0.9425102317259358,
+      "temporal_top10_overlap": 0.8707557491803287,
+      "output_energy_captured": 0.8502214033587406,
+      "change_rms_min": 0.18421270405407075,
+      "change_rms_max": 0.8355391638297854,
+      "vector_kind": "representation displacement",
+      "activation_rms_min": 0.6870591312585043,
+      "activation_rms_max": 0.9798230379150559
+    }
+  },
+  "transformer": {
+    "stages": 22,
+    "states": 49,
+    "peak": {
+      "state": 562,
+      "loss": 1.69423240298525,
+      "raw_gradient_norm": 6.206154390290067,
+      "rho": -0.9258130233688109,
+      "probe_loss": 1.6951642717633928,
+      "elapsed_seconds": 206.4956460108515,
+      "step_seconds": 11.178157660877332
+    },
+    "output": {
+      "index": 19,
+      "name": "output.log_probabilities",
+      "shape": [
+        2240,
+        33278
+      ],
+      "coordinates": 74542720,
+      "negative": 12,
+      "defined": 49,
+      "top1": 0.41650688494303734,
+      "top10": 0.9082942464204282,
+      "rank95": 15,
+      "rank99": 26,
+      "leading_sign_flips": 22,
+      "correlation_with_output": 1.0,
+      "temporal_top10_overlap": 1.0000000000000004,
+      "output_energy_captured": 0.908294246420429,
+      "change_rms_min": 0.19666697114229328,
+      "change_rms_max": 4.1831952767968845,
+      "vector_kind": "representation displacement",
+      "activation_rms_min": 32.4204453095383,
+      "activation_rms_max": 34.81723961592707
+    },
+    "target_readout": {
+      "index": 21,
+      "name": "output.correct_label_log_probability",
+      "shape": [
+        2240
+      ],
+      "coordinates": 2240,
+      "negative": 18,
+      "defined": 49,
+      "top1": 0.3622967867504629,
+      "top10": 0.9348843426763358,
+      "rank95": 12,
+      "rank99": 20,
+      "leading_sign_flips": 26,
+      "correlation_with_output": 0.9462246184447171,
+      "temporal_top10_overlap": 0.8603062186208824,
+      "output_energy_captured": 0.8794575449858775,
+      "change_rms_min": 0.03506831512675982,
+      "change_rms_max": 1.9561663777300469,
+      "vector_kind": "representation displacement",
+      "activation_rms_min": 1.9847607035802017,
+      "activation_rms_max": 2.9198674713248414
+    }
+  }
+}

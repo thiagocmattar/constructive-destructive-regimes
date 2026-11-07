@@ -170,3 +170,18 @@ H042 output-space extension: Run239 measures cos(F_(t+1)-F_t,F_t-F_(t-1)) over
 exact control qualification, full-example reductions and extra-step audit pass.
 This describes temporal prediction reversals, not per-example cosine or a new
 causal test. Next hypothesis remainsH043.
+
+
+## H043: architectural localization of loss-associated representation reversal
+
+Question: does the MLP's early representation reversal extend to ResNet/CIFAR-10
+and Transformer/WikiText-2, and where does output-like temporal structure become
+observable? [Run243 / Analysis063](../analyses/063-2026-11-07-architecture-instability-tracing/README.md)
+completes descriptive fixed-probe traces under unchanged Adam. ResNet first-conv
+motion reverses, but its output-alignment correlation is 0.578 versus 0.991 at
+the last residual stage. Transformer at update558 has embedding/first-attention/
+output cosines +0.390/-0.672/-0.920. Fixed-input checks, exact Grams/SVD, native
+observer parity and replay qualification pass. This does not identify a unique
+causal origin; attention internals, local-parameter transmission and matched
+interventions remain open. One seed, selected windows and declared probes.
+Next hypothesis:H044.

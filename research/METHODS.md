@@ -47,3 +47,17 @@ Every accepted update captures raw gradient, actual first moment m and adaptive
 direction geometry. LR also scales AdamW decay displacement. This is a matched
 one-seed intervention; historical Run002 decay curves have a hardware/kernel
 difference, and no cross-seed uncertainty or stability inference is assumed.
+
+
+## Architecture-wide consecutive-representation oscillation tracing
+
+[Analysis 063's formal method](../analyses/063-2026-11-07-architecture-instability-tracing/METHOD.md)
+standardizes fixed-probe outgoing representation differences, exact temporal
+Gram/SVD reductions, fixed signed coefficients, and backward architectural
+comparison. Raw gradients use their own vectors, never gradient differences.
+Preserve full training objectives, original normalization groups, probe identities,
+input invariance, numerical replay qualification and recovery checkpoints.
+The method describes where loss-associated reversals become observable; it does
+not identify a unique causal source without matched interventions. Run 243 applies
+it to ResNet/CIFAR-10 and Transformer/WikiText-2. This is an optional diagnostic,
+not an addition to the default baseline metrics.

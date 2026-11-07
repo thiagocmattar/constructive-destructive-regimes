@@ -1,5 +1,9 @@
 # Analysis062: what amplifies the MLP loss spikes?
 
+The [causal intervention tests remain TODO](TODO.md) while
+[Analysis063](../063-2026-11-07-architecture-instability-tracing/README.md)
+formalizes and applies the tracing method to ResNet and the Transformer.
+
 [Input distributions and intervention options](observations/013-input-distributions-and-intervention-options.md)
 verify that all3072 coordinates are already individually standardized: actual
 5000-example column stds0.98475--1.02076. Strong correlations remain (first input

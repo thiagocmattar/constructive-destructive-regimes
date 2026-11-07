@@ -415,3 +415,16 @@ of all355 input matrices, downstream representations and gradients verified;
 native/full512/800/801 checks pass.49 source and14 artifact identities checked.
 Worker17.615s, exited;4.592GB retained including archive on owned Spark, zero
 cloud cost. Next run:243.
+
+
+## Run243: architecture-wide oscillation tracing (7 November 2026)
+
+[Run243](243-2026-11-07-architecture-instability-tracing/README.md), H043 /
+Analysis063, completes unchanged ResNet/CIFAR-10 and Transformer/WikiText-2
+continuations with full objectives and fixed activation probes. Exact FP64 SVD
+traces cover 131/20 captured representation streams, auxiliary correct-label
+readouts and raw gradients. ResNet historical replay is exact; Transformer
+maximum relative loss discrepancy is 0.270%. Retained states and transfers are
+verified, both cloud workers deleted, Spark calibration workers exited. See the
+run for timing, provisional cost and retention. No causal intervention.
+Next run:244.

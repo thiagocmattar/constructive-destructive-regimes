@@ -1,0 +1,18 @@
+{
+  "run_id": "243",
+  "analysis_id": "063",
+  "hypothesis": "H043",
+  "purpose": "Descriptive architectural localization of consecutive representation reversal; no causal intervention",
+  "cases": {
+    "resnet": {"parent_worker": "duqoihms8w1gle", "fork": 256, "start": 280, "end": 310, "probe": 1000},
+    "transformer": {"parent_worker": "159vjccj7w3996", "fork": 544, "start": 552, "end": 600, "probe": 64}
+  },
+  "parent": "runs/223-2026-11-04-multispike-interventions",
+  "training": "Unchanged full original objective, Adam state and LR0.003; FP32, TF32off; physical batches1000/64",
+  "probe": "First complete1000-image BN group; first64 full35-token sequences, only supervised positions in representation reductions",
+  "window_selection": "Fixed before launch around first recovered >10% event in retained control after fork; Spark continuation may diverge and is separately labeled",
+  "arithmetic": "FP32 native captures; exact FP64 Gram reductions over every captured coordinate; no randomized projection",
+  "seconds_per_case": 5400,
+  "maximum_retained_bytes": 300000000000,
+  "authorization": "User requests both model traces and authorizes Spark/Runpod; no optimizer or architecture interventions"
+}

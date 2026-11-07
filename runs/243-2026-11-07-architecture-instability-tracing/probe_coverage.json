@@ -1,0 +1,38 @@
+{
+  "resnet": {
+    "input_shape": [
+      1000,
+      3,
+      32,
+      32
+    ],
+    "target_shape": [
+      1000
+    ],
+    "probe_valid_targets": 1000,
+    "probe_class_counts": [
+      102,
+      112,
+      99,
+      92,
+      99,
+      85,
+      107,
+      102,
+      99,
+      103
+    ]
+  },
+  "transformer": {
+    "input_shape": [
+      64,
+      35
+    ],
+    "target_shape": [
+      64,
+      35
+    ],
+    "probe_valid_targets": 2240,
+    "unique_probe_token_ids": 922
+  }
+}

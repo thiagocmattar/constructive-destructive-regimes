@@ -1,0 +1,102 @@
+{
+  "status": "passed",
+  "source_files": 44,
+  "downloaded_files": 112,
+  "inventory_sha256": "3a465500ee16a29e94ab7e0b427a70a571974b0188e6d55320eb70596e1add51",
+  "receipt": {
+    "bytes": 3407519465,
+    "sha256": "9ae87675fe4741a2aef66f2ee1d0f653650cda8388af21c71381a0cf7320c448",
+    "all_raw_bytes": 203120648905,
+    "verified": true,
+    "downloaded_files": 112,
+    "retained_checkpoint_reproduction": true
+  },
+  "cases": {
+    "resnet": {
+      "checkpoints": 33,
+      "states": [
+        279,
+        311
+      ],
+      "end_snapshot_exact": true,
+      "elapsed_seconds": 1494.8797332239337,
+      "peak_cuda_bytes": 3526169600,
+      "historical_exact": true,
+      "reduction_checks": {
+        "PSD": true,
+        "trace": true,
+        "full_Gram_reconstruction": true,
+        "raw_gradient_boundary_cosines": true
+      }
+    },
+    "transformer": {
+      "checkpoints": 51,
+      "states": [
+        551,
+        601
+      ],
+      "end_snapshot_exact": true,
+      "elapsed_seconds": 753.828198071802,
+      "peak_cuda_bytes": 1746278400,
+      "historical_exact": false,
+      "reduction_checks": {
+        "PSD": true,
+        "trace": true,
+        "full_Gram_reconstruction": true,
+        "raw_gradient_boundary_cosines": true,
+        "embedding_positional_gram_relative_error": 1.198420071216e-07
+      }
+    }
+  },
+  "pdfs": {
+    "resnet": {
+      "sha256": "c91566f9fa22962d9102906c522e41dbb80f29c627db73f941ecf8ea0e152047",
+      "pages": [
+        {
+          "width_pt": 1008.0,
+          "height_pt": 1975.6800537109375,
+          "words": 255,
+          "text_within_page": true
+        },
+        {
+          "width_pt": 1008.0,
+          "height_pt": 1116.0,
+          "words": 162,
+          "text_within_page": true
+        }
+      ]
+    },
+    "transformer": {
+      "sha256": "bf50a24fdb7398debb4005311afb6fcdf35d808ace0653c8bd47fc6c96d8e3bd",
+      "pages": [
+        {
+          "width_pt": 1008.0,
+          "height_pt": 864.0,
+          "words": 141,
+          "text_within_page": true
+        },
+        {
+          "width_pt": 1008.0,
+          "height_pt": 1116.0,
+          "words": 157,
+          "text_within_page": true
+        }
+      ]
+    }
+  },
+  "storage": {
+    "local_artifacts_bytes": 7091845581,
+    "local_scratch_bytes": 1039296777,
+    "spark": {
+      "active_workers": [],
+      "allocated_bytes": 6547251200,
+      "apparent_bytes": 197556656814,
+      "root": "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/runs/243-2026-11-07-architecture-instability-tracing",
+      "calibration_only": true
+    },
+    "cloud_persistent_storage_retained": false
+  },
+  "provisional_compute_usd": 0.7306233982503415,
+  "billing_note": "Wall-clock estimate from live pod rates; storage and final billing not reconciled. Both owned pods deleted.",
+  "verification_script_sha256": "793d9237532f8510b06c94c37dfff68e0b6ed1483aecdf3176202e598a944412"
+}

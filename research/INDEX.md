@@ -1,5 +1,17 @@
 # Research index
 
+## Architecture-wide oscillation tracing, 7 November 2026
+
+[Analysis063](../analyses/063-2026-11-07-architecture-instability-tracing/README.md)
+completes Run243 / H043 with a [formal tracing algorithm](../analyses/063-2026-11-07-architecture-instability-tracing/METHOD.md)
+and standardized ResNet/CIFAR-10 and Transformer/WikiText-2 diagnostics. ResNet's
+early reversals become more closely coupled to output in later stages; Transformer
+output reverses while embedding motion can remain forward. Fixed probes preserve
+sample/token structure; training objectives remain complete. No unique causal
+source is established. Both cloud workers deleted after verified retrieval;
+MLP causal interventions remain TODO. Next Run244 / Analysis064 / H044.
+
+
 ## MLP gradient amplification, 7 November 2026
 
 [Analysis062](../analyses/062-2026-11-07-mlp-gradient-amplification/observations/001-gradient-amplification.md)

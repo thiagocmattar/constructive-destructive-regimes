@@ -1,0 +1,1603 @@
+{
+  "resnet": {
+    "historical_comparison.json": {
+      "exact": false,
+      "rows": [
+        {
+          "state": 256,
+          "loss_exact": false,
+          "norm_exact": false,
+          "loss_relative_error": 1.2647373116228605e-09
+        },
+        {
+          "state": 257,
+          "loss_exact": false,
+          "norm_exact": false,
+          "loss_relative_error": 2.6469022201674423e-06
+        },
+        {
+          "state": 258,
+          "loss_exact": false,
+          "norm_exact": false,
+          "loss_relative_error": 8.689804248730316e-06
+        }
+      ],
+      "interpretation": "Same saved fork, unchanged policy; Spark continuation, not assumed bitwise historical trajectory"
+    },
+    "progress.json": {
+      "state": 258,
+      "loss": 0.47171206115722664,
+      "raw_gradient_norm": 2.3115284851498172,
+      "rho": -0.4433635670593515,
+      "probe_loss": 0.4417635498046875,
+      "elapsed_seconds": 180.80115884868428,
+      "step_seconds": 73.01398481568322
+    },
+    "stages.json": {
+      "conv1.call0.output": {
+        "path": "000.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "bn1.call0.output": {
+        "path": "001.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "relu.call0.input": {
+        "path": "002.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "relu.call0.output": {
+        "path": "003.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.0.conv1.call0.output": {
+        "path": "004.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.0.bn1.call0.output": {
+        "path": "005.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.0.relu.call0.input": {
+        "path": "006.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.0.relu.call0.output": {
+        "path": "007.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.0.conv2.call0.output": {
+        "path": "008.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.0.bn2.call0.output": {
+        "path": "009.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.0.relu.call1.input": {
+        "path": "010.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.0.relu.call1.output": {
+        "path": "011.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.1.conv1.call0.output": {
+        "path": "012.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.1.bn1.call0.output": {
+        "path": "013.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.1.relu.call0.input": {
+        "path": "014.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.1.relu.call0.output": {
+        "path": "015.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.1.conv2.call0.output": {
+        "path": "016.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.1.bn2.call0.output": {
+        "path": "017.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.1.relu.call1.input": {
+        "path": "018.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.1.relu.call1.output": {
+        "path": "019.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.2.conv1.call0.output": {
+        "path": "020.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.2.bn1.call0.output": {
+        "path": "021.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.2.relu.call0.input": {
+        "path": "022.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.2.relu.call0.output": {
+        "path": "023.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.2.conv2.call0.output": {
+        "path": "024.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.2.bn2.call0.output": {
+        "path": "025.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.2.relu.call1.input": {
+        "path": "026.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.2.relu.call1.output": {
+        "path": "027.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.3.conv1.call0.output": {
+        "path": "028.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.3.bn1.call0.output": {
+        "path": "029.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.3.relu.call0.input": {
+        "path": "030.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.3.relu.call0.output": {
+        "path": "031.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.3.conv2.call0.output": {
+        "path": "032.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.3.bn2.call0.output": {
+        "path": "033.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.3.relu.call1.input": {
+        "path": "034.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.3.relu.call1.output": {
+        "path": "035.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.4.conv1.call0.output": {
+        "path": "036.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.4.bn1.call0.output": {
+        "path": "037.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.4.relu.call0.input": {
+        "path": "038.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.4.relu.call0.output": {
+        "path": "039.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.4.conv2.call0.output": {
+        "path": "040.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.4.bn2.call0.output": {
+        "path": "041.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.4.relu.call1.input": {
+        "path": "042.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer1.4.relu.call1.output": {
+        "path": "043.npy",
+        "shape": [
+          1000,
+          16,
+          32,
+          32
+        ],
+        "coordinates": 16384000
+      },
+      "layer2.0.conv1.call0.output": {
+        "path": "044.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.0.bn1.call0.output": {
+        "path": "045.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.0.relu.call0.input": {
+        "path": "046.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.0.relu.call0.output": {
+        "path": "047.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.0.conv2.call0.output": {
+        "path": "048.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.0.bn2.call0.output": {
+        "path": "049.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.0.downsample.0.call0.output": {
+        "path": "050.npy",
+        "shape": [
+          1000,
+          16,
+          16,
+          16
+        ],
+        "coordinates": 4096000
+      },
+      "layer2.0.downsample.1.call0.output": {
+        "path": "051.npy",
+        "shape": [
+          1000,
+          16,
+          16,
+          16
+        ],
+        "coordinates": 4096000
+      },
+      "layer2.0.relu.call1.input": {
+        "path": "052.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.0.relu.call1.output": {
+        "path": "053.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.1.conv1.call0.output": {
+        "path": "054.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.1.bn1.call0.output": {
+        "path": "055.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.1.relu.call0.input": {
+        "path": "056.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.1.relu.call0.output": {
+        "path": "057.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.1.conv2.call0.output": {
+        "path": "058.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.1.bn2.call0.output": {
+        "path": "059.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.1.relu.call1.input": {
+        "path": "060.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.1.relu.call1.output": {
+        "path": "061.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.2.conv1.call0.output": {
+        "path": "062.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.2.bn1.call0.output": {
+        "path": "063.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.2.relu.call0.input": {
+        "path": "064.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.2.relu.call0.output": {
+        "path": "065.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.2.conv2.call0.output": {
+        "path": "066.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.2.bn2.call0.output": {
+        "path": "067.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.2.relu.call1.input": {
+        "path": "068.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.2.relu.call1.output": {
+        "path": "069.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.3.conv1.call0.output": {
+        "path": "070.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.3.bn1.call0.output": {
+        "path": "071.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.3.relu.call0.input": {
+        "path": "072.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.3.relu.call0.output": {
+        "path": "073.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.3.conv2.call0.output": {
+        "path": "074.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.3.bn2.call0.output": {
+        "path": "075.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.3.relu.call1.input": {
+        "path": "076.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.3.relu.call1.output": {
+        "path": "077.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.4.conv1.call0.output": {
+        "path": "078.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.4.bn1.call0.output": {
+        "path": "079.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.4.relu.call0.input": {
+        "path": "080.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.4.relu.call0.output": {
+        "path": "081.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.4.conv2.call0.output": {
+        "path": "082.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.4.bn2.call0.output": {
+        "path": "083.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.4.relu.call1.input": {
+        "path": "084.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer2.4.relu.call1.output": {
+        "path": "085.npy",
+        "shape": [
+          1000,
+          32,
+          16,
+          16
+        ],
+        "coordinates": 8192000
+      },
+      "layer3.0.conv1.call0.output": {
+        "path": "086.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.0.bn1.call0.output": {
+        "path": "087.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.0.relu.call0.input": {
+        "path": "088.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.0.relu.call0.output": {
+        "path": "089.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.0.conv2.call0.output": {
+        "path": "090.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.0.bn2.call0.output": {
+        "path": "091.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.0.downsample.0.call0.output": {
+        "path": "092.npy",
+        "shape": [
+          1000,
+          32,
+          8,
+          8
+        ],
+        "coordinates": 2048000
+      },
+      "layer3.0.downsample.1.call0.output": {
+        "path": "093.npy",
+        "shape": [
+          1000,
+          32,
+          8,
+          8
+        ],
+        "coordinates": 2048000
+      },
+      "layer3.0.relu.call1.input": {
+        "path": "094.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.0.relu.call1.output": {
+        "path": "095.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.1.conv1.call0.output": {
+        "path": "096.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.1.bn1.call0.output": {
+        "path": "097.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.1.relu.call0.input": {
+        "path": "098.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.1.relu.call0.output": {
+        "path": "099.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.1.conv2.call0.output": {
+        "path": "100.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.1.bn2.call0.output": {
+        "path": "101.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.1.relu.call1.input": {
+        "path": "102.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.1.relu.call1.output": {
+        "path": "103.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.2.conv1.call0.output": {
+        "path": "104.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.2.bn1.call0.output": {
+        "path": "105.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.2.relu.call0.input": {
+        "path": "106.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.2.relu.call0.output": {
+        "path": "107.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.2.conv2.call0.output": {
+        "path": "108.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.2.bn2.call0.output": {
+        "path": "109.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.2.relu.call1.input": {
+        "path": "110.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.2.relu.call1.output": {
+        "path": "111.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.3.conv1.call0.output": {
+        "path": "112.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.3.bn1.call0.output": {
+        "path": "113.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.3.relu.call0.input": {
+        "path": "114.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.3.relu.call0.output": {
+        "path": "115.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.3.conv2.call0.output": {
+        "path": "116.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.3.bn2.call0.output": {
+        "path": "117.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.3.relu.call1.input": {
+        "path": "118.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.3.relu.call1.output": {
+        "path": "119.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.4.conv1.call0.output": {
+        "path": "120.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.4.bn1.call0.output": {
+        "path": "121.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.4.relu.call0.input": {
+        "path": "122.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.4.relu.call0.output": {
+        "path": "123.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.4.conv2.call0.output": {
+        "path": "124.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.4.bn2.call0.output": {
+        "path": "125.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.4.relu.call1.input": {
+        "path": "126.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "layer3.4.relu.call1.output": {
+        "path": "127.npy",
+        "shape": [
+          1000,
+          64,
+          8,
+          8
+        ],
+        "coordinates": 4096000
+      },
+      "avgpool.call0.output": {
+        "path": "128.npy",
+        "shape": [
+          1000,
+          64,
+          1,
+          1
+        ],
+        "coordinates": 64000
+      },
+      "fc.call0.output": {
+        "path": "129.npy",
+        "shape": [
+          1000,
+          10
+        ],
+        "coordinates": 10000
+      },
+      "output.log_probabilities": {
+        "path": "130.npy",
+        "shape": [
+          1000,
+          10
+        ],
+        "coordinates": 10000
+      },
+      "raw_gradient": {
+        "path": "131.npy",
+        "shape": [
+          464250
+        ],
+        "coordinates": 464250
+      }
+    },
+    "manifest.json": {
+      "status": "completed",
+      "case": "resnet",
+      "started_utc": "2026-11-07T16:37:54.611463+00:00",
+      "gpu": "NVIDIA GB10",
+      "torch": "2.11.0+cu130",
+      "cuda": "13.0",
+      "coverage": {
+        "training_units": 50000,
+        "objective_units": 50,
+        "probe_units": 1000
+      },
+      "completed_state": 258,
+      "capture_states": [
+        279,
+        311
+      ],
+      "observer_checks": "RNG, buffers, gradients unchanged; plain forward parity; fixed input exact",
+      "peak_cuda_bytes": 3330770944,
+      "raw_bytes": 161745610152,
+      "elapsed_seconds": 201.64586626412347,
+      "finished_utc": "2026-11-07T16:41:15.718337+00:00"
+    }
+  },
+  "transformer": {
+    "historical_comparison.json": {
+      "exact": false,
+      "rows": [
+        {
+          "state": 544,
+          "loss_exact": true,
+          "norm_exact": false,
+          "loss_relative_error": 0.0
+        },
+        {
+          "state": 545,
+          "loss_exact": false,
+          "norm_exact": false,
+          "loss_relative_error": 2.6527402939885726e-09
+        },
+        {
+          "state": 546,
+          "loss_exact": false,
+          "norm_exact": false,
+          "loss_relative_error": 7.997337239883438e-10
+        }
+      ],
+      "interpretation": "Same saved fork, unchanged policy; Spark continuation, not assumed bitwise historical trajectory"
+    },
+    "progress.json": {
+      "state": 546,
+      "loss": 0.8769820077851007,
+      "raw_gradient_norm": 0.09186266671921169,
+      "rho": 0.20715384027173236,
+      "probe_loss": 0.9678021022251674,
+      "elapsed_seconds": 253.20675120828673,
+      "step_seconds": 38.20074114995077
+    },
+    "stages.json": {
+      "encoder.call0.output": {
+        "path": "000.npy",
+        "shape": [
+          2240,
+          200
+        ],
+        "coordinates": 448000
+      },
+      "pos_encoder.call0.output": {
+        "path": "001.npy",
+        "shape": [
+          2240,
+          200
+        ],
+        "coordinates": 448000
+      },
+      "transformer_encoder.layers.0.self_attn.call0.output": {
+        "path": "002.npy",
+        "shape": [
+          2240,
+          200
+        ],
+        "coordinates": 448000
+      },
+      "transformer_encoder.layers.0.norm1.call0.input": {
+        "path": "003.npy",
+        "shape": [
+          2240,
+          200
+        ],
+        "coordinates": 448000
+      },
+      "transformer_encoder.layers.0.norm1.call0.output": {
+        "path": "004.npy",
+        "shape": [
+          2240,
+          200
+        ],
+        "coordinates": 448000
+      },
+      "transformer_encoder.layers.0.linear1.call0.output": {
+        "path": "005.npy",
+        "shape": [
+          2240,
+          200
+        ],
+        "coordinates": 448000
+      },
+      "transformer_encoder.layers.0.linear2.call0.input": {
+        "path": "006.npy",
+        "shape": [
+          2240,
+          200
+        ],
+        "coordinates": 448000
+      },
+      "transformer_encoder.layers.0.linear2.call0.output": {
+        "path": "007.npy",
+        "shape": [
+          2240,
+          200
+        ],
+        "coordinates": 448000
+      },
+      "transformer_encoder.layers.0.norm2.call0.input": {
+        "path": "008.npy",
+        "shape": [
+          2240,
+          200
+        ],
+        "coordinates": 448000
+      },
+      "transformer_encoder.layers.0.norm2.call0.output": {
+        "path": "009.npy",
+        "shape": [
+          2240,
+          200
+        ],
+        "coordinates": 448000
+      },
+      "transformer_encoder.layers.1.self_attn.call0.output": {
+        "path": "010.npy",
+        "shape": [
+          2240,
+          200
+        ],
+        "coordinates": 448000
+      },
+      "transformer_encoder.layers.1.norm1.call0.input": {
+        "path": "011.npy",
+        "shape": [
+          2240,
+          200
+        ],
+        "coordinates": 448000
+      },
+      "transformer_encoder.layers.1.norm1.call0.output": {
+        "path": "012.npy",
+        "shape": [
+          2240,
+          200
+        ],
+        "coordinates": 448000
+      },
+      "transformer_encoder.layers.1.linear1.call0.output": {
+        "path": "013.npy",
+        "shape": [
+          2240,
+          200
+        ],
+        "coordinates": 448000
+      },
+      "transformer_encoder.layers.1.linear2.call0.input": {
+        "path": "014.npy",
+        "shape": [
+          2240,
+          200
+        ],
+        "coordinates": 448000
+      },
+      "transformer_encoder.layers.1.linear2.call0.output": {
+        "path": "015.npy",
+        "shape": [
+          2240,
+          200
+        ],
+        "coordinates": 448000
+      },
+      "transformer_encoder.layers.1.norm2.call0.input": {
+        "path": "016.npy",
+        "shape": [
+          2240,
+          200
+        ],
+        "coordinates": 448000
+      },
+      "transformer_encoder.layers.1.norm2.call0.output": {
+        "path": "017.npy",
+        "shape": [
+          2240,
+          200
+        ],
+        "coordinates": 448000
+      },
+      "decoder.call0.output": {
+        "path": "018.npy",
+        "shape": [
+          2240,
+          33278
+        ],
+        "coordinates": 74542720
+      },
+      "output.log_probabilities": {
+        "path": "019.npy",
+        "shape": [
+          2240,
+          33278
+        ],
+        "coordinates": 74542720
+      },
+      "raw_gradient": {
+        "path": "020.npy",
+        "shape": [
+          13828478
+        ],
+        "coordinates": 13828478
+      }
+    },
+    "manifest.json": {
+      "status": "completed",
+      "case": "transformer",
+      "started_utc": "2026-11-07T16:37:54.845993+00:00",
+      "gpu": "NVIDIA GB10",
+      "torch": "2.11.0+cu130",
+      "cuda": "13.0",
+      "coverage": {
+        "training_units": 2088600,
+        "objective_units": 59680,
+        "probe_units": 64
+      },
+      "completed_state": 546,
+      "capture_states": [
+        551,
+        601
+      ],
+      "observer_checks": "RNG, buffers, gradients unchanged; plain forward parity; fixed input exact",
+      "peak_cuda_bytes": 1746278400,
+      "raw_bytes": 34879534056,
+      "elapsed_seconds": 254.06345129106194,
+      "finished_utc": "2026-11-07T16:42:08.374618+00:00"
+    }
+  },
+  "processes": 0
+}

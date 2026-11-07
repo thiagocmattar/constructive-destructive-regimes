@@ -288,3 +288,15 @@ oscillation already in the first linear projection. Its alignment correlates
 0.99101 with outputs. First tanh retains32.16--36.82% displacement norm; about18%
 of sample-neuron coordinates carry about88% of surviving change energy.
 Independent checks and Figures11/12 pass. Next independent analysis063.
+
+
+## Analysis063: architecture-wide oscillation tracing
+
+[Analysis063](063-2026-11-07-architecture-instability-tracing/README.md) formalizes
+fixed-probe consecutive-representation tracing with exact temporal SVD and applies
+it to ResNet/CIFAR-10 and Transformer/WikiText-2 (Run243 / H043). ResNet's early
+reversals become more output-like in later residual stages; Transformer attention
+outputs reverse strongly while embeddings can still move forward. Two standardized
+two-page figures and observations retain every measured stage, full/probe coverage,
+replay qualification and source hashes. The first learned stage is not established
+as a universal causal origin. MLP causal tests remain TODO. Next analysis:064.
