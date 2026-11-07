@@ -1,0 +1,225 @@
+{
+  "generator": "analyses/058-2026-11-06-intervention-consolidation/03_optimizer_overview.py",
+  "generator_sha256": "f809841d0b190574c09e729c9d3275abf1fb491a668e1275da556bab6344df50",
+  "sources": {
+    "analyses/055-2026-11-05-adam-directional-amplification/PROTOCOL.md": "e83dd64411b0c65dda72c90d3a758912e20146ef8d4ea3ee1cbd5baae8754b3b",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_dataset/manifest.json": "bef7421d30a1cb4cb2715d21f5fad97434b3b8c55b4ff08f9f15e753fea6dc0d",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_dataset/loss_spikes.csv": "d35e901cc68a1bce5379129b4ce74f4d1b8896c3c0ccfaf643d4647558e4500d",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/loss_spike_definition.md": "603b21c6fc70b5e48b38dfd392c813a399abcc6efd2c75b9f913eb273a9329f0",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/archive/PEAK_TEMPORAL_PROTOCOL.md": "d27ea7f3b805af86deccc80116d889596a3642ad5c865e8894668d2dbc0a45ff",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/archive/peak_forecasts.csv": "039bcadf4d92f807e239685d83cca6b6fe3e42ec71c126c43a62c7ea8885788f",
+    "runs/215-2026-11-02-controlled-full-batch-adam/results.json": "c907d1b5ccaa68b3310f13526e98f37fd1c19943eb7631cea46612f75de39572",
+    "runs/215-2026-11-02-controlled-full-batch-adam/config.json": "868c271e89bea4641e633d727c7b322a2220085ea1bee63c2dc712389e8e88f4",
+    "runs/215-2026-11-02-controlled-full-batch-adam/input_manifest.json": "d90c7fa4554c20e3f812ea7383a0ccfdc543d7bdb221eacb9bb6af88c82a71b1",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0001/manifest.json": "0655ffcc68288a311a1ebb977373418e676dac85b81f64100e7c12822d473072",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0001/boundaries.jsonl": "1ece15455f4e43d8c39495b0c6bc57e9b28296d1c2aff4e0f094b54d8bac432e",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0001/metrics.jsonl": "9e1d16738fea6715aee387c362e5e5f49caf372b77e832994bc2a28980a969ca",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0003/manifest.json": "856171914d42aaa62a26d70c3bb9a83791838564851c17195feec50946cc5b8a",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0003/boundaries.jsonl": "00bd2559e33299a21694c3162d7b39fbaa6949883808b5eb2b895b66a0da61cc",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0003/metrics.jsonl": "5f3e2f82765b29b6cd124ec7fb727480910b6c820b681f5b74d76be7378a4cf3",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/manifest.json": "0a8ae45b014049fcd7350768bef6190f4991802ed6bf9e254c810c3ca2032e12",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/boundaries.jsonl": "bd15d446afab7641f01ed12c089b1f606f123b4e92982f2d0ff1deae1fe061be",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/metrics.jsonl": "3c8bac53f92bde65da67b8bcc80046644f2db3ef7fd818334ebca2b04e7a0157",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker17/lr-0.0003/manifest.json": "b72f9bff98df63764804a4ab841702ff898c87be2497a99243130a06d92b9bc8",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker17/lr-0.0003/boundaries.jsonl": "70b283eb2777897feb04b13eb9aa68cb68e7e62649ab4b91f6e23a24be5bd0ba",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker17/lr-0.0003/metrics.jsonl": "811298ff7f5eb6a6982d7c8c24fe3c3b7372d15717276b1fe79af5055ec4a5c6",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker4/lr-0.001/manifest.json": "be5c9081f50634dcf658d3b532555e99e50aea2fac57b1651da43b950ad4cedf",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker4/lr-0.001/boundaries.jsonl": "b47c647c05dbab1defd6d5ab0e653e0ffe236066c483458b63167597e4639d16",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker4/lr-0.001/metrics.jsonl": "586c7a961f0a410e280e3286f8d044df28a29cc99c7a988798ce43f6a60cbfc8",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/manifest.json": "6162fb3eee941231f44bc006c92d74a702f0ab52bad560a78dc4ae36848a71c0",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/boundaries.jsonl": "b952c7e4d184e1da70d1dbadd7710de16452aaa7041d1e7df6fa2165ac3e28ee",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/metrics.jsonl": "c9572aaa98f3e9f8c0378b6ff2b5ce60d8e3383e563c358485c5afffaf5945ca",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker0/lr-0.0003/manifest.json": "10755e07d67029177aac13f0a7af6a44033696e6101211f62a8c73df1cd8b19c",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker0/lr-0.0003/boundaries.jsonl": "0eeb0a81c45100e25bec785aa6eb826ef8c48840171de0ebe4f6e66dcb18981c",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker0/lr-0.0003/metrics.jsonl": "5983695e1071ab62c0cd1c9a71d000e7e5ad07f1d11390eb99baf38cb232c669",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker15/lr-0.001/manifest.json": "06416f93b915dae3be94e2f6c9b205de1b25a512a807904d14cf73d53aebe77f",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker15/lr-0.001/boundaries.jsonl": "ff71889f1653f41754a2a66cad38d2868415fd08b43b3d24df25196826fe4a69",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker15/lr-0.001/metrics.jsonl": "ecb5acb6fcbc82ef54833160aa5ec4b2f76d5784a07ae3a649f02571fd41ded3",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/manifest.json": "96fd00453edef0c3f0096716cb550ef3f86d25466e06be1b29165beaa5739327",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/boundaries.jsonl": "822cccc891250b529fc8bb60d4a391d2002856e8e3c8b7233c145c7fbf15a3f7",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/metrics.jsonl": "3ae6e2af2400caea6e3a40ed2d06db31068524c39ef7e55ec931d16362b62574",
+    "analyses/055-2026-11-05-adam-directional-amplification/01_analyze.py": "1a968191db5fc39a6f95f4db300304e92f417c94ff968046691ecd741e41bc05",
+    "analyses/055-2026-11-05-adam-directional-amplification/02_plot.py": "701bff47cfef3530888819c7b776eff626c4f9f039f62b709997c5813009678e",
+    "analyses/055-2026-11-05-adam-directional-amplification/plot_manifest.json": "d7706cef4c926214da7d1b78a7bbcdd644f0b41a629123a4c80d750849c1b9e4",
+    "analyses/058-2026-11-06-intervention-consolidation/figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf": "3fa96b8760555df41562f51522fefb7c335d860e09f90495c63d30f584c6a4a1"
+  },
+  "outputs": {
+    "figures/07-high-lr-optimizer-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf": "d067f676a46ce13d9f439eac3201e2122a5131b5058016c97292270f4f825d43",
+    "optimizer_overview_values.csv": "d87785cdda76eb8a6fcf963d0aaddfe771d1c6a069025c476d3557d922fac44d"
+  },
+  "curves": [
+    {
+      "arm": "mlp:0.001",
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001",
+      "key": "loss",
+      "points": 1025,
+      "x_sha256": "99601321f56878549c100c5b188f419fe35c1751079e768d489c32a254cbb872",
+      "y_sha256": "7413e0fb6ef36273df069295733a06a096c7874cb88bf385d8f5207dc07194e4"
+    },
+    {
+      "arm": "mlp:0.001",
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001",
+      "key": "Q",
+      "points": 1023,
+      "x_sha256": "b85c1de4ac2fc3dec34e9be8fd62861d2f8de77accb2acedd740f92e3c5642dc",
+      "y_sha256": "0271afe7dce037038174b134a5fc0fe3c7522a16bab72ff3da70063cce05a97b"
+    },
+    {
+      "arm": "mlp:0.001",
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001",
+      "key": "rho",
+      "points": 1023,
+      "x_sha256": "b85c1de4ac2fc3dec34e9be8fd62861d2f8de77accb2acedd740f92e3c5642dc",
+      "y_sha256": "3dc6df5147153571f61409cf0b988d80655f33144ee310da998f44c48da6efdc"
+    },
+    {
+      "arm": "mlp:0.001",
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001",
+      "key": "relative_norm",
+      "points": 1024,
+      "x_sha256": "c66d921ccd15d2793bc0ac2ba30586c50b6667d63e004121001c77135ee96eec",
+      "y_sha256": "409e897a946be90d39ef01a28216c729185d2b9b194bdcae6be1fee45c69aec5"
+    },
+    {
+      "arm": "mlp:0.001",
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001",
+      "key": "moment_norm",
+      "points": 1024,
+      "x_sha256": "c66d921ccd15d2793bc0ac2ba30586c50b6667d63e004121001c77135ee96eec",
+      "y_sha256": "96f6aa0c889ab63305dbadb4a31104659ba77d96d7b074b4849d19a4e9ba4f49"
+    },
+    {
+      "arm": "mlp:0.001",
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001",
+      "key": "moment_rho",
+      "points": 1023,
+      "x_sha256": "b85c1de4ac2fc3dec34e9be8fd62861d2f8de77accb2acedd740f92e3c5642dc",
+      "y_sha256": "db66d414e656c7849b8d0a62ab13bd8be728d18af1f100383bd32a6a9b554a01"
+    },
+    {
+      "arm": "mlp:0.001",
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001",
+      "key": "adaptive_rho",
+      "points": 1023,
+      "x_sha256": "b85c1de4ac2fc3dec34e9be8fd62861d2f8de77accb2acedd740f92e3c5642dc",
+      "y_sha256": "3c07fbd5a85278fdc1834130338e48374577836d8b2d40451bd91e9764e43130"
+    },
+    {
+      "arm": "resnet:0.003",
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003",
+      "key": "loss",
+      "points": 1025,
+      "x_sha256": "99601321f56878549c100c5b188f419fe35c1751079e768d489c32a254cbb872",
+      "y_sha256": "37ccc45f878a4131840f07b3cbe6482ff82f6693caadc79333373239bcb4e3bc"
+    },
+    {
+      "arm": "resnet:0.003",
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003",
+      "key": "Q",
+      "points": 1023,
+      "x_sha256": "b85c1de4ac2fc3dec34e9be8fd62861d2f8de77accb2acedd740f92e3c5642dc",
+      "y_sha256": "4280e605d515621535649bbd532c3c6782b1718742b33c87e02c83753ea616de"
+    },
+    {
+      "arm": "resnet:0.003",
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003",
+      "key": "rho",
+      "points": 1023,
+      "x_sha256": "b85c1de4ac2fc3dec34e9be8fd62861d2f8de77accb2acedd740f92e3c5642dc",
+      "y_sha256": "8c05c526dbec42340eba41b39b2470eb76cf35b5b39611199c19b1c05d75b629"
+    },
+    {
+      "arm": "resnet:0.003",
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003",
+      "key": "relative_norm",
+      "points": 1024,
+      "x_sha256": "c66d921ccd15d2793bc0ac2ba30586c50b6667d63e004121001c77135ee96eec",
+      "y_sha256": "173f07d2a1a2682e08cdf4167e736a58df5942f5cf4b2a01cd49b585e7f112f1"
+    },
+    {
+      "arm": "resnet:0.003",
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003",
+      "key": "moment_norm",
+      "points": 1024,
+      "x_sha256": "c66d921ccd15d2793bc0ac2ba30586c50b6667d63e004121001c77135ee96eec",
+      "y_sha256": "e688d1748080c69ce670de0d013f26c384399c58957afebba005cdf7c7ae7cd1"
+    },
+    {
+      "arm": "resnet:0.003",
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003",
+      "key": "moment_rho",
+      "points": 1023,
+      "x_sha256": "b85c1de4ac2fc3dec34e9be8fd62861d2f8de77accb2acedd740f92e3c5642dc",
+      "y_sha256": "d77a4c6b70357fa6a48671d5282687ec7f10adc31b73ae7454fa74f628cf9045"
+    },
+    {
+      "arm": "resnet:0.003",
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003",
+      "key": "adaptive_rho",
+      "points": 1023,
+      "x_sha256": "b85c1de4ac2fc3dec34e9be8fd62861d2f8de77accb2acedd740f92e3c5642dc",
+      "y_sha256": "0f11c2dbed3ed97ecf190335090d3cf0ba31b30fd9a8880a2c43bbd913ac41d6"
+    },
+    {
+      "arm": "transformer:0.003",
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003",
+      "key": "loss",
+      "points": 1025,
+      "x_sha256": "99601321f56878549c100c5b188f419fe35c1751079e768d489c32a254cbb872",
+      "y_sha256": "0d4ecb0833c32033f4988cf575e61f47d82b4abdb7d0fc95a15d6f845efa024b"
+    },
+    {
+      "arm": "transformer:0.003",
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003",
+      "key": "Q",
+      "points": 1023,
+      "x_sha256": "b85c1de4ac2fc3dec34e9be8fd62861d2f8de77accb2acedd740f92e3c5642dc",
+      "y_sha256": "46c9cfb3f459edb3ac9340189cb7ae7d995786e7f8fe6e48bee46bbbd18920f4"
+    },
+    {
+      "arm": "transformer:0.003",
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003",
+      "key": "rho",
+      "points": 1023,
+      "x_sha256": "b85c1de4ac2fc3dec34e9be8fd62861d2f8de77accb2acedd740f92e3c5642dc",
+      "y_sha256": "21931fe310c79cb7e0ea6fc62b789907ac4da57dc8b75b0472241d6cb52d43cd"
+    },
+    {
+      "arm": "transformer:0.003",
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003",
+      "key": "relative_norm",
+      "points": 1024,
+      "x_sha256": "c66d921ccd15d2793bc0ac2ba30586c50b6667d63e004121001c77135ee96eec",
+      "y_sha256": "083dc7a02fc9316c788b8105424b259ddc37b6c1360787533284c807e9d87793"
+    },
+    {
+      "arm": "transformer:0.003",
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003",
+      "key": "moment_norm",
+      "points": 1024,
+      "x_sha256": "c66d921ccd15d2793bc0ac2ba30586c50b6667d63e004121001c77135ee96eec",
+      "y_sha256": "5eea5ba722661b55af4abbc8bf439ff41cfda7b62b1dc717b9762c0fcaf9893a"
+    },
+    {
+      "arm": "transformer:0.003",
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003",
+      "key": "moment_rho",
+      "points": 1023,
+      "x_sha256": "b85c1de4ac2fc3dec34e9be8fd62861d2f8de77accb2acedd740f92e3c5642dc",
+      "y_sha256": "2fa2a6595d8ee8f248550ce73ea30861989f369eae8635797b7594a8208efb2c"
+    },
+    {
+      "arm": "transformer:0.003",
+      "source": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003",
+      "key": "adaptive_rho",
+      "points": 1023,
+      "x_sha256": "b85c1de4ac2fc3dec34e9be8fd62861d2f8de77accb2acedd740f92e3c5642dc",
+      "y_sha256": "1f1e29add9d54d5b8343f95c6e880918570616b1280e976e2f98b74d5c21de92"
+    }
+  ],
+  "smoothing": null,
+  "coordinate": "gradient_state s: moment/direction used for outgoing update s -> s+1",
+  "moment": "Stored uncorrected FP32 Adam exp_avg, norm reduced in FP64; absolute norm",
+  "alignment": "Adjacent cosine of the same stream; initial undefined pair omitted",
+  "adaptive": "Bias-corrected Adam direction in FP64, excluding LR; not rounded parameter increment"
+}

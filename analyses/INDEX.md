@@ -2,6 +2,11 @@
 
 ## Analysis058: matched intervention figure consolidation
 
+7 November extension: [Figure 07](058-2026-11-06-intervention-consolidation/observations/007-optimizer-overview.md)
+adds momentum norm and adjacent momentum/Adam-direction cosines to Figure 00.
+Eight PDFs now; 21,495 extension values verified, including 12,285 unchanged
+original-row values. Original seven figures and evidence remain preserved.
+
 [Analysis058](058-2026-11-06-intervention-consolidation/README.md) consolidates
 seven numbered publication PDFs (00--06): high-rate overview, immediate half LR,
 MLP floors/return, return styles, two-stage decay, MLP/ResNet clipping, and

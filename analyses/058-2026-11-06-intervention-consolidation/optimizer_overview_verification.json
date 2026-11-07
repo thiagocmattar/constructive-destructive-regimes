@@ -1,0 +1,123 @@
+{
+  "status": "passed",
+  "verifier_sha256": "fe6ae366f0ff9aef9985f1ead8e12cefc72c22d0caa3192792f5ba62181b8f78",
+  "manifest_sha256": "5833500a61fdb6b60156c4322401ab0e34053606029c1a1511c98736aea25472",
+  "checked_values": 21495,
+  "original_row_values_preserved": 12285,
+  "added_values": 9210,
+  "summaries": {
+    "mlp:0.001": {
+      "loss": {
+        "points": 1025,
+        "minimum": 0.007225487381219864,
+        "maximum": 2.4583400189876556
+      },
+      "Q": {
+        "points": 1023,
+        "minimum": -0.35982464277757203,
+        "maximum": 3.210328231229999
+      },
+      "rho": {
+        "points": 1023,
+        "minimum": -0.9970371003364388,
+        "maximum": 0.9984399102554027
+      },
+      "relative_norm": {
+        "points": 1024,
+        "minimum": 0.026407889702125528,
+        "maximum": 4.509017935444487
+      },
+      "moment_norm": {
+        "points": 1024,
+        "minimum": 0.013590265248717688,
+        "maximum": 1.3242466795957621
+      },
+      "moment_rho": {
+        "points": 1023,
+        "minimum": -0.963242554689245,
+        "maximum": 0.9999331815008337
+      },
+      "adaptive_rho": {
+        "points": 1023,
+        "minimum": -0.9483804141298064,
+        "maximum": 0.9996637940356158
+      }
+    },
+    "resnet:0.003": {
+      "loss": {
+        "points": 1025,
+        "minimum": 0.0008317042469978334,
+        "maximum": 2.3095671435546876
+      },
+      "Q": {
+        "points": 1023,
+        "minimum": -0.0580807254265701,
+        "maximum": 2.9046075903158077
+      },
+      "rho": {
+        "points": 1023,
+        "minimum": -0.9884638195160633,
+        "maximum": 0.9984383299821724
+      },
+      "relative_norm": {
+        "points": 1024,
+        "minimum": 0.010424522095155774,
+        "maximum": 69.74877131983247
+      },
+      "moment_norm": {
+        "points": 1024,
+        "minimum": 0.0017374189906227274,
+        "maximum": 0.7435467313094797
+      },
+      "moment_rho": {
+        "points": 1023,
+        "minimum": -0.8567488608675664,
+        "maximum": 0.9999697339133794
+      },
+      "adaptive_rho": {
+        "points": 1023,
+        "minimum": -0.6134031355558868,
+        "maximum": 0.9999839762974911
+      }
+    },
+    "transformer:0.003": {
+      "loss": {
+        "points": 1025,
+        "minimum": 0.5552364422934135,
+        "maximum": 10.729182719678409
+      },
+      "Q": {
+        "points": 1023,
+        "minimum": -0.02060621979173209,
+        "maximum": 3.3105769325415846
+      },
+      "rho": {
+        "points": 1023,
+        "minimum": -0.9949256595404338,
+        "maximum": 0.9798406014974724
+      },
+      "relative_norm": {
+        "points": 1024,
+        "minimum": 0.023023227140642432,
+        "maximum": 6.010312773553674
+      },
+      "moment_norm": {
+        "points": 1024,
+        "minimum": 0.01324040502584573,
+        "maximum": 0.5210816751104596
+      },
+      "moment_rho": {
+        "points": 1023,
+        "minimum": -0.9556295207522704,
+        "maximum": 0.9972662029003485
+      },
+      "adaptive_rho": {
+        "points": 1023,
+        "minimum": 0.1349403386150684,
+        "maximum": 0.995508295823613
+      }
+    }
+  },
+  "pdf": "One page, 7.16 x 9.5 inches, embedded fonts, vector curves, text within bounds",
+  "visual_review": "See observations/007-optimizer-overview.md"
+}

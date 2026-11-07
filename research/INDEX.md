@@ -2,6 +2,11 @@
 
 ## Intervention consolidation, 6 November 2026
 
+7 November: [Analysis058 Figure 07](../analyses/058-2026-11-06-intervention-consolidation/observations/007-optimizer-overview.md)
+extends the high-LR overview with momentum norm and adjacent moment/Adam-direction
+cosines. All 21,495 plotted values pass read-back; original rows and Figure 00
+are preserved. Eight PDFs now; no training, cloud cost or manuscript change.
+
 [Analysis058](../analyses/058-2026-11-06-intervention-consolidation/README.md)
 collects seven numbered paper-style intervention figures from retained evidence.
 Immediate half LR, MLP schedule variants, clipping and Pythia schedules retain
