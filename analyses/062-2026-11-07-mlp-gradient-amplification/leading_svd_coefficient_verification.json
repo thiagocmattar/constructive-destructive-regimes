@@ -1,0 +1,84 @@
+{
+  "status": "passed",
+  "state_range": [
+    448,
+    800
+  ],
+  "definition": "alpha_t=<flatten(F_(t+1)-F_t),v_1>; fixed unit v_1 from existing uncentered full-window SVD",
+  "energy_fraction": 0.2516888264746492,
+  "summaries": [
+    {
+      "range": [
+        448,
+        800
+      ],
+      "adjacent_pairs": 352,
+      "sign_reversals": 306,
+      "zero_product_pairs": 0,
+      "reversal_fraction": 0.8693181818181818,
+      "pair_energy_weighted_reversal_fraction": 0.9762110694399028
+    },
+    {
+      "range": [
+        465,
+        474
+      ],
+      "adjacent_pairs": 9,
+      "sign_reversals": 9,
+      "zero_product_pairs": 0,
+      "reversal_fraction": 1.0,
+      "pair_energy_weighted_reversal_fraction": 1.0
+    },
+    {
+      "range": [
+        512,
+        522
+      ],
+      "adjacent_pairs": 10,
+      "sign_reversals": 10,
+      "zero_product_pairs": 0,
+      "reversal_fraction": 1.0,
+      "pair_energy_weighted_reversal_fraction": 1.0
+    },
+    {
+      "range": [
+        465,
+        485
+      ],
+      "adjacent_pairs": 20,
+      "sign_reversals": 17,
+      "zero_product_pairs": 0,
+      "reversal_fraction": 0.85,
+      "pair_energy_weighted_reversal_fraction": 0.9790658008406936
+    },
+    {
+      "range": [
+        512,
+        529
+      ],
+      "adjacent_pairs": 17,
+      "sign_reversals": 15,
+      "zero_product_pairs": 0,
+      "reversal_fraction": 0.8823529411764706,
+      "pair_energy_weighted_reversal_fraction": 0.9725986619768785
+    }
+  ],
+  "pair_weight": "alpha_t^2+alpha_(t-1)^2; not a fraction of total network displacement energy",
+  "projection_max_absolute_error": 3.730349362740526e-14,
+  "position_difference_max_absolute_error": 3.730349362740526e-14,
+  "source_sha256": {
+    "runs/239-2026-11-07-mlp-output-change-alignment/artifacts/spark/payload/worker/outputs.pt": "4354e033950aed70298ec667c891621518632ddfe260c04c0786109d00472e74",
+    "runs/239-2026-11-07-mlp-output-change-alignment/artifacts/spark/payload/worker/boundaries.jsonl": "68162ab8e5db87a42e55d4ba61ced16e2e0207d49cfa0a64b20891ffd3c00b74",
+    "analyses/062-2026-11-07-mlp-gradient-amplification/artifacts/svd-output-changes/patterns.pt": "6c6747282705ee4a531395260ecbc2bbd3e7069005f98bb73eb5a3cf6ac3ebce",
+    "analyses/062-2026-11-07-mlp-gradient-amplification/svd_output_heatmap_values.csv": "9c2f3012c31c0c860d0ecc5b3ddd4755e819420091e2e35d1dcb2e72b8ce8a3c"
+  },
+  "generator_sha256": "b1162fdf24e51b958672a8d7cf3d950b5234e9b96442942284c473c37ae75c84",
+  "csv_sha256": "3c6c519a087e79ee5a9b7e452fe273bb162fbc6f9e6038a6f0789cde6de1f857",
+  "pdf_sha256": "a7f047b33d22b772b24830bd58fa1389027b72b58b2f73baa3b2dbf87d58e3b3",
+  "render_audit": {
+    "pages": 1,
+    "dpi": 110,
+    "visual_review": "No clipping, overlap or illegible labels; both spike zooms reviewed.",
+    "text_within_page": true
+  }
+}
