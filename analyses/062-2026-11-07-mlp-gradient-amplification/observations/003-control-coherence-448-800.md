@@ -1,4 +1,4 @@
-# Five-row control figure, states448 through800
+# Six-row control figure, states448 through800
 
 Run238 extends H042 / Analysis062 to produce the user's requested single-column
 figure. It replays the unchanged Adam control, with no optimizer intervention,
@@ -7,7 +7,7 @@ figures and the squared-energy coherence definition remain unchanged.
 
 ## Figure and reduction
 
-Publication figure: [Five-row control diagnostic](../figures/03-control-coherence-448-800.pdf).
+Publication figure: [Six-row control diagnostic](../figures/03-control-coherence-448-800.pdf).
 Generator: [04_control_coherence_figure.py](../04_control_coherence_figure.py).
 Plotted values: [control_coherence_448_800.csv](../control_coherence_448_800.csv).
 Audit: [control_coherence_verification.json](../control_coherence_verification.json).
@@ -15,7 +15,7 @@ Audit: [control_coherence_verification.json](../control_coherence_verification.j
 At completed optimizer state $t$, let $g_{i,t}$ be the gradient of one example's
 half-squared-error loss, including every weight and bias, and let
 $g_t=N^{-1}\sum_i g_{i,t}$ be the full-objective raw gradient. $N=5000$.
-The five rows, in requested order, are:
+The six rows, including the subsequently requested denominator panel, are:
 
 1. Incoming loss change, $L_t-L_{t-1}$. This is the signed difference in full
    training objective, not the loss itself or a relative/percentage change.
@@ -23,8 +23,11 @@ The five rows, in requested order, are:
    the existing overview figures. Under Adam it is normalized projected
    gradient change, not a measured curvature or general stability threshold.
 3. $\rho_t=\cos(g_t,g_{t-1})$: temporal alignment of raw full-batch gradients.
-4. $\|g_t\|$: full-batch raw-gradient norm, before Adam's transformation.
-5. The user-defined intra-batch coherence:
+4. $\|g_t\|$: norm of the mean raw gradient, before Adam's transformation;
+   this is the numerator of C when written as a ratio of means.
+5. $N^{-1}\sum_i\|g_{i,t}\|$: mean individual-gradient norm, the denominator.
+6. The user-defined intra-batch coherence, explicitly labeled C = panel (d) /
+   panel (e):
 
 $$
 C_t=\frac{\left\|\sum_{i=1}^N g_{i,t}\right\|}
@@ -48,15 +51,20 @@ all plotted denominators are nonzero. All temporal denominators are also nonzero
 
 ## Caption
 
-**Unchanged Adam control, CIFAR-10 MLP, states448--800.** Five vertically stacked
+**Unchanged Adam control, CIFAR-10 MLP, states448--800.** Six vertically stacked
 panels show signed full-objective loss change, normalized projected gradient
-change, adjacent raw-gradient cosine, raw-gradient norm, and norm-based
+change, adjacent raw-gradient cosine, norm of the mean raw gradient, mean
+individual-gradient norm, and norm-based
 intra-batch gradient coherence. Every row includes all353 integer states,
 including both endpoints, without smoothing or subsampling. State447 provides
 the incoming history for the first plotted transition. Dashed references mark
 zero loss change, projected change one, and zero cosine. The projected-change
 reference is a descriptive algebraic boundary, not an Adam stability guarantee.
 Colors distinguish diagnostics; all panels share the completed-update axis.
+Panel (e) is reduced from the already retained per-example energies; adding it
+requires no new experiment. The titles and footer show that panel (f) equals
+panel (d) divided by panel (e), with $g_t=N^{-1}\sum_i g_{i,t}$. All353 panel
+ratios are verified, and the original five data series are unchanged.
 
 ## Matched experiment and verification
 
@@ -80,7 +88,7 @@ within4.45e-16 relative difference. Small double-precision autograd tests verify
 the outer-product formulas, bias inclusion, full-example norm reduction,
 non-divisible physical batches and zero-denominator behavior.
 
-All43 input hashes and10 downloaded artifact hashes pass. All1,765 plotted
+All43 input hashes and10 downloaded artifact hashes pass. All2,118 plotted
 values are checked against the independent reductions and original control.
 The vector PDF was rendered and visually reviewed for legibility and clipping.
 The Spark replay completed in10.113s, with peak allocated GPU memory286,736,896

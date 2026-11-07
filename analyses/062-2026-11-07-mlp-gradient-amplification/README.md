@@ -35,7 +35,7 @@ overshoot; all 87 actual increments start downhill, but 42 increase loss.
 
 - [Full observation, definitions, tables, captions and limits](observations/001-gradient-amplification.md)
 - [Definitions and equations: coherence, prediction reversals and dispersion](observations/002-coherence-prediction-changes-and-dispersion.md)
-- [Five-row control figure, states448--800, with norm-based coherence](figures/03-control-coherence-448-800.pdf)
+- [Six-row control figure, states448--800, with coherence numerator and denominator](figures/03-control-coherence-448-800.pdf)
 - [Extended-window definitions, sources and verification](observations/003-control-coherence-448-800.md)
 - [Complete diagnostic time course](figures/01-gradient-amplification.pdf)
 - [Oscillations and crossed-direction probes](figures/02-oscillation-and-direction-probes.pdf)
@@ -57,10 +57,11 @@ Worker10.458s, static Spark probe1.278s; workers exited. About391MB retained on
 owned Spark including archive, no cloud resources or charges. No manuscript
 changes. One selected seed/window; no unique initiating cause established.
 
-Run238 subsequently extends measurement through800 for the requested five-row
-single-column figure: loss change, eta*kappa_hat, rho, gradient norm and
+Run238 subsequently extends measurement through800 for the single-column figure:
+loss change, eta*kappa_hat, rho, gradient norm, mean individual-gradient norm and
 C=||sum_i g_i||/sum_i||g_i||. This new C is distinct from the squared-energy
 coherence in the preceding analysis. All801 reference pairs and full states512
-and800 match. All353 requested states include all5000 examples;1,765 plotted
-values pass independent checks. Reproduce with
+and800 match. All353 requested states include all5000 examples;2,118 plotted
+values pass independent checks. The added panel(e) uses retained data; panel(f)
+explicitly equals panel(d) / panel(e). Reproduce with
 `python analyses/062-2026-11-07-mlp-gradient-amplification/04_control_coherence_figure.py`.
