@@ -1,5 +1,11 @@
 # Mean network outputs across updates, with loss and alignment
 
+Historical version: the user subsequently requested SVD patterns in the same
+PDF. The current figure and generator are documented in
+[observation006](006-svd-output-change-heatmap.md). This note and its mean-output
+CSV preserve the preceding reduction; its implementation is retained in Git
+commit257620d. References to the mean heatmap below describe that earlier version.
+
 The user requested a tall output heatmap beneath the full loss curve and the
 temporal gradient/output-change alignment overlay. On clarification, the user
 selected **10 rows: mean output across examples**. This figure uses that
