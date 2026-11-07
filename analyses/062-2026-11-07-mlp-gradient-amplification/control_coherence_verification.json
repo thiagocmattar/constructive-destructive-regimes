@@ -1,0 +1,77 @@
+{
+  "status": "passed",
+  "run_id": "238",
+  "state_range": [
+    448,
+    800
+  ],
+  "states": 353,
+  "examples_per_state": 5000,
+  "plotted_values": 1765,
+  "metrics": [
+    "loss_change",
+    "eta_kappa_hat",
+    "rho",
+    "raw_gradient_norm",
+    "intrabatch_coherence"
+  ],
+  "exact_reference_pairs": 801,
+  "adjacent_reference_pairs": 800,
+  "full_final_state_exact": 800,
+  "remote_exact_states": [
+    512,
+    800
+  ],
+  "input_hashes": 43,
+  "artifact_hashes": 10,
+  "independently_reduced_example_energies": 1765000,
+  "maximum_C_absolute_difference": 1.1102230246251565e-16,
+  "previous_energy_coherence_overlap_states": 88,
+  "overlap_max_relative_energy_difference": 4.440892098500626e-16,
+  "C_definition": "norm(sum_i g_i) / sum_i norm(g_i); not squared-energy coherence",
+  "loss_change_definition": "L_t-L_(t-1), transition ending at state t",
+  "eta_kappa_hat_definition": "1-rho_t*norm(g_t)/norm(g_(t-1)); projected gradient change under Adam",
+  "ranges": {
+    "loss_change": [
+      -0.017100616358220577,
+      0.010376582387834787
+    ],
+    "eta_kappa_hat": [
+      0.6277588258939957,
+      3.2806301465001537
+    ],
+    "rho": [
+      -0.9969484774622652,
+      0.4597573382969932
+    ],
+    "raw_gradient_norm": [
+      0.24144316194870108,
+      2.2355555009192445
+    ],
+    "intrabatch_coherence": [
+      0.11955991376361544,
+      0.3710250715015275
+    ]
+  },
+  "sources": {
+    "coherence.jsonl": "af40aa8ba15224306d2181235054eb9559264bd02569af14d62fcdc46796826c",
+    "boundaries.jsonl": "af41bd9b44e60fde72ef7c0c76a4cc2a53517ea2c133a0cd43f4028e26e6e5c2",
+    "example_energies.pt": "8c505c6922bbdaa158355c9ee24ece00adfaac40718cae7aa76373b531312505"
+  },
+  "csv": {
+    "path": "control_coherence_448_800.csv",
+    "sha256": "d01bc72d8ebf0d2f0082df74f4b98126b82aa89be72725c52ca649c7f57d6f79"
+  },
+  "pdf": {
+    "path": "figures/03-control-coherence-448-800.pdf",
+    "bytes": 83861,
+    "sha256": "5b1ab9a2b1cdc47e8ed26a44332e55741a9fa27477300ffe6cb53b3a12ff9cd9"
+  },
+  "generator_sha256": "044f924d238a2feef6d1081b1577fe00cca1470902f66445e913e8b04c353c14",
+  "render_audit": {
+    "pages": 1,
+    "embedded_images": 0,
+    "render_dpi": 120,
+    "visual_review": "passed: five rows, one column, complete448..800 axis; no clipping or overlapping text"
+  }
+}

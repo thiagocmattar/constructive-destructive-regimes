@@ -158,3 +158,9 @@ point downhill,42 increase loss; exact output-space terms quantify overshoot.
 This does not uniquely identify the oscillation's initiating cause or exclude
 existing Adam preconditioning/momentum. Exploratory one seed and selected window.
 Next hypothesis:H043.
+
+H042 measurement extension: [Run238 / Analysis062](../analyses/062-2026-11-07-mlp-gradient-amplification/observations/003-control-coherence-448-800.md)
+adds the user-defined norm-based coherence across448..800 and a five-row figure.
+The unchanged Adam control is exactly replayed; the earlier squared-energy
+coherence is preserved as a distinct statistic. No new causal hypothesis or
+optimizer intervention. Next hypothesis remainsH043.

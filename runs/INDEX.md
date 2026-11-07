@@ -369,3 +369,12 @@ sudden Adam denominator collapse; spikes accompany reduced gradient cancellation
 and growing output oscillations. Worker10.458s,28 artifacts verified, worker
 exited, about391MB retained on owned Spark including archive, zero cloud cost.
 Next run:238.
+
+## Run238: full-window intra-batch coherence (7 November 2026)
+
+[Run238](238-2026-11-07-mlp-intrabatch-coherence/README.md) extends H042 /
+Analysis062 with the requested C=norm(sum gradients)/sum gradient norms.
+Exact800-update control replay;801 reference pairs and full512/800 states match.
+All353 states448..800 include5000 examples;1,765,000 example energies retained.
+Worker10.113s,43 inputs and10 artifacts verified, worker exited, about74MB
+retained on owned Spark including archive, zero cloud cost. Next run:239.

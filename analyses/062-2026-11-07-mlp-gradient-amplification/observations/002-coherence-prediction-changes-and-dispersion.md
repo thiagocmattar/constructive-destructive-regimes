@@ -7,6 +7,11 @@ The main distinction: absolute gradient dispersion increases at the peaks,
 while dispersion relative to the mean gradient decreases. Both can happen
 simultaneously.
 
+This note describes the squared-energy coherence used in the original analysis.
+The subsequent [five-row figure](003-control-coherence-448-800.md) uses the user's
+new norm-based definition, $\|\sum_i g_i\|/\sum_i\|g_i\|$. The two definitions
+are distinct; the values below retain their original squared-energy meaning.
+
 ## 1. Gradient coherence
 
 For each training example $i$, define its loss and raw parameter gradient:

@@ -10,7 +10,10 @@ directions. Crossed-Jacobian probes and exact output loss identities support
 finite-step overshoot; no unique initiating cause established. All536 reference
 pairs,15 anchors,57 inputs and28 artifacts verified; two vector figures reviewed.
 Worker exited, about391MB retained on owned Spark, zero cloud cost.
-Next Run238 / Analysis063 / H043.
+[Run238 extension](../analyses/062-2026-11-07-mlp-gradient-amplification/observations/003-control-coherence-448-800.md)
+adds the requested five-row control figure448--800 with norm-based intra-batch
+coherence. All801 reference pairs and1,765 plotted values verified; worker exited,
+about74MB retained on Spark, zero cloud cost. Next Run239 / Analysis063 / H043.
 
 ## MLP Adam spike internals, 7 November 2026
 

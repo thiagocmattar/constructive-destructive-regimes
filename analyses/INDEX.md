@@ -253,3 +253,9 @@ larger updates along existing sensitive directions. Exact output-space loss
 terms expose overshoot; Adam denominators do not collapse. Two reviewed vector
 PDFs,1,334 plotted values, full-example reductions, exact replay and independent
 CPU/GPU checks. Single-seed/window limits retained. Next analysis:063.
+
+Analysis062 extension: [five-row unchanged-control figure448--800](062-2026-11-07-mlp-gradient-amplification/observations/003-control-coherence-448-800.md)
+uses Run238 to show incoming loss change, projected gradient change, temporal
+rho, raw-gradient norm and user-requested norm-based intra-batch coherence.
+This C differs from the original squared-energy coherence. All353 states and
+1,765 plotted values verified; vector PDF reviewed. Next analysis remains063.
