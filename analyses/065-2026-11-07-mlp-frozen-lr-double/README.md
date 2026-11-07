@@ -53,6 +53,10 @@ loss500 + 1e-8. This is a finite-window criterion, not an optimal-LR estimate.
 - [Observation, definitions and caveats](observations/001-frozen-lr-double.md)
 - [I3: the 10x LR extension and severe overshoot](observations/002-frozen-lr-0p02.md)
 - [I4-I8: LR halving and the strict stopping rule](observations/003-lr-halving.md)
+- [Separate I6/I5 comparison](figures/02-i6-vs-i5-cifar10-mlp.pdf): I6 left,
+  I5 right, each against unchanged Adam over 448-800. Independent linear loss
+  axes; shared scales for the other seven diagnostic rows.
+  [Observation and reproduction](observations/004-i6-i5-comparison.md).
 - [Verified halving summary](halving_summary.json), [recorded rule](halving_plan.json)
 - [Numerical results and provenance](comparison.json), [window summaries](metrics.csv)
 - [Run 245 verification](../../runs/245-2026-11-07-mlp-frozen-lr-double/verification.json)

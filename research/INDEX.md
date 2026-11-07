@@ -13,6 +13,8 @@ Runs247-251, full-state fork equality, all source/retrieval identities and dense
 reductions verified. Four PDF pages reviewed. Workers exited,40.62s total,
 10.034GB retained on owned Spark, zero cloud cost. No further runs after stopping.
 Continue in065 until user requests another analysis; next run252, unused H046.
+A separate [I6/I5 comparison](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/004-i6-i5-comparison.md)
+uses independent linear loss axes, retaining all eight overview diagnostics.
 
 ## First-layer freeze intervention, 7 November 2026
 

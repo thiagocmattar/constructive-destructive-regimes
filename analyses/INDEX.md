@@ -352,3 +352,8 @@ The strict finite-window no-peak rule first passes at0.000625;0.00125 has a tiny
 Four-page PDF retains I1-I8, each against unchanged Adam, with common scales
 across pages. All source/retrieval/diagnostic checks and visual QA pass. User
 confirmed stopping; no further run or new analysis is scheduled.
+
+[Separate I6/I5 figure](065-2026-11-07-mlp-frozen-lr-double/figures/02-i6-vs-i5-cifar10-mlp.pdf)
+places I6 left and I5 right, each against unchanged Adam over448-800, with
+independent linear loss axes. Eight rows retained; numeric and render checks
+pass. Original overview preserved; no new experiment. See observation004.
