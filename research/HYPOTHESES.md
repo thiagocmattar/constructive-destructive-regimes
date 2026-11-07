@@ -130,3 +130,17 @@ LR0.03 was requested after viewing earlier results, so this is exploratory rate
 selection. The apparent smoothing benefit at0.02 does not extend uniformly to
 larger GD rates. Within-GD comparisons vary LR alone; Adam comparisons change
 both optimizer and LR. One seed/window; no universal threshold. H041 remains next.
+
+## H041: internal origin of selected MLP Adam loss peaks
+
+Question: do disproportionate weight/bias growth, activation magnitude or
+saturation, or the final linear layer explain the last pre512 loss peak and
+return? [Run236 / Analysis061](../analyses/061-2026-11-07-mlp-adam-spike-internals/observations/001-spike-internals.md)
+replays the exact Adam control and examines four selected events. Evidence
+favors output-sensitive hidden-feature displacement and finite-step overshoot.
+Restoring parameter norms leaves nearly all excess loss; hidden RMS remains
+similar, biases/head changes have small allocations, and tanh attenuates
+changes rather than preventing loss oscillation. Static recombinations are
+reference-dependent, not retrained interventions or unique causal shares.
+One seed/window and declared post hoc probes; no universal instability claim.
+Next hypothesis:H042.

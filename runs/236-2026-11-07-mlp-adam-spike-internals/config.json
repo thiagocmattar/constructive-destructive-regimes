@@ -1,0 +1,26 @@
+{
+  "run_id": "236",
+  "analysis_id": "061",
+  "hypothesis": "H041",
+  "seed": 0,
+  "case": "mlp",
+  "parent_run": "runs/223-2026-11-04-multispike-interventions",
+  "parent_worker": "runs/223-2026-11-04-multispike-interventions/artifacts/worker",
+  "start": 0,
+  "end": 535,
+  "diagnostic_start": 448,
+  "lr": 0.001,
+  "betas": [0.9, 0.999],
+  "physical_batch": 1000,
+  "runtime_limit_seconds": 1200,
+  "checkpoint_every": 32,
+  "events": [
+    {"name": "nearby_large", "before": 465, "peak": 474, "recovery": 485},
+    {"name": "last_complete_excursion", "before": 492, "peak": 493, "recovery": 508},
+    {"name": "last_local_peak", "before": 502, "peak": 503, "recovery": 505},
+    {"name": "post512_control", "before": 512, "peak": 522, "recovery": 529}
+  ],
+  "groups": ["1.weight", "1.bias", "3.weight", "3.bias", "5.weight", "5.bias"],
+  "authorization": "User requests free diagnostic iteration on owned Spark to explain the last pre512 Adam loss peak and recovery through weights, biases, activations and the output layer. No optimizer intervention or cloud spending.",
+  "selection": "Primary literal last local maximum before512 is503, with local pre-rise502 and first return505. Also inspect the containing fixed-anchor excursion492/493/508, the nearby larger465/474/485 event, and continued-Adam512/522/529 as a secondary check. All chosen from retained losses before new internal diagnostics."
+}

@@ -1,0 +1,89 @@
+{
+  "status": "completed",
+  "events": [
+    {
+      "event": "nearby_large",
+      "before": 465,
+      "peak": 474,
+      "losses": {
+        "before": 0.028187875635921955,
+        "peak": 0.05367295630276203,
+        "peak_restore_weight_norms": 0.05361003242433071,
+        "peak_restore_all_norms": 0.053610265254974365,
+        "before_grow_weight_norms": 0.02803601650521159,
+        "before_grow_all_norms": 0.028035460971295834,
+        "peak_old_head": 0.05277134105563164,
+        "before_new_head": 0.027937794104218483
+      },
+      "restored_norm_max_relative_error": 2.8015925690461074e-08,
+      "grown_direction_max_cosine_error": 4.440892098500626e-16
+    },
+    {
+      "event": "last_complete_excursion",
+      "before": 492,
+      "peak": 493,
+      "losses": {
+        "before": 0.026213943492621183,
+        "peak": 0.029460657853633165,
+        "peak_restore_weight_norms": 0.029472839552909136,
+        "peak_restore_all_norms": 0.02947291685268283,
+        "before_grow_weight_norms": 0.026199601590633392,
+        "before_grow_all_norms": 0.026199568063020706,
+        "peak_old_head": 0.02917675022035837,
+        "before_new_head": 0.026055841706693172
+      },
+      "restored_norm_max_relative_error": 3.7613762327026734e-08,
+      "grown_direction_max_cosine_error": 3.3306690738754696e-16
+    },
+    {
+      "event": "last_local_peak",
+      "before": 502,
+      "peak": 503,
+      "losses": {
+        "before": 0.027541513554751873,
+        "peak": 0.02866172604262829,
+        "peak_restore_weight_norms": 0.028673780150711536,
+        "peak_restore_all_norms": 0.028674268163740635,
+        "before_grow_weight_norms": 0.027528064791113138,
+        "before_grow_all_norms": 0.027528211940079927,
+        "peak_old_head": 0.028379350434988737,
+        "before_new_head": 0.02726657409220934
+      },
+      "restored_norm_max_relative_error": 1.736124222162516e-08,
+      "grown_direction_max_cosine_error": 4.440892098500626e-16
+    },
+    {
+      "event": "post512_control",
+      "before": 512,
+      "peak": 522,
+      "losses": {
+        "before": 0.02305707847699523,
+        "peak": 0.055062638595700264,
+        "peak_restore_weight_norms": 0.0549626499414444,
+        "peak_restore_all_norms": 0.05496573820710182,
+        "before_grow_weight_norms": 0.022925883065909147,
+        "before_grow_all_norms": 0.02292549889534712,
+        "peak_old_head": 0.054256596602499485,
+        "before_new_head": 0.02295343205332756
+      },
+      "restored_norm_max_relative_error": 2.81384902045545e-08,
+      "grown_direction_max_cosine_error": 4.440892098500626e-16
+    }
+  ],
+  "source_sha256": {
+    "runs/236-2026-11-07-mlp-adam-spike-internals/artifacts/attempt-01/worker/snapshots/state465.pt": "3280d9d283c7f78d419048013a5f38a8fa2395ca3a552efc064f03ecbd279e08",
+    "runs/236-2026-11-07-mlp-adam-spike-internals/artifacts/attempt-01/worker/snapshots/state474.pt": "4bdaf02f932bedd500c0fd4b04aee487d0c175b8421d1b3ec2881634f9f149a2",
+    "runs/236-2026-11-07-mlp-adam-spike-internals/artifacts/attempt-01/worker/snapshots/state492.pt": "453d65d1ec4c14e3ed6db43dc9c97560a9e84cb69e3ff49f9fbc366e1dc81161",
+    "runs/236-2026-11-07-mlp-adam-spike-internals/artifacts/attempt-01/worker/snapshots/state493.pt": "c7bd00324d5219363ae66490f1a7f0e46419d6d38eaacc1f7fcb2c361ae6e532",
+    "runs/236-2026-11-07-mlp-adam-spike-internals/artifacts/attempt-01/worker/snapshots/state502.pt": "3c09a7593569ff2017008299d3cf5f711b544146822c802647a3bb62798a67d9",
+    "runs/236-2026-11-07-mlp-adam-spike-internals/artifacts/attempt-01/worker/snapshots/state503.pt": "54828174618d99f10ec1826862ff5ac271e08c3513abbce2f39c9eeeeaf9358a",
+    "runs/236-2026-11-07-mlp-adam-spike-internals/artifacts/attempt-01/worker/snapshots/state512.pt": "6ee2987ef17a5ba74d683f9ca6e679f6edc6b6ddfddd44080dc1e37858335082",
+    "runs/236-2026-11-07-mlp-adam-spike-internals/artifacts/attempt-01/worker/snapshots/state522.pt": "6385db51f79fd2bcff333103a11ea48614915ab04b3b8a1ab907871bc0af1560"
+  },
+  "generator_sha256": "6f86e372cfabd85e6126524aff429d900456a2185fdc73468a8646d81e0768c9",
+  "diagnostics_sha256": "2914f601ae55fd4b0c6329710ae766d70009b885276f7c8251636621f8e5bb42",
+  "input_manifest_sha256": "711b786b03d7b7704f6df1421dde116de5e7af5e95f2b506182d752531b0439c",
+  "examples": 5000,
+  "additional_training_updates": 0,
+  "interpretation": "Static norm-preserving/magnitude-only parameter recombinations; no retraining or unique causal attribution."
+}

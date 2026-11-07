@@ -231,3 +231,14 @@ Mean losses0.0212831/0.0439842/0.102867; maxima0.0220705/0.302456/1.61503.
 Same original state512 and qualified retained Adam control. All10,584 plotted
 scalars verified; shared row ranges and vector render reviewed. Earlier0.08
 overflow at547 and its three-rate figure remain archived. Next analysis:061.
+
+## Analysis061: internal mechanism of MLP Adam spikes
+
+[Analysis061](061-2026-11-07-mlp-adam-spike-internals/README.md), Run236 / H041,
+examines peaks474/493/503/522, including literal last pre512 peak503 and return505.
+Norm restoration leaves approximately100% of excess peak loss; static group
+allocation favors hidden weights, with small bias/head-change contributions.
+Tanh attenuates changes but most occur in unsaturated entries; hidden changes
+align with the head's row space. Measured incoming steps overshoot lower-loss
+regions. Two reviewed vector PDFs,1,372 plotted points, exact control replay,
+full-example post hoc probes and independent verification. Next analysis:062.

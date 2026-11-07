@@ -288,3 +288,11 @@ all feature/fold outcomes and four reviewed figures are in the
   archived with finite-prefix coverage. All directions remain locally descending,
   illustrating that gradient-dot-step sign does not guarantee finite-step loss
   decrease. Same selected seed/window;0.03 chosen after earlier results.
+
+- [Inside MLP Adam spikes (Analysis061)](../../analyses/061-2026-11-07-mlp-adam-spike-internals/observations/001-spike-internals.md):
+  Exact replay and static probes favor output-sensitive hidden-feature motion
+  and finite-step overshoot. At the larger pre512 peak, loss rises90.4% while
+  weight norms change at most0.36%; restoring all tensor norms retains99.75%
+  of excess loss. Hidden RMS stays similar, tanh attenuates changes, and the
+  final head has spectral norm below one. Bias/head-parameter changes are small in the
+  defined allocations. One seed/window; no universal or unique causal claim.

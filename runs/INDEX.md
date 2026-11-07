@@ -348,3 +348,13 @@ Mean loss0.0439842 and maximum0.302456; no independent-seed confirmation.
 Analysis060 now shows columns0.02/0.03/0.04; earlier0.08 figure archived.
 All task workers exited, recovery evidence retained, zero cloud cost.
 Next run:236.
+
+## Run236: MLP Adam spike internals (7 November 2026)
+
+[Run236](236-2026-11-07-mlp-adam-spike-internals/README.md), H041 / Analysis061,
+replays535 unchanged Adam updates: all536 loss/norm pairs and full state512
+model/optimizer/RNG/gradients match retained control. Captures88 internal states,
+15 paired snapshots,512 static parameter hybrids and100 incoming-step probes.
+Weight/activation magnitude explosion is not observed; hidden-feature changes
+and finite-step overshoot dominate these selected peaks. Worker12.895s; all42
+artifacts verified, worker exited, zero cloud cost. Next run:237.

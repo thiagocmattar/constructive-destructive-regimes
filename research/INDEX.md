@@ -1,5 +1,17 @@
 # Research index
 
+## MLP Adam spike internals, 7 November 2026
+
+[Analysis061](../analyses/061-2026-11-07-mlp-adam-spike-internals/observations/001-spike-internals.md)
+completes Run236 / H041. Exact Adam replay shows small parameter-norm changes
+and nearly constant hidden RMS at peaks474/493/503/522. Static probes favor
+output-sensitive hidden-feature motion and finite-step overshoot; restoring
+norms leaves nearly all excess loss. Tanh attenuates changes, but unsaturated
+entries carry almost all change energy. All536 replay loss/norm pairs and
+state512 full tensors/RNG match;42 artifacts and1,372 plotted points verified,
+two vector figures reviewed. Worker exited; about888MB retained on owned Spark,
+zero cloud cost, no manuscript changes. Next Run237 / Analysis062 / H042.
+
 ## GD learning-rate extension, 7 November 2026
 
 [Analysis060](../analyses/060-2026-11-07-mlp-adam-to-gd/observations/003-intermediate-gd-rate.md)
