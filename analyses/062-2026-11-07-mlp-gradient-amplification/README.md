@@ -41,6 +41,7 @@ overshoot; all 87 actual increments start downhill, but 42 increase loss.
 - [SVD heatmap definitions, energy coverage and caption](observations/006-svd-output-change-heatmap.md)
 - [Leading SVD coefficient and spike zooms](figures/06-leading-svd-coefficient.pdf)
 - [Projected reversals: definitions, counts and verification](observations/007-leading-svd-coefficient.md)
+- [Didactic guide: output oscillations, SVD dimensions, coefficients and hidden representations](observations/008-understanding-output-oscillations-svd-and-hidden-representations.md)
 - [Historical mean-output heatmap definitions](observations/005-mean-output-heatmap.md)
 - [Alignment comparison definitions, statistics and caption](observations/004-gradient-output-alignment-comparison.md)
 - [Extended-window definitions, sources and verification](observations/003-control-coherence-448-800.md)
