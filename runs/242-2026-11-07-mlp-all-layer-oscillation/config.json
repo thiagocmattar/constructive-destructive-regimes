@@ -1,0 +1,20 @@
+{
+  "run_id": "242",
+  "analysis_id": "062",
+  "hypothesis": "H042",
+  "seed": 0,
+  "start": 0,
+  "end": 801,
+  "diagnostic_start": 447,
+  "physical_batch": 1000,
+  "parent_run": "runs/223-2026-11-04-multispike-interventions",
+  "parent_worker": "runs/223-2026-11-04-multispike-interventions/artifacts/worker",
+  "runtime_limit_seconds": 600,
+  "checkpoint_every": 64,
+  "authorization": "User requests tracing oscillation through every layer, including the input representation. Capture Z1, first-layer weights/biases and a verified fixed input matrix; compare all forward stages and first-layer actual parameter increments. Exact unchanged Adam control; no gradient differences.",
+  "hidden_layer": "first linear preactivation Z1; all downstream representations verified; exact input invariance",
+  "svd_change_states": [
+    448,
+    800
+  ]
+}

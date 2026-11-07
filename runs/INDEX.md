@@ -406,3 +406,12 @@ Adam control replay. All355 gradients/H2/output arrays and full512/800/801
 states match prior evidence.47 input and12 artifact identities verified.
 Worker18.354s, exited;5.457GB retained including archive on owned Spark,
 zero cloud cost. Next run:242.
+
+## Run242: all forward layers and fixed input (7 November 2026)
+
+[Run242](242-2026-11-07-mlp-all-layer-oscillation/README.md), H042 / Analysis062,
+adds first-linear preactivations and actual W1/b1 histories. Exact equality
+of all355 input matrices, downstream representations and gradients verified;
+native/full512/800/801 checks pass.49 source and14 artifact identities checked.
+Worker17.615s, exited;4.592GB retained including archive on owned Spark, zero
+cloud cost. Next run:243.

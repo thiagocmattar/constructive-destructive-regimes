@@ -750,3 +750,14 @@ shared dominant temporal SVD structure. Second tanh retains86.84--89.30%
 of displacement norm; upstream representation changes dominate H2 motion.
 Verified/reviewed; worker exited,5.457GB retained on owned Spark, zero cloud
 cost. No unique initiating cause claimed. Next Run242 / independent Analysis063.
+
+## Complete forward-layer trace, 7 November 2026
+
+[Analysis062 all-layer extension](../analyses/062-2026-11-07-mlp-gradient-amplification/observations/012-all-layers-and-fixed-input.md)
+uses Run242 to verify that inputs are exactly fixed while the first learned
+linear representation already oscillates in step with outputs (r0.99101).
+First tanh strongly attenuates displacement; less-saturated sample-neuron
+coordinates carry most surviving motion. Changing W1 dominates that first
+projection; no unique initiating optimizer mechanism established. Verified,
+worker exited,4.592GB retained on owned Spark, zero cloud cost. Next Run243 /
+independent Analysis063.

@@ -281,3 +281,10 @@ subspace overlap0.99861. The second tanh attenuates displacement while preservin
 reversal structure. First-hidden changes contribute82.70% by signed projection
 to H2 motion, second-layer weights17.36%. Independent checks and two figures
 pass; no unique initiating cause established. Next independent analysis063.
+
+Analysis062 complete forward trace: [observation012](062-2026-11-07-mlp-gradient-amplification/observations/012-all-layers-and-fixed-input.md)
+uses Run242 to verify fixed inputs (zero change, undefined motion cosine) and
+oscillation already in the first linear projection. Its alignment correlates
+0.99101 with outputs. First tanh retains32.16--36.82% displacement norm; about18%
+of sample-neuron coordinates carry about88% of surviving change energy.
+Independent checks and Figures11/12 pass. Next independent analysis063.
