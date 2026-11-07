@@ -1,0 +1,71 @@
+{
+  "status": "passed",
+  "all_quantiles_reproduced": true,
+  "independent_neuron_rms_audits": [
+    416,
+    447
+  ],
+  "full_fork_exact": true,
+  "retrieved_files": 10,
+  "thresholds": {
+    "status": "verified",
+    "window": [
+      416,
+      447
+    ],
+    "states": [
+      416,
+      417,
+      418,
+      419,
+      420,
+      421,
+      422,
+      423,
+      424,
+      425,
+      426,
+      427,
+      428,
+      429,
+      430,
+      431,
+      432,
+      433,
+      434,
+      435,
+      436,
+      437,
+      438,
+      439,
+      440,
+      441,
+      442,
+      443,
+      444,
+      445,
+      446,
+      447
+    ],
+    "quantile_method": "linear",
+    "coordinate_q90": 0.00011478690430521965,
+    "neuron": {
+      "q90": 0.1515489535027608,
+      "q75": 0.09891533373818674,
+      "q50": 0.05222294052352068
+    },
+    "source": "actual native FP32 Adam increments; products, RMS and quantiles in FP64",
+    "coordinate_shape": [
+      32,
+      614600
+    ],
+    "neuron_shape": [
+      32,
+      200
+    ],
+    "all_examples": 5000,
+    "config_sha256": "8ddf05255249d731be7fc0e52a3d7ed4748227f01a6a7d0564c225641ffcc1e6",
+    "input_manifest_sha256": "28e8656aa7bf3f31f1183d016a34fca1f88edebcbfa05d854183402a9a5152e0"
+  },
+  "generator_sha256": "f1943b6a87e731b861bd2c4c6cbfff26a990e2399640bd6cd596cd22d5237b7a"
+}

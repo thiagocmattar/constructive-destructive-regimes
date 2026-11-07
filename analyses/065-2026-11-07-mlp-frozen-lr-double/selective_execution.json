@@ -1,0 +1,286 @@
+{
+  "status": "completed",
+  "runs": [
+    {
+      "arm": "discard_q90",
+      "path": "runs/259-2026-11-07-mlp-gate-discard-q90",
+      "manifest": {
+        "status": "completed",
+        "started_utc": "2026-11-07T20:18:06.507375+00:00",
+        "gpu": "NVIDIA GB10",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "completed_state": 801,
+        "intervention_updates": 353,
+        "dense_states": 55,
+        "peak_allocated_bytes": 538520064,
+        "intervention_elapsed_seconds": 35.43252983596176,
+        "finished_utc": "2026-11-07T20:18:43.416749+00:00",
+        "elapsed_seconds": 36.90940103493631,
+        "progress": {
+          "state": 768,
+          "loss": 0.017016070894896984,
+          "loss_state": 767,
+          "elapsed_seconds": 33.72207335801795,
+          "updates_per_second": 9.923951972342183,
+          "estimated_remaining_seconds": 3.325288160600758,
+          "peak_allocated_bytes": 538520064,
+          "utc": "2026-11-07T20:18:40.229587+00:00"
+        }
+      }
+    },
+    {
+      "arm": "cap_q90",
+      "path": "runs/260-2026-11-07-mlp-gate-cap-q90",
+      "manifest": {
+        "status": "completed",
+        "started_utc": "2026-11-07T20:19:18.857388+00:00",
+        "gpu": "NVIDIA GB10",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "completed_state": 801,
+        "intervention_updates": 353,
+        "dense_states": 55,
+        "peak_allocated_bytes": 538520064,
+        "intervention_elapsed_seconds": 34.183140659704804,
+        "finished_utc": "2026-11-07T20:19:54.122862+00:00",
+        "elapsed_seconds": 35.26550255296752,
+        "progress": {
+          "state": 768,
+          "loss": 0.01990674319677055,
+          "loss_state": 767,
+          "elapsed_seconds": 32.217119220644236,
+          "updates_per_second": 10.277897687974953,
+          "estimated_remaining_seconds": 3.2107733509168614,
+          "peak_allocated_bytes": 538520064,
+          "utc": "2026-11-07T20:19:51.074648+00:00"
+        }
+      }
+    },
+    {
+      "arm": "neuron_q90",
+      "path": "runs/261-2026-11-07-mlp-gate-neuron-q90",
+      "manifest": {
+        "status": "completed",
+        "started_utc": "2026-11-07T20:20:10.255592+00:00",
+        "gpu": "NVIDIA GB10",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "completed_state": 801,
+        "intervention_updates": 353,
+        "dense_states": 55,
+        "peak_allocated_bytes": 539388416,
+        "intervention_elapsed_seconds": 41.81957724923268,
+        "finished_utc": "2026-11-07T20:20:53.209623+00:00",
+        "elapsed_seconds": 42.954056224785745,
+        "progress": {
+          "state": 768,
+          "loss": 0.015550553565844893,
+          "loss_state": 767,
+          "elapsed_seconds": 39.083923608995974,
+          "updates_per_second": 8.43226788663186,
+          "estimated_remaining_seconds": 3.9135379050654593,
+          "peak_allocated_bytes": 539388416,
+          "utc": "2026-11-07T20:20:49.339645+00:00"
+        }
+      }
+    },
+    {
+      "arm": "neuron_q75",
+      "path": "runs/262-2026-11-07-mlp-gate-neuron-q75",
+      "manifest": {
+        "status": "completed",
+        "started_utc": "2026-11-07T20:21:09.976344+00:00",
+        "gpu": "NVIDIA GB10",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "completed_state": 801,
+        "intervention_updates": 353,
+        "dense_states": 55,
+        "peak_allocated_bytes": 539388416,
+        "intervention_elapsed_seconds": 40.9207828049548,
+        "finished_utc": "2026-11-07T20:21:52.265390+00:00",
+        "elapsed_seconds": 42.2890729336068,
+        "progress": {
+          "state": 768,
+          "loss": 0.015475036576390266,
+          "loss_state": 767,
+          "elapsed_seconds": 38.60764299193397,
+          "updates_per_second": 8.593056855040306,
+          "estimated_remaining_seconds": 3.8403097473565144,
+          "peak_allocated_bytes": 539388416,
+          "utc": "2026-11-07T20:21:48.584089+00:00"
+        }
+      }
+    },
+    {
+      "arm": "neuron_q50",
+      "path": "runs/263-2026-11-07-mlp-gate-neuron-q50",
+      "manifest": {
+        "status": "completed",
+        "started_utc": "2026-11-07T20:22:09.646947+00:00",
+        "gpu": "NVIDIA GB10",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "completed_state": 801,
+        "intervention_updates": 353,
+        "dense_states": 55,
+        "peak_allocated_bytes": 539388416,
+        "intervention_elapsed_seconds": 42.238939475268126,
+        "finished_utc": "2026-11-07T20:22:53.195062+00:00",
+        "elapsed_seconds": 43.54814018076286,
+        "progress": {
+          "state": 768,
+          "loss": 0.016431829892098904,
+          "loss_state": 767,
+          "elapsed_seconds": 39.59471379360184,
+          "updates_per_second": 8.358249508444109,
+          "estimated_remaining_seconds": 3.948195129453962,
+          "peak_allocated_bytes": 539388416,
+          "utc": "2026-11-07T20:22:49.241787+00:00"
+        }
+      }
+    },
+    {
+      "arm": "uniform_discard_q90",
+      "path": "runs/264-2026-11-07-mlp-gate-uniform-discard-q90",
+      "manifest": {
+        "status": "completed",
+        "started_utc": "2026-11-07T20:23:19.638699+00:00",
+        "gpu": "NVIDIA GB10",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "completed_state": 801,
+        "intervention_updates": 353,
+        "dense_states": 55,
+        "peak_allocated_bytes": 538522112,
+        "intervention_elapsed_seconds": 34.49717001663521,
+        "finished_utc": "2026-11-07T20:23:55.218146+00:00",
+        "elapsed_seconds": 35.57947428105399,
+        "progress": {
+          "state": 768,
+          "loss": 0.016762203071266413,
+          "loss_state": 767,
+          "elapsed_seconds": 32.442940487060696,
+          "updates_per_second": 10.203869814299189,
+          "estimated_remaining_seconds": 3.234067133408098,
+          "peak_allocated_bytes": 538522112,
+          "utc": "2026-11-07T20:23:52.081775+00:00"
+        }
+      }
+    },
+    {
+      "arm": "uniform_cap_q90",
+      "path": "runs/265-2026-11-07-mlp-gate-uniform-cap-q90",
+      "manifest": {
+        "status": "completed",
+        "started_utc": "2026-11-07T20:24:11.610374+00:00",
+        "gpu": "NVIDIA GB10",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "completed_state": 801,
+        "intervention_updates": 353,
+        "dense_states": 55,
+        "peak_allocated_bytes": 538522112,
+        "intervention_elapsed_seconds": 35.0199839589186,
+        "finished_utc": "2026-11-07T20:24:48.099834+00:00",
+        "elapsed_seconds": 36.48948651878163,
+        "progress": {
+          "state": 768,
+          "loss": 0.019735492998734117,
+          "loss_state": 767,
+          "elapsed_seconds": 33.332676228135824,
+          "updates_per_second": 10.04293720590958,
+          "estimated_remaining_seconds": 3.28589130086184,
+          "peak_allocated_bytes": 538522112,
+          "utc": "2026-11-07T20:24:44.943172+00:00"
+        }
+      }
+    },
+    {
+      "arm": "uniform_neuron_q90",
+      "path": "runs/266-2026-11-07-mlp-gate-uniform-neuron-q90",
+      "manifest": {
+        "status": "completed",
+        "started_utc": "2026-11-07T20:25:10.077250+00:00",
+        "gpu": "NVIDIA GB10",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "completed_state": 801,
+        "intervention_updates": 353,
+        "dense_states": 55,
+        "peak_allocated_bytes": 538522112,
+        "intervention_elapsed_seconds": 35.2153835282661,
+        "finished_utc": "2026-11-07T20:25:46.691596+00:00",
+        "elapsed_seconds": 36.614373206626624,
+        "progress": {
+          "state": 768,
+          "loss": 0.014935130719095469,
+          "loss_state": 767,
+          "elapsed_seconds": 33.552273189648986,
+          "updates_per_second": 9.952322580314922,
+          "estimated_remaining_seconds": 3.3158089213538915,
+          "peak_allocated_bytes": 538522112,
+          "utc": "2026-11-07T20:25:43.629655+00:00"
+        }
+      }
+    },
+    {
+      "arm": "uniform_neuron_q75",
+      "path": "runs/267-2026-11-07-mlp-gate-uniform-neuron-q75",
+      "manifest": {
+        "status": "completed",
+        "started_utc": "2026-11-07T20:26:05.442413+00:00",
+        "gpu": "NVIDIA GB10",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "completed_state": 801,
+        "intervention_updates": 353,
+        "dense_states": 55,
+        "peak_allocated_bytes": 538522112,
+        "intervention_elapsed_seconds": 33.961700157728046,
+        "finished_utc": "2026-11-07T20:26:40.507676+00:00",
+        "elapsed_seconds": 35.06528813485056,
+        "progress": {
+          "state": 768,
+          "loss": 0.017214298015460372,
+          "loss_state": 767,
+          "elapsed_seconds": 32.01779917581007,
+          "updates_per_second": 10.351221751966564,
+          "estimated_remaining_seconds": 3.188029470408219,
+          "peak_allocated_bytes": 538522112,
+          "utc": "2026-11-07T20:26:37.460360+00:00"
+        }
+      }
+    },
+    {
+      "arm": "uniform_neuron_q50",
+      "path": "runs/268-2026-11-07-mlp-gate-uniform-neuron-q50",
+      "manifest": {
+        "status": "completed",
+        "started_utc": "2026-11-07T20:26:56.198725+00:00",
+        "gpu": "NVIDIA GB10",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "completed_state": 801,
+        "intervention_updates": 353,
+        "dense_states": 55,
+        "peak_allocated_bytes": 538522112,
+        "intervention_elapsed_seconds": 34.04198571899906,
+        "finished_utc": "2026-11-07T20:27:31.423214+00:00",
+        "elapsed_seconds": 35.22451352793723,
+        "progress": {
+          "state": 768,
+          "loss": 0.013099947711452842,
+          "loss_state": 767,
+          "elapsed_seconds": 32.18280994100496,
+          "updates_per_second": 10.322481638516301,
+          "estimated_remaining_seconds": 3.1969056623813232,
+          "peak_allocated_bytes": 538522112,
+          "utc": "2026-11-07T20:27:28.381662+00:00"
+        }
+      }
+    }
+  ],
+  "all_retrievals_verified": true
+}

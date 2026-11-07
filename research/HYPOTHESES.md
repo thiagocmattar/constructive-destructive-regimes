@@ -232,3 +232,19 @@ reversals yet improve average loss. First-layer0.5x and global0.5x develop late
 excursions. Supports location-sensitive suppression with continuing feature
 learning, not a unique cause or universal LR threshold. One seed/fork, unequal
 actual step norms, no generalization claim. All checks pass; next unused H047.
+
+## H047: selective first-layer increments and representation budgets
+
+[Runs 258-268 / ongoing Analysis 065](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/006-selective-update-gates.md)
+test coordinate discard/cap at prefix q90 and neuron preactivation-displacement
+RMS caps at q90/q75/q50, plus one absolute first-layer norm-matched uniform
+control per selective arm. All start at untreated 448, native LR 0.001 everywhere,
+all gradients/moments/clocks advance; only first-layer increments are transformed.
+Thresholds use only 416-447. Neuron q75 improves mean loss 10.42%, excursion maximum
+39.43% and positive variation 79.37%; it beats its paired control 4.63% in mean
+loss but retains all hidden/output reversals and has a 5.68% higher tail mean
+than baseline. Discarding large coordinates worsens mean; coordinate capping
+helps 2.26%. Stronger neuron capping loses to its uniform control, which has the
+best new branch mean. Supports budget-dependent amplitude damping and a local
+benefit of neuron selection, not universal superiority to uniform scaling,
+unique causation, or generalization. One seed/fork. All checks pass; next H048.

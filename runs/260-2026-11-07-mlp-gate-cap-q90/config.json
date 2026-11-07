@@ -1,0 +1,38 @@
+{
+  "run_id": "260",
+  "analysis_id": "065",
+  "hypothesis": "H047",
+  "arm": "cap_q90",
+  "intervention_label": "I16",
+  "kind": "cap",
+  "threshold_key": "coordinate_q90",
+  "calibration_run": "runs/258-2026-11-07-mlp-gate-calibration",
+  "target_run": null,
+  "seed": 0,
+  "fork": 448,
+  "end": 801,
+  "first_lr": 0.001,
+  "later_lr": 0.001,
+  "physical_batch": 1000,
+  "runtime_limit_seconds": 600,
+  "primary_window": [
+    448,
+    800
+  ],
+  "event_window": [
+    450,
+    500
+  ],
+  "tail_window": [
+    769,
+    800
+  ],
+  "target_loss": 0.02,
+  "target_consecutive_states": 10,
+  "intervention": "Post-native-Adam first-layer transform; compute all gradients and advance all moments/clocks normally; other layers stay native at LR.001",
+  "matched_control": "Uniform first-layer direction scaled to the paired selective branch actual norm at the same update; may exceed1; equality bounded by FP32 rounding",
+  "authorization": "User explicitly requests all three selective-update methods, especially neuron representation cap; Spark and paired norm controls authorized in context",
+  "retention": "Dense gradients/five representations447..501; rolling metrics448..800; full recovery/fork/native449/intervention449/qualification512/end801; gate audits448,474,800",
+  "coverage": "Same all5000 examples/order, seed0 tanh3072-200-200-10, mean half squared error, physical1000, FP32 TF32off Adam(.9,.999) eps1e-8 no clipping/decay",
+  "limits": "One fork/seed; baseline always unchanged Adam. Thresholds use only416..447. Norm controls follow paired same-update norms and are experimental controls, not standalone online policies."
+}

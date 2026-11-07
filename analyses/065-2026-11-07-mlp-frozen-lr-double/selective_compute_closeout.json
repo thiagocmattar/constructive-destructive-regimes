@@ -1,0 +1,215 @@
+{
+  "utc": "2026-11-07T20:30:22.982228+00:00",
+  "workers": [],
+  "runs": [
+    {
+      "path": "runs/258-2026-11-07-mlp-gate-calibration",
+      "bytes": 263575788,
+      "manifest": {
+        "status": "completed",
+        "started_utc": "2026-11-07T20:15:34.940134+00:00",
+        "gpu": "NVIDIA GB10",
+        "torch": "2.11.0+cu130",
+        "completed_state": 448,
+        "exact_boundary_count": 449,
+        "full_fork448_exact": true,
+        "peak_allocated_bytes": 392535552,
+        "elapsed_seconds": 5.48007697891444,
+        "finished_utc": "2026-11-07T20:15:40.420198+00:00"
+      }
+    },
+    {
+      "path": "runs/259-2026-11-07-mlp-gate-discard-q90",
+      "bytes": 2164128804,
+      "manifest": {
+        "status": "completed",
+        "started_utc": "2026-11-07T20:18:06.507375+00:00",
+        "gpu": "NVIDIA GB10",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "completed_state": 801,
+        "intervention_updates": 353,
+        "dense_states": 55,
+        "peak_allocated_bytes": 538520064,
+        "intervention_elapsed_seconds": 35.43252983596176,
+        "finished_utc": "2026-11-07T20:18:43.416749+00:00",
+        "elapsed_seconds": 36.90940103493631
+      }
+    },
+    {
+      "path": "runs/260-2026-11-07-mlp-gate-cap-q90",
+      "bytes": 2164054849,
+      "manifest": {
+        "status": "completed",
+        "started_utc": "2026-11-07T20:19:18.857388+00:00",
+        "gpu": "NVIDIA GB10",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "completed_state": 801,
+        "intervention_updates": 353,
+        "dense_states": 55,
+        "peak_allocated_bytes": 538520064,
+        "intervention_elapsed_seconds": 34.183140659704804,
+        "finished_utc": "2026-11-07T20:19:54.122862+00:00",
+        "elapsed_seconds": 35.26550255296752
+      }
+    },
+    {
+      "path": "runs/261-2026-11-07-mlp-gate-neuron-q90",
+      "bytes": 2164174491,
+      "manifest": {
+        "status": "completed",
+        "started_utc": "2026-11-07T20:20:10.255592+00:00",
+        "gpu": "NVIDIA GB10",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "completed_state": 801,
+        "intervention_updates": 353,
+        "dense_states": 55,
+        "peak_allocated_bytes": 539388416,
+        "intervention_elapsed_seconds": 41.81957724923268,
+        "finished_utc": "2026-11-07T20:20:53.209623+00:00",
+        "elapsed_seconds": 42.954056224785745
+      }
+    },
+    {
+      "path": "runs/262-2026-11-07-mlp-gate-neuron-q75",
+      "bytes": 2164319575,
+      "manifest": {
+        "status": "completed",
+        "started_utc": "2026-11-07T20:21:09.976344+00:00",
+        "gpu": "NVIDIA GB10",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "completed_state": 801,
+        "intervention_updates": 353,
+        "dense_states": 55,
+        "peak_allocated_bytes": 539388416,
+        "intervention_elapsed_seconds": 40.9207828049548,
+        "finished_utc": "2026-11-07T20:21:52.265390+00:00",
+        "elapsed_seconds": 42.2890729336068
+      }
+    },
+    {
+      "path": "runs/263-2026-11-07-mlp-gate-neuron-q50",
+      "bytes": 2164767868,
+      "manifest": {
+        "status": "completed",
+        "started_utc": "2026-11-07T20:22:09.646947+00:00",
+        "gpu": "NVIDIA GB10",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "completed_state": 801,
+        "intervention_updates": 353,
+        "dense_states": 55,
+        "peak_allocated_bytes": 539388416,
+        "intervention_elapsed_seconds": 42.238939475268126,
+        "finished_utc": "2026-11-07T20:22:53.195062+00:00",
+        "elapsed_seconds": 43.54814018076286
+      }
+    },
+    {
+      "path": "runs/264-2026-11-07-mlp-gate-uniform-discard-q90",
+      "bytes": 2164858029,
+      "manifest": {
+        "status": "completed",
+        "started_utc": "2026-11-07T20:23:19.638699+00:00",
+        "gpu": "NVIDIA GB10",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "completed_state": 801,
+        "intervention_updates": 353,
+        "dense_states": 55,
+        "peak_allocated_bytes": 538522112,
+        "intervention_elapsed_seconds": 34.49717001663521,
+        "finished_utc": "2026-11-07T20:23:55.218146+00:00",
+        "elapsed_seconds": 35.57947428105399
+      }
+    },
+    {
+      "path": "runs/265-2026-11-07-mlp-gate-uniform-cap-q90",
+      "bytes": 2164217030,
+      "manifest": {
+        "status": "completed",
+        "started_utc": "2026-11-07T20:24:11.610374+00:00",
+        "gpu": "NVIDIA GB10",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "completed_state": 801,
+        "intervention_updates": 353,
+        "dense_states": 55,
+        "peak_allocated_bytes": 538522112,
+        "intervention_elapsed_seconds": 35.0199839589186,
+        "finished_utc": "2026-11-07T20:24:48.099834+00:00",
+        "elapsed_seconds": 36.48948651878163
+      }
+    },
+    {
+      "path": "runs/266-2026-11-07-mlp-gate-uniform-neuron-q90",
+      "bytes": 2164230440,
+      "manifest": {
+        "status": "completed",
+        "started_utc": "2026-11-07T20:25:10.077250+00:00",
+        "gpu": "NVIDIA GB10",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "completed_state": 801,
+        "intervention_updates": 353,
+        "dense_states": 55,
+        "peak_allocated_bytes": 538522112,
+        "intervention_elapsed_seconds": 35.2153835282661,
+        "finished_utc": "2026-11-07T20:25:46.691596+00:00",
+        "elapsed_seconds": 36.614373206626624
+      }
+    },
+    {
+      "path": "runs/267-2026-11-07-mlp-gate-uniform-neuron-q75",
+      "bytes": 2164249522,
+      "manifest": {
+        "status": "completed",
+        "started_utc": "2026-11-07T20:26:05.442413+00:00",
+        "gpu": "NVIDIA GB10",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "completed_state": 801,
+        "intervention_updates": 353,
+        "dense_states": 55,
+        "peak_allocated_bytes": 538522112,
+        "intervention_elapsed_seconds": 33.961700157728046,
+        "finished_utc": "2026-11-07T20:26:40.507676+00:00",
+        "elapsed_seconds": 35.06528813485056
+      }
+    },
+    {
+      "path": "runs/268-2026-11-07-mlp-gate-uniform-neuron-q50",
+      "bytes": 2164306419,
+      "manifest": {
+        "status": "completed",
+        "started_utc": "2026-11-07T20:26:56.198725+00:00",
+        "gpu": "NVIDIA GB10",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "completed_state": 801,
+        "intervention_updates": 353,
+        "dense_states": 55,
+        "peak_allocated_bytes": 538522112,
+        "intervention_elapsed_seconds": 34.04198571899906,
+        "finished_utc": "2026-11-07T20:27:31.423214+00:00",
+        "elapsed_seconds": 35.22451352793723
+      }
+    }
+  ],
+  "root_source_archive_bytes": 145880,
+  "status": "exited",
+  "retrieved_files": 270,
+  "retrieved_payload_bytes": 11624189320,
+  "retrieved_archive_bytes": 10282377887,
+  "retained_spark_bytes": 21907028695,
+  "retained_local_run_bytes": 21907332301,
+  "total_worker_seconds": 385.4193855752237,
+  "peak_allocated_bytes": 539388416,
+  "cloud_cost_usd": 0,
+  "billing_note": "Owned Spark only; no cloud resources provisioned.",
+  "cleanup": "All task workers exited. Raw evidence, recovery states and archives retained on Spark and locally; unrelated resources unchanged.",
+  "storage_budget_bytes_per_machine": 30000000000
+}

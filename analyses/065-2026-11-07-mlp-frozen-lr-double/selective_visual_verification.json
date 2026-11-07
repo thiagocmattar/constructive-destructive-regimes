@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "renderer": "pdftoppm -png -r 95",
+  "pages": [
+    {
+      "file": "04-selective-update-methods-cifar10-mlp.pdf",
+      "sha256": "8bc78badf37753acc4736db447d8c37b181d86573deb186eabb514feaca4d6f7",
+      "page": 1,
+      "characters": 1344,
+      "all_text_within_page": true,
+      "visual_review": "passed; labels, legends, ten rows, baseline/control curves and footer inspected"
+    },
+    {
+      "file": "05-selective-update-norm-controls-cifar10-mlp.pdf",
+      "sha256": "3ea8439289c5494ace6353fccc4bbe122053fa06f6fa72280cb3a0c9e517bed8",
+      "page": 1,
+      "characters": 1362,
+      "all_text_within_page": true,
+      "visual_review": "passed; labels, legends, ten rows, baseline/control curves and footer inspected"
+    },
+    {
+      "file": "05-selective-update-norm-controls-cifar10-mlp.pdf",
+      "sha256": "3ea8439289c5494ace6353fccc4bbe122053fa06f6fa72280cb3a0c9e517bed8",
+      "page": 2,
+      "characters": 1256,
+      "all_text_within_page": true,
+      "visual_review": "passed; labels, legends, ten rows, baseline/control curves and footer inspected"
+    }
+  ],
+  "reviewed_renders": [
+    "tmp/pdfs/analysis065/selective/methods-1.png",
+    "tmp/pdfs/analysis065/selective/controls-1.png",
+    "tmp/pdfs/analysis065/selective/controls-2.png"
+  ],
+  "figure_audit_sha256": "240172a59ffc3e4b88bca6a49b1ce0e48ea2a79a0afebc87f006db69c692ec9d"
+}

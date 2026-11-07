@@ -367,3 +367,15 @@ at0.5x and0.25x from untreated448. Every arm overlays unchanged Adam. First-laye
 learning; last32 mean remains15.79% above baseline. Later-layer reductions retain
 reversals while improving mean loss. Runs252-257, all source/retrieval/dense/figure
 checks pass; workers exited. Original figures preserved; no new analysis allocated.
+
+## Analysis 064/065: selective update gates, H047
+
+[Observation006](065-2026-11-07-mlp-frozen-lr-double/observations/006-selective-update-gates.md)
+compares all three selective-update criteria, three neuron budgets, and five
+paired uniform norm controls against unchanged Adam. Neuron q75 improves mean
+loss 10.42% and beats its same-norm control 4.63%, but retains every hidden/output
+reversal and worsens tail mean 5.68%. Discarding large coordinates hurts; tighter
+neuron capping is not monotonic. The q50 uniform control has the best new mean.
+New Figures 04/05 contain three reviewed pages and 74130 checked plotted values;
+Figures 01-03 unchanged. All source/retrieval/policy/dense checks pass; owned
+Spark only. Keep subsequent interventions in 065; no new analysis allocated.

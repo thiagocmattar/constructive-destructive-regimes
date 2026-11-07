@@ -1,0 +1,88 @@
+{
+  "status": "numeric_checks_passed",
+  "source_sha256": "ca922ad048a2808e36c900e0248400bbc33cf1e3d1938290f51b7b9bb9a11cab",
+  "generator_sha256": "ae7f122baf07c6d8404aaf32aaca7340b2df721525dfabd9079c5134063bb85f",
+  "outputs": [
+    {
+      "file": "04-selective-update-methods-cifar10-mlp.pdf",
+      "pdf_sha256": "8bc78badf37753acc4736db447d8c37b181d86573deb186eabb514feaca4d6f7",
+      "pages": [
+        {
+          "arms": [
+            "discard_q90",
+            "cap_q90",
+            "neuron_q90"
+          ],
+          "paired": false,
+          "loss_limits": {
+            "discard_q90": [
+              0.0,
+              0.060018276069313294
+            ],
+            "cap_q90": [
+              0.0,
+              0.060018276069313294
+            ],
+            "neuron_q90": [
+              0.0,
+              0.060018276069313294
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "file": "05-selective-update-norm-controls-cifar10-mlp.pdf",
+      "pdf_sha256": "3ea8439289c5494ace6353fccc4bbe122053fa06f6fa72280cb3a0c9e517bed8",
+      "pages": [
+        {
+          "arms": [
+            "neuron_q90",
+            "neuron_q75",
+            "neuron_q50"
+          ],
+          "paired": true,
+          "loss_limits": {
+            "neuron_q90": [
+              0.0,
+              0.060018276069313294
+            ],
+            "neuron_q75": [
+              0.0,
+              0.060018276069313294
+            ],
+            "neuron_q50": [
+              0.0,
+              0.060018276069313294
+            ]
+          }
+        },
+        {
+          "arms": [
+            "discard_q90",
+            "cap_q90"
+          ],
+          "paired": true,
+          "loss_limits": {
+            "discard_q90": [
+              0.0,
+              0.060018276069313294
+            ],
+            "cap_q90": [
+              0.0,
+              0.060018276069313294
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "plotted_values_checked": 74130,
+  "identical_baselines": true,
+  "independent_loss_axes": true,
+  "original_figures_unchanged": {
+    "01-frozen-first-linear-double-lr-cifar10-mlp.pdf": "c2e3bd3640546d18b2602a05c98c3b764b73b7f4ab42642cabc4d320d5b141aa",
+    "02-i6-vs-i5-cifar10-mlp.pdf": "4593af75ea4a6ec65988f6caf38bc1f4e486430159d4e411dc6cfd8920a6ce30",
+    "03-selective-layer-lr-cifar10-mlp.pdf": "c56cc7fb7d8efe012a83cd8b8790360ca381e31b6d894090354e90dac2cabe29"
+  }
+}

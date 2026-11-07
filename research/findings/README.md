@@ -316,3 +316,15 @@ all feature/fold outcomes and four reviewed figures are in the
   crossed-Jacobian probes locate growing increments in already sensitive
   directions. Exact output-space loss terms quantify finite-step overshoot.
   One seed/window; no unique initiating cause or general stability threshold.
+
+- [Selective MLP update gates (Analysis 065 / H047)](../../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/006-selective-update-gates.md):
+  From untreated 448 with native Adam LR 0.001, cap each first-layer neuron's
+  preactivation-displacement RMS using a fixed pre-fork q75 budget. Mean loss
+  falls10.42%, excursion maximum 39.43%, and positive variation 79.37%; hidden
+  and output motion still reverse on all 353 updates. It beats an absolute
+  first-layer norm-matched uniform control 4.63% in mean loss, yet tail mean
+  remains5.68% above baseline. Coordinate discard is worse; tighter neuron
+  capping loses to its uniform control, which has the best new branch mean.
+  Evidence supports amplitude damping with budget-dependent selection effects,
+  not elimination of oscillation or general superiority to uniform damping.
+  All gradients/moments/clocks retained; all 5000 examples, one seed/fork.

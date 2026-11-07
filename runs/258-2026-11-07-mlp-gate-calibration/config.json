@@ -1,0 +1,24 @@
+{
+  "run_id": "258",
+  "analysis_id": "065",
+  "hypothesis": "H047",
+  "purpose": "Prefix-only calibration before gate intervention",
+  "seed": 0,
+  "calibration_window": [
+    416,
+    447
+  ],
+  "fork": 448,
+  "coordinate_quantiles": [
+    0.9
+  ],
+  "neuron_quantiles": [
+    0.9,
+    0.75,
+    0.5
+  ],
+  "quantile_method": "linear",
+  "runtime_limit_seconds": 600,
+  "authorization": "User requests all three selective-update methods, especially representation criterion",
+  "coverage": "All5000 original examples, native first-linear Adam increments including biases; no postfork data in thresholds"
+}

@@ -1,5 +1,19 @@
 # Research index
 
+## Selective MLP update gates, 7 November 2026
+
+[Analysis 065 / H047](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/006-selective-update-gates.md)
+completes prefix calibration and ten branches (Runs 258-268). Neuron displacement
+cap q75 lowers mean loss 10.42% and positive loss variation 79.37%; tail mean is
+5.68% higher than unchanged Adam. It beats its paired first-layer norm control
+by 4.63% in mean loss, while hidden/output reversals remain at every update.
+Discarding large coordinates hurts mean loss; coordinate capping helps modestly.
+Tighter neuron capping is worse, and its uniform norm control has the best new
+full-window mean. No general superiority claim; one seed/fork. Two new PDFs,
+270 retrieved files, independent audits and all three pages verified. Workers
+exited; 385.42 s total, 21.907 GB retained on owned Spark, zero cloud cost.
+Continue in 065; next run 269, unused H048.
+
 ## Selective MLP learning rates, 7 November 2026
 
 [Analysis065 / H046](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/005-selective-layer-lr.md)

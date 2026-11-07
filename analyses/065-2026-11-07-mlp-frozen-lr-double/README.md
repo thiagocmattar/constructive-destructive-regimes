@@ -23,6 +23,12 @@ IDs. Every intervention is compared with the **unchanged Adam baseline**.
 | I12 | All-layer LR 0.00025 from 448; no freeze | Run 255 |
 | I13 | First-layer LR 0.001; later layers 0.0005 from 448; no freeze | Run 256 |
 | I14 | First-layer LR 0.001; later layers 0.00025 from 448; no freeze | Run 257 |
+| I15 | Discard large first-layer Adam coordinate increments from 448; prefix q90 threshold | Run 259 |
+| I16 | Cap large first-layer Adam coordinate increments from 448; prefix q90 threshold | Run 260 |
+| I17 | Cap each first-layer neuron's preactivation displacement RMS; prefix q90 budget | Run 261 |
+| I18 | Same neuron displacement rule, prefix q75 budget | Run 262 |
+| I19 | Same neuron displacement rule, prefix q50 budget | Run 263 |
+| I20-I24 | Uniformly scale first-layer proposals to match I15-I19's respective applied norm schedules | Runs 264-268 |
 
 For I2-I8 the first changed-rate update is 500 -> 501. No optimizer reset or unfreezing.
 All 5000 CIFAR-10 training examples, ordering, initialization, objective and
@@ -34,6 +40,14 @@ I9-I14 instead branch from the **untreated full state 448**, with all layers
 trainable and first changed update 448 -> 449. They test selective damping of
 first-layer updates against global and later-layer-only LR controls. Their
 complete interventions contain no freezing and no LR change at 500.
+
+I15-I24 also start from untreated state 448. All native Adam LRs remain 0.001;
+raw gradients, moments and clocks advance normally. The intervention transforms
+only the proposed first-layer weight/bias increments after native Adam. Run 258
+calibrates fixed thresholds from untreated updates 416-447, before the fork.
+The neuron criterion uses all 5,000 samples. I20-I24 are paired experimental
+controls; each matches its selective arm's actual first-layer norm at the same
+update, within measured FP32 rounding, and may amplify its own native proposal.
 
 ## Results and artifacts
 
@@ -112,3 +126,28 @@ Workers exited after49.75s total successful execution; peak allocation400.8MB.
 13.720GB retained on owned Spark, including one rejected qualification attempt,
 with verified local copies and no cloud charge. Regenerate the new results with
 `07_reduce_layer_lr.py` and the new PDF with `08_figures_layer_lr.py`.
+
+## Selective update gates: I15-I24
+
+All three proposed methods are complete, including three budgets for the neuron
+criterion and five uniform controls matched to the selective first-layer norm
+schedules. I18 (neuron q75) improves mean loss 448-800 by 10.42% and positive loss
+variation by 79.37%, while its tail mean remains 5.68% above unchanged Adam.
+It modifies 15.37% of neurons per update on average and beats its paired norm
+control by 4.63% in mean loss. Hidden/output changes still reverse on all 353
+updates: this damps amplitude rather than removing reversals. Coordinate discard
+worsens mean loss; coordinate capping gives a small benefit. Tighter neuron
+capping is not monotonic, and I24 (uniform q50 norm schedule) has the lowest new
+full-window mean. One seed/fork; no general superiority or generalization claim.
+
+- [Methods and baseline comparisons](figures/04-selective-update-methods-cifar10-mlp.pdf): three columns, ten diagnostic rows.
+- [Neuron budgets and matched-norm controls](figures/05-selective-update-norm-controls-cifar10-mlp.pdf): two pages, baseline in every column.
+- [Results, definitions, captions and caveats](observations/006-selective-update-gates.md).
+- [Verified numerical record](selective_comparison.json), [window summaries](selective_metrics.csv), [compute closeout](selective_compute_closeout.json).
+
+Regenerate with `11_reduce_selective.py` then `12_figures_selective.py`.
+All source identities, 270 retrieved files, independent gate/dense checks,
+74,130 plotted values and three rendered pages pass; Figures 01-03 preserved.
+Workers exited after 385.42 s total including calibration;
+21.907 GB retained on owned Spark with verified local copies, zero cloud cost.
+Keep further interventions in this analysis; next run 269, unused hypothesis H048.

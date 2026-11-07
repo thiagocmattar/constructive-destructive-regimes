@@ -474,3 +474,21 @@ Run252 attempt01 failed before treatment due to checkpoint CPU clock aliasing;
 evidence preserved, attempt02 corrects restore copying with unchanged science.
 All workers exited;49.75s successful execution,400.8MB peak,13.720GB retained on
 owned Spark with verified local copies, zero cloud cost. Next run258.
+
+## Runs 258-268: selective MLP update gates and matched norm controls
+
+H047 / ongoing Analysis 065. Run 258 calibrates fixed thresholds using untreated
+updates 416-447. Runs 259/260 discard/cap large first-layer Adam coordinates;
+Runs 261/262/263 cap per-neuron preactivation RMS at prefix q90/q75/q50.
+Runs 264-268 uniformly scale their own first-layer proposals to the respective
+selective arm's actual norm schedule. Every branch starts at untreated 448,
+ends 801, retains native moments/clocks and LR 0.001 in all layers, and compares
+with unchanged Adam. [Methods, results and figures](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/006-selective-update-gates.md).
+Neuron q75 has the best selective mean(-10.42% versus baseline, -4.63% versus
+its paired control), but a higher tail mean and persistent reversals. Uniform
+q50 norm matching has the lowest new branch mean; no blanket selection advantage.
+All source identities, 270 retrieved files, native qualification, independent
+gate/dense checks and three new PDF pages pass. An exact-equality CPU audit
+rounding edge case was corrected without changing or rerunning training.
+Workers exited; 385.42 s total, 539.4 MB peak, 21.907 GB retained on owned Spark with
+verified local copies, zero cloud cost. Next run 269; continue Analysis 065.

@@ -1,0 +1,113 @@
+{
+  "status": "passed",
+  "source_files_checked": 71,
+  "retrieved_files_checked": 26,
+  "full_fork_and_qualification_exact": true,
+  "first_step_native_moments_later_parameters": true,
+  "gate_audits": [
+    {
+      "state": 448,
+      "independent_numpy_policy": true,
+      "maximum_rounding_reproduction_error": 0.0,
+      "actual_norm": 0.02994700489792267,
+      "actual_neuron_rms_max": 0.11779690100174321
+    },
+    {
+      "state": 474,
+      "independent_numpy_policy": true,
+      "maximum_rounding_reproduction_error": 0.0,
+      "actual_norm": 0.03569044105174108,
+      "actual_neuron_rms_max": 0.09963958788628305
+    },
+    {
+      "state": 800,
+      "independent_numpy_policy": true,
+      "maximum_rounding_reproduction_error": 0.0,
+      "actual_norm": 0.03880778187188325,
+      "actual_neuron_rms_max": 0.12287902614723378
+    }
+  ],
+  "all_steps_gate_checks": true,
+  "dense_checks": {
+    "representations": {
+      "preactivation1": {
+        "states": [
+          448,
+          500
+        ],
+        "coordinates": 1000000,
+        "cosine_and_rms": true
+      },
+      "hidden1": {
+        "states": [
+          448,
+          500
+        ],
+        "coordinates": 1000000,
+        "cosine_and_rms": true
+      },
+      "preactivation2": {
+        "states": [
+          448,
+          500
+        ],
+        "coordinates": 1000000,
+        "cosine_and_rms": true
+      },
+      "hidden2": {
+        "states": [
+          448,
+          500
+        ],
+        "coordinates": 1000000,
+        "cosine_and_rms": true
+      },
+      "output": {
+        "states": [
+          448,
+          500
+        ],
+        "coordinates": 50000,
+        "cosine_and_rms": true
+      }
+    },
+    "raw_first_later_gradient_norms_cosines_and_eta_states": [
+      448,
+      501
+    ]
+  },
+  "final_changed_parameters": {
+    "1.weight": 614399,
+    "1.bias": 198,
+    "3.weight": 40000,
+    "3.bias": 200,
+    "5.weight": 2000,
+    "5.bias": 10
+  },
+  "manifest": {
+    "status": "completed",
+    "started_utc": "2026-11-07T20:18:06.507375+00:00",
+    "gpu": "NVIDIA GB10",
+    "torch": "2.11.0+cu130",
+    "cuda": "13.0",
+    "completed_state": 801,
+    "intervention_updates": 353,
+    "dense_states": 55,
+    "peak_allocated_bytes": 538520064,
+    "intervention_elapsed_seconds": 35.43252983596176,
+    "finished_utc": "2026-11-07T20:18:43.416749+00:00",
+    "elapsed_seconds": 36.90940103493631
+  },
+  "resolved_policy": {
+    "kind": "discard",
+    "threshold": 0.00011478690430521965,
+    "threshold_key": "coordinate_q90",
+    "calibration_window": [
+      416,
+      447
+    ],
+    "target_run": null,
+    "target_states": 0
+  },
+  "generator_sha256": "f1943b6a87e731b861bd2c4c6cbfff26a990e2399640bd6cd596cd22d5237b7a"
+}

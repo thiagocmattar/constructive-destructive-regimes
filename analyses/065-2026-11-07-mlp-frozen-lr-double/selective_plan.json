@@ -1,0 +1,118 @@
+{
+  "status": "prespecified",
+  "hypothesis": "H047",
+  "calibration_run": "runs/258-2026-11-07-mlp-gate-calibration",
+  "calibration_window": [
+    416,
+    447
+  ],
+  "primary_window": [
+    448,
+    800
+  ],
+  "event_window": [
+    450,
+    500
+  ],
+  "tail_window": [
+    769,
+    800
+  ],
+  "arms": [
+    {
+      "run_id": 259,
+      "label": "I15",
+      "arm": "discard_q90",
+      "kind": "discard",
+      "threshold_key": "coordinate_q90",
+      "target_run": null,
+      "path": "runs/259-2026-11-07-mlp-gate-discard-q90"
+    },
+    {
+      "run_id": 260,
+      "label": "I16",
+      "arm": "cap_q90",
+      "kind": "cap",
+      "threshold_key": "coordinate_q90",
+      "target_run": null,
+      "path": "runs/260-2026-11-07-mlp-gate-cap-q90"
+    },
+    {
+      "run_id": 261,
+      "label": "I17",
+      "arm": "neuron_q90",
+      "kind": "neuron",
+      "threshold_key": "q90",
+      "target_run": null,
+      "path": "runs/261-2026-11-07-mlp-gate-neuron-q90"
+    },
+    {
+      "run_id": 262,
+      "label": "I18",
+      "arm": "neuron_q75",
+      "kind": "neuron",
+      "threshold_key": "q75",
+      "target_run": null,
+      "path": "runs/262-2026-11-07-mlp-gate-neuron-q75"
+    },
+    {
+      "run_id": 263,
+      "label": "I19",
+      "arm": "neuron_q50",
+      "kind": "neuron",
+      "threshold_key": "q50",
+      "target_run": null,
+      "path": "runs/263-2026-11-07-mlp-gate-neuron-q50"
+    },
+    {
+      "run_id": 264,
+      "label": "I20",
+      "arm": "uniform_discard_q90",
+      "kind": "uniform",
+      "threshold_key": "coordinate_q90",
+      "target_run": "runs/259-2026-11-07-mlp-gate-discard-q90",
+      "path": "runs/264-2026-11-07-mlp-gate-uniform-discard-q90"
+    },
+    {
+      "run_id": 265,
+      "label": "I21",
+      "arm": "uniform_cap_q90",
+      "kind": "uniform",
+      "threshold_key": "coordinate_q90",
+      "target_run": "runs/260-2026-11-07-mlp-gate-cap-q90",
+      "path": "runs/265-2026-11-07-mlp-gate-uniform-cap-q90"
+    },
+    {
+      "run_id": 266,
+      "label": "I22",
+      "arm": "uniform_neuron_q90",
+      "kind": "uniform",
+      "threshold_key": "q90",
+      "target_run": "runs/261-2026-11-07-mlp-gate-neuron-q90",
+      "path": "runs/266-2026-11-07-mlp-gate-uniform-neuron-q90"
+    },
+    {
+      "run_id": 267,
+      "label": "I23",
+      "arm": "uniform_neuron_q75",
+      "kind": "uniform",
+      "threshold_key": "q75",
+      "target_run": "runs/262-2026-11-07-mlp-gate-neuron-q75",
+      "path": "runs/267-2026-11-07-mlp-gate-uniform-neuron-q75"
+    },
+    {
+      "run_id": 268,
+      "label": "I24",
+      "arm": "uniform_neuron_q50",
+      "kind": "uniform",
+      "threshold_key": "q50",
+      "target_run": "runs/263-2026-11-07-mlp-gate-neuron-q50",
+      "path": "runs/268-2026-11-07-mlp-gate-uniform-neuron-q50"
+    }
+  ],
+  "threshold_selection": "coordinate pooled absolute increment q90; pooled sample-RMS per neuron q90/q75/q50; NumPy linear quantiles",
+  "uniform_control": "Same-step selective first-layer norm schedule; controls may amplify; rounding discrepancy retained",
+  "source": "User requests all3, especially neuron cap",
+  "cloud_cost": 0,
+  "maximum_retained_gb": 30
+}
