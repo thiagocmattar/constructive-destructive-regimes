@@ -34,6 +34,7 @@ backward vectors. Exact output-space loss terms quantify the finite-step
 overshoot; all 87 actual increments start downhill, but 42 increase loss.
 
 - [Full observation, definitions, tables, captions and limits](observations/001-gradient-amplification.md)
+- [Plain-text explanation: coherence, prediction reversals and dispersion](observations/002-coherence-prediction-changes-and-dispersion.md)
 - [Complete diagnostic time course](figures/01-gradient-amplification.pdf)
 - [Oscillations and crossed-direction probes](figures/02-oscillation-and-direction-probes.pdf)
 - [Numerical reductions and source hashes](results.json)
