@@ -16,6 +16,7 @@ Source analyses, scientific inputs, and raw evidence remain unchanged.
 | [05: Clipping](figures/05-gradient-clipping-cifar10-mlp-resnet.pdf) | MLP caps 0.5/1; ResNet cap 1; matched unclipped controls | Model- and window-dependent tradeoffs; raw/input norms differ |
 | [06: Pythia schedules](figures/06-lr-schedules-minipile-pythia14m-70m.pdf) | Original, held and accelerated decay; 14M/70M | All requested diagnostics available; alignment recovery does not rank validation loss |
 | [07: High-LR optimizer overview](figures/07-high-lr-optimizer-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf) | Figure 00 extended with momentum norm and adjacent momentum/Adam-direction cosines | Original four rows preserved; three additional rows use the same Run215 trajectories |
+| [08: Spike optimizer zoom](figures/08-adam-spike-optimizer-zoom-cifar10-mlp-resnet-wikitext2-transformer.pdf) | Manuscript spike windows with current gradient/momentum cosine and momentum/gradient norm ratios | Original four rows preserved; corrected and uncorrected ratios coincide at recorded precision |
 
 Captions, coverage and limitations: [observation index](observations/INDEX.md).
 The four-row Figure 02 omits rho; its third column uses only the immediate-half
@@ -26,7 +27,7 @@ column. No new immediate-0.75x experiment is invented.
 
 ## Figure contract
 
-Eight numbered publication PDFs, 00--07, with provenance and local observations.
+Nine numbered publication PDFs, 00--08, with provenance and local observations.
 00 preserves Analysis055's high-LR overview exactly. Figures 01--06 use
 7.16-inch width, Times/STIX fonts, embedded vector text, compact labels,
 unsmoothed full-objective curves, and gray pre-intervention context.
@@ -44,6 +45,10 @@ same-Spark control. Include post-clipping norms distinctly from raw norms.
 adjacent first-moment cosine, and adjacent adaptive Adam-direction cosine.
 Seven rows, three columns, unsmoothed; see [Observation007](observations/007-optimizer-overview.md)
 for optimizer timing, vector definitions and full coverage.
+08: manuscript spike micro-plots extended with cos(g_t,m_t) and a row containing
+both uncorrected and bias-corrected momentum-to-gradient norm ratios. Six rows,
+three columns; original windows and shading preserved. See
+[Observation008](observations/008-spike-optimizer-zoom.md).
 
 The five-row order is loss, eta*kappa_hat, rho, raw-gradient norm, applied/base
 LR. Under Adam/AdamW, eta*kappa_hat denotes the dimensionless measured projected
@@ -72,6 +77,10 @@ with `04_verify_optimizer_overview.py`. Its separate `optimizer_overview_manifes
 `optimizer_overview_values.csv`, and `optimizer_overview_verification.json` preserve
 the original seven-figure manifest and verification record.
 
+Generate and verify Figure 08 with `05_spike_optimizer_zoom.py`. Its
+`spike_optimizer_zoom_manifest.json` records source/output hashes, exact plotted
+curves and verification counts; `spike_optimizer_zoom_values.csv` stores all points.
+
 ## Completed verification
 
 All 69,354 plotted scalars in Figures 01--06 match the raw records independently;
@@ -89,3 +98,8 @@ Figure 07 (7 November): all 21,495 plotted scalars match frozen Run215 records;
 The 9,210 added values cover all available momentum norms and adjacent moment/direction
 cosines. Its one-page 7.16 x 9.5-inch PDF passes embedded-font, vector and text-bounds
 checks, and the full-size render was inspected. Figure 00 remains byte-identical.
+
+Figure 08: 27 unsmoothed curves / 1,584 verified values, including 1,056 preserved
+original values and 528 added values. Ratio identities, state alignment, source
+hashes, artist/CSV read-back and PDF font/vector/bounds checks pass. The 7.16 x
+7.8-inch render was visually reviewed. The manuscript figure remains untouched.

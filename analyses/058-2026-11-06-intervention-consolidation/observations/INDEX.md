@@ -20,6 +20,9 @@ No spike detector is refitted and no new event counts are estimated here.
   `../03_optimizer_overview.py`, independently verified by `../04_verify_optimizer_overview.py`,
   with separate `../optimizer_overview_manifest.json` provenance. It retains
   Figure 00's event shading and logarithmic loss/norm axes.
+- [08: Spike optimizer zoom](008-spike-optimizer-zoom.md); generated and checked
+  by `../05_spike_optimizer_zoom.py`, with `../spike_optimizer_zoom_manifest.json`.
+  Preserves the manuscript micro-plot windows and historical episode shading.
 
 Figures 01--06 are unsmoothed, with log loss and linear diagnostic axes.
 Axis limits are independent across panels. A dimensionless projected gradient
