@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "states": 353,
+  "state_range": [
+    448,
+    800
+  ],
+  "pairing": "same state t; no lag shift",
+  "temporal_values": 706,
+  "scatter_points": 353,
+  "plotted_scalar_values": 1412,
+  "pearson_correlation": 0.7762947818924171,
+  "mean_absolute_alignment_difference": 0.06564191613969154,
+  "statistical_inference": "Descriptive only; dependent states from one seed, no IID test or confidence interval.",
+  "sources": {
+    "control_coherence_448_800.csv": "014079d5882a52c96754e3b9d1cb0a0cab1a457fb5845f23692863a5d16d8bcc",
+    "runs/238-2026-11-07-mlp-intrabatch-coherence/artifacts/spark/payload/worker/boundaries.jsonl": "af41bd9b44e60fde72ef7c0c76a4cc2a53517ea2c133a0cd43f4028e26e6e5c2",
+    "runs/239-2026-11-07-mlp-output-change-alignment/artifacts/spark/payload/worker/output_alignment.jsonl": "2b29d94e847336c33eb9249e277aa37fb974b3dde6376bcedcc8e89f7125f1e9"
+  },
+  "formulas": {
+    "gradient": "cos(g_t,g_(t-1))",
+    "output_change": "cos(F_(t+1)-F_t,F_t-F_(t-1))"
+  },
+  "generator_sha256": "2d0f63a61e97d86a61aff1ee9cf8e77c94828165a4e3b3d90401a59ec78d0c69",
+  "pdf": {
+    "path": "figures/04-gradient-output-alignment-comparison.pdf",
+    "bytes": 95397,
+    "sha256": "7123c01e0cefd64cde5421abd61c0e95375ea9a9af5fbb29c91279157274efdf"
+  },
+  "render_audit": {
+    "pages": 1,
+    "embedded_images": 0,
+    "render_dpi": 100,
+    "visual_review": "passed: temporal overlay, time-colored same-state scatter, equal axes and definitions readable without clipping"
+  }
+}

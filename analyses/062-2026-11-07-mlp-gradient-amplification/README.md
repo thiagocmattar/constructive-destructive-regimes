@@ -36,6 +36,8 @@ overshoot; all 87 actual increments start downhill, but 42 increase loss.
 - [Full observation, definitions, tables, captions and limits](observations/001-gradient-amplification.md)
 - [Definitions and equations: coherence, prediction reversals and dispersion](observations/002-coherence-prediction-changes-and-dispersion.md)
 - [Seven-row control figure, states448--800, with coherence and output-change alignment](figures/03-control-coherence-448-800.pdf)
+- [Temporal overlay and scatter: gradient versus output-change alignment](figures/04-gradient-output-alignment-comparison.pdf)
+- [Alignment comparison definitions, statistics and caption](observations/004-gradient-output-alignment-comparison.md)
 - [Extended-window definitions, sources and verification](observations/003-control-coherence-448-800.md)
 - [Complete diagnostic time course](figures/01-gradient-amplification.pdf)
 - [Oscillations and crossed-direction probes](figures/02-oscillation-and-direction-probes.pdf)
