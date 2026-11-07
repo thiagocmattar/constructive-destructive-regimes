@@ -35,7 +35,7 @@ overshoot; all 87 actual increments start downhill, but 42 increase loss.
 
 - [Full observation, definitions, tables, captions and limits](observations/001-gradient-amplification.md)
 - [Definitions and equations: coherence, prediction reversals and dispersion](observations/002-coherence-prediction-changes-and-dispersion.md)
-- [Six-row control figure, states448--800, with coherence numerator and denominator](figures/03-control-coherence-448-800.pdf)
+- [Seven-row control figure, states448--800, with coherence and output-change alignment](figures/03-control-coherence-448-800.pdf)
 - [Extended-window definitions, sources and verification](observations/003-control-coherence-448-800.md)
 - [Complete diagnostic time course](figures/01-gradient-amplification.pdf)
 - [Oscillations and crossed-direction probes](figures/02-oscillation-and-direction-probes.pdf)
@@ -65,3 +65,9 @@ and800 match. All353 requested states include all5000 examples;2,118 plotted
 values pass independent checks. The added panel(e) uses retained data; panel(f)
 explicitly equals panel(d) / panel(e). Reproduce with
 `python analyses/062-2026-11-07-mlp-gradient-amplification/04_control_coherence_figure.py`.
+
+Run239 adds panel(g), cos(F_(t+1)-F_t,F_t-F_(t-1)), from complete raw output
+arrays447..801. The same control is exactly replayed through800, then advanced
+one unchanged Adam step for the endpoint. All353 output cosines are verified;
+all six prior curves remain unchanged. The current PDF contains2,471 values
+across seven rows. Full provenance and indexing are in observation003.

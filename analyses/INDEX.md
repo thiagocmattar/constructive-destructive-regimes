@@ -259,3 +259,9 @@ uses Run238 to show incoming loss change, projected gradient change, temporal
 rho, raw-gradient norm and user-requested norm-based intra-batch coherence.
 This C differs from the original squared-energy coherence. All353 states and
 1,765 plotted values verified; vector PDF reviewed. Next analysis remains063.
+
+Analysis062 further extension: Run239 adds consecutive output-change alignment
+as final panel(g) of the existing control figure448--800. Complete outputs
+447..801 support every point; all2,118 earlier curve values remain unchanged.
+The seven-row vector PDF contains2,471 verified values and was visually reviewed.
+See [updated observation003](062-2026-11-07-mlp-gradient-amplification/observations/003-control-coherence-448-800.md).

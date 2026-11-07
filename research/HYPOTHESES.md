@@ -164,3 +164,9 @@ adds the user-defined norm-based coherence across448..800 and a five-row figure.
 The unchanged Adam control is exactly replayed; the earlier squared-energy
 coherence is preserved as a distinct statistic. No new causal hypothesis or
 optimizer intervention. Next hypothesis remainsH043.
+
+H042 output-space extension: Run239 measures cos(F_(t+1)-F_t,F_t-F_(t-1)) over
+448..800 for all5000 examples and10 raw outputs. Added as panel(g) in Analysis062;
+exact control qualification, full-example reductions and extra-step audit pass.
+This describes temporal prediction reversals, not per-example cosine or a new
+causal test. Next hypothesis remainsH043.

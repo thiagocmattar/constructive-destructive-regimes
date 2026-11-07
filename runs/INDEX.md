@@ -378,3 +378,13 @@ Exact800-update control replay;801 reference pairs and full512/800 states match.
 All353 states448..800 include5000 examples;1,765,000 example energies retained.
 Worker10.113s,43 inputs and10 artifacts verified, worker exited, about74MB
 retained on owned Spark including archive, zero cloud cost. Next run:239.
+
+## Run239: full-window output-change alignment (7 November 2026)
+
+[Run239](239-2026-11-07-mlp-output-change-alignment/README.md), H042 / Analysis062,
+exactly replays the Adam control through800, then advances one unchanged update.
+Captures all5000-example output arrays447..801 and353 incoming/outgoing change
+cosines for448..800. All801 reference pairs and full512/800 states match;
+independent CPU reductions and extra-step reconstruction pass. Worker12.297s,
+43 inputs and10 artifacts verified, worker exited, about183MB retained on
+owned Spark including archive, zero cloud cost. Next run:240.

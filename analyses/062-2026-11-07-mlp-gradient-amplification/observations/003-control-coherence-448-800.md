@@ -1,13 +1,15 @@
-# Six-row control figure, states448 through800
+# Seven-row control figure, states448 through800
 
 Run238 extends H042 / Analysis062 to produce the user's requested single-column
 figure. It replays the unchanged Adam control, with no optimizer intervention,
 and measures the newly requested norm-based intra-batch coherence. Earlier
 figures and the squared-energy coherence definition remain unchanged.
+Run239 adds the requested final output-change alignment row using an exact
+replay and one additional unchanged Adam update for its endpoint.
 
 ## Figure and reduction
 
-Publication figure: [Six-row control diagnostic](../figures/03-control-coherence-448-800.pdf).
+Publication figure: [Seven-row control diagnostic](../figures/03-control-coherence-448-800.pdf).
 Generator: [04_control_coherence_figure.py](../04_control_coherence_figure.py).
 Plotted values: [control_coherence_448_800.csv](../control_coherence_448_800.csv).
 Audit: [control_coherence_verification.json](../control_coherence_verification.json).
@@ -15,7 +17,7 @@ Audit: [control_coherence_verification.json](../control_coherence_verification.j
 At completed optimizer state $t$, let $g_{i,t}$ be the gradient of one example's
 half-squared-error loss, including every weight and bias, and let
 $g_t=N^{-1}\sum_i g_{i,t}$ be the full-objective raw gradient. $N=5000$.
-The six rows, including the subsequently requested denominator panel, are:
+The seven rows, including the denominator and output-change panels, are:
 
 1. Incoming loss change, $L_t-L_{t-1}$. This is the signed difference in full
    training objective, not the loss itself or a relative/percentage change.
@@ -35,6 +37,23 @@ C_t=\frac{\left\|\sum_{i=1}^N g_{i,t}\right\|}
 =\frac{\|g_t\|}{N^{-1}\sum_{i=1}^N\|g_{i,t}\|}.
 $$
 
+7. Consecutive output-change alignment, where $F_t$ concatenates all10 raw
+   outputs for all5000 fixed examples in the same order:
+
+$$
+\Delta F_t=F_{t+1}-F_t,\qquad
+\rho_t^{(\Delta F)}=\cos(\Delta F_t,\Delta F_{t-1}).
+$$
+
+Panel(g) at $t$ compares the incoming prediction change $t-1\to t$ with the
+outgoing change $t\to t+1$. This is the convention used in the earlier output
+alignment plot. It differs from panel(c)'s raw-gradient pair at states$t-1,t$;
+panel(a) is the loss change ending at$t$. Panel(g) requires output states447
+through801 to cover448..800. It is a single cosine of two50,000-coordinate
+vectors, not an average sample-wise cosine, output/target alignment, or cosine
+of the predictions themselves. Raw outputs are FP32; differences and reductions
+use FP64. Zero displacement gives null; all353 plotted pairs are defined.
+
 This $C_t$ is a norm ratio, distinct from the earlier squared-energy ratio
 $C_{\mathrm{energy},t}=\|g_t\|^2/(N^{-1}\sum_i\|g_{i,t}\|^2)$ used in
 Figures01/02 and observations001/002. It is not obtained by simply taking the
@@ -51,14 +70,15 @@ all plotted denominators are nonzero. All temporal denominators are also nonzero
 
 ## Caption
 
-**Unchanged Adam control, CIFAR-10 MLP, states448--800.** Six vertically stacked
+**Unchanged Adam control, CIFAR-10 MLP, states448--800.** Seven vertically stacked
 panels show signed full-objective loss change, normalized projected gradient
 change, adjacent raw-gradient cosine, norm of the mean raw gradient, mean
 individual-gradient norm, and norm-based
-intra-batch gradient coherence. Every row includes all353 integer states,
+intra-batch gradient coherence, followed by consecutive output-change alignment.
+Every row includes all353 integer states,
 including both endpoints, without smoothing or subsampling. State447 provides
 the incoming history for the first plotted transition. Dashed references mark
-zero loss change, projected change one, and zero cosine. The projected-change
+zero loss change, projected change one, and zero gradient/output-change cosines. The projected-change
 reference is a descriptive algebraic boundary, not an Adam stability guarantee.
 Colors distinguish diagnostics; all panels share the completed-update axis.
 Panel (e) is reduced from the already retained per-example energies; adding it
@@ -88,12 +108,26 @@ within4.45e-16 relative difference. Small double-precision autograd tests verify
 the outer-product formulas, bias inclusion, full-example norm reduction,
 non-divisible physical batches and zero-denominator behavior.
 
-All43 input hashes and10 downloaded artifact hashes pass. All2,118 plotted
+For Run238, all43 input hashes and10 downloaded artifact hashes pass. All2,471 plotted
 values are checked against the independent reductions and original control.
 The vector PDF was rendered and visually reviewed for legibility and clipping.
 The Spark replay completed in10.113s, with peak allocated GPU memory286,736,896
 bytes. No cloud resources or costs; worker exit and retained storage are recorded
 in [Run238 completion](../../../runs/238-2026-11-07-mlp-intrabatch-coherence/completion.json).
+
+Run239 captures355 raw output arrays447..801. All801 reference loss/norm pairs
+through800 match exactly, and full states512/800 match. State801 is a declared
+one-update continuation; a separate CPU reconstruction from the authenticated
+state800 reproduces its parameters within7.46e-9 maximum absolute difference.
+Its previous gradient and RNG match the parent exactly. All353 output cosines
+are independently reduced with NumPy. All88 overlapping FP32 residual arrays
+match Run237 exactly; the86 overlapping cosine values differ by at most2.16e-10
+when using raw-output differences instead of rounded FP32 residual differences.
+All355 output arrays reproduce the native full losses within3.30e-9 absolute
+error. Run239's43 input hashes and10 retrieved artifact hashes pass. It completes
+801 updates in12.297s with241,174,016 peak allocated GPU bytes, zero cloud cost.
+Retained storage and worker exit are recorded in
+[Run239 completion](../../../runs/239-2026-11-07-mlp-output-change-alignment/completion.json).
 
 ## Sources, coverage and limits
 
@@ -101,6 +135,10 @@ Sources are Run238's retained `artifacts/spark/payload/worker/coherence.jsonl`,
 `boundaries.jsonl`, and `example_energies.pt`, with exact references from
 Run223's prefix/control boundary histories and end checkpoints. The generator
 and verification record include source, plotted CSV and PDF hashes.
+The final row additionally uses Run239's `outputs.pt`, `output_alignment.jsonl`,
+`boundaries.jsonl` and `end.pt`; their hashes and coverage are recorded separately
+under `output_alignment` in the figure verification record. All six prior
+data series remain unchanged when the seventh row is added.
 
 The window's requested norm-based C spans about.11956--.37103. These values
 must not be compared numerically with the earlier energy coherence as if the

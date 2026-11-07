@@ -7,14 +7,15 @@
   ],
   "states": 353,
   "examples_per_state": 5000,
-  "plotted_values": 2118,
+  "plotted_values": 2471,
   "metrics": [
     "loss_change",
     "eta_kappa_hat",
     "rho",
     "raw_gradient_norm",
     "mean_example_gradient_norm",
-    "intrabatch_coherence"
+    "intrabatch_coherence",
+    "output_change_cosine"
   ],
   "coherence_panel_ratio_checks": 353,
   "exact_reference_pairs": 801,
@@ -31,6 +32,30 @@
   "previous_energy_coherence_overlap_states": 88,
   "overlap_max_relative_energy_difference": 4.440892098500626e-16,
   "C_definition": "norm(sum_i g_i) / sum_i norm(g_i); not squared-energy coherence",
+  "output_alignment": {
+    "run_id": "239",
+    "input_hashes": 43,
+    "artifact_hashes": 10,
+    "exact_reference_pairs": 801,
+    "raw_output_states": [
+      447,
+      801
+    ],
+    "output_vectors": 355,
+    "output_dimensions": 50000,
+    "cosines": 353,
+    "exact_residual_overlap_states": 88,
+    "maximum_old_residual_vs_raw_output_cosine_difference": 2.153492245637878e-10,
+    "maximum_output_loss_absolute_difference": 3.2965015300812084e-09,
+    "extra_step_cpu_parameter_max_absolute_difference": 7.450580596923828e-09,
+    "formula": "cos(F_(t+1)-F_t,F_t-F_(t-1)); incoming versus outgoing output displacement",
+    "sources": {
+      "outputs.pt": "4354e033950aed70298ec667c891621518632ddfe260c04c0786109d00472e74",
+      "output_alignment.jsonl": "2b29d94e847336c33eb9249e277aa37fb974b3dde6376bcedcc8e89f7125f1e9",
+      "boundaries.jsonl": "68162ab8e5db87a42e55d4ba61ced16e2e0207d49cfa0a64b20891ffd3c00b74",
+      "end.pt": "0908bd7be4b29b50b6223899041908b91775badb4900e6cd46d0b2a80901a36b"
+    }
+  },
   "loss_change_definition": "L_t-L_(t-1), transition ending at state t",
   "eta_kappa_hat_definition": "1-rho_t*norm(g_t)/norm(g_(t-1)); projected gradient change under Adam",
   "ranges": {
@@ -57,6 +82,10 @@
     "intrabatch_coherence": [
       0.11955991376361544,
       0.3710250715015275
+    ],
+    "output_change_cosine": [
+      -0.9969068121930127,
+      0.3524620095194768
     ]
   },
   "sources": {
@@ -66,19 +95,19 @@
   },
   "csv": {
     "path": "control_coherence_448_800.csv",
-    "sha256": "bfb29f88695d6d5569863ceab1e4789b7181b1d8f415a87527f71fb853511409"
+    "sha256": "014079d5882a52c96754e3b9d1cb0a0cab1a457fb5845f23692863a5d16d8bcc"
   },
   "pdf": {
     "path": "figures/03-control-coherence-448-800.pdf",
-    "bytes": 89334,
-    "sha256": "1568939347a0d7031ac1e998c1738c72557ff22629709633ae33c6a68d1f6278"
+    "bytes": 93648,
+    "sha256": "590950fc34dd13927076924f2c4b47f56fd6f0e77949aa585360a730832f1d3b"
   },
-  "generator_sha256": "8612d77ef925a5af78ff3428ca197cb5f153de57468d25de44d716d02af269fc",
-  "original_five_series_unchanged_values": 1765,
+  "generator_sha256": "1a5bbd731542b9be5b2b3dac918b83654b444fa947f5604af1d041aca8cccf57",
+  "original_six_series_unchanged_values": 2118,
   "render_audit": {
     "pages": 1,
     "embedded_images": 0,
     "render_dpi": 100,
-    "visual_review": "passed: six rows, denominator in(e), C=(d)/(e) in(f), no clipping or overlap"
+    "visual_review": "passed: seven rows, final output-change cosine over448..800; no clipping or overlap"
   }
 }

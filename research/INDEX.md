@@ -13,7 +13,10 @@ Worker exited, about391MB retained on owned Spark, zero cloud cost.
 [Run238 extension](../analyses/062-2026-11-07-mlp-gradient-amplification/observations/003-control-coherence-448-800.md)
 adds the requested five-row control figure448--800 with norm-based intra-batch
 coherence. All801 reference pairs and1,765 plotted values verified; worker exited,
-about74MB retained on Spark, zero cloud cost. Next Run239 / Analysis063 / H043.
+about74MB retained on Spark, zero cloud cost. Run239 subsequently adds output-change alignment as final panel(g), using
+outputs447..801; all2,471 values in the seven-row PDF pass verification. Exact
+control qualification through800 and the extra update pass; worker exited,
+about183MB retained on Spark, zero cloud cost. Next Run240 / Analysis063 / H043.
 
 ## MLP Adam spike internals, 7 November 2026
 
