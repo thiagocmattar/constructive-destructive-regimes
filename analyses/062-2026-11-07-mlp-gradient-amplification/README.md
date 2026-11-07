@@ -1,5 +1,12 @@
 # Analysis062: what amplifies the MLP loss spikes?
 
+[Input distributions and intervention options](observations/013-input-distributions-and-intervention-options.md)
+verify that all3072 coordinates are already individually standardized: actual
+5000-example column stds0.98475--1.02076. Strong correlations remain (first input
+covariance mode26.85%, first ten64.50%). Selective first-layer LR/freeze and
+function-preserving covariance interventions are proposed, not executed. Static
+local audit only; script18, per-column CSV and source-hashed results retained.
+
 Run237 / H042 follows the RMSNorm question with an exact Adam-control replay.
 The actual MLP has no activation normalization. Test the analogous concern in
 Adam's denominator, separate per-example gradient strength from cancellation,
