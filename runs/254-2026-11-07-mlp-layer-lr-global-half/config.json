@@ -1,0 +1,36 @@
+{
+  "run_id": "254",
+  "analysis_id": "065",
+  "hypothesis": "H046",
+  "arm": "global_half",
+  "intervention_label": "I11",
+  "seed": 0,
+  "fork": 448,
+  "end": 801,
+  "first_lr": 0.0005,
+  "later_lr": 0.0005,
+  "base_lr": 0.001,
+  "physical_batch": 1000,
+  "runtime_limit_seconds": 600,
+  "primary_window": [
+    448,
+    800
+  ],
+  "event_window": [
+    450,
+    500
+  ],
+  "tail_window": [
+    769,
+    800
+  ],
+  "target_loss": 0.02,
+  "target_consecutive_states": 10,
+  "intervention": "No freezing; specified layer LRs from448, first changed update448->449; all other baseline settings and Adam state retained",
+  "authorization": "User says Go on after selective first-layer LR proposal and global/later-layer controls; Spark execution already authorized",
+  "coverage": "All5000 fixed training examples, seed0 tanh3072-200-200-10, mean half squared error, FP32/TF32off, Adam(.9,.999), eps1e-8, no clipping/decay",
+  "retention": "Full fork448, native449, intervention449, qualification512, recovery/final801; dense raw gradients/five representations447..501; rolling metrics through801",
+  "optimizer_state_contract": "No reset. Native Adam with temporary LR-only groups; original group layout restored between steps; applied LRs retained in checkpoint metadata/config",
+  "control": "Untreated replay448..512 must match every loss/norm and complete historical512 state before reusing original control",
+  "comparisons": "Every arm against unchanged Adam; location/rate contrasts supplementary; equal LR multipliers do not match actual increment norms"
+}

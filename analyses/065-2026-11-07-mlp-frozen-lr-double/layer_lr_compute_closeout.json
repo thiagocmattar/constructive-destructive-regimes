@@ -1,0 +1,144 @@
+{
+  "status": "exited",
+  "workers": [],
+  "runs": [
+    {
+      "path": "runs/252-2026-11-07-mlp-layer-lr-first-half",
+      "bytes": 3180368336,
+      "manifests": [
+        {
+          "status": "failed",
+          "started_utc": "2026-11-07T19:55:36.805754+00:00",
+          "gpu": "NVIDIA GB10",
+          "torch": "2.11.0+cu130",
+          "cuda": "13.0",
+          "exception": "AssertionError()",
+          "traceback": "Traceback (most recent call last):\n  File \"/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/src/eos_tasks/layer_lr_continuation.py\", line 136, in main\n    guard();assert c['state']==state;w.validate(c['opt'],state,.001)\n                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/runs/223-2026-11-04-multispike-interventions/01_worker.py\", line 70, in validate\n    assert p.dtype==torch.float32 and int(opt.state[p]['step'])==state\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+          "completed_state": 448,
+          "finished_utc": "2026-11-07T19:55:37.891558+00:00",
+          "elapsed_seconds": 1.085830322932452
+        },
+        {
+          "status": "completed",
+          "started_utc": "2026-11-07T19:57:28.544670+00:00",
+          "gpu": "NVIDIA GB10",
+          "torch": "2.11.0+cu130",
+          "cuda": "13.0",
+          "completed_state": 801,
+          "intervention_updates": 353,
+          "dense_states": 55,
+          "peak_allocated_bytes": 400758272,
+          "intervention_elapsed_seconds": 6.646827163174748,
+          "finished_utc": "2026-11-07T19:57:36.257069+00:00",
+          "elapsed_seconds": 7.712425463832915
+        }
+      ]
+    },
+    {
+      "path": "runs/253-2026-11-07-mlp-layer-lr-first-quarter",
+      "bytes": 2108021329,
+      "manifests": [
+        {
+          "status": "completed",
+          "started_utc": "2026-11-07T19:58:27.187767+00:00",
+          "gpu": "NVIDIA GB10",
+          "torch": "2.11.0+cu130",
+          "cuda": "13.0",
+          "completed_state": 801,
+          "intervention_updates": 353,
+          "dense_states": 55,
+          "peak_allocated_bytes": 400758272,
+          "intervention_elapsed_seconds": 7.804279180709273,
+          "finished_utc": "2026-11-07T19:58:36.628973+00:00",
+          "elapsed_seconds": 9.441231566015631
+        }
+      ]
+    },
+    {
+      "path": "runs/254-2026-11-07-mlp-layer-lr-global-half",
+      "bytes": 2107922655,
+      "manifests": [
+        {
+          "status": "completed",
+          "started_utc": "2026-11-07T19:59:43.254890+00:00",
+          "gpu": "NVIDIA GB10",
+          "torch": "2.11.0+cu130",
+          "cuda": "13.0",
+          "completed_state": 801,
+          "intervention_updates": 353,
+          "dense_states": 55,
+          "peak_allocated_bytes": 400758272,
+          "intervention_elapsed_seconds": 7.588259930256754,
+          "finished_utc": "2026-11-07T19:59:52.204993+00:00",
+          "elapsed_seconds": 8.95013060607016
+        }
+      ]
+    },
+    {
+      "path": "runs/255-2026-11-07-mlp-layer-lr-global-quarter",
+      "bytes": 2107987539,
+      "manifests": [
+        {
+          "status": "completed",
+          "started_utc": "2026-11-07T20:00:17.088804+00:00",
+          "gpu": "NVIDIA GB10",
+          "torch": "2.11.0+cu130",
+          "cuda": "13.0",
+          "completed_state": 801,
+          "intervention_updates": 353,
+          "dense_states": 55,
+          "peak_allocated_bytes": 400758272,
+          "intervention_elapsed_seconds": 6.703136416617781,
+          "finished_utc": "2026-11-07T20:00:25.110512+00:00",
+          "elapsed_seconds": 8.021730656735599
+        }
+      ]
+    },
+    {
+      "path": "runs/256-2026-11-07-mlp-layer-lr-later-half",
+      "bytes": 2107829982,
+      "manifests": [
+        {
+          "status": "completed",
+          "started_utc": "2026-11-07T20:01:04.601584+00:00",
+          "gpu": "NVIDIA GB10",
+          "torch": "2.11.0+cu130",
+          "cuda": "13.0",
+          "completed_state": 801,
+          "intervention_updates": 353,
+          "dense_states": 55,
+          "peak_allocated_bytes": 400758272,
+          "intervention_elapsed_seconds": 7.21990940021351,
+          "finished_utc": "2026-11-07T20:01:12.962003+00:00",
+          "elapsed_seconds": 8.360444810707122
+        }
+      ]
+    },
+    {
+      "path": "runs/257-2026-11-07-mlp-layer-lr-later-quarter",
+      "bytes": 2107865135,
+      "manifests": [
+        {
+          "status": "completed",
+          "started_utc": "2026-11-07T20:01:49.321995+00:00",
+          "gpu": "NVIDIA GB10",
+          "torch": "2.11.0+cu130",
+          "cuda": "13.0",
+          "completed_state": 801,
+          "intervention_updates": 353,
+          "dense_states": 55,
+          "peak_allocated_bytes": 400758272,
+          "intervention_elapsed_seconds": 6.234800293110311,
+          "finished_utc": "2026-11-07T20:01:56.590709+00:00",
+          "elapsed_seconds": 7.268740787636489
+        }
+      ]
+    }
+  ],
+  "retained_bytes": 13719994976,
+  "retrieval_verified_for_all_successful_runs": true,
+  "retrieved_successful_files": 132,
+  "cloud_cost_usd": 0,
+  "checked_utc": "2026-11-07T20:05:33.638195+00:00",
+  "notes": "No task workers remain. All retained successful evidence retrieved and verified; failed attempt also retrieved and preserved. Shared owned Spark retained, no cloud resource provisioned."
+}

@@ -17,12 +17,23 @@ IDs. Every intervention is compared with the **unchanged Adam baseline**.
 | I6 | I1 plus Adam LR 0.0025 from state 500 | Run 249 |
 | I7 | I1 plus Adam LR 0.00125 from state 500 | Run 250 |
 | I8 | I1 plus Adam LR 0.000625 from state 500 | Run 251 |
+| I9 | First-layer LR 0.0005 from 448; later layers 0.001; no freeze | Run 252 |
+| I10 | First-layer LR 0.00025 from 448; later layers 0.001; no freeze | Run 253 |
+| I11 | All-layer LR 0.0005 from 448; no freeze | Run 254 |
+| I12 | All-layer LR 0.00025 from 448; no freeze | Run 255 |
+| I13 | First-layer LR 0.001; later layers 0.0005 from 448; no freeze | Run 256 |
+| I14 | First-layer LR 0.001; later layers 0.00025 from 448; no freeze | Run 257 |
 
-The first changed-rate update is 500 -> 501. No optimizer reset or unfreezing.
+For I2-I8 the first changed-rate update is 500 -> 501. No optimizer reset or unfreezing.
 All 5000 CIFAR-10 training examples, ordering, initialization, objective and
 remaining optimizer/precision settings match. I2 through I8 branch from the same
 state 500; none waits until the end of another intervention. Comparisons between interventions
 describe incremental LR effects and supplement the baseline comparisons.
+
+I9-I14 instead branch from the **untreated full state 448**, with all layers
+trainable and first changed update 448 -> 449. They test selective damping of
+first-layer updates against global and later-layer-only LR controls. Their
+complete interventions contain no freezing and no LR change at 500.
 
 ## Results and artifacts
 
@@ -45,6 +56,15 @@ must be judged over the full window, not only immediately after the change.
 The recorded strict rule permits no upward step above 1e-8 and no loss above
 loss500 + 1e-8. This is a finite-window criterion, not an optimal-LR estimate.
 
+**Selective LR reductions retain feature learning:** I10 (first layer at 0.25x,
+later layers unchanged) lowers mean loss 448-800 by 7.06% and positive loss
+variation by 99.62%. First-hidden reversals fall 350/353 -> 1/353. Its last-32
+mean remains 15.79% above baseline, so it does not win on every learning metric.
+First-layer 0.5x develops a larger delayed peak at 673. Global 0.5x has the best
+full-window mean (-17.05%) but a rising excursion at 800. Later-layer reductions
+improve average loss while retaining most reversals. See observation005 for the
+matched controls, sustained-target results and limits.
+
 - [Four-page baseline comparison](figures/01-frozen-first-linear-double-lr-cifar10-mlp.pdf):
   I1-I4 on pages 1/2 and I5-I8 on pages 3/4, each overlaid with unchanged baseline.
   Overview pages: eight diagnostics over 448-800, including eta kappa hat,
@@ -57,6 +77,11 @@ loss500 + 1e-8. This is a finite-window criterion, not an optimal-LR estimate.
   I5 right, each against unchanged Adam over 448-800. Independent linear loss
   axes; shared scales for the other seven diagnostic rows.
   [Observation and reproduction](observations/004-i6-i5-comparison.md).
+- [New selective-LR comparison](figures/03-selective-layer-lr-cifar10-mlp.pdf):
+  three pages, two columns per page (0.5x / 0.25x), comparing first-layer,
+  global, and later-layer-only reductions against unchanged Adam. Ten rows
+  include first-hidden motion; loss axes are independent.
+  [Results, methods and caveats](observations/005-selective-layer-lr.md).
 - [Verified halving summary](halving_summary.json), [recorded rule](halving_plan.json)
 - [Numerical results and provenance](comparison.json), [window summaries](metrics.csv)
 - [Run 245 verification](../../runs/245-2026-11-07-mlp-frozen-lr-double/verification.json)
@@ -78,3 +103,12 @@ identities per run and 110 verified downloaded files. Their full fork states are
 exactly identical to I2's fork. All workers exited; 10.034 GB retained for these
 five runs on owned Spark with verified local copies, no cloud cost. Stopping was
 confirmed from local raw losses; all four final PDF pages were reviewed.
+
+Runs252-257 complete six prescribed LR-location branches, 353 updates each,
+with exact untreated448-512 qualification and full fork/state matches. All
+67 source identities and 22 retrieved files per successful run, independent
+dense reductions, 50832 plotted values and three new PDF pages pass review.
+Workers exited after49.75s total successful execution; peak allocation400.8MB.
+13.720GB retained on owned Spark, including one rejected qualification attempt,
+with verified local copies and no cloud charge. Regenerate the new results with
+`07_reduce_layer_lr.py` and the new PDF with `08_figures_layer_lr.py`.

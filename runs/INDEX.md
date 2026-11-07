@@ -461,3 +461,16 @@ at707;0.00125 has only a0.006% initial bump. All67 input identities per run,110
 retrieved files, complete fork equality and independent diagnostics verified.
 Workers exited;40.62s total,456.7MB peak per GPU worker,10.034GB retained on owned
 Spark, no cloud cost. One collection retry, no scientific rerun. Next run252.
+
+## Runs252-257: selective MLP learning-rate controls
+
+H046 / ongoing Analysis065: first-layer-only, global, and later-layer-only rates
+at0.5x/0.25x from the identical untreated448 state, no freezing or moment reset.
+353 updates per branch; all5000 examples and native Adam settings matched.
+[Results and new figure](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/005-selective-layer-lr.md).
+Each run passes65 boundary/full512 qualification, exact fork448, native first-step
+moments,67 input identities,22 retrieved files and independent dense diagnostics.
+Run252 attempt01 failed before treatment due to checkpoint CPU clock aliasing;
+evidence preserved, attempt02 corrects restore copying with unchanged science.
+All workers exited;49.75s successful execution,400.8MB peak,13.720GB retained on
+owned Spark with verified local copies, zero cloud cost. Next run258.

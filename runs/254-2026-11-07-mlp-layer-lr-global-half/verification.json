@@ -1,0 +1,147 @@
+{
+  "status": "passed",
+  "input_files_checked": 67,
+  "retrieved_files_checked": 22,
+  "full_fork_matches_parent": true,
+  "full_qualification512_matches": true,
+  "all_layers_updated": true,
+  "first_changed_step_native_moments_and_scaled_updates": true,
+  "dense_checks": {
+    "representations": {
+      "preactivation1": {
+        "states": [
+          448,
+          500
+        ],
+        "coordinates": 1000000,
+        "cosine_and_rms": true
+      },
+      "hidden1": {
+        "states": [
+          448,
+          500
+        ],
+        "coordinates": 1000000,
+        "cosine_and_rms": true
+      },
+      "preactivation2": {
+        "states": [
+          448,
+          500
+        ],
+        "coordinates": 1000000,
+        "cosine_and_rms": true
+      },
+      "hidden2": {
+        "states": [
+          448,
+          500
+        ],
+        "coordinates": 1000000,
+        "cosine_and_rms": true
+      },
+      "output": {
+        "states": [
+          448,
+          500
+        ],
+        "coordinates": 50000,
+        "cosine_and_rms": true
+      }
+    },
+    "raw_first_later_gradient_norms_cosines_and_eta_states": [
+      448,
+      501
+    ]
+  },
+  "worker_manifest": {
+    "status": "completed",
+    "started_utc": "2026-11-07T19:59:43.254890+00:00",
+    "gpu": "NVIDIA GB10",
+    "torch": "2.11.0+cu130",
+    "cuda": "13.0",
+    "completed_state": 801,
+    "intervention_updates": 353,
+    "dense_states": 55,
+    "peak_allocated_bytes": 400758272,
+    "intervention_elapsed_seconds": 7.588259930256754,
+    "finished_utc": "2026-11-07T19:59:52.204993+00:00",
+    "elapsed_seconds": 8.95013060607016
+  },
+  "qualification": {
+    "status": "passed",
+    "exact_boundary_states": [
+      448,
+      449,
+      450,
+      451,
+      452,
+      453,
+      454,
+      455,
+      456,
+      457,
+      458,
+      459,
+      460,
+      461,
+      462,
+      463,
+      464,
+      465,
+      466,
+      467,
+      468,
+      469,
+      470,
+      471,
+      472,
+      473,
+      474,
+      475,
+      476,
+      477,
+      478,
+      479,
+      480,
+      481,
+      482,
+      483,
+      484,
+      485,
+      486,
+      487,
+      488,
+      489,
+      490,
+      491,
+      492,
+      493,
+      494,
+      495,
+      496,
+      497,
+      498,
+      499,
+      500,
+      501,
+      502,
+      503,
+      504,
+      505,
+      506,
+      507,
+      508,
+      509,
+      510,
+      511,
+      512
+    ],
+    "observer_preserves_rng_gradients": true,
+    "full_state512_exact": true,
+    "exact_representations_at448": true,
+    "first_step_all_moments_clocks_rng_exact": true,
+    "first_step_scaled_increment_max_abs_error": 7.450580596923828e-09
+  },
+  "generator_sha256": "0e70a72429cac611a2f053e1a88a6776b25cfb1cad32007023e6ea4c2d22aad8"
+}

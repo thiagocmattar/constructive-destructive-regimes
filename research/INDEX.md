@@ -1,5 +1,17 @@
 # Research index
 
+## Selective MLP learning rates, 7 November 2026
+
+[Analysis065 / H046](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/005-selective-layer-lr.md)
+completes Runs252-257: first-layer/global/later-layer LR0.5x/0.25x from448, all
+layers trainable. First-layer0.25x lowers mean loss7.06%, positive variation99.62%
+and hidden reversals350/353 to1/353; last32 mean is15.79% higher than baseline.
+Later-layer controls improve mean loss while retaining reversals; weaker damping
+can postpone spikes. New three-page figure, previous figures preserved. All
+source/retrieval/dense/50832 plotted-value/render checks pass. Workers exited;
+49.75s successful execution,13.720GB retained on owned Spark, zero cloud cost.
+Continue in065; next run258, unused H047.
+
 ## Ongoing MLP interventions, 7 November 2026
 
 [Analysis064/065](../analyses/065-2026-11-07-mlp-frozen-lr-double/README.md) remains

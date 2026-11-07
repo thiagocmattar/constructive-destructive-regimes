@@ -1,0 +1,67 @@
+{
+  "status": "numeric_checks_passed",
+  "pages": [
+    {
+      "page": 1,
+      "arms": [
+        "first_half",
+        "first_quarter"
+      ],
+      "loss_limits": {
+        "first_half": [
+          0.0,
+          0.09303882345557213
+        ],
+        "first_quarter": [
+          0.0,
+          0.059467649683356286
+        ]
+      }
+    },
+    {
+      "page": 2,
+      "arms": [
+        "global_half",
+        "global_quarter"
+      ],
+      "loss_limits": {
+        "global_half": [
+          0.0,
+          0.06499585445970298
+        ],
+        "global_quarter": [
+          0.0,
+          0.059467649683356286
+        ]
+      }
+    },
+    {
+      "page": 3,
+      "arms": [
+        "later_half",
+        "later_quarter"
+      ],
+      "loss_limits": {
+        "later_half": [
+          0.0,
+          0.059467649683356286
+        ],
+        "later_quarter": [
+          0.0,
+          0.0629338338598609
+        ]
+      }
+    }
+  ],
+  "source_sha256": "509bc1c976d782f3c600fdf2f857ad647f3e4a5ff64db9280b7f39e33447f528",
+  "generator_sha256": "bb57cc21dba9d0b6fc69f5f5564a53b3ae5dc378ecc6360d391b7178d86f3aa5",
+  "pdf_sha256": "c56cc7fb7d8efe012a83cd8b8790360ca381e31b6d894090354e90dac2cabe29",
+  "plotted_values_checked": 50832,
+  "identical_baselines": true,
+  "independent_loss_axes": true,
+  "other_scales_shared_across_pages": true,
+  "original_figures_unchanged": {
+    "01-frozen-first-linear-double-lr-cifar10-mlp.pdf": "c2e3bd3640546d18b2602a05c98c3b764b73b7f4ab42642cabc4d320d5b141aa",
+    "02-i6-vs-i5-cifar10-mlp.pdf": "4593af75ea4a6ec65988f6caf38bc1f4e486430159d4e411dc6cfd8920a6ce30"
+  }
+}

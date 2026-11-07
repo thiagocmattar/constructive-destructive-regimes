@@ -357,3 +357,13 @@ confirmed stopping; no further run or new analysis is scheduled.
 places I6 left and I5 right, each against unchanged Adam over448-800, with
 independent linear loss axes. Eight rows retained; numeric and render checks
 pass. Original overview preserved; no new experiment. See observation004.
+
+## Analysis064/065: selective LR controls, H046
+
+[Observation005](065-2026-11-07-mlp-frozen-lr-double/observations/005-selective-layer-lr.md)
+and a new three-page figure compare first-layer/global/later-layer LR reductions
+at0.5x and0.25x from untreated448. Every arm overlays unchanged Adam. First-layer
+0.25x reduces mean loss7.06% and positive variation99.62%, retaining feature
+learning; last32 mean remains15.79% above baseline. Later-layer reductions retain
+reversals while improving mean loss. Runs252-257, all source/retrieval/dense/figure
+checks pass; workers exited. Original figures preserved; no new analysis allocated.

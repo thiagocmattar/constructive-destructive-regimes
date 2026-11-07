@@ -219,3 +219,16 @@ The user requested halving until no peak and confirmed stopping. Conservative
 rule: no adjacent increase or excess over loss500 above1e-8. This is finite-window
 selection, not a universal threshold or optimal-LR result. All interventions
 remain compared with unchanged Adam in the same analysis. Next run252; H046 unused.
+
+## H046: selective damping can preserve first-layer learning
+
+[Runs252-257 / Analysis065](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/005-selective-layer-lr.md)
+compare first-layer/global/later-layer LR reductions at0.5x/0.25x from untouched448.
+First-layer0.25x keeps all layers trainable, reduces mean loss7.06% and positive
+variation99.62%, and lowers first-hidden reversals350/353 to1/353. Its last32 mean
+is15.79% higher than baseline and its sustained-target crossing is later, so
+there is no uniform optimization advantage. Later-layer reductions retain most
+reversals yet improve average loss. First-layer0.5x and global0.5x develop late
+excursions. Supports location-sensitive suppression with continuing feature
+learning, not a unique cause or universal LR threshold. One seed/fork, unequal
+actual step norms, no generalization claim. All checks pass; next unused H047.

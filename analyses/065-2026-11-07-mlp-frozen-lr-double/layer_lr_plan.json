@@ -1,0 +1,66 @@
+{
+  "status": "prepared",
+  "hypothesis": "H046",
+  "arms": [
+    {
+      "run_id": 252,
+      "arm": "first_half",
+      "first_lr": 0.0005,
+      "later_lr": 0.001,
+      "path": "runs/252-2026-11-07-mlp-layer-lr-first-half"
+    },
+    {
+      "run_id": 253,
+      "arm": "first_quarter",
+      "first_lr": 0.00025,
+      "later_lr": 0.001,
+      "path": "runs/253-2026-11-07-mlp-layer-lr-first-quarter"
+    },
+    {
+      "run_id": 254,
+      "arm": "global_half",
+      "first_lr": 0.0005,
+      "later_lr": 0.0005,
+      "path": "runs/254-2026-11-07-mlp-layer-lr-global-half"
+    },
+    {
+      "run_id": 255,
+      "arm": "global_quarter",
+      "first_lr": 0.00025,
+      "later_lr": 0.00025,
+      "path": "runs/255-2026-11-07-mlp-layer-lr-global-quarter"
+    },
+    {
+      "run_id": 256,
+      "arm": "later_half",
+      "first_lr": 0.001,
+      "later_lr": 0.0005,
+      "path": "runs/256-2026-11-07-mlp-layer-lr-later-half"
+    },
+    {
+      "run_id": 257,
+      "arm": "later_quarter",
+      "first_lr": 0.001,
+      "later_lr": 0.00025,
+      "path": "runs/257-2026-11-07-mlp-layer-lr-later-quarter"
+    }
+  ],
+  "analysis": "065",
+  "primary_window": [
+    448,
+    800
+  ],
+  "event_window": [
+    450,
+    500
+  ],
+  "tail_window": [
+    769,
+    800
+  ],
+  "target_loss": 0.02,
+  "target_consecutive_states": 10,
+  "cloud_cost": 0,
+  "maximum_worker_seconds": 600,
+  "maximum_retained_gb": 18
+}
