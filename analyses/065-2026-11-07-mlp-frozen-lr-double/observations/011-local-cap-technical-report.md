@@ -1,0 +1,112 @@
+# Local displacement caps: technical report and manuscript figures
+
+## Outcome and scope
+
+The six-page [LaTeX report](../report/local-displacement-cap-report.pdf) consolidates
+local affine-displacement caps as a stabilization intervention motivated by
+representation/destructive-regime tracing. It contains motivation, matrix
+dimensions, the per-update algorithm, calibration, entry/distributed scopes,
+full training objectives and probes, results, replication, cost and limitations.
+The [editable source](../report/local-displacement-cap-report.tex) is self-contained
+with three generated table inputs and three companion vector figures.
+
+Only cap variants and their unchanged-Adam controls appear. The earlier broad
+exploration is preserved in observation 008 and Figures 06-08. This report adds
+no experiments, no cloud spending, and no run/analysis/hypothesis IDs.
+
+The common distributed q50 rule lowers mean training loss by 22.85%, 16.22%,
+and 26.00% for MLP, ResNet and Transformer in their respective windows. MLP
+initializations 1/2 improve 19.43%/32.08%. Negative representation-change
+alignment persists or becomes more frequent, and terminal test loss is worse
+under this cap in every setup. Stabilization here concerns measured loss
+excursions together with training progress, not a convergence guarantee.
+
+## Source records and reduction
+
+Sources are the verified `transfer_comparison.json` and follow-up comparisons
+for Runs 272, 273, 274, 282 and 283, plus `transfer_summary.json`. Entry figures
+use Runs 269/270/271 (q75); distributed figures use Runs 272/273/274 (q50);
+replication uses Runs 272/282/283. Tables additionally retain MLP entry q50,
+MLP distributed q75, and ResNet distributed q75. No other intervention result
+is included in the report. Source and generator hashes are in
+[local_cap_report_assets.json](../local_cap_report_assets.json).
+
+`34_local_cap_report_assets.py` checks existing reduction hashes, exact plotted
+arrays, native state sequences and all 12 selected table rows against independent
+reductions of the loss histories. The tables report full-window mean, last-32
+mean, maximum and total positive loss variation relative to each worker's own
+untreated control. The seed table also reports complete 10,000-image terminal
+test loss. The report's ResNet/WikiText-2 test comparisons retain full cached
+splits (10,000 images / 245,550 supervised test tokens).
+
+Loss states and outgoing representation changes have distinct indexing. At
+plotted t, representation movement is A_(t+1)-A_t and its cosine compares with
+A_t-A_(t-1). An extra state after the reported loss window supplies its last
+outgoing diagnostic. Raw-gradient cosine uses g_t and g_(t-1), not gradient
+differences. All sample/token/spatial coordinates are retained. Zero-denominator
+cosines remain undefined gaps, with no smoothing or interpolation.
+
+## Figure captions
+
+**Figure 09: entry local displacement caps, q75.** Three model/dataset columns
+compare each cap with its own unchanged Adam control. Windows are MLP 448-800,
+ResNet 264-576, and Transformer 552-928. Ten rows show loss, eta-kappa-hat,
+raw-gradient cosine/norm, early representation cosine/RMS, output cosine/RMS,
+actual/native whole-update norm ratio and the mean fraction of targeted units
+modified. Early means first MLP tanh, ResNet conv 1 output, or first Transformer
+attention output. The modified fraction averages over targeted modules; it is
+not the fraction of all parameters modified.
+
+**Figure 10: distributed local displacement caps, q50.** Same ten diagnostics
+and column definitions, using the wider target scopes defined in observation
+010. MLP extends through 1152; the other windows remain unchanged. Transformer
+caps target 2.91% of all parameters, so a whole-update norm ratio near one can
+coexist with frequent modification of the targeted units. Its baseline is the
+same-worker RTX 5090 control, not the RTX 4090 control in Figure 09.
+
+**Figure 11: MLP initialization replication.** Three columns show initializations
+0/1/2 over states 448-1152, comparing only distributed q50 with each seed's
+unchanged Adam. Rows show training loss, consecutive output-change cosine and
+output displacement coordinate RMS. Seed 0 selected the candidate; seeds 1/2
+use the same rule without retuning.
+
+All figures follow the manuscript's 7.16-inch width, Times New Roman/STIX
+typography, vector lines, restrained grid and shared legend convention.
+**Loss, gradient norms and RMS use logarithmic axes. Eta-kappa-hat uses a linear
+axis, as explicitly requested.** Each model/seed column has independent
+magnitude scales; cosine limits are -1 to 1. No signed-log axis is used.
+
+## Interpretation and uncertainty
+
+This is an amplitude intervention on local affine responses, informed by the
+earlier tracing method. It neither computes a temporal SVD nor directly
+suppresses a singular direction or negative cosine. The report derives the
+incoming-input terms excluded from the local cap and distinguishes its direct
+per-unit RMS bound from a bound on all examples or total network-output change.
+
+Entry q75 versus distributed q50 changes both scope and quantile. The Transformer
+comparison also changes GPU architecture, whose native controls differ. Effects
+are therefore paired within workers; no isolated Transformer depth effect is
+claimed. The report includes the matched-quantile MLP and ResNet comparisons.
+These are selected deterministic full-objective continuations, three MLP
+initializations and one initialization per larger model, without a powered
+uncertainty estimate, stochastic-minibatch validation or an optimal-quantile claim.
+Held-out losses are terminal measurements, not trajectories; their deterioration
+is retained prominently in the report.
+
+## Reproduction and verification
+
+From the repository root:
+
+```powershell
+python analyses/065-2026-11-07-mlp-frozen-lr-double/34_local_cap_report_assets.py
+python analyses/065-2026-11-07-mlp-frozen-lr-double/35_build_local_cap_report.py
+```
+
+The asset generator checks 61,450 plotted values and preserves earlier Figures
+01-08 byte for byte. The two-pass pdflatex build passes with a numbered algorithm,
+six pages, no unresolved references, no overfull boxes and no out-of-page text.
+The report and standalone figures were rendered at 120 dpi and all nine pages
+visually reviewed. See [build verification](../local_cap_report_verification.json)
+and [visual review](../local_cap_report_visual_review.json). Scratch PNGs and
+LaTeX compilation files remain ignored.

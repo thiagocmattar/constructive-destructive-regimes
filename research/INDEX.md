@@ -1,5 +1,15 @@
 # Research index
 
+## Local representation cap report, 8 November 2026
+
+[Analysis 065 technical report](../analyses/065-2026-11-07-mlp-frozen-lr-double/report/local-displacement-cap-report.pdf)
+consolidates the representation-informed stabilization method, numbered algorithm,
+entry/distributed scopes, setup, cap-only results and MLP replication. Three new
+manuscript-style figures use log loss and linear eta-kappa-hat, with independent
+column scales. All 61,450 plotted values, 12 table rows and nine rendered pages
+verified; terminal test-loss limitations retained. Existing figures preserved.
+LaTeX source and reproduction are local to 065; no new training or cloud work.
+
 ## Representation-informed transfer, 7-8 November 2026
 
 [Analysis 065 / H048](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/008-cross-architecture-interventions.md) completes Runs 269-285.

@@ -1,0 +1,75 @@
+{
+  "status": "passed",
+  "utc": "2026-11-08T11:57:19.572723+00:00",
+  "renderer": "MiKTeX Poppler pdftoppm",
+  "dpi": 120,
+  "outputs": [
+    {
+      "file": "report/local-displacement-cap-report.pdf",
+      "sha256": "f1360d2164ce7bd42a858c7099e113002ff770865b7e473e32404c87617f58eb",
+      "pages_reviewed": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "file": "figures/09-local-cap-entry-manuscript.pdf",
+      "sha256": "81d87b3b098de98d1a327d8cd57fbff09ae71d48b742c05743bd2f6ceab6cfc4",
+      "pages_reviewed": [
+        1
+      ]
+    },
+    {
+      "file": "figures/10-local-cap-distributed-manuscript.pdf",
+      "sha256": "4aeb685a185a8adbab98179f393db2ef302e9e8f1e333707feacd2dc23202b20",
+      "pages_reviewed": [
+        1
+      ]
+    },
+    {
+      "file": "figures/11-local-cap-mlp-replication.pdf",
+      "sha256": "8818b244fdfaa9f587be4cabdb3a25f9356be6976548b37d39b9fe5738eb4566",
+      "pages_reviewed": [
+        1
+      ]
+    }
+  ],
+  "total_pages_reviewed": 9,
+  "plotted_values_checked": 61450,
+  "table_rows_checked": 12,
+  "axes": {
+    "loss": "logarithmic",
+    "eta_kappa_hat": "linear",
+    "column_magnitude_scales": "independent"
+  },
+  "visual_checks": [
+    "All report and standalone pages inspected",
+    "Equations and numbered algorithm readable",
+    "Tables and captions fit",
+    "Legends and axis labels clear",
+    "No clipping or overlap",
+    "Final changed pages 2 and 3 reinspected; other report renders byte-identical"
+  ],
+  "unchanged_report_renders_after_final_edit": [
+    1,
+    4,
+    5,
+    6
+  ],
+  "earlier_figures_head_identical": {
+    "01-frozen-first-linear-double-lr-cifar10-mlp.pdf": "c2e3bd3640546d18b2602a05c98c3b764b73b7f4ab42642cabc4d320d5b141aa",
+    "02-i6-vs-i5-cifar10-mlp.pdf": "4593af75ea4a6ec65988f6caf38bc1f4e486430159d4e411dc6cfd8920a6ce30",
+    "03-selective-layer-lr-cifar10-mlp.pdf": "c56cc7fb7d8efe012a83cd8b8790360ca381e31b6d894090354e90dac2cabe29",
+    "04-selective-update-methods-cifar10-mlp.pdf": "8bc78badf37753acc4736db447d8c37b181d86573deb186eabb514feaca4d6f7",
+    "05-selective-update-norm-controls-cifar10-mlp.pdf": "3ea8439289c5494ace6353fccc4bbe122053fa06f6fa72280cb3a0c9e517bed8",
+    "06-selective-transfer-diagnostics.pdf": "f7258c9c7b249b706d2891f57516752d0d199f92321fc736f2dedbc2f991599f",
+    "07-distributed-displacement-and-controls.pdf": "b7b1556288db4a621c7b3bed8a85b257539c7e1e176ad4b2fc30541cb0e853bd",
+    "08-adaptive-and-embedding-tests.pdf": "d343bc22779aabc028e3c6b4dff8a1efd0192b5e4151eda742ef9881edc4918b"
+  },
+  "assets_sha256": "044c8ff8de417da9fbf95947fa1843dbebe4318c7112772aa349bf21aee23cee",
+  "build_verification_sha256": "16f655c8e7b018c63a8877dc6c540899d8ac4b656c760adf1197dc0ab6dc9c91"
+}

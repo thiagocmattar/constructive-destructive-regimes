@@ -1,5 +1,14 @@
 # Analysis registry
 
+## Analysis 065: local displacement cap technical report
+
+[Six-page report and editable LaTeX](065-2026-11-07-mlp-frozen-lr-double/observations/011-local-cap-technical-report.md)
+formalize the representation-informed stabilization intervention with a numbered
+algorithm and cap-only results. Figures 09-11 follow manuscript typography,
+logarithmic loss and linear eta-kappa-hat, with independent column scales.
+Source/61,450-value/table checks and all nine rendered pages pass. No new
+training or analysis ID; earlier figures remain unchanged.
+
 ## Analysis 065 extension: representation-informed intervention transfer
 
 [H048 results and methods](065-2026-11-07-mlp-frozen-lr-double/observations/008-cross-architecture-interventions.md)

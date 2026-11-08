@@ -197,3 +197,23 @@ Reproduction commands and measurement limits are in observation 008.
 New figures use numbers 06-08; earlier figures remain byte-identical. Scientific
 inputs are frozen. Keep further work in this analysis; no new analysis ID was
 allocated. The next unused run is 286 and the next unused hypothesis is H049.
+
+## Local displacement cap technical report
+
+The [six-page report](report/local-displacement-cap-report.pdf) consolidates
+motivation from representation-instability tracing, the local cap algorithm,
+entry/distributed scopes, probes and training setup, cap-only results and MLP
+replication. Its [LaTeX source](report/local-displacement-cap-report.tex) includes
+the numbered algorithm. Terminal test-loss deterioration and the distinction
+between local and total representation movement remain explicit.
+
+New manuscript-style figures show [entry caps](figures/09-local-cap-entry-manuscript.pdf),
+[distributed caps](figures/10-local-cap-distributed-manuscript.pdf), and
+[MLP replication](figures/11-local-cap-mlp-replication.pdf). Loss uses logarithmic
+axes with independent scales per column; eta-kappa-hat uses linear axes.
+Only local cap variants and unchanged Adam appear. Existing figures are preserved.
+
+[Observation 011](observations/011-local-cap-technical-report.md) records sources,
+captions, coverage, caveats and reproduction. All 61,450 plotted values, 12 table
+rows, six report pages and three standalone figure pages pass checks and visual
+review. No new training, cloud work or scientific allocation.
