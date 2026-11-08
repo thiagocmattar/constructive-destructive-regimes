@@ -39,7 +39,10 @@ comparison) pooled over units and eight untreated preceding updates. A zero
 calibrated threshold disables that module's cap. Native moments and clock advance;
 final stored FP32 increments require the recorded rounding check.
 
-Let $\widetilde H_s=[H_s,\mathbf1_n]$, $\bar u_{s,j}=[U_{s,j:}^\top,v_{s,j}]^\top$.
+Let $\widetilde H_s=[H_s,\mathbf1_n]$ and stack the weight row with its bias:
+$$
+\bar u_{s,j}=\begin{bmatrix}U_{s,j:}^\top\\v_{s,j}\end{bmatrix}\in\mathbb R^{d+1}.
+$$
 $$
 c_{s,j}^2=\bar u_{s,j}^\top G_s\bar u_{s,j},\qquad
 G_s=\frac1n\widetilde H_s^\top\widetilde H_s .

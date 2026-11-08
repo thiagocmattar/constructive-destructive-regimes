@@ -32,7 +32,7 @@
 - **Contribution 4 — trace and control functional movement.**
   - **Known:** [Catapults](https://proceedings.mlr.press/v235/zhu24h.html) connects output/NTK dynamics and feature learning; representation-aware update methods already exist.
   - **Gap addressed:** locate which stages participate in an observed excursion and test whether selective movement control preserves progress.
-  - **Response/test:** fixed-probe tracing algorithm, architecture-specific findings and per-unit affine-displacement cap; selected training-window means improve **22.85%/16.22%/26.00%** across MLP/ResNet/Transformer. Negative controls test the proposed interpretation. **V-B/C.**
+  - **Response/test:** fixed-probe tracing algorithm, architecture-specific findings and the distributed q50 affine-displacement cap; selected training-window means improve **22.85%/16.22%/26.00%** across MLP/ResNet/Transformer while reversals persist. Place this result after LR, beta2 and clipping comparisons, each with its own unchanged baseline. **V-B/C.**
 
 ## II. Stability Analysis of SGD — position each contribution precisely
 
@@ -107,12 +107,17 @@
 
 - **Rule out “only a few large steps”:** [retained-Gram controls](evidence/05-adam/b-tracing/observations/63-006-spectral-controls.md) give top-mode energy **53.0/24.0/41.7%**, versus **7.8/10.5/16.7%** with identical step norms and orthogonal directions. Unit-row rank95 is **5/18/29**: amplitude weighting matters, especially in Transformer.
 - **Connect to loss:** use raw MLP outputs and cross-entropy log probabilities. Correct-label readouts reproduce probe loss by their negative mean; their alignment histories correlate **.943/.946** with full-output histories in ResNet/Transformer. The MLP exact decomposition below provides a stronger loss connection.
-- **Figure 6:** three model columns; full/probe loss, stage-by-time cosine/RMS heatmaps, spectrum and signed coefficients over the recorded tracing windows. Use the heatmap layout of [065 Figure 07, page 2](evidence/05-adam/c-intervention/figures/07-distributed-displacement-and-controls.pdf#page=2); keep the paired baseline/cap comparison in V-C. Heatmaps and temporal SVD answer different questions.
+- **Figure 6:** three model columns; full/probe loss, stage-by-time cosine/RMS heatmaps, spectrum and signed coefficients over the recorded tracing windows. Use the layout of the [selected q50 heatmaps](evidence/05-adam/c-intervention/figures/07-distributed-q50-stage-heatmaps.pdf), extracted from 065 Figure 07 page 2; keep the paired baseline/cap comparison in V-C. Heatmaps and temporal SVD answer different questions.
 - **Interpretation/cost:** directional structure and repeated reversals are supported. SVD alone is time-permutation invariant; rank≤T automatically. No unique causal origin or spike-specific concentration follows without interventions/quiet-window contrasts. Rolling cosine/RMS costs O(P); full-window Gram costs O(T²P), eigendecomposition O(T³), and is retrospective.
 
 ### C. Intervention — test what the functional interpretation buys
 
-- **Narrative order:** LR schedules → clipping → beta2 → local-displacement cap. Recover [058](evidence/05-adam/c-intervention/observations/058-summary.md), [059](evidence/05-adam/c-intervention/observations/059-summary.md) and ongoing [065](evidence/05-adam/c-intervention/observations/065-summary.md).
+- **Selected presentation — exactly four families, in this order:**
+
+  1. **LR schedules / Figure 7:** [persistent half LR](evidence/05-adam/c-intervention/figures/01-persistent-half-lr-cifar10-mlp-resnet-wikitext2-transformer.pdf). Three architectures; reduce LR by half from the retained warm state, keeping each unchanged baseline.
+  2. **Beta schedule / Figure 8:** [late beta2 reductions](evidence/05-adam/c-intervention/figures/01-beta2-reductions-cifar10-mlp.pdf). MLP only; .999→.95/.9/.5 at state 512 with moments/clock retained and constant LR.
+  3. **Gradient clipping / Figure 9:** [MLP and ResNet clipping](evidence/05-adam/c-intervention/figures/05-gradient-clipping-cifar10-mlp-resnet.pdf). Global raw-gradient caps before Adam moments: MLP thresholds .5/1, ResNet 1; show raw and clipped norms distinctly.
+  4. **Distributed displacement cap / Figure 10:** q50 is the **only representation-inspired intervention** presented. Retain the paired heatmaps, scalar diagnostics and MLP replication; other methods and quantiles are background evidence.
 - **Mechanistic bridge, already measured:** MLP loss satisfies **delta_L = <F−Y,delta_F>/N + ||delta_F||²/(2N)**. Over outgoing updates 448–1152, including the transition to 1153, all **377/371/379** baseline rises >1e−8 across three seeds have a negative first term outweighed by movement cost. This establishes finite-step functional overshoot in these trajectories. Cross-entropy uses its own readout, not this squared-loss identity.
 - **Algorithm 2 — [local cap](evidence/05-adam/c-intervention/observations/65-010-local-displacement-cap-geometry.md):**
   - Current inputs H: n×d; weights W: m×d; bias b: m. Native stored Adam increments U,v induce **D = H Uᵀ + 1_n vᵀ**, n×m.
@@ -122,36 +127,32 @@
 - **Geometry/coverage:** with bias-augmented inputs, s_j²=u_jᵀG u_j, G=H_augᵀH_aug/n. Radial rescaling uses input correlations without inverting G. It bounds the direct affine term; incoming-representation changes and their interaction remain unconstrained.
 - **Actual targets:** MLP both hidden affines; ResNet all 31 convolutions; Transformer two QKV and four feed-forward affines. Output/classifier, normalization, embeddings and Transformer attention-output projections remain outside these caps.
 - **Cost:** probe forward to capture inputs plus direct affine/convolution products and storage-rounding verification. The score requires no second complete candidate-network forward, Jacobian or SVD. Measure controller time/memory; current FP64 diagnostic implementation is not established as production-efficient.
-- **Discriminating [negative controls](evidence/05-adam/c-intervention/observations/65-009-what-the-negative-controls-show.md):**
-  - MLP q50: mean loss **−22.85%**; same-layer norm-schedule control **−3.43%**. Allocation within layers matters in this matched comparison.
-  - Removing a reversing component: mean **+171.71%**; output-wide displacement budget: **+58.18%** despite smaller average motion. Suppressing reversal or total motion alone is insufficient.
-  - Cap retains reversals. Its last-32 mean is **+4.36%**: report the full trajectory and tail, not only an attractive endpoint.
-- **Figure 7 — selected main base:** [065 Figure 07, page 2](evidence/05-adam/c-intervention/figures/07-distributed-displacement-and-controls.pdf#page=2). Retain its three architecture columns and five rows: full training loss, baseline/cap consecutive-change cosine, baseline/cap movement RMS. This connects loss excursions, depth and time, and the intervention in one display: large movement bursts diminish while reversals persist.
+- **q50 result to foreground:** mean loss changes **−22.85%/−16.22%/−26.00%** for MLP/ResNet/Transformer; two further MLP seeds give **−19.43%/−32.08%**. Reversals persist. MLP seed 0's last-32 mean is **+4.36%**, so retain the full trajectory and tail rather than only its favorable window mean.
+- **Figure 10 — selected main base:** [standalone q50 heatmaps](evidence/05-adam/c-intervention/figures/07-distributed-q50-stage-heatmaps.pdf), preserving source Figure 07 page 2 exactly. Retain its three architecture columns and five rows: full training loss, baseline/cap consecutive-change cosine, baseline/cap movement RMS. This connects loss excursions, depth and time, and the intervention in one display: large movement bursts diminish while reversals persist.
 - **Heatmap contract:** each row is one captured stage, reduced over all fixed-probe coordinates, not every individual module. Cosine uses a common [−1,1] scale. Both RMS maps divide by that stage's **same baseline maximum** over the displayed window; this is not normalization by activation magnitude, and colors do not compare absolute RMS across stages. No smoothing or new SVD. Windows: MLP 448–800, ResNet 264–576, Transformer 552–928; the MLP outcome table separately includes the extension to 1152. Preserve the architecture distinctions and make labels legible at final two-column width.
-- **Outcome table / supporting diagnostics:** window mean, maximum, positive variation (sum of positive loss increments), final-32 mean, functional motion, held-out loss and cost. Keep [065 Figure 10's scalar diagnostics](evidence/05-adam/c-intervention/figures/10-local-cap-distributed-manuscript.pdf) as support. The selected heatmaps establish the paired cap comparison; ranking all historical interventions still needs qualification. Terminal held-out loss worsens in all three cases.
-- **Completed sensitivity check:** the [54-continuation MLP quantile/LR grid](evidence/05-adam/c-intervention/observations/65-013-distributed-cap-quantile-lr.md) spans three initializations. q50 at 1× has the lowest observed mean; q25 tolerates larger nominal LR, but no quantile improves its own 1× across-seed mean at 2×/4×. Keep the [shared-axis ablation](evidence/05-adam/c-intervention/figures/14-distributed-cap-quantile-ablation-mlp.pdf) and held-out tradeoffs as supporting evidence, without claiming acceleration or an optimal quantile.
+- **Outcome table / supporting diagnostics:** window mean, maximum, positive variation (sum of positive loss increments), final-32 mean, functional motion, held-out loss and cost. Keep [q50 scalar diagnostics](evidence/05-adam/c-intervention/figures/10-local-cap-distributed-manuscript.pdf) and [q50 MLP replication](evidence/05-adam/c-intervention/figures/11-local-cap-mlp-replication.pdf) as support. The selected heatmaps establish the paired cap comparison; ranking the four families still needs qualification. Terminal held-out loss worsens in all three q50 cases.
+- **Background boundary:** entry caps, other quantiles, freezing, directional removal, output-wide budgets and retrospective norm controls are retained in source records for audit. They are outside the selected presentation; do not promote them into additional methods or mandatory experiments.
 - **Comparison limits:** historical hardware/windows/budgets differ; half stored increments are not bitwise native half-LR. A late beta2 switch with retained moments does not refute Bai's lower-beta2 training prescription. Inactive clipping cannot support a superiority claim.
 
 ## VI. Conclusion and appendices
 
 - **Conclusion:** interaction → curvature/noise → functional expression → selective control. Preserve the explanatory scope; distinguish training dynamics from generalization and computational efficiency.
-- **Appendices:** proofs/clock/BB equivalence, HVP and finite-step residuals, complete Adam audit, probes/stochastic controls, cap calibration, negative controls and held-out outcomes.
+- **Appendices:** proofs/clock/BB equivalence, HVP and finite-step residuals, complete Adam audit, probes/stochastic controls, q50 calibration/replication and held-out outcomes. Archived exploratory methods are not automatically appendix content.
 - **Abstract last:** replace outdated “future interventions” with completed findings and their measured scope.
 
 ## Closure work — concrete order and stopping criteria
 
 - **1. Assemble existing evidence — required, no new training.**
   - Rewrite I–III around the four contribution cards; retain IV's four figures.
-  - Compress V-A as above; assemble V-B/C with two algorithms, three figures and the intervention outcome table. Defer secondary curves to appendices.
+  - Compress V-A as above; assemble V-B/C with two algorithms, Figures 5–10 and the intervention outcome table. V-C follows LR → beta2 → clipping → distributed q50. Defer secondary q50 diagnostics to appendices.
   - Standardize state/update notation, losses, sample coverage, seeds and source links. Preserve original evidence and manuscript structure.
 
 - **2. Qualify intervention comparisons — required before direct ranking.**
   - Audit reusable branches against identical starting tensors, optimizer/RNG, objective, hardware, precision, probe and calibration. Otherwise repeat the unchanged baseline with its paired intervention.
   - Fixed seed-0 windows: **MLP 448→1152/LR .001; ResNet 264→576/.003; Transformer 552→928/.003**.
-  - Configurations per architecture: unchanged Adam, native half-LR, global raw-gradient clipping, distributed q50 cap, same-layer norm-schedule control. Add late beta2=.95 for MLP, with its native bias-correction convention explicit.
+  - Configurations per architecture: unchanged Adam, native half-LR, global raw-gradient clipping and distributed q50 cap. Add representative late beta2=.95 for MLP, with its native bias-correction convention explicit; the existing beta figure retains all three tested reductions.
   - Clipping threshold: median untreated raw-gradient norm over the same eight-update prefix. Report clipping activity and applied-norm reduction; equal quantiles do not equal matched strength.
-  - Norm control: replay the cap branch's actual per-layer increment norms along the control's own native directions. Label this retrospective mechanism control, not a deployable competitor.
-  - **Maximum comparison matrix: 16 continuations for seed 0; 48 across three initializations, before qualified reuse.** Use the same absolute start/window per seed; report absent excursions. Retain or recreate untreated prefixes/checkpoints as needed.
+  - **Maximum selected comparison matrix: 13 continuations for seed 0; 39 across three initializations, before qualified reuse.** Use the same absolute start/window per seed; report absent excursions. Retrospective norm-control experiments are outside this matrix. Retain or recreate untreated prefixes/checkpoints as needed.
   - **Success criterion:** report all paired outcomes, including divergence, tail/test deterioration and inactive controls. A ranking requires replicated matched effects; otherwise state the case-dependent result. Do not retune on the reported windows.
   - Continue Analysis 065 with new run IDs for changed inputs. Prepare measured duration, live cost/storage limits and retrieval checks before any launch.
 

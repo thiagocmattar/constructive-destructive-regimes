@@ -1,8 +1,8 @@
 # Evidence package in paper order
 
 - **Current authority:** [PLAN.md](../PLAN.md). The six top-level evidence notes are now aligned with its four contributions and closure sequence.
-- **Contents:** 102 source assets copied into the paper structure, plus four regenerated compact tables, four equation sets, two algorithms and eight bibliography additions.
-- **Provenance:** research sources remain canonical. PDF/TeX/CSV/JSON/BibTeX copies preserve bytes; observation copies add a source header and rebase links.
+- **Contents:** 103 packaged assets from 102 unique source files, plus four regenerated compact tables, four equation sets, two algorithms and eight bibliography additions.
+- **Provenance:** research sources remain canonical. Copies preserve bytes except recorded transformations: observation headers/links, one report dependency path, and the standalone q50 heatmap page extraction.
 - **Editable material:** the consolidated equation/algorithm/table snippets have been syntax-checked. Original draft TeX is a source snapshot with its original input paths; it is not a standalone manuscript build.
 - **Readiness:** “retained main” is an existing selected display; “main base” or “assembly component” still needs final composition/caption work; historical comparators retain their original matching limitations.
 
@@ -14,7 +14,7 @@
 | [04-gd-sgd](04-gd-sgd/README.md) | Figures 1–4 and HVP, finite-step, all-lag/batch evidence |
 | [05-adam/a-characterization](05-adam/a-characterization/README.md) | Figure 5 base, sign/severity tables, complete forward audit |
 | [05-adam/b-tracing](05-adam/b-tracing/README.md) | Figure 6 components, mode controls, Algorithm 1 and report |
-| [05-adam/c-intervention](05-adam/c-intervention/README.md) | Figure 7 stage-heatmap base, controls, cap outcomes/test loss, Algorithm 2 |
+| [05-adam/c-intervention](05-adam/c-intervention/README.md) | Figures 7–10: LR → beta2 → clipping → distributed q50, outcome table and Algorithm 2 |
 | [06-conclusion](06-conclusion/README.md) | Current conclusion and closing claims |
 | [appendices](appendices/README.md) | Original derivations/diagnostics and supplied decision letter |
 

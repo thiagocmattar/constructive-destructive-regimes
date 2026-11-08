@@ -20,7 +20,7 @@ uniformly improve training progress.
 This block contains 93.57% of model parameters; there is no matched later-layer
 freeze or equal-update-norm control here.
 
-[Two-page comparison figure](../comparators/01-freeze-first-linear-cifar10-mlp.pdf).
+[Two-page comparison figure](../background/comparators/01-freeze-first-linear-cifar10-mlp.pdf).
 
 ## Matched intervention
 

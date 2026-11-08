@@ -194,6 +194,7 @@ def build():
     catalogue = json.loads(CATALOG.read_text(encoding="utf-8"))
     assets = catalogue["assets"]
     mapped = {}
+    destinations = set()
     for item in assets:
         source, target = ROOT/item["source"], OUT/item["destination"]
         assert target.resolve().is_relative_to(OUT.resolve()), target
@@ -201,13 +202,31 @@ def build():
         for key in ("observation", "generator"):
             if item.get(key):
                 assert (ROOT/item[key]).is_file(), item[key]
-        assert source.resolve() not in mapped, source
-        mapped[source.resolve()] = target.resolve()
+        assert target.resolve() not in destinations, target
+        destinations.add(target.resolve())
+        # A selected page may accompany the complete historical source PDF.
+        if not item.get("pdf_pages") or source.resolve() not in mapped:
+            mapped[source.resolve()] = target.resolve()
     records = []
     for item in assets:
         source, target = ROOT/item["source"], OUT/item["destination"]
         target.parent.mkdir(parents=True, exist_ok=True)
-        if source.suffix == ".md":
+        if item.get("pdf_pages"):
+            import fitz
+            with fitz.open(source) as original, fitz.open() as selected:
+                for page in item["pdf_pages"]:
+                    assert 1 <= page <= original.page_count
+                    selected.insert_pdf(original, from_page=page-1, to_page=page-1)
+                target.write_bytes(selected.tobytes(garbage=4, deflate=True, no_new_id=True))
+            transform = "PDF page selection; original page content preserved"
+        elif item.get("path_replacements"):
+            data = source.read_bytes()
+            for old, new in item["path_replacements"].items():
+                assert data.count(old.encode("utf-8")) == 1, old
+                data = data.replace(old.encode("utf-8"), new.encode("utf-8"))
+            target.write_bytes(data)
+            transform = "TeX dependency path rebased; scientific content retained"
+        elif source.suffix == ".md":
             write(target, rebase_markdown(source, target, mapped))
             transform = "Markdown source header and rebased local links"
         else:
@@ -223,8 +242,10 @@ def build():
         items = [r for r in records if r["section"] == section]
         lines = ["# "+info["title"], "", "- **Paper claim:** "+info["claim"],
                  "- **Boundary:** "+info["boundary"],
-                 "- **Authority:** the [single paper plan]("+relative(BASE/"PLAN.md",folder)+") governs selection and closure.",
-                 "", "| Asset | Status | Use / source |", "|---|---|---|"]
+                 "- **Authority:** the [single paper plan]("+relative(BASE/"PLAN.md",folder)+") governs selection and closure."]
+        if info.get("presentation"):
+            lines.append("- **Presentation:** " + info["presentation"])
+        lines += ["", "| Asset | Status | Use / source |", "|---|---|---|"]
         for r in items:
             notes = r["note"]
             if r["observation"]:
@@ -283,6 +304,14 @@ def verify():
                 assert doc.page_count > 0
                 if r.get("selected_page"):
                     assert 1 <= r["selected_page"] <= doc.page_count
+                if r.get("pdf_pages"):
+                    with fitz.open(source) as original:
+                        assert doc.page_count == len(r["pdf_pages"])
+                        for i, number in enumerate(r["pdf_pages"]):
+                            before, after = original[number-1], doc[i]
+                            assert before.rect == after.rect
+                            assert before.get_text() == after.get_text()
+                            assert before.get_pixmap().samples == after.get_pixmap().samples
                 for page in doc:
                     page.get_pixmap(matrix=fitz.Matrix(.1,.1))
                 pdfs += 1
@@ -298,6 +327,12 @@ def verify():
             links += 1
             if not (path.parent/target).resolve().exists():
                 errors.append("Broken link: "+str(path.relative_to(BASE))+" -> "+target)
+    selected_folder = "05-adam/c-intervention/figures"
+    selected = {r["destination"] for r in manifest["copies"]
+                if Path(r["destination"]).parent.as_posix() == selected_folder}
+    actual = {p.relative_to(OUT).as_posix() for p in (OUT/selected_folder).glob("*.pdf")}
+    if actual != selected:
+        errors.append("Selected intervention folder differs from the catalogue")
     preservation = json.loads((BASE/"provenance.json").read_text(encoding="utf-8"))
     for kind,key in [("human_inputs","preserved_path"),("active_manuscript_snapshot","path")]:
         for item in preservation[kind]:
@@ -306,6 +341,7 @@ def verify():
     result = {"date":"2026-11-08","copies_checked":len(manifest["copies"]),
               "prepared_files_checked":len(manifest["prepared_files"]),
               "pdfs_decoded":pdfs,"pdf_pages_decoded":pages,"markdown_links_checked":links,
+              "selected_intervention_pdfs":len(actual),
               "human_originals_unchanged":len(preservation["human_inputs"]),
               "manuscript_files_unchanged":len(preservation["active_manuscript_snapshot"]),
               "errors":errors}

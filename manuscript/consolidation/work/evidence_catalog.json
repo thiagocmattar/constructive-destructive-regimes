@@ -33,9 +33,10 @@
       "boundary": "SVD is retrospective and permutation invariant; stage association does not identify a unique cause. Original windows/probes must remain explicit."
     },
     "05-adam/c-intervention": {
-      "title": "V-C. Representation-informed intervention",
-      "claim": "The local affine cap improves selected training-window outcomes; negative controls distinguish direction, amplitude and within-layer allocation.",
-      "boundary": "Training benefits coexist with held-out deterioration. Historical comparators are not one matched benchmark; direct ranking remains pending."
+      "title": "V-C. Intervention comparisons",
+      "claim": "Present learning-rate schedules, beta2 schedules, gradient clipping and the distributed q50 displacement cap; each retains its unchanged Adam baseline.",
+      "boundary": "Training benefits coexist with held-out deterioration. Historical comparators are not one matched benchmark; direct ranking remains pending.",
+      "presentation": "The figures/ folder contains only these four families. Distributed q50 is the sole representation-inspired intervention; other methods and quantiles are background evidence."
     },
     "06-conclusion": {
       "title": "VI. Conclusion",
@@ -651,74 +652,123 @@
     },
     {
       "section": "05-adam/c-intervention",
-      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/09-local-cap-entry-manuscript.pdf",
-      "destination": "05-adam/c-intervention/figures/09-local-cap-entry-manuscript.pdf",
-      "title": "09-local-cap-entry-manuscript.pdf",
-      "role": "support",
-      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/011-local-cap-technical-report.md",
-      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/34_local_cap_report_assets.py",
-      "note": "Supporting result; preserve its own windows, scopes and baseline."
+      "source": "analyses/058-2026-11-06-intervention-consolidation/figures/01-persistent-half-lr-cifar10-mlp-resnet-wikitext2-transformer.pdf",
+      "destination": "05-adam/c-intervention/figures/01-persistent-half-lr-cifar10-mlp-resnet-wikitext2-transformer.pdf",
+      "title": "Figure 7: learning-rate schedule",
+      "role": "selected conventional intervention",
+      "observation": "analyses/058-2026-11-06-intervention-consolidation/observations/001-persistent-half-lr.md",
+      "generator": "analyses/058-2026-11-06-intervention-consolidation/01_figures.py",
+      "note": "Historical windows MLP 512–800, ResNet 256–576, Transformer 544–928; not matched to cap forks.",
+      "presentation_order": 1
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/059-2026-11-07-mlp-beta2-reduction/figures/01-beta2-reductions-cifar10-mlp.pdf",
+      "destination": "05-adam/c-intervention/figures/01-beta2-reductions-cifar10-mlp.pdf",
+      "title": "Figure 8: beta2 schedule",
+      "role": "selected conventional intervention",
+      "observation": "analyses/059-2026-11-07-mlp-beta2-reduction/observations/001-beta2-reduction.md",
+      "generator": "analyses/059-2026-11-07-mlp-beta2-reduction/01_report.py",
+      "note": "Late switch at MLP state 512 retaining moments/clock; not lower beta2 from initialization.",
+      "presentation_order": 2
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/058-2026-11-06-intervention-consolidation/figures/05-gradient-clipping-cifar10-mlp-resnet.pdf",
+      "destination": "05-adam/c-intervention/figures/05-gradient-clipping-cifar10-mlp-resnet.pdf",
+      "title": "Figure 9: gradient clipping",
+      "role": "selected conventional intervention",
+      "observation": "analyses/058-2026-11-06-intervention-consolidation/observations/005-clipping.md",
+      "generator": "analyses/058-2026-11-06-intervention-consolidation/01_figures.py",
+      "note": "MLP and ResNet historical clipping; activity and placement matter.",
+      "presentation_order": 3
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/07-distributed-displacement-and-controls.pdf",
+      "destination": "05-adam/c-intervention/figures/07-distributed-q50-stage-heatmaps.pdf",
+      "title": "Figure 10 selected base: distributed q50 stage heatmaps",
+      "role": "main base",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/008-cross-architecture-interventions.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/22_figures_transfer.py",
+      "note": "Exact page 2 from the full historical PDF, retaining vector content. Only unchanged Adam and distributed q50. Common baseline RMS maxima; MLP 448-800, ResNet 264-576, Transformer 552-928.",
+      "pdf_pages": [
+        2
+      ],
+      "selected_page": 1,
+      "presentation_order": 4
     },
     {
       "section": "05-adam/c-intervention",
       "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/10-local-cap-distributed-manuscript.pdf",
       "destination": "05-adam/c-intervention/figures/10-local-cap-distributed-manuscript.pdf",
-      "title": "Supporting scalar diagnostics: distributed local cap",
-      "role": "support",
+      "title": "Distributed q50: scalar diagnostics",
+      "role": "q50 supporting display",
       "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/011-local-cap-technical-report.md",
       "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/34_local_cap_report_assets.py",
-      "note": "Detailed scalar diagnostics supporting the selected page-2 heatmaps; retain held-out and negative-control outcomes."
+      "note": "Distributed-q50 scalar diagnostics supporting the selected heatmaps; retain held-out outcomes and the recorded evaluation window.",
+      "presentation_order": 5
     },
     {
       "section": "05-adam/c-intervention",
       "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/11-local-cap-mlp-replication.pdf",
       "destination": "05-adam/c-intervention/figures/11-local-cap-mlp-replication.pdf",
-      "title": "11-local-cap-mlp-replication.pdf",
-      "role": "support",
+      "title": "Distributed q50: three-initialization MLP replication",
+      "role": "q50 supporting display",
       "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/011-local-cap-technical-report.md",
       "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/34_local_cap_report_assets.py",
-      "note": "Supporting result; preserve its own windows, scopes and baseline."
+      "note": "Supporting result; preserve its own windows, scopes and baseline.",
+      "presentation_order": 6
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/09-local-cap-entry-manuscript.pdf",
+      "destination": "05-adam/c-intervention/background/figures/09-local-cap-entry-manuscript.pdf",
+      "title": "Background source: 09-local-cap-entry-manuscript.pdf",
+      "role": "background only",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/011-local-cap-technical-report.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/34_local_cap_report_assets.py",
+      "note": "Preserved historical evidence; excluded from the selected four-part presentation."
     },
     {
       "section": "05-adam/c-intervention",
       "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/07-distributed-displacement-and-controls.pdf",
-      "destination": "05-adam/c-intervention/figures/07-distributed-displacement-and-controls.pdf",
-      "title": "Figure 7 selected base: stage heatmaps, page 2",
-      "role": "main base (page 2)",
+      "destination": "05-adam/c-intervention/background/figures/07-distributed-displacement-and-controls.pdf",
+      "title": "Background source: 07-distributed-displacement-and-controls.pdf",
+      "role": "background only",
       "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/008-cross-architecture-interventions.md",
       "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/22_figures_transfer.py",
-      "note": "Loss plus baseline/cap stage cosine and RMS. Both arms share each stage's baseline RMS maximum; MLP 448-800, ResNet 264-576, Transformer 552-928. Preserve the paired layout; finalize publication sizing/caption.",
-      "selected_page": 2
+      "note": "Preserved historical evidence; excluded from the selected four-part presentation."
     },
     {
       "section": "05-adam/c-intervention",
       "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/12-distributed-cap-quantile-lr-mlp.pdf",
-      "destination": "05-adam/c-intervention/figures/12-distributed-cap-quantile-lr-mlp.pdf",
-      "title": "12-distributed-cap-quantile-lr-mlp.pdf",
-      "role": "support",
+      "destination": "05-adam/c-intervention/background/figures/12-distributed-cap-quantile-lr-mlp.pdf",
+      "title": "Background source: 12-distributed-cap-quantile-lr-mlp.pdf",
+      "role": "background only",
       "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/013-distributed-cap-quantile-lr.md",
       "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/40_plot_cap_lr.py",
-      "note": "Supporting result; preserve its own windows, scopes and baseline."
+      "note": "Preserved historical evidence; excluded from the selected four-part presentation."
     },
     {
       "section": "05-adam/c-intervention",
       "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/13-distributed-cap-lr-seed-diagnostics.pdf",
-      "destination": "05-adam/c-intervention/figures/13-distributed-cap-lr-seed-diagnostics.pdf",
-      "title": "13-distributed-cap-lr-seed-diagnostics.pdf",
-      "role": "support",
+      "destination": "05-adam/c-intervention/background/figures/13-distributed-cap-lr-seed-diagnostics.pdf",
+      "title": "Background source: 13-distributed-cap-lr-seed-diagnostics.pdf",
+      "role": "background only",
       "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/013-distributed-cap-quantile-lr.md",
       "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/40_plot_cap_lr.py",
-      "note": "Supporting result; preserve its own windows, scopes and baseline."
+      "note": "Preserved historical evidence; excluded from the selected four-part presentation."
     },
     {
       "section": "05-adam/c-intervention",
       "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/14-distributed-cap-quantile-ablation-mlp.pdf",
-      "destination": "05-adam/c-intervention/figures/14-distributed-cap-quantile-ablation-mlp.pdf",
-      "title": "14-distributed-cap-quantile-ablation-mlp.pdf",
-      "role": "support",
+      "destination": "05-adam/c-intervention/background/figures/14-distributed-cap-quantile-ablation-mlp.pdf",
+      "title": "Background source: 14-distributed-cap-quantile-ablation-mlp.pdf",
+      "role": "background only",
       "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/014-cap-quantile-ablation-figure.md",
       "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/43_plot_cap_ablation.py",
-      "note": "Supporting result; preserve its own windows, scopes and baseline."
+      "note": "Preserved historical evidence; excluded from the selected four-part presentation."
     },
     {
       "section": "05-adam/c-intervention",
@@ -738,7 +788,10 @@
       "role": "source",
       "observation": null,
       "generator": null,
-      "note": ""
+      "note": "Historical report source; entry-cap dependency path rebased to background, scientific content retained.",
+      "path_replacements": {
+        "../figures/09-local-cap-entry-manuscript.pdf": "../background/figures/09-local-cap-entry-manuscript.pdf"
+      }
     },
     {
       "section": "05-adam/c-intervention",
@@ -872,16 +925,6 @@
     },
     {
       "section": "05-adam/c-intervention",
-      "source": "analyses/058-2026-11-06-intervention-consolidation/figures/01-persistent-half-lr-cifar10-mlp-resnet-wikitext2-transformer.pdf",
-      "destination": "05-adam/c-intervention/comparators/01-persistent-half-lr-cifar10-mlp-resnet-wikitext2-transformer.pdf",
-      "title": "Historical comparator: 01-persistent-half-lr-cifar10-mlp-resnet-wikitext2-transformer.pdf",
-      "role": "historical comparator",
-      "observation": "analyses/058-2026-11-06-intervention-consolidation/observations/001-persistent-half-lr.md",
-      "generator": "analyses/058-2026-11-06-intervention-consolidation/01_figures.py",
-      "note": "Historical windows MLP 512–800, ResNet 256–576, Transformer 544–928; not matched to cap forks."
-    },
-    {
-      "section": "05-adam/c-intervention",
       "source": "analyses/058-2026-11-06-intervention-consolidation/observations/001-persistent-half-lr.md",
       "destination": "05-adam/c-intervention/observations/58-001-persistent-half-lr.md",
       "title": "Analysis 58: 001-persistent-half-lr.md",
@@ -892,16 +935,6 @@
     },
     {
       "section": "05-adam/c-intervention",
-      "source": "analyses/058-2026-11-06-intervention-consolidation/figures/05-gradient-clipping-cifar10-mlp-resnet.pdf",
-      "destination": "05-adam/c-intervention/comparators/05-gradient-clipping-cifar10-mlp-resnet.pdf",
-      "title": "Historical comparator: 05-gradient-clipping-cifar10-mlp-resnet.pdf",
-      "role": "historical comparator",
-      "observation": "analyses/058-2026-11-06-intervention-consolidation/observations/005-clipping.md",
-      "generator": "analyses/058-2026-11-06-intervention-consolidation/01_figures.py",
-      "note": "MLP and ResNet historical clipping; activity and placement matter."
-    },
-    {
-      "section": "05-adam/c-intervention",
       "source": "analyses/058-2026-11-06-intervention-consolidation/observations/005-clipping.md",
       "destination": "05-adam/c-intervention/observations/58-005-clipping.md",
       "title": "Analysis 58: 005-clipping.md",
@@ -909,16 +942,6 @@
       "observation": null,
       "generator": null,
       "note": ""
-    },
-    {
-      "section": "05-adam/c-intervention",
-      "source": "analyses/059-2026-11-07-mlp-beta2-reduction/figures/01-beta2-reductions-cifar10-mlp.pdf",
-      "destination": "05-adam/c-intervention/comparators/01-beta2-reductions-cifar10-mlp.pdf",
-      "title": "Historical comparator: 01-beta2-reductions-cifar10-mlp.pdf",
-      "role": "historical comparator",
-      "observation": "analyses/059-2026-11-07-mlp-beta2-reduction/observations/001-beta2-reduction.md",
-      "generator": "analyses/059-2026-11-07-mlp-beta2-reduction/01_report.py",
-      "note": "Late switch at MLP state 512 retaining moments/clock; not lower beta2 from initialization."
     },
     {
       "section": "05-adam/c-intervention",
@@ -933,9 +956,9 @@
     {
       "section": "05-adam/c-intervention",
       "source": "analyses/043-2026-11-03-spark-fixed-step-interventions/figures/clip_median_x1.pdf",
-      "destination": "05-adam/c-intervention/comparators/clip_median_x1.pdf",
+      "destination": "05-adam/c-intervention/background/comparators/clip_median_x1.pdf",
       "title": "Historical comparator: clip_median_x1.pdf",
-      "role": "historical comparator",
+      "role": "background only",
       "observation": "analyses/043-2026-11-03-spark-fixed-step-interventions/observations/007-clipping-median-response.md",
       "generator": "analyses/043-2026-11-03-spark-fixed-step-interventions/01_report.py",
       "note": "Includes Transformer at 1024–1088; median clipping activates 3/64 times. Different cohort."
@@ -953,9 +976,9 @@
     {
       "section": "05-adam/c-intervention",
       "source": "analyses/064-2026-11-07-mlp-freeze-first-linear/figures/01-freeze-first-linear-cifar10-mlp.pdf",
-      "destination": "05-adam/c-intervention/comparators/01-freeze-first-linear-cifar10-mlp.pdf",
+      "destination": "05-adam/c-intervention/background/comparators/01-freeze-first-linear-cifar10-mlp.pdf",
       "title": "Historical comparator: 01-freeze-first-linear-cifar10-mlp.pdf",
-      "role": "historical comparator",
+      "role": "background only",
       "observation": "analyses/064-2026-11-07-mlp-freeze-first-linear/observations/001-freeze-first-linear.md",
       "generator": "analyses/064-2026-11-07-mlp-freeze-first-linear/02_figures.py",
       "note": "Freezing removes 93.6% of trainable parameters in MLP; not a unique initiating-layer test."
@@ -969,16 +992,6 @@
       "observation": null,
       "generator": null,
       "note": ""
-    },
-    {
-      "section": "05-adam/c-intervention",
-      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/report/local-displacement-cap-report+feedback.pdf",
-      "destination": "05-adam/c-intervention/source/author-feedback.pdf",
-      "title": "Author's annotated cap report",
-      "role": "author input",
-      "observation": null,
-      "generator": null,
-      "note": "Unmodified copy; original remains in Analysis 065."
     },
     {
       "section": "04-gd-sgd",
@@ -1002,6 +1015,16 @@
     },
     {
       "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/report/local-displacement-cap-report+feedback.pdf",
+      "destination": "05-adam/c-intervention/source/author-feedback.pdf",
+      "title": "Author's annotated cap report",
+      "role": "author input",
+      "observation": null,
+      "generator": null,
+      "note": "Unmodified copy; original remains in Analysis 065."
+    },
+    {
+      "section": "05-adam/c-intervention",
       "source": "analyses/058-2026-11-06-intervention-consolidation/README.md",
       "destination": "05-adam/c-intervention/observations/058-summary.md",
       "title": "Analysis058 source summary",
@@ -1015,16 +1038,6 @@
       "source": "analyses/059-2026-11-07-mlp-beta2-reduction/README.md",
       "destination": "05-adam/c-intervention/observations/059-summary.md",
       "title": "Analysis059 source summary",
-      "role": "record",
-      "observation": null,
-      "generator": null,
-      "note": "Preserved source snapshot; current selection/status is governed by PLAN."
-    },
-    {
-      "section": "05-adam/c-intervention",
-      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/README.md",
-      "destination": "05-adam/c-intervention/observations/065-summary.md",
-      "title": "Analysis065 source summary",
       "role": "record",
       "observation": null,
       "generator": null,
@@ -1059,6 +1072,16 @@
       "observation": null,
       "generator": null,
       "note": "Final two-entry legend variant; exact source/figure hashes."
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/README.md",
+      "destination": "05-adam/c-intervention/observations/065-summary.md",
+      "title": "Analysis065 source summary",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": "Preserved source snapshot; current selection/status is governed by PLAN."
     },
     {
       "section": "05-adam/c-intervention",

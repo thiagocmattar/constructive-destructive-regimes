@@ -9,6 +9,8 @@ two algorithms. Stale contribution, figure and task mappings were reconciled;
 source/hash/link/PDF and editable-TeX checks pass. Original manuscript and human
 inputs are preserved. Final figure assembly and matched comparisons remain
 explicit closure tasks in [PLAN](../manuscript/consolidation/PLAN.md).
+Selected intervention figures now follow LR, beta2, clipping and distributed q50;
+the original layer-heatmap page is exported intact as a standalone PDF.
 
 ## MLP distributed-cap quantile and LR sweep, 8 November 2026
 

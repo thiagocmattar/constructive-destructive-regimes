@@ -1,6 +1,6 @@
 {
   "date": "2026-11-08",
-  "method": "Read-only PyMuPDF rendering: eight first-page displays in four contact sheets, then Figure 07 page 2 separately at 2x resolution. Source PDFs remain byte-identical.",
+  "method": "Read-only PyMuPDF rendering. Previous eight first-page displays and full Figure 07 page 2 were inspected; the selected LR, beta2 and clipping pages were then inspected together, and the standalone q50 heatmap separately.",
   "checked": [
     {
       "path": "04-gd-sgd/figures/gd_loss_projected_change_spectral_clean.pdf",
@@ -38,17 +38,37 @@
       "sha256": "98382b3389a98b1d7f97050afbe90cb4fda0ef1c09cb5c18a844810d697407ba"
     },
     {
-      "path": "05-adam/c-intervention/figures/14-distributed-cap-quantile-ablation-mlp.pdf",
+      "path": "05-adam/c-intervention/background/figures/14-distributed-cap-quantile-ablation-mlp.pdf",
       "page": 1,
       "sha256": "db39980868d6e694e0d62c4648637cfc0f54b6ff68a329b06b63221970703c38"
     },
     {
-      "path": "05-adam/c-intervention/figures/07-distributed-displacement-and-controls.pdf",
+      "path": "05-adam/c-intervention/background/figures/07-distributed-displacement-and-controls.pdf",
       "page": 2,
       "sha256": "b7b1556288db4a621c7b3bed8a85b257539c7e1e176ad4b2fc30541cb0e853bd",
       "measurement_check": "Compared depth_page in 22_figures_transfer.py with transfer_figure_audit.json: 25,706 plotted values in the existing audit; stages 5/6/6; windows 448-800/264-576/552-928; shared baseline stage maxima and cosine scale."
+    },
+    {
+      "path": "05-adam/c-intervention/figures/01-persistent-half-lr-cifar10-mlp-resnet-wikitext2-transformer.pdf",
+      "page": 1,
+      "sha256": "b823afef0750c56adc12e5e979767df66f8b96df559a58a88234890076605e80"
+    },
+    {
+      "path": "05-adam/c-intervention/figures/01-beta2-reductions-cifar10-mlp.pdf",
+      "page": 1,
+      "sha256": "479b62ba0ef1d04b4027b0103297735a411d47bf2999db7fdb6348b364ee4aeb"
+    },
+    {
+      "path": "05-adam/c-intervention/figures/05-gradient-clipping-cifar10-mlp-resnet.pdf",
+      "page": 1,
+      "sha256": "79927d923e0fca5426aee280f20d1b19c06f0c66b9e55aafcfd68628594829e5"
+    },
+    {
+      "path": "05-adam/c-intervention/figures/07-distributed-q50-stage-heatmaps.pdf",
+      "page": 1,
+      "sha256": "03982255d05c147444e23e8a9200569a9fc45e489c19c9eb3128fcf842c0b8c4"
     }
   ],
-  "result": "No corruption, missing panels or packaging-induced layout changes observed. Figure 07 page 2 is selected as the main Figure 7 base: full loss and paired stage cosine/RMS maps. Final publication sizing and captions remain pending.",
+  "result": "The six PDFs in the selected intervention folder have been visually inspected. Source Figure 07 page 2 is now a standalone q50 heatmap, preserving vector content, page dimensions, text and rendered pixels. Its planned paper slot is Figure 10 after LR, beta2 and clipping. Final publication sizing and captions remain pending.",
   "limits": "Visual inspection does not independently validate plotted raw data. Other PDF pages were decoded programmatically and verified byte-identical to their source."
 }

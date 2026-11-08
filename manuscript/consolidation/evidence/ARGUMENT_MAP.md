@@ -16,7 +16,7 @@
 - **Figures 1–4:** retain current PDFs, in the current order.
 - **Figure 5:** high-LR overview exists; attach the compact population summary. Complete sensitivity curves remain supporting evidence.
 - **Figure 6:** verified tracing components and a three-case report comparison exist; final grouped heatmap/spectrum/coefficient composition remains to assemble.
-- **Figure 7:** [page 2's stage heatmaps](05-adam/c-intervention/figures/07-distributed-displacement-and-controls.pdf#page=2) are the selected main base: loss plus baseline/cap direction and magnitude over depth and time. Other scalar diagnostics support it; direct ranking of all comparators still awaits qualification.
+- **Figures 7–10:** LR schedule → beta2 schedule → gradient clipping → distributed q50 cap. The [standalone stage heatmaps](05-adam/c-intervention/figures/07-distributed-q50-stage-heatmaps.pdf), preserving source Figure 07 page 2, anchor Figure 10. q50 diagnostics/replication support it; other representation-inspired methods and quantiles remain background.
 - **Algorithms 1–2:** tracing and local cap supplied as Markdown and TeX, using the common state clock.
 - **Tables:** ready local summaries cover next-step signs, ≥10% severity, spectral controls and distributed-cap training/test outcomes. They do not constitute a matched ranking of every historical intervention.
 - **Equations:** III, V opening/A, V-B and V-C each have an equation file; original TeX snapshots remain alongside.

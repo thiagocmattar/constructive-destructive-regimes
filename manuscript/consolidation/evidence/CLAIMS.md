@@ -4,6 +4,7 @@
 - **Clock:** state s means s completed updates. Raw gradients at s describe the incoming response; representation change s→s+1 is observed after the outgoing update.
 - **Mathematics:** [III equations](03-regimes/equations.md), [Adam response](05-adam/a-characterization/equations.md), [tracing](05-adam/b-tracing/equations.md), [cap and loss accounting](05-adam/c-intervention/equations.md).
 - **Verification scope:** copied artifacts are hash checked; compact tables are reconstructed from retained reductions. This packaging pass does not rerun every historical scientific computation.
+- **Presentation scope:** LR schedules → beta2 schedules → gradient clipping → distributed q50. Historical audit rows below preserve evidence about other controls/quantiles; they do not add methods to the selected paper presentation.
 
 | Claim | Verdict / precise boundary | Local evidence |
 |---|---|---|

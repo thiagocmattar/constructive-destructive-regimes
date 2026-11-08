@@ -14,7 +14,10 @@
 | Figure 4, IV | [Batch effects](04-gd-sgd/figures/sgd_batch_size_compact.pdf) | Retained main; three initialization blocks |
 | Figure 5, V-A | [High-LR overview](05-adam/a-characterization/figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf) | Existing base; attach compact population summary |
 | Figure 6, V-B | [Three-case comparison](05-adam/b-tracing/report/figures/architecture-comparison.pdf) and [full components](05-adam/b-tracing/README.md) | Verified components; final grouped heatmap/spectrum/coefficient composition pending |
-| Figure 7, V-C | [Selected base: stage heatmaps, page 2](05-adam/c-intervention/figures/07-distributed-displacement-and-controls.pdf#page=2); [scalar diagnostics](05-adam/c-intervention/figures/10-local-cap-distributed-manuscript.pdf) as support | Main paired baseline/cap display: loss, stage cosine and RMS. Final sizing/caption pending; matched comparator ranking remains pending |
+| Figure 7, V-C | [Learning-rate schedule](05-adam/c-intervention/figures/01-persistent-half-lr-cifar10-mlp-resnet-wikitext2-transformer.pdf) | Selected: persistent half LR, three architectures, each with its own unchanged baseline |
+| Figure 8, V-C | [Beta2 schedule](05-adam/c-intervention/figures/01-beta2-reductions-cifar10-mlp.pdf) | Selected: MLP late .999→.95/.9/.5, moments/clock retained |
+| Figure 9, V-C | [Gradient clipping](05-adam/c-intervention/figures/05-gradient-clipping-cifar10-mlp-resnet.pdf) | Selected: MLP thresholds .5/1 and ResNet 1; preserve raw/input norm distinction |
+| Figure 10, V-C | [Distributed q50 stage heatmaps](05-adam/c-intervention/figures/07-distributed-q50-stage-heatmaps.pdf); [scalar diagnostics](05-adam/c-intervention/figures/10-local-cap-distributed-manuscript.pdf) and [MLP replication](05-adam/c-intervention/figures/11-local-cap-mlp-replication.pdf) | Sole representation-inspired intervention. Heatmaps are exact source Figure 07 page 2; final sizing/caption pending |
 
 ## Tables, equations and algorithms
 
@@ -26,7 +29,7 @@
 | V-C outcome table | [Distributed-cap outcomes](05-adam/c-intervention/tables/distributed-cap-outcomes.md) | Five baseline/cap pairs; training and full terminal test loss |
 | IV HVP tables | [Directional HVP errors](04-gd-sgd/tables/analysis027_hvp_errors.tex), [contrasts](04-gd-sgd/tables/analysis027_contrasts.tex) | Smooth MLP validation; source TeX preserved |
 | V-B stage/result tables | [Original three-case table](05-adam/b-tracing/report/results-table.tex), stage CSVs in its section index | Exact recorded windows and probes |
-| V-C report/ablation tables | [Cap results](05-adam/c-intervention/report/cap-results-table.tex), [replication](05-adam/c-intervention/report/cap-seeds-table.tex), [sensitivity](05-adam/c-intervention/report/cap-sensitivity-table.tex), [LR/quantile grid](05-adam/c-intervention/tables/cap_lr_table.tex) | Supporting historical tables; preserve their own comparisons |
+| V-C historical report/ablation tables | [Cap results](05-adam/c-intervention/report/cap-results-table.tex), [replication](05-adam/c-intervention/report/cap-seeds-table.tex), [sensitivity](05-adam/c-intervention/report/cap-sensitivity-table.tex), [LR/quantile grid](05-adam/c-intervention/tables/cap_lr_table.tex) | Audit background; extract only distributed-q50 results for the selected paper presentation |
 | III equations | [Readable inventory](03-regimes/equations.md), [TeX](03-regimes/equations.tex) | State clock, all pairs/R, curvature/BB/noise, loss criterion |
 | V opening/A equations | [Readable inventory](05-adam/a-characterization/equations.md), [TeX](05-adam/a-characterization/equations.tex) | Mixed projection and three distinct future outcomes |
 | V-B equations | [Readable inventory](05-adam/b-tracing/equations.md), [TeX](05-adam/b-tracing/equations.tex) | Motion, Gram/SVD, coefficients, overlap and controls |
@@ -36,6 +39,6 @@
 
 - Each regenerated summary table also has same-name CSV and TeX siblings. Absolute paired cap values, worker identities and test units are in [distributed-cap-pairs.csv](05-adam/c-intervention/tables/distributed-cap-pairs.csv).
 - Complete timing/severity/horizon/warning-memory tables remain in V-A/data; selected display values are not a replacement for that population.
-- Figure 7 heatmaps use each stage's common baseline RMS maximum for both arms. MLP shows 448–800; its outcome table also covers 448–1152. Captured-stage summaries retain all probe coordinates and are not SVD coefficients or measurements of every module.
-- Historical comparator figures and observations remain in V-C/comparators and V-C/observations. Same-looking curves do not make forks/hardware/budgets matched.
-- Publication PDF sources are preserved; no figure was cropped, refitted or re-normalized in packaging.
+- Figure 10 heatmaps use each stage's common baseline RMS maximum for both arms. MLP shows 448–800; its outcome table also covers 448–1152. Captured-stage summaries retain all probe coordinates and are not SVD coefficients or measurements of every module.
+- The [selected figure folder](05-adam/c-intervention/figures/README.md) contains only LR, beta2, clipping and distributed q50. Other methods/quantiles are [background](05-adam/c-intervention/background/README.md); same-looking curves do not make forks/hardware/budgets matched.
+- Original PDFs are preserved. The standalone heatmap selects one original page without cropping, refitting or renormalization; extraction is recorded and checked against the original page.

@@ -20,7 +20,7 @@ One censored excursion dominates the0.5 response; endpoint test loss is lower
 for all three, without replicated generalization evidence.
 
 - [Findings, caption and verification](59-001-beta2-reduction.md)
-- [Three-column comparison](../comparators/01-beta2-reductions-cifar10-mlp.pdf)
+- [Three-column comparison](../figures/01-beta2-reductions-cifar10-mlp.pdf)
 - [Numerical results and provenance](../../../../../../analyses/059-2026-11-07-mlp-beta2-reduction/results.json)
 
 Generate/check with `python analyses/059-2026-11-07-mlp-beta2-reduction/01_report.py`.

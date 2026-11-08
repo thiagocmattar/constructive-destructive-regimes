@@ -183,7 +183,7 @@ to the cap worsens mean loss 22.47% relative to the same-worker cap-only arm.
 - [The geometry and limits of the local displacement cap](65-010-local-displacement-cap-geometry.md).
 - [Completed Spark process/log verification](../../../../../../analyses/065-2026-11-07-mlp-frozen-lr-double/transfer_spark_closeout.json).
 - [Selective entry criteria across architectures](../../../../../../analyses/065-2026-11-07-mlp-frozen-lr-double/figures/06-selective-transfer-diagnostics.pdf): three pages.
-- [Distributed caps, architecture traces, replication and controls](../figures/07-distributed-displacement-and-controls.pdf): six pages.
+- [Distributed caps, architecture traces, replication and controls](../background/figures/07-distributed-displacement-and-controls.pdf): six pages.
 - [Adaptive rules, negative controls and embedding rates](../../../../../../analyses/065-2026-11-07-mlp-frozen-lr-double/figures/08-adaptive-and-embedding-tests.pdf): five pages.
 - [Aggregate results](../../../../../../analyses/065-2026-11-07-mlp-frozen-lr-double/transfer_summary.json), [compute/storage](../../../../../../analyses/065-2026-11-07-mlp-frozen-lr-double/transfer_compute_closeout.json), [cloud cleanup and provisional billing](../../../../../../analyses/065-2026-11-07-mlp-frozen-lr-double/transfer_cloud_closeout.json), and [visual review](../../../../../../analyses/065-2026-11-07-mlp-frozen-lr-double/transfer_visual_review.json).
 
@@ -221,7 +221,7 @@ The original annotated PDF and all 11 annotations are preserved in the numbered
 archive, with dispositions for ten complete comments and one unfinished note.
 The next feedback round is 002; the report filename stays stable for review.
 
-New manuscript-style figures show [entry caps](../figures/09-local-cap-entry-manuscript.pdf),
+New manuscript-style figures show [entry caps](../background/figures/09-local-cap-entry-manuscript.pdf),
 [distributed caps](../figures/10-local-cap-distributed-manuscript.pdf), and
 [MLP replication](../figures/11-local-cap-mlp-replication.pdf). Loss uses logarithmic
 axes with independent scales per column; eta-kappa-hat uses linear axes.
@@ -243,8 +243,8 @@ loss. This supports controlled large excursions, not an acceleration or
 uniform generalization claim.
 
 - [Results, method, captions and limits](65-013-distributed-cap-quantile-lr.md).
-- [Training/test curves](../figures/12-distributed-cap-quantile-lr-mlp.pdf) and
-  [three seed-resolved diagnostic pages](../figures/13-distributed-cap-lr-seed-diagnostics.pdf).
+- [Training/test curves](../background/figures/12-distributed-cap-quantile-lr-mlp.pdf) and
+  [three seed-resolved diagnostic pages](../background/figures/13-distributed-cap-lr-seed-diagnostics.pdf).
 - [Readable statistics](../../../../../../analyses/065-2026-11-07-mlp-frozen-lr-double/cap_lr_statistics.md), [aggregate CSV](../data/cap_lr_aggregate.csv),
   [per-seed CSV](../data/cap_lr_per_seed.csv), and [LaTeX table](../tables/cap_lr_table.tex).
 
@@ -261,7 +261,7 @@ and [compute closeout](../../../../../../analyses/065-2026-11-07-mlp-frozen-lr-d
 and retrieves compact results. Previous figures/report and scientific inputs are
 unchanged. Continue this same analysis; next unused run 289 and hypothesis H050.
 
-[Cap-quantile ablation](../figures/14-distributed-cap-quantile-ablation-mlp.pdf)
+[Cap-quantile ablation](../background/figures/14-distributed-cap-quantile-ablation-mlp.pdf)
 shows connected means and sample-SD error bars in three LR columns with a shared
 logarithmic loss axis. [Observation014](65-014-cap-quantile-ablation-figure.md)
 records sources, reduction, caption and checks. Existing data only; no new training.
