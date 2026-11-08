@@ -1,0 +1,118 @@
+{
+  "purpose": "Both requested exploratory audits: forward timing and minimum step loss increase",
+  "date": "2026-11-08",
+  "horizons": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "severity_grid": [
+    0.0,
+    1e-05,
+    0.001,
+    0.01,
+    0.05,
+    0.1,
+    0.25,
+    0.5,
+    1.0
+  ],
+  "horizon_minimum_rises": [
+    0.0,
+    0.01,
+    0.1
+  ],
+  "threshold_units": "relative to loss immediately before the target step; net/window targets relative to decision loss L_s",
+  "threshold_comparison": "Strict >0 for any rise; >= minimum for positive minimum magnitudes",
+  "flags": {
+    "negative_cosine": "rho_s<0",
+    "norm_growth": "r_s>1",
+    "reversal_and_growth": "rho_s<0 AND r_s>1",
+    "Q_ge2": "Q_s>=2"
+  },
+  "angle_norm_equivalence": "rho_s < -1/r_s iff Q_s>2; no Q_s=2 in the retained states, so its counts equal Q_s>=2",
+  "targets": {
+    "future_step": "(L_(s+h)-L_(s+h-1))/L_(s+h-1)",
+    "net_change": "(L_(s+h)-L_s)/L_s",
+    "any_above_current": "max_(1<=k<=h) (L_(s+k)-L_s)/L_s",
+    "incoming_step": "(L_s-L_(s-1))/L_(s-1); retrospective only"
+  },
+  "subsets": {
+    "all": "all eligible decision states",
+    "not_already_rising": "L_s<=L_(s-1), determined before the outgoing update"
+  },
+  "support": {
+    "all_available": "states 1..1024-h, 9*(1024-h) total before subset filtering",
+    "common_16_step": "same states 1..1008 at every horizon; 9072 total before subset filtering"
+  },
+  "inference": "Descriptive exploration on known single-seed trajectories. No selected winning horizon, fitted threshold, independent-seed CI, or causal/predictive validation.",
+  "checks": {
+    "equivalent_angle_norm_states": 9207,
+    "severity_rows": 243,
+    "horizon_rows": 5184,
+    "one_step_matches_independent_audit": true,
+    "horizon1_targets_identical": true,
+    "common_support_window_monotonicity": true
+  },
+  "sources": {
+    "analyses/055-2026-11-05-adam-directional-amplification/PROTOCOL.md": "e83dd64411b0c65dda72c90d3a758912e20146ef8d4ea3ee1cbd5baae8754b3b",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_dataset/manifest.json": "bef7421d30a1cb4cb2715d21f5fad97434b3b8c55b4ff08f9f15e753fea6dc0d",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_dataset/loss_spikes.csv": "d35e901cc68a1bce5379129b4ce74f4d1b8896c3c0ccfaf643d4647558e4500d",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/loss_spike_definition.md": "603b21c6fc70b5e48b38dfd392c813a399abcc6efd2c75b9f913eb273a9329f0",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/archive/PEAK_TEMPORAL_PROTOCOL.md": "d27ea7f3b805af86deccc80116d889596a3642ad5c865e8894668d2dbc0a45ff",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/archive/peak_forecasts.csv": "039bcadf4d92f807e239685d83cca6b6fe3e42ec71c126c43a62c7ea8885788f",
+    "runs/215-2026-11-02-controlled-full-batch-adam/results.json": "c907d1b5ccaa68b3310f13526e98f37fd1c19943eb7631cea46612f75de39572",
+    "runs/215-2026-11-02-controlled-full-batch-adam/config.json": "868c271e89bea4641e633d727c7b322a2220085ea1bee63c2dc712389e8e88f4",
+    "runs/215-2026-11-02-controlled-full-batch-adam/input_manifest.json": "d90c7fa4554c20e3f812ea7383a0ccfdc543d7bdb221eacb9bb6af88c82a71b1",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0001/manifest.json": "0655ffcc68288a311a1ebb977373418e676dac85b81f64100e7c12822d473072",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0001/boundaries.jsonl": "1ece15455f4e43d8c39495b0c6bc57e9b28296d1c2aff4e0f094b54d8bac432e",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0001/metrics.jsonl": "9e1d16738fea6715aee387c362e5e5f49caf372b77e832994bc2a28980a969ca",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0003/manifest.json": "856171914d42aaa62a26d70c3bb9a83791838564851c17195feec50946cc5b8a",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0003/boundaries.jsonl": "00bd2559e33299a21694c3162d7b39fbaa6949883808b5eb2b895b66a0da61cc",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0003/metrics.jsonl": "5f3e2f82765b29b6cd124ec7fb727480910b6c820b681f5b74d76be7378a4cf3",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/manifest.json": "0a8ae45b014049fcd7350768bef6190f4991802ed6bf9e254c810c3ca2032e12",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/boundaries.jsonl": "bd15d446afab7641f01ed12c089b1f606f123b4e92982f2d0ff1deae1fe061be",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/metrics.jsonl": "3c8bac53f92bde65da67b8bcc80046644f2db3ef7fd818334ebca2b04e7a0157",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker17/lr-0.0003/manifest.json": "b72f9bff98df63764804a4ab841702ff898c87be2497a99243130a06d92b9bc8",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker17/lr-0.0003/boundaries.jsonl": "70b283eb2777897feb04b13eb9aa68cb68e7e62649ab4b91f6e23a24be5bd0ba",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker17/lr-0.0003/metrics.jsonl": "811298ff7f5eb6a6982d7c8c24fe3c3b7372d15717276b1fe79af5055ec4a5c6",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker4/lr-0.001/manifest.json": "be5c9081f50634dcf658d3b532555e99e50aea2fac57b1651da43b950ad4cedf",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker4/lr-0.001/boundaries.jsonl": "b47c647c05dbab1defd6d5ab0e653e0ffe236066c483458b63167597e4639d16",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker4/lr-0.001/metrics.jsonl": "586c7a961f0a410e280e3286f8d044df28a29cc99c7a988798ce43f6a60cbfc8",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/manifest.json": "6162fb3eee941231f44bc006c92d74a702f0ab52bad560a78dc4ae36848a71c0",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/boundaries.jsonl": "b952c7e4d184e1da70d1dbadd7710de16452aaa7041d1e7df6fa2165ac3e28ee",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/metrics.jsonl": "c9572aaa98f3e9f8c0378b6ff2b5ce60d8e3383e563c358485c5afffaf5945ca",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker0/lr-0.0003/manifest.json": "10755e07d67029177aac13f0a7af6a44033696e6101211f62a8c73df1cd8b19c",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker0/lr-0.0003/boundaries.jsonl": "0eeb0a81c45100e25bec785aa6eb826ef8c48840171de0ebe4f6e66dcb18981c",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker0/lr-0.0003/metrics.jsonl": "5983695e1071ab62c0cd1c9a71d000e7e5ad07f1d11390eb99baf38cb232c669",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker15/lr-0.001/manifest.json": "06416f93b915dae3be94e2f6c9b205de1b25a512a807904d14cf73d53aebe77f",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker15/lr-0.001/boundaries.jsonl": "ff71889f1653f41754a2a66cad38d2868415fd08b43b3d24df25196826fe4a69",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker15/lr-0.001/metrics.jsonl": "ecb5acb6fcbc82ef54833160aa5ec4b2f76d5784a07ae3a649f02571fd41ded3",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/manifest.json": "96fd00453edef0c3f0096716cb550ef3f86d25466e06be1b29165beaa5739327",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/boundaries.jsonl": "822cccc891250b529fc8bb60d4a391d2002856e8e3c8b7233c145c7fbf15a3f7",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/metrics.jsonl": "3ae6e2af2400caea6e3a40ed2d06db31068524c39ef7e55ec931d16362b62574",
+    "analyses/055-2026-11-05-adam-directional-amplification/01_analyze.py": "1a968191db5fc39a6f95f4db300304e92f417c94ff968046691ecd741e41bc05",
+    "analyses/055-2026-11-05-adam-directional-amplification/derived/one_step_audit/summary.csv": "06d08db5b2cb5110a594a3f37327c357542f52df1f0f2658777b397edd01356e"
+  },
+  "generator": {
+    "path": "analyses/055-2026-11-05-adam-directional-amplification/05_forward_and_severity.py",
+    "sha256": "e0ce83518f21ca911bac93149ae5bc0f25f2dbe8d3a802f0ab2052eeff9a3bd4"
+  },
+  "outputs": {
+    "severity.csv": "fd83920b09c270bd15d5a2a1761e0bc6d7770c58a24d46bb7c89680b3bd1f238",
+    "horizons.csv": "28e79b7faa82e8573daa9ac70878f2fa8336d2a862f03d348e2fc3a60787f4e0"
+  }
+}

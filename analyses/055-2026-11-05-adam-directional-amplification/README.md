@@ -33,6 +33,26 @@ visual review are in [Observation003](observations/003-verification-and-visual-r
 
 ## Reproduction
 
+### Consolidation extension, 8 November 2026
+
+[Observation004](observations/004-timing-severity-audit.md) adds the requested
+exhaustive next-step, minimum-rise and forward-horizon audits. Four raw-gradient
+conditions are compared across all nine retained arms; a history-only warning
+memory counts each target rise once. The angle/norm inequality and Q>2 agree
+exactly. Larger rises show temporal structure, but false alarms and model-specific
+timing prevent a universal next-step prediction claim. The six-page
+[figure](figures/adam_forward_and_severity.pdf) shows all curves and denominators.
+No fitting, training, source mutation, new registry ID or cloud execution.
+
+```powershell
+python analyses/055-2026-11-05-adam-directional-amplification/04_one_step_audit.py
+python analyses/055-2026-11-05-adam-directional-amplification/05_forward_and_severity.py
+python analyses/055-2026-11-05-adam-directional-amplification/06_warning_memory.py
+python analyses/055-2026-11-05-adam-directional-amplification/07_plot_forward_and_severity.py
+```
+
+### Original comparison
+
 From the repository root:
 
 ```powershell

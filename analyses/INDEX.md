@@ -204,6 +204,8 @@ an analysis may use manuscript or external inputs without referencing a run.
 
 [Analysis055](055-2026-11-05-adam-directional-amplification/README.md) organizes the argument, evidence map and deferred work, and completes the nine-arm descriptive test. Five reviewed vector PDFs cover full trajectories, joint geometry and fixed context matching. Six primary arms favor reversal and three tie at zero, with sparse/limited support; low-rate controls reject a universal alarm. All 9,216 states, 812 events, 4,534 old labels and 46,098 plotted points pass checks. No classifier, new training, cloud work or manuscript edit. See [findings](055-2026-11-05-adam-directional-amplification/FINDINGS.md).
 
+8 November: [timing/severity audit](055-2026-11-05-adam-directional-amplification/observations/004-timing-severity-audit.md) adds all 9,207 pre-update decisions, minimum-rise sweeps, horizons 1-16 and causal warning memory. Larger rises show architecture-specific precursors; angle/norm and Q conditions are equivalent, and false alarms prevent a universal alarm claim. Six reviewed PDF pages and independent raw checks pass. No training, fitting or new IDs.
+
 ## Analysis056: GD paired displacement and manuscript revision
 
 [Analysis056](056-2026-11-05-gd-paired-displacement/README.md) reanalyzes all nine
