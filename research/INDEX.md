@@ -82,6 +82,12 @@ owned Spark, zero cloud cost. Next Run 245 / Analysis 065 / H045.
 
 ## Architecture-wide oscillation tracing, 7 November 2026
 
+8 November: [retained-Gram controls](../analyses/063-2026-11-07-architecture-instability-tracing/observations/006-spectral-controls.md)
+show directional concentration beyond step magnitudes, with stronger amplitude
+weighting in the Transformer. This and the completed timing audit are distilled
+into the broader [adversarial paper plan](../manuscript/consolidation/PLAN.md).
+No new training or manuscript edits.
+
 The [five-page technical report](../analyses/063-2026-11-07-architecture-instability-tracing/report/instability-tracing-report.pdf)
 consolidates the method, formal algorithm, findings and costs. MLP is newly fitted
 on 450-500; fixed SVD patterns are explicitly distinguished from potentially

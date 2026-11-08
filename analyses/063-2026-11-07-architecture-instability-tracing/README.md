@@ -8,6 +8,13 @@ over **450-500**, with a [matching two-page figure](figures/04-mlp-instability-t
 and [window-specific observation](observations/005-technical-report-event-window.md).
 The earlier 448-800 fit below is preserved and has different spectral summaries.
 
+8 November: [spectral controls](observations/006-spectral-controls.md) separate
+step magnitudes from directional overlap using the retained output Grams.
+Observed concentration exceeds the same-energy orthogonal reference in all
+three cases; unit-row normalization exposes architecture-dependent amplitude
+weighting. Temporal ordering still requires cosine/coefficient histories.
+Reproduce locally with `10_spectral_controls.py`; no new training or captures.
+
 Start with the [consolidated motivation, per-update algorithm, results and conclusions](observations/004-consolidated-instability-tracing.md).
 The [reusable workflow guide](../../research/INSTABILITY_TRACING.md) specifies
 probe choices, computational costs and adaptation to future training setups.

@@ -102,7 +102,24 @@ Do not turn this into an unbounded survey or a new paper structure. L13-L15
 primary pages and linked PDFs, and the L03 proceedings record, opened successfully
 in this iteration. Earlier sources retain their recorded versions and depths.
 
-## 5. Submission route and format
+## 5. Formula-level intervention audit, 8 November 2026
+
+This addendum supports the current single PLAN; it does not introduce another
+required reading document. Primary PDFs were opened and the specified formulas
+checked during the adversarial review.
+
+| Source / inspected location | Established method | Exact distinction for V-C |
+|---|---|---|
+| Brock et al., [High-Performance Large-Scale Image Recognition Without Normalization](https://proceedings.mlr.press/v139/brock21a/brock21a.pdf#page=4), ICML 2021, Section 4 / Eq. (3) | AGC clips each output unit's raw gradient using its gradient-to-weight norm ratio, with a weight-norm floor. | The local-displacement cap scales the stored Adam parameter increment using current probe-input geometry. Unit-wise clipping itself is established. No superiority to AGC has been tested here. |
+| Benzing, [Gradient Descent on Neurons and its Link to Approximate Second-Order Optimization](https://proceedings.mlr.press/v162/benzing22a/benzing22a.pdf#page=6), ICML 2022, Section 4 / Eqs. (5–6) | FOOF solves a regularized least-squares neuron-change objective involving the inverse input second-moment factor. | Our rule evaluates the local response of an existing Adam proposal and radially rescales each unit; it does not invert that factor or solve for a neuron-gradient descent direction. Input-dependent functional geometry is established prior art. |
+
+Together with L05, these narrow the contribution to a specified direct,
+per-unit, absolute movement cap with past calibration and controlled empirical
+tests. A claim of being the first representation-aware optimizer, or of
+superiority over these methods, is not supported. The main plan now states
+this comparison and the corresponding conditional experiment requirement.
+
+## 6. Submission route and format
 
 The supplied [TNNLS decision letter](../../draft/previous-submission/rejection_email.pdf)
 prohibits submission of a revised version to TNNLS. W02 must resolve the intended

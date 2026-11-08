@@ -344,6 +344,12 @@ Fixed basis does not establish fixed instantaneous motion; rotation remains
 untested. Numerical checks and all seven pages reviewed. No new run or cloud cost.
 Next independent analysis remains 064.
 
+8 November: [spectral controls](063-2026-11-07-architecture-instability-tracing/observations/006-spectral-controls.md)
+separate step magnitudes from directional overlap in the three retained output
+Grams. Same-energy orthogonal and unit-row references support structured motion
+with architecture-dependent amplitude weighting; spectra alone do not establish
+temporal alternation. Source hashes and numerical checks pass; no training.
+
 ## Analysis 064: freezing the first MLP projection
 
 [Observation](064-2026-11-07-mlp-freeze-first-linear/observations/001-freeze-first-linear.md)
