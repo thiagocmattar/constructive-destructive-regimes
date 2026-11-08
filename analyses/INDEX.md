@@ -416,3 +416,5 @@ Spark only. Keep subsequent interventions in 065; no new analysis allocated.
 adds connected mean-training-loss points and sample-SD error bars across three
 LR columns with a shared log Y axis. All54 seed means and18 error-bar reductions
 verified; one rendered page reviewed. Existing H049 data; no new training.
+
+**Analysis 065 active extension (8 November 2026):** H050 / Runs 289-291 complete ResNet/Transformer beta2 and Transformer clipping coverage. Original fixed forks and fresh unchanged controls; seven preflights and exact eight-update Transformer control replay pass. Results pending full-window completion and independent verification. No new analysis opened.

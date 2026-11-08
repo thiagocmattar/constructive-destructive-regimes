@@ -1,0 +1,20 @@
+{
+  "hypothesis": "H050",
+  "runs": [
+    289,
+    290,
+    291
+  ],
+  "scientific_comparison": "Original fixed-window seed0 beta2 and clipping extensions; unchanged Adam controls; no manuscript edits",
+  "maximum_total_usd": 20,
+  "initial_maximum_gpus": 7,
+  "initial_lease_seconds": 7200,
+  "runtime_adjustment": "Five measured-slower Transformer workers receive1200s additional lease/retrieval margin; frozen6500s scientific-worker limits unchanged",
+  "conservative_maximum_committed_usd": 19.2361,
+  "historical_failures": "Three unlaunched CUDA13/5090 capacity probes terminated; cost included. Allocation serialized after provider races. Direct pod-to-pod transfers avoided slow desktop uploads.",
+  "storage": "60GB temporary perpod; raw evidence verified on owned Spark; compact evidence local; deletepods onlyafter retrieval verification",
+  "preflight_checks": 7,
+  "control_gate": "conventional_control_gate.json",
+  "raw_retention": "Same ownedSpark workspace used by H049",
+  "not_authorized_by_this_task": "Additional seed/timing/threshold grids in TODO are not launched"
+}

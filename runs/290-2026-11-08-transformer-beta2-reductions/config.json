@@ -1,0 +1,39 @@
+{
+  "run_id": 290,
+  "analysis_id": "065",
+  "hypothesis": "H050",
+  "case": "transformer",
+  "seed": 0,
+  "start": 544,
+  "end": 928,
+  "plot_start": 480,
+  "base_lr": 0.003,
+  "physical": 64,
+  "arms": [
+    {
+      "id": "control"
+    },
+    {
+      "id": "beta2_0p95",
+      "beta2": 0.95
+    },
+    {
+      "id": "beta2_0p9",
+      "beta2": 0.9
+    },
+    {
+      "id": "beta2_0p5",
+      "beta2": 0.5
+    }
+  ],
+  "checkpoint_every": 32,
+  "maximum_worker_seconds": 6500,
+  "comparison": "Same frozen Run223 fork; fresh unchanged Adam control. Cross-worker reuse only with identical GPU model/runtime, fork fingerprint and eight-update model/optimizer/history/RNG fingerprint. Otherwise run a same-worker control; never compare unmatched hardware trajectories.",
+  "beta_semantics": "Retain native moments and global step. New beta2 enters v recurrence and native 1-beta2**step correction. No moment reset/rescaling or product-history correction.",
+  "clipping_semantics": "Scale full-objective raw gradient by min(1, threshold / FP64 global L2 norm) before native Adam moment update; no epsilon in clipping factor; preserve raw histories.",
+  "precision": "FP32 model/gradients/moments; FP64 diagnostics; deterministic algorithms; TF32 off; no fused/foreach Adam; no weight decay.",
+  "objective": "Full WikiText2 token-weighted negative log likelihood, 2088600 valid tokens, physical batch64, dropout0; full held-out coverage.",
+  "retention": "Complete fork and final/recovery optimizer/model/RNG/raw-gradient history; full first/last update audits; every boundary and update scalar; full validation/test at end. Raw artifacts on owned Spark; compact results local.",
+  "authorization": "User explicitly requested these model extensions and authorized Runpod for fastest execution. Task ceiling USD20 including retries/storage; at most7 GPUs and2h per lease; no unrelated ablations.",
+  "control_reference_run": 290
+}

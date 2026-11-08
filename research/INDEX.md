@@ -1,5 +1,9 @@
 # Research index
 
+## Active conventional-intervention completion, 8 November 2026
+
+H050 / Runs 289-291 are executing in Analysis 065: ResNet and Transformer beta2 reductions (.95/.9/.5), plus Transformer raw-gradient clipping (.5/1), each against unchanged Adam from the original fixed Run 223 fork. All seven preflights and the six-worker Transformer common-control replay pass. One seed; full objectives and complete terminal held-out evaluation. Maximum USD 20; task-owned pods monitored, raw artifacts retained on Spark after hash verification. The [ablation TODO](../manuscript/consolidation/evidence/05-adam/c-intervention/TODO_ABLATIONS.md) records remaining coverage. Next unused run 292 and hypothesis H051.
+
 ## Paper evidence package, 8 November 2026
 
 [Consolidation evidence](../manuscript/consolidation/evidence/README.md) now follows
