@@ -1,255 +1,282 @@
-# Tasks for the next consolidation iterations
+# Tasks within the fixed consolidation plan
 
-**All cards are proposed, not launched.** These IDs are local planning IDs.
-Read [PLAN.md](../PLAN.md) before assigning a card. Each card specifies the
-permitted output and acceptance criteria; it does not authorize unrelated
-manuscript edits, new science, infrastructure, or publishing.
+**Iteration 2 - planning assignments, not launched experiments.** Read
+[PLAN.md](../PLAN.md) and its C1-C8 map. The six-section structure, title and
+scientific line supplied by the author are fixed. These cards fill that
+structure with evidence, positioning, displays and precise remaining checks.
+They do not reopen the paper's identity or turn it into a tracing-method paper.
+Manuscript edits, execution and publication remain separate requested actions.
 
 ## Queue and dependencies
 
-| ID | Task | Type / readiness | Dependencies |
-|---|---|---|---|
-| P01 | Closest-method and novelty comparison | Literature/planning; ready to assign | Author accepts the working contribution question |
-| P02 | Mathematics, indexing, and information timeline | Retained-source audit; ready to assign | None beyond this plan |
-| P03 | Exact evidence/comparator inventory | Retained-data inventory; ready to assign | P02 for time labels |
-| P04 | High-LR event characterization table | Retained-data analysis; ready after its event contract is selected | P02/P03 |
-| P05 | Publication storyboard and compact panels | Replot existing evidence; wait for storyboard agreement | P02-P04 |
-| E01 | Same-fork intervention comparison and replication | New experiments; design/cost approval missing | P01-P03, author chooses C3 scope |
-| E02 | Isolated runtime/memory/overhead | New benchmark; execution scope missing | E01 policy/probe contract |
-| E03 | Probe robustness | Retained replay/new capture; resource plan missing | P03, precise observer contract |
-| E04 | Ordinary minibatch transfer | Conditional new experiment | Required only for a practical stochastic-training claim |
-| E05 | Quiet/spike spectra and local-subspace tests | Conditional retained-data/replay analysis | Required only for spike-specific rank/stationary-axis claims |
-| E06 | Prospective spike forecasting | Conditional separate study | Required only for a forecasting contribution |
-| W01 | Apply the agreed manuscript changes | Editing; wait for explicit author go-ahead | Accepted plan, selected evidence tasks complete |
-| W02 | Submission and reproducibility closeout | Packaging; wait for manuscript revision | W01, current TNNLS rules verified |
-
-P01-P03 may proceed independently where their dependencies permit. P04/P05
-follow the common indexing contract. E01-E06 are **not** a required omnibus run;
-choose only the tests needed for the claims the author retains. A task that
-cannot meet its acceptance criteria must narrow the associated claim or report
-the remaining blocker, not mark the paper ready anyway.
-
-## P01 - Closest-method comparison
-
-**Purpose:** determine what C1-C3 add, not merely collect citations.
-
-**Inputs:** [literature map](../evidence/LITERATURE.md); active Section III and
-Appendix A; [063 METHOD](../../../analyses/063-2026-11-07-architecture-instability-tracing/METHOD.md);
-[065 cap geometry](../../../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/010-local-displacement-cap-geometry.md).
-
-**Work/output:** extend the literature map with a formula-level Kosson RRC/cap
-comparison and a capability table for Zhu/SVCCA/CKA versus tracing. Search
-alternate terms and newer follow-ups. Record exact source versions/locations,
-assumptions, the strongest alternative explanation, and supported versus
-unverified novelty. Propose a compatible baseline or explain why no faithful
-comparison can be made in the selected setting.
-
-**Acceptance:** every proposed novelty statement names its nearest predecessor
-and a concrete distinction. Credit BB secants. No unsupported claim of being
-first, no field-wide absence inferred from one paper's limitations. No manuscript
-bibliography edit in this card.
-
-## P02 - Mathematical and timing contract
-
-**Purpose:** make E03-E07 and E11-E16 use one unambiguous clock.
-
-**Inputs:** [claim audit](../evidence/CLAIMS.md), actual TeX include graph,
-research definitions/metrics, Analysis024 observation007, Analysis056/057,
-063 method and065 observation013.
-
-**Work/output:** complete a formula ledger: exact, local approximation, stochastic
-term, or empirical statistic; state assumptions and denominator behavior. Map
-each run field to state, incoming/outgoing update, raw/clipped gradient,
-moment/direction/actual increment, and first availability. Audit variable LR,
-zero LR, decay, clipping, nonsmooth paths, and the mixed-projection derivation.
-Keep the author's notation unless a change resolves a demonstrated ambiguity.
-
-**Acceptance:** no gradient or window fit unavailable at the decision time used
-as a predictor; a current gradient can be a feature for a genuinely future target.
-no generic Adam `q>2` theorem; exact/all-lag versus lag-one approximation separated.
-Check analytic counterexamples and loss-reduction normalizations. Proposal stays
-in consolidation records; do not automatically restore previously rejected prose.
-
-## P03 - Exact comparator and evidence inventory
-
-**Purpose:** identify precisely which existing comparisons can answer the paper's
-questions and which require rerunning.
-
-**Inputs:** [artifact map](../evidence/ARTIFACTS.md), Analyses024/027/035/037/055/
-057/058/059/063/064/065 and their run manifests/configuration hashes.
-
-**Work/output:** a machine-readable CSV alongside its readable summary, with
-one row per selected condition: run/attempt, seed, data/model revision, objective,
-ordering, fork state, optimizer/moments/clocks, hardware/software, LR, policy
-placement, calibration, horizon, probe contract, retained artifacts/hashes, and
-complete versus sampled held-out coverage. Identify source files that are only
-remote; do not assume all raw evidence survived locally after disk recovery.
-
-**Acceptance:** all proposed tables have unchanged baselines and comparable
-denominators. Mark unmatched forks/hardware explicitly. Older TODOs are checked
-against completed064/065 work. No remote retrieval or replay is required until
-its scope is known; list unavailable artifacts rather than inventing them.
-
-## P04 - Requested high-rate event table
-
-**Purpose:** characterize the chosen three high-LR cases without claiming a
-predictor from selected peaks.
-
-**Inputs:** Run215 high-rate records; Analysis058 Figure00/observation000;
-Analysis055 direction-context and057 complete-event contracts.
-
-**Proposed contract:** use the existing fixed-pre-rise >10% event definition,
-keep censored events, and enumerate all qualifying events within the declared
-windows. For a compact main table, choose one example per architecture by an
-explicit loss-only rule (for example, first recovered qualifying event), while
-retaining the full census. This representative rule is a proposal, not yet frozen.
-
-**Output:** event CSV and table with baseline/onset/peak/recovery states, incoming
-versus outgoing update labels, pre-update loss/raw cosine/norm ratio/projected
-response, actual `g' increment` where measured, and first availability of each
-field. At the step entering the peak, report only information available at its
-starting state in the pre-update columns. Endpoint/peak values get separate columns.
-
-**Acceptance:** reproduce known event counts and source metrics; check source
-hashes and several state transitions independently. Keep Analysis057's failed
-transfer results in supporting context. If the author requests prediction,
-route that claim to E06 rather than relabel this table.
-
-**Owner:** reuse the relevant existing event-analysis workspace for numerical
-outputs; link them here. Do not allocate a new analysis merely for this plan.
-
-## P05 - Figure and algorithm package from retained evidence
-
-**Purpose:** realize the agreed six-figure storyboard with minimal duplication.
-
-**Inputs:** artifact map and accepted P02/P04 contracts.
-
-**Output:** new publication PDFs and caption/observation records in their owning
-analyses; a proposed placement list in consolidation. F4 should combine layer
-cosine/RMS, output loss, spectra and selected signed coefficients, borrowing
-065's readable stage layout. F5 separates amplitude and reversal under treatment.
-T1-T4 may be combined when that improves readability. Algorithms A1/A2 state
-costs and output semantics separately.
-
-**Acceptance:** each plotted scalar traces to a source/reduction; source hashes,
-window lengths, masks, null values, normalization and sample coverage verified.
-MLP450-500 spectra/correlations come from the same refit. Preserve architecture
-branches and distinguish selected stage coverage from every internal operation.
-Render every new PDF at publication size; keep originals. No manuscript insertion
-until W01 is authorized.
-
-## E01 - Matched intervention comparison and replication
-
-**Purpose:** test whether C3 offers value beyond simple damping and existing
-representation-change control. This is the recommended new study if C3 remains
-a major method contribution; it is not necessary merely to report the historical
-case studies with their limits.
-
-**Owner:** continue Analysis065, retaining064 as first-stage evidence. New
-executed configurations require new run IDs; read the registry at allocation.
-
-**Proposed design:** MLP/CIFAR-10, ResNet/CIFAR-10 and Transformer/WikiText-2;
-three independent evaluation initialization blocks per architecture and two
-prespecified fork positions. Use the existing primary forks448/264/552 as the
-first candidates; select a second fork by a fixed rule before inspecting new
-outcomes. The exact seed values, second forks and horizons remain design fields
-to freeze with the author, not choices delegated to outcome-based selection.
-Preserve native full-objective training for this first comparison. Practical
-minibatch transfer is E04.
-
-**Matched factors:** untreated initial tensors, complete optimizer/RNG/buffer/
-data-order state, dataset/model revisions, objective/loss reduction, data order,
-precision, hardware/software, diagnostic probe, exposure and evaluation cadence
-within each seed/fork block. Every arm includes a same-block unchanged Adam
-reference. Match updates/examples/tokens first; wall-time efficiency is separate.
-
-**Candidate arms:** unchanged Adam; fixed local q50 cap; persistent half LR;
-raw-gradient clipping before moments; literature-faithful beta2 policy; closest
-compatible representation-change baseline from P01. A uniform post-Adam damping
-control can distinguish changed optimizer input from changed applied increment.
-Norm-matched reference-arm schedules are mechanistic controls, not deployable
-competitors. Record the complete intervention, including bias correction and
-whether optimizer moments or clocks change.
-
-**Calibration/selection:** fix q50 from discovery evidence before evaluation;
-derive thresholds only from untreated pre-fork data. Predeclare equally scoped
-tuning budgets for clipping/damping/beta choices. Use training/calibration or
-a declared validation split for selection. Existing test results have already
-been inspected, so reusing them cannot create an untouched test set by relabeling.
-If no new held-out evaluation is available, report this limit and avoid a fresh
-generalization-selection claim.
-
-**Capture/outcomes:** every-update training objective, raw/clipped gradient,
-moment/direction/applied-increment norms and cosines as needed, local cap scores
-and fractions, proposal/actual norms, probe loss/motion. Repeated complete
-held-out evaluations at a predeclared cadence, with token weighting for language.
-Primary outcome: mean training loss over the entire fixed post-fork window;
-also report late/terminal loss, maximum, positive variation, reversal and motion
-amplitude, held-out mean/late/terminal results. Report paired per-seed contrasts;
-seeds are replication units, not individual updates. Define treatment of the
-common untreated fork point before computing maxima/means.
-
-**Retention:** pre-fork calibration and full recovery checkpoints including
-optimizer/scheduler/RNG/data position; enough dense representation history for
-the declared event windows, rolling histories otherwise. Save source/config
-hashes, progress events, manifest and reduction inputs. No unannounced truncation.
-
-**Before execution:** freeze the comparison and outstanding fields; measure a
-mechanical smoke/calibration; state live resource price, qualified ETC, maximum
-total cost/duration, storage, monitoring and cleanup. Obtain only genuinely
-missing scientific/spending authority; do not impose duplicate approvals when
-the author has already supplied it. No budget is authorized by this card.
-
-**Acceptance:** exact/qualified baseline replay and observer invariance; all
-planned conditions including failures; independent aggregation and figure checks;
-download size/SHA-256 verification before worker deletion. A null or negative
-result is a valid outcome and must constrain C3.
-
-## E02 - Deployment overhead and efficiency
-
-**Compare:** native training, native plus deployment cap, and dense tracing/audit
-as a separate cost. Match device, batches, precision and implementation; use
-warmup, synchronized repeated timings, and record peak GPU/host memory and storage.
-Count extra forwards, copies and retained histories. Whole-worker runtime is
-not isolated diagnostic overhead.
-
-**Output/acceptance:** benchmark config/events plus uncertainty across repetitions,
-absolute and relative costs. For speed claims, also compare time to a predeclared
-loss target on matched trajectories, with non-reaching runs censored. Do not
-infer speedup from lower mean loss at equal update count or larger nominal LR.
-
-## E03 - Probe robustness and observer controls
-
-**Compare:** current ResNet BN group/Transformer sequence prefix against an
-independent fixed probe chosen without looking at traces. Preserve full original
-normalization groups, sequence masks/context and model mode. Repeat at identical
-weights to measure observer noise; preserve training RNG/buffers.
-
-**Output/acceptance:** per-probe loss/motion/spectrum agreement and disagreement,
-coverage, IDs, cost and unchanged training checks. An independently selected probe
-does not automatically establish whole-population representativeness. Capture
-only after retention/storage and replay feasibility are checked.
-
-## Conditional studies: select by the claim
-
-| Card | Comparison and required output | Acceptance / reason to omit |
+| ID | Task | Readiness / dependency |
 |---|---|---|
-| E04 Ordinary minibatches | Native stochastic training unchanged; separate fixed-probe diagnostics; unchanged Adam versus selected cap and closest controls; matched batches/accumulation/order, independent seed blocks and complete weighted evaluation. | Necessary for a practical minibatch-transfer claim. Must separate sampled native gradients from fixed-objective/probe response. Otherwise bound the paper to full-objective experiments. |
-| E05 Spectral specificity and rotation | Matched-length quiet and spike windows selected by a loss-only rule; fresh SVD fits, matched probe/scale, rank/energy summaries. For stationary-axis claims, sliding-window principal angles with sign/degeneracy handling. | Whole-window concentration alone cannot establish spike-specific low dimension or stationary local modes. Omit those stronger claims if not selected. |
-| E06 Prospective forecasting | Past-only features/bases/calibration; separate discovery/evaluation trajectories; independently defined future loss event and lead time; all eligible alarms/non-events; loss-history and norm baselines; precision/recall, false alarms, censoring and seed-level uncertainty. | A peak-selected table, retrospectively normalized heatmap, or current-gradient availability is insufficient. This is a separate substantial study; recommended outside the core submission. |
+| P01 | Positive predecessor-gap-contribution comparison for C1-C8 | Literature/planning; ready. Develop the specified argument. |
+| P02 | Mathematical meaning, evidence and information timeline | Retained-source audit; ready. Preserve existing notation and section order. |
+| P03 | Exact evidence and comparator inventory | Ready; use P02's clock for the final table. |
+| P04 | Requested high-LR peak characterization and detection feasibility | Existing-data work after P02/P03; preserve the author's pre-update objective. |
+| P05 | Figures and algorithms within the existing sections | Storyboard from P02-P04; produce selected assets after display agreement. |
+| E01 | Specific missing matched intervention contrasts | Conditional on a named C8 comparison; design/cost authority needed for new execution. |
+| E02 | Diagnostic/cap cost and efficiency measurements | Conditional on the exact cost or speed claim; use existing timing first. |
+| E03 | Probe robustness beyond existing observer checks | Conditional on intended representativeness; retained-data feasibility first. |
+| E04 | Ordinary stochastic-minibatch transfer of Adam/tracing/cap | Conditional on a practical stochastic-training claim. |
+| E05 | Spike-specific rank or local-axis tests | Conditional on those stronger interpretations; existing SVD remains usable. |
+| E06 | Validate the requested pre-update warning claim | Begin with retained trajectories after P02/P04; identify any new evaluation needed. |
+| W01 | Apply agreed changes within the six sections | Explicit author instruction after consolidation agreement. |
+| W02 | Resolve submission route; then format/reproducibility closeout | Letter/route review can proceed during consolidation; final packaging follows W01. |
 
-## W01/W02 - Editing and submission gates
+P01-P03 can proceed independently where possible. P04 and P05 use their common
+definitions. E01-E06 are claim-specific options, not a mandatory campaign.
+A proposed experiment must name the missing comparison and explain why existing
+evidence cannot answer it. No card authorizes cloud spending.
 
-**W01:** once the author accepts the plan and explicitly requests application,
-edit `manuscript/draft/` only. Update title/abstract/introduction/contributions/
-conclusion together; add source-linked methods, approved figures/tables, and
-limitations. Preserve supplied originals and abandoned drafts. Verify equations,
-citations, table values, source identities, PDF build and all affected pages.
+### What this iteration has already supplied
 
-**W02:** verify current official TNNLS requirements for the selected article type;
-check length, supplement, declarations, references, figure legibility and final
-submission metadata. Prepare reproducibility instructions with code/config/data
-identities, complete evidence and limitations. Public release, pushing, and actual
-submission require the author's instruction. Local automatic commits still apply
-to completed, verified work. The author decides when the consolidation plan and
-manuscript are ready; a checklist alone is not an acceptance prediction.
+| Card | Completed in iteration2 | Remaining output before manuscript application |
+|---|---|---|
+| P01 | C1-C8 argument matrix, affirmative positioning and17 primary-reference entries with reading depth. | Finish the named formula/capability comparisons and check consequential novelty statements against follow-ups. |
+| P02 | Core equation/assumption/timing audit, source links and exact counterexamples. | Complete the field-level ledger for the selected event and display inputs. |
+| P03 | Full analysis inventory, source/artifact map, completed-work ledger and known fork mismatches. | Machine-readable condition/provenance table for the exact comparisons selected for the manuscript. |
+| P04 | Defined the requested peak table, available source histories and timing questions. | Extract and verify the actual table; assess the pre-update objective using all eligible states. |
+| P05 | Fixed section placement, retained IV figures, proposed V panels and algorithm sources. | Prepare and review the chosen publication displays after the author reviews this consolidation. |
+
+Existing material should be extended at these specific boundaries. Do not
+restart the inventory or ask the author to select the paper's structure again.
+
+## Completed evidence that must not become a new TODO
+
+| Evidence already completed | How to use it |
+|---|---|
+| 027: 1,188 matched directional HVP pairs and noise-correction checks | Select supporting validation for C2/C4; do not propose a generic first curvature/HVP validation. A different objective, derivative or optimizer-specific quantity would be a distinct named gap. |
+| 024 finite-step loss audit; 035 backward lags; 056 all-pair/paired reductions | Support C1/C3/C5 without automatically restoring removed dense tables or paired-factor notation. |
+| 020/027 fixed-state controls and moving paths; 037 three-model, three-initialization SGD extension | Support C4; stochastic Adam/cap transfer is a different question. |
+| 055 ordinary-trajectory controls and 057 complete-event analysis | Support C6 and P04/E06. The future-rise labels exist; they are not untouched evaluation data. |
+| 043 short Transformer clipping tests; 051/052/054 and 058 clipping consolidation | Clipping is not absent for Transformer. The selected tracing/cap-fork comparison is missing. |
+| 059 late beta2 reductions | Recover the requested result and specify retained state and native bias correction. Do not call it a from-initialization replication. |
+| 065 I9-I14: first/later/global LR .5/.25; earlier freezing and LR escalation | Layerwise controls already exist. Analysis 062's corresponding TODO is stale. |
+| 065 H048: distributed caps, directional/norm controls, cross-architecture transfer and three MLP initializations | Reuse these comparisons and their same-worker baselines. Additional ResNet/Transformer initialization or fork coverage is distinct. |
+| 065 H049:54 prespecified continuations, three MLP seeds, five cap quantiles and three LRs with same-LR uncapped controls | Cap/LR ablation is complete. It supports larger nominal-LR tolerance, not observed acceleration from raising LR under the same fixed cap budget. |
+
+Owning records are indexed in [REPOSITORY_REVIEW.md](../evidence/REPOSITORY_REVIEW.md)
+and [ARTIFACTS.md](../evidence/ARTIFACTS.md). No new analysis folder is needed to
+consolidate these results.
+
+## P01 - Predecessor, specific gap and affirmative contribution
+
+**Purpose:** finish the positioning of C1-C8 in the author's existing argument,
+including the original core and the extension within V.
+
+**Inputs:** [LITERATURE.md](../evidence/LITERATURE.md),
+[ARGUMENT_MAP.md](../evidence/ARGUMENT_MAP.md), active II/III and Appendix A,
+[063 method](../../../analyses/063-2026-11-07-architecture-instability-tracing/METHOD.md)
+and [065 cap geometry](../../../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/010-local-displacement-cap-geometry.md).
+
+**Output:** for each C1-C8, a concise chain of question, nearest cited result,
+its boundary for this question, our added formulation/capability/finding,
+direct evidence, and significance. Compare Chee-Toulis/Pesme/Baydin for temporal
+products and noise; BB for secants; EoS/Central Flows for oscillation and
+progress. Compare the Adam observable with adaptive sharpness and hypergradients,
+then tracing with output/NTK and representation-comparison methods. Finish the
+formula-level Kosson/control comparison.
+
+**Acceptance:** exact versions, equations/sections and reading depth recorded;
+mathematical equivalences credited; positive additions explained rather than
+replaced by a list of cautions. No field-wide absence inferred from one source,
+and no claim that established ingredients remove the connected contribution.
+Remaining searches must be capable of changing a specific claim. A possible
+baseline is described faithfully before any proposal to implement it. No
+manuscript bibliography edit or structural alternative is part of this card.
+
+## P02 - Mathematical meaning, existing validation and timing
+
+**Purpose:** connect the equations and diagnostics to the learning question and
+to the correct update, rather than merely standardizing symbols.
+Cover manuscript elements M03-M07 and M11-M20; M IDs denote manuscript
+elements, while E01-E06 below denote possible empirical tasks.
+
+**Inputs:** [CLAIMS.md](../evidence/CLAIMS.md), actual TeX include graph,
+research definitions/metrics,024 loss audit,027 HVP/noise checks,056/057,
+063 method and 065 observations 009/010/013.
+
+**Output:** a formula ledger identifying exact identities, approximations,
+sampling terms and empirical quantities. For each, give practical meaning,
+assumptions, denominator behavior, direct validation and section placement.
+Map recorded fields to state, incoming/outgoing update, raw/clipped gradient,
+moment, proposed direction, stored increment and earliest availability.
+Explain the Adam mixed projection using the existing notation.
+
+**Acceptance:** distinguish adjacent versus all-lag interactions, reversal
+versus loss rise, fixed sampling versus changing SGD states, and directional
+secants versus spectral curvature. Audit varying LR, clipping/decay, zero
+denominators and nonsmooth paths where relevant. Use 027's completed derivative
+checks instead of listing them as absent. A current gradient may inform the
+next update but cannot predict the completed displacement that produced it.
+Counterexamples clarify scope; they do not remove the intended interpretation.
+Do not automatically restore rejected notation or dense material.
+
+## P03 - Exact evidence and comparator inventory
+
+**Purpose:** identify what each intended statement can already use and the
+smallest genuinely missing comparison.
+
+**Inputs:** artifact/repository maps; selected 024/027/035/037,038-060 and 061-065
+observations, run manifests, configuration identities and source hashes.
+
+**Output:** a readable summary plus condition CSV: run/attempt, initialization,
+model/data revision, objective and weighting, order, fork and complete optimizer
+state, hardware/software, policy placement, LR/betas, calibration, horizon,
+probe, held-out coverage and artifact availability. Separate preserved originals,
+current active manuscript content, completed evidence and superseded plans.
+For each planned ranking, state whether its arms share the required controls.
+
+**Acceptance:** every intervention has its unchanged baseline; different forks,
+GPU architectures and windows remain explicit. Distinguish native LR changes
+from post-Adam increment scaling. Identify which raw files remain on Spark
+rather than assuming all checkpoints are local. Account for completed H048/H049
+and old Transformer clipping. Retrieval or replay becomes a separate concrete
+action only if required; do not invent missing evidence or new run IDs.
+
+## P04 - Requested high-rate peak table and detection feasibility
+
+**Purpose:** realize the author's characterization and determine what can
+already be said about identifying an excursion before an outgoing update.
+
+**Inputs:** Analysis 058 Figure 00 and owning records, Run215 high-rate histories,
+055 ordinary-trajectory/context controls and 057 complete-event contract.
+
+**Output:** for the three selected high-LR trajectories, retain the existing
+loss-defined event census and mark the displayed cases explicitly. The compact
+table records pre-rise/onset, peak and recovery states; loss, raw cosine, norm
+ratio and eta-kappa-hat at the stated times; actual gradient-dot-increment where
+available; and the first availability of each quantity. Separate incoming
+response from information usable before the next update. Show lead to first
+increase, a declared escalation level, and peak as distinct outcomes.
+
+**Selection:** keep the exact cases identified by the author/figure where
+unambiguous. If a compact display still needs a choice, declare a loss-only
+selection rule and retain the full population including censored events.
+Do not choose an event because its diagnostic happens to look favorable.
+
+**Acceptance:** reproduce existing boundaries/metrics, verify source hashes and
+sample transitions independently. Identify qualifying pre-update examples and
+failures rather than asserting success from selected peaks. Use the table to
+scope E06, whose objective is already part of the author's request. Existing
+055/057 support informs feasibility; it does not become a new held-out test.
+Numerical outputs belong in the relevant existing analysis workspace.
+
+## P05 - Figures and algorithms inside the fixed structure
+
+**Purpose:** prepare the specific displays in PLAN, preserving the four current
+GD/SGD figures and the author's Section IV order.
+
+**Output:** a placement/caption storyboard, then approved publication PDFs and
+observation records in the owning analyses. Within V, use the requested
+high-LR overview, timing table, output-to-hidden tracing sequence, readable
+layer heatmap/SVD display inspired by 065 Figure 07 page 2, and LR/clipping/beta2/
+cap comparison. A1 describes tracing; A2 describes local affine control and its
+meaning. No new top-level section or fixed six-figure quota is imposed.
+
+**Acceptance:** each display answers a named C1-C8 question and traces to exact
+sources/reductions. Match windows for spectra/correlations, including the
+450-500 MLP refit. Preserve masks, normalization groups, null values, coverage
+and model branches. Distinguish temporal SVD from the cap's local affine score;
+show amplitude as well as reversal and measured loss tradeoffs. Preserve all
+original assets, render at publication size, and insert nothing into the
+manuscript before W01.
+
+## E01 - Only the matched contrasts required by the intended C8 claim
+
+**Decision rule:** first use P03. A historical case-study statement needs accurate
+qualified comparisons; a direct superiority statement needs matched arms.
+Write one minimal design card per missing link rather than launching a new
+all-model/all-policy benchmark.
+
+| Possible claim | Existing support | Precisely what may be missing |
+|---|---|---|
+| Cap versus LR reduction/clipping/beta2 at the selected event | 058/059 historical comparisons; 065 native and damping controls | Required policy arms at the same chosen fork/window/hardware, including Transformer clipping there. Scope to the comparison actually claimed. |
+| Cap adds value beyond the closest representation-change method | 065 norm/directional/local/global controls; P01's literature map | A faithful compatible L05 control, if formula comparison establishes relevance and a method-superiority claim is intended. |
+| Effect transfers across initialization or later events | Three MLP initializations and three complete model/data setups | Additional ResNet/Transformer initialization or independent fork coverage only for the corresponding broader claim. |
+| Selective allocation matters beyond total step size | 065 norm-matched and directional controls | Check existing matching first; add a specific untested control only if needed for a stronger mechanism claim. |
+
+**Owner and contract:** continue Analysis 065, preserving 064 as first-stage
+evidence. Changed executed scientific inputs get new run IDs. Specify varying
+and matched factors: tensors, optimizer/bias-correction history, RNG/order,
+objective, precision/hardware, probe, calibration, exposure and horizon.
+Every intervention retains an unchanged same-block reference. Define means,
+late/terminal loss, excursions and held-out measurements before execution.
+Treat seeds, not adjacent updates, as replication units.
+
+**Before execution:** freeze only the selected missing comparison, retention
+and verification plan; prepare a mechanics check; state live resource price,
+qualified ETC, maximum cost/duration, storage, monitoring and cleanup. Obtain
+genuinely missing authority once. This card authorizes no execution or spending.
+
+**Acceptance:** observer/replay qualification, all planned outcomes including
+failures, independent aggregation and checked figure reductions; verified
+size/SHA-256 retrieval before worker deletion. Report what the chosen contrast
+resolves and what remains beyond its scope.
+
+## E02 - Cost and efficiency
+
+First extract existing timing/memory records and analytical operation counts.
+For an isolated overhead claim, compare native training, the intended deployed
+diagnostic/cap, and dense tracing/audit separately on the same device and
+implementation with synchronized repetitions. Include retained-gradient memory,
+extra probe forwards/products, copies and storage.
+
+For speed claims, compare time to a prespecified loss target on matched
+trajectories, with non-reaching runs censored. Equal-update mean loss and
+larger nominal LR are not wall-time acceleration. H049 already answers the
+tested fixed-budget higher-LR question; do not rerun it as an open ablation.
+
+## E03 - Probe robustness
+
+Use existing observer invariance/replay evidence first. If representativeness
+beyond the chosen probe is claimed, compare an independently chosen fixed probe
+at identical states. Preserve intact ResNet normalization groups and Transformer
+sequence/context/masks, model mode and RNG/buffers. Report agreement and
+disagreement in loss/motion/spectra and the population covered. A second probe
+is not automatically a full-population guarantee. Resolve retained-state,
+capture, storage and resource feasibility before new replay.
+
+## E04-E06 - Claim-specific validation
+
+| Card | Work and output | Acceptance |
+|---|---|---|
+| E04: stochastic Adam/tracing/cap transfer | A selected native minibatch comparison, with fixed-probe diagnostics kept separate from sampled gradients; matched batches/order/accumulation and complete weighted evaluation. | Needed for the corresponding practical-training claim. Existing SGD batch evidence remains C4 support and is not listed as missing. |
+| E05: spike-specific dimensionality or local axes | First use retained quiet/spike windows of matched length with loss-only selection. Refit spectra; use local principal-angle comparisons only for a stationary-axis claim. | Window-level low dimension remains a valid existing finding. New analysis is needed only to claim spike specificity or stable local axes beyond that evidence. |
+| E06: requested pre-update warning | Begin with P02/P04 and all eligible states in retained 055/057 histories. Define decision time, future event, lead horizon, censoring, feature availability, and loss-history/norm baselines. Separate discovery, retrospective feasibility and any independent evaluation. | Report detection coverage, false alarms and lead times with appropriate dependence/seed limits. If retained evidence cannot validate the intended claim, specify the minimum new evaluation and ask the author to choose its scope; do not automatically omit the objective or move it outside the paper. |
+
+For E06, peak selection, future-window normalization and SVD fitted with future
+states cannot enter a deployed decision. Existing labels and controls are useful
+evidence, but their previous inspection must be recorded when designing a fresh
+evaluation. Timing validity and incremental usefulness are separate questions.
+
+## W01 - Apply the agreed manuscript changes
+
+After the author is satisfied with consolidation and explicitly requests
+application, edit manuscript/draft within the existing six sections. Preserve
+the title, scientific line, author-edited motivation and approved notation.
+Update dependent abstract/introduction/contribution/conclusion statements to
+reflect the agreed contents, retaining the original core and extending V.
+Add source-linked methods, approved displays and local qualifications. Verify
+equations, references, values, sources, build and all affected pages. Preserve
+supplied originals and superseded drafts.
+
+## W02 - Submission route, format and reproducibility
+
+**Route check first:** the supplied
+[decision letter](../../draft/previous-submission/rejection_email.pdf) prohibits
+submission of a revised version to TNNLS. Resolve the intended submission route
+against that actual restriction before submission; current format compliance
+alone cannot resolve it. Record the issue for the author while scientific
+consolidation continues. Do not choose another venue or contact editors without
+instruction. This route check need not wait for W01.
+
+**After W01:** verify the official requirements for the intended article/route,
+including length, supplements, declarations, references and submission metadata.
+Prepare reproducibility instructions and identities for code, data/configuration
+and complete evidence. Distinguish publicly releasable artifacts from retained
+raw evidence. Publishing, pushing and submission require the author's
+instruction; local verified-work commit conventions still apply. Readiness is
+the author's decision, not a predicted acceptance outcome.
