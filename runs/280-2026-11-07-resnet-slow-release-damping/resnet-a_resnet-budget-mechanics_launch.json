@@ -1,0 +1,14 @@
+{
+  "label": "resnet-budget-mechanics",
+  "case": "resnet",
+  "run_dir": "runs/280-2026-11-07-resnet-slow-release-damping",
+  "arms": [
+    "control",
+    "output_budget_slow"
+  ],
+  "output": "runs/280-2026-11-07-resnet-slow-release-damping/artifacts/resnet-a/resnet-budget-mechanics",
+  "mechanics": true,
+  "after": "resnet-distributed",
+  "pid": "3587",
+  "started_utc": "2026-11-07T22:09:38.464123+00:00"
+}

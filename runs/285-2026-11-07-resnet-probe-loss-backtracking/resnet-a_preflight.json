@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "files": 39,
+  "delta_bytes": 8447,
+  "delta_sha256": "28843811ed64887de91f0aa4becc5c0fecdb41ac0d914a3f30e7f8224353d720",
+  "missing": [
+    "runs/285-2026-11-07-resnet-probe-loss-backtracking/config.json",
+    "runs/285-2026-11-07-resnet-probe-loss-backtracking/01_worker.py",
+    "src/eos_tasks/functional_acceptance_continuation.py",
+    "src/eos_tasks/reuse_control.py"
+  ],
+  "reused": [
+    "runs/285-2026-11-07-resnet-probe-loss-backtracking/inputs/prefix.pt",
+    "runs/285-2026-11-07-resnet-probe-loss-backtracking/inputs/boundaries.jsonl"
+  ]
+}

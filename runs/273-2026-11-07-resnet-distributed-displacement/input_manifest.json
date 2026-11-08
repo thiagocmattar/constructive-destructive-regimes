@@ -1,0 +1,187 @@
+{
+  "case": "resnet",
+  "files": [
+    {
+      "path": "cache/eos-multitask/inputs.json",
+      "bytes": 7492,
+      "sha256": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f"
+    },
+    {
+      "path": "cache/eos-multitask/resnet_initial_seed0.pt",
+      "bytes": 1891855,
+      "sha256": "8cc004193b85f35c74c301530ffee7ac8b624d05c646da0e261fc9c8e56fde14"
+    },
+    {
+      "path": "cache/eos-multitask/resnet_data.pt",
+      "bytes": 737762437,
+      "sha256": "0a71ff06ddf09c355f82712bcb57f973e987916269e26ed278133e008b88564a"
+    },
+    {
+      "path": "cache/eos-multitask/reference/resnet_cifar.py",
+      "bytes": 4252,
+      "sha256": "7a98f29fed2635bfc80b6cbea00d0d08e92122125789483e2600aa82fc5735c9"
+    },
+    {
+      "path": "cache/eos-multitask/reference/model.py",
+      "bytes": 6367,
+      "sha256": "9d2a01d0076146232bb10b21f642b2c27435ae33aaaa9fbd1f80a357ff84c196"
+    },
+    {
+      "path": "cache/eos-multitask/reference/data.py",
+      "bytes": 1482,
+      "sha256": "15784815a6bd18e9b25eadf6ae049915f88d4fb8faebeba9d83ae6ec8e19883d"
+    },
+    {
+      "path": "src/eos_tasks/__init__.py",
+      "bytes": 78,
+      "sha256": "b827b6bf61d01a83281bbff65204315279e6d343f962a1bbe4e52d5a7f67b86e"
+    },
+    {
+      "path": "src/eos_tasks/adam_profile.py",
+      "bytes": 11792,
+      "sha256": "764394ed57819b58b1a7a0dd09b6c4c5bf162cb3b572f3907e5d25f78e6a9865"
+    },
+    {
+      "path": "src/eos_tasks/lag_profile.py",
+      "bytes": 13952,
+      "sha256": "6b52a7e47cc78e4f4868afd231b113aed263d4c75172614acd54a071ba61b26b"
+    },
+    {
+      "path": "src/eos_tasks/noise.py",
+      "bytes": 3104,
+      "sha256": "c94a139f40cd1e632ca4b68c15a0407cd2523e9ac8de0144d51a9a89b7eca6bb"
+    },
+    {
+      "path": "src/eos_tasks/production.py",
+      "bytes": 1375,
+      "sha256": "9cda7703e50d4f32d9e8c3118361c418b600a87e23b3f8d6b175b82e1482b6ce"
+    },
+    {
+      "path": "src/eos_tasks/task.py",
+      "bytes": 6899,
+      "sha256": "28a15439e22ec82e05da41497b2d6c9a33171f29a9e13413d8167804d124c6b0"
+    },
+    {
+      "path": "src/eos_tasks/train.py",
+      "bytes": 11195,
+      "sha256": "beecb97a02cb1037618bc326c1e9af04d5ff7db43f5d17127939f9151d853175"
+    },
+    {
+      "path": "src/cifar_eos/__init__.py",
+      "bytes": 80,
+      "sha256": "4cfbf7fc078bcae86b6ddfcbb2a9d87619b6350302c07379b3f4df21fe7eb27c"
+    },
+    {
+      "path": "src/cifar_eos/core.py",
+      "bytes": 11786,
+      "sha256": "c9fab65d551740149d7ff3a79e4b3af1e87ff5e7f3ba7c5cc62201f216434138"
+    },
+    {
+      "path": "src/cifar_eos/train.py",
+      "bytes": 12788,
+      "sha256": "532d67c82c27076a573bdd6e2fe0b1156de414b3cb38db953f5237b7b9261f17"
+    },
+    {
+      "path": "src/cifar_eos/verification.py",
+      "bytes": 9066,
+      "sha256": "a7a8959c5b3db757edbd752693b416d63446af9b6d388373ffe2b5ffc65d5e28"
+    },
+    {
+      "path": "runs/215-2026-11-02-controlled-full-batch-adam/01_train.py",
+      "bytes": 10138,
+      "sha256": "861afc4b14a31f5ccb9bb7f92c1f8e0d56f0ef3ac39a0d1521f3758fccfe5514"
+    },
+    {
+      "path": "runs/215-2026-11-02-controlled-full-batch-adam/02_qualify.py",
+      "bytes": 4407,
+      "sha256": "abe4e3e740dcbbd0df47dd1a7b7e5b70caf89f7fde76857a532722ad56f86ccb"
+    },
+    {
+      "path": "runs/215-2026-11-02-controlled-full-batch-adam/config.json",
+      "bytes": 1669,
+      "sha256": "868c271e89bea4641e633d727c7b322a2220085ea1bee63c2dc712389e8e88f4"
+    },
+    {
+      "path": "runs/215-2026-11-02-controlled-full-batch-adam/qualification_references.json",
+      "bytes": 862,
+      "sha256": "b24af557019e34283f228435e54fa756e07d2f0ab3940c421241643c21ea1a37"
+    },
+    {
+      "path": "src/eos_tasks/adam_diagnostics.py",
+      "bytes": 4027,
+      "sha256": "2d70b9d876c9fb08845f0a2f779d1b90b138c41b530422f44b9da06fe453fc7d"
+    },
+    {
+      "path": "cache/eos-adam215-references/resnet.pt",
+      "bytes": 1858594,
+      "sha256": "15d3889c22e1eda69284916e27085a1750da5d5a655dfa206d1bc90ed9a023d6"
+    },
+    {
+      "path": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/boundaries.jsonl",
+      "bytes": 135167,
+      "sha256": "b952c7e4d184e1da70d1dbadd7710de16452aaa7041d1e7df6fa2165ac3e28ee"
+    },
+    {
+      "path": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/metrics.jsonl",
+      "bytes": 2782726,
+      "sha256": "c9572aaa98f3e9f8c0378b6ff2b5ce60d8e3383e563c358485c5afffaf5945ca"
+    },
+    {
+      "path": "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/manifest.json",
+      "bytes": 2936,
+      "sha256": "6162fb3eee941231f44bc006c92d74a702f0ab52bad560a78dc4ae36848a71c0"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/01_worker.py",
+      "bytes": 17249,
+      "sha256": "86cfb4f3db8220a0b2b0d137da8998352551dca4831e368f7382cc5ba8052c3f"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/config.json",
+      "bytes": 1984,
+      "sha256": "d9891c396ffa04894866795486e85c8c2bb1016910bbd48bb5a3c104666e3a4f"
+    },
+    {
+      "path": "analyses/036-2026-11-02-controlled-adam-diagnostics/02_extract_loss_spikes.py",
+      "bytes": 20316,
+      "sha256": "ceea5a9d2d0265bc83d45858961763f898afffce15febd6e7982385ea56e6542"
+    },
+    {
+      "path": "runs/223-2026-11-04-multispike-interventions/input_manifest.json",
+      "bytes": 11008,
+      "sha256": "04a0b311c2947c6e73fc7fa98dc219fd13c995f813ea421ad6e9de43e5b20765"
+    },
+    {
+      "path": "src/eos_tasks/representation_policy.py",
+      "bytes": 9883,
+      "sha256": "8bdae2560e3134885901823b6e1a29d31f5243bb95df38cfbac4e0d817ec3b71"
+    },
+    {
+      "path": "src/eos_tasks/representation_continuation.py",
+      "bytes": 15268,
+      "sha256": "f754d6599dc27851c74d4b01cf39e1bb197e44ed83ad8f717ed2eb8f720b9805"
+    },
+    {
+      "path": "runs/269-2026-11-07-mlp-representation-interventions/test_policy.py",
+      "bytes": 3501,
+      "sha256": "e0dd979c3e5c2d9f072fb1f87729f6bf3aa26fe76fcfd7b1c2f8442564bb78e2"
+    },
+    {
+      "path": "runs/273-2026-11-07-resnet-distributed-displacement/config.json",
+      "bytes": 2014,
+      "sha256": "ac8e385e81949dcdacb107f24d3bd1be52d40fcae917c51348fc421b5698ccbd"
+    },
+    {
+      "path": "runs/273-2026-11-07-resnet-distributed-displacement/inputs/prefix.pt",
+      "bytes": 9409845,
+      "sha256": "b1a3b910fb1e3b570f68261f5a4db920ff53aaf161560fd267d0498df96d3cb1",
+      "local_path": "runs/223-2026-11-04-multispike-interventions/artifacts/duqoihms8w1gle/payload/worker/prefix/end.pt"
+    },
+    {
+      "path": "runs/273-2026-11-07-resnet-distributed-displacement/inputs/boundaries.jsonl",
+      "bytes": 91506,
+      "sha256": "b63d89ba5a7c63718b9b14848abf76f3e7ae8699ea67918406c96a778405aaa1",
+      "local_path": "runs/223-2026-11-04-multispike-interventions/artifacts/duqoihms8w1gle/payload/worker/control/boundaries.jsonl"
+    }
+  ]
+}

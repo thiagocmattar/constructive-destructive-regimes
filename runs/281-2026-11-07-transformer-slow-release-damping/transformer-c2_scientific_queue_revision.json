@@ -1,0 +1,58 @@
+{
+  "old_job": {
+    "label": "transformer-budget-scientific",
+    "case": "transformer",
+    "run_dir": "runs/281-2026-11-07-transformer-slow-release-damping",
+    "arms": [
+      "control",
+      "output_budget_slow",
+      "probe_loss_guard"
+    ],
+    "output": "runs/281-2026-11-07-transformer-slow-release-damping/artifacts/transformer-c2/transformer-budget-scientific",
+    "mechanics": false,
+    "after": "transformer-budget-mechanics",
+    "pid": "2659",
+    "started_utc": "2026-11-07T22:29:53.804003+00:00"
+  },
+  "old_script": "set -e\ncd /workspace/cdr-transfer\nexport PYTHONPATH=/workspace/cdr-transfer PYTHONUNBUFFERED=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 OPENBLAS_NUM_THREADS=4 OMP_NUM_THREADS=4\nset +e\nwhile ! test -f /workspace/transformer-budget-mechanics.exit; do sleep 30; done\nif test \"$(cat /workspace/transformer-budget-mechanics.exit)\" != 0; then echo 125 > /workspace/transformer-budget-scientific.exit; exit 125; fi\nremaining=$((1794105000 - $(date +%s) - 900))\ntimeout --signal=TERM --kill-after=30 \"$remaining\" /opt/cdr-transfer/bin/python runs/281-2026-11-07-transformer-slow-release-damping/01_worker.py --run runs/281-2026-11-07-transformer-slow-release-damping --output runs/281-2026-11-07-transformer-slow-release-damping/artifacts/transformer-c2/transformer-budget-scientific --arms control,output_budget_slow,probe_loss_guard > /workspace/transformer-budget-scientific.log 2>&1\ncode=$?\necho \"$code\" > /workspace/transformer-budget-scientific.exit\nexit \"$code\"\n",
+  "new_job": {
+    "label": "transformer-budget-scientific",
+    "case": "transformer",
+    "run_dir": "runs/281-2026-11-07-transformer-slow-release-damping",
+    "arms": [
+      "control",
+      "output_budget_slow",
+      "probe_loss_guard"
+    ],
+    "output": "runs/281-2026-11-07-transformer-slow-release-damping/artifacts/transformer-c2/transformer-budget-scientific",
+    "mechanics": false,
+    "after": "transformer-budget-mechanics",
+    "pid": "3387",
+    "started_utc": "2026-11-07T22:29:53.804003+00:00",
+    "queue_revised_utc": "2026-11-07T23:00:04.072747+00:00"
+  },
+  "new_script": "set -e\ncd /workspace/cdr-transfer\nexport PYTHONPATH=/workspace/cdr-transfer PYTHONUNBUFFERED=1 CUBLAS_WORKSPACE_CONFIG=:4096:8 OPENBLAS_NUM_THREADS=4 OMP_NUM_THREADS=4\nset +e\nwhile ! test -f /workspace/transformer-budget-mechanics.exit; do sleep 30; done\nif test \"$(cat /workspace/transformer-budget-mechanics.exit)\" != 0; then echo 125 > /workspace/transformer-budget-scientific.exit; exit 125; fi\nremaining=$((1794105723 - $(date +%s) - 900))\ntimeout --signal=TERM --kill-after=30 \"$remaining\" /opt/cdr-transfer/bin/python runs/281-2026-11-07-transformer-slow-release-damping/01_worker.py --run runs/281-2026-11-07-transformer-slow-release-damping --output runs/281-2026-11-07-transformer-slow-release-damping/artifacts/transformer-c2/transformer-budget-scientific --arms control,output_budget_slow,probe_loss_guard > /workspace/transformer-budget-scientific.log 2>&1\ncode=$?\necho \"$code\" > /workspace/transformer-budget-scientific.exit\nexit \"$code\"\n",
+  "reason": {
+    "utc": "2026-11-07T22:59:51.231068+00:00",
+    "reason": "Observed Transformer distributed-cap throughput ~8.0 seconds/update requires more final-queue time. Transfer 6min of ResNet and 10min of faster4090 slack to 5090, preserving aggregate reservation; scientific inputs unchanged. Expected science completion ~02:23UTC with15min verification allowance.",
+    "changes": [
+      {
+        "name": "resnet-a",
+        "old_deadline": 1794100965.1294696,
+        "new_deadline": 1794100605.1294696
+      },
+      {
+        "name": "transformer-b",
+        "old_deadline": 1794103380.4414303,
+        "new_deadline": 1794102780.4414303
+      },
+      {
+        "name": "transformer-c2",
+        "old_deadline": 1794105000.0,
+        "new_deadline": 1794105723.0171428
+      }
+    ],
+    "aggregate_bound_usd": 19.55240219615961
+  },
+  "scientific_inputs_unchanged": true
+}

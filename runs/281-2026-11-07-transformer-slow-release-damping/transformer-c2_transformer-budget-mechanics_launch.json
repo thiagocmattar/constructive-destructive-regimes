@@ -1,0 +1,15 @@
+{
+  "label": "transformer-budget-mechanics",
+  "case": "transformer",
+  "run_dir": "runs/281-2026-11-07-transformer-slow-release-damping",
+  "arms": [
+    "control",
+    "output_budget_slow",
+    "probe_loss_guard"
+  ],
+  "output": "runs/281-2026-11-07-transformer-slow-release-damping/artifacts/transformer-c2/transformer-budget-mechanics",
+  "mechanics": true,
+  "after": "transformer-scientific",
+  "pid": "2633",
+  "started_utc": "2026-11-07T22:29:44.511873+00:00"
+}

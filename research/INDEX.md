@@ -1,5 +1,18 @@
 # Research index
 
+## Representation-informed transfer, 7-8 November 2026
+
+[Analysis 065 / H048](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/008-cross-architecture-interventions.md) completes Runs 269-285.
+Distributed local displacement caps lower mean training loss 22.85% / 16.22% /
+26.00% for MLP / ResNet / Transformer; two further MLP seeds improve 19.43% /
+32.08%. Reversals persist or increase, while terminal test loss is worse under
+the cap in every setup. This supports movement-sensitive optimization control,
+not a generalization or universal optimizer claim. Embedding LR boosts are mixed;
+failed gates and directional controls are retained. All 68 new continuations,
+35,452 updates, independent audits and 14 PDF pages verified. Five task pods
+deleted; no retained cloud storage. Conservative cost USD 18.75 (billing
+provisional), below USD 20. Continue in 065; next run 286, unused H049.
+
 ## Selective MLP update gates, 7 November 2026
 
 [Analysis 065 / H047](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/006-selective-update-gates.md)

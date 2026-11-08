@@ -1,0 +1,68 @@
+{
+  "run_id": 276,
+  "analysis_id": "065",
+  "hypothesis": "H048",
+  "case": "mlp",
+  "source_state": 0,
+  "fork": 448,
+  "end": 1152,
+  "base_lr": 0.001,
+  "physical": 1000,
+  "probe": 5000,
+  "calibration_updates": 8,
+  "quantiles": [
+    0.5,
+    0.75,
+    0.9
+  ],
+  "arms": [
+    {
+      "id": "control",
+      "kind": "control"
+    },
+    {
+      "id": "axis_remove",
+      "kind": "functional",
+      "scope": "entry",
+      "quantile": 0.5,
+      "projection_kind": "remove"
+    },
+    {
+      "id": "axis_half",
+      "kind": "functional",
+      "scope": "entry",
+      "quantile": 0.5,
+      "projection_kind": "half"
+    },
+    {
+      "id": "axis_cap",
+      "kind": "functional",
+      "scope": "entry",
+      "quantile": 0.5,
+      "projection_kind": "cap"
+    }
+  ],
+  "seconds_per_arm": 5400,
+  "checkpoint_every": 64,
+  "audit_offsets": [
+    0,
+    32,
+    -1
+  ],
+  "seed": 0,
+  "precision": "Native FP32; TF32 off; deterministic; FP64 diagnostic reductions and functional displacement scores",
+  "objective": "Unchanged full objective and original ordering/groups; no clipped gradients, decay or moment reset",
+  "selection": "Online block shock: rho<0 AND norm>previous EMA; scale=min(1,EMA/norm); EMA beta .9 updated after decision. Secant heuristic min(1,2/max(eta_kappa_hat,2)), not an Adam curvature bound.",
+  "validation": "Full available validation/test splits at end, secondary only; selection uses training outcomes.",
+  "authorization": "All runs preapproved; cross-architecture exploration and embedding LR explicitly authorized; round total Runpod cap USD20, at most3 GPUs, at most6h per lease. Spark authorized.",
+  "parent_workers": {
+    "resnet": "duqoihms8w1gle",
+    "transformer": "159vjccj7w3996"
+  },
+  "retention": "Full shared fork and end/recovery states; all boundary/update/probe/block scalars; three full gradient/update audits per arm; fixed probes identified by cache hash. Dense SVD histories not stored in this screening round.",
+  "confirmation": "Exploratory causal first-projection axis test. At each update, decompose its frozen-input affine response along the preceding actual first-projection displacement. Remove, halve, or cap only a negative parallel component, preserving the orthogonal component. No future SVD basis is used. All other updates and native moments remain unchanged.",
+  "worker_script": "01_worker.py",
+  "extra_inputs": [
+    "01_worker.py"
+  ]
+}

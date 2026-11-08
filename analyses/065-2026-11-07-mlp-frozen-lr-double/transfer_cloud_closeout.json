@@ -1,0 +1,250 @@
+{
+  "status": "verified_resource_closeout",
+  "utc": "2026-11-08T02:29:22.059212+00:00",
+  "generator_sha256": "07b0fb3d736202be40caed101e771e003735ba36136d3cb58a3de438778b0b6a",
+  "ledger_sha256": "4194566f2af521b17454a56c7f45a633b57674ff4e1391e5eb5fb0a50e0cd4fc",
+  "task_pod_ids_absent_including_stopped": [
+    "4x2a2lb6w13eke",
+    "730tdj74yhrclq",
+    "cy62q3ybpxld9d",
+    "lq9pes2wvwheq9",
+    "v93a067lk7t76x"
+  ],
+  "remaining_task_pods": 0,
+  "unrelated_account_resources_preserved": 2,
+  "retained_task_cloud_storage_gb": 0,
+  "storage_note": "Only Pod-local container/volume disks were created; no network volume was provisioned.",
+  "billing_start": "2026-11-07T20:00:00Z",
+  "billing_end": "2026-11-08T02:29:22Z",
+  "pods": [
+    {
+      "name": "transformer-c",
+      "id": "lq9pes2wvwheq9",
+      "rows": [
+        {
+          "cpuAmount": 0,
+          "diskAmount": 0.006944444379769266,
+          "endTime": "2026-11-07T22:00:00Z",
+          "gpuAmount": 0.3282807096838951,
+          "podId": "lq9pes2wvwheq9",
+          "startTime": "2026-11-07T21:00:00Z",
+          "totalAmount": 0.3352251540636644
+        }
+      ],
+      "provider_reported_total_usd": 0.3352251540636644
+    },
+    {
+      "name": "resnet-a",
+      "id": "730tdj74yhrclq",
+      "rows": [
+        {
+          "cpuAmount": 0,
+          "diskAmount": 0.01527777872979641,
+          "endTime": "2026-11-07T22:00:00Z",
+          "gpuAmount": 0.8435573261231184,
+          "podId": "730tdj74yhrclq",
+          "startTime": "2026-11-07T21:00:00Z",
+          "totalAmount": 0.8588351048529148
+        },
+        {
+          "cpuAmount": 0,
+          "diskAmount": 0.01527777872979641,
+          "endTime": "2026-11-07T23:00:00Z",
+          "gpuAmount": 0.8895960599184036,
+          "podId": "730tdj74yhrclq",
+          "startTime": "2026-11-07T22:00:00Z",
+          "totalAmount": 0.9048738386482
+        },
+        {
+          "cpuAmount": 0,
+          "diskAmount": 0.01527777872979641,
+          "endTime": "2026-11-08T00:00:00Z",
+          "gpuAmount": 0.8904944434762001,
+          "podId": "730tdj74yhrclq",
+          "startTime": "2026-11-07T23:00:00Z",
+          "totalAmount": 0.9057722222059965
+        },
+        {
+          "cpuAmount": 0,
+          "diskAmount": 0.01527777872979641,
+          "endTime": "2026-11-08T01:00:00Z",
+          "gpuAmount": 0.8890299052000046,
+          "podId": "730tdj74yhrclq",
+          "startTime": "2026-11-08T00:00:00Z",
+          "totalAmount": 0.904307683929801
+        },
+        {
+          "cpuAmount": 0,
+          "diskAmount": 0.004398148274049163,
+          "endTime": "2026-11-08T02:00:00Z",
+          "gpuAmount": 0.20269181951880455,
+          "podId": "730tdj74yhrclq",
+          "startTime": "2026-11-08T01:00:00Z",
+          "totalAmount": 0.2070899677928537
+        }
+      ],
+      "provider_reported_total_usd": 3.780878817429766
+    },
+    {
+      "name": "transformer-b",
+      "id": "v93a067lk7t76x",
+      "rows": [
+        {
+          "cpuAmount": 0,
+          "diskAmount": 0.014004629221744835,
+          "endTime": "2026-11-07T22:00:00Z",
+          "gpuAmount": 0.7805707901716232,
+          "podId": "v93a067lk7t76x",
+          "startTime": "2026-11-07T21:00:00Z",
+          "totalAmount": 0.7945754193933681
+        },
+        {
+          "cpuAmount": 0,
+          "diskAmount": 0.015277777332812548,
+          "endTime": "2026-11-07T23:00:00Z",
+          "gpuAmount": 0.8895960599184036,
+          "podId": "v93a067lk7t76x",
+          "startTime": "2026-11-07T22:00:00Z",
+          "totalAmount": 0.9048738372512162
+        },
+        {
+          "cpuAmount": 0,
+          "diskAmount": 0.015277777332812548,
+          "endTime": "2026-11-08T00:00:00Z",
+          "gpuAmount": 0.8904944434762001,
+          "podId": "v93a067lk7t76x",
+          "startTime": "2026-11-07T23:00:00Z",
+          "totalAmount": 0.9057722208090127
+        },
+        {
+          "cpuAmount": 0,
+          "diskAmount": 0.015277777332812548,
+          "endTime": "2026-11-08T01:00:00Z",
+          "gpuAmount": 0.8890299052000046,
+          "podId": "v93a067lk7t76x",
+          "startTime": "2026-11-08T00:00:00Z",
+          "totalAmount": 0.9043076825328171
+        },
+        {
+          "cpuAmount": 0,
+          "diskAmount": 0.007638888666406274,
+          "endTime": "2026-11-08T02:00:00Z",
+          "gpuAmount": 0.44724182039499283,
+          "podId": "v93a067lk7t76x",
+          "startTime": "2026-11-08T01:00:00Z",
+          "totalAmount": 0.4548807090613991
+        }
+      ],
+      "provider_reported_total_usd": 3.964409869047813
+    },
+    {
+      "name": "transformer-a",
+      "id": "cy62q3ybpxld9d",
+      "rows": [
+        {
+          "cpuAmount": 0,
+          "diskAmount": 0.015277777332812548,
+          "endTime": "2026-11-07T22:00:00Z",
+          "gpuAmount": 0.81516632574494,
+          "podId": "cy62q3ybpxld9d",
+          "startTime": "2026-11-07T21:00:00Z",
+          "totalAmount": 0.8304441030777525
+        },
+        {
+          "cpuAmount": 0,
+          "diskAmount": 0.015277777332812548,
+          "endTime": "2026-11-07T23:00:00Z",
+          "gpuAmount": 0.8895960599184036,
+          "podId": "cy62q3ybpxld9d",
+          "startTime": "2026-11-07T22:00:00Z",
+          "totalAmount": 0.9048738372512162
+        },
+        {
+          "cpuAmount": 0,
+          "diskAmount": 0.015277777332812548,
+          "endTime": "2026-11-08T00:00:00Z",
+          "gpuAmount": 0.8904944434762001,
+          "podId": "cy62q3ybpxld9d",
+          "startTime": "2026-11-07T23:00:00Z",
+          "totalAmount": 0.9057722208090127
+        },
+        {
+          "cpuAmount": 0,
+          "diskAmount": 0.015277777332812548,
+          "endTime": "2026-11-08T01:00:00Z",
+          "gpuAmount": 0.8890299052000046,
+          "podId": "cy62q3ybpxld9d",
+          "startTime": "2026-11-08T00:00:00Z",
+          "totalAmount": 0.9043076825328171
+        },
+        {
+          "cpuAmount": 0,
+          "diskAmount": 0.007638888666406274,
+          "endTime": "2026-11-08T02:00:00Z",
+          "gpuAmount": 0.44724182039499283,
+          "podId": "cy62q3ybpxld9d",
+          "startTime": "2026-11-08T01:00:00Z",
+          "totalAmount": 0.4548807090613991
+        }
+      ],
+      "provider_reported_total_usd": 4.000278552732198
+    },
+    {
+      "name": "transformer-c2",
+      "id": "4x2a2lb6w13eke",
+      "rows": [
+        {
+          "cpuAmount": 0,
+          "diskAmount": 0.003819444333203137,
+          "endTime": "2026-11-07T22:00:00Z",
+          "gpuAmount": 0.2876910865306854,
+          "podId": "4x2a2lb6w13eke",
+          "startTime": "2026-11-07T21:00:00Z",
+          "totalAmount": 0.29151053086388856
+        },
+        {
+          "cpuAmount": 0,
+          "diskAmount": 0.015277777332812548,
+          "endTime": "2026-11-07T23:00:00Z",
+          "gpuAmount": 1.1894598752260208,
+          "podId": "4x2a2lb6w13eke",
+          "startTime": "2026-11-07T22:00:00Z",
+          "totalAmount": 1.2047376525588334
+        },
+        {
+          "cpuAmount": 0,
+          "diskAmount": 0.015277777332812548,
+          "endTime": "2026-11-08T00:00:00Z",
+          "gpuAmount": 1.1906611025333405,
+          "podId": "4x2a2lb6w13eke",
+          "startTime": "2026-11-07T23:00:00Z",
+          "totalAmount": 1.205938879866153
+        },
+        {
+          "cpuAmount": 0,
+          "diskAmount": 0.015277777332812548,
+          "endTime": "2026-11-08T01:00:00Z",
+          "gpuAmount": 1.188702903687954,
+          "podId": "4x2a2lb6w13eke",
+          "startTime": "2026-11-08T00:00:00Z",
+          "totalAmount": 1.2039806810207665
+        },
+        {
+          "cpuAmount": 0,
+          "diskAmount": 0.007638888666406274,
+          "endTime": "2026-11-08T02:00:00Z",
+          "gpuAmount": 0.5979974791407585,
+          "podId": "4x2a2lb6w13eke",
+          "startTime": "2026-11-08T01:00:00Z",
+          "totalAmount": 0.6056363678071648
+        }
+      ],
+      "provider_reported_total_usd": 4.511804112116806
+    }
+  ],
+  "provider_reported_total_usd": 16.592596505390247,
+  "conservative_elapsed_compute_storage_bound_usd": 18.74603177177768,
+  "user_ceiling_usd": 20,
+  "provider_report_within_ceiling": true,
+  "billing_status": "Provisional: provider history can lag deletion and omit recent buckets; elapsed-lease accounting bounds this task independently."
+}

@@ -1,0 +1,15 @@
+{
+  "label": "transformer-scientific",
+  "case": "transformer",
+  "run_dir": "runs/274-2026-11-07-transformer-distributed-displacement",
+  "arms": [
+    "control",
+    "functional_trunk_q50",
+    "embedding_x4_functional_trunk_q50"
+  ],
+  "output": "runs/274-2026-11-07-transformer-distributed-displacement/artifacts/transformer-c2/transformer-scientific",
+  "mechanics": false,
+  "after": "transformer-mechanics",
+  "pid": "1993",
+  "started_utc": "2026-11-07T22:03:05.320553+00:00"
+}

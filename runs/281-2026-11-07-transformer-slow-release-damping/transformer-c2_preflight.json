@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "files": 40,
+  "delta_bytes": 10470,
+  "delta_sha256": "aeff1d2b039acf840e323864dda78b041af724f5ae23a225f9e061adea618202",
+  "missing": [
+    "runs/281-2026-11-07-transformer-slow-release-damping/config.json",
+    "runs/281-2026-11-07-transformer-slow-release-damping/01_worker.py",
+    "src/eos_tasks/functional_budget_continuation.py",
+    "src/eos_tasks/functional_acceptance_continuation.py",
+    "src/eos_tasks/reuse_control.py"
+  ],
+  "reused": [
+    "runs/281-2026-11-07-transformer-slow-release-damping/inputs/prefix.pt",
+    "runs/281-2026-11-07-transformer-slow-release-damping/inputs/boundaries.jsonl"
+  ]
+}

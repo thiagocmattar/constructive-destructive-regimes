@@ -1,0 +1,64 @@
+{
+  "run_id": 279,
+  "analysis_id": "065",
+  "hypothesis": "H048",
+  "case": "mlp",
+  "source_state": 0,
+  "fork": 448,
+  "end": 1152,
+  "base_lr": 0.001,
+  "physical": 1000,
+  "probe": 5000,
+  "calibration_updates": 8,
+  "quantiles": [
+    0.5,
+    0.75,
+    0.9
+  ],
+  "arms": [
+    {
+      "id": "control",
+      "kind": "control"
+    },
+    {
+      "id": "output_budget_slow",
+      "kind": "budget",
+      "scope": "output",
+      "quantile": 0.5,
+      "recovery_multiplier": 1.01
+    },
+    {
+      "id": "representation_budget_slow",
+      "kind": "budget",
+      "scope": "representations",
+      "quantile": 0.5,
+      "recovery_multiplier": 1.01
+    }
+  ],
+  "seconds_per_arm": 5400,
+  "checkpoint_every": 64,
+  "audit_offsets": [
+    0,
+    32,
+    -1
+  ],
+  "seed": 0,
+  "precision": "Native FP32; TF32 off; deterministic; FP64 diagnostic reductions and functional displacement scores",
+  "objective": "Unchanged full objective and original ordering/groups; no clipped gradients, decay or moment reset",
+  "selection": "Only past probe measurements and the current candidate proposal; no future-window SVD or future loss.",
+  "validation": "Full available validation/test splits at end, secondary only; selection uses training outcomes.",
+  "authorization": "User authorized all exploratory runs, owned Spark, and total Runpod ceiling USD20. This run uses Spark only.",
+  "parent_workers": {
+    "resnet": "duqoihms8w1gle",
+    "transformer": "159vjccj7w3996"
+  },
+  "retention": "Full shared fork and end/recovery states; all boundary/update/probe/block scalars; three full gradient/update audits per arm; fixed probes identified by cache hash. Dense SVD histories not stored in this screening round.",
+  "confirmation": "Exploratory temporal-policy test after Run278 fixed movement budgets failed. Retain the same q50 budgets and all native Adam moments/clocks. A budgeted global factor can decrease immediately but recover at most1% per update. Initial factor1. No loss values enter the controller. Both output-only and all-tracked-representation budgets are tested; baseline and window unchanged.",
+  "worker_script": "01_worker.py",
+  "extra_inputs": [
+    "01_worker.py"
+  ],
+  "shared_inputs": [
+    "src/eos_tasks/functional_budget_continuation.py"
+  ]
+}

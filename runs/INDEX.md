@@ -492,3 +492,43 @@ gate/dense checks and three new PDF pages pass. An exact-equality CPU audit
 rounding edge case was corrected without changing or rerunning training.
 Workers exited; 385.42 s total, 539.4 MB peak, 21.907 GB retained on owned Spark with
 verified local copies, zero cloud cost. Next run 269; continue Analysis 065.
+
+## Runs 269-285: representation-informed transfer and controls
+
+H048 / existing Analysis 065. Every intervention uses unchanged Adam as its
+baseline, complete native objectives, exact fork/native continuation checks,
+past-only calibration and retained gradient/update/representation diagnostics.
+All scientific runs are complete and verified. The table lists scope; executed
+arms and attempts are defined by the linked run records, not configuration menus.
+
+| Run | Experiment |
+|---|---|
+| [269](269-2026-11-07-mlp-representation-interventions/README.md) | mlp representation-informed interventions |
+| [270](270-2026-11-07-resnet-representation-interventions/README.md) | resnet representation-informed interventions |
+| [271](271-2026-11-07-transformer-representation-interventions/README.md) | transformer representation-informed interventions |
+| [272](272-2026-11-07-mlp-displacement-confirmation/README.md) | MLP displacement confirmation |
+| [273](273-2026-11-07-resnet-distributed-displacement/README.md) | resnet distributed displacement cap |
+| [274](274-2026-11-07-transformer-distributed-displacement/README.md) | transformer distributed displacement cap |
+| [275](275-2026-11-07-mlp-matched-displacement-norms/README.md) | matched hidden-layer increment norms |
+| [276](276-2026-11-07-mlp-functional-axis-damping/README.md) | causal functional-axis damping |
+| [277](277-2026-11-07-mlp-bounded-functional-axis/README.md) | bounded functional-axis modifications |
+| [278](278-2026-11-07-mlp-functional-step-budget/README.md) | global functional-step budgets |
+| [279](279-2026-11-07-mlp-slow-release-damping/README.md) | slow recovery of functional damping |
+| [280](280-2026-11-07-resnet-slow-release-damping/README.md) | resnet transfer of slow-release functional damping |
+| [281](281-2026-11-07-transformer-slow-release-damping/README.md) | Transformer probe-based damping |
+| [282](282-2026-11-07-mlp-intervention-seed1/README.md) | MLP seed 1 intervention replication |
+| [283](283-2026-11-07-mlp-intervention-seed2/README.md) | MLP seed 2 intervention replication |
+| [284](284-2026-11-07-mlp-probe-loss-backtracking/README.md) | probe-loss backtracking comparator |
+| [285](285-2026-11-07-resnet-probe-loss-backtracking/README.md) | ResNet probe-loss backtracking |
+
+[Results, definitions and caveats](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/008-cross-architecture-interventions.md): common distributed q50
+lowers mean loss in all three architectures and three MLP initializations,
+but raises terminal test loss. Negative alignment can persist or increase in
+successful branches. Failed diagnostic/directional controls remain reported.
+18 scientific workers, 70 records including two authenticated reused controls,
+68 newly executed continuations and 35,452 updates. Independent source/retrieval,
+dense placement/reduction and original-hardware replay checks pass; 14 new PDF
+pages reviewed. All five task pods deleted; no cloud storage retained.
+41.316 GB unique raw files retained locally, Spark originals preserved.
+Conservative compute/storage estimate USD 18.75 (provider billing provisional)
+within USD 20. Next run 286; continue Analysis 065.

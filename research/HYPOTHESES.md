@@ -248,3 +248,24 @@ helps 2.26%. Stronger neuron capping loses to its uniform control, which has the
 best new branch mean. Supports budget-dependent amplitude damping and a local
 benefit of neuron selection, not universal superiority to uniform scaling,
 unique causation, or generalization. One seed/fork. All checks pass; next H048.
+
+## H048: representation-informed selective updates across architectures
+
+[Runs 269-285 / Analysis 065](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/008-cross-architecture-interventions.md) test coordinate discard/cap,
+local affine-displacement caps, diagnostic gates, movement budgets with/without
+slow recovery, probe-loss acceptance, and larger Transformer embedding LR.
+All branches compare with unchanged Adam and preserve complete native objectives.
+Thresholds use eight untreated preceding updates; all gradients/moments/clocks
+advance. The common distributed q50 cap lowers mean loss 22.85% (MLP seed 0,
+448-1152), 16.22% (ResNet, 264-576), and 26.00% (Transformer, 552-928).
+MLP seeds 1/2 improve 19.43%/32.08% without retuning. Reversals persist or
+increase; negative cosine is not a sufficient intervention target. Test loss
+at the terminal state is worse for this cap in every setup. Coordinate rules,
+diagnostic gates and slow recovery do not all transfer; embedding 2x is nearly
+neutral in mean loss and 4x worsens it. No universal optimizer, unique initiating
+layer, held-out improvement, or online SVD-controller claim. Larger models use
+one seed/fork; GPU-dependent Transformer controls are compared within workers.
+All inputs/retrieval/audits and 14 PDF pages verified. 68 new continuations,
+35,452 updates; all five task pods deleted, no cloud storage retained. Conservative
+compute/storage estimate USD 18.75 within USD 20; billing provisional.
+Continue Analysis 065. Next run 286; next unused hypothesis H049.

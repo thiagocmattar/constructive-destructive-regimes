@@ -1,0 +1,673 @@
+{
+  "generator_sha256": "2d8647544530f6a981fc29c56681c48ba8c5da5801c7dee37a3b4caf85e9d52b",
+  "sources": {
+    "transfer_comparison.json": "7aeddfe0f21e4f4ae3475061e77cd803b50ed52e09d178ce1bd14799930a8735",
+    "transfer_comparison_run272.json": "16af9fdc76443de1ed83eddb54092fa3306808b48915b3f6b5519a7c91ce3e67",
+    "transfer_comparison_run273.json": "90f48c30b6c3306e296add3410d00b12eae47bc912684149f37579110c1bf200",
+    "transfer_comparison_run274.json": "1a3cab15f4599aba7432077d8a0d685703db988a77fc3f334a3bf4a421a5ba82",
+    "transfer_comparison_run275.json": "99fb94e9b1a08b1bb3b55e5962affdecbef9651f6cfe3b3199a5512e4a322fa5",
+    "transfer_comparison_run276.json": "bce1ed19b58c2b43be216bda40e5e2b102d871ca7a543a40962e979a21a2bd9f",
+    "transfer_comparison_run277.json": "94c6daed9b22e6e9fc20aec9e106243a77cf7d2a0d85ff77db45c66faeca8dd1",
+    "transfer_comparison_run278.json": "ae44a467dd19319a1ff3a4f69fc9f3c0c47c9394a832c67fd563a98172fd0e59",
+    "transfer_comparison_run279.json": "f9121d75c39f6abea561a0dd84542c22eeb351ae1899190e068647dc1a4e9285",
+    "transfer_comparison_run280.json": "8a6f67db7c7532dcaa51466989d7193c939c6da1bf7a24a298ae17d3c70c482f",
+    "transfer_comparison_run281.json": "638523efbccea1c2ac1ade82557cd3c9952015be2af1dbc50d431c8cd38afbc2",
+    "transfer_comparison_run282.json": "36ea09ef6bab9c522ba6f1436f8212fe4b608a6f8be5920df6c74adfe0d4e8ba",
+    "transfer_comparison_run283.json": "34c2a5ed98e3e874b0cffa2cc593e1da59e4aacbf04f036f866980a634a64145",
+    "transfer_comparison_run284.json": "6de99f78ec76fae0a22c2b650a89ba48277ec1b04269cd13cabe3d3d74b774be",
+    "transfer_comparison_run285.json": "1b720286b0b484e6276ef235ade6a22c16b50690188b801f4c5660753cba100a"
+  },
+  "outputs": [
+    {
+      "file": "06-selective-transfer-diagnostics.pdf",
+      "sha256": "f7258c9c7b249b706d2891f57516752d0d199f92321fc736f2dedbc2f991599f",
+      "pages": [
+        {
+          "columns": [
+            {
+              "title": "Discard large coordinates (q90)",
+              "run": 269,
+              "arms": [
+                "control",
+                "discard_entry"
+              ],
+              "window": [
+                448,
+                800
+              ]
+            },
+            {
+              "title": "Cap large coordinates (q90)",
+              "run": 269,
+              "arms": [
+                "control",
+                "cap_entry"
+              ],
+              "window": [
+                448,
+                800
+              ]
+            },
+            {
+              "title": "Local displacement cap (q75)",
+              "run": 269,
+              "arms": [
+                "control",
+                "functional_entry"
+              ],
+              "window": [
+                448,
+                800
+              ]
+            }
+          ],
+          "plotted_values_checked": 21180
+        },
+        {
+          "columns": [
+            {
+              "title": "Discard large coordinates (q90)",
+              "run": 270,
+              "arms": [
+                "control",
+                "discard_entry"
+              ],
+              "window": [
+                264,
+                576
+              ]
+            },
+            {
+              "title": "Cap large coordinates (q90)",
+              "run": 270,
+              "arms": [
+                "control",
+                "cap_entry"
+              ],
+              "window": [
+                264,
+                576
+              ]
+            },
+            {
+              "title": "Local displacement cap (q75)",
+              "run": 270,
+              "arms": [
+                "control",
+                "functional_entry"
+              ],
+              "window": [
+                264,
+                576
+              ]
+            }
+          ],
+          "plotted_values_checked": 18780
+        },
+        {
+          "columns": [
+            {
+              "title": "Discard large coordinates (q90)",
+              "run": 271,
+              "arms": [
+                "control",
+                "discard_entry"
+              ],
+              "window": [
+                552,
+                928
+              ]
+            },
+            {
+              "title": "Cap large coordinates (q90)",
+              "run": 271,
+              "arms": [
+                "control",
+                "cap_entry"
+              ],
+              "window": [
+                552,
+                928
+              ]
+            },
+            {
+              "title": "Local displacement cap (q75)",
+              "run": 271,
+              "arms": [
+                "control",
+                "functional_entry"
+              ],
+              "window": [
+                552,
+                928
+              ]
+            }
+          ],
+          "plotted_values_checked": 22620
+        }
+      ]
+    },
+    {
+      "file": "07-distributed-displacement-and-controls.pdf",
+      "sha256": "b7b1556288db4a621c7b3bed8a85b257539c7e1e176ad4b2fc30541cb0e853bd",
+      "pages": [
+        {
+          "columns": [
+            {
+              "title": "MLP / CIFAR-10",
+              "run": 272,
+              "arms": [
+                "control",
+                "functional_trunk_q50"
+              ],
+              "window": [
+                448,
+                800
+              ]
+            },
+            {
+              "title": "ResNet-32 / CIFAR-10",
+              "run": 273,
+              "arms": [
+                "control",
+                "functional_trunk_q50"
+              ],
+              "window": [
+                264,
+                576
+              ]
+            },
+            {
+              "title": "Transformer / WikiText-2",
+              "run": 274,
+              "arms": [
+                "control",
+                "functional_trunk_q50"
+              ],
+              "window": [
+                552,
+                928
+              ]
+            }
+          ],
+          "plotted_values_checked": 20860
+        },
+        {
+          "kind": "captured_stage_heatmaps",
+          "columns": [
+            {
+              "run": 272,
+              "case": "mlp",
+              "arm": "functional_trunk_q50",
+              "window": [
+                448,
+                800
+              ],
+              "stages": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "output"
+              ],
+              "baseline_stage_rms_maxima": [
+                0.16198166859919969,
+                0.055470994849668914,
+                0.05917221282097108,
+                0.052336660173595034,
+                0.16307615853538465
+              ]
+            },
+            {
+              "run": 273,
+              "case": "resnet",
+              "arm": "functional_trunk_q50",
+              "window": [
+                264,
+                576
+              ],
+              "stages": [
+                "conv1",
+                "layer1",
+                "layer2",
+                "layer3",
+                "avgpool",
+                "output"
+              ],
+              "baseline_stage_rms_maxima": [
+                0.016962332340993144,
+                0.0766361039013803,
+                0.08962531164674836,
+                0.5471440533501329,
+                0.4227447661699366,
+                2.784778249118874
+              ]
+            },
+            {
+              "run": 274,
+              "case": "transformer",
+              "arm": "functional_trunk_q50",
+              "window": [
+                552,
+                928
+              ],
+              "stages": [
+                "encoder",
+                "transformer_encoder.layers.0.self_attn",
+                "transformer_encoder.layers.0",
+                "transformer_encoder.layers.1.self_attn",
+                "transformer_encoder.layers.1",
+                "output"
+              ],
+              "baseline_stage_rms_maxima": [
+                0.0016858724186926545,
+                0.3119381939320117,
+                0.2505149214606935,
+                0.6440852751299454,
+                1.3256965646835004,
+                15.365311293987668
+              ]
+            }
+          ],
+          "relative_rms_color_maximum": 1.0,
+          "plotted_values_checked": 25706
+        },
+        {
+          "columns": [
+            {
+              "title": "Distributed displacement cap (q50)",
+              "run": 272,
+              "arms": [
+                "control",
+                "functional_trunk_q50",
+                "matched_trunk_q50"
+              ],
+              "window": [
+                448,
+                1152
+              ]
+            },
+            {
+              "title": "First-layer displacement cap (q50)",
+              "run": 272,
+              "arms": [
+                "control",
+                "functional_entry_q50"
+              ],
+              "window": [
+                448,
+                1152
+              ]
+            },
+            {
+              "title": "Uniform half increments",
+              "run": 272,
+              "arms": [
+                "control",
+                "global_half"
+              ],
+              "window": [
+                448,
+                1152
+              ]
+            }
+          ],
+          "plotted_values_checked": 49350
+        },
+        {
+          "columns": [
+            {
+              "title": "MLP initialization 0",
+              "run": 272,
+              "arms": [
+                "control",
+                "functional_trunk_q50",
+                "output_budget_slow",
+                "global_half"
+              ],
+              "window": [
+                448,
+                1152
+              ]
+            },
+            {
+              "title": "MLP initialization 1",
+              "run": 282,
+              "arms": [
+                "control",
+                "functional_trunk_q50",
+                "output_budget_slow",
+                "global_half"
+              ],
+              "window": [
+                448,
+                1152
+              ]
+            },
+            {
+              "title": "MLP initialization 2",
+              "run": 283,
+              "arms": [
+                "control",
+                "functional_trunk_q50",
+                "output_budget_slow",
+                "global_half"
+              ],
+              "window": [
+                448,
+                1152
+              ]
+            }
+          ],
+          "plotted_values_checked": 84600
+        },
+        {
+          "columns": [
+            {
+              "title": "MLP / CIFAR-10",
+              "run": 279,
+              "arms": [
+                "control",
+                "output_budget_slow"
+              ],
+              "window": [
+                448,
+                1152
+              ]
+            },
+            {
+              "title": "ResNet-32 / CIFAR-10",
+              "run": 280,
+              "arms": [
+                "control",
+                "output_budget_slow"
+              ],
+              "window": [
+                264,
+                576
+              ]
+            },
+            {
+              "title": "Transformer / WikiText-2",
+              "run": 281,
+              "arms": [
+                "control",
+                "output_budget_slow"
+              ],
+              "window": [
+                552,
+                928
+              ]
+            }
+          ],
+          "plotted_values_checked": 27900
+        },
+        {
+          "columns": [
+            {
+              "title": "MLP / CIFAR-10",
+              "run": 284,
+              "arms": [
+                "control",
+                "probe_loss_guard"
+              ],
+              "window": [
+                448,
+                1152
+              ]
+            },
+            {
+              "title": "ResNet-32 / CIFAR-10",
+              "run": 285,
+              "arms": [
+                "control",
+                "probe_loss_guard"
+              ],
+              "window": [
+                264,
+                576
+              ]
+            },
+            {
+              "title": "Transformer / WikiText-2",
+              "run": 281,
+              "arms": [
+                "control",
+                "probe_loss_guard"
+              ],
+              "window": [
+                552,
+                928
+              ]
+            }
+          ],
+          "plotted_values_checked": 30690
+        }
+      ]
+    },
+    {
+      "file": "08-adaptive-and-embedding-tests.pdf",
+      "sha256": "d343bc22779aabc028e3c6b4dff8a1efd0192b5e4151eda742ef9881edc4918b",
+      "pages": [
+        {
+          "columns": [
+            {
+              "title": "Block reversal + norm surge",
+              "run": 269,
+              "arms": [
+                "control",
+                "block_shock"
+              ],
+              "window": [
+                448,
+                800
+              ]
+            },
+            {
+              "title": "Global reversal + norm surge",
+              "run": 269,
+              "arms": [
+                "control",
+                "global_shock"
+              ],
+              "window": [
+                448,
+                800
+              ]
+            },
+            {
+              "title": "Block secant damping",
+              "run": 269,
+              "arms": [
+                "control",
+                "block_secant"
+              ],
+              "window": [
+                448,
+                800
+              ]
+            }
+          ],
+          "plotted_values_checked": 21180
+        },
+        {
+          "columns": [
+            {
+              "title": "Remove reversing component",
+              "run": 276,
+              "arms": [
+                "control",
+                "axis_remove",
+                "bounded_axis_remove"
+              ],
+              "window": [
+                448,
+                1152
+              ]
+            },
+            {
+              "title": "Halve reversing component",
+              "run": 276,
+              "arms": [
+                "control",
+                "axis_half",
+                "bounded_axis_half"
+              ],
+              "window": [
+                448,
+                1152
+              ]
+            },
+            {
+              "title": "Cap reversing component",
+              "run": 276,
+              "arms": [
+                "control",
+                "axis_cap",
+                "bounded_axis_cap"
+              ],
+              "window": [
+                448,
+                1152
+              ]
+            }
+          ],
+          "plotted_values_checked": 63450
+        },
+        {
+          "columns": [
+            {
+              "title": "Output movement budget (q50)",
+              "run": 278,
+              "arms": [
+                "control",
+                "output_budget_q50",
+                "output_budget_slow"
+              ],
+              "window": [
+                448,
+                1152
+              ]
+            },
+            {
+              "title": "All tracked movements (q50)",
+              "run": 278,
+              "arms": [
+                "control",
+                "representation_budget_q50",
+                "representation_budget_slow"
+              ],
+              "window": [
+                448,
+                1152
+              ]
+            },
+            {
+              "title": "Output movement budget (q75)",
+              "run": 278,
+              "arms": [
+                "control",
+                "output_budget_q75"
+              ],
+              "window": [
+                448,
+                1152
+              ]
+            }
+          ],
+          "plotted_values_checked": 56400
+        },
+        {
+          "columns": [
+            {
+              "title": "Block reversal + norm surge",
+              "run": 270,
+              "arms": [
+                "control",
+                "block_shock"
+              ],
+              "window": [
+                264,
+                576
+              ]
+            },
+            {
+              "title": "Uniform half increments",
+              "run": 270,
+              "arms": [
+                "control",
+                "global_half"
+              ],
+              "window": [
+                264,
+                576
+              ]
+            },
+            {
+              "title": "Distributed displacement cap (q75)",
+              "run": 270,
+              "arms": [
+                "control",
+                "functional_trunk"
+              ],
+              "window": [
+                264,
+                576
+              ]
+            }
+          ],
+          "plotted_values_checked": 18780
+        },
+        {
+          "columns": [
+            {
+              "title": "Embedding LR 2x",
+              "run": 271,
+              "arms": [
+                "control",
+                "embedding_x2"
+              ],
+              "window": [
+                552,
+                928
+              ]
+            },
+            {
+              "title": "Embedding LR 4x",
+              "run": 271,
+              "arms": [
+                "control",
+                "embedding_x4"
+              ],
+              "window": [
+                552,
+                928
+              ]
+            },
+            {
+              "title": "Embedding LR 4x + distributed cap",
+              "run": 274,
+              "arms": [
+                "control",
+                "embedding_x4_functional_trunk_q50",
+                "functional_trunk_q50"
+              ],
+              "window": [
+                552,
+                928
+              ]
+            }
+          ],
+          "plotted_values_checked": 31668
+        }
+      ]
+    }
+  ],
+  "earlier_figures_preserved": {
+    "01-frozen-first-linear-double-lr-cifar10-mlp.pdf": "c2e3bd3640546d18b2602a05c98c3b764b73b7f4ab42642cabc4d320d5b141aa",
+    "02-i6-vs-i5-cifar10-mlp.pdf": "4593af75ea4a6ec65988f6caf38bc1f4e486430159d4e411dc6cfd8920a6ce30",
+    "03-selective-layer-lr-cifar10-mlp.pdf": "c56cc7fb7d8efe012a83cd8b8790360ca381e31b6d894090354e90dac2cabe29",
+    "04-selective-update-methods-cifar10-mlp.pdf": "8bc78badf37753acc4736db447d8c37b181d86573deb186eabb514feaca4d6f7",
+    "05-selective-update-norm-controls-cifar10-mlp.pdf": "3ea8439289c5494ace6353fccc4bbe122053fa06f6fa72280cb3a0c9e517bed8"
+  }
+}

@@ -1,5 +1,18 @@
 # Consolidated findings
 
+[Representation-informed interventions](../../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/008-cross-architecture-interventions.md)
+test the tracing idea while keeping every layer trainable. Distributed local
+affine-displacement caps lower mean training loss across MLP, ResNet and
+Transformer and replicate on three MLP initializations. Loss excursions shrink
+despite persistent or more frequent reversals, so alignment sign alone is not a
+sufficient control target. Terminal test loss worsens under the common cap in
+every setup; other policies trade slower training for better terminal ResNet
+test loss. Diagnostic-triggered and directional rules can fail severely.
+Embedding LR boosts have mixed effects. These are selected full-objective
+training setups with one seed per larger model, not a universal optimizer or
+generalization result. The observation retains all negative controls, probe
+coverage, hardware-specific controls and provisional cost/cleanup evidence.
+
 [Architecture-wide representation tracing](../../analyses/063-2026-11-07-architecture-instability-tracing/observations/004-consolidated-instability-tracing.md)
 consolidates the selected MLP, ResNet and Transformer Adam trajectories. Loss
 excursions accompany growing, reversing representation changes with concentrated
@@ -8,8 +21,8 @@ ResNet becomes more output-like deeper in its residual stages; Transformer
 attention outputs can reverse while embeddings still move forward. This supports
 a descriptive cross-architecture pattern, not a universal first-layer cause,
 rank-ten mechanism or prospective predictor. Single seeds, unequal windows and
-output spaces, and fixed probes for ResNet/Transformer limit transfer. Causal
-interventions remain pending. The reusable protocol is in
+output spaces, and fixed probes for ResNet/Transformer limit transfer. Interventions are now evaluated in Analysis 065 below; a unique initiating
+mechanism remains unestablished. The reusable protocol is in
 [INSTABILITY_TRACING.md](../INSTABILITY_TRACING.md).
 
 [Analysis056: paired GD displacement](../../analyses/056-2026-11-05-gd-paired-displacement/observations/001-paired-displacement.md)

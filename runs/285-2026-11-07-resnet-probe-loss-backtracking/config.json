@@ -1,0 +1,62 @@
+{
+  "run_id": 285,
+  "analysis_id": "065",
+  "hypothesis": "H048",
+  "case": "resnet",
+  "source_state": 256,
+  "fork": 264,
+  "end": 576,
+  "base_lr": 0.003,
+  "physical": 1000,
+  "probe": 1000,
+  "calibration_updates": 8,
+  "quantiles": [
+    0.5,
+    0.75,
+    0.9
+  ],
+  "arms": [
+    {
+      "id": "control",
+      "kind": "control"
+    },
+    {
+      "id": "probe_loss_guard",
+      "kind": "loss_guard",
+      "scope": "global"
+    }
+  ],
+  "seconds_per_arm": 5400,
+  "checkpoint_every": 64,
+  "audit_offsets": [
+    0,
+    32,
+    -1
+  ],
+  "seed": 0,
+  "precision": "Native FP32; TF32 off; deterministic; FP64 diagnostic reductions and functional displacement scores",
+  "objective": "Unchanged full objective and original ordering/groups; no clipped gradients, decay or moment reset",
+  "selection": "MLP-selected output-only q50 with1% recovery. No target-architecture policy tuning or future-window SVD.",
+  "validation": "Full available validation/test splits at end, secondary only; selection uses training outcomes.",
+  "authorization": "User preapproved architecture transfer, owned Spark, and all task-owned Runpod charges up to total USD20.",
+  "parent_workers": {
+    "resnet": "duqoihms8w1gle",
+    "transformer": "159vjccj7w3996"
+  },
+  "retention": "Full shared fork and end/recovery states; all boundary/update/probe/block scalars; three full gradient/update audits per arm; fixed probes identified by cache hash. Dense SVD histories not stored in this screening round.",
+  "worker_script": "01_worker.py",
+  "extra_inputs": [
+    "01_worker.py"
+  ],
+  "shared_inputs": [
+    "src/eos_tasks/functional_acceptance_continuation.py",
+    "src/eos_tasks/reuse_control.py"
+  ],
+  "confirmation": "Transfer the loss-aware backtracking comparator to the intact1000-example fixed normalization group. Full50000-example training gradients/objective and all native Adam moments/clocks remain unchanged. Reuse the completed same-worker Run270 control only after exact fork/native-two-step identity, matched config/data/probe and source hashes. Probe monotonicity does not guarantee full-objective monotonicity.",
+  "baseline_reference": {
+    "fork_fingerprint": "6d2310f56e10658a4e04786383f7f079c70c81f34e7adc5e96880d572e3f036e",
+    "native_two_step_fingerprint": "cac6c9ab29a4dd66837b57dd6faebd15d39e1741c77e890e0af5699233414d6b",
+    "worker": "runs/270-2026-11-07-resnet-representation-interventions/artifacts/resnet-a/resnet-scientific",
+    "input_manifest_sha256": "2f4353deadf73f357257ee35efcbc86eb3fc284af5049c610f922e31da64d1b9"
+  }
+}

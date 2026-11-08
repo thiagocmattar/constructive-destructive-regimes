@@ -1,0 +1,70 @@
+{
+  "run_id": 281,
+  "analysis_id": "065",
+  "hypothesis": "H048",
+  "case": "transformer",
+  "source_state": 544,
+  "fork": 552,
+  "end": 928,
+  "base_lr": 0.003,
+  "physical": 64,
+  "probe": 64,
+  "calibration_updates": 8,
+  "quantiles": [
+    0.5,
+    0.75,
+    0.9
+  ],
+  "arms": [
+    {
+      "id": "control",
+      "kind": "control"
+    },
+    {
+      "id": "output_budget_slow",
+      "kind": "budget",
+      "scope": "output",
+      "quantile": 0.5,
+      "recovery_multiplier": 1.01
+    },
+    {
+      "id": "probe_loss_guard",
+      "kind": "loss_guard",
+      "scope": "global"
+    }
+  ],
+  "seconds_per_arm": 5400,
+  "checkpoint_every": 64,
+  "audit_offsets": [
+    0,
+    32,
+    -1
+  ],
+  "seed": 0,
+  "precision": "Native FP32; TF32 off; deterministic; FP64 diagnostic reductions and functional displacement scores",
+  "objective": "Unchanged full objective and original ordering/groups; no clipped gradients, decay or moment reset",
+  "selection": "MLP-selected output-only q50 with1% recovery. No target-architecture policy tuning or future-window SVD.",
+  "validation": "Full available validation/test splits at end, secondary only; selection uses training outcomes.",
+  "authorization": "User preapproved architecture transfer, owned Spark, and all task-owned Runpod charges up to total USD20.",
+  "parent_workers": {
+    "resnet": "duqoihms8w1gle",
+    "transformer": "159vjccj7w3996"
+  },
+  "retention": "Full shared fork and end/recovery states; all boundary/update/probe/block scalars; three full gradient/update audits per arm; fixed probes identified by cache hash. Dense SVD histories not stored in this screening round.",
+  "worker_script": "01_worker.py",
+  "extra_inputs": [
+    "01_worker.py"
+  ],
+  "shared_inputs": [
+    "src/eos_tasks/functional_budget_continuation.py",
+    "src/eos_tasks/functional_acceptance_continuation.py",
+    "src/eos_tasks/reuse_control.py"
+  ],
+  "confirmation": "Transfer Run279 output-q50 budget with at-most1% per-update recovery, unchanged across architectures. Same eight untreated outgoing updates, same native base LR and all moments/clocks. Fixed original diagnostic probe; actual complete-network output movement is checked. This is not a full-objective loss bound. Fresh same-worker unchanged control. Add the MLP-tested probe-loss backtracking comparator. Reuse the completed Run274 control on the same worker only after exact full-fork/native-two-step identity, matched training/probe settings and source input hashes. Preserve copied raw control bytes and explicit reuse provenance. No control updates are executed again.",
+  "baseline_reference": {
+    "fork_fingerprint": "619f7ab0d0b7e7d7986096d4e5a0e91b26ea46ac54d6e74a01bb6294c161c2c3",
+    "native_two_step_fingerprint": "7d5e9c5818a5c2fed0dc8e8e1d2a710c1826ff8bbc4d9fe253819d2f40973fc6",
+    "worker": "runs/274-2026-11-07-transformer-distributed-displacement/artifacts/transformer-c2/transformer-scientific",
+    "input_manifest_sha256": "9a81be03dc795d3a497482681896774b15c1adbfc06a85a34755fc157830a658"
+  }
+}

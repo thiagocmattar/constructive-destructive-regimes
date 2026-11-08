@@ -170,3 +170,75 @@ as qualified examples, not a universal module-hook adapter. Add only the
 architecture-specific capture/mask logic required by the new setup. Never infer
 a unique cause, generalization, or a validated alarm from negative cosine, a
 large norm ratio, or top-ten concentration alone.
+
+## 5. Turn a trace into a controlled intervention
+
+[Analysis 065 / H048](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/008-cross-architecture-interventions.md)
+provides the intervention harness following the trace. Its comparison separates
+entry-layer versus distributed changes, coordinate versus neuron selection,
+amplitude versus reversal suppression, and immediate versus gradual release.
+Do not optimize a negative-cosine count as a surrogate for learning: the MLP
+negative controls reduce reversals while worsening loss, and successful damping
+can retain many reversals.
+
+Specify the intervention on the correct object. The native raw gradient,
+Adam's proposed stored parameter increment, and the increment actually applied
+are distinct. The H048 policies compute all native gradients and advance all
+moments/clocks, then transform the proposed increment. Keep native and actual
+increments, their gradient dot products, controller state, and loss together.
+Embedding-LR experiments instead change a native parameter-group LR; label that
+difference explicitly.
+
+A local affine displacement score holds that module's current inputs fixed.
+It bounds only the direct weight/bias contribution, not the total change after
+upstream layers, nonlinearities and normalization also move. A complete-network
+candidate probe can measure the latter, but a distance bound alone does not
+require progress toward targets. Loss-aware acceptance is a separate comparator
+that uses labels. Its accepted probe loss is a control target, not an independent
+validation result; always examine the full objective and, where possible, the
+objective outside the probe.
+
+The [local-cap geometry note](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/010-local-displacement-cap-geometry.md)
+derives its input-second-moment metric and the exact incoming-motion terms it
+omits. This algebra is distinct from the temporal SVD used to diagnose a trace;
+the H048 local controller does not compute either SVD.
+
+Use past-only calibration or an explicitly retained online state. A fixed SVD
+fitted to the entire event window is retrospective and must not silently enter
+an online controller. H048's neuron budgets use eight untreated updates; its
+slow-recovery variant retains the preceding scale. Quantile rankings can depend
+on this calibration window. Retrospective controls that reproduce another
+branch's layer-norm schedule are useful for isolating selection effects, but
+are not deployable online policies.
+
+Keep the probe's role explicit. A fixed probe suitable for displaying temporal
+geometry need not represent the full objective well enough for loss-based
+acceptance. Preserve sample/token structure and original normalization groups.
+In H048, the MLP probe covers all 5,000 training examples, the ResNet probe one
+complete 1,000-example group, and the Transformer probe 2,240 supervised token
+positions. For the last two, probe improvement alone cannot establish training
+improvement on the remaining examples/tokens.
+When adapting local affine scores to padded sequences, apply the valid-position
+mask to the scored inputs as well as the plotted representations. H048's
+first 64 Transformer sequences have no padding; its unmasked local-input
+flattening is not a general padding adapter.
+
+Account for candidate evaluations before launch. Scalar tracing needs the
+current capture plus enough previous representations for adjacent differences.
+Actual-movement backtracking can add up to ten probe forwards; the loss-aware
+comparator can add up to thirteen. Large output vocabularies can dominate
+memory even on a small token probe. Calibrate wall time and memory on the target
+hardware; concurrent jobs are not isolated throughput benchmarks. Retain all
+acceptance trials and actual scales. Native model/optimizer recovery alone does
+not restore an EMA, previous scale, probe history, or parameter-history buffer:
+save those too, or explicitly replay from the authenticated shared fork.
+
+Reuse an unchanged control only when the scientific comparison remains exact.
+The concrete H048 checks are: matched data/config/probe and source identities;
+same hardware/software; exact full fork including optimizer, gradient history
+and RNG; exact native two-step continuation; and byte-identical retained control
+artifacts with reuse provenance. Otherwise compute a fresh control. A short
+mechanics test is not evidence of efficacy. Preserve failed policies, extend
+promising windows to detect delayed peaks, and replicate initializations before
+claiming robustness. Compare mean, tail, transient and held-out behavior
+separately rather than selecting a favorable endpoint.

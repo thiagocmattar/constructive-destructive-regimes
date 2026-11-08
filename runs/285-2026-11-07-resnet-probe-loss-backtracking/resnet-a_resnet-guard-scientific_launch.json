@@ -1,0 +1,14 @@
+{
+  "label": "resnet-guard-scientific",
+  "case": "resnet",
+  "run_dir": "runs/285-2026-11-07-resnet-probe-loss-backtracking",
+  "arms": [
+    "control",
+    "probe_loss_guard"
+  ],
+  "output": "runs/285-2026-11-07-resnet-probe-loss-backtracking/artifacts/resnet-a/resnet-guard-scientific",
+  "mechanics": false,
+  "after": "resnet-guard-mechanics",
+  "pid": "4340",
+  "started_utc": "2026-11-07T22:29:35.046708+00:00"
+}

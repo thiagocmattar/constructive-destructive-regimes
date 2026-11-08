@@ -1,5 +1,16 @@
 # Analysis registry
 
+## Analysis 065 extension: representation-informed intervention transfer
+
+[H048 results and methods](065-2026-11-07-mlp-frozen-lr-double/observations/008-cross-architecture-interventions.md)
+complete Runs 269-285 in the existing analysis. Distributed local displacement
+caps improve mean training loss on MLP, ResNet and Transformer while reversals
+persist; terminal test loss is worse. Three MLP seeds, one seed per larger
+model, native full objectives and same-worker controls. Three new PDFs
+(06-08, 14 pages), 493,164 plotted values and retained audits verified;
+earlier PDFs preserved. All task compute closed within the USD 20 ceiling.
+No new analysis ID; continue 065 until requested otherwise.
+
 ## Analysis058: matched intervention figure consolidation
 
 Additional [Figure 08](058-2026-11-06-intervention-consolidation/observations/008-spike-optimizer-zoom.md)

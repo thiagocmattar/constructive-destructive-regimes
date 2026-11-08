@@ -150,4 +150,50 @@ All source identities, 270 retrieved files, independent gate/dense checks,
 74,130 plotted values and three rendered pages pass; Figures 01-03 preserved.
 Workers exited after 385.42 s total including calibration;
 21.907 GB retained on owned Spark with verified local copies, zero cloud cost.
-Keep further interventions in this analysis; next run 269, unused hypothesis H048.
+Keep further interventions in this analysis; the H048 extension follows below.
+
+## Representation-informed transfer: H048
+
+Runs 269-285 extend this same analysis to ResNet/CIFAR-10 and Transformer/WikiText-2,
+with additional MLP policy dissection and three-initialization replication.
+All comparisons retain unchanged Adam controls and the complete native training
+objectives. The user authorized the runs and a USD 20 total Runpod ceiling.
+
+**Complete:** distributed local affine-displacement caps are the strongest
+transferable optimization candidate in this screen. The common prefix-q50
+rule lowers mean training loss by 22.85% (MLP seed 0, 448-1152), 16.22%
+(ResNet, 264-576), and 26.00% (Transformer, 552-928). MLP seeds 1/2 improve
+19.43%/32.08% without retuning. All gradients, Adam moments and clocks advance;
+all layers remain trainable. Every effect uses its own unchanged Adam control.
+
+The cap reduces loss excursions while reversals persist or become more frequent.
+Negative alignment alone is therefore not a sufficient intervention target.
+Terminal test loss is worse under this cap in every setup; this is an
+optimization result, not a generalization improvement. Diagnostic-triggered
+gates and past-axis removal can fail severely. Doubling the Transformer embedding
+LR is nearly neutral in mean loss; quadrupling it worsens the mean. Adding 4x
+to the cap worsens mean loss 22.47% relative to the same-worker cap-only arm.
+
+- [Design and amendments](observations/007-cross-architecture-plan.md).
+- [Methods, MLP replication, transfer results and figure captions](observations/008-cross-architecture-interventions.md).
+- [What the MLP negative controls and exact loss accounting show](observations/009-what-the-negative-controls-show.md).
+- [The geometry and limits of the local displacement cap](observations/010-local-displacement-cap-geometry.md).
+- [Completed Spark process/log verification](transfer_spark_closeout.json).
+- [Selective entry criteria across architectures](figures/06-selective-transfer-diagnostics.pdf): three pages.
+- [Distributed caps, architecture traces, replication and controls](figures/07-distributed-displacement-and-controls.pdf): six pages.
+- [Adaptive rules, negative controls and embedding rates](figures/08-adaptive-and-embedding-tests.pdf): five pages.
+- [Aggregate results](transfer_summary.json), [compute/storage](transfer_compute_closeout.json), [cloud cleanup and provisional billing](transfer_cloud_closeout.json), and [visual review](transfer_visual_review.json).
+
+All source/retrieval identities, 210 retained arm-state audits, original-hardware
+representation/probe replay and 14 rendered pages pass. There are 68 new
+continuations (35,452 updates) and two authenticated reused controls across 18
+scientific workers. All five task pods are deleted and no task cloud storage
+remains. The conservative compute/storage estimate is USD 18.75, below the
+USD 20 ceiling; provider billing is provisional. All Spark task processes exited.
+Raw evidence remains locally (41.316 GB unique files) and on owned Spark;
+[artifact storage](artifact_storage.json) records local NTFS junctions/hardlinks.
+Reproduction commands and measurement limits are in observation 008.
+
+New figures use numbers 06-08; earlier figures remain byte-identical. Scientific
+inputs are frozen. Keep further work in this analysis; no new analysis ID was
+allocated. The next unused run is 286 and the next unused hypothesis is H049.

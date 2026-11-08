@@ -1,0 +1,73 @@
+{
+  "run_id": 282,
+  "analysis_id": "065",
+  "hypothesis": "H048",
+  "case": "mlp",
+  "source_state": 0,
+  "fork": 448,
+  "end": 1152,
+  "base_lr": 0.001,
+  "physical": 1000,
+  "probe": 5000,
+  "calibration_updates": 8,
+  "quantiles": [
+    0.5,
+    0.75,
+    0.9
+  ],
+  "arms": [
+    {
+      "id": "control",
+      "kind": "control"
+    },
+    {
+      "id": "functional_trunk_q50",
+      "kind": "functional",
+      "scope": "trunk",
+      "quantile": 0.5
+    },
+    {
+      "id": "output_budget_slow",
+      "kind": "budget",
+      "scope": "output",
+      "quantile": 0.5,
+      "recovery_multiplier": 1.01
+    },
+    {
+      "id": "global_half",
+      "kind": "fixed",
+      "scope": "global",
+      "factor": 0.5
+    }
+  ],
+  "seconds_per_arm": 5400,
+  "checkpoint_every": 64,
+  "audit_offsets": [
+    0,
+    32,
+    -1
+  ],
+  "seed": 1,
+  "precision": "Native FP32; TF32 off; deterministic; FP64 diagnostic reductions and functional displacement scores",
+  "objective": "Unchanged full objective and original ordering/groups; no clipped gradients, decay or moment reset",
+  "selection": "Only past probe measurements and the current candidate proposal; no future-window SVD or future loss.",
+  "validation": "Full available validation/test splits at end, secondary only; selection uses training outcomes.",
+  "authorization": "User authorized all exploratory runs, owned Spark, and total Runpod ceiling USD20. This run uses Spark only.",
+  "parent_workers": {
+    "resnet": "duqoihms8w1gle",
+    "transformer": "159vjccj7w3996"
+  },
+  "retention": "Full shared fork and end/recovery states; all boundary/update/probe/block scalars; three full gradient/update audits per arm; fixed probes identified by cache hash. Dense SVD histories not stored in this screening round.",
+  "confirmation": "Independent-initialization replication of the two seed0-selected candidates, alongside uniform half increments and unchanged Adam. Same5000examples, architecture, objective, base LR, fork448, end1152, eight-update calibration and policy hyperparameters. Native moments are built from the pinned initialization. No seed-specific tuning.",
+  "worker_script": "01_worker.py",
+  "extra_inputs": [
+    "01_worker.py"
+  ],
+  "shared_inputs": [
+    "src/eos_tasks/functional_budget_continuation.py",
+    "src/eos_tasks/seeded_budget_continuation.py",
+    "cache/eos-multitask/mlp_initial_seed1.pt"
+  ],
+  "initial_state": "cache/eos-multitask/mlp_initial_seed1.pt",
+  "initial_tensor_sha256": "cb6282e2746ed6ff6d80d680b835f1220f4e2fa5ca4d762a96c9d3e0f6bb55d4"
+}
