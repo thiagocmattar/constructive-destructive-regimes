@@ -1,0 +1,1073 @@
+{
+  "schema": 1,
+  "date": "2026-11-08",
+  "sections": {
+    "01-introduction": {
+      "title": "I. Introduction",
+      "claim": "Motivation and the four contribution cards in PLAN.md govern the opening.",
+      "boundary": "Preserve the current scientific direction. Do not infer compute savings, forgetting or generalization from these diagnostics."
+    },
+    "02-related-work": {
+      "title": "II. Stability Analysis of SGD / related work",
+      "claim": "Specific predecessor roles support the four contributions; the bibliography snapshot preserves current citations.",
+      "boundary": "The literature review is targeted, with source-reading depth recorded; it is not an exhaustive priority claim."
+    },
+    "03-regimes": {
+      "title": "III. Constructive and Destructive Regimes",
+      "claim": "All-pair accumulation, directional curvature, sampling and finite-step loss share an explicit update clock.",
+      "boundary": "GD path curvature and Adam mixed response have different meanings. The nonlinear loss relation remains approximate."
+    },
+    "04-gd-sgd": {
+      "title": "IV. Empirical Characterization",
+      "claim": "Retain the four current GD/SGD figures in order; supporting HVP, finite-step and all-lag evidence checks their interpretation.",
+      "boundary": "Nine GD conditions use one initialization per task; minibatch evidence is replicated. Equal updates do not mean equal data exposure."
+    },
+    "05-adam/a-characterization": {
+      "title": "V-A. Adam characterization",
+      "claim": "Exhaustive severity and lead-time evidence supports broad reversal precursors with selective, architecture-dependent amplification.",
+      "boundary": "Individual increases are not independent spikes. Current pre-update associations are exploratory, not a validated forecasting rule."
+    },
+    "05-adam/b-tracing": {
+      "title": "V-B. Architectural tracing",
+      "claim": "Fixed-probe consecutive motion reveals stage-specific reversals and structured temporal directions.",
+      "boundary": "SVD is retrospective and permutation invariant; stage association does not identify a unique cause. Original windows/probes must remain explicit."
+    },
+    "05-adam/c-intervention": {
+      "title": "V-C. Representation-informed intervention",
+      "claim": "The local affine cap improves selected training-window outcomes; negative controls distinguish direction, amplitude and within-layer allocation.",
+      "boundary": "Training benefits coexist with held-out deterioration. Historical comparators are not one matched benchmark; direct ranking remains pending."
+    },
+    "06-conclusion": {
+      "title": "VI. Conclusion",
+      "claim": "Conclude with the supported chain from interactions to functional expression and selective control.",
+      "boundary": "Retain the explanatory scope and the conditional status of forecasting, generalization, runtime efficiency and broad deployment."
+    },
+    "appendices": {
+      "title": "Appendices / technical support",
+      "claim": "Retain derivations and complete supporting audits without enlarging the main narrative.",
+      "boundary": "Historical manuscript sources are snapshots, not authorization to restore superseded prose."
+    }
+  },
+  "assets": [
+    {
+      "section": "01-introduction",
+      "source": "manuscript/draft/sections/01-introduction.tex",
+      "destination": "01-introduction/source/01-introduction.tex",
+      "title": "Current manuscript source: 01-introduction.tex",
+      "role": "source",
+      "observation": null,
+      "generator": null,
+      "note": "Unmodified manuscript snapshot; its input/figure paths resolve from the original draft root. Use the consolidated snippets and selected displays for integration."
+    },
+    {
+      "section": "02-related-work",
+      "source": "manuscript/draft/sections/02-related-works.tex",
+      "destination": "02-related-work/source/02-related-works.tex",
+      "title": "Current manuscript source: 02-related-works.tex",
+      "role": "source",
+      "observation": null,
+      "generator": null,
+      "note": "Unmodified manuscript snapshot; its input/figure paths resolve from the original draft root. Use the consolidated snippets and selected displays for integration."
+    },
+    {
+      "section": "03-regimes",
+      "source": "manuscript/draft/sections/03-methods.tex",
+      "destination": "03-regimes/source/03-methods.tex",
+      "title": "Current manuscript source: 03-methods.tex",
+      "role": "source",
+      "observation": null,
+      "generator": null,
+      "note": "Unmodified manuscript snapshot; its input/figure paths resolve from the original draft root. Use the consolidated snippets and selected displays for integration."
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "manuscript/draft/sections/04-gd-experiments.tex",
+      "destination": "04-gd-sgd/source/04-gd-experiments.tex",
+      "title": "Current manuscript source: 04-gd-experiments.tex",
+      "role": "source",
+      "observation": null,
+      "generator": null,
+      "note": "Unmodified manuscript snapshot; its input/figure paths resolve from the original draft root. Use the consolidated snippets and selected displays for integration."
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "manuscript/draft/sections/05-sgd-noise-experiments.tex",
+      "destination": "04-gd-sgd/source/05-sgd-noise-experiments.tex",
+      "title": "Current manuscript source: 05-sgd-noise-experiments.tex",
+      "role": "source",
+      "observation": null,
+      "generator": null,
+      "note": "Unmodified manuscript snapshot; its input/figure paths resolve from the original draft root. Use the consolidated snippets and selected displays for integration."
+    },
+    {
+      "section": "05-adam/a-characterization",
+      "source": "manuscript/draft/sections/06-adam-diagnostics.tex",
+      "destination": "05-adam/a-characterization/source/06-adam-diagnostics.tex",
+      "title": "Current manuscript source: 06-adam-diagnostics.tex",
+      "role": "source",
+      "observation": null,
+      "generator": null,
+      "note": "Unmodified manuscript snapshot; its input/figure paths resolve from the original draft root. Use the consolidated snippets and selected displays for integration."
+    },
+    {
+      "section": "06-conclusion",
+      "source": "manuscript/draft/sections/05-conclusion.tex",
+      "destination": "06-conclusion/source/05-conclusion.tex",
+      "title": "Current manuscript source: 05-conclusion.tex",
+      "role": "source",
+      "observation": null,
+      "generator": null,
+      "note": "Unmodified manuscript snapshot; its input/figure paths resolve from the original draft root. Use the consolidated snippets and selected displays for integration."
+    },
+    {
+      "section": "appendices",
+      "source": "manuscript/draft/sections/06-loss-appendix.tex",
+      "destination": "appendices/source/06-loss-appendix.tex",
+      "title": "Current manuscript source: 06-loss-appendix.tex",
+      "role": "source",
+      "observation": null,
+      "generator": null,
+      "note": "Unmodified manuscript snapshot; its input/figure paths resolve from the original draft root. Use the consolidated snippets and selected displays for integration."
+    },
+    {
+      "section": "02-related-work",
+      "source": "manuscript/draft/bibliography.bib",
+      "destination": "02-related-work/bibliography-current.bib",
+      "title": "Current draft bibliography",
+      "role": "source",
+      "observation": null,
+      "generator": null,
+      "note": "Snapshot; does not imply all newly compared references are already present."
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "manuscript/draft/figures/analysis024/gd_loss_projected_change_spectral_clean.pdf",
+      "destination": "04-gd-sgd/figures/gd_loss_projected_change_spectral_clean.pdf",
+      "title": "Figure 1",
+      "role": "retained main",
+      "observation": "analyses/024-2026-10-17-eos-gd-lr-calibration/observations/010-curvature-spectral-overlay.md",
+      "generator": "manuscript/draft/revisions/2026-11-03-original-argument-feedback-feedback/01_prepare_figures.py",
+      "note": "GD loss, directional proxy and spectral curvature; full/subset coverage and smoothing differ."
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "manuscript/draft/figures/analysis024/gd_reversal_norm_retention.pdf",
+      "destination": "04-gd-sgd/figures/gd_reversal_norm_retention.pdf",
+      "title": "Figure 2",
+      "role": "retained main",
+      "observation": "analyses/024-2026-10-17-eos-gd-lr-calibration/observations/009-author-feedback-figures.md",
+      "generator": "manuscript/draft/revisions/2026-11-02-feedback/01_prepare_figures.py",
+      "note": "Gradient norms, adjacent alignment and normalized displacement; no inference of learning quality from R alone."
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "manuscript/draft/figures/analysis035/gd_backward_compact.pdf",
+      "destination": "04-gd-sgd/figures/gd_backward_compact.pdf",
+      "title": "Figure 3",
+      "role": "retained main",
+      "observation": "analyses/035-2026-11-02-eos-backward-anchors/observations/002-manuscript-view.md",
+      "generator": "manuscript/draft/revisions/2026-11-02-feedback/01_prepare_figures.py",
+      "note": "Fixed endpoint 2256, backward lags 1–256, including a shorter-lag view; not a moving adjacent series."
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "manuscript/draft/figures/analysis037/sgd_batch_size_compact.pdf",
+      "destination": "04-gd-sgd/figures/sgd_batch_size_compact.pdf",
+      "title": "Figure 4",
+      "role": "retained main",
+      "observation": "analyses/037-2026-11-02-sgd-batch-extension/observations/001-three-case-sgd.md",
+      "generator": "manuscript/draft/revisions/2026-11-02-feedback/01_prepare_figures.py",
+      "note": "Three tasks and three initialization blocks; label batch size and exposure."
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "analyses/024-2026-10-17-eos-gd-lr-calibration/observations/007-section-iv-critical-review.md",
+      "destination": "04-gd-sgd/observations/24-007-section-iv-critical-review.md",
+      "title": "Analysis 24: 007-section-iv-critical-review.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "analyses/024-2026-10-17-eos-gd-lr-calibration/observations/009-author-feedback-figures.md",
+      "destination": "04-gd-sgd/observations/24-009-author-feedback-figures.md",
+      "title": "Analysis 24: 009-author-feedback-figures.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "analyses/024-2026-10-17-eos-gd-lr-calibration/observations/010-curvature-spectral-overlay.md",
+      "destination": "04-gd-sgd/observations/24-010-curvature-spectral-overlay.md",
+      "title": "Analysis 24: 010-curvature-spectral-overlay.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "analyses/035-2026-11-02-eos-backward-anchors/observations/002-manuscript-view.md",
+      "destination": "04-gd-sgd/observations/35-002-manuscript-view.md",
+      "title": "Analysis 35: 002-manuscript-view.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "analyses/037-2026-11-02-sgd-batch-extension/observations/001-three-case-sgd.md",
+      "destination": "04-gd-sgd/observations/37-001-three-case-sgd.md",
+      "title": "Analysis 37: 001-three-case-sgd.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "analyses/056-2026-11-05-gd-paired-displacement/observations/001-paired-displacement.md",
+      "destination": "04-gd-sgd/observations/56-001-paired-displacement.md",
+      "title": "Analysis 56: 001-paired-displacement.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "analyses/027-2026-10-30-minibatch-noise/observations/001-controlled-minibatch-noise.md",
+      "destination": "04-gd-sgd/observations/27-001-controlled-minibatch-noise.md",
+      "title": "Analysis 27: 001-controlled-minibatch-noise.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "analyses/027-2026-10-30-minibatch-noise/figures/frozen_calibration.pdf",
+      "destination": "04-gd-sgd/support/frozen_calibration.pdf",
+      "title": "Curvature/noise validation: frozen_calibration.pdf",
+      "role": "support",
+      "observation": "analyses/027-2026-10-30-minibatch-noise/observations/001-controlled-minibatch-noise.md",
+      "generator": "analyses/027-2026-10-30-minibatch-noise/03_analyze.py",
+      "note": "Smooth tanh MLP; HVP and frozen-state tests. Not cross-architecture Hessian validation."
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "analyses/027-2026-10-30-minibatch-noise/figures/sgd_proxy_validation.pdf",
+      "destination": "04-gd-sgd/support/sgd_proxy_validation.pdf",
+      "title": "Curvature/noise validation: sgd_proxy_validation.pdf",
+      "role": "support",
+      "observation": "analyses/027-2026-10-30-minibatch-noise/observations/001-controlled-minibatch-noise.md",
+      "generator": "analyses/027-2026-10-30-minibatch-noise/03_analyze.py",
+      "note": "Smooth tanh MLP; HVP and frozen-state tests. Not cross-architecture Hessian validation."
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "analyses/027-2026-10-30-minibatch-noise/tables/analysis027_hvp_errors.tex",
+      "destination": "04-gd-sgd/tables/analysis027_hvp_errors.tex",
+      "title": "analysis027_hvp_errors.tex",
+      "role": "table",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "analyses/027-2026-10-30-minibatch-noise/tables/analysis027_contrasts.tex",
+      "destination": "04-gd-sgd/tables/analysis027_contrasts.tex",
+      "title": "analysis027_contrasts.tex",
+      "role": "table",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "analyses/024-2026-10-17-eos-gd-lr-calibration/section_iv_review_checks.json",
+      "destination": "04-gd-sgd/data/24-section_iv_review_checks.json",
+      "title": "Support data: section_iv_review_checks.json",
+      "role": "data",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "analyses/056-2026-11-05-gd-paired-displacement/endpoints.csv",
+      "destination": "04-gd-sgd/data/56-endpoints.csv",
+      "title": "Support data: endpoints.csv",
+      "role": "data",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "analyses/056-2026-11-05-gd-paired-displacement/lag_summary.csv",
+      "destination": "04-gd-sgd/data/56-lag_summary.csv",
+      "title": "Support data: lag_summary.csv",
+      "role": "data",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/a-characterization",
+      "source": "analyses/058-2026-11-06-intervention-consolidation/figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf",
+      "destination": "05-adam/a-characterization/figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf",
+      "title": "Figure 5 base: high-LR Adam overview",
+      "role": "main base",
+      "observation": "analyses/058-2026-11-06-intervention-consolidation/observations/000-high-lr-overview.md",
+      "generator": "analyses/058-2026-11-06-intervention-consolidation/01_figures.py",
+      "note": "One high-LR trajectory per task; add the compact population table, not a claim based only on selected peaks."
+    },
+    {
+      "section": "05-adam/a-characterization",
+      "source": "analyses/058-2026-11-06-intervention-consolidation/observations/000-high-lr-overview.md",
+      "destination": "05-adam/a-characterization/observations/58-000-high-lr-overview.md",
+      "title": "Analysis 58: 000-high-lr-overview.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/a-characterization",
+      "source": "analyses/055-2026-11-05-adam-directional-amplification/observations/004-timing-severity-audit.md",
+      "destination": "05-adam/a-characterization/observations/55-004-timing-severity-audit.md",
+      "title": "Analysis 55: 004-timing-severity-audit.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/a-characterization",
+      "source": "analyses/057-2026-11-05-adam-response-memory/observations/001-response-memory.md",
+      "destination": "05-adam/a-characterization/observations/57-001-response-memory.md",
+      "title": "Analysis 57: 001-response-memory.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/a-characterization",
+      "source": "analyses/055-2026-11-05-adam-directional-amplification/figures/adam_forward_and_severity.pdf",
+      "destination": "05-adam/a-characterization/support/adam_forward_and_severity.pdf",
+      "title": "Complete severity, forward-horizon and warning-memory audit",
+      "role": "support",
+      "observation": "analyses/055-2026-11-05-adam-directional-amplification/observations/004-timing-severity-audit.md",
+      "generator": "analyses/055-2026-11-05-adam-directional-amplification/07_plot_forward_and_severity.py",
+      "note": "Six pages. Includes false alarms and sensitivity curves; exploratory thresholds and leads."
+    },
+    {
+      "section": "05-adam/a-characterization",
+      "source": "analyses/055-2026-11-05-adam-directional-amplification/derived/one_step_audit/summary.csv",
+      "destination": "05-adam/a-characterization/data/one-step-summary.csv",
+      "title": "Adam audit: one-step-summary.csv",
+      "role": "data",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/a-characterization",
+      "source": "analyses/055-2026-11-05-adam-directional-amplification/derived/one_step_audit/counterexamples.json",
+      "destination": "05-adam/a-characterization/data/one-step-counterexamples.json",
+      "title": "Adam audit: one-step-counterexamples.json",
+      "role": "data",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/a-characterization",
+      "source": "analyses/055-2026-11-05-adam-directional-amplification/derived/forward_and_severity/severity.csv",
+      "destination": "05-adam/a-characterization/data/severity.csv",
+      "title": "Adam audit: severity.csv",
+      "role": "data",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/a-characterization",
+      "source": "analyses/055-2026-11-05-adam-directional-amplification/derived/forward_and_severity/horizons.csv",
+      "destination": "05-adam/a-characterization/data/horizons.csv",
+      "title": "Adam audit: horizons.csv",
+      "role": "data",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/a-characterization",
+      "source": "analyses/055-2026-11-05-adam-directional-amplification/derived/forward_and_severity/warning_memory.csv",
+      "destination": "05-adam/a-characterization/data/warning-memory.csv",
+      "title": "Adam audit: warning-memory.csv",
+      "role": "data",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/a-characterization",
+      "source": "analyses/055-2026-11-05-adam-directional-amplification/derived/forward_and_severity/verification.json",
+      "destination": "05-adam/a-characterization/data/audit-verification.json",
+      "title": "Adam audit: audit-verification.json",
+      "role": "data",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/063-2026-11-07-architecture-instability-tracing/figures/01-resnet-instability-trace.pdf",
+      "destination": "05-adam/b-tracing/figures/01-resnet-instability-trace.pdf",
+      "title": "Figure 6 component: 01-resnet-instability-trace.pdf",
+      "role": "assembly component",
+      "observation": "analyses/063-2026-11-07-architecture-instability-tracing/observations/005-technical-report-event-window.md",
+      "generator": "analyses/063-2026-11-07-architecture-instability-tracing/02_figures.py",
+      "note": "Use the recorded event window; do not mix with the older 448–800 MLP SVD."
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/063-2026-11-07-architecture-instability-tracing/figures/02-transformer-instability-trace.pdf",
+      "destination": "05-adam/b-tracing/figures/02-transformer-instability-trace.pdf",
+      "title": "Figure 6 component: 02-transformer-instability-trace.pdf",
+      "role": "assembly component",
+      "observation": "analyses/063-2026-11-07-architecture-instability-tracing/observations/005-technical-report-event-window.md",
+      "generator": "analyses/063-2026-11-07-architecture-instability-tracing/02_figures.py",
+      "note": "Use the recorded event window; do not mix with the older 448–800 MLP SVD."
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/063-2026-11-07-architecture-instability-tracing/figures/04-mlp-instability-trace-450-500.pdf",
+      "destination": "05-adam/b-tracing/figures/04-mlp-instability-trace-450-500.pdf",
+      "title": "Figure 6 component: 04-mlp-instability-trace-450-500.pdf",
+      "role": "assembly component",
+      "observation": "analyses/063-2026-11-07-architecture-instability-tracing/observations/005-technical-report-event-window.md",
+      "generator": "analyses/063-2026-11-07-architecture-instability-tracing/02_figures.py",
+      "note": "Use the recorded event window; do not mix with the older 448–800 MLP SVD."
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/063-2026-11-07-architecture-instability-tracing/report/instability-tracing-report.pdf",
+      "destination": "05-adam/b-tracing/report/instability-tracing-report.pdf",
+      "title": "Tracing report: instability-tracing-report.pdf",
+      "role": "report",
+      "observation": "analyses/063-2026-11-07-architecture-instability-tracing/observations/005-technical-report-event-window.md",
+      "generator": "analyses/063-2026-11-07-architecture-instability-tracing/08_report_assets.py",
+      "note": "The report and its figures retain their original numbering; PLAN Figure 6 is the future combined display."
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/063-2026-11-07-architecture-instability-tracing/report/instability-tracing-report.tex",
+      "destination": "05-adam/b-tracing/report/instability-tracing-report.tex",
+      "title": "Tracing report: instability-tracing-report.tex",
+      "role": "source",
+      "observation": null,
+      "generator": null,
+      "note": "The report and its figures retain their original numbering; PLAN Figure 6 is the future combined display."
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/063-2026-11-07-architecture-instability-tracing/report/results-table.tex",
+      "destination": "05-adam/b-tracing/report/results-table.tex",
+      "title": "Tracing report: results-table.tex",
+      "role": "source",
+      "observation": null,
+      "generator": null,
+      "note": "The report and its figures retain their original numbering; PLAN Figure 6 is the future combined display."
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/063-2026-11-07-architecture-instability-tracing/report/figures/architecture-comparison.pdf",
+      "destination": "05-adam/b-tracing/report/figures/architecture-comparison.pdf",
+      "title": "Report figure: figures/architecture-comparison.pdf",
+      "role": "assembly component",
+      "observation": "analyses/063-2026-11-07-architecture-instability-tracing/observations/005-technical-report-event-window.md",
+      "generator": "analyses/063-2026-11-07-architecture-instability-tracing/08_report_assets.py",
+      "note": "The report and its figures retain their original numbering; PLAN Figure 6 is the future combined display."
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/063-2026-11-07-architecture-instability-tracing/report/figures/mlp-layer-detail.pdf",
+      "destination": "05-adam/b-tracing/report/figures/mlp-layer-detail.pdf",
+      "title": "Report figure: figures/mlp-layer-detail.pdf",
+      "role": "assembly component",
+      "observation": "analyses/063-2026-11-07-architecture-instability-tracing/observations/005-technical-report-event-window.md",
+      "generator": "analyses/063-2026-11-07-architecture-instability-tracing/08_report_assets.py",
+      "note": "The report and its figures retain their original numbering; PLAN Figure 6 is the future combined display."
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/063-2026-11-07-architecture-instability-tracing/METHOD.md",
+      "destination": "05-adam/b-tracing/observations/63-METHOD.md",
+      "title": "Analysis 63: METHOD.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/063-2026-11-07-architecture-instability-tracing/observations/001-resnet-trace.md",
+      "destination": "05-adam/b-tracing/observations/63-001-resnet-trace.md",
+      "title": "Analysis 63: 001-resnet-trace.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/063-2026-11-07-architecture-instability-tracing/observations/002-transformer-trace.md",
+      "destination": "05-adam/b-tracing/observations/63-002-transformer-trace.md",
+      "title": "Analysis 63: 002-transformer-trace.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/063-2026-11-07-architecture-instability-tracing/observations/005-technical-report-event-window.md",
+      "destination": "05-adam/b-tracing/observations/63-005-technical-report-event-window.md",
+      "title": "Analysis 63: 005-technical-report-event-window.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/063-2026-11-07-architecture-instability-tracing/observations/006-spectral-controls.md",
+      "destination": "05-adam/b-tracing/observations/63-006-spectral-controls.md",
+      "title": "Analysis 63: 006-spectral-controls.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/062-2026-11-07-mlp-gradient-amplification/observations/001-gradient-amplification.md",
+      "destination": "05-adam/b-tracing/observations/62-001-gradient-amplification.md",
+      "title": "Analysis 62: 001-gradient-amplification.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/062-2026-11-07-mlp-gradient-amplification/README.md",
+      "destination": "05-adam/b-tracing/observations/062-development-summary.md",
+      "title": "Analysis 62: README.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/063-2026-11-07-architecture-instability-tracing/mlp_450_500_results.json",
+      "destination": "05-adam/b-tracing/data/mlp_450_500_results.json",
+      "title": "mlp_450_500_results.json",
+      "role": "data",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/063-2026-11-07-architecture-instability-tracing/resnet_results.json",
+      "destination": "05-adam/b-tracing/data/resnet_results.json",
+      "title": "resnet_results.json",
+      "role": "data",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/063-2026-11-07-architecture-instability-tracing/transformer_results.json",
+      "destination": "05-adam/b-tracing/data/transformer_results.json",
+      "title": "transformer_results.json",
+      "role": "data",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/063-2026-11-07-architecture-instability-tracing/mlp_450_500_stages.csv",
+      "destination": "05-adam/b-tracing/data/mlp_450_500_stages.csv",
+      "title": "mlp_450_500_stages.csv",
+      "role": "data",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/063-2026-11-07-architecture-instability-tracing/resnet_stages.csv",
+      "destination": "05-adam/b-tracing/data/resnet_stages.csv",
+      "title": "resnet_stages.csv",
+      "role": "data",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/063-2026-11-07-architecture-instability-tracing/transformer_stages.csv",
+      "destination": "05-adam/b-tracing/data/transformer_stages.csv",
+      "title": "transformer_stages.csv",
+      "role": "data",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/063-2026-11-07-architecture-instability-tracing/spectral_controls.json",
+      "destination": "05-adam/b-tracing/data/spectral_controls.json",
+      "title": "spectral_controls.json",
+      "role": "data",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/09-local-cap-entry-manuscript.pdf",
+      "destination": "05-adam/c-intervention/figures/09-local-cap-entry-manuscript.pdf",
+      "title": "09-local-cap-entry-manuscript.pdf",
+      "role": "support",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/011-local-cap-technical-report.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/34_local_cap_report_assets.py",
+      "note": "Supporting result; preserve its own windows, scopes and baseline."
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/10-local-cap-distributed-manuscript.pdf",
+      "destination": "05-adam/c-intervention/figures/10-local-cap-distributed-manuscript.pdf",
+      "title": "Figure 7 base: distributed local cap",
+      "role": "main base",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/011-local-cap-technical-report.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/34_local_cap_report_assets.py",
+      "note": "Training-window comparisons; attach held-out and negative-control outcomes."
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/11-local-cap-mlp-replication.pdf",
+      "destination": "05-adam/c-intervention/figures/11-local-cap-mlp-replication.pdf",
+      "title": "11-local-cap-mlp-replication.pdf",
+      "role": "support",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/011-local-cap-technical-report.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/34_local_cap_report_assets.py",
+      "note": "Supporting result; preserve its own windows, scopes and baseline."
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/07-distributed-displacement-and-controls.pdf",
+      "destination": "05-adam/c-intervention/figures/07-distributed-displacement-and-controls.pdf",
+      "title": "07-distributed-displacement-and-controls.pdf",
+      "role": "support",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/008-cross-architecture-interventions.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/22_figures_transfer.py",
+      "note": "Supporting result; preserve its own windows, scopes and baseline."
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/12-distributed-cap-quantile-lr-mlp.pdf",
+      "destination": "05-adam/c-intervention/figures/12-distributed-cap-quantile-lr-mlp.pdf",
+      "title": "12-distributed-cap-quantile-lr-mlp.pdf",
+      "role": "support",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/013-distributed-cap-quantile-lr.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/40_plot_cap_lr.py",
+      "note": "Supporting result; preserve its own windows, scopes and baseline."
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/13-distributed-cap-lr-seed-diagnostics.pdf",
+      "destination": "05-adam/c-intervention/figures/13-distributed-cap-lr-seed-diagnostics.pdf",
+      "title": "13-distributed-cap-lr-seed-diagnostics.pdf",
+      "role": "support",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/013-distributed-cap-quantile-lr.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/40_plot_cap_lr.py",
+      "note": "Supporting result; preserve its own windows, scopes and baseline."
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/14-distributed-cap-quantile-ablation-mlp.pdf",
+      "destination": "05-adam/c-intervention/figures/14-distributed-cap-quantile-ablation-mlp.pdf",
+      "title": "14-distributed-cap-quantile-ablation-mlp.pdf",
+      "role": "support",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/014-cap-quantile-ablation-figure.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/43_plot_cap_ablation.py",
+      "note": "Supporting result; preserve its own windows, scopes and baseline."
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/report/local-displacement-cap-report.pdf",
+      "destination": "05-adam/c-intervention/report/local-displacement-cap-report.pdf",
+      "title": "Cap report: local-displacement-cap-report.pdf",
+      "role": "report",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/011-local-cap-technical-report.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/35_build_local_cap_report.py",
+      "note": ""
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/report/local-displacement-cap-report.tex",
+      "destination": "05-adam/c-intervention/report/local-displacement-cap-report.tex",
+      "title": "Cap report: local-displacement-cap-report.tex",
+      "role": "source",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/report/cap-results-table.tex",
+      "destination": "05-adam/c-intervention/report/cap-results-table.tex",
+      "title": "Cap report: cap-results-table.tex",
+      "role": "source",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/report/cap-seeds-table.tex",
+      "destination": "05-adam/c-intervention/report/cap-seeds-table.tex",
+      "title": "Cap report: cap-seeds-table.tex",
+      "role": "source",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/report/cap-sensitivity-table.tex",
+      "destination": "05-adam/c-intervention/report/cap-sensitivity-table.tex",
+      "title": "Cap report: cap-sensitivity-table.tex",
+      "role": "source",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/008-cross-architecture-interventions.md",
+      "destination": "05-adam/c-intervention/observations/65-008-cross-architecture-interventions.md",
+      "title": "Analysis 65: 008-cross-architecture-interventions.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/009-what-the-negative-controls-show.md",
+      "destination": "05-adam/c-intervention/observations/65-009-what-the-negative-controls-show.md",
+      "title": "Analysis 65: 009-what-the-negative-controls-show.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/010-local-displacement-cap-geometry.md",
+      "destination": "05-adam/c-intervention/observations/65-010-local-displacement-cap-geometry.md",
+      "title": "Analysis 65: 010-local-displacement-cap-geometry.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/011-local-cap-technical-report.md",
+      "destination": "05-adam/c-intervention/observations/65-011-local-cap-technical-report.md",
+      "title": "Analysis 65: 011-local-cap-technical-report.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/013-distributed-cap-quantile-lr.md",
+      "destination": "05-adam/c-intervention/observations/65-013-distributed-cap-quantile-lr.md",
+      "title": "Analysis 65: 013-distributed-cap-quantile-lr.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/transfer_summary.csv",
+      "destination": "05-adam/c-intervention/data/transfer_summary.csv",
+      "title": "Intervention data: transfer_summary.csv",
+      "role": "data",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/transfer_heldout_evaluations.csv",
+      "destination": "05-adam/c-intervention/data/transfer_heldout_evaluations.csv",
+      "title": "Intervention data: transfer_heldout_evaluations.csv",
+      "role": "data",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/cap_lr_aggregate.csv",
+      "destination": "05-adam/c-intervention/data/cap_lr_aggregate.csv",
+      "title": "Intervention data: cap_lr_aggregate.csv",
+      "role": "data",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/cap_lr_per_seed.csv",
+      "destination": "05-adam/c-intervention/data/cap_lr_per_seed.csv",
+      "title": "Intervention data: cap_lr_per_seed.csv",
+      "role": "data",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/cap_lr_table.tex",
+      "destination": "05-adam/c-intervention/tables/cap_lr_table.tex",
+      "title": "Intervention data: cap_lr_table.tex",
+      "role": "table",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/058-2026-11-06-intervention-consolidation/figures/01-persistent-half-lr-cifar10-mlp-resnet-wikitext2-transformer.pdf",
+      "destination": "05-adam/c-intervention/comparators/01-persistent-half-lr-cifar10-mlp-resnet-wikitext2-transformer.pdf",
+      "title": "Historical comparator: 01-persistent-half-lr-cifar10-mlp-resnet-wikitext2-transformer.pdf",
+      "role": "historical comparator",
+      "observation": "analyses/058-2026-11-06-intervention-consolidation/observations/001-persistent-half-lr.md",
+      "generator": "analyses/058-2026-11-06-intervention-consolidation/01_figures.py",
+      "note": "Historical windows MLP 512–800, ResNet 256–576, Transformer 544–928; not matched to cap forks."
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/058-2026-11-06-intervention-consolidation/observations/001-persistent-half-lr.md",
+      "destination": "05-adam/c-intervention/observations/58-001-persistent-half-lr.md",
+      "title": "Analysis 58: 001-persistent-half-lr.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/058-2026-11-06-intervention-consolidation/figures/05-gradient-clipping-cifar10-mlp-resnet.pdf",
+      "destination": "05-adam/c-intervention/comparators/05-gradient-clipping-cifar10-mlp-resnet.pdf",
+      "title": "Historical comparator: 05-gradient-clipping-cifar10-mlp-resnet.pdf",
+      "role": "historical comparator",
+      "observation": "analyses/058-2026-11-06-intervention-consolidation/observations/005-clipping.md",
+      "generator": "analyses/058-2026-11-06-intervention-consolidation/01_figures.py",
+      "note": "MLP and ResNet historical clipping; activity and placement matter."
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/058-2026-11-06-intervention-consolidation/observations/005-clipping.md",
+      "destination": "05-adam/c-intervention/observations/58-005-clipping.md",
+      "title": "Analysis 58: 005-clipping.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/059-2026-11-07-mlp-beta2-reduction/figures/01-beta2-reductions-cifar10-mlp.pdf",
+      "destination": "05-adam/c-intervention/comparators/01-beta2-reductions-cifar10-mlp.pdf",
+      "title": "Historical comparator: 01-beta2-reductions-cifar10-mlp.pdf",
+      "role": "historical comparator",
+      "observation": "analyses/059-2026-11-07-mlp-beta2-reduction/observations/001-beta2-reduction.md",
+      "generator": "analyses/059-2026-11-07-mlp-beta2-reduction/01_report.py",
+      "note": "Late switch at MLP state 512 retaining moments/clock; not lower beta2 from initialization."
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/059-2026-11-07-mlp-beta2-reduction/observations/001-beta2-reduction.md",
+      "destination": "05-adam/c-intervention/observations/59-001-beta2-reduction.md",
+      "title": "Analysis 59: 001-beta2-reduction.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/043-2026-11-03-spark-fixed-step-interventions/figures/clip_median_x1.pdf",
+      "destination": "05-adam/c-intervention/comparators/clip_median_x1.pdf",
+      "title": "Historical comparator: clip_median_x1.pdf",
+      "role": "historical comparator",
+      "observation": "analyses/043-2026-11-03-spark-fixed-step-interventions/observations/007-clipping-median-response.md",
+      "generator": "analyses/043-2026-11-03-spark-fixed-step-interventions/01_report.py",
+      "note": "Includes Transformer at 1024–1088; median clipping activates 3/64 times. Different cohort."
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/043-2026-11-03-spark-fixed-step-interventions/observations/007-clipping-median-response.md",
+      "destination": "05-adam/c-intervention/observations/43-007-clipping-median-response.md",
+      "title": "Analysis 43: 007-clipping-median-response.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/064-2026-11-07-mlp-freeze-first-linear/figures/01-freeze-first-linear-cifar10-mlp.pdf",
+      "destination": "05-adam/c-intervention/comparators/01-freeze-first-linear-cifar10-mlp.pdf",
+      "title": "Historical comparator: 01-freeze-first-linear-cifar10-mlp.pdf",
+      "role": "historical comparator",
+      "observation": "analyses/064-2026-11-07-mlp-freeze-first-linear/observations/001-freeze-first-linear.md",
+      "generator": "analyses/064-2026-11-07-mlp-freeze-first-linear/02_figures.py",
+      "note": "Freezing removes 93.6% of trainable parameters in MLP; not a unique initiating-layer test."
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/064-2026-11-07-mlp-freeze-first-linear/observations/001-freeze-first-linear.md",
+      "destination": "05-adam/c-intervention/observations/64-001-freeze-first-linear.md",
+      "title": "Analysis 64: 001-freeze-first-linear.md",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/report/local-displacement-cap-report+feedback.pdf",
+      "destination": "05-adam/c-intervention/source/author-feedback.pdf",
+      "title": "Author's annotated cap report",
+      "role": "author input",
+      "observation": null,
+      "generator": null,
+      "note": "Unmodified copy; original remains in Analysis 065."
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "analyses/027-2026-10-30-minibatch-noise/REPORT.md",
+      "destination": "04-gd-sgd/observations/27-REPORT.md",
+      "title": "Analysis027 full measurement report",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": "Preserved source snapshot; current selection/status is governed by PLAN."
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "manuscript/draft/sections/04-controlled-figures.tex",
+      "destination": "04-gd-sgd/source/04-controlled-figures.tex",
+      "title": "Current controlled-figure captions",
+      "role": "source",
+      "observation": null,
+      "generator": null,
+      "note": "Unmodified manuscript snapshot; its input/figure paths resolve from the original draft root. Use the consolidated snippets and selected displays for integration."
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/058-2026-11-06-intervention-consolidation/README.md",
+      "destination": "05-adam/c-intervention/observations/058-summary.md",
+      "title": "Analysis058 source summary",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": "Preserved source snapshot; current selection/status is governed by PLAN."
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/059-2026-11-07-mlp-beta2-reduction/README.md",
+      "destination": "05-adam/c-intervention/observations/059-summary.md",
+      "title": "Analysis059 source summary",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": "Preserved source snapshot; current selection/status is governed by PLAN."
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/README.md",
+      "destination": "05-adam/c-intervention/observations/065-summary.md",
+      "title": "Analysis065 source summary",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": "Preserved source snapshot; current selection/status is governed by PLAN."
+    },
+    {
+      "section": "appendices",
+      "source": "manuscript/draft/sections/07-gd-diagnostics.tex",
+      "destination": "appendices/source/07-gd-diagnostics.tex",
+      "title": "Current diagnostic appendix",
+      "role": "source",
+      "observation": null,
+      "generator": null,
+      "note": "Unmodified manuscript snapshot; its input/figure paths resolve from the original draft root. Use the consolidated snippets and selected displays for integration."
+    },
+    {
+      "section": "appendices",
+      "source": "manuscript/draft/previous-submission/rejection_email.pdf",
+      "destination": "appendices/submission/decision-letter.pdf",
+      "title": "Supplied submission decision",
+      "role": "submission record",
+      "observation": null,
+      "generator": null,
+      "note": "Preserved source snapshot; current selection/status is governed by PLAN."
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "manuscript/draft/revisions/2026-11-03-original-argument-feedback-feedback/curvature_comparison_manifest.json",
+      "destination": "04-gd-sgd/data/figure1-layout-manifest.json",
+      "title": "Figure 1 clean-legend source/layout manifest",
+      "role": "source record",
+      "observation": null,
+      "generator": null,
+      "note": "Final two-entry legend variant; exact source/figure hashes."
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/014-cap-quantile-ablation-figure.md",
+      "destination": "05-adam/c-intervention/observations/65-014-cap-quantile-ablation-figure.md",
+      "title": "Analysis 65: cap-quantile ablation caption and verification",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": "Exact reduction and uncertainty for the shared-axis ablation figure."
+    }
+  ]
+}

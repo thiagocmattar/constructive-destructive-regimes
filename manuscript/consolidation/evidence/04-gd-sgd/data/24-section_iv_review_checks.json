@@ -1,0 +1,377 @@
+{
+  "status": "passed",
+  "script_sha256": "d64f4eb0a7d9f648a3cc8ced09bc5881cfc9dd4a4870a000825e0fd9ef111d57",
+  "sources": {
+    "analyses/024-2026-10-17-eos-gd-lr-calibration/cohort.json": "1de4ab6aa26dd693b3ecc3dd84e6c8af004d2c01042319f6a76db456d18dc37b",
+    "analyses/024-2026-10-17-eos-gd-lr-calibration/results.json": "c9147f0c1cb0d4d2c5a6e3ed80f354f64da8463162db293e58e0001c4605c3f3",
+    "src/cifar_eos/core.py": "c9fab65d551740149d7ff3a79e4b3af1e87ff5e7f3ba7c5cc62201f216434138",
+    "manuscript/draft/sections/03-methods.tex": "ed3d11bf2308cf83e47ceb445e2c94effb4b23034635c161f2d4c6577470d6c6",
+    "manuscript/draft/sections/04-gd-experiments.tex": "03164fea39563bbb69000bdb88e73c79a8e0284b521b8fb5106c9836be2d26d3",
+    "manuscript/artifacts/draft/bare_jrnl.pdf": "1679307fb3614196aab43c8426494d837fc45f26cecfcb1b6e58ccd2cc369495"
+  },
+  "coverage": "Nine seed-0 trajectories; 3000 updates each. All-pair fields include factor 2.",
+  "loss_check": "2999 paired transitions per condition: q_t and L(theta[t-1])-L(theta[t-2]), t=2..3000. Final update excluded.",
+  "limits": "Descriptive post-hoc approximation audit, not a forecast or independent samples. Thresholds are sensitivity choices, not calibrated FP32 error bounds. No error cause is isolated.",
+  "runs": [
+    {
+      "run_id": "059",
+      "task": "mlp",
+      "lr": 0.004,
+      "source": "runs/059-2026-10-13-cifar10-eos-gd-lr-4e-3/artifacts/attempt-01-spark/production/metrics.jsonl",
+      "source_sha256": "b26bd47afdbe92c915d4973fc3aa07b546a68663216360e3c490d46ae1e730e0",
+      "final_R": 0.7941435956215835,
+      "final_gradient_sum_displacement": 0.9510667100657734,
+      "final_gradient_sum_path_length": 1.1976004280703978,
+      "final_energy": 66.63886173553638,
+      "final_all_pair": 56466.35407547283,
+      "final_lag_one": 126.97717590742398,
+      "final_beyond_lag_one": 56339.37689956541,
+      "loss_state_2000": 0.3532533198595047,
+      "final_loss": 0.3365076333284378,
+      "loss_surrogate_pairs": 2999,
+      "sign_sensitivity": [
+        {
+          "relative_threshold": 0,
+          "eligible": 2999,
+          "sign_disagreements": 0
+        },
+        {
+          "relative_threshold": 1e-07,
+          "eligible": 2999,
+          "sign_disagreements": 0
+        },
+        {
+          "relative_threshold": 1e-06,
+          "eligible": 2999,
+          "sign_disagreements": 0
+        },
+        {
+          "relative_threshold": 1e-05,
+          "eligible": 2999,
+          "sign_disagreements": 0
+        }
+      ],
+      "median_scaled_absolute_loss_residual": 0.0002905303269255543
+    },
+    {
+      "run_id": "062",
+      "task": "mlp",
+      "lr": 0.02,
+      "source": "runs/062-2026-10-13-cifar10-eos-gd-lr-2e-2/artifacts/attempt-01-spark/production/metrics.jsonl",
+      "source_sha256": "c94770a13d0f6668a4e6f1be577239b472a0c105fc5e098d6901d2514e620243",
+      "final_R": 0.04877406463774046,
+      "final_gradient_sum_displacement": 3.139136537139543,
+      "final_gradient_sum_path_length": 64.36077371149705,
+      "final_energy": 6177.501161157598,
+      "final_all_pair": 18457.94433585351,
+      "final_lag_one": -12168.240197142595,
+      "final_beyond_lag_one": 30626.184532996107,
+      "loss_state_2000": 0.24561740458011627,
+      "final_loss": 0.21144264936447144,
+      "loss_surrogate_pairs": 2999,
+      "sign_sensitivity": [
+        {
+          "relative_threshold": 0,
+          "eligible": 2999,
+          "sign_disagreements": 145
+        },
+        {
+          "relative_threshold": 1e-07,
+          "eligible": 2998,
+          "sign_disagreements": 145
+        },
+        {
+          "relative_threshold": 1e-06,
+          "eligible": 2998,
+          "sign_disagreements": 145
+        },
+        {
+          "relative_threshold": 1e-05,
+          "eligible": 2989,
+          "sign_disagreements": 141
+        }
+      ],
+      "median_scaled_absolute_loss_residual": 0.0006146160031332121
+    },
+    {
+      "run_id": "122",
+      "task": "mlp",
+      "lr": 0.04,
+      "source": "runs/122-2026-10-17-eos-mlp-gd-lr-0.04-3k/artifacts/attempt-01-spark/production/metrics.jsonl",
+      "source_sha256": "fe7b59d109c43684942e3fd8ac3c5b8ae057e6b7d94049fecea34df466439f04",
+      "final_R": 0.025669650622052103,
+      "final_gradient_sum_displacement": 4.762797904803465,
+      "final_gradient_sum_path_length": 185.5419839922509,
+      "final_energy": 8547.784121964942,
+      "final_all_pair": 5629.86830428523,
+      "final_lag_one": -16622.64395048803,
+      "final_beyond_lag_one": 22252.51225477326,
+      "loss_state_2000": 0.21827969327569008,
+      "final_loss": 0.15386888427734377,
+      "loss_surrogate_pairs": 2999,
+      "sign_sensitivity": [
+        {
+          "relative_threshold": 0,
+          "eligible": 2999,
+          "sign_disagreements": 281
+        },
+        {
+          "relative_threshold": 1e-07,
+          "eligible": 2999,
+          "sign_disagreements": 281
+        },
+        {
+          "relative_threshold": 1e-06,
+          "eligible": 2998,
+          "sign_disagreements": 281
+        },
+        {
+          "relative_threshold": 1e-05,
+          "eligible": 2994,
+          "sign_disagreements": 280
+        }
+      ],
+      "median_scaled_absolute_loss_residual": 0.007343200045015807
+    },
+    {
+      "run_id": "123",
+      "task": "resnet",
+      "lr": 0.025,
+      "source": "runs/123-2026-10-17-eos-resnet-gd-lr-0.025-3k/artifacts/attempt-01-spark/production/metrics.jsonl",
+      "source_sha256": "3d70f0ae7a2976fc5c33bd65aee7d936abc1092dab9b973b01a202dba01a0511",
+      "final_R": 0.1385299826462256,
+      "final_gradient_sum_displacement": 5.704458166322984,
+      "final_gradient_sum_path_length": 41.178509210463744,
+      "final_energy": 1341.9625293153213,
+      "final_all_pair": 50723.38622481104,
+      "final_lag_one": -2528.137685254177,
+      "final_beyond_lag_one": 53251.52391006522,
+      "loss_state_2000": 1.6426034594726564,
+      "final_loss": 1.466540378417969,
+      "loss_surrogate_pairs": 2999,
+      "sign_sensitivity": [
+        {
+          "relative_threshold": 0,
+          "eligible": 2999,
+          "sign_disagreements": 595
+        },
+        {
+          "relative_threshold": 1e-07,
+          "eligible": 2999,
+          "sign_disagreements": 595
+        },
+        {
+          "relative_threshold": 1e-06,
+          "eligible": 2991,
+          "sign_disagreements": 592
+        },
+        {
+          "relative_threshold": 1e-05,
+          "eligible": 2934,
+          "sign_disagreements": 570
+        }
+      ],
+      "median_scaled_absolute_loss_residual": 0.010295802521221612
+    },
+    {
+      "run_id": "124",
+      "task": "resnet",
+      "lr": 0.05,
+      "source": "runs/124-2026-10-17-eos-resnet-gd-lr-0.05-3k/artifacts/attempt-01-spark/production/metrics.jsonl",
+      "source_sha256": "14665f159b35fb548b78294ef87a076243087666ed13d29af031ed03d515df36",
+      "final_R": 0.06162193594657969,
+      "final_gradient_sum_displacement": 9.018256881776248,
+      "final_gradient_sum_path_length": 146.34815903210526,
+      "final_energy": 3884.281100004476,
+      "final_all_pair": 28647.30177427738,
+      "final_lag_one": -7379.744769194723,
+      "final_beyond_lag_one": 36027.046543472105,
+      "loss_state_2000": 1.2848856225585934,
+      "final_loss": 0.9672287634277343,
+      "loss_surrogate_pairs": 2999,
+      "sign_sensitivity": [
+        {
+          "relative_threshold": 0,
+          "eligible": 2999,
+          "sign_disagreements": 694
+        },
+        {
+          "relative_threshold": 1e-07,
+          "eligible": 2999,
+          "sign_disagreements": 694
+        },
+        {
+          "relative_threshold": 1e-06,
+          "eligible": 2997,
+          "sign_disagreements": 692
+        },
+        {
+          "relative_threshold": 1e-05,
+          "eligible": 2978,
+          "sign_disagreements": 682
+        }
+      ],
+      "median_scaled_absolute_loss_residual": 0.023474532176255065
+    },
+    {
+      "run_id": "120",
+      "task": "resnet",
+      "lr": 0.1,
+      "source": "runs/120-2026-10-15-eos-resnet-gd-smallest-lr-3k/artifacts/attempt-01-spark/production/metrics.jsonl",
+      "source_sha256": "73fba39ec0d4247adb98b4afa0f7c8e703230f6e3e9f3b7fb709f3c18804cb8b",
+      "final_R": 0.037374831556213156,
+      "final_gradient_sum_displacement": 13.932949688370654,
+      "final_gradient_sum_path_length": 372.7896316379372,
+      "final_energy": 5665.344186968954,
+      "final_all_pair": 13747.364514897834,
+      "final_lag_one": -10763.796726042148,
+      "final_beyond_lag_one": 24511.161240939982,
+      "loss_state_2000": 0.7946179235839844,
+      "final_loss": 0.48983840637207027,
+      "loss_surrogate_pairs": 2999,
+      "sign_sensitivity": [
+        {
+          "relative_threshold": 0,
+          "eligible": 2999,
+          "sign_disagreements": 814
+        },
+        {
+          "relative_threshold": 1e-07,
+          "eligible": 2997,
+          "sign_disagreements": 813
+        },
+        {
+          "relative_threshold": 1e-06,
+          "eligible": 2997,
+          "sign_disagreements": 813
+        },
+        {
+          "relative_threshold": 1e-05,
+          "eligible": 2989,
+          "sign_disagreements": 809
+        }
+      ],
+      "median_scaled_absolute_loss_residual": 0.023237779642758773
+    },
+    {
+      "run_id": "121",
+      "task": "transformer",
+      "lr": 0.05,
+      "source": "runs/121-2026-10-15-eos-transformer-gd-smallest-lr-3k/artifacts/attempt-01-spark/production/metrics.jsonl",
+      "source_sha256": "a6f549e780e53986fd09f3341cf71337beadca11d1164fb6883aad90ff9490f3",
+      "final_R": 0.72234893497218,
+      "final_gradient_sum_displacement": 11.318255110208542,
+      "final_gradient_sum_path_length": 15.668681107205405,
+      "final_energy": 82.41671340802252,
+      "final_all_pair": 51158.74278249668,
+      "final_lag_one": 162.93437673438734,
+      "final_beyond_lag_one": 50995.80840576229,
+      "loss_state_2000": 6.787544823638962,
+      "final_loss": 6.630096961210181,
+      "loss_surrogate_pairs": 2999,
+      "sign_sensitivity": [
+        {
+          "relative_threshold": 0,
+          "eligible": 2999,
+          "sign_disagreements": 0
+        },
+        {
+          "relative_threshold": 1e-07,
+          "eligible": 2999,
+          "sign_disagreements": 0
+        },
+        {
+          "relative_threshold": 1e-06,
+          "eligible": 2999,
+          "sign_disagreements": 0
+        },
+        {
+          "relative_threshold": 1e-05,
+          "eligible": 2999,
+          "sign_disagreements": 0
+        }
+      ],
+      "median_scaled_absolute_loss_residual": 2.3809458283442227e-05
+    },
+    {
+      "run_id": "125",
+      "task": "transformer",
+      "lr": 0.1,
+      "source": "runs/125-2026-10-17-eos-transformer-gd-lr-0.1-3k/artifacts/attempt-01-spark/production/metrics.jsonl",
+      "source_sha256": "0f20797974f6b74e724276bf124d6e1a5bf979a3a3ec633ecc3aac3947d39963",
+      "final_R": 0.13950035170651548,
+      "final_gradient_sum_displacement": 15.602627684889072,
+      "final_gradient_sum_path_length": 111.84651145334954,
+      "final_energy": 476.294467930502,
+      "final_all_pair": 23867.904599396188,
+      "final_lag_one": -776.6635865543772,
+      "final_beyond_lag_one": 24644.568185950564,
+      "loss_state_2000": 6.51654500383967,
+      "final_loss": 6.351935365365105,
+      "loss_surrogate_pairs": 2999,
+      "sign_sensitivity": [
+        {
+          "relative_threshold": 0,
+          "eligible": 2999,
+          "sign_disagreements": 542
+        },
+        {
+          "relative_threshold": 1e-07,
+          "eligible": 2997,
+          "sign_disagreements": 541
+        },
+        {
+          "relative_threshold": 1e-06,
+          "eligible": 2977,
+          "sign_disagreements": 534
+        },
+        {
+          "relative_threshold": 1e-05,
+          "eligible": 2703,
+          "sign_disagreements": 436
+        }
+      ],
+      "median_scaled_absolute_loss_residual": 0.013980395434084983
+    },
+    {
+      "run_id": "126",
+      "task": "transformer",
+      "lr": 0.2,
+      "source": "runs/126-2026-10-17-eos-transformer-gd-lr-0.2-3k/artifacts/attempt-01-spark/production/metrics.jsonl",
+      "source_sha256": "07e0d3223e4ce5e258d17172a7bfeabbf2747dd9b6ce3028748df2b2947d521d",
+      "final_R": 0.054132939079099454,
+      "final_gradient_sum_displacement": 21.969331700741563,
+      "final_gradient_sum_path_length": 405.84036400905205,
+      "final_energy": 1391.6274424672595,
+      "final_all_pair": 10674.660941962942,
+      "final_lag_one": -2682.184389663075,
+      "final_beyond_lag_one": 13356.845331626017,
+      "loss_state_2000": 6.256404861790646,
+      "final_loss": 6.069747180845569,
+      "loss_surrogate_pairs": 2999,
+      "sign_sensitivity": [
+        {
+          "relative_threshold": 0,
+          "eligible": 2999,
+          "sign_disagreements": 1325
+        },
+        {
+          "relative_threshold": 1e-07,
+          "eligible": 2996,
+          "sign_disagreements": 1324
+        },
+        {
+          "relative_threshold": 1e-06,
+          "eligible": 2989,
+          "sign_disagreements": 1319
+        },
+        {
+          "relative_threshold": 1e-05,
+          "eligible": 2837,
+          "sign_disagreements": 1239
+        }
+      ],
+      "median_scaled_absolute_loss_residual": 0.06322698004816013
+    }
+  ]
+}

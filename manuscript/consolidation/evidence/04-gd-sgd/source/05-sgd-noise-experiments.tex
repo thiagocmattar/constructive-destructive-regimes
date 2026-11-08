@@ -1,0 +1,38 @@
+\subsection{Mini-Batch Attenuation of Directional Alignment}
+\label{sec:sgd-noise-experiments}
+
+To test the effect of sampling, we vary batch size at initialization
+and after 2,000 GD updates in the same three model--dataset cases.
+Learning rates remain fixed at $0.02$, $0.1$, and $0.2$ for the MLP,
+ResNet, and Transformer, respectively. Each starting state receives
+200-update continuations, with three initializations, eight sampling
+repetitions per stochastic condition, and one full-GD control per
+initialization. Figure~\ref{fig:sgd-moving-geometry} summarizes mean
+consecutive-gradient cosine over these continuations. Sampling units
+and objective coverage are specified in
+Appendix~\ref{appendix:gd-raw-alignment}; equal update budgets imply
+different amounts of data exposure.
+
+From the trained states, the smallest batches move the strongly
+negative full-GD alignment toward zero in all three cases. This
+attenuation is consistent with sampling weakening the coherent
+back-and-forth motion of the destructive regime. The response need
+not be monotone across intermediate batch sizes: sampling changes
+both the measured gradient and the trajectory itself.
+
+The initial-state comparison makes this dependence on the trajectory
+visible. Full GD has positive mean cosine in the MLP and ResNet,
+but negative mean cosine in the Transformer, where reversal develops
+within the 200-update window. Smaller MLP batches can also induce
+negative mean alignment despite a positive full-GD mean. Thus the
+batch size influences which regime training reaches as well as the
+coherence within that regime.
+
+Directional attenuation alone does not determine objective progress.
+For the Transformer at $b=8$, mean cosine is near $-0.26$ from both
+starting states, yet mean full-data loss falls
+from initialization and rises from the trained state. Together with
+the full-batch results, this motivates reading alignment alongside
+gradient magnitude and loss: the same directional regime can support
+descent or an upward excursion depending on the gradient's growth
+and the state being traversed.

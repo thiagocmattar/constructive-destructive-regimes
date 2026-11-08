@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-08",
+  "method": "Read-only first-page rendering with PyMuPDF, visually inspected in four PNG contact sheets. Source PDFs remain byte-identical.",
+  "checked": [
+    {
+      "path": "04-gd-sgd/figures/gd_loss_projected_change_spectral_clean.pdf",
+      "page": 1,
+      "sha256": "9b46696a5d8a7e068e96ffa26b4925d0ddd5ef1804049b71f927f79e8856bafa"
+    },
+    {
+      "path": "04-gd-sgd/figures/gd_reversal_norm_retention.pdf",
+      "page": 1,
+      "sha256": "c90c69a762375198b6d8e70de6c68ec89e70e002324f259b506ff9dab54c8ec2"
+    },
+    {
+      "path": "04-gd-sgd/figures/gd_backward_compact.pdf",
+      "page": 1,
+      "sha256": "f9b5e66a132eae54d7fa5cbdd56bb1bb473ca604dcd913aa225687e5e3594999"
+    },
+    {
+      "path": "04-gd-sgd/figures/sgd_batch_size_compact.pdf",
+      "page": 1,
+      "sha256": "6f6c258c03ce9d49774c5fface2021a898c54df1cad8dc8c0e709c973b1bd5c4"
+    },
+    {
+      "path": "05-adam/a-characterization/figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf",
+      "page": 1,
+      "sha256": "3fa96b8760555df41562f51522fefb7c335d860e09f90495c63d30f584c6a4a1"
+    },
+    {
+      "path": "05-adam/b-tracing/report/figures/architecture-comparison.pdf",
+      "page": 1,
+      "sha256": "89db2dea0cac402b09f50b760c07878928b24483c73d4450458e2539864a8d45"
+    },
+    {
+      "path": "05-adam/c-intervention/figures/10-local-cap-distributed-manuscript.pdf",
+      "page": 1,
+      "sha256": "98382b3389a98b1d7f97050afbe90cb4fda0ef1c09cb5c18a844810d697407ba"
+    },
+    {
+      "path": "05-adam/c-intervention/figures/14-distributed-cap-quantile-ablation-mlp.pdf",
+      "page": 1,
+      "sha256": "db39980868d6e694e0d62c4648637cfc0f54b6ff68a329b06b63221970703c38"
+    }
+  ],
+  "result": "No corruption, missing panels or packaging-induced layout changes observed. Figures 5-7 remain existing bases/components; their final composition and captions are pending. The dense cap display requires appropriate final sizing.",
+  "limits": "Visual inspection does not independently validate plotted raw data. Other PDF pages were decoded programmatically and verified byte-identical to their source."
+}

@@ -1,0 +1,30 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+The displacement formulation distinguishes the magnitude of individual updates,
+their local directional interaction and their cumulative accumulation. For
+plain SGD, the exact decomposition retains all temporal lags, while consecutive
+cosine provides a tractable local observation. The curvature and sampling
+relations clarify how that observation can change without determining either
+cumulative displacement or loss improvement. The full-batch and mini-batch
+experiments illustrate these distinctions: gradient reversal can coexist with
+objective progress, and weaker reversal need not improve displacement retention
+or the attained loss.
+
+Under Adam, raw-gradient diagnostics remain informative about the loss
+landscape traversed by adaptive steps. Controlled full-batch experiments
+connect loss spikes with a predominantly destructive pre-rise gradient
+regime and sharp norm amplification. The micro-plots resolve projected
+gradient changes before the loss maximum; the event population quantifies
+the variation in timing and recovery across models and rates. A joint
+descriptor of pre-rise reversal and rise norm growth is associated with
+relative peak magnitude, without establishing a causal feedback mechanism
+or a universal instability threshold.
+
+The practical contribution is a framework for interpreting these measurements
+together and using them to formulate controlled interventions. Developing a
+scheduler or clipping rule requires demonstrating that acting on early
+diagnostics improves subsequent loss at matched budgets, beyond decisions
+based on recent loss and known training settings. Prospective validation,
+controlled interventions and replication across independent runs remain
+future work.

@@ -1,0 +1,70 @@
+\section{Essential Measurement Conventions}
+\label{appendix:gd-raw-alignment}
+
+\subsection{Fixed Objectives and Numerical Scope}
+
+The tanh MLP has two 200-unit hidden layers and minimizes half-squared
+error summed over ten outputs and averaged over the first 5,000 CIFAR-10 images.
+ResNet-32 minimizes mean cross-entropy over all 50,000 training images,
+using 50 fixed groups of 1,000 for batch normalization. Standardization
+uses the complete CIFAR-10 training split: coordinate-wise for the MLP
+and channel-wise for ResNet. Full-batch accumulation evaluates the same
+fixed objective at every update; augmentation and dropout are disabled.
+
+The word-level Transformer has two layers, two heads and embedding/feed-forward
+dimensions of 200. Twenty corpus streams form causal chunks of at most
+35 tokens, yielding 59,680 sequences and 2,088,600 supervised targets.
+The objective averages negative log-likelihood over valid targets, excluding
+padding. Architecture and the 33,278-word first-occurrence dictionary over
+training, validation and test text follow PyTorch example revision
+\texttt{13acec6d7c78}~\cite{pytorchWordLanguageModelPinned}.
+
+Diagnostics cover all trainable parameters. Parameters, gradients and Adam
+moments use FP32; reductions use FP64, with TF32 disabled. Initial unpaired
+cosines and zero-denominator ratios are undefined. The GD plots' trailing
+means summarize sustained regimes and can delay a displayed transition;
+Adam losses and micro-plots are unsmoothed. All claims concern training
+objectives. Matched tensors give one initialization per full-batch model;
+independent hardware executions can develop finite-precision drift.
+
+The GD spectral comparison reuses largest algebraic Hessian eigenvalues
+at states $0,100,\ldots,3000$, with relative eigenpair residual at most
+$0.005$. MLP spectra cover its complete 5,000-image objective; ResNet
+uses its first five fixed normalization groups, and the Transformer
+its first 2,500 sequences. These latter spectra characterize subset
+objectives. The earlier MLP solver requested two eigenvalues and the
+other runs one; the comparison consistently uses the largest.
+
+\subsection{Sampling and Trajectory Comparisons}
+
+Stochastic batches are independent uniform subsets without replacement;
+within a repetition, batch sizes share prefixes of a common permutation.
+ResNet samples complete normalization groups. Transformer sampling uses
+$N=59{,}680$ sequences and $M=2{,}088{,}600$ total targets: for sequence
+summed losses $\ell_i$, the estimator is
+$N(bM)^{-1}\sum_{i\in B}\ell_i$. Its fixed denominator preserves the
+full token-weighted objective. The seed-2 smallest two ResNet batches use
+a different runtime, with 200-update full-GD replay parameter relative error $2.36\times10^{-7}$;
+batch and runtime remain confounded in this block.
+The backward-lag curves also use separate continuations, whose later
+floating-point paths can differ from the original GD trajectories.
+
+\subsection{Adam Event Summaries}
+\label{appendix:adam-measurements}
+
+At state $\theta_s$, the raw gradient and updated first moment are
+$g_{s+1}$ and $m_{s+1}$, before parameter update $s+1$. The terminal raw
+gradient is evaluated without another update. Hardware varies across
+ResNet and Transformer learning-rate arms; initial-gradient agreement
+is checked, while subsequent finite-precision drift remains possible.
+Rate selection uses training calibration.
+
+Two excursions above 10\% without observed recovery are excluded.
+Two retained initialization events have undefined pre-rise diagnostics.
+Each event has equal weight; recovery diagnostics first average within
+the event, and sample SD uses denominator $n-1$. The scatter uses
+per-rate ordinary least squares with an intercept on log relative
+peak loss. Its $R^2$ describes the fitting sample; dashed extensions
+extrapolate. For the density, each model's pooled log-percentage SD
+times pooled $n^{-1/5}$ sets the common Gaussian bandwidth.
+Events within a trajectory can be dependent.

@@ -1,0 +1,77 @@
+\section{Empirical Characterization of Constructive and Destructive Regimes}
+\label{sec:gd-experiments}
+
+We test how constructive and destructive regimes emerge during training,
+how the gradient-based curvature estimate relates to their onset, and
+how repeated reversal shapes accumulated parameter change. Full-batch
+GD isolates these dynamics from sampling noise. We then vary batch size
+to examine how stochasticity changes the observed alignment.
+
+The comparison uses a tanh MLP on 5,000 CIFAR-10 images, ResNet-32 on all
+50,000 CIFAR-10 training images, and a word-level Transformer on WikiText-2.
+Each minimizes its fixed training objective for 3,000 updates.
+The constant learning rates are $\{0.004,0.02,0.04\}$ for the MLP,
+$\{0.025,0.05,0.1\}$ for ResNet, and $\{0.05,0.1,0.2\}$ for the Transformer.
+Within each model, all rates share one frozen initialization and data
+preparation.
+Appendix~\ref{appendix:gd-raw-alignment} specifies the objectives and
+measurement conventions.
+
+Figure~\ref{fig:gd-loss} shows a clear separation between smooth and
+oscillatory convergence. The lowest MLP and Transformer rates produce
+smooth loss curves and $\eta\widehat\kappa_t$ near zero. At higher rates,
+the loss develops fluctuations while its longer-term trend continues
+downward; the estimated scaled curvature approaches two. ResNet enters
+this regime at every tested rate, with earlier transitions at larger
+learning rates.
+
+The retained Hessian measurements place these signatures in their
+spectral context. As sharpness grows, the trajectories develop the
+oscillations associated with EoS, while the inexpensive gradient
+diagnostic identifies the curvature response along the direction
+actually followed. In the oscillatory regime, $\eta\widehat\kappa_t$
+remains close to the local loss-change boundary even when
+$\eta\lambda_{\max}$ is larger. The distinction is expected: directional
+curvature depends on the gradient's orientation, whereas the leading
+eigenvalue describes the sharpest direction. ResNet and Transformer
+spectra additionally use fixed subsets of their training objectives.
+The comparison therefore supports monitoring the realized curvature
+response throughout training, with no additional Hessian computation.
+
+\subsection{Destructive Regimes and Displacement Retention}
+
+The loss oscillations coincide with a transition to a destructive
+regime in Fig.~\ref{fig:gd-alignment-displacement}. The lowest MLP and
+Transformer rates retain positive cosine, while the other seven
+conditions develop nearly opposing consecutive gradients. In the MLP
+and ResNet, this transition also accompanies growing gradient norms:
+larger steps increasingly reverse preceding parameter changes. The
+joint behavior directly exposes the magnitude and directional factors
+in Eq.~\eqref{eq:loss-rise-alignment}.
+
+Normalized displacement then declines strongly. The larger steps
+accumulate path length faster than net parameter change, so $R_t$
+falls even as training continues to reduce the loss. At the highest
+rates, the retained fraction after 3,000 updates is approximately
+2.6\% for the MLP, 3.7\% for ResNet, and 5.4\% for the Transformer.
+Nevertheless, each highest-rate condition reaches its model's lowest
+final training loss. Destructive regimes therefore sustain convergence
+despite extensive local reversal. The risk of an upward loss excursion
+depends on how strongly gradient growth amplifies that reversal.
+
+\subsection{Oscillation across Temporal Lags}
+
+We next ask whether destructive alignment reflects an isolated pair
+of updates or a recurring temporal structure. Figure~\ref{fig:gd-backward}
+fixes the gradient after 2,256 updates and compares it with the preceding
+256 gradients, using the highest rate for each model. The first lags
+alternate between strongly negative odd-lag and strongly positive
+even-lag alignment. This is direct evidence of repeated back-and-forth
+motion: a gradient can oppose its immediate predecessor while reinforcing
+the direction from two steps earlier.
+
+The early oscillation envelope contracts, rapidly for the MLP and ResNet
+and more slowly for the Transformer. Across the full window, alignment
+can strengthen again, so the envelope is not monotone. These recurrences
+explain how local destructive interference coexists with reinforcement
+over longer lags and why net progress survives repeated reversals.

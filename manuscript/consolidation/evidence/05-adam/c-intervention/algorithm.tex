@@ -1,0 +1,19 @@
+% Consolidated state-s clock; original algorithm retained in report/.
+% Requires algorithm, algpseudocode; companion equations.tex supplies labels.
+\begin{algorithm}[H]
+\caption{Past-calibrated local affine-displacement cap}
+\label{consol:algorithm-cap}
+\begin{algorithmic}[1]
+\Require State $\theta_s$ and Adam state; fixed probe; target modules; fixed module budgets $\tau_\ell$
+\State Capture current module inputs $H_s^\ell$ with matched probe context.
+\State Compute the native objective gradient; advance Adam moments and clock.
+\State Form the stored native parameter proposal and retain its actual increments.
+\For{each targeted module $\ell$ with $\tau_\ell>0$}
+  \State Compute per-unit direct affine RMS scores by Eq.~\eqref{consol:cap-score}.
+  \State Scale each complete weight row and matching bias by Eq.~\eqref{consol:cap-rule}.
+\EndFor
+\State Keep untargeted increments native; store the resulting $\theta_{s+1}$.
+\State Verify the direct-score bound with FP32 storage-rounding tolerance.
+\State Keep the advanced Adam state; evaluate actual functional motion and loss separately.
+\end{algorithmic}
+\end{algorithm}

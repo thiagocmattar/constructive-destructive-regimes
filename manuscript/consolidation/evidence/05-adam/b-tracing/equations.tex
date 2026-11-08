@@ -1,0 +1,48 @@
+% Consolidation snippet; requires amsmath, amssymb.
+\subsection*{V-B. Fixed-probe representation motion}
+For a fixed ordered probe, $A_s^\ell$ retains all sample/token/spatial/feature
+coordinates, with $P_\ell$ scalar entries. Define outgoing motion
+\begin{equation}
+\delta_s^\ell=\operatorname{vec}(A_{s+1}^\ell-A_s^\ell),\qquad
+\rho_s^\ell=\frac{\langle\delta_s^\ell,\delta_{s-1}^\ell\rangle}
+{\|\delta_s^\ell\|\|\delta_{s-1}^\ell\|},\qquad
+a_s^\ell=\frac{\|\delta_s^\ell\|}{\sqrt{P_\ell}} .
+\label{consol:trace-motion}
+\end{equation}
+A zero displacement has undefined cosine. This outgoing response is measured
+after update $s\to s+1$, whereas raw-gradient $\rho_s$ is available before it.
+Raw-gradient streams are not differenced.
+
+For $s=a,\ldots,b$, $T=b-a+1$:
+\begin{equation}
+D_\ell=
+\begin{bmatrix}(\delta_a^\ell)^\top\\ \vdots\\(\delta_b^\ell)^\top\end{bmatrix}
+\in\mathbb R^{T\times P_\ell},\qquad
+K_\ell=D_\ell D_\ell^\top,\qquad
+D_\ell=U_\ell\Sigma_\ell V_\ell^\top .
+\label{consol:trace-svd}
+\end{equation}
+Use uncentered, unnormalized rows in the primary fit.
+With $q=\min(T,P_\ell)$, thin factors have sizes
+$U:T\times q$, $\Sigma:q\times q$, $V:P_\ell\times q$.
+\begin{equation}
+\alpha_{s,k}^\ell=\sigma_{\ell,k}U_{\ell,sk},\qquad
+E_k^\ell=\frac{\sum_{j\leq k}\sigma_{\ell,j}^2}{\sum_j\sigma_{\ell,j}^2},
+\qquad
+O_k(\ell,F)=\frac{\|U_{\ell,k}^\top U_{F,k}\|_F^2}{k}.
+\label{consol:trace-summaries}
+\end{equation}
+Only use $k$ within both numerical ranks. Zero total energy makes energy fractions
+undefined. The Gram recovers temporal coefficients without materializing $V$.
+Temporal overlap is not equality of neuron directions.
+
+Magnitude controls use $K_{\rm orth}=\operatorname{diag}(\operatorname{diag}K)$ and
+$K_{\rm unit}=B^{-1/2}KB^{-1/2}$, $B=\operatorname{diag}(\operatorname{diag}K)$,
+excluding zero rows from normalization. The first preserves step magnitudes;
+the second removes their weighting. They are descriptive references, not null tests.
+For any temporal permutation matrix $P$, $PKP^\top$ has the same eigenvalues:
+spectral concentration alone does not establish oscillation.
+
+For cross-entropy, per-example/token correct-label log probabilities $\ell_{s,i}$
+satisfy $L_s^{\rm probe}=-N_{\rm probe}^{-1}\sum_i\ell_{s,i}$ under the recorded
+equal-image or valid-token weighting. They connect output motion to probe loss.

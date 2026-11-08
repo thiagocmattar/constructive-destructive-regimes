@@ -1,0 +1,23 @@
+% Consolidated clock; source algorithm retained in report/.
+% Requires algorithm, algpseudocode; companion equations.tex supplies labels.
+\begin{algorithm}[H]
+\caption{Fixed-probe architectural oscillation tracing}
+\label{consol:algorithm-trace}
+\begin{algorithmic}[1]
+\Require Qualified trajectory; fixed ordered probe; stages; outgoing window $[a,b]$
+\State Preserve probe randomness, normalization groups and training state.
+\State Capture $A_s^\ell$ at $s=a-1,\ldots,b+1$, losses, raw gradients $g_{a-1},\ldots,g_b$.
+\For{$s=a,\ldots,b$}
+  \State Measure outgoing motion, cosine and RMS using Eq.~\eqref{consol:trace-motion}.
+  \State Measure raw-gradient cosine separately; do not difference gradients.
+\EndFor
+\For{each stage $\ell$, including the output}
+  \State Form the FP64 Gram from uncentered, unnormalized rows $a,\ldots,b$.
+  \State Recover temporal modes and coefficients; fix each mode's sign once.
+  \State Retain energy fractions, signed coefficients and admissible-rank overlaps.
+\EndFor
+\State Compare output, predecessors and residual branches by direction, size and timing.
+\State Check source identity, observer invariance, zero norms and numerical reductions.
+\State Report probe/window coverage, costs and descriptive rather than causal conclusions.
+\end{algorithmic}
+\end{algorithm}

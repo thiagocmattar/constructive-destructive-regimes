@@ -1,0 +1,9 @@
+# Spectral controls
+
+Original selected output windows. Orthogonal reference preserves every step norm; unit-row normalization removes magnitude weighting. These are deterministic descriptive controls, not a statistical null or quiet-window contrast.
+
+| Case | T | Observed top1 % | Observed r95 | Orthogonal top1 % | Orthogonal r95 | Unit-row top1 % | Unit-row r95 |
+|---|---|---|---|---|---|---|---|
+| mlp | 51 | 53.02 | 5 | 7.85 | 42 | 36.21 | 5 |
+| resnet | 31 | 24.03 | 16 | 10.55 | 27 | 18.03 | 18 |
+| transformer | 49 | 41.65 | 15 | 16.72 | 20 | 16.77 | 29 |

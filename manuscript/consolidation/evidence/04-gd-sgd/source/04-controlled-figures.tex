@@ -1,0 +1,58 @@
+% Queue full-width controlled figures before their discussion so they remain
+% near Section IV rather than drifting through the Adam section.
+
+\begin{figure*}[!t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/analysis024/gd_loss_projected_change_spectral_clean.pdf}
+  \caption{Training loss and curvature diagnostics under full-batch GD.
+  Columns identify dataset/model; colors identify learning rate.
+  Top: unsmoothed full-objective loss on logarithmic axes.
+  Bottom: $\eta\widehat\kappa_t$ (solid, complete 50-pair trailing means)
+  and retained $\eta\lambda_{\max}$ measurements (dashed with circles);
+  the dotted line marks two. Spectra use the complete MLP objective,
+  5,000/50,000 ResNet images, and 2,500/59,680 Transformer sequences.
+  Loss uses parameter state $s$; a spectrum at state $s$ is placed at
+  gradient index $t=s+2$, the starting state for $\widehat\kappa_t$.
+  The final spectrum has no recorded gradient pair.}
+  \label{fig:gd-loss}
+\end{figure*}
+
+\begin{figure*}[!t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/analysis024/gd_reversal_norm_retention.pdf}
+  \caption{Constructive/destructive alignment and cumulative motion for
+  the conditions in Fig.~\ref{fig:gd-loss}. Rows show consecutive cosine,
+  gradient norm (logarithmic scale), and normalized displacement.
+  Cosines and norms use complete 50-observation trailing means;
+  $R_t$ is the unsmoothed ratio over the prefix through update $t$.
+  Colors and column ordering match Fig.~\ref{fig:gd-loss}.}
+  \label{fig:gd-alignment-displacement}
+\end{figure*}
+
+\begin{figure*}[!t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/analysis035/gd_backward_compact.pdf}
+  \caption{Backward gradient alignment at the common endpoint
+  $\theta_{2256}$, corresponding to $t=2257$.
+  Each point is one exact $\cos(g_t,g_{t-k})$ with fixed endpoint.
+  Top: lags 1--256. Bottom: the same values at lags 1--32.
+  Rates are $0.04$ (MLP), $0.1$ (ResNet) and $0.2$ (Transformer).
+  These separately recomputed 256-update GD continuations start from
+  retained state 2000, with one initialization, no smoothing and no
+  endpoint averaging.}
+  \label{fig:gd-backward}
+\end{figure*}
+
+\begin{figure*}[!t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/analysis037/sgd_batch_size_compact.pdf}
+  \caption{Mean sampled-gradient cosine over 199 adjacent pairs during
+  200-update continuations. Blue circles start at initialization;
+  orange squares start after 2,000 GD updates. Each line averages
+  repetitions within initialization, then weights the three
+  initialization blocks equally; shading is their range.
+  Hollow rightmost markers denote full GD. ResNet batches contain
+  whole fixed 1,000-image normalization groups; Transformer batches
+  count prepared sequences. Batch axes are logarithmic.}
+  \label{fig:sgd-moving-geometry}
+\end{figure*}

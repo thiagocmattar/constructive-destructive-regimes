@@ -1,0 +1,104 @@
+\section{Curvature Estimation and Local Loss Change}
+\label{appendix:loss-curvature}
+
+Write $H(\theta)=\nabla^2\mathcal L(\theta)$ and assume the objective
+is twice continuously differentiable along the plain-SGD step.
+Integrate its gradient derivative on
+$\theta_{t-2}-s\eta g_{t-1}$, add the endpoint-noise difference, and
+project onto $-g_{t-1}/(\eta\|g_{t-1}\|^2)$. The result is
+\begin{equation}
+ \widehat\kappa_t=
+ \int_0^1\frac{g_{t-1}^{\top}
+ H(\theta_{t-2}-s\eta g_{t-1})g_{t-1}}
+ {\|g_{t-1}\|^2}\,ds-\frac{\varepsilon_t}{\eta}.
+ \label{eq:path-curvature}
+\end{equation}
+If $H$ is $L_H$-Lipschitz in operator norm on the step, its
+full-batch specialization satisfies
+\begin{equation}
+ |\widehat\kappa_t-\kappa_t|
+ \leq\int_0^1 L_Hs\eta\|g_{t-1}\|\,ds
+ =\frac{L_H\eta}{2}\|g_{t-1}\|.
+ \label{eq:curvature-error-bound}
+\end{equation}
+This bounds the difference between the measured path average and the
+starting-point directional curvature.
+
+For full-batch Adam, the displacement is $-\eta d_{t-1}$.
+Integrating the gradient along that step gives the corresponding identity
+for the same raw-gradient diagnostic in Eq.~\eqref{eq:kappa-estimate}:
+\begin{equation}
+ \widehat\kappa_t=
+ \int_0^1\frac{g_{t-1}^{\top}
+ H(\theta_{t-2}-s\eta d_{t-1})d_{t-1}}
+ {\|g_{t-1}\|^2}\,ds.
+ \label{eq:adam-gradient-response}
+\end{equation}
+Here $d_{t-1}$ determines the displacement, while $g_{t-1}$ determines
+the projection of the gradient response. This separates the optimizer's
+chosen direction from the raw loss slope measured by the diagnostic.
+
+Consider $\theta_{t-1}=\theta_{t-2}-\eta g_{t-1}$ and write
+$\Delta\mathcal L_{t-1}=\mathcal L(\theta_{t-1})-\mathcal L(\theta_{t-2})$.
+Integrating the full gradient along the step gives
+\begin{equation}
+\begin{aligned}
+\Delta\mathcal L_{t-1}
+=-\eta\int_0^1 g_{t-1}^\top
+\nabla\mathcal{L}(\theta_{t-2}-s\eta g_{t-1})\,ds.
+\end{aligned}
+\label{eq:appendix-loss-integral}
+\end{equation}
+The trapezoidal approximation replaces the integrand by its endpoint
+average. Substituting
+$\nabla\mathcal L(\theta_{t-2})=g_{t-1}-\xi_{t-1}$ and
+$\nabla\mathcal L(\theta_{t-1})=g_t-\xi_t$ yields
+\begin{equation}
+\begin{aligned}
+\Delta\mathcal L_{t-1}
+&\approx-\frac{\eta}{2}
+\left(\|g_{t-1}\|^2+g_{t-1}^\top g_t\right)\\
+&\quad+\frac{\eta}{2}
+g_{t-1}^\top(\xi_{t-1}+\xi_t).
+\end{aligned}
+\label{eq:appendix-loss-gradient}
+\end{equation}
+The substitution $g_{t-1}^\top g_t=\|g_{t-1}\|\|g_t\|\rho_t$
+recovers Eq.~\eqref{eq:loss-curvature}. The expression is exact on
+quadratic objectives. A locally Lipschitz Hessian bounds its error
+by a constant times $\|\eta g_{t-1}\|^3$.
+
+Using $\rho_t\|g_t\|/\|g_{t-1}\|
+\approx1-\eta\kappa_t+\varepsilon_t$ and
+Eq.~\eqref{eq:epsilon} gives the equivalent curvature form,
+\begin{equation}
+\begin{aligned}
+\Delta\mathcal L_{t-1}
+&\approx-\eta\|g_{t-1}\|^2
+\left(1-\frac{\eta\kappa_t}{2}\right)
+\\&\quad+\eta\xi_{t-1}^\top g_{t-1}.
+\end{aligned}
+\label{eq:appendix-loss-curvature}
+\end{equation}
+It also follows directly from a second-order Taylor expansion at
+$\theta_{t-2}$. With zero noise, the conditions for a loss-increasing
+step reduce to Eqs.~\eqref{eq:loss-rise-alignment}
+and~\eqref{eq:loss-rise-curvature}.
+
+The noise term has a simple conditional interpretation. Given
+$\theta_{t-2}$, unbiased sampling gives
+$\mathbb E[\|g_{t-1}\|^2]=\|\nabla\mathcal L(\theta_{t-2})\|^2
++\mathbb E[\|\xi_{t-1}\|^2]$ and
+$\mathbb E[\xi_{t-1}^\top g_{t-1}]=\mathbb E[\|\xi_{t-1}\|^2]$.
+Their first-order variance terms cancel, leaving
+\begin{equation}
+\begin{aligned}
+\mathbb E[\Delta\mathcal L_{t-1}\mid\theta_{t-2}]
+&\approx-\eta\|\nabla\mathcal L(\theta_{t-2})\|^2\\
+&\quad+\frac{\eta^2}{2}\mathbb E[
+g_{t-1}^\top H_{t-1}g_{t-1}\mid\theta_{t-2}].
+\end{aligned}
+\label{eq:expected-loss-change}
+\end{equation}
+Thus sampling contributes through curvature at second order. A nonlinear
+objective also contributes the finite-step remainder.

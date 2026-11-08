@@ -1,83 +1,40 @@
-# Artifact and source map
+# Current artifact map
 
-**Iteration 2, 8 November 2026.** Paths below populate the author's fixed
-six-section manuscript and C1-C8 components in [PLAN.md](../PLAN.md).
-M01-M24 refer to the manuscript elements in [ARGUMENT_MAP.md](ARGUMENT_MAP.md),
-separately from the experimental task IDs E01-E06.
-The four current Section IV figures remain main-paper displays, in their
-existing order. Tracing and intervention additions belong within Section V.
-There is no fixed six-figure quota or default move of backward-lag evidence
-to an appendix. Replotting belongs in the source analysis, with a new
-observation and independent numerical/PDF verification. Do not overwrite the
-author's supplied inputs or historical publication figures.
+- **Aligned with:** [PLAN.md](../PLAN.md), 8 November 2026. This replaces the earlier F1a/F1b/C1–C8 artifact assignments.
+- **Source details:** every section README links its local observation and original generator. The [manifest](copy_manifest.json) records source, destination, role, byte count and SHA-256.
+- **Caption contract:** use each local observation's reduction, coverage, uncertainty and limits. Existing report numbering is not final paper numbering.
 
-## 1. Main displays and where to find them
+## Main figures
 
-| Plan element | Existing source and intended placement | Reduction / generation / limits |
+| Paper slot | Local asset | Readiness |
 |---|---|---|
-| F1a / C2,C5 / M08, GD convergence and curvature | Current Figure1, [loss/proxy/spectral figure](../../draft/figures/analysis024/gd_loss_projected_change_spectral_clean.pdf); keep at the opening of Section IV. | [024 spectral observation](../../../analyses/024-2026-10-17-eos-gd-lr-calibration/observations/010-curvature-spectral-overlay.md), [11_plot_curvature_comparison.py](../../../analyses/024-2026-10-17-eos-gd-lr-calibration/11_plot_curvature_comparison.py); current clean-legend presentation recorded in the [author-feedback figure manifest](../../draft/revisions/2026-11-03-original-argument-feedback-feedback/curvature_comparison_manifest.json). Preserve full/subset coverage, 50-pair proxy means, unsmoothed loss/spectra and starting-state indexing. |
-| F1b / C1,C5 / M09, destructive regime, gradient growth and R | Current Figure2, [reversal/displacement figure](../../draft/figures/analysis024/gd_reversal_norm_retention.pdf); keep in IV's displacement-retention discussion. | [024 figure observation](../../../analyses/024-2026-10-17-eos-gd-lr-calibration/observations/009-author-feedback-figures.md), [01_prepare_figures.py](../../draft/revisions/2026-11-02-feedback/01_prepare_figures.py). [056](../../../analyses/056-2026-11-05-gd-paired-displacement/observations/001-paired-displacement.md) adds all-lag interpretation without requiring its later C/D panels or removed endpoint table. |
-| F1c / C5 / M09, temporal oscillation | Current Figure3, [backward profile](../../draft/figures/analysis035/gd_backward_compact.pdf); keep as the main Section IV temporal-lag figure. | [035 manuscript-view contract](../../../analyses/035-2026-11-02-eos-backward-anchors/observations/002-manuscript-view.md), [compact-figure generator](../../draft/revisions/2026-11-02-feedback/01_prepare_figures.py), [source reduction](../../../analyses/035-2026-11-02-eos-backward-anchors/03_analyze.py). Fixed endpoint2256, lags1-256 and1-32, exact pairs from separate continuations. This is not a moving adjacent-time plot. |
-| F2 / M10, batch effects | Active [three-model batch figure](../../draft/figures/analysis037/sgd_batch_size_compact.pdf); Section IV. | [Analysis037](../../../analyses/037-2026-11-02-sgd-batch-extension/README.md) and [Analysis027](../../../analyses/027-2026-10-30-minibatch-noise/README.md). Distinguish frozen measurements, native sampled gradients, and evolving training paths. |
-| F3 / M11, high-LR Adam | [058 Figure00](../../../analyses/058-2026-11-06-intervention-consolidation/figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf); opening of Section V. | [Observation000](../../../analyses/058-2026-11-06-intervention-consolidation/observations/000-high-lr-overview.md), [01_figures.py](../../../analyses/058-2026-11-06-intervention-consolidation/01_figures.py), [02_verify.py](../../../analyses/058-2026-11-06-intervention-consolidation/02_verify.py). One Run215 high-rate trajectory/model; selected retrospectively, full-objective training. |
-| T1/T3 / M12, timing and event table | **Proposed displays**, based on [055 direction context](../../../analyses/055-2026-11-05-adam-directional-amplification/observations/002-direction-context.md) and [057 complete event analysis](../../../analyses/057-2026-11-05-adam-response-memory/observations/001-response-memory.md). | P02/P04. Current peak/endpoint statistics cannot silently become pre-update predictors. Preserve all-step/held-out failures in supporting results. |
-| A1 / M13, tracing algorithm | [063 METHOD.md](../../../analyses/063-2026-11-07-architecture-instability-tracing/METHOD.md), [technical report source](../../../analyses/063-2026-11-07-architecture-instability-tracing/report/instability-tracing-report.tex), [workflow](../../../research/INSTABILITY_TRACING.md); Section V. | Shapes, probes, observer invariance, every-update capture, Gram/SVD computation, timing, costs, null cosine. Window-fitted basis is retrospective. |
-| F4 / M14-M16, architectural trace | [ResNet trace](../../../analyses/063-2026-11-07-architecture-instability-tracing/figures/01-resnet-instability-trace.pdf), [Transformer trace](../../../analyses/063-2026-11-07-architecture-instability-tracing/figures/02-transformer-instability-trace.pdf), [MLP450-500 trace](../../../analyses/063-2026-11-07-architecture-instability-tracing/figures/04-mlp-instability-trace-450-500.pdf). | [02_figures.py](../../../analyses/063-2026-11-07-architecture-instability-tracing/02_figures.py), [07_mlp_event_window.py](../../../analyses/063-2026-11-07-architecture-instability-tracing/07_mlp_event_window.py), [08_report_assets.py](../../../analyses/063-2026-11-07-architecture-instability-tracing/08_report_assets.py). Recompose rather than crop a differently fitted window. |
-| A2 / C8 / M19, cap algorithm | [065 geometry derivation](../../../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/010-local-displacement-cap-geometry.md), [report source](../../../analyses/065-2026-11-07-mlp-frozen-lr-double/report/local-displacement-cap-report.tex); Section V's intervention block. | Direct current-input affine movement; post-Adam row/bias scaling; prefix calibration; no SVD in controller. |
-| F5 / C8 / M19, cap loss and motion | [065 Figure10](../../../analyses/065-2026-11-07-mlp-frozen-lr-double/figures/10-local-cap-distributed-manuscript.pdf), with [Figure07 page2](../../../analyses/065-2026-11-07-mlp-frozen-lr-double/figures/07-distributed-displacement-and-controls.pdf) as motion-layout source; Section V. | [22_figures_transfer.py](../../../analyses/065-2026-11-07-mlp-frozen-lr-double/22_figures_transfer.py), [34_local_cap_report_assets.py](../../../analyses/065-2026-11-07-mlp-frozen-lr-double/34_local_cap_report_assets.py). Baseline/cap heatmaps share baseline stage maxima; these maps measure movement, with separate SVD and causal questions. |
-| F6/T4 / C8 / M17-M20, controls and replication | [065 MLP replication](../../../analyses/065-2026-11-07-mlp-frozen-lr-double/figures/11-local-cap-mlp-replication.pdf), [quantile/LR summary](../../../analyses/065-2026-11-07-mlp-frozen-lr-double/figures/12-distributed-cap-quantile-lr-mlp.pdf), [seed diagnostics](../../../analyses/065-2026-11-07-mlp-frozen-lr-double/figures/13-distributed-cap-lr-seed-diagnostics.pdf), [quantile ablation](../../../analyses/065-2026-11-07-mlp-frozen-lr-double/figures/14-distributed-cap-quantile-ablation-mlp.pdf); Section V and supporting details. | [Observation013](../../../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/013-distributed-cap-quantile-lr.md), [39_reduce_cap_lr.py](../../../analyses/065-2026-11-07-mlp-frozen-lr-double/39_reduce_cap_lr.py), [40_plot_cap_lr.py](../../../analyses/065-2026-11-07-mlp-frozen-lr-double/40_plot_cap_lr.py), [43_plot_cap_ablation.py](../../../analyses/065-2026-11-07-mlp-frozen-lr-double/43_plot_cap_ablation.py). Preserve all arms and the recorded selection basis; the lowest observed training mean does not establish an independently confirmed optimal quantile. |
+| Figure 1, IV | [GD loss/proxy/spectral curvature](04-gd-sgd/figures/gd_loss_projected_change_spectral_clean.pdf) | Retained main; original clean legend and coverage preserved |
+| Figure 2, IV | [Reversal, norms and R](04-gd-sgd/figures/gd_reversal_norm_retention.pdf) | Retained main |
+| Figure 3, IV | [Backward lags](04-gd-sgd/figures/gd_backward_compact.pdf) | Retained main; fixed endpoint 2256 |
+| Figure 4, IV | [Batch effects](04-gd-sgd/figures/sgd_batch_size_compact.pdf) | Retained main; three initialization blocks |
+| Figure 5, V-A | [High-LR overview](05-adam/a-characterization/figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf) | Existing base; attach compact population summary |
+| Figure 6, V-B | [Three-case comparison](05-adam/b-tracing/report/figures/architecture-comparison.pdf) and [full components](05-adam/b-tracing/README.md) | Verified components; final grouped heatmap/spectrum/coefficient composition pending |
+| Figure 7, V-C | [Distributed cap](05-adam/c-intervention/figures/10-local-cap-distributed-manuscript.pdf) and [motion/control display](05-adam/c-intervention/figures/07-distributed-displacement-and-controls.pdf) | Existing bases; matched comparator ranking remains pending |
 
-## 2. Comparator inventory: existing studies are not one matched benchmark
+## Tables, equations and algorithms
 
-| Study | Fork / conditions / coverage | Main use |
+| Element | Local deliverable | Scope |
 |---|---|---|
-| [058 persistent half LR](../../../analyses/058-2026-11-06-intervention-consolidation/figures/01-persistent-half-lr-cifar10-mlp-resnet-wikitext2-transformer.pdf) | MLP512-800; ResNet256-576; Transformer544-928; one initialization/model. | Conditional schedule tradeoffs. Different forks from the cap study. |
-| [058 clipping](../../../analyses/058-2026-11-06-intervention-consolidation/figures/05-gradient-clipping-cifar10-mlp-resnet.pdf) | MLP/ResNet, clipping before Adam's moments; no corresponding Transformer arm in this selected-window cohort. | Input-gradient control; distinguish from scaling the actual update. |
-| [043 three-model clipping](../../../analyses/043-2026-11-03-spark-fixed-step-interventions/figures/clip_median_x1.pdf) and [double-median control](../../../analyses/043-2026-11-03-spark-fixed-step-interventions/figures/clip_median_x2.pdf) | Includes Transformer, exact within-Spark fork1024,64 full-objective updates to1088. Thresholds use historical states960-1023. Median clipping activates3/64 Transformer updates; double-median clipping never activates. | Existing short-fork evidence, generated by [01_report.py](../../../analyses/043-2026-11-03-spark-fixed-step-interventions/01_report.py), with [median](../../../analyses/043-2026-11-03-spark-fixed-step-interventions/observations/007-clipping-median-response.md) and [double-median](../../../analyses/043-2026-11-03-spark-fixed-step-interventions/observations/008-clipping-double-median-response.md) contracts. The remaining gap is matched clipping at the chosen tracing/cap fork, not absence of Transformer clipping experiments. |
-| [059 beta2 reduction](../../../analyses/059-2026-11-07-mlp-beta2-reduction/README.md) | MLP state512-800, LR.001, beta1.9; beta2 .95/.9/.5; native bias correction with retained moments/clocks. | The missing beta study from the raw note; bounded transition test. |
-| [060 Adam to GD](../../../analyses/060-2026-11-07-mlp-adam-to-gd/README.md) | Same MLP state512, several GD rates; optimizer changed. | Optional supporting control; not necessary to add another main narrative. |
-| [064 freeze](../../../analyses/064-2026-11-07-mlp-freeze-first-linear/README.md) | MLP from448, first affine weights and biases frozen. | Causal contribution of this composite intervention, with learning tradeoff. |
-| [065 layer/selective controls](../../../analyses/065-2026-11-07-mlp-frozen-lr-double/README.md) | MLP from448; selective/global/later-layer LR, coordinate/neuron caps, matched norm controls, directional tests. | Already completed; choose the discriminating controls rather than repeating the exploratory search. |
-| [065 distributed transfer](../../../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/008-cross-architecture-interventions.md) | MLP448-1152, ResNet264-576, Transformer552-928; q50, eight untreated calibration updates; same-worker unchanged baselines. | Across-architecture case study; MLP has seed replication, larger models do not. Transformer older half-step and distributed arms also differ in hardware. |
-| [065 quantile/LR factorial](../../../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/013-distributed-cap-quantile-lr.md) | Runs286-288; seeds0/1/2; 5 quantiles x 3 LRs plus3 uncapped controls per seed; common fork448, loss448-1152;23 complete test evaluations. | Sensitivity and saturation, not acceleration or an independently selected optimal quantile. |
+| V-A all-step table | [Next-step signs](05-adam/a-characterization/tables/next-step-signs.md) | Flagged increases/decreases at one-step lead |
+| V-A severity table | [≥10% step increases](05-adam/a-characterization/tables/severity-10pct.md) | Four signals; complete false-alarm data retained alongside |
+| V-B control table | [Spectral controls](05-adam/b-tracing/tables/spectral-controls.md) | Same-norm orthogonal and unit-row references |
+| V-C outcome table | [Distributed-cap outcomes](05-adam/c-intervention/tables/distributed-cap-outcomes.md) | Five baseline/cap pairs; training and full terminal test loss |
+| IV HVP tables | [Directional HVP errors](04-gd-sgd/tables/analysis027_hvp_errors.tex), [contrasts](04-gd-sgd/tables/analysis027_contrasts.tex) | Smooth MLP validation; source TeX preserved |
+| V-B stage/result tables | [Original three-case table](05-adam/b-tracing/report/results-table.tex), stage CSVs in its section index | Exact recorded windows and probes |
+| V-C report/ablation tables | [Cap results](05-adam/c-intervention/report/cap-results-table.tex), [replication](05-adam/c-intervention/report/cap-seeds-table.tex), [sensitivity](05-adam/c-intervention/report/cap-sensitivity-table.tex), [LR/quantile grid](05-adam/c-intervention/tables/cap_lr_table.tex) | Supporting historical tables; preserve their own comparisons |
+| III equations | [Readable inventory](03-regimes/equations.md), [TeX](03-regimes/equations.tex) | State clock, all pairs/R, curvature/BB/noise, loss criterion |
+| V opening/A equations | [Readable inventory](05-adam/a-characterization/equations.md), [TeX](05-adam/a-characterization/equations.tex) | Mixed projection and three distinct future outcomes |
+| V-B equations | [Readable inventory](05-adam/b-tracing/equations.md), [TeX](05-adam/b-tracing/equations.tex) | Motion, Gram/SVD, coefficients, overlap and controls |
+| V-C equations | [Readable inventory](05-adam/c-intervention/equations.md), [TeX](05-adam/c-intervention/equations.tex) | Exact MLP loss accounting, cap dimensions/metric/bound |
+| Algorithm 1 | [Tracing](05-adam/b-tracing/algorithm.md), [TeX](05-adam/b-tracing/algorithm.tex) | Consolidated state notation; original report retained |
+| Algorithm 2 | [Local cap](05-adam/c-intervention/algorithm.md), [TeX](05-adam/c-intervention/algorithm.tex) | Current-input local product and native Adam-state advancement |
 
-A new unified table must include objective, training/probe split, normalization
-context, hardware/software, optimizer state, calibration, intervention placement,
-horizon and held-out coverage. Similar looking plots do not make their studies
-matched. Each intervention must retain its own unchanged baseline.
-
-## 3. Supporting validation and the functional-loss connection
-
-These artifacts support the existing analytical contribution and its Adam
-development. Their precise placement is within the fixed sections or supporting
-material; selecting a concise display does not require restoring older dense
-tables, paired C/D notation or discarded prose.
-
-| Component / intended use | Retained artifacts and generator | What the evidence establishes |
-|---|---|---|
-| C2/C4, curvature/noise validation for III/IV | [027 frozen calibration](../../../analyses/027-2026-10-30-minibatch-noise/figures/frozen_calibration.pdf), [proxy/HVP comparison](../../../analyses/027-2026-10-30-minibatch-noise/figures/sgd_proxy_validation.pdf); [03_analyze.py](../../../analyses/027-2026-10-30-minibatch-noise/03_analyze.py), [observation001](../../../analyses/027-2026-10-30-minibatch-noise/observations/001-controlled-minibatch-noise.md). | Three initializations and three MLP states; frozen exact moments and approximate cosine tested separately.1,188 state-matched HVP pairs independently assess the finite-step directional relation. At batch32 the measured noise correction reduces median absolute HVP discrepancy .7467 -> .0030. Full-gradient correction is an offline reference. |
-| C3, finite-step loss approximation in IV/support | [024 observation007](../../../analyses/024-2026-10-17-eos-gd-lr-calibration/observations/007-section-iv-critical-review.md), [audit JSON](../../../analyses/024-2026-10-17-eos-gd-lr-calibration/section_iv_review_checks.json), [10_review_section_iv.py](../../../analyses/024-2026-10-17-eos-gd-lr-calibration/10_review_section_iv.py). | Direct predicted/observed same-step loss comparisons over26,991 transitions. Scope varies by rate/model; preserve both accurate regimes and larger residuals. This is distinct from027's directional-HVP test and does not supersede the four main IV figures. |
-| C1/C5, temporal accumulation interpretation | [056 observation001](../../../analyses/056-2026-11-05-gd-paired-displacement/observations/001-paired-displacement.md), [01_analyze.py](../../../analyses/056-2026-11-05-gd-paired-displacement/01_analyze.py). | All nine final all-pair interactions are positive despite seven negative lag-one sums. This is useful context for local destructive regimes and R; its later C/D presentation is not required. |
-| C3/C7, hidden-feature motion linked to loss in V | [061 internal time course](../../../analyses/061-2026-11-07-mlp-adam-spike-internals/figures/01-internal-time-course.pdf), [mechanism probes](../../../analyses/061-2026-11-07-mlp-adam-spike-internals/figures/02-mechanism-probes.pdf); [01_report.py](../../../analyses/061-2026-11-07-mlp-adam-spike-internals/01_report.py), [observation001](../../../analyses/061-2026-11-07-mlp-adam-spike-internals/observations/001-spike-internals.md). | Exact replay and static probes distinguish tensor magnitudes from output-sensitive hidden displacement. The selected MLP465->474 event retains99.75% of excess loss after norm restoration; the declared output decomposition assigns98.75% of the rise to hidden-feature motion. Single-trajectory static comparisons are not a unique causal allocation. |
-| C3/C7, amplification and functional overshoot in V | [062 gradient amplification](../../../analyses/062-2026-11-07-mlp-gradient-amplification/figures/01-gradient-amplification.pdf), [oscillation/direction probes](../../../analyses/062-2026-11-07-mlp-gradient-amplification/figures/02-oscillation-and-direction-probes.pdf); [01_report.py](../../../analyses/062-2026-11-07-mlp-gradient-amplification/01_report.py), [observation001](../../../analyses/062-2026-11-07-mlp-gradient-amplification/observations/001-gradient-amplification.md). | Exact squared-loss output identity links actual output displacement to loss. Full-example crossed-Jacobian probes show larger updates acting along already sensitive directions. The local output-Jacobian approximation matches85/87 change signs in the selected window; no top-Jacobian spectrum or universal mechanism is inferred. |
-| C3/C8, functional-loss accounting under interventions | [065 observation009](../../../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/009-what-the-negative-controls-show.md), [26_audit_mlp_loss_terms.py](../../../analyses/065-2026-11-07-mlp-frozen-lr-double/26_audit_mlp_loss_terms.py), [27_reduce_mlp_loss_terms.py](../../../analyses/065-2026-11-07-mlp-frozen-lr-double/27_reduce_mlp_loss_terms.py). | On outgoing448-1152, all377/371/379 meaningful baseline rises across the three MLP seeds have downhill functional residual correction outweighed by squared movement. Extra terminal transition1152->1153 belongs to this accounting, not the ordinary loss-mean tables. Compare direction and magnitude together; do not transfer the squared-error identity unchanged to cross-entropy. |
-
-## 4. Contracts for the planned tracing figure
-
-| Case | Full training objective | Fixed representation probe | Fitted outgoing rows |
-|---|---|---|---|
-| MLP/CIFAR-10 | 5,000 images, half squared error | All 5,000 images | 450-500,51 rows |
-| ResNet/CIFAR-10 | 50,000 images, cross-entropy | First intact1,000-image BatchNorm group | 280-310,31 rows |
-| Transformer/WikiText-2 | 2,088,600 supervised tokens, cross-entropy | First64 sequences,2,240 supervised positions | 552-600,49 rows |
-
-Keep all sample/token/spatial coordinates. MLP uses linear outputs; the others
-use log-probabilities, with correct-label readouts as loss checks. The shorter
-MLP fit differs from the earlier448-800 fit. Top-k energy is uncentered
-displacement energy, not the fraction of semantic information or loss explained.
-The output and internal representations have different coordinate units.
-
-Visual review in this consolidation pass covered 058 Figure00 page1, 063 report
-page2 (definitions/algorithm), and 065 Figure07 page2 (heatmaps). Scratch renders
-are ignored under `tmp/pdfs/consolidation-review/`. No figure was regenerated or
-approved as final publication layout. Future F4/F5 assembly needs numerical
-read-back and full-size PDF review after captions/legends are finalized.
+- Each regenerated summary table also has same-name CSV and TeX siblings. Absolute paired cap values, worker identities and test units are in [distributed-cap-pairs.csv](05-adam/c-intervention/tables/distributed-cap-pairs.csv).
+- Complete timing/severity/horizon/warning-memory tables remain in V-A/data; selected display values are not a replacement for that population.
+- Historical comparator figures and observations remain in V-C/comparators and V-C/observations. Same-looking curves do not make forks/hardware/budgets matched.
+- Publication PDF sources are preserved; no figure was cropped, refitted or re-normalized in packaging.

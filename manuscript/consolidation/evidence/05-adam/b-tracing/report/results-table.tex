@@ -1,0 +1,20 @@
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Diagnostic & MLP & ResNet & Transformer \\
+\midrule
+Updates in fitted window ($T$) & 51 & 31 & 49 \\
+First learned stage: negative $\rho_t$ & 51/51 & 19/31 & 4/49 \\
+Output: negative $\rho_t$ & 51/51 & 25/31 & 12/49 \\
+\midrule
+Output energy: first mode & 53.02\% & 24.03\% & 41.65\% \\
+Output energy: first ten modes & 99.48\% & 87.97\% & 90.83\% \\
+Output modes for 95\% energy & 5 & 16 & 15 \\
+Raw-gradient energy: first ten modes & 99.66\% & 91.98\% & 98.52\% \\
+\midrule
+$\operatorname{corr}(\rho^g,\rho^F)$ & 0.642 & 0.705 & 0.879 \\
+First learned stage: $\operatorname{corr}(\rho^\ell,\rho^F)$ & 0.989 & 0.578 & 0.805 \\
+First learned stage: $O_{10}(\ell,F)$ & 0.747 & 0.598 & 0.461 \\
+Last hidden stage: $\operatorname{corr}(\rho^\ell,\rho^F)$ & 0.999 & 0.991 & 0.990 \\
+Last hidden stage: $O_{10}(\ell,F)$ & 0.899 & 0.969 & 0.982 \\
+\bottomrule
+\end{tabular}
