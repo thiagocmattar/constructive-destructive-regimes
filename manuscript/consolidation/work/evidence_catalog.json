@@ -663,11 +663,11 @@
       "section": "05-adam/c-intervention",
       "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/10-local-cap-distributed-manuscript.pdf",
       "destination": "05-adam/c-intervention/figures/10-local-cap-distributed-manuscript.pdf",
-      "title": "Figure 7 base: distributed local cap",
-      "role": "main base",
+      "title": "Supporting scalar diagnostics: distributed local cap",
+      "role": "support",
       "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/011-local-cap-technical-report.md",
       "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/34_local_cap_report_assets.py",
-      "note": "Training-window comparisons; attach held-out and negative-control outcomes."
+      "note": "Detailed scalar diagnostics supporting the selected page-2 heatmaps; retain held-out and negative-control outcomes."
     },
     {
       "section": "05-adam/c-intervention",
@@ -683,11 +683,12 @@
       "section": "05-adam/c-intervention",
       "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/07-distributed-displacement-and-controls.pdf",
       "destination": "05-adam/c-intervention/figures/07-distributed-displacement-and-controls.pdf",
-      "title": "07-distributed-displacement-and-controls.pdf",
-      "role": "support",
+      "title": "Figure 7 selected base: stage heatmaps, page 2",
+      "role": "main base (page 2)",
       "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/008-cross-architecture-interventions.md",
       "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/22_figures_transfer.py",
-      "note": "Supporting result; preserve its own windows, scopes and baseline."
+      "note": "Loss plus baseline/cap stage cosine and RMS. Both arms share each stage's baseline RMS maximum; MLP 448-800, ResNet 264-576, Transformer 552-928. Preserve the paired layout; finalize publication sizing/caption.",
+      "selected_page": 2
     },
     {
       "section": "05-adam/c-intervention",

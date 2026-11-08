@@ -25,7 +25,7 @@
 - Intervention percentages are independently recomputed from each cap/baseline pair. Test coverage is 10,000 images for MLP/ResNet and 245,550 valid tokens for Transformer.
 - ResNet objective units count ten intact normalization groups; Transformer objective units count 7,020 sequences. They are not the loss-reduction units.
 - All copied PDFs are opened and decoded; byte identity preserves their previously verified layouts. No figure is silently re-fit or re-normalized.
-- Eight selected source displays were also rendered and visually checked; dense intervention and tracing components retain their pending final-assembly status. Thirteen editable equation/algorithm/table files pass two LaTeX draft-mode passes without errors or overfull boxes.
+- Nine selected source displays were also rendered and visually checked, including Figure 07 page 2's stage heatmaps, now the main Figure 7 base. Its common baseline RMS scaling and exact windows were checked against the generator and figure audit. Final sizing/caption work remains. Thirteen editable equation/algorithm/table files pass two LaTeX draft-mode passes without errors or overfull boxes.
 - The four recent arXiv records in the literature file had title/author/version metadata rechecked; reading-depth limits remain explicit.
 - The package audit does not replace the owning analyses' raw-data checks or confirm every literature theorem. It does not declare pending comparisons complete.
 - [verification.json](verification.json) records the executed checks; [copy_manifest.json](copy_manifest.json) records source identity. [ARTIFACTS.md](ARTIFACTS.md) indexes the deliverables.

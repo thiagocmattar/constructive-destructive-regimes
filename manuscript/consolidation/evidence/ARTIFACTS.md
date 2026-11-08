@@ -14,7 +14,7 @@
 | Figure 4, IV | [Batch effects](04-gd-sgd/figures/sgd_batch_size_compact.pdf) | Retained main; three initialization blocks |
 | Figure 5, V-A | [High-LR overview](05-adam/a-characterization/figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf) | Existing base; attach compact population summary |
 | Figure 6, V-B | [Three-case comparison](05-adam/b-tracing/report/figures/architecture-comparison.pdf) and [full components](05-adam/b-tracing/README.md) | Verified components; final grouped heatmap/spectrum/coefficient composition pending |
-| Figure 7, V-C | [Distributed cap](05-adam/c-intervention/figures/10-local-cap-distributed-manuscript.pdf) and [motion/control display](05-adam/c-intervention/figures/07-distributed-displacement-and-controls.pdf) | Existing bases; matched comparator ranking remains pending |
+| Figure 7, V-C | [Selected base: stage heatmaps, page 2](05-adam/c-intervention/figures/07-distributed-displacement-and-controls.pdf#page=2); [scalar diagnostics](05-adam/c-intervention/figures/10-local-cap-distributed-manuscript.pdf) as support | Main paired baseline/cap display: loss, stage cosine and RMS. Final sizing/caption pending; matched comparator ranking remains pending |
 
 ## Tables, equations and algorithms
 
@@ -36,5 +36,6 @@
 
 - Each regenerated summary table also has same-name CSV and TeX siblings. Absolute paired cap values, worker identities and test units are in [distributed-cap-pairs.csv](05-adam/c-intervention/tables/distributed-cap-pairs.csv).
 - Complete timing/severity/horizon/warning-memory tables remain in V-A/data; selected display values are not a replacement for that population.
+- Figure 7 heatmaps use each stage's common baseline RMS maximum for both arms. MLP shows 448–800; its outcome table also covers 448–1152. Captured-stage summaries retain all probe coordinates and are not SVD coefficients or measurements of every module.
 - Historical comparator figures and observations remain in V-C/comparators and V-C/observations. Same-looking curves do not make forks/hardware/budgets matched.
 - Publication PDF sources are preserved; no figure was cropped, refitted or re-normalized in packaging.

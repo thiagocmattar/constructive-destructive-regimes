@@ -20,6 +20,7 @@
 | Compare LR, clipping, beta2 and the cap | Historical comparator assets are grouped in V-C; their unmatched windows/state transitions remain explicit. |
 | Make the remaining work executable | Current TASKS mirrors the plan's closure steps and 16/48-continuation ceiling before qualified reuse. |
 | Put figures, tables, algorithms and equations inside consolidation | Section-indexed assets, source records, generated summaries and hash manifest now reside under evidence/. |
+| Give Figure 07 page 2's layer heatmaps a prominent role | Selected as the main Figure 7 base in V-C; retain the paired loss/cosine/RMS layout and common baseline RMS scaling. V-B uses the stage-by-time layout for tracing. |
 
 - **Scientific qualifications retained:** correlations are descriptive; GD thresholds do not become universal Adam alarms; SVD is retrospective; training improvements can coexist with worse test loss.
 - **Workflow boundary:** this phase changes the consolidation package. The active manuscript and original research assets are preserved.

@@ -14,7 +14,7 @@
 | [04-gd-sgd](04-gd-sgd/README.md) | Figures 1–4 and HVP, finite-step, all-lag/batch evidence |
 | [05-adam/a-characterization](05-adam/a-characterization/README.md) | Figure 5 base, sign/severity tables, complete forward audit |
 | [05-adam/b-tracing](05-adam/b-tracing/README.md) | Figure 6 components, mode controls, Algorithm 1 and report |
-| [05-adam/c-intervention](05-adam/c-intervention/README.md) | Figure 7 base, controls, cap outcomes/test loss, Algorithm 2 |
+| [05-adam/c-intervention](05-adam/c-intervention/README.md) | Figure 7 stage-heatmap base, controls, cap outcomes/test loss, Algorithm 2 |
 | [06-conclusion](06-conclusion/README.md) | Current conclusion and closing claims |
 | [appendices](appendices/README.md) | Original derivations/diagnostics and supplied decision letter |
 

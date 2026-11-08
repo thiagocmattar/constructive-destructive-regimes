@@ -232,7 +232,10 @@ def build():
                 notes += " [Observation]("+relative(obs,folder)+")."
             if r["generator"]:
                 notes += " [Generator]("+relative(ROOT/r["generator"],folder)+")."
-            lines.append(f'| [{r["title"]}]({relative(OUT/r["destination"],folder)}) | {r["role"]} | {notes} |')
+            link = relative(OUT/r["destination"],folder)
+            if r.get("selected_page"):
+                link += "#page=" + str(r["selected_page"])
+            lines.append(f'| [{r["title"]}]({link}) | {r["role"]} | {notes} |')
         for sub in ("tables",):
             extras = sorted(p for p in (folder/sub).glob("*.md"))
             if extras:
@@ -278,6 +281,8 @@ def verify():
         if target.suffix == ".pdf":
             with fitz.open(target) as doc:
                 assert doc.page_count > 0
+                if r.get("selected_page"):
+                    assert 1 <= r["selected_page"] <= doc.page_count
                 for page in doc:
                     page.get_pixmap(matrix=fitz.Matrix(.1,.1))
                 pdfs += 1
