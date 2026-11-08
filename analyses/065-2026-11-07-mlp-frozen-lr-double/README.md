@@ -257,3 +257,8 @@ and [compute closeout](cap_lr_compute_closeout.json) preserve the audit trail.
 `42_export_cap_lr.py` performs a full reduction on the retained Spark workspace
 and retrieves compact results. Previous figures/report and scientific inputs are
 unchanged. Continue this same analysis; next unused run 289 and hypothesis H050.
+
+[Cap-quantile ablation](figures/14-distributed-cap-quantile-ablation-mlp.pdf)
+shows connected means and sample-SD error bars in three LR columns with a shared
+logarithmic loss axis. [Observation014](observations/014-cap-quantile-ablation-figure.md)
+records sources, reduction, caption and checks. Existing data only; no new training.
