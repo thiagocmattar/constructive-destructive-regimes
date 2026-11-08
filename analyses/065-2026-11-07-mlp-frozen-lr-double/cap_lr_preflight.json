@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "uploaded": 11,
+  "files": 46,
+  "tests": {
+    "status": "passed",
+    "checks": [
+      "independent NumPy scores",
+      "fixed budget across LRs",
+      "weight row and bias scaling",
+      "untargeted output native",
+      "moments unchanged by cap",
+      "moments independent of LR for identical gradient",
+      "LR scales native increment"
+    ],
+    "measurements": [
+      {
+        "lr_multiplier": 1,
+        "proposed_norm": 0.004734244663268328,
+        "max_local_score": 0.002000003835628779
+      },
+      {
+        "lr_multiplier": 2,
+        "proposed_norm": 0.00946849212050438,
+        "max_local_score": 0.0019999990118504444
+      },
+      {
+        "lr_multiplier": 4,
+        "proposed_norm": 0.018936995416879654,
+        "max_local_score": 0.0019999990118504444
+      }
+    ]
+  }
+}

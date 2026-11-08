@@ -532,3 +532,13 @@ pages reviewed. All five task pods deleted; no cloud storage retained.
 41.316 GB unique raw files retained locally, Spark originals preserved.
 Conservative compute/storage estimate USD 18.75 (provider billing provisional)
 within USD 20. Next run 286; continue Analysis 065.
+
+## Runs 286-288: MLP distributed cap quantile x LR (H049)
+
+| Run | Initialization | Comparison | Status |
+| --- | --- | --- | --- |
+| [286](286-2026-11-08-mlp-cap-lr-seed0/README.md) | 0 | 18 fixed-budget cap/LR conditions | Completed and verified |
+| [287](287-2026-11-08-mlp-cap-lr-seed1/README.md) | 1 | Same 18 conditions | Completed and verified |
+| [288](288-2026-11-08-mlp-cap-lr-seed2/README.md) | 2 | Same 18 conditions | Completed and verified |
+
+[Results](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/013-distributed-cap-quantile-lr.md): All 54 continuations (38,070 updates) completed on owned Spark. Fixed q25 caps reduce mean training loss 87.88%/94.75% versus uncapped 2x/4x, but neither LR improves the across-seed mean over q25 at 1x. The lowest observed mean is q50 at 1x (24.79% below original Adam; positive variation 80.66% lower). Tight caps can increase smaller oscillations and worsen test loss. Three initializations, one continuation window; no generalization superiority claim. All 162 retained audits and six historical trajectories pass; 310,660 plot values and four PDF pages checked. Training 34.34 min, zero cloud cost. Full raw evidence remains on Spark (7.978 GB); compact verified outputs are local after the disk-limit adjustment. Next run 289; continue Analysis 065.

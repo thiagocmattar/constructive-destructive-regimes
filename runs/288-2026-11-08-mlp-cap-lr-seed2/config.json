@@ -1,0 +1,174 @@
+{
+  "run_id": 288,
+  "analysis_id": "065",
+  "hypothesis": "H049",
+  "case": "mlp",
+  "source_state": 0,
+  "fork": 448,
+  "end": 1152,
+  "base_lr": 0.001,
+  "physical": 1000,
+  "probe": 5000,
+  "calibration_updates": 8,
+  "quantiles": [
+    0.25,
+    0.5,
+    0.75,
+    0.9,
+    0.99
+  ],
+  "arms": [
+    {
+      "id": "adam_lr1",
+      "kind": "control",
+      "lr_multiplier": 1
+    },
+    {
+      "id": "cap_q25_lr1",
+      "kind": "functional",
+      "scope": "trunk",
+      "quantile": 0.25,
+      "lr_multiplier": 1
+    },
+    {
+      "id": "cap_q50_lr1",
+      "kind": "functional",
+      "scope": "trunk",
+      "quantile": 0.5,
+      "lr_multiplier": 1
+    },
+    {
+      "id": "cap_q75_lr1",
+      "kind": "functional",
+      "scope": "trunk",
+      "quantile": 0.75,
+      "lr_multiplier": 1
+    },
+    {
+      "id": "cap_q90_lr1",
+      "kind": "functional",
+      "scope": "trunk",
+      "quantile": 0.9,
+      "lr_multiplier": 1
+    },
+    {
+      "id": "cap_q99_lr1",
+      "kind": "functional",
+      "scope": "trunk",
+      "quantile": 0.99,
+      "lr_multiplier": 1
+    },
+    {
+      "id": "adam_lr2",
+      "kind": "control",
+      "lr_multiplier": 2
+    },
+    {
+      "id": "cap_q25_lr2",
+      "kind": "functional",
+      "scope": "trunk",
+      "quantile": 0.25,
+      "lr_multiplier": 2
+    },
+    {
+      "id": "cap_q50_lr2",
+      "kind": "functional",
+      "scope": "trunk",
+      "quantile": 0.5,
+      "lr_multiplier": 2
+    },
+    {
+      "id": "cap_q75_lr2",
+      "kind": "functional",
+      "scope": "trunk",
+      "quantile": 0.75,
+      "lr_multiplier": 2
+    },
+    {
+      "id": "cap_q90_lr2",
+      "kind": "functional",
+      "scope": "trunk",
+      "quantile": 0.9,
+      "lr_multiplier": 2
+    },
+    {
+      "id": "cap_q99_lr2",
+      "kind": "functional",
+      "scope": "trunk",
+      "quantile": 0.99,
+      "lr_multiplier": 2
+    },
+    {
+      "id": "adam_lr4",
+      "kind": "control",
+      "lr_multiplier": 4
+    },
+    {
+      "id": "cap_q25_lr4",
+      "kind": "functional",
+      "scope": "trunk",
+      "quantile": 0.25,
+      "lr_multiplier": 4
+    },
+    {
+      "id": "cap_q50_lr4",
+      "kind": "functional",
+      "scope": "trunk",
+      "quantile": 0.5,
+      "lr_multiplier": 4
+    },
+    {
+      "id": "cap_q75_lr4",
+      "kind": "functional",
+      "scope": "trunk",
+      "quantile": 0.75,
+      "lr_multiplier": 4
+    },
+    {
+      "id": "cap_q90_lr4",
+      "kind": "functional",
+      "scope": "trunk",
+      "quantile": 0.9,
+      "lr_multiplier": 4
+    },
+    {
+      "id": "cap_q99_lr4",
+      "kind": "functional",
+      "scope": "trunk",
+      "quantile": 0.99,
+      "lr_multiplier": 4
+    }
+  ],
+  "seconds_per_arm": 900,
+  "checkpoint_every": 64,
+  "audit_offsets": [
+    0,
+    32,
+    -1
+  ],
+  "seed": 2,
+  "precision": "Native FP32; TF32 off; deterministic; FP64 diagnostic reductions and functional displacement scores",
+  "objective": "Unchanged full objective and original ordering/groups; no clipped gradients, decay or moment reset",
+  "selection": "All prespecified quantiles and LRs shown. Budgets use untreated1x prefix and stay identical across LRs.",
+  "validation": "Full10000test images at448,480,...,1152; descriptive secondary, never used for tuning/early stopping.",
+  "authorization": "User requested MLP distributed-cap quantile x LR sweep; owned Spark authorized. No cloud spending.",
+  "retention": "Full shared fork and end/recovery states; all boundary/update/probe/block scalars; three full gradient/update audits per arm; fixed probes identified by cache hash. Dense SVD histories not stored in this screening round.",
+  "confirmation": "Three existing pinned initializations; same full-objective continuation448-1152. Exploratory factorial response, no new architecture.",
+  "heldout_every": 32,
+  "initial_state": "cache/eos-multitask/mlp_initial_seed2.pt",
+  "initial_tensor_sha256": "2e1d25f786c0f550c0d006b355f244748c215f282a7f76ed30f54a77753ed6c4",
+  "calibration_lr": 0.001,
+  "learning_rate_multipliers": [
+    1,
+    2,
+    4
+  ],
+  "worker_script": "01_worker.py",
+  "extra_inputs": [
+    "01_worker.py"
+  ],
+  "shared_inputs": [
+    "src/eos_tasks/distributed_cap_sweep.py",
+    "cache/eos-multitask/mlp_initial_seed2.pt"
+  ]
+}

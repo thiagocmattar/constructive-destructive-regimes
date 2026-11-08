@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "source_sha256": "1131fdb5a4feeda8e89b728682e3890179174a7dddd177569febf88803ef9f8d",
+  "script_sha256": "69fda9bf0479bdb59a96d0393350c53fbef950ff8171c3440ce6f1f4caef8fa7",
+  "plotted_values_verified": 310660,
+  "figures": [
+    {
+      "path": "figures/12-distributed-cap-quantile-lr-mlp.pdf",
+      "sha256": "34dc0e88fcd33d52213ca558e686779be0d7a5558ddb30e02be0b2089dadc551",
+      "pages": 1
+    },
+    {
+      "path": "figures/13-distributed-cap-lr-seed-diagnostics.pdf",
+      "sha256": "b4600138ec8c0f57dd2ee64d0ed7f0cfa9ac6a1c4a84f7c7073b617ecca9a304",
+      "pages": 3
+    }
+  ],
+  "overview": "Arithmetic seed means; no smoothing/time decimation. Test lines connect all 23 measured states.",
+  "diagnostics": "All 3 seeds separately, all 705 states, linear eta-kappa-hat. Per-column y axes independent."
+}

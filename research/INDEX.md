@@ -1,5 +1,9 @@
 # Research index
 
+## MLP distributed-cap quantile and LR sweep, 8 November 2026
+
+[H049 / Runs 286-288](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/013-distributed-cap-quantile-lr.md) completes 54 continuations across five quantiles, three LRs and three initializations. q25 absorbs 2x/4x LR increases (87.88%/94.75% lower mean loss than same-LR Adam), but increasing LR does not improve any quantile's across-seed mean over 1x. q50 at 1x has the lowest observed mean; held-out tradeoffs and residual oscillations remain. All 162 audits, six historical reproductions and four PDF pages pass. Raw evidence retained on Spark; compact verified outputs local after disk-limit recovery. USD 0 cloud cost; processes exited. Continue Analysis 065; next run 289 and unused H050.
+
 ## Local representation cap report, 8 November 2026
 
 [Analysis 065 technical report](../analyses/065-2026-11-07-mlp-frozen-lr-double/report/local-displacement-cap-report.pdf)

@@ -1,0 +1,39 @@
+{
+  "path": "analyses/065-2026-11-07-mlp-frozen-lr-double/scratch/h049-compact-results.tar.gz",
+  "bytes": 26849625,
+  "sha256": "ccdb435934683681b7d6b92612ab686635f58805450c40dd482f2a21e4f580ab",
+  "remote_archive": "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/analyses/065-2026-11-07-mlp-frozen-lr-double/scratch/h049-compact-results.tar.gz",
+  "files": 330,
+  "retained": [
+    {
+      "run": "runs/286-2026-11-08-mlp-cap-lr-seed0",
+      "files": 326,
+      "bytes": 3196963207
+    },
+    {
+      "run": "runs/287-2026-11-08-mlp-cap-lr-seed1",
+      "files": 191,
+      "bytes": 2375744949
+    },
+    {
+      "run": "runs/288-2026-11-08-mlp-cap-lr-seed2",
+      "files": 191,
+      "bytes": 2404411874
+    }
+  ],
+  "status": "passed",
+  "archive_verified": true,
+  "all_exported_file_sizes_and_sha256_verified": true,
+  "raw_retention": "Complete verified raw evidence on owned Spark; compact outputs and scalar histories local.",
+  "local_storage_adjustment": "cap_lr_local_storage_adjustment.json",
+  "remote_reduction": {
+    "status": "passed",
+    "seconds": 19.61521553294733,
+    "output": "{\"status\": \"passed\", \"conditions\": 54, \"updates\": 38070, \"retained_audits\": 162, \"historical_reproductions\": 6, \"curves\": 1458}\n"
+  },
+  "removed_redundant_remote_transport_archives": [
+    "runs/287-2026-11-08-mlp-cap-lr-seed1/scratch/h049-results.tar",
+    "analyses/065-2026-11-07-mlp-frozen-lr-double/scratch/h049-compact-results.tar.gz"
+  ],
+  "local_transport_archive_removed": true
+}

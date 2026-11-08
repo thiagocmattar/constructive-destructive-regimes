@@ -228,3 +228,32 @@ Only local cap variants and unchanged Adam appear. Existing figures are preserve
 captions, coverage, caveats and reproduction. All 61,450 plotted values, 12 table
 rows, eight report pages and three standalone figure pages pass checks and visual
 review. No new training, cloud work or scientific allocation.
+
+## Distributed cap quantile and LR ablation (H049)
+
+**Completed:** Runs 286-288 contain 54 prespecified continuations (three initializations,
+five quantiles and three LRs, plus same-LR uncapped controls). Fixed 1x-calibrated
+budgets make 2x/4x LR much less disruptive, but no quantile improves its across-seed
+mean training loss by increasing LR. q25 tolerates high LR best; q50 at 1x has the
+lowest observed mean. Tight caps retain smaller oscillations and can worsen test
+loss. This supports controlled large excursions, not an acceleration or
+uniform generalization claim.
+
+- [Results, method, captions and limits](observations/013-distributed-cap-quantile-lr.md).
+- [Training/test curves](figures/12-distributed-cap-quantile-lr-mlp.pdf) and
+  [three seed-resolved diagnostic pages](figures/13-distributed-cap-lr-seed-diagnostics.pdf).
+- [Readable statistics](cap_lr_statistics.md), [aggregate CSV](cap_lr_aggregate.csv),
+  [per-seed CSV](cap_lr_per_seed.csv), and [LaTeX table](cap_lr_table.tex).
+
+All 38,070 updates, 162 retained audits, six exact historical reproductions,
+310,660 plotted values and four rendered pages pass. Training took 34.34 min on
+owned Spark; no cloud cost. Task processes exited. After a local disk-limit
+recovery, complete raw evidence stays on Spark (7.978 GB), while verified compact
+outputs, scalar histories and audit records are local. Each run records its full
+remote inventory. [Transfer](cap_lr_compact_retrieval.json), [storage adjustment](cap_lr_local_storage_adjustment.json),
+and [compute closeout](cap_lr_compute_closeout.json) preserve the audit trail.
+
+`40_plot_cap_lr.py` regenerates figures locally from the verified reduced data.
+`42_export_cap_lr.py` performs a full reduction on the retained Spark workspace
+and retrieves compact results. Previous figures/report and scientific inputs are
+unchanged. Continue this same analysis; next unused run 289 and hypothesis H050.

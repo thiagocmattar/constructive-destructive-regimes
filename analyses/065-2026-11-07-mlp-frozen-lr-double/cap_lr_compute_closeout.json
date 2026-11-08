@@ -1,0 +1,75 @@
+{
+  "status": "passed",
+  "conditions": 54,
+  "updates": 38070,
+  "training_driver_seconds": 2060.2443668199703,
+  "sum_arm_seconds": 2036.406651369296,
+  "replay_seconds": 28.759299657307565,
+  "peak_cuda_bytes": 593003520,
+  "local_scalar_history_bytes": 449714883,
+  "raw_spark_bytes": 7977198248,
+  "exported_files": 330,
+  "cloud_cost_usd": 0,
+  "cloud_resources_created": 0,
+  "retained_storage": "Complete raw/recovery evidence on owned Spark. Verified compact outputs, scalar histories and replay records local; redundant transport archives removed.",
+  "storage_adjustment": "Full local retrieval hit the disk limit; only verified remote duplicates were removed locally. Scientific inputs and outcomes unchanged.",
+  "scientific_inputs_unchanged": true,
+  "old_assets_unchanged": 12,
+  "remote": {
+    "checked_utc": "2026-11-08T14:46:00.122647+00:00",
+    "training": {
+      "results": [
+        {
+          "run": "runs/286-2026-11-08-mlp-cap-lr-seed0",
+          "returncode": 0,
+          "elapsed_seconds": 698.5198175599799
+        },
+        {
+          "run": "runs/287-2026-11-08-mlp-cap-lr-seed1",
+          "returncode": 0,
+          "elapsed_seconds": 1370.92957680393
+        },
+        {
+          "run": "runs/288-2026-11-08-mlp-cap-lr-seed2",
+          "returncode": 0,
+          "elapsed_seconds": 2060.2442817939445
+        }
+      ],
+      "elapsed_seconds": 2060.2443668199703
+    },
+    "replay": {
+      "results": [
+        {
+          "run": "runs/286-2026-11-08-mlp-cap-lr-seed0",
+          "returncode": 0
+        },
+        {
+          "run": "runs/287-2026-11-08-mlp-cap-lr-seed1",
+          "returncode": 0
+        },
+        {
+          "run": "runs/288-2026-11-08-mlp-cap-lr-seed2",
+          "returncode": 0
+        }
+      ]
+    },
+    "task_processes": {
+      "3584919": "exited",
+      "3585498": "exited"
+    },
+    "storage": [
+      {
+        "run": "runs/286-2026-11-08-mlp-cap-lr-seed0",
+        "bytes": 3197012557
+      },
+      {
+        "run": "runs/287-2026-11-08-mlp-cap-lr-seed1",
+        "bytes": 2375773817
+      },
+      {
+        "run": "runs/288-2026-11-08-mlp-cap-lr-seed2",
+        "bytes": 2404411874
+      }
+    ]
+  }
+}

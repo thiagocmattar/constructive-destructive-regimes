@@ -269,3 +269,7 @@ All inputs/retrieval/audits and 14 PDF pages verified. 68 new continuations,
 35,452 updates; all five task pods deleted, no cloud storage retained. Conservative
 compute/storage estimate USD 18.75 within USD 20; billing provisional.
 Continue Analysis 065. Next run 286; next unused hypothesis H049.
+
+## H049: distributed local caps at larger MLP learning rates
+
+[Runs 286-288 / Analysis 065 results](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/013-distributed-cap-quantile-lr.md). Five quantiles (25/50/75/90/99) at Adam LR 0.001/0.002/0.004, uncapped controls at each LR, three pinned initializations. Fixed eight-update 1x budgets; matched 448 forks; full 5000-image objective and 10000-image test set. All 54 continuations (38,070 updates) completed on owned Spark. Fixed q25 caps reduce mean training loss 87.88%/94.75% versus uncapped 2x/4x, but neither LR improves the across-seed mean over q25 at 1x. The lowest observed mean is q50 at 1x (24.79% below original Adam; positive variation 80.66% lower). Tight caps can increase smaller oscillations and worsen test loss. Three initializations, one continuation window; no generalization superiority claim. All dense checks, 162 retained audits, six historical reproductions and four PDF pages pass. Raw evidence stays on Spark after a local disk-limit recovery; compact verified outputs and scalar histories are local. Zero cloud cost; task processes exited. Continue Analysis 065; next run 289 and unused H050.

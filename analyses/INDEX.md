@@ -399,3 +399,7 @@ neuron capping is not monotonic. The q50 uniform control has the best new mean.
 New Figures 04/05 contain three reviewed pages and 74130 checked plotted values;
 Figures 01-03 unchanged. All source/retrieval/policy/dense checks pass; owned
 Spark only. Keep subsequent interventions in 065; no new analysis allocated.
+
+## Analysis 065: distributed cap quantile x MLP learning rate, H049
+
+[Observation013](065-2026-11-07-mlp-frozen-lr-double/observations/013-distributed-cap-quantile-lr.md) completes Runs 286-288. All 54 continuations (38,070 updates) completed on owned Spark. Fixed q25 caps reduce mean training loss 87.88%/94.75% versus uncapped 2x/4x, but neither LR improves the across-seed mean over q25 at 1x. The lowest observed mean is q50 at 1x (24.79% below original Adam; positive variation 80.66% lower). Tight caps can increase smaller oscillations and worsen test loss. Three initializations, one continuation window; no generalization superiority claim. New Figures 12/13 show aggregate training/test curves and three seed-resolved diagnostic pages; all checks pass. Previous figures/report unchanged. Zero cloud spending; verified raw evidence on Spark, compact outputs local. Keep subsequent interventions in 065.
