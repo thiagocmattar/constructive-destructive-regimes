@@ -2,7 +2,7 @@
 
 ## Outcome and scope
 
-The seven-page [LaTeX report](../report/local-displacement-cap-report.pdf) consolidates
+The eight-page [LaTeX report](../report/local-displacement-cap-report.pdf) consolidates
 local affine-displacement caps as a stabilization intervention motivated by
 representation/destructive-regime tracing. It contains motivation, matrix
 dimensions, the per-update algorithm, calibration, entry/distributed scopes,
@@ -29,6 +29,18 @@ increment ratio is $\gamma_t$. The Adam equations, cap, numbered algorithm,
 actual-change identity and all three companion figures use the same conventions.
 The extra report page preserves readable typography while defining the optimizer
 quantities and distinguishing update indices from plotted states.
+
+**Feedback 001 / Revision 001:** the [numbered archive and response](../report/feedback/001/README.md)
+preserve the supplied annotated PDF, every annotation, source hashes and all
+dispositions. The revision explains fixed input correspondence and flattening,
+uses event-window tracing evidence, defines every local matrix and the per-unit
+score, distinguishes one scalar module threshold from per-unit factors, and
+clarifies update-step calibration and which weight row/bias is scaled. Practical
+cost is one additional probe forward plus local affine products and checks,
+not two full-network forwards to obtain the local score. Online changing-data
+use remains future work. Ten complete comments are addressed; the unfinished
+"Or maybe we coul" note is retained without an inferred request. Only explanatory
+text and layout changed; all numerical results and standalone figures are preserved.
 
 Only cap variants and their unchanged-Adam controls appear. The earlier broad
 exploration is preserved in observation 008 and Figures 06-08. This report adds
@@ -68,8 +80,8 @@ and outgoing representation movement is $\delta_{s+1}^\ell$.
 The plotted raw cosine $\rho_{s+1}$ compares gradients at states $s$ and $s-1$;
 the representation cosine $\rho_{s+1}^\ell$ compares changes $s\to s+1$ and
 $s-1\to s$. An extra state after the loss window supplies its last outgoing
-diagnostic. The first intervention is update $s_0+1$; the eight calibration
-updates are $s_0-7,\ldots,s_0$. These are notation conversions, not altered
+diagnostic. The first intervention is update $t_0$; the eight calibration
+updates are $t_0-8,\ldots,t_0-1$. These are notation conversions, not altered
 calibration or evidence. All sample/token/spatial coordinates are retained.
 Zero-denominator cosines remain undefined gaps, with no smoothing or interpolation.
 
@@ -132,8 +144,8 @@ python analyses/065-2026-11-07-mlp-frozen-lr-double/35_build_local_cap_report.py
 
 The asset generator checks 61,450 plotted values and preserves earlier Figures
 01-08 byte for byte. The two-pass pdflatex build passes with a numbered algorithm,
-seven pages, no unresolved references, no overfull boxes and no out-of-page text.
-The report and standalone figures were rendered at 120 dpi and all ten pages
-visually reviewed. See [build verification](../local_cap_report_verification.json)
+eight pages, no unresolved references, no overfull boxes and no out-of-page text.
+All eight report pages were rendered at 120 dpi and visually reviewed; the three
+unchanged standalone figures retain their preceding verified review. See [build verification](../local_cap_report_verification.json)
 and [visual review](../local_cap_report_visual_review.json). Scratch PNGs and
 LaTeX compilation files remain ignored.

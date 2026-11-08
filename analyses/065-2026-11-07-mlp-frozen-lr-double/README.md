@@ -200,7 +200,7 @@ allocated. The next unused run is 286 and the next unused hypothesis is H049.
 
 ## Local displacement cap technical report
 
-The [seven-page report](report/local-displacement-cap-report.pdf) consolidates
+The [eight-page report](report/local-displacement-cap-report.pdf) consolidates
 motivation from representation-instability tracing, the local cap algorithm,
 entry/distributed scopes, probes and training setup, cap-only results and MLP
 replication. Its [LaTeX source](report/local-displacement-cap-report.tex) includes
@@ -211,6 +211,13 @@ Notation follows the manuscript: raw gradient `g_t`, first/second moments
 and capped parameter increments are named separately. The report and figure
 labels explicitly map completed state `s` to outgoing update `t=s+1`.
 
+**Revision 001** applies [Feedback 001](report/feedback/001/README.md): fixed
+inputs and flattening, precise tracing findings, explicit matrix/score/cap
+dimensions, calibration by update step, per-unit scaling and forward-pass cost.
+The original annotated PDF and all 11 annotations are preserved in the numbered
+archive, with dispositions for ten complete comments and one unfinished note.
+The next feedback round is 002; the report filename stays stable for review.
+
 New manuscript-style figures show [entry caps](figures/09-local-cap-entry-manuscript.pdf),
 [distributed caps](figures/10-local-cap-distributed-manuscript.pdf), and
 [MLP replication](figures/11-local-cap-mlp-replication.pdf). Loss uses logarithmic
@@ -219,5 +226,5 @@ Only local cap variants and unchanged Adam appear. Existing figures are preserve
 
 [Observation 011](observations/011-local-cap-technical-report.md) records sources,
 captions, coverage, caveats and reproduction. All 61,450 plotted values, 12 table
-rows, seven report pages and three standalone figure pages pass checks and visual
+rows, eight report pages and three standalone figure pages pass checks and visual
 review. No new training, cloud work or scientific allocation.

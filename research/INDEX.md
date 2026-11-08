@@ -6,7 +6,7 @@
 consolidates the representation-informed stabilization method, numbered algorithm,
 entry/distributed scopes, setup, cap-only results and MLP replication. Three new
 manuscript-style figures use log loss and linear eta-kappa-hat, with independent
-column scales. All 61,450 plotted values, 12 table rows and ten rendered pages
+column scales. All 61,450 plotted values, 12 table rows and eleven rendered pages
 verified; terminal test-loss limitations retained. Existing figures preserved.
 LaTeX source and reproduction are local to 065; no new training or cloud work.
 

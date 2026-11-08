@@ -27,7 +27,7 @@
 {\LARGE\bfseries Stabilizing Training by Capping\\[3pt]
 Local Representation Displacement\par}
 {\large An intervention motivated by destructive-regime tracing\par}
-{\small Analysis 065 / H048 \hfill 8 November 2026}
+{\small Analysis 065 / H048 / Revision 001 \hfill 8 November 2026}
 
 \sect{Findings at a glance}
 We cap the local preactivation change caused by each proposed weight/bias update,
@@ -52,9 +52,12 @@ The raw-gradient diagnostics are
 Under Adam, the latter measures normalized projected gradient change, not a
 Hessian eigenvalue or stability threshold. A zero denominator is undefined.
 
-Let $A_t^\ell$ be a layer's representation after update $t$ on a fixed ordered
-probe. Rows retain examples or token/spatial positions; columns retain features.
-For $P_\ell$ total scalar entries (rows times columns), define
+\textbf{Fixed data, changing representations.} A probe is a chosen set of input
+examples kept identical across evaluated network states: same ordering, token
+contexts and normalization groups. $A_t^\ell$ contains their representations
+after update $t$. Rows index matching examples or token/spatial positions;
+columns index features. Data inputs stay fixed; hidden representations can change
+as the parameters change. With $P_\ell$ total scalar entries, define
 \begin{equation}
  \delta_t^\ell=\vecop(A_t^\ell-A_{t-1}^\ell),\qquad
  \rho_t^\ell=\frac{\langle\delta_t^\ell,\delta_{t-1}^\ell\rangle}
@@ -62,17 +65,34 @@ For $P_\ell$ total scalar entries (rows times columns), define
  r_t^\ell=\frac{\norm{\delta_t^\ell}_2}{\sqrt{P_\ell}}.
  \label{eq:trace}
 \end{equation}
-Thus $r_t^\ell$ is the root mean square change per scalar coordinate, and
-$\rho_t^\ell$ concerns representation changes, whereas $\rho_t$ concerns raw
-gradients. Negative cosine describes adjacent cancellation (\emph{destructive}
-geometry); it does not imply rising loss. Earlier tracing found large reversing
-changes at the first MLP projection, throughout ResNet stages, and after attention
-despite steadier Transformer embeddings. Temporal SVD revealed concentrated
-motion; its window-fitted basis is fixed, although instantaneous directions can
-rotate. These observations motivate movement control without proving a unique
-initiating layer. We assess loss excursions together with learning progress.
-The controller limits amplitude; it uses neither cosine triggers nor SVD vectors.
+$\vecop$ flattens without averaging: ten rows by five columns give a
+50-dimensional vector. $\rho_t^\ell$ is one cosine over all matching sample/feature
+coordinates, not a mean of per-sample cosines. $r_t^\ell$ is their root mean square
+change. Raw-gradient alignment remains $\rho_t$. Negative cosine describes
+adjacent cancellation (\emph{destructive} geometry), not necessarily rising loss.
 
+\textbf{What the earlier tracing established.}
+In the MLP, reversal is already visible at the first learned projection and
+strongly preserved through both hidden layers; tanh attenuates movement but
+does not stop reversal. In ResNet, first-convolution reversal is also present,
+but similarity to the output's reversal timing strengthens in later residual
+stages: alignment-series correlation is 0.578 at the first convolution and
+0.991 at the final stage. This is not monotonic growth in displacement with depth.
+In the Transformer, reversal is visible at the first attention output while
+embeddings can still move forward; this localizes a measured boundary, not an
+internal attention mechanism or a proven causal origin.
+
+Temporal SVD concentrates output-change energy into relatively few patterns:
+5, 16 and 15 modes explain 95\% for MLP, ResNet and Transformer, respectively,
+over outgoing transitions from completed states 450--500, 280--310 and 552--600
+(51, 31 and 49 updates).
+These patterns span samples and features, not individual neurons; rank is limited
+by the window length. The window-fitted basis is fixed, although instantaneous
+directions can rotate within it. This motivates amplitude control without
+establishing a universal rank or initiating layer. The cap uses neither cosine
+triggers nor SVD vectors; loss excursions and learning progress assess its effect.
+
+\newpage
 \sect{2. Adam direction versus parameter increment}
 Adam's first and second moments are $m_t$ and $v_t$, respectively:
 \begin{equation}
@@ -87,7 +107,7 @@ Adam's first and second moments are $m_t$ and $v_t$, respectively:
  \label{eq:adam}
 \end{equation}
 Operations are coordinatewise. Moments start at zero only at initialization;
-the fork retains their values and global update count. The signed increment
+the intervention retains their values and global update count. The signed increment
 $\Delta\theta_t^{\rm Adam}$ contains the proposed weight and bias changes
 $\Delta W_t^{\rm Adam}$ and $\Delta b_t^{\rm Adam}$ for each module.
 Without intervention, $\theta_t=\theta_{t-1}-\eta d_t$.
@@ -96,8 +116,7 @@ The cap changes the increment, not the current moments or Adam direction.
 Implementation scores use the realized increment after storing the native
 proposal in FP32; Eq.~\eqref{eq:adam} gives its exact-arithmetic value.
 
-\newpage
-\sect{3. Local displacement and the cap}
+\sect{3. Local displacement: dimensions and computation}
 \textbf{Affine means a weighted sum plus bias.} For one neuron, $z=w^\top h+b$
 is its preactivation, before applying an activation such as tanh.
 \textbf{Direct affine response} means the change caused by its proposed weight
@@ -107,50 +126,92 @@ For $h=2$, $\Delta w=0.1$, $\Delta b=0$, this change is $0.2$.
 Earlier-layer updates can also change $h$; that incoming movement
 and subsequent nonlinear transformations are outside this direct contribution.
 
-For a module (suppressing $\ell$), $H_{t-1}\in\R^{n\times d}$ contains
-probe inputs before update $t$, $W_{t-1}\in\R^{m\times d}$ its weights,
-and $b_{t-1}\in\R^m$ its biases. The proposed local preactivation change is
+For one module (suppressing $\ell$), let $n$ count probe rows, $d$ input
+features and $m$ output units. Before update~$t$,
+\begin{equation*}
+ \underbrace{H_{t-1}}_{n\times d},\quad
+ \underbrace{W_{t-1},\ \Delta W_t^{\rm Adam}}_{m\times d},\quad
+ \underbrace{b_{t-1},\ \Delta b_t^{\rm Adam}}_{m\times1},\quad
+ \underbrace{\mathbf1_n}_{n\times1}
+\end{equation*}
+are the module inputs, weights and proposed weight increments, biases and
+proposed bias increments, and the all-ones vector. The proposed local
+preactivation change, with these module inputs held fixed, is
 \begin{equation}
  \Delta Z_t^{\rm local}
  =H_{t-1}(\Delta W_t^{\rm Adam})^\top
-   +\mathbf1(\Delta b_t^{\rm Adam})^\top\in\R^{n\times m},\qquad
+   +\mathbf1_n(\Delta b_t^{\rm Adam})^\top\in\R^{n\times m},\qquad
  s_{t,j}=\sqrt{\frac1n\sum_{i=1}^n(\Delta Z_{t,ij}^{\rm local})^2}.
  \label{eq:score}
 \end{equation}
-Column $j$ contains neuron $j$'s proposed changes across probe rows.
-For MLP linear 1, $H_{t-1}$ is $5000\times3072$ and $\Delta Z_t^{\rm local}$
-is $5000\times200$. The score is RMS down a column: signs cannot cancel.
-It is not a worst-case bound on each example.
+The $n\times m$ matrix has one row per example/position and one column per
+output unit, before the nonlinearity. Its entry $(i,j)$ is the change for
+example/position $i$ at unit $j$. Each $s_{t,j}$ averages squared changes over
+the $n$ rows, then takes the square root: it gives \textbf{one score per output
+unit}, so the score vector has $m$ entries. Signs cannot cancel; individual
+examples can exceed this RMS. For MLP linear 1, $(n,d,m)=(5000,3072,200)$:
+$H$ is $5000\times3072$, $\Delta W$ is $200\times3072$, $\Delta b$ has 200
+entries, $\Delta Z^{\rm local}$ is $5000\times200$, and there are 200 scores.
 
-For each targeted module $\ell$, pool $s_{t,j}^\ell$ over its units and the
-eight untreated updates ending at the fork state $s_0$
-(updates $t=s_0-7,\ldots,s_0$). Set $\tau_\ell$ to their
-chosen quantile $q$, and keep it fixed. Current inputs and scores are recomputed
-each step. For a positive threshold,
+\textbf{How it is computed.} The implementation makes one additional forward
+pass over the probe per update, saving the current inputs of targeted modules.
+After Adam proposes parameter increments, Eq.~\eqref{eq:score} needs only local
+matrix products (convolutions for convolutional modules), not a second full-network
+forward. Two full forwards before/after an update would instead include changes
+arriving from earlier layers. The next state's probe capture also supplies actual
+representation-change diagnostics. Extra input storage, FP64 products and a
+second local product checking FP32 rounding still cost time; the overhead is not
+universally twice training time and depends on probe size and targeted modules.
+
+\newpage
+\sect{4. Calibration and selective update scaling}
+Let $t_0$ be the first update to which the cap is applied. For module $\ell$
+with $m_\ell$ output units, collect its proposed scores from the preceding eight
+untreated Adam updates. Pool all $8m_\ell$ values and set
+\begin{equation}
+ \tau_\ell=Q_q\!\left(\{s_{k,j}^\ell:
+ k=t_0-8,\ldots,t_0-1,\ j=1,\ldots,m_\ell\}\right),
+ \label{eq:calibration}
+\end{equation}
+where $Q_q$ is the empirical quantile with linear interpolation. Thus
+$\tau_\ell\in\R_{\geq0}$ is \textbf{one scalar per module}, shared by all its
+output units, with the units of preactivation change. It is fixed thereafter;
+the scores and scaling factors are recomputed every update. For MLP linear 1,
+calibration pools $8\times200=1600$ scores; $t_0=449$ uses updates 441--448.
+q50 uses the median ($q=0.50$), q75 the 75th percentile ($q=0.75$).
+
+\textbf{Intuition.} Dampen a proposed update when its joint weight/bias change
+would move one unit's preactivation too much on the probe. This evaluates the
+proposed movement for current inputs, not an individual weight's size or a
+Jacobian sensitivity. For $\tau_\ell>0$ and $s_{t,j}^\ell>0$,
 \begin{equation}
  a_{t,j}^\ell=\min(1,\tau_\ell/s_{t,j}^\ell),\qquad
  \Delta W_{t,j:}^{\ell,\rm cap}=a_{t,j}^\ell\Delta W_{t,j:}^{\ell,\rm Adam},\qquad
  \Delta b_{t,j}^{\ell,\rm cap}=a_{t,j}^\ell\Delta b_{t,j}^{\ell,\rm Adam}.
  \label{eq:cap}
 \end{equation}
-Use $a=1$ for a zero score. A zero calibrated threshold disables that module's
-cap. The same multiplier scales a neuron's full weight row and bias; all
-untargeted increments remain native. Its direct RMS becomes $a_{t,j}s_{t,j}\leq\tau$
-in exact arithmetic; storage rounding is checked separately. q50 denotes a calibration median, not a
-requirement to modify half the units at each subsequent step.
+The vector $a_t^\ell$ has $m_\ell$ dimensionless entries. If a unit's score is
+twice its module's threshold, its entire weight-update row and bias increment
+are halved; below the threshold, they are unchanged. With $W\in\R^{m\times d}$,
+\textbf{output column $j$ corresponds to weight row $j$}: all $d$ weights
+feeding that unit receive the same multiplier, along with its bias.
+The resulting local RMS is $a_{t,j}^\ell s_{t,j}^\ell\leq\tau_\ell$ in exact
+arithmetic. Use $a=1$ for zero score; a zero calibrated threshold disables the
+module's cap. Untargeted increments stay native. q50 does not require half the
+units to be modified at later updates; final storage rounding is checked separately.
 
 \begin{algorithm}[H]
 \caption{Local representation displacement cap at update $t$}
 \label{alg:cap}
 \begin{algorithmic}[1]
 \Require Parameters $\theta_{t-1}$, Adam state, fixed probe, target modules $\mathcal S$, budgets $\tau_\ell$
-\State Capture current module inputs $H_{t-1}^\ell$ on the probe; retain $\theta_{t-1}$.
+\State Retain $\theta_{t-1}$; capture $H_{t-1}^\ell$ in one probe forward pass.
 \State Compute the raw gradient $g_t$ of the complete training objective.
 \State Advance $m_t,v_t$ and the clock; form $d_t$ and the stored native proposal $\theta_t^+$.
 \State Set $\Delta\theta_t^{\rm Adam}=\theta_t^+-\theta_{t-1}$; initialize $\Delta\theta_t^{\rm cap}=\Delta\theta_t^{\rm Adam}$.
 \For{each targeted module $\ell\in\mathcal S$ with $\tau_\ell>0$}
   \State Extract $(\Delta W_t^{\ell,\rm Adam},\Delta b_t^{\ell,\rm Adam})$ from $\Delta\theta_t^{\rm Adam}$.
-  \State Compute preactivation changes at fixed inputs and per-unit RMS, Eq.~\eqref{eq:score}.
+  \State Use local affine products to compute one RMS score per output unit, Eq.~\eqref{eq:score}.
   \State Scale each proposed weight row and bias using Eq.~\eqref{eq:cap}.
 \EndFor
 \State Store $\theta_t=\theta_{t-1}+\Delta\theta_t^{\rm cap}$; keep the advanced Adam state.
@@ -164,21 +225,22 @@ targets both MLP hidden affines, all 31 ResNet convolutions, or both QKV
 projections plus all four feed-forward affines. MLP output weights, ResNet
 normalization/classifier parameters, and Transformer attention output projections,
 LayerNorm, embeddings and decoder are outside the cap. A convolutional score
-averages over images and spatial positions; QKV scores measure the projection,
-not the complete attention operation. Selection is over existing units/channels,
-not temporal singular vectors.
+averages over images and spatial positions: its conceptual $H$ rows are
+receptive-field patches, evaluated by convolution without materializing that matrix.
+QKV scores measure the projection, not the complete attention operation.
+Selection is over existing units/channels, not temporal singular vectors.
 
 \newpage
-\sect{4. Experimental design and measurement timing}
+\sect{5. Experimental design and measurement timing}
 \begin{table}[H]
 \centering\small\setlength{\tabcolsep}{4pt}
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{.17\linewidth}>{\raggedright\arraybackslash}p{.27\linewidth}>{\raggedright\arraybackslash}p{.29\linewidth}>{\raggedright\arraybackslash}p{.20\linewidth}@{}}
 \toprule
-Case & Full objective per update & Fixed probe & LR; fork; final state \\
+Case & Full objective per update & Fixed probe & LR; first capped update; final state \\
 \midrule
-MLP / CIFAR-10 & 5,000 images; half squared output error & All 5,000 images, native 1,000-image chunks & .001; 448; 800/1152 \\
-ResNet / CIFAR-10 & 50,000 images; mean cross-entropy & First intact 1,000-image BatchNorm group & .003; 264; 576 \\
-Transformer / WikiText-2 & 2,088,600 valid tokens; mean NLL & First 64 length-35 sequences: 2,240 valid positions & .003; 552; 928 \\
+MLP / CIFAR-10 & 5,000 images; half squared output error & All 5,000 images, native 1,000-image chunks & .001; 449; 800/1152 \\
+ResNet / CIFAR-10 & 50,000 images; mean cross-entropy & First intact 1,000-image BatchNorm group & .003; 265; 576 \\
+Transformer / WikiText-2 & 2,088,600 valid tokens; mean NLL & First 64 length-35 sequences: 2,240 valid positions & .003; 553; 928 \\
 \bottomrule
 \end{tabular}
 \caption{Full-objective deterministic updates throughout. Probe coverage changes only
@@ -204,11 +266,11 @@ is $g_{s+1}$, and outgoing motion is $\delta_{s+1}^\ell=\vecop(A_{s+1}^\ell-A_s^
 Hence the plotted cosines are $\rho_{s+1}$ and $\rho_{s+1}^\ell$; the gradient
 cosine concerns the preceding transition, while the representation cosine includes
 the next one. Labels now show this distinction; no recorded state or value is shifted.
-The first intervened update is $t=s_0+1$ (e.g., $449$ after MLP state $448$).
-\sect{5. Results: cap variants and unchanged-Adam controls}
+The first intervened update is $t=t_0$ (e.g., $449$ after MLP state $448$).
+\sect{6. Results: cap variants and unchanged-Adam controls}
 The primary entry screen uses q75; the common distributed comparison uses q50.
-Each branch is paired with unchanged Adam from its exact native fork on the
-same worker. Mean loss averages the stated loss states; tail averages the last
+Each branch is paired with unchanged Adam from identical parameters and optimizer
+state at intervention start, on the same worker. Mean loss averages the stated loss states; tail averages the last
 32 states; $\mathrm{PV}=\sum_s\max(\mathcal L(\theta_{s+1})-\mathcal L(\theta_s),0)$ uses adjacent states within
 that window. Outgoing motion also uses a retained state after its end.
 Maximum includes the shared initial state. Percent changes below
@@ -224,7 +286,7 @@ use the extended window; the entry screen stops at 800.}
 \end{table}
 
 \newpage
-\sect{6. Interpretation and sensitivity}
+\sect{7. Interpretation and sensitivity}
 
 
 \textbf{Entry caps improve the mean, but not every outcome.} The q75 entry rule
@@ -268,9 +330,17 @@ endpoint comparisons and may reflect different oscillation phases; no held-out
 trajectory or generalization improvement is established. MLP replication is
 reported on the last page.
 
+\textbf{Online use remains future work.} These experiments use fixed data probes.
+Reusing each training batch's inputs could reduce capture overhead for the local
+cap, but refreshing data and recalibrating its thresholds require validation.
+Consecutive-change tracing additionally needs matching inputs across compared
+states: directly comparing different batches mixes parameter-induced movement
+with data differences. An online estimator must preserve that correspondence
+or explicitly account for it; neither approach is tested here.
+
 \vspace{2pt}{\footnotesize
 \textbf{Evidence and reproduction.} Tracing motivation: Analysis 063 technical
-report. Cap evidence: H048 Runs 269--274 and 282--283, with exact fork/native
+report. Cap evidence: H048 Runs 269--274 and 282--283, with exact native
 continuation qualification, hash-verified retrieval and retained-state audits.
 This report uses only existing verified cap/control records; no new training.
 Within Analysis 065, run \path{34_local_cap_report_assets.py}, then
@@ -313,7 +383,7 @@ be treated as the same numerical trajectory.}
 \end{figure}
 
 \newpage
-\sect{7. Replication and practical limits}
+\sect{8. Replication and practical limits}
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{../figures/11-local-cap-mlp-replication.pdf}
@@ -331,10 +401,10 @@ replicates; better terminal test loss does not.}
 \end{table}
 
 \textbf{What is bounded.} The preactivation matrix
-$Z_t=H_tW_t^\top+\mathbf1b_t^\top$, with incoming change
+$Z_t=H_tW_t^\top+\mathbf1_n b_t^\top$, with incoming change
 $\Delta H_t=H_t-H_{t-1}$, has actual change $\Delta Z_t=Z_t-Z_{t-1}$:
 \begin{equation}
- \Delta Z_t=\underbrace{H_{t-1}(\Delta W_t^{\rm cap})^\top+\mathbf1(\Delta b_t^{\rm cap})^\top}_{\text{capped direct contribution}}
+ \Delta Z_t=\underbrace{H_{t-1}(\Delta W_t^{\rm cap})^\top+\mathbf1_n(\Delta b_t^{\rm cap})^\top}_{\text{capped direct contribution}}
  +\underbrace{\Delta H_tW_{t-1}^\top+\Delta H_t(\Delta W_t^{\rm cap})^\top}_{\text{incoming movement and interaction}}.
 \end{equation}
 Only the first term is constrained locally. Nonlinearities, normalization and
@@ -354,8 +424,8 @@ future padded probes need valid-position masking in local scores too.
 \textbf{Conclusion.} Selective representation-amplitude control is a promising
 stabilization intervention in these deterministic full-objective continuations.
 Three MLP initializations and one per larger model support a limited transfer
-result. Selected forks, local calibration, unequal windows and the absence of
+result. Selected starting states, local calibration, unequal windows and the absence of
 stochastic-minibatch tests limit generality. The next validation should compare
-additional forks/seeds and repeated held-out measurements at matched training progress.
+additional starting states/seeds and repeated held-out measurements at matched training progress.
 
 \end{document}
