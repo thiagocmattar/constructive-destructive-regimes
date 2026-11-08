@@ -2,7 +2,7 @@
 
 ## Outcome and scope
 
-The six-page [LaTeX report](../report/local-displacement-cap-report.pdf) consolidates
+The seven-page [LaTeX report](../report/local-displacement-cap-report.pdf) consolidates
 local affine-displacement caps as a stabilization intervention motivated by
 representation/destructive-regime tracing. It contains motivation, matrix
 dimensions, the per-update algorithm, calibration, entry/distributed scopes,
@@ -15,6 +15,20 @@ bias, and "direct affine response" as the local preactivation change caused by
 the proposed weight/bias update with inputs held fixed. A one-neuron numerical
 example and the algorithm use this explanation; incoming representation changes
 and subsequent nonlinear transformations remain explicitly separate.
+
+The notation revision follows the active manuscript's
+[Adam section](../../../manuscript/draft/sections/06-adam-diagnostics.tex) and
+[raw-gradient diagnostics](../../../manuscript/draft/sections/03-methods.tex).
+It reserves $m_t$, $v_t$, and $d_t$ for Adam's first moment, second moment, and
+adaptive direction, and $\rho_t$ for consecutive raw-gradient alignment.
+The previous weight/bias symbols $U_t,v_t$ become
+$\Delta W_t^{\mathrm{Adam}},\Delta b_t^{\mathrm{Adam}}$; the previous $D_t$
+becomes $\Delta Z_t^{\mathrm{local}}$, the proposed preactivation change at fixed
+inputs. Superscript `cap` denotes accepted increments. The whole-parameter
+increment ratio is $\gamma_t$. The Adam equations, cap, numbered algorithm,
+actual-change identity and all three companion figures use the same conventions.
+The extra report page preserves readable typography while defining the optimizer
+quantities and distinguishing update indices from plotted states.
 
 Only cap variants and their unchanged-Adam controls appear. The earlier broad
 exploration is preserved in observation 008 and Figures 06-08. This report adds
@@ -45,12 +59,19 @@ untreated control. The seed table also reports complete 10,000-image terminal
 test loss. The report's ResNet/WikiText-2 test comparisons retain full cached
 splits (10,000 images / 245,550 supervised test tokens).
 
-Loss states and outgoing representation changes have distinct indexing. At
-plotted t, representation movement is A_(t+1)-A_t and its cosine compares with
-A_t-A_(t-1). An extra state after the reported loss window supplies its last
-outgoing diagnostic. Raw-gradient cosine uses g_t and g_(t-1), not gradient
-differences. All sample/token/spatial coordinates are retained. Zero-denominator
-cosines remain undefined gaps, with no smoothing or interpolation.
+Manuscript update $t$ starts at $\theta_{t-1}$ and ends at $\theta_t$, with
+$g_t=\nabla\mathcal L(\theta_{t-1})$ and
+$\delta_t^\ell=\operatorname{vec}(A_t^\ell-A_{t-1}^\ell)$.
+The horizontal axis retains completed updates $s$, with no shifts to recorded
+arrays. At $s$, loss is $\mathcal L(\theta_s)$, the raw gradient is $g_{s+1}$,
+and outgoing representation movement is $\delta_{s+1}^\ell$.
+The plotted raw cosine $\rho_{s+1}$ compares gradients at states $s$ and $s-1$;
+the representation cosine $\rho_{s+1}^\ell$ compares changes $s\to s+1$ and
+$s-1\to s$. An extra state after the loss window supplies its last outgoing
+diagnostic. The first intervention is update $s_0+1$; the eight calibration
+updates are $s_0-7,\ldots,s_0$. These are notation conversions, not altered
+calibration or evidence. All sample/token/spatial coordinates are retained.
+Zero-denominator cosines remain undefined gaps, with no smoothing or interpolation.
 
 ## Figure captions
 
@@ -111,8 +132,8 @@ python analyses/065-2026-11-07-mlp-frozen-lr-double/35_build_local_cap_report.py
 
 The asset generator checks 61,450 plotted values and preserves earlier Figures
 01-08 byte for byte. The two-pass pdflatex build passes with a numbered algorithm,
-six pages, no unresolved references, no overfull boxes and no out-of-page text.
-The report and standalone figures were rendered at 120 dpi and all nine pages
+seven pages, no unresolved references, no overfull boxes and no out-of-page text.
+The report and standalone figures were rendered at 120 dpi and all ten pages
 visually reviewed. See [build verification](../local_cap_report_verification.json)
 and [visual review](../local_cap_report_visual_review.json). Scratch PNGs and
 LaTeX compilation files remain ignored.

@@ -52,7 +52,7 @@ def main():
     assert 'Algorithm 1' in text and '??' not in text
     assert not overflow, overflow
     assert not warnings, warnings
-    assert len(document) == 6, f'Expected six readable pages, found {len(document)}'
+    assert len(document) == 7, f'Expected seven readable pages, found {len(document)}'
     assert all(p['characters'] > 500 for p in pages)
     document.close()
     target = REPORT / generated.name
@@ -62,7 +62,7 @@ def main():
     audit = dict(status='structural_checks_passed', pdf_sha256=sha(target), pages=pages,
         algorithm_environment=True, undefined_references=False, overfull_boxes=False, page_boundary_overflow=False,
         sources={p.relative_to(HERE).as_posix(): sha(p) for p in inputs}, generator_sha256=sha(Path(__file__)),
-        visual_review='Required after rendering the six report pages and three standalone figure pages.')
+        visual_review='Required after rendering the seven report pages and three standalone figure pages.')
     (HERE / 'local_cap_report_verification.json').write_text(json.dumps(audit, indent=2) + '\n', encoding='utf-8', newline='\n')
     print(json.dumps({'pages': len(pages), 'warnings': warnings, 'pdf': str(target)}))
 

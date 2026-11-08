@@ -38,9 +38,9 @@ def plot_values(worker, arm):
 
 def make_figure(specs, target, label, short=False):
     indices = [0, 6, 7] if short else list(range(10))
-    labels = ['Loss $L_t$', r'$\eta\widehat\kappa_t$', r'$\rho_t^{g}$', r'$\|g_t\|_2$',
-              r'$\rho_t^{\rm early}$', r'$r_t^{\rm early}$', r'$\rho_t^{F}$', r'$r_t^{F}$',
-              r'$\|\widetilde u_t\|/\|u_t\|$', 'Units modified']
+    labels = [r'$\mathcal{L}(\theta_s)$', r'$\eta\widehat\kappa_{s+1}$', r'$\rho_{s+1}$', r'$\|g_{s+1}\|_2$',
+              r'$\rho_{s+1}^{\rm early}$', r'$r_{s+1}^{\rm early}$', r'$\rho_{s+1}^{F}$', r'$r_{s+1}^{F}$',
+              r'$\gamma_{s+1}$', 'Units modified']
     fig, axes = plt.subplots(len(indices), 3, figsize=(7.16, 3.75 if short else 9.55),
                              sharex='col', squeeze=False)
     checks = 0
@@ -89,7 +89,7 @@ def make_figure(specs, target, label, short=False):
             if col == 0:
                 ax.set_ylabel(f'({chr(97 + row)}) ' + labels[index], labelpad=4)
         axes[0, col].set_title(title, pad=7)
-        axes[-1, col].set_xlabel('Optimizer updates $t$', labelpad=4)
+        axes[-1, col].set_xlabel('Completed updates $s$', labelpad=4)
         columns.append(dict(run=w['run_id'], worker=w['worker'], arm=arm,
                             window=[int(x[0]), int(x[-1])], rows=indices,
                             independent_y_axes=True, loss_scale='log', eta_kappa_scale='linear'))
@@ -211,6 +211,9 @@ def main():
         sources=sources, outputs=outputs, selected_metrics=selected,
         earlier_figures_preserved=original, rows={'early': EARLY},
         table_sources={p.name: sha(p) for p in REPORT.glob('cap-*-table.tex')},
+        indexing=dict(axis='completed updates s', loss='L(theta_s)', gradient='g_(s+1)',
+                      representation_change='A_(s+1)-A_s', intervention_update='t=s+1',
+                      step_ratio='norm(Delta theta cap)/norm(Delta theta Adam)', recorded_values_shifted=False),
         scope='Only local affine-displacement caps and their own unchanged Adam baselines. No smoothing, truncation or new training.',
         plotted_values_checked=sum(o['plotted_values_checked'] for o in outputs))
     (HERE / 'local_cap_report_assets.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8', newline='\n')

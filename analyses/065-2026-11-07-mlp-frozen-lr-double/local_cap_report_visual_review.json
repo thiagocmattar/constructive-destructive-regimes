@@ -1,44 +1,45 @@
 {
   "status": "passed",
-  "utc": "2026-11-08T12:02:16.160449+00:00",
+  "utc": "2026-11-08T12:26:42.581999+00:00",
   "renderer": "MiKTeX Poppler pdftoppm",
   "dpi": 120,
   "outputs": [
     {
       "file": "report/local-displacement-cap-report.pdf",
-      "sha256": "9fa9db3390d6ebdcf742946eaa495479973aeb06bd20fbb680663d357bd0feee",
+      "sha256": "b9e4c31977f4d650ceeda412291cf491851e2143d5b1a8877d27008775c18f5a",
       "pages_reviewed": [
         1,
         2,
         3,
         4,
         5,
-        6
+        6,
+        7
       ]
     },
     {
       "file": "figures/09-local-cap-entry-manuscript.pdf",
-      "sha256": "81d87b3b098de98d1a327d8cd57fbff09ae71d48b742c05743bd2f6ceab6cfc4",
+      "sha256": "c500cc2c0dd775c602ae52c945ed57a53eb7420afaeff2e64348e3b26f15a279",
       "pages_reviewed": [
         1
       ]
     },
     {
       "file": "figures/10-local-cap-distributed-manuscript.pdf",
-      "sha256": "4aeb685a185a8adbab98179f393db2ef302e9e8f1e333707feacd2dc23202b20",
+      "sha256": "98382b3389a98b1d7f97050afbe90cb4fda0ef1c09cb5c18a844810d697407ba",
       "pages_reviewed": [
         1
       ]
     },
     {
       "file": "figures/11-local-cap-mlp-replication.pdf",
-      "sha256": "8818b244fdfaa9f587be4cabdb3a25f9356be6976548b37d39b9fe5738eb4566",
+      "sha256": "aaba9db049d1ddede1723cc5d004801454018386a86cedcd77b6df44d456753d",
       "pages_reviewed": [
         1
       ]
     }
   ],
-  "total_pages_reviewed": 9,
+  "total_pages_reviewed": 10,
   "plotted_values_checked": 61450,
   "table_rows_checked": 12,
   "axes": {
@@ -47,18 +48,20 @@
     "column_magnitude_scales": "independent"
   },
   "visual_checks": [
-    "All report and standalone pages inspected",
-    "Equations and numbered algorithm readable",
-    "Tables and captions fit",
-    "Legends and axis labels clear",
+    "All seven report pages and three standalone figure pages inspected at 120 dpi",
+    "Manuscript Adam notation, signed increments, local preactivation changes and update indices consistent",
+    "Equations, numbered algorithm, tables and captions readable",
+    "Final shortened gamma label avoids adjacent-row label overlap",
+    "Logarithmic loss, linear eta-kappa-hat and independent magnitude scales preserved",
     "No clipping or overlap",
-    "Terminology clarification: report pages 1, 2 and 6 visually reviewed; pages 3-5 render byte-identically to the preceding review",
-    "Standalone figures unchanged; logarithmic loss and linear eta-kappa-hat preserved"
+    "Numerical source hashes, table rows and earlier Figures 01-08 unchanged"
   ],
   "unchanged_report_renders_after_final_edit": [
+    1,
+    2,
     3,
     4,
-    5
+    7
   ],
   "earlier_figures_head_identical": {
     "01-frozen-first-linear-double-lr-cifar10-mlp.pdf": "c2e3bd3640546d18b2602a05c98c3b764b73b7f4ab42642cabc4d320d5b141aa",
@@ -70,6 +73,23 @@
     "07-distributed-displacement-and-controls.pdf": "b7b1556288db4a621c7b3bed8a85b257539c7e1e176ad4b2fc30541cb0e853bd",
     "08-adaptive-and-embedding-tests.pdf": "d343bc22779aabc028e3c6b4dff8a1efd0192b5e4151eda742ef9881edc4918b"
   },
-  "assets_sha256": "044c8ff8de417da9fbf95947fa1843dbebe4318c7112772aa349bf21aee23cee",
-  "build_verification_sha256": "9b5ce4532f6e74a63f6bd2614625849d73b232c369be98744e33d0b5261098f3"
+  "assets_sha256": "694328af168f965a16699774ee4a5e7df2b3572ae2bd60d13033ba8b922e8979",
+  "build_verification_sha256": "d55f8b3948354f7d3ec2259536fc9f01e683bfe0017d1dbb8fc28161917bc1c1",
+  "render_hashes": {
+    "notation-final-1.png": "8d4f4cde458158f2d5ae7f2f347bb03b5792258e043a15a0d53e536a8185bcf0",
+    "notation-final-2.png": "f33ccd2a95b2fd90c496a89f4fec279909598163fcd5bdeb281adc4a8ff21679",
+    "notation-final-3.png": "eae9de77493090aaa109962411f0d4048761cfd6338d0a00610b737a23f88609",
+    "notation-final-4.png": "267b751e377de2c0c320f717e6d5255c4b91a929986bde8bc2bee68d4c6b22a1",
+    "notation-final-5.png": "d3a4c0fd5ac8154988d00909b4d8b19fa3ededfdaa26b4b093c13c49cebeda66",
+    "notation-final-6.png": "5e61dfba347319d087f0d9a9a5db6ca90cf9e59ae448b06976ee429d0658decd",
+    "notation-final-7.png": "7665f8ce4349f4fda240435d57e5ce57b2246e8eaa0b41f41e761464f5ea640e",
+    "notation-entry-1.png": "37fb7ad84f1fe2f73486141a48066c1d941d16eba8395ef80b92544c2d44550e",
+    "notation-distributed-1.png": "766c75e9f45482d60983f545e8170074423fb9bcf1db58e1314e091feff31845",
+    "notation-replication-1.png": "77e3ab268fddd7a16d3763fbe723684f4f2b8a04709a7998ce3290f7da340f00"
+  },
+  "notation_sources": {
+    "manuscript/draft/sections/03-methods.tex": "e883036b3935208f42ff2db6695a41b9bd71b3f55c454b2bfbf5489656ab853c",
+    "manuscript/draft/sections/06-adam-diagnostics.tex": "072ce6849e2ee1718b0188a9331ae3c05fd10eb397d9512abdf1d093a6b3ce65"
+  },
+  "numerical_evidence_unchanged": true
 }

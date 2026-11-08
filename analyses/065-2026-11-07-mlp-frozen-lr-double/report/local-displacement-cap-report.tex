@@ -39,37 +39,65 @@ Loss excursions shrink despite persistent or more frequent representation revers
 \textbf{Terminal test loss worsens under the distributed cap in every setup.}
 These finite-window optimization results give no generalization or convergence guarantee.
 
-\sect{1. Motivation: from destructive diagnostics to intervention}
-At state $t$ (after $t$ completed updates), let $A_t^\ell$ be a layer's
-representation on a fixed ordered probe. Rows retain examples or token/spatial
-positions; columns retain features. For $P_\ell$ scalar entries, define
+\sect{1. Motivation and diagnostic notation}
+We follow the manuscript: update $t$ starts at $\theta_{t-1}$, uses the raw
+full-objective gradient $g_t=\nabla\mathcal L(\theta_{t-1})$, and ends at $\theta_t$.
+The raw-gradient diagnostics are
 \begin{equation}
- \delta_t^\ell=\vecop(A_{t+1}^\ell-A_t^\ell),\qquad
+ \rho_t=\cos(g_t,g_{t-1}),\qquad
+ \eta\widehat\kappa_t=1-\rho_t\frac{\norm{g_t}_2}{\norm{g_{t-1}}_2}
+ =1-\frac{\langle g_t,g_{t-1}\rangle}{\norm{g_{t-1}}_2^2}.
+ \label{eq:gradient-diagnostics}
+\end{equation}
+Under Adam, the latter measures normalized projected gradient change, not a
+Hessian eigenvalue or stability threshold. A zero denominator is undefined.
+
+Let $A_t^\ell$ be a layer's representation after update $t$ on a fixed ordered
+probe. Rows retain examples or token/spatial positions; columns retain features.
+For $P_\ell$ total scalar entries (rows times columns), define
+\begin{equation}
+ \delta_t^\ell=\vecop(A_t^\ell-A_{t-1}^\ell),\qquad
  \rho_t^\ell=\frac{\langle\delta_t^\ell,\delta_{t-1}^\ell\rangle}
  {\norm{\delta_t^\ell}_2\norm{\delta_{t-1}^\ell}_2},\qquad
  r_t^\ell=\frac{\norm{\delta_t^\ell}_2}{\sqrt{P_\ell}}.
  \label{eq:trace}
 \end{equation}
-The raw full-objective gradient is $g_t$, with $\rho_t^g=\cos(g_t,g_{t-1})$.
-We also report $\eta\widehat\kappa_t=1-\langle g_t,g_{t-1}\rangle/\norm{g_{t-1}}_2^2$:
-normalized projected gradient change, not an Adam Hessian eigenvalue or stability
-threshold. A zero denominator makes a cosine or this ratio undefined.
-Negative cosine describes adjacent cancellation, termed \emph{destructive}
-geometry; it does not imply that loss must rise. Earlier backward tracing
-found large reversing changes already at the first MLP projection, distributed
-through ResNet stages, and after attention despite steadier Transformer embeddings.
-The temporal SVD of stacked $\delta_t^\ell$ revealed concentrated motion.
-Its window-fitted basis is fixed by construction; instantaneous dominant
-directions can still rotate. This motivates local movement control without
-establishing a unique initiating layer.
+Thus $r_t^\ell$ is the root mean square change per scalar coordinate, and
+$\rho_t^\ell$ concerns representation changes, whereas $\rho_t$ concerns raw
+gradients. Negative cosine describes adjacent cancellation (\emph{destructive}
+geometry); it does not imply rising loss. Earlier tracing found large reversing
+changes at the first MLP projection, throughout ResNet stages, and after attention
+despite steadier Transformer embeddings. Temporal SVD revealed concentrated
+motion; its window-fitted basis is fixed, although instantaneous directions can
+rotate. These observations motivate movement control without proving a unique
+initiating layer. We assess loss excursions together with learning progress.
+The controller limits amplitude; it uses neither cosine triggers nor SVD vectors.
 
-We assess stabilization through mean/tail loss, maximum loss and total positive
-loss variation: smaller excursions must preserve learning. The controller caps amplitude;
-it neither triggers on a cosine threshold nor uses future-window SVD vectors.
-Thus it is \emph{informed by} destructive-regime diagnostics, rather than treating
-their sign as an objective or a stability theorem.
+\sect{2. Adam direction versus parameter increment}
+Adam's first and second moments are $m_t$ and $v_t$, respectively:
+\begin{equation}
+ \begin{aligned}
+ m_t&=\beta_1m_{t-1}+(1-\beta_1)g_t,
+ &v_t&=\beta_2v_{t-1}+(1-\beta_2)g_t^{\odot2},\\
+ \widehat m_t&=m_t/(1-\beta_1^t),
+ &\widehat v_t&=v_t/(1-\beta_2^t),\\
+ d_t&=\frac{\widehat m_t}{\sqrt{\widehat v_t}+\epsilon},
+ &\Delta\theta_t^{\rm Adam}&=-\eta d_t.
+ \end{aligned}
+ \label{eq:adam}
+\end{equation}
+Operations are coordinatewise. Moments start at zero only at initialization;
+the fork retains their values and global update count. The signed increment
+$\Delta\theta_t^{\rm Adam}$ contains the proposed weight and bias changes
+$\Delta W_t^{\rm Adam}$ and $\Delta b_t^{\rm Adam}$ for each module.
+Without intervention, $\theta_t=\theta_{t-1}-\eta d_t$.
+With the cap, $\theta_t=\theta_{t-1}+\Delta\theta_t^{\rm cap}$ instead.
+The cap changes the increment, not the current moments or Adam direction.
+Implementation scores use the realized increment after storing the native
+proposal in FP32; Eq.~\eqref{eq:adam} gives its exact-arithmetic value.
 
-\sect{2. Local displacement: the measured quantity}
+\newpage
+\sect{3. Local displacement and the cap}
 \textbf{Affine means a weighted sum plus bias.} For one neuron, $z=w^\top h+b$
 is its preactivation, before applying an activation such as tanh.
 \textbf{Direct affine response} means the change caused by its proposed weight
@@ -79,29 +107,30 @@ For $h=2$, $\Delta w=0.1$, $\Delta b=0$, this change is $0.2$.
 Earlier-layer updates can also change $h$; that incoming movement
 and subsequent nonlinear transformations are outside this direct contribution.
 
-For all probe rows, let $H_t\in\R^{n\times d}$ contain current inputs,
-$W_t\in\R^{m\times d}$ the weights, and $b_t\in\R^m$ the biases.
-Adam proposes stored increments $U_t$ and $v_t$. Holding $H_t$ fixed, compute
+For a module (suppressing $\ell$), $H_{t-1}\in\R^{n\times d}$ contains
+probe inputs before update $t$, $W_{t-1}\in\R^{m\times d}$ its weights,
+and $b_{t-1}\in\R^m$ its biases. The proposed local preactivation change is
 \begin{equation}
- D_t=H_tU_t^\top+\mathbf1v_t^\top\in\R^{n\times m},\qquad
- s_{t,j}=\sqrt{\frac1n\sum_{i=1}^n D_{t,ij}^2}.
+ \Delta Z_t^{\rm local}
+ =H_{t-1}(\Delta W_t^{\rm Adam})^\top
+   +\mathbf1(\Delta b_t^{\rm Adam})^\top\in\R^{n\times m},\qquad
+ s_{t,j}=\sqrt{\frac1n\sum_{i=1}^n(\Delta Z_{t,ij}^{\rm local})^2}.
  \label{eq:score}
 \end{equation}
-Column $j$ of $D_t$ contains these local preactivation changes for neuron $j$ across probe
-rows. For MLP linear 1, $H_t$ is $5000\times3072$ and $D_t$ is $5000\times200$.
-The score is RMS down a column: examples are squared before averaging, so their
-signs cannot cancel. It is not a worst-case bound on each example.
+Column $j$ contains neuron $j$'s proposed changes across probe rows.
+For MLP linear 1, $H_{t-1}$ is $5000\times3072$ and $\Delta Z_t^{\rm local}$
+is $5000\times200$. The score is RMS down a column: signs cannot cancel.
+It is not a worst-case bound on each example.
 
-\newpage
-\sect{3. Update rule and experimental design}
 For each targeted module $\ell$, pool $s_{t,j}^\ell$ over its units and the
-eight untreated updates preceding the fork $t_0$. Set $\tau_\ell$ to their
+eight untreated updates ending at the fork state $s_0$
+(updates $t=s_0-7,\ldots,s_0$). Set $\tau_\ell$ to their
 chosen quantile $q$, and keep it fixed. Current inputs and scores are recomputed
 each step. For a positive threshold,
 \begin{equation}
  a_{t,j}^\ell=\min(1,\tau_\ell/s_{t,j}^\ell),\qquad
- \widetilde U_{t,j:}^\ell=a_{t,j}^\ell U_{t,j:}^\ell,\qquad
- \widetilde v_{t,j}^\ell=a_{t,j}^\ell v_{t,j}^\ell.
+ \Delta W_{t,j:}^{\ell,\rm cap}=a_{t,j}^\ell\Delta W_{t,j:}^{\ell,\rm Adam},\qquad
+ \Delta b_{t,j}^{\ell,\rm cap}=a_{t,j}^\ell\Delta b_{t,j}^{\ell,\rm Adam}.
  \label{eq:cap}
 \end{equation}
 Use $a=1$ for a zero score. A zero calibrated threshold disables that module's
@@ -114,16 +143,17 @@ requirement to modify half the units at each subsequent step.
 \caption{Local representation displacement cap at update $t$}
 \label{alg:cap}
 \begin{algorithmic}[1]
-\Require Parameters $\theta_t$, Adam state, fixed probe, target modules $\mathcal S$, budgets $\tau_\ell$
-\State Capture current module inputs $H_t^\ell$ on the probe; retain $\theta_t$.
+\Require Parameters $\theta_{t-1}$, Adam state, fixed probe, target modules $\mathcal S$, budgets $\tau_\ell$
+\State Capture current module inputs $H_{t-1}^\ell$ on the probe; retain $\theta_{t-1}$.
 \State Compute the raw gradient $g_t$ of the complete training objective.
-\State Advance native Adam moments/clocks and form stored proposal $\theta_t^+$.
+\State Advance $m_t,v_t$ and the clock; form $d_t$ and the stored native proposal $\theta_t^+$.
+\State Set $\Delta\theta_t^{\rm Adam}=\theta_t^+-\theta_{t-1}$; initialize $\Delta\theta_t^{\rm cap}=\Delta\theta_t^{\rm Adam}$.
 \For{each targeted module $\ell\in\mathcal S$ with $\tau_\ell>0$}
-  \State Extract proposed increments $(U_t^\ell,v_t^\ell)$ from $\theta_t^+-\theta_t$.
+  \State Extract $(\Delta W_t^{\ell,\rm Adam},\Delta b_t^{\ell,\rm Adam})$ from $\Delta\theta_t^{\rm Adam}$.
   \State Compute preactivation changes at fixed inputs and per-unit RMS, Eq.~\eqref{eq:score}.
   \State Scale each proposed weight row and bias using Eq.~\eqref{eq:cap}.
 \EndFor
-\State Store $\theta_{t+1}=\theta_t+\widetilde u_t$; keep the advanced Adam state.
+\State Store $\theta_t=\theta_{t-1}+\Delta\theta_t^{\rm cap}$; keep the advanced Adam state.
 \State Measure loss and actual consecutive representation changes for evaluation.
 \end{algorithmic}
 \end{algorithm}
@@ -138,6 +168,8 @@ averages over images and spatial positions; QKV scores measure the projection,
 not the complete attention operation. Selection is over existing units/channels,
 not temporal singular vectors.
 
+\newpage
+\sect{4. Experimental design and measurement timing}
 \begin{table}[H]
 \centering\small\setlength{\tabcolsep}{4pt}
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{.17\linewidth}>{\raggedright\arraybackslash}p{.27\linewidth}>{\raggedright\arraybackslash}p{.29\linewidth}>{\raggedright\arraybackslash}p{.20\linewidth}@{}}
@@ -161,16 +193,23 @@ All use Adam $(\beta_1,\beta_2)=(.9,.999)$, $\epsilon=10^{-8}$, no weight decay
 or clipping, FP32 parameters and disabled TF32. Dataset order, cached data,
 initialization and source/config hashes are pinned. All gradients and moments
 continue to update; future gradients naturally depend on the intervened trajectory.
-For the MLP, $L=(2N)^{-1}\norm{F-Y}_F^2$ with one-hot targets $Y$.
+For the MLP, $\mathcal L=(2N)^{-1}\norm{F-Y}_F^2$ with one-hot targets $Y$.
 Output diagnostics retain raw linear outputs for MLP and all class/vocabulary
 log-probabilities for ResNet/Transformer, without averaging probe rows.
 
-\newpage
-\sect{4. Results: cap variants and unchanged-Adam controls}
+
+\textbf{Figure indexing.} The horizontal axis retains the recorded number of
+completed updates $s$. At $s$, loss is $\mathcal L(\theta_s)$, the next gradient
+is $g_{s+1}$, and outgoing motion is $\delta_{s+1}^\ell=\vecop(A_{s+1}^\ell-A_s^\ell)$.
+Hence the plotted cosines are $\rho_{s+1}$ and $\rho_{s+1}^\ell$; the gradient
+cosine concerns the preceding transition, while the representation cosine includes
+the next one. Labels now show this distinction; no recorded state or value is shifted.
+The first intervened update is $t=s_0+1$ (e.g., $449$ after MLP state $448$).
+\sect{5. Results: cap variants and unchanged-Adam controls}
 The primary entry screen uses q75; the common distributed comparison uses q50.
 Each branch is paired with unchanged Adam from its exact native fork on the
 same worker. Mean loss averages the stated loss states; tail averages the last
-32 states; $\mathrm{PV}=\sum_t\max(L_{t+1}-L_t,0)$ uses adjacent states within
+32 states; $\mathrm{PV}=\sum_s\max(\mathcal L(\theta_{s+1})-\mathcal L(\theta_s),0)$ uses adjacent states within
 that window. Outgoing motion also uses a retained state after its end.
 Maximum includes the shared initial state. Percent changes below
 are paired descriptive effects; no confidence intervals are claimed.
@@ -183,6 +222,10 @@ Negative values mean smaller loss or positive variation. MLP distributed results
 use the extended window; the entry screen stops at 800.}
 \label{tab:main}
 \end{table}
+
+\newpage
+\sect{6. Interpretation and sensitivity}
+
 
 \textbf{Entry caps improve the mean, but not every outcome.} The q75 entry rule
 lowers average loss on all three setups, yet increases the MLP tail and ResNet
@@ -238,15 +281,16 @@ values and PDF review are recorded in the accompanying report verification files
 \newpage
 \begin{figure}[H]
 \centering
-\includegraphics[width=.985\linewidth]{../figures/09-local-cap-entry-manuscript.pdf}
+\includegraphics[width=.975\linewidth]{../figures/09-local-cap-entry-manuscript.pdf}
 \caption{\textbf{Entry local displacement caps (q75).} Each column compares only
 the cap with unchanged Adam on its own worker. Loss, gradient norm and displacement
-RMS use logarithmic axes; $\eta\widehat\kappa_t$ uses a linear axis. Magnitude
+RMS use logarithmic axes; $\eta\widehat\kappa_{s+1}$ uses a linear axis. Magnitude
 scales are independent by column. Early
 representation means first MLP tanh, ResNet conv 1 output, or first Transformer
-attention output. $\rho^g$ uses consecutive raw gradients; $\rho^{\rm early}$
-and $\rho^F$ use consecutive outgoing representation changes. Row (i) divides
-the actual whole-parameter increment norm by the native proposal norm. Row (j)
+attention output. $\rho$ uses consecutive raw gradients; $\rho^{\rm early}$
+and $\rho^F$ use consecutive outgoing representation changes. Row (i) shows the
+whole-parameter norm ratio $\gamma_t=\norm{\Delta\theta_t^{\rm cap}}_2/
+\norm{\Delta\theta_t^{\rm Adam}}_2$ at $t=s+1$ (undefined for a zero proposal). Row (j)
 averages fractions of modified units across targeted modules. All curves are
 unsmoothed; zero-denominator cosines are gaps.}
 \label{fig:entry}
@@ -255,7 +299,7 @@ unsmoothed; zero-denominator cosines are gaps.}
 \newpage
 \begin{figure}[H]
 \centering
-\includegraphics[width=.985\linewidth]{../figures/10-local-cap-distributed-manuscript.pdf}
+\includegraphics[width=.975\linewidth]{../figures/10-local-cap-distributed-manuscript.pdf}
 \caption{\textbf{Distributed local displacement caps (q50).} Same diagnostics
 and independent column scales as Figure~\ref{fig:entry}; MLP is extended through
 1152. Loss excursions and mean loss decline while output reversals persist.
@@ -269,7 +313,7 @@ be treated as the same numerical trajectory.}
 \end{figure}
 
 \newpage
-\sect{5. Replication, interpretation and practical limits}
+\sect{7. Replication and practical limits}
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{../figures/11-local-cap-mlp-replication.pdf}
@@ -288,10 +332,10 @@ replicates; better terminal test loss does not.}
 
 \textbf{What is bounded.} The preactivation matrix
 $Z_t=H_tW_t^\top+\mathbf1b_t^\top$, with incoming change
-$\Delta H_t=H_{t+1}-H_t$, changes by
+$\Delta H_t=H_t-H_{t-1}$, has actual change $\Delta Z_t=Z_t-Z_{t-1}$:
 \begin{equation}
- \Delta Z_t=\underbrace{H_t\widetilde U_t^\top+\mathbf1\widetilde v_t^\top}_{\text{capped direct contribution}}
- +\underbrace{\Delta H_tW_t^\top+\Delta H_t\widetilde U_t^\top}_{\text{incoming movement and interaction}}.
+ \Delta Z_t=\underbrace{H_{t-1}(\Delta W_t^{\rm cap})^\top+\mathbf1(\Delta b_t^{\rm cap})^\top}_{\text{capped direct contribution}}
+ +\underbrace{\Delta H_tW_{t-1}^\top+\Delta H_t(\Delta W_t^{\rm cap})^\top}_{\text{incoming movement and interaction}}.
 \end{equation}
 Only the first term is constrained locally. Nonlinearities, normalization and
 attention further transform it. For the first MLP layer, the input is fixed,

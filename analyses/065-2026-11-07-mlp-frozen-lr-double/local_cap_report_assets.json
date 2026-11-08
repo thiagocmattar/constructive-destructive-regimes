@@ -1,7 +1,7 @@
 {
   "status": "verified",
-  "generator_sha256": "8f18b179ec92de94a831042e5ae51fd93c4bc34775cf437247bc0e446add61c2",
-  "source_commit": "24724cc8291f3ff03ad25ac820607477d7d69abf",
+  "generator_sha256": "734cf19de805b4812b2d16b183c16e67b3511fb72f05922929c4983f4e71f845",
+  "source_commit": "9b1321432a08015cf3df97af847e469c3e8a34e9",
   "sources": {
     "transfer_comparison.json": "7aeddfe0f21e4f4ae3475061e77cd803b50ed52e09d178ce1bd14799930a8735",
     "transfer_comparison_run272.json": "16af9fdc76443de1ed83eddb54092fa3306808b48915b3f6b5519a7c91ce3e67",
@@ -14,7 +14,7 @@
   "outputs": [
     {
       "file": "figures/09-local-cap-entry-manuscript.pdf",
-      "sha256": "81d87b3b098de98d1a327d8cd57fbff09ae71d48b742c05743bd2f6ceab6cfc4",
+      "sha256": "c500cc2c0dd775c602ae52c945ed57a53eb7420afaeff2e64348e3b26f15a279",
       "columns": [
         {
           "run": 269,
@@ -93,7 +93,7 @@
     },
     {
       "file": "figures/10-local-cap-distributed-manuscript.pdf",
-      "sha256": "4aeb685a185a8adbab98179f393db2ef302e9e8f1e333707feacd2dc23202b20",
+      "sha256": "98382b3389a98b1d7f97050afbe90cb4fda0ef1c09cb5c18a844810d697407ba",
       "columns": [
         {
           "run": 272,
@@ -172,7 +172,7 @@
     },
     {
       "file": "figures/11-local-cap-mlp-replication.pdf",
-      "sha256": "8818b244fdfaa9f587be4cabdb3a25f9356be6976548b37d39b9fe5738eb4566",
+      "sha256": "aaba9db049d1ddede1723cc5d004801454018386a86cedcd77b6df44d456753d",
       "columns": [
         {
           "run": 272,
@@ -828,6 +828,15 @@
     "cap-results-table.tex": "e0f479feaabf48a2a92da8a3971ddc132fe0b40234f08efd1b647a510e1ced16",
     "cap-seeds-table.tex": "35928371a96f4a78639f0fa2f11679570a00dea6c03d8ee7d2a27f4b2b35dbbe",
     "cap-sensitivity-table.tex": "f39956e1f02f51b76fb53f33a5b74e520244033534c8c22fa70e247c60fb9397"
+  },
+  "indexing": {
+    "axis": "completed updates s",
+    "loss": "L(theta_s)",
+    "gradient": "g_(s+1)",
+    "representation_change": "A_(s+1)-A_s",
+    "intervention_update": "t=s+1",
+    "step_ratio": "norm(Delta theta cap)/norm(Delta theta Adam)",
+    "recorded_values_shifted": false
   },
   "scope": "Only local affine-displacement caps and their own unchanged Adam baselines. No smoothing, truncation or new training.",
   "plotted_values_checked": 61450
