@@ -10,6 +10,12 @@ full training objectives and probes, results, replication, cost and limitations.
 The [editable source](../report/local-displacement-cap-report.tex) is self-contained
 with three generated table inputs and three companion vector figures.
 
+The terminology clarification defines an affine operation as weighted sum plus
+bias, and "direct affine response" as the local preactivation change caused by
+the proposed weight/bias update with inputs held fixed. A one-neuron numerical
+example and the algorithm use this explanation; incoming representation changes
+and subsequent nonlinear transformations remain explicitly separate.
+
 Only cap variants and their unchanged-Adam controls appear. The earlier broad
 exploration is preserved in observation 008 and Figures 06-08. This report adds
 no experiments, no cloud spending, and no run/analysis/hypothesis IDs.

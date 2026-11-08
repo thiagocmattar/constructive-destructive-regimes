@@ -30,15 +30,14 @@ Local Representation Displacement\par}
 {\small Analysis 065 / H048 \hfill 8 November 2026}
 
 \sect{Findings at a glance}
-We translate layerwise representation-instability tracing into an intervention:
-shrink a neuron's proposed Adam increment only when its direct affine response
-on a fixed probe exceeds a past-calibrated budget. All layers remain trainable.
+We cap the local preactivation change caused by each proposed weight/bias update,
+holding current inputs fixed. All layers remain trainable.
 Distributed caps reduce mean training loss by \textbf{22.85\%, 16.22\%, and
 26.00\%} for MLP/CIFAR-10, ResNet/CIFAR-10, and Transformer/WikiText-2 in the
-selected windows. Two further MLP initializations improve by 19.43\% and 32.08\%.
-Loss excursions shrink even when representation reversals persist or increase.
+selected windows; two further MLP initializations improve by 19.43\% and 32.08\%.
+Loss excursions shrink despite persistent or more frequent representation reversals.
 \textbf{Terminal test loss worsens under the distributed cap in every setup.}
-These are finite-window optimization results, not a generalization or convergence guarantee.
+These finite-window optimization results give no generalization or convergence guarantee.
 
 \sect{1. Motivation: from destructive diagnostics to intervention}
 At state $t$ (after $t$ completed updates), let $A_t^\ell$ be a layer's
@@ -61,28 +60,34 @@ found large reversing changes already at the first MLP projection, distributed
 through ResNet stages, and after attention despite steadier Transformer embeddings.
 The temporal SVD of stacked $\delta_t^\ell$ revealed concentrated motion.
 Its window-fitted basis is fixed by construction; instantaneous dominant
-directions can still rotate. This descriptive evidence motivates controlling
-movement where it is produced, without identifying a unique initiating layer.
+directions can still rotate. This motivates local movement control without
+establishing a unique initiating layer.
 
-Our operational stabilization target is smaller loss excursions while preserving
-training progress. We measure the maximum and total positive loss variation
-alongside mean and tail loss. The controller acts on displacement amplitude;
+We assess stabilization through mean/tail loss, maximum loss and total positive
+loss variation: smaller excursions must preserve learning. The controller caps amplitude;
 it neither triggers on a cosine threshold nor uses future-window SVD vectors.
 Thus it is \emph{informed by} destructive-regime diagnostics, rather than treating
 their sign as an objective or a stability theorem.
 
 \sect{2. Local displacement: the measured quantity}
-For one affine module, let $H_t\in\R^{n\times d}$ contain its current probe
-inputs, $W_t\in\R^{m\times d}$ its weights, and $b_t\in\R^m$ its biases.
-Its preactivation matrix is $Z_t=H_tW_t^\top+\mathbf1b_t^\top$.
-Adam proposes stored parameter increments $U_t$ and $v_t$ of matching shapes.
-Holding $H_t$ fixed, compute
+\textbf{Affine means a weighted sum plus bias.} For one neuron, $z=w^\top h+b$
+is its preactivation, before applying an activation such as tanh.
+\textbf{Direct affine response} means the change caused by its proposed weight
+and bias updates \emph{with the same input $h$}:
+$\Delta z_{\rm direct}=(\Delta w)^\top h+\Delta b$.
+For $h=2$, $\Delta w=0.1$, $\Delta b=0$, this change is $0.2$.
+Earlier-layer updates can also change $h$; that incoming movement
+and subsequent nonlinear transformations are outside this direct contribution.
+
+For all probe rows, let $H_t\in\R^{n\times d}$ contain current inputs,
+$W_t\in\R^{m\times d}$ the weights, and $b_t\in\R^m$ the biases.
+Adam proposes stored increments $U_t$ and $v_t$. Holding $H_t$ fixed, compute
 \begin{equation}
  D_t=H_tU_t^\top+\mathbf1v_t^\top\in\R^{n\times m},\qquad
  s_{t,j}=\sqrt{\frac1n\sum_{i=1}^n D_{t,ij}^2}.
  \label{eq:score}
 \end{equation}
-Column $j$ of $D_t$ contains the direct changes of neuron $j$ across all probe
+Column $j$ of $D_t$ contains these local preactivation changes for neuron $j$ across probe
 rows. For MLP linear 1, $H_t$ is $5000\times3072$ and $D_t$ is $5000\times200$.
 The score is RMS down a column: examples are squared before averaging, so their
 signs cannot cancel. It is not a worst-case bound on each example.
@@ -115,7 +120,7 @@ requirement to modify half the units at each subsequent step.
 \State Advance native Adam moments/clocks and form stored proposal $\theta_t^+$.
 \For{each targeted module $\ell\in\mathcal S$ with $\tau_\ell>0$}
   \State Extract proposed increments $(U_t^\ell,v_t^\ell)$ from $\theta_t^+-\theta_t$.
-  \State Compute direct affine responses and per-unit RMS using Eq.~\eqref{eq:score}.
+  \State Compute preactivation changes at fixed inputs and per-unit RMS, Eq.~\eqref{eq:score}.
   \State Scale each proposed weight row and bias using Eq.~\eqref{eq:cap}.
 \EndFor
 \State Store $\theta_{t+1}=\theta_t+\widetilde u_t$; keep the advanced Adam state.
@@ -281,8 +286,9 @@ scales per column. Each initialization has its own unchanged Adam control.}
 replicates; better terminal test loss does not.}
 \end{table}
 
-\textbf{What is bounded.} Because upstream layers also move, the actual affine
-change is
+\textbf{What is bounded.} The preactivation matrix
+$Z_t=H_tW_t^\top+\mathbf1b_t^\top$, with incoming change
+$\Delta H_t=H_{t+1}-H_t$, changes by
 \begin{equation}
  \Delta Z_t=\underbrace{H_t\widetilde U_t^\top+\mathbf1\widetilde v_t^\top}_{\text{capped direct contribution}}
  +\underbrace{\Delta H_tW_t^\top+\Delta H_t\widetilde U_t^\top}_{\text{incoming movement and interaction}}.

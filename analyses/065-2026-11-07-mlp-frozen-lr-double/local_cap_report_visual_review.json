@@ -1,12 +1,12 @@
 {
   "status": "passed",
-  "utc": "2026-11-08T11:57:19.572723+00:00",
+  "utc": "2026-11-08T12:02:16.160449+00:00",
   "renderer": "MiKTeX Poppler pdftoppm",
   "dpi": 120,
   "outputs": [
     {
       "file": "report/local-displacement-cap-report.pdf",
-      "sha256": "f1360d2164ce7bd42a858c7099e113002ff770865b7e473e32404c87617f58eb",
+      "sha256": "9fa9db3390d6ebdcf742946eaa495479973aeb06bd20fbb680663d357bd0feee",
       "pages_reviewed": [
         1,
         2,
@@ -52,13 +52,13 @@
     "Tables and captions fit",
     "Legends and axis labels clear",
     "No clipping or overlap",
-    "Final changed pages 2 and 3 reinspected; other report renders byte-identical"
+    "Terminology clarification: report pages 1, 2 and 6 visually reviewed; pages 3-5 render byte-identically to the preceding review",
+    "Standalone figures unchanged; logarithmic loss and linear eta-kappa-hat preserved"
   ],
   "unchanged_report_renders_after_final_edit": [
-    1,
+    3,
     4,
-    5,
-    6
+    5
   ],
   "earlier_figures_head_identical": {
     "01-frozen-first-linear-double-lr-cifar10-mlp.pdf": "c2e3bd3640546d18b2602a05c98c3b764b73b7f4ab42642cabc4d320d5b141aa",
@@ -71,5 +71,5 @@
     "08-adaptive-and-embedding-tests.pdf": "d343bc22779aabc028e3c6b4dff8a1efd0192b5e4151eda742ef9881edc4918b"
   },
   "assets_sha256": "044c8ff8de417da9fbf95947fa1843dbebe4318c7112772aa349bf21aee23cee",
-  "build_verification_sha256": "16f655c8e7b018c63a8877dc6c540899d8ac4b656c760adf1197dc0ab6dc9c91"
+  "build_verification_sha256": "9b5ce4532f6e74a63f6bd2614625849d73b232c369be98744e33d0b5261098f3"
 }
