@@ -3,7 +3,7 @@
 
 # Cap-quantile ablation with a shared loss axis
 
-[Figure 14](../background/figures/14-distributed-cap-quantile-ablation-mlp.pdf) presents the
+[Figure 14](../14-distributed-cap-quantile-ablation-mlp.pdf) presents the
 existing H049 MLP results as three columns: Adam LR 0.001, 0.002 and 0.004.
 The X axis lists cap quantiles q25/q50/q75/q90/q99. Blue markers are connected
 to show the ablation trend; a separate black diamond is uncapped Adam at the

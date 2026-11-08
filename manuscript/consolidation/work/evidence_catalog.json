@@ -36,7 +36,7 @@
       "title": "V-C. Intervention comparisons",
       "claim": "Present learning-rate schedules, beta2 schedules, gradient clipping and the distributed q50 displacement cap; each retains its unchanged Adam baseline.",
       "boundary": "Training benefits coexist with held-out deterioration. Historical comparators are not one matched benchmark; direct ranking remains pending.",
-      "presentation": "The figures/ folder contains only these four families. Distributed q50 is the sole representation-inspired intervention; other methods and quantiles are background evidence."
+      "presentation": "The figures/ folder contains the four selected families, with distributed q50 as the sole representation-inspired method. The quantile/LR ablation is retained at the section root as supporting evidence."
     },
     "06-conclusion": {
       "title": "VI. Conclusion",
@@ -722,6 +722,17 @@
     },
     {
       "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/14-distributed-cap-quantile-ablation-mlp.pdf",
+      "destination": "05-adam/c-intervention/14-distributed-cap-quantile-ablation-mlp.pdf",
+      "title": "Supporting ablation: cap quantile by learning rate",
+      "role": "supporting ablation",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/014-cap-quantile-ablation-figure.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/43_plot_cap_ablation.py",
+      "note": "Retained explicitly for the paper: q25/q50/q75/q90/q99 at 1x/2x/4x LR, three initializations. Shared log-loss scale; mean +/- sample SD. Main intervention remains distributed q50.",
+      "presentation_order": 7
+    },
+    {
+      "section": "05-adam/c-intervention",
       "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/09-local-cap-entry-manuscript.pdf",
       "destination": "05-adam/c-intervention/background/figures/09-local-cap-entry-manuscript.pdf",
       "title": "Background source: 09-local-cap-entry-manuscript.pdf",
@@ -758,16 +769,6 @@
       "role": "background only",
       "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/013-distributed-cap-quantile-lr.md",
       "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/40_plot_cap_lr.py",
-      "note": "Preserved historical evidence; excluded from the selected four-part presentation."
-    },
-    {
-      "section": "05-adam/c-intervention",
-      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/14-distributed-cap-quantile-ablation-mlp.pdf",
-      "destination": "05-adam/c-intervention/background/figures/14-distributed-cap-quantile-ablation-mlp.pdf",
-      "title": "Background source: 14-distributed-cap-quantile-ablation-mlp.pdf",
-      "role": "background only",
-      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/014-cap-quantile-ablation-figure.md",
-      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/43_plot_cap_ablation.py",
       "note": "Preserved historical evidence; excluded from the selected four-part presentation."
     },
     {

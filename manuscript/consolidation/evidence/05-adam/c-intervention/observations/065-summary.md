@@ -261,7 +261,7 @@ and [compute closeout](../../../../../../analyses/065-2026-11-07-mlp-frozen-lr-d
 and retrieves compact results. Previous figures/report and scientific inputs are
 unchanged. Continue this same analysis; next unused run 289 and hypothesis H050.
 
-[Cap-quantile ablation](../background/figures/14-distributed-cap-quantile-ablation-mlp.pdf)
+[Cap-quantile ablation](../14-distributed-cap-quantile-ablation-mlp.pdf)
 shows connected means and sample-SD error bars in three LR columns with a shared
 logarithmic loss axis. [Observation014](65-014-cap-quantile-ablation-figure.md)
 records sources, reduction, caption and checks. Existing data only; no new training.

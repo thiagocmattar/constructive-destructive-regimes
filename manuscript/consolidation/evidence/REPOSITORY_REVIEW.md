@@ -14,7 +14,7 @@
 - Scoped the 1,188 HVP pairs to the tanh MLP and independent derivative calculations, not statistically independent experiments.
 - Specified per-module pooled budgets, per-unit scaling, actual Adam increments, target scopes and unbounded incoming-motion terms.
 - Included terminal test loss beside training benefits, and kept historical LR/clipping/beta2 controls separate from the still-pending matched comparison.
-- Preserved the completed 54-continuation MLP quantile/LR ablation as background; the selected presentation contains q50 only.
+- Retained the completed 54-continuation MLP quantile/LR ablation directly in V-C as supporting evidence, following the author's latest selection; the main intervention remains distributed q50.
 - Moved other representation-inspired interventions and the mixed six-page Figure 07 out of the selected figure folder; extracted its q50 heatmap page intact.
 - Corrected artifact generator references and supplied copied source records and executable package verification.
 - Removed the old P/E/W task queue as an alternative authority; TASKS now mirrors PLAN closure.

@@ -12,6 +12,7 @@ Present these four families in this order. Every comparison retains unchanged Ad
 | q50 support | [MLP replication](11-local-cap-mlp-replication.pdf) | Three initializations; only unchanged Adam and distributed q50 |
 
 - **Only representation-inspired intervention:** distributed displacement cap q50. Other quantiles, entry caps and alternative functional interventions are excluded here.
+- **Supporting ablation:** the [quantile/LR figure](../14-distributed-cap-quantile-ablation-mlp.pdf) is retained directly in c-intervention to track sensitivity of the same cap method.
 - **Heatmaps:** both arms share each captured stage's baseline RMS maximum; cosine uses the same scale. MLP shows 448–800, ResNet 264–576, Transformer 552–928. The MLP diagnostic/replication PDFs extend to 1152.
 - **Comparison scope:** these are existing paired studies with different forks/windows; presenting them together does not establish a matched ranking.
 - **Provenance:** [section records](../README.md), [manifest](../../../copy_manifest.json), [background archive](../background/README.md). Original analysis PDFs remain intact.

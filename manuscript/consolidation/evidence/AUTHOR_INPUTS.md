@@ -22,6 +22,7 @@
 | Put figures, tables, algorithms and equations inside consolidation | Section-indexed assets, source records, generated summaries and hash manifest now reside under evidence/. |
 | Give Figure 07 page 2's layer heatmaps a prominent role | Preserved as a standalone q50 page, now the Figure 10 base after the three conventional interventions; retain the paired layout and common baseline RMS scaling. |
 | Present distributed displacement cap q50 as the only representation-inspired intervention | Only q50 heatmaps, diagnostics and replication remain in figures/ alongside LR, beta2 and clipping. Other methods/quantiles and the mixed six-page source are background evidence. |
+| Keep Figure 14's quantile/LR ablation visible in c-intervention | Retained at the section root and indexed as supporting ablation of the same cap method; q50 remains the main intervention. |
 
 - **Scientific qualifications retained:** correlations are descriptive; GD thresholds do not become universal Adam alarms; SVD is retrospective; training improvements can coexist with worse test loss.
 - **Workflow boundary:** this phase changes the consolidation package. The active manuscript and original research assets are preserved.
