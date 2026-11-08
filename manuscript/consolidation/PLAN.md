@@ -1,184 +1,133 @@
-# Consolidation within the author's manuscript structure
+# Paper anatomy and closure map
 
-**Iteration 2 - 8 November 2026. Planning only; manuscript unchanged.**
+- **Central argument:** learning updates reinforce or reverse earlier changes. Curvature, amplification, sampling and accumulation explain their consequences; representation tracing connects them to functional changes and interventions.
+- **Title:** *Constructive and Destructive Training Regimes: A Framework for Interpreting SGD Stability*.
+- **Structure:** retain the six sections, theory subsections and four GD/SGD figures. Develop characterization → tracing → intervention **inside Section V**.
+- **Reading contract:** this is the complete working map. Links provide source evidence; no other consolidation document is required.
 
-## 1. Governing argument
+## I. Introduction — the gaps and what we contribute
 
-The author's current paper and the inputs in `human/` define the structure and
-scientific direction. This consolidation fills that structure with formulations,
-evidence, figures, literature positioning and specific remaining tasks. The
-first proposal gave tracing and interventions too much organizing weight. That
-proposal is superseded; its evidence audits remain useful.
+- **1. What does a destructive regime mean for learning progress?**
+  - **Prior work → gap:** [EoS](https://arxiv.org/pdf/2103.00065) explains oscillatory progress; [Chee–Toulis](https://proceedings.mlr.press/v84/chee18a.html)/[Pesme](https://proceedings.mlr.press/v119/pesme20a.html) diagnose stationarity. A local reversal label does not resolve accumulated motion or objective progress.
+  - **Our contribution:** constructive/destructive characterization from SGD updates, connecting local interaction, gradient magnitude and cumulative displacement.
+  - **Demonstration:** all nine GD cases have positive total pair interaction; seven simultaneously have negative adjacent interaction. **Home:** III opening/III-D → IV Figures 2–3.
 
-The paper remains **Constructive and Destructive Training Regimes: A Framework
-for Interpreting SGD Stability**, with its present six sections. Constructive/
-destructive behavior follows from how successive learning updates reinforce
-or oppose changes in a model. Curvature, gradient magnitude, sampling and
-temporal accumulation connect that behavior to stability and loss progress.
-Adam, representation tracing and interventions develop this same argument.
+- **2. What can existing gradients tell us about curvature under sampling?**
+  - **Prior work → gap:** [Barzilai–Borwein](https://doi.org/10.1093/imanum/8.1.141) supplies secants; gradient-product theory includes noise. Neural trajectory interpretation still requires separating directional curvature, norm change and sampling.
+  - **Our contribution:** the alignment–curvature relation, gradient-only proxy and explicit noise contribution, with direct derivative and batch-size validation.
+  - **Demonstration:** 1,188 HVP comparisons; at batch 32, an offline full-gradient noise correction reduces median proxy discrepancy from .7467 to .0030. **Home:** III-A/B/C → IV Figures 1/4 and compact supporting validation.
 
-The author's reasoning, assembled from all the supplied notes, is:
+- **3. When does reversal become a loss excursion?**
+  - **Prior work → gap:** EoS and [Bai et al.](https://arxiv.org/html/2506.04805v2#S1) explain productive oscillation and Adam spike dynamics. Reversal alone does not distinguish descent from excessive movement; its functional consequence remains to be measured.
+  - **Our contribution:** a local GD relation combining reversal and norm amplification, followed by empirical loss accounting and its functional interpretation under Adam.
+  - **Demonstration:** 26,991 GD transitions delimit the approximation; within the measured continuation windows of three MLP seeds, every meaningful baseline loss rise has beneficial residual correction outweighed by squared output movement. **Home:** III-E → IV validation → V interpretation.
 
-1. Training solves a learning problem by changing a model and its representations.
-   Curvature describes the resulting objective and update dynamics; we also
-   want to understand the learning changes expressed by those dynamics.
-2. Starting from SGD's update equations, constructive/destructive regimes make
-   reinforcement and reversal of successive changes explicit.
-3. Their connection to directional curvature supplies a gradient-only diagnostic.
-   Gradient growth and sampling explain why the same alignment sign can have
-   different consequences for loss and accumulated movement.
-4. GD and minibatch experiments characterize these relationships across the
-   existing model/data cases. They are substantive tests of the framework.
-5. The same raw-gradient computation can observe the path selected by Adam.
-   The Adam section characterizes high-rate excursions, then follows the
-   associated motion from outputs through hidden representations.
-6. The tracing algorithm, its findings and interpretation motivate interventions.
-   LR changes, clipping, beta2 changes and local displacement caps test what
-   different explanations make actionable and what their tradeoffs are.
+- **4. Where does instability appear in representations, and what should be controlled?**
+  - **Prior work → gap:** [Catapults](https://proceedings.mlr.press/v235/zhu24h.html) studies output/NTK dynamics; [Kosson](https://arxiv.org/html/2410.23922v1#S6) studies representation change and warmup. We need event-level localization and tests of which local effects can be limited while retaining progress.
+  - **Our contribution:** fixed-probe tracing of activation increments and temporal modes, followed by per-unit local-displacement caps and discriminating controls.
+  - **Demonstration:** structured motion across three architectures; cap training-mean reductions of 22.85%/16.22%/26.00% in the selected MLP/ResNet/Transformer comparisons, plus MLP replication. **Home:** V-B/C.
 
-The contribution's generality comes from the relationships formulated, the
-measurement capability, and insights that can be examined in other learning
-problems. Formal scope and empirical coverage are stated per element. A useful
-framework can connect established mathematical ingredients into an explanatory
-argument; its value must be demonstrated through the questions it resolves.
+- **Edit:** retain the four current contribution components; extend empirical characterization with tracing/interventions. Credit established identities and representation-control precedents; claim the connected explanation, capability and tested findings.
 
-**Read next:** [argument and contribution map](evidence/ARGUMENT_MAP.md) for the
-gap/reference/contribution/evidence chain; [author-input map](evidence/AUTHOR_INPUTS.md)
-to see how every supplied request was incorporated. The
-[repository review](evidence/REPOSITORY_REVIEW.md) explains where the evidence
-came from and which historical plans or presentations have been superseded.
+## II. Stability Analysis of SGD — give each predecessor a clear role
 
-## 2. Contribution components
+- **Keep the four existing subsections:** local curvature; minibatch stochasticity; curvature/noise/EoS; practical large-model stability.
+- **Add precise comparisons:** connect those subsections to the four gaps; define regime/stability operationally.
+- **Cap distinction:** Kosson's RRC correction uses layer scaling from a signal-to-noise model of **relative** response; ours directly caps per-unit **absolute** affine RMS against a past budget. Both fix local inputs (§6/Appendix B.6).
 
-These IDs identify components to consolidate, not a required eight-bullet
-introduction. The current four contribution bullets remain the starting point;
-the new work extends them. Each component has a positioning card in the argument map.
+## III. Constructive and Destructive Regimes — retain the analytical spine
 
-| ID | Intended contribution | Existing formulation/evidence | Role |
-|---|---|---|---|
-| C1 | Constructive/destructive characterization from learning updates | Exact SGD displacement and norm/interaction decomposition; adjacent regime definition. | The central organizing idea. |
-| C2 | Curvature connection and inexpensive gradient-only proxy | Boxed alignment/curvature relation, path-average identity, error bound;017/018/024/027. | Main analytical and practical contribution, with classical secant attribution. |
-| C3 | Joint reversal and amplification account of loss rises | III-E/Appendix A; quadratic relation and024 finite-step audit; Adam036/055/057; functional loss accounting062/065. | Explains oscillatory descent versus amplified excursions. |
-| C4 | Sampling and batch-size effects | Noise term/variance; frozen/moving controls020/027; three-model extension037. | Core theoretical and empirical component in III/IV. |
-| C5 | Controlled characterization of regime emergence and accumulation |024 GD rates and R;035 exact backward lags;056 additional all-lag checks. | Main Section IV evidence in its present order. |
-| C6 | Diagnostic interpretation along adaptive trajectories | Existing Appendix A mixed-Hessian identity; current V;028/029/034/036 and Pythia evidence. | Opens V using the same diagnostic and intuitive slope-response explanation. |
-| C7 | Representation-level tracing, algorithm and findings |061/062 internal investigations;063 formal workflow and cross-architecture results. | Develops the learning interpretation within V. |
-| C8 | Representation-informed intervention and comparative evaluation |038-054 control development,058 comparators,059 beta2,064/065 interventions. | Completes V's practical argument, with measured benefits and tradeoffs. |
+- **Opening: update decomposition.** Keep exact SGD displacement, all temporal pair interactions, and the local constructive/destructive sign definition.
+- **A. Directional curvature.** Keep the boxed curvature–alignment connection and the distinction between reversal and amplification.
+- **B. Hessian-free estimator.** Keep `eta*kappa_hat = 1 − rho*||g_current||/||g_previous||`; explain its GD directional/path-average meaning and secant antecedent.
+- **C. Sampling.** Keep the noise term, finite-population variance and cosine approximation; separate fixed-state sampling from changing SGD trajectories.
+- **D. Normalized displacement.** Keep R as net displacement divided by path length, with the existing example. Low R does not measure useless learning.
+- **E. Loss decrease and excursions.** Keep the local quadratic criterion and angle/norm examples; distinguish an individual loss rise from a recovered spike.
+- **Finish:** label exact/approximate statements and assumptions; retain notation and undefined-value conventions. Add [024](../../analyses/024-2026-10-17-eos-gd-lr-calibration/observations/007-section-iv-critical-review.md)/[027](../../analyses/027-2026-10-30-minibatch-noise/REPORT.md) validation. **New training: none.**
 
-## 3. Fixed section map
+## IV. Empirical Characterization — four questions, four existing figures
 
-Keep the existing section names and progression. M/F/T/A identifiers refer to
-planning elements, not new manuscript numbering.
+- **Cases:** CIFAR-10 MLP, 5,000 examples/half-squared error; CIFAR-10 ResNet-32, 50,000 examples/cross-entropy; WikiText-2 Transformer, 2,088,600 supervised tokens/token-weighted NLL.
+- **Figure 1 — How do regimes emerge with LR and curvature?**
+  - Keep [024's loss/proxy/spectral display](../draft/figures/analysis024/gd_loss_projected_change_spectral_clean.pdf): nine GD conditions, three model/data cases, 3,000 updates.
+  - Add concise HVP/noise validation in supporting material; disclose full-MLP versus subset spectral coverage.
+- **Figure 2 — How can destructive alignment coexist with progress?**
+  - Keep [reversal, gradient norm and R](../draft/figures/analysis024/gd_reversal_norm_retention.pdf); explain local reversal alongside positive all-pair accumulation and loss progress.
+- **Figure 3 — How are interactions organized over time?**
+  - Keep [035's backward lags](../draft/figures/analysis035/gd_backward_compact.pdf): endpoint 2256, lags 1–256. Explain alternating/reinforcing longer lags.
+- **Figure 4 — What changes with minibatch size?**
+  - Keep [037's batch comparison](../draft/figures/analysis037/sgd_batch_size_compact.pdf): 546 trajectories, three cases, three initializations. Use frozen-state controls to separate sampling from changed paths.
+- **Finish:** connect results to III; state seeds, coverage and exposure. **New GD/HVP/lag/batch experiments: none.**
 
-| Current section | Preserve | Consolidate within it | Evidence/artifacts |
-|---|---|---|---|
-| I. Introduction | Author-edited motivation and four current contribution components. | M01: learning/representation motivation; specific cited gaps; completed tracing/intervention results. | C1-C8; argument map; current introduction and author annotations. |
-| II. Stability Analysis of SGD | Curvature/stability; minibatch stochasticity; EoS; practical large-model stability. | M02: nearest prior work where it informs these same questions. | Literature L01-L17; current II-A-D. |
-| III. Constructive and Destructive Regimes | Displacement formulation and all five subsections: curvature; estimator; noise; normalized displacement; loss decrease/spike formation. | M03-M06: precise relationships, interpretations and assumptions. Keep the boxed relations, path-retention explanation and angle examples. | Current equations/Appendix A;017/018/024/027. |
-| IV. Empirical Characterization of Constructive and Destructive Regimes | The author's order: convergence/curvature, destructive regime/norm/R, temporal lags, batch effects. | M08-M10: link each result to its theory; retain the four current main figures and use existing direct validation where helpful. |024/035/037;020/027/056 support. No automatic restoration of the removed endpoint table or paired C/D notation. |
-| V. Raw-Gradient Diagnostics under Adam | Same raw-gradient diagnostic and its meaning along Adam's steps. | M07 and M11-M20: characterization, tracing, and interventions in the requested sequence below. |036/055/057/058;061-065; selected earlier Pythia controls. |
-| VI. Conclusion | Framework, curvature/proxy, sampling/loss and controlled characterization as the main contribution. | M21-M24: what tracing and interventions add; replace outdated future-work descriptions with completed results. | Supported conclusions from this same paper. |
-| Appendices/support | Path-integral derivations and measurement conventions. | Compact validation, complete populations, probe/calibration/replication details and reproducibility. | Owning analysis records; rejected dense presentations are not restored wholesale. |
+## V. Raw-Gradient Diagnostics under Adam — characterize, trace, intervene
 
-### Section V: the requested development
+- **Opening — preserve the observable, explain its meaning.**
+  - Adam determines the traversed direction; the preceding raw gradient determines the projection. Use the existing Appendix A identity.
+  - The same computation remains meaningful; GD's loss/stability thresholds do not automatically transfer.
 
-**Opening: interpretation beyond SGD (C6).** Adam chooses the traversal direction;
-the preceding raw gradient defines the projection of the gradient response.
-Keep the existing diagnostic notation and the intuitive local-slope explanation.
-Use the identity already in Appendix A where needed. No repeated metric
-definition or new `z` notation is required.
+### A. Characterization: one high-LR case per model
 
-**V-A: high-rate characterization.** Start from Analysis058 Figure 00: one high-LR
-trajectory for each of MLP, ResNet and Transformer. Characterize the selected
-cases with loss, eta-kappa-hat, rho and gradient growth. The requested peak table
-distinguishes observations before the outgoing update, response to the incoming
-update, the peak and recovery. Preserve the loss-defined event contract and
-complete population when simplifying the main displays.
+- **Display:** [058's high-LR overview](../../analyses/058-2026-11-06-intervention-consolidation/figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf).
+- **Three-row peak table:** use the already selected largest loss-defined excursions in [036](../../analyses/036-2026-11-02-controlled-adam-diagnostics/README.md):
+  - MLP, LR .001: pre-rise/peak/recovery **689/703/729**.
+  - ResNet, LR .003: **415/422/482**.
+  - Transformer, LR .003: **787/794/855**.
+- **Columns:** loss, rho, gradient-norm ratio and eta-kappa-hat at pre-rise and peak; incoming/outgoing update and first-availability labels.
+- **Timing:** the current gradient precedes the outgoing update but describes the completed incoming step. Extract the table; retain event/censoring counts; perform check **A** below. **Characterization needs no training.**
 
-**V-B: instability tracing.** Follow the tracing note's reasoning: loss/gradient
-oscillation -> output changes on a fixed probe -> signal correlation -> hidden
-representations -> temporal SVD structure. Present Algorithm A1, layerwise
-findings and interpretation as contributions. Use061/062 for the investigative
-development and063 for the unified method. The heatmap/spectrum/coefficient
-display follows the visual idea in065 Figure 07 page 2.
+### B. Tracing: follow the functional oscillation through the network
 
-**V-C: representation-informed interventions.** Explain what each action
-controls: LR scales the step; clipping changes optimizer input; beta2 changes
-adaptive memory; local caps regulate a layer's response to a proposed update.
-Present LR schedules, clipping, the recovered beta2 study and local caps in
-that sequence. Compare each with its unchanged baseline and examine loss,
-representation motion and subsequent progress. The ablation grid supports
-this argument without dominating it.
+- **Algorithm:** fixed probe → output increments → gradient/output association → hidden-layer increments → cosine/amplitude → temporal SVD and signed coefficients.
+- **One combined display:** loss/output motion; layer heatmaps; energy spectrum; leading coefficients. Follow [065 Figure 07, page 2](../../analyses/065-2026-11-07-mlp-frozen-lr-double/figures/07-distributed-displacement-and-controls.pdf) for readable layer grouping.
+- **Use the existing [063 event fits](../../analyses/063-2026-11-07-architecture-instability-tracing/observations/005-technical-report-event-window.md):**
+  - MLP 450–500: all 5,000 examples; output rank95 = **5**.
+  - ResNet 280–310: one intact 1,000-example normalization group; rank95 = **16**.
+  - Transformer 552–600: 64 sequences/2,240 supervised positions; rank95 = **15**.
+- **Interpretation:** structured functional motion and architecture-specific localization; use 061/062 for hidden-motion/amplification explanations.
+- **Finish:** assemble algorithm/figure using matched windows, explicitly distinct from V-A's peaks. **New tracing: none.**
 
-These blocks implement the author's requested Adam restructuring **within V**.
-Subsection lettering follows typesetting when applied; no new top-level tracing
-or intervention section is planned.
+### C. Intervention: test what the interpretation makes actionable
 
-## 4. Artifacts and placement
+- **Present in the author's order:** LR schedules → clipping → beta2 → local-displacement cap.
+- **Existing evidence:** [058](../../analyses/058-2026-11-06-intervention-consolidation/README.md) supplies LR/clipping; [059](../../analyses/059-2026-11-07-mlp-beta2-reduction/README.md) recovers the late beta2 reductions; [065](../../analyses/065-2026-11-07-mlp-frozen-lr-double/README.md) supplies caps and controls.
+- **Cap algorithm:** scale proposed weight/bias increments by `min(1, tau/s)`, where s is per-unit local affine RMS and tau is a positive past-calibrated budget. Preserve Adam state. The bound is local; the controller uses no SVD.
+- **Main evidence:** cap loss/motion display plus one comparison table; include the existing norm-matched control, MLP replication and completed 54-arm quantile×LR ablation in support.
+- **Interpretation:** selective amplitude allocation can help while reversals persist. Terminal test loss worsens under the cap in all three cases; larger tolerated LR did not improve learning over the same cap at its native LR.
+- **Finish:** use experiment **B** for direct ranking. Describe late beta2 switching with retained state separately from training throughout with lower beta2.
 
-| Display | Treatment | Source / remaining work |
-|---|---|---|
-| Current Figures1-4 (F1a/F1b/F1c/F2) | Retain GD loss/curvature; rho/norm/R; backward lags; batch effects. |024/035/037 assets; targeted interpretation/caption checks. |
-| F3 high-LR Adam overview | Use the view named by the author as the main characterization. |058 Figure 00; preserve nine-arm/population evidence in support. |
-| T1/T3 timing and peak table | Eta-kappa-hat, rho, norm growth and loss with explicit availability/update columns. | P02/P04. Pre-update detection remains an explicit objective to validate. |
-| A1/F4 tracing | Algorithm and output-to-layer/SVD findings, using readable stage aggregation. |063 method/figures;061/062 explanation; matched windows and probe definitions. |
-| A2/F5 local cap | Local rule plus effects on loss and representation motion. |065 report/Figure10 and Figure 07 page 2; replication. Controller uses local affine scores, not the temporal SVD. |
-| F6/T4 intervention comparison | LR, clipping, beta2 and caps with learning tradeoffs. |058/059/065 and older043 Transformer clipping; check fork/window matching before ranking. |
-| Supporting validation | Compact evidence for the analytical claims. |027 HVP/noise checks;024 loss audit;056 all-lag evidence. Select presentation with the author; no automatic restoration of dense tables. |
+## VI. Conclusion and appendices — close the same argument
 
-There is no new fixed figure/page quota overriding this structure. Balance space
-by consolidating existing Adam displays and using supporting material deliberately.
-[ARTIFACTS.md](evidence/ARTIFACTS.md) provides paths and generators.
+- **Conclusion:** C/D formulation → curvature/noise/loss interpretation → GD/SGD characterization → Adam's functional expression → intervention findings.
+- **Appendices:** derivations and approximation scope; HVP/loss checks; full event population; probe/calibration contracts; complete controls and held-out results.
+- **Abstract:** update after these sections; replace outdated “future interventions” with completed findings.
 
-## 5. Existing support and actual remaining work
+## Remaining empirical work — two bounded decisions
 
-- **Curvature/noise:**027 has 1,188 state-matched HVP pairs. At batch 32 the raw
-  proxy median absolute discrepancy .7467 becomes .0030 after measuring the
-  explicit noise correction. This independently computed derivative comparison
-  supports the decomposition; the correction itself is an offline reference.
-- **Regime accumulation:**024/056 show negative adjacent interactions alongside
-  positive all-pair interaction and continued progress. This develops the
-  interpretation of local destructive behavior and R.
-- **Batch effects:**037 already has the three-model, three-initialization
-  extension.020/027 isolate fixed-state sampling and compare moving paths.
-- **Adam/representations:**036/055/057 supply characterization and timing;
- 061/062 connect amplification to functional/hidden motion;063 supplies the
-  tracing method.064/065 include freezing, selective LR, norm/directional
-  controls, cross-architecture caps and three-seed MLP ablations.
-- **Comparators:**058 consolidates schedules/clipping;059 is the beta2 study.
- 043 also contains short Transformer clipping tests at a different fork.
-  Missing is matched clipping in the selected tracing/cap window.
+### A. Can we support the requested pre-update warning?
 
-The immediate work is P01-P05: finish source-to-claim and prior-work comparisons,
-select concise validation, build the specified peak table, and prepare the
-requested tracing/comparison figures. [TASKS.md](work/TASKS.md) provides assignments.
+- **First, existing data:** [055](../../analyses/055-2026-11-05-adam-directional-amplification/observations/002-direction-context.md) has 7,204 eligible quiet decisions, including 645 positives. **Primary target:** loss ≥10% above the current loss within eight updates.
+- **Nested comparison:** fixed L2-logistic models using loss history; then adding gradient norm/growth; then adding cosine. The decisive test is whether cosine adds value beyond the same loss/norm features.
+- **Evaluation:** freeze features/fitting/threshold rules; use chronological train/validation/test blocks, an eight-update exclusion gap and training-only normalization.
+- **Success:** higher average precision **and** recall at ≤5 false alarms per 100 eligible negative decisions. Choose thresholds on validation; report test results per model and lead times to first increase/escalation/peak.
+- **Stop rule:** if the criterion fails, report the finding and retain the descriptive diagnostic; no repeated horizon/threshold search.
+- **Validated prediction requires:** the frozen pipeline on two fresh initializations per architecture, 1,024 unchanged high-LR updates each—six trajectories. Otherwise report retrospective feasibility.
 
-New measurements must answer a named missing link: matched controls at the
-chosen cap forks, missing larger-model replication, probe robustness, measured
-cost for efficiency claims, or a time-correct test of the requested pre-update
-warning objective. A comprehensive new optimizer benchmark is not imposed on
-the paper. Completed work and stale TODOs are separated in the repository review.
+### B. Complete the direct intervention comparison
 
-Qualifications stay local to the relevant claim: frozen sampling versus moving
-SGD, path-average versus spectral curvature, training versus held-out outcomes,
-and retrospective observation versus prediction. They make the author's chosen
-argument precise rather than determine a different emphasis.
+- **Recommended new comparison:** native Adam, native half-LR, global raw-gradient clipping at norm 1 before moments, and distributed q50 cap; add beta2=.95 for the MLP comparison.
+- **Matched seed-0 cases:** MLP **448→1152, LR .001**; ResNet **264→576, LR .003**; Transformer **552→928, LR .003**.
+- **Match:** fork tensors, optimizer/RNG, objective, hardware, precision and V-B probes. Calibrate caps on eight untreated pre-fork updates; retain moments/clock and native bias correction for beta2 switching.
+- **Reuse qualified matches only; otherwise rerun the paired baseline.** At most **13 post-fork arms** before reuse; budget replay/calibration separately.
+- **Outputs:** full-window and final-32-state mean loss, maximum, positive loss variation, output motion, control activation fraction; complete held-out evaluations at fork, fork+32 and endpoint.
+- **Stop:** complete fixed arms or record divergence; no threshold retuning. Report inactive clipping without generalizing to effective clipping. Keep unmatched historical comparisons separate.
+- **Execution:** continue Analysis 065 with new run IDs; prepare cost/duration/storage/verification before paid execution.
 
-## 6. Review procedure and next deliverable
+## Closure sequence and completion test
 
-Use the supplied review-skill to check each chain:
-**question -> cited predecessor -> specific boundary -> contribution -> direct
-evidence -> significance -> scope/remaining test**. The argument map gives the
-affirmative positioning; [CLAIMS.md](evidence/CLAIMS.md) checks mathematical and
-empirical support. Neither document selects a different paper structure.
-
-The next author review concerns mapping completeness, proposed content within
-each section, positioning and specific remaining tasks. Structure and central
-emphasis are no longer open choices. Continue consolidation until the author
-is satisfied; apply manuscript changes only when requested. No training,
-cloud spending or publication is authorized by this document.
-
-A separate submission item is recorded: the supplied previous TNNLS decision
-restricts revised resubmission. W02 must resolve the intended submission route
-against that letter before submission. This does not change the author's venue
-goal or interrupt scientific consolidation; no alternate venue is selected.
+- **1 — Write I–IV from retained evidence:** the theory, core experiments and validations already exist.
+- **2 — Produce V-A/B:** extract the peak table, run check A, assemble the tracing algorithm/display.
+- **3 — Finish V-C:** execute comparison B if retaining the planned direct ranking; integrate all outcomes and existing ablations.
+- **4 — Rewrite abstract/VI and finalize:** verify equations, claims, citations, figures and reproducibility; compile and inspect the manuscript.
+- **Submission item:** resolve the supplied TNNLS decision's revised-resubmission restriction before submission; it does not change this scientific anatomy.
+- **Map completion criterion:** every contribution has a cited gap, manuscript home, existing evidence and concrete closing action; the only possible new training is specified above. **This map is sufficient to proceed to paper closure.**
+- **Current boundary:** this iteration changes the consolidation map only. Manuscript editing and experimental execution are the next phase.
