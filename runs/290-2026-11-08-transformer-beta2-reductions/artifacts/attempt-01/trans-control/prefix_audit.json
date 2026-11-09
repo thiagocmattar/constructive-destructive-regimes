@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "results": [
+    {
+      "arm": "control",
+      "initial_model_moments_clock_rng_previous_gradient_exact": true,
+      "historical_current_gradient_available": true,
+      "historical_current_gradient_exact": false,
+      "historical_current_gradient_relative_l2_error": 1.367764647187215e-06
+    }
+  ],
+  "qualification_note": "qualification.json used a recomputed-gradient fork snapshot with current_gradient=None. Its historical_comparison.fork_gradient_exact=False is not a measured mismatch; this direct original-checkpoint comparison is authoritative."
+}

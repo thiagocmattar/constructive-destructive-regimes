@@ -1,0 +1,626 @@
+{
+  "status": "passed",
+  "utc": "2026-11-09T00:44:41.818117+00:00",
+  "runs": [
+    289,
+    290,
+    291
+  ],
+  "scientific_arms": 10,
+  "updates": 3584,
+  "full_gradient_boundaries": 3594,
+  "first_last_update_audits": 20,
+  "arms": [
+    {
+      "worker": "resnet",
+      "arm": "control",
+      "boundaries": 321,
+      "updates": 320,
+      "audits": [
+        {
+          "path": "audit-0256.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 1.4901161242419914e-09,
+            "second_moment": 4.961290319543954e-10,
+            "parameter": 5.954203552427373e-08
+          }
+        },
+        {
+          "path": "audit-0575.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 5.820766091346741e-11,
+            "second_moment": 5.590839787655844e-10,
+            "parameter": 5.955551563019412e-08
+          }
+        }
+      ],
+      "evaluation": {
+        "test": {
+          "loss": 1.844334069824219,
+          "loss_units": 10000,
+          "objective_units": 10
+        }
+      }
+    },
+    {
+      "worker": "resnet",
+      "arm": "beta2_0p95",
+      "boundaries": 321,
+      "updates": 320,
+      "audits": [
+        {
+          "path": "audit-0256.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 1.4901161242419914e-09,
+            "second_moment": 3.9276200347604373e-10,
+            "parameter": 5.952626769278879e-08
+          }
+        },
+        {
+          "path": "audit-0575.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 6.286427350898904e-10,
+            "second_moment": 7.582500793912317e-09,
+            "parameter": 5.912437828214934e-08
+          }
+        }
+      ],
+      "evaluation": {
+        "test": {
+          "loss": 1.2516149169921877,
+          "loss_units": 10000,
+          "objective_units": 10
+        }
+      }
+    },
+    {
+      "worker": "resnet",
+      "arm": "beta2_0p9",
+      "boundaries": 321,
+      "updates": 320,
+      "audits": [
+        {
+          "path": "audit-0256.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 1.4901161242419914e-09,
+            "second_moment": 3.427919493398379e-10,
+            "parameter": 5.940346214927672e-08
+          }
+        },
+        {
+          "path": "audit-0575.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 4.1909515788307594e-10,
+            "second_moment": 2.399517362583481e-09,
+            "parameter": 5.911805800451475e-08
+          }
+        }
+      ],
+      "evaluation": {
+        "test": {
+          "loss": 1.8896777954101567,
+          "loss_units": 10000,
+          "objective_units": 10
+        }
+      }
+    },
+    {
+      "worker": "resnet",
+      "arm": "beta2_0p5",
+      "boundaries": 321,
+      "updates": 320,
+      "audits": [
+        {
+          "path": "audit-0256.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 1.4901161242419914e-09,
+            "second_moment": 1.6302692529279739e-09,
+            "parameter": 5.948281112111431e-08
+          }
+        },
+        {
+          "path": "audit-0575.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 1.1903466615170721e-09,
+            "second_moment": 1.6704601035755218e-09,
+            "parameter": 5.95838098860213e-08
+          }
+        }
+      ],
+      "evaluation": {
+        "test": {
+          "loss": 2.0629738037109373,
+          "loss_units": 10000,
+          "objective_units": 10
+        }
+      }
+    },
+    {
+      "worker": "trans-b50",
+      "arm": "beta2_0p5",
+      "boundaries": 385,
+      "updates": 384,
+      "audits": [
+        {
+          "path": "audit-0544.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 3.6379788179337347e-11,
+            "second_moment": 2.5819870655592603e-11,
+            "parameter": 1.1712777370220806e-07
+          }
+        },
+        {
+          "path": "audit-0927.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 2.5611370879988216e-10,
+            "second_moment": 8.783773708387344e-11,
+            "parameter": 1.1767740648593872e-07
+          }
+        }
+      ],
+      "evaluation": {
+        "valid": {
+          "loss": 20.96671300810149,
+          "loss_units": 217630,
+          "objective_units": 6220
+        },
+        "test": {
+          "loss": 20.70094177929647,
+          "loss_units": 245550,
+          "objective_units": 7020
+        }
+      }
+    },
+    {
+      "worker": "trans-b90",
+      "arm": "beta2_0p9",
+      "boundaries": 385,
+      "updates": 384,
+      "audits": [
+        {
+          "path": "audit-0544.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 3.6379788179337347e-11,
+            "second_moment": 7.915831727080269e-11,
+            "parameter": 1.1413197587017976e-07
+          }
+        },
+        {
+          "path": "audit-0927.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 3.8417056341666367e-10,
+            "second_moment": 5.084571019428608e-10,
+            "parameter": 1.1912589581442035e-07
+          }
+        }
+      ],
+      "evaluation": {
+        "valid": {
+          "loss": 21.85379172613782,
+          "loss_units": 217630,
+          "objective_units": 6220
+        },
+        "test": {
+          "loss": 21.567312681353084,
+          "loss_units": 245550,
+          "objective_units": 7020
+        }
+      }
+    },
+    {
+      "worker": "trans-b95",
+      "arm": "beta2_0p95",
+      "boundaries": 385,
+      "updates": 384,
+      "audits": [
+        {
+          "path": "audit-0544.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 3.6379788179337347e-11,
+            "second_moment": 6.199727320063686e-11,
+            "parameter": 1.1607305649974364e-07
+          }
+        },
+        {
+          "path": "audit-0927.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 4.365574579352077e-11,
+            "second_moment": 4.502192507693792e-10,
+            "parameter": 1.1892546547542793e-07
+          }
+        }
+      ],
+      "evaluation": {
+        "valid": {
+          "loss": 20.458643796416226,
+          "loss_units": 217630,
+          "objective_units": 6220
+        },
+        "test": {
+          "loss": 20.194182447566696,
+          "loss_units": 245550,
+          "objective_units": 7020
+        }
+      }
+    },
+    {
+      "worker": "trans-clip05",
+      "arm": "clip_0p5",
+      "boundaries": 385,
+      "updates": 384,
+      "audits": [
+        {
+          "path": "audit-0544.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 3.6379788179337347e-11,
+            "second_moment": 7.604252926125821e-11,
+            "parameter": 1.0970115926767221e-07
+          }
+        },
+        {
+          "path": "audit-0927.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 2.793967732953734e-10,
+            "second_moment": 8.086245735505759e-11,
+            "parameter": 1.1914863806694598e-07
+          }
+        }
+      ],
+      "evaluation": {
+        "valid": {
+          "loss": 18.244010207261184,
+          "loss_units": 217630,
+          "objective_units": 6220
+        },
+        "test": {
+          "loss": 18.033015599546932,
+          "loss_units": 245550,
+          "objective_units": 7020
+        }
+      }
+    },
+    {
+      "worker": "trans-clip10",
+      "arm": "clip_1p0",
+      "boundaries": 385,
+      "updates": 384,
+      "audits": [
+        {
+          "path": "audit-0544.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 3.6379788179337347e-11,
+            "second_moment": 7.604252926125821e-11,
+            "parameter": 1.0970115926767221e-07
+          }
+        },
+        {
+          "path": "audit-0927.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 3.0267983822454547e-10,
+            "second_moment": 6.495850884101484e-11,
+            "parameter": 1.1701569535560452e-07
+          }
+        }
+      ],
+      "evaluation": {
+        "valid": {
+          "loss": 18.829759161549987,
+          "loss_units": 217630,
+          "objective_units": 6220
+        },
+        "test": {
+          "loss": 18.605792640246385,
+          "loss_units": 245550,
+          "objective_units": 7020
+        }
+      }
+    },
+    {
+      "worker": "trans-control",
+      "arm": "control",
+      "boundaries": 385,
+      "updates": 384,
+      "audits": [
+        {
+          "path": "audit-0544.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 3.6379788179337347e-11,
+            "second_moment": 7.604252926125821e-11,
+            "parameter": 1.0970115926767221e-07
+          }
+        },
+        {
+          "path": "audit-0927.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 3.0559022082569595e-11,
+            "second_moment": 1.0837233888061348e-10,
+            "parameter": 1.1879501071732079e-07
+          }
+        }
+      ],
+      "evaluation": {
+        "valid": {
+          "loss": 16.405520335546566,
+          "loss_units": 217630,
+          "objective_units": 6220
+        },
+        "test": {
+          "loss": 16.20191825430157,
+          "loss_units": 245550,
+          "objective_units": 7020
+        }
+      }
+    }
+  ],
+  "retention": {
+    "status": "passed",
+    "roots": [
+      {
+        "root": "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/runs/289-2026-11-08-resnet-beta2-reductions/artifacts/attempt-01/resnet",
+        "files": 42,
+        "logical_inventory_bytes": 250075200,
+        "disk_bytes": 212537344,
+        "status": "passed"
+      },
+      {
+        "root": "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b50",
+        "files": 19,
+        "logical_inventory_bytes": 2020147003,
+        "disk_bytes": 1739608064,
+        "status": "passed"
+      },
+      {
+        "root": "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b90",
+        "files": 19,
+        "logical_inventory_bytes": 2020146430,
+        "disk_bytes": 1739603968,
+        "status": "passed"
+      },
+      {
+        "root": "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b95",
+        "files": 19,
+        "logical_inventory_bytes": 2020150653,
+        "disk_bytes": 1739603968,
+        "status": "passed"
+      },
+      {
+        "root": "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/runs/291-2026-11-08-transformer-gradient-clipping/artifacts/attempt-01/trans-clip05",
+        "files": 19,
+        "logical_inventory_bytes": 2020159433,
+        "disk_bytes": 1739616256,
+        "status": "passed"
+      },
+      {
+        "root": "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/runs/291-2026-11-08-transformer-gradient-clipping/artifacts/attempt-01/trans-clip10",
+        "files": 18,
+        "logical_inventory_bytes": 2020157233,
+        "disk_bytes": 1739612160,
+        "status": "passed"
+      },
+      {
+        "root": "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-control",
+        "files": 19,
+        "logical_inventory_bytes": 2020153639,
+        "disk_bytes": 1739608064,
+        "status": "passed"
+      }
+    ],
+    "temporary_key_files_removed": [
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/analyses/065-2026-11-07-mlp-frozen-lr-double/scratch/h050-retention-key",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/analyses/065-2026-11-07-mlp-frozen-lr-double/scratch/h050-retention-key.pub",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/analyses/065-2026-11-07-mlp-frozen-lr-double/scratch/h050-retention-key.hosts"
+    ]
+  },
+  "task_pods_remaining": [],
+  "provisional_costs": [
+    {
+      "name": "resnet",
+      "pod_id": "cpa6wra9wj3b7g",
+      "hours": 1.4917689428064558,
+      "quoted_compute_usd_per_hour": 0.89,
+      "provisional_compute_usd": 1.3276743590977456,
+      "conservative_total_usd": 1.819958110223876,
+      "kind": "executed"
+    },
+    {
+      "name": "trans-b50",
+      "pod_id": "d6zwdp4zhx6jfi",
+      "hours": 1.9801891598436567,
+      "quoted_compute_usd_per_hour": 0.89,
+      "provisional_compute_usd": 1.7623683522608544,
+      "conservative_total_usd": 2.4158307750092614,
+      "kind": "executed"
+    },
+    {
+      "name": "trans-b90",
+      "pod_id": "3344py11ucac9z",
+      "hours": 2.0015818568733,
+      "quoted_compute_usd_per_hour": 0.89,
+      "provisional_compute_usd": 1.7814078526172372,
+      "conservative_total_usd": 2.441929865385426,
+      "kind": "executed"
+    },
+    {
+      "name": "trans-b95",
+      "pod_id": "18pwn1hs2dijqo",
+      "hours": 2.0263814672496583,
+      "quoted_compute_usd_per_hour": 0.89,
+      "provisional_compute_usd": 1.803479505852196,
+      "conservative_total_usd": 2.472185390044583,
+      "kind": "executed"
+    },
+    {
+      "name": "trans-clip05",
+      "pod_id": "2dgqdhaoobt1kb",
+      "hours": 1.936012927889824,
+      "quoted_compute_usd_per_hour": 0.89,
+      "provisional_compute_usd": 1.7230515058219433,
+      "conservative_total_usd": 2.361935772025585,
+      "kind": "executed"
+    },
+    {
+      "name": "trans-clip10",
+      "pod_id": "nsc05whxn0vtv3",
+      "hours": 1.1707981799046199,
+      "quoted_compute_usd_per_hour": 0.89,
+      "provisional_compute_usd": 1.0420103801151117,
+      "conservative_total_usd": 1.4283737794836362,
+      "kind": "executed"
+    },
+    {
+      "name": "trans-control",
+      "pod_id": "y0b96vq2daiyak",
+      "hours": 2.0245372436443962,
+      "quoted_compute_usd_per_hour": 0.89,
+      "provisional_compute_usd": 1.8018381468435127,
+      "conservative_total_usd": 2.4699354372461633,
+      "kind": "executed"
+    },
+    {
+      "name": "trans-b90",
+      "pod_id": "odaw8hrcvi0l9b",
+      "hours": 0.01766044086880154,
+      "quoted_compute_usd_per_hour": 0.89,
+      "provisional_compute_usd": 0.015717792373233373,
+      "conservative_total_usd": 0.02154573785993788,
+      "kind": "unused infrastructure attempt"
+    },
+    {
+      "name": "trans-b90",
+      "pod_id": "0xva94pnqg649d",
+      "hours": 0.04130176186561584,
+      "quoted_compute_usd_per_hour": 1.19,
+      "provisional_compute_usd": 0.04914909662008285,
+      "conservative_total_usd": 0.050388149476051323,
+      "kind": "unused infrastructure attempt"
+    },
+    {
+      "name": "trans-clip10",
+      "pod_id": "dq47vn8530cjk1",
+      "hours": 0.04159607768058777,
+      "quoted_compute_usd_per_hour": 1.19,
+      "provisional_compute_usd": 0.04949933243989944,
+      "conservative_total_usd": 0.05074721477031708,
+      "kind": "unused infrastructure attempt"
+    }
+  ],
+  "immutable_pretransfers": [
+    {
+      "worker": "trans-b50",
+      "utc": "2026-11-09T00:29:19.760426+00:00",
+      "status": "passed",
+      "files": [
+        {
+          "path": "fork.pt",
+          "bytes": 225297789,
+          "sha256": "bd7934258d64995a15d56fd1a919c39a2c6dfb73a841419f2c5e19d30bd65e0e"
+        },
+        {
+          "path": "beta2_0p5/audit-0544.pt",
+          "bytes": 616542708,
+          "sha256": "eb53891a102c6450c66a149f88934eb4d8078fadbf5eba0699fb341d63e35537"
+        }
+      ],
+      "root": "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b50"
+    },
+    {
+      "worker": "trans-b90",
+      "utc": "2026-11-09T00:29:29.142787+00:00",
+      "status": "passed",
+      "files": [
+        {
+          "path": "fork.pt",
+          "bytes": 225297789,
+          "sha256": "bd7934258d64995a15d56fd1a919c39a2c6dfb73a841419f2c5e19d30bd65e0e"
+        },
+        {
+          "path": "beta2_0p9/audit-0544.pt",
+          "bytes": 616542708,
+          "sha256": "2085cc2a2ed1ec190f77e3218545de6a16c6b49842d220fc74d4768308e8bb82"
+        }
+      ],
+      "root": "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b90"
+    },
+    {
+      "worker": "trans-b95",
+      "utc": "2026-11-09T00:29:35.925667+00:00",
+      "status": "passed",
+      "files": [
+        {
+          "path": "fork.pt",
+          "bytes": 225297789,
+          "sha256": "bd7934258d64995a15d56fd1a919c39a2c6dfb73a841419f2c5e19d30bd65e0e"
+        },
+        {
+          "path": "beta2_0p95/audit-0544.pt",
+          "bytes": 616542708,
+          "sha256": "a9d74f0a8e02f8b1c859b907544e7f96e2624d216b249220f231b197092725af"
+        }
+      ],
+      "root": "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b95"
+    },
+    {
+      "worker": "trans-clip05",
+      "utc": "2026-11-09T00:29:26.903823+00:00",
+      "status": "passed",
+      "files": [
+        {
+          "path": "fork.pt",
+          "bytes": 225297789,
+          "sha256": "bd7934258d64995a15d56fd1a919c39a2c6dfb73a841419f2c5e19d30bd65e0e"
+        },
+        {
+          "path": "clip_0p5/audit-0544.pt",
+          "bytes": 616542708,
+          "sha256": "433faeeb72ff04a7eec785dd9496cd1fd867fa9713acd4485a65685f1bb5a739"
+        }
+      ],
+      "root": "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/runs/291-2026-11-08-transformer-gradient-clipping/artifacts/attempt-01/trans-clip05"
+    },
+    {
+      "worker": "trans-control",
+      "utc": "2026-11-09T00:30:08.636595+00:00",
+      "status": "passed",
+      "files": [
+        {
+          "path": "fork.pt",
+          "bytes": 225297789,
+          "sha256": "bd7934258d64995a15d56fd1a919c39a2c6dfb73a841419f2c5e19d30bd65e0e"
+        },
+        {
+          "path": "control/audit-0544.pt",
+          "bytes": 616542644,
+          "sha256": "c5bf94d32f034efd144a1b6efd5ff6ff5213b51aa300e68347b67ca257020ec8"
+        }
+      ],
+      "root": "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-control"
+    }
+  ],
+  "provisional_compute_usd": 11.356196324041816,
+  "conservative_total_usd": 15.532830231524837,
+  "authorized_ceiling_usd": 20,
+  "billing_status": "Provisional from live quoted rates and create-to-delete durations; conservative total includes the reserved hourly storage allowance. Provider invoice is authoritative.",
+  "storage": "Raw evidence retained on owned Spark; compact scalar/verification files local; no task-owned Runpod storage remains.",
+  "qualification_excluded": "Seven mechanical preflights and worker qualification passes are excluded from scientific arm/update counts.",
+  "cleanup": "Temporary Spark retrieval key removed. Sleep inhibitor was unavailable; no power settings changed."
+}

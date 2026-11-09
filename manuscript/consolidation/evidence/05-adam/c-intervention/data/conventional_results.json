@@ -1,0 +1,2847 @@
+{
+  "status": "passed",
+  "summaries": [
+    {
+      "family": "beta2",
+      "model": "mlp",
+      "arm": "control",
+      "seed": 0,
+      "fork": 512,
+      "end": 800,
+      "states": 288,
+      "mean_loss": 0.020804167521823222,
+      "late32_loss": 0.013458456061925972,
+      "final_loss": 0.03025020658969879,
+      "maximum_loss": 0.055062638595700264,
+      "mean_change_percent": 0.0,
+      "late32_change_percent": 0.0,
+      "maximum_change_percent": 0.0,
+      "test_loss": 0.7769601318359376,
+      "test_change_percent": 0.0,
+      "clipping_fraction": null,
+      "evaluation": {
+        "test": {
+          "loss": 0.7769601318359376,
+          "loss_units": 10000,
+          "objective_units": 10000
+        }
+      }
+    },
+    {
+      "family": "beta2",
+      "model": "mlp",
+      "arm": "beta2_0p95",
+      "seed": 0,
+      "fork": 512,
+      "end": 800,
+      "states": 288,
+      "mean_loss": 0.024295050821415823,
+      "late32_loss": 0.01794841777154943,
+      "final_loss": 0.019172469154000282,
+      "maximum_loss": 0.14261874742805958,
+      "mean_change_percent": 16.779730772359546,
+      "late32_change_percent": 33.36164036174682,
+      "maximum_change_percent": 159.01182919192033,
+      "test_loss": 0.7542552246093749,
+      "test_change_percent": -2.922274425189819,
+      "clipping_fraction": null,
+      "evaluation": {
+        "test": {
+          "loss": 0.7542552246093749,
+          "loss_units": 10000,
+          "objective_units": 10000
+        }
+      }
+    },
+    {
+      "family": "beta2",
+      "model": "mlp",
+      "arm": "beta2_0p9",
+      "seed": 0,
+      "fork": 512,
+      "end": 800,
+      "states": 288,
+      "mean_loss": 0.024582060485651407,
+      "late32_loss": 0.019314576289616525,
+      "final_loss": 0.015884966356679797,
+      "maximum_loss": 0.07390197925269604,
+      "mean_change_percent": 18.159308512898864,
+      "late32_change_percent": 43.51257083832627,
+      "maximum_change_percent": 34.21438045373093,
+      "test_loss": 0.7468443908691407,
+      "test_change_percent": -3.8760986224137595,
+      "clipping_fraction": null,
+      "evaluation": {
+        "test": {
+          "loss": 0.7468443908691407,
+          "loss_units": 10000,
+          "objective_units": 10000
+        }
+      }
+    },
+    {
+      "family": "beta2",
+      "model": "mlp",
+      "arm": "beta2_0p5",
+      "seed": 0,
+      "fork": 512,
+      "end": 800,
+      "states": 288,
+      "mean_loss": 0.047228822424787924,
+      "late32_loss": 0.03551395142858382,
+      "final_loss": 0.03475925559177995,
+      "maximum_loss": 0.07636222429573536,
+      "mean_change_percent": 127.01616094585705,
+      "late32_change_percent": 163.87834730205748,
+      "maximum_change_percent": 38.68246463165015,
+      "test_loss": 0.69101328125,
+      "test_change_percent": -11.06193832402279,
+      "clipping_fraction": null,
+      "evaluation": {
+        "test": {
+          "loss": 0.69101328125,
+          "loss_units": 10000,
+          "objective_units": 10000
+        }
+      }
+    },
+    {
+      "family": "beta2",
+      "model": "resnet",
+      "arm": "control",
+      "seed": 0,
+      "fork": 256,
+      "end": 576,
+      "states": 320,
+      "mean_loss": 0.17649629460182786,
+      "late32_loss": 0.0082409339261055,
+      "final_loss": 0.006702044448852539,
+      "maximum_loss": 0.49185978393554686,
+      "mean_change_percent": 0.0,
+      "late32_change_percent": 0.0,
+      "maximum_change_percent": 0.0,
+      "test_loss": 1.844334069824219,
+      "test_change_percent": 0.0,
+      "clipping_fraction": null,
+      "evaluation": {
+        "test": {
+          "loss": 1.844334069824219,
+          "loss_units": 10000,
+          "objective_units": 10
+        }
+      }
+    },
+    {
+      "family": "beta2",
+      "model": "resnet",
+      "arm": "beta2_0p95",
+      "seed": 0,
+      "fork": 256,
+      "end": 576,
+      "states": 320,
+      "mean_loss": 0.22672081449174883,
+      "late32_loss": 0.3078855338525773,
+      "final_loss": 0.11424990554809569,
+      "maximum_loss": 2.494611171875,
+      "mean_change_percent": 28.456416041609533,
+      "late32_change_percent": 3636.051479277881,
+      "maximum_change_percent": 407.1793330844656,
+      "test_loss": 1.2516149169921877,
+      "test_change_percent": -32.1372989053183,
+      "clipping_fraction": null,
+      "evaluation": {
+        "test": {
+          "loss": 1.2516149169921877,
+          "loss_units": 10000,
+          "objective_units": 10
+        }
+      }
+    },
+    {
+      "family": "beta2",
+      "model": "resnet",
+      "arm": "beta2_0p9",
+      "seed": 0,
+      "fork": 256,
+      "end": 576,
+      "states": 320,
+      "mean_loss": 0.17026741223585606,
+      "late32_loss": 0.08910656218945981,
+      "final_loss": 0.021388716068267824,
+      "maximum_loss": 0.841458426513672,
+      "mean_change_percent": -3.5291859129530367,
+      "late32_change_percent": 981.2677663533916,
+      "maximum_change_percent": 71.07689101574046,
+      "test_loss": 1.8896777954101567,
+      "test_change_percent": 2.4585418839147444,
+      "clipping_fraction": null,
+      "evaluation": {
+        "test": {
+          "loss": 1.8896777954101567,
+          "loss_units": 10000,
+          "objective_units": 10
+        }
+      }
+    },
+    {
+      "family": "beta2",
+      "model": "resnet",
+      "arm": "beta2_0p5",
+      "seed": 0,
+      "fork": 256,
+      "end": 576,
+      "states": 320,
+      "mean_loss": 0.18757819319808483,
+      "late32_loss": 0.049971441606283196,
+      "final_loss": 0.05510565231323242,
+      "maximum_loss": 0.491914440307617,
+      "mean_change_percent": 6.278827904720319,
+      "late32_change_percent": 506.3808065246641,
+      "maximum_change_percent": 0.011112185597461632,
+      "test_loss": 2.0629738037109373,
+      "test_change_percent": 11.854670878988681,
+      "clipping_fraction": null,
+      "evaluation": {
+        "test": {
+          "loss": 2.0629738037109373,
+          "loss_units": 10000,
+          "objective_units": 10
+        }
+      }
+    },
+    {
+      "family": "beta2",
+      "model": "transformer",
+      "arm": "control",
+      "seed": 0,
+      "fork": 544,
+      "end": 928,
+      "states": 384,
+      "mean_loss": 0.8742257949436784,
+      "late32_loss": 0.7618778793905174,
+      "final_loss": 0.647808510183911,
+      "maximum_loss": 3.052483803211108,
+      "mean_change_percent": 0.0,
+      "late32_change_percent": 0.0,
+      "maximum_change_percent": 0.0,
+      "test_loss": 16.20191825430157,
+      "test_change_percent": 0.0,
+      "clipping_fraction": null,
+      "evaluation": {
+        "valid": {
+          "loss": 16.405520335546566,
+          "loss_units": 217630,
+          "objective_units": 6220
+        },
+        "test": {
+          "loss": 16.20191825430157,
+          "loss_units": 245550,
+          "objective_units": 7020
+        }
+      }
+    },
+    {
+      "family": "beta2",
+      "model": "transformer",
+      "arm": "beta2_0p95",
+      "seed": 0,
+      "fork": 544,
+      "end": 928,
+      "states": 384,
+      "mean_loss": 0.7592625824159872,
+      "late32_loss": 0.6617168158630091,
+      "final_loss": 0.5594533844125648,
+      "maximum_loss": 1.390026331558821,
+      "mean_change_percent": -13.15028831139644,
+      "late32_change_percent": -13.14660344353803,
+      "maximum_change_percent": -54.46245021524565,
+      "test_loss": 20.194182447566696,
+      "test_change_percent": 24.64068840864069,
+      "clipping_fraction": null,
+      "evaluation": {
+        "valid": {
+          "loss": 20.458643796416226,
+          "loss_units": 217630,
+          "objective_units": 6220
+        },
+        "test": {
+          "loss": 20.194182447566696,
+          "loss_units": 245550,
+          "objective_units": 7020
+        }
+      }
+    },
+    {
+      "family": "beta2",
+      "model": "transformer",
+      "arm": "beta2_0p9",
+      "seed": 0,
+      "fork": 544,
+      "end": 928,
+      "states": 384,
+      "mean_loss": 0.7127851865974913,
+      "late32_loss": 0.6003199521059006,
+      "final_loss": 0.6067013322741985,
+      "maximum_loss": 1.1730066265137986,
+      "mean_change_percent": -18.466694677727713,
+      "late32_change_percent": -21.205226146460497,
+      "maximum_change_percent": -61.57206058620734,
+      "test_loss": 21.567312681353084,
+      "test_change_percent": 33.11579741878412,
+      "clipping_fraction": null,
+      "evaluation": {
+        "valid": {
+          "loss": 21.85379172613782,
+          "loss_units": 217630,
+          "objective_units": 6220
+        },
+        "test": {
+          "loss": 21.567312681353084,
+          "loss_units": 245550,
+          "objective_units": 7020
+        }
+      }
+    },
+    {
+      "family": "beta2",
+      "model": "transformer",
+      "arm": "beta2_0p5",
+      "seed": 0,
+      "fork": 544,
+      "end": 928,
+      "states": 384,
+      "mean_loss": 0.7709270996391279,
+      "late32_loss": 0.6481907625745384,
+      "final_loss": 0.6454293278817711,
+      "maximum_loss": 1.074664666726423,
+      "mean_change_percent": -11.816020060493127,
+      "late32_change_percent": -14.921960578108095,
+      "maximum_change_percent": -64.79376350511959,
+      "test_loss": 20.70094177929647,
+      "test_change_percent": 27.7684620696097,
+      "clipping_fraction": null,
+      "evaluation": {
+        "valid": {
+          "loss": 20.96671300810149,
+          "loss_units": 217630,
+          "objective_units": 6220
+        },
+        "test": {
+          "loss": 20.70094177929647,
+          "loss_units": 245550,
+          "objective_units": 7020
+        }
+      }
+    },
+    {
+      "family": "clipping",
+      "model": "mlp",
+      "arm": "control",
+      "seed": 0,
+      "fork": 512,
+      "end": 800,
+      "states": 288,
+      "mean_loss": 0.020804167521823222,
+      "late32_loss": 0.013458456061925972,
+      "final_loss": 0.03025020658969879,
+      "maximum_loss": 0.055062638595700264,
+      "mean_change_percent": 0.0,
+      "late32_change_percent": 0.0,
+      "maximum_change_percent": 0.0,
+      "test_loss": 0.7769601318359376,
+      "test_change_percent": 0.0,
+      "clipping_fraction": 0.0,
+      "evaluation": {
+        "test": {
+          "loss": 0.7769601318359376,
+          "loss_units": 10000,
+          "objective_units": 10000
+        }
+      }
+    },
+    {
+      "family": "clipping",
+      "model": "mlp",
+      "arm": "clip_1p0",
+      "seed": 0,
+      "fork": 512,
+      "end": 800,
+      "states": 288,
+      "mean_loss": 0.030792351501683395,
+      "late32_loss": 0.0641294403540087,
+      "final_loss": 0.02442448539659381,
+      "maximum_loss": 0.21015971899032593,
+      "mean_change_percent": 48.01049582677479,
+      "late32_change_percent": 376.4992363086219,
+      "maximum_change_percent": 281.6738978555541,
+      "test_loss": 0.7167457397460937,
+      "test_change_percent": -7.749997666876263,
+      "clipping_fraction": 0.4340277777777778,
+      "evaluation": {
+        "test": {
+          "loss": 0.7167457397460937,
+          "loss_units": 10000,
+          "objective_units": 10000
+        }
+      }
+    },
+    {
+      "family": "clipping",
+      "model": "mlp",
+      "arm": "clip_0p5",
+      "seed": 0,
+      "fork": 512,
+      "end": 800,
+      "states": 288,
+      "mean_loss": 0.02123772102155878,
+      "late32_loss": 0.016752828916651197,
+      "final_loss": 0.016690470976755023,
+      "maximum_loss": 0.04662971291691065,
+      "mean_change_percent": 2.08397427717677,
+      "late32_change_percent": 24.47808901382842,
+      "maximum_change_percent": -15.315149970760988,
+      "test_loss": 0.7527294738769532,
+      "test_change_percent": -3.118648816861158,
+      "clipping_fraction": 0.8263888888888888,
+      "evaluation": {
+        "test": {
+          "loss": 0.7527294738769532,
+          "loss_units": 10000,
+          "objective_units": 10000
+        }
+      }
+    },
+    {
+      "family": "clipping",
+      "model": "resnet",
+      "arm": "control",
+      "seed": 0,
+      "fork": 256,
+      "end": 576,
+      "states": 320,
+      "mean_loss": 0.27171449395883085,
+      "late32_loss": 0.04541658511519432,
+      "final_loss": 0.03008946418762208,
+      "maximum_loss": 1.1222555505371095,
+      "mean_change_percent": 0.0,
+      "late32_change_percent": 0.0,
+      "maximum_change_percent": 0.0,
+      "test_loss": 1.4631024658203122,
+      "test_change_percent": 0.0,
+      "clipping_fraction": 0.0,
+      "evaluation": {
+        "test": {
+          "loss": 1.4631024658203122,
+          "loss_units": 10000,
+          "objective_units": 10
+        }
+      }
+    },
+    {
+      "family": "clipping",
+      "model": "resnet",
+      "arm": "clip_1p0",
+      "seed": 0,
+      "fork": 256,
+      "end": 576,
+      "states": 320,
+      "mean_loss": 0.19475257863664627,
+      "late32_loss": 0.08085339959383012,
+      "final_loss": 0.0752641951751709,
+      "maximum_loss": 0.5369747302246095,
+      "mean_change_percent": -28.3245528057276,
+      "late32_change_percent": 78.02615363694582,
+      "maximum_change_percent": -52.152187621828695,
+      "test_loss": 1.584899890136719,
+      "test_change_percent": 8.32459975714135,
+      "clipping_fraction": 0.99375,
+      "evaluation": {
+        "test": {
+          "loss": 1.584899890136719,
+          "loss_units": 10000,
+          "objective_units": 10
+        }
+      }
+    },
+    {
+      "family": "clipping",
+      "model": "transformer",
+      "arm": "control",
+      "seed": 0,
+      "fork": 544,
+      "end": 928,
+      "states": 384,
+      "mean_loss": 0.8742257949436784,
+      "late32_loss": 0.7618778793905174,
+      "final_loss": 0.647808510183911,
+      "maximum_loss": 3.052483803211108,
+      "mean_change_percent": 0.0,
+      "late32_change_percent": 0.0,
+      "maximum_change_percent": 0.0,
+      "test_loss": 16.20191825430157,
+      "test_change_percent": 0.0,
+      "clipping_fraction": 0.0,
+      "evaluation": {
+        "valid": {
+          "loss": 16.405520335546566,
+          "loss_units": 217630,
+          "objective_units": 6220
+        },
+        "test": {
+          "loss": 16.20191825430157,
+          "loss_units": 245550,
+          "objective_units": 7020
+        }
+      }
+    },
+    {
+      "family": "clipping",
+      "model": "transformer",
+      "arm": "clip_1p0",
+      "seed": 0,
+      "fork": 544,
+      "end": 928,
+      "states": 384,
+      "mean_loss": 0.719173642202145,
+      "late32_loss": 0.6195943468845088,
+      "final_loss": 0.6198069973150833,
+      "maximum_loss": 0.8812924654013723,
+      "mean_change_percent": -17.73593888882249,
+      "late32_change_percent": -18.675372570185633,
+      "maximum_change_percent": -71.12867676892232,
+      "test_loss": 18.605792640246385,
+      "test_change_percent": 14.836973920088692,
+      "clipping_fraction": 0.6328125,
+      "evaluation": {
+        "valid": {
+          "loss": 18.829759161549987,
+          "loss_units": 217630,
+          "objective_units": 6220
+        },
+        "test": {
+          "loss": 18.605792640246385,
+          "loss_units": 245550,
+          "objective_units": 7020
+        }
+      }
+    },
+    {
+      "family": "clipping",
+      "model": "transformer",
+      "arm": "clip_0p5",
+      "seed": 0,
+      "fork": 544,
+      "end": 928,
+      "states": 384,
+      "mean_loss": 0.7079139055060119,
+      "late32_loss": 0.6374591978000612,
+      "final_loss": 0.6192216874082177,
+      "maximum_loss": 0.8812924654013723,
+      "mean_change_percent": -19.023905540144938,
+      "late32_change_percent": -16.3305281536705,
+      "maximum_change_percent": -71.12867676892232,
+      "test_loss": 18.033015599546932,
+      "test_change_percent": 11.301731785735992,
+      "clipping_fraction": 0.9088541666666666,
+      "evaluation": {
+        "valid": {
+          "loss": 18.244010207261184,
+          "loss_units": 217630,
+          "objective_units": 6220
+        },
+        "test": {
+          "loss": 18.033015599546932,
+          "loss_units": 245550,
+          "objective_units": 7020
+        }
+      }
+    }
+  ],
+  "control_context": [
+    {
+      "family": "beta2",
+      "model": "mlp",
+      "events": [
+        {
+          "before_state": 512,
+          "onset_state": 513,
+          "peak_state": 522,
+          "recovery_state": 529,
+          "end_state": 529,
+          "right_censored": false,
+          "peak_loss": 0.055062638595700264,
+          "before_loss": 0.02305707847699523,
+          "peak_to_before_ratio": 2.3881012787738043
+        },
+        {
+          "before_state": 529,
+          "onset_state": 530,
+          "peak_state": 530,
+          "recovery_state": 532,
+          "end_state": 532,
+          "right_censored": false,
+          "peak_loss": 0.030159158166497946,
+          "before_loss": 0.022679143119603395,
+          "peak_to_before_ratio": 1.329819120918593
+        },
+        {
+          "before_state": 532,
+          "onset_state": 533,
+          "peak_state": 534,
+          "recovery_state": 536,
+          "end_state": 536,
+          "right_censored": false,
+          "peak_loss": 0.02715998748317361,
+          "before_loss": 0.02234694128856063,
+          "peak_to_before_ratio": 1.2153782986433481
+        },
+        {
+          "before_state": 536,
+          "onset_state": 537,
+          "peak_state": 546,
+          "recovery_state": 549,
+          "end_state": 549,
+          "right_censored": false,
+          "peak_loss": 0.04223682079464197,
+          "before_loss": 0.021748213097453117,
+          "peak_to_before_ratio": 1.9420823497259287
+        },
+        {
+          "before_state": 549,
+          "onset_state": 550,
+          "peak_state": 560,
+          "recovery_state": 569,
+          "end_state": 569,
+          "right_censored": false,
+          "peak_loss": 0.036116250324994326,
+          "before_loss": 0.020846705650910735,
+          "peak_to_before_ratio": 1.7324679942135848
+        },
+        {
+          "before_state": 569,
+          "onset_state": 570,
+          "peak_state": 580,
+          "recovery_state": 585,
+          "end_state": 585,
+          "right_censored": false,
+          "peak_loss": 0.02480573346838355,
+          "before_loss": 0.020287620602175593,
+          "peak_to_before_ratio": 1.2227029455451985
+        },
+        {
+          "before_state": 586,
+          "onset_state": 587,
+          "peak_state": 590,
+          "recovery_state": 595,
+          "end_state": 595,
+          "right_censored": false,
+          "peak_loss": 0.019219881622120738,
+          "before_loss": 0.018115067156031728,
+          "peak_to_before_ratio": 1.0609887038547987
+        },
+        {
+          "before_state": 595,
+          "onset_state": 596,
+          "peak_state": 602,
+          "recovery_state": 612,
+          "end_state": 612,
+          "right_censored": false,
+          "peak_loss": 0.026035254821181297,
+          "before_loss": 0.018080935813486576,
+          "peak_to_before_ratio": 1.4399285020281745
+        },
+        {
+          "before_state": 612,
+          "onset_state": 613,
+          "peak_state": 620,
+          "recovery_state": 653,
+          "end_state": 653,
+          "right_censored": false,
+          "peak_loss": 0.03131407406181097,
+          "before_loss": 0.01756052509881556,
+          "peak_to_before_ratio": 1.7832082973374797
+        },
+        {
+          "before_state": 657,
+          "onset_state": 658,
+          "peak_state": 660,
+          "recovery_state": 663,
+          "end_state": 663,
+          "right_censored": false,
+          "peak_loss": 0.01545063080266118,
+          "before_loss": 0.01466137240640819,
+          "peak_to_before_ratio": 1.0538325045142445
+        },
+        {
+          "before_state": 666,
+          "onset_state": 667,
+          "peak_state": 683,
+          "recovery_state": 702,
+          "end_state": 702,
+          "right_censored": false,
+          "peak_loss": 0.04823051206767559,
+          "before_loss": 0.014118717517703772,
+          "peak_to_before_ratio": 3.4160689175343504
+        },
+        {
+          "before_state": 702,
+          "onset_state": 703,
+          "peak_state": 704,
+          "recovery_state": 706,
+          "end_state": 706,
+          "right_censored": false,
+          "peak_loss": 0.015258173923939466,
+          "before_loss": 0.013682640390470624,
+          "peak_to_before_ratio": 1.1151483550328587
+        },
+        {
+          "before_state": 706,
+          "onset_state": 707,
+          "peak_state": 716,
+          "recovery_state": 719,
+          "end_state": 719,
+          "right_censored": false,
+          "peak_loss": 0.02833064179867506,
+          "before_loss": 0.013330177869647741,
+          "peak_to_before_ratio": 2.1253011081857167
+        },
+        {
+          "before_state": 719,
+          "onset_state": 720,
+          "peak_state": 727,
+          "recovery_state": 733,
+          "end_state": 733,
+          "right_censored": false,
+          "peak_loss": 0.022478641476482153,
+          "before_loss": 0.012657063780352473,
+          "peak_to_before_ratio": 1.7759759977962415
+        },
+        {
+          "before_state": 733,
+          "onset_state": 734,
+          "peak_state": 744,
+          "recovery_state": 751,
+          "end_state": 751,
+          "right_censored": false,
+          "peak_loss": 0.019205102929845452,
+          "before_loss": 0.012186137959361076,
+          "peak_to_before_ratio": 1.5759794443400823
+        },
+        {
+          "before_state": 751,
+          "onset_state": 752,
+          "peak_state": 766,
+          "recovery_state": 769,
+          "end_state": 769,
+          "right_censored": false,
+          "peak_loss": 0.019577991450205445,
+          "before_loss": 0.01185296569019556,
+          "peak_to_before_ratio": 1.6517377981107133
+        },
+        {
+          "before_state": 770,
+          "onset_state": 771,
+          "peak_state": 773,
+          "recovery_state": 777,
+          "end_state": 777,
+          "right_censored": false,
+          "peak_loss": 0.013670964632183313,
+          "before_loss": 0.010486308485269547,
+          "peak_to_before_ratio": 1.3036965917403016
+        },
+        {
+          "before_state": 777,
+          "onset_state": 778,
+          "peak_state": 779,
+          "recovery_state": 782,
+          "end_state": 782,
+          "right_censored": false,
+          "peak_loss": 0.011026195366866887,
+          "before_loss": 0.010199635406024754,
+          "peak_to_before_ratio": 1.0810381869487116
+        },
+        {
+          "before_state": 783,
+          "onset_state": 784,
+          "peak_state": 799,
+          "recovery_state": null,
+          "end_state": 800,
+          "right_censored": true,
+          "peak_loss": 0.030629032757133245,
+          "before_loss": 0.009710725862532854,
+          "peak_to_before_ratio": 3.154144519238262
+        }
+      ],
+      "excursions_over_10_percent": 16,
+      "excursions_at_least_double": 4,
+      "historical_target_state": 703,
+      "double_excursion_within_32_states_of_historical_target": true,
+      "interpretation": "Descriptive check of the new control against the historical episode; no outcome exclusion or new acceptance threshold."
+    },
+    {
+      "family": "beta2",
+      "model": "resnet",
+      "events": [
+        {
+          "before_state": 268,
+          "onset_state": 269,
+          "peak_state": 269,
+          "recovery_state": 270,
+          "end_state": 270,
+          "right_censored": false,
+          "peak_loss": 0.4020897174072267,
+          "before_loss": 0.4016002612304689,
+          "peak_to_before_ratio": 1.001218764587598
+        },
+        {
+          "before_state": 270,
+          "onset_state": 271,
+          "peak_state": 273,
+          "recovery_state": 275,
+          "end_state": 275,
+          "right_censored": false,
+          "peak_loss": 0.4188820666503906,
+          "before_loss": 0.39702321166992177,
+          "peak_to_before_ratio": 1.0550568690644766
+        },
+        {
+          "before_state": 276,
+          "onset_state": 277,
+          "peak_state": 277,
+          "recovery_state": 278,
+          "end_state": 278,
+          "right_censored": false,
+          "peak_loss": 0.3952863104248047,
+          "before_loss": 0.38944098510742187,
+          "peak_to_before_ratio": 1.0150095278640754
+        },
+        {
+          "before_state": 283,
+          "onset_state": 284,
+          "peak_state": 284,
+          "recovery_state": 285,
+          "end_state": 285,
+          "right_censored": false,
+          "peak_loss": 0.3556179260253906,
+          "before_loss": 0.35384492370605464,
+          "peak_to_before_ratio": 1.0050106761480881
+        },
+        {
+          "before_state": 286,
+          "onset_state": 287,
+          "peak_state": 293,
+          "recovery_state": 302,
+          "end_state": 302,
+          "right_censored": false,
+          "peak_loss": 0.4582402575683593,
+          "before_loss": 0.3473303295898437,
+          "peak_to_before_ratio": 1.3193211721806362
+        },
+        {
+          "before_state": 302,
+          "onset_state": 303,
+          "peak_state": 303,
+          "recovery_state": 304,
+          "end_state": 304,
+          "right_censored": false,
+          "peak_loss": 0.34795081481933593,
+          "before_loss": 0.3450331658935547,
+          "peak_to_before_ratio": 1.0084561404936978
+        },
+        {
+          "before_state": 304,
+          "onset_state": 305,
+          "peak_state": 305,
+          "recovery_state": 307,
+          "end_state": 307,
+          "right_censored": false,
+          "peak_loss": 0.33884136718750013,
+          "before_loss": 0.32919900024414067,
+          "peak_to_before_ratio": 1.0292903895097145
+        },
+        {
+          "before_state": 310,
+          "onset_state": 311,
+          "peak_state": 311,
+          "recovery_state": 312,
+          "end_state": 312,
+          "right_censored": false,
+          "peak_loss": 0.2998189208984376,
+          "before_loss": 0.29940248779296874,
+          "peak_to_before_ratio": 1.0013908805786438
+        },
+        {
+          "before_state": 312,
+          "onset_state": 313,
+          "peak_state": 313,
+          "recovery_state": 314,
+          "end_state": 314,
+          "right_censored": false,
+          "peak_loss": 0.2966119387817383,
+          "before_loss": 0.291407189025879,
+          "peak_to_before_ratio": 1.0178607458973743
+        },
+        {
+          "before_state": 314,
+          "onset_state": 315,
+          "peak_state": 315,
+          "recovery_state": 316,
+          "end_state": 316,
+          "right_censored": false,
+          "peak_loss": 0.28609718872070306,
+          "before_loss": 0.2837196173095704,
+          "peak_to_before_ratio": 1.008380003588326
+        },
+        {
+          "before_state": 319,
+          "onset_state": 320,
+          "peak_state": 323,
+          "recovery_state": 339,
+          "end_state": 339,
+          "right_censored": false,
+          "peak_loss": 0.4907015814208985,
+          "before_loss": 0.26669850189208993,
+          "peak_to_before_ratio": 1.8399112778647833
+        },
+        {
+          "before_state": 339,
+          "onset_state": 340,
+          "peak_state": 340,
+          "recovery_state": 341,
+          "end_state": 341,
+          "right_censored": false,
+          "peak_loss": 0.26427404479980476,
+          "before_loss": 0.2611538619995117,
+          "peak_to_before_ratio": 1.011947680100932
+        },
+        {
+          "before_state": 354,
+          "onset_state": 355,
+          "peak_state": 362,
+          "recovery_state": 381,
+          "end_state": 381,
+          "right_censored": false,
+          "peak_loss": 0.49185978393554686,
+          "before_loss": 0.19135332794189455,
+          "peak_to_before_ratio": 2.5704271215230845
+        },
+        {
+          "before_state": 404,
+          "onset_state": 405,
+          "peak_state": 415,
+          "recovery_state": 439,
+          "end_state": 439,
+          "right_censored": false,
+          "peak_loss": 0.44070237731933587,
+          "before_loss": 0.10708880004882812,
+          "peak_to_before_ratio": 4.115298491704021
+        }
+      ],
+      "excursions_over_10_percent": 4,
+      "excursions_at_least_double": 2,
+      "historical_target_state": 422,
+      "double_excursion_within_32_states_of_historical_target": true,
+      "interpretation": "Descriptive check of the new control against the historical episode; no outcome exclusion or new acceptance threshold."
+    },
+    {
+      "family": "beta2",
+      "model": "transformer",
+      "events": [
+        {
+          "before_state": 557,
+          "onset_state": 558,
+          "peak_state": 562,
+          "recovery_state": 596,
+          "end_state": 596,
+          "right_censored": false,
+          "peak_loss": 1.69423240298525,
+          "before_loss": 0.8430872729910645,
+          "peak_to_before_ratio": 2.009557559770217
+        },
+        {
+          "before_state": 624,
+          "onset_state": 625,
+          "peak_state": 629,
+          "recovery_state": 665,
+          "end_state": 665,
+          "right_censored": false,
+          "peak_loss": 1.2888524330414606,
+          "before_loss": 0.7618161066558119,
+          "peak_to_before_ratio": 1.6918156780633196
+        },
+        {
+          "before_state": 687,
+          "onset_state": 688,
+          "peak_state": 706,
+          "recovery_state": 735,
+          "end_state": 735,
+          "right_censored": false,
+          "peak_loss": 1.0572943516173932,
+          "before_loss": 0.7079949381907827,
+          "peak_to_before_ratio": 1.493364280709709
+        },
+        {
+          "before_state": 761,
+          "onset_state": 762,
+          "peak_state": 767,
+          "recovery_state": 852,
+          "end_state": 852,
+          "right_censored": false,
+          "peak_loss": 3.052483803211108,
+          "before_loss": 0.6442757394073417,
+          "peak_to_before_ratio": 4.737853090695353
+        },
+        {
+          "before_state": 860,
+          "onset_state": 861,
+          "peak_state": 861,
+          "recovery_state": 862,
+          "end_state": 862,
+          "right_censored": false,
+          "peak_loss": 0.6339742699790866,
+          "before_loss": 0.6338313823708354,
+          "peak_to_before_ratio": 1.0002254347326835
+        },
+        {
+          "before_state": 879,
+          "onset_state": 880,
+          "peak_state": 885,
+          "recovery_state": null,
+          "end_state": 928,
+          "right_censored": true,
+          "peak_loss": 1.8843979672318059,
+          "before_loss": 0.6102173951516193,
+          "peak_to_before_ratio": 3.0880764498094875
+        }
+      ],
+      "excursions_over_10_percent": 5,
+      "excursions_at_least_double": 3,
+      "historical_target_state": 794,
+      "double_excursion_within_32_states_of_historical_target": true,
+      "interpretation": "Descriptive check of the new control against the historical episode; no outcome exclusion or new acceptance threshold."
+    },
+    {
+      "family": "clipping",
+      "model": "mlp",
+      "events": [
+        {
+          "before_state": 512,
+          "onset_state": 513,
+          "peak_state": 522,
+          "recovery_state": 529,
+          "end_state": 529,
+          "right_censored": false,
+          "peak_loss": 0.055062638595700264,
+          "before_loss": 0.02305707847699523,
+          "peak_to_before_ratio": 2.3881012787738043
+        },
+        {
+          "before_state": 529,
+          "onset_state": 530,
+          "peak_state": 530,
+          "recovery_state": 532,
+          "end_state": 532,
+          "right_censored": false,
+          "peak_loss": 0.030159158166497946,
+          "before_loss": 0.022679143119603395,
+          "peak_to_before_ratio": 1.329819120918593
+        },
+        {
+          "before_state": 532,
+          "onset_state": 533,
+          "peak_state": 534,
+          "recovery_state": 536,
+          "end_state": 536,
+          "right_censored": false,
+          "peak_loss": 0.02715998748317361,
+          "before_loss": 0.02234694128856063,
+          "peak_to_before_ratio": 1.2153782986433481
+        },
+        {
+          "before_state": 536,
+          "onset_state": 537,
+          "peak_state": 546,
+          "recovery_state": 549,
+          "end_state": 549,
+          "right_censored": false,
+          "peak_loss": 0.04223682079464197,
+          "before_loss": 0.021748213097453117,
+          "peak_to_before_ratio": 1.9420823497259287
+        },
+        {
+          "before_state": 549,
+          "onset_state": 550,
+          "peak_state": 560,
+          "recovery_state": 569,
+          "end_state": 569,
+          "right_censored": false,
+          "peak_loss": 0.036116250324994326,
+          "before_loss": 0.020846705650910735,
+          "peak_to_before_ratio": 1.7324679942135848
+        },
+        {
+          "before_state": 569,
+          "onset_state": 570,
+          "peak_state": 580,
+          "recovery_state": 585,
+          "end_state": 585,
+          "right_censored": false,
+          "peak_loss": 0.02480573346838355,
+          "before_loss": 0.020287620602175593,
+          "peak_to_before_ratio": 1.2227029455451985
+        },
+        {
+          "before_state": 586,
+          "onset_state": 587,
+          "peak_state": 590,
+          "recovery_state": 595,
+          "end_state": 595,
+          "right_censored": false,
+          "peak_loss": 0.019219881622120738,
+          "before_loss": 0.018115067156031728,
+          "peak_to_before_ratio": 1.0609887038547987
+        },
+        {
+          "before_state": 595,
+          "onset_state": 596,
+          "peak_state": 602,
+          "recovery_state": 612,
+          "end_state": 612,
+          "right_censored": false,
+          "peak_loss": 0.026035254821181297,
+          "before_loss": 0.018080935813486576,
+          "peak_to_before_ratio": 1.4399285020281745
+        },
+        {
+          "before_state": 612,
+          "onset_state": 613,
+          "peak_state": 620,
+          "recovery_state": 653,
+          "end_state": 653,
+          "right_censored": false,
+          "peak_loss": 0.03131407406181097,
+          "before_loss": 0.01756052509881556,
+          "peak_to_before_ratio": 1.7832082973374797
+        },
+        {
+          "before_state": 657,
+          "onset_state": 658,
+          "peak_state": 660,
+          "recovery_state": 663,
+          "end_state": 663,
+          "right_censored": false,
+          "peak_loss": 0.01545063080266118,
+          "before_loss": 0.01466137240640819,
+          "peak_to_before_ratio": 1.0538325045142445
+        },
+        {
+          "before_state": 666,
+          "onset_state": 667,
+          "peak_state": 683,
+          "recovery_state": 702,
+          "end_state": 702,
+          "right_censored": false,
+          "peak_loss": 0.04823051206767559,
+          "before_loss": 0.014118717517703772,
+          "peak_to_before_ratio": 3.4160689175343504
+        },
+        {
+          "before_state": 702,
+          "onset_state": 703,
+          "peak_state": 704,
+          "recovery_state": 706,
+          "end_state": 706,
+          "right_censored": false,
+          "peak_loss": 0.015258173923939466,
+          "before_loss": 0.013682640390470624,
+          "peak_to_before_ratio": 1.1151483550328587
+        },
+        {
+          "before_state": 706,
+          "onset_state": 707,
+          "peak_state": 716,
+          "recovery_state": 719,
+          "end_state": 719,
+          "right_censored": false,
+          "peak_loss": 0.02833064179867506,
+          "before_loss": 0.013330177869647741,
+          "peak_to_before_ratio": 2.1253011081857167
+        },
+        {
+          "before_state": 719,
+          "onset_state": 720,
+          "peak_state": 727,
+          "recovery_state": 733,
+          "end_state": 733,
+          "right_censored": false,
+          "peak_loss": 0.022478641476482153,
+          "before_loss": 0.012657063780352473,
+          "peak_to_before_ratio": 1.7759759977962415
+        },
+        {
+          "before_state": 733,
+          "onset_state": 734,
+          "peak_state": 744,
+          "recovery_state": 751,
+          "end_state": 751,
+          "right_censored": false,
+          "peak_loss": 0.019205102929845452,
+          "before_loss": 0.012186137959361076,
+          "peak_to_before_ratio": 1.5759794443400823
+        },
+        {
+          "before_state": 751,
+          "onset_state": 752,
+          "peak_state": 766,
+          "recovery_state": 769,
+          "end_state": 769,
+          "right_censored": false,
+          "peak_loss": 0.019577991450205445,
+          "before_loss": 0.01185296569019556,
+          "peak_to_before_ratio": 1.6517377981107133
+        },
+        {
+          "before_state": 770,
+          "onset_state": 771,
+          "peak_state": 773,
+          "recovery_state": 777,
+          "end_state": 777,
+          "right_censored": false,
+          "peak_loss": 0.013670964632183313,
+          "before_loss": 0.010486308485269547,
+          "peak_to_before_ratio": 1.3036965917403016
+        },
+        {
+          "before_state": 777,
+          "onset_state": 778,
+          "peak_state": 779,
+          "recovery_state": 782,
+          "end_state": 782,
+          "right_censored": false,
+          "peak_loss": 0.011026195366866887,
+          "before_loss": 0.010199635406024754,
+          "peak_to_before_ratio": 1.0810381869487116
+        },
+        {
+          "before_state": 783,
+          "onset_state": 784,
+          "peak_state": 799,
+          "recovery_state": null,
+          "end_state": 800,
+          "right_censored": true,
+          "peak_loss": 0.030629032757133245,
+          "before_loss": 0.009710725862532854,
+          "peak_to_before_ratio": 3.154144519238262
+        }
+      ],
+      "excursions_over_10_percent": 16,
+      "excursions_at_least_double": 4,
+      "historical_target_state": 703,
+      "double_excursion_within_32_states_of_historical_target": true,
+      "interpretation": "Descriptive check of the new control against the historical episode; no outcome exclusion or new acceptance threshold."
+    },
+    {
+      "family": "clipping",
+      "model": "resnet",
+      "events": [
+        {
+          "before_state": 268,
+          "onset_state": 269,
+          "peak_state": 269,
+          "recovery_state": 270,
+          "end_state": 270,
+          "right_censored": false,
+          "peak_loss": 0.4020543798828126,
+          "before_loss": 0.40154698730468746,
+          "peak_to_before_ratio": 1.0012635945335586
+        },
+        {
+          "before_state": 270,
+          "onset_state": 271,
+          "peak_state": 273,
+          "recovery_state": 275,
+          "end_state": 275,
+          "right_censored": false,
+          "peak_loss": 0.4192932159423827,
+          "before_loss": 0.3969584753417969,
+          "peak_to_before_ratio": 1.0562646775115576
+        },
+        {
+          "before_state": 276,
+          "onset_state": 277,
+          "peak_state": 277,
+          "recovery_state": 278,
+          "end_state": 278,
+          "right_censored": false,
+          "peak_loss": 0.3953603100585939,
+          "before_loss": 0.3898900500488281,
+          "peak_to_before_ratio": 1.0140302631705547
+        },
+        {
+          "before_state": 283,
+          "onset_state": 284,
+          "peak_state": 284,
+          "recovery_state": 285,
+          "end_state": 285,
+          "right_censored": false,
+          "peak_loss": 0.3558418395996093,
+          "before_loss": 0.35419114746093755,
+          "peak_to_before_ratio": 1.0046604556621614
+        },
+        {
+          "before_state": 286,
+          "onset_state": 287,
+          "peak_state": 294,
+          "recovery_state": 304,
+          "end_state": 304,
+          "right_censored": false,
+          "peak_loss": 0.4630403631591798,
+          "before_loss": 0.3479113922119141,
+          "peak_to_before_ratio": 1.3309146337960105
+        },
+        {
+          "before_state": 304,
+          "onset_state": 305,
+          "peak_state": 305,
+          "recovery_state": 307,
+          "end_state": 307,
+          "right_censored": false,
+          "peak_loss": 0.34944207153320306,
+          "before_loss": 0.3353718121337892,
+          "peak_to_before_ratio": 1.0419542098958539
+        },
+        {
+          "before_state": 312,
+          "onset_state": 313,
+          "peak_state": 313,
+          "recovery_state": 314,
+          "end_state": 314,
+          "right_censored": false,
+          "peak_loss": 0.29429870056152335,
+          "before_loss": 0.292084122619629,
+          "peak_to_before_ratio": 1.007581986730509
+        },
+        {
+          "before_state": 314,
+          "onset_state": 315,
+          "peak_state": 315,
+          "recovery_state": 316,
+          "end_state": 316,
+          "right_censored": false,
+          "peak_loss": 0.28435118103027346,
+          "before_loss": 0.2823945526123048,
+          "peak_to_before_ratio": 1.0069287045372115
+        },
+        {
+          "before_state": 321,
+          "onset_state": 322,
+          "peak_state": 327,
+          "recovery_state": 349,
+          "end_state": 349,
+          "right_censored": false,
+          "peak_loss": 0.5934239794921874,
+          "before_loss": 0.26112305145263676,
+          "peak_to_before_ratio": 2.2725836581295633
+        },
+        {
+          "before_state": 375,
+          "onset_state": 376,
+          "peak_state": 382,
+          "recovery_state": 421,
+          "end_state": 421,
+          "right_censored": false,
+          "peak_loss": 0.9563195263671876,
+          "before_loss": 0.15188356384277343,
+          "peak_to_before_ratio": 6.296399045239344
+        },
+        {
+          "before_state": 470,
+          "onset_state": 471,
+          "peak_state": 477,
+          "recovery_state": 556,
+          "end_state": 556,
+          "right_censored": false,
+          "peak_loss": 1.1222555505371095,
+          "before_loss": 0.04983924034118653,
+          "peak_to_before_ratio": 22.51750915251594
+        }
+      ],
+      "excursions_over_10_percent": 4,
+      "excursions_at_least_double": 3,
+      "historical_target_state": 422,
+      "double_excursion_within_32_states_of_historical_target": false,
+      "interpretation": "Descriptive check of the new control against the historical episode; no outcome exclusion or new acceptance threshold."
+    },
+    {
+      "family": "clipping",
+      "model": "transformer",
+      "events": [
+        {
+          "before_state": 557,
+          "onset_state": 558,
+          "peak_state": 562,
+          "recovery_state": 596,
+          "end_state": 596,
+          "right_censored": false,
+          "peak_loss": 1.69423240298525,
+          "before_loss": 0.8430872729910645,
+          "peak_to_before_ratio": 2.009557559770217
+        },
+        {
+          "before_state": 624,
+          "onset_state": 625,
+          "peak_state": 629,
+          "recovery_state": 665,
+          "end_state": 665,
+          "right_censored": false,
+          "peak_loss": 1.2888524330414606,
+          "before_loss": 0.7618161066558119,
+          "peak_to_before_ratio": 1.6918156780633196
+        },
+        {
+          "before_state": 687,
+          "onset_state": 688,
+          "peak_state": 706,
+          "recovery_state": 735,
+          "end_state": 735,
+          "right_censored": false,
+          "peak_loss": 1.0572943516173932,
+          "before_loss": 0.7079949381907827,
+          "peak_to_before_ratio": 1.493364280709709
+        },
+        {
+          "before_state": 761,
+          "onset_state": 762,
+          "peak_state": 767,
+          "recovery_state": 852,
+          "end_state": 852,
+          "right_censored": false,
+          "peak_loss": 3.052483803211108,
+          "before_loss": 0.6442757394073417,
+          "peak_to_before_ratio": 4.737853090695353
+        },
+        {
+          "before_state": 860,
+          "onset_state": 861,
+          "peak_state": 861,
+          "recovery_state": 862,
+          "end_state": 862,
+          "right_censored": false,
+          "peak_loss": 0.6339742699790866,
+          "before_loss": 0.6338313823708354,
+          "peak_to_before_ratio": 1.0002254347326835
+        },
+        {
+          "before_state": 879,
+          "onset_state": 880,
+          "peak_state": 885,
+          "recovery_state": null,
+          "end_state": 928,
+          "right_censored": true,
+          "peak_loss": 1.8843979672318059,
+          "before_loss": 0.6102173951516193,
+          "peak_to_before_ratio": 3.0880764498094875
+        }
+      ],
+      "excursions_over_10_percent": 5,
+      "excursions_at_least_double": 3,
+      "historical_target_state": 794,
+      "double_excursion_within_32_states_of_historical_target": true,
+      "interpretation": "Descriptive check of the new control against the historical episode; no outcome exclusion or new acceptance threshold."
+    }
+  ],
+  "checks": [
+    {
+      "run": 289,
+      "worker": "resnet",
+      "status": "passed",
+      "qualification": {
+        "status": "passed",
+        "exact_two_vs_one_plus_one": true,
+        "instrumentation_native_exact": true,
+        "fork_fingerprint": "20f32860097583d239a4a52cb74563de8393b0065b5cec1ce80abc93229441e1",
+        "eight_step_fingerprint": "b328c41f401a727c6b379a82c514c7b8456df50ff6cefeb70ab5a072b1e4899e",
+        "eight_step_trace": [
+          {
+            "state": 256,
+            "loss": 0.4825916876220702,
+            "norm": 2.157531744494533
+          },
+          {
+            "state": 257,
+            "loss": 0.457953525390625,
+            "norm": 1.56103471017137
+          },
+          {
+            "state": 258,
+            "loss": 0.4717161602783204,
+            "norm": 2.3115036160215863
+          },
+          {
+            "state": 259,
+            "loss": 0.4530084973144531,
+            "norm": 1.891246302544306
+          },
+          {
+            "state": 260,
+            "loss": 0.44408771118164075,
+            "norm": 1.514891008734235
+          },
+          {
+            "state": 261,
+            "loss": 0.4427511810302735,
+            "norm": 1.822623388856308
+          },
+          {
+            "state": 262,
+            "loss": 0.4348325659179687,
+            "norm": 2.258073752116402
+          },
+          {
+            "state": 263,
+            "loss": 0.42496719177246106,
+            "norm": 1.2816712665063659
+          }
+        ],
+        "historical_comparison": {
+          "fork_loss": 0.4825916876220702,
+          "fork_gradient_exact": false
+        },
+        "measured_seconds_per_update": 3.41601282781498,
+        "start_state": 256,
+        "environment": {
+          "gpu": "NVIDIA GeForce RTX 4090",
+          "torch": "2.11.0+cu130",
+          "cuda": "13.0"
+        }
+      },
+      "verification": {
+        "status": "passed",
+        "inventory_files": 37,
+        "arms": [
+          {
+            "arm": "control",
+            "boundaries": 321,
+            "updates": 320,
+            "audits": [
+              {
+                "path": "audit-0256.pt",
+                "status": "passed",
+                "max_absolute_errors": {
+                  "moment": 1.4901161242419914e-09,
+                  "second_moment": 4.961290319543954e-10,
+                  "parameter": 5.954203552427373e-08
+                }
+              },
+              {
+                "path": "audit-0575.pt",
+                "status": "passed",
+                "max_absolute_errors": {
+                  "moment": 5.820766091346741e-11,
+                  "second_moment": 5.590839787655844e-10,
+                  "parameter": 5.955551563019412e-08
+                }
+              }
+            ],
+            "evaluation": {
+              "test": {
+                "loss": 1.844334069824219,
+                "loss_units": 10000,
+                "objective_units": 10
+              }
+            }
+          },
+          {
+            "arm": "beta2_0p95",
+            "boundaries": 321,
+            "updates": 320,
+            "audits": [
+              {
+                "path": "audit-0256.pt",
+                "status": "passed",
+                "max_absolute_errors": {
+                  "moment": 1.4901161242419914e-09,
+                  "second_moment": 3.9276200347604373e-10,
+                  "parameter": 5.952626769278879e-08
+                }
+              },
+              {
+                "path": "audit-0575.pt",
+                "status": "passed",
+                "max_absolute_errors": {
+                  "moment": 6.286427350898904e-10,
+                  "second_moment": 7.582500793912317e-09,
+                  "parameter": 5.912437828214934e-08
+                }
+              }
+            ],
+            "evaluation": {
+              "test": {
+                "loss": 1.2516149169921877,
+                "loss_units": 10000,
+                "objective_units": 10
+              }
+            }
+          },
+          {
+            "arm": "beta2_0p9",
+            "boundaries": 321,
+            "updates": 320,
+            "audits": [
+              {
+                "path": "audit-0256.pt",
+                "status": "passed",
+                "max_absolute_errors": {
+                  "moment": 1.4901161242419914e-09,
+                  "second_moment": 3.427919493398379e-10,
+                  "parameter": 5.940346214927672e-08
+                }
+              },
+              {
+                "path": "audit-0575.pt",
+                "status": "passed",
+                "max_absolute_errors": {
+                  "moment": 4.1909515788307594e-10,
+                  "second_moment": 2.399517362583481e-09,
+                  "parameter": 5.911805800451475e-08
+                }
+              }
+            ],
+            "evaluation": {
+              "test": {
+                "loss": 1.8896777954101567,
+                "loss_units": 10000,
+                "objective_units": 10
+              }
+            }
+          },
+          {
+            "arm": "beta2_0p5",
+            "boundaries": 321,
+            "updates": 320,
+            "audits": [
+              {
+                "path": "audit-0256.pt",
+                "status": "passed",
+                "max_absolute_errors": {
+                  "moment": 1.4901161242419914e-09,
+                  "second_moment": 1.6302692529279739e-09,
+                  "parameter": 5.948281112111431e-08
+                }
+              },
+              {
+                "path": "audit-0575.pt",
+                "status": "passed",
+                "max_absolute_errors": {
+                  "moment": 1.1903466615170721e-09,
+                  "second_moment": 1.6704601035755218e-09,
+                  "parameter": 5.95838098860213e-08
+                }
+              }
+            ],
+            "evaluation": {
+              "test": {
+                "loss": 2.0629738037109373,
+                "loss_units": 10000,
+                "objective_units": 10
+              }
+            }
+          }
+        ]
+      },
+      "original_fork_audit": {
+        "status": "passed",
+        "results": [
+          {
+            "arm": "beta2_0p5",
+            "initial_model_moments_clock_rng_previous_gradient_exact": true,
+            "historical_current_gradient_available": true,
+            "historical_current_gradient_exact": true,
+            "historical_current_gradient_relative_l2_error": 0.0
+          },
+          {
+            "arm": "beta2_0p9",
+            "initial_model_moments_clock_rng_previous_gradient_exact": true,
+            "historical_current_gradient_available": true,
+            "historical_current_gradient_exact": true,
+            "historical_current_gradient_relative_l2_error": 0.0
+          },
+          {
+            "arm": "beta2_0p95",
+            "initial_model_moments_clock_rng_previous_gradient_exact": true,
+            "historical_current_gradient_available": true,
+            "historical_current_gradient_exact": true,
+            "historical_current_gradient_relative_l2_error": 0.0
+          },
+          {
+            "arm": "control",
+            "initial_model_moments_clock_rng_previous_gradient_exact": true,
+            "historical_current_gradient_available": true,
+            "historical_current_gradient_exact": true,
+            "historical_current_gradient_relative_l2_error": 0.0
+          }
+        ],
+        "qualification_note": "qualification.json used a recomputed-gradient fork snapshot with current_gradient=None. Its historical_comparison.fork_gradient_exact=False is not a measured mismatch; this direct original-checkpoint comparison is authoritative."
+      }
+    },
+    {
+      "run": 290,
+      "worker": "trans-control",
+      "status": "passed",
+      "qualification": {
+        "status": "passed",
+        "exact_two_vs_one_plus_one": true,
+        "instrumentation_native_exact": true,
+        "fork_fingerprint": "36f7afff741ff729f51796c085e36e76bf891dbb9adf5986aa5be231ae7f8832",
+        "eight_step_fingerprint": "c3c434492466028525d532c8b2e382434d0940756c60232567b2d4d894cfea3b",
+        "eight_step_trace": [
+          {
+            "state": 544,
+            "loss": 0.885628328821069,
+            "norm": 0.11669309693406107
+          },
+          {
+            "state": 545,
+            "loss": 0.8812924654013723,
+            "norm": 0.11337394300874223
+          },
+          {
+            "state": 546,
+            "loss": 0.8769820128406783,
+            "norm": 0.09186185453106947
+          },
+          {
+            "state": 547,
+            "loss": 0.8729528887203621,
+            "norm": 0.08392314774771142
+          },
+          {
+            "state": 548,
+            "loss": 0.8690440849224575,
+            "norm": 0.08435378659291759
+          },
+          {
+            "state": 549,
+            "loss": 0.8653046149334476,
+            "norm": 0.08338280432535865
+          },
+          {
+            "state": 550,
+            "loss": 0.8616639874436491,
+            "norm": 0.08536634715372876
+          },
+          {
+            "state": 551,
+            "loss": 0.8581585115036219,
+            "norm": 0.09135114374470892
+          }
+        ],
+        "historical_comparison": {
+          "fork_loss": 0.885628328821069,
+          "fork_gradient_exact": false
+        },
+        "measured_seconds_per_update": 16.077707036541224,
+        "start_state": 544,
+        "environment": {
+          "gpu": "NVIDIA GeForce RTX 4090",
+          "torch": "2.11.0+cu128",
+          "cuda": "12.8"
+        }
+      },
+      "verification": {
+        "status": "passed",
+        "inventory_files": 13,
+        "arms": [
+          {
+            "arm": "control",
+            "boundaries": 385,
+            "updates": 384,
+            "audits": [
+              {
+                "path": "audit-0544.pt",
+                "status": "passed",
+                "max_absolute_errors": {
+                  "moment": 3.6379788179337347e-11,
+                  "second_moment": 7.604252926125821e-11,
+                  "parameter": 1.0970115926767221e-07
+                }
+              },
+              {
+                "path": "audit-0927.pt",
+                "status": "passed",
+                "max_absolute_errors": {
+                  "moment": 3.0559022082569595e-11,
+                  "second_moment": 1.0837233888061348e-10,
+                  "parameter": 1.1879501071732079e-07
+                }
+              }
+            ],
+            "evaluation": {
+              "valid": {
+                "loss": 16.405520335546566,
+                "loss_units": 217630,
+                "objective_units": 6220
+              },
+              "test": {
+                "loss": 16.20191825430157,
+                "loss_units": 245550,
+                "objective_units": 7020
+              }
+            }
+          }
+        ]
+      },
+      "original_fork_audit": {
+        "status": "passed",
+        "results": [
+          {
+            "arm": "control",
+            "initial_model_moments_clock_rng_previous_gradient_exact": true,
+            "historical_current_gradient_available": true,
+            "historical_current_gradient_exact": false,
+            "historical_current_gradient_relative_l2_error": 1.367764647187215e-06
+          }
+        ],
+        "qualification_note": "qualification.json used a recomputed-gradient fork snapshot with current_gradient=None. Its historical_comparison.fork_gradient_exact=False is not a measured mismatch; this direct original-checkpoint comparison is authoritative."
+      }
+    },
+    {
+      "run": 290,
+      "worker": "trans-b95",
+      "status": "passed",
+      "qualification": {
+        "status": "passed",
+        "exact_two_vs_one_plus_one": true,
+        "instrumentation_native_exact": true,
+        "fork_fingerprint": "36f7afff741ff729f51796c085e36e76bf891dbb9adf5986aa5be231ae7f8832",
+        "eight_step_fingerprint": "c3c434492466028525d532c8b2e382434d0940756c60232567b2d4d894cfea3b",
+        "eight_step_trace": [
+          {
+            "state": 544,
+            "loss": 0.885628328821069,
+            "norm": 0.11669309693406107
+          },
+          {
+            "state": 545,
+            "loss": 0.8812924654013723,
+            "norm": 0.11337394300874223
+          },
+          {
+            "state": 546,
+            "loss": 0.8769820128406783,
+            "norm": 0.09186185453106947
+          },
+          {
+            "state": 547,
+            "loss": 0.8729528887203621,
+            "norm": 0.08392314774771142
+          },
+          {
+            "state": 548,
+            "loss": 0.8690440849224575,
+            "norm": 0.08435378659291759
+          },
+          {
+            "state": 549,
+            "loss": 0.8653046149334476,
+            "norm": 0.08338280432535865
+          },
+          {
+            "state": 550,
+            "loss": 0.8616639874436491,
+            "norm": 0.08536634715372876
+          },
+          {
+            "state": 551,
+            "loss": 0.8581585115036219,
+            "norm": 0.09135114374470892
+          }
+        ],
+        "historical_comparison": {
+          "fork_loss": 0.885628328821069,
+          "fork_gradient_exact": false
+        },
+        "measured_seconds_per_update": 16.18217847917483,
+        "start_state": 544,
+        "environment": {
+          "gpu": "NVIDIA GeForce RTX 4090",
+          "torch": "2.11.0+cu128",
+          "cuda": "12.8"
+        }
+      },
+      "verification": {
+        "status": "passed",
+        "inventory_files": 13,
+        "arms": [
+          {
+            "arm": "beta2_0p95",
+            "boundaries": 385,
+            "updates": 384,
+            "audits": [
+              {
+                "path": "audit-0544.pt",
+                "status": "passed",
+                "max_absolute_errors": {
+                  "moment": 3.6379788179337347e-11,
+                  "second_moment": 6.199727320063686e-11,
+                  "parameter": 1.1607305649974364e-07
+                }
+              },
+              {
+                "path": "audit-0927.pt",
+                "status": "passed",
+                "max_absolute_errors": {
+                  "moment": 4.365574579352077e-11,
+                  "second_moment": 4.502192507693792e-10,
+                  "parameter": 1.1892546547542793e-07
+                }
+              }
+            ],
+            "evaluation": {
+              "valid": {
+                "loss": 20.458643796416226,
+                "loss_units": 217630,
+                "objective_units": 6220
+              },
+              "test": {
+                "loss": 20.194182447566696,
+                "loss_units": 245550,
+                "objective_units": 7020
+              }
+            }
+          }
+        ]
+      },
+      "original_fork_audit": {
+        "status": "passed",
+        "results": [
+          {
+            "arm": "beta2_0p95",
+            "initial_model_moments_clock_rng_previous_gradient_exact": true,
+            "historical_current_gradient_available": true,
+            "historical_current_gradient_exact": false,
+            "historical_current_gradient_relative_l2_error": 1.367764647187215e-06
+          }
+        ],
+        "qualification_note": "qualification.json used a recomputed-gradient fork snapshot with current_gradient=None. Its historical_comparison.fork_gradient_exact=False is not a measured mismatch; this direct original-checkpoint comparison is authoritative."
+      }
+    },
+    {
+      "run": 290,
+      "worker": "trans-b90",
+      "status": "passed",
+      "qualification": {
+        "status": "passed",
+        "exact_two_vs_one_plus_one": true,
+        "instrumentation_native_exact": true,
+        "fork_fingerprint": "36f7afff741ff729f51796c085e36e76bf891dbb9adf5986aa5be231ae7f8832",
+        "eight_step_fingerprint": "c3c434492466028525d532c8b2e382434d0940756c60232567b2d4d894cfea3b",
+        "eight_step_trace": [
+          {
+            "state": 544,
+            "loss": 0.885628328821069,
+            "norm": 0.11669309693406107
+          },
+          {
+            "state": 545,
+            "loss": 0.8812924654013723,
+            "norm": 0.11337394300874223
+          },
+          {
+            "state": 546,
+            "loss": 0.8769820128406783,
+            "norm": 0.09186185453106947
+          },
+          {
+            "state": 547,
+            "loss": 0.8729528887203621,
+            "norm": 0.08392314774771142
+          },
+          {
+            "state": 548,
+            "loss": 0.8690440849224575,
+            "norm": 0.08435378659291759
+          },
+          {
+            "state": 549,
+            "loss": 0.8653046149334476,
+            "norm": 0.08338280432535865
+          },
+          {
+            "state": 550,
+            "loss": 0.8616639874436491,
+            "norm": 0.08536634715372876
+          },
+          {
+            "state": 551,
+            "loss": 0.8581585115036219,
+            "norm": 0.09135114374470892
+          }
+        ],
+        "historical_comparison": {
+          "fork_loss": 0.885628328821069,
+          "fork_gradient_exact": false
+        },
+        "measured_seconds_per_update": 15.935310388534246,
+        "start_state": 544,
+        "environment": {
+          "gpu": "NVIDIA GeForce RTX 4090",
+          "torch": "2.11.0+cu128",
+          "cuda": "12.8"
+        }
+      },
+      "verification": {
+        "status": "passed",
+        "inventory_files": 13,
+        "arms": [
+          {
+            "arm": "beta2_0p9",
+            "boundaries": 385,
+            "updates": 384,
+            "audits": [
+              {
+                "path": "audit-0544.pt",
+                "status": "passed",
+                "max_absolute_errors": {
+                  "moment": 3.6379788179337347e-11,
+                  "second_moment": 7.915831727080269e-11,
+                  "parameter": 1.1413197587017976e-07
+                }
+              },
+              {
+                "path": "audit-0927.pt",
+                "status": "passed",
+                "max_absolute_errors": {
+                  "moment": 3.8417056341666367e-10,
+                  "second_moment": 5.084571019428608e-10,
+                  "parameter": 1.1912589581442035e-07
+                }
+              }
+            ],
+            "evaluation": {
+              "valid": {
+                "loss": 21.85379172613782,
+                "loss_units": 217630,
+                "objective_units": 6220
+              },
+              "test": {
+                "loss": 21.567312681353084,
+                "loss_units": 245550,
+                "objective_units": 7020
+              }
+            }
+          }
+        ]
+      },
+      "original_fork_audit": {
+        "status": "passed",
+        "results": [
+          {
+            "arm": "beta2_0p9",
+            "initial_model_moments_clock_rng_previous_gradient_exact": true,
+            "historical_current_gradient_available": true,
+            "historical_current_gradient_exact": false,
+            "historical_current_gradient_relative_l2_error": 1.367764647187215e-06
+          }
+        ],
+        "qualification_note": "qualification.json used a recomputed-gradient fork snapshot with current_gradient=None. Its historical_comparison.fork_gradient_exact=False is not a measured mismatch; this direct original-checkpoint comparison is authoritative."
+      }
+    },
+    {
+      "run": 290,
+      "worker": "trans-b50",
+      "status": "passed",
+      "qualification": {
+        "status": "passed",
+        "exact_two_vs_one_plus_one": true,
+        "instrumentation_native_exact": true,
+        "fork_fingerprint": "36f7afff741ff729f51796c085e36e76bf891dbb9adf5986aa5be231ae7f8832",
+        "eight_step_fingerprint": "c3c434492466028525d532c8b2e382434d0940756c60232567b2d4d894cfea3b",
+        "eight_step_trace": [
+          {
+            "state": 544,
+            "loss": 0.885628328821069,
+            "norm": 0.11669309693406107
+          },
+          {
+            "state": 545,
+            "loss": 0.8812924654013723,
+            "norm": 0.11337394300874223
+          },
+          {
+            "state": 546,
+            "loss": 0.8769820128406783,
+            "norm": 0.09186185453106947
+          },
+          {
+            "state": 547,
+            "loss": 0.8729528887203621,
+            "norm": 0.08392314774771142
+          },
+          {
+            "state": 548,
+            "loss": 0.8690440849224575,
+            "norm": 0.08435378659291759
+          },
+          {
+            "state": 549,
+            "loss": 0.8653046149334476,
+            "norm": 0.08338280432535865
+          },
+          {
+            "state": 550,
+            "loss": 0.8616639874436491,
+            "norm": 0.08536634715372876
+          },
+          {
+            "state": 551,
+            "loss": 0.8581585115036219,
+            "norm": 0.09135114374470892
+          }
+        ],
+        "historical_comparison": {
+          "fork_loss": 0.885628328821069,
+          "fork_gradient_exact": false
+        },
+        "measured_seconds_per_update": 16.089152365351435,
+        "start_state": 544,
+        "environment": {
+          "gpu": "NVIDIA GeForce RTX 4090",
+          "torch": "2.11.0+cu128",
+          "cuda": "12.8"
+        }
+      },
+      "verification": {
+        "status": "passed",
+        "inventory_files": 13,
+        "arms": [
+          {
+            "arm": "beta2_0p5",
+            "boundaries": 385,
+            "updates": 384,
+            "audits": [
+              {
+                "path": "audit-0544.pt",
+                "status": "passed",
+                "max_absolute_errors": {
+                  "moment": 3.6379788179337347e-11,
+                  "second_moment": 2.5819870655592603e-11,
+                  "parameter": 1.1712777370220806e-07
+                }
+              },
+              {
+                "path": "audit-0927.pt",
+                "status": "passed",
+                "max_absolute_errors": {
+                  "moment": 2.5611370879988216e-10,
+                  "second_moment": 8.783773708387344e-11,
+                  "parameter": 1.1767740648593872e-07
+                }
+              }
+            ],
+            "evaluation": {
+              "valid": {
+                "loss": 20.96671300810149,
+                "loss_units": 217630,
+                "objective_units": 6220
+              },
+              "test": {
+                "loss": 20.70094177929647,
+                "loss_units": 245550,
+                "objective_units": 7020
+              }
+            }
+          }
+        ]
+      },
+      "original_fork_audit": {
+        "status": "passed",
+        "results": [
+          {
+            "arm": "beta2_0p5",
+            "initial_model_moments_clock_rng_previous_gradient_exact": true,
+            "historical_current_gradient_available": true,
+            "historical_current_gradient_exact": false,
+            "historical_current_gradient_relative_l2_error": 1.367764647187215e-06
+          }
+        ],
+        "qualification_note": "qualification.json used a recomputed-gradient fork snapshot with current_gradient=None. Its historical_comparison.fork_gradient_exact=False is not a measured mismatch; this direct original-checkpoint comparison is authoritative."
+      }
+    },
+    {
+      "run": 291,
+      "worker": "trans-clip05",
+      "status": "passed",
+      "qualification": {
+        "status": "passed",
+        "exact_two_vs_one_plus_one": true,
+        "instrumentation_native_exact": true,
+        "fork_fingerprint": "36f7afff741ff729f51796c085e36e76bf891dbb9adf5986aa5be231ae7f8832",
+        "eight_step_fingerprint": "c3c434492466028525d532c8b2e382434d0940756c60232567b2d4d894cfea3b",
+        "eight_step_trace": [
+          {
+            "state": 544,
+            "loss": 0.885628328821069,
+            "norm": 0.11669309693406107
+          },
+          {
+            "state": 545,
+            "loss": 0.8812924654013723,
+            "norm": 0.11337394300874223
+          },
+          {
+            "state": 546,
+            "loss": 0.8769820128406783,
+            "norm": 0.09186185453106947
+          },
+          {
+            "state": 547,
+            "loss": 0.8729528887203621,
+            "norm": 0.08392314774771142
+          },
+          {
+            "state": 548,
+            "loss": 0.8690440849224575,
+            "norm": 0.08435378659291759
+          },
+          {
+            "state": 549,
+            "loss": 0.8653046149334476,
+            "norm": 0.08338280432535865
+          },
+          {
+            "state": 550,
+            "loss": 0.8616639874436491,
+            "norm": 0.08536634715372876
+          },
+          {
+            "state": 551,
+            "loss": 0.8581585115036219,
+            "norm": 0.09135114374470892
+          }
+        ],
+        "historical_comparison": {
+          "fork_loss": 0.885628328821069,
+          "fork_gradient_exact": false
+        },
+        "measured_seconds_per_update": 15.373881759714674,
+        "start_state": 544,
+        "environment": {
+          "gpu": "NVIDIA GeForce RTX 4090",
+          "torch": "2.11.0+cu128",
+          "cuda": "12.8"
+        }
+      },
+      "verification": {
+        "status": "passed",
+        "inventory_files": 13,
+        "arms": [
+          {
+            "arm": "clip_0p5",
+            "boundaries": 385,
+            "updates": 384,
+            "audits": [
+              {
+                "path": "audit-0544.pt",
+                "status": "passed",
+                "max_absolute_errors": {
+                  "moment": 3.6379788179337347e-11,
+                  "second_moment": 7.604252926125821e-11,
+                  "parameter": 1.0970115926767221e-07
+                }
+              },
+              {
+                "path": "audit-0927.pt",
+                "status": "passed",
+                "max_absolute_errors": {
+                  "moment": 2.793967732953734e-10,
+                  "second_moment": 8.086245735505759e-11,
+                  "parameter": 1.1914863806694598e-07
+                }
+              }
+            ],
+            "evaluation": {
+              "valid": {
+                "loss": 18.244010207261184,
+                "loss_units": 217630,
+                "objective_units": 6220
+              },
+              "test": {
+                "loss": 18.033015599546932,
+                "loss_units": 245550,
+                "objective_units": 7020
+              }
+            }
+          }
+        ]
+      },
+      "original_fork_audit": {
+        "status": "passed",
+        "results": [
+          {
+            "arm": "clip_0p5",
+            "initial_model_moments_clock_rng_previous_gradient_exact": true,
+            "historical_current_gradient_available": true,
+            "historical_current_gradient_exact": false,
+            "historical_current_gradient_relative_l2_error": 1.367764647187215e-06
+          }
+        ],
+        "qualification_note": "qualification.json used a recomputed-gradient fork snapshot with current_gradient=None. Its historical_comparison.fork_gradient_exact=False is not a measured mismatch; this direct original-checkpoint comparison is authoritative."
+      }
+    },
+    {
+      "run": 291,
+      "worker": "trans-clip10",
+      "status": "passed",
+      "qualification": {
+        "status": "passed",
+        "exact_two_vs_one_plus_one": true,
+        "instrumentation_native_exact": true,
+        "fork_fingerprint": "36f7afff741ff729f51796c085e36e76bf891dbb9adf5986aa5be231ae7f8832",
+        "eight_step_fingerprint": "c3c434492466028525d532c8b2e382434d0940756c60232567b2d4d894cfea3b",
+        "eight_step_trace": [
+          {
+            "state": 544,
+            "loss": 0.885628328821069,
+            "norm": 0.11669309693406107
+          },
+          {
+            "state": 545,
+            "loss": 0.8812924654013723,
+            "norm": 0.11337394300874223
+          },
+          {
+            "state": 546,
+            "loss": 0.8769820128406783,
+            "norm": 0.09186185453106947
+          },
+          {
+            "state": 547,
+            "loss": 0.8729528887203621,
+            "norm": 0.08392314774771142
+          },
+          {
+            "state": 548,
+            "loss": 0.8690440849224575,
+            "norm": 0.08435378659291759
+          },
+          {
+            "state": 549,
+            "loss": 0.8653046149334476,
+            "norm": 0.08338280432535865
+          },
+          {
+            "state": 550,
+            "loss": 0.8616639874436491,
+            "norm": 0.08536634715372876
+          },
+          {
+            "state": 551,
+            "loss": 0.8581585115036219,
+            "norm": 0.09135114374470892
+          }
+        ],
+        "historical_comparison": {
+          "fork_loss": 0.885628328821069,
+          "fork_gradient_exact": false
+        },
+        "measured_seconds_per_update": 9.46677745827897,
+        "start_state": 544,
+        "environment": {
+          "gpu": "NVIDIA GeForce RTX 4090",
+          "torch": "2.11.0+cu128",
+          "cuda": "12.8"
+        }
+      },
+      "verification": {
+        "status": "passed",
+        "inventory_files": 13,
+        "arms": [
+          {
+            "arm": "clip_1p0",
+            "boundaries": 385,
+            "updates": 384,
+            "audits": [
+              {
+                "path": "audit-0544.pt",
+                "status": "passed",
+                "max_absolute_errors": {
+                  "moment": 3.6379788179337347e-11,
+                  "second_moment": 7.604252926125821e-11,
+                  "parameter": 1.0970115926767221e-07
+                }
+              },
+              {
+                "path": "audit-0927.pt",
+                "status": "passed",
+                "max_absolute_errors": {
+                  "moment": 3.0267983822454547e-10,
+                  "second_moment": 6.495850884101484e-11,
+                  "parameter": 1.1701569535560452e-07
+                }
+              }
+            ],
+            "evaluation": {
+              "valid": {
+                "loss": 18.829759161549987,
+                "loss_units": 217630,
+                "objective_units": 6220
+              },
+              "test": {
+                "loss": 18.605792640246385,
+                "loss_units": 245550,
+                "objective_units": 7020
+              }
+            }
+          }
+        ]
+      },
+      "original_fork_audit": {
+        "status": "passed",
+        "results": [
+          {
+            "arm": "clip_1p0",
+            "initial_model_moments_clock_rng_previous_gradient_exact": true,
+            "historical_current_gradient_available": true,
+            "historical_current_gradient_exact": false,
+            "historical_current_gradient_relative_l2_error": 1.367764647187215e-06
+          }
+        ],
+        "qualification_note": "qualification.json used a recomputed-gradient fork snapshot with current_gradient=None. Its historical_comparison.fork_gradient_exact=False is not a measured mismatch; this direct original-checkpoint comparison is authoritative."
+      }
+    }
+  ],
+  "sources": {
+    "analyses/058-2026-11-06-intervention-consolidation/manifest.json": {
+      "bytes": 97334,
+      "sha256": "4a2e90d42be36929568a478977e71640a0e061025cd629d31180a83280b91f58"
+    },
+    "analyses/059-2026-11-07-mlp-beta2-reduction/results.json": {
+      "bytes": 15344,
+      "sha256": "c6a4868d25024e9f0e44287a1e2ebe4c2d085c882064950b2e651cdcc4b6d883"
+    },
+    "runs/228-2026-11-04-mlp-global-clipping/verification_final.json": {
+      "bytes": 178,
+      "sha256": "3b03a913bfd0fc7f1041c0912f691efa762c89fb2c59e7528cf50ac42bfdfc88"
+    },
+    "runs/229-2026-11-04-mlp-clipping-half/verification_final.json": {
+      "bytes": 178,
+      "sha256": "3b03a913bfd0fc7f1041c0912f691efa762c89fb2c59e7528cf50ac42bfdfc88"
+    },
+    "runs/232-2026-11-07-mlp-beta2-reduction/verification_final.json": {
+      "bytes": 1821,
+      "sha256": "69d51709bd0eab44fd66eab4376dbf69125816bdede0e73ee53b6abcb3e8ef5c"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-control/qualification.json": {
+      "bytes": 1411,
+      "sha256": "2952f215d13746ae60c63c3b788641700cbc7671855c40f2fe2e6e208c137fc8"
+    },
+    "runs/289-2026-11-08-resnet-beta2-reductions/artifacts/attempt-01/resnet/verification.json": {
+      "bytes": 3372,
+      "sha256": "9d8f502a8fa3d5d621b6bee6c61914aeff3d6cca4929eeb4ea8e99666d9854bd"
+    },
+    "runs/289-2026-11-08-resnet-beta2-reductions/artifacts/attempt-01/resnet/qualification.json": {
+      "bytes": 1397,
+      "sha256": "09139152d5735d9766ae18d5c3d0dba05f990fbab00a7c008a5b936c303b2690"
+    },
+    "runs/289-2026-11-08-resnet-beta2-reductions/artifacts/attempt-01/resnet/complete_prefix_audit.json": {
+      "bytes": 1383,
+      "sha256": "86530b4f0bdf10ee2d092b16fbf10f55fc8d5929412af38d74dce75de9796f84"
+    },
+    "runs/289-2026-11-08-resnet-beta2-reductions/artifacts/attempt-01/resnet/manifest.json": {
+      "bytes": 2583,
+      "sha256": "34622e1e7658e778313c047b62312d18c6978d0e9a5e474776c841b437209381"
+    },
+    "runs/289-2026-11-08-resnet-beta2-reductions/config.json": {
+      "bytes": 1870,
+      "sha256": "6cfc711424483dee4d49b673063ae4ab6f8246c4105ec814aebfb65b128d98e2"
+    },
+    "runs/289-2026-11-08-resnet-beta2-reductions/input_manifest.json": {
+      "bytes": 7191,
+      "sha256": "10984954d1b909738f7c79ca92d5b128d947afb8f3216aedc28c2fbf35724681"
+    },
+    "runs/289-2026-11-08-resnet-beta2-reductions/artifacts/attempt-01/resnet/transfer_inventory.json": {
+      "bytes": 5543,
+      "sha256": "2d37e3622a30fe308fd991e33931d7ddf4cc05f0722346ece831e0210d246675"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-control/verification.json": {
+      "bytes": 1030,
+      "sha256": "dc539c201363d15e62190fa8697b3f49f673fd8098719f75974d2907aff55aaa"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-control/complete_prefix_audit.json": {
+      "bytes": 588,
+      "sha256": "96300503e73d95ee28c7df09e29712a82305df7c90a4a69dc90c144e164befe2"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-control/manifest.json": {
+      "bytes": 1168,
+      "sha256": "f5188561d04462a4ae692ef05a0692543102c775651e03e6a7be160bb6a399f0"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/config.json": {
+      "bytes": 1927,
+      "sha256": "3c7e57f3fa76f0837fc8efdfb607af6ebbe94cf6bd8cfdbf83cf7c252223d6cf"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/input_manifest.json": {
+      "bytes": 7229,
+      "sha256": "881e750012cc5901cfa816d2858db3c7a933ac6a2576d55cc0029b6a734655ea"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-control/transfer_inventory.json": {
+      "bytes": 2539,
+      "sha256": "3445094f744560afc8d4380bee98d6dfcfac79a64f00ad039fd727e4dfc0eca3"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b95/verification.json": {
+      "bytes": 1032,
+      "sha256": "360042e92bd334ee1a06a808c84cef3aef9585f1052397d2898576619063e29b"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b95/qualification.json": {
+      "bytes": 1410,
+      "sha256": "c5639c71803d73941792c8cdbe50f6ae44a29df9447018313a8a3e2e37a78263"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b95/complete_prefix_audit.json": {
+      "bytes": 591,
+      "sha256": "c97cc82d4e160c0e9570143c4028bfc3e0a5b3cd880b0d83c83623fac131cd76"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b95/manifest.json": {
+      "bytes": 1195,
+      "sha256": "7587c89f7cd020d0b41b26b9c6c2671bcb27e189ad233177e887120e0c6131c8"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b95/transfer_inventory.json": {
+      "bytes": 2563,
+      "sha256": "0e211656cf4d63860759c9bbc7634dd7248bd74363a68911f6645015f7bb2612"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b90/verification.json": {
+      "bytes": 1031,
+      "sha256": "387ac433b1857900892583340b24d4a080783fe857ea8e899e65dc2f22c224dc"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b90/qualification.json": {
+      "bytes": 1411,
+      "sha256": "92444dcbdcd4c4858a458e3a1d17552dd07990222f65423cbafd67f6227566f3"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b90/complete_prefix_audit.json": {
+      "bytes": 590,
+      "sha256": "973e5791efe2d9f1588d91ea9c3bd26b287427abd476357b3e0af5d817f1f107"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b90/manifest.json": {
+      "bytes": 1192,
+      "sha256": "c86d7a75ad21b76e2517c0663c1e4b6a0df2af45215cac0f30626ab8056d76e2"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b90/transfer_inventory.json": {
+      "bytes": 2555,
+      "sha256": "9b3c9119f979a34e36fb31117aa91aad396b0d40982ba54c22975388fc7e1105"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b50/verification.json": {
+      "bytes": 1031,
+      "sha256": "7a1c7cec9abff478e04a6765cc09a2587b957bcc012b263fae360bb0e7dcab7e"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b50/qualification.json": {
+      "bytes": 1411,
+      "sha256": "41324ff4706bfd2ab38ed5ec1fa96ca0589bde1be0aa1ebb4be3f8d1e35dd912"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b50/complete_prefix_audit.json": {
+      "bytes": 590,
+      "sha256": "369b84ed539ced3b4cf18e193dffb0856d9e90e267f468a35c16c3468c958ae7"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b50/manifest.json": {
+      "bytes": 1191,
+      "sha256": "2d22de4c7e7d107bf673b32a757d93e0c73dfe7c952f6e6dda2680c381e77a03"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b50/transfer_inventory.json": {
+      "bytes": 2555,
+      "sha256": "a5d23c07dacc8565d5fceb684655f929f21a0b2277385bf32cfcae1787716888"
+    },
+    "runs/291-2026-11-08-transformer-gradient-clipping/artifacts/attempt-01/trans-clip05/verification.json": {
+      "bytes": 1030,
+      "sha256": "d3a7483fce0f82246cf0f3f076f922239fdf10cde2805d978148c296ec551a43"
+    },
+    "runs/291-2026-11-08-transformer-gradient-clipping/artifacts/attempt-01/trans-clip05/qualification.json": {
+      "bytes": 1411,
+      "sha256": "742745264a7ccdfdc1442d27cea65aa42a2494f60c74a7527568f82711a13488"
+    },
+    "runs/291-2026-11-08-transformer-gradient-clipping/artifacts/attempt-01/trans-clip05/complete_prefix_audit.json": {
+      "bytes": 589,
+      "sha256": "0f7df7a3d96a07419185b5135f67fc6dd1fa4ffb7c3c7d24a4818116482cf87f"
+    },
+    "runs/291-2026-11-08-transformer-gradient-clipping/artifacts/attempt-01/trans-clip05/manifest.json": {
+      "bytes": 1192,
+      "sha256": "f83287d7998dd1ed009da5fdfb39a4e0a422b937a1d3959e25974fa42e56e7e8"
+    },
+    "runs/291-2026-11-08-transformer-gradient-clipping/config.json": {
+      "bytes": 1864,
+      "sha256": "8809f70d9da1012d23a4cda919ee18fdee2f20abdad5ff7b2518ef77eeea282f"
+    },
+    "runs/291-2026-11-08-transformer-gradient-clipping/input_manifest.json": {
+      "bytes": 7232,
+      "sha256": "3324de22a5d663bea5648289e01f6ea1ea4b24079ec9abb7fc3c35ce59a883ca"
+    },
+    "runs/291-2026-11-08-transformer-gradient-clipping/artifacts/attempt-01/trans-clip05/transfer_inventory.json": {
+      "bytes": 2547,
+      "sha256": "3312ea0aff9c35040c1459eae81fe397e04651f600e8258d86e7a61342701c65"
+    },
+    "runs/291-2026-11-08-transformer-gradient-clipping/artifacts/attempt-01/trans-clip10/verification.json": {
+      "bytes": 1031,
+      "sha256": "e8fd1ca408e8bbff61fe01b2a35185aa69b6efbb5d8fc1e50e988a080078aa65"
+    },
+    "runs/291-2026-11-08-transformer-gradient-clipping/artifacts/attempt-01/trans-clip10/qualification.json": {
+      "bytes": 1409,
+      "sha256": "6dfd288c4d6ea8743f2367bc4d38a4251e2c3f9acce511185b663fd37bd4d251"
+    },
+    "runs/291-2026-11-08-transformer-gradient-clipping/artifacts/attempt-01/trans-clip10/complete_prefix_audit.json": {
+      "bytes": 589,
+      "sha256": "cdd7545cccdf2e0096c612dc8efaaad0f06756f99d38940b44d981645ad7e60b"
+    },
+    "runs/291-2026-11-08-transformer-gradient-clipping/artifacts/attempt-01/trans-clip10/manifest.json": {
+      "bytes": 1193,
+      "sha256": "6a27879a34717cd5498fffba467abbe5f47803802bf042e278c4b4ae9ffd8886"
+    },
+    "runs/291-2026-11-08-transformer-gradient-clipping/artifacts/attempt-01/trans-clip10/transfer_inventory.json": {
+      "bytes": 2405,
+      "sha256": "35a1d1695b9139560a3ba0c326345821f5541e4cac452bd6d07cbd40831d08fd"
+    },
+    "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/control/boundaries.jsonl": {
+      "bytes": 82557,
+      "sha256": "def47bc333c45f5778d81a4450aa812cd91bf110604c05c6140e6846871c9d48"
+    },
+    "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/control/metrics.jsonl": {
+      "bytes": 143734,
+      "sha256": "8d83e9910f0abb2dedca2a3788583a7ee1e4f0ee5eb2ff1177acd4328b80bf29"
+    },
+    "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/control/status.json": {
+      "bytes": 653,
+      "sha256": "371bd162fb71df84ef424c574f686997f72e5fa9a04fec05cfbe21cc0f67f104"
+    },
+    "runs/232-2026-11-07-mlp-beta2-reduction/artifacts/spark/payload/worker/beta2_0p95/boundaries.jsonl": {
+      "bytes": 77071,
+      "sha256": "641e01605b88e45de0637e604ff318d1f6cb69dda9b741476c79dd1339df3ae4"
+    },
+    "runs/232-2026-11-07-mlp-beta2-reduction/artifacts/spark/payload/worker/beta2_0p95/metrics.jsonl": {
+      "bytes": 279114,
+      "sha256": "e1532d5950d04e6b0ea3317187160464a0ff174c2be459232df9a0f1e07b94cf"
+    },
+    "runs/232-2026-11-07-mlp-beta2-reduction/artifacts/spark/payload/worker/beta2_0p95/status.json": {
+      "bytes": 414,
+      "sha256": "3f679b432d5baee10a68f340a29ecf94cca4b65b647a078166644c6870d29f1a"
+    },
+    "runs/232-2026-11-07-mlp-beta2-reduction/artifacts/spark/payload/worker/beta2_0p9/boundaries.jsonl": {
+      "bytes": 76831,
+      "sha256": "399c5e593d46190da77b68c68324cc7ffcc2ad6071076e15a88c4dee800c4978"
+    },
+    "runs/232-2026-11-07-mlp-beta2-reduction/artifacts/spark/payload/worker/beta2_0p9/metrics.jsonl": {
+      "bytes": 275596,
+      "sha256": "7985f4ac78eead702fe84a032c5a023a53f6fd05a081dca1a4842182c44b58a3"
+    },
+    "runs/232-2026-11-07-mlp-beta2-reduction/artifacts/spark/payload/worker/beta2_0p9/status.json": {
+      "bytes": 413,
+      "sha256": "c0b095375cf20934972a148f4845cba612b38ea808189169bef1e7f1bbc30dfd"
+    },
+    "runs/232-2026-11-07-mlp-beta2-reduction/artifacts/spark/payload/worker/beta2_0p5/boundaries.jsonl": {
+      "bytes": 76779,
+      "sha256": "585c1a71e11e5d3248f34bb655fd74a63bc77620c1b5806977dff5fea4f93072"
+    },
+    "runs/232-2026-11-07-mlp-beta2-reduction/artifacts/spark/payload/worker/beta2_0p5/metrics.jsonl": {
+      "bytes": 275055,
+      "sha256": "8491ab6da647f583a867f3d6546d4b8d2c88dd5bb4fdb03e0fa5236aa32c4f42"
+    },
+    "runs/232-2026-11-07-mlp-beta2-reduction/artifacts/spark/payload/worker/beta2_0p5/status.json": {
+      "bytes": 408,
+      "sha256": "b271ca356756fc50bc55821ee10c76fd3cc1acd1b3db626eb11d479296675a28"
+    },
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/02_extract_loss_spikes.py": {
+      "bytes": 20316,
+      "sha256": "ceea5a9d2d0265bc83d45858961763f898afffce15febd6e7982385ea56e6542"
+    },
+    "runs/223-2026-11-04-multispike-interventions/artifacts/spark/payload/worker/prefix/boundaries.jsonl": {
+      "bytes": 146240,
+      "sha256": "05896f1ff766343626db323dfa50a4994a2062f73f09e43156e1797b696231db"
+    },
+    "runs/289-2026-11-08-resnet-beta2-reductions/artifacts/attempt-01/resnet/control/boundaries.jsonl": {
+      "bytes": 71924,
+      "sha256": "d7dc8bd49d5aee1ad7293e2f2af87143827a2d9e9c71e2288f330cac0d18dd32"
+    },
+    "runs/289-2026-11-08-resnet-beta2-reductions/artifacts/attempt-01/resnet/control/metrics.jsonl": {
+      "bytes": 268559,
+      "sha256": "68ba8705f0d14ad07f8dd75b7ea0198f554e0c13bdbee2b7e6b9407543ec0938"
+    },
+    "runs/289-2026-11-08-resnet-beta2-reductions/artifacts/attempt-01/resnet/control/status.json": {
+      "bytes": 409,
+      "sha256": "c324c247b92a25be28e503aeb4afa51d740bcb86692a083352ba9e2c5c46e1e9"
+    },
+    "runs/289-2026-11-08-resnet-beta2-reductions/artifacts/attempt-01/resnet/beta2_0p95/boundaries.jsonl": {
+      "bytes": 71388,
+      "sha256": "896fc6c50d766d890df868a36c1fd8dc15dae935e436879bf1ef90d8cc785089"
+    },
+    "runs/289-2026-11-08-resnet-beta2-reductions/artifacts/attempt-01/resnet/beta2_0p95/metrics.jsonl": {
+      "bytes": 267566,
+      "sha256": "66b6523fa0d7ae35bb21d3b894a12246db5cbe7b8c6132559b3504f2e1c36e21"
+    },
+    "runs/289-2026-11-08-resnet-beta2-reductions/artifacts/attempt-01/resnet/beta2_0p95/status.json": {
+      "bytes": 432,
+      "sha256": "74a2d1de713d2a271e40937e7b92df5076011441e031dff15d78ecab80ea7036"
+    },
+    "runs/289-2026-11-08-resnet-beta2-reductions/artifacts/attempt-01/resnet/beta2_0p9/boundaries.jsonl": {
+      "bytes": 71065,
+      "sha256": "2e0d7b25033d797cb2a255d3b1d20c34eed16079e2e6881595f0fbd51856097f"
+    },
+    "runs/289-2026-11-08-resnet-beta2-reductions/artifacts/attempt-01/resnet/beta2_0p9/metrics.jsonl": {
+      "bytes": 263823,
+      "sha256": "21fe71cd8d173e0ab06a758c125fe86242abab9546fa74982bd411ec3bce5231"
+    },
+    "runs/289-2026-11-08-resnet-beta2-reductions/artifacts/attempt-01/resnet/beta2_0p9/status.json": {
+      "bytes": 430,
+      "sha256": "9e64777c9dcdf403871ecc11344dfbf6ce920712eba10809c07308238562094d"
+    },
+    "runs/289-2026-11-08-resnet-beta2-reductions/artifacts/attempt-01/resnet/beta2_0p5/boundaries.jsonl": {
+      "bytes": 71131,
+      "sha256": "e482013c46c25d253435e977b36c45c546dd8387ee422535f53db99bddaaa074"
+    },
+    "runs/289-2026-11-08-resnet-beta2-reductions/artifacts/attempt-01/resnet/beta2_0p5/metrics.jsonl": {
+      "bytes": 262064,
+      "sha256": "5ad7863e7565f43dd3ec2dfa8f928ade8bd70dcb3108da9f13bafa6fb634ec40"
+    },
+    "runs/289-2026-11-08-resnet-beta2-reductions/artifacts/attempt-01/resnet/beta2_0p5/status.json": {
+      "bytes": 430,
+      "sha256": "2ed2b75812e6b6a8d428f5111e69cf5cdd6c931c761fa11320c76d2d308e4779"
+    },
+    "runs/223-2026-11-04-multispike-interventions/artifacts/duqoihms8w1gle/payload/worker/prefix/boundaries.jsonl": {
+      "bytes": 72677,
+      "sha256": "0914f153b13710eafd7a31de046e292ed4b3014a655f5b587a264f6ac3255119"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-control/control/boundaries.jsonl": {
+      "bytes": 85748,
+      "sha256": "16b875daf118af11c60e88a393ff854c0667263df9c8a8aba0411bed84c265c9"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-control/control/metrics.jsonl": {
+      "bytes": 322522,
+      "sha256": "ed3824d6d9981a625eaadff95e5679d09caf246b1c2bbd3b403061d8b3f64646"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-control/control/status.json": {
+      "bytes": 527,
+      "sha256": "c3fc8f8a1cd035c9889f5b556e584b14eeea58a68f3021023803b0f523dc8d0e"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b95/beta2_0p95/boundaries.jsonl": {
+      "bytes": 85248,
+      "sha256": "2fe6e93243c7d5f68d943ae8b2927fb2b1654be45c42a2ba8bb8e2f7509637ea"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b95/beta2_0p95/metrics.jsonl": {
+      "bytes": 318562,
+      "sha256": "9811d8c20f634003e8d85f5a1b9c7445176260c215bfc3f2a20b484e106f47b4"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b95/beta2_0p95/status.json": {
+      "bytes": 550,
+      "sha256": "104307f814ece487668e90c87900d50900839540f93517aceec7efd0c6d1c39f"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b90/beta2_0p9/boundaries.jsonl": {
+      "bytes": 84885,
+      "sha256": "645bd6bfeac9b07ab69381d4c7dbcd1e8f68aede5b5b3fc7a723cd65d6c1e210"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b90/beta2_0p9/metrics.jsonl": {
+      "bytes": 315104,
+      "sha256": "5e26883b42702584e86aef7e91672f82f38b7ddebef47b560d03624b788be046"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b90/beta2_0p9/status.json": {
+      "bytes": 547,
+      "sha256": "16f90f619d47a1ec4ed972b712e2388ea570f1783257011c5a436dfac78a0117"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b50/beta2_0p5/boundaries.jsonl": {
+      "bytes": 85014,
+      "sha256": "d3be7955807e7e74c691851ebf23c426338422370700db65afc0b63561c20025"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b50/beta2_0p5/metrics.jsonl": {
+      "bytes": 315546,
+      "sha256": "9e851ede29f644e8051547ba9af237f34d9d2599a9a8b34c8978edb94c224f32"
+    },
+    "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b50/beta2_0p5/status.json": {
+      "bytes": 546,
+      "sha256": "874297043273f2f4fbb78231c6c394d1f794a02a72fcb5a6b3f8441961118da7"
+    },
+    "runs/223-2026-11-04-multispike-interventions/artifacts/159vjccj7w3996/payload/worker/prefix/boundaries.jsonl": {
+      "bytes": 154309,
+      "sha256": "eba639bcdede0f36783210de668c18a3e3e63882efe15a511a4738c6d0ece0c4"
+    },
+    "runs/228-2026-11-04-mlp-global-clipping/artifacts/spark/payload/worker/global_clip1/boundaries.jsonl": {
+      "bytes": 82532,
+      "sha256": "066bdb0b37638d8f22deebcec478a7f2ce7e7d1d3351f40cf30cdc6492b1093f"
+    },
+    "runs/228-2026-11-04-mlp-global-clipping/artifacts/spark/payload/worker/global_clip1/metrics.jsonl": {
+      "bytes": 145464,
+      "sha256": "2c4c76e53be3a0b3b767444412a69178f87e3341bc1711d920da326b548db26a"
+    },
+    "runs/228-2026-11-04-mlp-global-clipping/artifacts/spark/payload/worker/global_clip1/status.json": {
+      "bytes": 757,
+      "sha256": "80bac6c612b6aeb18319d4cac0f19bc0faade4cc978c46e26eba3e3024255902"
+    },
+    "runs/229-2026-11-04-mlp-clipping-half/artifacts/spark/payload/worker/global_clip05/boundaries.jsonl": {
+      "bytes": 82595,
+      "sha256": "97dc87453700116d5758c60804ca589bc7610d3ef42ef8392a8e9be3a43ad4de"
+    },
+    "runs/229-2026-11-04-mlp-clipping-half/artifacts/spark/payload/worker/global_clip05/metrics.jsonl": {
+      "bytes": 147700,
+      "sha256": "9c60a699078b83f2a7afe702cb0699d58cdd6fe27800ecf356412d98e7183417"
+    },
+    "runs/229-2026-11-04-mlp-clipping-half/artifacts/spark/payload/worker/global_clip05/status.json": {
+      "bytes": 758,
+      "sha256": "b846309f747e05e52144470758be4dd3857d79863ca9446039b236b51a9f843a"
+    },
+    "runs/231-2026-11-05-resnet-clip1/artifacts/spark/payload/worker/control/boundaries.jsonl": {
+      "bytes": 91306,
+      "sha256": "8c12f575f0f404f46870e63b8960095070af3f24416574d7057ad7ab3a7a5959"
+    },
+    "runs/231-2026-11-05-resnet-clip1/artifacts/spark/payload/worker/control/metrics.jsonl": {
+      "bytes": 159505,
+      "sha256": "246366496ba54b0d77982a8efaefceaf12de0613176dbb5c205c71cc3bdb8b52"
+    },
+    "runs/231-2026-11-05-resnet-clip1/artifacts/spark/payload/worker/control/status.json": {
+      "bytes": 742,
+      "sha256": "b9cde7599d564736906227ffb19e09743a65fbe5ac8e9508704e09717d3a0320"
+    },
+    "runs/231-2026-11-05-resnet-clip1/artifacts/spark/payload/worker/clipping/boundaries.jsonl": {
+      "bytes": 91261,
+      "sha256": "b8c5acbc077dd3141880d40a47a6767d252cb693e32893f465d1d2bbe717667c"
+    },
+    "runs/231-2026-11-05-resnet-clip1/artifacts/spark/payload/worker/clipping/metrics.jsonl": {
+      "bytes": 164039,
+      "sha256": "cf96f64652c1423838c1fe860504681ba5e19318cc8b99d350da17daee3e5be9"
+    },
+    "runs/231-2026-11-05-resnet-clip1/artifacts/spark/payload/worker/clipping/status.json": {
+      "bytes": 744,
+      "sha256": "5156201fa920fe908dfd827f1fd5aa89d290c29f95a159d43abb8ca48b287482"
+    },
+    "runs/291-2026-11-08-transformer-gradient-clipping/artifacts/attempt-01/trans-clip10/clip_1p0/boundaries.jsonl": {
+      "bytes": 85562,
+      "sha256": "a6c4f603755e1be18ecb7040740d00f1338c0bf6d18faa224876421d62fcac36"
+    },
+    "runs/291-2026-11-08-transformer-gradient-clipping/artifacts/attempt-01/trans-clip10/clip_1p0/metrics.jsonl": {
+      "bytes": 325531,
+      "sha256": "8cddd4f247d09a1ff03028b0112df096c42da5ac61244493835c1b9e35d9c49c"
+    },
+    "runs/291-2026-11-08-transformer-gradient-clipping/artifacts/attempt-01/trans-clip10/clip_1p0/status.json": {
+      "bytes": 547,
+      "sha256": "805da233a48defc3b7bb0caa000f758d0abacba916973ce6765577261a12184c"
+    },
+    "runs/291-2026-11-08-transformer-gradient-clipping/artifacts/attempt-01/trans-clip05/clip_0p5/boundaries.jsonl": {
+      "bytes": 85605,
+      "sha256": "6fa37e1b1ee24c59a18d725905b888e42449f3a369bc26924bf796a2fa0e624a"
+    },
+    "runs/291-2026-11-08-transformer-gradient-clipping/artifacts/attempt-01/trans-clip05/clip_0p5/metrics.jsonl": {
+      "bytes": 327796,
+      "sha256": "c6f84dcb7be9b8241430cc75d9edab1f5c8752e14a6e70b64b3feb7d81bba77c"
+    },
+    "runs/291-2026-11-08-transformer-gradient-clipping/artifacts/attempt-01/trans-clip05/clip_0p5/status.json": {
+      "bytes": 546,
+      "sha256": "1b1da91a6fc082882bf3b29265a820f3868ab1837b40d4351204294daaa0eae2"
+    }
+  },
+  "figures": [
+    {
+      "path": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/15-beta2-reductions-cifar10-mlp-resnet-wikitext2-transformer.pdf",
+      "sha256": "39141d1a866a2463a5f604a3efecba264b56648908bebd565e42cfb70e03ba84",
+      "pages": 1
+    },
+    {
+      "path": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/16-gradient-clipping-cifar10-mlp-resnet-wikitext2-transformer.pdf",
+      "sha256": "b6f60076da1e1adc45d67c99153043ff27151f058b90df12e4035970ce5e9606",
+      "pages": 1
+    }
+  ],
+  "exported_branch_boundary_rows": 6644,
+  "historical_prefix_boundary_rows": 384,
+  "display_clock": "Branch CSV includes fork and terminal boundaries. Policy rows omit the terminal boundary because it has no outgoing update; each shaded prefix is displayed once per model/family."
+}

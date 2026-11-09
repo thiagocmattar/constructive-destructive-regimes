@@ -417,4 +417,4 @@ adds connected mean-training-loss points and sample-SD error bars across three
 LR columns with a shared log Y axis. All54 seed means and18 error-bar reductions
 verified; one rendered page reviewed. Existing H049 data; no new training.
 
-**Analysis 065 active extension (8 November 2026):** H050 / Runs 289-291 complete ResNet/Transformer beta2 and Transformer clipping coverage. Original fixed forks and fresh unchanged controls; seven preflights and exact eight-update Transformer control replay pass. Results pending full-window completion and independent verification. No new analysis opened.
+**Analysis 065 conventional extension completed (8 November 2026):** [H050 / Runs289-291](065-2026-11-07-mlp-frozen-lr-double/observations/015-conventional-model-coverage.md) add verified ResNet/Transformer beta2 and Transformer clipping coverage. All 10 continuations / 3,584 updates / 20 audits pass, with full terminal evaluation and exact Transformer control replay. Three-model figures show architecture/endpoint tradeoffs; remaining ablations are explicit. All raw evidence verified on Spark and task pods deleted; provisional compute USD11.36. No new analysis opened.

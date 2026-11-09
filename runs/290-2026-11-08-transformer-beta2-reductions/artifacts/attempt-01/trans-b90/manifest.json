@@ -1,0 +1,43 @@
+{
+  "status": "completed",
+  "run": "290-2026-11-08-transformer-beta2-reductions",
+  "config_sha256": "3c7e57f3fa76f0837fc8efdfb607af6ebbe94cf6bd8cfdbf83cf7c252223d6cf",
+  "manifest_sha256": "881e750012cc5901cfa816d2858db3c7a933ac6a2576d55cc0029b6a734655ea",
+  "started_utc": "2026-11-08T22:53:39.259953+00:00",
+  "results": [
+    {
+      "status": "completed",
+      "arm": {
+        "id": "beta2_0p9",
+        "beta2": 0.9
+      },
+      "start_state": 544,
+      "end_state": 928,
+      "mechanics_only": false,
+      "evaluation": {
+        "valid": {
+          "loss": 21.85379172613782,
+          "loss_units": 217630,
+          "objective_units": 6220
+        },
+        "test": {
+          "loss": 21.567312681353084,
+          "loss_units": 245550,
+          "objective_units": 7020
+        }
+      },
+      "completed_state": 928,
+      "updates": 384,
+      "elapsed_seconds": 6154.487727455795,
+      "training_units": 2088600,
+      "peak_cuda_bytes": 2627370496
+    }
+  ],
+  "environment": {
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8"
+  },
+  "elapsed_seconds": 6347.843548411969,
+  "finished_utc": "2026-11-09T00:39:27.103280+00:00"
+}

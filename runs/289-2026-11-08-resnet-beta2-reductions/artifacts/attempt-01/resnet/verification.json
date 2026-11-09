@@ -1,0 +1,134 @@
+{
+  "status": "passed",
+  "inventory_files": 37,
+  "arms": [
+    {
+      "arm": "control",
+      "boundaries": 321,
+      "updates": 320,
+      "audits": [
+        {
+          "path": "audit-0256.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 1.4901161242419914e-09,
+            "second_moment": 4.961290319543954e-10,
+            "parameter": 5.954203552427373e-08
+          }
+        },
+        {
+          "path": "audit-0575.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 5.820766091346741e-11,
+            "second_moment": 5.590839787655844e-10,
+            "parameter": 5.955551563019412e-08
+          }
+        }
+      ],
+      "evaluation": {
+        "test": {
+          "loss": 1.844334069824219,
+          "loss_units": 10000,
+          "objective_units": 10
+        }
+      }
+    },
+    {
+      "arm": "beta2_0p95",
+      "boundaries": 321,
+      "updates": 320,
+      "audits": [
+        {
+          "path": "audit-0256.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 1.4901161242419914e-09,
+            "second_moment": 3.9276200347604373e-10,
+            "parameter": 5.952626769278879e-08
+          }
+        },
+        {
+          "path": "audit-0575.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 6.286427350898904e-10,
+            "second_moment": 7.582500793912317e-09,
+            "parameter": 5.912437828214934e-08
+          }
+        }
+      ],
+      "evaluation": {
+        "test": {
+          "loss": 1.2516149169921877,
+          "loss_units": 10000,
+          "objective_units": 10
+        }
+      }
+    },
+    {
+      "arm": "beta2_0p9",
+      "boundaries": 321,
+      "updates": 320,
+      "audits": [
+        {
+          "path": "audit-0256.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 1.4901161242419914e-09,
+            "second_moment": 3.427919493398379e-10,
+            "parameter": 5.940346214927672e-08
+          }
+        },
+        {
+          "path": "audit-0575.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 4.1909515788307594e-10,
+            "second_moment": 2.399517362583481e-09,
+            "parameter": 5.911805800451475e-08
+          }
+        }
+      ],
+      "evaluation": {
+        "test": {
+          "loss": 1.8896777954101567,
+          "loss_units": 10000,
+          "objective_units": 10
+        }
+      }
+    },
+    {
+      "arm": "beta2_0p5",
+      "boundaries": 321,
+      "updates": 320,
+      "audits": [
+        {
+          "path": "audit-0256.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 1.4901161242419914e-09,
+            "second_moment": 1.6302692529279739e-09,
+            "parameter": 5.948281112111431e-08
+          }
+        },
+        {
+          "path": "audit-0575.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 1.1903466615170721e-09,
+            "second_moment": 1.6704601035755218e-09,
+            "parameter": 5.95838098860213e-08
+          }
+        }
+      ],
+      "evaluation": {
+        "test": {
+          "loss": 2.0629738037109373,
+          "loss_units": 10000,
+          "objective_units": 10
+        }
+      }
+    }
+  ]
+}

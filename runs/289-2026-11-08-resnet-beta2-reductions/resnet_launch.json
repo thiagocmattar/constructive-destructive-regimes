@@ -1,0 +1,22 @@
+{
+  "name": "resnet",
+  "id": "cpa6wra9wj3b7g",
+  "created_epoch": 1794177530.1720178,
+  "deadline_epoch": 1794184730.1720178,
+  "price_per_hour": 0.89,
+  "bounded_hourly_usd": 1.22,
+  "run": "runs/289-2026-11-08-resnet-beta2-reductions",
+  "arms": [
+    "control",
+    "beta2_0p95",
+    "beta2_0p9",
+    "beta2_0p5"
+  ],
+  "output": "runs/289-2026-11-08-resnet-beta2-reductions/artifacts/attempt-01/resnet",
+  "image": "pytorch/pytorch@sha256:bfbb4a2b4fdba0fefdb428ea737e626d61bb3daf74a16e1ff935bdb03aa7c3f0",
+  "storage_gb": 60,
+  "host": "103.196.86.102",
+  "port": 13027,
+  "pid": "2132",
+  "launched_utc": "2026-11-08T22:50:08.400411+00:00"
+}

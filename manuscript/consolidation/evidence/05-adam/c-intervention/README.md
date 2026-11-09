@@ -3,13 +3,13 @@
 - **Paper claim:** Present learning-rate schedules, beta2 schedules, gradient clipping and the distributed q50 displacement cap; each retains its unchanged Adam baseline.
 - **Boundary:** Training benefits coexist with held-out deterioration. Historical comparators are not one matched benchmark; direct ranking remains pending.
 - **Authority:** the [single paper plan](../../../PLAN.md) governs selection and closure.
-- **Presentation:** The figures/ folder contains the four selected families, with distributed q50 as the sole representation-inspired method. The quantile/LR ablation is retained at the section root as supporting evidence.
+- **Presentation:** LR schedules, beta2 reductions, gradient clipping, then distributed q50, the sole representation-inspired method. Beta2 covers all three models; clipping covers .5/1 for MLP and Transformer and 1 for ResNet. The quantile/LR ablation remains at the section root as supporting evidence; the TODO records missing experiments.
 
 | Asset | Status | Use / source |
 |---|---|---|
 | [Figure 7: learning-rate schedule](figures/01-persistent-half-lr-cifar10-mlp-resnet-wikitext2-transformer.pdf) | selected conventional intervention | Historical windows MLP 512–800, ResNet 256–576, Transformer 544–928; not matched to cap forks. [Observation](observations/58-001-persistent-half-lr.md). [Generator](../../../../../analyses/058-2026-11-06-intervention-consolidation/01_figures.py). |
-| [Figure 8: beta2 schedule](figures/01-beta2-reductions-cifar10-mlp.pdf) | selected conventional intervention | Late switch at MLP state 512 retaining moments/clock; not lower beta2 from initialization. [Observation](observations/59-001-beta2-reduction.md). [Generator](../../../../../analyses/059-2026-11-07-mlp-beta2-reduction/01_report.py). |
-| [Figure 9: gradient clipping](figures/05-gradient-clipping-cifar10-mlp-resnet.pdf) | selected conventional intervention | MLP and ResNet historical clipping; activity and placement matter. [Observation](observations/58-005-clipping.md). [Generator](../../../../../analyses/058-2026-11-06-intervention-consolidation/01_figures.py). |
+| [Historical comparator: 01-beta2-reductions-cifar10-mlp.pdf](background/figures/01-beta2-reductions-cifar10-mlp.pdf) | background only | Original evidence preserved; selected display now includes all three architectures. [Observation](observations/59-001-beta2-reduction.md). [Generator](../../../../../analyses/059-2026-11-07-mlp-beta2-reduction/01_report.py). |
+| [Historical comparator: 05-gradient-clipping-cifar10-mlp-resnet.pdf](background/figures/05-gradient-clipping-cifar10-mlp-resnet.pdf) | background only | Original evidence preserved; selected display now includes all three architectures. [Observation](observations/58-005-clipping.md). [Generator](../../../../../analyses/058-2026-11-06-intervention-consolidation/01_figures.py). |
 | [Figure 10 selected base: distributed q50 stage heatmaps](figures/07-distributed-q50-stage-heatmaps.pdf#page=1) | main base | Exact page 2 from the full historical PDF, retaining vector content. Only unchanged Adam and distributed q50. Common baseline RMS maxima; MLP 448-800, ResNet 264-576, Transformer 552-928. [Observation](observations/65-008-cross-architecture-interventions.md). [Generator](../../../../../analyses/065-2026-11-07-mlp-frozen-lr-double/22_figures_transfer.py). |
 | [Distributed q50: scalar diagnostics](figures/10-local-cap-distributed-manuscript.pdf) | q50 supporting display | Distributed-q50 scalar diagnostics supporting the selected heatmaps; retain held-out outcomes and the recorded evaluation window. [Observation](observations/65-011-local-cap-technical-report.md). [Generator](../../../../../analyses/065-2026-11-07-mlp-frozen-lr-double/34_local_cap_report_assets.py). |
 | [Distributed q50: three-initialization MLP replication](figures/11-local-cap-mlp-replication.pdf) | q50 supporting display | Supporting result; preserve its own windows, scopes and baseline. [Observation](observations/65-011-local-cap-technical-report.md). [Generator](../../../../../analyses/065-2026-11-07-mlp-frozen-lr-double/34_local_cap_report_assets.py). |
@@ -45,9 +45,17 @@
 | [Analysis059 source summary](observations/059-summary.md) | record | Preserved source snapshot; current selection/status is governed by PLAN. |
 | [Analysis065 source summary](observations/065-summary.md) | record | Preserved source snapshot; current selection/status is governed by PLAN. |
 | [Analysis 65: cap-quantile ablation caption and verification](observations/65-014-cap-quantile-ablation-figure.md) | record | Exact reduction and uncertainty for the shared-axis ablation figure. |
+| [Figure 8: beta2 reductions across three architectures](figures/15-beta2-reductions-cifar10-mlp-resnet-wikitext2-transformer.pdf) | selected conventional intervention | Matched unchanged controls; one initialization per model. Original conventional forks retained. [Observation](observations/65-015-conventional-model-coverage.md). [Generator](../../../../../analyses/065-2026-11-07-mlp-frozen-lr-double/49_plot_conventional.py). |
+| [Figure 9: gradient clipping across three architectures](figures/16-gradient-clipping-cifar10-mlp-resnet-wikitext2-transformer.pdf) | selected conventional intervention | Matched unchanged controls; one initialization per model. Original conventional forks retained. [Observation](observations/65-015-conventional-model-coverage.md). [Generator](../../../../../analyses/065-2026-11-07-mlp-frozen-lr-double/49_plot_conventional.py). |
+| [Analysis065: complete conventional model coverage](observations/65-015-conventional-model-coverage.md) | record |  |
+| [Conventional intervention per-arm outcomes](data/conventional_summary.csv) | data |  |
+| [Conventional intervention full boundary curves](data/conventional_curves.csv) | data |  |
+| [Conventional intervention source and verification record](data/conventional_results.json) | data |  |
+| [Conventional intervention outcomes](tables/conventional-outcomes.md) | table |  |
 
 ## Consolidated tables
 
+- [conventional outcomes](tables/conventional-outcomes.md)
 - [distributed cap outcomes](tables/distributed-cap-outcomes.md)
 
 ## Editable integration files
@@ -56,3 +64,7 @@
 - [equations.tex](equations.tex)
 - [algorithm.md](algorithm.md)
 - [algorithm.tex](algorithm.tex)
+
+## Remaining experiments
+
+- [Ablation coverage and priorities](TODO_ABLATIONS.md)

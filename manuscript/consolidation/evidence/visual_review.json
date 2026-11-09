@@ -1,6 +1,6 @@
 {
   "date": "2026-11-08",
-  "method": "Read-only PyMuPDF rendering. Previous eight first-page displays and full Figure 07 page 2 were inspected; the selected LR, beta2 and clipping pages were then inspected together, and the standalone q50 heatmap separately.",
+  "method": "Prior visual inspections retained with archived paths rebased. Re-rendered the unchanged q50 replication page and both new three-model conventional figures using PyMuPDF; inspected the final renders after simplifying ticks.",
   "checked": [
     {
       "path": "04-gd-sgd/figures/gd_loss_projected_change_spectral_clean.pdf",
@@ -54,12 +54,12 @@
       "sha256": "b823afef0750c56adc12e5e979767df66f8b96df559a58a88234890076605e80"
     },
     {
-      "path": "05-adam/c-intervention/figures/01-beta2-reductions-cifar10-mlp.pdf",
+      "path": "05-adam/c-intervention/background/figures/01-beta2-reductions-cifar10-mlp.pdf",
       "page": 1,
       "sha256": "479b62ba0ef1d04b4027b0103297735a411d47bf2999db7fdb6348b364ee4aeb"
     },
     {
-      "path": "05-adam/c-intervention/figures/05-gradient-clipping-cifar10-mlp-resnet.pdf",
+      "path": "05-adam/c-intervention/background/figures/05-gradient-clipping-cifar10-mlp-resnet.pdf",
       "page": 1,
       "sha256": "79927d923e0fca5426aee280f20d1b19c06f0c66b9e55aafcfd68628594829e5"
     },
@@ -67,8 +67,26 @@
       "path": "05-adam/c-intervention/figures/07-distributed-q50-stage-heatmaps.pdf",
       "page": 1,
       "sha256": "03982255d05c147444e23e8a9200569a9fc45e489c19c9eb3128fcf842c0b8c4"
+    },
+    {
+      "path": "05-adam/c-intervention/figures/11-local-cap-mlp-replication.pdf",
+      "page": 1,
+      "sha256": "aaba9db049d1ddede1723cc5d004801454018386a86cedcd77b6df44d456753d",
+      "measurement_check": "Re-rendered and visually inspected during H050 consolidation; all three initialization columns, paired curves, labels and legend are legible. Original PDF unchanged."
+    },
+    {
+      "path": "05-adam/c-intervention/figures/15-beta2-reductions-cifar10-mlp-resnet-wikitext2-transformer.pdf",
+      "page": 1,
+      "sha256": "39141d1a866a2463a5f604a3efecba264b56648908bebd565e42cfb70e03ba84",
+      "measurement_check": "Source inventories/config hashes, 20 series and 6644 exported branch boundaries checked; independent CSV reductions passed. Final PDF rendered and visually inspected at 2x (clipping also at 1.7x); readable axes, legends, raw/input distinction, missing-ResNet-cap label and footnotes."
+    },
+    {
+      "path": "05-adam/c-intervention/figures/16-gradient-clipping-cifar10-mlp-resnet-wikitext2-transformer.pdf",
+      "page": 1,
+      "sha256": "b6f60076da1e1adc45d67c99153043ff27151f058b90df12e4035970ce5e9606",
+      "measurement_check": "Source inventories/config hashes, 20 series and 6644 exported branch boundaries checked; independent CSV reductions passed. Final PDF rendered and visually inspected at 2x (clipping also at 1.7x); readable axes, legends, raw/input distinction, missing-ResNet-cap label and footnotes."
     }
   ],
-  "result": "The six PDFs in the selected intervention folder have been visually inspected. Source Figure 07 page 2 is now a standalone q50 heatmap, preserving vector content, page dimensions, text and rendered pixels. Its planned paper slot is Figure 10 after LR, beta2 and clipping. Final publication sizing and captions remain pending.",
+  "result": "All six selected V-C PDFs are visually reviewed. New beta2/clipping figures include three architectures; q50 remains the sole representation-inspired method. Original conventional PDFs are unchanged in background. Final manuscript composition and captions remain a later step.",
   "limits": "Visual inspection does not independently validate plotted raw data. Other PDF pages were decoded programmatically and verified byte-identical to their source."
 }

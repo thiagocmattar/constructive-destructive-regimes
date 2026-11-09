@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "result": {
+    "status": "passed",
+    "cases": [
+      [
+        0.999,
+        null
+      ],
+      [
+        0.95,
+        null
+      ],
+      [
+        0.9,
+        null
+      ],
+      [
+        0.5,
+        null
+      ],
+      [
+        0.999,
+        0.5
+      ],
+      [
+        0.999,
+        1.0
+      ]
+    ],
+    "checks": [
+      "retained moments and clock",
+      "clip before moments",
+      "raw history preserved",
+      "independent FP64 recurrence",
+      "native bias correction",
+      "actual update"
+    ]
+  },
+  "packet_sha256": "683b02f51fac72285f00dfff3052988ae66892774260a3a1592fd5f90cbaf5b2"
+}

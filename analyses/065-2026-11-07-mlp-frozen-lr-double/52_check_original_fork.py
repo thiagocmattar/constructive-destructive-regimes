@@ -21,6 +21,7 @@ def equal(a,b):
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--run',type=Path,required=True);parser.add_argument('--out',type=Path,required=True)
+    parser.add_argument('--report-name',default='prefix_audit.json')
     args=parser.parse_args();cfg=json.loads((args.run/'config.json').read_text());torch.set_num_threads(2)
     parent=torch.load(args.run/'inputs/prefix.pt',map_location='cpu',weights_only=False)
     results=[]
@@ -40,7 +41,7 @@ def main():
     assert results,'First-update audit not yet available'
     result=dict(status='passed',results=results,
         qualification_note='qualification.json used a recomputed-gradient fork snapshot with current_gradient=None. Its historical_comparison.fork_gradient_exact=False is not a measured mismatch; this direct original-checkpoint comparison is authoritative.')
-    (args.out/'prefix_audit.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))
+    (args.out/args.report_name).write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))
 
 
 if __name__=='__main__':main()

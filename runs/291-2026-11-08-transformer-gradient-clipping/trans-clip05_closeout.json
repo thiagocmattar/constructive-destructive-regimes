@@ -1,0 +1,41 @@
+{
+  "name": "trans-clip05",
+  "id": "2dgqdhaoobt1kb",
+  "created_epoch": 1794177836.1703565,
+  "deadline_epoch": 1794186236.1703565,
+  "price_per_hour": 0.89,
+  "bounded_hourly_usd": 1.22,
+  "run": "runs/291-2026-11-08-transformer-gradient-clipping",
+  "arms": [
+    "clip_0p5"
+  ],
+  "output": "runs/291-2026-11-08-transformer-gradient-clipping/artifacts/attempt-01/trans-clip05",
+  "image": "pytorch/pytorch@sha256:eee11b3b3872a8c838e35ef48f08b2d5def2080902c7f666831310ca1a0ef2be",
+  "storage_gb": 60,
+  "host": "47.47.180.106",
+  "port": 19022,
+  "pid": "2151",
+  "launched_utc": "2026-11-08T22:53:18.879485+00:00",
+  "runtime_margin_added": true,
+  "runtime_adjustment": {
+    "reason": "Fresh Transformer timing ~16s/update; permit completion and verified retrieval within USD20",
+    "additional_lease_seconds": 1200,
+    "scientific_worker_limit_unchanged": 6500,
+    "worker_pid": 2154,
+    "timeout_pid": 2153,
+    "worker_command": "/opt/h050/bin/python -m src.eos_tasks.conventional_continuation --run runs/291-2026-11-08-transformer-gradient-clipping --out runs/291-2026-11-08-transformer-gradient-clipping/artifacts/attempt-01/trans-clip05 --arms clip_0p5"
+  },
+  "retrieval_verified": true,
+  "retained_spark": {
+    "status": "passed",
+    "files": 19,
+    "bytes": 2020159433,
+    "root": "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/runs/291-2026-11-08-transformer-gradient-clipping/artifacts/attempt-01/trans-clip05"
+  },
+  "compact": {
+    "bytes": 145066,
+    "sha256": "b5212a9a6ec530db00aa44fde866f6be3c806663634796bf235e3f882a79a6f7",
+    "files": 17
+  },
+  "deleted_epoch": 1794184805.816897
+}

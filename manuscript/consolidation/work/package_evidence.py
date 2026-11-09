@@ -268,6 +268,8 @@ def build():
         for name in editable:
             if (folder/name).exists():
                 lines.append(f"- [{name}]({name})")
+        if (folder/'TODO_ABLATIONS.md').exists():
+            lines += ['', '## Remaining experiments', '', '- [Ablation coverage and priorities](TODO_ABLATIONS.md)']
         write(folder/"README.md","\n".join(lines))
     copied_paths = {r["destination"] for r in records}
     prepared = {p.relative_to(OUT).as_posix():sha(p) for p in OUT.rglob("*")

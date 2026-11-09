@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "method": "Direct SSH from owned Spark; private transfer key retained only on Spark;32MiB prefix verified against pod SHA256",
+  "checks": [
+    {
+      "status": "passed",
+      "bytes": 33554432,
+      "seconds": 24.033965277019888,
+      "MiB_per_second": 1.3314490401880064,
+      "worker": "trans-control"
+    },
+    {
+      "status": "passed",
+      "bytes": 33554432,
+      "seconds": 5.678307079244405,
+      "MiB_per_second": 5.635482469232387,
+      "worker": "trans-clip10"
+    }
+  ]
+}

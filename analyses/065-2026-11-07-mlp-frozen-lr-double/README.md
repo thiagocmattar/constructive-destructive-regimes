@@ -262,3 +262,31 @@ unchanged. Continue this same analysis; next unused run 289 and hypothesis H050.
 shows connected means and sample-SD error bars in three LR columns with a shared
 logarithmic loss axis. [Observation014](observations/014-cap-quantile-ablation-figure.md)
 records sources, reduction, caption and checks. Existing data only; no new training.
+
+
+## Conventional intervention model coverage (H050)
+
+**Completed:** Runs289-291 extend late native beta2 reductions to ResNet and
+Transformer, and global gradient clipping to Transformer. All 10 continuations
+(3,584 updates), 3,594 full-gradient boundaries, 20 first/last update audits and
+full terminal held-out evaluations pass. The six Transformer workers share an
+exact eight-update control replay; historical CUDA differences are handled with
+fresh unchanged controls.
+
+- [Comparison, findings, captions and limits](observations/015-conventional-model-coverage.md).
+- [Three-model beta2 figure](figures/15-beta2-reductions-cifar10-mlp-resnet-wikitext2-transformer.pdf) and [three-model clipping figure](figures/16-gradient-clipping-cifar10-mlp-resnet-wikitext2-transformer.pdf).
+- [Paired outcomes](conventional_outcomes.md), [per-arm CSV](conventional_summary.csv), [full branch curves](conventional_curves.csv), [sources/checks](conventional_results.json), and [independent export verification](conventional_export_verification.json).
+- [Remaining ablations](../../manuscript/consolidation/evidence/05-adam/c-intervention/TODO_ABLATIONS.md): ResNet clip .5, additional seeds/times, shared forks, intermediate held-out coverage and common functional probes.
+
+Transformer reductions/clipping improve mean training loss and peaks but worsen
+test loss. ResNet beta2 outcomes are mixed; the existing MLP settings all raise
+mean training loss. These are paired, one-initialization fixed-window findings,
+not a universal stabilization or four-family superiority result.
+
+[Closeout](conventional_closeout.json): all 155 raw files verified on owned Spark
+(12.371 GB logical / 10.650 GB allocated), compact outputs local, all seven task
+pods deleted and temporary keys removed. Provisional compute USD11.36; conservative
+total including reserved storage allowance USD15.53, below the USD20 ceiling.
+Scripts49/53 regenerate and verify the figures/table and update the consolidation
+catalogue; script54 records retention and teardown. Continue Analysis065; next
+unused run292 and hypothesis H051.

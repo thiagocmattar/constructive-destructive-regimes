@@ -1,0 +1,41 @@
+{
+  "name": "trans-b50",
+  "id": "d6zwdp4zhx6jfi",
+  "created_epoch": 1794177825.7518198,
+  "deadline_epoch": 1794186225.7518198,
+  "price_per_hour": 0.89,
+  "bounded_hourly_usd": 1.22,
+  "run": "runs/290-2026-11-08-transformer-beta2-reductions",
+  "arms": [
+    "beta2_0p5"
+  ],
+  "output": "runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b50",
+  "image": "pytorch/pytorch@sha256:eee11b3b3872a8c838e35ef48f08b2d5def2080902c7f666831310ca1a0ef2be",
+  "storage_gb": 60,
+  "host": "69.145.85.70",
+  "port": 16458,
+  "pid": "2150",
+  "launched_utc": "2026-11-08T22:53:18.110462+00:00",
+  "runtime_margin_added": true,
+  "runtime_adjustment": {
+    "reason": "Fresh Transformer timing ~16s/update; permit completion and verified retrieval within USD20",
+    "additional_lease_seconds": 1200,
+    "scientific_worker_limit_unchanged": 6500,
+    "worker_pid": 2153,
+    "timeout_pid": 2152,
+    "worker_command": "/opt/h050/bin/python -m src.eos_tasks.conventional_continuation --run runs/290-2026-11-08-transformer-beta2-reductions --out runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b50 --arms beta2_0p5"
+  },
+  "retrieval_verified": true,
+  "retained_spark": {
+    "status": "passed",
+    "files": 19,
+    "bytes": 2020147003,
+    "root": "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/runs/290-2026-11-08-transformer-beta2-reductions/artifacts/attempt-01/trans-b50"
+  },
+  "compact": {
+    "bytes": 137029,
+    "sha256": "d40afd1bfaefa2c2ea9bc3c6f4bcec30e9b65dc9a405ed2fd75c139a6bf98b80",
+    "files": 17
+  },
+  "deleted_epoch": 1794184954.4327953
+}

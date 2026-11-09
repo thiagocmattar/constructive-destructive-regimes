@@ -115,9 +115,14 @@
 - **Selected presentation — exactly four families, in this order:**
 
   1. **LR schedules / Figure 7:** [persistent half LR](evidence/05-adam/c-intervention/figures/01-persistent-half-lr-cifar10-mlp-resnet-wikitext2-transformer.pdf). Three architectures; reduce LR by half from the retained warm state, keeping each unchanged baseline.
-  2. **Beta schedule / Figure 8:** [late beta2 reductions](evidence/05-adam/c-intervention/figures/01-beta2-reductions-cifar10-mlp.pdf). MLP only; .999→.95/.9/.5 at state 512 with moments/clock retained and constant LR.
-  3. **Gradient clipping / Figure 9:** [MLP and ResNet clipping](evidence/05-adam/c-intervention/figures/05-gradient-clipping-cifar10-mlp-resnet.pdf). Global raw-gradient caps before Adam moments: MLP thresholds .5/1, ResNet 1; show raw and clipped norms distinctly.
+  2. **Beta schedule / Figure 8:** [late beta2 reductions, all three models](evidence/05-adam/c-intervention/figures/15-beta2-reductions-cifar10-mlp-resnet-wikitext2-transformer.pdf). .999→.95/.9/.5 at states 512/256/544 for MLP/ResNet/Transformer, with moments/clock retained and constant LR. The new value enters both the recurrence and native bias correction; no reset or history-product correction.
+  3. **Gradient clipping / Figure 9:** [all three models](evidence/05-adam/c-intervention/figures/16-gradient-clipping-cifar10-mlp-resnet-wikitext2-transformer.pdf). Global raw-gradient caps before Adam moments: MLP and Transformer thresholds .5/1, ResNet 1. Show raw and optimizer-input norms distinctly; ResNet .5 is explicitly missing.
   4. **Distributed displacement cap / Figure 10:** q50 is the **only representation-inspired intervention** presented. Retain the paired heatmaps, scalar diagnostics and MLP replication; other methods and quantiles are background evidence.
+- **Conventional evidence — [complete paired outcomes](evidence/05-adam/c-intervention/tables/conventional-outcomes.md), one initialization per model:**
+  - **Transformer:** beta2 reductions lower mean training loss 11.82–18.47%; clipping lowers it 17.74–19.02%. Both suppress peaks, yet terminal test loss worsens 24.64–33.12% and 11.30–14.84%, respectively.
+  - **ResNet:** beta2 mean-loss changes are +28.46%/−3.53%/+6.28% for .95/.9/.5. Every reduction worsens the last-32 mean; .95 improves test loss. Existing clipping lowers the window mean but worsens the tail/test.
+  - **MLP:** the retained beta2 and clipping settings all increase mean training loss. This architecture dependence rules out a blanket claim that a conventional intervention always helps or always fails.
+  - **Coverage:** Runs289–291 add 10 verified continuations / 3,584 updates; new controls retain loss excursions. Keep the [ablation TODO](evidence/05-adam/c-intervention/TODO_ABLATIONS.md): seeds, shared forks/times, ResNet clip .5, intermediate held-out coverage and common functional probes remain distinct gaps.
 - **Mechanistic bridge, already measured:** MLP loss satisfies **delta_L = <F−Y,delta_F>/N + ||delta_F||²/(2N)**. Over outgoing updates 448–1152, including the transition to 1153, all **377/371/379** baseline rises >1e−8 across three seeds have a negative first term outweighed by movement cost. This establishes finite-step functional overshoot in these trajectories. Cross-entropy uses its own readout, not this squared-loss identity.
 - **Algorithm 2 — [local cap](evidence/05-adam/c-intervention/observations/65-010-local-displacement-cap-geometry.md):**
   - Current inputs H: n×d; weights W: m×d; bias b: m. Native stored Adam increments U,v induce **D = H Uᵀ + 1_n vᵀ**, n×m.
@@ -151,16 +156,16 @@
 - **2. Qualify intervention comparisons — required before direct ranking.**
   - Audit reusable branches against identical starting tensors, optimizer/RNG, objective, hardware, precision, probe and calibration. Otherwise repeat the unchanged baseline with its paired intervention.
   - Fixed seed-0 windows: **MLP 448→1152/LR .001; ResNet 264→576/.003; Transformer 552→928/.003**.
-  - Configurations per architecture: unchanged Adam, native half-LR, global raw-gradient clipping and distributed q50 cap. Add representative late beta2=.95 for MLP, with its native bias-correction convention explicit; the existing beta figure retains all three tested reductions.
+  - Configurations per architecture: unchanged Adam, native half-LR, representative late beta2=.95, global raw-gradient clipping and distributed q50 cap. Make the native beta2 bias-correction convention explicit; the beta figure retains all three tested reductions per model.
   - Clipping threshold: median untreated raw-gradient norm over the same eight-update prefix. Report clipping activity and applied-norm reduction; equal quantiles do not equal matched strength.
-  - **Maximum selected comparison matrix: 13 continuations for seed 0; 39 across three initializations, before qualified reuse.** Use the same absolute start/window per seed; report absent excursions. Retrospective norm-control experiments are outside this matrix. Retain or recreate untreated prefixes/checkpoints as needed.
+  - **Maximum selected comparison matrix: 15 continuations for seed 0; 45 across three initializations, before qualified reuse.** Use the same absolute start/window per seed; report absent excursions. Retrospective norm-control experiments are outside this matrix. Retain or recreate untreated prefixes/checkpoints as needed. The current conventional model-coverage extensions retain their original forks; they do not by themselves fill this matched matrix.
   - **Success criterion:** report all paired outcomes, including divergence, tail/test deterioration and inactive controls. A ranking requires replicated matched effects; otherwise state the case-dependent result. Do not retune on the reported windows.
   - Continue Analysis 065 with new run IDs for changed inputs. Prepare measured duration, live cost/storage limits and retrieval checks before any launch.
 
 - **3. Complete method reporting — required.**
   - Report cap activation, budget/stored-increment checks, probe coverage and full held-out evaluation at start/start+32/end.
   - Measure baseline versus controller time and peak memory on matched hardware. Separate cheap scalar diagnostics, offline tracing and the intervention's cost.
-  - New comparative execution is needed only where existing records fail these contracts. This review launches none.
+  - Further comparative execution is needed only where existing records fail these contracts. Runs289–291 complete the requested conventional model coverage; the broader matched matrix remains planned.
 
 - **4. Keep stronger claims conditional.**
   - **Forecasting:** freeze targets/features/horizons; compare against loss-history and norm baselines with temporal gaps, false alarms and fresh-seed confirmation. Current data support characterization without this project.

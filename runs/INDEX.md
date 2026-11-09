@@ -543,12 +543,12 @@ within USD 20. Next run 286; continue Analysis 065.
 
 [Results](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/013-distributed-cap-quantile-lr.md): All 54 continuations (38,070 updates) completed on owned Spark. Fixed q25 caps reduce mean training loss 87.88%/94.75% versus uncapped 2x/4x, but neither LR improves the across-seed mean over q25 at 1x. The lowest observed mean is q50 at 1x (24.79% below original Adam; positive variation 80.66% lower). Tight caps can increase smaller oscillations and worsen test loss. Three initializations, one continuation window; no generalization superiority claim. All 162 retained audits and six historical trajectories pass; 310,660 plot values and four PDF pages checked. Training 34.34 min, zero cloud cost. Full raw evidence remains on Spark (7.978 GB); compact verified outputs are local after the disk-limit adjustment. Next run 289; continue Analysis 065.
 
-## H050: complete conventional-intervention model coverage (active)
+## H050: conventional-intervention model coverage completed
 
 | Run | Case | Varied factor | Fixed fork / end | Status |
 |---|---|---|---|---|
-| [289](289-2026-11-08-resnet-beta2-reductions/README.md) | ResNet-32 | beta2 .95/.9/.5 and unchanged Adam | 256 / 576 | Running; preflight passed |
-| [290](290-2026-11-08-transformer-beta2-reductions/README.md) | Transformer | beta2 .95/.9/.5 and unchanged Adam | 544 / 928 | Running; exact cross-worker replay passed |
-| [291](291-2026-11-08-transformer-gradient-clipping/README.md) | Transformer | global raw-gradient caps .5/1 | 544 / 928 | Running; exact common control from Run 290 |
+| [289](289-2026-11-08-resnet-beta2-reductions/README.md) | ResNet-32 | beta2 .95/.9/.5 and unchanged Adam | 256 / 576 | Complete: 1,280 updates / eight audits |
+| [290](290-2026-11-08-transformer-beta2-reductions/README.md) | Transformer | beta2 .95/.9/.5 and unchanged Adam | 544 / 928 | Complete: 1,536 updates / eight audits |
+| [291](291-2026-11-08-transformer-gradient-clipping/README.md) | Transformer | global raw-gradient caps .5/1 | 544 / 928 | Complete: 768 updates / four audits; exact shared Run290 control |
 
-Seed 0, original Run 223 checkpoints, full objectives. Continue Analysis 065; maximum USD 20 and verified raw retention on owned Spark. Next unused run 292.
+[Results](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/015-conventional-model-coverage.md): seed0, original Run223 checkpoints, full objectives and terminal held-out coverage. All 155 raw files verified on owned Spark (12.371 GB logical / 10.650 GB allocated); compact outputs local. All seven task pods deleted; provisional compute USD11.36, below USD20. Three-model figures and remaining-ablation TODO consolidated; broader matched comparisons remain pending. Continue Analysis065; next unused run292.

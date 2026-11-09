@@ -1,0 +1,128 @@
+{
+  "status": "passed",
+  "boundary_rows": 6644,
+  "series": [
+    {
+      "family": "beta2",
+      "model": "mlp",
+      "arm": "control",
+      "rows": 289
+    },
+    {
+      "family": "beta2",
+      "model": "mlp",
+      "arm": "beta2_0p95",
+      "rows": 289
+    },
+    {
+      "family": "beta2",
+      "model": "mlp",
+      "arm": "beta2_0p9",
+      "rows": 289
+    },
+    {
+      "family": "beta2",
+      "model": "mlp",
+      "arm": "beta2_0p5",
+      "rows": 289
+    },
+    {
+      "family": "beta2",
+      "model": "resnet",
+      "arm": "control",
+      "rows": 321
+    },
+    {
+      "family": "beta2",
+      "model": "resnet",
+      "arm": "beta2_0p95",
+      "rows": 321
+    },
+    {
+      "family": "beta2",
+      "model": "resnet",
+      "arm": "beta2_0p9",
+      "rows": 321
+    },
+    {
+      "family": "beta2",
+      "model": "resnet",
+      "arm": "beta2_0p5",
+      "rows": 321
+    },
+    {
+      "family": "beta2",
+      "model": "transformer",
+      "arm": "control",
+      "rows": 385
+    },
+    {
+      "family": "beta2",
+      "model": "transformer",
+      "arm": "beta2_0p95",
+      "rows": 385
+    },
+    {
+      "family": "beta2",
+      "model": "transformer",
+      "arm": "beta2_0p9",
+      "rows": 385
+    },
+    {
+      "family": "beta2",
+      "model": "transformer",
+      "arm": "beta2_0p5",
+      "rows": 385
+    },
+    {
+      "family": "clipping",
+      "model": "mlp",
+      "arm": "control",
+      "rows": 289
+    },
+    {
+      "family": "clipping",
+      "model": "mlp",
+      "arm": "clip_1p0",
+      "rows": 289
+    },
+    {
+      "family": "clipping",
+      "model": "mlp",
+      "arm": "clip_0p5",
+      "rows": 289
+    },
+    {
+      "family": "clipping",
+      "model": "resnet",
+      "arm": "control",
+      "rows": 321
+    },
+    {
+      "family": "clipping",
+      "model": "resnet",
+      "arm": "clip_1p0",
+      "rows": 321
+    },
+    {
+      "family": "clipping",
+      "model": "transformer",
+      "arm": "control",
+      "rows": 385
+    },
+    {
+      "family": "clipping",
+      "model": "transformer",
+      "arm": "clip_1p0",
+      "rows": 385
+    },
+    {
+      "family": "clipping",
+      "model": "transformer",
+      "arm": "clip_0p5",
+      "rows": 385
+    }
+  ],
+  "mean_recomputed_with": "stdlib math.fsum on exported CSV",
+  "curves_sha256": "104a50e0f458904910b4e9db90c93612c6f172f85d326ff3201f2ec9d31fd627"
+}

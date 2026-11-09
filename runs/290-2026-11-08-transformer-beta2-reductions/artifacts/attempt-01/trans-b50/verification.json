@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "inventory_files": 13,
+  "arms": [
+    {
+      "arm": "beta2_0p5",
+      "boundaries": 385,
+      "updates": 384,
+      "audits": [
+        {
+          "path": "audit-0544.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 3.6379788179337347e-11,
+            "second_moment": 2.5819870655592603e-11,
+            "parameter": 1.1712777370220806e-07
+          }
+        },
+        {
+          "path": "audit-0927.pt",
+          "status": "passed",
+          "max_absolute_errors": {
+            "moment": 2.5611370879988216e-10,
+            "second_moment": 8.783773708387344e-11,
+            "parameter": 1.1767740648593872e-07
+          }
+        }
+      ],
+      "evaluation": {
+        "valid": {
+          "loss": 20.96671300810149,
+          "loss_units": 217630,
+          "objective_units": 6220
+        },
+        "test": {
+          "loss": 20.70094177929647,
+          "loss_units": 245550,
+          "objective_units": 7020
+        }
+      }
+    }
+  ]
+}

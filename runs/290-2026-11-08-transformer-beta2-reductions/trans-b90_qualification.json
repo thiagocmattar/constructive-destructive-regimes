@@ -1,0 +1,60 @@
+{
+  "status": "passed",
+  "exact_two_vs_one_plus_one": true,
+  "instrumentation_native_exact": true,
+  "fork_fingerprint": "36f7afff741ff729f51796c085e36e76bf891dbb9adf5986aa5be231ae7f8832",
+  "eight_step_fingerprint": "c3c434492466028525d532c8b2e382434d0940756c60232567b2d4d894cfea3b",
+  "eight_step_trace": [
+    {
+      "state": 544,
+      "loss": 0.885628328821069,
+      "norm": 0.11669309693406107
+    },
+    {
+      "state": 545,
+      "loss": 0.8812924654013723,
+      "norm": 0.11337394300874223
+    },
+    {
+      "state": 546,
+      "loss": 0.8769820128406783,
+      "norm": 0.09186185453106947
+    },
+    {
+      "state": 547,
+      "loss": 0.8729528887203621,
+      "norm": 0.08392314774771142
+    },
+    {
+      "state": 548,
+      "loss": 0.8690440849224575,
+      "norm": 0.08435378659291759
+    },
+    {
+      "state": 549,
+      "loss": 0.8653046149334476,
+      "norm": 0.08338280432535865
+    },
+    {
+      "state": 550,
+      "loss": 0.8616639874436491,
+      "norm": 0.08536634715372876
+    },
+    {
+      "state": 551,
+      "loss": 0.8581585115036219,
+      "norm": 0.09135114374470892
+    }
+  ],
+  "historical_comparison": {
+    "fork_loss": 0.885628328821069,
+    "fork_gradient_exact": false
+  },
+  "measured_seconds_per_update": 15.935310388534246,
+  "start_state": 544,
+  "environment": {
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8"
+  }
+}

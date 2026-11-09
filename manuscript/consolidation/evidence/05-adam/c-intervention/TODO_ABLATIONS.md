@@ -1,22 +1,24 @@
 # Intervention ablation TODO
 
 - **Scope:** execution checklist for V-C; complements the single paper [PLAN](../../../PLAN.md).
-- **Requested now:** Transformer clipping and ResNet/Transformer beta2 reductions, Runs 289–291 (H050, Analysis065). **Running/preparing; no results claimed yet.**
+- **Requested coverage completed:** Transformer clipping and ResNet/Transformer beta2 reductions, Runs 289–291 (H050, Analysis065). All 10 continuations and 20 update audits pass; [three-model outcomes](tables/conventional-outcomes.md) retain favorable and unfavorable results.
 - **Baseline rule:** every cell needs unchanged Adam from the same fork, initialization, objective, runtime and horizon. Comparing two interventions alone does not fill a cell.
 
 | Family | MLP evidence already available | ResNet evidence already available | Transformer evidence already available | Missing for the same basic grid |
 |---|---|---|---|---|
 | LR schedules | Persistent half LR and cosine transition to half, seed0 | Same schedules, seed0 | Same schedules, seed0 | Additional seeds; common timing with the other families |
-| Beta2 reductions | .999 → .95/.9/.5, seed0 | Run289 executing these three reductions | Run290 executing these three reductions | Additional seeds; repeat at independent intervention times |
-| Gradient clipping | Thresholds .5 and 1, seed0 | Threshold 1, seed0 | Run291 executing .5 and 1 | **ResNet threshold .5**; additional seeds/times |
+| Beta2 reductions | .999 → .95/.9/.5, seed0 | Same three reductions, Run289 verified | Same three reductions, Run290 verified | Additional seeds; repeat at independent intervention times |
+| Gradient clipping | Thresholds .5 and 1, seed0 | Threshold 1, seed0 | Thresholds .5 and 1, Run291 verified | **ResNet threshold .5**; additional seeds/times |
 | Distributed displacement cap | q50 at three seeds; q25/q50/q75/q90/q99 × LR1/2/4 at three seeds | q50, seed0 | q50, seed0 | ResNet/Transformer seeds1–2 and matching quantile × LR grids |
 
 - **Priority 1 — defensible comparison among the four families:**
-  - [ ] Finish/verify Runs289–291 and replace the incomplete conventional-intervention figures.
+  - [x] Finish/verify Runs289–291 and replace the incomplete conventional-intervention figures.
   - [ ] Fill ResNet clipping at .5 if the main comparison uses both clipping thresholds.
   - [ ] Repeat the selected setting of each family at seeds1–2 in all models.
   - [ ] Align forks, calibration history and evaluation horizons across families. Current conventional forks are MLP512 / ResNet256 / Transformer544; selected distributed-cap forks are MLP448 / ResNet264 / Transformer552. Current results support within-family contrasts, not a fair ranking across all four families.
   - [ ] Compare mean/post-fork loss, late-window loss, maximum/excursion severity and full held-out loss; show seed-resolved effects and cost. Do not select a winner using only its most favorable metric.
+  - [ ] Complete common held-out time points (fork, fork+32, end). H050 covers the full terminal splits; intermediate coverage is not implied by its scalar training histories.
+  - [ ] If comparing functional behavior across families, record the same fixed-probe layerwise cosine/RMS and output-motion readouts for LR, beta2, clipping and q50. H050 records raw-gradient/optimizer diagnostics, not dense representation histories; terminal checkpoints cannot supply those missing time series.
 - **Priority 2 — mechanism and sensitivity, if claiming a fully ablated intervention study:**
   - [ ] LR: reduction magnitude and transition duration, matched to the selected fixed and cosine schedules.
   - [ ] Beta2: timing/duration and recovery to .999; distinguish the present native-bias-correction intervention from any future moment reset/rescaling or history-product correction. Each is a separate intervention.

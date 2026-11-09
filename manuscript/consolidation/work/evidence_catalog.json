@@ -36,7 +36,7 @@
       "title": "V-C. Intervention comparisons",
       "claim": "Present learning-rate schedules, beta2 schedules, gradient clipping and the distributed q50 displacement cap; each retains its unchanged Adam baseline.",
       "boundary": "Training benefits coexist with held-out deterioration. Historical comparators are not one matched benchmark; direct ranking remains pending.",
-      "presentation": "The figures/ folder contains the four selected families, with distributed q50 as the sole representation-inspired method. The quantile/LR ablation is retained at the section root as supporting evidence."
+      "presentation": "LR schedules, beta2 reductions, gradient clipping, then distributed q50, the sole representation-inspired method. Beta2 covers all three models; clipping covers .5/1 for MLP and Transformer and 1 for ResNet. The quantile/LR ablation remains at the section root as supporting evidence; the TODO records missing experiments."
     },
     "06-conclusion": {
       "title": "VI. Conclusion",
@@ -664,24 +664,22 @@
     {
       "section": "05-adam/c-intervention",
       "source": "analyses/059-2026-11-07-mlp-beta2-reduction/figures/01-beta2-reductions-cifar10-mlp.pdf",
-      "destination": "05-adam/c-intervention/figures/01-beta2-reductions-cifar10-mlp.pdf",
-      "title": "Figure 8: beta2 schedule",
-      "role": "selected conventional intervention",
+      "destination": "05-adam/c-intervention/background/figures/01-beta2-reductions-cifar10-mlp.pdf",
+      "title": "Historical comparator: 01-beta2-reductions-cifar10-mlp.pdf",
+      "role": "background only",
       "observation": "analyses/059-2026-11-07-mlp-beta2-reduction/observations/001-beta2-reduction.md",
       "generator": "analyses/059-2026-11-07-mlp-beta2-reduction/01_report.py",
-      "note": "Late switch at MLP state 512 retaining moments/clock; not lower beta2 from initialization.",
-      "presentation_order": 2
+      "note": "Original evidence preserved; selected display now includes all three architectures."
     },
     {
       "section": "05-adam/c-intervention",
       "source": "analyses/058-2026-11-06-intervention-consolidation/figures/05-gradient-clipping-cifar10-mlp-resnet.pdf",
-      "destination": "05-adam/c-intervention/figures/05-gradient-clipping-cifar10-mlp-resnet.pdf",
-      "title": "Figure 9: gradient clipping",
-      "role": "selected conventional intervention",
+      "destination": "05-adam/c-intervention/background/figures/05-gradient-clipping-cifar10-mlp-resnet.pdf",
+      "title": "Historical comparator: 05-gradient-clipping-cifar10-mlp-resnet.pdf",
+      "role": "background only",
       "observation": "analyses/058-2026-11-06-intervention-consolidation/observations/005-clipping.md",
       "generator": "analyses/058-2026-11-06-intervention-consolidation/01_figures.py",
-      "note": "MLP and ResNet historical clipping; activity and placement matter.",
-      "presentation_order": 3
+      "note": "Original evidence preserved; selected display now includes all three architectures."
     },
     {
       "section": "05-adam/c-intervention",
@@ -1093,6 +1091,78 @@
       "observation": null,
       "generator": null,
       "note": "Exact reduction and uncertainty for the shared-axis ablation figure."
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/15-beta2-reductions-cifar10-mlp-resnet-wikitext2-transformer.pdf",
+      "destination": "05-adam/c-intervention/figures/15-beta2-reductions-cifar10-mlp-resnet-wikitext2-transformer.pdf",
+      "title": "Figure 8: beta2 reductions across three architectures",
+      "role": "selected conventional intervention",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/015-conventional-model-coverage.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/49_plot_conventional.py",
+      "note": "Matched unchanged controls; one initialization per model. Original conventional forks retained.",
+      "presentation_order": 2
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/16-gradient-clipping-cifar10-mlp-resnet-wikitext2-transformer.pdf",
+      "destination": "05-adam/c-intervention/figures/16-gradient-clipping-cifar10-mlp-resnet-wikitext2-transformer.pdf",
+      "title": "Figure 9: gradient clipping across three architectures",
+      "role": "selected conventional intervention",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/015-conventional-model-coverage.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/49_plot_conventional.py",
+      "note": "Matched unchanged controls; one initialization per model. Original conventional forks retained.",
+      "presentation_order": 3
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/015-conventional-model-coverage.md",
+      "destination": "05-adam/c-intervention/observations/65-015-conventional-model-coverage.md",
+      "title": "Analysis065: complete conventional model coverage",
+      "role": "record",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/conventional_summary.csv",
+      "destination": "05-adam/c-intervention/data/conventional_summary.csv",
+      "title": "Conventional intervention per-arm outcomes",
+      "role": "data",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/conventional_curves.csv",
+      "destination": "05-adam/c-intervention/data/conventional_curves.csv",
+      "title": "Conventional intervention full boundary curves",
+      "role": "data",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/conventional_results.json",
+      "destination": "05-adam/c-intervention/data/conventional_results.json",
+      "title": "Conventional intervention source and verification record",
+      "role": "data",
+      "observation": null,
+      "generator": null,
+      "note": ""
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/conventional_outcomes.md",
+      "destination": "05-adam/c-intervention/tables/conventional-outcomes.md",
+      "title": "Conventional intervention outcomes",
+      "role": "table",
+      "observation": null,
+      "generator": null,
+      "note": ""
     }
   ]
 }

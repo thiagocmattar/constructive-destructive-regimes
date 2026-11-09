@@ -1,0 +1,43 @@
+{
+  "status": "completed",
+  "run": "291-2026-11-08-transformer-gradient-clipping",
+  "config_sha256": "8809f70d9da1012d23a4cda919ee18fdee2f20abdad5ff7b2518ef77eeea282f",
+  "manifest_sha256": "3324de22a5d663bea5648289e01f6ea1ea4b24079ec9abb7fc3c35ce59a883ca",
+  "started_utc": "2026-11-08T22:53:40.919422+00:00",
+  "results": [
+    {
+      "status": "completed",
+      "arm": {
+        "id": "clip_0p5",
+        "clip": 0.5
+      },
+      "start_state": 544,
+      "end_state": 928,
+      "mechanics_only": false,
+      "evaluation": {
+        "valid": {
+          "loss": 18.244010207261184,
+          "loss_units": 217630,
+          "objective_units": 6220
+        },
+        "test": {
+          "loss": 18.033015599546932,
+          "loss_units": 245550,
+          "objective_units": 7020
+        }
+      },
+      "completed_state": 928,
+      "updates": 384,
+      "elapsed_seconds": 5917.549793246901,
+      "training_units": 2088600,
+      "peak_cuda_bytes": 2627370496
+    }
+  ],
+  "environment": {
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8"
+  },
+  "elapsed_seconds": 6102.704237469006,
+  "finished_utc": "2026-11-09T00:35:23.623438+00:00"
+}

@@ -1,7 +1,7 @@
 # Evidence package in paper order
 
 - **Current authority:** [PLAN.md](../PLAN.md). The six top-level evidence notes are now aligned with its four contributions and closure sequence.
-- **Contents:** 103 packaged assets from 102 unique source files, plus four regenerated compact tables, four equation sets, two algorithms and eight bibliography additions.
+- **Contents:** 110 packaged assets from 109 unique source files, including the new conventional-outcome table, plus four regenerated compact tables, four equation sets, two algorithms and eight bibliography additions.
 - **Provenance:** research sources remain canonical. Copies preserve bytes except recorded transformations: observation headers/links, one report dependency path, and the standalone q50 heatmap page extraction.
 - **Editable material:** the consolidated equation/algorithm/table snippets have been syntax-checked. Original draft TeX is a source snapshot with its original input paths; it is not a standalone manuscript build.
 - **Readiness:** “retained main” is an existing selected display; “main base” or “assembly component” still needs final composition/caption work; historical comparators retain their original matching limitations.
@@ -21,4 +21,4 @@
 - **Audit notes:** [claims](CLAIMS.md), [argument map](ARGUMENT_MAP.md), [literature](LITERATURE.md), [author inputs](AUTHOR_INPUTS.md), [freshness review](REPOSITORY_REVIEW.md).
 - **Asset selection:** [ARTIFACTS.md](ARTIFACTS.md). Full source/hash records: [copy_manifest.json](copy_manifest.json).
 - **Checks:** [source/link/PDF checks](verification.json), [editable TeX checks](snippet_verification.json), [selected figure review](visual_review.json); rebuild/verify using the [packaging script](../work/package_evidence.py).
-- This is an assembly package, not a new experimental dataset or a completed matched-method benchmark. Original report figure numbers remain historical; the PLAN assigns final paper slots.
+- Runs289–291 supply the new conventional model coverage; their canonical raw evidence remains in the owning runs/Analysis065. This package assembles that evidence with the previous studies. A matched four-family benchmark remains pending. Original report figure numbers remain historical; the PLAN assigns final paper slots.

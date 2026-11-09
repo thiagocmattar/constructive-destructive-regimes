@@ -21,9 +21,10 @@ JOBS={'resnet':(289,['control','beta2_0p95','beta2_0p9','beta2_0p5']),
       'trans-control':(290,['control']),'trans-b95':(290,['beta2_0p95']),
       'trans-b90':(290,['beta2_0p9']),'trans-b50':(290,['beta2_0p5']),
       'trans-clip05':(291,['clip_0p5']),'trans-clip10':(291,['clip_1p0'])}
-SPARK='tcml-spark@spark-2277.local'
+SPARK='tcml-spark@192.168.15.9'
 OLD=json.loads((ROOT/'runs/228-2026-11-04-mlp-global-clipping/spark_launch.json').read_text())
-SPARKROOT=OLD['root'];SSH=['ssh','-o','BatchMode=yes','-o','ConnectTimeout=12',SPARK]
+SPARKROOT=OLD['root'];SSH=['ssh','-4','-o','BatchMode=yes','-o','ConnectTimeout=12','-o','HostKeyAlias=spark-2277.local',SPARK]
+SSH6=['ssh','-6','-o','BatchMode=yes','-o','ConnectTimeout=12','-o','HostKeyAlias=spark-2277.local','tcml-spark@spark-2277.local']
 
 
 def dump(p,d):
@@ -38,6 +39,11 @@ def emit(**d):print(json.dumps(dict(utc=x.stamp(),**d)),flush=True)
 
 def spark(script,timeout=180):
     p=subprocess.run(SSH+['bash -s'],input=script.encode(),capture_output=True,timeout=timeout,creationflags=x.NO_WINDOW)
+    # Retry only a failed connection, before any remote script could execute.
+    # Never blindly retry a dropped or timed-out transfer with unknown remote state.
+    if p.returncode and p.stderr.decode(errors='replace').startswith('ssh: connect to host 192.168.15.9 port 22:'):
+        emit(event='spark_ipv6_connection_fallback')
+        p=subprocess.run(SSH6+['bash -s'],input=script.encode(),capture_output=True,timeout=timeout,creationflags=x.NO_WINDOW)
     if p.returncode:raise RuntimeError(p.stderr.decode(errors='replace')[-1800:])
     return p.stdout.decode()
 
@@ -147,16 +153,67 @@ def collect(name,emergency=False):
     p=get(name);out=p['output']
     state=status(name)
     if not emergency:assert state.get('exit')=='0' and state.get('verification_exit')=='0',state
-    # Stream to owned Spark: no large temporary local archive, no private-key copying.
-    spark(f'mkdir -p {shlex.quote(SPARKROOT+"/"+out)}\n')
-    producer=subprocess.Popen(x.transport(p)+['root@'+p['host'],f'tar -C {shlex.quote(REMOTE)} -cf - {shlex.quote(out)}'],stdout=subprocess.PIPE,stderr=subprocess.PIPE,creationflags=x.NO_WINDOW)
-    consumer=subprocess.Popen(SSH+[f'tar -C {shlex.quote(SPARKROOT)} -xf -'],stdin=producer.stdout,stdout=subprocess.PIPE,stderr=subprocess.PIPE,creationflags=x.NO_WINDOW)
-    producer.stdout.close();_,error=consumer.communicate(timeout=600);producer.wait(timeout=60)
-    assert consumer.returncode==0 and producer.returncode==0,error.decode(errors='replace')
+    # Pull directly from owned Spark; the temporary private key never leaves Spark.
+    key=SPARKROOT+'/analyses/065-2026-11-07-mlp-frozen-lr-double/scratch/h050-retention-key'
+    public=spark(f'''mkdir -p {shlex.quote(key.rsplit('/',1)[0])}
+if ! test -f {shlex.quote(key)}; then ssh-keygen -q -t ed25519 -N '' -f {shlex.quote(key)}; fi
+chmod 600 {shlex.quote(key)}
+cat {shlex.quote(key+'.pub')}
+''').strip()
+    x.ssh(p,'printf "%s\\n" '+shlex.quote(public)+' >> /root/.ssh/authorized_keys\n')
+    audit=HERE/'52_check_original_fork.py';rel=audit.relative_to(ROOT).as_posix()
+    x.copy(p,audit,REMOTE+'/'+rel)
+    if not emergency:
+        x.ssh(p,f'cd {REMOTE}\n/opt/h050/bin/python {shlex.quote(rel)} --run {shlex.quote(p["run"])} --out {shlex.quote(out)} --report-name complete_prefix_audit.json\n',timeout=180)
+    transfer=json.loads(x.ssh(p,f'''python3 - <<'PY'
+from pathlib import Path
+import json,hashlib,shutil
+out=Path({REMOTE!r})/{out!r}
+logs=out/'execution_logs';logs.mkdir(exist_ok=True)
+for name in ['worker.log','verification.log','extended-supervisor.log']:
+ source=Path('/workspace')/name
+ if source.exists():shutil.copy2(source,logs/name)
+files=[]
+for source in sorted(out.rglob('*')):
+ if source.is_file() and source.name!='transfer_inventory.json':
+  with source.open('rb') as f:digest=hashlib.file_digest(f,'sha256').hexdigest()
+  files.append(dict(path=source.relative_to(out).as_posix(),bytes=source.stat().st_size,sha256=digest))
+(out/'transfer_inventory.json').write_text(json.dumps(dict(files=files,posthoc_verifier_sha256={x.file_hash(audit)!r})))
+print(json.dumps(files))
+PY
+''',timeout=180))
+    needed=json.loads(spark(f'''python3 - <<'PY'
+import hashlib,json
+from pathlib import Path
+root=Path({(SPARKROOT+'/'+out)!r});needed=[]
+for item in {transfer!r}:
+ path=root/item['path'];matches=False
+ if path.is_file() and path.stat().st_size==item['bytes']:
+  with path.open('rb') as f:matches=hashlib.file_digest(f,'sha256').hexdigest()==item['sha256']
+ if not matches:needed.append(item['path'])
+needed.append('transfer_inventory.json')
+print(json.dumps(needed))
+PY
+''',timeout=180))
+    paths=' '.join(shlex.quote(out+'/'+name) for name in needed)
+    remote_ssh=['ssh','-o','BatchMode=yes','-o','IdentitiesOnly=yes','-o','ConnectTimeout=15',
+        '-o','StrictHostKeyChecking=accept-new','-o','UserKnownHostsFile='+key+'.hosts','-i',key,
+        '-p',str(p['port']),'root@'+p['host'],'bash -o pipefail -c '+shlex.quote(f'tar -C {shlex.quote(REMOTE)} -cf - {paths} | gzip -1')]
+    spark(f'''python3 - <<'PY'
+import subprocess
+from pathlib import Path
+root=Path({SPARKROOT!r});(root/{out!r}).mkdir(parents=True,exist_ok=True)
+producer=subprocess.Popen({remote_ssh!r},stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+consumer=subprocess.Popen(['tar','-C',str(root),'-xzf','-'],stdin=producer.stdout,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+producer.stdout.close();_,error=consumer.communicate(timeout=1200);producer.wait(timeout=60)
+assert consumer.returncode==0 and producer.returncode==0,error.decode()
+print('Direct Spark retention transfer completed')
+PY
+''',timeout=1280)
     verified=json.loads(spark(f'''python3 - <<'PY'
 import json,hashlib
 from pathlib import Path
-p=Path({(SPARKROOT+'/'+out)!r});m=json.loads((p/'inventory.json').read_text())
+p=Path({(SPARKROOT+'/'+out)!r});m=json.loads((p/'transfer_inventory.json').read_text())
 for f in m['files']:
  q=p/f['path']
  with q.open('rb') as h:digest=hashlib.file_digest(h,'sha256').hexdigest()
@@ -182,34 +239,53 @@ PY
     archive=S/(name+'-compact.tar.gz');x.copy(p,archive,'/workspace/compact.tar.gz',upload=False)
     assert archive.stat().st_size==receipt['bytes'] and x.file_hash(archive)==receipt['sha256']
     with tarfile.open(archive) as t:t.extractall(ROOT,filter='data')
-    for f in json.loads((ROOT/out/'inventory.json').read_text())['files']:
+    for f in json.loads((ROOT/out/'transfer_inventory.json').read_text())['files']:
         q=ROOT/out/f['path']
         if q.exists():assert q.stat().st_size==f['bytes'] and x.file_hash(q)==f['sha256']
     p.update(retrieval_verified=True,retained_spark=verified,compact=receipt);record(p)
-    dump(ROOT/p['run']/(name+'_retrieval.json'),dict(**verified,compact=receipt,verified=True,remote_inventory=out+'/inventory.json'))
+    dump(ROOT/p['run']/(name+'_retrieval.json'),dict(**verified,compact=receipt,verified=True,remote_inventory=out+'/transfer_inventory.json'))
     x.cli('pod','delete',p['id']);p['deleted_epoch']=time.time();record(p)
     dump(ROOT/p['run']/(name+'_closeout.json'),p);emit(event='verified_and_deleted',name=name,bytes=verified['bytes'])
 
 
 def watch():
-    while not (S/'STOP_WATCHER').exists():
-        for f in S.glob('lease-*.json'):
-            p=json.loads(f.read_text())
-            if p.get('deleted_epoch'):continue
-            try:
-                st=status(p['name'])
-                emit(event='status',**{k:v for k,v in st.items() if k!='qualification'})
-                if st.get('exit')=='0' and st.get('verification_exit')=='0':collect(p['name'])
-                elif time.time()>p['deadline_epoch']-480:
-                    if p.get('host'):
-                        x.ssh(p,'pkill -TERM -f "python -m src.eos_tasks.conventional_continuation" || true\n',timeout=30)
-                        time.sleep(35)
-                        try:collect(p['name'],emergency=True);continue
-                        except Exception as error:emit(event='emergency_retrieval_error',name=p['name'],error=str(error))
-                    # Stop GPU billing before the ceiling; retain volume if retrieval failed.
-                    x.cli('pod','stop',p['id']);p['stopped_epoch']=time.time();record(p)
-            except Exception as error:emit(event='watch_error',name=p['name'],error=str(error)[-600:])
-        time.sleep(30)
+    pending={}
+    with ThreadPoolExecutor(max_workers=7) as pool:
+        while not (S/'STOP_WATCHER').exists():
+            now=time.time();spent=0.
+            for f in list(S.glob('lease-*.json'))+list(S.glob('aborted-*.json')):
+                p=json.loads(f.read_text());spent+=(p.get('deleted_epoch',p.get('stopped_epoch',now))-p['created_epoch'])/3600*p['bounded_hourly_usd']
+            for f in S.glob('lease-*.json'):
+                p=json.loads(f.read_text());name=p['name']
+                if p.get('deleted_epoch') or p.get('stopped_epoch'):continue
+                try:
+                    if spent>=19.5:
+                        x.cli('pod','stop',p['id']);p['stopped_epoch']=time.time();record(p)
+                        emit(event='budget_guard_stopped_gpu',name=name,conservative_spend=spent);continue
+                    if name in pending:
+                        if not pending[name].done():continue
+                        future=pending.pop(name)
+                        try:future.result()
+                        except Exception as error:emit(event='retrieval_error',name=name,error=str(error)[-1000:])
+                        continue
+                    st=status(name)
+                    emit(event='status',**{k:v for k,v in st.items() if k!='qualification'})
+                    if st.get('exit')=='0' and st.get('verification_exit')=='0':
+                        stage_policy=S/'prestage.json'
+                        requires_receipt=stage_policy.exists() and name in json.loads(stage_policy.read_text()).get('workers',[])
+                        missing_receipt=requires_receipt and not (ROOT/p['run']/(name+'_immutable_prestage.json')).exists()
+                        if (S/('prestage-active-'+name+'.json')).exists() or missing_receipt:
+                            emit(event='waiting_for_immutable_prestage',name=name)
+                        else:pending[name]=pool.submit(collect,name)
+                    elif time.time()>p['deadline_epoch']-480:
+                        if p.get('host'):
+                            x.ssh(p,'pkill -TERM -f "python -m src.eos_tasks.conventional_continuation" || true\n',timeout=30)
+                            time.sleep(35)
+                            try:collect(name,emergency=True);continue
+                            except Exception as error:emit(event='emergency_retrieval_error',name=name,error=str(error))
+                        x.cli('pod','stop',p['id']);p['stopped_epoch']=time.time();record(p)
+                except Exception as error:emit(event='watch_error',name=name,error=str(error)[-600:])
+            time.sleep(30)
 
 
 def main():
