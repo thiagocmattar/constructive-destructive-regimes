@@ -1,6 +1,8 @@
 # Manuscript consolidation
 
-Read **[PLAN.md](PLAN.md)** for the single executive paper anatomy and closure plan.
+The **[complete manuscript rewrite](draft/manuscript.pdf)** is ready for author review. It follows the agreed structure and remains entirely inside consolidation. The **[supplement](draft/supplementary.pdf)** provides the full technical and experimental record; [draft sources and build instructions](draft/README.md) are alongside both PDFs.
+
+**[PLAN.md](PLAN.md)** remains the single executive paper anatomy and closure map.
 
 The actual materials are now filed under **[evidence/](evidence/README.md)** in paper order:
 
@@ -18,4 +20,4 @@ The actual materials are now filed under **[evidence/](evidence/README.md)** in 
 - **Freshness:** [audit findings](evidence/REPOSITORY_REVIEW.md); old contribution/task/figure mappings have been reconciled with PLAN.
 - **Readiness:** [artifact map](evidence/ARTIFACTS.md) separates retained figures, usable bases, supporting evidence and pending final assembly.
 - **Integrity:** [copy manifest](evidence/copy_manifest.json) and [verification](evidence/verification.json). Source research artifacts and human originals remain preserved.
-- **Next work:** [closure task index](work/TASKS.md). The active manuscript has not been edited.
+- **Current status:** full rewrite, supplement, numerical verification, and page review are complete. [Closure task index](work/TASKS.md). The next step is the author's review; the active manuscript has not been edited.

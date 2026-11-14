@@ -1,0 +1,35 @@
+\clearpage
+\section{Adam Timing, Severity, and Warning Memory}
+
+\subsection{Cohort, event selection, and targets}
+The exhaustive cohort has nine full-objective Adam trajectories: MLP rates $.0001/.0003/.001$ and ResNet/Transformer rates $.0003/.001/.003$, each for 1,024 updates with one initialization per model. Initial tensors agree across rates within a model, moments start at zero, and the native coefficients are $(.9,.999)$ with $\epsilon=10^{-8}$ and no clipping, decay, or schedule. Numerical runtimes differ across some arms; hardware effects are not separately randomized.
+
+A loss excursion starts at a strict increase, fixes the preceding state as its baseline, and tracks the peak until the first return to or below that baseline. An excursion still open at the horizon is right-censored. Overview shading uses baseline-to-peak intervals whose maximum exceeds baseline by more than 10\%; outlined intervals retain unobserved recovery. These event definitions are distinct from the individual-step targets used below. A sequence of upward updates is not a sequence of independent spikes.
+
+Decisions at $s=1,\ldots,1023$ use only available raw-gradient information. At future offset $h$, the individual target is
+\begin{equation}
+ Y_{s,h}(\delta)=\mathbf1\{(L_{s+h}-L_{s+h-1})/L_{s+h-1}\geq\delta\},
+\end{equation}
+with strict positivity for the zero-threshold case. Net targets instead compare $L_{s+h}$ with $L_s$; within-horizon targets compare $\max_{1\leq j\leq h}L_{s+j}$ with $L_s$. The common cohort $s=1,\ldots,1008$ supports all $h=1,\ldots,16$ without changing endpoint composition. A second analysis restricts decisions to $L_s\leq L_{s-1}$; it excludes an already-rising step, not necessarily an ongoing excursion.
+
+Coverage is $\mathrm{TP}/(\mathrm{TP}+\mathrm{FN})$, precision is $\mathrm{TP}/(\mathrm{TP}+\mathrm{FP})$, and the false-positive rate is $\mathrm{FP}/(\mathrm{FP}+\mathrm{TN})$. Precision lift uses the unconditional target frequency in the identical cohort. Undefined ratios remain missing. The flags $D=(\rho_s<0)$, $G=(r_s>1)$, $D\wedge G$, and $Q_s\geq2$ are evaluated before the outgoing update. The angle/norm form of $Q_s>2$ is algebraically equivalent, not a fifth signal.
+
+\begin{table}[H]
+\centering\small
+\caption{Complete next-step sign accounting in the three displayed high-rate arms. Each signal cell gives flagged increases/flagged decreases; target totals are in the second and third columns. These counts concern strictly positive or negative individual changes, not recovered loss excursions.}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+Case & Increases & Decreases & $D$ up/down & $G$ up/down & Both up/down & $Q\geq2$ up/down \\
+\midrule
+MLP & 454 & 569 & 404/412 & 261/285 & 239/218 & 172/136 \\
+ResNet & 95 & 928 & 86/214 & 47/277 & 46/116 & 21/15 \\
+Transformer & 152 & 871 & 145/376 & 99/322 & 98/203 & 81/66 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Warning memory flags a decision if a condition occurred at any of the last $w$ states, including the current one. All $w=1,\ldots,16$ use $s=16,\ldots,1023$, and each target update is counted once. Enlarging the memory window enlarges the flag set; improved coverage must be assessed with its additional false alarms. Similarly, a longer future search window increases the opportunity for a positive target.
+
+These grids are exploratory characterization on previously inspected trajectories. Thresholds, horizons, and selected high-rate displays do not constitute prospective confirmation. Temporal dependence and one initialization per model preclude independent-seed confidence intervals. A validated predictor would require fixed targets and horizons, temporal separation, loss-history and norm baselines, and fresh-seed evaluation.
+
+\input{tables/audit-plates}

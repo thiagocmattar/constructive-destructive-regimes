@@ -1,0 +1,58 @@
+{
+  "status": "passed",
+  "protected_files_unchanged": 406,
+  "main_figures": 9,
+  "main_tables": 3,
+  "algorithms": 2,
+  "recomputed_intervention_metrics": 144,
+  "compiled_intervention_cells": 144,
+  "gd_conditions_checked": 9,
+  "severity_table_hits_and_precision_cells": 24,
+  "spectral_control_cells_checked": 24,
+  "supplement_figures": 24,
+  "supplement_tables": 9,
+  "smooth_loss_and_cap_cases": 128,
+  "mathematical_max_errors": {
+    "path_identity": 4.0245584642661925e-16,
+    "loss_residual": 2.1441182163073336e-15,
+    "cap_bound": 4.440892098500626e-16
+  },
+  "abstract_words": 219,
+  "citation_keys": 31,
+  "output_motion_claims": {
+    "mlp": {
+      "max_output_rms_reduction_percent": 83.17898259961751,
+      "squared_motion_change_percent": -88.56937929703659,
+      "baseline_reversal_percent": 99.30555555555556,
+      "q50_reversal_percent": 89.23611111111111
+    },
+    "resnet": {
+      "max_output_rms_reduction_percent": 23.135475868176957,
+      "squared_motion_change_percent": 39.73698805587995,
+      "baseline_reversal_percent": 36.875,
+      "q50_reversal_percent": 66.875
+    },
+    "transformer": {
+      "max_output_rms_reduction_percent": 62.93525789133139,
+      "squared_motion_change_percent": -55.354182520763764,
+      "baseline_reversal_percent": 36.71875,
+      "q50_reversal_percent": 95.83333333333334
+    }
+  },
+  "pdfs": {
+    "manuscript": {
+      "pages": 14,
+      "embedded_fonts": 68,
+      "out_of_page_spans": 0,
+      "sha256": "d9e0a9aea200703892164097135eba83635059876bc64639905b7bda56bf56c9"
+    },
+    "supplementary": {
+      "pages": 33,
+      "embedded_fonts": 70,
+      "out_of_page_spans": 0,
+      "sha256": "4c4af60a1f66018a59e8587747d796737c51199adf6952f15fe2fab6eef38abb"
+    }
+  },
+  "visual_review": "Recorded separately after final page inspection",
+  "verifier_sha256": "3a65d1f60e9aefe56aedff594f7e3625dfbbe3bedf666e0f0350eb5fadd3b94d"
+}

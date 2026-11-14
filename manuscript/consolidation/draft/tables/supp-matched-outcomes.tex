@@ -1,0 +1,74 @@
+\begin{table}[H]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrr}
+\toprule
+Setting & \shortstack{PV reduction\\(\%)} & \shortstack{Mean loss\\change (\%)} & \shortstack{Final\\loss} & \shortstack{Last-32\\loss} & \shortstack{Test loss\\change (\%)} \\
+\midrule
+Unchanged Adam & 0 & 0 & 0.03025 & 0.01346 & 0 \\
+LR $\times0.75$ & 17.51 & -16.65 & 0.01231 & 0.01601 & -2.307 \\
+LR $\times0.5$ & 99 & -25.04 & 0.01073 & 0.01115 & -2.543 \\
+LR $\times0.1$ & 99.58 & -3.336 & 0.01849 & 0.01866 & -8.509 \\
+$\beta_2=0.95$ & -125 & 16.78 & 0.01917 & 0.01795 & -2.922 \\
+$\beta_2=0.9$ & -77.96 & 18.16 & 0.01588 & 0.01931 & -3.876 \\
+$\beta_2=0.5$ & -187.5 & 127 & 0.03476 & 0.03551 & -11.06 \\
+Clip 0.5 & -65.32 & 2.084 & 0.01669 & 0.01675 & -3.119 \\
+Clip 1.0 & -419.3 & 48.01 & 0.02442 & 0.06413 & -7.75 \\
+Cap q25 & 75.32 & -30.87 & 0.009722 & 0.009742 & -0.1062 \\
+Cap q50 & 87.75 & -32.18 & 0.008691 & 0.009076 & 0.5332 \\
+Cap q75 & 97.46 & -27.86 & 0.0105 & 0.01067 & 0.02148 \\
+\bottomrule
+\end{tabular}
+\caption{CIFAR-10 / MLP. Matched initialization-0 interventions at states 512--800. PV is positive loss variation. Mean excludes the common fork; late loss averages the final 32 states. Test changes use the complete held-out split. All changes compare with unchanged Adam; no held-out selection.}
+\end{table}
+
+\begin{table}[H]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrr}
+\toprule
+Setting & \shortstack{PV reduction\\(\%)} & \shortstack{Mean loss\\change (\%)} & \shortstack{Final\\loss} & \shortstack{Last-32\\loss} & \shortstack{Test loss\\change (\%)} \\
+\midrule
+Unchanged Adam & 0 & 0 & 0.006702 & 0.008241 & 0 \\
+LR $\times0.75$ & -26.45 & 16.81 & 0.02184 & 0.02845 & -11.37 \\
+LR $\times0.5$ & -11.11 & 27.2 & 0.05446 & 0.07608 & -22.67 \\
+LR $\times0.1$ & 98.98 & 89.46 & 0.2447 & 0.2542 & -45.55 \\
+$\beta_2=0.95$ & -250.3 & 28.46 & 0.1142 & 0.3079 & -32.14 \\
+$\beta_2=0.9$ & -63.32 & -3.529 & 0.02139 & 0.08911 & 2.459 \\
+$\beta_2=0.5$ & 21.75 & 6.279 & 0.05511 & 0.04997 & 11.85 \\
+Clip 0.5 & -2.559 & 14.52 & 0.05778 & 0.07538 & -19.91 \\
+Clip 1.0 & -85.65 & 13.27 & 0.06199 & 0.07824 & -15.01 \\
+Cap q25 & 36.09 & -21.56 & 0.00493 & 0.005935 & 9.557 \\
+Cap q50 & 2.771 & -9.424 & 0.008044 & 0.01001 & 2.424 \\
+Cap q75 & 66.14 & -19.48 & 0.004833 & 0.005969 & 10.8 \\
+\bottomrule
+\end{tabular}
+\caption{CIFAR-10 / ResNet-32. Matched initialization-0 interventions at states 256--576. PV is positive loss variation. Mean excludes the common fork; late loss averages the final 32 states. Test changes use the complete held-out split. All changes compare with unchanged Adam; no held-out selection.}
+\end{table}
+
+\begin{table}[H]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrr}
+\toprule
+Setting & \shortstack{PV reduction\\(\%)} & \shortstack{Mean loss\\change (\%)} & \shortstack{Final\\loss} & \shortstack{Last-32\\loss} & \shortstack{Test loss\\change (\%)} \\
+\midrule
+Unchanged Adam & 0 & 0 & 0.9178 & 0.9937 & 0 \\
+LR $\times0.75$ & 37.9 & -2.982 & 0.614 & 0.6306 & 8.338 \\
+LR $\times0.5$ & 66 & -11.36 & 0.6277 & 0.6483 & 8.675 \\
+LR $\times0.1$ & 100 & -5.522 & 0.7572 & 0.7606 & -7.273 \\
+$\beta_2=0.95$ & -7.139 & -10.67 & 0.593 & 0.7318 & 29.25 \\
+$\beta_2=0.9$ & 29.71 & -16.84 & 0.6067 & 0.6055 & 40.2 \\
+$\beta_2=0.5$ & 79.61 & -9.626 & 0.6462 & 0.6529 & 34.8 \\
+Clip 0.5 & 87.71 & -17.79 & 0.617 & 0.6162 & 18.32 \\
+Clip 1.0 & 65.56 & -15.58 & 0.6201 & 0.6251 & 21.74 \\
+Cap q25 & 89.16 & -18.47 & 0.5505 & 0.5825 & 26.55 \\
+Cap q50 & 96.23 & -19.84 & 0.7039 & 0.6065 & 27.52 \\
+Cap q75 & 98.77 & -19.78 & 0.5833 & 0.5866 & 28.7 \\
+\bottomrule
+\end{tabular}
+\caption{WikiText-2 / Transformer. Matched initialization-0 interventions at states 544--928. PV is positive loss variation. Mean excludes the common fork; late loss averages the final 32 states. Test changes use the complete held-out split. All changes compare with unchanged Adam; no held-out selection.}
+\end{table}

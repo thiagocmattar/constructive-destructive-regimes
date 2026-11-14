@@ -1,16 +1,17 @@
 # Closure tasks for the current paper plan
 
 - **Authority:** [PLAN.md](../PLAN.md). This is an implementation index, not a second scientific plan.
-- **Current phase:** the agreed H051 matched matrix and paper assets are complete. Manuscript rewriting/integration is the next phase; original draft and supplied inputs remain preserved.
+- **Current phase:** the complete [14-page manuscript](../draft/manuscript.pdf) and [33-page supplement](../draft/supplementary.pdf) are ready for author review. The agreed H051 matrix is incorporated; the active draft and supplied inputs remain preserved.
 
 | Plan step | Status | Work / acceptance |
 |---|---|---|
-| 1. Integrate evidence | V-C excerpt complete in consolidation; full manuscript pending | The [three-page V-C draft](../draft/intervention-review.pdf) contains two polished figures, the compact 12-row outcome table, Algorithm 2, setup/results and limits. Numerical checks and final-size rendering pass. Connect it to V-A/B, revise I–III, retain IV's four figures, and reconcile full-paper numbering after review. |
+| 1. Integrate evidence | Complete inside consolidation | Full I–VI rewrite, consistent notation, nine main figures, three tables, two algorithms, reconciled references, and separately numbered supplement. Original title, theory spine, and IV's four figures retained. The prior three-page V-C excerpt is preserved. |
 | 2. Matched intervention comparison | Complete | 36 initialization-0 conditions, MLP 512–800/ResNet 256–576/Transformer 544–928, every requested setting, qualified shared forks and exact native replay. Historical comparisons remain separate. |
 | 3. Method reporting | Complete for this scope | Full loss/stage/update/activity histories, fixed past calibration, five full held-out states, 108 gradient/update audits, 36 terminal-gradient replays and 48 terminal held-out split replays. Timing and memory limits are explicit. |
 | 4. Conditional extensions | Deferred | Initializations 1/2, cap x LR, forecasting, quiet-window/mode specificity, causal-source identification, stronger method comparisons and stochastic/scale transfer. Required only for the corresponding stronger claim. |
-| 5. Final manuscript checks | Pending manuscript work | Abstract/conclusion/citations, compile/render, reproducibility package and TNNLS route/format. No contact or submission is authorized. |
+| 5. Final manuscript checks | Technical checks complete; author/venue decisions remain | Abstract, conclusion, citations, all 144 intervention cells, mathematical identities, source preservation, warning-free compilation, and all-page visual review pass. Author review and the existing TNNLS route/current-format issue remain before submission. No contact or submission is authorized. |
 
 - **Current package:** [selected V-C figures](../evidence/05-adam/c-intervention/figures/README.md), [matched observation](../evidence/05-adam/c-intervention/observations/65-016-matched-intervention-matrix.md), [captions](../evidence/05-adam/c-intervention/captions.tex), [compute closeout](../evidence/05-adam/c-intervention/data/matched-compute_closeout.json).
 - **Future experiments:** use the [ablation TODO and separate ETC/costs](../evidence/05-adam/c-intervention/TODO_ABLATIONS.md). Continue Analysis 065; changed scientific inputs get new run IDs.
+- **Rewrite audit:** [sources, adversarial dispositions, and reproduction](full_rewrite_20261114/OBSERVATIONS.md); [numerical checks](full_rewrite_20261114/verification.json); [visual-review record](full_rewrite_20261114/visual_review.json). These are provenance, not additional required author reading.
 - **Maintenance:** run `python manuscript/consolidation/work/package_evidence.py --verify`. Rebuild only after reviewing intended source/catalogue changes. Historical numbering/prose is not automatically manuscript content.

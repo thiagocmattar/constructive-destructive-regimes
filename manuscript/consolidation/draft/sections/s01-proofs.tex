@@ -1,0 +1,59 @@
+\section{Derivations and the Measurement Clock}
+
+\subsection{State and update indexing}
+State $\theta_s$ has $s$ completed updates. The raw gradient $g_s$ is evaluated at that state and is available before the outgoing increment $u_s=\theta_{s+1}-\theta_s$. Paired gradient quantities $\rho_s,r_s,Q_s$ compare states $s-1$ and $s$. Representation motion $\delta_s^\ell=\operatorname{vec}(A_s^\ell-A_{s-1}^\ell)$ is incoming and is displayed at its endpoint $s$. In a fitted window $a{:}b$, the raw-gradient comparison uses $g_{a-1},\ldots,g_{b-1}$, the vectors used for those incoming updates. Earlier source records that number a gradient by the update it supplies are shifted by one when displayed; their numerical values are unchanged.
+
+\subsection{Displacement and directional curvature}
+For constant-rate plain SGD, summation gives $\theta_T-\theta_0=-\eta\sum_{s=0}^{T-1}g_s$. Expanding its squared norm gives the main all-pair identity. The triangle inequality gives $0\leq R_T\leq1$ when the total path length is nonzero. For another optimizer, the same geometric identity holds for the actual increments $u_s$, but replacing them by unweighted raw gradients generally does not recover parameter displacement.
+
+For smooth $L$, apply the fundamental theorem to $f(\theta)=\nabla L(\theta)$ along $\theta_{s-1}+a u_{s-1}$:
+\begin{equation}
+ f_s-f_{s-1}=\int_0^1H(\theta_{s-1}+a u_{s-1})u_{s-1}\,da.
+\end{equation}
+Substituting $u_{s-1}=-\eta g_{s-1}$ and $g=f+\xi$, then projecting onto $g_{s-1}$, yields the path-average curvature plus the explicit noise term in the main text. In full GD, let $v=-\eta g_{s-1}$ and $y=g_s-g_{s-1}$. Direct substitution gives
+\begin{equation}
+ \frac{v^\top y}{v^\top v}
+ =-\frac{g_{s-1}^\top(g_s-g_{s-1})}{\eta\|g_{s-1}\|^2}
+ =\widehat\kappa_s.
+\end{equation}
+This is the reciprocal BB1 secant where defined~\cite{barzilai1988two,tan2016bbsgd}, not a new secant construction. For a Lipschitz Hessian,
+\begin{align}
+ \left|\widehat\kappa_s-\frac{g_{s-1}^\top H(\theta_{s-1})g_{s-1}}{\|g_{s-1}\|^2}\right|
+ &\leq\int_0^1\|H(\theta_{s-1}-a\eta g_{s-1})-H(\theta_{s-1})\|_{\rm op}\,da\notag\\
+ &\leq\int_0^1L_Ha\eta\|g_{s-1}\|\,da
+ =\tfrac12L_H\eta\|g_{s-1}\|.
+\end{align}
+The result needs smoothness along the complete segment. A local Hessian evaluated inside a ReLU region does not certify the identity across an activation boundary. Numerical gradient observations remain defined regardless of whether the smooth interpretation applies.
+
+\subsection{Sampling identities and their limits}
+Fresh conditional unbiasedness gives $\E[g_{s-1}^\top\xi_s]=0$. At the preceding state, $g_{s-1}=f_{s-1}+\xi_{s-1}$ and $\E[f_{s-1}^\top\xi_{s-1}]=0$, hence
+\begin{equation}
+ \E[g_{s-1}^\top(\xi_s-\xi_{s-1})]=-\E\|\xi_{s-1}\|^2.
+\end{equation}
+This reasoning uses conditional expectations before and after the previous sampling decision; it does not assert independence between the new state and the previous noise. For independent uniform batches of $b$ distinct examples from $N$, standard finite-population sampling gives $\operatorname{Cov}(\xi\mid\theta)=(N-b)\Sigma/[b(N-1)]$, where $\Sigma$ uses denominator $N$. Taking its trace yields the variance identity.
+
+At a frozen state, two independent batch gradients satisfy $\E[g^\top g']=\|f\|^2$ and $\E\|g\|^2=\|f\|^2+V_b$. Replacing the product of random norms by $\|f\|^2+V_b$ gives the approximate cosine formula. Neither division of expectations nor replacement of an evolving trajectory by a frozen one is exact. The fixed-state experiment tests these distinctions directly.
+
+\subsection{Finite-step loss and an explicit residual}
+Let $x=\theta_{s-1}$, $u=-\eta g_{s-1}$ and $\phi(a)=L(x+a u)$. Then $L_s-L_{s-1}=\int_0^1\phi'(a)\,da$. Integration by parts gives the exact endpoint-trapezoid residual
+\begin{equation}
+ \mathcal E_s:=L_s-L_{s-1}-\tfrac12(f_{s-1}+f_s)^\top u
+ =\int_0^1(\tfrac12-a)u^\top H(x+a u)u\,da.
+ \label{eq:s-trapezoid}
+\end{equation}
+Substituting $f_s=g_s-\xi_s$ yields the main sampled-loss identity. If $H$ is constant, the integral vanishes and full-batch GD gives $\Delta L_s=\eta\|g_{s-1}\|^2(Q_s-2)/2$ exactly. If the Hessian is $L_H$-Lipschitz, subtract its value at the midpoint inside~\eqref{eq:s-trapezoid}; the constant term integrates to zero. Consequently,
+\begin{equation}
+ |\mathcal E_s|\leq L_H\|u\|^3\int_0^1|a-\tfrac12|^2\,da
+ =L_H\|u\|^3/12.
+\end{equation}
+A small curvature discrepancy does not by itself imply a small error relative to a near-zero loss change. This motivates the separate empirical sign audit. The strict quadratic condition $Q_s>2$ implies $\rho_s<0$ and $r_s>1$, but those two signs alone do not imply it. Current zero gradients and previous zero gradients retain the undefined-case rules in the main text.
+
+\subsection{Adaptive updates}
+For full-objective Adam, use $u_s=-\eta_s d_s$, with the parameter-state convention
+\begin{align}
+ m_s&=\beta_1m_{s-1}+(1-\beta_1)h_s,&
+ v_s&=\beta_2v_{s-1}+(1-\beta_2)h_s^{\odot2},\notag\\
+ d_s&=\frac{m_s/(1-\beta_1^{s+1})}{\sqrt{v_s/(1-\beta_2^{s+1})}+\epsilon},&
+ \theta_{s+1}&=\theta_s-\eta_s d_s.
+\end{align}
+Moments are initialized to zero at index $-1$. Here $h_s=g_s$ for native Adam and $h_s=\min(1,\gamma/\|g_s\|)g_s$ for global clipping, with factor one when $g_s=0$. The raw diagnostic always uses the unclipped $g_s$. Late $\beta_2$ interventions preserve moments and the native counter; their bias correction uses the new coefficient and that existing counter, rather than a product of historical coefficients. Caps subsequently transform the stored parameter proposal while retaining these advanced moments. The projected-response identity remains a mixed Hessian form along the \emph{actual} increment, including any intervention, with added noise differences if gradients come from different samples.

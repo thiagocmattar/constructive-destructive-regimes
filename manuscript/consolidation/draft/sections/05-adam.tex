@@ -1,0 +1,22 @@
+\section{Raw-Gradient Diagnostics under Adam}
+\label{sec:adam}
+
+The observable $Q_s$ transfers to an adaptive trajectory, but its interpretation must follow the increment actually applied. For a smooth fixed objective and any $u_{s-1}=\theta_s-\theta_{s-1}$,
+\begin{equation}
+ g_s-g_{s-1}=\int_0^1 H(\theta_{s-1}+a u_{s-1})u_{s-1}\,da
+ \label{eq:general-response}
+\end{equation}
+in full-batch training. If Adam~\cite{kingma2014adam} applies $u_{s-1}=-\eta_{s-1}d_{s-1}$, then
+\begin{equation}
+ \frac{Q_s}{\eta_{s-1}}=
+ \int_0^1\frac{g_{s-1}^\top H(\theta_{s-1}+a u_{s-1})d_{s-1}}
+ {\|g_{s-1}\|^2}\,da.
+ \label{eq:mixed-response}
+\end{equation}
+Adam's direction determines where parameters move; the previous raw gradient determines the projection of the resulting response. The integrand is a mixed Hessian form, not a Rayleigh quotient unless the directions coincide. We retain $\eta\widehat\kappa_s$ in the figures as the established notation for $Q_s$, with these optimizer-dependent semantics. Raw-gradient reversal is neither reversal of Adam's actual increments nor a proof of preconditioner decoupling.
+
+The controlled full-objective Adam cases use the objectives in Table~\ref{tab:setup}, $\beta_1=.9$, $\beta_2=.999$, $\epsilon=10^{-8}$, and no weight decay. The following analysis proceeds from characterization to functional tracing and intervention. Smooth identities give the interpretation where their assumptions hold; they do not make a smooth-Hessian theorem apply across every ReLU boundary.
+
+\input{sections/05a-characterization}
+\input{sections/05b-tracing}
+\input{sections/05c-interventions}

@@ -1,0 +1,132 @@
+\section{Constructive and Destructive Regimes}
+\label{sec:regimes}
+
+Let $\theta_s\in\R^p$ denote the parameters after $s$ completed optimizer updates, $L_s=L(\theta_s)$ the fixed full objective, and $f_s=\nabla L(\theta_s)$. A raw sampled gradient is $g_s=f_s+\xi_s$. Plain SGD with constant $\eta>0$ applies
+\begin{equation}
+ u_s:=\theta_{s+1}-\theta_s=-\eta g_s.
+ \label{eq:sgd}
+\end{equation}
+Full-batch GD has $\xi_s=0$. Unless stated otherwise, norms and inner products are Euclidean over all trainable parameters. Thus $g_s$ is evaluated at state $s$ and is available before update $s\to s+1$.
+
+Summing~\eqref{eq:sgd} and expanding gives the exact displacement identity
+\begin{equation}
+ \begin{split}
+ \|\theta_T-\theta_0\|^2={}&\eta^2\sum_{s=0}^{T-1}\|g_s\|^2\\
+ &+2\eta^2\sum_{0\leq i<j<T}g_i^\top g_j.
+ \end{split}
+ \label{eq:all-pairs}
+\end{equation}
+Positive cross-step products reinforce net displacement; negative products cancel components of earlier motion. This is a geometric meaning of constructive and destructive interference. It does not measure information retained by the model. For nonzero gradients, define
+\begin{equation}
+ \rho_s=\frac{g_{s-1}^\top g_s}{\|g_{s-1}\|\|g_s\|},
+ \qquad r_s=\frac{\|g_s\|}{\|g_{s-1}\|}.
+ \label{eq:rho}
+\end{equation}
+A step has constructive or destructive adjacent interaction when $\rho_s$ is positive or negative, respectively. A regime denotes persistence of that behavior over a stated interval. Adjacent interaction is only one part of~\eqref{eq:all-pairs}; we do not assume that longer-lag terms vanish.
+
+\subsection{Directional Curvature and Consecutive Alignment}
+\label{subsec:curvature}
+Suppose $L$ is twice continuously differentiable along the incoming step and write $H=\nabla^2L$. The fundamental theorem of calculus gives
+\begin{equation}
+ \begin{split}
+ g_s-g_{s-1}={}&-\eta\int_0^1 H(\theta_{s-1}-a\eta g_{s-1})g_{s-1}\,da\\
+ &+\xi_s-\xi_{s-1}.
+ \end{split}
+ \label{eq:gradient-response}
+\end{equation}
+This identity exposes curvature and sampling in the same observed change. Define the incoming projected response
+\begin{equation}
+ \boxed{Q_s:=1-\frac{g_{s-1}^\top g_s}{\|g_{s-1}\|^2}
+       =1-\rho_s r_s=\eta\widehat\kappa_s.}
+ \label{eq:Q}
+\end{equation}
+The inner-product form is primary: if $g_s=0$ but $g_{s-1}\ne0$, $Q_s=1$ while cosine is undefined. If $g_{s-1}=0$, $Q_s$ and $r_s$ are undefined. No artificial zero cosine is inserted.
+
+With $\varepsilon_s=g_{s-1}^\top(\xi_s-\xi_{s-1})/\|g_{s-1}\|^2$, projection of~\eqref{eq:gradient-response} yields
+\begin{equation}
+ \widehat\kappa_s=
+ \int_0^1\frac{g_{s-1}^\top H(\theta_{s-1}-a\eta g_{s-1})g_{s-1}}
+ {\|g_{s-1}\|^2}\,da-\frac{\varepsilon_s}{\eta}.
+ \label{eq:path-average}
+\end{equation}
+Under smooth full-batch GD, $\widehat\kappa_s$ is therefore \emph{exactly} the step-averaged directional Hessian Rayleigh quotient. The diagnostic estimates curvature at the starting state only when that average is close to its endpoint value.
+
+\begin{proposition}
+If $H$ is $L_H$-Lipschitz in operator norm along the GD segment and $g_{s-1}\ne0$, then
+\begin{equation}
+ \left|\widehat\kappa_s-
+ \frac{g_{s-1}^\top H(\theta_{s-1})g_{s-1}}{\|g_{s-1}\|^2}\right|
+ \leq \frac{L_H\eta}{2}\|g_{s-1}\|.
+ \label{eq:curvature-bound}
+\end{equation}
+\end{proposition}
+The bound follows by integrating the Hessian variation along the segment; Supplementary Section S1 gives the derivation. For nonzero adjacent gradients, $Q_s>1$ is exactly equivalent to reversal. Its directional average is distinct from $\lambda_{\max}(H)$, and the smooth assumptions need not hold across activation boundaries.
+
+\subsection{Estimating Curvature from Existing Gradients}
+Equation~\eqref{eq:Q} requires one retained gradient and $O(p)$ reductions. It uses no additional backward pass, Hessian--vector product, or eigensolver. This makes a directional Hessian scalar available at every gradient boundary; it does not make full spectral estimation free, and the storage and reduction costs remain real.
+
+The scalar has a classical secant interpretation. For GD, let $v=\theta_s-\theta_{s-1}=-\eta g_{s-1}$ and $y=g_s-g_{s-1}$. Then
+\begin{equation}
+ \widehat\kappa_s=\frac{v^\top y}{v^\top v}
+ =\alpha_{\mathrm{BB1}}^{-1},\qquad
+ \alpha_{\mathrm{BB1}}=\frac{v^\top v}{v^\top y},
+ \label{eq:bb}
+\end{equation}
+where the reciprocal requires $v^\top y\ne0$. Barzilai--Borwein step sizes and their scalar-Hessian interpretation are established~\cite{barzilai1988two,tan2016bbsgd}. Here the scalar is used to interpret the observed regime, with its exact path-average semantics, approximation error, and sampling contamination made explicit. Under other optimizers the same arithmetic has a different geometric meaning, derived in Section~\ref{sec:adam}.
+
+\subsection{Sampling Noise and the Observed Regime}
+For fresh conditionally unbiased batches,
+\begin{equation}
+ \E\big[g_{s-1}^\top(\xi_s-\xi_{s-1})\big]
+ =-\E\|\xi_{s-1}\|^2.
+ \label{eq:noise-product}
+\end{equation}
+This is an expectation of an \emph{unnormalized} product, not of $\varepsilon_s$ or cosine. For a mean of $N>1$ example losses, uniformly sampled batches of size $b$ without replacement satisfy
+\begin{equation}
+ \E[\|\xi\|^2\mid\theta]
+ =\frac{N-b}{b(N-1)}\operatorname{tr}\Sigma(\theta),
+ \label{eq:finite-population}
+\end{equation}
+where $\Sigma=N^{-1}\sum_i(h_i-f)(h_i-f)^\top$ and $h_i=\nabla\ell_i(\theta)$. Independence is between successive batch draws; examples within a batch are sampled without replacement. Normalization-group and token-weighted sampling require the corresponding units, specified in Section~\ref{sec:gd}.
+
+For two independent gradients at one \emph{fixed} state, approximating their random norms by a concentrated value gives
+\begin{equation}
+ \E[\rho\mid\theta\text{ fixed}]
+ \approx\frac{\|f(\theta)\|^2}
+ {\|f(\theta)\|^2+\frac{N-b}{b(N-1)}\operatorname{tr}\Sigma(\theta)}.
+ \label{eq:frozen-cosine}
+\end{equation}
+This approximation concerns shared signal under sampling. Along SGD, the state and curvature also change, so neither~\eqref{eq:noise-product} nor~\eqref{eq:frozen-cosine} implies a universal monotone batch-size effect on a negative cosine.
+
+\subsection{Normalized Displacement and Longer-Lag Interaction}
+The fraction of total path length retained as displacement is
+\begin{equation}
+ R_T:=\frac{\|\theta_T-\theta_0\|}{\eta\sum_{s=0}^{T-1}\|g_s\|}
+ =\frac{\|\sum_{s=0}^{T-1}g_s\|}{\sum_{s=0}^{T-1}\|g_s\|}\in[0,1],
+ \label{eq:retention}
+\end{equation}
+defined when the denominator is positive. Equal aligned steps give one, equal opposing pairs give zero, and $T$ equal orthogonal steps give $1/\sqrt T$. Thus low $R_T$ can reflect cancellation or weak directional coherence. Its significance for learning must be evaluated with the objective. The all-pair identity retains interactions at every lag; the anchored profile $\rho_s(k)=\cos(g_s,g_{s-k})$ exposes how a particular endpoint relates to its past, without substituting for that full sum.
+
+\subsection{Reversal, Amplification, and Finite-Step Loss Change}
+\label{subsec:loss}
+An incoming GD step on a quadratic objective obeys
+\begin{equation}
+ \boxed{L_s-L_{s-1}=\frac{\eta}{2}\|g_{s-1}\|^2(Q_s-2).}
+ \label{eq:quadratic-loss}
+\end{equation}
+For nonzero adjacent gradients, a strict rise therefore occurs precisely when
+\begin{equation}
+ Q_s>2\quad\Longleftrightarrow\quad \rho_s<-1/r_s.
+ \label{eq:rise-condition}
+\end{equation}
+Reversal and growth ($\rho_s<0$, $r_s>1$) are necessary but their conjunction is weaker. For example, norm doubling requires $\rho_s<-0.5$. Between $1<Q_s<2$, the gradient reverses while the quadratic loss still decreases.
+
+For a general smooth loss, replacing the integral of the directional derivative by its endpoint trapezoid gives
+\begin{equation}
+ \begin{split}
+ L_s-L_{s-1}={}&\frac{\eta}{2}\|g_{s-1}\|^2(Q_s-2)\\
+ &+\frac{\eta}{2}g_{s-1}^\top(\xi_{s-1}+\xi_s)+\mathcal E_s.
+ \end{split}
+ \label{eq:loss-residual}
+\end{equation}
+Here $\mathcal E_s$ is the finite-step trapezoidal residual. Under the Lipschitz-Hessian assumption, $|\mathcal E_s|\leq L_H\eta^3\|g_{s-1}\|^3/12$ (Supplementary Section S1). Loss-sign accuracy still requires the residual to be small relative to the predicted change. We test that accuracy separately from directional-curvature agreement. Finally, $Q_s$ describes the completed incoming step; using it to anticipate $L_{s+1}-L_s$ is a distinct empirical question.

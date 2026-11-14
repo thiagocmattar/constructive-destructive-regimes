@@ -1,8 +1,21 @@
-# Consolidation draft excerpts
+# Complete consolidation manuscript
 
-- **Review first:** [V-C intervention draft, three IEEE-style pages](intervention-review.pdf).
-- **Editable section:** [05c-interventions.tex](05c-interventions.tex); [review wrapper](intervention-review.tex). Figure/table/equation numbers are local to this excerpt; Algorithm 2 retains the plan's assignment.
-- **Contents:** two polished main figures, one compact table covering all 36 conditions, the local-cap algorithm, matched setup, results and explicit endpoint/test/cost/replication limits.
-- **Evidence:** [current V-C assets](../evidence/05-adam/c-intervention/figures/README.md), [sources and reproduction](../work/intervention_manuscript_20261114/OBSERVATIONS.md), [numerical verification](../work/intervention_manuscript_20261114/verification.json).
-- **Scope:** all authoring and build outputs remain under consolidation. The current `manuscript/draft/` and original research assets are preserved. No new experiment or spending.
-- **Next integration:** review this section's argument and density, then connect it to V-A/B and reconcile references in the eventual complete paper. The [single PLAN](../PLAN.md) tracks closure.
+- **Start here:** [complete manuscript — 14 IEEE-style pages](manuscript.pdf).
+- **Optional detail:** [supplement — 33 pages](supplementary.pdf), containing proofs, measurement methods, curvature checks, the full timing/severity audit, all intervention settings, and historical MLP sensitivity.
+- **Structure:** original title and Sections I–VI; four retained GD/SGD figures; Adam characterization → tracing → intervention. The main paper contains nine figures, three tables, two algorithms, and 25 numbered equations.
+- **Review priorities:** motivation/contributions on pp. 1–2; curvature and loss interpretation on pp. 3–5; functional tracing on pp. 7–10; the intervention comparison on pp. 10–14. Check whether this expresses the intended central argument before requesting changes to the active manuscript.
+- **Editable sources:** [main wrapper](manuscript.tex), [section files](sections/), [supplement wrapper](supplementary.tex), and [bibliography](references.bib). Figure/table paths resolve to the preserved `../evidence/` package; retain that sibling folder when building.
+- **Verified:** warning-free compilation; every page inspected; all 144 main intervention table cells independently recomputed and located in the PDF; new mathematical identities checked; all 406 protected source files unchanged. [Audit and reproduction](../work/full_rewrite_20261114/OBSERVATIONS.md), [machine-readable checks](../work/full_rewrite_20261114/verification.json).
+- **Scope:** this is the complete author-review draft inside consolidation. The active manuscript, original evidence, human inputs, and [previous V-C excerpt](intervention-review.pdf) remain preserved. No new experiment, cloud spending, push, or submission.
+- **Before submission:** author approval, the venue route recorded in [PLAN](../PLAN.md), and current venue formatting/page allowance remain author decisions. The 14-page review layout is not a verified TNNLS page-limit determination.
+
+Build from the repository root with Python (NumPy, PyMuPDF, Pillow) and a TeX distribution containing IEEEtran, newtx, algorithm, and algpseudocode:
+
+```powershell
+python manuscript/consolidation/work/full_rewrite_20261114/01_prepare.py
+python manuscript/consolidation/work/full_rewrite_20261114/02_build.py
+python manuscript/consolidation/work/full_rewrite_20261114/03_verify.py
+python manuscript/consolidation/work/full_rewrite_20261114/04_review_sheets.py
+```
+
+Auxiliary files and page renders stay in the ignored work-folder scratch directory. A changed PDF requires a new visual review; the saved visual-review record applies to its recorded hash.

@@ -3,9 +3,9 @@
 - **Central argument:** learning updates reinforce or reverse earlier changes. Their direction, amplification and accumulation connect optimization geometry to changes in the learned function; measuring those changes motivates selective control.
 - **Keep the current paper:** title, Sections I–VI, III's theory spine and four GD/SGD figures. Develop **characterization → tracing → intervention** inside V.
 - **Decision from this review:** the evidence supports this explanatory paper. Validated forecasting, a universal initiating layer and general optimizer superiority require additional evidence.
-- **Reading contract:** this is the complete executive map. Links provide provenance, not additional required reading. The authorized V-C draft stays in consolidation; integration into the active manuscript remains a later step.
+- **Reading contract:** this is the complete executive map. Links provide provenance, not additional required reading. The [complete manuscript rewrite](draft/manuscript.pdf) and [supplement](draft/supplementary.pdf) are now ready for author review inside consolidation; transfer to the active manuscript remains a later step.
 - **Local assets:** [section-indexed evidence package](evidence/README.md); [display/table/algorithm map](evidence/ARTIFACTS.md).
-- **Figure convention, 14 November:** training-progress axes use **Training step s = completed optimizer updates**. Incoming representation changes are placed at their endpoint; lag/batch axes retain their units. [Figures 1–6 captions](evidence/FIGURE_NOTES.md); [matched intervention captions](evidence/05-adam/c-intervention/captions.tex). Assign final figure numbers after assembling V-B/C; source filenames below are stable identifiers.
+- **Figure convention, 14 November:** training-progress axes use **Training step s = completed optimizer updates**. Incoming representation changes are placed at their endpoint; lag/batch axes retain their units. The complete draft assigns Figures **1–4 to GD/SGD, 5 to Adam characterization, 6–7 to tracing, and 8–9 to interventions**. Supplementary Figures S1–S24 retain supporting comparisons. Source filenames below are stable identifiers.
 
 ## I. Introduction — motivation before gaps
 
@@ -170,7 +170,7 @@
 | ResNet | +2.77% | -9.42% | +20.02% | +21.47% | +2.42% |
 | Transformer | +96.23% | -19.84% | -23.31% | -38.97% | +27.52% |
 
-- **V-C draft completed in consolidation, 14 November:** [three-page IEEE-style review](draft/intervention-review.pdf), with **two polished main figures + one compact comparison table**, Algorithm 2, four equations and references. The [editable fragment](draft/05c-interventions.tex) tests the usefulness of the functional interpretation: limiting local displacement can reduce excursions and improve mean training loss while reversals persist. All numerical and final-size visual checks pass. Active manuscript files and original scientific evidence remain preserved; final full-paper integration is still open.
+- **V-C integrated in the complete consolidation draft, 14 November:** [full manuscript](draft/manuscript.pdf), with **Figures 8–9, Table III, Algorithm 2, and Equations 21–25**. The [full-paper section](draft/sections/05c-interventions.tex) connects directly to V-A/B and incorporates explicit matrix dimensions and the practical cap computation. Limiting local displacement can reduce excursions and improve mean training loss while reversals persist. The [previous three-page excerpt](draft/intervention-review.pdf) remains preserved. Numerical and visual checks pass; the active manuscript and original evidence remain unchanged.
 
 | Source display | Placement | Job in the paper / current status |
 |---|---|---|
@@ -190,7 +190,7 @@
   - Incoming changes are placed at their completed-step endpoint, f+1,…,e. Dashed lines mark the peak of the baseline's largest **relative** loss excursion in each fixed window; they are descriptive references, not treatment triggers.
   - The ResNet control reproduces the previously selected 390-450 tracing window. q50 lowers its maximum loss from 0.4407 to 0.1736 (60.6%), while the whole 256-576 continuation has only 2.8% lower positive variation because later oscillations remain. This is a secondary readout in the already selected window; whole-horizon outcomes remain primary. The MLP comparison uses 512-800, after its earlier 451-501 tracing window.
 - **V-C reading order:** (1) question from tracing and the specified cap/Algorithm 2; (2) common-fork setup and four intervention families; (3) joint comparison with the tradeoff figure and outcome table; (4) functional explanation with paired heatmaps; (5) endpoint, held-out, cost and replication limits. Keep ResNet q50's **+20.0% final / +21.5% last-32 loss**, its **2.8% PV reduction**, and Transformer q50's **+27.5% terminal test loss** in the result discussion. They define the scope of the contribution. Preserve q50 as the main setting despite q25/q75 doing better on ResNet. No held-out setting or endpoint selection.
-- **Typesetting verified:** new main figures use **9-point ordinary labels** at 7.15-inch source width, consistent with [IEEE graphics guidance](https://journals.ieeeauthorcenter.ieee.org/create-your-ieee-journal-article/create-graphics-for-your-article/file-formatting/). The heatmap is compacted to 5.7 inches high, with stage abbreviations defined in the caption, distinct line styles and outlined reference markers. The tradeoff retains all outliers and no callout box obscures a point. The IEEE-style excerpt is **three pages**, including methods, results, displays and references, with no compilation warnings. This meets the editorial budget; it is not a TNNLS page-limit claim. Full-paper placement and separately labeled [supplementary material](https://journals.ieeeauthorcenter.ieee.org/create-your-ieee-journal-article/prepare-supplementary-materials/) remain integration tasks.
+- **Typesetting verified:** new main figures use **9-point ordinary labels** at 7.15-inch source width, consistent with [IEEE graphics guidance](https://journals.ieeeauthorcenter.ieee.org/create-your-ieee-journal-article/create-graphics-for-your-article/file-formatting/). The heatmap is compacted to 5.7 inches high, with stage abbreviations defined in the caption, distinct line styles and outlined reference markers. The tradeoff retains all outliers and no callout box obscures a point. The complete IEEE-style manuscript has **14 pages** and its separately numbered supplement has **33 pages**; both compile without warnings and every page has been inspected. This is the author-review layout, not a verified TNNLS page-limit claim. The previous three-page V-C review remains unchanged.
 - **Mechanistic bridge:** MLP's exact output-space identity is **delta_L = <F−Y,delta_F>/N + ||delta_F||²/(2N)**. For output-space loss rises above 1e-8, all 161 unchanged-Adam rises and all 70 q50 rises have a negative linear term outweighed by positive quadratic movement; LR x0.5 has 11 such rises. The exact identity shows how excessive output displacement can outweigh a corrective linear contribution, even when the latter remains favorable. Cross-entropy uses its own readout, not this squared-loss identity.
 - **Algorithm 2 — [past-calibrated local cap](evidence/05-adam/c-intervention/algorithm.md):** current inputs H and native stored increments U,v give **D = H Uᵀ + 1vᵀ**. For each output unit, radially scale its entire weight row and bias by **min(1,tau/RMS(D_j))**. One fixed budget/module; zero score leaves the increment unchanged, zero budget disables that module's cap. Adam moments/clock advance natively; untargeted parameters retain native increments.
 - **Geometry and targets:** scores use the input second-moment metric without an inverse. Target both MLP hidden affines, all 31 ResNet convolutions, and two QKV/four feed-forward Transformer affines. The direct affine displacement is bounded on the current probe; incoming motion, interactions, full-network output and loss are not bounded. [Equations and calibration rule](evidence/05-adam/c-intervention/equations.md).
@@ -207,10 +207,10 @@
 
 ## Closure work — concrete order and stopping criteria
 
-- **1. Assemble existing evidence — required, no new training.**
-  - Rewrite I–III around the four contribution cards; retain IV's four figures.
-  - Compress V-A as above; connect V-B to the completed [consolidation V-C draft](draft/intervention-review.pdf), with **two main figures + one compact outcome table**. V-C retains LR → beta2 → clipping → distributed q50. Review the excerpt before full-paper integration; assign final numbers after placement and retain complete supporting comparisons.
-  - Standardize state/update notation, losses, sample coverage, seeds and source links. Preserve original evidence and manuscript structure.
+- **1. Assemble existing evidence — complete inside consolidation, no new training.**
+  - I–III rewritten around the four contribution cards; IV's four figures and the original title/section structure retained.
+  - V-A uses exhaustive severity/timing evidence; V-B supplies the fixed-probe tracing and temporal structure; V-C supplies **two main figures + one compact outcome table**. Its comparison retains LR → beta2 → clipping → distributed q50. The [complete draft](draft/manuscript.pdf) has reconciled numbering and references; [supplement](draft/supplementary.pdf) contains proofs, controls, every setting, and separate historical replication.
+  - State/update notation, losses, coverage, initializations, and source provenance are explicit. All 406 protected evidence/human/original-manuscript files remain unchanged.
 
 - **2. Matched intervention comparison — complete.**
   - All 36 initialization-0 conditions, common forks/horizons, native runtime controls and every requested setting are verified. The full grid retains unfavorable results and unequal effective strengths.
@@ -220,7 +220,7 @@
 - **3. Method reporting — complete for the present scope.**
   - Shared stage probes, fixed past-only budgets, activity/stored-increment checks and full held-out evaluations at five fixed states accompany every condition.
   - Positive loss variation, mean/final/late loss, actual updates and component timing are supplied. Memory is a process high-water mark; controller time alone is not deployable overhead.
-  - V-C typography, compact table and composed captions are complete and verified in consolidation. Keep the one-initialization scope and endpoint/test/cost tradeoffs when integrating the excerpt into the complete manuscript.
+  - Full-paper typography, compact table, captions, algorithms and supplement are complete and verified in consolidation. The one-initialization scope and endpoint/test/cost tradeoffs remain in the main results and conclusion.
 
 - **4. Keep stronger claims conditional.**
   - **Forecasting:** freeze targets/features/horizons; compare against loss-history and norm baselines with temporal gaps, false alarms and fresh-seed confirmation. Current data support characterization without this project.
@@ -228,8 +228,8 @@
   - **Superiority over representation-aware methods:** requires faithful AGC/Kosson/FOOF comparisons with matched tuning budgets. Current contribution is a specified control and bounded tests.
   - **Broad deployment:** stochastic probes, from-initialization use and larger-scale transfer remain future work; no generalization benefit is claimed.
 
-- **5. Final manuscript checks — required.**
-  - Compile/render, verify captions and references, align abstract/conclusion with measured endpoints, and package reproducibility records.
+- **5. Final manuscript checks — technical work complete; author/venue decisions remain.**
+  - Warning-free compilation, all-page rendering/review, all 144 intervention cells, references, mathematical identities, captions, and abstract/conclusion consistency pass. [Audit and reproduction](work/full_rewrite_20261114/OBSERVATIONS.md). Next action: author review of the complete draft before any transfer to the active manuscript.
   - Resolve the supplied [decision letter's revised-resubmission restriction](evidence/appendices/submission/decision-letter.pdf) and current official TNNLS format before submission. Keep the author's target; no contact or submission is authorized here.
 
-- **Map completion:** **yes, sufficient to proceed to manuscript closure.** The matched intervention evidence and reporting gap is now closed for the agreed single-initialization scope. Remaining required work is manuscript integration, consistency/compilation and submission-route checks; broader empirical claims retain their separate tests.
+- **Map completion:** **yes; the complete review manuscript and supplement are assembled and verified inside consolidation.** The matched intervention evidence and reporting gap is closed for the agreed single-initialization scope. Author review and submission-route/format checks remain; broader empirical claims retain their separate tests.

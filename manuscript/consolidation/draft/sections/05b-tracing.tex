@@ -1,0 +1,78 @@
+\subsection{Tracing Oscillation through the Learned Function}
+\label{subsec:tracing}
+
+Raw gradients summarize a complete loss, whereas representations expose where an observed change is expressed. We fix an ordered probe, retain its example/token/feature coordinates, and capture each stage $A_s^\ell$ under the same stochastic and normalization context. Let $P_\ell$ be its number of scalar coordinates. The incoming change and its diagnostics are
+\begin{equation}
+ \begin{split}
+ \delta_s^\ell&=\operatorname{vec}(A_s^\ell-A_{s-1}^\ell),\qquad
+ a_s^\ell=\|\delta_s^\ell\|/\sqrt{P_\ell},\\
+ c_s^\ell&=\frac{\langle\delta_{s-1}^\ell,\delta_s^\ell\rangle}
+ {\|\delta_{s-1}^\ell\|\|\delta_s^\ell\|}.
+ \end{split}
+ \label{eq:representation-motion}
+\end{equation}
+We use $c_s^\ell$ to distinguish change cosine from raw-gradient $\rho_s$. The figure label ``representation-change cosine'' refers to this quantity. A zero change has undefined cosine. Each change is placed at its completed-step endpoint $s$, alongside $L_s$; the method does not identify it with the outgoing update at that state.
+
+\begin{algorithm}[!t]
+\caption{Fixed-probe architectural oscillation tracing}
+\label{alg:trace}
+\begin{algorithmic}[1]
+\Require Qualified trajectory; fixed ordered probe and context; stage endpoints; incoming window $a{:}b$
+\State Capture $A_s^\ell$ for $s=a-2,\ldots,b$, preserving training RNG, buffers, and normalization groups.
+\State Record full/probe losses and raw gradients used by updates entering $a{:}b$.
+\For{each stage $\ell$}
+ \State Compute $\delta_s^\ell,c_s^\ell,a_s^\ell$ by~\eqref{eq:representation-motion}; retain all coordinates.
+ \State Form $D_\ell$ from rows $a{:}b$ and accumulate $K_\ell=D_\ell D_\ell^\top$ in FP64.
+ \State Eigendecompose $K_\ell$; obtain energies, fixed signed coefficients, and temporal subspaces.
+\EndFor
+\State Fit raw gradients themselves as a separate stream.
+\State Compare output timing, direction, and magnitude backward through stage endpoints.
+\State Verify observer invariance, reduction identities, and probe coverage; report descriptive and causal limits.
+\end{algorithmic}
+\end{algorithm}
+
+For $T=b-a+1$ incoming changes, form $D_\ell\in\R^{T\times P_\ell}$ with rows $(\delta_s^\ell)^\top$. The primary analysis neither averages examples nor centers or normalizes rows. Its thin SVD and temporal Gram satisfy
+\begin{equation}
+ D_\ell=U_\ell\Sigma_\ell V_\ell^\top,\qquad
+ K_\ell=D_\ell D_\ell^\top=U_\ell\Sigma_\ell^2U_\ell^\top.
+ \label{eq:temporal-svd}
+\end{equation}
+The Gram permits exact temporal analysis without materializing spatial patterns. With singular values in descending order,
+\begin{equation}
+ E_k^\ell=\frac{\sum_{j=1}^k\sigma_{\ell,j}^2}{\sum_j\sigma_{\ell,j}^2},
+ \quad O_k(\ell,F)=\frac{\|U_{\ell,k}^\top U_{F,k}\|_F^2}{k}.
+ \label{eq:energy-overlap}
+\end{equation}
+$E_k$ measures squared-movement energy; $O_k$ compares dominant \emph{temporal} subspaces with output $F$. We use $k$ within both numerical ranks and leave zero-energy fractions undefined. The signed coefficient $\alpha_{s,k}^\ell=\sigma_{\ell,k}U_{\ell,sk}$ projects a change onto one fixed fitted spatial pattern. Consequently, $|\alpha_{s,1}^\ell|/\sqrt{P_\ell}$ is that component's coordinate RMS; its sign records direction along the fixed pattern. Mode signs are fixed once, with the largest absolute coefficient positive.
+
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=\textwidth]{\evidence/05-adam/b-tracing/figures/00-three-model-loss-representation-motion.pdf}
+\caption{Loss and representation motion in selected unchanged-Adam windows: completed steps 451--501 (MLP), 390--450 (ResNet), and 553--601 (Transformer). Rows show full/probe loss, incoming-change cosine, and displacement RMS normalized by each stage's own window maximum. The 5/6/6 rows are measured endpoints, not layer averages. Probes contain 5,000 images, an intact 1,000-image BatchNorm group, and 2,240 token positions. Outputs are raw MLP coordinates or all-class/vocabulary log probabilities. Blue lines mark the first displayed negative output-change cosine; MLP is negative at entry. Black lines mark the first full loss at least 10\% above the pre-peak minimum. Markers describe timing, not a unique causal onset.}
+\label{fig:trace-motion}
+\end{figure*}
+
+Algorithm~\ref{alg:trace} preserves training behavior while following the motion backward through measured stages. Rolling cosine/RMS requires $O(P_\ell)$ work and storage per stage, in addition to probe evaluation. Exact window Grams cost $O(T^2P_\ell)$ and eigendecomposition costs $O(T^3)$. The fitted basis and window-maximum display scale are retrospective. Raw-gradient comparison uses undifferenced gradients $g_{s-1}$ for the updates entering the displayed states, rather than gradient differences or Adam increments.
+
+\subsubsection{Architecture-specific participation and timing}
+Figure~\ref{fig:trace-motion} displays the same fixed windows used for temporal fitting. In the MLP, all five learned stages reverse at every displayed step; the first affine projection already participates, while tanh attenuates transmitted movement. This identifies an early expression of the oscillation, not a unique cause: the gradient updating that projection depends on the entire downstream network.
+
+The ResNet window contains a rise from $.1071$ at step 404 to $.4407$ at 415, a 311.5\% excursion, with recovery at 439. First-convolution displacement RMS peaks at 415; the other five displayed endpoints peak at 416. Alignment-series correlation with the output increases from $.764$ at the first convolution to $.995$ at the final residual stage. The first displayed negative output cosine is at 391, before the selected rise begins at 405; that earlier reversal is not a uniquely identified onset. This view uses a replay-qualified native continuation, rather than claiming bitwise identity with the original overview in Fig.~\ref{fig:adam-overview}.
+
+Transformer output reversal appears at 556, before the selected first loss increase at 558 and the 10\% crossing at 561. At completed step 559, embedding change cosine is $+.390$, while attention output and network output are $-.672$ and $-.920$. Later representations can therefore reverse while the embedding continues in a similar direction. The three architectures share a functional oscillation, but not a universal stage of initiation. Probe and full-objective losses remain separate wherever coverage differs.
+
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=\textwidth]{\evidence/05-adam/b-tracing/figures/01-three-model-temporal-structure.pdf}
+\caption{Temporal structure of the same windows and probes as Fig.~\ref{fig:trace-motion}, with 51/61/49 fitted incoming changes. Top: cumulative squared-singular-value energy for output changes and the raw gradients used by those updates; dotted line: 95\%. Middle: each stage's top-one/top-ten energy and top-ten temporal-subspace overlap with output. Bottom: signed leading output coefficient divided by $\sqrt{P}$, using one fixed pattern over the whole window. Energy measures squared movement, not explained loss. Overlap measures shared temporal structure, not identical neuron directions or causal transmission. Different windows and coordinate spaces preclude an architecture-rank ranking.}
+\label{fig:trace-structure}
+\end{figure*}
+
+\subsubsection{Concentrated motion and shared temporal structure}
+Ten modes capture 99.5\%, 87.1\%, and 90.8\% of output-change energy (Fig.~\ref{fig:trace-structure}); the corresponding 95\%-energy ranks are 5/51, 20/61, and 15/49. First learned-stage/output top-ten overlap is $.75/.57/.46$. For the six displayed ResNet endpoints, overlap progresses through $.567$, $.630$, $.822$, $.985$, $.994$, and $1$. These observations show structure beyond gradient space and increasing output-like timing across the selected ResNet depth, without requiring uniformly high overlap everywhere.
+
+Magnitude controls test whether a few large steps alone explain concentration. Keeping each step norm but making directions orthogonal gives top-mode fractions of 7.8\%, 9.9\%, and 16.7\%, compared with observed 53.0\%, 27.3\%, and 41.7\%. Normalizing each nonzero row to unit norm gives 95\%-energy ranks of 5, 33, and 29. Direction contributes, while amplitude weighting is substantial in ResNet and Transformer. These are deterministic reference constructions, not statistical null tests.
+
+The signed coefficients supply the ordering that spectra cannot: temporal permutation leaves singular values unchanged. In ResNet the leading output pattern contains 27.3\% of movement energy and its coefficient changes sign 33 times over 60 fitted adjacent pairs. The full-vector cosine is negative at 21/61 displayed steps, a different statistic that includes an extra predecessor and all modes. Small component sign changes may carry little movement. Together, concentration and signed reversals establish structured functional oscillation; concentration alone does not establish destructive interference within particular modes, spike specificity, or causal propagation. Supplementary Section S4 provides the complete controls and measurement conventions.
+
+The resulting intervention question is specific: can limiting the \emph{magnitude} of selected local functional changes preserve progress while allowing reversal? We test this question next from matched optimizer states at fixed treatment times.

@@ -1,0 +1,55 @@
+\clearpage
+\section{Matched Interventions and Complete Outcomes}
+
+\subsection{Input geometry and what the cap bounds}
+Write the native proposal for one output unit as $\bar u_j=[\Delta W_{j:},\Delta b_j]^\top\in\R^{d+1}$, and augment the current input matrix as $\bar H=[H,\mathbf1_n]$. The direct affine RMS satisfies
+\begin{equation}
+ c_j^2=\bar u_j^\top G\bar u_j,\qquad G=\bar H^\top\bar H/n.
+\end{equation}
+The input second moment is uncentered. A factor $a_j=\min(1,\tau/c_j)$ radially rescales the entire proposal for one output unit, retaining its within-row direction while ensuring $a_jc_j\leq\tau$ for $\tau>0$, up to stored FP32 rounding. It neither computes the nearest Euclidean projection nor inverts $G$. A zero score leaves the proposal unchanged, and a calibrated zero threshold disables that module's cap.
+
+For simultaneous upstream and local updates, actual preactivation change is
+\begin{equation}
+ \Delta Z=
+ \underbrace{H(\Delta W^{\rm cap})^\top+\mathbf1_n(\Delta b^{\rm cap})^\top}_{\text{bounded direct term}}
+ +\underbrace{\Delta H W^\top+\Delta H(\Delta W^{\rm cap})^\top}_{\text{unconstrained upstream and interaction terms}}.
+\end{equation}
+The local rule therefore does not bound total propagated representation movement, complete attention output, network output, or loss. Its distinction from relative representation-change correction, AGC, and neuron-space descent is described in the main related work~\cite{kosson2024warmup,brock2021normalization,benzing2022neurons}. Those methods are relevant comparators for a future superiority claim; the present four-family experiment does not implement them.
+
+The controller captures current probe inputs once and evaluates local products with the native stored Adam increments. It does not need a separate altered-network forward for every candidate unit. Convolutional scores account for receptive-field patches, with the original stride, padding, and module structure; absent bias increments are zero. The two MLP hidden affines, 31 ResNet convolutions, and two QKV/four feed-forward Transformer affines are targeted. Output heads and all other untargeted parameters keep native increments. Moments and clocks advance normally, and the accepted parameters are checked against the actual stored-increment bounds.
+
+\subsection{Matched design, calibration, and validation coverage}
+All 12 conditions within a model share its complete pre-treatment model/optimizer/random state, data order, and numerical configuration. Treatment starts at $512\to513$, $256\to257$, or $544\to545$, and continues through completed states 800/576/928. The unchanged control is included in every comparison. The 36 conditions contain 11,904 total continuation updates, of which 10,912 are in treated arms. Baseline training rates are $.001/.003/.003$. Immediate rate multipliers are $.75/.5/.1$; late second-moment coefficients are $.95/.9/.5$; complete raw-gradient clipping thresholds are $.5/1$; and cap quantiles are q25/q50/q75. No ramp, moment reset, loss-triggered delay, or additional method is bundled into these interventions.
+
+One scalar budget per target module is the linearly interpolated quantile of all its per-unit native scores pooled over the eight untreated outgoing states $f-8,\ldots,f-1$. The probe and native rate are the same as in the unchanged continuation. Budgets are frozen before the first treated update and remain fixed as current inputs and moments evolve. q50 was selected before the matched outcomes; its retention as the principal method is not a test-set or endpoint choice.
+
+Qualification includes common eight-update fingerprints across workers, 108 exact full-gradient/probe/native-proposal audits, calibration-pool reconstruction, stored-increment bounds, observer invariance, and terminal full-state evaluation. These verify the executed comparisons; they are not additional statistical replications. One initialization per model supplies no seed-level confidence interval, and different settings have unequal effective strengths.
+
+All 10,000 CIFAR-10 test images and 245,550 WikiText-2 test tokens are evaluated at the five fixed states $f$, $f+32$, $(f+e)/2$, $e-32$, and $e$. Transformer validation also covers all 217,630 valid targets. These sparse trajectories cannot establish the timing or absence of held-out spikes. No evaluation state or setting is selected using held-out loss.
+
+\subsection{Metrics, complete values, and costs}
+Mean training loss excludes the shared start state, averaging $f+1,\ldots,e$. Positive variation sums $\max(L_s-L_{s-1},0)$ over those transitions. The last-32 mean uses $e-31,\ldots,e$. Final loss is $L_e$. Percentage loss changes are $100(x/x_{\rm Adam}-1)$; PV reduction is $100(1-\mathrm{PV}/\mathrm{PV}_{\rm Adam})$. Lowering PV alone can reward slower progress, and a finite-window mean is not a convergence rate.
+
+For stage motion, both baseline and treatment RMS divide by the same unchanged-Adam maximum for that stage over the complete post-treatment window. Cosine spans $[-1,1]$. Within each supplementary plate, the RMS color scale includes all observed values across the three cases; different plates may use different maxima. Dashed vertical lines mark the baseline's largest relative excursion peak, not a treatment trigger. The main q50 plate uses the identical values with a more compact layout.
+
+The following three tables retain absolute final/late losses alongside all relative effects. The absolute unchanged-Adam mean/PV/test references also appear in the main compact table; retained CSVs supply every scalar and validation outcome.
+\input{tables/supp-matched-outcomes.tex}
+\clearpage
+\input{tables/supp-matched-costs.tex}
+
+Component times are synchronized on the stated GPU classes, but hosts and instrumentation differ. Gradient/probe means include the terminal boundary; optimizer/controller means count updates only. Extra diagnostics, reductions, logging, and I/O occupy remaining wall time. Memory is a process high-water allocation through an arm. In particular, the MLP q50 controller's 41.8 ms/update versus 4.4 ms/full-gradient boundary rules out describing this implementation as negligible-cost. These measurements do not establish a clean time-to-loss comparison.
+
+\clearpage
+\input{tables/intervention-plates}
+
+\clearpage
+\subsection{Historical MLP replication and the larger-rate ablation}
+Earlier MLP experiments support method sensitivity and replication, but use a different window and are not pooled into the main matched grid. The historical q50 distributed-cap comparison includes initializations 0/1/2. A separate complete MLP factorial experiment uses five cap quantiles (q25/q50/q75/q90/q99), three native rates ($.001/.002/.004$), and an uncapped control at each rate: 54 continuations over three initializations. Each starts from the untreated state 448 and includes 705 loss states through 1152. Budgets use the preceding eight native-rate updates and are held identical across rates within an initialization.
+
+The cap reduces disruption from a larger nominal rate, but the across-initialization mean loss at each quantile is higher at $2\times/4\times$ than at $1\times$. At q50 and $1\times$, mean training loss is $.01333\pm.00095$ versus $.01774\pm.00036$ for original Adam (mean $\pm$ sample SD over three initializations). The paired mean reduction is 24.79\%, while the final-four test mean increases 3.37\%. This is supporting evidence with its own endpoints, not three-initialization confirmation of the new common-fork four-family ranking. The cross-model quantile-by-rate-by-initialization grid remains unexecuted.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=7.15in]{\vcassetroot/14-distributed-cap-quantile-ablation-mlp.pdf}
+\caption{Historical MLP quantile-by-rate ablation across three initializations, with each treated branch compared with its same-rate unchanged-Adam control and with original Adam. Budgets are calibrated at the original rate and fixed across multipliers. The historical 448--1152 window differs from the main 512--800 MLP comparison. Increasing nominal rate does not improve mean training loss over the same cap at the original rate. The plotted uncertainty is sample variation across three initializations, not update-level replication.}
+\end{figure}
