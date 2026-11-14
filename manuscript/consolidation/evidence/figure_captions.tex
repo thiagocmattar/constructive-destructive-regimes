@@ -71,22 +71,26 @@ recovers at 439. It exactly matches the native control used for the previous
 trace, rather than bitwise replay of the original full-run overview.
 Normalized RMS colors compare time within a stage, not absolute magnitudes
 across stages. These are selected descriptive windows from one initialization
-each. The separate temporal-structure companion retains the original ResNet
-window 281--311; its SVD results do not describe this larger excursion.}
+each. The temporal-structure companion now uses the same windows; its ResNet
+SVD is freshly fitted to replay-qualified captures for steps 390--450.}
 
 \newcommand{\consolidationTemporalStructureCaption}{%
-Temporal structure at completed steps 451--501 (MLP), 281--311 (ResNet)
-and 553--601 (Transformer). The ResNet fit retains its original small-excursion
-window, distinct from the revised loss/motion figure at 390--450. Top: cumulative
-singular-value energy for output changes and raw gradients; the dotted line
-marks 95\%. Middle: first-mode energy, first-ten-mode energy and top-ten
-temporal subspace overlap with output at the selected stages. Bottom: the
-leading output coefficient divided by the square root of its coordinate
-count. Each coefficient uses one fixed basis and sign convention over the
-original window; changes are placed at the completed step where observed.
-Outputs are raw linear values for MLP and log probabilities for ResNet and
-Transformer; raw gradients are not differenced. Temporal overlap compares
+Temporal structure of the same windows as the loss/motion figure: completed
+steps 451--501 (MLP), 390--450 (ResNet) and 553--601 (Transformer), with
+51/61/49 fitted displacement rows. The ResNet SVD is freshly fitted to the
+replay-qualified larger excursion, peaking at 415 and recovering at 439.
+Top: cumulative singular-value energy for output changes and raw gradients;
+the dotted line marks 95\%. Middle: first-mode energy, first-ten-mode energy
+and top-ten temporal subspace overlap with output at the selected stages.
+Bottom: the leading output coefficient divided by the square root of its
+coordinate count. Each coefficient uses one fixed pattern and sign convention
+over its stated window; representation changes $A_s-A_{s-1}$ are placed at
+completed step $s$. Raw-gradient rows are the undifferenced $g_{s-1}$ used by
+the update into $s$. Predecessor rows for adjacent cosine are excluded from
+the fits. Outputs are raw linear values for MLP and log probabilities for
+ResNet and Transformer. No temporal centering, example averaging or row
+normalization is applied to the primary SVD. Temporal overlap compares
 time-domain subspaces, not identical neuron directions. Different probes and
-window lengths preclude a controlled intrinsic-dimension comparison. SVD
+window lengths preclude a controlled intrinsic-dimension comparison. Spectral
 concentration alone is time-permutation invariant and establishes neither
 causal origin nor spike specificity.}

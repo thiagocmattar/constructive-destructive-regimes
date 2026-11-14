@@ -4,8 +4,11 @@
 
 [Analysis063's revised ResNet view](../analyses/063-2026-11-07-architecture-instability-tracing/observations/007-resnet-major-peak.md)
 uses completed steps 390--450 around the +311.53% loss excursion at 415, with recovery at 439.
-Verified existing untreated captures replace the smaller peak; MLP/Transformer panels,
-the original SVD windows and intervention assets are preserved. No new training or cloud cost.
+Both selected tracing figures now use that window. [Run 292 / the fresh temporal fit](../analyses/063-2026-11-07-architecture-instability-tracing/observations/008-resnet-major-peak-temporal.md)
+reproduces all 187 native-control losses exactly and fits 61 incoming changes: output top10=87.06%,
+rank95=20, first/final-stage overlap=.567/.985. MLP/Transformer, Figure 6 and all intervention
+assets are unchanged. All 125 package assets verified; task Pod deleted after retrieval.
+Estimated compute USD 0.412, billing provisional; no retained cloud storage. Next unused run 293.
 
 ## Consolidation figures refreshed, 14 November 2026
 

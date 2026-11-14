@@ -19,7 +19,7 @@
 | Figure 9, V-C | [Gradient clipping](05-adam/c-intervention/figures/16-gradient-clipping-cifar10-mlp-resnet-wikitext2-transformer.pdf) | Selected: MLP/Transformer thresholds .5/1, ResNet 1; raw/input norms and clipping activity shown |
 | Figure 10, V-C | [Distributed q50 stage heatmaps](05-adam/c-intervention/figures/07-distributed-q50-stage-heatmaps.pdf); [scalar diagnostics](05-adam/c-intervention/figures/10-local-cap-distributed-manuscript.pdf) and [MLP replication](05-adam/c-intervention/figures/11-local-cap-mlp-replication.pdf) | Sole representation-inspired intervention. Heatmaps are exact source Figure 07 page 2; final sizing/caption pending |
 
-- **Tracing companion:** [SVD, stage overlap and output coefficients](05-adam/b-tracing/figures/01-three-model-temporal-structure.pdf) retains the original fits, including ResNet completed steps 281–311. Its ResNet SVD does not describe the larger 390–450 event now in Figure 6. The three original all-stage tracing PDFs are retained under `05-adam/b-tracing/background/figures/`.
+- **Tracing companion:** [SVD, stage overlap and output coefficients](05-adam/b-tracing/figures/01-three-model-temporal-structure.pdf) now matches Figure 6: completed steps 451–501 / 390–450 / 553–601. All ResNet spectral quantities are freshly fitted from replay-qualified captures; MLP/Transformer are unchanged. The original detailed fits and three all-stage PDFs remain under `05-adam/b-tracing/background/figures/` and their canonical sources.
 
 ## Tables, equations and algorithms
 

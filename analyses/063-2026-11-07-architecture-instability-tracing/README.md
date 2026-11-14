@@ -1,5 +1,12 @@
 # Analysis 063: architecture-wide oscillation tracing
 
+14 November: [the matching temporal fit](observations/008-resnet-major-peak-temporal.md)
+now also uses completed steps **390--450**. Run 292 exactly reproduces all 187
+native-control losses and recaptures the six displayed stages. A fresh 61-row SVD
+gives output top-ten energy 87.06%, rank95=20 and first/final-stage overlap .567/.985.
+The current spectral controls, captions and PLAN match both selected figures.
+Original fits/reports below remain preserved. Reproduce with `12_resnet_major_svd.py`.
+
 14 November: [the larger ResNet event](observations/007-resnet-major-peak.md)
 now supplies the consolidation loss/motion figure over completed steps 390--450.
 Loss rises 311.53% to its peak at 415 and recovers at 439. Existing untreated

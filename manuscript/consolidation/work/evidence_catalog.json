@@ -33,7 +33,7 @@
       "title": "V-B. Architectural tracing",
       "claim": "Fixed-probe consecutive motion reveals stage-specific reversals and structured temporal directions.",
       "boundary": "SVD is retrospective and permutation invariant; stage association does not identify a unique cause. Original windows/probes must remain explicit.",
-      "presentation": "Figure 6 uses ResNet steps 390--450 and the +311.53% peak at 415. MLP/Transformer remain unchanged. The separate SVD companion retains its original ResNet window 281--311; historical all-stage PDFs remain in background/figures."
+      "presentation": "Both selected figures use completed steps 451--501 / 390--450 / 553--601. The ResNet temporal SVD is freshly fitted to the same replay-qualified +311.53% excursion as Figure 6. Original all-stage fits/reports remain in background/figures."
     },
     "05-adam/c-intervention": {
       "title": "V-C. Intervention comparisons",
@@ -645,13 +645,13 @@
     },
     {
       "section": "05-adam/b-tracing",
-      "source": "analyses/063-2026-11-07-architecture-instability-tracing/spectral_controls.json",
+      "source": "analyses/063-2026-11-07-architecture-instability-tracing/spectral_controls_current.json",
       "destination": "05-adam/b-tracing/data/spectral_controls.json",
       "title": "spectral_controls.json",
       "role": "data",
-      "observation": null,
-      "generator": null,
-      "note": ""
+      "observation": "analyses/063-2026-11-07-architecture-instability-tracing/observations/008-resnet-major-peak-temporal.md",
+      "generator": "analyses/063-2026-11-07-architecture-instability-tracing/12_resnet_major_svd.py",
+      "note": "Current displayed windows; ResNet controls refitted to 390--450, original MLP/Transformer controls preserved."
     },
     {
       "section": "05-adam/c-intervention",
@@ -1179,17 +1179,17 @@
     },
     {
       "section": "05-adam/b-tracing",
-      "source": "manuscript/consolidation/work/figure_revision_20261114/figures/01-three-model-temporal-structure.pdf",
+      "source": "manuscript/consolidation/work/resnet_temporal_revision_20261114/figures/01-three-model-temporal-structure.pdf",
       "destination": "05-adam/b-tracing/figures/01-three-model-temporal-structure.pdf",
       "title": "Tracing companion: spectra, stage overlap and output coefficients",
       "role": "prepared support",
-      "observation": "manuscript/consolidation/work/figure_revision_20261114/OBSERVATIONS.md",
-      "generator": "manuscript/consolidation/work/figure_revision_20261114/01_figures.py",
-      "note": "Preserved original fixed-window fits: completed steps 451--501 / 281--311 / 553--601. The ResNet SVD describes the earlier small excursion, not the revised Figure 6 window 390--450."
+      "observation": "analyses/063-2026-11-07-architecture-instability-tracing/observations/008-resnet-major-peak-temporal.md",
+      "generator": "manuscript/consolidation/work/resnet_temporal_revision_20261114/01_figure.py",
+      "note": "Fresh ResNet 390--450 SVD matches Figure 6; all 187 replay losses exact. MLP/Transformer unchanged."
     },
     {
       "section": "04-gd-sgd",
-      "source": "manuscript/consolidation/work/resnet_peak_revision_20261114/OBSERVATIONS.md",
+      "source": "manuscript/consolidation/work/resnet_temporal_revision_20261114/OBSERVATIONS.md",
       "destination": "FIGURE_NOTES.md",
       "title": "Revised figure contracts, captions and timing observations",
       "role": "current figure record",
@@ -1199,11 +1199,11 @@
     },
     {
       "section": "04-gd-sgd",
-      "source": "manuscript/consolidation/work/resnet_peak_revision_20261114/captions.tex",
+      "source": "manuscript/consolidation/work/resnet_temporal_revision_20261114/captions.tex",
       "destination": "figure_captions.tex",
       "title": "Editable captions for seven revised figures",
       "role": "integration source",
-      "observation": "manuscript/consolidation/work/resnet_peak_revision_20261114/OBSERVATIONS.md",
+      "observation": "manuscript/consolidation/work/resnet_temporal_revision_20261114/OBSERVATIONS.md",
       "generator": null,
       "note": "LaTeX caption macros; does not edit the active manuscript."
     },
@@ -1266,6 +1266,56 @@
       "observation": "analyses/063-2026-11-07-architecture-instability-tracing/observations/007-resnet-major-peak.md",
       "generator": "manuscript/consolidation/work/resnet_peak_revision_20261114/02_verify.py",
       "note": "Larger native-control event; original SVD fits and intervention assets preserved."
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/063-2026-11-07-architecture-instability-tracing/observations/008-resnet-major-peak-temporal.md",
+      "destination": "05-adam/b-tracing/observations/63-008-resnet-major-peak-temporal.md",
+      "title": "Matching larger-event temporal structure",
+      "role": "current observation",
+      "observation": "analyses/063-2026-11-07-architecture-instability-tracing/observations/008-resnet-major-peak-temporal.md",
+      "generator": "analyses/063-2026-11-07-architecture-instability-tracing/12_resnet_major_svd.py",
+      "note": "Fresh fit for Figure 6's existing ResNet window; unchanged MLP/Transformer and intervention assets."
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/063-2026-11-07-architecture-instability-tracing/resnet_390_450_results.json",
+      "destination": "05-adam/b-tracing/data/resnet_390_450_results.json",
+      "title": "ResNet 390--450 full temporal fit and exact Grams",
+      "role": "current source record",
+      "observation": "analyses/063-2026-11-07-architecture-instability-tracing/observations/008-resnet-major-peak-temporal.md",
+      "generator": "analyses/063-2026-11-07-architecture-instability-tracing/12_resnet_major_svd.py",
+      "note": "Fresh fit for Figure 6's existing ResNet window; unchanged MLP/Transformer and intervention assets."
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/063-2026-11-07-architecture-instability-tracing/resnet_390_450_stages.csv",
+      "destination": "05-adam/b-tracing/data/resnet_390_450_stages.csv",
+      "title": "ResNet 390--450 stage spectral summaries",
+      "role": "current source record",
+      "observation": "analyses/063-2026-11-07-architecture-instability-tracing/observations/008-resnet-major-peak-temporal.md",
+      "generator": "analyses/063-2026-11-07-architecture-instability-tracing/12_resnet_major_svd.py",
+      "note": "Fresh fit for Figure 6's existing ResNet window; unchanged MLP/Transformer and intervention assets."
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "manuscript/consolidation/work/resnet_temporal_revision_20261114/figure_manifest.json",
+      "destination": "05-adam/b-tracing/data/resnet_temporal_figure_manifest.json",
+      "title": "Current temporal companion manifest",
+      "role": "source record",
+      "observation": "analyses/063-2026-11-07-architecture-instability-tracing/observations/008-resnet-major-peak-temporal.md",
+      "generator": "manuscript/consolidation/work/resnet_temporal_revision_20261114/01_figure.py",
+      "note": "Fresh fit for Figure 6's existing ResNet window; unchanged MLP/Transformer and intervention assets."
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "manuscript/consolidation/work/resnet_temporal_revision_20261114/verification.json",
+      "destination": "05-adam/b-tracing/data/resnet_temporal_figure_verification.json",
+      "title": "Current temporal companion verification",
+      "role": "verification",
+      "observation": "analyses/063-2026-11-07-architecture-instability-tracing/observations/008-resnet-major-peak-temporal.md",
+      "generator": "manuscript/consolidation/work/resnet_temporal_revision_20261114/02_verify.py",
+      "note": "Fresh fit for Figure 6's existing ResNet window; unchanged MLP/Transformer and intervention assets."
     }
   ]
 }

@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "checks": [
+    "source identities matched Run273 before archive creation",
+    "61 incoming changes at390--450 versus raw gradients at389--449",
+    "predecessor excluded from both fits",
+    "independent synthetic direct Gram equality",
+    "scientific and figure scripts compile"
+  ],
+  "local_replay_check": {
+    "gpu": "RTX5070Ti Laptop",
+    "torch": "2.11.0+cu128",
+    "state": 264,
+    "loss": 0.4238914532470703,
+    "gradient_exact": false,
+    "gradient_relative_error": 8.963063446793625e-05,
+    "use": "mechanics only; excluded from paper evidence"
+  },
+  "worker_sha256": "45622e9c05586b43b4b77930325feb1b8ca7963c9ec58b91fb01445b4f67cb63"
+}

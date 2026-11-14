@@ -1,10 +1,10 @@
 # Evidence package in paper order
 
 - **Current authority:** [PLAN.md](../PLAN.md). The six top-level evidence notes are now aligned with its four contributions and closure sequence.
-- **Contents:** 120 packaged assets from 119 unique source files, plus four regenerated compact tables, four equation sets, two algorithms and eight bibliography additions.
+- **Contents:** 125 packaged assets from 124 unique source files, plus four regenerated compact tables, four equation sets, two algorithms and eight bibliography additions.
 - **Provenance:** research sources remain canonical. Copies preserve bytes except recorded transformations: observation headers/links, one report dependency path, and the standalone q50 heatmap page extraction.
 - **Editable material:** the consolidated equation/algorithm/table snippets have been syntax-checked. Original draft TeX is a source snapshot with its original input paths; it is not a standalone manuscript build.
-- **14 November figures:** seven revised views are prepared and checked. Figure 6 now shows the larger ResNet excursion at 415 over steps 390–450; its [current verification](05-adam/b-tracing/data/resnet_peak_figure_verification.json) supplements the [initial seven-view checks](figure_revision_verification.json). The SVD companion retains its original ResNet 281–311 fit. [Current captions and timing](FIGURE_NOTES.md), [editable captions](figure_captions.tex). Original manuscript and intervention PDFs are preserved.
+- **14 November figures:** seven revised views are prepared and checked. Both selected ResNet tracing figures now use steps 390–450 around the peak at 415. The [fresh temporal fit and verification](05-adam/b-tracing/data/resnet_temporal_figure_verification.json) match the [loss/motion view](05-adam/b-tracing/data/resnet_peak_figure_verification.json); original fits remain historical. [Current notes](FIGURE_NOTES.md), [editable captions](figure_captions.tex). MLP/Transformer panels, original manuscript and intervention PDFs are preserved.
 - **Readiness:** “prepared main/support” identifies the refreshed views; “main base” or “assembly component” still needs final composition/caption work. Historical comparators retain their original matching limitations.
 
 | Folder | Use |

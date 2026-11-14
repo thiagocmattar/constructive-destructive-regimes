@@ -418,3 +418,9 @@ LR columns with a shared log Y axis. All54 seed means and18 error-bar reductions
 verified; one rendered page reviewed. Existing H049 data; no new training.
 
 **Analysis 065 conventional extension completed (8 November 2026):** [H050 / Runs289-291](065-2026-11-07-mlp-frozen-lr-double/observations/015-conventional-model-coverage.md) add verified ResNet/Transformer beta2 and Transformer clipping coverage. All 10 continuations / 3,584 updates / 20 audits pass, with full terminal evaluation and exact Transformer control replay. Three-model figures show architecture/endpoint tradeoffs; remaining ablations are explicit. All raw evidence verified on Spark and task pods deleted; provisional compute USD11.36. No new analysis opened.
+
+14 November: [Analysis 063 matching temporal fit](063-2026-11-07-architecture-instability-tracing/observations/008-resnet-major-peak-temporal.md)
+uses completed steps 390--450 for both selected ResNet figures. Run 292 exactly reproduces
+187 control losses; the 61-row output SVD has 87.06% top-ten energy and rank95=20.
+MLP/Transformer panels and interventions are preserved; current controls, PLAN and captions
+are updated. All 125 package assets verified; task cloud worker deleted after retrieval.

@@ -1,0 +1,148 @@
+{
+  "status": "numerical_checks_passed",
+  "generator_sha256": "c9cff549879a6b39c2e06e83a09766bbbed58328bcf0329992d8204a0567beba",
+  "style_generator_sha256": "03096087e45f65cdf3f33a45a865139cbf085307ab5666b334b7ebe24af75859",
+  "sources": {
+    "analyses/063-2026-11-07-architecture-instability-tracing/mlp_450_500_results.json": "c2fc4492a455045c3c1223b4d3294d6b6eac504646e71f27f15fa2ef98ae597e",
+    "analyses/063-2026-11-07-architecture-instability-tracing/mlp_results.json": "000ce52ae4f645b424d8d98935181d7691238a452cd9897a357897d4f7c73005",
+    "analyses/063-2026-11-07-architecture-instability-tracing/resnet_results.json": "cb878406fb85d935b7370cd0aa1751ba16eda0606d157541f9dc9c43644c9f15",
+    "analyses/063-2026-11-07-architecture-instability-tracing/transformer_results.json": "962f0b0712dedff8423f8a89b2e65d032157f217685077eba3344b10c2a88357",
+    "analyses/063-2026-11-07-architecture-instability-tracing/resnet_390_450_results.json": "af4a93748c619dc0c66e02b8ec60bb60b576c2da106d5f09755ca0feb5b3d33a"
+  },
+  "curves": [
+    {
+      "tag": "spectrum:mlp:output",
+      "points": 51,
+      "x_sha256": "7d24739d208f83e4d01f917bbb40e588ec439d2be8b461d9742afcd87d08dcd2",
+      "y_sha256": "2f907ea98b09cbb374c843a7b8834d7782947206aebd695f661b3784a5876edf"
+    },
+    {
+      "tag": "spectrum:mlp:raw_gradient",
+      "points": 51,
+      "x_sha256": "7d24739d208f83e4d01f917bbb40e588ec439d2be8b461d9742afcd87d08dcd2",
+      "y_sha256": "c4603cd76c53e11961e09bae37514bb23dc1d83526985bae5c987987db570e3b"
+    },
+    {
+      "tag": "spectral-stages:mlp:top1",
+      "points": 5,
+      "x_sha256": "346b06dfff32014351397460d4de424cdbed29b549515f944f9d70f598516cb8",
+      "y_sha256": "2e56f28a9e0f9491c2f7ffc69fd6c86c97beee31c999aaf30be359591cc24b6f"
+    },
+    {
+      "tag": "spectral-stages:mlp:top10",
+      "points": 5,
+      "x_sha256": "715713b120af603d41adf4d775282a00fed69e23df8772e9dfb1f1b3fe3659cd",
+      "y_sha256": "2e56f28a9e0f9491c2f7ffc69fd6c86c97beee31c999aaf30be359591cc24b6f"
+    },
+    {
+      "tag": "spectral-stages:mlp:temporal_top10_overlap",
+      "points": 5,
+      "x_sha256": "12353050ca014c7cba586586351b45a035128ad5e02d43e31b504e8258355d45",
+      "y_sha256": "2e56f28a9e0f9491c2f7ffc69fd6c86c97beee31c999aaf30be359591cc24b6f"
+    },
+    {
+      "tag": "output-coefficient:mlp",
+      "points": 51,
+      "x_sha256": "db87df02635b20dc10f55a3f965fa9798e1abe5bb1c305145b14f7cc0459e85d",
+      "y_sha256": "0537b71bdf34a4811803ad8de08f8b137b452cd75712407179167f7c88316a18"
+    },
+    {
+      "tag": "spectrum:resnet:output.log_probabilities",
+      "points": 61,
+      "x_sha256": "4699d0cde0d4c2a34c0fcc110cfa10bb36aa75962ae5cb9068999328b5bb4b5b",
+      "y_sha256": "862a8b307f5f870bdf927dac6365a2febaa0527a0be5e8bcfbf3c48294bcc76c"
+    },
+    {
+      "tag": "spectrum:resnet:raw_gradient",
+      "points": 61,
+      "x_sha256": "4699d0cde0d4c2a34c0fcc110cfa10bb36aa75962ae5cb9068999328b5bb4b5b",
+      "y_sha256": "7441f1b2934f3124a506693f28d9a41eaa0d8fbd450bb2ec20381c961ea48b0a"
+    },
+    {
+      "tag": "spectral-stages:resnet:top1",
+      "points": 6,
+      "x_sha256": "830c6ef212efa82bb42a7a436abf371a2a84cb6d030c70fe5596c3bea1062eba",
+      "y_sha256": "84a6e8b7afdd286a48ab0aab2c72227fff91a935b0489e633018914bd01693cd"
+    },
+    {
+      "tag": "spectral-stages:resnet:top10",
+      "points": 6,
+      "x_sha256": "98785ee1471fb58148bff6cbee5f85ae745ed7b83911264bfeb0d3ad9253c17a",
+      "y_sha256": "84a6e8b7afdd286a48ab0aab2c72227fff91a935b0489e633018914bd01693cd"
+    },
+    {
+      "tag": "spectral-stages:resnet:temporal_top10_overlap",
+      "points": 6,
+      "x_sha256": "3b711ec5350fb4186352103176561c42ed522ba55a7a5f79dcd1ce078514afa1",
+      "y_sha256": "84a6e8b7afdd286a48ab0aab2c72227fff91a935b0489e633018914bd01693cd"
+    },
+    {
+      "tag": "output-coefficient:resnet",
+      "points": 61,
+      "x_sha256": "0f35164768cdc558ed56eff75fd410f0090d636b4544e541c94a080371ee6654",
+      "y_sha256": "4dbbb0c22730bc0ef4822edb3520d136b4fc27c7cb5378aa818a8161e25c110e"
+    },
+    {
+      "tag": "spectrum:transformer:output.log_probabilities",
+      "points": 49,
+      "x_sha256": "641ccb6356391b5ac73e30daf23d4af3faad7a042c90d7eba75fd3862288640b",
+      "y_sha256": "e74521743b3673f867c08dcff5574f08c674f433fa7e32ffe4b05ddf449f1647"
+    },
+    {
+      "tag": "spectrum:transformer:raw_gradient",
+      "points": 49,
+      "x_sha256": "641ccb6356391b5ac73e30daf23d4af3faad7a042c90d7eba75fd3862288640b",
+      "y_sha256": "1e1005a094b58d2c3c501d96e2787ed967397f84b09f72b0ceb4e02dd8939ce3"
+    },
+    {
+      "tag": "spectral-stages:transformer:top1",
+      "points": 6,
+      "x_sha256": "6391da962aaa716a4c7ed98b80b50b2a80b3bc9896e0479fcafcf597d9b712af",
+      "y_sha256": "84a6e8b7afdd286a48ab0aab2c72227fff91a935b0489e633018914bd01693cd"
+    },
+    {
+      "tag": "spectral-stages:transformer:top10",
+      "points": 6,
+      "x_sha256": "1d35c8e7ab2e2fce3d48e678e1c7941a8ba50e06c0a815ba18fa01db7f258061",
+      "y_sha256": "84a6e8b7afdd286a48ab0aab2c72227fff91a935b0489e633018914bd01693cd"
+    },
+    {
+      "tag": "spectral-stages:transformer:temporal_top10_overlap",
+      "points": 6,
+      "x_sha256": "62b914fed47b03fda13e692fc91c53e4ad1e8cd1544b2b2d6bd015a9126d57da",
+      "y_sha256": "84a6e8b7afdd286a48ab0aab2c72227fff91a935b0489e633018914bd01693cd"
+    },
+    {
+      "tag": "output-coefficient:transformer",
+      "points": 49,
+      "x_sha256": "5162f4e61ea5efac2a14769cd5f9e3d5799e71cfdaa27da836a50ae7f3a42dcb",
+      "y_sha256": "2e186a4e6ad02370905b413783ea7f1fc2e2883259a1cb09b53c3233143cfd8f"
+    }
+  ],
+  "figures": [
+    {
+      "file": "01-three-model-temporal-structure.pdf",
+      "sha256": "093b0d98aa60f249fc8df5cd8887de2a1673d6869ab6bf9a9b7439e5899b2333",
+      "size_inches": [
+        7.16,
+        5.65
+      ]
+    }
+  ],
+  "completed_windows": {
+    "mlp": [
+      451,
+      501
+    ],
+    "resnet": [
+      390,
+      450
+    ],
+    "transformer": [
+      553,
+      601
+    ]
+  },
+  "plotted_arrays_sha256": "d681688c35e3c2ef35c9c0396e2031754936acde2bc5c9c6ada6d46ecde748f8",
+  "scope": "Only the ResNet temporal column changes; all its spectra, overlap and coefficients are refitted for completed steps390--450."
+}

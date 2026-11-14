@@ -137,7 +137,8 @@ def derived_tables():
                      "Unit-row top1 %": f'{100*c["unit_row_directional"]["top1"]:.2f}',
                      "Unit-row r95": c["unit_row_directional"]["rank95"]})
     table(vb / "tables", "spectral-controls", list(rows[0]), rows,
-          "Original selected output windows. Orthogonal reference preserves every step norm; "
+          "Current displayed output-change windows: completed steps 451--501 / 390--450 / 553--601 "
+          "(51 / 61 / 49 rows). Orthogonal reference preserves every step norm; "
           "unit-row normalization removes magnitude weighting. These are deterministic descriptive "
           "controls, not a statistical null or quiet-window contrast.")
 

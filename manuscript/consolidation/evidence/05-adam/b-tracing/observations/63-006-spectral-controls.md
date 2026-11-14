@@ -31,7 +31,7 @@
 ## Reproduction and checks
 
 - Generator: [10_spectral_controls.py](../../../../../../analyses/063-2026-11-07-architecture-instability-tracing/10_spectral_controls.py), run locally with Python/NumPy.
-- Results, complete spectra and source SHA-256 hashes: [spectral_controls.json](../data/spectral_controls.json).
+- Results, complete spectra and source SHA-256 hashes: [spectral_controls.json](../../../../../../analyses/063-2026-11-07-architecture-instability-tracing/spectral_controls.json).
 - Sources: Analysis 062 MLP retained Grams and Run 243 ResNet/Transformer retained Grams, pinned against the existing three result manifests.
 - Checks: original top-one/rank95 reproduction; positive semidefiniteness and trace; agreement with a separate SVD of each Gram; exact diagonal-reference spectrum; normalized unit diagonal; time-permutation invariance.
 - No new figure is generated. The table supplies the adversarial control for V-B of the [single consolidation plan](../../../../PLAN.md).

@@ -552,3 +552,12 @@ within USD 20. Next run 286; continue Analysis 065.
 | [291](291-2026-11-08-transformer-gradient-clipping/README.md) | Transformer | global raw-gradient caps .5/1 | 544 / 928 | Complete: 768 updates / four audits; exact shared Run290 control |
 
 [Results](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/015-conventional-model-coverage.md): seed0, original Run223 checkpoints, full objectives and terminal held-out coverage. All 155 raw files verified on owned Spark (12.371 GB logical / 10.650 GB allocated); compact outputs local. All seven task pods deleted; provisional compute USD11.36, below USD20. Three-model figures and remaining-ablation TODO consolidated; broader matched comparisons remain pending. Continue Analysis065; next unused run292.
+
+## Matching ResNet temporal fit, 14 November 2026
+
+[Run 292](292-2026-11-14-resnet-major-peak-tracing/README.md), Analysis 063/H043, completed
+186 unchanged updates from 264 to 450 and captured states 388--450 for the 61 incoming changes
+at completed steps 390--450. All 187 losses, the initial gradient and the state296
+parameter/gradient audit match the native control; stage scalars and Gram reductions pass. One scientific attempt;
+transfer retry before execution. All 75 retained files verified; worker deleted, no cloud
+storage, estimated compute USD 0.412 (provisional). [Observation](../analyses/063-2026-11-07-architecture-instability-tracing/observations/008-resnet-major-peak-temporal.md). Next unused run 293.
