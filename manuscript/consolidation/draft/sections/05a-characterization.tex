@@ -1,36 +1,84 @@
-\subsection{Characterization: Direction, Amplification, and Timing}
+\subsection{Characterizing Loss Spikes}
 \label{subsec:characterization}
 
-Figure~\ref{fig:adam-overview} shows one high-rate trajectory per model. The combination of reversing gradients and changing norms is more informative than either alone: a destructive regime may persist across both rising and falling loss. Gray intervals identify events from loss alone, keeping their definition separate from the proposed diagnostic.
+Figure~\ref{fig:adam-overview} brings the loss and gradient measurements
+together for the highest tested Adam rate in each model. Read each column
+from top to bottom. The first row shows the training loss. The second
+combines gradient reversal and growth through $Q_t$. The third shows
+whether consecutive gradients reinforce or oppose one another, and the
+fourth shows how their magnitude changes relative to initialization.
+All quantities are evaluated along the same trajectory.
 
 \begin{figure*}[!t]
 \centering
-\includegraphics[width=\textwidth]{\evidence/05-adam/a-characterization/figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf}
-\caption{High-rate full-objective Adam trajectories: MLP at $.001$, ResNet at $.003$, and Transformer at $.003$, one initialization each. Rows show loss, projected raw-gradient response $Q_s=\eta\widehat\kappa_s$, consecutive raw-gradient cosine, and norm relative to initialization. Filled gray bands mark baseline-to-peak rises of recovered excursions exceeding 10\%; outlined bands retain unobserved recovery. These are loss-defined annotations, not alarms. Loss spans steps 0--1024; gradients end at 1023 and paired diagnostics start at 1. The zero-based $Q$ viewport leaves 13/17/1 negative MLP/ResNet/Transformer values outside view without altering them.}
+\includegraphics[width=\textwidth]{figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf}
+\caption{Loss spikes and consecutive-gradient behavior under full-objective Adam. Columns are MLP, ResNet-32, and Transformer, at learning rates $.001/.003/.003$, with one initialization per model. Rows show loss, the reversal-and-growth quantity $Q_t$, consecutive-gradient cosine, and gradient norm relative to initialization. Filled gray bands mark the rising portions of recovered loss excursions exceeding 10\%; outlined bands mark excursions whose recovery is not observed. Events are selected from loss alone. Training step $t$ counts completed updates; gradient measurements are made at $\theta_t$, before the next update. Loss is recorded through 1,024 updates and gradients through 1,023. The $Q_t$ axis starts at zero; negative values lie outside its displayed range.}
 \label{fig:adam-overview}
 \end{figure*}
 
-To distinguish retrospective characterization from anticipation, a decision at state $s$ uses only $\rho_s$, $r_s$, and $Q_s$, after backward and before $s\to s+1$. Its next-step target is $L_{s+1}-L_s$. We compare four conditions: reversal ($\rho_s<0$), norm growth ($r_s>1$), their conjunction, and $Q_s\geq2$. The last is algebraically the stronger angle/norm condition; it is not independent corroboration. No eligible value equals two, so strict and nonstrict thresholds give identical counts here.
+The panels show why direction and magnitude are complementary.
+The MLP spends much of training in a destructive regime, yet its loss
+falls between repeated excursions. Negative cosine alone therefore
+cannot distinguish a rising spike from its recovery. The norm row adds
+the missing information: a reversal accompanied by a growing gradient
+has a larger opposing component, which appears as a larger $Q_t$.
+In ResNet and the Transformer, pronounced excursions are followed by
+intervals in which gradients become more aligned and their norms fall.
+The models differ in how long reversal persists, but all make progress
+through trajectories that are not monotonically descending.
 
-The complete audit covers three rates per model and 9,207 decisions. Among 2,233 increases and 6,974 decreases, $Q_s\geq2$ covers 853 increases and also flags 955 decreases. In the three displayed arms, it covers 172/454 MLP, 21/95 ResNet, and 81/152 Transformer increases, while flagging 136, 15, and 66 decreases. The GD quadratic boundary is therefore not a universal next-step Adam alarm.
+The same consecutive-gradient argument helps interpret these Adam
+trajectories. They do not transfer the SGD quadratic
+threshold into an Adam stability guarantee: Adam changes the magnitude
+and direction of the parameter increment through its moments. The
+question is empirical---how often do the gradient conditions precede
+an observed loss increase, and does the association become clearer for
+larger increases?
+
+To answer it, write $L_t=\mathcal L(\theta_t)$ and evaluate each condition
+at $\theta_t$, after computing $g_t$ but before applying the next update.
+The next-step outcome is $L_{t+1}-L_t$. Table~\ref{tab:severity} compares
+negative cosine, norm growth, their conjunction, and $Q_t\geq2$ for
+individual loss increases of at least 10\%. Coverage counts how many
+such increases satisfy the condition beforehand. Precision asks the
+reverse question: among all times the condition holds, how often does
+such an increase follow? Both are needed because a condition can cover
+many increases simply by remaining active for much of training.
 
 \begin{table}[!t]
 \centering\small
-\caption{Pre-update association with an individual next-step loss increase of at least 10\%. Entries are covered rises (precision in \%). There are 168, 12, and 26 target rises, respectively, among 1,023 decisions per model. Precision includes all flags, including those not followed by the target.}
+\caption{Conditions measured before an individual next-step loss increase of at least 10\%. Each entry gives the number of covered increases, with precision in parentheses (\%). There are 168, 12, and 26 qualifying increases for MLP, ResNet, and Transformer, among 1,023 eligible decisions per model. Precision includes every occurrence of the condition, including those without the target increase.}
 \label{tab:severity}
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{@{}lrrr@{}}
 \toprule
-Signal & MLP & ResNet & Transformer \\
+Condition & MLP & ResNet & Transformer \\
 \midrule
-$\rho_s<0$ & 149 (18.3) & 12 (4.0) & 26 (5.0) \\
-$r_s>1$ & 110 (20.1) & 11 (3.4) & 22 (5.2) \\
+$\rho_t<0$ & 149 (18.3) & 12 (4.0) & 26 (5.0) \\
+$\|g_t\|>\|g_{t-1}\|$ & 110 (20.1) & 11 (3.4) & 22 (5.2) \\
 Both & 105 (23.0) & 11 (6.8) & 22 (7.3) \\
-$Q_s\geq2$ & 82 (26.6) & 7 (19.4) & 22 (15.0) \\
+$Q_t\geq2$ & 82 (26.6) & 7 (19.4) & 22 (15.0) \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Severity and timing refine this picture. Table~\ref{tab:severity} shows that reversal covers most or all next-step rises of at least 10\%, whereas amplification conditions are more selective. On the common 1,008-state cohort, Transformer $Q$ coverage of individual rises at offsets one, two, and three increases from 22/26 to 25/26 to 26/26. At offset three, precision is 26/147 (17.7\%), compared with a base frequency of 26/1008 (2.6\%). That association is descriptive: the horizon was examined on known trajectories, and coverage later falls. All three MLP rises of at least 50\% evade the current $Q$ flag.
+Reversal covers most or all of these increases, while requiring growth
+makes the condition more selective. The stronger $Q_t$ condition trades
+coverage for precision; it is a combination of the same two gradient
+measurements, not a separate source of evidence. Neither condition is
+universal: the complete audit retains missed increases and occurrences
+followed by decreasing loss.
 
-Supplementary Section S3 separates fixed-offset increases, net changes from the decision state, any rise within a future horizon, and memory of past flags. Remembering $Q\geq2$ for 16 states covers every next-step rise of at least 10\% on its common cohort, but flags 688/248/488 non-target steps. These results identify persistent regimes and model-dependent lead times; high coverage alone does not establish a calibrated warning system. They motivate asking what changes in the function during an excursion, without using an unvalidated diagnostic trigger to choose the intervention time.
+The association also depends on when and how a loss increase is defined.
+Supplementary Figs. S3--S8 vary the minimum increase, look one or more
+steps ahead, and test whether retaining a recent warning improves
+coverage. Some Transformer increases align more closely with a warning
+several steps earlier than with the immediately preceding one. Extending
+the horizon or remembering warnings also increases the number of
+unmatched warnings. These results characterize the buildup of an
+excursion; fresh trajectories and predefined prediction rules would be
+needed to establish a forecasting method.
+
+A loss curve and a whole-network gradient still leave an important
+question unanswered: what is changing inside the network during these
+oscillations? We next examine that functional expression directly.

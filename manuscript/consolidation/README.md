@@ -1,6 +1,6 @@
 # Manuscript consolidation
 
-The **[complete manuscript rewrite](draft/manuscript.pdf)** is ready for author review. It follows the agreed structure and remains entirely inside consolidation. The **[supplement](draft/supplementary.pdf)** provides the full technical and experimental record; [draft sources and build instructions](draft/README.md) are alongside both PDFs.
+The **[revised manuscript](draft/manuscript.pdf)** follows the author's requested return to the active draft: its introduction and stability survey, the constructive/destructive formulation, and the four GD/SGD figures. The Adam extension now explains consecutive-gradient behavior, spike characterization, changes in the learned function, and interventions in that order. The **[supplement](draft/supplementary.pdf)** retains the technical and numerical detail; [sources and build instructions](draft/README.md) accompany both PDFs. Everything remains inside consolidation.
 
 **[PLAN.md](PLAN.md)** remains the single executive paper anatomy and closure map.
 
@@ -20,4 +20,4 @@ The actual materials are now filed under **[evidence/](evidence/README.md)** in 
 - **Freshness:** [audit findings](evidence/REPOSITORY_REVIEW.md); old contribution/task/figure mappings have been reconciled with PLAN.
 - **Readiness:** [artifact map](evidence/ARTIFACTS.md) separates retained figures, usable bases, supporting evidence and pending final assembly.
 - **Integrity:** [copy manifest](evidence/copy_manifest.json) and [verification](evidence/verification.json). Source research artifacts and human originals remain preserved.
-- **Current status:** full rewrite, supplement, numerical verification, and page review are complete. [Closure task index](work/TASKS.md). The next step is the author's review; the active manuscript has not been edited.
+- **Current status:** the author-guided revision, supplement, numerical verification, and page review are complete. [Closure task index](work/TASKS.md). The next step is the author's review; the active manuscript has not been edited.

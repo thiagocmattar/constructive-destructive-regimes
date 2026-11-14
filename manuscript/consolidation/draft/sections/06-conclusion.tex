@@ -1,8 +1,42 @@
 \section{Conclusion}
 \label{sec:conclusion}
 
-Constructive and destructive regimes connect the interaction of successive gradients to curvature, accumulation, and changes in the learned function. Their interpretation depends on the object and timescale being measured. Negative adjacent interaction can coexist with positive total cross-step interaction and lower loss. Under smooth GD, two existing gradients reveal an exact step-averaged directional Hessian scalar, with explicit sampling and finite-step qualifications. Under Adam, the same observable describes a mixed gradient response; exhaustive timing checks show useful structure without establishing a universal next-step alarm.
+The displacement formulation distinguishes the magnitude of individual
+updates, their local directional interaction, and their accumulated
+effect. For plain SGD, the exact decomposition retains interactions at
+all temporal lags, while consecutive-gradient cosine provides a local
+measurement available during training. The curvature and sampling
+relations explain how this measurement changes and why its sign alone
+does not determine loss improvement. The full-batch and mini-batch
+experiments illustrate these distinctions: gradient reversal can
+coexist with continued loss reduction, and weaker reversal need not
+produce a better attained loss.
 
-Fixed-probe tracing makes the functional expression of these regimes visible. Across the three controlled cases, representation motion concentrates in leading modes, shares temporal structure across measured depth, and repeatedly reverses along fitted output patterns. A local affine-displacement cap then tests the usefulness of that interpretation. Every tested cap quantile reduces mean training loss and positive variation relative to its matched unchanged-Adam control, while the preselected median cap retains frequent reversals. Its ResNet endpoint degradation, held-out losses, and implementation cost prevent interpreting this result as universal optimizer superiority or improved generalization.
+The curvature estimate extends this interpretation to the step taken
+by any optimizer. Combining its actual parameter change with the
+observed gradient difference yields the average directional curvature
+along a smooth step, without a Hessian computation. Under Adam, this
+step-direction estimate must be distinguished from the combination of
+raw-gradient reversal and norm growth. The latter remains useful for
+characterizing loss excursions, with timing and missed-event behavior
+that vary across models.
 
-The practical implication is to distinguish reversal from excessive movement and to evaluate intervention effects jointly with learning progress. The next evidential steps are matched independent initializations, prospective diagnostics with fixed horizons and loss-history baselines, independent probes and quiet-window controls, and representation-aware comparators with matched tuning budgets. Stochastic deployment and larger-scale evaluation remain separate tests. Within the present scope, the framework provides a reproducible route from observable gradient interaction to a bounded, experimentally evaluated functional control.
+Following representation changes on the same reference examples makes
+the functional expression of these regimes visible. The movement is
+concentrated in leading patterns, shares temporal structure across
+measured stages, and repeatedly reverses along dominant output
+directions. The intervention comparison then tests the usefulness of
+controlling its magnitude: all tested displacement-cap quantiles
+improve mean training loss and positive variation in the three
+continuations, while reversals persist. Endpoint degradation in one
+case, higher q50 terminal test losses, and additional computation limit
+the result to the measured training dynamics.
+
+The practical contribution is a way to interpret successive gradient
+and representation changes together and use that interpretation to
+design controlled interventions. Independent initializations,
+prospective warning tests, and stochastic or larger-scale training
+remain natural next steps. Within the present experiments, the central
+lesson is that useful learning does not require removing oscillation;
+it requires understanding when the size of the movement becomes
+harmful.

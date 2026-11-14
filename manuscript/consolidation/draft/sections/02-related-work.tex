@@ -1,18 +1,147 @@
 \section{Stability Analysis of SGD}
 \label{sec:background}
 
-\subsection{Local Curvature and Temporal Gradient Information}
-For a fixed positive-definite quadratic, the GD update Jacobian is $I-\eta H$. Its eigencomponents preserve sign for $0<\eta\lambda_i<1$, alternate while contracting for $1<\eta\lambda_i<2$, and grow in magnitude above two. Neural Hessians are strongly anisotropic~\cite{sagun2017hessian,ghorbani2019density}, so the sharpest direction and the realized gradient direction need not coincide. Repeated spectral estimation also requires derivative computations beyond the ordinary training gradient.
+Intuitively, smooth optimization occurs when updates reinforce each other
+and gradually shift parameters toward a minimum of the loss. Larger steps
+can overshoot, oscillate, and partially undo preceding parameter changes.
+Understanding when such behavior remains productive, and when it produces
+instability, requires examining how successive updates interact. Two factors
+are central to this analysis: the \textit{local curvature} of the loss
+landscape and the \textit{stochasticity} introduced by mini-batch sampling.
 
-Two-point secant methods address a different computational question: they recover scalar curvature information from successive parameters and gradients~\cite{barzilai1988two,tan2016bbsgd}. Consecutive-gradient products also appear in hypergradient adaptation~\cite{baydin2018hypergradient} and constant-step SGD stationarity diagnostics~\cite{chee2018diagnostics}. Pesme et al.~\cite{pesme2020diagnostics} show that interpreting such products requires attention to noise and the statistical difficulty of detection. We credit these established ingredients. Our use combines their directional meaning with all-pair accumulation, a finite-step loss relation, and measured functional changes; a negative product is not treated as a declaration of convergence.
+\subsection{Local Curvature of the Loss Function and Stability}
+
+Training is a discrete-time dynamical system whose local response depends
+on curvature. A step that produces smooth descent in a shallow direction
+can overshoot in a sharper one. The Hessian quantifies this directional variation. Classical
+analyses~\cite{polyak1964methods, bertsekas1997nonlinear} connect its
+eigenvalues to the learning rate and local stability.
+
+Let $\theta_t\in\mathbb{R}^p$ denote the parameters after $t$ completed updates and
+$g_t$ a mini-batch gradient evaluated at $\theta_t$. Thus $g_t$ is available before
+the next update, from $t$ to $t+1$. For a constant
+learning rate $\eta>0$, plain SGD follows
+\begin{equation}
+  \theta_{t+1}=\theta_t-\eta g_t.
+  \label{eq:sgd_map_stability}
+\end{equation}
+For full-batch GD, $g_t=\nabla\mathcal L(\theta_t)$. With
+$H_t:=\nabla^2\mathcal L(\theta_t)$, the Jacobian of its update map is
+\begin{equation}
+  J_t=I-\eta H_t.
+  \label{eq:jacobian_sgd}
+\end{equation}
+On a fixed quadratic objective, a perturbation along a Hessian eigendirection
+is multiplied by $1-\eta\lambda_i$ at each step. For a positive-definite
+Hessian, all components contract precisely when
+\begin{equation}
+  \max_i|1-\eta\lambda_i|<1
+  \quad\Longleftrightarrow\quad
+  \eta\lambda_{\max}(H_t)<2.
+  \label{eq:quad_stability_condition}
+\end{equation}
+For $0<\eta\lambda_i<1$, contraction preserves the component's sign.
+For $1<\eta\lambda_i<2$, its sign alternates while its magnitude shrinks.
+Above two, the component alternates and grows. These cases distinguish
+smooth approach, convergent oscillation, and instability of the fixed
+quadratic dynamics.
+
+Neural-network Hessians are strongly anisotropic: a few outlier directions
+can be much sharper than the spectral bulk~\cite{sagun2017hessian,
+ghorbani2019density}. Monitoring $\lambda_{\max}(H_t)$ therefore provides
+valuable stability information, but doing so throughout training is
+expensive. Even matrix-free eigensolvers require repeated Hessian--vector
+products beyond the ordinary gradient computation. An online diagnostic
+that recovers curvature information from those existing gradients makes
+this geometric analysis accessible during routine training. Consecutive-gradient
+products have also been used in stationarity diagnostics and learning-rate
+adaptation~\cite{chee2018diagnostics,pesme2020diagnostics,baydin2018hypergradient}.
+Here we use their direction and magnitude to explain the interaction between
+steps and connect it to the changes observed inside the network.
 
 \subsection{Mini-Batch Stochasticity}
-Sampling changes both a measured gradient and the future state reached by the optimizer. Stochastic-approximation and diffusion analyses describe these effects through gradient-noise statistics~\cite{mandt2017sgd,hu2019diffusion}. For uniform sampling without replacement within a batch, the covariance has a finite-population correction. This yields exact second-moment identities, but not an exact formula for expected cosine: its random denominator also depends on the sampled gradients. Our experiments separate frozen-parameter sampling from actual SGD continuations and distinguish conditional sampling repetitions from independent initializations.
 
-\subsection{Curvature, Noise, and the Edge of Stability}
-The break-even framework connects learning rate, batch size, and the evolution of sharpness and gradient variability~\cite{jastrzebski2020break}. Edge-of-stability observations show short-term nonmonotonic loss alongside longer-term descent~\cite{cohen2021edge}; self-stabilization and central flows explain aspects of these changing-geometry dynamics~\cite{damian2023self,cohen2025central}. Catapult analyses relate loss spikes to leading tangent-kernel directions and feature learning~\cite{zhu2024catapults}. More recent work studies feature structure and NTK eigenspace evolution near this regime~\cite{terjek2025feature,jiang2025ntk}. These results motivate examining both rapid reversals and their accumulation. Our temporal SVD acts on consecutive representation changes; its modes are not Hessian or NTK eigenvectors.
+Mini-batch SGD adds a sampling-dependent component to the full-gradient
+direction~\cite{mandt2017sgd, hu2019diffusion, jastrzebski2018three}.
+For independent uniform batches of $b$ examples sampled without replacement
+from $N>1$ examples,
+\begin{equation}
+\begin{aligned}
+g_t&=\nabla\mathcal L(\theta_t)+\xi_t,\\
+\mathbb E[\xi_t\mid\theta_t]&=0,\\
+\operatorname{Cov}(\xi_t\mid\theta_t)
+  &=\frac{N-b}{b(N-1)}\Sigma(\theta_t).
+\end{aligned}
+\label{eq:sgd_noise_decomposition}
+\end{equation}
+Here $\Sigma$ is the covariance of per-example gradients. Writing
+$h_i:=\nabla\ell_i(\theta_t)$ and
+$\mu:=N^{-1}\sum_i h_i=\nabla\mathcal L(\theta_t)$,
+\begin{equation}
+  \Sigma(\theta_t)
+  :=\frac{1}{N}\sum_{i=1}^{N}(h_i-\mu)(h_i-\mu)^\top.
+  \label{eq:grad_cov_def}
+\end{equation}
+Its trace measures gradient variability, while its directional structure
+describes how sampling perturbs the trajectory. Exact evaluation requires
+per-example information absent from the aggregated training gradient.
+For an inexpensive online diagnostic, the practical question is how this
+sampling variability changes the alignment of the gradients already
+being computed.
 
-\subsection{Practical Stability and Representation-Sensitive Control}
-Under adaptive optimization, curvature must be interpreted through the update transformation. Adaptive edge-of-stability work measures preconditioned geometry~\cite{cohen2022adaptive}. Bai et al.~\cite{bai2026spikes} identify a second-moment tracking mechanism for Adam spikes and examine directional curvature and lower second-moment coefficients. Their threshold concerns preconditioned dynamics with momentum conventions, not an untransformed Hessian or an arbitrary raw-gradient statistic. Our late coefficient switches retain the accumulated optimizer state and are therefore distinct from training with a smaller coefficient from initialization.
+\subsection{Curvature, Noise and the Edge of Stability}
 
-Representation similarity is also established: SVCCA and CKA compare activation structure~\cite{raghu2017svcca,kornblith2019similarity}. We instead measure the signed \emph{changes} of matched activation coordinates, preserving time order and movement amplitude. For intervention, Kosson et al.~\cite[Sec.~6 and App.~B.6]{kosson2024warmup} correct relative representation change during warmup; adaptive gradient clipping (AGC) limits unit-wise raw-gradient/weight norm ratios~\cite[Sec.~4]{brock2021normalization}; and FOOF constructs neuron-space descent using an inverse input second-moment factor~\cite[Sec.~4]{benzing2022neurons}. The cap studied here radially truncates an existing Adam increment using absolute, per-unit direct affine RMS and a fixed past-calibrated budget. It uses input geometry without an inverse and acts after the optimizer transformation. This specifies the method's distinction; it does not establish superiority to those representation-aware methods.
+Learning rate and batch size also shape the geometry encountered during
+training. The break-even framework of Jastrzebski et al.~\cite{jastrzebski2020break}
+shows how their early values influence later curvature and gradient
+variability. This motivates examining curvature and sampling together
+along the trajectory.
+
+The Edge-of-Stability (EoS) phenomenon makes the distinction between local
+instability and sustained convergence especially clear. Full-batch GD
+often sharpens progressively until $\lambda_{\max}(H_t)$ fluctuates near
+or above $2/\eta$, while loss continues to decrease over longer
+timescales~\cite{cohen2021edge, arora2022understanding}. A fixed quadratic
+with the same sharpness would be unstable, but a neural network changes
+its curvature as it moves. Self-stabilization analyses explain how growth
+along a sharp direction can induce a reduction in curvature, limiting the
+oscillation~\cite{damian2023self}. More recently, central flows describe
+the time-averaged trajectory together with the covariance of its rapid
+oscillations~\cite{cohen2025central}.
+
+These results explain how short-term reversals can accompany longer-term
+progress. They also make the interaction between successive updates
+central to understanding convergence: the trajectory can repeatedly
+reverse in sharp directions while continuing to descend elsewhere.
+
+\subsection{Practical Stability Analysis in Large-Model Pretraining}
+\label{subsec:practical-stability}
+
+Practitioners address spikes through monitoring, recovery, and preventive
+changes to the training recipe. PaLM recovered from spikes by returning
+to an earlier checkpoint and skipping batches~\cite{chowdhery2022palm}.
+OPT combined checkpoint recovery with learning-rate reduction and a
+tighter gradient-clipping threshold~\cite{zhang2022opt}. These interventions
+act on both the magnitude of the update and the state from which training
+continues.
+
+Recent open-weight reports also emphasize prevention. OLMo~2 tracks
+spikes in loss and gradient norm while evaluating initialization,
+normalization, and optimizer choices~\cite{olmo2025furious}. Kimi~K2's
+MuonClip optimizer uses attention-logit-based rescaling of query and key
+weights and reports training without loss spikes~\cite{kimi2025k2}.
+
+For Adam, Bai et al.~\cite{bai2026spikes} connect loss spikes to the ability
+of the second-moment estimate to track changing curvature. Their analysis
+concerns the geometry after adaptive scaling, which differs from the
+untransformed gradient. This motivates examining both the gradient
+response and the parameter change that the optimizer actually applies.
+
+Gradient norms are thus already useful monitoring signals. Their
+relationship to stability becomes clearer when magnitude is combined
+with direction: a growing gradient can reinforce or oppose its
+predecessor. We develop this connection through constructive and
+destructive regimes, showing how consecutive gradients estimate
+directional curvature and reveal the conditions for a local loss
+increase. This provides a geometric interpretation of signals available
+during training, using one retained gradient and no Hessian computation.

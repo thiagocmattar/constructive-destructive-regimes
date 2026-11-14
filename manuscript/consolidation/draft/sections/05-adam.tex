@@ -1,21 +1,53 @@
-\section{Raw-Gradient Diagnostics under Adam}
-\label{sec:adam}
+\section{Gradient Dynamics, Loss Spikes, and Interventions under Adam}
+\label{sec:adam}\label{sec:adam-diagnostics}
 
-The observable $Q_s$ transfers to an adaptive trajectory, but its interpretation must follow the increment actually applied. For a smooth fixed objective and any $u_{s-1}=\theta_s-\theta_{s-1}$,
+The preceding experiments show why consecutive steps must be considered
+together. Reversal identifies an opposing direction; gradient growth
+determines how strongly that opposition is expressed. Under SGD these
+gradients also determine the parameter updates. Adam changes this last
+relationship by combining the current gradient with earlier gradients
+and scaling coordinates according to their second moments~\cite{kingma2014adam}:
 \begin{equation}
- g_s-g_{s-1}=\int_0^1 H(\theta_{s-1}+a u_{s-1})u_{s-1}\,da
- \label{eq:general-response}
+\begin{aligned}
+ m_t&=\beta_1m_{t-1}+(1-\beta_1)g_t,\\
+ v_t&=\beta_2v_{t-1}+(1-\beta_2)g_t^{\odot2},\\
+ d_t&=\frac{m_t/(1-\beta_1^{t+1})}
+ {\sqrt{v_t/(1-\beta_2^{t+1})}+\epsilon},\qquad
+ \theta_{t+1}=\theta_t-\eta_t d_t.
+\end{aligned}
+\label{eq:adam-update}
 \end{equation}
-in full-batch training. If Adam~\cite{kingma2014adam} applies $u_{s-1}=-\eta_{s-1}d_{s-1}$, then
-\begin{equation}
- \frac{Q_s}{\eta_{s-1}}=
- \int_0^1\frac{g_{s-1}^\top H(\theta_{s-1}+a u_{s-1})d_{s-1}}
- {\|g_{s-1}\|^2}\,da.
- \label{eq:mixed-response}
-\end{equation}
-Adam's direction determines where parameters move; the previous raw gradient determines the projection of the resulting response. The integrand is a mixed Hessian form, not a Rayleigh quotient unless the directions coincide. We retain $\eta\widehat\kappa_s$ in the figures as the established notation for $Q_s$, with these optimizer-dependent semantics. Raw-gradient reversal is neither reversal of Adam's actual increments nor a proof of preconditioner decoupling.
+Moments start at zero before $t=0$. The operations on $v_t$ are
+coordinatewise. The gradient $g_t$ describes the local loss slope,
+whereas $-\eta_t d_t$ is the parameter change actually applied.
 
-The controlled full-objective Adam cases use the objectives in Table~\ref{tab:setup}, $\beta_1=.9$, $\beta_2=.999$, $\epsilon=10^{-8}$, and no weight decay. The following analysis proceeds from characterization to functional tracing and intervention. Smooth identities give the interpretation where their assumptions hold; they do not make a smooth-Hessian theorem apply across every ReLU boundary.
+The step-direction curvature estimate in Eq.~\eqref{eq:kappa-step}
+continues to apply: use $u_{t-1}=-\eta_{t-1}d_{t-1}$ in place of the SGD
+increment. In addition, the raw gradients retain information about how
+the loss slope changes as Adam moves through parameter space. To follow
+the same reversal-and-growth argument as in Section~\ref{sec:displacement},
+we examine their cosine, their norms, and the combined quantity
+\begin{equation}
+ Q_t:=1-\rho_t\frac{\|g_t\|}{\|g_{t-1}\|}
+     =1-\frac{g_{t-1}^{\top}g_t}{\|g_{t-1}\|^2}.
+ \label{eq:Q}
+\end{equation}
+When $Q_t>1$, the new gradient has a component opposing its predecessor.
+When $Q_t>2$, that opposing component is larger than the entire preceding
+gradient. Under GD, $Q_t=\eta\widehat\kappa_t$ and the quadratic loss
+relation applies. Under Adam, $Q_t$ remains a measure of gradient reversal
+and amplification; curvature along the actual step is instead given by
+Eq.~\eqref{eq:kappa-step}. We keep these quantities separate because
+Adam's applied direction need not be parallel to its raw gradient.
+
+We first examine how these gradient changes accompany loss spikes. We
+then follow the associated changes in intermediate representations and
+the network output. Finally, we compare interventions that limit update
+magnitude in different ways. The Adam experiments use the same three
+objectives as Section~\ref{sec:gd-experiments}, with full-objective gradients,
+one initialization per model, and unchanged data and normalization
+conventions. Supplementary Section S3 gives the complete learning-rate
+grid and optimizer settings.
 
 \input{sections/05a-characterization}
 \input{sections/05b-tracing}

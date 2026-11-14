@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "protected_files_unchanged": 416,
+  "main_figures": 9,
+  "main_tables": 3,
+  "algorithms": 2,
+  "recomputed_intervention_metrics": 144,
+  "compiled_intervention_cells": 144,
+  "gd_conditions_checked": 9,
+  "severity_table_hits_and_precision_cells": 24,
+  "spectral_control_cells_checked": 24,
+  "supplement_figures": 24,
+  "supplement_tables": 9,
+  "smooth_loss_and_cap_cases": 128,
+  "general_optimizer_step_cases": 128,
+  "verified_figure_pdfs": 17,
+  "mathematical_max_errors": {
+    "path_identity": 4.0245584642661925e-16,
+    "loss_residual": 2.1441182163073336e-15,
+    "cap_bound": 4.440892098500626e-16,
+    "generic_step_average": 8.992806499463768e-15,
+    "generic_noise_identity": 4.440892098500626e-15
+  },
+  "abstract_words": 222,
+  "citation_keys": 34,
+  "output_motion_claims": {
+    "mlp": {
+      "max_output_rms_reduction_percent": 83.17898259961751,
+      "squared_motion_change_percent": -88.56937929703659,
+      "baseline_reversal_percent": 99.30555555555556,
+      "q50_reversal_percent": 89.23611111111111
+    },
+    "resnet": {
+      "max_output_rms_reduction_percent": 23.135475868176957,
+      "squared_motion_change_percent": 39.73698805587995,
+      "baseline_reversal_percent": 36.875,
+      "q50_reversal_percent": 66.875
+    },
+    "transformer": {
+      "max_output_rms_reduction_percent": 62.93525789133139,
+      "squared_motion_change_percent": -55.354182520763764,
+      "baseline_reversal_percent": 36.71875,
+      "q50_reversal_percent": 95.83333333333334
+    }
+  },
+  "pdfs": {
+    "manuscript": {
+      "pages": 17,
+      "embedded_fonts": 65,
+      "out_of_page_spans": 0,
+      "sha256": "5fc83d0a77f9fb1ff0401db11c32a2312958418f5e78628043cc56b102e6609d"
+    },
+    "supplementary": {
+      "pages": 33,
+      "embedded_fonts": 133,
+      "out_of_page_spans": 0,
+      "sha256": "99edf2fbee5af113c751183b0fbb5049f7579041af77064a80e06319bab41ba1"
+    }
+  },
+  "visual_review": "Recorded separately after final page inspection",
+  "verifier_sha256": "ab65f3ac31537e7cbff53dbeaf21c58322092a86099f24d926e15e2a71c97634"
+}

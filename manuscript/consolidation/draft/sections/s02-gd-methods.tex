@@ -5,12 +5,12 @@ The MLP has dimensions 3072--200--200--10 with tanh hidden activations, 656,810 
 
 The two-layer, two-head word-level Transformer has embedding and feed-forward widths 200. Twenty corpus streams form causal chunks of at most 35 tokens: 59,680 prepared sequences with 2,088,600 supervised targets. Loss sums valid-token negative log likelihood and divides by the complete target count, excluding padding. The 33,278-word first-occurrence dictionary over training, validation, and test text follows the pinned PyTorch example revision \texttt{13acec6d7c78}~\cite{pytorchWordLanguageModelPinned}. This is a fixed-objective dynamics setup, not a train-only-vocabulary benchmark. Held-out words enter dictionary construction, but held-out losses are not used for updates or intervention selection.
 
-Parameters, stored gradients, and moments are FP32; diagnostic products and norms are reduced in FP64. TF32 is disabled. Spectra use the largest algebraic Hessian eigenvalue at steps $0,100,\ldots,3000$, with relative eigenpair residual at most $.005$. MLP spectral coverage is complete; ResNet uses five intact normalization groups and Transformer uses 2,500 sequences. In main Fig. 1, sparse spectra are interpolated before the same centered 101-step mean used for $Q_s$; no additional Hessian observation is created. Main Fig. 2 uses complete trailing 50-observation means for norms/cosines and raw prefix $R_s$.
+Parameters, stored gradients, and moments are FP32; diagnostic products and norms are reduced in FP64. TF32 is disabled. Spectra use the largest algebraic Hessian eigenvalue at steps $0,100,\ldots,3000$, with relative eigenpair residual at most $.005$. MLP spectral coverage is complete; ResNet uses five intact normalization groups and Transformer uses 2,500 sequences. In main Fig. 1, sparse spectra are interpolated before the same centered 101-step mean used for $Q_t$; no additional Hessian observation is created. Main Fig. 2 uses complete trailing 50-observation means for norms/cosines and raw prefix $R_t$.
 
 \begin{table}[H]
 \centering\small
-\caption{Complete GD endpoint and finite-step sign audit. $E=\sum\|g_s\|^2$, $I_{\rm all}=2\sum_{i<j}g_i^\top g_j$, and $I_1=2\sum_s g_{s-1}^\top g_s$ use all applied gradients. Ratios remove the common $\eta^2$ factor. Sign errors compare the incoming quadratic surrogate with 2,999 actual transitions; the final unpaired update is excluded. No noise is present.}
-\label{tab:s-gd}
+\caption{Complete GD endpoint and finite-step sign audit. $E=\sum\|g_t\|^2$, $I_{\rm all}=2\sum_{i<j}g_i^\top g_j$, and $I_1=2\sum_t g_{t-1}^\top g_t$ use all applied gradients. Ratios remove the common $\eta^2$ factor. Sign errors compare the incoming quadratic surrogate with 2,999 actual transitions; the final unpaired update is excluded. No noise is present.}
+\label{tab:t-gd}
 \input{tables/gd-audit}
 \end{table}
 
@@ -24,26 +24,26 @@ Each of three initializations supplies new matched GD reference states. The main
 The smallest two ResNet batches in initialization 2 use a different runtime. A 200-update full-GD bridge has parameter relative error $2.36\times10^{-7}$, but batch and runtime remain confounded in that block. Means and ranges across three initialization blocks describe that combined variability. Equal update counts imply different data exposure; neither convergence speed per example nor a wall-time advantage is inferred.
 
 \subsection{Frozen sampling and directional HVP validation}
-At nine MLP reference states (three initializations, steps 0/1000/2000), each batch-size cell has 32 independent sequences of 128 frozen draws. The 184,320 total observations include deterministic full-batch controls. Figure~\ref{fig:s-frozen} compares exact moment targets and the approximate expected cosine. Conditional 95\% intervals use 4,000 sequence-bootstrap resamples; they are not seed-level confidence intervals.
+At nine MLP reference states (three initializations, steps 0/1000/2000), each batch-size cell has 32 independent sequences of 128 frozen draws. The 184,320 total observations include deterministic full-batch controls. Figure~\ref{fig:t-frozen} compares exact moment targets and the approximate expected cosine. Conditional 95\% intervals use 4,000 sequence-bootstrap resamples; they are not seed-level confidence intervals.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=7.16in]{\evidence/04-gd-sgd/support/frozen_calibration.pdf}
+\includegraphics[width=7.16in]{figures/frozen_calibration.pdf}
 \caption{Frozen-state MLP calibration. Each point is one saved-state/batch condition; color identifies batch and marker identifies state. Moment quantities share the normalization $\|f\|^2+V_b$; cosine is compared with $\|f\|^2/(\|f\|^2+V_b)$. Bars are conditional 95\% sequence-bootstrap intervals. Parameters never change. Maximum relative moment discrepancies are $.50\%/ .74\%$; maximum absolute cosine error is $.00745$, with 21/36 stochastic intervals missing the approximation.}
-\label{fig:s-frozen}
+\label{fig:t-frozen}
 \end{figure}
 
-The separate moving MLP experiment contains 297 continuations across the three starts and five batch sizes. Four state-matched derivative pairs per continuation produce 1,188 comparisons. Each reference evaluates a directional HVP of the complete objective at the starting state; full gradients at both states supply the realized noise difference. Table~\ref{tab:s-hvp} compares $Q_s$ and $Q_s+\varepsilon_s$ with the independent scaled Rayleigh quotient. The correction is algebraic, but the HVP is separately computed. Measurements are dependent within trajectories.
+The separate moving MLP experiment contains 297 continuations across the three starts and five batch sizes. Four state-matched derivative pairs per continuation produce 1,188 comparisons. Each reference evaluates a directional HVP of the complete objective at the starting state; full gradients at both states supply the realized noise difference. Table~\ref{tab:t-hvp} compares $Q_t$ and $Q_t+\varepsilon_t$ with the independent scaled Rayleigh quotient. The correction is algebraic, but the HVP is separately computed. Measurements are dependent within trajectories.
 
 \begin{table}[H]
 \centering\small
 \caption{Absolute discrepancy from the independently computed scaled directional HVP. Medians and 90th percentiles are over raw paired observations, not smoothed curves. Full-gradient references make correction an offline validation.}
-\label{tab:s-hvp}
+\label{tab:t-hvp}
 \input{\evidence/04-gd-sgd/tables/analysis027_hvp_errors.tex}
 \end{table}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=7.16in]{\evidence/04-gd-sgd/support/sgd_proxy_validation.pdf}
-\caption{Directional-curvature validation in the tanh MLP. Raw paired markers compare the two-gradient response, its realized-noise correction, and independently measured directional HVPs. Smoothed trajectories supply context only. The complete objective covers all 5,000 examples; this is neither a largest-eigenvalue comparison nor a validated online noise estimator.}
+\includegraphics[width=7.16in]{figures/sgd_proxy_validation.pdf}
+\caption{Directional-curvature validation in the tanh MLP. Raw paired markers compare the two-gradient response, its realized-noise correction, and independently measured directional HVPs. Smoothed trajectories supply context only. The local continuation index $k=t-t_0$ counts updates after the starting state $t_0$; the plotted $q_k$ is the same SGD quantity $\eta\widehat\kappa_t$. The complete objective covers all 5,000 examples; this is neither a largest-eigenvalue comparison nor a validated online noise estimator.}
 \end{figure}

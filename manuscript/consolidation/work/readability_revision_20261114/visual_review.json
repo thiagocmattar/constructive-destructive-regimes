@@ -1,0 +1,83 @@
+{
+  "status": "passed",
+  "reviewer": "Codex visual inspection",
+  "date": "2026-11-14",
+  "method": "All pages rendered at 1.6x and inspected in contact sheets; overview, final intervention placement, and revised cost table additionally inspected at larger resolution.",
+  "checks": [
+    "Readable text, mathematics, axis labels and captions",
+    "Consistent training step t and Q_t in Adam overview",
+    "Reference-example terminology and aligned tracing windows",
+    "No clipped text, overlapping labels, unresolved references or missing glyphs",
+    "Intervention figures and table appear with results and before conclusion",
+    "Correct page, figure, table and algorithm numbering"
+  ],
+  "pdfs": {
+    "manuscript": {
+      "sha256": "5fc83d0a77f9fb1ff0401db11c32a2312958418f5e78628043cc56b102e6609d",
+      "pages": 17,
+      "inspected_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ]
+    },
+    "supplementary": {
+      "sha256": "99edf2fbee5af113c751183b0fbb5049f7579041af77064a80e06319bab41ba1",
+      "pages": 33,
+      "inspected_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ]
+    }
+  },
+  "notes": [
+    "The final rebuild changes only the supplementary reference-evaluation cost labels; page 16 was re-inspected at full size.",
+    "Source evidence and active manuscript remain byte-identical."
+  ],
+  "remaining_layout_decisions": "Author review and eventual venue-specific page budgeting; this review draft favors clear explanations."
+}
