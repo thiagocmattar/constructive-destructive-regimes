@@ -3,7 +3,7 @@
 - **Paper claim:** Fixed-probe consecutive motion reveals stage-specific reversals and structured temporal directions.
 - **Boundary:** SVD is retrospective and permutation invariant; stage association does not identify a unique cause. Original windows/probes must remain explicit.
 - **Authority:** the [single paper plan](../../../PLAN.md) governs selection and closure.
-- **Presentation:** Figure 6 is assembled: three model columns, loss/cosine/RMS rows, 5/6/6 stage endpoints and synchronized markers. SVD/overlap is a separate companion. Historical all-stage PDFs remain in background/figures.
+- **Presentation:** Figure 6 uses ResNet steps 390--450 and the +311.53% peak at 415. MLP/Transformer remain unchanged. The separate SVD companion retains its original ResNet window 281--311; historical all-stage PDFs remain in background/figures.
 
 | Asset | Status | Use / source |
 |---|---|---|
@@ -29,8 +29,12 @@
 | [resnet_stages.csv](data/resnet_stages.csv) | data |  |
 | [transformer_stages.csv](data/transformer_stages.csv) | data |  |
 | [spectral_controls.json](data/spectral_controls.json) | data |  |
-| [Figure 6: loss and stage-level representation motion](figures/00-three-model-loss-representation-motion.pdf) | prepared main | Three model columns and three rows; completed-step alignment, fixed stage endpoints, common cosine scale, per-stage normalized RMS and declared reversal/loss markers. [Observation](../../FIGURE_NOTES.md). [Generator](../../../work/figure_revision_20261114/01_figures.py). |
-| [Tracing companion: spectra, stage overlap and output coefficients](figures/01-three-model-temporal-structure.pdf) | prepared support | Original fixed-window fits preserved; SVD and temporal overlap separated from the main loss/motion display. [Observation](../../FIGURE_NOTES.md). [Generator](../../../work/figure_revision_20261114/01_figures.py). |
+| [Figure 6: loss and stage-level representation motion](figures/00-three-model-loss-representation-motion.pdf) | prepared main | ResNet now spans completed steps 390--450 around the +311.53% peak at 415; unchanged native control and probe. MLP/Transformer panels remain identical. No new training or SVD. [Observation](observations/63-007-resnet-major-peak.md). [Generator](../../../work/resnet_peak_revision_20261114/01_figure.py). |
+| [Tracing companion: spectra, stage overlap and output coefficients](figures/01-three-model-temporal-structure.pdf) | prepared support | Preserved original fixed-window fits: completed steps 451--501 / 281--311 / 553--601. The ResNet SVD describes the earlier small excursion, not the revised Figure 6 window 390--450. [Observation](../../../work/figure_revision_20261114/OBSERVATIONS.md). [Generator](../../../work/figure_revision_20261114/01_figures.py). |
+| [Larger ResNet loss-event trace](observations/63-007-resnet-major-peak.md) | current observation | Larger native-control event; original SVD fits and intervention assets preserved. [Observation](observations/63-007-resnet-major-peak.md). [Generator](../../../../../analyses/063-2026-11-07-architecture-instability-tracing/11_resnet_major_peak.py). |
+| [ResNet 390--450 measurements and source checks](data/resnet_390_450_motion.json) | current source record | Larger native-control event; original SVD fits and intervention assets preserved. [Observation](observations/63-007-resnet-major-peak.md). [Generator](../../../../../analyses/063-2026-11-07-architecture-instability-tracing/11_resnet_major_peak.py). |
+| [Current Figure 6 numerical manifest](data/resnet_peak_figure_manifest.json) | source record | Larger native-control event; original SVD fits and intervention assets preserved. [Observation](observations/63-007-resnet-major-peak.md). [Generator](../../../work/resnet_peak_revision_20261114/01_figure.py). |
+| [Current Figure 6 verification](data/resnet_peak_figure_verification.json) | verification | Larger native-control event; original SVD fits and intervention assets preserved. [Observation](observations/63-007-resnet-major-peak.md). [Generator](../../../work/resnet_peak_revision_20261114/02_verify.py). |
 
 ## Consolidated tables
 

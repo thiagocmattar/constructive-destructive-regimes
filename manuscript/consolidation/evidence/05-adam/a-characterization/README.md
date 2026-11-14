@@ -8,7 +8,7 @@
 | Asset | Status | Use / source |
 |---|---|---|
 | [Current manuscript source: 06-adam-diagnostics.tex](source/06-adam-diagnostics.tex) | source | Unmodified manuscript snapshot; its input/figure paths resolve from the original draft root. Use the consolidated snippets and selected displays for integration. |
-| [Figure 5 base: high-LR Adam overview](figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf) | prepared main | Compact revised overview: Q axes start at zero; unchanged data/event intervals. Gray-band meanings and negative values outside the viewport are explicit in the caption. [Observation](../../FIGURE_NOTES.md). [Generator](../../../work/figure_revision_20261114/01_figures.py). |
+| [Figure 5 base: high-LR Adam overview](figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf) | prepared main | Compact revised overview: Q axes start at zero; unchanged data/event intervals. Gray-band meanings and negative values outside the viewport are explicit in the caption. [Observation](../../../work/figure_revision_20261114/OBSERVATIONS.md). [Generator](../../../work/figure_revision_20261114/01_figures.py). |
 | [Analysis 58: 000-high-lr-overview.md](observations/58-000-high-lr-overview.md) | record |  |
 | [Analysis 55: 004-timing-severity-audit.md](observations/55-004-timing-severity-audit.md) | record |  |
 | [Analysis 57: 001-response-memory.md](observations/57-001-response-memory.md) | record |  |

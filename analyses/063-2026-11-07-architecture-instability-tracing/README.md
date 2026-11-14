@@ -1,5 +1,12 @@
 # Analysis 063: architecture-wide oscillation tracing
 
+14 November: [the larger ResNet event](observations/007-resnet-major-peak.md)
+now supplies the consolidation loss/motion figure over completed steps 390--450.
+Loss rises 311.53% to its peak at 415 and recovers at 439. Existing untreated
+captures exactly match the native control and the earlier trace on their overlap;
+no new training is needed. Reproduce with `11_resnet_major_peak.py` and the linked
+figure workflow. The original ResNet SVD/report below retains its earlier window.
+
 For a concise, self-contained account, read the [five-page technical report](report/instability-tracing-report.pdf)
 ([LaTeX source](report/instability-tracing-report.tex)). It includes a formal
 algorithm, probe decisions, dimensions, three-case results, costs and the

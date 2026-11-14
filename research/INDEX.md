@@ -1,5 +1,12 @@
 # Research index
 
+## Larger ResNet tracing event, 14 November 2026
+
+[Analysis063's revised ResNet view](../analyses/063-2026-11-07-architecture-instability-tracing/observations/007-resnet-major-peak.md)
+uses completed steps 390--450 around the +311.53% loss excursion at 415, with recovery at 439.
+Verified existing untreated captures replace the smaller peak; MLP/Transformer panels,
+the original SVD windows and intervention assets are preserved. No new training or cloud cost.
+
 ## Consolidation figures refreshed, 14 November 2026
 
 [Current figure notes and captions](../manuscript/consolidation/evidence/FIGURE_NOTES.md): seven revised PDFs use a common completed-update clock, matched GD curvature smoothing, a compact Adam overview and a three-model stage-level tracing view with synchronized markers. SVD/overlap is a separate companion. All numerical, visual, caption and package checks pass (116 assets); manuscript sources and all 17 intervention PDFs are unchanged. No new training or run IDs.

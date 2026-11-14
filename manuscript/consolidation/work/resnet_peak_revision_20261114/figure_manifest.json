@@ -1,0 +1,225 @@
+{
+  "status": "numerical_checks_passed",
+  "generator_sha256": "f706b67f4e479667a76fc23f6fb76ad4288e3ce53331140eb187ea0bf6e29f1d",
+  "style_generator_sha256": "03096087e45f65cdf3f33a45a865139cbf085307ab5666b334b7ebe24af75859",
+  "sources": {
+    "analyses/063-2026-11-07-architecture-instability-tracing/mlp_450_500_results.json": "c2fc4492a455045c3c1223b4d3294d6b6eac504646e71f27f15fa2ef98ae597e",
+    "analyses/063-2026-11-07-architecture-instability-tracing/mlp_results.json": "000ce52ae4f645b424d8d98935181d7691238a452cd9897a357897d4f7c73005",
+    "analyses/063-2026-11-07-architecture-instability-tracing/resnet_results.json": "cb878406fb85d935b7370cd0aa1751ba16eda0606d157541f9dc9c43644c9f15",
+    "analyses/063-2026-11-07-architecture-instability-tracing/transformer_results.json": "962f0b0712dedff8423f8a89b2e65d032157f217685077eba3344b10c2a88357",
+    "analyses/063-2026-11-07-architecture-instability-tracing/resnet_390_450_motion.json": "a0fd57489730712c712affadd95a472ff98ed83edc96ee2dad666b31ba64a8b7"
+  },
+  "curves": [
+    {
+      "tag": "trace:mlp:full-loss",
+      "points": 51,
+      "x_sha256": "db87df02635b20dc10f55a3f965fa9798e1abe5bb1c305145b14f7cc0459e85d",
+      "y_sha256": "a166c8389817e386a6feaf80af915e52e70ba23b1acd1338579098f3f61d8b4f"
+    },
+    {
+      "tag": "trace:resnet:full-loss",
+      "points": 61,
+      "x_sha256": "0f35164768cdc558ed56eff75fd410f0090d636b4544e541c94a080371ee6654",
+      "y_sha256": "cd1e7f686bcbf9cfc6106eef0955163da7b242445916133d04f0bd9a266fae39"
+    },
+    {
+      "tag": "trace:resnet:probe-loss",
+      "points": 61,
+      "x_sha256": "0f35164768cdc558ed56eff75fd410f0090d636b4544e541c94a080371ee6654",
+      "y_sha256": "ccb7bec0bf29ac2a367af8276ce1de3e6a33233e879cbd7edf410590af1d6100"
+    },
+    {
+      "tag": "trace:transformer:full-loss",
+      "points": 49,
+      "x_sha256": "5162f4e61ea5efac2a14769cd5f9e3d5799e71cfdaa27da836a50ae7f3a42dcb",
+      "y_sha256": "3bb87b7446da442e109c84337505d85ad98d057d174c00cb6d2fa90950138a78"
+    },
+    {
+      "tag": "trace:transformer:probe-loss",
+      "points": 49,
+      "x_sha256": "5162f4e61ea5efac2a14769cd5f9e3d5799e71cfdaa27da836a50ae7f3a42dcb",
+      "y_sha256": "619f577bbbf46ae4180f72b13a4106e0ca4f37157de5d071b979e4a1e809f426"
+    }
+  ],
+  "figures": [
+    {
+      "file": "00-three-model-loss-representation-motion.pdf",
+      "sha256": "d4e137cab614170d500f75045cb297e2fb2eff5166fe8e583127c75d57cfd6cd",
+      "size_inches": [
+        7.16,
+        4.65
+      ]
+    }
+  ],
+  "tracing": [
+    {
+      "case": "mlp",
+      "source_outgoing_window": [
+        450,
+        500
+      ],
+      "displayed_completed_steps": [
+        451,
+        501
+      ],
+      "stages": [
+        {
+          "source": "preactivation1",
+          "label": "Linear 1"
+        },
+        {
+          "source": "hidden1",
+          "label": "Tanh 1"
+        },
+        {
+          "source": "preactivation2",
+          "label": "Linear 2"
+        },
+        {
+          "source": "hidden2",
+          "label": "Tanh 2"
+        },
+        {
+          "source": "output",
+          "label": "Output"
+        }
+      ],
+      "rms_window_maxima": [
+        0.14886735800098808,
+        0.050448428446067506,
+        0.052709187257508845,
+        0.046840208445356656,
+        0.14588907579961266
+      ],
+      "baseline_step": 465,
+      "baseline_loss": 0.028187875635921955,
+      "first_rise_step": 466,
+      "peak_step": 474,
+      "loss_threshold": 1.1,
+      "loss_threshold_step": 470,
+      "first_observed_output_reversal_step": 451,
+      "reversal_left_censored": true,
+      "heatmap_values": 510,
+      "rho_sha256": "f18647e26a4480bf7428aa2ffb5af74c0329bf48c5c1c6c0f8af7996ad825dcd",
+      "rms_sha256": "679d582997e991913a672e42c6c6b0b74387f062f0e42edc0d95f86b5cbdd564"
+    },
+    {
+      "case": "resnet",
+      "source_outgoing_window": [
+        389,
+        449
+      ],
+      "displayed_completed_steps": [
+        390,
+        450
+      ],
+      "baseline_step": 404,
+      "baseline_loss": 0.10708880004882812,
+      "first_rise_step": 405,
+      "peak_step": 415,
+      "peak_loss": 0.44070237731933587,
+      "recovery_step": 439,
+      "rise_percent": 311.5298491704021,
+      "loss_threshold_step": 406,
+      "first_observed_output_reversal_step": 391,
+      "reversal_left_censored": false,
+      "stages": [
+        {
+          "source": "conv1",
+          "label": "Conv 1"
+        },
+        {
+          "source": "layer1",
+          "label": "Stage 1"
+        },
+        {
+          "source": "layer2",
+          "label": "Stage 2"
+        },
+        {
+          "source": "layer3",
+          "label": "Stage 3"
+        },
+        {
+          "source": "avgpool",
+          "label": "Pooling"
+        },
+        {
+          "source": "output",
+          "label": "Output"
+        }
+      ],
+      "rms_window_maxima": [
+        0.016962332340993144,
+        0.0766361039013803,
+        0.08327824565704166,
+        0.5417914421242565,
+        0.4170755633429324,
+        2.784778249118874
+      ],
+      "loss_threshold": 1.1,
+      "heatmap_values": 732,
+      "rho_sha256": "6b7af3dae4509a759afdd0d008d1fde4c4a9384fd2feed3c1ce3e8115a8e7605",
+      "rms_sha256": "891bdcf33e7d7c3ce623465d61c2dd0256784c4951db2247e3b3e42f6a7725e4"
+    },
+    {
+      "case": "transformer",
+      "source_outgoing_window": [
+        552,
+        600
+      ],
+      "displayed_completed_steps": [
+        553,
+        601
+      ],
+      "stages": [
+        {
+          "source": "encoder.call0.output",
+          "label": "Embedding"
+        },
+        {
+          "source": "transformer_encoder.layers.0.self_attn.call0.output",
+          "label": "Attention 1"
+        },
+        {
+          "source": "transformer_encoder.layers.0.norm2.call0.output",
+          "label": "Block 1"
+        },
+        {
+          "source": "transformer_encoder.layers.1.self_attn.call0.output",
+          "label": "Attention 2"
+        },
+        {
+          "source": "transformer_encoder.layers.1.norm2.call0.output",
+          "label": "Block 2"
+        },
+        {
+          "source": "output.log_probabilities",
+          "label": "Output"
+        }
+      ],
+      "rms_window_maxima": [
+        0.0009577274083719672,
+        0.1589915281870525,
+        0.1372110676538095,
+        0.4821995779743358,
+        0.6860286088380543,
+        4.1831952767968845
+      ],
+      "baseline_step": 557,
+      "baseline_loss": 0.8430872729910645,
+      "first_rise_step": 558,
+      "peak_step": 562,
+      "loss_threshold": 1.1,
+      "loss_threshold_step": 561,
+      "first_observed_output_reversal_step": 556,
+      "reversal_left_censored": false,
+      "heatmap_values": 588,
+      "rho_sha256": "a3e162d1db50b163e496240a428df9a771ce8afd47c7c584a7d0778a33e8605e",
+      "rms_sha256": "e647e61b093b9b417aa7cf3e3d2ad22cdd592eadfe7388a52db8cbfe67f8870c"
+    }
+  ],
+  "plotted_arrays_sha256": "a358f180330103feee5b9ad2eca744745a7d95f847cf825eb611a38eabfa734d",
+  "scope": "Only the ResNet column changes. Original MLP/Transformer arrays and all other PDFs remain unchanged.",
+  "svd_scope": "The separate temporal-structure PDF retains the original ResNet 281--311 completed-step window; no new SVD is inferred."
+}

@@ -54,24 +54,30 @@ Adam, projected gradient change is not a validated Hessian estimate or
 universal stability threshold.}
 
 \newcommand{\consolidationTracingCaption}{%
-Loss and functional motion across three Adam trajectories. Columns show MLP,
-ResNet and Transformer; rows show full/probe loss, cosine between successive
-representation changes and displacement coordinate RMS divided by each stage's own
-window maximum. Heatmap rows are measured stage endpoints in forward order.
+Loss and functional motion across three unchanged-Adam continuations. Columns
+show MLP, ResNet and Transformer; rows show full/probe loss, cosine between
+successive representation changes and displacement coordinate RMS divided by
+each stage's own window maximum. Heatmap rows are measured stage endpoints.
 Each change $A_s-A_{s-1}$ is placed at completed step $s$, alongside the loss at
-that state, without time smoothing. Blue dashed lines mark the first observed
-negative output-change cosine. Reversal is already present at window entry
-for MLP and ResNet, so its onset is unobserved there. Black dashed lines mark
-the first full loss at least 10\% above the minimum preceding the largest
-displayed peak. Both markers continue through all rows. Fixed probes contain
-5,000 images, 1,000 images and 2,240 token positions, respectively. MLP probe
-and full loss coincide; the other probes are subsets. Displayed steps are
-451--501, 281--311 and 553--601. Normalized RMS colors compare time within a
-stage, not absolute magnitudes across stages. These are selected descriptive
-windows from one initialization each.}
+that state, without smoothing. Blue dashed lines mark the first observed
+negative output-change cosine within the display; MLP is already negative at
+entry, so its onset is unobserved. Black dashed lines mark the first full loss
+at least 10\% above the minimum preceding the largest displayed peak. Both
+markers continue through all rows. Fixed probes contain 5,000 images, 1,000
+images and 2,240 token positions. MLP probe and full loss coincide; the other
+probes are subsets. Displayed steps are 451--501, 390--450 and 553--601.
+ResNet's selected excursion rises 311.53\% from step 404 to peak 415 and
+recovers at 439. It exactly matches the native control used for the previous
+trace, rather than bitwise replay of the original full-run overview.
+Normalized RMS colors compare time within a stage, not absolute magnitudes
+across stages. These are selected descriptive windows from one initialization
+each. The separate temporal-structure companion retains the original ResNet
+window 281--311; its SVD results do not describe this larger excursion.}
 
 \newcommand{\consolidationTemporalStructureCaption}{%
-Temporal structure of the same representation-change windows. Top: cumulative
+Temporal structure at completed steps 451--501 (MLP), 281--311 (ResNet)
+and 553--601 (Transformer). The ResNet fit retains its original small-excursion
+window, distinct from the revised loss/motion figure at 390--450. Top: cumulative
 singular-value energy for output changes and raw gradients; the dotted line
 marks 95\%. Middle: first-mode energy, first-ten-mode energy and top-ten
 temporal subspace overlap with output at the selected stages. Bottom: the

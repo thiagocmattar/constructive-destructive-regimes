@@ -33,7 +33,7 @@
       "title": "V-B. Architectural tracing",
       "claim": "Fixed-probe consecutive motion reveals stage-specific reversals and structured temporal directions.",
       "boundary": "SVD is retrospective and permutation invariant; stage association does not identify a unique cause. Original windows/probes must remain explicit.",
-      "presentation": "Figure 6 is assembled: three model columns, loss/cosine/RMS rows, 5/6/6 stage endpoints and synchronized markers. SVD/overlap is a separate companion. Historical all-stage PDFs remain in background/figures."
+      "presentation": "Figure 6 uses ResNet steps 390--450 and the +311.53% peak at 415. MLP/Transformer remain unchanged. The separate SVD companion retains its original ResNet window 281--311; historical all-stage PDFs remain in background/figures."
     },
     "05-adam/c-intervention": {
       "title": "V-C. Intervention comparisons",
@@ -1169,13 +1169,13 @@
     },
     {
       "section": "05-adam/b-tracing",
-      "source": "manuscript/consolidation/work/figure_revision_20261114/figures/00-three-model-loss-representation-motion.pdf",
+      "source": "manuscript/consolidation/work/resnet_peak_revision_20261114/figures/00-three-model-loss-representation-motion.pdf",
       "destination": "05-adam/b-tracing/figures/00-three-model-loss-representation-motion.pdf",
       "title": "Figure 6: loss and stage-level representation motion",
       "role": "prepared main",
-      "observation": "manuscript/consolidation/work/figure_revision_20261114/OBSERVATIONS.md",
-      "generator": "manuscript/consolidation/work/figure_revision_20261114/01_figures.py",
-      "note": "Three model columns and three rows; completed-step alignment, fixed stage endpoints, common cosine scale, per-stage normalized RMS and declared reversal/loss markers."
+      "observation": "analyses/063-2026-11-07-architecture-instability-tracing/observations/007-resnet-major-peak.md",
+      "generator": "manuscript/consolidation/work/resnet_peak_revision_20261114/01_figure.py",
+      "note": "ResNet now spans completed steps 390--450 around the +311.53% peak at 415; unchanged native control and probe. MLP/Transformer panels remain identical. No new training or SVD."
     },
     {
       "section": "05-adam/b-tracing",
@@ -1185,11 +1185,11 @@
       "role": "prepared support",
       "observation": "manuscript/consolidation/work/figure_revision_20261114/OBSERVATIONS.md",
       "generator": "manuscript/consolidation/work/figure_revision_20261114/01_figures.py",
-      "note": "Original fixed-window fits preserved; SVD and temporal overlap separated from the main loss/motion display."
+      "note": "Preserved original fixed-window fits: completed steps 451--501 / 281--311 / 553--601. The ResNet SVD describes the earlier small excursion, not the revised Figure 6 window 390--450."
     },
     {
       "section": "04-gd-sgd",
-      "source": "manuscript/consolidation/work/figure_revision_20261114/OBSERVATIONS.md",
+      "source": "manuscript/consolidation/work/resnet_peak_revision_20261114/OBSERVATIONS.md",
       "destination": "FIGURE_NOTES.md",
       "title": "Revised figure contracts, captions and timing observations",
       "role": "current figure record",
@@ -1199,11 +1199,11 @@
     },
     {
       "section": "04-gd-sgd",
-      "source": "manuscript/consolidation/work/figure_revision_20261114/captions.tex",
+      "source": "manuscript/consolidation/work/resnet_peak_revision_20261114/captions.tex",
       "destination": "figure_captions.tex",
       "title": "Editable captions for seven revised figures",
       "role": "integration source",
-      "observation": "manuscript/consolidation/work/figure_revision_20261114/OBSERVATIONS.md",
+      "observation": "manuscript/consolidation/work/resnet_peak_revision_20261114/OBSERVATIONS.md",
       "generator": null,
       "note": "LaTeX caption macros; does not edit the active manuscript."
     },
@@ -1211,21 +1211,61 @@
       "section": "04-gd-sgd",
       "source": "manuscript/consolidation/work/figure_revision_20261114/figure_manifest.json",
       "destination": "figure_revision_manifest.json",
-      "title": "Current figure source and numerical manifest",
+      "title": "Initial seven-view figure manifest",
       "role": "source record",
       "observation": "manuscript/consolidation/work/figure_revision_20261114/OBSERVATIONS.md",
       "generator": "manuscript/consolidation/work/figure_revision_20261114/01_figures.py",
-      "note": "Hashes sources, plotted coordinates, reductions, stage choices and completed-step markers."
+      "note": "Authenticates the first revision; Figure 6 now has an additional current manifest in V-B/data."
     },
     {
       "section": "04-gd-sgd",
       "source": "manuscript/consolidation/work/figure_revision_20261114/verification.json",
       "destination": "figure_revision_verification.json",
-      "title": "Revised figure verification",
+      "title": "Initial seven-view verification",
       "role": "verification",
       "observation": "manuscript/consolidation/work/figure_revision_20261114/OBSERVATIONS.md",
       "generator": "manuscript/consolidation/work/figure_revision_20261114/02_verify.py",
-      "note": "Independent numerical checks, PDF bounds/fonts, visual review and preservation of manuscript/human/intervention files."
+      "note": "Passed checks for the first revision; the larger ResNet peak has additional current verification in V-B/data."
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/063-2026-11-07-architecture-instability-tracing/observations/007-resnet-major-peak.md",
+      "destination": "05-adam/b-tracing/observations/63-007-resnet-major-peak.md",
+      "title": "Larger ResNet loss-event trace",
+      "role": "current observation",
+      "observation": "analyses/063-2026-11-07-architecture-instability-tracing/observations/007-resnet-major-peak.md",
+      "generator": "analyses/063-2026-11-07-architecture-instability-tracing/11_resnet_major_peak.py",
+      "note": "Larger native-control event; original SVD fits and intervention assets preserved."
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "analyses/063-2026-11-07-architecture-instability-tracing/resnet_390_450_motion.json",
+      "destination": "05-adam/b-tracing/data/resnet_390_450_motion.json",
+      "title": "ResNet 390--450 measurements and source checks",
+      "role": "current source record",
+      "observation": "analyses/063-2026-11-07-architecture-instability-tracing/observations/007-resnet-major-peak.md",
+      "generator": "analyses/063-2026-11-07-architecture-instability-tracing/11_resnet_major_peak.py",
+      "note": "Larger native-control event; original SVD fits and intervention assets preserved."
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "manuscript/consolidation/work/resnet_peak_revision_20261114/figure_manifest.json",
+      "destination": "05-adam/b-tracing/data/resnet_peak_figure_manifest.json",
+      "title": "Current Figure 6 numerical manifest",
+      "role": "source record",
+      "observation": "analyses/063-2026-11-07-architecture-instability-tracing/observations/007-resnet-major-peak.md",
+      "generator": "manuscript/consolidation/work/resnet_peak_revision_20261114/01_figure.py",
+      "note": "Larger native-control event; original SVD fits and intervention assets preserved."
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "manuscript/consolidation/work/resnet_peak_revision_20261114/verification.json",
+      "destination": "05-adam/b-tracing/data/resnet_peak_figure_verification.json",
+      "title": "Current Figure 6 verification",
+      "role": "verification",
+      "observation": "analyses/063-2026-11-07-architecture-instability-tracing/observations/007-resnet-major-peak.md",
+      "generator": "manuscript/consolidation/work/resnet_peak_revision_20261114/02_verify.py",
+      "note": "Larger native-control event; original SVD fits and intervention assets preserved."
     }
   ]
 }

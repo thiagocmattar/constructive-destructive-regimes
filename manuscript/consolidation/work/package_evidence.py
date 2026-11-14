@@ -27,7 +27,13 @@ def sha(path):
 
 def write(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(value.rstrip() + "\n", encoding="utf-8", newline="\n")
+    write_bytes_if_changed(path, (value.rstrip() + "\n").encode("utf-8"))
+
+
+def write_bytes_if_changed(path, value):
+    # Preserve unchanged assets, including PDFs currently open in a reader.
+    if not path.exists() or path.read_bytes() != value:
+        path.write_bytes(value)
 
 
 def relative(path, parent):
@@ -217,20 +223,20 @@ def build():
                 for page in item["pdf_pages"]:
                     assert 1 <= page <= original.page_count
                     selected.insert_pdf(original, from_page=page-1, to_page=page-1)
-                target.write_bytes(selected.tobytes(garbage=4, deflate=True, no_new_id=True))
+                write_bytes_if_changed(target, selected.tobytes(garbage=4, deflate=True, no_new_id=True))
             transform = "PDF page selection; original page content preserved"
         elif item.get("path_replacements"):
             data = source.read_bytes()
             for old, new in item["path_replacements"].items():
                 assert data.count(old.encode("utf-8")) == 1, old
                 data = data.replace(old.encode("utf-8"), new.encode("utf-8"))
-            target.write_bytes(data)
+            write_bytes_if_changed(target, data)
             transform = "TeX dependency path rebased; scientific content retained"
         elif source.suffix == ".md":
             write(target, rebase_markdown(source, target, mapped))
             transform = "Markdown source header and rebased local links"
         else:
-            target.write_bytes(source.read_bytes())
+            write_bytes_if_changed(target, source.read_bytes())
             transform = "byte-identical copy"
         record = dict(item, source_sha256=sha(source), packaged_sha256=sha(target),
                       bytes=target.stat().st_size, transformation=transform)
