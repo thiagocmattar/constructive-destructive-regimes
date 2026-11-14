@@ -1,5 +1,14 @@
 # Hypothesis registry
 
+## H051: matched four-family intervention comparison
+
+- **Question:** from the same full warm state and horizon, how do LR, late beta2, raw-gradient clipping and local affine-displacement caps alter spike burden, learning progress and functional motion?
+- **Status/evidence:** [Runs 293–295 / Analysis 065](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md). All 36 initialization-0 conditions / 11,904 treated updates are complete and independently verified. Common forks: MLP 512–800, ResNet 256–576, Transformer 544–928. Immediate LR .75/.5/.1, late beta2 .95/.9/.5, global raw-gradient clipping .5/1 and distributed q25/q50/q75 each retain unchanged Adam. q50 mean-loss changes are -32.18%/-9.42%/-19.84%; late/test tradeoffs and nonmonotone quantile sensitivity remain explicit. One initialization/model, unequal treatment strengths; no universal superiority or generalization claim.
+- **Verification/closeout:** All 108 gradient/update audits, 36 terminal-gradient replays and 48 complete terminal held-out split replays pass. Raw evidence is verified on owned Spark; all task Pods are deleted, no cloud storage remains. Provisional compute plus temporary storage USD 26.07, within USD 50. Seven PDFs / 20 pages, editable tables/captions and reductions are ready in consolidation. Seeds 1/2 and the cap x LR grid remain deferred. Continue Analysis 065; next unused run 296 and hypothesis H052.
+
+## Earlier registry records
+
+
 H001 is the first user-directed experimental expectation. Manuscript/review
 questions alone do not create experimental commitments.
 

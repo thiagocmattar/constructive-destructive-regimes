@@ -1,5 +1,18 @@
 # Run registry
 
+## Runs 293–295: matched interventions, 14 November 2026
+
+| Run | Case / window | Completed scope |
+|---|---|---|
+| [293](293-2026-11-14-mlp-matched-interventions/README.md) | MLP / 512–800 | 12 conditions / 3,456 updates; owned Spark |
+| [294](294-2026-11-14-resnet-matched-interventions/README.md) | ResNet / 256–576 | 12 conditions / 3,840 updates; two RTX4090 workers |
+| [295](295-2026-11-14-transformer-matched-interventions/README.md) | Transformer / 544–928 | 12 conditions / 4,608 updates; six RTX5090 workers |
+
+[H051 findings](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md). All 108 gradient/update audits, 36 terminal-gradient replays and 48 complete terminal held-out split replays pass. Raw evidence is verified on owned Spark; all task Pods are deleted, no cloud storage remains. Provisional compute plus temporary storage USD 26.07, within USD 50. Seven PDFs / 20 pages, editable tables/captions and reductions are ready in consolidation. Seeds 1/2 and the cap x LR grid remain deferred. Continue Analysis 065; next unused run 296 and hypothesis H052.
+
+## Earlier run records
+
+
 `000-template/` is a template, not Run 000.
 
 | Run | Question / hypotheses | Status | Attempts | Observations |

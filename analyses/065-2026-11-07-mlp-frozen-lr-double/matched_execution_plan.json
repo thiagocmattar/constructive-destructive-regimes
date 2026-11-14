@@ -1,0 +1,62 @@
+{
+  "hypothesis": "H051",
+  "runs": [
+    293,
+    294,
+    295
+  ],
+  "authorization": "User approved faster option and full paper-ready delivery",
+  "utc": "2026-11-14T15:49:46.877733+00:00",
+  "maximum_total_usd": 50,
+  "maximum_execution_hours": 8,
+  "maximum_cloud_gpus": 8,
+  "expected_hours": [
+    4,
+    6
+  ],
+  "expected_usd": [
+    27,
+    42
+  ],
+  "gpu_quotes": [
+    {
+      "available": true,
+      "communityCloud": true,
+      "communityPricePerHr": 0.34,
+      "dataCenterAvailability": [
+        {
+          "dataCenterId": "EU-RO-1",
+          "stockStatus": "Low"
+        }
+      ],
+      "displayName": "RTX 4090",
+      "gpuId": "NVIDIA GeForce RTX 4090",
+      "memoryInGb": 24,
+      "secureCloud": true,
+      "securePricePerHr": 0.89,
+      "stockStatus": "Low"
+    },
+    {
+      "available": true,
+      "communityCloud": true,
+      "communityPricePerHr": 0.69,
+      "dataCenterAvailability": [
+        {
+          "dataCenterId": "EU-RO-1",
+          "stockStatus": "Low"
+        }
+      ],
+      "displayName": "RTX 5090",
+      "gpuId": "NVIDIA GeForce RTX 5090",
+      "memoryInGb": 32,
+      "secureCloud": true,
+      "securePricePerHr": 1.39,
+      "stockStatus": "Low"
+    }
+  ],
+  "image": "pytorch/pytorch@sha256:bfbb4a2b4fdba0fefdb428ea737e626d61bb3daf74a16e1ff935bdb03aa7c3f0",
+  "template_discovery": "Official templates inspected; pinned official PyTorch2.11/CUDA13 runtime chosen to match measured implementation",
+  "temporary_storage_gb_per_pod": 60,
+  "retained_storage": "Owned Spark; verify size and SHA-256 before task Pod deletion",
+  "deferred": "Initializations1/2 and cap-by-LR grid remain unlaunched"
+}

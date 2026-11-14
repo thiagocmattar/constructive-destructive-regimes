@@ -1,43 +1,29 @@
 # Evidence freshness and consistency audit
 
-- **Result:** the evidence package is now aligned with the latest PLAN. Several former planning files were stale even though most underlying scientific records remained applicable.
-- **Active manuscript:** the 6 November rollback recorded in manuscript/README.md governs; 45 source/assets in the original consolidation manifest remain unchanged. Older 18-page revision records are historical, not the active draft.
-- **Scope:** the initial package reconciled existing evidence. The authorized H050 extension now adds ResNet/Transformer beta2 reductions and Transformer clipping; manuscript source editing remains separate.
+- **Current authority:** [PLAN](../PLAN.md), 14 November 2026. H051 closes the agreed matched-intervention and reporting gaps; manuscript integration remains separate.
+- **Preservation:** original manuscript/review/author inputs remain unchanged. Canonical historical evidence is retained; six superseded V-C selections are archived byte-identically in [background](05-adam/c-intervention/background/README.md).
+- **Current displays:** Figures 1–6 and the temporal companion retain the verified completed-step convention and selected ResNet 390–450 window. V-C now uses Figures 7–9: four-family loss matrix, spike/learning tradeoff and matched q50 heatmaps. Seven intervention PDFs / 20 pages are visually inspected.
 
-## Corrections made
+## Scientific verification
 
-- Replaced obsolete C1–C8/M01–M24 planning references with the plan's four contribution cards and I–VI structure.
-- Replaced former F1a/F1b/F3… assignments with Figures 1–10; V-C now presents LR, beta2, clipping and distributed q50 in the author's order.
-- Marked the Adam timing/severity/horizon audit complete and located it in V-A; it is no longer a proposed peak-only analysis.
-- Incorporated the completed spectral magnitude controls in V-B.
-- Preserved the correct MLP event window 450–500, correlation .642 and rank95=5; older 448–800 values remain explicitly historical.
-- Scoped the 1,188 HVP pairs to the tanh MLP and independent derivative calculations, not statistically independent experiments.
-- Specified per-module pooled budgets, per-unit scaling, actual Adam increments, target scopes and unbounded incoming-motion terms.
-- Included terminal test loss beside training benefits, and kept historical LR/clipping/beta2 controls separate from the still-pending matched comparison.
-- Retained the completed 54-continuation MLP quantile/LR ablation directly in V-C as supporting evidence, following the author's latest selection; the main intervention remains distributed q50.
-- Moved other representation-inspired interventions and the mixed six-page Figure 07 out of the selected figure folder; extracted its q50 heatmap page intact.
-- Corrected artifact generator references and supplied copied source records and executable package verification.
-- Extended the beta2 and clipping displays to all three architectures with Runs289–291; archived the two original PDFs unchanged. Added paired mean/tail/maximum/test outcomes and an explicit model/seed/threshold/timing/measurement TODO.
-- Removed the old P/E/W task queue as an alternative authority; TASKS now mirrors PLAN closure.
+- **H051 coverage:** 36 conditions, 11,904 updates, 11,940 full-gradient boundaries. 108 exact raw-gradient/probe/native-update audits; 27 cap-bound audits. Every saved terminal state additionally reproduces its full training gradient/loss and all complete terminal held-out splits: 36 gradient and 48 split checks.
+- **Matched state:** full model/optimizer/RNG/data fork, exact predecessor replay and common eight-update fingerprints within model. The new ResNet control also reproduces 187 historical losses and 732 selected-window stage scalars; this does not establish full historical tensor identity for every model.
+- **Calibration:** 8 untreated outgoing states f−8,…,f−1; frozen module budgets; first treated update f→f+1. Complete score pools, quantile calculations, zero-budget convention, actual stored-increment bounds and activity are retained.
+- **Reductions:** mean excludes the common fork; PV sums all positive post-fork increments; final and last32 remain distinct. Excursions keep their original pre-rise reference and first return, with carried/right-censored events explicit. Independent fixture and raw-stream reductions pass.
+- **Motion:** every fixed-probe coordinate contributes to RMS/energy; finite consecutive-change cosines define reversal fractions. MLP's output-space squared-loss identity is independently checked. Cross-entropy is not assigned that identity.
+- **Training coverage:** MLP 5,000 images; ResNet 50,000 images in 50 intact 1,000-image normalization groups; Transformer 2,088,600 supervised tokens in 59,680 sequences of up to 35 positions.
+- **Held-out coverage:** CIFAR-10 full 10,000-image test; WikiText-2 full 217,630 validation and 245,550 test tokens. ResNet's 10 test groups and Transformer's 7,020 test sequences are objective blocks, not loss-reduction denominators. Five records/arm include a shared fork: 147 distinct evaluation states / 196 full split evaluations.
+- **Cost interpretation:** synchronized gradient/probe-capture/Adam/controller/evaluation timers; other wall time includes cosine/RMS reductions, scalar diagnostics and I/O. Memory is process high-water allocation through an arm. Different cloud hosts preclude a method-speed ranking.
 
-## Checks and their limits
+## Retention and publication checks
 
-- Every packaged artifact has its repository source and SHA-256 recorded. Transformations are explicit: Markdown headers/links, one historical report's entry-cap dependency path, and the single-page q50 PDF extraction.
-- Compact tables are regenerated from retained CSV/JSON reductions with explicit target, window, baseline, split and coverage filters.
-- Intervention percentages are independently recomputed from each cap/baseline pair. Test coverage is 10,000 images for MLP/ResNet and 245,550 valid tokens for Transformer.
-- ResNet objective units count ten intact normalization groups; Transformer objective units count 7,020 sequences. They are not the loss-reduction units.
-- All PDFs are opened and decoded. Ordinary copies remain byte-identical; the extracted heatmap has identical page dimensions, text and rendered pixels to source page 2. No curves were refit or renormalized.
-- The selected figure folder contains exactly six one-page PDFs: LR, beta2, clipping and three distributed-q50 displays. All six have been visually inspected. The cap heatmap now anchors Figure 10; its common baseline RMS scaling and windows remain unchanged. Final sizing/caption work remains. Thirteen editable equation/algorithm/table files pass two LaTeX draft-mode passes without errors or overfull boxes.
-- The four recent arXiv records in the literature file had title/author/version metadata rechecked; reading-depth limits remain explicit.
-- H050: 10 continuations, 3,584 updates, 3,594 full-gradient boundaries and 20 first/last update audits pass. All six Transformer workers have exact common-control replay; each initial model/moment/clock/RNG/history matches the original fork. The recorded CUDA-runtime gradient discrepancy is handled by fresh matched controls.
-- Both new PDFs were rendered and inspected; 20 displayed series / 6,644 branch boundaries and 384 historical-prefix boundaries are accounted for. Exported means, tails, maxima, paired changes and clipping activity are independently checked. Full terminal split coverage is verified.
-- All 155 retained raw files pass size/SHA-256 checks on Spark; all seven task pods are deleted. Provisional compute is USD11.36, below the USD20 ceiling. These checks complete the requested coverage, not the future matched four-family matrix.
-- The package audit does not replace the owning analyses' raw-data checks or confirm every literature theorem. It does not declare pending comparisons complete.
-- [verification.json](verification.json) records the executed checks; [copy_manifest.json](copy_manifest.json) records source identity. [ARTIFACTS.md](ARTIFACTS.md) indexes the deliverables.
+- **Retention:** 33.842 GB of raw evidence on owned Spark; sizes and SHA-256 verified before every task Pod deletion. No retained cloud volume. Provisional compute plus temporary storage **$26.07**, below $50. [Closeout](05-adam/c-intervention/data/matched-compute_closeout.json).
+- **Publication sources:** 151 registered assets from 150 unique source files. Numerical plot coordinates, PDF hashes/page bounds/embedded fonts, all 20 intervention render pages and editable TeX are checked. [Figure audit](05-adam/c-intervention/data/matched-visual_verification.json); [package audit](verification.json); [snippet checks](snippet_verification.json).
+- **Historical scope:** earlier H050 conventional results and the three-initialization MLP cap/LR study retain their own forks, runtimes and endpoints. They are not reused as cells of the new matrix.
+- **Limits:** one initialization/model and one fixed window; unequal treatment strengths/tuning grids; no held-out selection, seed confidence intervals, universal superiority, stochastic deployment or generalization benefit. Package checks do not re-prove every historical computation or literature theorem.
 
-## Still pending
+## Remaining work
 
-- Final assembly of Figures 5–10 and corresponding captions.
-- Qualification/reuse or execution of the plan's matched intervention matrix, cost reporting and held-out time points.
-- Any stronger forecasting, causal-source, spike-specific-mode or method-superiority claim needs its separately specified test.
-- TNNLS route/format resolution remains a submission-stage item in PLAN, not evidence of permission to resubmit.
+- Integrate the prepared evidence/captions into the manuscript, then compile and review the full paper.
+- Keep stronger forecasting, causal-source, spike-specific-mode and method-superiority claims conditional on their separate tests. Extra initializations and cap x LR remain [deferred](05-adam/c-intervention/TODO_ABLATIONS.md).
+- Resolve the current TNNLS route/format before any submission, as recorded in PLAN.

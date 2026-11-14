@@ -1,5 +1,14 @@
 # Consolidated findings
 
+## Matched intervention effects, 14 November 2026
+
+[H051 / Runs 293–295](../../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md). All 36 initialization-0 conditions / 11,904 treated updates are complete and independently verified. Common forks: MLP 512–800, ResNet 256–576, Transformer 544–928. Immediate LR .75/.5/.1, late beta2 .95/.9/.5, global raw-gradient clipping .5/1 and distributed q25/q50/q75 each retain unchanged Adam. q50 mean-loss changes are -32.18%/-9.42%/-19.84%; late/test tradeoffs and nonmonotone quantile sensitivity remain explicit. One initialization/model, unequal treatment strengths; no universal superiority or generalization claim.
+
+Spike burden, window mean, final/late loss and held-out outcomes are distinct targets. In ResNet, q50 reduces the largest output RMS jump while increasing total output-motion energy and prolonging reversals; q25/q75 improve several training metrics more strongly. This supports local movement-sensitive control and architecture-dependent tradeoffs, not a global movement/loss bound. Historical MLP replication uses different windows.
+
+## Earlier findings
+
+
 [Representation-informed interventions](../../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/008-cross-architecture-interventions.md)
 test the tracing idea while keeping every layer trainable. Distributed local
 affine-displacement caps lower mean training loss across MLP, ResNet and

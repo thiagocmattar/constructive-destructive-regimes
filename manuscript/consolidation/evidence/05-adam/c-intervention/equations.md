@@ -34,8 +34,15 @@ a_{s,j}=
 \widetilde v_{s,j}=a_{s,j}v_{s,j}.
 
 $$
-One threshold per module is calibrated from a quantile (q50 in the distributed
-comparison) pooled over units and eight untreated preceding updates. A zero
+At a common fork $f$, use untreated native proposal scores to fix one threshold
+per module before the first treated update $f\to f+1$:
+$$
+\tau_\ell(q)=\operatorname{Quantile}_q
+\{c^{\mathrm{native},\ell}_{s,j}:s=f-8,\ldots,f-1;\ j=1,\ldots,m_\ell\}.
+$$
+Quantiles use linear interpolation over the pooled scores. The preselected
+method uses $q=0.5$; $q=0.25,0.75$ are sensitivity settings. Budgets stay fixed
+while current inputs change during each continuation. A zero
 calibrated threshold disables that module's cap. Native moments and clock advance;
 final stored FP32 increments require the recorded rounding check.
 

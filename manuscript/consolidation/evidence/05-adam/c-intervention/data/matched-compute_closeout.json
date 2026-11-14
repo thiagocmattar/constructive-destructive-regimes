@@ -1,0 +1,160 @@
+{
+  "status": "passed",
+  "utc": "2026-11-14T19:43:04.209569+00:00",
+  "conditions": 36,
+  "updates": 11904,
+  "gradient_update_audits": 108,
+  "task_pods_remaining": [],
+  "retained_cloud_volumes": 0,
+  "provisional_total_usd": 26.068937959535063,
+  "provisional_compute_usd": 25.900973743781776,
+  "provisional_disk_usd": 0.1679642157532853,
+  "billing_basis": "Live allocated hourly rates times recorded creation-to-deletion duration, including cold starts; 60GB reserved temporary storage at the recorded running-storage rate. Provider reconciliation may differ.",
+  "maximum_authorized_total_usd": 50,
+  "workers": [
+    {
+      "name": "resnet-0",
+      "id": "q2bcaaisocl6mh",
+      "gpu": "NVIDIA GeForce RTX 4090",
+      "hours_including_startup": 2.554180754489369,
+      "compute_usd": 2.273220871495538,
+      "reserved_disk_usd": 0.020993266475255085,
+      "verified_retrieval": true,
+      "no_scientific_artifacts": false
+    },
+    {
+      "name": "resnet-1",
+      "id": "5l8mb0z3doyrtc",
+      "gpu": "NVIDIA GeForce RTX 4090",
+      "hours_including_startup": 2.2774310949775907,
+      "compute_usd": 2.0269136745300558,
+      "reserved_disk_usd": 0.01871861173954184,
+      "verified_retrieval": true,
+      "no_scientific_artifacts": false
+    },
+    {
+      "name": "transformer-0",
+      "id": "u41ss5v091ymfi",
+      "gpu": "NVIDIA GeForce RTX 5090",
+      "hours_including_startup": 0.12681231280167898,
+      "compute_usd": 0.0875004958331585,
+      "reserved_disk_usd": 0.001042292981931608,
+      "verified_retrieval": false,
+      "no_scientific_artifacts": true
+    },
+    {
+      "name": "transformer-1",
+      "id": "vloj187q8muyz9",
+      "gpu": "NVIDIA GeForce RTX 5090",
+      "hours_including_startup": 3.3570897171232437,
+      "compute_usd": 4.666354706801308,
+      "reserved_disk_usd": 0.027592518222930768,
+      "verified_retrieval": true,
+      "no_scientific_artifacts": false
+    },
+    {
+      "name": "transformer-2",
+      "id": "wut9p8svgwiyyd",
+      "gpu": "NVIDIA GeForce RTX 5090",
+      "hours_including_startup": 2.859288012517823,
+      "compute_usd": 3.9744103373997737,
+      "reserved_disk_usd": 0.02350099736316019,
+      "verified_retrieval": true,
+      "no_scientific_artifacts": false
+    },
+    {
+      "name": "transformer-3",
+      "id": "mt8054cssvi2e6",
+      "gpu": "NVIDIA GeForce RTX 5090",
+      "hours_including_startup": 2.5875159568919077,
+      "compute_usd": 3.5966471800797515,
+      "reserved_disk_usd": 0.02126725444020746,
+      "verified_retrieval": true,
+      "no_scientific_artifacts": false
+    },
+    {
+      "name": "transformer-4",
+      "id": "se74lzaaqs0sry",
+      "gpu": "NVIDIA GeForce RTX 5090",
+      "hours_including_startup": 1.9763202612929873,
+      "compute_usd": 2.7470851631972524,
+      "reserved_disk_usd": 0.016243728175010852,
+      "verified_retrieval": true,
+      "no_scientific_artifacts": false
+    },
+    {
+      "name": "transformer-5",
+      "id": "fprr9dfqtah22a",
+      "gpu": "NVIDIA GeForce RTX 5090",
+      "hours_including_startup": 2.7517550459835265,
+      "compute_usd": 3.8249395139171014,
+      "reserved_disk_usd": 0.022617164761508435,
+      "verified_retrieval": true,
+      "no_scientific_artifacts": false
+    },
+    {
+      "name": "transformer-6",
+      "id": "qrra8b4kky1zlf",
+      "gpu": "NVIDIA GeForce RTX 5090",
+      "hours_including_startup": 1.945253093904919,
+      "compute_usd": 2.7039018005278375,
+      "reserved_disk_usd": 0.01598838159373906,
+      "verified_retrieval": true,
+      "no_scientific_artifacts": false
+    }
+  ],
+  "retention": [
+    {
+      "case": "mlp",
+      "status": "passed",
+      "root": "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01",
+      "files": 147,
+      "raw_bytes": 1489668619,
+      "archive": "scratch/mlp-complete-compact.tar.gz",
+      "archive_bytes": 10891366,
+      "archive_sha256": "53c1f0cfa4540090aa893f95392fdd271eeed14dceffa5dd81134ad85c1023c6",
+      "compact_files_verified": 84,
+      "retained_raw_location": "tcml-spark@spark-2277.local:/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01",
+      "utc": "2026-11-14T17:20:42.588890+00:00"
+    },
+    {
+      "case": "resnet",
+      "status": "passed",
+      "root": "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01",
+      "files": 162,
+      "raw_bytes": 1104462896,
+      "archive": "scratch/resnet-complete-compact.tar.gz",
+      "archive_bytes": 17500485,
+      "archive_sha256": "c2215bb37df4ca8fad6424d38801d29ee2e31e43f034788a4f00da3d279b965f",
+      "compact_files_verified": 92,
+      "retained_raw_location": "tcml-spark@spark-2277.local:/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01",
+      "utc": "2026-11-14T18:28:33.930993+00:00"
+    },
+    {
+      "case": "transformer",
+      "status": "passed",
+      "root": "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01",
+      "files": 194,
+      "raw_bytes": 31247937611,
+      "archive": "scratch/transformer-complete-compact.tar.gz",
+      "archive_bytes": 81584745,
+      "archive_sha256": "265d22a9bc3351d5175f43966602c9861041555c68ba670e90329bebb36d5e85",
+      "compact_files_verified": 116,
+      "retained_raw_location": "tcml-spark@spark-2277.local:/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01",
+      "utc": "2026-11-14T19:42:50.633263+00:00"
+    }
+  ],
+  "cloud_execution_hours_including_startup_and_retrieval": 3.856090714202987,
+  "maximum_authorized_execution_hours": 8,
+  "total_raw_bytes_on_owned_spark": 33842069126,
+  "cleanup": {
+    "status": "passed",
+    "task_transfer_key_removed": true,
+    "removed": [
+      "scratch/retention-key",
+      "scratch/retention-key.pub",
+      "scratch/retention-key.hosts"
+    ]
+  },
+  "source_result_sha256": "bb512310d6b99de542510a8de475757e51b49d2cb3927bddec8018d21d4d7554"
+}

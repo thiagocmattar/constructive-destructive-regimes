@@ -1,0 +1,3121 @@
+{
+  "status": "passed",
+  "complete_matrix": true,
+  "cases": [
+    {
+      "case": "mlp",
+      "config": {
+        "run_id": 293,
+        "hypothesis": "H051",
+        "analysis_id": "065",
+        "case": "mlp",
+        "seed": 0,
+        "fork": 512,
+        "end": 800,
+        "base_lr": 0.001,
+        "physical": 1000,
+        "probe": 5000,
+        "quantiles": [
+          0.25,
+          0.5,
+          0.75
+        ],
+        "arms": [
+          {
+            "id": "control",
+            "kind": "control",
+            "family": "control"
+          },
+          {
+            "id": "lr_0p75",
+            "kind": "lr",
+            "family": "lr",
+            "lr_multiplier": 0.75
+          },
+          {
+            "id": "lr_0p5",
+            "kind": "lr",
+            "family": "lr",
+            "lr_multiplier": 0.5
+          },
+          {
+            "id": "lr_0p1",
+            "kind": "lr",
+            "family": "lr",
+            "lr_multiplier": 0.1
+          },
+          {
+            "id": "beta2_0p95",
+            "kind": "beta2",
+            "family": "beta2",
+            "beta2": 0.95
+          },
+          {
+            "id": "beta2_0p9",
+            "kind": "beta2",
+            "family": "beta2",
+            "beta2": 0.9
+          },
+          {
+            "id": "beta2_0p5",
+            "kind": "beta2",
+            "family": "beta2",
+            "beta2": 0.5
+          },
+          {
+            "id": "clip_0p5",
+            "kind": "clip",
+            "family": "clipping",
+            "clip": 0.5
+          },
+          {
+            "id": "clip_1p0",
+            "kind": "clip",
+            "family": "clipping",
+            "clip": 1.0
+          },
+          {
+            "id": "cap_q25",
+            "kind": "functional",
+            "family": "cap",
+            "scope": "trunk",
+            "quantile": 0.25
+          },
+          {
+            "id": "cap_q50",
+            "kind": "functional",
+            "family": "cap",
+            "scope": "trunk",
+            "quantile": 0.5
+          },
+          {
+            "id": "cap_q75",
+            "kind": "functional",
+            "family": "cap",
+            "scope": "trunk",
+            "quantile": 0.75
+          }
+        ],
+        "checkpoint_every": 64,
+        "maximum_worker_seconds": 25200,
+        "torch_version": "2.11.0",
+        "cuda_version": "13.0",
+        "calibration": "Native outgoing states fork-8 through fork-1; np.quantile linear over all unit scores and eight transitions. Frozen before treatment.",
+        "endpoint": "Stop at end, without applying end->end+1; primary mean uses fork+1 through end.",
+        "controls": "Native full prefix and same complete fork/runtime/probe for all arms; exact predecessor replay and eight-update cross-worker fingerprint required.",
+        "heldout_states": [
+          512,
+          544,
+          656,
+          768,
+          800
+        ],
+        "beta_semantics": "Retain moments/clock; new beta2 enters both native recurrence and 1-beta2**step correction.",
+        "clip_semantics": "Absolute global L2 raw-gradient threshold, FP64 norm, before native Adam; preserve raw histories.",
+        "cap_semantics": "Verified local affine cap on native stored increments; untargeted parameters and Adam moments remain native.",
+        "precision": "FP32 training/storage; FP64 reductions/local scores; deterministic; TF32 off; unfused/non-foreach Adam.",
+        "retention": "Full fork/predecessor, calibration pool, all scalar/probe/update histories, five full held-out evaluations, three full audits/arm, rolling recovery and terminal state. Diagnostic recovery replays from the immutable fork.",
+        "authorization": "User explicitly approved faster option and full delivery on 14 November: Spark MLP +2 RTX4090 ResNet +6 RTX5090 Transformer; total task USD50 including retries/storage, maximum8h execution, no extra initializations or cap-by-LR grid."
+      },
+      "environment": {
+        "gpu": "NVIDIA GB10",
+        "torch": "2.11.0+cu130",
+        "cuda": "13.0",
+        "numpy": "2.5.0",
+        "deterministic": true,
+        "tf32": false
+      },
+      "workers": [
+        "spark"
+      ],
+      "shared_fork_fingerprint": "8e1d0ac133e60abe975ebb5f9ee34e64397c138a6eb9542eee643b183ac1fef7",
+      "eight_step_fingerprint": "bf33e22ea7ea2043df6423e54440bc0bd6c9b3f1e287376b7836495a54140d8d",
+      "calibration_states": [
+        504,
+        505,
+        506,
+        507,
+        508,
+        509,
+        510,
+        511
+      ],
+      "stages": [
+        [
+          "1",
+          "Linear 1"
+        ],
+        [
+          "2",
+          "Tanh 1"
+        ],
+        [
+          "3",
+          "Linear 2"
+        ],
+        [
+          "4",
+          "Tanh 2"
+        ],
+        [
+          "output",
+          "Output"
+        ]
+      ],
+      "prefix_seconds": 6.93426599400118
+    },
+    {
+      "case": "resnet",
+      "config": {
+        "run_id": 294,
+        "hypothesis": "H051",
+        "analysis_id": "065",
+        "case": "resnet",
+        "seed": 0,
+        "fork": 256,
+        "end": 576,
+        "base_lr": 0.003,
+        "physical": 1000,
+        "probe": 1000,
+        "quantiles": [
+          0.25,
+          0.5,
+          0.75
+        ],
+        "arms": [
+          {
+            "id": "control",
+            "kind": "control",
+            "family": "control"
+          },
+          {
+            "id": "lr_0p75",
+            "kind": "lr",
+            "family": "lr",
+            "lr_multiplier": 0.75
+          },
+          {
+            "id": "lr_0p5",
+            "kind": "lr",
+            "family": "lr",
+            "lr_multiplier": 0.5
+          },
+          {
+            "id": "lr_0p1",
+            "kind": "lr",
+            "family": "lr",
+            "lr_multiplier": 0.1
+          },
+          {
+            "id": "beta2_0p95",
+            "kind": "beta2",
+            "family": "beta2",
+            "beta2": 0.95
+          },
+          {
+            "id": "beta2_0p9",
+            "kind": "beta2",
+            "family": "beta2",
+            "beta2": 0.9
+          },
+          {
+            "id": "beta2_0p5",
+            "kind": "beta2",
+            "family": "beta2",
+            "beta2": 0.5
+          },
+          {
+            "id": "clip_0p5",
+            "kind": "clip",
+            "family": "clipping",
+            "clip": 0.5
+          },
+          {
+            "id": "clip_1p0",
+            "kind": "clip",
+            "family": "clipping",
+            "clip": 1.0
+          },
+          {
+            "id": "cap_q25",
+            "kind": "functional",
+            "family": "cap",
+            "scope": "trunk",
+            "quantile": 0.25
+          },
+          {
+            "id": "cap_q50",
+            "kind": "functional",
+            "family": "cap",
+            "scope": "trunk",
+            "quantile": 0.5
+          },
+          {
+            "id": "cap_q75",
+            "kind": "functional",
+            "family": "cap",
+            "scope": "trunk",
+            "quantile": 0.75
+          }
+        ],
+        "checkpoint_every": 64,
+        "maximum_worker_seconds": 25200,
+        "torch_version": "2.11.0",
+        "cuda_version": "12.8",
+        "calibration": "Native outgoing states fork-8 through fork-1; np.quantile linear over all unit scores and eight transitions. Frozen before treatment.",
+        "endpoint": "Stop at end, without applying end->end+1; primary mean uses fork+1 through end.",
+        "controls": "Native full prefix and same complete fork/runtime/probe for all arms; exact predecessor replay and eight-update cross-worker fingerprint required.",
+        "heldout_states": [
+          256,
+          288,
+          416,
+          544,
+          576
+        ],
+        "beta_semantics": "Retain moments/clock; new beta2 enters both native recurrence and 1-beta2**step correction.",
+        "clip_semantics": "Absolute global L2 raw-gradient threshold, FP64 norm, before native Adam; preserve raw histories.",
+        "cap_semantics": "Verified local affine cap on native stored increments; untargeted parameters and Adam moments remain native.",
+        "precision": "FP32 training/storage; FP64 reductions/local scores; deterministic; TF32 off; unfused/non-foreach Adam.",
+        "retention": "Full fork/predecessor, calibration pool, all scalar/probe/update histories, five full held-out evaluations, three full audits/arm, rolling recovery and terminal state. Diagnostic recovery replays from the immutable fork.",
+        "authorization": "User explicitly approved faster option and full delivery on 14 November: Spark MLP +2 RTX4090 ResNet +6 RTX5090 Transformer; total task USD50 including retries/storage, maximum8h execution, no extra initializations or cap-by-LR grid."
+      },
+      "environment": {
+        "gpu": "NVIDIA GeForce RTX 4090",
+        "torch": "2.11.0+cu128",
+        "cuda": "12.8",
+        "numpy": "2.5.0",
+        "deterministic": true,
+        "tf32": false
+      },
+      "workers": [
+        "resnet-0",
+        "resnet-1"
+      ],
+      "shared_fork_fingerprint": "80f059c2b3bce034e95495140ac922fb625d1b60a4ae874c523ede9b290958af",
+      "eight_step_fingerprint": "b328c41f401a727c6b379a82c514c7b8456df50ff6cefeb70ab5a072b1e4899e",
+      "calibration_states": [
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255
+      ],
+      "stages": [
+        [
+          "conv1",
+          "Conv 1"
+        ],
+        [
+          "layer1",
+          "Stage 1"
+        ],
+        [
+          "layer2",
+          "Stage 2"
+        ],
+        [
+          "layer3",
+          "Stage 3"
+        ],
+        [
+          "avgpool",
+          "Pooling"
+        ],
+        [
+          "output",
+          "Output"
+        ]
+      ],
+      "prefix_seconds": 885.4424379095435
+    },
+    {
+      "case": "transformer",
+      "config": {
+        "run_id": 295,
+        "hypothesis": "H051",
+        "analysis_id": "065",
+        "case": "transformer",
+        "seed": 0,
+        "fork": 544,
+        "end": 928,
+        "base_lr": 0.003,
+        "physical": 64,
+        "probe": 64,
+        "quantiles": [
+          0.25,
+          0.5,
+          0.75
+        ],
+        "arms": [
+          {
+            "id": "control",
+            "kind": "control",
+            "family": "control"
+          },
+          {
+            "id": "lr_0p75",
+            "kind": "lr",
+            "family": "lr",
+            "lr_multiplier": 0.75
+          },
+          {
+            "id": "lr_0p5",
+            "kind": "lr",
+            "family": "lr",
+            "lr_multiplier": 0.5
+          },
+          {
+            "id": "lr_0p1",
+            "kind": "lr",
+            "family": "lr",
+            "lr_multiplier": 0.1
+          },
+          {
+            "id": "beta2_0p95",
+            "kind": "beta2",
+            "family": "beta2",
+            "beta2": 0.95
+          },
+          {
+            "id": "beta2_0p9",
+            "kind": "beta2",
+            "family": "beta2",
+            "beta2": 0.9
+          },
+          {
+            "id": "beta2_0p5",
+            "kind": "beta2",
+            "family": "beta2",
+            "beta2": 0.5
+          },
+          {
+            "id": "clip_0p5",
+            "kind": "clip",
+            "family": "clipping",
+            "clip": 0.5
+          },
+          {
+            "id": "clip_1p0",
+            "kind": "clip",
+            "family": "clipping",
+            "clip": 1.0
+          },
+          {
+            "id": "cap_q25",
+            "kind": "functional",
+            "family": "cap",
+            "scope": "trunk",
+            "quantile": 0.25
+          },
+          {
+            "id": "cap_q50",
+            "kind": "functional",
+            "family": "cap",
+            "scope": "trunk",
+            "quantile": 0.5
+          },
+          {
+            "id": "cap_q75",
+            "kind": "functional",
+            "family": "cap",
+            "scope": "trunk",
+            "quantile": 0.75
+          }
+        ],
+        "checkpoint_every": 64,
+        "maximum_worker_seconds": 25200,
+        "torch_version": "2.11.0",
+        "cuda_version": "12.8",
+        "calibration": "Native outgoing states fork-8 through fork-1; np.quantile linear over all unit scores and eight transitions. Frozen before treatment.",
+        "endpoint": "Stop at end, without applying end->end+1; primary mean uses fork+1 through end.",
+        "controls": "Native full prefix and same complete fork/runtime/probe for all arms; exact predecessor replay and eight-update cross-worker fingerprint required.",
+        "heldout_states": [
+          544,
+          576,
+          736,
+          896,
+          928
+        ],
+        "beta_semantics": "Retain moments/clock; new beta2 enters both native recurrence and 1-beta2**step correction.",
+        "clip_semantics": "Absolute global L2 raw-gradient threshold, FP64 norm, before native Adam; preserve raw histories.",
+        "cap_semantics": "Verified local affine cap on native stored increments; untargeted parameters and Adam moments remain native.",
+        "precision": "FP32 training/storage; FP64 reductions/local scores; deterministic; TF32 off; unfused/non-foreach Adam.",
+        "retention": "Full fork/predecessor, calibration pool, all scalar/probe/update histories, five full held-out evaluations, three full audits/arm, rolling recovery and terminal state. Diagnostic recovery replays from the immutable fork.",
+        "authorization": "User explicitly approved faster option and full delivery on 14 November: Spark MLP +2 RTX4090 ResNet +6 RTX5090 Transformer; total task USD50 including retries/storage, maximum8h execution, no extra initializations or cap-by-LR grid."
+      },
+      "environment": {
+        "gpu": "NVIDIA GeForce RTX 5090",
+        "torch": "2.11.0+cu128",
+        "cuda": "12.8",
+        "numpy": "2.5.0",
+        "deterministic": true,
+        "tf32": false
+      },
+      "workers": [
+        "transformer-1",
+        "transformer-2",
+        "transformer-3",
+        "transformer-4",
+        "transformer-5",
+        "transformer-6"
+      ],
+      "shared_fork_fingerprint": "428c4e89f679764267a86a28696c00547e1bbf81b6cf21d4816f50d39b0d96aa",
+      "eight_step_fingerprint": "b971d7fd770757b8c8bda370f3e5fbd08405545cc4754ccc815904bd7fc9edda",
+      "calibration_states": [
+        536,
+        537,
+        538,
+        539,
+        540,
+        541,
+        542,
+        543
+      ],
+      "stages": [
+        [
+          "encoder",
+          "Embedding"
+        ],
+        [
+          "transformer_encoder.layers.0.self_attn",
+          "Attention 1"
+        ],
+        [
+          "transformer_encoder.layers.0",
+          "Block 1"
+        ],
+        [
+          "transformer_encoder.layers.1.self_attn",
+          "Attention 2"
+        ],
+        [
+          "transformer_encoder.layers.1",
+          "Block 2"
+        ],
+        [
+          "output",
+          "Output"
+        ]
+      ],
+      "prefix_seconds": 5240.038632684387
+    }
+  ],
+  "conditions": 36,
+  "updates": 11904,
+  "boundaries": 11940,
+  "heldout_evaluation_states": 180,
+  "gradient_update_audits": 108,
+  "terminal_gradient_replays": 36,
+  "terminal_heldout_split_replays": 48,
+  "sources": {
+    "runs/293-2026-11-14-mlp-matched-interventions/config.json": {
+      "bytes": 3165,
+      "sha256": "a4f66286d559dc088fb6c41c739893c9b978364c6cc9778a8a14686a38647ab5"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/spark_durable_retention.json": {
+      "bytes": 709,
+      "sha256": "ac1fe0af0e7ed903838e66d4acaf8ef0c6ccb6841d4c0760604ab6b4e033b87e"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/durable_inventory.json": {
+      "bytes": 24146,
+      "sha256": "088f5c9aaeebd76ac07b726f927c0bf524161e719eb3c26233aa1a67f4a24f0c"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/shared/ready.json": {
+      "bytes": 461,
+      "sha256": "ef5d47edc3439949ebb978f819fb2347399e685cde673c84415880567df79069"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/shared/prefix.jsonl": {
+      "bytes": 64913,
+      "sha256": "2fd95325c8576f018bbe76ed6a574048ef5d664322d62e86001256792ae6be53"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/input_manifest.json": {
+      "bytes": 7077,
+      "sha256": "867382517ac8861430123b968ff576799a39155bd6f8b33893e744c684b5d13f"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/shared/thresholds.json": {
+      "bytes": 633,
+      "sha256": "711a920e5b5238531e40323a53d230baa2597e5f58b890ded833bb573edc6ebb"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/shared/calibration.npz": {
+      "bytes": 26090,
+      "sha256": "8ef75871391d4c8bb18f703ca5efce9648e96aa0fc384da4dd06c88dd5fe7ec7"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/shared/layout.json": {
+      "bytes": 492,
+      "sha256": "e91428bead401e605cdbc969bc1acd69b49b5b18974674d0c122dd3f962c213d"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/manifest.json": {
+      "bytes": 9276,
+      "sha256": "6732c5f860a4a95792e80611717d7037c1909e72afb23730b89bfb8db4646c36"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/verification.json": {
+      "bytes": 2401,
+      "sha256": "82d00f80b70a0d8073a853ef298490d5c41b3d2ba06d9bd68f46ea0ff032e612"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/shared_replay.json": {
+      "bytes": 341,
+      "sha256": "42560c962580a0e501d1f5d193b0ae88e54df88a7829f8c6c26f424e5b5fddc1"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/control/boundaries.jsonl": {
+      "bytes": 319210,
+      "sha256": "025111cfc08154ba0a59e1eac1cc36f4a1c9bd80664a8439b7bae3a38c7115d7"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/control/updates.jsonl": {
+      "bytes": 215295,
+      "sha256": "8b1257d46d563897a13c9d74bb125c2bbfb44d333122eb5c6c3b2e3f8953506f"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/control/evaluations.jsonl": {
+      "bytes": 1073,
+      "sha256": "a36b457d8ae26879ef1566cdda1850136d9d0acb3ae343baf7d18521508a3a8f"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/control/status.json": {
+      "bytes": 575,
+      "sha256": "7a7fe89fa472ae43723aa51dbf594fd1458c98b7be1d3c7c876dbb2ae88bf144"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/lr_0p75/boundaries.jsonl": {
+      "bytes": 322159,
+      "sha256": "6e00b5f885797a7796918dee12c793dfff99dece8379caa406fd048af6103191"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/lr_0p75/updates.jsonl": {
+      "bytes": 217039,
+      "sha256": "4eda9742fefe9c200cf090cfa55a0d18d7ab99ca1e5695c484a44e1e8ff65a75"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/lr_0p75/evaluations.jsonl": {
+      "bytes": 1073,
+      "sha256": "f37a97bfd9df509881a102bbb67a6691f8eca93374be0af3505929f48ea2e958"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/lr_0p75/status.json": {
+      "bytes": 592,
+      "sha256": "0d549ee2f61bc585612730f30bf194f443b2c3f5f94b8051aa55218bc7d70643"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/lr_0p5/boundaries.jsonl": {
+      "bytes": 324853,
+      "sha256": "185865f14fdd733bcc48951e4bbdcff7774f2a88e181bbd212cc14e34533cf7e"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/lr_0p5/updates.jsonl": {
+      "bytes": 217665,
+      "sha256": "1006e5cfe1e3fa63258cc060a0e006064cec665a38cee50c7bf89ab4afd8224f"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/lr_0p5/evaluations.jsonl": {
+      "bytes": 1074,
+      "sha256": "a87c5b8ba730ccdeaca608b2c7fc3a9546210ea505eb2d5fcf6a6e506da68d81"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/lr_0p5/status.json": {
+      "bytes": 590,
+      "sha256": "d2e375ddb0ba246c406f49065d7b03824bbd935e3664bae06b274b7c4e035ace"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/lr_0p1/boundaries.jsonl": {
+      "bytes": 324831,
+      "sha256": "3224391038e4a7d633b345c3160af7674e7c09dc01520617ae000a6537fb50a4"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/lr_0p1/updates.jsonl": {
+      "bytes": 218131,
+      "sha256": "6060a57878c8a51b9846758c3811cb3ffc6285b4ec13b515f9e7c8d2bc83c5d7"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/lr_0p1/evaluations.jsonl": {
+      "bytes": 1073,
+      "sha256": "5b7c74842bce63db6e8567ff409f13254fb735605a84edb135d69dbd5b42dc7e"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/lr_0p1/status.json": {
+      "bytes": 590,
+      "sha256": "679c923a0e29f20532cd4044fb1ac5ad5b6d23a8eff17746d32d58ed2f3cf45f"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/beta2_0p95/boundaries.jsonl": {
+      "bytes": 318953,
+      "sha256": "69d6ef1ff3877de736aa50ac7048d9bc4565c360c590abb3f3ce62be918cb354"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/beta2_0p95/updates.jsonl": {
+      "bytes": 214921,
+      "sha256": "d9950914d173918d4c3f5772d06fc2e541526ea66c13ec8cc993afb828874801"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/beta2_0p95/evaluations.jsonl": {
+      "bytes": 1071,
+      "sha256": "ccfe1437f4e4226cb37cf36fae6eb615afd8071a054f7012d10fa1558ab8807e"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/beta2_0p95/status.json": {
+      "bytes": 593,
+      "sha256": "aa88932780d2ad9b3034996c15affe36c09a83059fd78bb0dae49055b4b00685"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/beta2_0p9/boundaries.jsonl": {
+      "bytes": 319300,
+      "sha256": "6fd43f627fbd5b24f5e73d9e88d5dc9b4b7e3af62cab3e4f5d9e900cb8b2e66a"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/beta2_0p9/updates.jsonl": {
+      "bytes": 214624,
+      "sha256": "7ecf0b18cad51d92da4fa3ff95b3e6a6e0f966f1714155e225e18207bc4865d3"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/beta2_0p9/evaluations.jsonl": {
+      "bytes": 1073,
+      "sha256": "30538e144f4bf190eb0bccafff6b3b924d8bc505b12cbaa81016495f6fa8889b"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/beta2_0p9/status.json": {
+      "bytes": 591,
+      "sha256": "dd080ee828a9eb7797f7587c7dcb639c38033398967106e893bc4c8a06d85b01"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/beta2_0p5/boundaries.jsonl": {
+      "bytes": 318049,
+      "sha256": "753fef7dbc1650234b573ce83b0c8b6348463af820e9cfa5eb01ab0222fc6810"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/beta2_0p5/updates.jsonl": {
+      "bytes": 214168,
+      "sha256": "e0a1046e04df48e202d66e8f53e1504821b1713c051518c9f0afc6f6b2928833"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/beta2_0p5/evaluations.jsonl": {
+      "bytes": 1066,
+      "sha256": "77ac250b8dc331b75baa27fe920ea8dc4c3dcd01bce91c664707b665c4316630"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/beta2_0p5/status.json": {
+      "bytes": 591,
+      "sha256": "5c3b189f7753f425f6480cf30dd8b503d584ae9e4b0ee04885ae1f060ccc6aa7"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/clip_0p5/boundaries.jsonl": {
+      "bytes": 319928,
+      "sha256": "3b0095e726a4238e3cf69c093728eb8ce76e726083f4a224260593e82d9f550d"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/clip_0p5/updates.jsonl": {
+      "bytes": 219374,
+      "sha256": "97d46a8204b08e33dc3bb146d99b46e43ec833c12ad2efcd8366822de73e99c3"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/clip_0p5/evaluations.jsonl": {
+      "bytes": 1072,
+      "sha256": "35687af818438343520759dbd4b25eea1e3c2e9ff1bccb180fc0842a7e019648"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/clip_0p5/status.json": {
+      "bytes": 592,
+      "sha256": "26e28e90270f5c41fd6d15ae0546fcd0d6f48d98533a8a2abb584e7cd21cb58e"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/clip_1p0/boundaries.jsonl": {
+      "bytes": 318856,
+      "sha256": "ce13d2d5d8649b531777418df654480011640210641080d2f9450bebcc2a9a49"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/clip_1p0/updates.jsonl": {
+      "bytes": 217021,
+      "sha256": "b5b48291d68b01e5c9fd749f59960cbee93770395229926b529c78463b4e2ff5"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/clip_1p0/evaluations.jsonl": {
+      "bytes": 1073,
+      "sha256": "4ba968d1a4707445374d1a18b7e2dd17aacff24534558b13f984e8aeb202e75a"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/clip_1p0/status.json": {
+      "bytes": 592,
+      "sha256": "e8c04a0e60b07bad3deead9b01335d97be9478fcf2eef0d7adbeb394f5a9fd4c"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/cap_q25/boundaries.jsonl": {
+      "bytes": 322840,
+      "sha256": "015de44efb59234e6dd32fc70e9fae186f93da368b956f26c480898a4b3b43a4"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/cap_q25/updates.jsonl": {
+      "bytes": 9051027,
+      "sha256": "18c62b98f15b8c34c2224c900ea699f882a8a91c762df2110946186f4e4dab99"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/cap_q25/evaluations.jsonl": {
+      "bytes": 1069,
+      "sha256": "e585e8ffebe4ca509043be2246a7110619ad26f9decbc5accc111a11e7a443df"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/cap_q25/status.json": {
+      "bytes": 619,
+      "sha256": "53c6be2c527ca7ef756598a6275226bb45592bd598e0c669b9f262f4e6e29917"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/cap_q50/boundaries.jsonl": {
+      "bytes": 321905,
+      "sha256": "5be676a1c14f86eb2e9baeae40738b6894c03b2cbb817443367f89af3ec4417e"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/cap_q50/updates.jsonl": {
+      "bytes": 8171023,
+      "sha256": "512433bee17a356081ac51c3b9802229c33250aa71d87fbd747027b9afb211ed"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/cap_q50/evaluations.jsonl": {
+      "bytes": 1065,
+      "sha256": "46f29426fe04a2ce68a956a8935b88a2216c5272bf8e3695ba82ba0a3f9244c3"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/cap_q50/status.json": {
+      "bytes": 618,
+      "sha256": "a1bdebec0f2f96cdad2fe12db08fde762ef7651292fa026231ec992cb618c111"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/cap_q75/boundaries.jsonl": {
+      "bytes": 320007,
+      "sha256": "d437773e6351223981444ce918a6c69d8929f4bb056d9303e4cf3a71a4b3598f"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/cap_q75/updates.jsonl": {
+      "bytes": 7669548,
+      "sha256": "1f66f7b91d31b4b7c15ad1a0d1071045a913a620a2cbca8bbc321d557edbed49"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/cap_q75/evaluations.jsonl": {
+      "bytes": 1073,
+      "sha256": "2703f6c7f015cac09707d6fae3b2d7b6dba42eb680d3396afc92b9ec86d80983"
+    },
+    "runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/cap_q75/status.json": {
+      "bytes": 619,
+      "sha256": "8240d3a4ad26952812807bf850f4cc52a0b3c9d39d7aaec69f5ccea48f6d1af8"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/config.json": {
+      "bytes": 3168,
+      "sha256": "066d32579657b55f79640548078bf082d0cc527e77a80eae4ba5c2a941359b19"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/spark_durable_retention.json": {
+      "bytes": 718,
+      "sha256": "e50e59a701179558b7d6b4c9261f163c72f4808f38543239a239410547d92671"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/durable_inventory.json": {
+      "bytes": 27018,
+      "sha256": "cf614fb229754ef3ed48cff9d44b68c8c047b1d9553d9c2de8dd8ab49f3fbbfb"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/shared/ready.json": {
+      "bytes": 473,
+      "sha256": "06c99ae178d86658e2a50ecc8019680b3266691c087c786c19eb10b9a927373d"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/shared/prefix.jsonl": {
+      "bytes": 31482,
+      "sha256": "dbccd4864804a7579f8ca4ff57570ac1a066f08c4842f4cb8d4ec986010c30c2"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/input_manifest.json": {
+      "bytes": 6934,
+      "sha256": "bd50b9ab0e1e97e413645c8b908cadb95c9c52ec5272372956a84de8bc2edcdf"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/shared/thresholds.json": {
+      "bytes": 6056,
+      "sha256": "fc3a0e785334022011ab9a54a8b0f1242c6dc8f13319f04924d113de72fb60af"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/shared/calibration.npz": {
+      "bytes": 80022,
+      "sha256": "d4779bb840a5ed07bf1463e273b04e4516d716da0c6af59d2fcc2edf65d7041a"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/shared/layout.json": {
+      "bytes": 10083,
+      "sha256": "03f27fd8cdbbd840cd630c31ff9437e97e79f517b14b1e0f44ae29c8f6a200ea"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/manifest.json": {
+      "bytes": 5078,
+      "sha256": "19a43e7cce62bca75a140ad5a67d614506bfd9a9318c3f896ef6cf90ab419af6"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/verification.json": {
+      "bytes": 1526,
+      "sha256": "da51b47ada5b58f8e3a4b8b320d4beef1a3185c7efad9126dd353bd9773141c5"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/shared_replay.json": {
+      "bytes": 341,
+      "sha256": "72579523c2ec828b3a2c9d7423ab0afe9bb8f9cf2ba588880b76f6e5dfd1e370"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/manifest.json": {
+      "bytes": 5035,
+      "sha256": "0793928bad36e6b69775b509d06c31ceb8effa42a6f7222a1fb34f141e24350b"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/verification.json": {
+      "bytes": 1529,
+      "sha256": "4e0bc4f480c58c0790ead94d3322bbb3de9a6943b75c92852007c0f89b7cfddc"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/shared_replay.json": {
+      "bytes": 341,
+      "sha256": "72579523c2ec828b3a2c9d7423ab0afe9bb8f9cf2ba588880b76f6e5dfd1e370"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/control/boundaries.jsonl": {
+      "bytes": 412186,
+      "sha256": "cafae9e6f7a9d6e2a9af7dc179d767daf5bd3fad72c91bb8d5617938e727b9cb"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/control/updates.jsonl": {
+      "bytes": 236571,
+      "sha256": "983d049021a1f2cef41eb1a55fc4c0f565d3bfcee0419aaa1d9994e0f87fa66f"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/control/evaluations.jsonl": {
+      "bytes": 1050,
+      "sha256": "8ac6695f9d5b5f97e3d602cf67a4db0986a6b9a50fb3cab0ba95d29d842a8b7d"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/control/status.json": {
+      "bytes": 592,
+      "sha256": "ca0e6b900d7629599f04319776870cddc8a51da40a9ee49a1a7feb3bc050f1d3"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/lr_0p75/boundaries.jsonl": {
+      "bytes": 411512,
+      "sha256": "36dfdd2913cbb5dd5943d6faccb91032b6c2fe91b5103135d45242565cfdf260"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/lr_0p75/updates.jsonl": {
+      "bytes": 241467,
+      "sha256": "2a3d1e0e3af4aff06a747325a5281700d9b112f83b828fe45909c0780a2d3e0f"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/lr_0p75/evaluations.jsonl": {
+      "bytes": 1048,
+      "sha256": "1731d641851d9c61b9da5687018037b6b040d2aa7693945805582a2f23619e65"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/lr_0p75/status.json": {
+      "bytes": 609,
+      "sha256": "630ed003078dc5bf96d445b8cde3f82aed6d781c0c2147381739615e41416710"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/lr_0p5/boundaries.jsonl": {
+      "bytes": 411684,
+      "sha256": "13697191ac5dad80abb7f7a5e7ae994da8256f005922cddd6280987f12262b63"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/lr_0p5/updates.jsonl": {
+      "bytes": 236750,
+      "sha256": "089b75db07b914bc308d95567d34495decf0e00ee72f28b4274818dd85cedb7f"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/lr_0p5/evaluations.jsonl": {
+      "bytes": 1051,
+      "sha256": "180c28f9d0c0cd9a2b2de46bd7c8005b0b16229f4cb5a4fcf0b953ababa8a116"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/lr_0p5/status.json": {
+      "bytes": 607,
+      "sha256": "64a4344dfe86aef27150bda30748fdf4aa7d5dfafeb9e7808ae9ea97ba08fe74"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/lr_0p1/boundaries.jsonl": {
+      "bytes": 412810,
+      "sha256": "273feb02e2334231422f8b70046b62cabef4e9ffd12e2380a7c3a0f6b4acb701"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/lr_0p1/updates.jsonl": {
+      "bytes": 243044,
+      "sha256": "0bd91006a519c880702f7a5b8c5b0383018a6c0c1dc7da88e2b75f96d62e4e77"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/lr_0p1/evaluations.jsonl": {
+      "bytes": 1052,
+      "sha256": "27fb71cffcd9ae8a6c61dbde6b007d90a2e259b667d172430e7b1a55596f9eb1"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/lr_0p1/status.json": {
+      "bytes": 607,
+      "sha256": "591fdda496633952a93c46ac7323bfcaf26c88047c2abfd42be3ae36ba93c52b"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/beta2_0p95/boundaries.jsonl": {
+      "bytes": 410978,
+      "sha256": "2dcc601906b5a6f871aa39f2b5f15a4d68d42e0c4b92da6ba42c290a5302eeb7"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/beta2_0p95/updates.jsonl": {
+      "bytes": 235398,
+      "sha256": "fb17deb5da7dd694d93d8aa0ed3056141cfacffe4ba2239ba5045dc2de9bbfcd"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/beta2_0p95/evaluations.jsonl": {
+      "bytes": 1051,
+      "sha256": "c79022d9f3c0ae47baf9ae30a1f30940058314a9207a6e8db065e4cc89e5cb8c"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/beta2_0p95/status.json": {
+      "bytes": 610,
+      "sha256": "4a20b9d5403d25d3e9d63ec033ea8becf53df9e460c59d21d666bb08408b4d66"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/beta2_0p9/boundaries.jsonl": {
+      "bytes": 411267,
+      "sha256": "a0e7f0753a99acabb1c291b36cc6739f17b2e590a14111c5165dfa46392e7d36"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/beta2_0p9/updates.jsonl": {
+      "bytes": 234950,
+      "sha256": "1f8912195567082973742eace29238ec9a09c609c70a9aa76343d1c90b677090"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/beta2_0p9/evaluations.jsonl": {
+      "bytes": 1050,
+      "sha256": "f1266b9b1d1e58968219676953946637cd0a7ca310b60c6cd00e4005a049dcfa"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/beta2_0p9/status.json": {
+      "bytes": 608,
+      "sha256": "4afa3cc2a08610117dfd28cfca8c99fb3577cdaa2bfdd7f85a8a926f5d7482a5"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/beta2_0p5/boundaries.jsonl": {
+      "bytes": 411061,
+      "sha256": "f22007aaa133a2d9803677b138802b1cf87e7d5f83f945abcc91afc27630a8c3"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/beta2_0p5/updates.jsonl": {
+      "bytes": 234532,
+      "sha256": "d79ccaf95d0ca5b92fdeecac26c0e874871a5e2b0f8a14eba1ae6ee82b4c9e56"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/beta2_0p5/evaluations.jsonl": {
+      "bytes": 1050,
+      "sha256": "1d29ad4df92c054fdc3bf053a20cee82d99afe508313a6e83cbbeef1395d04ca"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/beta2_0p5/status.json": {
+      "bytes": 608,
+      "sha256": "c068ea42b53ce3f46b4ffc90cf141cd6779b187289bac32ec1385c7356fdc169"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/clip_0p5/boundaries.jsonl": {
+      "bytes": 411697,
+      "sha256": "2fbdd048301e7e45391a1d5e1ecc45bfbda781de3c73a708743ba4d0b8dbba71"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/clip_0p5/updates.jsonl": {
+      "bytes": 241445,
+      "sha256": "c1e94f6f54a0016cfd59477e8950dcec9b262aa78a4d13ffc0928e77656f4797"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/clip_0p5/evaluations.jsonl": {
+      "bytes": 1046,
+      "sha256": "59fac92953acc48e7467e0b42c48bf53c82588da3e4a09b0ca6b66a7a2656db4"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/clip_0p5/status.json": {
+      "bytes": 608,
+      "sha256": "ec6d7d75a124603871c3134034c42e12ec4d40a2ae49d0a83dcea7c1d5b7b65f"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/clip_1p0/boundaries.jsonl": {
+      "bytes": 411435,
+      "sha256": "539c1fd70fc32a44392bb4e7456ed17a5cb02badc551367f07c5b96c62cad833"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/clip_1p0/updates.jsonl": {
+      "bytes": 240632,
+      "sha256": "98ae2fc2748b90954b3639b11f2651d766208df8fc97874f51e26db6b7f2defe"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/clip_1p0/evaluations.jsonl": {
+      "bytes": 1050,
+      "sha256": "441fa9a3fd6fa4434da72447ad8cb0368ff85d71dc2e825087e5abeafca5b668"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/clip_1p0/status.json": {
+      "bytes": 607,
+      "sha256": "2b58b97336d9f5be1aa688711fa02cb8528400ec36b558a99cf4cb35aaaeb330"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/cap_q25/boundaries.jsonl": {
+      "bytes": 412963,
+      "sha256": "c7be360075efb9de237298ac8af339d0d59ed803d4cc79adaff1851a74a50b10"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/cap_q25/updates.jsonl": {
+      "bytes": 16107689,
+      "sha256": "c907272d707778b23af6ae9fbbfcac0d76b95cb50ce1b1d68858e4f5322c6d03"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/cap_q25/evaluations.jsonl": {
+      "bytes": 1053,
+      "sha256": "d22562d6b327d241b8036e8242ce70e7b04a1ac9ee573d4238d1c1834b20405a"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/cap_q25/status.json": {
+      "bytes": 635,
+      "sha256": "02d625b35aa1151aa1bf2ce3167574cfbe4b973c930042116fd0a5db7f17efdd"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/cap_q50/boundaries.jsonl": {
+      "bytes": 411814,
+      "sha256": "2bf7a7bf6723af58e25f9d0ca89ac440da907ddca5d1a34bd1131c714546c004"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/cap_q50/updates.jsonl": {
+      "bytes": 17986663,
+      "sha256": "81a677ff784664683a57eecd0cc7485b3b7820671809571d36c19d14215d35d1"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/cap_q50/evaluations.jsonl": {
+      "bytes": 1051,
+      "sha256": "4fe913489a7023c916dc564db414c0149c5bc7674ebb2709ac89d79d4281266d"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/cap_q50/status.json": {
+      "bytes": 632,
+      "sha256": "fb6b92093bfe52f42ee4b06b8e27e0bb3fdab9da9c535d21f97456602e3fc428"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/cap_q75/boundaries.jsonl": {
+      "bytes": 412972,
+      "sha256": "3a65d878888d84e690c7ada7b6b5fd2e0c8c6533cbed64f91d07c35ac8cd6122"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/cap_q75/updates.jsonl": {
+      "bytes": 20225368,
+      "sha256": "3620f99ad02cc6d968f829e34d1b8c28b042cca0fafd540db564695e4e299877"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/cap_q75/evaluations.jsonl": {
+      "bytes": 1052,
+      "sha256": "a347fcc0cb04ff909325bbdc11f658cd98c42e64bf45257e4403fe42d14fc272"
+    },
+    "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0/cap_q75/status.json": {
+      "bytes": 635,
+      "sha256": "ba27ed7d34192f0d9b30fc98b84563d5d9919c32e72bff3aba92e8d94f9801c6"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/config.json": {
+      "bytes": 3169,
+      "sha256": "b301ad26fa2c9dfbee7d9fd9da594e13bf26c732e83b9a810b615f4b7b68332f"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/spark_durable_retention.json": {
+      "bytes": 735,
+      "sha256": "f613ede7a64695af401dd195d0f99f1e6433d1c720c8cdd46961f8a48b0fdde5"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/durable_inventory.json": {
+      "bytes": 33207,
+      "sha256": "fd38156824cd13dac63b3f238ebb2d992e0b5fae5f137be3a81c822779a90ee2"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/shared/ready.json": {
+      "bytes": 473,
+      "sha256": "b5c8a4db709301572b31dbbe02ac14eafd6d3784aa8fb38487ca19e756727e83"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/shared/prefix.jsonl": {
+      "bytes": 66859,
+      "sha256": "287f0175680fc1895d199e7954e46826eac00701a1e77ec0913357bcf8592b57"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/input_manifest.json": {
+      "bytes": 6960,
+      "sha256": "4043cfabaeec9ee6569639dce27834bce632319a23621287c241e75c6921a622"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/shared/thresholds.json": {
+      "bytes": 1749,
+      "sha256": "0a4ca8774ed40fc1b97362263563ba9228c5daf23423de13589de47d7f7ff584"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/shared/calibration.npz": {
+      "bytes": 129426,
+      "sha256": "9ac2da7e65a860356d9945bbe11abb55776808c31748b87245c3bf85523d0080"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/shared/layout.json": {
+      "bytes": 3471,
+      "sha256": "7008aede8f251f10639f34aa84650d77295b7643954b07670684b84f949df69c"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-1/manifest.json": {
+      "bytes": 2115,
+      "sha256": "4df7d8413e1412af51cd45f2048ed48eaccb77e8adfe65faac33310a89e46c29"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-1/verification.json": {
+      "bytes": 942,
+      "sha256": "4a4450754c2c6420700eec06fb6920d7b4870e6822c8465505452f8ebd122c88"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-1/shared_replay.json": {
+      "bytes": 341,
+      "sha256": "659fab69d3bad8e1976b1f48b3466ffdc5a932478ec50459aa39a28aa1865231"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-2/manifest.json": {
+      "bytes": 2135,
+      "sha256": "d4b4d1cbf01e12bf12c2c42d325e7e02318d54b998c5204bfd0f808c6290485f"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-2/verification.json": {
+      "bytes": 943,
+      "sha256": "92e274e012098060b4e37479a8a95548b0726adfc9fa2109d731297fd3874082"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-2/shared_replay.json": {
+      "bytes": 341,
+      "sha256": "659fab69d3bad8e1976b1f48b3466ffdc5a932478ec50459aa39a28aa1865231"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-3/manifest.json": {
+      "bytes": 2132,
+      "sha256": "2127deda4b9b6b9005e085fb2a5daaea8e1e4ebc821b9ffa5d05771879fe72da"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-3/verification.json": {
+      "bytes": 942,
+      "sha256": "390cc4fd65f5852307f4f7027114a333dcc040e80c72dd4f823be4dd4cfb8d9b"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-3/shared_replay.json": {
+      "bytes": 341,
+      "sha256": "659fab69d3bad8e1976b1f48b3466ffdc5a932478ec50459aa39a28aa1865231"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-4/manifest.json": {
+      "bytes": 2108,
+      "sha256": "72e26189fd9f13d19d3716abf03c2f3750e79ea7b502fb752072d14fbe534119"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-4/verification.json": {
+      "bytes": 946,
+      "sha256": "f450239aef77588a0795cd2371b6688eef86b8bcb505dc8066e94dfc2b1cc50b"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-4/shared_replay.json": {
+      "bytes": 341,
+      "sha256": "659fab69d3bad8e1976b1f48b3466ffdc5a932478ec50459aa39a28aa1865231"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-5/manifest.json": {
+      "bytes": 2106,
+      "sha256": "6b45c5b6610575b0020142fb42815aa01e9447f12924fc7b252f5cc59a84ecae"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-5/verification.json": {
+      "bytes": 945,
+      "sha256": "d8c741a800e3254e320c2f01b68057796e91e0fb923b5fdb8a0a0eea99c930b8"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-5/shared_replay.json": {
+      "bytes": 341,
+      "sha256": "659fab69d3bad8e1976b1f48b3466ffdc5a932478ec50459aa39a28aa1865231"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-6/manifest.json": {
+      "bytes": 2106,
+      "sha256": "347ecec882dfb32a9b76aa7d1b21e4c318bf3056b732c42d6f80c01dcf7a442d"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-6/verification.json": {
+      "bytes": 946,
+      "sha256": "787944ee4c1f7132c83a74cbd6d35cbf98fd65b677cc5515f0dc6e6163871b9d"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-6/shared_replay.json": {
+      "bytes": 341,
+      "sha256": "659fab69d3bad8e1976b1f48b3466ffdc5a932478ec50459aa39a28aa1865231"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-1/control/boundaries.jsonl": {
+      "bytes": 533444,
+      "sha256": "d6278e4edb3d9c5337688addfaf83854084faeba723e624cab294e76a036662a"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-1/control/updates.jsonl": {
+      "bytes": 283385,
+      "sha256": "a9c07c12233c1a693dc9fc28f3693f43873f6c37e9b566f4811332f41261d684"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-1/control/evaluations.jsonl": {
+      "bytes": 1487,
+      "sha256": "61509f6b846322c865a1a1080111e0e7ba0e77147ad4499377bf1e07f3088511"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-1/control/status.json": {
+      "bytes": 597,
+      "sha256": "4d86bb9d691349adc6f19268f49b669c31843470f03a146a6c55158d48cb89e5"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-2/lr_0p75/boundaries.jsonl": {
+      "bytes": 533775,
+      "sha256": "321c77e5d8ce220b4974e459c1f8a7cf97ed5e118640d58e15f50d11dc1ae326"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-2/lr_0p75/updates.jsonl": {
+      "bytes": 289823,
+      "sha256": "6933ea032efce074ef2980ff58a08af22f55bbbe6b4c471f267dbded11554334"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-2/lr_0p75/evaluations.jsonl": {
+      "bytes": 1491,
+      "sha256": "f7282a60b776f3ead739d13077e26f8e3d775bf129f3545926bda59eaac1b047"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-2/lr_0p75/status.json": {
+      "bytes": 614,
+      "sha256": "9954589e6d1fc98bd5b319d6772c88f5312f4fa741aeaf33f590246e868b3eb2"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-3/lr_0p5/boundaries.jsonl": {
+      "bytes": 534374,
+      "sha256": "b19a019becffb99fb7e363c24101601fcc19116f18264be1c78bf1610f2b724e"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-3/lr_0p5/updates.jsonl": {
+      "bytes": 284481,
+      "sha256": "5aa9a088bc9bf77f131b89c95da7dcd75c1b0db41dc80747c016f3a7549b1bd1"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-3/lr_0p5/evaluations.jsonl": {
+      "bytes": 1492,
+      "sha256": "5165b6cc87a06efa05b02ce1dfeefa173c9da5ebeabedc8eaadfeec19c2f828c"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-3/lr_0p5/status.json": {
+      "bytes": 611,
+      "sha256": "b7d9d1c38697f67d0e29d9601f2e5367c3966bbfabec851d20bc912d886a1b05"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-4/lr_0p1/boundaries.jsonl": {
+      "bytes": 536697,
+      "sha256": "6fb93f14707c829b506f2b549f9475dc83eadf00b5b2dd7eb22e7e6ce0c52226"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-4/lr_0p1/updates.jsonl": {
+      "bytes": 292563,
+      "sha256": "357076b5a458416ffbf739dfeb8848ba6869bb7753f203f88d8fe45dd6002454"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-4/lr_0p1/evaluations.jsonl": {
+      "bytes": 1496,
+      "sha256": "408e46bc2977f4ede0eb9d8bd950defda442ee2906537bd73cc665065e53208c"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-4/lr_0p1/status.json": {
+      "bytes": 611,
+      "sha256": "c44af6c28be12a970748e86b71d4c8ee9d63c205dd8a2f12260ed0f34ce61b6b"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-4/beta2_0p95/boundaries.jsonl": {
+      "bytes": 532659,
+      "sha256": "edf44d9b087bc5002eec7f2121ea471ce1ca925523b4babf5c1e7df338a5ecae"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-4/beta2_0p95/updates.jsonl": {
+      "bytes": 282317,
+      "sha256": "32e3881a7bcbc49791960828eac496ca02fd311769eafd6e906ff44c2570abae"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-4/beta2_0p95/evaluations.jsonl": {
+      "bytes": 1491,
+      "sha256": "0a0d4500b3331d7fdc9cd50205684a45523accc09797ef237f0151f78453b7f1"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-4/beta2_0p95/status.json": {
+      "bytes": 615,
+      "sha256": "801395a074650b2f6dbd3207ae449d94cd5ce84dc56e7c7830d804651b62cb88"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-5/beta2_0p9/boundaries.jsonl": {
+      "bytes": 533475,
+      "sha256": "e9ea770b7b4d6b17c3535622b9b2b617dfbe60dd9a09dda72a9ebcd272a11803"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-5/beta2_0p9/updates.jsonl": {
+      "bytes": 281651,
+      "sha256": "60e16c927c18b8d6045ee31dad27fc96bd6a0a56ce21def6080f7276bd0fd9f5"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-5/beta2_0p9/evaluations.jsonl": {
+      "bytes": 1492,
+      "sha256": "21946805a50d602435a9b08bcf7fadfed4199ff9ef4997265da8852bd49d6de4"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-5/beta2_0p9/status.json": {
+      "bytes": 611,
+      "sha256": "6651133663af3bb2760fcd859607c4acd96fcee2bb7a643e136a553cfc9c3e28"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-6/beta2_0p5/boundaries.jsonl": {
+      "bytes": 534063,
+      "sha256": "5e1aaf52182f226d99ba2b017e9e6ff89aa281170f04646191bff9cbda6c7148"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-6/beta2_0p5/updates.jsonl": {
+      "bytes": 281982,
+      "sha256": "f2672af4500b44708d1b805811084f45603a2a546b00d24f22c7fbdc5bf2e0e2"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-6/beta2_0p5/evaluations.jsonl": {
+      "bytes": 1496,
+      "sha256": "6c3dec53149dba8867a8338f9c49b188636e3a340a69f166fed2f47f6d1fc72d"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-6/beta2_0p5/status.json": {
+      "bytes": 612,
+      "sha256": "0dc8167345f577c1f74040cbfa465d5d39e80cd10ca24bd6da9c66a86d01a946"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-5/clip_0p5/boundaries.jsonl": {
+      "bytes": 534551,
+      "sha256": "c9a7dc8d3e259b559d474b3651ef6652bb41121a492db866935db02444c23f7c"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-5/clip_0p5/updates.jsonl": {
+      "bytes": 288162,
+      "sha256": "6a89ced03dc43641f252b651a90f829bb94937eaf73a5f93f13ef3030cd530cb"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-5/clip_0p5/evaluations.jsonl": {
+      "bytes": 1492,
+      "sha256": "cd1899bb8c47e4de64adc9a79b1b7d02773a2a870ccb462e80fa659948d29df4"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-5/clip_0p5/status.json": {
+      "bytes": 612,
+      "sha256": "be6d39bdfa909680472504085d751373cc45a83dc48e9c3c54bc23030bc2a465"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-6/clip_1p0/boundaries.jsonl": {
+      "bytes": 534212,
+      "sha256": "cbb28925cc52f8b242e18873c1992078cdb9583a81c35a6c605c27d30335cd9d"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-6/clip_1p0/updates.jsonl": {
+      "bytes": 286431,
+      "sha256": "827179f1c2e8e4349e0245d355c45b6a5297a7a18a70c5290ab16c5a239ba816"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-6/clip_1p0/evaluations.jsonl": {
+      "bytes": 1486,
+      "sha256": "8acce9bcb972ee751c7415708c804c4169bffbfa7b14da05708cceff56313c9f"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-6/clip_1p0/status.json": {
+      "bytes": 613,
+      "sha256": "9ce52be0ec10a9e97f68f99d51895c2fc39f95d35fe047e058c1e7d54bdea77a"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-1/cap_q25/boundaries.jsonl": {
+      "bytes": 534529,
+      "sha256": "7cf095d4fe7128cfd560aa0a8b2e3eae8696c7589364dffe2842c40641fa656e"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-1/cap_q25/updates.jsonl": {
+      "bytes": 65198837,
+      "sha256": "1299c0202d8ec6417e7a6c2070b87611b5f30b63ef49c05e6fd3f63cd5f0e743"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-1/cap_q25/evaluations.jsonl": {
+      "bytes": 1489,
+      "sha256": "8dc65359366fc692f8ea3b115b78bdd0e2b6970474ddf3009078fe66bdf19cb7"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-1/cap_q25/status.json": {
+      "bytes": 639,
+      "sha256": "a7131dfe80879fd9af581736a7437f20fbec0e41f17228f3ae3fc4a001d7cf57"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-2/cap_q50/boundaries.jsonl": {
+      "bytes": 534684,
+      "sha256": "27fa00eb5ba3f1b7e6f606c17f3a3562033e42e410b0e02eae66fd93dbc67dfc"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-2/cap_q50/updates.jsonl": {
+      "bytes": 64026779,
+      "sha256": "ab6059f25d92bde04341a62ee097d21c1906c095cf4563a0e206abd6c1125281"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-2/cap_q50/evaluations.jsonl": {
+      "bytes": 1490,
+      "sha256": "5349509a8bc3087dad0ac99b80e06f662e62af031a36ec9bdb5c15d94a97718d"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-2/cap_q50/status.json": {
+      "bytes": 638,
+      "sha256": "743c09998429e256f62c6345d8f34853e103c1064f26d45d5cc420607883320e"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-3/cap_q75/boundaries.jsonl": {
+      "bytes": 534451,
+      "sha256": "5140501ca207e745947e1593764678d4cba9ea9adff4be9802de771c65f3955d"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-3/cap_q75/updates.jsonl": {
+      "bytes": 62747102,
+      "sha256": "2ce3b5abcd03b1739340f059d45cf3c04512347b263c1a912b95e5ebd88261f6"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-3/cap_q75/evaluations.jsonl": {
+      "bytes": 1493,
+      "sha256": "d127cb2e3224dc834b738ddff0c1e8027e33505d86afe0b1156ff1e3a79869cb"
+    },
+    "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-3/cap_q75/status.json": {
+      "bytes": 639,
+      "sha256": "1db44e0cf5e1633f71c48c13582f630570f47633f83ea8924d1227943525f186"
+    }
+  },
+  "summary": [
+    {
+      "case": "mlp",
+      "run": 293,
+      "seed": 0,
+      "arm": "control",
+      "setting": "Unchanged Adam",
+      "family": "control",
+      "fork": 512,
+      "end": 800,
+      "updates": 288,
+      "fork_loss": 0.02305707847699523,
+      "positive_variation": 0.2883826005272567,
+      "negative_variation": 0.28118947241455317,
+      "positive_variation_over_fork": 12.507334821928334,
+      "mean_loss": 0.020804167521823222,
+      "final_loss": 0.03025020658969879,
+      "last32_loss": 0.013458456061925972,
+      "maximum_loss": 0.055062638595700264,
+      "increasing_updates": 161,
+      "worst_excursion_percent": 241.60689175343504,
+      "events_overlapping_window": 19,
+      "events_started_in_window": 19,
+      "events_carried_in": 0,
+      "events_right_censored": 1,
+      "recovered_event_median_duration": 13.5,
+      "events_ge_10pct": 16,
+      "events_ge_25pct": 13,
+      "events_ge_50pct": 10,
+      "events_ge_100pct": 4,
+      "terminal_test_loss": 0.7769601318359376,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": 0.0,
+      "mean_loss_change_percent": 0.0,
+      "final_loss_change_percent": 0.0,
+      "last32_loss_change_percent": 0.0,
+      "terminal_test_loss_change_percent": 0.0,
+      "pv_reduction_percent": -0.0,
+      "mse_rises_gt_1em8": 161,
+      "mse_rises_negative_linear_outweighed": 161
+    },
+    {
+      "case": "mlp",
+      "run": 293,
+      "seed": 0,
+      "arm": "lr_0p75",
+      "setting": "LR x0.75",
+      "family": "lr",
+      "fork": 512,
+      "end": 800,
+      "updates": 288,
+      "fork_loss": 0.02305707847699523,
+      "positive_variation": 0.23787467926740646,
+      "negative_variation": 0.2486255841795355,
+      "positive_variation_over_fork": 10.316774499628888,
+      "mean_loss": 0.017340503595429862,
+      "final_loss": 0.012306173564866185,
+      "last32_loss": 0.016008724633138627,
+      "maximum_loss": 0.05735131539404392,
+      "increasing_updates": 100,
+      "worst_excursion_percent": 285.2850958021225,
+      "events_overlapping_window": 24,
+      "events_started_in_window": 24,
+      "events_carried_in": 0,
+      "events_right_censored": 1,
+      "recovered_event_median_duration": 3.0,
+      "events_ge_10pct": 6,
+      "events_ge_25pct": 5,
+      "events_ge_50pct": 5,
+      "events_ge_100pct": 4,
+      "terminal_test_loss": 0.7590341857910156,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": -17.514205492115487,
+      "mean_loss_change_percent": -16.64889461575444,
+      "final_loss_change_percent": -59.31871232556525,
+      "last32_loss_change_percent": 18.949191196064284,
+      "terminal_test_loss_change_percent": -2.307189945842325,
+      "pv_reduction_percent": 17.514205492115487,
+      "mse_rises_gt_1em8": 100,
+      "mse_rises_negative_linear_outweighed": 100
+    },
+    {
+      "case": "mlp",
+      "run": 293,
+      "seed": 0,
+      "arm": "lr_0p5",
+      "setting": "LR x0.5",
+      "family": "lr",
+      "fork": 512,
+      "end": 800,
+      "updates": 288,
+      "fork_loss": 0.02305707847699523,
+      "positive_variation": 0.0028767420444637537,
+      "negative_variation": 0.015207685413770378,
+      "positive_variation_over_fork": 0.12476611238210294,
+      "mean_loss": 0.01559460096298911,
+      "final_loss": 0.010726135107688606,
+      "last32_loss": 0.011151445283758221,
+      "maximum_loss": 0.022656635381281376,
+      "increasing_updates": 11,
+      "worst_excursion_percent": 3.749441241770346,
+      "events_overlapping_window": 11,
+      "events_started_in_window": 11,
+      "events_carried_in": 0,
+      "events_right_censored": 0,
+      "recovered_event_median_duration": 2.0,
+      "events_ge_10pct": 0,
+      "events_ge_25pct": 0,
+      "events_ge_50pct": 0,
+      "events_ge_100pct": 0,
+      "terminal_test_loss": 0.7572042785644532,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": -99.00245644529035,
+      "mean_loss_change_percent": -25.040975820682863,
+      "final_loss_change_percent": -64.54194428099802,
+      "last32_loss_change_percent": -17.141719433139833,
+      "terminal_test_loss_change_percent": -2.5427113261013545,
+      "pv_reduction_percent": 99.00245644529035,
+      "mse_rises_gt_1em8": 11,
+      "mse_rises_negative_linear_outweighed": 11
+    },
+    {
+      "case": "mlp",
+      "run": 293,
+      "seed": 0,
+      "arm": "lr_0p1",
+      "setting": "LR x0.1",
+      "family": "lr",
+      "fork": 512,
+      "end": 800,
+      "updates": 288,
+      "fork_loss": 0.02305707847699523,
+      "positive_variation": 0.0012046867050230503,
+      "negative_variation": 0.005768204107880592,
+      "positive_variation_over_fork": 0.052248020330286166,
+      "mean_loss": 0.02011007944788111,
+      "final_loss": 0.018493561074137688,
+      "last32_loss": 0.018664935247215908,
+      "maximum_loss": 0.022580768913030624,
+      "increasing_updates": 13,
+      "worst_excursion_percent": 2.8846325138891515,
+      "events_overlapping_window": 7,
+      "events_started_in_window": 7,
+      "events_carried_in": 0,
+      "events_right_censored": 0,
+      "recovered_event_median_duration": 4.0,
+      "events_ge_10pct": 0,
+      "events_ge_25pct": 0,
+      "events_ge_50pct": 0,
+      "events_ge_100pct": 0,
+      "terminal_test_loss": 0.7108479858398437,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": -99.58226096067499,
+      "mean_loss_change_percent": -3.3362934287758717,
+      "final_loss_change_percent": -38.86467843021156,
+      "last32_loss_change_percent": 38.68556067154751,
+      "terminal_test_loss_change_percent": -8.509078302367012,
+      "pv_reduction_percent": 99.58226096067499,
+      "mse_rises_gt_1em8": 13,
+      "mse_rises_negative_linear_outweighed": 5
+    },
+    {
+      "case": "mlp",
+      "run": 293,
+      "seed": 0,
+      "arm": "beta2_0p95",
+      "setting": "beta2=0.95",
+      "family": "beta2",
+      "fork": 512,
+      "end": 800,
+      "updates": 288,
+      "fork_loss": 0.02305707847699523,
+      "positive_variation": 0.6488416192587465,
+      "negative_variation": 0.6527262285817415,
+      "positive_variation_over_fork": 28.140669248539712,
+      "mean_loss": 0.024295050821415823,
+      "final_loss": 0.019172469154000282,
+      "last32_loss": 0.01794841777154943,
+      "maximum_loss": 0.14261874742805958,
+      "increasing_updates": 146,
+      "worst_excursion_percent": 518.5464805107671,
+      "events_overlapping_window": 14,
+      "events_started_in_window": 14,
+      "events_carried_in": 0,
+      "events_right_censored": 1,
+      "recovered_event_median_duration": 23.0,
+      "events_ge_10pct": 13,
+      "events_ge_25pct": 11,
+      "events_ge_50pct": 9,
+      "events_ge_100pct": 4,
+      "terminal_test_loss": 0.7542552246093749,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": 124.9933311068192,
+      "mean_loss_change_percent": 16.779730772359546,
+      "final_loss_change_percent": -36.62036952656994,
+      "last32_loss_change_percent": 33.36164036174682,
+      "terminal_test_loss_change_percent": -2.922274425189819,
+      "pv_reduction_percent": -124.9933311068192,
+      "mse_rises_gt_1em8": 146,
+      "mse_rises_negative_linear_outweighed": 145
+    },
+    {
+      "case": "mlp",
+      "run": 293,
+      "seed": 0,
+      "arm": "beta2_0p9",
+      "setting": "beta2=0.9",
+      "family": "beta2",
+      "fork": 512,
+      "end": 800,
+      "updates": 288,
+      "fork_loss": 0.02305707847699523,
+      "positive_variation": 0.5131943703163415,
+      "negative_variation": 0.520366482436657,
+      "positive_variation_over_fork": 22.257562718900907,
+      "mean_loss": 0.024582060485651407,
+      "final_loss": 0.015884966356679797,
+      "last32_loss": 0.019314576289616525,
+      "maximum_loss": 0.07390197925269604,
+      "increasing_updates": 148,
+      "worst_excursion_percent": 220.5175335913887,
+      "events_overlapping_window": 13,
+      "events_started_in_window": 13,
+      "events_carried_in": 0,
+      "events_right_censored": 1,
+      "recovered_event_median_duration": 17.0,
+      "events_ge_10pct": 13,
+      "events_ge_25pct": 10,
+      "events_ge_50pct": 9,
+      "events_ge_100pct": 2,
+      "terminal_test_loss": 0.7468443908691407,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": 77.95607965877835,
+      "mean_loss_change_percent": 18.159308512898864,
+      "final_loss_change_percent": -47.488073148931285,
+      "last32_loss_change_percent": 43.51257083832627,
+      "terminal_test_loss_change_percent": -3.8760986224137595,
+      "pv_reduction_percent": -77.95607965877835,
+      "mse_rises_gt_1em8": 148,
+      "mse_rises_negative_linear_outweighed": 148
+    },
+    {
+      "case": "mlp",
+      "run": 293,
+      "seed": 0,
+      "arm": "beta2_0p5",
+      "setting": "beta2=0.5",
+      "family": "beta2",
+      "fork": 512,
+      "end": 800,
+      "updates": 288,
+      "fork_loss": 0.02305707847699523,
+      "positive_variation": 0.8290899838320911,
+      "negative_variation": 0.8173878067173064,
+      "positive_variation_over_fork": 35.95815422406183,
+      "mean_loss": 0.047228822424787924,
+      "final_loss": 0.03475925559177995,
+      "last32_loss": 0.03551395142858382,
+      "maximum_loss": 0.07636222429573536,
+      "increasing_updates": 140,
+      "worst_excursion_percent": 231.1877711303466,
+      "events_overlapping_window": 1,
+      "events_started_in_window": 1,
+      "events_carried_in": 0,
+      "events_right_censored": 1,
+      "recovered_event_median_duration": null,
+      "events_ge_10pct": 1,
+      "events_ge_25pct": 1,
+      "events_ge_50pct": 1,
+      "events_ge_100pct": 1,
+      "terminal_test_loss": 0.69101328125,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": 187.49653492140172,
+      "mean_loss_change_percent": 127.01616094585705,
+      "final_loss_change_percent": 14.905845316165989,
+      "last32_loss_change_percent": 163.87834730205748,
+      "terminal_test_loss_change_percent": -11.06193832402279,
+      "pv_reduction_percent": -187.49653492140172,
+      "mse_rises_gt_1em8": 140,
+      "mse_rises_negative_linear_outweighed": 140
+    },
+    {
+      "case": "mlp",
+      "run": 293,
+      "seed": 0,
+      "arm": "clip_0p5",
+      "setting": "Clip 0.5",
+      "family": "clipping",
+      "fork": 512,
+      "end": 800,
+      "updates": 288,
+      "fork_loss": 0.02305707847699523,
+      "positive_variation": 0.4767470059450716,
+      "negative_variation": 0.4831136134453118,
+      "positive_variation_over_fork": 20.676817595114535,
+      "mean_loss": 0.02123772102155878,
+      "final_loss": 0.016690470976755023,
+      "last32_loss": 0.016752828916651197,
+      "maximum_loss": 0.04662971291691065,
+      "increasing_updates": 143,
+      "worst_excursion_percent": 200.02322308982147,
+      "events_overlapping_window": 19,
+      "events_started_in_window": 19,
+      "events_carried_in": 0,
+      "events_right_censored": 1,
+      "recovered_event_median_duration": 4.0,
+      "events_ge_10pct": 17,
+      "events_ge_25pct": 9,
+      "events_ge_50pct": 2,
+      "events_ge_100pct": 1,
+      "terminal_test_loss": 0.7527294738769532,
+      "clipped_update_fraction": 0.8263888888888888,
+      "mean_clip_factor": 0.705717342381762,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": 65.31753478657303,
+      "mean_loss_change_percent": 2.08397427717677,
+      "final_loss_change_percent": -44.82526614400483,
+      "last32_loss_change_percent": 24.47808901382842,
+      "terminal_test_loss_change_percent": -3.118648816861158,
+      "pv_reduction_percent": -65.31753478657303,
+      "mse_rises_gt_1em8": 143,
+      "mse_rises_negative_linear_outweighed": 139
+    },
+    {
+      "case": "mlp",
+      "run": 293,
+      "seed": 0,
+      "arm": "clip_1p0",
+      "setting": "Clip 1.0",
+      "family": "clipping",
+      "fork": 512,
+      "end": 800,
+      "updates": 288,
+      "fork_loss": 0.02305707847699523,
+      "positive_variation": 1.4976041310001165,
+      "negative_variation": 1.4962367240805179,
+      "positive_variation_over_fork": 64.95203338507622,
+      "mean_loss": 0.030792351501683395,
+      "final_loss": 0.02442448539659381,
+      "last32_loss": 0.0641294403540087,
+      "maximum_loss": 0.21015971899032593,
+      "increasing_updates": 153,
+      "worst_excursion_percent": 1558.2526501378907,
+      "events_overlapping_window": 13,
+      "events_started_in_window": 13,
+      "events_carried_in": 0,
+      "events_right_censored": 1,
+      "recovered_event_median_duration": 17.0,
+      "events_ge_10pct": 13,
+      "events_ge_25pct": 13,
+      "events_ge_50pct": 6,
+      "events_ge_100pct": 2,
+      "terminal_test_loss": 0.7167457397460937,
+      "clipped_update_fraction": 0.4340277777777778,
+      "mean_clip_factor": 0.8972648725242228,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": 419.3115424654648,
+      "mean_loss_change_percent": 48.01049582677479,
+      "final_loss_change_percent": -19.258450932658544,
+      "last32_loss_change_percent": 376.4992363086219,
+      "terminal_test_loss_change_percent": -7.749997666876263,
+      "pv_reduction_percent": -419.3115424654648,
+      "mse_rises_gt_1em8": 153,
+      "mse_rises_negative_linear_outweighed": 148
+    },
+    {
+      "case": "mlp",
+      "run": 293,
+      "seed": 0,
+      "arm": "cap_q25",
+      "setting": "Cap q25",
+      "family": "cap",
+      "fork": 512,
+      "end": 800,
+      "updates": 288,
+      "fork_loss": 0.02305707847699523,
+      "positive_variation": 0.07116866891738027,
+      "negative_variation": 0.08450400154106319,
+      "positive_variation_over_fork": 3.0866299469981633,
+      "mean_loss": 0.014381195851456141,
+      "final_loss": 0.009721745853312314,
+      "last32_loss": 0.00974224423407577,
+      "maximum_loss": 0.022423028014600277,
+      "increasing_updates": 140,
+      "worst_excursion_percent": 7.3160740982593175,
+      "events_overlapping_window": 140,
+      "events_started_in_window": 140,
+      "events_carried_in": 0,
+      "events_right_censored": 1,
+      "recovered_event_median_duration": 2.0,
+      "events_ge_10pct": 0,
+      "events_ge_25pct": 0,
+      "events_ge_50pct": 0,
+      "events_ge_100pct": 0,
+      "terminal_test_loss": 0.7761347412109375,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": 0.6203385416666667,
+      "mean_cap_factor": 0.7333824586709625,
+      "minimum_cap_factor": 0.0695414388043503,
+      "cap_factor_p10": 0.3308291127340259,
+      "cap_factor_median": 0.8012726378221376,
+      "cap_factor_p90": 1.0,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": -3.7328207154206634e-08,
+      "mean_retained_update_norm_ratio": 0.5558487629466935,
+      "positive_variation_change_percent": -75.32144145060731,
+      "mean_loss_change_percent": -30.873485630364648,
+      "final_loss_change_percent": -67.86221666128094,
+      "last32_loss_change_percent": -27.612467661601848,
+      "terminal_test_loss_change_percent": -0.10623333053778605,
+      "pv_reduction_percent": 75.32144145060731,
+      "mse_rises_gt_1em8": 140,
+      "mse_rises_negative_linear_outweighed": 139
+    },
+    {
+      "case": "mlp",
+      "run": 293,
+      "seed": 0,
+      "arm": "cap_q50",
+      "setting": "Cap q50",
+      "family": "cap",
+      "fork": 512,
+      "end": 800,
+      "updates": 288,
+      "fork_loss": 0.02305707847699523,
+      "positive_variation": 0.03531435749027878,
+      "negative_variation": 0.04967994068283588,
+      "positive_variation_over_fork": 1.5316059025219966,
+      "mean_loss": 0.014109297521321828,
+      "final_loss": 0.008691495284438133,
+      "last32_loss": 0.009076198075490538,
+      "maximum_loss": 0.02306186081841588,
+      "increasing_updates": 70,
+      "worst_excursion_percent": 9.614837070918703,
+      "events_overlapping_window": 57,
+      "events_started_in_window": 57,
+      "events_carried_in": 0,
+      "events_right_censored": 0,
+      "recovered_event_median_duration": 2.0,
+      "events_ge_10pct": 0,
+      "events_ge_25pct": 0,
+      "events_ge_50pct": 0,
+      "events_ge_100pct": 0,
+      "terminal_test_loss": 0.781102734375,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": 0.4032291666666667,
+      "mean_cap_factor": 0.8811192614563876,
+      "minimum_cap_factor": 0.15815109635601193,
+      "cap_factor_p10": 0.5758718473109123,
+      "cap_factor_median": 1.0,
+      "cap_factor_p90": 1.0,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": -1.5451246849259442e-08,
+      "mean_retained_update_norm_ratio": 0.724441634696761,
+      "positive_variation_change_percent": -87.75433835962617,
+      "mean_loss_change_percent": -32.180427279671676,
+      "final_loss_change_percent": -71.26798040646149,
+      "last32_loss_change_percent": -32.56137231693953,
+      "terminal_test_loss_change_percent": 0.5331808376413782,
+      "pv_reduction_percent": 87.75433835962617,
+      "mse_rises_gt_1em8": 70,
+      "mse_rises_negative_linear_outweighed": 70
+    },
+    {
+      "case": "mlp",
+      "run": 293,
+      "seed": 0,
+      "arm": "cap_q75",
+      "setting": "Cap q75",
+      "family": "cap",
+      "fork": 512,
+      "end": 800,
+      "updates": 288,
+      "fork_loss": 0.02305707847699523,
+      "positive_variation": 0.007314225193113089,
+      "negative_variation": 0.01987585227470845,
+      "positive_variation_over_fork": 0.3172225483992137,
+      "mean_loss": 0.01500915150043309,
+      "final_loss": 0.010495451395399868,
+      "last32_loss": 0.010674018991267076,
+      "maximum_loss": 0.022720223758369684,
+      "increasing_updates": 89,
+      "worst_excursion_percent": 6.007855436720244,
+      "events_overlapping_window": 48,
+      "events_started_in_window": 48,
+      "events_carried_in": 0,
+      "events_right_censored": 1,
+      "recovered_event_median_duration": 3.0,
+      "events_ge_10pct": 0,
+      "events_ge_25pct": 0,
+      "events_ge_50pct": 0,
+      "events_ge_100pct": 0,
+      "terminal_test_loss": 0.7771270446777345,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": 0.2858159722222222,
+      "mean_cap_factor": 0.9362974760709145,
+      "minimum_cap_factor": 0.2624958017111313,
+      "cap_factor_p10": 0.7259450769211414,
+      "cap_factor_median": 1.0,
+      "cap_factor_p90": 1.0,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": -2.4905892985135902e-08,
+      "mean_retained_update_norm_ratio": 0.8494900180518796,
+      "positive_variation_change_percent": -97.46370787289513,
+      "mean_loss_change_percent": -27.855072861296936,
+      "final_loss_change_percent": -65.30452985741286,
+      "last32_loss_change_percent": -20.689127027996022,
+      "terminal_test_loss_change_percent": 0.021482806511907704,
+      "pv_reduction_percent": 97.46370787289513,
+      "mse_rises_gt_1em8": 89,
+      "mse_rises_negative_linear_outweighed": 89
+    },
+    {
+      "case": "resnet",
+      "run": 294,
+      "seed": 0,
+      "arm": "control",
+      "setting": "Unchanged Adam",
+      "family": "control",
+      "fork": 256,
+      "end": 576,
+      "updates": 320,
+      "fork_loss": 0.4825916876220702,
+      "positive_variation": 1.3148764125061034,
+      "negative_variation": 1.7907660556793212,
+      "positive_variation_over_fork": 2.7246147130818725,
+      "mean_loss": 0.17649629460182786,
+      "final_loss": 0.006702044448852539,
+      "last32_loss": 0.0082409339261055,
+      "maximum_loss": 0.49185978393554686,
+      "increasing_updates": 49,
+      "worst_excursion_percent": 311.5298491704021,
+      "events_overlapping_window": 15,
+      "events_started_in_window": 14,
+      "events_carried_in": 1,
+      "events_right_censored": 0,
+      "recovered_event_median_duration": 2.0,
+      "events_ge_10pct": 4,
+      "events_ge_25pct": 4,
+      "events_ge_50pct": 3,
+      "events_ge_100pct": 2,
+      "terminal_test_loss": 1.844334069824219,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": 0.0,
+      "mean_loss_change_percent": 0.0,
+      "final_loss_change_percent": 0.0,
+      "last32_loss_change_percent": 0.0,
+      "terminal_test_loss_change_percent": 0.0,
+      "pv_reduction_percent": -0.0
+    },
+    {
+      "case": "resnet",
+      "run": 294,
+      "seed": 0,
+      "arm": "lr_0p75",
+      "setting": "LR x0.75",
+      "family": "lr",
+      "fork": 256,
+      "end": 576,
+      "updates": 320,
+      "fork_loss": 0.4825916876220702,
+      "positive_variation": 1.662598802871704,
+      "negative_variation": 2.123354291763305,
+      "positive_variation_over_fork": 3.445145959856912,
+      "mean_loss": 0.20616805335986613,
+      "final_loss": 0.021836198730468753,
+      "last32_loss": 0.028451204062700276,
+      "maximum_loss": 0.8241919531249999,
+      "increasing_updates": 59,
+      "worst_excursion_percent": 1463.7212675746916,
+      "events_overlapping_window": 17,
+      "events_started_in_window": 16,
+      "events_carried_in": 1,
+      "events_right_censored": 0,
+      "recovered_event_median_duration": 2.0,
+      "events_ge_10pct": 5,
+      "events_ge_25pct": 4,
+      "events_ge_50pct": 3,
+      "events_ge_100pct": 2,
+      "terminal_test_loss": 1.6345670043945313,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": 26.44525272933105,
+      "mean_loss_change_percent": 16.81154770131417,
+      "final_loss_change_percent": 225.81399447757082,
+      "last32_loss_change_percent": 245.24247273204077,
+      "terminal_test_loss_change_percent": -11.373593800697957,
+      "pv_reduction_percent": -26.44525272933105
+    },
+    {
+      "case": "resnet",
+      "run": 294,
+      "seed": 0,
+      "arm": "lr_0p5",
+      "setting": "LR x0.5",
+      "family": "lr",
+      "fork": 256,
+      "end": 576,
+      "updates": 320,
+      "fork_loss": 0.4825916876220702,
+      "positive_variation": 1.4609027989959724,
+      "negative_variation": 1.889037783050538,
+      "positive_variation_over_fork": 3.027202574073432,
+      "mean_loss": 0.22450798612213135,
+      "final_loss": 0.054456703567504865,
+      "last32_loss": 0.0760786843943596,
+      "maximum_loss": 0.8951674365234378,
+      "increasing_updates": 49,
+      "worst_excursion_percent": 1349.9458696360246,
+      "events_overlapping_window": 16,
+      "events_started_in_window": 15,
+      "events_carried_in": 1,
+      "events_right_censored": 0,
+      "recovered_event_median_duration": 2.0,
+      "events_ge_10pct": 4,
+      "events_ge_25pct": 3,
+      "events_ge_50pct": 3,
+      "events_ge_100pct": 2,
+      "terminal_test_loss": 1.4263006713867192,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": 11.105711920981864,
+      "mean_loss_change_percent": 27.202662599017692,
+      "final_loss_change_percent": 712.538681041252,
+      "last32_loss_change_percent": 823.1803710178859,
+      "terminal_test_loss_change_percent": -22.665817721262506,
+      "pv_reduction_percent": -11.105711920981864
+    },
+    {
+      "case": "resnet",
+      "run": 294,
+      "seed": 0,
+      "arm": "lr_0p1",
+      "setting": "LR x0.1",
+      "family": "lr",
+      "fork": 256,
+      "end": 576,
+      "updates": 320,
+      "fork_loss": 0.4825916876220702,
+      "positive_variation": 0.013372888793945326,
+      "negative_variation": 0.25126749114990227,
+      "positive_variation_over_fork": 0.027710565964861735,
+      "mean_loss": 0.33439132373046876,
+      "final_loss": 0.24469708526611328,
+      "last32_loss": 0.254222452287674,
+      "maximum_loss": 0.47405399963378914,
+      "increasing_updates": 5,
+      "worst_excursion_percent": 4.881108593794314,
+      "events_overlapping_window": 3,
+      "events_started_in_window": 2,
+      "events_carried_in": 1,
+      "events_right_censored": 0,
+      "recovered_event_median_duration": 5.0,
+      "events_ge_10pct": 0,
+      "events_ge_25pct": 0,
+      "events_ge_50pct": 0,
+      "events_ge_100pct": 0,
+      "terminal_test_loss": 1.0042995971679687,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": -98.98295469697742,
+      "mean_loss_change_percent": 89.46081813493532,
+      "final_loss_change_percent": 3551.0812056462564,
+      "last32_loss_change_percent": 2984.874294190761,
+      "terminal_test_loss_change_percent": -45.546763268127066,
+      "pv_reduction_percent": 98.98295469697742
+    },
+    {
+      "case": "resnet",
+      "run": 294,
+      "seed": 0,
+      "arm": "beta2_0p95",
+      "setting": "beta2=0.95",
+      "family": "beta2",
+      "fork": 256,
+      "end": 576,
+      "updates": 320,
+      "fork_loss": 0.4825916876220702,
+      "positive_variation": 4.606118900442125,
+      "negative_variation": 4.974460682516099,
+      "positive_variation_over_fork": 9.544546701867963,
+      "mean_loss": 0.22672081449174883,
+      "final_loss": 0.11424990554809569,
+      "last32_loss": 0.3078855338525773,
+      "maximum_loss": 2.494611171875,
+      "increasing_updates": 78,
+      "worst_excursion_percent": 25386.082512201567,
+      "events_overlapping_window": 29,
+      "events_started_in_window": 28,
+      "events_carried_in": 1,
+      "events_right_censored": 1,
+      "recovered_event_median_duration": 2.0,
+      "events_ge_10pct": 8,
+      "events_ge_25pct": 5,
+      "events_ge_50pct": 3,
+      "events_ge_100pct": 3,
+      "terminal_test_loss": 1.2516149169921877,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": 250.3081245227482,
+      "mean_loss_change_percent": 28.456416041609533,
+      "final_loss_change_percent": 1604.702295247482,
+      "last32_loss_change_percent": 3636.051479277881,
+      "terminal_test_loss_change_percent": -32.1372989053183,
+      "pv_reduction_percent": -250.3081245227482
+    },
+    {
+      "case": "resnet",
+      "run": 294,
+      "seed": 0,
+      "arm": "beta2_0p9",
+      "setting": "beta2=0.9",
+      "family": "beta2",
+      "fork": 256,
+      "end": 576,
+      "updates": 320,
+      "fork_loss": 0.4825916876220702,
+      "positive_variation": 2.1474914018249516,
+      "negative_variation": 2.6086943733787535,
+      "positive_variation_over_fork": 4.449913781993499,
+      "mean_loss": 0.17026741223585606,
+      "final_loss": 0.021388716068267824,
+      "last32_loss": 0.08910656218945981,
+      "maximum_loss": 0.841458426513672,
+      "increasing_updates": 110,
+      "worst_excursion_percent": 7629.45992110672,
+      "events_overlapping_window": 45,
+      "events_started_in_window": 44,
+      "events_carried_in": 1,
+      "events_right_censored": 1,
+      "recovered_event_median_duration": 2.0,
+      "events_ge_10pct": 12,
+      "events_ge_25pct": 7,
+      "events_ge_50pct": 4,
+      "events_ge_100pct": 3,
+      "terminal_test_loss": 1.8896777954101567,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": 63.32268047397065,
+      "mean_loss_change_percent": -3.5291859129530367,
+      "final_loss_change_percent": 219.13718614518888,
+      "last32_loss_change_percent": 981.2677663533916,
+      "terminal_test_loss_change_percent": 2.4585418839147444,
+      "pv_reduction_percent": -63.32268047397065
+    },
+    {
+      "case": "resnet",
+      "run": 294,
+      "seed": 0,
+      "arm": "beta2_0p5",
+      "setting": "beta2=0.5",
+      "family": "beta2",
+      "fork": 256,
+      "end": 576,
+      "updates": 320,
+      "fork_loss": 0.4825916876220702,
+      "positive_variation": 1.0289296495056148,
+      "negative_variation": 1.4564156848144527,
+      "positive_variation_over_fork": 2.132091529747598,
+      "mean_loss": 0.18757819319808483,
+      "final_loss": 0.05510565231323242,
+      "last32_loss": 0.049971441606283196,
+      "maximum_loss": 0.491914440307617,
+      "increasing_updates": 145,
+      "worst_excursion_percent": 75.33424726584795,
+      "events_overlapping_window": 63,
+      "events_started_in_window": 62,
+      "events_carried_in": 1,
+      "events_right_censored": 1,
+      "recovered_event_median_duration": 4.0,
+      "events_ge_10pct": 22,
+      "events_ge_25pct": 8,
+      "events_ge_50pct": 1,
+      "events_ge_100pct": 0,
+      "terminal_test_loss": 2.0629738037109373,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": -21.747044838646477,
+      "mean_loss_change_percent": 6.278827904720319,
+      "final_loss_change_percent": 722.2215285765091,
+      "last32_loss_change_percent": 506.3808065246641,
+      "terminal_test_loss_change_percent": 11.854670878988681,
+      "pv_reduction_percent": 21.747044838646477
+    },
+    {
+      "case": "resnet",
+      "run": 294,
+      "seed": 0,
+      "arm": "clip_0p5",
+      "setting": "Clip 0.5",
+      "family": "clipping",
+      "fork": 256,
+      "end": 576,
+      "updates": 320,
+      "fork_loss": 0.4825916876220702,
+      "positive_variation": 1.3485264507293702,
+      "negative_variation": 1.7733352212524411,
+      "positive_variation_over_fork": 2.7943424748447705,
+      "mean_loss": 0.2021173896403313,
+      "final_loss": 0.05778291709899903,
+      "last32_loss": 0.07538031111717225,
+      "maximum_loss": 0.6922962182617188,
+      "increasing_updates": 128,
+      "worst_excursion_percent": 98.71385622747937,
+      "events_overlapping_window": 66,
+      "events_started_in_window": 65,
+      "events_carried_in": 1,
+      "events_right_censored": 0,
+      "recovered_event_median_duration": 3.0,
+      "events_ge_10pct": 18,
+      "events_ge_25pct": 5,
+      "events_ge_50pct": 3,
+      "events_ge_100pct": 0,
+      "terminal_test_loss": 1.4771713745117188,
+      "clipped_update_fraction": 1.0,
+      "mean_clip_factor": 0.29638241617671307,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": 2.5591787869349014,
+      "mean_loss_change_percent": 14.516505910962096,
+      "final_loss_change_percent": 762.168514995332,
+      "last32_loss_change_percent": 814.7059276665681,
+      "terminal_test_loss_change_percent": -19.907602495652753,
+      "pv_reduction_percent": -2.5591787869349014
+    },
+    {
+      "case": "resnet",
+      "run": 294,
+      "seed": 0,
+      "arm": "clip_1p0",
+      "setting": "Clip 1.0",
+      "family": "clipping",
+      "fork": 256,
+      "end": 576,
+      "updates": 320,
+      "fork_loss": 0.4825916876220702,
+      "positive_variation": 2.4410194311523443,
+      "negative_variation": 2.8616238808441166,
+      "positive_variation_over_fork": 5.058146449186188,
+      "mean_loss": 0.19991944661831856,
+      "final_loss": 0.06198723793029784,
+      "last32_loss": 0.07824459446907044,
+      "maximum_loss": 0.5369715185546875,
+      "increasing_updates": 133,
+      "worst_excursion_percent": 354.547958187882,
+      "events_overlapping_window": 43,
+      "events_started_in_window": 42,
+      "events_carried_in": 1,
+      "events_right_censored": 1,
+      "recovered_event_median_duration": 3.0,
+      "events_ge_10pct": 24,
+      "events_ge_25pct": 12,
+      "events_ge_50pct": 4,
+      "events_ge_100pct": 2,
+      "terminal_test_loss": 1.5674311035156252,
+      "clipped_update_fraction": 0.99375,
+      "mean_clip_factor": 0.42890503457172924,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": 85.64630165506246,
+      "mean_loss_change_percent": 13.271186270132684,
+      "final_loss_change_percent": 824.9004300607213,
+      "last32_loss_change_percent": 849.4627086040387,
+      "terminal_test_loss_change_percent": -15.013709871714564,
+      "pv_reduction_percent": -85.64630165506246
+    },
+    {
+      "case": "resnet",
+      "run": 294,
+      "seed": 0,
+      "arm": "cap_q25",
+      "setting": "Cap q25",
+      "family": "cap",
+      "fork": 256,
+      "end": 576,
+      "updates": 320,
+      "fork_loss": 0.4825916876220702,
+      "positive_variation": 0.8403421927642827,
+      "negative_variation": 1.3180039957571035,
+      "positive_variation_over_fork": 1.741310955654868,
+      "mean_loss": 0.13844246482737366,
+      "final_loss": 0.004929884629249575,
+      "last32_loss": 0.005935067428797484,
+      "maximum_loss": 0.4522739453125001,
+      "increasing_updates": 75,
+      "worst_excursion_percent": 86.6448706564665,
+      "events_overlapping_window": 42,
+      "events_started_in_window": 41,
+      "events_carried_in": 1,
+      "events_right_censored": 0,
+      "recovered_event_median_duration": 2.0,
+      "events_ge_10pct": 11,
+      "events_ge_25pct": 4,
+      "events_ge_50pct": 3,
+      "events_ge_100pct": 0,
+      "terminal_test_loss": 2.0205922363281252,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": 0.17144586267605633,
+      "mean_cap_factor": 0.9433249063982226,
+      "minimum_cap_factor": 0.07965117380441164,
+      "cap_factor_p10": 0.7296366297019086,
+      "cap_factor_median": 1.0,
+      "cap_factor_p90": 1.0,
+      "disabled_zero_budget_modules": 10,
+      "max_cap_bound_residual": -3.587781392463962e-08,
+      "mean_retained_update_norm_ratio": 0.9348039450341229,
+      "positive_variation_change_percent": -36.08964426073907,
+      "mean_loss_change_percent": -21.56069613829734,
+      "final_loss_change_percent": -26.442077982732215,
+      "last32_loss_change_percent": -27.98064537325713,
+      "terminal_test_loss_change_percent": 9.55673754488009,
+      "pv_reduction_percent": 36.08964426073907
+    },
+    {
+      "case": "resnet",
+      "run": 294,
+      "seed": 0,
+      "arm": "cap_q50",
+      "setting": "Cap q50",
+      "family": "cap",
+      "fork": 256,
+      "end": 576,
+      "updates": 320,
+      "fork_loss": 0.4825916876220702,
+      "positive_variation": 1.2784387870407097,
+      "negative_variation": 1.75298687883377,
+      "positive_variation_over_fork": 2.6491106660790384,
+      "mean_loss": 0.15986329273357985,
+      "final_loss": 0.008043595829010012,
+      "last32_loss": 0.010010412322580816,
+      "maximum_loss": 0.4523664166259765,
+      "increasing_updates": 107,
+      "worst_excursion_percent": 274.3347830423589,
+      "events_overlapping_window": 46,
+      "events_started_in_window": 45,
+      "events_carried_in": 1,
+      "events_right_censored": 0,
+      "recovered_event_median_duration": 2.5,
+      "events_ge_10pct": 9,
+      "events_ge_25pct": 2,
+      "events_ge_50pct": 1,
+      "events_ge_100pct": 1,
+      "terminal_test_loss": 1.8890482543945315,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": 0.16404599471830986,
+      "mean_cap_factor": 0.933717327184417,
+      "minimum_cap_factor": 0.042444243681378814,
+      "cap_factor_p10": 0.720248515187748,
+      "cap_factor_median": 1.0,
+      "cap_factor_p90": 1.0,
+      "disabled_zero_budget_modules": 5,
+      "max_cap_bound_residual": -5.357819157086885e-09,
+      "mean_retained_update_norm_ratio": 0.899525515051699,
+      "positive_variation_change_percent": -2.771182532352612,
+      "mean_loss_change_percent": -9.42399493755477,
+      "final_loss_change_percent": 20.017046893611102,
+      "last32_loss_change_percent": 21.471818756730833,
+      "terminal_test_loss_change_percent": 2.4244080994813677,
+      "pv_reduction_percent": 2.771182532352612
+    },
+    {
+      "case": "resnet",
+      "run": 294,
+      "seed": 0,
+      "arm": "cap_q75",
+      "setting": "Cap q75",
+      "family": "cap",
+      "fork": 256,
+      "end": 576,
+      "updates": 320,
+      "fork_loss": 0.4825916876220702,
+      "positive_variation": 0.44519526992797886,
+      "negative_variation": 0.9229537765693666,
+      "positive_variation_over_fork": 0.9225091963801552,
+      "mean_loss": 0.1421230347361863,
+      "final_loss": 0.004833180980682373,
+      "last32_loss": 0.005969138320684434,
+      "maximum_loss": 0.4560750109863281,
+      "increasing_updates": 66,
+      "worst_excursion_percent": 34.87188827486711,
+      "events_overlapping_window": 29,
+      "events_started_in_window": 28,
+      "events_carried_in": 1,
+      "events_right_censored": 0,
+      "recovered_event_median_duration": 3.0,
+      "events_ge_10pct": 4,
+      "events_ge_25pct": 1,
+      "events_ge_50pct": 0,
+      "events_ge_100pct": 0,
+      "terminal_test_loss": 2.0434800292968753,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": 0.09005006602112677,
+      "mean_cap_factor": 0.9468314838468276,
+      "minimum_cap_factor": 0.015312397657527066,
+      "cap_factor_p10": 1.0,
+      "cap_factor_median": 1.0,
+      "cap_factor_p90": 1.0,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": -7.528170813749131e-08,
+      "mean_retained_update_norm_ratio": 0.7545361945366311,
+      "positive_variation_change_percent": -66.14166428923507,
+      "mean_loss_change_percent": -19.47534362870732,
+      "final_loss_change_percent": -27.884975732892002,
+      "last32_loss_change_percent": -27.567210534530663,
+      "terminal_test_loss_change_percent": 10.79771624517225,
+      "pv_reduction_percent": 66.14166428923507
+    },
+    {
+      "case": "transformer",
+      "run": 295,
+      "seed": 0,
+      "arm": "control",
+      "setting": "Unchanged Adam",
+      "family": "control",
+      "fork": 544,
+      "end": 928,
+      "updates": 384,
+      "fork_loss": 0.8672125477924622,
+      "positive_variation": 5.886678120329,
+      "negative_variation": 5.836062714502663,
+      "positive_variation_over_fork": 6.788045370554044,
+      "mean_loss": 0.849627680862139,
+      "final_loss": 0.917827953618799,
+      "last32_loss": 0.9936820109799412,
+      "maximum_loss": 2.5927019073126907,
+      "increasing_updates": 53,
+      "worst_excursion_percent": 354.17432034056844,
+      "events_overlapping_window": 8,
+      "events_started_in_window": 8,
+      "events_carried_in": 0,
+      "events_right_censored": 1,
+      "recovered_event_median_duration": 44.0,
+      "events_ge_10pct": 5,
+      "events_ge_25pct": 5,
+      "events_ge_50pct": 5,
+      "events_ge_100pct": 2,
+      "terminal_valid_loss": 15.66774107537736,
+      "terminal_test_loss": 15.42560189338984,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": 0.0,
+      "mean_loss_change_percent": 0.0,
+      "final_loss_change_percent": 0.0,
+      "last32_loss_change_percent": 0.0,
+      "terminal_test_loss_change_percent": 0.0,
+      "terminal_valid_loss_change_percent": 0.0,
+      "pv_reduction_percent": -0.0
+    },
+    {
+      "case": "transformer",
+      "run": 295,
+      "seed": 0,
+      "arm": "lr_0p75",
+      "setting": "LR x0.75",
+      "family": "lr",
+      "fork": 544,
+      "end": 928,
+      "updates": 384,
+      "fork_loss": 0.8672125477924622,
+      "positive_variation": 3.655511602021652,
+      "negative_variation": 3.9087294516727344,
+      "positive_variation_over_fork": 4.215242977430343,
+      "mean_loss": 0.8242924308940474,
+      "final_loss": 0.6139946981413795,
+      "last32_loss": 0.6306301981222695,
+      "maximum_loss": 2.866551462590073,
+      "increasing_updates": 55,
+      "worst_excursion_percent": 352.1541742157014,
+      "events_overlapping_window": 11,
+      "events_started_in_window": 11,
+      "events_carried_in": 0,
+      "events_right_censored": 0,
+      "recovered_event_median_duration": 5.0,
+      "events_ge_10pct": 3,
+      "events_ge_25pct": 3,
+      "events_ge_50pct": 3,
+      "events_ge_100pct": 2,
+      "terminal_valid_loss": 16.918444973981074,
+      "terminal_test_loss": 16.711752204871715,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": -37.90196223914908,
+      "mean_loss_change_percent": -2.981923793064667,
+      "final_loss_change_percent": -33.103508591067644,
+      "last32_loss_change_percent": -36.53601543009118,
+      "terminal_test_loss_change_percent": 8.33776419468606,
+      "terminal_valid_loss_change_percent": 7.9826689283834185,
+      "pv_reduction_percent": 37.90196223914908
+    },
+    {
+      "case": "transformer",
+      "run": 295,
+      "seed": 0,
+      "arm": "lr_0p5",
+      "setting": "LR x0.5",
+      "family": "lr",
+      "fork": 544,
+      "end": 928,
+      "updates": 384,
+      "fork_loss": 0.8672125477924622,
+      "positive_variation": 2.001730378620412,
+      "negative_variation": 2.241236795353988,
+      "positive_variation_over_fork": 2.3082350269445806,
+      "mean_loss": 0.7530739023570617,
+      "final_loss": 0.6277061310588867,
+      "last32_loss": 0.6483475761647359,
+      "maximum_loss": 1.552413174728658,
+      "increasing_updates": 37,
+      "worst_excursion_percent": 142.81166300029912,
+      "events_overlapping_window": 14,
+      "events_started_in_window": 14,
+      "events_carried_in": 0,
+      "events_right_censored": 0,
+      "recovered_event_median_duration": 3.0,
+      "events_ge_10pct": 2,
+      "events_ge_25pct": 2,
+      "events_ge_50pct": 2,
+      "events_ge_100pct": 1,
+      "terminal_valid_loss": 16.97243182864121,
+      "terminal_test_loss": 16.763770052242418,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": -65.99558634422944,
+      "mean_loss_change_percent": -11.36424585497281,
+      "final_loss_change_percent": -31.60960846921518,
+      "last32_loss_change_percent": -34.75301263375455,
+      "terminal_test_loss_change_percent": 8.674981813357995,
+      "terminal_valid_loss_change_percent": 8.327242242432998,
+      "pv_reduction_percent": 65.99558634422944
+    },
+    {
+      "case": "transformer",
+      "run": 295,
+      "seed": 0,
+      "arm": "lr_0p1",
+      "setting": "LR x0.1",
+      "family": "lr",
+      "fork": 544,
+      "end": 928,
+      "updates": 384,
+      "fork_loss": 0.8672125477924622,
+      "positive_variation": 0.0,
+      "negative_variation": 0.11000166755200658,
+      "positive_variation_over_fork": 0.0,
+      "mean_loss": 0.8027094562540199,
+      "final_loss": 0.7572108802404556,
+      "last32_loss": 0.7605856742601359,
+      "maximum_loss": 0.8664546141514409,
+      "increasing_updates": 0,
+      "worst_excursion_percent": 0,
+      "events_overlapping_window": 0,
+      "events_started_in_window": 0,
+      "events_carried_in": 0,
+      "events_right_censored": 0,
+      "recovered_event_median_duration": null,
+      "events_ge_10pct": 0,
+      "events_ge_25pct": 0,
+      "events_ge_50pct": 0,
+      "events_ge_100pct": 0,
+      "terminal_valid_loss": 14.487337745148015,
+      "terminal_test_loss": 14.303695299773468,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": -100.0,
+      "mean_loss_change_percent": -5.522209982672644,
+      "final_loss_change_percent": -17.499692915765387,
+      "last32_loss_change_percent": -23.457840047837063,
+      "terminal_test_loss_change_percent": -7.273016647066011,
+      "terminal_valid_loss_change_percent": -7.5339726674728436,
+      "pv_reduction_percent": 100.0
+    },
+    {
+      "case": "transformer",
+      "run": 295,
+      "seed": 0,
+      "arm": "beta2_0p95",
+      "setting": "beta2=0.95",
+      "family": "beta2",
+      "fork": 544,
+      "end": 928,
+      "updates": 384,
+      "fork_loss": 0.8672125477924622,
+      "positive_variation": 6.306955323913803,
+      "negative_variation": 6.581133080474903,
+      "positive_variation_over_fork": 7.272675355042439,
+      "mean_loss": 0.7589548925003565,
+      "final_loss": 0.5930347912313619,
+      "last32_loss": 0.7317799618339376,
+      "maximum_loss": 1.338202106578477,
+      "increasing_updates": 79,
+      "worst_excursion_percent": 134.73904503345753,
+      "events_overlapping_window": 11,
+      "events_started_in_window": 11,
+      "events_carried_in": 0,
+      "events_right_censored": 1,
+      "recovered_event_median_duration": 29.0,
+      "events_ge_10pct": 10,
+      "events_ge_25pct": 8,
+      "events_ge_50pct": 7,
+      "events_ge_100pct": 1,
+      "terminal_valid_loss": 20.196863750437956,
+      "terminal_test_loss": 19.938075684687444,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": 7.139462953366205,
+      "mean_loss_change_percent": -10.672061469298466,
+      "final_loss_change_percent": -35.38715083876528,
+      "last32_loss_change_percent": -26.35672642274396,
+      "terminal_test_loss_change_percent": 29.253145663193102,
+      "terminal_valid_loss_change_percent": 28.907311228025968,
+      "pv_reduction_percent": -7.139462953366205
+    },
+    {
+      "case": "transformer",
+      "run": 295,
+      "seed": 0,
+      "arm": "beta2_0p9",
+      "setting": "beta2=0.9",
+      "family": "beta2",
+      "fork": 544,
+      "end": 928,
+      "updates": 384,
+      "fork_loss": 0.8672125477924622,
+      "positive_variation": 4.137474695483478,
+      "negative_variation": 4.397973454785978,
+      "positive_variation_over_fork": 4.771004185785423,
+      "mean_loss": 0.7065412219334236,
+      "final_loss": 0.6067137884899627,
+      "last32_loss": 0.6054703931900707,
+      "maximum_loss": 1.0857009775771216,
+      "increasing_updates": 149,
+      "worst_excursion_percent": 39.72781965966578,
+      "events_overlapping_window": 29,
+      "events_started_in_window": 29,
+      "events_carried_in": 0,
+      "events_right_censored": 1,
+      "recovered_event_median_duration": 9.5,
+      "events_ge_10pct": 12,
+      "events_ge_25pct": 5,
+      "events_ge_50pct": 0,
+      "events_ge_100pct": 0,
+      "terminal_valid_loss": 21.901541297694198,
+      "terminal_test_loss": 21.626076020349736,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": -29.714609650642167,
+      "mean_loss_change_percent": -16.84107782170208,
+      "final_loss_change_percent": -33.896784675404554,
+      "last32_loss_change_percent": -39.067992929350424,
+      "terminal_test_loss_change_percent": 40.195994748295135,
+      "terminal_valid_loss_change_percent": 39.7874855879101,
+      "pv_reduction_percent": 29.714609650642167
+    },
+    {
+      "case": "transformer",
+      "run": 295,
+      "seed": 0,
+      "arm": "beta2_0p5",
+      "setting": "beta2=0.5",
+      "family": "beta2",
+      "fork": 544,
+      "end": 928,
+      "updates": 384,
+      "fork_loss": 0.8672125477924622,
+      "positive_variation": 1.2005534477200954,
+      "negative_variation": 1.4216081728300958,
+      "positive_variation_over_fork": 1.3843820073592927,
+      "mean_loss": 0.7678425195819173,
+      "final_loss": 0.6461578226824619,
+      "last32_loss": 0.6528730078180962,
+      "maximum_loss": 0.975989118716868,
+      "increasing_updates": 178,
+      "worst_excursion_percent": 12.54324227679855,
+      "events_overlapping_window": 68,
+      "events_started_in_window": 68,
+      "events_carried_in": 0,
+      "events_right_censored": 1,
+      "recovered_event_median_duration": 4.0,
+      "events_ge_10pct": 1,
+      "events_ge_25pct": 0,
+      "events_ge_50pct": 0,
+      "events_ge_100pct": 0,
+      "terminal_valid_loss": 21.056813743509625,
+      "terminal_test_loss": 20.793671898862232,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": -79.60558700204594,
+      "mean_loss_change_percent": -9.626000084793873,
+      "final_loss_change_percent": -29.599243503665363,
+      "last32_loss_change_percent": -34.29759212665516,
+      "terminal_test_loss_change_percent": 34.79974423411451,
+      "terminal_valid_loss_change_percent": 34.395977328228014,
+      "pv_reduction_percent": 79.60558700204594
+    },
+    {
+      "case": "transformer",
+      "run": 295,
+      "seed": 0,
+      "arm": "clip_0p5",
+      "setting": "Clip 0.5",
+      "family": "clipping",
+      "fork": 544,
+      "end": 928,
+      "updates": 384,
+      "fork_loss": 0.8672125477924622,
+      "positive_variation": 0.7232699820206051,
+      "negative_variation": 0.9734494746207333,
+      "positive_variation_over_fork": 0.8340169706512309,
+      "mean_loss": 0.6984557395039376,
+      "final_loss": 0.617033055192334,
+      "last32_loss": 0.616237377832302,
+      "maximum_loss": 0.863354984185916,
+      "increasing_updates": 148,
+      "worst_excursion_percent": 12.17996434401627,
+      "events_overlapping_window": 68,
+      "events_started_in_window": 68,
+      "events_carried_in": 0,
+      "events_right_censored": 1,
+      "recovered_event_median_duration": 2.0,
+      "events_ge_10pct": 1,
+      "events_ge_25pct": 0,
+      "events_ge_50pct": 0,
+      "events_ge_100pct": 0,
+      "terminal_valid_loss": 18.502033664594872,
+      "terminal_test_loss": 18.251833885346667,
+      "clipped_update_fraction": 0.8880208333333334,
+      "mean_clip_factor": 0.6712918417417284,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": -87.71344436987523,
+      "mean_loss_change_percent": -17.792727892858128,
+      "final_loss_change_percent": -32.772470836227555,
+      "last32_loss_change_percent": -37.984448644231165,
+      "terminal_test_loss_change_percent": 18.321696692872113,
+      "terminal_valid_loss_change_percent": 18.08998869448861,
+      "pv_reduction_percent": 87.71344436987523
+    },
+    {
+      "case": "transformer",
+      "run": 295,
+      "seed": 0,
+      "arm": "clip_1p0",
+      "setting": "Clip 1.0",
+      "family": "clipping",
+      "fork": 544,
+      "end": 928,
+      "updates": 384,
+      "fork_loss": 0.8672125477924622,
+      "positive_variation": 2.02750726282124,
+      "negative_variation": 2.274602005281051,
+      "positive_variation_over_fork": 2.337958863697686,
+      "mean_loss": 0.7172815220472195,
+      "final_loss": 0.6201178053326513,
+      "last32_loss": 0.625117960188063,
+      "maximum_loss": 0.9024002224524827,
+      "increasing_updates": 183,
+      "worst_excursion_percent": 11.293859474932443,
+      "events_overlapping_window": 57,
+      "events_started_in_window": 57,
+      "events_carried_in": 0,
+      "events_right_censored": 1,
+      "recovered_event_median_duration": 4.0,
+      "events_ge_10pct": 1,
+      "events_ge_25pct": 0,
+      "events_ge_50pct": 0,
+      "events_ge_100pct": 0,
+      "terminal_valid_loss": 19.0309471794696,
+      "terminal_test_loss": 18.77966622282886,
+      "clipped_update_fraction": 0.6354166666666666,
+      "mean_clip_factor": 0.8658863481572289,
+      "capped_unit_update_fraction": null,
+      "mean_cap_factor": null,
+      "minimum_cap_factor": null,
+      "cap_factor_p10": null,
+      "cap_factor_median": null,
+      "cap_factor_p90": null,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": null,
+      "mean_retained_update_norm_ratio": 1.0,
+      "positive_variation_change_percent": -65.5577012811442,
+      "mean_loss_change_percent": -15.576959390097134,
+      "final_loss_change_percent": -32.43637842063324,
+      "last32_loss_change_percent": -37.09074399247812,
+      "terminal_test_loss_change_percent": 21.743490805867992,
+      "terminal_valid_loss_change_percent": 21.46580089568677,
+      "pv_reduction_percent": 65.5577012811442
+    },
+    {
+      "case": "transformer",
+      "run": 295,
+      "seed": 0,
+      "arm": "cap_q25",
+      "setting": "Cap q25",
+      "family": "cap",
+      "fork": 544,
+      "end": 928,
+      "updates": 384,
+      "fork_loss": 0.8672125477924622,
+      "positive_variation": 0.6380216229972244,
+      "negative_variation": 0.9547805478122454,
+      "positive_variation_over_fork": 0.7357153959791565,
+      "mean_loss": 0.6926627326153968,
+      "final_loss": 0.5504536229774412,
+      "last32_loss": 0.5824623248144024,
+      "maximum_loss": 1.0520793087418756,
+      "increasing_updates": 67,
+      "worst_excursion_percent": 78.63817508833736,
+      "events_overlapping_window": 15,
+      "events_started_in_window": 15,
+      "events_carried_in": 0,
+      "events_right_censored": 0,
+      "recovered_event_median_duration": 5.0,
+      "events_ge_10pct": 1,
+      "events_ge_25pct": 1,
+      "events_ge_50pct": 1,
+      "events_ge_100pct": 0,
+      "terminal_valid_loss": 19.776171183961882,
+      "terminal_test_loss": 19.52118461744043,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": 0.84351171875,
+      "mean_cap_factor": 0.5418744651929008,
+      "minimum_cap_factor": 0.009731212727395388,
+      "cap_factor_p10": 0.2231665627181211,
+      "cap_factor_median": 0.473051282721819,
+      "cap_factor_p90": 1.0,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": -7.689970231124568e-09,
+      "mean_retained_update_norm_ratio": 0.998849806536816,
+      "positive_variation_change_percent": -89.1616016715117,
+      "mean_loss_change_percent": -18.474556771439676,
+      "final_loss_change_percent": -40.02649180523208,
+      "last32_loss_change_percent": -41.38342866446838,
+      "terminal_test_loss_change_percent": 26.550553763517136,
+      "terminal_valid_loss_change_percent": 26.222223668484833,
+      "pv_reduction_percent": 89.1616016715117
+    },
+    {
+      "case": "transformer",
+      "run": 295,
+      "seed": 0,
+      "arm": "cap_q50",
+      "setting": "Cap q50",
+      "family": "cap",
+      "fork": 544,
+      "end": 928,
+      "updates": 384,
+      "fork_loss": 0.8672125477924622,
+      "positive_variation": 0.2216696262259229,
+      "negative_variation": 0.38503105820361827,
+      "positive_variation_over_fork": 0.2556116453690566,
+      "mean_loss": 0.6810284221493864,
+      "final_loss": 0.7038511158147668,
+      "last32_loss": 0.6064685566507744,
+      "maximum_loss": 0.8633235708644184,
+      "increasing_updates": 92,
+      "worst_excursion_percent": 24.152890201203235,
+      "events_overlapping_window": 18,
+      "events_started_in_window": 18,
+      "events_carried_in": 0,
+      "events_right_censored": 1,
+      "recovered_event_median_duration": 4.0,
+      "events_ge_10pct": 1,
+      "events_ge_25pct": 0,
+      "events_ge_50pct": 0,
+      "events_ge_100pct": 0,
+      "terminal_valid_loss": 19.93061923028047,
+      "terminal_test_loss": 19.670264353937593,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": 0.8067682291666667,
+      "mean_cap_factor": 0.5865084738426781,
+      "minimum_cap_factor": 0.030543101201266944,
+      "cap_factor_p10": 0.2659202041847987,
+      "cap_factor_median": 0.5221021943110555,
+      "cap_factor_p90": 1.0,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": -7.772525395435131e-09,
+      "mean_retained_update_norm_ratio": 0.9988873700801846,
+      "positive_variation_change_percent": -96.23438513717251,
+      "mean_loss_change_percent": -19.843898981924724,
+      "final_loss_change_percent": -23.313392990523695,
+      "last32_loss_change_percent": -38.9675419350007,
+      "terminal_test_loss_change_percent": 27.51699732615731,
+      "terminal_valid_loss_change_percent": 27.207994658543576,
+      "pv_reduction_percent": 96.23438513717251
+    },
+    {
+      "case": "transformer",
+      "run": 295,
+      "seed": 0,
+      "arm": "cap_q75",
+      "setting": "Cap q75",
+      "family": "cap",
+      "fork": 544,
+      "end": 928,
+      "updates": 384,
+      "fork_loss": 0.8672125477924622,
+      "positive_variation": 0.0726575387634838,
+      "negative_variation": 0.3565563366356662,
+      "positive_variation_over_fork": 0.08378284994657609,
+      "mean_loss": 0.6815980633642479,
+      "final_loss": 0.5833137499202797,
+      "last32_loss": 0.5865782602794736,
+      "maximum_loss": 0.8633385558339765,
+      "increasing_updates": 100,
+      "worst_excursion_percent": 1.1019474711825072,
+      "events_overlapping_window": 47,
+      "events_started_in_window": 47,
+      "events_carried_in": 0,
+      "events_right_censored": 1,
+      "recovered_event_median_duration": 3.0,
+      "events_ge_10pct": 0,
+      "events_ge_25pct": 0,
+      "events_ge_50pct": 0,
+      "events_ge_100pct": 0,
+      "terminal_valid_loss": 20.112495126835107,
+      "terminal_test_loss": 19.852396756006925,
+      "clipped_update_fraction": 0.0,
+      "mean_clip_factor": 1.0,
+      "capped_unit_update_fraction": 0.7619791666666667,
+      "mean_cap_factor": 0.650831376340852,
+      "minimum_cap_factor": 0.07600829310667563,
+      "cap_factor_p10": 0.32779513742780275,
+      "cap_factor_median": 0.6059046070135317,
+      "cap_factor_p90": 1.0,
+      "disabled_zero_budget_modules": 0,
+      "max_cap_bound_residual": -1.1887595035512538e-08,
+      "mean_retained_update_norm_ratio": 0.9989701942042867,
+      "positive_variation_change_percent": -98.76572937608786,
+      "mean_loss_change_percent": -19.77685300076231,
+      "final_loss_change_percent": -36.44628629794957,
+      "last32_loss_change_percent": -40.96921814041832,
+      "terminal_test_loss_change_percent": 28.697712369421712,
+      "terminal_valid_loss_change_percent": 28.368825027641662,
+      "pv_reduction_percent": 98.76572937608786
+    }
+  ],
+  "script_sha256": "16785f7c3296ad53d09e1cab346b8d8a136eaa350ea293c786e854734ea1ea34",
+  "definition": "Primary mean and motion summaries exclude shared fork; PV covers all post-fork differences. Events use full native prefix, fixed original pre-rise references, first return and explicit censoring. No seed-level inference.",
+  "outputs": {
+    "calibration.csv": {
+      "bytes": 7798,
+      "sha256": "4354abaa36fdd119457878d53c0a1f1f6529ae12390a766a6968ce463337feff"
+    },
+    "calibration.npz": {
+      "bytes": 204697,
+      "sha256": "72db369f58fc7a85b68722f4c6fbb56018c2190030ca7285d801335e770ed16e"
+    },
+    "costs.csv": {
+      "bytes": 7563,
+      "sha256": "720c694ed919a30b5a53803ca237c40d4cac76d763e042352f907406ed4110c6"
+    },
+    "curves.npz": {
+      "bytes": 2102693,
+      "sha256": "439342210b2545139df2f447252a0798caaac0d7acc3f9740d22e1ed905d440d"
+    },
+    "events.csv": {
+      "bytes": 141961,
+      "sha256": "b0bcaeb9fb111d1e9ffefc7fc9f4e916428818d1d212514d531849d8fbd814ea"
+    },
+    "heldout.csv": {
+      "bytes": 17855,
+      "sha256": "55dd0a7e68701100ce3f649adfe5793910b1c2f839c4c43945377789a0595796"
+    },
+    "stage_metrics.csv": {
+      "bytes": 55234,
+      "sha256": "734e5993e68f97845f6d5a728603dc835c4bb4210ca2724b769aa1bfacb69f39"
+    },
+    "summary.csv": {
+      "bytes": 16900,
+      "sha256": "987eebb3025c578c7339161580479b2cfdd4a545c7e03d0af5e52e1096ac688a"
+    }
+  }
+}

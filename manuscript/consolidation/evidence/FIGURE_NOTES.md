@@ -1,3 +1,5 @@
+> Historical IV and V-A/B revision record. Statements below that interventions were unchanged refer to that earlier revision. The later H051 intervention refresh is complete: [current findings and captions](05-adam/c-intervention/observations/65-016-matched-intervention-matrix.md), [visual verification](05-adam/c-intervention/data/matched-visual_verification.json).
+
 > Evidence snapshot; original scientific content retained. Relative links were rebased.
 > Source: [OBSERVATIONS.md](../work/resnet_temporal_revision_20261114/OBSERVATIONS.md).
 

@@ -3,6 +3,14 @@
 
 # MLP interventions: ongoing analysis (064 / 065)
 
+## H051 matched intervention matrix completed, 14 November 2026
+
+- [Observation016](65-016-matched-intervention-matrix.md) completes Runs 293–295: 36 conditions / 11,904 treated updates, common initialization-0 forks and full matched measurements. LR.75/.5/.1, beta2.95/.9/.5, raw-gradient clipping.5/1, and distributed q25/q50/q75 all retain unchanged Adam.
+- q50 mean-loss changes: **-32.18%/-9.42%/-19.84%** (MLP/ResNet/Transformer); final/late/test tradeoffs and every other setting are reported. This is one initialization/model; historical MLP replication uses different windows.
+- Seven PDFs / 20 pages, editable outcome/cost tables and captions are verified and [placed in consolidation](../README.md). All raw audits and terminal replays pass.
+- All task cloud workers deleted after verified retrieval; 33.842 GB retained on owned Spark; provisional total $26.07, within $50. [Closeout](../data/matched-compute_closeout.json). No extra seeds/grid; continue Analysis 065 for future authorized interventions.
+
+
 This is the continuing workspace for the MLP intervention study. Analysis 064
 contains its preserved first-stage evidence; 065 continues the same analysis,
 not a separate scientific study. Keep subsequent iterations here until the user
@@ -222,8 +230,8 @@ archive, with dispositions for ten complete comments and one unfinished note.
 The next feedback round is 002; the report filename stays stable for review.
 
 New manuscript-style figures show [entry caps](../background/figures/09-local-cap-entry-manuscript.pdf),
-[distributed caps](../figures/10-local-cap-distributed-manuscript.pdf), and
-[MLP replication](../figures/11-local-cap-mlp-replication.pdf). Loss uses logarithmic
+[distributed caps](../background/figures/10-local-cap-distributed-manuscript.pdf), and
+[MLP replication](../background/figures/11-local-cap-mlp-replication.pdf). Loss uses logarithmic
 axes with independent scales per column; eta-kappa-hat uses linear axes.
 Only local cap variants and unchanged Adam appear. Existing figures are preserved.
 
@@ -277,7 +285,7 @@ exact eight-update control replay; historical CUDA differences are handled with
 fresh unchanged controls.
 
 - [Comparison, findings, captions and limits](65-015-conventional-model-coverage.md).
-- [Three-model beta2 figure](../figures/15-beta2-reductions-cifar10-mlp-resnet-wikitext2-transformer.pdf) and [three-model clipping figure](../figures/16-gradient-clipping-cifar10-mlp-resnet-wikitext2-transformer.pdf).
+- [Three-model beta2 figure](../background/figures/15-beta2-reductions-cifar10-mlp-resnet-wikitext2-transformer.pdf) and [three-model clipping figure](../background/figures/16-gradient-clipping-cifar10-mlp-resnet-wikitext2-transformer.pdf).
 - [Paired outcomes](../tables/conventional-outcomes.md), [per-arm CSV](../data/conventional_summary.csv), [full branch curves](../data/conventional_curves.csv), [sources/checks](../data/conventional_results.json), and [independent export verification](../../../../../../analyses/065-2026-11-07-mlp-frozen-lr-double/conventional_export_verification.json).
 - [Remaining ablations](../TODO_ABLATIONS.md): ResNet clip .5, additional seeds/times, shared forks, intermediate held-out coverage and common functional probes.
 

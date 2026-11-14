@@ -1,9 +1,7 @@
-# Background evidence outside the selected presentation
+# Historical intervention evidence
 
-- The paper presents LR schedules, beta2 schedules, gradient clipping and distributed q50 only.
-- This folder preserves earlier exploratory figures, other quantiles/methods, and the full mixed six-page Figure 07. They remain audit evidence, not additional proposed interventions or automatic appendix material.
-- The original [MLP beta2 figure](figures/01-beta2-reductions-cifar10-mlp.pdf) and [MLP/ResNet clipping figure](figures/05-gradient-clipping-cifar10-mlp-resnet.pdf) remain here unchanged. Their selected replacements include all three models; original analysis sources are also preserved.
-- **Selected exception:** the [quantile/LR ablation](../14-distributed-cap-quantile-ablation-mlp.pdf) is retained at the section root as supporting evidence for the cap.
-- The selected q50 heatmap is an exact standalone extraction of page 2 of [the complete original](figures/07-distributed-displacement-and-controls.pdf#page=2).
-- Historical report/data/observation files elsewhere in V-C also retain broader experiments; their presence does not change the selected scope.
-- Sources and hashes remain in the [package manifest](../../../copy_manifest.json). For the paper's four-part sequence, use the [selected figures](../figures/README.md).
+- The current paper presents immediate LR reductions, late beta2 reductions, global gradient clipping and distributed affine-displacement caps, with q50 preselected as the main representation-inspired method. Use the [matched figures](../figures/README.md) for the main comparison.
+- Six former selected PDFs are preserved here unchanged: [half LR](figures/01-persistent-half-lr-cifar10-mlp-resnet-wikitext2-transformer.pdf), [three-model beta2](figures/15-beta2-reductions-cifar10-mlp-resnet-wikitext2-transformer.pdf), [three-model clipping](figures/16-gradient-clipping-cifar10-mlp-resnet-wikitext2-transformer.pdf), [original q50 heatmaps](figures/07-distributed-q50-stage-heatmaps.pdf), [q50 scalar diagnostics](figures/10-local-cap-distributed-manuscript.pdf) and [MLP replication](figures/11-local-cap-mlp-replication.pdf).
+- The older [MLP beta2](figures/01-beta2-reductions-cifar10-mlp.pdf), [MLP/ResNet clipping](figures/05-gradient-clipping-cifar10-mlp-resnet.pdf), other exploratory controls and [complete mixed Figure07](figures/07-distributed-displacement-and-controls.pdf) also remain unchanged. The standalone historical q50 heatmap is an exact extraction of its page2.
+- The [quantile/LR ablation](../14-distributed-cap-quantile-ablation-mlp.pdf) remains at the V-C root as requested. Its original MLP windows and three initializations support sensitivity analysis; they do not make the new matrix a three-initialization study.
+- Historical observations, report tables and source artifacts retain their original scope and matching limitations. Their presence does not add intervention families or automatically select appendix material. [Source/hash manifest](../../../copy_manifest.json).

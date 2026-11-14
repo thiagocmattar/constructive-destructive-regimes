@@ -234,7 +234,10 @@ def build():
             write_bytes_if_changed(target, data)
             transform = "TeX dependency path rebased; scientific content retained"
         elif source.suffix == ".md":
-            write(target, rebase_markdown(source, target, mapped))
+            content = rebase_markdown(source, target, mapped)
+            if item.get("snapshot_note"):
+                content = "> " + item["snapshot_note"] + "\n\n" + content
+            write(target, content)
             transform = "Markdown source header and rebased local links"
         else:
             write_bytes_if_changed(target, source.read_bytes())
@@ -253,7 +256,7 @@ def build():
         if info.get("presentation"):
             lines.append("- **Presentation:** " + info["presentation"])
         if (folder / "EXPERIMENTAL_PLAN.md").exists():
-            lines.append("- **Current experiment design:** [matched setup, ETC/costs and outputs](EXPERIMENTAL_PLAN.md). Prepared for review; execution status and deferred work are specified there.")
+            lines.append("- **Current experiment record:** [matched setup, execution status, ETC/costs and outputs](EXPERIMENTAL_PLAN.md). Completed and deferred work are distinguished there.")
         lines += ["", "| Asset | Status | Use / source |", "|---|---|---|"]
         for r in items:
             notes = r["note"]

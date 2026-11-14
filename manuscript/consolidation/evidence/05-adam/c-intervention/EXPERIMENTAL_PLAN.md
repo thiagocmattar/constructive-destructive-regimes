@@ -1,9 +1,10 @@
-# Matched intervention experiment — decision plan
+# Matched intervention experiment — completed design and execution record
 
-- **Status, 14 November 2026:** prepared for review; no experiment or cloud worker launched for this plan. Continue Analysis 065; allocate new run IDs only when configurations are frozen for execution.
-- **Recommendation:** initialization 0, **12 conditions per model / 36 continuations / 11,904 post-fork updates**. Spark handles MLP; one RTX 4090 handles ResNet; three RTX 5090s handle Transformer. Estimated execution and verified retrieval: **6–9 hours, approximately $25–37**, with a proposed **$45 / 10-hour** execution limit.
+- **Status, 14 November 2026: complete.** H051 / Runs 293–295 supply all **36 conditions / 11,904 treated updates**, independently verified and visually reviewed. Seven PDFs (20 pages), editable outcome/cost tables, complete reductions and captions are [ready in this section](figures/README.md). The main [PLAN](../../../PLAN.md) distills the conclusions; historical comparisons remain preserved.
+- **Executed faster option:** Spark handled MLP; two RTX4090 workers handled ResNet; six RTX5090 workers handled Transformer. All task Pods were deleted after verified retrieval. Provisional total **$26.07**, including startup and temporary storage, within **$50 / 8 hours**. Cloud allocation through final verified deletion took **3.86 hours**. **33.842 GB** of raw evidence is retained on owned Spark; no cloud storage remains. [Execution/retention receipt](data/matched-compute_closeout.json).
+- **Execution runtime:** PyTorch 2.11.0 throughout; CUDA 13.0 on Spark and CUDA 12.8 for both cloud comparisons. The cloud choice was frozen before either run executed because CUDA 13 capacity was unavailable. Every condition within a model uses the same runtime and full shared fork; exact predecessor and eight-update cross-worker replays passed. An empty Community worker without a public SSH port was deleted before any scientific inputs were transferred.
 - **Scientific question:** at the same warm state and update budget, how do changes to LR, Adam's second-moment dynamics, raw-gradient magnitude, and local representation displacement affect **loss excursions, learning progress, and functional oscillation**?
-- **Contribution supported by this design:** a matched, mechanistically instrumented comparison of these four intervention families. Spike suppression alone is insufficient; retain training/held-out tradeoffs and unfavorable settings. One initialization supports these controlled cases, not an across-initialization superiority claim.
+- **Contribution supported by this design:** a matched, mechanistically instrumented comparison of these four intervention families. Compare spike suppression with learning progress; retain training/held-out tradeoffs and unfavorable settings. One initialization supports these controlled cases, not an across-initialization superiority claim.
 
 ## 1. One common setup
 
@@ -11,7 +12,7 @@
 |---|---:|---:|---:|---|---|
 | CIFAR-10 / MLP | **512 → 800** | **288** | .001 | 5,000 fixed images; half squared output error, summed over 10 coordinates and averaged over examples | All 5,000 images; 5 stage endpoints |
 | CIFAR-10 / ResNet32 | **256 → 576** | **320** | .003 | 50,000 images; cross-entropy; original fixed groups of 1,000 for batch normalization | First intact 1,000-image normalization group; 6 stage endpoints |
-| WikiText-2 / 2-layer Transformer | **544 → 928** | **384** | .003 | 2,088,600 supervised tokens; token-weighted NLL; physical groups of 64 sequences | Same fixed 64 sequences / 2,240 supervised positions; 6 stage endpoints |
+| WikiText-2 / 2-layer Transformer | **544 → 928** | **384** | .003 | 2,088,600 supervised tokens in 59,680 sequences of up to 35 positions; token-weighted NLL; physical groups of 64 sequences | Same fixed 64 sequences / 2,240 supervised positions; 6 stage endpoints |
 
 - **Clock:** `Training step s` = completed optimizer updates. Fork `f` means first changed update **f → f+1**; stop after reaching `e`, with no extra update to `e+1`. Evaluate loss at all states `f,…,e`; primary post-fork means exclude the common state `f`.
 - **Matched within each model:** initialization-0 tensors, complete fork parameters/moments/clock/RNG, objective and ordering, precision, physical groups, probes, measurement schedule, runtime and final state. Architectures retain their different scientifically established windows.
@@ -23,15 +24,15 @@
 
 ## 2. Exact intervention matrix
 
-| Intervention type | Settings per model | Change at the fork and thereafter | Current evidence | New treatment cells | Goal / interpretation |
+| Intervention type | Settings per model | Change at the fork and thereafter | Evidence before H051 | Originally missing treatment cells | Goal / interpretation |
 |---|---|---|---|---:|---|
-| **Unchanged Adam** | 1 | No changes | Historical baselines exist; qualify one common control per model | 3 matched controls budgeted | Reference for every metric and intervention |
+| **Unchanged Adam** | 1 | No changes | Historical baselines exist; qualify one common control per model | 3 fresh controls required | Reference for every metric and intervention |
 | **Immediate LR reduction** | **0.75×, 0.5×, 0.1×** original LR | Change native LR before the first treated Adam step; hold constant | 0.5× in all three models | **6** | Test mild, medium and strong global damping; distinguish fewer spikes from slower learning |
 | **β₂ reduction** | **.95, .9, .5** | Replace .999; retain m, v and global step; new β₂ enters recurrence **and native bias correction** | **All 9 settings already exist** | **0** | Test second-moment adaptation; this intervention also changes the native correction transient |
 | **Global gradient clipping** | **L2 thresholds .5, 1.0** | Clip the full accumulated **raw gradient before Adam**; keep LR and betas native | MLP and Transformer: both; ResNet: 1.0 | **1: ResNet .5** | Test optimizer-input damping; report activation and actual step response, since Adam can offset gradient rescaling |
 | **Distributed displacement cap** | **q25, q50, q75** | Scale local native parameter proposals; moments advance normally; fixed past-calibrated budgets | Historical q50 all models; wider MLP grid uses a different fork/horizon | **9 at the common forks** | Test selective direct affine-movement control; q50 remains the preselected main representation-inspired intervention |
 
-- **Accounting:** 1 + 3 + 3 + 2 + 3 = **12 conditions/model**. There are **16 genuinely missing treatment cells** and 17 historical treatment settings. Budget all 36 continuations because common functional histories, checkpoints and runtime controls are not available for every historical setting. Qualified reuse reduces cost; it is not assumed in the estimate.
+- **Accounting:** 1 + 3 + 3 + 2 + 3 = **12 conditions/model**. Before execution, **16 treatment cells were missing** and 17 historical settings existed. All 36 continuations were freshly executed to supply common histories/runtime controls; no historical treatment was substituted into the matched matrix.
 - **LR semantics:** 0.75×/0.5×/0.1× mean **25%/50%/90% reductions**. Actual LRs: MLP .00075/.0005/.0001; ResNet and Transformer .00225/.0015/.0003. No cosine/ramp schedule in this matrix.
 - **Cap scope:** both MLP hidden affines; all 31 ResNet convolutions; two Transformer QKV and four feed-forward affines. Other parameters update natively. Scale each weight row and corresponding bias by `min(1, budget / local_RMS)`; zero score gives factor one, zero budget disables that module's cap. Verify the stored FP32 bound. This controls the **direct local affine term**, not total propagated network motion.
 - **Fairness:** settings have equal starts/horizons, not equal effective strength or tuning budgets. Show every setting; do not select a family winner from its most favorable metric or tune thresholds on held-out results. No added intervention combinations, initializations or window search now.
@@ -68,9 +69,9 @@
 - **Zero denominators:** report the absolute result and `N/A` for an undefined relative effect; do not silently replace it with zero. Numerical failure is a reported outcome with its step and partial coverage, not a discarded run or a fabricated full-window mean.
 - **Inference:** all settings are visible; no seed confidence intervals or tests treating training steps as independent replicates. q50's local bound, loss response, and actual propagated motion are separate observations. For MLP, retain the exact squared-loss output-change decomposition when interpreting overshoot; do not transfer that identity to cross-entropy.
 
-## 5. Paper-ready outputs
+## 5. Delivered paper outputs
 
-| Output | Proposed layout | Intended message / completeness |
+| Output | Delivered layout | Intended message / completeness |
 |---|---|---|
 | **Loss comparison** | One vector PDF, **4 family rows × 3 model columns**; gray unchanged Adam in every panel; all requested settings; same loss scale/window within each model; fork marked | Which controls suppress excursions, and at what learning cost; raw loss curves, no smoothing-dependent spike decisions |
 | **Tradeoff comparison** | Three model panels; x = mean-loss change, y = PV reduction; one point per setting, family shape/color, values labeled; unchanged Adam at the origin | Show the full response curve and tradeoffs; no winner selected only by peak suppression |
@@ -80,9 +81,9 @@
 
 - **Display contract:** `Training step s`; endpoint placement for incoming changes; full fixed windows rather than treatment-selected peaks; consistent family colors, scales and legible final-size labels. Put any gray-band definition in captions. One initialization, no error bands implying replication.
 - **Delivery:** vector PDFs, TeX tables, CSV/JSON reductions, captions and local observations with source hashes, exact reduction/coverage/caveats and generating scripts. Keep the existing figures as historical evidence until replacements are verified; update the selected asset links only then.
-- **Preparation estimate:** approximately **2–4 hours** to adapt existing continuation/capture code and validate the common reducer, then **1–2 hours** for final figure/table assembly and visual QA. These are engineering estimates, separate from the GPU ETC below; preparations can reuse existing code in Analysis065.
+- **Original preparation estimate (not measured engineering time):** approximately **2–4 hours** to adapt existing continuation/capture code and validate the common reducer, then **1–2 hours** for final figure/table assembly and visual QA. These are engineering estimates, separate from the GPU ETC below; preparations can reuse existing code in Analysis065.
 
-## 6. ETC, hardware and cost
+## 6. Original pre-execution ETC and live price basis
 
 - **Measured anchors:** MLP on Spark ~.014 s/update unchanged and .058 capped; ResNet on RTX4090 ~3.5 unchanged and 3.83 capped, versus ~15.15 unchanged/clipped on Spark; Transformer on RTX5090 ~7.81 unchanged and 7.96 capped. RTX4090 Transformer runs span ~9.58–16.03 s/update across hosts/runtime versions.
 - **Weakest estimate:** Transformer on Spark has only a **three-update mechanics measurement** (~47 s/update unchanged, ~61 capped), not a sustained continuation. Its multi-day ETC is a broad extrapolation; remeasure sustained throughput before committing a long Spark-only run.
@@ -116,7 +117,7 @@
 
 ## 8. Acceptance and provenance
 
-- **Ready to write V-C when:** all 36 conditions have a verified outcome or explicit failure; fork/calibration/timing and full held-out coverage agree; loss/motion/activity/cost reductions reconcile with source records; figures show all settings and tradeoffs; claims are restricted to the three initialization-0 cases. This does not require the deferred grids.
+- **Acceptance criteria, now met:** all 36 conditions have a verified outcome or explicit failure; fork/calibration/timing and full held-out coverage agree; loss/motion/activity/cost reductions reconcile with source records; figures show all settings and tradeoffs; claims are restricted to the three initialization-0 cases. This does not require the deferred grids.
 - **Verification before launch:** cap scores/calibration use only past transitions; no `e+1` update; unchanged arm matches the native continuation; β₂ and clipping occur at their declared optimizer locations; hooks/evaluations preserve RNG and normalization; checkpoint-resume and cross-worker forks reproduce; outcome reductions handle zero denominators/censored events. Mechanics tests do not become paper evidence.
 - **Evidence consulted:** [conventional outcomes](tables/conventional-outcomes.md), [distributed-cap observations](observations/65-008-cross-architecture-interventions.md), [cap geometry](observations/65-010-local-displacement-cap-geometry.md), and [existing quantile/LR evidence](observations/65-013-distributed-cap-quantile-lr.md). Existing results are not changed by this plan.
 - **Reproducible estimates:** [calculator](../../../work/intervention_design_20261114/estimate.py), [computed estimates](../../../work/intervention_design_20261114/estimates.json), [live price receipt](../../../work/intervention_design_20261114/hardware_quote.json), [Spark snapshot](../../../work/intervention_design_20261114/spark_status.json), [source sizes/hashes](../../../work/intervention_design_20261114/source_manifest.json). The calculator checks source hashes, 36/72/162 condition counts and 11,904 current post-fork updates. These are audit records; this document is the self-contained decision view.

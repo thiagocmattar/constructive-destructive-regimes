@@ -1,5 +1,6 @@
 """Compile consolidation snippets in LaTeX draft mode (no PDF authored)."""
 from pathlib import Path
+from datetime import datetime, timezone
 import hashlib
 import json
 import re
@@ -33,6 +34,14 @@ for group in ["04-gd-sgd", *groups]:
             parts.append(r"\input{"+path.as_posix()+"}")
         else:
             parts.append(r"\noindent\resizebox{\textwidth}{!}{\input{"+path.as_posix()+"}}")
+captions=OUT/"05-adam/c-intervention/captions.tex"
+if captions.exists():
+    paths.append(captions)
+    lines=[line for line in captions.read_text(encoding="utf-8").splitlines()
+           if line.startswith(r"\caption{")]
+    assert len(lines)==7, "Expected the seven matched intervention captions"
+    for line in lines:
+        parts.extend([r"\clearpage",r"\begin{figure}[p]",line,r"\end{figure}"])
 parts.append(r"\end{document}")
 (TMP/"snippets.tex").write_text("\n".join(parts)+"\n",encoding="utf-8")
 latex=shutil.which("pdflatex")
@@ -49,7 +58,7 @@ bad=[line for line in log.splitlines() if ("undefined" in line.lower() or "multi
 overfull=[line for line in log.splitlines() if "Overfull" in line]
 assert not bad,bad
 assert not (TMP/"snippets.pdf").exists(), "Draft check should not author a PDF."
-result={"date":"2026-11-08","mode":"pdflatex draft mode; two passes; no PDF output",
+result={"date":datetime.now(timezone.utc).date().isoformat(),"mode":"pdflatex draft mode; two passes; no PDF output",
         "tex_files_checked":len(paths),"errors":bad,"overfull_warnings":overfull,
         "files":{p.relative_to(BASE).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}}
 (OUT/"snippet_verification.json").write_text(json.dumps(result,indent=2)+"\n",encoding="utf-8",newline="\n")

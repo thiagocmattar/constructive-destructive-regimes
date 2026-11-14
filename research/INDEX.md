@@ -1,5 +1,10 @@
 # Research index
 
+## Matched interventions completed, 14 November 2026
+
+[H051 / Runs 293–295](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md) completes the common-fork comparison: 36 conditions / 11,904 updates. q50 mean-loss changes are -32.18%/-9.42%/-19.84%; endpoint/test tradeoffs and all quantile settings are retained. Seven PDFs / 20 pages plus editable tables/captions are verified in [consolidation](../manuscript/consolidation/evidence/05-adam/c-intervention/README.md). All raw evidence is hashed on Spark and task Pods deleted; provisional total USD 26.07, within USD 50. Extra seeds/grid remain deferred. Continue Analysis 065; next run 296 / H052.
+
+
 ## Larger ResNet tracing event, 14 November 2026
 
 [Analysis063's revised ResNet view](../analyses/063-2026-11-07-architecture-instability-tracing/observations/007-resnet-major-peak.md)

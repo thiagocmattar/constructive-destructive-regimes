@@ -1,0 +1,2527 @@
+{
+  "status": "generated",
+  "complete_matrix": true,
+  "results_sha256": "bb512310d6b99de542510a8de475757e51b49d2cb3927bddec8018d21d4d7554",
+  "curves_sha256": "439342210b2545139df2f447252a0798caaac0d7acc3f9740d22e1ed905d440d",
+  "plotted_values_checked": 330742,
+  "outputs": [
+    {
+      "file": "17-matched-intervention-loss.pdf",
+      "pages": 1,
+      "title": "Matched intervention training losses",
+      "logarithmic_y": true,
+      "bytes": 130965,
+      "sha256": "94c3ff49f6c7f17d1f4ba9cd8901cd2ae2936e61be4345e38cfbd54b2d72614c"
+    },
+    {
+      "file": "18-matched-spike-learning-tradeoff.pdf",
+      "pages": 1,
+      "title": "Spike burden versus learning progress",
+      "points": [
+        {
+          "case": "mlp",
+          "arm": "lr_0p75",
+          "x": -16.64889461575444,
+          "y": 17.514205492115487
+        },
+        {
+          "case": "mlp",
+          "arm": "lr_0p5",
+          "x": -25.040975820682863,
+          "y": 99.00245644529035
+        },
+        {
+          "case": "mlp",
+          "arm": "lr_0p1",
+          "x": -3.3362934287758717,
+          "y": 99.58226096067499
+        },
+        {
+          "case": "mlp",
+          "arm": "beta2_0p95",
+          "x": 16.779730772359546,
+          "y": -124.9933311068192
+        },
+        {
+          "case": "mlp",
+          "arm": "beta2_0p9",
+          "x": 18.159308512898864,
+          "y": -77.95607965877835
+        },
+        {
+          "case": "mlp",
+          "arm": "beta2_0p5",
+          "x": 127.01616094585705,
+          "y": -187.49653492140172
+        },
+        {
+          "case": "mlp",
+          "arm": "clip_0p5",
+          "x": 2.08397427717677,
+          "y": -65.31753478657303
+        },
+        {
+          "case": "mlp",
+          "arm": "clip_1p0",
+          "x": 48.01049582677479,
+          "y": -419.3115424654648
+        },
+        {
+          "case": "mlp",
+          "arm": "cap_q25",
+          "x": -30.873485630364648,
+          "y": 75.32144145060731
+        },
+        {
+          "case": "mlp",
+          "arm": "cap_q50",
+          "x": -32.180427279671676,
+          "y": 87.75433835962617
+        },
+        {
+          "case": "mlp",
+          "arm": "cap_q75",
+          "x": -27.855072861296936,
+          "y": 97.46370787289513
+        },
+        {
+          "case": "resnet",
+          "arm": "lr_0p75",
+          "x": 16.81154770131417,
+          "y": -26.44525272933105
+        },
+        {
+          "case": "resnet",
+          "arm": "lr_0p5",
+          "x": 27.202662599017692,
+          "y": -11.105711920981864
+        },
+        {
+          "case": "resnet",
+          "arm": "lr_0p1",
+          "x": 89.46081813493532,
+          "y": 98.98295469697742
+        },
+        {
+          "case": "resnet",
+          "arm": "beta2_0p95",
+          "x": 28.456416041609533,
+          "y": -250.3081245227482
+        },
+        {
+          "case": "resnet",
+          "arm": "beta2_0p9",
+          "x": -3.5291859129530367,
+          "y": -63.32268047397065
+        },
+        {
+          "case": "resnet",
+          "arm": "beta2_0p5",
+          "x": 6.278827904720319,
+          "y": 21.747044838646477
+        },
+        {
+          "case": "resnet",
+          "arm": "clip_0p5",
+          "x": 14.516505910962096,
+          "y": -2.5591787869349014
+        },
+        {
+          "case": "resnet",
+          "arm": "clip_1p0",
+          "x": 13.271186270132684,
+          "y": -85.64630165506246
+        },
+        {
+          "case": "resnet",
+          "arm": "cap_q25",
+          "x": -21.56069613829734,
+          "y": 36.08964426073907
+        },
+        {
+          "case": "resnet",
+          "arm": "cap_q50",
+          "x": -9.42399493755477,
+          "y": 2.771182532352612
+        },
+        {
+          "case": "resnet",
+          "arm": "cap_q75",
+          "x": -19.47534362870732,
+          "y": 66.14166428923507
+        },
+        {
+          "case": "transformer",
+          "arm": "lr_0p75",
+          "x": -2.981923793064667,
+          "y": 37.90196223914908
+        },
+        {
+          "case": "transformer",
+          "arm": "lr_0p5",
+          "x": -11.36424585497281,
+          "y": 65.99558634422944
+        },
+        {
+          "case": "transformer",
+          "arm": "lr_0p1",
+          "x": -5.522209982672644,
+          "y": 100.0
+        },
+        {
+          "case": "transformer",
+          "arm": "beta2_0p95",
+          "x": -10.672061469298466,
+          "y": -7.139462953366205
+        },
+        {
+          "case": "transformer",
+          "arm": "beta2_0p9",
+          "x": -16.84107782170208,
+          "y": 29.714609650642167
+        },
+        {
+          "case": "transformer",
+          "arm": "beta2_0p5",
+          "x": -9.626000084793873,
+          "y": 79.60558700204594
+        },
+        {
+          "case": "transformer",
+          "arm": "clip_0p5",
+          "x": -17.792727892858128,
+          "y": 87.71344436987523
+        },
+        {
+          "case": "transformer",
+          "arm": "clip_1p0",
+          "x": -15.576959390097134,
+          "y": 65.5577012811442
+        },
+        {
+          "case": "transformer",
+          "arm": "cap_q25",
+          "x": -18.474556771439676,
+          "y": 89.1616016715117
+        },
+        {
+          "case": "transformer",
+          "arm": "cap_q50",
+          "x": -19.843898981924724,
+          "y": 96.23438513717251
+        },
+        {
+          "case": "transformer",
+          "arm": "cap_q75",
+          "x": -19.77685300076231,
+          "y": 98.76572937608786
+        }
+      ],
+      "bytes": 53176,
+      "sha256": "4f2cacf79e6b4a7deda3847cc9754e667f794ac95b3e3d15239fac2dc716332e"
+    },
+    {
+      "file": "19-matched-q50-stage-heatmaps.pdf",
+      "pages": 1,
+      "title": "Matched distributed q50 loss and stage motion",
+      "columns": [
+        {
+          "case": "mlp",
+          "arm": "cap_q50",
+          "window": [
+            512,
+            800
+          ],
+          "baseline_peak_state": 683,
+          "baseline_selected_loss_event": {
+            "case": "mlp",
+            "arm": "control",
+            "event": "80",
+            "before_state": "666",
+            "onset_state": "667",
+            "peak_state": "683",
+            "recovery_state": "702",
+            "end_state": "702",
+            "right_censored": "False",
+            "left_truncated": "False",
+            "window_first_state": "667",
+            "window_last_state": "702",
+            "window_peak_state": "683",
+            "reference_loss": "0.014118717517703772",
+            "window_peak_loss": "0.04823051206767559",
+            "window_height_percent": "241.60689175343504",
+            "observed_window_duration": "36",
+            "full_recovery_duration": "36"
+          },
+          "baseline_stage_rms_maximum": [
+            0.16198166859919969,
+            0.055470994849668914,
+            0.05917221282097108,
+            0.052336660173595034,
+            0.16307615853538465
+          ],
+          "stages": [
+            [
+              "1",
+              "Linear 1"
+            ],
+            [
+              "2",
+              "Tanh 1"
+            ],
+            [
+              "3",
+              "Linear 2"
+            ],
+            [
+              "4",
+              "Tanh 2"
+            ],
+            [
+              "output",
+              "Output"
+            ]
+          ]
+        },
+        {
+          "case": "resnet",
+          "arm": "cap_q50",
+          "window": [
+            256,
+            576
+          ],
+          "baseline_peak_state": 415,
+          "baseline_selected_loss_event": {
+            "case": "resnet",
+            "arm": "control",
+            "event": "45",
+            "before_state": "404",
+            "onset_state": "405",
+            "peak_state": "415",
+            "recovery_state": "439",
+            "end_state": "439",
+            "right_censored": "False",
+            "left_truncated": "False",
+            "window_first_state": "405",
+            "window_last_state": "439",
+            "window_peak_state": "415",
+            "reference_loss": "0.10708880004882812",
+            "window_peak_loss": "0.44070237731933587",
+            "window_height_percent": "311.5298491704021",
+            "observed_window_duration": "35",
+            "full_recovery_duration": "35"
+          },
+          "baseline_stage_rms_maximum": [
+            0.016962332340993144,
+            0.0766361039013803,
+            0.08962531164674836,
+            0.5471440533501329,
+            0.4227447661699366,
+            2.784778249118874
+          ],
+          "stages": [
+            [
+              "conv1",
+              "Conv 1"
+            ],
+            [
+              "layer1",
+              "Stage 1"
+            ],
+            [
+              "layer2",
+              "Stage 2"
+            ],
+            [
+              "layer3",
+              "Stage 3"
+            ],
+            [
+              "avgpool",
+              "Pooling"
+            ],
+            [
+              "output",
+              "Output"
+            ]
+          ]
+        },
+        {
+          "case": "transformer",
+          "arm": "cap_q50",
+          "window": [
+            544,
+            928
+          ],
+          "baseline_peak_state": 912,
+          "baseline_selected_loss_event": {
+            "case": "transformer",
+            "arm": "control",
+            "event": "33",
+            "before_state": "905",
+            "onset_state": "906",
+            "peak_state": "912",
+            "recovery_state": "",
+            "end_state": "928",
+            "right_censored": "True",
+            "left_truncated": "False",
+            "window_first_state": "906",
+            "window_last_state": "928",
+            "window_peak_state": "912",
+            "reference_loss": "0.5708605245158995",
+            "window_peak_loss": "2.5927019073126907",
+            "window_height_percent": "354.17432034056844",
+            "observed_window_duration": "23",
+            "full_recovery_duration": ""
+          },
+          "baseline_stage_rms_maximum": [
+            0.0012485898166853656,
+            0.29096568498486747,
+            0.194217892682246,
+            0.5787494586545704,
+            0.9536967382241828,
+            7.400077945256229
+          ],
+          "stages": [
+            [
+              "encoder",
+              "Embedding"
+            ],
+            [
+              "transformer_encoder.layers.0.self_attn",
+              "Attention 1"
+            ],
+            [
+              "transformer_encoder.layers.0",
+              "Block 1"
+            ],
+            [
+              "transformer_encoder.layers.1.self_attn",
+              "Attention 2"
+            ],
+            [
+              "transformer_encoder.layers.1",
+              "Block 2"
+            ],
+            [
+              "output",
+              "Output"
+            ]
+          ]
+        }
+      ],
+      "rms_color_maximum": 1.0,
+      "bytes": 86372,
+      "sha256": "08b1b511c4aad46ca472d964d99e0da7caa50bd515137d6454d0526e1e70ec12"
+    },
+    {
+      "file": "20-matched-all-setting-stage-heatmaps.pdf",
+      "pages": 11,
+      "page_records": [
+        {
+          "columns": [
+            {
+              "case": "mlp",
+              "arm": "lr_0p75",
+              "window": [
+                512,
+                800
+              ],
+              "baseline_peak_state": 683,
+              "baseline_selected_loss_event": {
+                "case": "mlp",
+                "arm": "control",
+                "event": "80",
+                "before_state": "666",
+                "onset_state": "667",
+                "peak_state": "683",
+                "recovery_state": "702",
+                "end_state": "702",
+                "right_censored": "False",
+                "left_truncated": "False",
+                "window_first_state": "667",
+                "window_last_state": "702",
+                "window_peak_state": "683",
+                "reference_loss": "0.014118717517703772",
+                "window_peak_loss": "0.04823051206767559",
+                "window_height_percent": "241.60689175343504",
+                "observed_window_duration": "36",
+                "full_recovery_duration": "36"
+              },
+              "baseline_stage_rms_maximum": [
+                0.16198166859919969,
+                0.055470994849668914,
+                0.05917221282097108,
+                0.052336660173595034,
+                0.16307615853538465
+              ],
+              "stages": [
+                [
+                  "1",
+                  "Linear 1"
+                ],
+                [
+                  "2",
+                  "Tanh 1"
+                ],
+                [
+                  "3",
+                  "Linear 2"
+                ],
+                [
+                  "4",
+                  "Tanh 2"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            },
+            {
+              "case": "resnet",
+              "arm": "lr_0p75",
+              "window": [
+                256,
+                576
+              ],
+              "baseline_peak_state": 415,
+              "baseline_selected_loss_event": {
+                "case": "resnet",
+                "arm": "control",
+                "event": "45",
+                "before_state": "404",
+                "onset_state": "405",
+                "peak_state": "415",
+                "recovery_state": "439",
+                "end_state": "439",
+                "right_censored": "False",
+                "left_truncated": "False",
+                "window_first_state": "405",
+                "window_last_state": "439",
+                "window_peak_state": "415",
+                "reference_loss": "0.10708880004882812",
+                "window_peak_loss": "0.44070237731933587",
+                "window_height_percent": "311.5298491704021",
+                "observed_window_duration": "35",
+                "full_recovery_duration": "35"
+              },
+              "baseline_stage_rms_maximum": [
+                0.016962332340993144,
+                0.0766361039013803,
+                0.08962531164674836,
+                0.5471440533501329,
+                0.4227447661699366,
+                2.784778249118874
+              ],
+              "stages": [
+                [
+                  "conv1",
+                  "Conv 1"
+                ],
+                [
+                  "layer1",
+                  "Stage 1"
+                ],
+                [
+                  "layer2",
+                  "Stage 2"
+                ],
+                [
+                  "layer3",
+                  "Stage 3"
+                ],
+                [
+                  "avgpool",
+                  "Pooling"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            },
+            {
+              "case": "transformer",
+              "arm": "lr_0p75",
+              "window": [
+                544,
+                928
+              ],
+              "baseline_peak_state": 912,
+              "baseline_selected_loss_event": {
+                "case": "transformer",
+                "arm": "control",
+                "event": "33",
+                "before_state": "905",
+                "onset_state": "906",
+                "peak_state": "912",
+                "recovery_state": "",
+                "end_state": "928",
+                "right_censored": "True",
+                "left_truncated": "False",
+                "window_first_state": "906",
+                "window_last_state": "928",
+                "window_peak_state": "912",
+                "reference_loss": "0.5708605245158995",
+                "window_peak_loss": "2.5927019073126907",
+                "window_height_percent": "354.17432034056844",
+                "observed_window_duration": "23",
+                "full_recovery_duration": ""
+              },
+              "baseline_stage_rms_maximum": [
+                0.0012485898166853656,
+                0.29096568498486747,
+                0.194217892682246,
+                0.5787494586545704,
+                0.9536967382241828,
+                7.400077945256229
+              ],
+              "stages": [
+                [
+                  "encoder",
+                  "Embedding"
+                ],
+                [
+                  "transformer_encoder.layers.0.self_attn",
+                  "Attention 1"
+                ],
+                [
+                  "transformer_encoder.layers.0",
+                  "Block 1"
+                ],
+                [
+                  "transformer_encoder.layers.1.self_attn",
+                  "Attention 2"
+                ],
+                [
+                  "transformer_encoder.layers.1",
+                  "Block 2"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            }
+          ],
+          "rms_color_maximum": 1.37857834591702
+        },
+        {
+          "columns": [
+            {
+              "case": "mlp",
+              "arm": "lr_0p5",
+              "window": [
+                512,
+                800
+              ],
+              "baseline_peak_state": 683,
+              "baseline_selected_loss_event": {
+                "case": "mlp",
+                "arm": "control",
+                "event": "80",
+                "before_state": "666",
+                "onset_state": "667",
+                "peak_state": "683",
+                "recovery_state": "702",
+                "end_state": "702",
+                "right_censored": "False",
+                "left_truncated": "False",
+                "window_first_state": "667",
+                "window_last_state": "702",
+                "window_peak_state": "683",
+                "reference_loss": "0.014118717517703772",
+                "window_peak_loss": "0.04823051206767559",
+                "window_height_percent": "241.60689175343504",
+                "observed_window_duration": "36",
+                "full_recovery_duration": "36"
+              },
+              "baseline_stage_rms_maximum": [
+                0.16198166859919969,
+                0.055470994849668914,
+                0.05917221282097108,
+                0.052336660173595034,
+                0.16307615853538465
+              ],
+              "stages": [
+                [
+                  "1",
+                  "Linear 1"
+                ],
+                [
+                  "2",
+                  "Tanh 1"
+                ],
+                [
+                  "3",
+                  "Linear 2"
+                ],
+                [
+                  "4",
+                  "Tanh 2"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            },
+            {
+              "case": "resnet",
+              "arm": "lr_0p5",
+              "window": [
+                256,
+                576
+              ],
+              "baseline_peak_state": 415,
+              "baseline_selected_loss_event": {
+                "case": "resnet",
+                "arm": "control",
+                "event": "45",
+                "before_state": "404",
+                "onset_state": "405",
+                "peak_state": "415",
+                "recovery_state": "439",
+                "end_state": "439",
+                "right_censored": "False",
+                "left_truncated": "False",
+                "window_first_state": "405",
+                "window_last_state": "439",
+                "window_peak_state": "415",
+                "reference_loss": "0.10708880004882812",
+                "window_peak_loss": "0.44070237731933587",
+                "window_height_percent": "311.5298491704021",
+                "observed_window_duration": "35",
+                "full_recovery_duration": "35"
+              },
+              "baseline_stage_rms_maximum": [
+                0.016962332340993144,
+                0.0766361039013803,
+                0.08962531164674836,
+                0.5471440533501329,
+                0.4227447661699366,
+                2.784778249118874
+              ],
+              "stages": [
+                [
+                  "conv1",
+                  "Conv 1"
+                ],
+                [
+                  "layer1",
+                  "Stage 1"
+                ],
+                [
+                  "layer2",
+                  "Stage 2"
+                ],
+                [
+                  "layer3",
+                  "Stage 3"
+                ],
+                [
+                  "avgpool",
+                  "Pooling"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            },
+            {
+              "case": "transformer",
+              "arm": "lr_0p5",
+              "window": [
+                544,
+                928
+              ],
+              "baseline_peak_state": 912,
+              "baseline_selected_loss_event": {
+                "case": "transformer",
+                "arm": "control",
+                "event": "33",
+                "before_state": "905",
+                "onset_state": "906",
+                "peak_state": "912",
+                "recovery_state": "",
+                "end_state": "928",
+                "right_censored": "True",
+                "left_truncated": "False",
+                "window_first_state": "906",
+                "window_last_state": "928",
+                "window_peak_state": "912",
+                "reference_loss": "0.5708605245158995",
+                "window_peak_loss": "2.5927019073126907",
+                "window_height_percent": "354.17432034056844",
+                "observed_window_duration": "23",
+                "full_recovery_duration": ""
+              },
+              "baseline_stage_rms_maximum": [
+                0.0012485898166853656,
+                0.29096568498486747,
+                0.194217892682246,
+                0.5787494586545704,
+                0.9536967382241828,
+                7.400077945256229
+              ],
+              "stages": [
+                [
+                  "encoder",
+                  "Embedding"
+                ],
+                [
+                  "transformer_encoder.layers.0.self_attn",
+                  "Attention 1"
+                ],
+                [
+                  "transformer_encoder.layers.0",
+                  "Block 1"
+                ],
+                [
+                  "transformer_encoder.layers.1.self_attn",
+                  "Attention 2"
+                ],
+                [
+                  "transformer_encoder.layers.1",
+                  "Block 2"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            }
+          ],
+          "rms_color_maximum": 1.280050024061619
+        },
+        {
+          "columns": [
+            {
+              "case": "mlp",
+              "arm": "lr_0p1",
+              "window": [
+                512,
+                800
+              ],
+              "baseline_peak_state": 683,
+              "baseline_selected_loss_event": {
+                "case": "mlp",
+                "arm": "control",
+                "event": "80",
+                "before_state": "666",
+                "onset_state": "667",
+                "peak_state": "683",
+                "recovery_state": "702",
+                "end_state": "702",
+                "right_censored": "False",
+                "left_truncated": "False",
+                "window_first_state": "667",
+                "window_last_state": "702",
+                "window_peak_state": "683",
+                "reference_loss": "0.014118717517703772",
+                "window_peak_loss": "0.04823051206767559",
+                "window_height_percent": "241.60689175343504",
+                "observed_window_duration": "36",
+                "full_recovery_duration": "36"
+              },
+              "baseline_stage_rms_maximum": [
+                0.16198166859919969,
+                0.055470994849668914,
+                0.05917221282097108,
+                0.052336660173595034,
+                0.16307615853538465
+              ],
+              "stages": [
+                [
+                  "1",
+                  "Linear 1"
+                ],
+                [
+                  "2",
+                  "Tanh 1"
+                ],
+                [
+                  "3",
+                  "Linear 2"
+                ],
+                [
+                  "4",
+                  "Tanh 2"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            },
+            {
+              "case": "resnet",
+              "arm": "lr_0p1",
+              "window": [
+                256,
+                576
+              ],
+              "baseline_peak_state": 415,
+              "baseline_selected_loss_event": {
+                "case": "resnet",
+                "arm": "control",
+                "event": "45",
+                "before_state": "404",
+                "onset_state": "405",
+                "peak_state": "415",
+                "recovery_state": "439",
+                "end_state": "439",
+                "right_censored": "False",
+                "left_truncated": "False",
+                "window_first_state": "405",
+                "window_last_state": "439",
+                "window_peak_state": "415",
+                "reference_loss": "0.10708880004882812",
+                "window_peak_loss": "0.44070237731933587",
+                "window_height_percent": "311.5298491704021",
+                "observed_window_duration": "35",
+                "full_recovery_duration": "35"
+              },
+              "baseline_stage_rms_maximum": [
+                0.016962332340993144,
+                0.0766361039013803,
+                0.08962531164674836,
+                0.5471440533501329,
+                0.4227447661699366,
+                2.784778249118874
+              ],
+              "stages": [
+                [
+                  "conv1",
+                  "Conv 1"
+                ],
+                [
+                  "layer1",
+                  "Stage 1"
+                ],
+                [
+                  "layer2",
+                  "Stage 2"
+                ],
+                [
+                  "layer3",
+                  "Stage 3"
+                ],
+                [
+                  "avgpool",
+                  "Pooling"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            },
+            {
+              "case": "transformer",
+              "arm": "lr_0p1",
+              "window": [
+                544,
+                928
+              ],
+              "baseline_peak_state": 912,
+              "baseline_selected_loss_event": {
+                "case": "transformer",
+                "arm": "control",
+                "event": "33",
+                "before_state": "905",
+                "onset_state": "906",
+                "peak_state": "912",
+                "recovery_state": "",
+                "end_state": "928",
+                "right_censored": "True",
+                "left_truncated": "False",
+                "window_first_state": "906",
+                "window_last_state": "928",
+                "window_peak_state": "912",
+                "reference_loss": "0.5708605245158995",
+                "window_peak_loss": "2.5927019073126907",
+                "window_height_percent": "354.17432034056844",
+                "observed_window_duration": "23",
+                "full_recovery_duration": ""
+              },
+              "baseline_stage_rms_maximum": [
+                0.0012485898166853656,
+                0.29096568498486747,
+                0.194217892682246,
+                0.5787494586545704,
+                0.9536967382241828,
+                7.400077945256229
+              ],
+              "stages": [
+                [
+                  "encoder",
+                  "Embedding"
+                ],
+                [
+                  "transformer_encoder.layers.0.self_attn",
+                  "Attention 1"
+                ],
+                [
+                  "transformer_encoder.layers.0",
+                  "Block 1"
+                ],
+                [
+                  "transformer_encoder.layers.1.self_attn",
+                  "Attention 2"
+                ],
+                [
+                  "transformer_encoder.layers.1",
+                  "Block 2"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            }
+          ],
+          "rms_color_maximum": 1.0
+        },
+        {
+          "columns": [
+            {
+              "case": "mlp",
+              "arm": "beta2_0p95",
+              "window": [
+                512,
+                800
+              ],
+              "baseline_peak_state": 683,
+              "baseline_selected_loss_event": {
+                "case": "mlp",
+                "arm": "control",
+                "event": "80",
+                "before_state": "666",
+                "onset_state": "667",
+                "peak_state": "683",
+                "recovery_state": "702",
+                "end_state": "702",
+                "right_censored": "False",
+                "left_truncated": "False",
+                "window_first_state": "667",
+                "window_last_state": "702",
+                "window_peak_state": "683",
+                "reference_loss": "0.014118717517703772",
+                "window_peak_loss": "0.04823051206767559",
+                "window_height_percent": "241.60689175343504",
+                "observed_window_duration": "36",
+                "full_recovery_duration": "36"
+              },
+              "baseline_stage_rms_maximum": [
+                0.16198166859919969,
+                0.055470994849668914,
+                0.05917221282097108,
+                0.052336660173595034,
+                0.16307615853538465
+              ],
+              "stages": [
+                [
+                  "1",
+                  "Linear 1"
+                ],
+                [
+                  "2",
+                  "Tanh 1"
+                ],
+                [
+                  "3",
+                  "Linear 2"
+                ],
+                [
+                  "4",
+                  "Tanh 2"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            },
+            {
+              "case": "resnet",
+              "arm": "beta2_0p95",
+              "window": [
+                256,
+                576
+              ],
+              "baseline_peak_state": 415,
+              "baseline_selected_loss_event": {
+                "case": "resnet",
+                "arm": "control",
+                "event": "45",
+                "before_state": "404",
+                "onset_state": "405",
+                "peak_state": "415",
+                "recovery_state": "439",
+                "end_state": "439",
+                "right_censored": "False",
+                "left_truncated": "False",
+                "window_first_state": "405",
+                "window_last_state": "439",
+                "window_peak_state": "415",
+                "reference_loss": "0.10708880004882812",
+                "window_peak_loss": "0.44070237731933587",
+                "window_height_percent": "311.5298491704021",
+                "observed_window_duration": "35",
+                "full_recovery_duration": "35"
+              },
+              "baseline_stage_rms_maximum": [
+                0.016962332340993144,
+                0.0766361039013803,
+                0.08962531164674836,
+                0.5471440533501329,
+                0.4227447661699366,
+                2.784778249118874
+              ],
+              "stages": [
+                [
+                  "conv1",
+                  "Conv 1"
+                ],
+                [
+                  "layer1",
+                  "Stage 1"
+                ],
+                [
+                  "layer2",
+                  "Stage 2"
+                ],
+                [
+                  "layer3",
+                  "Stage 3"
+                ],
+                [
+                  "avgpool",
+                  "Pooling"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            },
+            {
+              "case": "transformer",
+              "arm": "beta2_0p95",
+              "window": [
+                544,
+                928
+              ],
+              "baseline_peak_state": 912,
+              "baseline_selected_loss_event": {
+                "case": "transformer",
+                "arm": "control",
+                "event": "33",
+                "before_state": "905",
+                "onset_state": "906",
+                "peak_state": "912",
+                "recovery_state": "",
+                "end_state": "928",
+                "right_censored": "True",
+                "left_truncated": "False",
+                "window_first_state": "906",
+                "window_last_state": "928",
+                "window_peak_state": "912",
+                "reference_loss": "0.5708605245158995",
+                "window_peak_loss": "2.5927019073126907",
+                "window_height_percent": "354.17432034056844",
+                "observed_window_duration": "23",
+                "full_recovery_duration": ""
+              },
+              "baseline_stage_rms_maximum": [
+                0.0012485898166853656,
+                0.29096568498486747,
+                0.194217892682246,
+                0.5787494586545704,
+                0.9536967382241828,
+                7.400077945256229
+              ],
+              "stages": [
+                [
+                  "encoder",
+                  "Embedding"
+                ],
+                [
+                  "transformer_encoder.layers.0.self_attn",
+                  "Attention 1"
+                ],
+                [
+                  "transformer_encoder.layers.0",
+                  "Block 1"
+                ],
+                [
+                  "transformer_encoder.layers.1.self_attn",
+                  "Attention 2"
+                ],
+                [
+                  "transformer_encoder.layers.1",
+                  "Block 2"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            }
+          ],
+          "rms_color_maximum": 2.0572257920385204
+        },
+        {
+          "columns": [
+            {
+              "case": "mlp",
+              "arm": "beta2_0p9",
+              "window": [
+                512,
+                800
+              ],
+              "baseline_peak_state": 683,
+              "baseline_selected_loss_event": {
+                "case": "mlp",
+                "arm": "control",
+                "event": "80",
+                "before_state": "666",
+                "onset_state": "667",
+                "peak_state": "683",
+                "recovery_state": "702",
+                "end_state": "702",
+                "right_censored": "False",
+                "left_truncated": "False",
+                "window_first_state": "667",
+                "window_last_state": "702",
+                "window_peak_state": "683",
+                "reference_loss": "0.014118717517703772",
+                "window_peak_loss": "0.04823051206767559",
+                "window_height_percent": "241.60689175343504",
+                "observed_window_duration": "36",
+                "full_recovery_duration": "36"
+              },
+              "baseline_stage_rms_maximum": [
+                0.16198166859919969,
+                0.055470994849668914,
+                0.05917221282097108,
+                0.052336660173595034,
+                0.16307615853538465
+              ],
+              "stages": [
+                [
+                  "1",
+                  "Linear 1"
+                ],
+                [
+                  "2",
+                  "Tanh 1"
+                ],
+                [
+                  "3",
+                  "Linear 2"
+                ],
+                [
+                  "4",
+                  "Tanh 2"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            },
+            {
+              "case": "resnet",
+              "arm": "beta2_0p9",
+              "window": [
+                256,
+                576
+              ],
+              "baseline_peak_state": 415,
+              "baseline_selected_loss_event": {
+                "case": "resnet",
+                "arm": "control",
+                "event": "45",
+                "before_state": "404",
+                "onset_state": "405",
+                "peak_state": "415",
+                "recovery_state": "439",
+                "end_state": "439",
+                "right_censored": "False",
+                "left_truncated": "False",
+                "window_first_state": "405",
+                "window_last_state": "439",
+                "window_peak_state": "415",
+                "reference_loss": "0.10708880004882812",
+                "window_peak_loss": "0.44070237731933587",
+                "window_height_percent": "311.5298491704021",
+                "observed_window_duration": "35",
+                "full_recovery_duration": "35"
+              },
+              "baseline_stage_rms_maximum": [
+                0.016962332340993144,
+                0.0766361039013803,
+                0.08962531164674836,
+                0.5471440533501329,
+                0.4227447661699366,
+                2.784778249118874
+              ],
+              "stages": [
+                [
+                  "conv1",
+                  "Conv 1"
+                ],
+                [
+                  "layer1",
+                  "Stage 1"
+                ],
+                [
+                  "layer2",
+                  "Stage 2"
+                ],
+                [
+                  "layer3",
+                  "Stage 3"
+                ],
+                [
+                  "avgpool",
+                  "Pooling"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            },
+            {
+              "case": "transformer",
+              "arm": "beta2_0p9",
+              "window": [
+                544,
+                928
+              ],
+              "baseline_peak_state": 912,
+              "baseline_selected_loss_event": {
+                "case": "transformer",
+                "arm": "control",
+                "event": "33",
+                "before_state": "905",
+                "onset_state": "906",
+                "peak_state": "912",
+                "recovery_state": "",
+                "end_state": "928",
+                "right_censored": "True",
+                "left_truncated": "False",
+                "window_first_state": "906",
+                "window_last_state": "928",
+                "window_peak_state": "912",
+                "reference_loss": "0.5708605245158995",
+                "window_peak_loss": "2.5927019073126907",
+                "window_height_percent": "354.17432034056844",
+                "observed_window_duration": "23",
+                "full_recovery_duration": ""
+              },
+              "baseline_stage_rms_maximum": [
+                0.0012485898166853656,
+                0.29096568498486747,
+                0.194217892682246,
+                0.5787494586545704,
+                0.9536967382241828,
+                7.400077945256229
+              ],
+              "stages": [
+                [
+                  "encoder",
+                  "Embedding"
+                ],
+                [
+                  "transformer_encoder.layers.0.self_attn",
+                  "Attention 1"
+                ],
+                [
+                  "transformer_encoder.layers.0",
+                  "Block 1"
+                ],
+                [
+                  "transformer_encoder.layers.1.self_attn",
+                  "Attention 2"
+                ],
+                [
+                  "transformer_encoder.layers.1",
+                  "Block 2"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            }
+          ],
+          "rms_color_maximum": 1.6303686102336465
+        },
+        {
+          "columns": [
+            {
+              "case": "mlp",
+              "arm": "beta2_0p5",
+              "window": [
+                512,
+                800
+              ],
+              "baseline_peak_state": 683,
+              "baseline_selected_loss_event": {
+                "case": "mlp",
+                "arm": "control",
+                "event": "80",
+                "before_state": "666",
+                "onset_state": "667",
+                "peak_state": "683",
+                "recovery_state": "702",
+                "end_state": "702",
+                "right_censored": "False",
+                "left_truncated": "False",
+                "window_first_state": "667",
+                "window_last_state": "702",
+                "window_peak_state": "683",
+                "reference_loss": "0.014118717517703772",
+                "window_peak_loss": "0.04823051206767559",
+                "window_height_percent": "241.60689175343504",
+                "observed_window_duration": "36",
+                "full_recovery_duration": "36"
+              },
+              "baseline_stage_rms_maximum": [
+                0.16198166859919969,
+                0.055470994849668914,
+                0.05917221282097108,
+                0.052336660173595034,
+                0.16307615853538465
+              ],
+              "stages": [
+                [
+                  "1",
+                  "Linear 1"
+                ],
+                [
+                  "2",
+                  "Tanh 1"
+                ],
+                [
+                  "3",
+                  "Linear 2"
+                ],
+                [
+                  "4",
+                  "Tanh 2"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            },
+            {
+              "case": "resnet",
+              "arm": "beta2_0p5",
+              "window": [
+                256,
+                576
+              ],
+              "baseline_peak_state": 415,
+              "baseline_selected_loss_event": {
+                "case": "resnet",
+                "arm": "control",
+                "event": "45",
+                "before_state": "404",
+                "onset_state": "405",
+                "peak_state": "415",
+                "recovery_state": "439",
+                "end_state": "439",
+                "right_censored": "False",
+                "left_truncated": "False",
+                "window_first_state": "405",
+                "window_last_state": "439",
+                "window_peak_state": "415",
+                "reference_loss": "0.10708880004882812",
+                "window_peak_loss": "0.44070237731933587",
+                "window_height_percent": "311.5298491704021",
+                "observed_window_duration": "35",
+                "full_recovery_duration": "35"
+              },
+              "baseline_stage_rms_maximum": [
+                0.016962332340993144,
+                0.0766361039013803,
+                0.08962531164674836,
+                0.5471440533501329,
+                0.4227447661699366,
+                2.784778249118874
+              ],
+              "stages": [
+                [
+                  "conv1",
+                  "Conv 1"
+                ],
+                [
+                  "layer1",
+                  "Stage 1"
+                ],
+                [
+                  "layer2",
+                  "Stage 2"
+                ],
+                [
+                  "layer3",
+                  "Stage 3"
+                ],
+                [
+                  "avgpool",
+                  "Pooling"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            },
+            {
+              "case": "transformer",
+              "arm": "beta2_0p5",
+              "window": [
+                544,
+                928
+              ],
+              "baseline_peak_state": 912,
+              "baseline_selected_loss_event": {
+                "case": "transformer",
+                "arm": "control",
+                "event": "33",
+                "before_state": "905",
+                "onset_state": "906",
+                "peak_state": "912",
+                "recovery_state": "",
+                "end_state": "928",
+                "right_censored": "True",
+                "left_truncated": "False",
+                "window_first_state": "906",
+                "window_last_state": "928",
+                "window_peak_state": "912",
+                "reference_loss": "0.5708605245158995",
+                "window_peak_loss": "2.5927019073126907",
+                "window_height_percent": "354.17432034056844",
+                "observed_window_duration": "23",
+                "full_recovery_duration": ""
+              },
+              "baseline_stage_rms_maximum": [
+                0.0012485898166853656,
+                0.29096568498486747,
+                0.194217892682246,
+                0.5787494586545704,
+                0.9536967382241828,
+                7.400077945256229
+              ],
+              "stages": [
+                [
+                  "encoder",
+                  "Embedding"
+                ],
+                [
+                  "transformer_encoder.layers.0.self_attn",
+                  "Attention 1"
+                ],
+                [
+                  "transformer_encoder.layers.0",
+                  "Block 1"
+                ],
+                [
+                  "transformer_encoder.layers.1.self_attn",
+                  "Attention 2"
+                ],
+                [
+                  "transformer_encoder.layers.1",
+                  "Block 2"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            }
+          ],
+          "rms_color_maximum": 1.0
+        },
+        {
+          "columns": [
+            {
+              "case": "mlp",
+              "arm": "clip_0p5",
+              "window": [
+                512,
+                800
+              ],
+              "baseline_peak_state": 683,
+              "baseline_selected_loss_event": {
+                "case": "mlp",
+                "arm": "control",
+                "event": "80",
+                "before_state": "666",
+                "onset_state": "667",
+                "peak_state": "683",
+                "recovery_state": "702",
+                "end_state": "702",
+                "right_censored": "False",
+                "left_truncated": "False",
+                "window_first_state": "667",
+                "window_last_state": "702",
+                "window_peak_state": "683",
+                "reference_loss": "0.014118717517703772",
+                "window_peak_loss": "0.04823051206767559",
+                "window_height_percent": "241.60689175343504",
+                "observed_window_duration": "36",
+                "full_recovery_duration": "36"
+              },
+              "baseline_stage_rms_maximum": [
+                0.16198166859919969,
+                0.055470994849668914,
+                0.05917221282097108,
+                0.052336660173595034,
+                0.16307615853538465
+              ],
+              "stages": [
+                [
+                  "1",
+                  "Linear 1"
+                ],
+                [
+                  "2",
+                  "Tanh 1"
+                ],
+                [
+                  "3",
+                  "Linear 2"
+                ],
+                [
+                  "4",
+                  "Tanh 2"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            },
+            {
+              "case": "resnet",
+              "arm": "clip_0p5",
+              "window": [
+                256,
+                576
+              ],
+              "baseline_peak_state": 415,
+              "baseline_selected_loss_event": {
+                "case": "resnet",
+                "arm": "control",
+                "event": "45",
+                "before_state": "404",
+                "onset_state": "405",
+                "peak_state": "415",
+                "recovery_state": "439",
+                "end_state": "439",
+                "right_censored": "False",
+                "left_truncated": "False",
+                "window_first_state": "405",
+                "window_last_state": "439",
+                "window_peak_state": "415",
+                "reference_loss": "0.10708880004882812",
+                "window_peak_loss": "0.44070237731933587",
+                "window_height_percent": "311.5298491704021",
+                "observed_window_duration": "35",
+                "full_recovery_duration": "35"
+              },
+              "baseline_stage_rms_maximum": [
+                0.016962332340993144,
+                0.0766361039013803,
+                0.08962531164674836,
+                0.5471440533501329,
+                0.4227447661699366,
+                2.784778249118874
+              ],
+              "stages": [
+                [
+                  "conv1",
+                  "Conv 1"
+                ],
+                [
+                  "layer1",
+                  "Stage 1"
+                ],
+                [
+                  "layer2",
+                  "Stage 2"
+                ],
+                [
+                  "layer3",
+                  "Stage 3"
+                ],
+                [
+                  "avgpool",
+                  "Pooling"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            },
+            {
+              "case": "transformer",
+              "arm": "clip_0p5",
+              "window": [
+                544,
+                928
+              ],
+              "baseline_peak_state": 912,
+              "baseline_selected_loss_event": {
+                "case": "transformer",
+                "arm": "control",
+                "event": "33",
+                "before_state": "905",
+                "onset_state": "906",
+                "peak_state": "912",
+                "recovery_state": "",
+                "end_state": "928",
+                "right_censored": "True",
+                "left_truncated": "False",
+                "window_first_state": "906",
+                "window_last_state": "928",
+                "window_peak_state": "912",
+                "reference_loss": "0.5708605245158995",
+                "window_peak_loss": "2.5927019073126907",
+                "window_height_percent": "354.17432034056844",
+                "observed_window_duration": "23",
+                "full_recovery_duration": ""
+              },
+              "baseline_stage_rms_maximum": [
+                0.0012485898166853656,
+                0.29096568498486747,
+                0.194217892682246,
+                0.5787494586545704,
+                0.9536967382241828,
+                7.400077945256229
+              ],
+              "stages": [
+                [
+                  "encoder",
+                  "Embedding"
+                ],
+                [
+                  "transformer_encoder.layers.0.self_attn",
+                  "Attention 1"
+                ],
+                [
+                  "transformer_encoder.layers.0",
+                  "Block 1"
+                ],
+                [
+                  "transformer_encoder.layers.1.self_attn",
+                  "Attention 2"
+                ],
+                [
+                  "transformer_encoder.layers.1",
+                  "Block 2"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            }
+          ],
+          "rms_color_maximum": 1.0
+        },
+        {
+          "columns": [
+            {
+              "case": "mlp",
+              "arm": "clip_1p0",
+              "window": [
+                512,
+                800
+              ],
+              "baseline_peak_state": 683,
+              "baseline_selected_loss_event": {
+                "case": "mlp",
+                "arm": "control",
+                "event": "80",
+                "before_state": "666",
+                "onset_state": "667",
+                "peak_state": "683",
+                "recovery_state": "702",
+                "end_state": "702",
+                "right_censored": "False",
+                "left_truncated": "False",
+                "window_first_state": "667",
+                "window_last_state": "702",
+                "window_peak_state": "683",
+                "reference_loss": "0.014118717517703772",
+                "window_peak_loss": "0.04823051206767559",
+                "window_height_percent": "241.60689175343504",
+                "observed_window_duration": "36",
+                "full_recovery_duration": "36"
+              },
+              "baseline_stage_rms_maximum": [
+                0.16198166859919969,
+                0.055470994849668914,
+                0.05917221282097108,
+                0.052336660173595034,
+                0.16307615853538465
+              ],
+              "stages": [
+                [
+                  "1",
+                  "Linear 1"
+                ],
+                [
+                  "2",
+                  "Tanh 1"
+                ],
+                [
+                  "3",
+                  "Linear 2"
+                ],
+                [
+                  "4",
+                  "Tanh 2"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            },
+            {
+              "case": "resnet",
+              "arm": "clip_1p0",
+              "window": [
+                256,
+                576
+              ],
+              "baseline_peak_state": 415,
+              "baseline_selected_loss_event": {
+                "case": "resnet",
+                "arm": "control",
+                "event": "45",
+                "before_state": "404",
+                "onset_state": "405",
+                "peak_state": "415",
+                "recovery_state": "439",
+                "end_state": "439",
+                "right_censored": "False",
+                "left_truncated": "False",
+                "window_first_state": "405",
+                "window_last_state": "439",
+                "window_peak_state": "415",
+                "reference_loss": "0.10708880004882812",
+                "window_peak_loss": "0.44070237731933587",
+                "window_height_percent": "311.5298491704021",
+                "observed_window_duration": "35",
+                "full_recovery_duration": "35"
+              },
+              "baseline_stage_rms_maximum": [
+                0.016962332340993144,
+                0.0766361039013803,
+                0.08962531164674836,
+                0.5471440533501329,
+                0.4227447661699366,
+                2.784778249118874
+              ],
+              "stages": [
+                [
+                  "conv1",
+                  "Conv 1"
+                ],
+                [
+                  "layer1",
+                  "Stage 1"
+                ],
+                [
+                  "layer2",
+                  "Stage 2"
+                ],
+                [
+                  "layer3",
+                  "Stage 3"
+                ],
+                [
+                  "avgpool",
+                  "Pooling"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            },
+            {
+              "case": "transformer",
+              "arm": "clip_1p0",
+              "window": [
+                544,
+                928
+              ],
+              "baseline_peak_state": 912,
+              "baseline_selected_loss_event": {
+                "case": "transformer",
+                "arm": "control",
+                "event": "33",
+                "before_state": "905",
+                "onset_state": "906",
+                "peak_state": "912",
+                "recovery_state": "",
+                "end_state": "928",
+                "right_censored": "True",
+                "left_truncated": "False",
+                "window_first_state": "906",
+                "window_last_state": "928",
+                "window_peak_state": "912",
+                "reference_loss": "0.5708605245158995",
+                "window_peak_loss": "2.5927019073126907",
+                "window_height_percent": "354.17432034056844",
+                "observed_window_duration": "23",
+                "full_recovery_duration": ""
+              },
+              "baseline_stage_rms_maximum": [
+                0.0012485898166853656,
+                0.29096568498486747,
+                0.194217892682246,
+                0.5787494586545704,
+                0.9536967382241828,
+                7.400077945256229
+              ],
+              "stages": [
+                [
+                  "encoder",
+                  "Embedding"
+                ],
+                [
+                  "transformer_encoder.layers.0.self_attn",
+                  "Attention 1"
+                ],
+                [
+                  "transformer_encoder.layers.0",
+                  "Block 1"
+                ],
+                [
+                  "transformer_encoder.layers.1.self_attn",
+                  "Attention 2"
+                ],
+                [
+                  "transformer_encoder.layers.1",
+                  "Block 2"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            }
+          ],
+          "rms_color_maximum": 1.461955792446336
+        },
+        {
+          "columns": [
+            {
+              "case": "mlp",
+              "arm": "cap_q25",
+              "window": [
+                512,
+                800
+              ],
+              "baseline_peak_state": 683,
+              "baseline_selected_loss_event": {
+                "case": "mlp",
+                "arm": "control",
+                "event": "80",
+                "before_state": "666",
+                "onset_state": "667",
+                "peak_state": "683",
+                "recovery_state": "702",
+                "end_state": "702",
+                "right_censored": "False",
+                "left_truncated": "False",
+                "window_first_state": "667",
+                "window_last_state": "702",
+                "window_peak_state": "683",
+                "reference_loss": "0.014118717517703772",
+                "window_peak_loss": "0.04823051206767559",
+                "window_height_percent": "241.60689175343504",
+                "observed_window_duration": "36",
+                "full_recovery_duration": "36"
+              },
+              "baseline_stage_rms_maximum": [
+                0.16198166859919969,
+                0.055470994849668914,
+                0.05917221282097108,
+                0.052336660173595034,
+                0.16307615853538465
+              ],
+              "stages": [
+                [
+                  "1",
+                  "Linear 1"
+                ],
+                [
+                  "2",
+                  "Tanh 1"
+                ],
+                [
+                  "3",
+                  "Linear 2"
+                ],
+                [
+                  "4",
+                  "Tanh 2"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            },
+            {
+              "case": "resnet",
+              "arm": "cap_q25",
+              "window": [
+                256,
+                576
+              ],
+              "baseline_peak_state": 415,
+              "baseline_selected_loss_event": {
+                "case": "resnet",
+                "arm": "control",
+                "event": "45",
+                "before_state": "404",
+                "onset_state": "405",
+                "peak_state": "415",
+                "recovery_state": "439",
+                "end_state": "439",
+                "right_censored": "False",
+                "left_truncated": "False",
+                "window_first_state": "405",
+                "window_last_state": "439",
+                "window_peak_state": "415",
+                "reference_loss": "0.10708880004882812",
+                "window_peak_loss": "0.44070237731933587",
+                "window_height_percent": "311.5298491704021",
+                "observed_window_duration": "35",
+                "full_recovery_duration": "35"
+              },
+              "baseline_stage_rms_maximum": [
+                0.016962332340993144,
+                0.0766361039013803,
+                0.08962531164674836,
+                0.5471440533501329,
+                0.4227447661699366,
+                2.784778249118874
+              ],
+              "stages": [
+                [
+                  "conv1",
+                  "Conv 1"
+                ],
+                [
+                  "layer1",
+                  "Stage 1"
+                ],
+                [
+                  "layer2",
+                  "Stage 2"
+                ],
+                [
+                  "layer3",
+                  "Stage 3"
+                ],
+                [
+                  "avgpool",
+                  "Pooling"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            },
+            {
+              "case": "transformer",
+              "arm": "cap_q25",
+              "window": [
+                544,
+                928
+              ],
+              "baseline_peak_state": 912,
+              "baseline_selected_loss_event": {
+                "case": "transformer",
+                "arm": "control",
+                "event": "33",
+                "before_state": "905",
+                "onset_state": "906",
+                "peak_state": "912",
+                "recovery_state": "",
+                "end_state": "928",
+                "right_censored": "True",
+                "left_truncated": "False",
+                "window_first_state": "906",
+                "window_last_state": "928",
+                "window_peak_state": "912",
+                "reference_loss": "0.5708605245158995",
+                "window_peak_loss": "2.5927019073126907",
+                "window_height_percent": "354.17432034056844",
+                "observed_window_duration": "23",
+                "full_recovery_duration": ""
+              },
+              "baseline_stage_rms_maximum": [
+                0.0012485898166853656,
+                0.29096568498486747,
+                0.194217892682246,
+                0.5787494586545704,
+                0.9536967382241828,
+                7.400077945256229
+              ],
+              "stages": [
+                [
+                  "encoder",
+                  "Embedding"
+                ],
+                [
+                  "transformer_encoder.layers.0.self_attn",
+                  "Attention 1"
+                ],
+                [
+                  "transformer_encoder.layers.0",
+                  "Block 1"
+                ],
+                [
+                  "transformer_encoder.layers.1.self_attn",
+                  "Attention 2"
+                ],
+                [
+                  "transformer_encoder.layers.1",
+                  "Block 2"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            }
+          ],
+          "rms_color_maximum": 1.0
+        },
+        {
+          "columns": [
+            {
+              "case": "mlp",
+              "arm": "cap_q50",
+              "window": [
+                512,
+                800
+              ],
+              "baseline_peak_state": 683,
+              "baseline_selected_loss_event": {
+                "case": "mlp",
+                "arm": "control",
+                "event": "80",
+                "before_state": "666",
+                "onset_state": "667",
+                "peak_state": "683",
+                "recovery_state": "702",
+                "end_state": "702",
+                "right_censored": "False",
+                "left_truncated": "False",
+                "window_first_state": "667",
+                "window_last_state": "702",
+                "window_peak_state": "683",
+                "reference_loss": "0.014118717517703772",
+                "window_peak_loss": "0.04823051206767559",
+                "window_height_percent": "241.60689175343504",
+                "observed_window_duration": "36",
+                "full_recovery_duration": "36"
+              },
+              "baseline_stage_rms_maximum": [
+                0.16198166859919969,
+                0.055470994849668914,
+                0.05917221282097108,
+                0.052336660173595034,
+                0.16307615853538465
+              ],
+              "stages": [
+                [
+                  "1",
+                  "Linear 1"
+                ],
+                [
+                  "2",
+                  "Tanh 1"
+                ],
+                [
+                  "3",
+                  "Linear 2"
+                ],
+                [
+                  "4",
+                  "Tanh 2"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            },
+            {
+              "case": "resnet",
+              "arm": "cap_q50",
+              "window": [
+                256,
+                576
+              ],
+              "baseline_peak_state": 415,
+              "baseline_selected_loss_event": {
+                "case": "resnet",
+                "arm": "control",
+                "event": "45",
+                "before_state": "404",
+                "onset_state": "405",
+                "peak_state": "415",
+                "recovery_state": "439",
+                "end_state": "439",
+                "right_censored": "False",
+                "left_truncated": "False",
+                "window_first_state": "405",
+                "window_last_state": "439",
+                "window_peak_state": "415",
+                "reference_loss": "0.10708880004882812",
+                "window_peak_loss": "0.44070237731933587",
+                "window_height_percent": "311.5298491704021",
+                "observed_window_duration": "35",
+                "full_recovery_duration": "35"
+              },
+              "baseline_stage_rms_maximum": [
+                0.016962332340993144,
+                0.0766361039013803,
+                0.08962531164674836,
+                0.5471440533501329,
+                0.4227447661699366,
+                2.784778249118874
+              ],
+              "stages": [
+                [
+                  "conv1",
+                  "Conv 1"
+                ],
+                [
+                  "layer1",
+                  "Stage 1"
+                ],
+                [
+                  "layer2",
+                  "Stage 2"
+                ],
+                [
+                  "layer3",
+                  "Stage 3"
+                ],
+                [
+                  "avgpool",
+                  "Pooling"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            },
+            {
+              "case": "transformer",
+              "arm": "cap_q50",
+              "window": [
+                544,
+                928
+              ],
+              "baseline_peak_state": 912,
+              "baseline_selected_loss_event": {
+                "case": "transformer",
+                "arm": "control",
+                "event": "33",
+                "before_state": "905",
+                "onset_state": "906",
+                "peak_state": "912",
+                "recovery_state": "",
+                "end_state": "928",
+                "right_censored": "True",
+                "left_truncated": "False",
+                "window_first_state": "906",
+                "window_last_state": "928",
+                "window_peak_state": "912",
+                "reference_loss": "0.5708605245158995",
+                "window_peak_loss": "2.5927019073126907",
+                "window_height_percent": "354.17432034056844",
+                "observed_window_duration": "23",
+                "full_recovery_duration": ""
+              },
+              "baseline_stage_rms_maximum": [
+                0.0012485898166853656,
+                0.29096568498486747,
+                0.194217892682246,
+                0.5787494586545704,
+                0.9536967382241828,
+                7.400077945256229
+              ],
+              "stages": [
+                [
+                  "encoder",
+                  "Embedding"
+                ],
+                [
+                  "transformer_encoder.layers.0.self_attn",
+                  "Attention 1"
+                ],
+                [
+                  "transformer_encoder.layers.0",
+                  "Block 1"
+                ],
+                [
+                  "transformer_encoder.layers.1.self_attn",
+                  "Attention 2"
+                ],
+                [
+                  "transformer_encoder.layers.1",
+                  "Block 2"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            }
+          ],
+          "rms_color_maximum": 1.0
+        },
+        {
+          "columns": [
+            {
+              "case": "mlp",
+              "arm": "cap_q75",
+              "window": [
+                512,
+                800
+              ],
+              "baseline_peak_state": 683,
+              "baseline_selected_loss_event": {
+                "case": "mlp",
+                "arm": "control",
+                "event": "80",
+                "before_state": "666",
+                "onset_state": "667",
+                "peak_state": "683",
+                "recovery_state": "702",
+                "end_state": "702",
+                "right_censored": "False",
+                "left_truncated": "False",
+                "window_first_state": "667",
+                "window_last_state": "702",
+                "window_peak_state": "683",
+                "reference_loss": "0.014118717517703772",
+                "window_peak_loss": "0.04823051206767559",
+                "window_height_percent": "241.60689175343504",
+                "observed_window_duration": "36",
+                "full_recovery_duration": "36"
+              },
+              "baseline_stage_rms_maximum": [
+                0.16198166859919969,
+                0.055470994849668914,
+                0.05917221282097108,
+                0.052336660173595034,
+                0.16307615853538465
+              ],
+              "stages": [
+                [
+                  "1",
+                  "Linear 1"
+                ],
+                [
+                  "2",
+                  "Tanh 1"
+                ],
+                [
+                  "3",
+                  "Linear 2"
+                ],
+                [
+                  "4",
+                  "Tanh 2"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            },
+            {
+              "case": "resnet",
+              "arm": "cap_q75",
+              "window": [
+                256,
+                576
+              ],
+              "baseline_peak_state": 415,
+              "baseline_selected_loss_event": {
+                "case": "resnet",
+                "arm": "control",
+                "event": "45",
+                "before_state": "404",
+                "onset_state": "405",
+                "peak_state": "415",
+                "recovery_state": "439",
+                "end_state": "439",
+                "right_censored": "False",
+                "left_truncated": "False",
+                "window_first_state": "405",
+                "window_last_state": "439",
+                "window_peak_state": "415",
+                "reference_loss": "0.10708880004882812",
+                "window_peak_loss": "0.44070237731933587",
+                "window_height_percent": "311.5298491704021",
+                "observed_window_duration": "35",
+                "full_recovery_duration": "35"
+              },
+              "baseline_stage_rms_maximum": [
+                0.016962332340993144,
+                0.0766361039013803,
+                0.08962531164674836,
+                0.5471440533501329,
+                0.4227447661699366,
+                2.784778249118874
+              ],
+              "stages": [
+                [
+                  "conv1",
+                  "Conv 1"
+                ],
+                [
+                  "layer1",
+                  "Stage 1"
+                ],
+                [
+                  "layer2",
+                  "Stage 2"
+                ],
+                [
+                  "layer3",
+                  "Stage 3"
+                ],
+                [
+                  "avgpool",
+                  "Pooling"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            },
+            {
+              "case": "transformer",
+              "arm": "cap_q75",
+              "window": [
+                544,
+                928
+              ],
+              "baseline_peak_state": 912,
+              "baseline_selected_loss_event": {
+                "case": "transformer",
+                "arm": "control",
+                "event": "33",
+                "before_state": "905",
+                "onset_state": "906",
+                "peak_state": "912",
+                "recovery_state": "",
+                "end_state": "928",
+                "right_censored": "True",
+                "left_truncated": "False",
+                "window_first_state": "906",
+                "window_last_state": "928",
+                "window_peak_state": "912",
+                "reference_loss": "0.5708605245158995",
+                "window_peak_loss": "2.5927019073126907",
+                "window_height_percent": "354.17432034056844",
+                "observed_window_duration": "23",
+                "full_recovery_duration": ""
+              },
+              "baseline_stage_rms_maximum": [
+                0.0012485898166853656,
+                0.29096568498486747,
+                0.194217892682246,
+                0.5787494586545704,
+                0.9536967382241828,
+                7.400077945256229
+              ],
+              "stages": [
+                [
+                  "encoder",
+                  "Embedding"
+                ],
+                [
+                  "transformer_encoder.layers.0.self_attn",
+                  "Attention 1"
+                ],
+                [
+                  "transformer_encoder.layers.0",
+                  "Block 1"
+                ],
+                [
+                  "transformer_encoder.layers.1.self_attn",
+                  "Attention 2"
+                ],
+                [
+                  "transformer_encoder.layers.1",
+                  "Block 2"
+                ],
+                [
+                  "output",
+                  "Output"
+                ]
+              ]
+            }
+          ],
+          "rms_color_maximum": 1.0
+        }
+      ],
+      "bytes": 560723,
+      "sha256": "6ad9ef4ccdd2211ca2c0d25df654f0ceae4c98ae3b22e291206444756a303c14"
+    },
+    {
+      "file": "21-matched-heldout-loss.pdf",
+      "pages": 1,
+      "title": "Full held-out test loss at five fixed states",
+      "bytes": 72978,
+      "sha256": "8ac85a47df389754f6b7c94d440a685b1e02b119e910c7959037d9cbd38e340b"
+    },
+    {
+      "file": "22-matched-update-and-controller-activity.pdf",
+      "pages": 2,
+      "bytes": 175475,
+      "sha256": "74110ef8492402a89768c6f2ef4e0920d84b7f6d577033e807c0390cbb9f41d3"
+    },
+    {
+      "file": "23-matched-intervention-outcomes.pdf",
+      "pages": 3,
+      "bytes": 91061,
+      "sha256": "15ca9249c1a9acfb1759ee8b144e337ef81143cb4d71ab2821c9d5e37537b40c"
+    }
+  ],
+  "generator_sha256": "de3ead9615025a019d7f82ca319c78d723c82d1a7d8223c8f49cc653e354cb55",
+  "visual_review": "pending",
+  "clock": "Training step s; incoming functional changes at their endpoint; outgoing control activity at s+1."
+}

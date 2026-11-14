@@ -1,0 +1,20 @@
+{
+  "status": "reviewed",
+  "source_result_sha256": "bb512310d6b99de542510a8de475757e51b49d2cb3927bddec8018d21d4d7554",
+  "review_basis": [
+    "summary.csv",
+    "stage_metrics.csv",
+    "tracing_overlap.json",
+    "verification.json"
+  ],
+  "scope": "All 36 prespecified conditions; one initialization/model. All unfavorable results and full-horizon outcomes retained. q50 was preselected before observing these results.",
+  "conclusions": {
+    "LR_FINDING": "0.1x LR removes 99.6%/99.0%/100% of positive loss variation in MLP/ResNet/Transformer, but raises ResNet mean loss by 89.5%. At 0.5x, mean loss falls 25.0%/11.4% in MLP/Transformer and rises 27.2% in ResNet. Smoothness and learning progress are distinct outcomes.",
+    "BETA_FINDING": "All three switches increase MLP mean loss and positive variation. ResNet is mixed: beta2=.9 lowers mean loss 3.5% while increasing positive variation 63.3%. Transformer mean loss improves 9.6-16.8%, but beta2=.95 increases positive variation 7.1%, and all three switches worsen terminal test loss by 29.3-40.2%.",
+    "CLIP_FINDING": "Both thresholds increase mean loss and positive variation in MLP and ResNet. Transformer clipping at .5 reduces positive variation 87.7% and mean loss 17.8%, while increasing terminal test loss 18.3%. A raw-gradient threshold does not impose a bound on Adam parameter updates or propagated functional movement.",
+    "CAP_FINDING": "All three quantiles lower mean training loss in all three cases. q50 has the lowest observed mean among the tested settings in MLP and Transformer; ResNet q25/q75 improve mean, positive variation and final/late loss more than q50. Quantile sensitivity is nonmonotone, and q50 terminal test loss increases 0.53%/2.42%/27.52%. No setting wins every metric.",
+    "MOTION_FINDING": "q50 reduces the largest output RMS jump by 83.2%/23.1%/62.9% (MLP/ResNet/Transformer). Total output-motion energy changes by -88.6%/+39.7%/-55.4%, while reversal fractions are 89.2%/66.9%/95.8% of updates, versus 99.3%/36.9%/36.7% under Adam. The central message is smaller extreme functional jumps with continued oscillation; cumulative movement can increase.",
+    "TRACING_CONNECTION": "The ResNet control reproduces the previously selected 390-450 tracing window. q50 lowers its maximum loss from 0.4407 to 0.1736 (60.6%), while the whole 256-576 continuation has only 2.8% lower positive variation because later oscillations remain. This is a secondary readout in the already selected window; whole-horizon outcomes remain primary. The MLP comparison uses 512-800, after its earlier 451-501 tracing window.",
+    "MSE_FINDING": "For output-space loss rises above 1e-8, all 161 unchanged-Adam rises and all 70 q50 rises have a negative linear term outweighed by positive quadratic movement; LR x0.5 has 11 such rises. The exact identity shows how excessive output displacement can outweigh a corrective linear contribution, even when the latter remains favorable."
+  }
+}

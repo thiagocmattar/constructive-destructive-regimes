@@ -1,0 +1,113 @@
+{
+  "run_id": 293,
+  "hypothesis": "H051",
+  "analysis_id": "065",
+  "case": "mlp",
+  "seed": 0,
+  "fork": 512,
+  "end": 800,
+  "base_lr": 0.001,
+  "physical": 1000,
+  "probe": 5000,
+  "quantiles": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "arms": [
+    {
+      "id": "control",
+      "kind": "control",
+      "family": "control"
+    },
+    {
+      "id": "lr_0p75",
+      "kind": "lr",
+      "family": "lr",
+      "lr_multiplier": 0.75
+    },
+    {
+      "id": "lr_0p5",
+      "kind": "lr",
+      "family": "lr",
+      "lr_multiplier": 0.5
+    },
+    {
+      "id": "lr_0p1",
+      "kind": "lr",
+      "family": "lr",
+      "lr_multiplier": 0.1
+    },
+    {
+      "id": "beta2_0p95",
+      "kind": "beta2",
+      "family": "beta2",
+      "beta2": 0.95
+    },
+    {
+      "id": "beta2_0p9",
+      "kind": "beta2",
+      "family": "beta2",
+      "beta2": 0.9
+    },
+    {
+      "id": "beta2_0p5",
+      "kind": "beta2",
+      "family": "beta2",
+      "beta2": 0.5
+    },
+    {
+      "id": "clip_0p5",
+      "kind": "clip",
+      "family": "clipping",
+      "clip": 0.5
+    },
+    {
+      "id": "clip_1p0",
+      "kind": "clip",
+      "family": "clipping",
+      "clip": 1.0
+    },
+    {
+      "id": "cap_q25",
+      "kind": "functional",
+      "family": "cap",
+      "scope": "trunk",
+      "quantile": 0.25
+    },
+    {
+      "id": "cap_q50",
+      "kind": "functional",
+      "family": "cap",
+      "scope": "trunk",
+      "quantile": 0.5
+    },
+    {
+      "id": "cap_q75",
+      "kind": "functional",
+      "family": "cap",
+      "scope": "trunk",
+      "quantile": 0.75
+    }
+  ],
+  "checkpoint_every": 64,
+  "maximum_worker_seconds": 25200,
+  "torch_version": "2.11.0",
+  "cuda_version": "13.0",
+  "calibration": "Native outgoing states fork-8 through fork-1; np.quantile linear over all unit scores and eight transitions. Frozen before treatment.",
+  "endpoint": "Stop at end, without applying end->end+1; primary mean uses fork+1 through end.",
+  "controls": "Native full prefix and same complete fork/runtime/probe for all arms; exact predecessor replay and eight-update cross-worker fingerprint required.",
+  "heldout_states": [
+    512,
+    544,
+    656,
+    768,
+    800
+  ],
+  "beta_semantics": "Retain moments/clock; new beta2 enters both native recurrence and 1-beta2**step correction.",
+  "clip_semantics": "Absolute global L2 raw-gradient threshold, FP64 norm, before native Adam; preserve raw histories.",
+  "cap_semantics": "Verified local affine cap on native stored increments; untargeted parameters and Adam moments remain native.",
+  "precision": "FP32 training/storage; FP64 reductions/local scores; deterministic; TF32 off; unfused/non-foreach Adam.",
+  "retention": "Full fork/predecessor, calibration pool, all scalar/probe/update histories, five full held-out evaluations, three full audits/arm, rolling recovery and terminal state. Diagnostic recovery replays from the immutable fork.",
+  "authorization": "User explicitly approved faster option and full delivery on 14 November: Spark MLP +2 RTX4090 ResNet +6 RTX5090 Transformer; total task USD50 including retries/storage, maximum8h execution, no extra initializations or cap-by-LR grid."
+}

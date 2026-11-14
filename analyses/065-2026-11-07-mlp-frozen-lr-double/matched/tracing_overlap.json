@@ -1,0 +1,120 @@
+{
+  "status": "reproduced",
+  "loss_states": 187,
+  "loss_window": [
+    264,
+    450
+  ],
+  "losses_bitwise_equal": true,
+  "max_loss_error": 0.0,
+  "stage_window": [
+    390,
+    450
+  ],
+  "stage_values": 732,
+  "stage_comparisons": [
+    {
+      "stage": "conv1",
+      "metric": "rho",
+      "values": 61,
+      "max_absolute_error": 5.551115123125783e-16,
+      "agrees": true
+    },
+    {
+      "stage": "conv1",
+      "metric": "change_rms",
+      "values": 61,
+      "max_absolute_error": 8.673617379884035e-18,
+      "agrees": true
+    },
+    {
+      "stage": "layer1",
+      "metric": "rho",
+      "values": 61,
+      "max_absolute_error": 5.551115123125783e-16,
+      "agrees": true
+    },
+    {
+      "stage": "layer1",
+      "metric": "change_rms",
+      "values": 61,
+      "max_absolute_error": 2.0816681711721685e-17,
+      "agrees": true
+    },
+    {
+      "stage": "layer2",
+      "metric": "rho",
+      "values": 61,
+      "max_absolute_error": 4.440892098500626e-16,
+      "agrees": true
+    },
+    {
+      "stage": "layer2",
+      "metric": "change_rms",
+      "values": 61,
+      "max_absolute_error": 2.7755575615628914e-17,
+      "agrees": true
+    },
+    {
+      "stage": "layer3",
+      "metric": "rho",
+      "values": 61,
+      "max_absolute_error": 7.771561172376096e-16,
+      "agrees": true
+    },
+    {
+      "stage": "layer3",
+      "metric": "change_rms",
+      "values": 61,
+      "max_absolute_error": 2.220446049250313e-16,
+      "agrees": true
+    },
+    {
+      "stage": "avgpool",
+      "metric": "rho",
+      "values": 61,
+      "max_absolute_error": 1.3322676295501878e-15,
+      "agrees": true
+    },
+    {
+      "stage": "avgpool",
+      "metric": "change_rms",
+      "values": 61,
+      "max_absolute_error": 1.6653345369377348e-16,
+      "agrees": true
+    },
+    {
+      "stage": "output",
+      "metric": "rho",
+      "values": 61,
+      "max_absolute_error": 5.551115123125783e-16,
+      "agrees": true
+    },
+    {
+      "stage": "output",
+      "metric": "change_rms",
+      "values": 61,
+      "max_absolute_error": 4.440892098500626e-16,
+      "agrees": true
+    }
+  ],
+  "fixed_tracing_window_intervention_readout": {
+    "control": {
+      "maximum_loss": 0.44070237731933587,
+      "peak_state": 415,
+      "loss_at_baseline_peak": 0.44070237731933587
+    },
+    "cap_q50": {
+      "maximum_loss": 0.17355577270507816,
+      "peak_state": 395,
+      "loss_at_baseline_peak": 0.13284026733398435
+    },
+    "maximum_loss_reduction_percent": 60.61837157294967,
+    "interpretation": "Secondary descriptive comparison in the previously selected 390-450 tracing window, fixed before this intervention matrix. Whole-horizon outcomes remain primary."
+  },
+  "interpretation": "This checks measured loss and fixed-probe stage histories in the already selected window; it is not a full-tensor identity claim across the historical runs. No window/setting changes follow from this check.",
+  "reference": "analyses/063-2026-11-07-architecture-instability-tracing/resnet_390_450_results.json",
+  "reference_sha256": "af4a93748c619dc0c66e02b8ec60bb60b576c2da106d5f09755ca0feb5b3d33a",
+  "current_curves_sha256": "439342210b2545139df2f447252a0798caaac0d7acc3f9740d22e1ed905d440d",
+  "script_sha256": "022f7ba55c18e41938c5856f85e168fda81b065b8f0e9d84a64cd6770b8140f7"
+}

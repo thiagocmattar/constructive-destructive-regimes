@@ -1,11 +1,11 @@
 # Algorithm 2 — past-calibrated local affine-displacement cap
 
 - **Status:** consolidated state-s notation, ready for integration; original report algorithm is preserved.
-- **Inputs:** current parameters and Adam state, fixed probe, targeted modules, one fixed positive budget per module.
-- **Calibration:** pool per-unit direct affine RMS scores from eight preceding untreated updates; choose the module's quantile. The distributed comparison uses q50. Do not fit budgets on future intervention outcomes.
+- **Inputs:** current parameters and Adam state, fixed probe, targeted modules, one fixed nonnegative budget per module; zero disables that module's cap.
+- **Calibration:** for a fork at state f, pool native per-unit direct affine RMS scores over outgoing states **f−8 through f−1**; choose the module's quantile. Treatment begins at **f→f+1**. q50 is the preselected main method; q25/q75 test its sensitivity. No treatment outcome enters calibration.
 
-1. At state s, capture current inputs to the targeted modules with the matched probe and normalization context.
-2. Compute the native objective gradient, advance Adam moments/clock, and form the native stored proposal.
+1. At state s, compute the full native objective gradient and capture current module inputs with the fixed probe and normalization context, preserving the random state.
+2. Advance native Adam moments/clock and form its stored parameter proposal.
 3. Retain actual proposed parameter increments, including storage effects.
 4. For each target module with positive budget, compute D=H Uᵀ+1vᵀ. Its n×m columns correspond to m output units.
 5. Compute RMS down each column; scale the entire corresponding weight row and its bias by min(1,tau/score).

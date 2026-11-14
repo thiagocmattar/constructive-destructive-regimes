@@ -1,0 +1,48 @@
+{
+  "name": "transformer-5",
+  "case": "transformer",
+  "id": "fprr9dfqtah22a",
+  "created_epoch": 1794675213.370482,
+  "deadline_epoch": 1794700257.5761378,
+  "price_per_hour": 1.39,
+  "storage_hourly_usd": 0.00821917808219178,
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "image": "pytorch/pytorch@sha256:eee11b3b3872a8c838e35ef48f08b2d5def2080902c7f666831310ca1a0ef2be",
+  "cuda": "12.8",
+  "cloud": "SECURE",
+  "run": "runs/295-2026-11-14-transformer-matched-interventions",
+  "phase": "arms",
+  "live_quote": {
+    "available": true,
+    "communityCloud": true,
+    "communityPricePerHr": 0.69,
+    "dataCenterAvailability": [
+      {
+        "dataCenterId": "EU-CZ-1",
+        "stockStatus": "Low"
+      },
+      {
+        "dataCenterId": "EU-RO-1",
+        "stockStatus": "Low"
+      }
+    ],
+    "displayName": "RTX 5090",
+    "gpuId": "NVIDIA GeForce RTX 5090",
+    "memoryInGb": 32,
+    "secureCloud": true,
+    "securePricePerHr": 1.39,
+    "stockStatus": "Low"
+  },
+  "host": "213.192.2.66",
+  "port": 40097,
+  "packet_sha256": "2a821fd4c69c8c705c3a9facccf371bf76f71922820c63b9200a9750e0ca271d",
+  "preflight": "/workspace/inputs.tar.gz: OK\n{\"status\": \"passed\", \"arms\": [\"control\", \"lr0.75\", \"lr0.5\", \"lr0.1\", \"beta0.95\", \"beta0.9\", \"beta0.5\", \"clip0.5\", \"clip1.0\", \"cap0.25\", \"cap0.5\", \"cap0.75\"], \"checks\": [\"native LR/beta2 recurrence and preserved state\", \"global clipping before Adam\", \"raw history\", \"cap stored bound and unchanged moments\", \"incoming representation timing\", \"zero denominator\"]}\n",
+  "ready_utc": "2026-11-14T16:57:14.985524+00:00",
+  "output": "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-5",
+  "pid": "2895",
+  "arms": [
+    "beta2_0p9",
+    "clip_0p5"
+  ],
+  "launched_utc": "2026-11-14T17:35:03.134596+00:00"
+}

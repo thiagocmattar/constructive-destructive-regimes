@@ -1,0 +1,59 @@
+{
+  "name": "resnet-0",
+  "case": "resnet",
+  "id": "q2bcaaisocl6mh",
+  "created_epoch": 1794671694.306785,
+  "deadline_epoch": 1794700257.5761378,
+  "price_per_hour": 0.89,
+  "storage_hourly_usd": 0.00821917808219178,
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "image": "pytorch/pytorch@sha256:eee11b3b3872a8c838e35ef48f08b2d5def2080902c7f666831310ca1a0ef2be",
+  "cuda": "12.8",
+  "cloud": "SECURE",
+  "run": "runs/294-2026-11-14-resnet-matched-interventions",
+  "phase": "deleted",
+  "live_quote": {
+    "available": true,
+    "communityCloud": true,
+    "communityPricePerHr": 0.34,
+    "dataCenterAvailability": [
+      {
+        "dataCenterId": "EU-RO-1",
+        "stockStatus": "Low"
+      }
+    ],
+    "displayName": "RTX 4090",
+    "gpuId": "NVIDIA GeForce RTX 4090",
+    "memoryInGb": 24,
+    "secureCloud": true,
+    "securePricePerHr": 0.89,
+    "stockStatus": "Low"
+  },
+  "host": "47.47.180.26",
+  "port": 12383,
+  "packet_sha256": "a91fcc51ccd86e6c16ef6d7ad3580632814c211bc9d2576e029ae3a5af4434b2",
+  "preflight": "/workspace/inputs.tar.gz: OK\n{\"status\": \"passed\", \"arms\": [\"control\", \"lr0.75\", \"lr0.5\", \"lr0.1\", \"beta0.95\", \"beta0.9\", \"beta0.5\", \"clip0.5\", \"clip1.0\", \"cap0.25\", \"cap0.5\", \"cap0.75\"], \"checks\": [\"native LR/beta2 recurrence and preserved state\", \"global clipping before Adam\", \"raw history\", \"cap stored bound and unchanged moments\", \"incoming representation timing\", \"zero denominator\"]}\n",
+  "ready_utc": "2026-11-14T16:08:35.974025+00:00",
+  "output": "runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0",
+  "pid": "2498",
+  "arms": [
+    "lr_0p1",
+    "beta2_0p5",
+    "clip_0p5",
+    "clip_1p0",
+    "cap_q50",
+    "cap_q75"
+  ],
+  "launched_utc": "2026-11-14T16:27:48.600548+00:00",
+  "retrieval_verified": true,
+  "retention": {
+    "status": "passed",
+    "root": "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-0",
+    "files": 74,
+    "bytes": 549999615,
+    "copied_files": 8,
+    "copied_bytes": 60033,
+    "elapsed_seconds": 12.413945656997385
+  },
+  "deleted_epoch": 1794680889.3575013
+}

@@ -1,5 +1,13 @@
 # MLP interventions: ongoing analysis (064 / 065)
 
+## H051 matched intervention matrix completed, 14 November 2026
+
+- [Observation016](observations/016-matched-intervention-matrix.md) completes Runs 293–295: 36 conditions / 11,904 treated updates, common initialization-0 forks and full matched measurements. LR.75/.5/.1, beta2.95/.9/.5, raw-gradient clipping.5/1, and distributed q25/q50/q75 all retain unchanged Adam.
+- q50 mean-loss changes: **-32.18%/-9.42%/-19.84%** (MLP/ResNet/Transformer); final/late/test tradeoffs and every other setting are reported. This is one initialization/model; historical MLP replication uses different windows.
+- Seven PDFs / 20 pages, editable outcome/cost tables and captions are verified and [placed in consolidation](../../manuscript/consolidation/evidence/05-adam/c-intervention/README.md). All raw audits and terminal replays pass.
+- All task cloud workers deleted after verified retrieval; 33.842 GB retained on owned Spark; provisional total $26.07, within $50. [Closeout](matched/compute_closeout.json). No extra seeds/grid; continue Analysis 065 for future authorized interventions.
+
+
 This is the continuing workspace for the MLP intervention study. Analysis 064
 contains its preserved first-stage evidence; 065 continues the same analysis,
 not a separate scientific study. Keep subsequent iterations here until the user

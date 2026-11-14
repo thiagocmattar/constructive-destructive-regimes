@@ -1,0 +1,76 @@
+{
+  "name": "transformer-1",
+  "case": "transformer",
+  "id": "vloj187q8muyz9",
+  "created_epoch": 1794671921.277693,
+  "deadline_epoch": 1794700257.5761378,
+  "price_per_hour": 1.39,
+  "storage_hourly_usd": 0.00821917808219178,
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "image": "pytorch/pytorch@sha256:eee11b3b3872a8c838e35ef48f08b2d5def2080902c7f666831310ca1a0ef2be",
+  "cuda": "12.8",
+  "cloud": "SECURE",
+  "run": "runs/295-2026-11-14-transformer-matched-interventions",
+  "phase": "deleted",
+  "live_quote": {
+    "available": true,
+    "communityCloud": true,
+    "communityPricePerHr": 0.69,
+    "dataCenterAvailability": [
+      {
+        "dataCenterId": "EU-CZ-1",
+        "stockStatus": "Low"
+      },
+      {
+        "dataCenterId": "EU-RO-1",
+        "stockStatus": "Low"
+      },
+      {
+        "dataCenterId": "EUR-IS-2",
+        "stockStatus": "Low"
+      },
+      {
+        "dataCenterId": "EUR-NO-1",
+        "stockStatus": "Low"
+      }
+    ],
+    "displayName": "RTX 5090",
+    "gpuId": "NVIDIA GeForce RTX 5090",
+    "memoryInGb": 32,
+    "secureCloud": true,
+    "securePricePerHr": 1.39,
+    "stockStatus": "Low"
+  },
+  "host": "81.27.69.178",
+  "port": 23870,
+  "packet_sha256": "2a821fd4c69c8c705c3a9facccf371bf76f71922820c63b9200a9750e0ca271d",
+  "preflight": "/workspace/inputs.tar.gz: OK\n{\"status\": \"passed\", \"arms\": [\"control\", \"lr0.75\", \"lr0.5\", \"lr0.1\", \"beta0.95\", \"beta0.9\", \"beta0.5\", \"clip0.5\", \"clip1.0\", \"cap0.25\", \"cap0.5\", \"cap0.75\"], \"checks\": [\"native LR/beta2 recurrence and preserved state\", \"global clipping before Adam\", \"raw history\", \"cap stored bound and unchanged moments\", \"incoming representation timing\", \"zero denominator\"]}\n",
+  "ready_utc": "2026-11-14T16:02:14.059003+00:00",
+  "output": "runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-1",
+  "pid": "6920",
+  "arms": [
+    "control",
+    "cap_q25"
+  ],
+  "launched_utc": "2026-11-14T17:31:56.007300+00:00",
+  "shared_retained": {
+    "status": "passed",
+    "root": "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/shared",
+    "files": 13,
+    "bytes": 786740562,
+    "copied_files": 13,
+    "copied_bytes": 786740562,
+    "elapsed_seconds": 48.8970339489897
+  },
+  "retrieval_verified": true,
+  "retention": {
+    "status": "passed",
+    "root": "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-1",
+    "files": 31,
+    "bytes": 5110040007,
+    "copied_files": 10,
+    "copied_bytes": 671965639,
+    "elapsed_seconds": 85.91689659899566
+  },
+  "deleted_epoch": 1794684006.8006747
+}

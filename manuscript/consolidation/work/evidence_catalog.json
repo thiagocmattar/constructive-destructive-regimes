@@ -37,9 +37,9 @@
     },
     "05-adam/c-intervention": {
       "title": "V-C. Intervention comparisons",
-      "claim": "Present learning-rate schedules, beta2 schedules, gradient clipping and the distributed q50 displacement cap; each retains its unchanged Adam baseline. q25/q75 are ablations of that same cap method.",
-      "boundary": "Training benefits coexist with held-out deterioration. Historical comparators are not one matched benchmark; direct ranking remains pending.",
-      "presentation": "Historical assets below remain LR schedules, beta2 reductions, gradient clipping, then distributed q50. The new initialization-0 matched plan uses immediate LR .75/.5/.1, beta2 .95/.9/.5, clipping .5/1 and cap q25/q50/q75 at common conventional forks. Its 36 conditions are planned, not yet reflected in the figures. Extra initializations and cap x LR are deferred."
+      "claim": "A matched comparison of LR, beta2, raw-gradient clipping and local affine-displacement caps separates excursion burden, learning progress and functional motion.",
+      "boundary": "One initialization/model and unequal effective strengths. Retain all endpoints and held-out tradeoffs; local displacement bounds do not imply global stability, generalization or universal superiority.",
+      "presentation": "H051 complete: 36 verified conditions. Main views are the four-family loss matrix, spike/learning tradeoff and matched q50 stage heatmaps. All-setting motion, full test trajectories, activity and outcomes accompany them. Historical figures remain in background/figures; seeds1/2 and cap x LR stay deferred."
     },
     "06-conclusion": {
       "title": "VI. Conclusion",
@@ -656,12 +656,12 @@
     {
       "section": "05-adam/c-intervention",
       "source": "analyses/058-2026-11-06-intervention-consolidation/figures/01-persistent-half-lr-cifar10-mlp-resnet-wikitext2-transformer.pdf",
-      "destination": "05-adam/c-intervention/figures/01-persistent-half-lr-cifar10-mlp-resnet-wikitext2-transformer.pdf",
-      "title": "Figure 7: learning-rate schedule",
-      "role": "selected conventional intervention",
+      "destination": "05-adam/c-intervention/background/figures/01-persistent-half-lr-cifar10-mlp-resnet-wikitext2-transformer.pdf",
+      "title": "Historical: Figure 7: learning-rate schedule",
+      "role": "historical support",
       "observation": "analyses/058-2026-11-06-intervention-consolidation/observations/001-persistent-half-lr.md",
       "generator": "analyses/058-2026-11-06-intervention-consolidation/01_figures.py",
-      "note": "Historical windows MLP 512–800, ResNet 256–576, Transformer 544–928; not matched to cap forks.",
+      "note": "Historical comparison; superseded by the common-fork H051 matrix. Historical windows MLP 512–800, ResNet 256–576, Transformer 544–928; not matched to cap forks.",
       "presentation_order": 1
     },
     {
@@ -687,12 +687,12 @@
     {
       "section": "05-adam/c-intervention",
       "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/07-distributed-displacement-and-controls.pdf",
-      "destination": "05-adam/c-intervention/figures/07-distributed-q50-stage-heatmaps.pdf",
-      "title": "Figure 10 selected base: distributed q50 stage heatmaps",
-      "role": "main base",
+      "destination": "05-adam/c-intervention/background/figures/07-distributed-q50-stage-heatmaps.pdf",
+      "title": "Historical: Figure 10 selected base: distributed q50 stage heatmaps",
+      "role": "historical support",
       "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/008-cross-architecture-interventions.md",
       "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/22_figures_transfer.py",
-      "note": "Exact page 2 from the full historical PDF, retaining vector content. Only unchanged Adam and distributed q50. Common baseline RMS maxima; MLP 448-800, ResNet 264-576, Transformer 552-928.",
+      "note": "Historical comparison; superseded by the common-fork H051 matrix. Exact page 2 from the full historical PDF, retaining vector content. Only unchanged Adam and distributed q50. Common baseline RMS maxima; MLP 448-800, ResNet 264-576, Transformer 552-928.",
       "pdf_pages": [
         2
       ],
@@ -702,23 +702,23 @@
     {
       "section": "05-adam/c-intervention",
       "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/10-local-cap-distributed-manuscript.pdf",
-      "destination": "05-adam/c-intervention/figures/10-local-cap-distributed-manuscript.pdf",
-      "title": "Distributed q50: scalar diagnostics",
-      "role": "q50 supporting display",
+      "destination": "05-adam/c-intervention/background/figures/10-local-cap-distributed-manuscript.pdf",
+      "title": "Historical: Distributed q50: scalar diagnostics",
+      "role": "historical support",
       "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/011-local-cap-technical-report.md",
       "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/34_local_cap_report_assets.py",
-      "note": "Distributed-q50 scalar diagnostics supporting the selected heatmaps; retain held-out outcomes and the recorded evaluation window.",
+      "note": "Historical comparison; superseded by the common-fork H051 matrix. Distributed-q50 scalar diagnostics supporting the selected heatmaps; retain held-out outcomes and the recorded evaluation window.",
       "presentation_order": 5
     },
     {
       "section": "05-adam/c-intervention",
       "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/11-local-cap-mlp-replication.pdf",
-      "destination": "05-adam/c-intervention/figures/11-local-cap-mlp-replication.pdf",
-      "title": "Distributed q50: three-initialization MLP replication",
-      "role": "q50 supporting display",
+      "destination": "05-adam/c-intervention/background/figures/11-local-cap-mlp-replication.pdf",
+      "title": "Historical: Distributed q50: three-initialization MLP replication",
+      "role": "historical support",
       "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/011-local-cap-technical-report.md",
       "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/34_local_cap_report_assets.py",
-      "note": "Supporting result; preserve its own windows, scopes and baseline.",
+      "note": "Historical comparison; superseded by the common-fork H051 matrix. Supporting result; preserve its own windows, scopes and baseline.",
       "presentation_order": 6
     },
     {
@@ -1098,23 +1098,23 @@
     {
       "section": "05-adam/c-intervention",
       "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/15-beta2-reductions-cifar10-mlp-resnet-wikitext2-transformer.pdf",
-      "destination": "05-adam/c-intervention/figures/15-beta2-reductions-cifar10-mlp-resnet-wikitext2-transformer.pdf",
-      "title": "Figure 8: beta2 reductions across three architectures",
-      "role": "selected conventional intervention",
+      "destination": "05-adam/c-intervention/background/figures/15-beta2-reductions-cifar10-mlp-resnet-wikitext2-transformer.pdf",
+      "title": "Historical: Figure 8: beta2 reductions across three architectures",
+      "role": "historical support",
       "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/015-conventional-model-coverage.md",
       "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/49_plot_conventional.py",
-      "note": "Matched unchanged controls; one initialization per model. Original conventional forks retained.",
+      "note": "Historical comparison; superseded by the common-fork H051 matrix. Matched unchanged controls; one initialization per model. Original conventional forks retained.",
       "presentation_order": 2
     },
     {
       "section": "05-adam/c-intervention",
       "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/16-gradient-clipping-cifar10-mlp-resnet-wikitext2-transformer.pdf",
-      "destination": "05-adam/c-intervention/figures/16-gradient-clipping-cifar10-mlp-resnet-wikitext2-transformer.pdf",
-      "title": "Figure 9: gradient clipping across three architectures",
-      "role": "selected conventional intervention",
+      "destination": "05-adam/c-intervention/background/figures/16-gradient-clipping-cifar10-mlp-resnet-wikitext2-transformer.pdf",
+      "title": "Historical: Figure 9: gradient clipping across three architectures",
+      "role": "historical support",
       "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/015-conventional-model-coverage.md",
       "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/49_plot_conventional.py",
-      "note": "Matched unchanged controls; one initialization per model. Original conventional forks retained.",
+      "note": "Historical comparison; superseded by the common-fork H051 matrix. Matched unchanged controls; one initialization per model. Original conventional forks retained.",
       "presentation_order": 3
     },
     {
@@ -1195,7 +1195,8 @@
       "role": "current figure record",
       "observation": null,
       "generator": null,
-      "note": "Covers revised Figures 1-6 and the temporal-structure companion; includes every clock conversion, smoother, event marker and coverage limit."
+      "note": "Covers revised Figures 1-6 and the temporal-structure companion; includes every clock conversion, smoother, event marker and coverage limit.",
+      "snapshot_note": "Historical IV and V-A/B revision record. Statements below that interventions were unchanged refer to that earlier revision. The later H051 intervention refresh is complete: [current findings and captions](05-adam/c-intervention/observations/65-016-matched-intervention-matrix.md), [visual verification](05-adam/c-intervention/data/matched-visual_verification.json)."
     },
     {
       "section": "04-gd-sgd",
@@ -1316,6 +1317,292 @@
       "observation": "analyses/063-2026-11-07-architecture-instability-tracing/observations/008-resnet-major-peak-temporal.md",
       "generator": "manuscript/consolidation/work/resnet_temporal_revision_20261114/02_verify.py",
       "note": "Fresh fit for Figure 6's existing ResNet window; unchanged MLP/Transformer and intervention assets."
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/matched/17-matched-intervention-loss.pdf",
+      "destination": "05-adam/c-intervention/figures/17-matched-intervention-loss.pdf",
+      "title": "Figure 7: matched intervention training losses",
+      "role": "prepared main",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/61_plot_matched.py",
+      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "h051": true
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/matched/18-matched-spike-learning-tradeoff.pdf",
+      "destination": "05-adam/c-intervention/figures/18-matched-spike-learning-tradeoff.pdf",
+      "title": "Figure 8: spike burden versus learning progress",
+      "role": "prepared main",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/61_plot_matched.py",
+      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "h051": true
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/matched/19-matched-q50-stage-heatmaps.pdf",
+      "destination": "05-adam/c-intervention/figures/19-matched-q50-stage-heatmaps.pdf",
+      "title": "Figure 9: matched q50 loss and functional motion",
+      "role": "prepared main",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/61_plot_matched.py",
+      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "h051": true
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/matched/20-matched-all-setting-stage-heatmaps.pdf",
+      "destination": "05-adam/c-intervention/figures/20-matched-all-setting-stage-heatmaps.pdf",
+      "title": "Supporting stage motion for every setting",
+      "role": "prepared support",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/61_plot_matched.py",
+      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "h051": true
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/matched/21-matched-heldout-loss.pdf",
+      "destination": "05-adam/c-intervention/figures/21-matched-heldout-loss.pdf",
+      "title": "Full held-out test trajectories",
+      "role": "prepared support",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/61_plot_matched.py",
+      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "h051": true
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/matched/22-matched-update-and-controller-activity.pdf",
+      "destination": "05-adam/c-intervention/figures/22-matched-update-and-controller-activity.pdf",
+      "title": "Applied movement and controller activity",
+      "role": "prepared support",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/61_plot_matched.py",
+      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "h051": true
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/matched/23-matched-intervention-outcomes.pdf",
+      "destination": "05-adam/c-intervention/figures/23-matched-intervention-outcomes.pdf",
+      "title": "All 36 matched intervention outcomes",
+      "role": "prepared table",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/61_plot_matched.py",
+      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "h051": true
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "destination": "05-adam/c-intervention/observations/65-016-matched-intervention-matrix.md",
+      "title": "Matched outcomes, methods, captions and limits",
+      "role": "current observation",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/62_package_matched.py",
+      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "h051": true
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/matched/summary.csv",
+      "destination": "05-adam/c-intervention/tables/matched-outcomes.csv",
+      "title": "Matched summary.csv",
+      "role": "current source record",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/60_reduce_matched.py",
+      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "h051": true
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/matched/events.csv",
+      "destination": "05-adam/c-intervention/data/matched-events.csv",
+      "title": "Matched events.csv",
+      "role": "current source record",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/60_reduce_matched.py",
+      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "h051": true
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/matched/stage_metrics.csv",
+      "destination": "05-adam/c-intervention/data/matched-stage_metrics.csv",
+      "title": "Matched stage_metrics.csv",
+      "role": "current source record",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/60_reduce_matched.py",
+      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "h051": true
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/matched/heldout.csv",
+      "destination": "05-adam/c-intervention/data/matched-heldout.csv",
+      "title": "Matched heldout.csv",
+      "role": "current source record",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/60_reduce_matched.py",
+      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "h051": true
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/matched/costs.csv",
+      "destination": "05-adam/c-intervention/data/matched-costs.csv",
+      "title": "Matched costs.csv",
+      "role": "current source record",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/60_reduce_matched.py",
+      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "h051": true
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/matched/calibration.csv",
+      "destination": "05-adam/c-intervention/data/matched-calibration.csv",
+      "title": "Matched calibration.csv",
+      "role": "current source record",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/60_reduce_matched.py",
+      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "h051": true
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/matched/calibration.npz",
+      "destination": "05-adam/c-intervention/data/matched-calibration.npz",
+      "title": "Matched calibration.npz",
+      "role": "current source record",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/60_reduce_matched.py",
+      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "h051": true
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/matched/curves.npz",
+      "destination": "05-adam/c-intervention/data/matched-curves.npz",
+      "title": "Matched curves.npz",
+      "role": "current source record",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/60_reduce_matched.py",
+      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "h051": true
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/matched/results.json",
+      "destination": "05-adam/c-intervention/data/matched-results.json",
+      "title": "Matched results.json",
+      "role": "current source record",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/60_reduce_matched.py",
+      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "h051": true
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/matched/verification.json",
+      "destination": "05-adam/c-intervention/data/matched-verification.json",
+      "title": "Matched verification.json",
+      "role": "current source record",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/64_verify_matched_reductions.py",
+      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "h051": true
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/matched/compute_closeout.json",
+      "destination": "05-adam/c-intervention/data/matched-compute_closeout.json",
+      "title": "Matched compute_closeout.json",
+      "role": "current source record",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/70_close_matched_compute.py",
+      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "h051": true
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/matched/tracing_overlap.json",
+      "destination": "05-adam/c-intervention/data/matched-tracing_overlap.json",
+      "title": "Matched tracing_overlap.json",
+      "role": "current source record",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/71_check_matched_tracing.py",
+      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "h051": true
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/matched/interpretation.json",
+      "destination": "05-adam/c-intervention/data/matched-interpretation.json",
+      "title": "Matched interpretation.json",
+      "role": "current source record",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/62_package_matched.py",
+      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "h051": true
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/matched/figure_manifest.json",
+      "destination": "05-adam/c-intervention/data/matched-figure_manifest.json",
+      "title": "Matched figure_manifest.json",
+      "role": "current publication source",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/61_plot_matched.py",
+      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "h051": true
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/matched/visual_verification.json",
+      "destination": "05-adam/c-intervention/data/matched-visual_verification.json",
+      "title": "Matched visual_verification.json",
+      "role": "current publication source",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/61_plot_matched.py",
+      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "h051": true
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/matched/captions.tex",
+      "destination": "05-adam/c-intervention/captions.tex",
+      "title": "Matched captions.tex",
+      "role": "current publication source",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/62_package_matched.py",
+      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "h051": true
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/matched/matched-outcomes.tex",
+      "destination": "05-adam/c-intervention/tables/matched-outcomes.tex",
+      "title": "Matched matched-outcomes.tex",
+      "role": "current publication source",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/61_plot_matched.py",
+      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "h051": true
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/matched/matched-costs.tex",
+      "destination": "05-adam/c-intervention/tables/matched-costs.tex",
+      "title": "Matched matched-costs.tex",
+      "role": "current publication source",
+      "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
+      "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/61_plot_matched.py",
+      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "h051": true
     }
   ]
 }

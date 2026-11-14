@@ -5,8 +5,10 @@
 \label{consol:algorithm-cap}
 \begin{algorithmic}[1]
 \Require State $\theta_s$ and Adam state; fixed probe; target modules; fixed module budgets $\tau_\ell$
-\State Capture current module inputs $H_s^\ell$ with matched probe context.
-\State Compute the native objective gradient; advance Adam moments and clock.
+\State Before treatment, calibrate $\tau_\ell$ on outgoing states $f-8,\ldots,f-1$ by Eq.~\eqref{consol:cap-calibration}.
+\State At $s\ge f$, compute the full objective gradient.
+\State Capture current module inputs $H_s^\ell$ with matched probe context; preserve random state.
+\State Advance native Adam moments and clock.
 \State Form the stored native parameter proposal and retain its actual increments.
 \For{each targeted module $\ell$ with $\tau_\ell>0$}
   \State Compute per-unit direct affine RMS scores by Eq.~\eqref{consol:cap-score}.
