@@ -252,6 +252,8 @@ def build():
                  "- **Authority:** the [single paper plan]("+relative(BASE/"PLAN.md",folder)+") governs selection and closure."]
         if info.get("presentation"):
             lines.append("- **Presentation:** " + info["presentation"])
+        if (folder / "EXPERIMENTAL_PLAN.md").exists():
+            lines.append("- **Current experiment design:** [matched setup, ETC/costs and outputs](EXPERIMENTAL_PLAN.md). Prepared for review; execution status and deferred work are specified there.")
         lines += ["", "| Asset | Status | Use / source |", "|---|---|---|"]
         for r in items:
             notes = r["note"]
@@ -326,7 +328,7 @@ def verify():
                 pdfs += 1
                 pages += doc.page_count
     for path in BASE.rglob("*.md"):
-        if "human" in path.relative_to(BASE).parts:
+        if {"human", "node_modules"}.intersection(path.relative_to(BASE).parts):
             continue
         for match in MD_LINK.finditer(path.read_text(encoding="utf-8-sig")):
             raw = match[2]

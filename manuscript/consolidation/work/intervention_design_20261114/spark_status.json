@@ -1,0 +1,8 @@
+{
+  "queried_utc": "2026-11-14T15:25:59.039882+00:00",
+  "read_only": true,
+  "exit_code": 0,
+  "gpu_and_storage_and_worker_check": "NVIDIA GB10, 0 %, [N/A], [N/A]\nFilesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2  3.7T  263G  3.3T   8% /\n75920 bash -c nvidia-smi --query-gpu=name,utilization.gpu,memory.total,memory.used --format=csv,noheader; df -h /home/tcml-spark; pgrep -af \"python.*(worker|train|continuation)\" | head -10\n",
+  "stderr": "",
+  "interpretation": "Snapshot only; not a reservation. GB10 reports shared-memory fields as N/A. pgrep can include this inspection command itself."
+}

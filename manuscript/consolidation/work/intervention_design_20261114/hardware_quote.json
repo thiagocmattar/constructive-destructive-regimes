@@ -1,0 +1,60 @@
+{
+  "queried_utc": "2026-11-14T15:25:47.469657+00:00",
+  "method": "runpodctl 3.1.1-72afce1 gpu list --include-unavailable (read-only)",
+  "gpus": [
+    {
+      "available": true,
+      "communityCloud": true,
+      "communityPricePerHr": 0.34,
+      "dataCenterAvailability": [
+        {
+          "dataCenterId": "US-IL-1",
+          "stockStatus": "Low"
+        }
+      ],
+      "displayName": "RTX 4090",
+      "gpuId": "NVIDIA GeForce RTX 4090",
+      "memoryInGb": 24,
+      "secureCloud": true,
+      "securePricePerHr": 0.89,
+      "stockStatus": "Low"
+    },
+    {
+      "available": true,
+      "communityCloud": true,
+      "communityPricePerHr": 0.69,
+      "dataCenterAvailability": [
+        {
+          "dataCenterId": "EU-RO-1",
+          "stockStatus": "Low"
+        }
+      ],
+      "displayName": "RTX 5090",
+      "gpuId": "NVIDIA GeForce RTX 5090",
+      "memoryInGb": 32,
+      "secureCloud": true,
+      "securePricePerHr": 1.39,
+      "stockStatus": "Low"
+    },
+    {
+      "available": false,
+      "communityCloud": true,
+      "communityPricePerHr": 0.79,
+      "displayName": "L40S",
+      "gpuId": "NVIDIA L40S",
+      "memoryInGb": 48,
+      "secureCloud": true,
+      "securePricePerHr": 1.09
+    }
+  ],
+  "storage": {
+    "container_usd_gb_month": 0.1,
+    "running_volume_usd_gb_month": 0.1,
+    "planning_hours_per_month": 730
+  },
+  "official_sources": [
+    "https://www.runpod.io/pricing",
+    "https://docs.runpod.io/pods/pricing"
+  ],
+  "note": "Catalog prices and low stock are not a reserved allocation or invoice."
+}

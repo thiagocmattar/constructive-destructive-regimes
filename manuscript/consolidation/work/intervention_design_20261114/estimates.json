@@ -1,0 +1,974 @@
+{
+  "status": "planning_only_no_execution",
+  "quote_utc": "2026-11-14T15:25:47.469657+00:00",
+  "rates_seconds_per_update": {
+    "mlp": {
+      "Spark": {
+        "ordinary": [
+          0.015,
+          0.03
+        ],
+        "cap": [
+          0.06,
+          0.1
+        ]
+      }
+    },
+    "resnet": {
+      "Spark": {
+        "ordinary": [
+          16.0,
+          20.0
+        ],
+        "cap": [
+          18.0,
+          24.0
+        ]
+      },
+      "RTX 4090": {
+        "ordinary": [
+          3.5,
+          4.2
+        ],
+        "cap": [
+          3.8,
+          4.8
+        ]
+      }
+    },
+    "transformer": {
+      "Spark": {
+        "ordinary": [
+          45.0,
+          60.0
+        ],
+        "cap": [
+          60.0,
+          80.0
+        ]
+      },
+      "RTX 4090": {
+        "ordinary": [
+          10.0,
+          17.0
+        ],
+        "cap": [
+          11.0,
+          18.0
+        ]
+      },
+      "RTX 5090": {
+        "ordinary": [
+          8.0,
+          10.5
+        ],
+        "cap": [
+          8.2,
+          11.0
+        ]
+      }
+    }
+  },
+  "assumptions": {
+    "full_prefixes_included": true,
+    "extra_work_multiplier": [
+      1.1,
+      1.2
+    ],
+    "worker_overhead_hours": [
+      0.5,
+      1.0
+    ],
+    "spark_overhead_hours_per_model": [
+      0.25,
+      0.5
+    ],
+    "storage_gb_per_pod": 60,
+    "storage_usd_per_gpu_hour": 0.00821917808219178,
+    "no_reuse_credit": true,
+    "excluded": [
+      "capacity queue",
+      "code preparation",
+      "final figure/table authoring",
+      "tax",
+      "owned Spark electricity"
+    ],
+    "community_limit": "Same runtime assumed only after actual worker qualification; a conditional quote, not a speed guarantee.",
+    "spark_transformer_limit": "Extrapolated from three-update mechanics records, not a sustained run."
+  },
+  "workloads": {
+    "initialization_0": {
+      "definition": {
+        "initializations": 1,
+        "ordinary_per_init": 9,
+        "caps_per_init": 3
+      },
+      "continuations_per_model": 12,
+      "total_continuations": 36,
+      "fleets": {
+        "spark_only": [
+          {
+            "wall_hours": 97.94178180555558,
+            "secure_usd": 0.0,
+            "community_usd": 0.0,
+            "models": {
+              "mlp": {
+                "wall_hours": 0.28030958333333333,
+                "aggregate_device_hours": 0.28030958333333333,
+                "prefix_hours_each": 0.0024933333333333335,
+                "continuations": 12,
+                "updates_excluding_prefixes": 3456,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "resnet": {
+                "wall_hours": 20.966055555555553,
+                "aggregate_device_hours": 20.966055555555556,
+                "prefix_hours_each": 1.2955555555555556,
+                "continuations": 12,
+                "updates_excluding_prefixes": 3840,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "transformer": {
+                "wall_hours": 76.69541666666669,
+                "aggregate_device_hours": 76.69541666666667,
+                "prefix_hours_each": 7.626666666666668,
+                "continuations": 12,
+                "updates_excluding_prefixes": 4608,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              }
+            }
+          },
+          {
+            "wall_hours": 141.48829666666668,
+            "secure_usd": 0.0,
+            "community_usd": 0.0,
+            "models": {
+              "mlp": {
+                "wall_hours": 0.5602966666666667,
+                "aggregate_device_hours": 0.5602966666666667,
+                "prefix_hours_each": 0.005386666666666666,
+                "continuations": 12,
+                "updates_excluding_prefixes": 3456,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "resnet": {
+                "wall_hours": 29.23466666666667,
+                "aggregate_device_hours": 29.234666666666666,
+                "prefix_hours_each": 1.7706666666666666,
+                "continuations": 12,
+                "updates_excluding_prefixes": 3840,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "transformer": {
+                "wall_hours": 111.69333333333336,
+                "aggregate_device_hours": 111.69333333333334,
+                "prefix_hours_each": 11.093333333333334,
+                "continuations": 12,
+                "updates_excluding_prefixes": 4608,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              }
+            }
+          }
+        ],
+        "balanced": [
+          {
+            "wall_hours": 5.637794444444445,
+            "secure_usd": 24.3567920064688,
+            "community_usd": 11.66221186757991,
+            "models": {
+              "mlp": {
+                "wall_hours": 0.28030958333333333,
+                "aggregate_device_hours": 0.28030958333333333,
+                "prefix_hours_each": 0.0024933333333333335,
+                "continuations": 12,
+                "updates_excluding_prefixes": 3456,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "resnet": {
+                "wall_hours": 4.990841666666666,
+                "aggregate_device_hours": 4.990841666666667,
+                "prefix_hours_each": 0.2830666666666667,
+                "continuations": 12,
+                "updates_excluding_prefixes": 3840,
+                "secure_usd": 4.48286969977169,
+                "community_usd": 1.7379067831050232
+              },
+              "transformer": {
+                "wall_hours": 5.637794444444445,
+                "aggregate_device_hours": 14.21373888888889,
+                "prefix_hours_each": 1.3498222222222225,
+                "continuations": 12,
+                "updates_excluding_prefixes": 4608,
+                "secure_usd": 19.87392230669711,
+                "community_usd": 9.924305084474886
+              }
+            }
+          },
+          {
+            "wall_hours": 8.3875,
+            "secure_usd": 36.02479411415525,
+            "community_usd": 17.291580780821917,
+            "models": {
+              "mlp": {
+                "wall_hours": 0.5602966666666667,
+                "aggregate_device_hours": 0.5602966666666667,
+                "prefix_hours_each": 0.005386666666666666,
+                "continuations": 12,
+                "updates_excluding_prefixes": 3456,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "resnet": {
+                "wall_hours": 6.956599999999999,
+                "aggregate_device_hours": 6.9566,
+                "prefix_hours_each": 0.37120000000000003,
+                "continuations": 12,
+                "updates_excluding_prefixes": 3840,
+                "secure_usd": 6.248551534246575,
+                "community_usd": 2.422421534246576
+              },
+              "transformer": {
+                "wall_hours": 8.3875,
+                "aggregate_device_hours": 21.295833333333334,
+                "prefix_hours_each": 1.9333333333333333,
+                "continuations": 12,
+                "updates_excluding_prefixes": 4608,
+                "secure_usd": 29.776242579908676,
+                "community_usd": 14.869159246575341
+              }
+            }
+          }
+        ],
+        "fast": [
+          {
+            "wall_hours": 3.7555722222222228,
+            "secure_usd": 26.903230362633185,
+            "community_usd": 12.883650223744294,
+            "models": {
+              "mlp": {
+                "wall_hours": 0.28030958333333333,
+                "aggregate_device_hours": 0.28030958333333333,
+                "prefix_hours_each": 0.0024933333333333335,
+                "continuations": 12,
+                "updates_excluding_prefixes": 3456,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "resnet": {
+                "wall_hours": 2.901666666666667,
+                "aggregate_device_hours": 5.490841666666667,
+                "prefix_hours_each": 0.2830666666666667,
+                "continuations": 12,
+                "updates_excluding_prefixes": 3840,
+                "secure_usd": 4.931979288812786,
+                "community_usd": 1.9120163721461192
+              },
+              "transformer": {
+                "wall_hours": 3.7555722222222228,
+                "aggregate_device_hours": 15.71373888888889,
+                "prefix_hours_each": 1.3498222222222225,
+                "continuations": 12,
+                "updates_excluding_prefixes": 4608,
+                "secure_usd": 21.971251073820397,
+                "community_usd": 10.971633851598174
+              }
+            }
+          },
+          {
+            "wall_hours": 5.6925,
+            "secure_usd": 41.117670826484016,
+            "community_usd": 19.734457493150682,
+            "models": {
+              "mlp": {
+                "wall_hours": 0.5602966666666667,
+                "aggregate_device_hours": 0.5602966666666667,
+                "prefix_hours_each": 0.005386666666666666,
+                "continuations": 12,
+                "updates_excluding_prefixes": 3456,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "resnet": {
+                "wall_hours": 4.196,
+                "aggregate_device_hours": 7.9566,
+                "prefix_hours_each": 0.37120000000000003,
+                "continuations": 12,
+                "updates_excluding_prefixes": 3840,
+                "secure_usd": 7.146770712328767,
+                "community_usd": 2.7706407123287673
+              },
+              "transformer": {
+                "wall_hours": 5.6925,
+                "aggregate_device_hours": 24.295833333333334,
+                "prefix_hours_each": 1.9333333333333333,
+                "continuations": 12,
+                "updates_excluding_prefixes": 4608,
+                "secure_usd": 33.97090011415525,
+                "community_usd": 16.963816780821915
+              }
+            }
+          }
+        ],
+        "4090_fallback": [
+          {
+            "wall_hours": 5.835916666666667,
+            "secure_usd": 21.24246688774734,
+            "community_usd": 8.235222026636228,
+            "models": {
+              "mlp": {
+                "wall_hours": 0.28030958333333333,
+                "aggregate_device_hours": 0.28030958333333333,
+                "prefix_hours_each": 0.0024933333333333335,
+                "continuations": 12,
+                "updates_excluding_prefixes": 3456,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "resnet": {
+                "wall_hours": 2.901666666666667,
+                "aggregate_device_hours": 5.490841666666667,
+                "prefix_hours_each": 0.2830666666666667,
+                "continuations": 12,
+                "updates_excluding_prefixes": 3840,
+                "secure_usd": 4.931979288812786,
+                "community_usd": 1.9120163721461192
+              },
+              "transformer": {
+                "wall_hours": 5.835916666666667,
+                "aggregate_device_hours": 18.158694444444446,
+                "prefix_hours_each": 1.6891111111111112,
+                "continuations": 12,
+                "updates_excluding_prefixes": 4608,
+                "secure_usd": 16.310487598934554,
+                "community_usd": 6.323205654490108
+              }
+            }
+          },
+          {
+            "wall_hours": 10.804,
+            "secure_usd": 37.41286473059361,
+            "community_usd": 14.504118063926942,
+            "models": {
+              "mlp": {
+                "wall_hours": 0.5602966666666667,
+                "aggregate_device_hours": 0.5602966666666667,
+                "prefix_hours_each": 0.005386666666666666,
+                "continuations": 12,
+                "updates_excluding_prefixes": 3456,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "resnet": {
+                "wall_hours": 4.196,
+                "aggregate_device_hours": 7.9566,
+                "prefix_hours_each": 0.37120000000000003,
+                "continuations": 12,
+                "updates_excluding_prefixes": 3840,
+                "secure_usd": 7.146770712328767,
+                "community_usd": 2.7706407123287673
+              },
+              "transformer": {
+                "wall_hours": 10.804,
+                "aggregate_device_hours": 33.69566666666667,
+                "prefix_hours_each": 3.1306666666666665,
+                "continuations": 12,
+                "updates_excluding_prefixes": 4608,
+                "secure_usd": 30.26609401826484,
+                "community_usd": 11.733477351598175
+              }
+            }
+          }
+        ]
+      }
+    },
+    "additional_initializations_1_2": {
+      "definition": {
+        "initializations": 2,
+        "ordinary_per_init": 9,
+        "caps_per_init": 3
+      },
+      "continuations_per_model": 24,
+      "total_continuations": 72,
+      "fleets": {
+        "spark_only": [
+          {
+            "wall_hours": 195.13356361111116,
+            "secure_usd": 0.0,
+            "community_usd": 0.0,
+            "models": {
+              "mlp": {
+                "wall_hours": 0.3106191666666666,
+                "aggregate_device_hours": 0.31061916666666667,
+                "prefix_hours_each": 0.0024933333333333335,
+                "continuations": 24,
+                "updates_excluding_prefixes": 6912,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "resnet": {
+                "wall_hours": 41.682111111111105,
+                "aggregate_device_hours": 41.68211111111111,
+                "prefix_hours_each": 1.2955555555555556,
+                "continuations": 24,
+                "updates_excluding_prefixes": 7680,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "transformer": {
+                "wall_hours": 153.14083333333338,
+                "aggregate_device_hours": 153.14083333333335,
+                "prefix_hours_each": 7.626666666666668,
+                "continuations": 24,
+                "updates_excluding_prefixes": 9216,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              }
+            }
+          },
+          {
+            "wall_hours": 281.47659333333326,
+            "secure_usd": 0.0,
+            "community_usd": 0.0,
+            "models": {
+              "mlp": {
+                "wall_hours": 0.6205933333333333,
+                "aggregate_device_hours": 0.6205933333333333,
+                "prefix_hours_each": 0.005386666666666666,
+                "continuations": 24,
+                "updates_excluding_prefixes": 6912,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "resnet": {
+                "wall_hours": 57.96933333333334,
+                "aggregate_device_hours": 57.96933333333333,
+                "prefix_hours_each": 1.7706666666666666,
+                "continuations": 24,
+                "updates_excluding_prefixes": 7680,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "transformer": {
+                "wall_hours": 222.88666666666657,
+                "aggregate_device_hours": 222.88666666666668,
+                "prefix_hours_each": 11.093333333333334,
+                "continuations": 24,
+                "updates_excluding_prefixes": 9216,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              }
+            }
+          }
+        ],
+        "balanced": [
+          {
+            "wall_hours": 9.481683333333333,
+            "secure_usd": 46.167145656773215,
+            "community_usd": 22.102985378995434,
+            "models": {
+              "mlp": {
+                "wall_hours": 0.3106191666666666,
+                "aggregate_device_hours": 0.31061916666666667,
+                "prefix_hours_each": 0.0024933333333333335,
+                "continuations": 24,
+                "updates_excluding_prefixes": 6912,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "resnet": {
+                "wall_hours": 9.481683333333333,
+                "aggregate_device_hours": 9.481683333333335,
+                "prefix_hours_each": 0.2830666666666667,
+                "continuations": 24,
+                "updates_excluding_prefixes": 7680,
+                "secure_usd": 8.516629810502284,
+                "community_usd": 3.3017039771689505
+              },
+              "transformer": {
+                "wall_hours": 9.425766666666666,
+                "aggregate_device_hours": 26.92747777777778,
+                "prefix_hours_each": 1.3498222222222225,
+                "continuations": 24,
+                "updates_excluding_prefixes": 9216,
+                "secure_usd": 37.650515846270935,
+                "community_usd": 18.801281401826483
+              }
+            }
+          },
+          {
+            "wall_hours": 13.841666666666667,
+            "secure_usd": 66.95671151598174,
+            "community_usd": 32.140284849315066,
+            "models": {
+              "mlp": {
+                "wall_hours": 0.6205933333333333,
+                "aggregate_device_hours": 0.6205933333333333,
+                "prefix_hours_each": 0.005386666666666666,
+                "continuations": 24,
+                "updates_excluding_prefixes": 6912,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "resnet": {
+                "wall_hours": 12.913200000000003,
+                "aggregate_device_hours": 12.9132,
+                "prefix_hours_each": 0.37120000000000003,
+                "continuations": 24,
+                "updates_excluding_prefixes": 7680,
+                "secure_usd": 11.598883890410958,
+                "community_usd": 4.49662389041096
+              },
+              "transformer": {
+                "wall_hours": 13.841666666666667,
+                "aggregate_device_hours": 39.59166666666667,
+                "prefix_hours_each": 1.9333333333333333,
+                "continuations": 24,
+                "updates_excluding_prefixes": 9216,
+                "secure_usd": 55.35782762557078,
+                "community_usd": 27.643660958904107
+              }
+            }
+          }
+        ],
+        "fast": [
+          {
+            "wall_hours": 5.637794444444445,
+            "secure_usd": 48.7135840129376,
+            "community_usd": 23.32442373515982,
+            "models": {
+              "mlp": {
+                "wall_hours": 0.3106191666666666,
+                "aggregate_device_hours": 0.31061916666666667,
+                "prefix_hours_each": 0.0024933333333333335,
+                "continuations": 24,
+                "updates_excluding_prefixes": 6912,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "resnet": {
+                "wall_hours": 4.990841666666666,
+                "aggregate_device_hours": 9.981683333333335,
+                "prefix_hours_each": 0.2830666666666667,
+                "continuations": 24,
+                "updates_excluding_prefixes": 7680,
+                "secure_usd": 8.96573939954338,
+                "community_usd": 3.4758135662100464
+              },
+              "transformer": {
+                "wall_hours": 5.637794444444445,
+                "aggregate_device_hours": 28.42747777777778,
+                "prefix_hours_each": 1.3498222222222225,
+                "continuations": 24,
+                "updates_excluding_prefixes": 9216,
+                "secure_usd": 39.74784461339422,
+                "community_usd": 19.848610168949772
+              }
+            }
+          },
+          {
+            "wall_hours": 8.3875,
+            "secure_usd": 72.0495882283105,
+            "community_usd": 34.583161561643834,
+            "models": {
+              "mlp": {
+                "wall_hours": 0.6205933333333333,
+                "aggregate_device_hours": 0.6205933333333333,
+                "prefix_hours_each": 0.005386666666666666,
+                "continuations": 24,
+                "updates_excluding_prefixes": 6912,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "resnet": {
+                "wall_hours": 6.956599999999999,
+                "aggregate_device_hours": 13.9132,
+                "prefix_hours_each": 0.37120000000000003,
+                "continuations": 24,
+                "updates_excluding_prefixes": 7680,
+                "secure_usd": 12.49710306849315,
+                "community_usd": 4.844843068493152
+              },
+              "transformer": {
+                "wall_hours": 8.3875,
+                "aggregate_device_hours": 42.59166666666667,
+                "prefix_hours_each": 1.9333333333333333,
+                "continuations": 24,
+                "updates_excluding_prefixes": 9216,
+                "secure_usd": 59.55248515981735,
+                "community_usd": 29.738318493150683
+              }
+            }
+          }
+        ],
+        "4090_fallback": [
+          {
+            "wall_hours": 9.482722222222224,
+            "secure_usd": 39.7902762412481,
+            "community_usd": 15.425786519025879,
+            "models": {
+              "mlp": {
+                "wall_hours": 0.3106191666666666,
+                "aggregate_device_hours": 0.31061916666666667,
+                "prefix_hours_each": 0.0024933333333333335,
+                "continuations": 24,
+                "updates_excluding_prefixes": 6912,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "resnet": {
+                "wall_hours": 4.990841666666666,
+                "aggregate_device_hours": 9.981683333333335,
+                "prefix_hours_each": 0.2830666666666667,
+                "continuations": 24,
+                "updates_excluding_prefixes": 7680,
+                "secure_usd": 8.96573939954338,
+                "community_usd": 3.4758135662100464
+              },
+              "transformer": {
+                "wall_hours": 9.482722222222224,
+                "aggregate_device_hours": 34.31738888888889,
+                "prefix_hours_each": 1.6891111111111112,
+                "continuations": 24,
+                "updates_excluding_prefixes": 9216,
+                "secure_usd": 30.82453684170472,
+                "community_usd": 11.949972952815832
+              }
+            }
+          },
+          {
+            "wall_hours": 17.477333333333334,
+            "secure_usd": 69.43641439269406,
+            "community_usd": 26.918921059360734,
+            "models": {
+              "mlp": {
+                "wall_hours": 0.6205933333333333,
+                "aggregate_device_hours": 0.6205933333333333,
+                "prefix_hours_each": 0.005386666666666666,
+                "continuations": 24,
+                "updates_excluding_prefixes": 6912,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "resnet": {
+                "wall_hours": 6.956599999999999,
+                "aggregate_device_hours": 13.9132,
+                "prefix_hours_each": 0.37120000000000003,
+                "continuations": 24,
+                "updates_excluding_prefixes": 7680,
+                "secure_usd": 12.49710306849315,
+                "community_usd": 4.844843068493152
+              },
+              "transformer": {
+                "wall_hours": 17.477333333333334,
+                "aggregate_device_hours": 63.391333333333336,
+                "prefix_hours_each": 3.1306666666666665,
+                "continuations": 24,
+                "updates_excluding_prefixes": 9216,
+                "secure_usd": 56.939311324200915,
+                "community_usd": 22.074077990867583
+              }
+            }
+          }
+        ]
+      }
+    },
+    "deferred_cap_lr_gross": {
+      "definition": {
+        "initializations": 3,
+        "ordinary_per_init": 3,
+        "caps_per_init": 15
+      },
+      "continuations_per_model": 54,
+      "total_continuations": 162,
+      "fleets": {
+        "spark_only": [
+          {
+            "wall_hours": 486.6147429166667,
+            "secure_usd": 0.0,
+            "community_usd": 0.0,
+            "models": {
+              "mlp": {
+                "wall_hours": 0.5078262499999997,
+                "aggregate_device_hours": 0.5078262499999999,
+                "prefix_hours_each": 0.0024933333333333335,
+                "continuations": 54,
+                "updates_excluding_prefixes": 15552,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "resnet": {
+                "wall_hours": 97.70816666666673,
+                "aggregate_device_hours": 97.70816666666667,
+                "prefix_hours_each": 1.2955555555555556,
+                "continuations": 54,
+                "updates_excluding_prefixes": 17280,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "transformer": {
+                "wall_hours": 388.39875,
+                "aggregate_device_hours": 388.39875000000006,
+                "prefix_hours_each": 7.626666666666668,
+                "continuations": 54,
+                "updates_excluding_prefixes": 20736,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              }
+            }
+          },
+          {
+            "wall_hours": 706.6876699999997,
+            "secure_usd": 0.0,
+            "community_usd": 0.0,
+            "models": {
+              "mlp": {
+                "wall_hours": 0.9756699999999998,
+                "aggregate_device_hours": 0.97567,
+                "prefix_hours_each": 0.005386666666666666,
+                "continuations": 54,
+                "updates_excluding_prefixes": 15552,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "resnet": {
+                "wall_hours": 140.6319999999999,
+                "aggregate_device_hours": 140.632,
+                "prefix_hours_each": 1.7706666666666666,
+                "continuations": 54,
+                "updates_excluding_prefixes": 17280,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "transformer": {
+                "wall_hours": 565.0799999999998,
+                "aggregate_device_hours": 565.08,
+                "prefix_hours_each": 11.093333333333334,
+                "continuations": 54,
+                "updates_excluding_prefixes": 20736,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              }
+            }
+          }
+        ],
+        "balanced": [
+          {
+            "wall_hours": 21.211074999999997,
+            "secure_usd": 99.34942825913241,
+            "community_usd": 47.483585342465744,
+            "models": {
+              "mlp": {
+                "wall_hours": 0.5078262499999997,
+                "aggregate_device_hours": 0.5078262499999999,
+                "prefix_hours_each": 0.0024933333333333335,
+                "continuations": 54,
+                "updates_excluding_prefixes": 15552,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "resnet": {
+                "wall_hours": 21.211074999999997,
+                "aggregate_device_hours": 21.211074999999997,
+                "prefix_hours_each": 0.2830666666666667,
+                "continuations": 54,
+                "updates_excluding_prefixes": 17280,
+                "secure_usd": 19.052194352739722,
+                "community_usd": 7.386103102739726
+              },
+              "transformer": {
+                "wall_hours": 19.14273888888889,
+                "aggregate_device_hours": 57.428216666666664,
+                "prefix_hours_each": 1.3498222222222225,
+                "continuations": 54,
+                "updates_excluding_prefixes": 20736,
+                "secure_usd": 80.29723390639269,
+                "community_usd": 40.09748223972602
+              }
+            }
+          },
+          {
+            "wall_hours": 29.270200000000017,
+            "secure_usd": 144.37416012328768,
+            "community_usd": 69.15880012328766,
+            "models": {
+              "mlp": {
+                "wall_hours": 0.9756699999999998,
+                "aggregate_device_hours": 0.97567,
+                "prefix_hours_each": 0.005386666666666666,
+                "continuations": 54,
+                "updates_excluding_prefixes": 15552,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "resnet": {
+                "wall_hours": 29.270200000000017,
+                "aggregate_device_hours": 29.2702,
+                "prefix_hours_each": 0.37120000000000003,
+                "continuations": 54,
+                "updates_excluding_prefixes": 17280,
+                "secure_usd": 26.29105498630137,
+                "community_usd": 10.192444986301371
+              },
+              "transformer": {
+                "wall_hours": 28.15083333333333,
+                "aggregate_device_hours": 84.4525,
+                "prefix_hours_each": 1.9333333333333333,
+                "continuations": 54,
+                "updates_excluding_prefixes": 20736,
+                "secure_usd": 118.0831051369863,
+                "community_usd": 58.966355136986294
+              }
+            }
+          }
+        ],
+        "fast": [
+          {
+            "wall_hours": 11.011783333333334,
+            "secure_usd": 101.8958666152968,
+            "community_usd": 48.70502369863013,
+            "models": {
+              "mlp": {
+                "wall_hours": 0.5078262499999997,
+                "aggregate_device_hours": 0.5078262499999999,
+                "prefix_hours_each": 0.0024933333333333335,
+                "continuations": 54,
+                "updates_excluding_prefixes": 15552,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "resnet": {
+                "wall_hours": 11.011783333333334,
+                "aggregate_device_hours": 21.711074999999997,
+                "prefix_hours_each": 0.2830666666666667,
+                "continuations": 54,
+                "updates_excluding_prefixes": 17280,
+                "secure_usd": 19.50130394178082,
+                "community_usd": 7.560212691780822
+              },
+              "transformer": {
+                "wall_hours": 10.508044444444444,
+                "aggregate_device_hours": 58.928216666666664,
+                "prefix_hours_each": 1.3498222222222225,
+                "continuations": 54,
+                "updates_excluding_prefixes": 20736,
+                "secure_usd": 82.39456267351598,
+                "community_usd": 41.14481100684931
+              }
+            }
+          },
+          {
+            "wall_hours": 15.574166666666668,
+            "secure_usd": 149.46703683561643,
+            "community_usd": 71.60167683561643,
+            "models": {
+              "mlp": {
+                "wall_hours": 0.9756699999999998,
+                "aggregate_device_hours": 0.97567,
+                "prefix_hours_each": 0.005386666666666666,
+                "continuations": 54,
+                "updates_excluding_prefixes": 15552,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "resnet": {
+                "wall_hours": 15.352800000000006,
+                "aggregate_device_hours": 30.2702,
+                "prefix_hours_each": 0.37120000000000003,
+                "continuations": 54,
+                "updates_excluding_prefixes": 17280,
+                "secure_usd": 27.18927416438356,
+                "community_usd": 10.540664164383562
+              },
+              "transformer": {
+                "wall_hours": 15.574166666666668,
+                "aggregate_device_hours": 87.4525,
+                "prefix_hours_each": 1.9333333333333333,
+                "continuations": 54,
+                "updates_excluding_prefixes": 20736,
+                "secure_usd": 122.27776267123288,
+                "community_usd": 61.06101267123287
+              }
+            }
+          }
+        ],
+        "4090_fallback": [
+          {
+            "wall_hours": 19.95258333333333,
+            "secure_usd": 87.6636393413242,
+            "community_usd": 33.98520225799087,
+            "models": {
+              "mlp": {
+                "wall_hours": 0.5078262499999997,
+                "aggregate_device_hours": 0.5078262499999999,
+                "prefix_hours_each": 0.0024933333333333335,
+                "continuations": 54,
+                "updates_excluding_prefixes": 15552,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "resnet": {
+                "wall_hours": 11.011783333333334,
+                "aggregate_device_hours": 21.711074999999997,
+                "prefix_hours_each": 0.2830666666666667,
+                "continuations": 54,
+                "updates_excluding_prefixes": 17280,
+                "secure_usd": 19.50130394178082,
+                "community_usd": 7.560212691780822
+              },
+              "transformer": {
+                "wall_hours": 19.95258333333333,
+                "aggregate_device_hours": 75.88608333333333,
+                "prefix_hours_each": 1.6891111111111112,
+                "continuations": 54,
+                "updates_excluding_prefixes": 20736,
+                "secure_usd": 68.16233539954338,
+                "community_usd": 26.424989566210048
+              }
+            }
+          },
+          {
+            "wall_hours": 36.085666666666654,
+            "secure_usd": 150.22464252054795,
+            "community_usd": 58.238682520547954,
+            "models": {
+              "mlp": {
+                "wall_hours": 0.9756699999999998,
+                "aggregate_device_hours": 0.97567,
+                "prefix_hours_each": 0.005386666666666666,
+                "continuations": 54,
+                "updates_excluding_prefixes": 15552,
+                "secure_usd": 0.0,
+                "community_usd": 0.0
+              },
+              "resnet": {
+                "wall_hours": 15.352800000000006,
+                "aggregate_device_hours": 30.2702,
+                "prefix_hours_each": 0.37120000000000003,
+                "continuations": 54,
+                "updates_excluding_prefixes": 17280,
+                "secure_usd": 27.18927416438356,
+                "community_usd": 10.540664164383562
+              },
+              "transformer": {
+                "wall_hours": 36.085666666666654,
+                "aggregate_device_hours": 136.977,
+                "prefix_hours_each": 3.1306666666666665,
+                "continuations": 54,
+                "updates_excluding_prefixes": 20736,
+                "secure_usd": 123.03536835616438,
+                "community_usd": 47.69801835616439
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

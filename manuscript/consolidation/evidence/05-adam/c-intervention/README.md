@@ -1,9 +1,10 @@
 # V-C. Intervention comparisons
 
-- **Paper claim:** Present learning-rate schedules, beta2 schedules, gradient clipping and the distributed q50 displacement cap; each retains its unchanged Adam baseline.
+- **Current experiment design:** [one self-contained matched plan](EXPERIMENTAL_PLAN.md), 14 November: initialization 0; common conventional forks; immediate LR .75/.5/.1, beta2 .95/.9/.5, clipping .5/1 and cap q25/q50/q75. **36 conditions**, with ETC/hardware/cost and proposed paper outputs; no launch from this plan. Extra initializations and cap×LR are deferred.
+- **Paper claim:** Present learning-rate schedules, beta2 schedules, gradient clipping and the distributed q50 displacement cap; each retains its unchanged Adam baseline. q25/q75 are ablations of that same cap method.
 - **Boundary:** Training benefits coexist with held-out deterioration. Historical comparators are not one matched benchmark; direct ranking remains pending.
 - **Authority:** the [single paper plan](../../../PLAN.md) governs selection and closure.
-- **Presentation:** LR schedules, beta2 reductions, gradient clipping, then distributed q50, the sole representation-inspired method. Beta2 covers all three models; clipping covers .5/1 for MLP and Transformer and 1 for ResNet. The quantile/LR ablation remains at the section root as supporting evidence; the TODO records missing experiments.
+- **Historical asset presentation:** LR schedules, beta2 reductions, gradient clipping, then distributed q50, the sole representation-inspired method. Beta2 covers all three models; clipping covers .5/1 for MLP and Transformer and 1 for ResNet. The existing quantile/LR ablation remains at the section root as supporting evidence; the new matched experiment is planned, not yet reflected in the figures below.
 
 | Asset | Status | Use / source |
 |---|---|---|

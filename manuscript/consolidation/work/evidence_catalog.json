@@ -37,9 +37,9 @@
     },
     "05-adam/c-intervention": {
       "title": "V-C. Intervention comparisons",
-      "claim": "Present learning-rate schedules, beta2 schedules, gradient clipping and the distributed q50 displacement cap; each retains its unchanged Adam baseline.",
+      "claim": "Present learning-rate schedules, beta2 schedules, gradient clipping and the distributed q50 displacement cap; each retains its unchanged Adam baseline. q25/q75 are ablations of that same cap method.",
       "boundary": "Training benefits coexist with held-out deterioration. Historical comparators are not one matched benchmark; direct ranking remains pending.",
-      "presentation": "LR schedules, beta2 reductions, gradient clipping, then distributed q50, the sole representation-inspired method. Beta2 covers all three models; clipping covers .5/1 for MLP and Transformer and 1 for ResNet. The quantile/LR ablation remains at the section root as supporting evidence; the TODO records missing experiments."
+      "presentation": "Historical assets below remain LR schedules, beta2 reductions, gradient clipping, then distributed q50. The new initialization-0 matched plan uses immediate LR .75/.5/.1, beta2 .95/.9/.5, clipping .5/1 and cap q25/q50/q75 at common conventional forks. Its 36 conditions are planned, not yet reflected in the figures. Extra initializations and cap x LR are deferred."
     },
     "06-conclusion": {
       "title": "VI. Conclusion",
