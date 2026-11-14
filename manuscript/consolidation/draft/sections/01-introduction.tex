@@ -11,12 +11,64 @@ Destructive alignment alone does not imply instability. Within a local quadratic
 
 We examine these relationships through controlled full-batch and mini-batch experiments across image-classification and language-modeling tasks, using multilayer perceptrons, residual networks, and Transformers. The SGD experiments isolate curvature and sampling effects. The Adam experiments then follow the argument from consecutive-gradient behavior to loss spikes, from spikes to changes in the network's representations, and from those changes to interventions. Evaluating the same reference examples at successive training steps makes it possible to see where representations reverse and where their changes become large. This motivates a local displacement cap, which we compare with learning-rate reduction, second-moment changes, and global gradient clipping from the same training states.
 
-Our main contributions are:
+Our central contribution is to connect the interaction between training
+steps to its consequences in parameter space, in the loss, and in the
+learned function. This connection provides both an interpretation of
+oscillatory progress and a measurable basis for intervention. Specifically:
 \begin{itemize}
-\item A geometric characterization of constructive and destructive training regimes through consecutive-gradient alignment, connecting local reinforcement and reversal to accumulated parameter motion while distinguishing both from objective progress.
-\item An inexpensive estimate of directional curvature from gradients and the applied parameter change, valid for smooth objectives independently of the optimizer. Its SGD specialization connects alignment and gradient magnitude, with an explicit account of sampling noise and an independent derivative check.
-\item A local analysis of how gradient reversal and norm amplification jointly produce loss increases, followed by an Adam characterization that examines the association across loss-increase magnitudes and future steps.
-\item A method for following representation changes through the network, and controlled comparisons testing whether limiting their local magnitude can reduce loss excursions while preserving training progress. The comparison retains endpoint, held-out, and computational tradeoffs.
+\item \textbf{Relating local reversal to accumulated learning dynamics.}
+Edge-of-Stability studies establish that oscillation can coexist with
+progress~\cite{cohen2021edge,damian2023self}, while gradient-product
+diagnostics identify transitions toward
+stationarity~\cite{chee2018diagnostics,pesme2020diagnostics}. These findings
+motivate distinguishing opposition between neighboring updates from
+cancellation across the complete trajectory. We connect consecutive-gradient
+alignment to an exact all-pair displacement decomposition and normalized
+displacement. The GD experiments show that negative adjacent interactions
+can coexist with positive total interaction and decreasing loss, explaining
+why a destructive local regime need not imply failed progress
+(Sections~\ref{sec:displacement}--\ref{sec:gd-experiments}).
+
+\item \textbf{Measuring curvature along the step actually taken.}
+The leading Hessian eigenvalue used in spectral stability
+analysis~\cite{cohen2021edge} describes the sharpest direction, but does not
+specify the curvature encountered by a particular optimizer update.
+We introduce an inexpensive step-direction estimate from consecutive
+gradients and the applied parameter change, without additional backward
+passes or Hessian computations. For smooth full objectives, we establish
+its exact step-average interpretation independently of the optimizer,
+including Adam, and bound its starting-point approximation error. Its
+SGD specialization exposes the roles of alignment, norm growth, and
+sampling noise; independently computed Hessian--vector products test
+that interpretation (Sections~\ref{subsec:curvature-diagnostic}
+and~\ref{subsec:gd-validation}).
+
+\item \textbf{Separating gradient reversal from loss-spike formation.}
+Bai et al.~\cite{bai2026spikes} explain Adam spikes through adaptive
+preconditioning and gradient-directional curvature. To connect spike
+behavior to consecutive training gradients, we express the local SGD
+loss-increase condition jointly in terms of reversal and norm growth,
+then examine those quantities under Adam without transferring the SGD
+threshold into an Adam guarantee. An exhaustive comparison across
+loss-increase magnitudes and future steps identifies both the association
+and its missed increases and false alarms, extending the characterization
+beyond selected peaks (Sections~\ref{subsec:loss}
+and~\ref{subsec:characterization}).
+
+\item \textbf{Tracing functional oscillation and testing selective control.}
+Representation-change correction~\cite{kosson2024warmup} and unit-wise
+gradient clipping~\cite{brock2021normalization} already motivate controlling
+update size. We examine where successive representation changes reverse,
+which patterns carry their movement, and whether limiting that movement
+improves an oscillatory trajectory. Tracing the same reference examples
+reveals concentrated movement and shared temporal structure across
+measured stages. We then cap the direct affine displacement induced by
+Adam's proposal using an absolute per-unit budget. Matched comparisons
+with learning-rate reduction, second-moment changes, and global clipping
+show lower mean training loss and positive loss variation for all tested
+cap quantiles in the three cases, while reversals persist. Endpoint,
+held-out, and cost tradeoffs delimit this training-dynamics result
+(Sections~\ref{subsec:tracing}--\ref{sec:vc-interventions}).
 \end{itemize}
 
 The remainder of the paper is organized as follows. Section~\ref{sec:background} reviews training-stability perspectives. Section~\ref{sec:displacement} develops the displacement formulation and its diagnostics. Section~\ref{sec:gd-experiments} examines full-batch GD and mini-batch sampling. Section~\ref{sec:adam} develops the Adam characterization, representation analysis, and interventions. Section~\ref{sec:conclusion} concludes.

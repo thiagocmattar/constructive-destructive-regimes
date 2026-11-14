@@ -35,3 +35,19 @@
 - Checkpoint recovery, rate reduction, and tighter clipping are reported in [OPT, Section 2.5](https://arxiv.org/pdf/2205.01068#page=3).
 - Initialization, normalization, optimizer choices, and loss/gradient spike monitoring are covered by [OLMo 2, Section 3](https://arxiv.org/html/2501.00656v3).
 - Query/key weight rescaling and the reported spike-free K2 run are described in [Kimi K2, Section 2.1](https://arxiv.org/html/2507.20534v2). These motivate the problem; they are not comparative evidence for the present cap.
+
+
+## Contribution framing follow-up
+
+The author requested stronger contributions in the current draft. Only the introduction's contribution block is rewritten; the preceding introduction, scientific sections, measurements and figures are retained. Each item now states prior knowledge, the specific question, the paper's response, and supporting evidence with section references.
+
+| Contribution | Prior knowledge / remaining question | Evidence used here |
+|---|---|---|
+| Local reversal and accumulation | EoS permits oscillatory progress; stationarity diagnostics use gradient products. How do adjacent opposition and complete-trajectory accumulation differ? | Exact displacement identity; negative adjacent versus positive all-pair interaction; observed loss progress. |
+| Inexpensive applied-step curvature | Spectral sharpness does not determine curvature along a particular applied step. | Optimizer-independent path-average identity and error bound; explicit SGD noise term; independent HVP comparison. |
+| Reversal and spike formation | Bai explains adaptive preconditioning and directional curvature. How do consecutive-gradient reversal and growth relate to observed increases across severity and timing? | SGD joint condition; exhaustive Adam audit retaining missed increases and false alarms. No validated forecasting claim. |
+| Functional tracing and control | Representation-aware update control and unit-wise clipping already exist. Where does oscillation appear, and does capping local functional movement help? | Shared reference-example tracing; temporal structure; matched four-family comparison. Training improvements retain endpoint/test/cost tradeoffs. |
+
+Primary sources rechecked: [Cohen et al., abstract](https://arxiv.org/abs/2103.00065), [Chee and Toulis, abstract](https://proceedings.mlr.press/v84/chee18a.html), [Bai et al., introduction/contributions and Sections 4-5](https://arxiv.org/html/2506.04805v2), [Kosson et al., Section 6 and Appendix B.6](https://arxiv.org/html/2410.23922v1), and [Brock et al., adaptive clipping](https://proceedings.mlr.press/v139/brock21a.html). Gaps are specific questions and measurement distinctions, not unsupported claims that the literature has ignored oscillation or representations. The supplied review skill's optional reference files were not included in its folder; its core framing and adversarial-audit instructions were applied directly.
+
+Final check: the main PDF remains 17 pages and compiles without warnings. All pages were visually reviewed after reflow; three float-placement options were adjusted to avoid overflow. The supplement and every figure asset are unchanged. Numerical/document verification passes.
