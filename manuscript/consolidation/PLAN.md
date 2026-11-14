@@ -5,6 +5,7 @@
 - **Decision from this review:** the evidence supports this explanatory paper. Validated forecasting, a universal initiating layer and general optimizer superiority require additional evidence.
 - **Reading contract:** this is the complete executive map. Links provide provenance, not additional required reading. Manuscript editing follows agreement on this plan.
 - **Local assets:** [section-indexed evidence package](evidence/README.md); [display/table/algorithm map](evidence/ARTIFACTS.md).
+- **Figure convention, 14 November:** Figures 1–6 use **Training step s = completed optimizer updates**. Representation changes are placed at their observed endpoint; lag/batch axes retain their own units. [Captions and exact clock conversions](evidence/FIGURE_NOTES.md). Intervention display revisions remain a later task.
 
 ## I. Introduction — motivation before gaps
 
@@ -64,7 +65,7 @@
 ## IV. Empirical Characterization — preserve the four figures
 
 - **Cases:** CIFAR-10 MLP/5,000 examples/half-squared error; CIFAR-10 ResNet-32/50,000 examples/cross-entropy; WikiText-2 Transformer/2,088,600 supervised tokens/token-weighted NLL.
-- **Figure 1 — LR, curvature, loss:** [024's nine GD conditions](evidence/04-gd-sgd/figures/gd_loss_projected_change_spectral_clean.pdf), 3,000 updates. Distinguish directional proxy from leading eigenvalue; label full-MLP versus subset spectral coverage.
+- **Figure 1 — LR, curvature, loss:** [024's nine GD conditions](evidence/04-gd-sgd/figures/gd_loss_projected_change_spectral_clean.pdf), 3,000 updates. Both curvature curves now use the same centered 101-step smoother; the sparse spectrum is interpolated explicitly for display. Distinguish directional proxy from leading eigenvalue and full-MLP from subset spectral coverage; smoothed crossings are not onset estimates.
 - **Figure 2 — reversal with progress:** [norms, alignment and R](evidence/04-gd-sgd/figures/gd_reversal_norm_retention.pdf); relate adjacent reversal to positive all-pair accumulation and actual loss progress.
 - **Figure 3 — temporal organization:** [035's backward lags](evidence/04-gd-sgd/figures/gd_backward_compact.pdf), endpoint 2256/lags 1–256. Test, rather than assume, lag-one dominance.
 - **Figure 4 — sampling:** [037's 546 trajectories](evidence/04-gd-sgd/figures/sgd_batch_size_compact.pdf), three initializations. Equal updates entail different data exposure; separate frozen-state sampling controls from evolving trajectories.
@@ -103,11 +104,13 @@
 |---|---|---:|
 | MLP / 450–500 / all 5,000 examples | First projection reverses; [tanh attenuates transmission](evidence/05-adam/b-tracing/observations/062-development-summary.md); all five learned stages reverse throughout. | 5 / 51 |
 | ResNet / 280–310 / intact 1,000-image BN group | Output-like reversal strengthens through residual depth; first/final-stage alignment-series correlation with output is .578/.991. | 16 / 31 |
-| Transformer / 552–600 / 64 sequences, 2,240 positions | At update 558: embedding cosine +.390, attention output −.672, network output −.920. | 15 / 49 |
+| Transformer / 552–600 / 64 sequences, 2,240 positions | At outgoing update 558 (observed at completed step 559): embedding cosine +.390, attention output −.672, network output −.920. | 15 / 49 |
 
 - **Rule out “only a few large steps”:** [retained-Gram controls](evidence/05-adam/b-tracing/observations/63-006-spectral-controls.md) give top-mode energy **53.0/24.0/41.7%**, versus **7.8/10.5/16.7%** with identical step norms and orthogonal directions. Unit-row rank95 is **5/18/29**: amplitude weighting matters, especially in Transformer.
 - **Connect to loss:** use raw MLP outputs and cross-entropy log probabilities. Correct-label readouts reproduce probe loss by their negative mean; their alignment histories correlate **.943/.946** with full-output histories in ResNet/Transformer. The MLP exact decomposition below provides a stronger loss connection.
-- **Figure 6:** three model columns; full/probe loss, stage-by-time cosine/RMS heatmaps, spectrum and signed coefficients over the recorded tracing windows. Use the layout of the [selected q50 heatmaps](evidence/05-adam/c-intervention/figures/07-distributed-q50-stage-heatmaps.pdf), extracted from 065 Figure 07 page 2; keep the paired baseline/cap comparison in V-C. Heatmaps and temporal SVD answer different questions.
+- **Figure 6 — assembled:** [three-model loss and stage heatmaps](evidence/05-adam/b-tracing/figures/00-three-model-loss-representation-motion.pdf), with loss/cosine/RMS rows and 5/6/6 measured stage endpoints. Displayed completed steps are 451–501 / 281–311 / 553–601; original outgoing rows and SVD fits above are unchanged. Dashed markers align first observed output reversal and the +10% full-loss crossing across all rows. RMS is normalized by each stage's own window maximum.
+- **Timing interpretation:** Transformer output reversal at completed step 556 precedes the selected first loss increase at 558 and +10% crossing at 561. MLP/ResNet are already reversing at window entry, so their onset is unobserved. These are selected descriptive windows, not a forecasting validation.
+- **Separate companion:** [spectra, stage overlap and signed output coefficients](evidence/05-adam/b-tracing/figures/01-three-model-temporal-structure.pdf). The previous all-stage plots remain in background; the paired baseline/cap comparison stays in V-C.
 - **Interpretation/cost:** directional structure and repeated reversals are supported. SVD alone is time-permutation invariant; rank≤T automatically. No unique causal origin or spike-specific concentration follows without interventions/quiet-window contrasts. Rolling cosine/RMS costs O(P); full-window Gram costs O(T²P), eigendecomposition O(T³), and is retrospective.
 
 ### C. Intervention — test what the functional interpretation buys

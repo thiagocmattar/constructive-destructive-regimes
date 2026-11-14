@@ -3,6 +3,7 @@
 - **Authority:** [PLAN.md](../PLAN.md). This file is an implementation index, not a second plan.
 - **Current phase:** Runs289–291 completed and verified the authorized conventional-intervention model coverage. Three-model figures, paired outcomes and the ablation TODO are consolidated; manuscript editing remains a later step.
 - **Completed:** repository/literature review; exact clock and claim audit; Adam sign/severity/forward-memory analysis; retained-Gram controls; section-indexed asset package and compact tables.
+- **14 November display revision:** Figures 1–6 use a common completed-step clock; GD curvature filters are matched, Adam overview is compact, and Figure 6 is assembled as loss/cosine/RMS with 5/6/6 stage endpoints. SVD/overlap is a separate prepared companion. Current captions and timing limits are in [FIGURE_NOTES](../evidence/FIGURE_NOTES.md). Intervention figure revisions remain later work.
 
 | Plan step | Work | Inputs | Completion condition |
 |---|---|---|---|

@@ -3,11 +3,12 @@
 - **Paper claim:** Exhaustive severity and lead-time evidence supports broad reversal precursors with selective, architecture-dependent amplification.
 - **Boundary:** Individual increases are not independent spikes. Current pre-update associations are exploratory, not a validated forecasting rule.
 - **Authority:** the [single paper plan](../../../PLAN.md) governs selection and closure.
+- **Presentation:** Compact Figure 5 refreshed on 14 November. Training step s; projected-change axes start at zero, with gray bands and omitted negative display range explained in the caption.
 
 | Asset | Status | Use / source |
 |---|---|---|
 | [Current manuscript source: 06-adam-diagnostics.tex](source/06-adam-diagnostics.tex) | source | Unmodified manuscript snapshot; its input/figure paths resolve from the original draft root. Use the consolidated snippets and selected displays for integration. |
-| [Figure 5 base: high-LR Adam overview](figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf) | main base | One high-LR trajectory per task; add the compact population table, not a claim based only on selected peaks. [Observation](observations/58-000-high-lr-overview.md). [Generator](../../../../../analyses/058-2026-11-06-intervention-consolidation/01_figures.py). |
+| [Figure 5 base: high-LR Adam overview](figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf) | prepared main | Compact revised overview: Q axes start at zero; unchanged data/event intervals. Gray-band meanings and negative values outside the viewport are explicit in the caption. [Observation](../../FIGURE_NOTES.md). [Generator](../../../work/figure_revision_20261114/01_figures.py). |
 | [Analysis 58: 000-high-lr-overview.md](observations/58-000-high-lr-overview.md) | record |  |
 | [Analysis 55: 004-timing-severity-audit.md](observations/55-004-timing-severity-audit.md) | record |  |
 | [Analysis 57: 001-response-memory.md](observations/57-001-response-memory.md) | record |  |

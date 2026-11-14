@@ -9,7 +9,7 @@ The [five-page technical report](../report/instability-tracing-report.pdf) conso
 motivation, the formal algorithm, matrix dimensions, probe decisions, results,
 interpretation and costs. It uses **MLP outgoing updates 450-500 only**, freshly
 refitting all SVD quantities. The original 448-800 evidence and Figure 03 remain
-unchanged. [Event-window companion Figure 04](../figures/04-mlp-instability-trace-450-500.pdf)
+unchanged. [Event-window companion Figure 04](../background/figures/04-mlp-instability-trace-450-500.pdf)
 uses the same two-page layout as the prior architecture reports.
 
 In this shorter MLP window, all five learned representations and the raw-gradient

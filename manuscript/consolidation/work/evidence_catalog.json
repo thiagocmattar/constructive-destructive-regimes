@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "date": "2026-11-08",
+  "date": "2026-11-14",
   "sections": {
     "01-introduction": {
       "title": "I. Introduction",
@@ -20,17 +20,20 @@
     "04-gd-sgd": {
       "title": "IV. Empirical Characterization",
       "claim": "Retain the four current GD/SGD figures in order; supporting HVP, finite-step and all-lag evidence checks their interpretation.",
-      "boundary": "Nine GD conditions use one initialization per task; minibatch evidence is replicated. Equal updates do not mean equal data exposure."
+      "boundary": "Nine GD conditions use one initialization per task; minibatch evidence is replicated. Equal updates do not mean equal data exposure.",
+      "presentation": "Figures 1-4 refreshed on 14 November. Training progress is Training step s; lag and batch axes retain their own units. [Current captions and clock conversions](../FIGURE_NOTES.md)."
     },
     "05-adam/a-characterization": {
       "title": "V-A. Adam characterization",
       "claim": "Exhaustive severity and lead-time evidence supports broad reversal precursors with selective, architecture-dependent amplification.",
-      "boundary": "Individual increases are not independent spikes. Current pre-update associations are exploratory, not a validated forecasting rule."
+      "boundary": "Individual increases are not independent spikes. Current pre-update associations are exploratory, not a validated forecasting rule.",
+      "presentation": "Compact Figure 5 refreshed on 14 November. Training step s; projected-change axes start at zero, with gray bands and omitted negative display range explained in the caption."
     },
     "05-adam/b-tracing": {
       "title": "V-B. Architectural tracing",
       "claim": "Fixed-probe consecutive motion reveals stage-specific reversals and structured temporal directions.",
-      "boundary": "SVD is retrospective and permutation invariant; stage association does not identify a unique cause. Original windows/probes must remain explicit."
+      "boundary": "SVD is retrospective and permutation invariant; stage association does not identify a unique cause. Original windows/probes must remain explicit.",
+      "presentation": "Figure 6 is assembled: three model columns, loss/cosine/RMS rows, 5/6/6 stage endpoints and synchronized markers. SVD/overlap is a separate companion. Historical all-stage PDFs remain in background/figures."
     },
     "05-adam/c-intervention": {
       "title": "V-C. Intervention comparisons",
@@ -142,43 +145,43 @@
     },
     {
       "section": "04-gd-sgd",
-      "source": "manuscript/draft/figures/analysis024/gd_loss_projected_change_spectral_clean.pdf",
+      "source": "manuscript/consolidation/work/figure_revision_20261114/figures/gd_loss_projected_change_spectral_clean.pdf",
       "destination": "04-gd-sgd/figures/gd_loss_projected_change_spectral_clean.pdf",
       "title": "Figure 1",
-      "role": "retained main",
-      "observation": "analyses/024-2026-10-17-eos-gd-lr-calibration/observations/010-curvature-spectral-overlay.md",
-      "generator": "manuscript/draft/revisions/2026-11-03-original-argument-feedback-feedback/01_prepare_figures.py",
-      "note": "GD loss, directional proxy and spectral curvature; full/subset coverage and smoothing differ."
+      "role": "prepared main",
+      "observation": "manuscript/consolidation/work/figure_revision_20261114/OBSERVATIONS.md",
+      "generator": "manuscript/consolidation/work/figure_revision_20261114/01_figures.py",
+      "note": "Revised: completed-step clock; both curvature curves use the same centered 101-step smoother. Sparse spectrum interpolation is explicit in the caption."
     },
     {
       "section": "04-gd-sgd",
-      "source": "manuscript/draft/figures/analysis024/gd_reversal_norm_retention.pdf",
+      "source": "manuscript/consolidation/work/figure_revision_20261114/figures/gd_reversal_norm_retention.pdf",
       "destination": "04-gd-sgd/figures/gd_reversal_norm_retention.pdf",
       "title": "Figure 2",
-      "role": "retained main",
-      "observation": "analyses/024-2026-10-17-eos-gd-lr-calibration/observations/009-author-feedback-figures.md",
-      "generator": "manuscript/draft/revisions/2026-11-02-feedback/01_prepare_figures.py",
-      "note": "Gradient norms, adjacent alignment and normalized displacement; no inference of learning quality from R alone."
+      "role": "prepared main",
+      "observation": "manuscript/consolidation/work/figure_revision_20261114/OBSERVATIONS.md",
+      "generator": "manuscript/consolidation/work/figure_revision_20261114/01_figures.py",
+      "note": "Revised state-indexed gradient coordinates; original trailing means and cumulative R values preserved."
     },
     {
       "section": "04-gd-sgd",
-      "source": "manuscript/draft/figures/analysis035/gd_backward_compact.pdf",
+      "source": "manuscript/consolidation/work/figure_revision_20261114/figures/gd_backward_compact.pdf",
       "destination": "04-gd-sgd/figures/gd_backward_compact.pdf",
       "title": "Figure 3",
-      "role": "retained main",
-      "observation": "analyses/035-2026-11-02-eos-backward-anchors/observations/002-manuscript-view.md",
-      "generator": "manuscript/draft/revisions/2026-11-02-feedback/01_prepare_figures.py",
-      "note": "Fixed endpoint 2256, backward lags 1–256, including a shorter-lag view; not a moving adjacent series."
+      "role": "prepared main",
+      "observation": "manuscript/consolidation/work/figure_revision_20261114/OBSERVATIONS.md",
+      "generator": "manuscript/consolidation/work/figure_revision_20261114/01_figures.py",
+      "note": "Revised state-indexed notation; backward lag remains a separation axis, with the same endpoint and values."
     },
     {
       "section": "04-gd-sgd",
-      "source": "manuscript/draft/figures/analysis037/sgd_batch_size_compact.pdf",
+      "source": "manuscript/consolidation/work/figure_revision_20261114/figures/sgd_batch_size_compact.pdf",
       "destination": "04-gd-sgd/figures/sgd_batch_size_compact.pdf",
       "title": "Figure 4",
-      "role": "retained main",
-      "observation": "analyses/037-2026-11-02-sgd-batch-extension/observations/001-three-case-sgd.md",
-      "generator": "manuscript/draft/revisions/2026-11-02-feedback/01_prepare_figures.py",
-      "note": "Three tasks and three initialization blocks; label batch size and exposure."
+      "role": "prepared main",
+      "observation": "manuscript/consolidation/work/figure_revision_20261114/OBSERVATIONS.md",
+      "generator": "manuscript/consolidation/work/figure_revision_20261114/01_figures.py",
+      "note": "Revised state-indexed notation; original batch axis, means and initialization ranges preserved."
     },
     {
       "section": "04-gd-sgd",
@@ -322,13 +325,13 @@
     },
     {
       "section": "05-adam/a-characterization",
-      "source": "analyses/058-2026-11-06-intervention-consolidation/figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf",
+      "source": "manuscript/consolidation/work/figure_revision_20261114/figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf",
       "destination": "05-adam/a-characterization/figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf",
       "title": "Figure 5 base: high-LR Adam overview",
-      "role": "main base",
-      "observation": "analyses/058-2026-11-06-intervention-consolidation/observations/000-high-lr-overview.md",
-      "generator": "analyses/058-2026-11-06-intervention-consolidation/01_figures.py",
-      "note": "One high-LR trajectory per task; add the compact population table, not a claim based only on selected peaks."
+      "role": "prepared main",
+      "observation": "manuscript/consolidation/work/figure_revision_20261114/OBSERVATIONS.md",
+      "generator": "manuscript/consolidation/work/figure_revision_20261114/01_figures.py",
+      "note": "Compact revised overview: Q axes start at zero; unchanged data/event intervals. Gray-band meanings and negative values outside the viewport are explicit in the caption."
     },
     {
       "section": "05-adam/a-characterization",
@@ -433,32 +436,32 @@
     {
       "section": "05-adam/b-tracing",
       "source": "analyses/063-2026-11-07-architecture-instability-tracing/figures/01-resnet-instability-trace.pdf",
-      "destination": "05-adam/b-tracing/figures/01-resnet-instability-trace.pdf",
-      "title": "Figure 6 component: 01-resnet-instability-trace.pdf",
-      "role": "assembly component",
+      "destination": "05-adam/b-tracing/background/figures/01-resnet-instability-trace.pdf",
+      "title": "Historical detailed trace: 01-resnet-instability-trace.pdf",
+      "role": "background",
       "observation": "analyses/063-2026-11-07-architecture-instability-tracing/observations/005-technical-report-event-window.md",
       "generator": "analyses/063-2026-11-07-architecture-instability-tracing/02_figures.py",
-      "note": "Use the recorded event window; do not mix with the older 448–800 MLP SVD."
+      "note": "Complete original all-stage report, preserved unchanged. The selected three-model loss/motion and temporal-structure views are now assembled separately."
     },
     {
       "section": "05-adam/b-tracing",
       "source": "analyses/063-2026-11-07-architecture-instability-tracing/figures/02-transformer-instability-trace.pdf",
-      "destination": "05-adam/b-tracing/figures/02-transformer-instability-trace.pdf",
-      "title": "Figure 6 component: 02-transformer-instability-trace.pdf",
-      "role": "assembly component",
+      "destination": "05-adam/b-tracing/background/figures/02-transformer-instability-trace.pdf",
+      "title": "Historical detailed trace: 02-transformer-instability-trace.pdf",
+      "role": "background",
       "observation": "analyses/063-2026-11-07-architecture-instability-tracing/observations/005-technical-report-event-window.md",
       "generator": "analyses/063-2026-11-07-architecture-instability-tracing/02_figures.py",
-      "note": "Use the recorded event window; do not mix with the older 448–800 MLP SVD."
+      "note": "Complete original all-stage report, preserved unchanged. The selected three-model loss/motion and temporal-structure views are now assembled separately."
     },
     {
       "section": "05-adam/b-tracing",
       "source": "analyses/063-2026-11-07-architecture-instability-tracing/figures/04-mlp-instability-trace-450-500.pdf",
-      "destination": "05-adam/b-tracing/figures/04-mlp-instability-trace-450-500.pdf",
-      "title": "Figure 6 component: 04-mlp-instability-trace-450-500.pdf",
-      "role": "assembly component",
+      "destination": "05-adam/b-tracing/background/figures/04-mlp-instability-trace-450-500.pdf",
+      "title": "Historical detailed trace: 04-mlp-instability-trace-450-500.pdf",
+      "role": "background",
       "observation": "analyses/063-2026-11-07-architecture-instability-tracing/observations/005-technical-report-event-window.md",
       "generator": "analyses/063-2026-11-07-architecture-instability-tracing/02_figures.py",
-      "note": "Use the recorded event window; do not mix with the older 448–800 MLP SVD."
+      "note": "Complete original all-stage report, preserved unchanged. The selected three-model loss/motion and temporal-structure views are now assembled separately."
     },
     {
       "section": "05-adam/b-tracing",
@@ -468,7 +471,7 @@
       "role": "report",
       "observation": "analyses/063-2026-11-07-architecture-instability-tracing/observations/005-technical-report-event-window.md",
       "generator": "analyses/063-2026-11-07-architecture-instability-tracing/08_report_assets.py",
-      "note": "The report and its figures retain their original numbering; PLAN Figure 6 is the future combined display."
+      "note": "Original technical report and numbering preserved. The selected Figure 6 is the separate three-model loss/motion overview; spectra use its companion figure."
     },
     {
       "section": "05-adam/b-tracing",
@@ -478,7 +481,7 @@
       "role": "source",
       "observation": null,
       "generator": null,
-      "note": "The report and its figures retain their original numbering; PLAN Figure 6 is the future combined display."
+      "note": "Original technical report and numbering preserved. The selected Figure 6 is the separate three-model loss/motion overview; spectra use its companion figure."
     },
     {
       "section": "05-adam/b-tracing",
@@ -488,27 +491,27 @@
       "role": "source",
       "observation": null,
       "generator": null,
-      "note": "The report and its figures retain their original numbering; PLAN Figure 6 is the future combined display."
+      "note": "Original technical report and numbering preserved. The selected Figure 6 is the separate three-model loss/motion overview; spectra use its companion figure."
     },
     {
       "section": "05-adam/b-tracing",
       "source": "analyses/063-2026-11-07-architecture-instability-tracing/report/figures/architecture-comparison.pdf",
       "destination": "05-adam/b-tracing/report/figures/architecture-comparison.pdf",
       "title": "Report figure: figures/architecture-comparison.pdf",
-      "role": "assembly component",
+      "role": "historical support",
       "observation": "analyses/063-2026-11-07-architecture-instability-tracing/observations/005-technical-report-event-window.md",
       "generator": "analyses/063-2026-11-07-architecture-instability-tracing/08_report_assets.py",
-      "note": "The report and its figures retain their original numbering; PLAN Figure 6 is the future combined display."
+      "note": "Original technical report and numbering preserved. The selected Figure 6 is the separate three-model loss/motion overview; spectra use its companion figure."
     },
     {
       "section": "05-adam/b-tracing",
       "source": "analyses/063-2026-11-07-architecture-instability-tracing/report/figures/mlp-layer-detail.pdf",
       "destination": "05-adam/b-tracing/report/figures/mlp-layer-detail.pdf",
       "title": "Report figure: figures/mlp-layer-detail.pdf",
-      "role": "assembly component",
+      "role": "historical support",
       "observation": "analyses/063-2026-11-07-architecture-instability-tracing/observations/005-technical-report-event-window.md",
       "generator": "analyses/063-2026-11-07-architecture-instability-tracing/08_report_assets.py",
-      "note": "The report and its figures retain their original numbering; PLAN Figure 6 is the future combined display."
+      "note": "Original technical report and numbering preserved. The selected Figure 6 is the separate three-model loss/motion overview; spectra use its companion figure."
     },
     {
       "section": "05-adam/b-tracing",
@@ -1066,11 +1069,11 @@
       "section": "04-gd-sgd",
       "source": "manuscript/draft/revisions/2026-11-03-original-argument-feedback-feedback/curvature_comparison_manifest.json",
       "destination": "04-gd-sgd/data/figure1-layout-manifest.json",
-      "title": "Figure 1 clean-legend source/layout manifest",
-      "role": "source record",
+      "title": "Historical Figure 1 layout manifest",
+      "role": "historical source record",
       "observation": null,
       "generator": null,
-      "note": "Final two-entry legend variant; exact source/figure hashes."
+      "note": "Authenticates the pre-revision source. Current views use the 14 November figure-revision manifest and captions."
     },
     {
       "section": "05-adam/c-intervention",
@@ -1163,6 +1166,66 @@
       "observation": null,
       "generator": null,
       "note": ""
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "manuscript/consolidation/work/figure_revision_20261114/figures/00-three-model-loss-representation-motion.pdf",
+      "destination": "05-adam/b-tracing/figures/00-three-model-loss-representation-motion.pdf",
+      "title": "Figure 6: loss and stage-level representation motion",
+      "role": "prepared main",
+      "observation": "manuscript/consolidation/work/figure_revision_20261114/OBSERVATIONS.md",
+      "generator": "manuscript/consolidation/work/figure_revision_20261114/01_figures.py",
+      "note": "Three model columns and three rows; completed-step alignment, fixed stage endpoints, common cosine scale, per-stage normalized RMS and declared reversal/loss markers."
+    },
+    {
+      "section": "05-adam/b-tracing",
+      "source": "manuscript/consolidation/work/figure_revision_20261114/figures/01-three-model-temporal-structure.pdf",
+      "destination": "05-adam/b-tracing/figures/01-three-model-temporal-structure.pdf",
+      "title": "Tracing companion: spectra, stage overlap and output coefficients",
+      "role": "prepared support",
+      "observation": "manuscript/consolidation/work/figure_revision_20261114/OBSERVATIONS.md",
+      "generator": "manuscript/consolidation/work/figure_revision_20261114/01_figures.py",
+      "note": "Original fixed-window fits preserved; SVD and temporal overlap separated from the main loss/motion display."
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "manuscript/consolidation/work/figure_revision_20261114/OBSERVATIONS.md",
+      "destination": "FIGURE_NOTES.md",
+      "title": "Revised figure contracts, captions and timing observations",
+      "role": "current figure record",
+      "observation": null,
+      "generator": null,
+      "note": "Covers revised Figures 1-6 and the temporal-structure companion; includes every clock conversion, smoother, event marker and coverage limit."
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "manuscript/consolidation/work/figure_revision_20261114/captions.tex",
+      "destination": "figure_captions.tex",
+      "title": "Editable captions for seven revised figures",
+      "role": "integration source",
+      "observation": "manuscript/consolidation/work/figure_revision_20261114/OBSERVATIONS.md",
+      "generator": null,
+      "note": "LaTeX caption macros; does not edit the active manuscript."
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "manuscript/consolidation/work/figure_revision_20261114/figure_manifest.json",
+      "destination": "figure_revision_manifest.json",
+      "title": "Current figure source and numerical manifest",
+      "role": "source record",
+      "observation": "manuscript/consolidation/work/figure_revision_20261114/OBSERVATIONS.md",
+      "generator": "manuscript/consolidation/work/figure_revision_20261114/01_figures.py",
+      "note": "Hashes sources, plotted coordinates, reductions, stage choices and completed-step markers."
+    },
+    {
+      "section": "04-gd-sgd",
+      "source": "manuscript/consolidation/work/figure_revision_20261114/verification.json",
+      "destination": "figure_revision_verification.json",
+      "title": "Revised figure verification",
+      "role": "verification",
+      "observation": "manuscript/consolidation/work/figure_revision_20261114/OBSERVATIONS.md",
+      "generator": "manuscript/consolidation/work/figure_revision_20261114/02_verify.py",
+      "note": "Independent numerical checks, PDF bounds/fonts, visual review and preservation of manuscript/human/intervention files."
     }
   ]
 }

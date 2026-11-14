@@ -11,7 +11,7 @@ Source analyses, scientific inputs, and raw evidence remain unchanged.
 
 | Figure | Comparison | Result in the retained window |
 | --- | --- | --- |
-| [00: High-LR overview](../../a-characterization/figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf) | Original Analysis055 overview, copied exactly | Context for the three full-batch Adam cases |
+| [00: High-LR overview](../../../../../../analyses/058-2026-11-06-intervention-consolidation/figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf) | Original Analysis055 overview, copied exactly | Context for the three full-batch Adam cases |
 | [01: Immediate half LR](../figures/01-persistent-half-lr-cifar10-mlp-resnet-wikitext2-transformer.pdf) | Three models, each against unchanged LR | Mean loss improves for MLP/Transformer, worsens for ResNet |
 | [02: Floors and abrupt return](../../../../../../analyses/058-2026-11-06-intervention-consolidation/figures/02-lr-floors-and-abrupt-return-cifar10-mlp.pdf) | Two cosine floors; immediate-half history followed by abrupt return | Half floor suppresses late excursions; return restores large spikes |
 | [03: Return styles](../../../../../../analyses/058-2026-11-06-intervention-consolidation/figures/03-lr-return-styles-cifar10-mlp.pdf) | Cosine70 return against unchanged, held-half and abrupt return | Gradual return delays but increases the large spike |

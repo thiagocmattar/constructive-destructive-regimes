@@ -1,5 +1,9 @@
 # Research index
 
+## Consolidation figures refreshed, 14 November 2026
+
+[Current figure notes and captions](../manuscript/consolidation/evidence/FIGURE_NOTES.md): seven revised PDFs use a common completed-update clock, matched GD curvature smoothing, a compact Adam overview and a three-model stage-level tracing view with synchronized markers. SVD/overlap is a separate companion. All numerical, visual, caption and package checks pass (116 assets); manuscript sources and all 17 intervention PDFs are unchanged. No new training or run IDs.
+
 ## Conventional-intervention coverage completed, 8 November 2026
 
 [H050 / Runs289-291](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/015-conventional-model-coverage.md): all 10 continuations / 3,584 updates and 20 audits verified. ResNet/Transformer beta2 (.95/.9/.5) and Transformer clipping (.5/1) now complete the requested three-model figures. Transformer training means/peaks improve but test loss worsens; ResNet effects are mixed. One initialization, original fixed forks and qualified unchanged controls; not a four-family ranking. All raw evidence rehashed on Spark, all seven task pods deleted; provisional compute USD11.36. The [ablation TODO](../manuscript/consolidation/evidence/05-adam/c-intervention/TODO_ABLATIONS.md) records remaining seeds, common forks/times and measurement gaps. Continue Analysis065; next unused run292 and H051.

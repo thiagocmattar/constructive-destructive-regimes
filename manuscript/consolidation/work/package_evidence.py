@@ -275,7 +275,7 @@ def build():
     prepared = {p.relative_to(OUT).as_posix():sha(p) for p in OUT.rglob("*")
                 if p.is_file() and p.suffix in (".md", ".tex", ".bib", ".csv")
                 and p.relative_to(OUT).as_posix() not in copied_paths}
-    write(OUT/"copy_manifest.json",json.dumps({"date":"2026-11-08",
+    write(OUT/"copy_manifest.json",json.dumps({"date":catalogue["date"],
           "repository_head":subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip(),
           "catalogue_sha256":sha(CATALOG),"copies":records,"prepared_files":prepared,
           "derived_table_checks":tables},indent=2,ensure_ascii=False))
@@ -340,7 +340,7 @@ def verify():
         for item in preservation[kind]:
             if sha(ROOT/item[key]) != item["sha256"]:
                 errors.append("Preserved input changed: "+item[key])
-    result = {"date":"2026-11-08","copies_checked":len(manifest["copies"]),
+    result = {"date":manifest["date"],"copies_checked":len(manifest["copies"]),
               "prepared_files_checked":len(manifest["prepared_files"]),
               "pdfs_decoded":pdfs,"pdf_pages_decoded":pages,"markdown_links_checked":links,
               "selected_intervention_pdfs":len(actual),

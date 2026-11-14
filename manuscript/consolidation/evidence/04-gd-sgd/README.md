@@ -3,15 +3,16 @@
 - **Paper claim:** Retain the four current GD/SGD figures in order; supporting HVP, finite-step and all-lag evidence checks their interpretation.
 - **Boundary:** Nine GD conditions use one initialization per task; minibatch evidence is replicated. Equal updates do not mean equal data exposure.
 - **Authority:** the [single paper plan](../../PLAN.md) governs selection and closure.
+- **Presentation:** Figures 1-4 refreshed on 14 November. Training progress is Training step s; lag and batch axes retain their own units. [Current captions and clock conversions](../FIGURE_NOTES.md).
 
 | Asset | Status | Use / source |
 |---|---|---|
 | [Current manuscript source: 04-gd-experiments.tex](source/04-gd-experiments.tex) | source | Unmodified manuscript snapshot; its input/figure paths resolve from the original draft root. Use the consolidated snippets and selected displays for integration. |
 | [Current manuscript source: 05-sgd-noise-experiments.tex](source/05-sgd-noise-experiments.tex) | source | Unmodified manuscript snapshot; its input/figure paths resolve from the original draft root. Use the consolidated snippets and selected displays for integration. |
-| [Figure 1](figures/gd_loss_projected_change_spectral_clean.pdf) | retained main | GD loss, directional proxy and spectral curvature; full/subset coverage and smoothing differ. [Observation](observations/24-010-curvature-spectral-overlay.md). [Generator](../../../draft/revisions/2026-11-03-original-argument-feedback-feedback/01_prepare_figures.py). |
-| [Figure 2](figures/gd_reversal_norm_retention.pdf) | retained main | Gradient norms, adjacent alignment and normalized displacement; no inference of learning quality from R alone. [Observation](observations/24-009-author-feedback-figures.md). [Generator](../../../draft/revisions/2026-11-02-feedback/01_prepare_figures.py). |
-| [Figure 3](figures/gd_backward_compact.pdf) | retained main | Fixed endpoint 2256, backward lags 1–256, including a shorter-lag view; not a moving adjacent series. [Observation](observations/35-002-manuscript-view.md). [Generator](../../../draft/revisions/2026-11-02-feedback/01_prepare_figures.py). |
-| [Figure 4](figures/sgd_batch_size_compact.pdf) | retained main | Three tasks and three initialization blocks; label batch size and exposure. [Observation](observations/37-001-three-case-sgd.md). [Generator](../../../draft/revisions/2026-11-02-feedback/01_prepare_figures.py). |
+| [Figure 1](figures/gd_loss_projected_change_spectral_clean.pdf) | prepared main | Revised: completed-step clock; both curvature curves use the same centered 101-step smoother. Sparse spectrum interpolation is explicit in the caption. [Observation](../FIGURE_NOTES.md). [Generator](../../work/figure_revision_20261114/01_figures.py). |
+| [Figure 2](figures/gd_reversal_norm_retention.pdf) | prepared main | Revised state-indexed gradient coordinates; original trailing means and cumulative R values preserved. [Observation](../FIGURE_NOTES.md). [Generator](../../work/figure_revision_20261114/01_figures.py). |
+| [Figure 3](figures/gd_backward_compact.pdf) | prepared main | Revised state-indexed notation; backward lag remains a separation axis, with the same endpoint and values. [Observation](../FIGURE_NOTES.md). [Generator](../../work/figure_revision_20261114/01_figures.py). |
+| [Figure 4](figures/sgd_batch_size_compact.pdf) | prepared main | Revised state-indexed notation; original batch axis, means and initialization ranges preserved. [Observation](../FIGURE_NOTES.md). [Generator](../../work/figure_revision_20261114/01_figures.py). |
 | [Analysis 24: 007-section-iv-critical-review.md](observations/24-007-section-iv-critical-review.md) | record |  |
 | [Analysis 24: 009-author-feedback-figures.md](observations/24-009-author-feedback-figures.md) | record |  |
 | [Analysis 24: 010-curvature-spectral-overlay.md](observations/24-010-curvature-spectral-overlay.md) | record |  |
@@ -28,4 +29,8 @@
 | [Support data: lag_summary.csv](data/56-lag_summary.csv) | data |  |
 | [Analysis027 full measurement report](observations/27-REPORT.md) | record | Preserved source snapshot; current selection/status is governed by PLAN. |
 | [Current controlled-figure captions](source/04-controlled-figures.tex) | source | Unmodified manuscript snapshot; its input/figure paths resolve from the original draft root. Use the consolidated snippets and selected displays for integration. |
-| [Figure 1 clean-legend source/layout manifest](data/figure1-layout-manifest.json) | source record | Final two-entry legend variant; exact source/figure hashes. |
+| [Historical Figure 1 layout manifest](data/figure1-layout-manifest.json) | historical source record | Authenticates the pre-revision source. Current views use the 14 November figure-revision manifest and captions. |
+| [Revised figure contracts, captions and timing observations](../FIGURE_NOTES.md) | current figure record | Covers revised Figures 1-6 and the temporal-structure companion; includes every clock conversion, smoother, event marker and coverage limit. |
+| [Editable captions for seven revised figures](../figure_captions.tex) | integration source | LaTeX caption macros; does not edit the active manuscript. [Observation](../FIGURE_NOTES.md). |
+| [Current figure source and numerical manifest](../figure_revision_manifest.json) | source record | Hashes sources, plotted coordinates, reductions, stage choices and completed-step markers. [Observation](../FIGURE_NOTES.md). [Generator](../../work/figure_revision_20261114/01_figures.py). |
+| [Revised figure verification](../figure_revision_verification.json) | verification | Independent numerical checks, PDF bounds/fonts, visual review and preservation of manuscript/human/intervention files. [Observation](../FIGURE_NOTES.md). [Generator](../../work/figure_revision_20261114/02_verify.py). |

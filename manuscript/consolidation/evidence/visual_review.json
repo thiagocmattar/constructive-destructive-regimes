@@ -1,31 +1,36 @@
 {
-  "date": "2026-11-08",
-  "method": "Prior visual inspections retained with archived paths rebased. Re-rendered the unchanged q50 replication page and both new three-model conventional figures using PyMuPDF; inspected the final renders after simplifying ticks.",
+  "date": "2026-11-14",
+  "method": "Retain previous reviews for unchanged assets; seven revised PDFs rendered with Poppler at 150 dpi and inspected at publication scale. Source, numerical, timing, page-bound and font checks are recorded separately.",
   "checked": [
     {
       "path": "04-gd-sgd/figures/gd_loss_projected_change_spectral_clean.pdf",
       "page": 1,
-      "sha256": "9b46696a5d8a7e068e96ffa26b4925d0ddd5ef1804049b71f927f79e8856bafa"
+      "sha256": "890d19e5631c361163269f3edc693fbd3770baf7f0e845147e9dcce71e04735f",
+      "measurement_check": "14 November revision: completed-step coordinates, declared smoothing/thresholds, unchanged retained data, 5/6/6 stage selection where applicable; all final Poppler renders inspected. See figure_revision_verification.json."
     },
     {
       "path": "04-gd-sgd/figures/gd_reversal_norm_retention.pdf",
       "page": 1,
-      "sha256": "c90c69a762375198b6d8e70de6c68ec89e70e002324f259b506ff9dab54c8ec2"
+      "sha256": "2040473bc9285a6767194c989b26532d7d1802a7b6b33ab551f3295be393a29f",
+      "measurement_check": "14 November revision: completed-step coordinates, declared smoothing/thresholds, unchanged retained data, 5/6/6 stage selection where applicable; all final Poppler renders inspected. See figure_revision_verification.json."
     },
     {
       "path": "04-gd-sgd/figures/gd_backward_compact.pdf",
       "page": 1,
-      "sha256": "f9b5e66a132eae54d7fa5cbdd56bb1bb473ca604dcd913aa225687e5e3594999"
+      "sha256": "bf8de78413686153e4a756c45475313a271220677c91f4e7f34d556d7d686e08",
+      "measurement_check": "14 November revision: completed-step coordinates, declared smoothing/thresholds, unchanged retained data, 5/6/6 stage selection where applicable; all final Poppler renders inspected. See figure_revision_verification.json."
     },
     {
       "path": "04-gd-sgd/figures/sgd_batch_size_compact.pdf",
       "page": 1,
-      "sha256": "6f6c258c03ce9d49774c5fface2021a898c54df1cad8dc8c0e709c973b1bd5c4"
+      "sha256": "7f08846145d9c6896d0634640533d14bb63e61cd2ac011e07d67fee1abb5b06a",
+      "measurement_check": "14 November revision: completed-step coordinates, declared smoothing/thresholds, unchanged retained data, 5/6/6 stage selection where applicable; all final Poppler renders inspected. See figure_revision_verification.json."
     },
     {
       "path": "05-adam/a-characterization/figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf",
       "page": 1,
-      "sha256": "3fa96b8760555df41562f51522fefb7c335d860e09f90495c63d30f584c6a4a1"
+      "sha256": "027f5acd6b6570678b8b52543e100341afea43923aeda7550a07b57f8ec621c9",
+      "measurement_check": "14 November revision: completed-step coordinates, declared smoothing/thresholds, unchanged retained data, 5/6/6 stage selection where applicable; all final Poppler renders inspected. See figure_revision_verification.json."
     },
     {
       "path": "05-adam/b-tracing/report/figures/architecture-comparison.pdf",
@@ -85,8 +90,21 @@
       "page": 1,
       "sha256": "b6f60076da1e1adc45d67c99153043ff27151f058b90df12e4035970ce5e9606",
       "measurement_check": "Source inventories/config hashes, 20 series and 6644 exported branch boundaries checked; independent CSV reductions passed. Final PDF rendered and visually inspected at 2x (clipping also at 1.7x); readable axes, legends, raw/input distinction, missing-ResNet-cap label and footnotes."
+    },
+    {
+      "path": "05-adam/b-tracing/figures/00-three-model-loss-representation-motion.pdf",
+      "page": 1,
+      "sha256": "758c0af1711ee88b2564bdb3d3cf5bb995f763d97d961ec3c974fa212ffdf97b",
+      "measurement_check": "14 November revision: completed-step coordinates, declared smoothing/thresholds, unchanged retained data, 5/6/6 stage selection where applicable; all final Poppler renders inspected. See figure_revision_verification.json."
+    },
+    {
+      "path": "05-adam/b-tracing/figures/01-three-model-temporal-structure.pdf",
+      "page": 1,
+      "sha256": "e3ed87a296d31cc4482efc48625b41d876bec242ee982f481f716b407b45cd19",
+      "measurement_check": "14 November revision: completed-step coordinates, declared smoothing/thresholds, unchanged retained data, 5/6/6 stage selection where applicable; all final Poppler renders inspected. See figure_revision_verification.json."
     }
   ],
-  "result": "All six selected V-C PDFs are visually reviewed. New beta2/clipping figures include three architectures; q50 remains the sole representation-inspired method. Original conventional PDFs are unchanged in background. Final manuscript composition and captions remain a later step.",
-  "limits": "Visual inspection does not independently validate plotted raw data. Other PDF pages were decoded programmatically and verified byte-identical to their source."
+  "result": "Seven revised GD/SGD, Adam overview and tracing PDFs pass visual review. Figure 6 is assembled; SVD/overlap has a separate companion. Historical source reports and all 17 intervention PDFs are preserved. Current captions are in FIGURE_NOTES.md and figure_captions.tex.",
+  "limits": "Visual inspection does not independently validate plotted raw data. Other PDF pages were decoded programmatically and verified byte-identical to their source.",
+  "figure_revision_verification": "figure_revision_verification.json"
 }

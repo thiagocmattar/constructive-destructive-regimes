@@ -1,23 +1,25 @@
 # Current artifact map
 
-- **Aligned with:** [PLAN.md](../PLAN.md), 8 November 2026. This replaces the earlier F1a/F1b/C1–C8 artifact assignments.
+- **Aligned with:** [PLAN.md](../PLAN.md), updated 14 November 2026. This replaces the earlier F1a/F1b/C1–C8 artifact assignments.
 - **Source details:** every section README links its local observation and original generator. The [manifest](copy_manifest.json) records source, destination, role, byte count and SHA-256.
-- **Caption contract:** use each local observation's reduction, coverage, uncertainty and limits. Existing report numbering is not final paper numbering.
+- **Caption contract:** revised Figures 1–6 and their companion use [current figure notes](FIGURE_NOTES.md) and [editable captions](figure_captions.tex). They supersede the old display captions while preserving original source observations. Existing report numbering is not final paper numbering.
 
 ## Main figures
 
 | Paper slot | Local asset | Readiness |
 |---|---|---|
-| Figure 1, IV | [GD loss/proxy/spectral curvature](04-gd-sgd/figures/gd_loss_projected_change_spectral_clean.pdf) | Retained main; original clean legend and coverage preserved |
-| Figure 2, IV | [Reversal, norms and R](04-gd-sgd/figures/gd_reversal_norm_retention.pdf) | Retained main |
-| Figure 3, IV | [Backward lags](04-gd-sgd/figures/gd_backward_compact.pdf) | Retained main; fixed endpoint 2256 |
-| Figure 4, IV | [Batch effects](04-gd-sgd/figures/sgd_batch_size_compact.pdf) | Retained main; three initialization blocks |
-| Figure 5, V-A | [High-LR overview](05-adam/a-characterization/figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf) | Existing base; attach compact population summary |
-| Figure 6, V-B | [Three-case comparison](05-adam/b-tracing/report/figures/architecture-comparison.pdf) and [full components](05-adam/b-tracing/README.md) | Verified components; final grouped heatmap/spectrum/coefficient composition pending |
+| Figure 1, IV | [GD loss/proxy/spectral curvature](04-gd-sgd/figures/gd_loss_projected_change_spectral_clean.pdf) | Prepared: completed-step axis, both curvature curves explicitly smoothed with the same centered window |
+| Figure 2, IV | [Reversal, norms and R](04-gd-sgd/figures/gd_reversal_norm_retention.pdf) | Prepared: gradient coordinates corrected to completed steps; original reductions retained |
+| Figure 3, IV | [Backward lags](04-gd-sgd/figures/gd_backward_compact.pdf) | Prepared: consistent state notation; fixed endpoint 2256 and lag axis preserved |
+| Figure 4, IV | [Batch effects](04-gd-sgd/figures/sgd_batch_size_compact.pdf) | Prepared: consistent state notation; three initialization blocks and batch axis preserved |
+| Figure 5, V-A | [High-LR overview](05-adam/a-characterization/figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf) | Prepared compact view: Q lower limit zero, shading legend moved to caption; population summary remains separate |
+| Figure 6, V-B | [Three-model loss and representation motion](05-adam/b-tracing/figures/00-three-model-loss-representation-motion.pdf) | Assembled: three rows, 5/6/6 stage endpoints, observed-step alignment and common event markers |
 | Figure 7, V-C | [Learning-rate schedule](05-adam/c-intervention/figures/01-persistent-half-lr-cifar10-mlp-resnet-wikitext2-transformer.pdf) | Selected: persistent half LR, three architectures, each with its own unchanged baseline |
 | Figure 8, V-C | [Beta2 schedule](05-adam/c-intervention/figures/15-beta2-reductions-cifar10-mlp-resnet-wikitext2-transformer.pdf) | Selected: all three models, late .999→.95/.9/.5; native moments/clock and bias-correction semantics retained |
 | Figure 9, V-C | [Gradient clipping](05-adam/c-intervention/figures/16-gradient-clipping-cifar10-mlp-resnet-wikitext2-transformer.pdf) | Selected: MLP/Transformer thresholds .5/1, ResNet 1; raw/input norms and clipping activity shown |
 | Figure 10, V-C | [Distributed q50 stage heatmaps](05-adam/c-intervention/figures/07-distributed-q50-stage-heatmaps.pdf); [scalar diagnostics](05-adam/c-intervention/figures/10-local-cap-distributed-manuscript.pdf) and [MLP replication](05-adam/c-intervention/figures/11-local-cap-mlp-replication.pdf) | Sole representation-inspired intervention. Heatmaps are exact source Figure 07 page 2; final sizing/caption pending |
+
+- **Tracing companion:** [SVD, stage overlap and output coefficients](05-adam/b-tracing/figures/01-three-model-temporal-structure.pdf), separate from the main loss/motion display. The three original all-stage tracing PDFs are retained under `05-adam/b-tracing/background/figures/`.
 
 ## Tables, equations and algorithms
 

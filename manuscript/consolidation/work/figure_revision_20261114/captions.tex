@@ -1,0 +1,86 @@
+% Captions for the 14 November consolidation figures. Manuscript is unchanged.
+% s is the number of completed optimizer updates. Requires amsmath/amssymb.
+\newcommand{\consolidationGDCurvatureCaption}{%
+Training loss and curvature diagnostics under full-batch GD. Columns identify
+dataset/model; colors identify learning rate. Top: unsmoothed full-objective
+loss on logarithmic axes. Bottom: $\eta\widehat\kappa_s$ (solid) and
+$\eta\lambda_{\max}$ (dashed), both smoothed with the same centered 101-step
+arithmetic mean; the dotted line marks two. Spectra are measured every 100
+steps and linearly interpolated before smoothing; edge windows are truncated
+equally. The horizontal axis counts completed optimizer updates. The gradient
+diagnostic uses $g_{s-1},g_s$, and spectra retain their measurement-state index.
+Spectral objectives use all 5,000 MLP images, 5,000/50,000 ResNet images and
+2,500/59,680 Transformer sequences. One initialization per model. Smoothing is
+retrospective display processing, not an estimate of exact transition timing.}
+
+\newcommand{\consolidationGDGeometryCaption}{%
+Consecutive gradient cosine, gradient norm and normalized displacement under
+GD. Cosine and norm use complete trailing 50-observation means; norms use
+logarithmic axes. $R_s$ is unsmoothed and includes all updates completed at step
+$s$. Gradient statistics are indexed by the state where the gradient is
+evaluated. Colors and models match the GD curvature figure. One initialization
+per model; these diagnostics describe directional interaction and accumulation,
+not generalization or a stability guarantee.}
+
+\newcommand{\consolidationBackwardCaption}{%
+Backward gradient alignment at completed step $s=2256$. Each point is
+$\cos(g_s,g_{s-k})$ for a fixed endpoint. Top: lags 1--256; bottom: lags 1--32.
+Learning rates are 0.04, 0.1 and 0.2 for MLP, ResNet and Transformer.
+These separately recomputed GD continuations start at state 2000 and use one
+initialization, without smoothing or endpoint averaging. The horizontal
+coordinate is backward separation in steps, not training progress.}
+
+\newcommand{\consolidationBatchCaption}{%
+Mean sampled-gradient cosine over 199 adjacent pairs during 200-update
+continuations, started at initialization or after 2,000 GD updates. Lines
+average repetitions within initialization and weight three initialization
+blocks equally; shading spans their range. Hollow rightmost markers denote
+full GD. ResNet batches contain complete fixed 1,000-image normalization groups;
+Transformer batches count prepared sequences. Batch axes are logarithmic.
+Equal update counts do not imply equal data exposure.}
+
+\newcommand{\consolidationAdamOverviewCaption}{%
+High-rate full-batch Adam trajectories on CIFAR-10/MLP ($\eta=0.001$),
+CIFAR-10/ResNet-32 (0.003) and WikiText-2/Transformer (0.003). Rows show training
+loss, projected raw-gradient change $\eta\widehat\kappa_s$, consecutive
+raw-gradient cosine and gradient norm relative to its initial value. Filled
+gray bands mark pre-rise-baseline-to-peak intervals of recovered excursions
+whose peak exceeds baseline loss by more than 10\%; outlined bands mark such
+excursions with recovery unobserved. Loss and relative norm use logarithmic
+axes. Projected-change axes start at zero, leaving 13/17/1 negative observations
+outside the view; values are unmodified. Loss covers steps 0--1024, norms
+0--1023 and paired diagnostics 1--1023. One initialization per model. Under
+Adam, projected gradient change is not a validated Hessian estimate or
+universal stability threshold.}
+
+\newcommand{\consolidationTracingCaption}{%
+Loss and functional motion across three Adam trajectories. Columns show MLP,
+ResNet and Transformer; rows show full/probe loss, cosine between successive
+representation changes and displacement coordinate RMS divided by each stage's own
+window maximum. Heatmap rows are measured stage endpoints in forward order.
+Each change $A_s-A_{s-1}$ is placed at completed step $s$, alongside the loss at
+that state, without time smoothing. Blue dashed lines mark the first observed
+negative output-change cosine. Reversal is already present at window entry
+for MLP and ResNet, so its onset is unobserved there. Black dashed lines mark
+the first full loss at least 10\% above the minimum preceding the largest
+displayed peak. Both markers continue through all rows. Fixed probes contain
+5,000 images, 1,000 images and 2,240 token positions, respectively. MLP probe
+and full loss coincide; the other probes are subsets. Displayed steps are
+451--501, 281--311 and 553--601. Normalized RMS colors compare time within a
+stage, not absolute magnitudes across stages. These are selected descriptive
+windows from one initialization each.}
+
+\newcommand{\consolidationTemporalStructureCaption}{%
+Temporal structure of the same representation-change windows. Top: cumulative
+singular-value energy for output changes and raw gradients; the dotted line
+marks 95\%. Middle: first-mode energy, first-ten-mode energy and top-ten
+temporal subspace overlap with output at the selected stages. Bottom: the
+leading output coefficient divided by the square root of its coordinate
+count. Each coefficient uses one fixed basis and sign convention over the
+original window; changes are placed at the completed step where observed.
+Outputs are raw linear values for MLP and log probabilities for ResNet and
+Transformer; raw gradients are not differenced. Temporal overlap compares
+time-domain subspaces, not identical neuron directions. Different probes and
+window lengths preclude a controlled intrinsic-dimension comparison. SVD
+concentration alone is time-permutation invariant and establishes neither
+causal origin nor spike specificity.}

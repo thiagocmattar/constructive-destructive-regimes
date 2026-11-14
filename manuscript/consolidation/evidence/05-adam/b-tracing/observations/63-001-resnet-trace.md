@@ -156,7 +156,7 @@ Strong resemblance across layers can reflect coupled updates driven by the same 
 ## Sources and verification
 
 - [Numerical results and source hashes](../data/resnet_results.json); [every-stage table](../data/resnet_stages.csv).
-- [Standardized PDF](../figures/01-resnet-instability-trace.pdf).
+- [Standardized PDF](../background/figures/01-resnet-instability-trace.pdf).
 - Scripts 01/02/03 in this analysis generate reductions, figures and this observation; Run 243 owns capture and source identities.
 - Observer verifies plain-forward parity, unchanged gradients/RNG/buffers and fixed probe inputs. Independent FP64 contractions check all Gram diagonal norms and adjacent products. Local reduction verifies PSD, trace, full Gram reconstruction and full-gradient boundary norms/cosines. Model checkpoints, input/target identities, exact Grams and raw-cache hashes are retained with transfer verification. Dense activation caches are regenerable from these snapshots and the pinned computation contract.
 

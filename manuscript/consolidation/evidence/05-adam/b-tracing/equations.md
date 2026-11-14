@@ -15,6 +15,12 @@ A zero displacement has undefined cosine. This outgoing response is measured
 after update $s\to s+1$, whereas raw-gradient $\rho_s$ is available before it.
 Raw-gradient streams are not differenced.
 
+**Figure clock:** the revised figures label completed optimizer updates as
+Training step $s$. A source outgoing row $t$ is displayed at $s=t+1$;
+thus the heatmaps at $s$ show $\rho_{s-1}^\ell$ and $a_{s-1}^\ell$ alongside
+$L(\theta_s)$. This places motion when it has been observed without changing
+the outgoing definitions or the fitted SVD rows. See the [figure notes](../../FIGURE_NOTES.md).
+
 For $s=a,\ldots,b$, $T=b-a+1$:
 $$
 D_\ell=
