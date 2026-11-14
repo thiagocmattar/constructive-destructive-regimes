@@ -5,7 +5,7 @@
 
 | Plan step | Status | Work / acceptance |
 |---|---|---|
-| 1. Integrate evidence | Pending manuscript work | Revise I–III in place; retain IV's four figures; integrate V-A/B and the four V-C families. The placement review selects two V-C main figures and one compact 12-row outcome table, with full comparisons/costs in the supplement. Source values, two algorithms and captions are verified; final-size typography, table composition and figure numbering remain open. |
+| 1. Integrate evidence | V-C excerpt complete in consolidation; full manuscript pending | The [three-page V-C draft](../draft/intervention-review.pdf) contains two polished figures, the compact 12-row outcome table, Algorithm 2, setup/results and limits. Numerical checks and final-size rendering pass. Connect it to V-A/B, revise I–III, retain IV's four figures, and reconcile full-paper numbering after review. |
 | 2. Matched intervention comparison | Complete | 36 initialization-0 conditions, MLP 512–800/ResNet 256–576/Transformer 544–928, every requested setting, qualified shared forks and exact native replay. Historical comparisons remain separate. |
 | 3. Method reporting | Complete for this scope | Full loss/stage/update/activity histories, fixed past calibration, five full held-out states, 108 gradient/update audits, 36 terminal-gradient replays and 48 terminal held-out split replays. Timing and memory limits are explicit. |
 | 4. Conditional extensions | Deferred | Initializations 1/2, cap x LR, forecasting, quiet-window/mode specificity, causal-source identification, stronger method comparisons and stochastic/scale transfer. Required only for the corresponding stronger claim. |

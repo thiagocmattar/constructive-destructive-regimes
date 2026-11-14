@@ -39,7 +39,7 @@
       "title": "V-C. Intervention comparisons",
       "claim": "A matched comparison of LR, beta2, raw-gradient clipping and local affine-displacement caps separates excursion burden, learning progress and functional motion.",
       "boundary": "One initialization/model and unequal effective strengths. Retain all endpoints and held-out tradeoffs; local displacement bounds do not imply global stability, generalization or universal superiority.",
-      "presentation": "H051 complete: 36 verified conditions. The 14 November placement review selects the tradeoff and matched q50 heatmaps for the main paper, with a compact 12-row outcome table to assemble. Journal-size typography remains pending. The full loss matrix, all-setting motion, held-out trajectories, activity and detailed tables support them. Source PDFs remain intact; final figure numbering follows assembly. Seeds1/2 and cap x LR stay deferred."
+      "presentation": "Consolidation-only V-C draft complete: three IEEE-style pages with the main tradeoff and q50 heatmaps (24/25), a compact 12-row table, Algorithm 2 and precise captions. Ordinary figure labels are 9pt; full values and final-size rendering are verified. The original 17-23 PDFs retain supporting trajectories, held-out outcomes, activity and detailed tables. Full-paper integration and final numbering remain open; extra seeds/grid remain deferred."
     },
     "06-conclusion": {
       "title": "VI. Conclusion",
@@ -1333,22 +1333,22 @@
       "section": "05-adam/c-intervention",
       "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/matched/18-matched-spike-learning-tradeoff.pdf",
       "destination": "05-adam/c-intervention/figures/18-matched-spike-learning-tradeoff.pdf",
-      "title": "Main candidate: loss variation versus learning progress",
-      "role": "verified; journal layout pending",
+      "title": "Earlier layout: matched loss-variation tradeoff",
+      "role": "supporting source layout",
       "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
       "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/61_plot_matched.py",
-      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "note": "Original H051 plot retained unchanged; the main journal layout is 24-main-intervention-tradeoff.pdf, with identical point coordinates.",
       "h051": true
     },
     {
       "section": "05-adam/c-intervention",
       "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/matched/19-matched-q50-stage-heatmaps.pdf",
       "destination": "05-adam/c-intervention/figures/19-matched-q50-stage-heatmaps.pdf",
-      "title": "Main candidate: matched q50 loss and functional motion",
-      "role": "verified; journal layout pending",
+      "title": "Earlier layout: matched q50 stage heatmaps",
+      "role": "supporting source layout",
       "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
       "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/61_plot_matched.py",
-      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "note": "Original H051 plot retained unchanged; the main journal layout is 25-main-q50-functional-motion.pdf, with identical histories, denominators and peak references.",
       "h051": true
     },
     {
@@ -1389,10 +1389,10 @@
       "source": "analyses/065-2026-11-07-mlp-frozen-lr-double/figures/matched/23-matched-intervention-outcomes.pdf",
       "destination": "05-adam/c-intervention/figures/23-matched-intervention-outcomes.pdf",
       "title": "All 36 matched intervention outcomes",
-      "role": "supporting tables; compact main table pending",
+      "role": "detailed supporting tables",
       "observation": "analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md",
       "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/61_plot_matched.py",
-      "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
+      "note": "Original three-page outcomes retained; matched-main-outcomes.tex supplies the compact main table from the same full-precision values.",
       "h051": true
     },
     {
@@ -1603,6 +1603,86 @@
       "generator": "analyses/065-2026-11-07-mlp-frozen-lr-double/61_plot_matched.py",
       "note": "H051: same forks, full fixed windows and all 36 initialization-0 conditions; sources and checks retained.",
       "h051": true
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "manuscript/consolidation/work/intervention_manuscript_20261114/figures/24-main-intervention-tradeoff.pdf",
+      "destination": "05-adam/c-intervention/figures/24-main-intervention-tradeoff.pdf",
+      "title": "Main: matched loss-variation and learning tradeoff",
+      "role": "prepared main",
+      "observation": "manuscript/consolidation/work/intervention_manuscript_20261114/OBSERVATIONS.md",
+      "generator": "manuscript/consolidation/work/intervention_manuscript_20261114/01_prepare.py",
+      "note": "Consolidation-only journal layout from unchanged H051 inputs; V-C draft and verification accompany these main displays."
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "manuscript/consolidation/work/intervention_manuscript_20261114/figures/25-main-q50-functional-motion.pdf",
+      "destination": "05-adam/c-intervention/figures/25-main-q50-functional-motion.pdf",
+      "title": "Main: q50 functional motion",
+      "role": "prepared main",
+      "observation": "manuscript/consolidation/work/intervention_manuscript_20261114/OBSERVATIONS.md",
+      "generator": "manuscript/consolidation/work/intervention_manuscript_20261114/01_prepare.py",
+      "note": "Consolidation-only journal layout from unchanged H051 inputs; V-C draft and verification accompany these main displays."
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "manuscript/consolidation/work/intervention_manuscript_20261114/tables/matched-main-outcomes.tex",
+      "destination": "05-adam/c-intervention/tables/matched-main-outcomes.tex",
+      "title": "Main: compact matched outcome table",
+      "role": "prepared table",
+      "observation": "manuscript/consolidation/work/intervention_manuscript_20261114/OBSERVATIONS.md",
+      "generator": "manuscript/consolidation/work/intervention_manuscript_20261114/01_prepare.py",
+      "note": "Consolidation-only journal layout from unchanged H051 inputs; V-C draft and verification accompany these main displays."
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "manuscript/consolidation/work/intervention_manuscript_20261114/OBSERVATIONS.md",
+      "destination": "05-adam/c-intervention/observations/main-intervention-layout-and-draft.md",
+      "title": "Main intervention layouts and draft observation",
+      "role": "current presentation observation",
+      "observation": "manuscript/consolidation/work/intervention_manuscript_20261114/OBSERVATIONS.md",
+      "generator": "manuscript/consolidation/work/intervention_manuscript_20261114/01_prepare.py",
+      "note": "Consolidation-only journal layout from unchanged H051 inputs; V-C draft and verification accompany these main displays."
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "manuscript/consolidation/work/intervention_manuscript_20261114/data/presentation_manifest.json",
+      "destination": "05-adam/c-intervention/data/main-presentation_manifest.json",
+      "title": "Main display source and value manifest",
+      "role": "verification",
+      "observation": "manuscript/consolidation/work/intervention_manuscript_20261114/OBSERVATIONS.md",
+      "generator": "manuscript/consolidation/work/intervention_manuscript_20261114/01_prepare.py",
+      "note": "Consolidation-only journal layout from unchanged H051 inputs; V-C draft and verification accompany these main displays."
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "manuscript/consolidation/work/intervention_manuscript_20261114/verification.json",
+      "destination": "05-adam/c-intervention/data/main-verification.json",
+      "title": "Independent main-layout and draft verification",
+      "role": "verification",
+      "observation": "manuscript/consolidation/work/intervention_manuscript_20261114/OBSERVATIONS.md",
+      "generator": "manuscript/consolidation/work/intervention_manuscript_20261114/03_verify.py",
+      "note": "Consolidation-only publication preparation; original scientific evidence and manuscript preserved."
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "manuscript/consolidation/work/intervention_manuscript_20261114/visual_review.json",
+      "destination": "05-adam/c-intervention/data/main-visual_review.json",
+      "title": "Main-layout and three-page visual review",
+      "role": "verification",
+      "observation": "manuscript/consolidation/work/intervention_manuscript_20261114/OBSERVATIONS.md",
+      "generator": null,
+      "note": "Consolidation-only publication preparation; original scientific evidence and manuscript preserved."
+    },
+    {
+      "section": "05-adam/c-intervention",
+      "source": "manuscript/consolidation/work/intervention_manuscript_20261114/data/build_review.json",
+      "destination": "05-adam/c-intervention/data/main-build_review.json",
+      "title": "IEEE-style draft compilation record",
+      "role": "verification",
+      "observation": "manuscript/consolidation/work/intervention_manuscript_20261114/OBSERVATIONS.md",
+      "generator": "manuscript/consolidation/work/intervention_manuscript_20261114/02_build_review.py",
+      "note": "Consolidation-only publication preparation; original scientific evidence and manuscript preserved."
     }
   ]
 }

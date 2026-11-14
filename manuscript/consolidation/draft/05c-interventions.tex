@@ -1,0 +1,191 @@
+% Editable Section V-C fragment. All inputs live in consolidation.
+% Requires amsmath, amssymb, graphicx, booktabs, algorithm, algpseudocode.
+\providecommand{\vcassetroot}{../evidence/05-adam/c-intervention}
+\subsection{Interventions guided by functional motion}
+\label{sec:vc-interventions}
+
+The tracing analysis separates the direction and magnitude of representation
+changes. We therefore test whether limiting local displacement can reduce loss
+excursions while preserving training progress and allowing reversals. We compare
+a local displacement cap with immediate LR reduction, late second-moment
+changes, and global gradient clipping.
+
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=\textwidth]{\vcassetroot/figures/24-main-intervention-tradeoff.pdf}
+\caption{Loss variation and training progress for all 33 treated continuations,
+each compared with its unchanged Adam control at the origin. Horizontal values
+are $100(\bar L/\bar L_{\mathrm{Adam}}-1)$; vertical values are
+$100(1-\mathrm{PV}/\mathrm{PV}_{\mathrm{Adam}})$. Leftward and upward changes are
+favorable. Axes are model-specific and retain every setting, including increased
+variation. This is one initialization per model; settings have unequal effective
+strength and are not independent seed replications.}
+\label{fig:vc-tradeoff}
+\end{figure*}
+
+\input{\vcassetroot/tables/matched-main-outcomes.tex}
+
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=\textwidth]{\vcassetroot/figures/25-main-q50-functional-motion.pdf}
+\caption{Full training loss and fixed-probe motion under unchanged Adam and the
+preselected q50 cap. Heatmaps show consecutive-change cosine and displacement
+RMS at five MLP and six ResNet/Transformer stage endpoints. Each incoming change
+is placed at its completed-step endpoint. Both RMS maps divide by the same
+stage-specific maximum under unchanged Adam; the color scale includes every
+value. Dashed vertical lines mark the baseline's largest relative loss-excursion
+peak within the full window, not treatment triggers. Embed., Attn and Pool denote
+embedding, attention output and pooling endpoints. Output motion uses raw MLP
+coordinates or cross-entropy log probabilities. No smoothing or stage averaging
+is applied.}
+\label{fig:vc-motion}
+\end{figure*}
+
+\subsubsection{A past-calibrated displacement cap}
+For an affine module, let $H_s\in\mathbb{R}^{n\times d}$ contain its current
+fixed-probe inputs, and let $U_s\in\mathbb{R}^{m\times d}$ and
+$v_s\in\mathbb{R}^{m}$ be the native stored Adam weight and bias increments.
+Convolution inputs are receptive-field patches; absent biases have zero increment.
+The direct change attributable to this module's update is
+\begin{equation}
+ D_s=H_sU_s^\top+\mathbf{1}_n v_s^\top,\qquad
+ c_{s,j}=\frac{\|D_{s,:,j}\|_2}{\sqrt{n}}.
+ \label{eq:vc-score}
+\end{equation}
+For a positive module budget $\tau_\ell$, we scale each complete output-unit
+weight row and its bias together:
+\begin{equation}
+ \begin{split}
+ a_{s,j}&=\min(1,\tau_\ell/c_{s,j}),\\
+ \widetilde U_{s,j:}&=a_{s,j}U_{s,j:},\qquad
+ \widetilde v_{s,j}=a_{s,j}v_{s,j}.
+ \end{split}
+ \label{eq:vc-cap}
+\end{equation}
+A zero score uses factor one; a zero budget disables that module's cap.
+Before treatment at $f\to f+1$, we fix $\tau_\ell$ to a quantile of native
+per-unit scores pooled over outgoing states $f-8,\ldots,f-1$.
+The median (q50) is preselected; q25/q75 test sensitivity.
+
+The rule bounds direct affine RMS on the current probe, up to FP32 storage
+rounding. Incoming upstream motion and its interaction with the update remain
+unconstrained, so total representation motion and loss are not bounded.
+Algorithm~\ref{alg:vc-cap} retains native Adam state and untargeted increments;
+local products require no temporal SVD or matrix inverse.
+
+\begin{algorithm}[!b]
+\caption{Past-calibrated local displacement cap}
+\label{alg:vc-cap}
+\begin{algorithmic}[1]
+\Require State $\theta_s$, Adam state, fixed probe, targets, fixed budgets $\tau_\ell$
+\State Compute the full objective gradient at $\theta_s$.
+\State Capture current probe inputs $H_s^\ell$ with the fixed normalization context; preserve random state.
+\State Advance native Adam moments/clock and retain the actual stored proposal increments.
+\For{each target $\ell$ with $\tau_\ell>0$}
+  \State Compute scores by~\eqref{eq:vc-score}; scale weight rows and biases by~\eqref{eq:vc-cap}.
+\EndFor
+\State Store $\theta_{s+1}$ with untargeted increments unchanged; retain the advanced Adam state.
+\State Check direct-score bounds with storage-rounding tolerance; measure propagated motion and loss separately.
+\end{algorithmic}
+\end{algorithm}
+
+\subsubsection{Matched comparison}
+Within each model, all settings share complete model/optimizer/random state,
+data order and numerical settings at one initialization. Fixed windows are
+$512$--$800$ for CIFAR-10/MLP,
+$256$--$576$ for CIFAR-10/ResNet-32, and $544$--$928$ for the two-layer
+WikiText-2 Transformer. Training step $s$ counts completed optimizer updates.
+Each update uses the complete training objective: 5,000 images with half squared
+output error for MLP, 50,000 images with cross-entropy for ResNet, and 2,088,600
+supervised tokens with token-weighted negative log likelihood for Transformer.
+ResNet retains its fixed 1,000-image BatchNorm groups; Transformer dropout is zero.
+
+Unchanged Adam~\cite{kingma2014adam} uses learning rates $.001/.003/.003$,
+$\beta_1=.9$, $\beta_2=.999$, $\epsilon=10^{-8}$, and no weight decay.
+The four intervention families are immediate LR multipliers $.75/.5/.1$;
+late $\beta_2$ values $.95/.9/.5$; global raw-gradient L2 clipping at
+$.5/1$~\cite{pascanu2013difficulty}; and distributed q25/q50/q75 caps.
+The $\beta_2$ switch retains moments and the step counter, using the new value
+in both the recurrence and native $1-\beta_2^{\mathrm{step}}$ correction.
+Clipping acts on the complete accumulated raw gradient before Adam.
+Caps target both MLP hidden affines, all 31 ResNet convolutions, and the two
+QKV and four feed-forward Transformer affines. All 12 conditions per model
+start at the same fork; no intervention waits for a later detected spike.
+
+The fixed probes contain all 5,000 MLP images, the first intact 1,000-image
+ResNet normalization group, or 64 Transformer sequences with 2,240 positions.
+The full training gradient is unchanged by probe coverage. Every state has loss
+and motion measurements. FP32 training/storage and FP64 reductions are matched;
+exact native replay checks qualify shared controls across workers.
+
+We report the mean post-fork loss $\bar L$ and positive loss variation,
+\begin{equation}
+ \bar L=\frac{1}{e-f}\sum_{s=f+1}^{e}L_s,\qquad
+ \mathrm{PV}=\sum_{s=f+1}^{e}\max(L_s-L_{s-1},0).
+ \label{eq:vc-outcomes}
+\end{equation}
+PV accumulates upward loss changes, rather than counting excursions.
+Final training loss, the last-32-state mean and full held-out losses retain
+endpoint context. Held-out evaluations at $f$, $f+32$, midpoint, $e-32$ and $e$
+are not used to select checkpoints or settings.
+
+\subsubsection{Excursion suppression and training progress}
+Figure~\ref{fig:vc-tradeoff} and Table~\ref{tab:vc-outcomes} separate loss
+smoothness from learning progress. Reducing LR to $.1\eta$ removes
+$99.6\%$, $99.0\%$, and $100\%$ of PV in MLP/ResNet/Transformer, but increases
+ResNet mean loss by $89.5\%$. Late $\beta_2$ changes are model-dependent:
+all three worsen MLP mean loss and PV, whereas $\beta_2=.9$ lowers
+Transformer mean loss by $16.8\%$. Both clipping thresholds worsen mean loss
+and PV in MLP and ResNet. Transformer clipping at $.5$ instead lowers them
+by $17.8\%$ and $87.7\%$, respectively.
+
+All nine cap/model combinations lower both mean loss and PV. The lowest observed
+mean loss in each model belongs to a cap setting: q50 for MLP/Transformer
+and q25 for ResNet. The preselected q50 reduces mean loss by
+$32.2\%$, $9.4\%$, and $19.8\%$, with PV reductions of $87.8\%$, $2.8\%$, and $96.2\%$.
+Quantile sensitivity is nonmonotone, and the finite-window mean does not establish
+better terminal convergence. In particular, ResNet q50 increases final and
+last-32 loss by $20.0\%$ and $21.5\%$; q25/q75 improve those endpoints.
+The full trajectories and detailed outcomes are retained in the supplementary
+comparison.
+
+\subsubsection{Functional effect and limits}
+Figure~\ref{fig:vc-motion} shows that q50 lowers the largest output RMS jump
+by $83.2\%$, $23.1\%$, and $62.9\%$, while output reversals remain at
+$89.2\%$, $66.9\%$, and $95.8\%$ of updates. Their baseline frequencies are
+$99.3\%$, $36.9\%$, and $36.7\%$. Smaller extreme jumps therefore coexist with
+persistent, sometimes more frequent, reversals. Total squared output motion
+falls $88.6\%$ and $55.4\%$ in MLP and Transformer, but rises $39.7\%$
+in ResNet. The effect concerns extreme displacements, not uniform suppression
+of every measure of motion.
+
+In the previously selected ResNet tracing window, steps $390$--$450$, q50
+reduces the maximum loss from $.4407$ to $.1736$ ($60.6\%$).
+Later oscillations explain why the complete $256$--$576$ window has only
+$2.8\%$ lower PV. This secondary readout connects the intervention to the
+traced event while retaining the full horizon as the primary comparison.
+
+\begin{samepage}
+For the squared-loss MLP, actual output motion has the exact accounting
+\begin{equation}
+ L_{s+1}-L_s=\frac{\langle F_s-Y,\Delta F_s\rangle}{N}
+             +\frac{\|\Delta F_s\|_F^2}{2N},
+ \label{eq:vc-output-loss}
+\end{equation}
+\end{samepage}
+where $\Delta F_s=F_{s+1}-F_s$ and $N=5000$. For all 161 baseline and
+70 q50 output-space loss rises above $10^{-8}$, the linear term is negative
+and outweighed by the quadratic term. This is an exact output-space identity;
+its linear term need not equal the parameter-space directional derivative.
+Cross-entropy requires its own readout. The evidence supports displacement
+control with persistent reversals, without identifying a unique causal source.
+
+Training improvements also carry held-out tradeoffs: q50 terminal test loss
+increases $0.53\%$, $2.42\%$, and $27.52\%$. These evaluations cover all 10,000
+CIFAR-10 test images and 245,550 WikiText-2 test tokens; full validation and
+five-state trajectories accompany the supplementary results. The implementation
+has measurable cost: in the MLP q50 arm, controller time is $41.8$ ms/update,
+compared with $4.4$ ms/full-gradient boundary. Instrumentation and host differences
+preclude a time-to-loss claim. These single-initialization continuations use
+unequal effective intervention strengths; reliability across initializations,
+stochastic deployment and generalization benefits require additional evidence.
