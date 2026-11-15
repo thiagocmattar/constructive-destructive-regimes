@@ -1,20 +1,20 @@
 {
   "status": "passed",
   "reviewer": "Codex visual inspection",
-  "date": "2026-11-14",
-  "method": "All pages rendered at 1.6x and inspected in contact sheets; overview, final intervention placement, and revised cost table additionally inspected at larger resolution.",
+  "date": "2026-11-15",
+  "method": "All pages rendered at 1.6x and inspected as contact sheets; main table II, tracing figures and equations, corrected algorithm reference, and both title pages also inspected at full render resolution. Final title/contribution and reference changes rechecked after compilation.",
   "checks": [
-    "Readable text, mathematics, axis labels and captions",
-    "Consistent training step t and Q_t in Adam overview",
-    "Reference-example terminology and aligned tracing windows",
-    "No clipped text, overlapping labels, unresolved references or missing glyphs",
-    "Intervention figures and table appear with results and before conclusion",
-    "Correct page, figure, table and algorithm numbering"
+    "Readable text, mathematics, axis labels, tables, and captions",
+    "Training-step t clock; Adam eta*kappa_hat interpreted as gradient-projected response",
+    "Relative RMS, movement fraction, patterns, overlap, and coefficient labels agree with definitions",
+    "No clipped text, overlapping labels, unresolved references, or malformed references",
+    "Nine main figures, three tables, two algorithms, 39 equations, seven sections",
+    "Intervention results remain unchanged; original evidence protected"
   ],
   "pdfs": {
     "manuscript": {
-      "sha256": "eb18aaba4662d323293debf060359cdc14e6cb346561f583ea200dbced1d9b9a",
-      "pages": 17,
+      "sha256": "6d673d9f4a6d10b877ef3df27a0391a09f7ce4992938f8ddd883fbbec2b8e5df",
+      "pages": 18,
       "inspected_pages": [
         1,
         2,
@@ -32,11 +32,12 @@
         14,
         15,
         16,
-        17
+        17,
+        18
       ]
     },
     "supplementary": {
-      "sha256": "99edf2fbee5af113c751183b0fbb5049f7579041af77064a80e06319bab41ba1",
+      "sha256": "004f6cdef64a365ce0fd62993cd318638c1f15d8e46eab57ead75b4b334a5886",
       "pages": 33,
       "inspected_pages": [
         1,
@@ -76,9 +77,9 @@
     }
   },
   "notes": [
-    "Contribution framing follow-up: all 17 main pages re-inspected, with the contribution block on page 2 also inspected at larger resolution.",
-    "Adjusted three float-placement options to prevent overflow after reflow; scientific body text and figure assets are unchanged.",
-    "The 33-page supplement is byte-identical to its previously reviewed version."
+    "Main is 18 pages; supplement is 33 pages.",
+    "Annotated original archived with SHA-256 and annotation-count verification.",
+    "Accuracy and warning precision/lift are explicitly distinguished in Table II."
   ],
-  "remaining_layout_decisions": "Author review and eventual venue-specific page budgeting; this review draft favors clear explanations."
+  "remaining_layout_decisions": "Author review and eventual venue page budgeting; this draft prioritizes clear explanations."
 }

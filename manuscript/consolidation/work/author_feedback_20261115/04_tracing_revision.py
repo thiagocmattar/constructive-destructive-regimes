@@ -1,0 +1,189 @@
+"""Historical editorial changes for the tracing and intervention explanation."""
+from pathlib import Path
+import re
+HERE=Path(__file__).resolve().parent
+S=HERE.parents[1]/'draft/sections'
+p=S/'05b-tracing.tex'
+t=p.read_text(encoding='utf-8')
+start=t.index('\\begin{algorithm}') if '\\begin{algorithm}' in t else t.index('\\begin{algorithm}[')
+end=t.index('\\end{algorithm}',start)+len('\\end{algorithm}')
+algorithm=t[start:end]
+t=t[:start]+t[end:]
+start=t.index('We therefore choose'); end=t.index('\\begin{figure*}',start)
+t=t[:start]+rr'''Algorithm~\ref{alg:trace} summarizes the procedure: evaluate matching
+inputs, record each representation change, compare its direction and
+size with the preceding change, then examine the patterns carrying
+movement over a complete window.
+
+'''+algorithm+r'''
+
+The reference sets in Table~\ref{tab:setup} balance measurement cost and
+coverage. We retain every MLP training example, one complete original
+ResNet normalization group, and 64 Transformer sequences with unchanged
+token positions. As with sampled Hessian measurements, fixed subsets
+make repeated diagnostics feasible, but these are different measurements
+with different subsets. They describe the function on the retained inputs,
+not an unbiased estimate of population-wide representation dynamics.
+The full training objective still supplies every optimizer update.
+
+A measured \emph{stage} is a named output in the computation graph.
+It can be a single layer, an attention module, or the end of a residual
+block group; we record that output rather than averaging internal layers.
+Write its activation matrix as $A_t^\ell\in\mathbb R^{N_\ell\times m_\ell}$.
+Rows identify reference examples and, where relevant, spatial or token
+positions; columns identify the $m_\ell$ features at each position.
+The preceding update changes this representation by
+\begin{equation}
+ \delta_t^\ell=\operatorname{vec}(A_t^\ell-A_{t-1}^\ell)
+ \in\mathbb R^{P_\ell},\qquad P_\ell=N_\ell m_\ell.
+ \label{eq:representation-change}
+\end{equation}
+Each flattened coordinate is one feature's response at one matching
+input position. No examples or features are averaged before measuring
+the change. Its direction and size are measured using
+\begin{equation}
+ c_t^\ell=
+ \frac{\langle\delta_{t-1}^\ell,\delta_t^\ell\rangle}
+ {\|\delta_{t-1}^\ell\|\|\delta_t^\ell\|},\qquad
+ a_t^\ell=\frac{\|\delta_t^\ell\|}{\sqrt{P_\ell}}.
+ \label{eq:representation-motion}
+\end{equation}
+A negative $c_t^\ell$ means the new functional change opposes the
+preceding one; positive values indicate reinforcement. This gives a
+representation-level counterpart of destructive and constructive
+gradient regimes. The root-mean-square (RMS) displacement $a_t^\ell$
+measures the change per coordinate. A zero change has undefined cosine.
+
+'''+t[end:]
+t=t.replace("Bottom: RMS displacement divided by each stage's maximum within the displayed window.",r'Bottom: relative RMS displacement $a_t^\ell/\max_{u\in[a,b]}a_u^\ell$, normalized separately within each stage and displayed window.')
+t=t.replace('\\subsubsection{Where the oscillation appears}',
+            'First, we ask where functional oscillation appears and how its size changes during an excursion.')
+t=t.replace('In the MLP, the middle heatmap',
+            'An affine layer means a linear map plus a bias, before its following nonlinearity.\nIn the MLP, the middle heatmap')
+start=t.index('The larger ResNet excursion'); end=t.index('\\subsubsection{Which patterns',start)
+t=t[:start]+r'''ResNet and Transformer show a less uniform pattern across depth.
+Later stages follow the output oscillation more closely, while earlier
+representations can remain constructive during intervals of output
+reversal. In the Transformer this distinction is particularly clear at
+the embedding: its destructive changes are less persistent and become
+visible near the large excursion, while later attention and block
+outputs reverse earlier. The embedding also returns to constructive
+motion sooner. For ResNet, the first convolution reaches its largest
+displacement near the loss peak, followed by the later stages. Functional
+reversal can precede the visible loss increase, whereas large RMS
+movement is concentrated near and after the peak. The first displayed
+output reversal precedes the 10\% loss marker in ResNet and Transformer;
+MLP is already reversing at the window's start.
+
+These differences suggest that an excursion can involve a changing
+distribution of functional motion across the network. Backpropagated
+errors may recruit earlier representations into changes already visible
+near the output, potentially enabling subsequent reorganization. This is
+a hypothesis suggested by the timing, not an identified causal sequence
+or evidence that the network reaches otherwise inaccessible states.
+
+'''+t[end:]
+start=t.index('\\subsubsection{Which patterns'); end=t.index('\\begin{figure*}',start)
+t=t[:start]+r'''We next ask how many independent patterns are needed to describe this
+oscillating functional change. For each stage separately, collect the
+changes at steps $a,\ldots,b$ into
+$D_\ell\in\mathbb R^{T_w\times P_\ell}$, where $T_w=b-a+1$.
+Each row is $(\delta_t^\ell)^\top$, and each column follows one fixed
+input-position/feature coordinate across updates. A single singular
+value decomposition (SVD) fits the whole window,
+\begin{equation}
+ D_\ell=U_\ell\Sigma_\ell V_\ell^\top.
+ \label{eq:temporal-svd}
+\end{equation}
+The columns $v_{\ell,j}$ of $V_\ell$ are orthonormal patterns of
+representation change. A pattern specifies which coordinates change
+together and in what proportions. Its coefficient varies in magnitude
+and sign from one update to the next. The diagonal entries
+$\sigma_{\ell,j}$ of $\Sigma_\ell$ are nonnegative singular values,
+ordered from largest to smallest, and $U_\ell$ describes their temporal
+variation. Specifically,
+\begin{equation}
+ \delta_t^\ell=\sum_j\alpha_{t,j}^\ell v_{\ell,j},\qquad
+ \alpha_{t,j}^\ell=\sigma_{\ell,j}U_{\ell,(t-a+1),j}.
+ \label{eq:pattern-reconstruction}
+\end{equation}
+We call each fixed pattern a \emph{mode}. For example, the pattern
+$(0.8,-0.6,0)$ increases one coordinate while decreasing another;
+a negative coefficient reverses those changes. The first mode captures
+the greatest total squared movement over the window. Subsequent modes
+capture the remaining movement in perpendicular directions. These are
+patterns used across updates, not selected training steps.
+
+The total squared movement is $\|D_\ell\|_F^2=\sum_j\sigma_{\ell,j}^2$.
+The fraction captured by the first $k$ patterns is
+\begin{equation}
+ E_k^\ell=\frac{\sum_{j=1}^k\sigma_{\ell,j}^2}
+ {\sum_j\sigma_{\ell,j}^2}.
+ \label{eq:energy}
+\end{equation}
+Thus $E_k^\ell=0.95$ means that reconstruction using these $k$ patterns
+retains 95\% of squared movement, leaving 5\% squared reconstruction
+error. This quantity is often called cumulative energy, with
+``cumulative'' referring to patterns, not steps. We use squared movement
+instead of variance because the change matrix is not centered: a
+persistent drift is part of the movement being measured. Row norms are
+also retained, so larger changes contribute more.
+
+'''+t[end:]
+t=t.replace('Top: cumulative squared-movement energy', 'Top: cumulative fraction of squared movement')
+t=t.replace("Middle: each stage's energy in its first mode and first ten modes, and overlap between its leading temporal patterns and those of the output.",r"Middle: each stage's fraction in its first pattern ($E_1^\ell$) and first ten ($E_{10}^\ell$), and temporal overlap with the output ($O_{10}$).")
+start=t.index('The upper row of Fig.'); end=t.index('To compare timing',start)
+t=t[:start]+r'''The output curves in Fig.~\ref{fig:trace-structure} reach 95\% with
+5, 20, and 15 patterns for MLP, ResNet, and Transformer. Their maximum
+observable ranks are 51, 61, and 49, set by the numbers of changes in
+the windows. The required fractions of available directions are therefore
+9.8\%, 32.8\%, and 30.6\%. This is the appropriate comparison: the many
+input and feature coordinates do not provide more than $T_w$ independent
+directions from $T_w$ observations. For the Transformer, 15 fixed
+patterns jointly describe 95\% of output movement across 49 updates,
+2,240 token positions, and the complete 33,278-word output vocabulary.
+It does not mean that 49 updates are equivalent to 15 updates, or that
+every layer shares the same spatial patterns.
+
+Concentration also exceeds a reference in which every observed change
+keeps its size but points in a direction orthogonal to all other changes.
+This comparison asks how much concentration comes from repeated
+directions, beyond a few unusually large steps. A second comparison
+gives every change unit length before decomposition, separating directional
+structure from amplitude. Supplementary Table S4 shows that both effects
+matter, especially in ResNet and Transformer. The primary curves retain
+the actual movement that occurred.
+
+'''+t[end:]
+t=t.replace('It ranges from zero for orthogonal temporal subspaces to one for the\nsame subspace; we use $k=10$ within the numerical ranks.',
+'''This averages squared projections of one set of orthonormal temporal
+patterns onto the other. A value of one means the same temporal subspace,
+even if the individual basis vectors differ; zero means orthogonal
+temporal subspaces. We use $k=10$ within the numerical ranks.''')
+t=t.replace(r'$\alpha_{t,k}^\ell=\sigma_{\ell,k}U_{\ell,tk}$',r'$\alpha_{t,k}^\ell$ in Eq.~\eqref{eq:pattern-reconstruction}')
+t=t.replace('Algorithm~\\ref{alg:trace} summarizes the procedure. The temporal matrix', 'The temporal matrix')
+t=t.replace('These results sharpen the intervention question.',
+'''Together, concentration and signed reversals support approximately
+low-dimensional functional oscillation in these windows. Its persistence
+under Adam does not establish ineffective learning, because the loss can
+still improve. It instead sharpens the intervention question.''')
+p.write_text(t,encoding='utf-8',newline='\n')
+
+p=S/'05c-interventions.tex'
+t=p.read_text(encoding='utf-8').replace(r'\subsection{Interventions Guided by Representation Changes}',r'\section{Interventions Guided by Representation Changes}')
+t=t.replace(r'\subsubsection',r'\subsection')
+t=t.replace('Consider an affine module','First, consider a layer that applies a linear map and adds a bias,')
+t=t.replace('a_{t,j}',r'\gamma_{t,j}')
+t=t.replace('The computation requires a current forward evaluation',
+r'''Algorithm~\ref{alg:vc-cap} makes the order explicit: Adam first proposes
+its update and advances its internal moments; the cap then scales the
+selected increments before they reach the parameters. The moments are
+not recomputed from the capped change. This distinction is part of the
+intervention being tested.
+
+The computation requires a current forward evaluation''')
+t=t.replace('The first term is negative when the output change points toward reducing',
+'''This identity separates direction from size in function space.
+The first term is negative when the output change points toward reducing''')
+t=re.sub(r':\s*\n(\\begin\{(?:equation|align)\*?\})',r'\n\1',t)
+p.write_text(t,encoding='utf-8',newline='\n')

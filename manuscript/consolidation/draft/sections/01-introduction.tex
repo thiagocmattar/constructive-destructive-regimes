@@ -1,74 +1,34 @@
 \section{Introduction}
 \label{sec:introduction}
 
-Neural scaling laws have ushered in new paradigms for interpreting deep learning dynamics. These laws relate performance gains to model size, dataset scale, and compute, motivating longer training horizons under tight efficiency constraints~\cite{hestness2017deep,kaplan2020scaling,henighan2020scaling,hoffmann2022chinchilla}. In this regime, optimization stability becomes an important practical requirement, since unstable training may result in slow convergence and high sensitivity to hyperparameter choices. In practice, stability is often maintained through a set of heuristics, such as momentum, batch-size scaling, normalization, weight decay, and learning-rate schedules~\cite{goyal2017accurate,smith2017cyclical,loshchilov2016sgdr,ioffe2015batch,krogh1991simple}. Despite their effectiveness, understanding when these mechanisms help, and when they fail, remains consequential for the design of training procedures.
+Neural scaling laws have ushered in new paradigms for interpreting deep learning dynamics. These laws relate performance gains to model size, dataset scale, and compute, motivating longer training horizons under tight efficiency constraints~\cite{hestness2017deep,kaplan2020scaling,henighan2020scaling,hoffmann2022chinchilla}. In this regime, optimization stability becomes an important practical requirement, since unstable training may result in slow convergence and high sensitivity to hyperparameter choices. In practice, learning-rate schedules, gradient clipping, and adjustments to momentum or adaptive second moments help control update size~\cite{smith2017cyclical,loshchilov2016sgdr,pascanu2013difficulty,kingma2014adam}. These choices affect both the smoothness of training and how rapidly the network learns. Understanding what they control is therefore necessary for deciding when to intervene.
 
-Training can become unstable when updates are too large relative to sharp directions of the loss landscape, so that they overshoot rather than converge toward a minimum~\cite{polyak1964methods,bertsekas1997nonlinear}. Stochastic extensions, such as the break-even point framework, relate instability to both sharpness and curvature variability, particularly during an early phase in which learning rate and batch size shape the subsequent trajectory~\cite{jastrzebski2020break}. The Edge-of-Stability literature, however, shows that deep networks often continue to make progress near, or even beyond, the nominal sharpness threshold~\cite{cohen2021edge,arora2022understanding,damian2023self}. These works provide an important geometric interpretation of training dynamics. They also motivate a complementary question: how does one update interact with the next, and how do their repeated interactions affect learning? A trajectory can repeatedly reverse in some directions while continuing to descend in others. Explaining this behavior requires following both the magnitude and direction of the steps actually taken, rather than treating every oscillation as failed progress.
+Classical stability analysis relates update size to curvature: a step can overshoot a minimum when the learning rate is too large relative to a sharp direction~\cite{polyak1964methods,bertsekas1997nonlinear}. Stochastic extensions also account for curvature variability and the influence of batch size~\cite{jastrzebski2020break}. Yet the Edge-of-Stability literature shows that loss can continue to decrease while sharpness remains near or beyond the nominal $2/\eta$ threshold~\cite{cohen2021edge,arora2022understanding,damian2023self}. Under Adam, adaptive preconditioning can itself generate loss spikes, even without a progressively sharper underlying objective~\cite{bai2026spikes}. These results explain important aspects of optimization, but a curvature threshold alone does not describe which learned representations are moving back and forth, how large their changes become, or which changes an intervention should limit.
 
-To examine these interactions, we characterize constructive and destructive training regimes through consecutive-gradient alignment and gradient magnitude. Persistent positive alignment, $\rho_t>0$, identifies a constructive regime in which successive SGD steps reinforce one another, whereas persistent negative alignment, $\rho_t<0$, identifies a destructive regime in which successive steps partially reverse preceding parameter changes. We connect these regimes to directional curvature and introduce an inexpensive estimate of curvature along the step taken. It uses consecutive gradients and the actual parameter change, so the formulation applies to SGD, Adam, and other optimizers without additional Hessian computations. Under plain SGD, it reduces to a combination of gradient norms and their inner product. The formulation also makes the contribution of mini-batch sampling explicit, clarifying how noise affects the observed alignment and curvature estimate.
+This distinction matters because training is also a process of reorganizing the function represented by a network. The loss geometry depends on the data and architecture; for example, Li et al.~\cite{li2018visualizing} show how skip connections alter the geometry of loss surfaces and improve their trainability. A scalar loss curve hides these internal changes. Moreover, an upward excursion can be followed by further loss reduction, so suppressing every excursion need not preserve progress. We therefore seek an interpretation that connects the optimizer's steps to changes in the learned function, and uses that connection to study interventions.
+
+To address this question, we develop a stability perspective based on constructive and destructive training regimes. Starting from the SGD equations, we express accumulated parameter displacement in terms of gradient magnitudes and their alignment. Consecutive gradients with $\rho_t>0$ reinforce their parameter changes, whereas $\rho_t<0$ indicates that the next step partially undoes the preceding one. We connect these interactions to directional curvature and introduce an inexpensive estimate using consecutive gradients and the actual parameter change. The step-based formulation applies independently of the optimizer, including Adam, without additional Hessian computations. Its SGD specialization depends only on gradient norms and their inner product, with an explicit contribution from mini-batch sampling.
 
 Destructive alignment alone does not imply instability. Within a local quadratic approximation, reversal and gradient growth jointly determine whether an SGD step decreases or increases the loss. This relationship explains how destructive regimes can sustain oscillatory descent, while sufficiently amplified reversals can produce upward loss excursions. Reading alignment and gradient norms together therefore provides a geometric interpretation of signals already available during training. Normalized displacement complements this local view by measuring how much of the total distance traveled remains as net parameter change.
 
 We examine these relationships through controlled full-batch and mini-batch experiments across image-classification and language-modeling tasks, using multilayer perceptrons, residual networks, and Transformers. The SGD experiments isolate curvature and sampling effects. The Adam experiments then follow the argument from consecutive-gradient behavior to loss spikes, from spikes to changes in the network's representations, and from those changes to interventions. Evaluating the same reference examples at successive training steps makes it possible to see where representations reverse and where their changes become large. This motivates a local displacement cap, which we compare with learning-rate reduction, second-moment changes, and global gradient clipping from the same training states.
 
-Our central contribution is to connect the interaction between training
-steps to its consequences in parameter space, in the loss, and in the
-learned function. This connection provides both an interpretation of
-oscillatory progress and a measurable basis for intervention. Specifically:
+Our contributions connect the interaction between training steps to accumulated parameter change, loss excursions, and functional oscillation. Each part addresses a distinct limitation of interpreting stability through the loss curve alone.
 \begin{itemize}
-\item \textbf{Relating local reversal to accumulated learning dynamics.}
-Edge-of-Stability studies establish that oscillation can coexist with
-progress~\cite{cohen2021edge,damian2023self}, while gradient-product
-diagnostics identify transitions toward
-stationarity~\cite{chee2018diagnostics,pesme2020diagnostics}. These findings
-motivate distinguishing opposition between neighboring updates from
-cancellation across the complete trajectory. We connect consecutive-gradient
-alignment to an exact all-pair displacement decomposition and normalized
-displacement. The GD experiments show that negative adjacent interactions
-can coexist with positive total interaction and decreasing loss, explaining
-why a destructive local regime need not imply failed progress
-(Sections~\ref{sec:displacement}--\ref{sec:gd-experiments}).
+\item \textbf{Characterizing constructive and destructive training regimes.}
+Edge-of-Stability studies show that oscillation can coexist with progress~\cite{cohen2021edge,damian2023self}, while gradient-product diagnostics identify changes toward stationarity~\cite{chee2018diagnostics,pesme2020diagnostics}. We explain how successive updates reinforce or undo parameter changes, and measure how much traveled distance remains as net displacement. Our exact decomposition includes interactions across the complete trajectory. Experiments show that persistent local reversal can leave only a small fraction of this distance as net displacement while the loss continues to fall (Sections~\ref{sec:displacement}--\ref{sec:gd-experiments}).
 
-\item \textbf{Measuring curvature along the step actually taken.}
-The leading Hessian eigenvalue used in spectral stability
-analysis~\cite{cohen2021edge} describes the sharpest direction, but does not
-specify the curvature encountered by a particular optimizer update.
-We introduce an inexpensive step-direction estimate from consecutive
-gradients and the applied parameter change, without additional backward
-passes or Hessian computations. For smooth full objectives, we establish
-its exact step-average interpretation independently of the optimizer,
-including Adam, and bound its starting-point approximation error. Its
-SGD specialization exposes the roles of alignment, norm growth, and
-sampling noise; independently computed Hessian--vector products test
-that interpretation (Sections~\ref{subsec:curvature-diagnostic}
-and~\ref{subsec:gd-validation}).
+\item \textbf{Estimating curvature cheaply along the applied step.}
+The Hessian eigenvalues used in spectral stability analysis~\cite{cohen2021edge} require additional derivative computations, limiting the frequency and data coverage of measurement. We obtain a step-direction estimate from two consecutive gradients and the parameter increment already applied. For smooth full objectives, it equals directional curvature averaged along that step for any optimizer. Its SGD form connects curvature to gradient cosine and norm growth; independent Hessian--vector products check the approximation to starting-point curvature and the effect of sampling noise (Section~\ref{subsec:curvature-diagnostic} and Supplementary Section S2).
 
-\item \textbf{Separating gradient reversal from loss-spike formation.}
-Bai et al.~\cite{bai2026spikes} explain Adam spikes through adaptive
-preconditioning and gradient-directional curvature. To connect spike
-behavior to consecutive training gradients, we express the local SGD
-loss-increase condition jointly in terms of reversal and norm growth,
-then examine those quantities under Adam without transferring the SGD
-threshold into an Adam guarantee. An exhaustive comparison across
-loss-increase magnitudes and future steps identifies both the association
-and its missed increases and false alarms, extending the characterization
-beyond selected peaks (Sections~\ref{subsec:loss}
-and~\ref{subsec:characterization}).
+\item \textbf{Connecting reversal and growth to loss increases.}
+Adaptive-preconditioner analysis explains a mechanism of Adam spikes~\cite{bai2026spikes}. We provide a complementary characterization through quantities directly available during training. For quadratic full-batch GD, the loss rises when $\rho_t<-\|g_{t-1}\|/\|g_t\|$: a reversed gradient must grow enough to overcome the preceding descent. For nonlinear objectives this is a local approximation. Under Adam, we test these signals before the next update against every observed next-step outcome, including a loss-history baseline, and report both accuracy and warning lift (Sections~\ref{subsec:loss} and~\ref{subsec:characterization}).
 
-\item \textbf{Tracing functional oscillation and testing selective control.}
-Representation-change correction~\cite{kosson2024warmup} and unit-wise
-gradient clipping~\cite{brock2021normalization} already motivate controlling
-update size. We examine where successive representation changes reverse,
-which patterns carry their movement, and whether limiting that movement
-improves an oscillatory trajectory. Tracing the same reference examples
-reveals concentrated movement and shared temporal structure across
-measured stages. We then cap the direct affine displacement induced by
-Adam's proposal using an absolute per-unit budget. Matched comparisons
-with learning-rate reduction, second-moment changes, and global clipping
-show lower mean training loss and positive loss variation for all tested
-cap quantiles in the three cases, while reversals persist. Endpoint,
-held-out, and cost tradeoffs delimit this training-dynamics result
-(Sections~\ref{subsec:tracing}--\ref{sec:vc-interventions}).
+\item \textbf{Tracing functional oscillation through the network.}
+Gradient and curvature diagnostics describe parameter-space dynamics but do not reveal how internal representations change. We follow the same reference inputs through successive states and separate the direction, size, and dimensionality of their changes. In the selected MLP window, reversal extends from the first linear map to the output; ResNet and Transformer show stronger agreement with output oscillation toward later stages, with less persistent reversal at the Transformer embedding. The output changes concentrate 95\% of their squared movement in 5/20/15 patterns out of at most 51/61/49 observable directions, respectively. Reversing coefficients reveal functional oscillation along these patterns (Section~\ref{subsec:tracing}).
+
+\item \textbf{Testing selective control of representation displacement.}
+Representation-change correction~\cite{kosson2024warmup} and unit-wise gradient clipping~\cite{brock2021normalization} motivate controls beyond a global learning rate. We cap the direct change induced by Adam's proposal in selected output units, using absolute movement budgets calibrated before intervention. In matched comparisons with learning-rate reduction, second-moment changes, and global clipping, all tested cap quantiles improve mean training loss and accumulated upward loss variation relative to unchanged Adam in the three cases, while functional reversals persist. Endpoint, held-out, and computational results delimit this benefit (Section~\ref{sec:vc-interventions}).
 \end{itemize}
 
-The remainder of the paper is organized as follows. Section~\ref{sec:background} reviews training-stability perspectives. Section~\ref{sec:displacement} develops the displacement formulation and its diagnostics. Section~\ref{sec:gd-experiments} examines full-batch GD and mini-batch sampling. Section~\ref{sec:adam} develops the Adam characterization, representation analysis, and interventions. Section~\ref{sec:conclusion} concludes.
+Section~\ref{sec:background} reviews stability perspectives. Section~\ref{sec:displacement} develops the regimes and their diagnostics; Section~\ref{sec:gd-experiments} examines GD and mini-batch sampling. Section~\ref{sec:adam} follows Adam loss spikes into functional oscillation, and Section~\ref{sec:vc-interventions} tests interventions. Section~\ref{sec:conclusion} concludes.

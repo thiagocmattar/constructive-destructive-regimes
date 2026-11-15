@@ -4,7 +4,7 @@
 Figure~\ref{fig:adam-overview} brings the loss and gradient measurements
 together for the highest tested Adam rate in each model. Read each column
 from top to bottom. The first row shows the training loss. The second
-combines gradient reversal and growth through $Q_t$. The third shows
+combines gradient reversal and growth through $\eta\widehat\kappa_t$. The third shows
 whether consecutive gradients reinforce or oppose one another, and the
 fourth shows how their magnitude changes relative to initialization.
 All quantities are evaluated along the same trajectory.
@@ -12,72 +12,58 @@ All quantities are evaluated along the same trajectory.
 \begin{figure*}[!t]
 \centering
 \includegraphics[width=\textwidth]{figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf}
-\caption{Loss spikes and consecutive-gradient behavior under full-objective Adam. Columns are MLP, ResNet-32, and Transformer, at learning rates $.001/.003/.003$, with one initialization per model. Rows show loss, the reversal-and-growth quantity $Q_t$, consecutive-gradient cosine, and gradient norm relative to initialization. Filled gray bands mark the rising portions of recovered loss excursions exceeding 10\%; outlined bands mark excursions whose recovery is not observed. Events are selected from loss alone. Training step $t$ counts completed updates; gradient measurements are made at $\theta_t$, before the next update. Loss is recorded through 1,024 updates and gradients through 1,023. The $Q_t$ axis starts at zero; negative values lie outside its displayed range.}
+\caption{Loss spikes and consecutive-gradient behavior under full-objective Adam. Columns are MLP, ResNet-32, and Transformer, at learning rates $.001/.003/.003$, with one initialization per model. Rows show loss, the gradient-projected response $\eta\widehat\kappa_t$, consecutive-gradient cosine, and gradient norm relative to initialization. Filled gray bands mark the rising portions of recovered loss excursions exceeding 10\%; outlined bands mark excursions whose recovery is not observed. Events are selected from loss alone. Training step $t$ counts completed updates; gradient measurements are made at $\theta_t$, before the next update. Loss is recorded through 1,024 updates and gradients through 1,023. The $\eta\widehat\kappa_t$ axis starts at zero; negative values lie outside its displayed range.}
 \label{fig:adam-overview}
 \end{figure*}
 
-The panels show why direction and magnitude are complementary.
-The MLP spends much of training in a destructive regime, yet its loss
-falls between repeated excursions. Negative cosine alone therefore
-cannot distinguish a rising spike from its recovery. The norm row adds
-the missing information: a reversal accompanied by a growing gradient
-has a larger opposing component, which appears as a larger $Q_t$.
-In ResNet and the Transformer, pronounced excursions are followed by
-intervals in which gradients become more aligned and their norms fall.
-The models differ in how long reversal persists, but all make progress
-through trajectories that are not monotonically descending.
+Unlike the sustained GD oscillations, the Adam trajectories exhibit
+distinct excursions and recoveries. This is consistent with the adaptive
+preconditioner mechanism analyzed by Bai et al.~\cite{bai2026spikes}:
+changing second moments can alter the effective step size independently
+of changes in the underlying Hessian. Our measurements describe how the
+resulting motion appears in consecutive gradients. Early constructive
+intervals give way to persistent reversal; the MLP also has an isolated
+negative cosine at its first measured pair, before its constructive interval.
+Prominent excursions occur with negative cosine and growing gradient
+norms, producing large peaks in $\eta\widehat\kappa_t$. In ResNet and
+Transformer, recovery often includes renewed constructive alignment and
+falling norms. MLP reversals persist through both increases and recovery,
+so their magnitude is essential to interpreting the loss.
 
-The same consecutive-gradient argument helps interpret these Adam
-trajectories. They do not transfer the SGD quadratic
-threshold into an Adam stability guarantee: Adam changes the magnitude
-and direction of the parameter increment through its moments. The
-question is empirical---how often do the gradient conditions precede
-an observed loss increase, and does the association become clearer for
-larger increases?
+The loss can reach lower values after an excursion. This shows why
+removing an excursion and preserving subsequent progress are separate
+objectives; it does not by itself establish a transition between basins,
+a flatter destination, or premature convergence at a lower rate.
+Similarly, peaks in gradient norm and projected response accompany
+large excursions, but the panels do not establish a universal proportional
+relation. The matched interventions below test the effect of limiting
+movement rather than inferring it from the loss curve.
 
-To answer it, write $L_t=\mathcal L(\theta_t)$ and evaluate each condition
-at $\theta_t$, after computing $g_t$ but before applying the next update.
-The next-step outcome is $L_{t+1}-L_t$. Table~\ref{tab:severity} compares
-negative cosine, norm growth, their conjunction, and $Q_t\geq2$ for
-individual loss increases of at least 10\%. Coverage counts how many
-such increases satisfy the condition beforehand. Precision asks the
-reverse question: among all times the condition holds, how often does
-such an increase follow? Both are needed because a condition can cover
-many increases simply by remaining active for much of training.
+For a direct before-update check, let $L_t=\mathcal L(\theta_t)$ and flag
+whether $(L_{t+1}-L_t)/L_t\geq0.001$. At decision step $t$, $g_t$ and
+$L_t$ are available, but the next update has not been applied.
+Table~\ref{tab:severity} compares the gradient conditions with the naive
+rule that the preceding step already increased the loss, $L_t>L_{t-1}$.
+Accuracy counts correct predictions of both increases and non-increases.
+The warning hit rate answers a different question: how often an increase
+follows a warning. Its lift divides this rate by the unconditional event
+frequency. Reporting both prevents the many non-increasing steps from
+making a weak warning rule appear effective.
 
-\begin{table}[!t]
-\centering\small
-\caption{Conditions measured before an individual next-step loss increase of at least 10\%. Each entry gives the number of covered increases, with precision in parentheses (\%). There are 168, 12, and 26 qualifying increases for MLP, ResNet, and Transformer, among 1,023 eligible decisions per model. Precision includes every occurrence of the condition, including those without the target increase.}
-\label{tab:severity}
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{@{}lrrr@{}}
-\toprule
-Condition & MLP & ResNet & Transformer \\
-\midrule
-$\rho_t<0$ & 149 (18.3) & 12 (4.0) & 26 (5.0) \\
-$\|g_t\|>\|g_{t-1}\|$ & 110 (20.1) & 11 (3.4) & 22 (5.2) \\
-Both & 105 (23.0) & 11 (6.8) & 22 (7.3) \\
-$Q_t\geq2$ & 82 (26.6) & 7 (19.4) & 22 (15.0) \\
-\bottomrule
-\end{tabular}
-\end{table}
+\input{tables/diagnostic-0p1pct}
 
-Reversal covers most or all of these increases, while requiring growth
-makes the condition more selective. The stronger $Q_t$ condition trades
-coverage for precision; it is a combination of the same two gradient
-measurements, not a separate source of evidence. Neither condition is
-universal: the complete audit retains missed increases and occurrences
-followed by decreasing loss.
-
-The association also depends on when and how a loss increase is defined.
-Supplementary Figs. S3--S8 vary the minimum increase, look one or more
-steps ahead, and test whether retaining a recent warning improves
-coverage. Some Transformer increases align more closely with a warning
-several steps earlier than with the immediately preceding one. Extending
-the horizon or remembering warnings also increases the number of
-unmatched warnings. These results characterize the buildup of an
-excursion; fresh trajectories and predefined prediction rules would be
-needed to establish a forecasting method.
+The combined angle/norm condition gives higher accuracy and warning
+lift than the previous-loss-rise rule in all three cases. Its warning
+lifts are $1.28\times$, $6.78\times$, and $3.87\times$ for MLP, ResNet,
+and Transformer. Reversal or norm growth alone is less selective. The
+angle/norm inequality and $\eta\widehat\kappa_t\geq2$ are equivalent
+on these data, not independent predictors. These inexpensive signals
+therefore contain information about the next loss increase before the
+update is applied, although accuracy improves only modestly over always
+predicting no increase. The threshold and trajectories were inspected
+retrospectively; prospective forecasting needs independent validation.
+Supplementary Section S3 retains the confusion counts and comparisons
+across larger increases, future steps, and warning histories.
 
 A loss curve and a whole-network gradient still leave an important
 question unanswered: what is changing inside the network during these

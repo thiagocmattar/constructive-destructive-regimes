@@ -1,0 +1,22 @@
+\begin{table*}[!t]
+\centering\small
+\caption{Before-update diagnostics for a next-step loss increase of at least 0.1\%. All 1,023 decisions per model are retained. Acc. is classification accuracy, $(\mathrm{TP}+\mathrm{TN})/1023$; Hit is the percentage of warnings followed by the target (precision); lift is Hit divided by the baseline event rate. The no-increase baseline exposes class imbalance. The last two conditions agree on these data and are two forms of the same diagnostic.}
+\label{tab:severity}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrrrrrrr@{}}
+\toprule
+& \multicolumn{3}{c}{MLP} & \multicolumn{3}{c}{ResNet} & \multicolumn{3}{c}{Transformer} \\
+Condition & Acc. (\%) & Hit (\%) & Lift ($\times$) & Acc. (\%) & Hit (\%) & Lift ($\times$) & Acc. (\%) & Hit (\%) & Lift ($\times$) \\
+\midrule
+Baseline event rate & \multicolumn{3}{c}{446/1023 (43.6\%)} & \multicolumn{3}{c}{88/1023 (8.6\%)} & \multicolumn{3}{c}{142/1023 (13.9\%)} \\
+\midrule
+Always predict no increase & 56.4 & -- & -- & 91.4 & -- & -- & 86.1 & -- & -- \\
+Always predict increase & 43.6 & 43.6 & 1.00 & 8.6 & 8.6 & 1.00 & 13.9 & 13.9 & 1.00 \\
+$L_t>L_{t-1}$ & 58.1 & 51.9 & 1.19 & 89.0 & 36.8 & 4.28 & 86.5 & 51.3 & 3.70 \\
+$\rho_t<0$ & 54.4 & 48.8 & 1.12 & 77.9 & 27.0 & 3.14 & 61.6 & 25.9 & 1.87 \\
+$\|g_t\|>\|g_{t-1}\|$ & 53.5 & 47.3 & 1.08 & 68.7 & 14.2 & 1.65 & 63.1 & 22.1 & 1.59 \\
+$\rho_t<-\|g_{t-1}\|/\|g_t\|$ & 59.9 & 55.8 & 1.28 & 92.0 & 58.3 & 6.78 & 87.2 & 53.7 & 3.87 \\
+$\eta\widehat\kappa_t\geq2$ & 59.9 & 55.8 & 1.28 & 92.0 & 58.3 & 6.78 & 87.2 & 53.7 & 3.87 \\
+\bottomrule
+\end{tabular}
+\end{table*}

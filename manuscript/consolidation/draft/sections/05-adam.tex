@@ -1,53 +1,68 @@
-\section{Gradient Dynamics, Loss Spikes, and Interventions under Adam}
+\section{Loss Spikes and Functional Oscillations under Adam}
 \label{sec:adam}\label{sec:adam-diagnostics}
 
 The preceding experiments show why consecutive steps must be considered
-together. Reversal identifies an opposing direction; gradient growth
-determines how strongly that opposition is expressed. Under SGD these
-gradients also determine the parameter updates. Adam changes this last
-relationship by combining the current gradient with earlier gradients
-and scaling coordinates according to their second moments~\cite{kingma2014adam}:
+together. Reversal describes opposition; gradient growth determines its
+size. Under SGD the raw gradients also determine the applied increments.
+Adam combines the current gradient with past gradients and rescales
+coordinates using second moments~\cite{kingma2014adam}. Its recurrences are
 \begin{equation}
-\begin{aligned}
- m_t&=\beta_1m_{t-1}+(1-\beta_1)g_t,\\
- v_t&=\beta_2v_{t-1}+(1-\beta_2)g_t^{\odot2},\\
- d_t&=\frac{m_t/(1-\beta_1^{t+1})}
+ m_t=\beta_1m_{t-1}+(1-\beta_1)g_t,\qquad
+ v_t=\beta_2v_{t-1}+(1-\beta_2)g_t^{\odot2}.
+ \label{eq:adam-moments}
+\end{equation}
+The bias-corrected direction and parameter update are
+\begin{equation}
+ d_t=\frac{m_t/(1-\beta_1^{t+1})}
  {\sqrt{v_t/(1-\beta_2^{t+1})}+\epsilon},\qquad
  \theta_{t+1}=\theta_t-\eta_t d_t.
-\end{aligned}
-\label{eq:adam-update}
+ \label{eq:adam-update}
 \end{equation}
-Moments start at zero before $t=0$. The operations on $v_t$ are
-coordinatewise. The gradient $g_t$ describes the local loss slope,
-whereas $-\eta_t d_t$ is the parameter change actually applied.
+Moments start at zero before $t=0$, and the operations on second moments
+are coordinatewise. The experiments use the native Adam update with
+$(\beta_1,\beta_2)=(.9,.999)$ and $\epsilon=10^{-8}$, without weight decay.
 
-The step-direction curvature estimate in Eq.~\eqref{eq:kappa-step}
-continues to apply: use $u_{t-1}=-\eta_{t-1}d_{t-1}$ in place of the SGD
-increment. In addition, the raw gradients retain information about how
-the loss slope changes as Adam moves through parameter space. To follow
-the same reversal-and-growth argument as in Section~\ref{sec:displacement},
-we examine their cosine, their norms, and the combined quantity
+Although Adam transforms the raw gradient, consecutive gradients are
+evaluated at states separated by the actual Adam update. Their alignment
+and relative magnitudes therefore characterize the gradient response
+along the trajectory followed by the optimizer. For full gradients of a
+smooth objective, the fundamental theorem of calculus gives
 \begin{equation}
- Q_t:=1-\rho_t\frac{\|g_t\|}{\|g_{t-1}\|}
-     =1-\frac{g_{t-1}^{\top}g_t}{\|g_{t-1}\|^2}.
- \label{eq:Q}
+ g_t-g_{t-1}=-\eta_{t-1}\int_0^1
+ H(\theta_{t-1}-a\eta_{t-1}d_{t-1})d_{t-1}\,da.
+ \label{eq:adam-gradient-response}
 \end{equation}
-When $Q_t>1$, the new gradient has a component opposing its predecessor.
-When $Q_t>2$, that opposing component is larger than the entire preceding
-gradient. Under GD, $Q_t=\eta\widehat\kappa_t$ and the quadratic loss
-relation applies. Under Adam, $Q_t$ remains a measure of gradient reversal
-and amplification; curvature along the actual step is instead given by
-Eq.~\eqref{eq:kappa-step}. We keep these quantities separate because
-Adam's applied direction need not be parallel to its raw gradient.
+Projecting this difference onto $g_{t-1}$ recovers the same measured
+combination as Eq.~\eqref{eq:kappa-estimate}. For the constant-rate Adam
+trajectories considered here, we retain its notation,
+\begin{equation}
+ \begin{aligned}
+ \eta\widehat\kappa_t
+ &=1-\rho_t\frac{\|g_t\|}{\|g_{t-1}\|}\\
+ &=\eta\int_0^1
+ \frac{g_{t-1}^{\top}H(\theta_{t-1}-a\eta d_{t-1})d_{t-1}}
+ {\|g_{t-1}\|^2}\,da.
+ \end{aligned}
+ \label{eq:adam-projected-response}
+\end{equation}
+This is a gradient-projected response to the applied direction. Under
+GD, $d_{t-1}=g_{t-1}$ and it is the scaled step-direction curvature.
+Under Adam those directions generally differ: curvature along the
+actual increment is instead $\widehat\kappa_t^{\mathrm{step}}$ in
+Eq.~\eqref{eq:kappa-step}. Thus the plotted quantity still combines
+reversal and amplification, but the GD loss threshold is not an Adam
+stability theorem. A value above two means that the component of the new
+gradient opposing its predecessor exceeds the predecessor's magnitude.
 
-We first examine how these gradient changes accompany loss spikes. We
-then follow the associated changes in intermediate representations and
-the network output. Finally, we compare interventions that limit update
-magnitude in different ways. The Adam experiments use the same three
-objectives as Section~\ref{sec:gd-experiments}, with full-objective gradients,
-one initialization per model, and unchanged data and normalization
-conventions. Supplementary Section S3 gives the complete learning-rate
-grid and optimizer settings.
+We extend the same three full-objective learning problems to Adam, with
+one matched initialization per model and 1,024 updates. The tested rates
+are $.0001/.0003/.001$ for MLP and $.0003/.001/.003$ for ResNet and
+Transformer. Figure~\ref{fig:adam-overview} displays the highest rate in
+each grid, selected to expose pronounced excursions; the complete grid
+is retained in Supplementary Section S3. We first ask how gradient
+reversal and growth precede loss increases, then trace the corresponding
+functional changes. The following section tests interventions from
+matched training states.
 
 \input{sections/05a-characterization}
 \input{sections/05b-tracing}

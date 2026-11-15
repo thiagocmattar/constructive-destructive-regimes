@@ -114,8 +114,20 @@ for record in hits:
     observed_flags = [sum(int(n) for n in sign_record[k].split('/'))
                       for k in ['rho<0 up/down', 'r>1 up/down', 'Both up/down', 'Q>=2 up/down']]
     check(observed_flags == expected[4:], 'Severity precision denominators')
-    for hit, flags in zip(expected[:4], expected[4:]):
-        check(f'{hit} ({100*hit/flags:.1f})' in characterization, 'Precision text')
+    # Historical 10% counts remain preserved; the main table now uses 0.1%.
+
+new_audit = json.loads((BASE / 'work/author_feedback_20261115/diagnostic_manifest.json').read_text())
+new_table = (DRAFT / 'tables/diagnostic-0p1pct.tex').read_text()
+for record in new_audit['rows']:
+    n, tp, fp, fn, tn = [record[k] for k in ['n','tp','fp','fn','tn']]
+    check(n == 1023 and tp+fp+fn+tn == n, 'New diagnostic confusion counts')
+    check(record['accuracy'] == (tp+tn)/n, 'Classification accuracy')
+    check(record['events'] == tp+fn, 'Target count')
+    for key, scale in [('accuracy',100),('precision',100),('precision_lift',1)]:
+        value = record[key]
+        if value is not None:
+            token = f'{scale*value:.2f}' if key == 'precision_lift' else f'{scale*value:.1f}'
+            check(token in new_table, 'New diagnostic table value: '+token)
 
 # Current tracing windows, including the refitted large ResNet excursion.
 spectral = json.loads((E / '05-adam/b-tracing/data/spectral_controls.json').read_text(encoding='utf-8'))
@@ -180,6 +192,7 @@ for _ in range(128):
 # coordinate scaling and momentum, plus sampled gradient contamination.
 math_max_errors['generic_step_average'] = 0.
 math_max_errors['generic_noise_identity'] = 0.
+math_max_errors['adam_projected_response'] = 0.
 for case_index in range(128):
     p = 7
     M = rng.normal(size=(p, p))
@@ -198,6 +211,10 @@ for case_index in range(128):
     average = sum(w*(u@hess(x+a*u)@u)/(u@u) for a,w in zip(nodes,weights))
     error = abs(estimate-average)
     check(error < 1e-10, 'General applied-step curvature identity')
+    response = 1 - f0@f1/(f0@f0)
+    projected = -sum(w*(f0@hess(x+a*u)@u)/(f0@f0) for a,w in zip(nodes,weights))
+    check(abs(response-projected) < 1e-10, 'Adam gradient-projected response identity')
+    math_max_errors['adam_projected_response'] = max(math_max_errors['adam_projected_response'], abs(response-projected))
     noise0, noise1 = rng.normal(scale=.1, size=(2,p))
     sampled = u@((f1+noise1)-(f0+noise0))/(u@u)
     noise_error = abs(sampled-estimate-u@(noise1-noise0)/(u@u))
@@ -217,7 +234,7 @@ for record in figures['exports']:
     for change in record['labels']:
         check('Fixed probe' not in change['after'], 'Old reference terminology')
         check(not re.search(r"(?<![A-Za-z'])s(?![A-Za-z])",change['after']), 'Old step label')
-assert any(v['after']==r'$Q_t$' for r in figures['exports'] for v in r['labels'])
+assert not any(v['after']==r'$Q_t$' for r in figures['exports'] for v in r['labels'])
 
 # Compiled content, references, fonts, and page bounds.
 build = json.loads((HERE / 'build.json').read_text(encoding='utf-8'))
@@ -248,6 +265,14 @@ for name in ['manuscript', 'supplementary']:
         texts[name] = text
         pdf_info[name] = {'pages': len(doc), 'embedded_fonts': len(font_xrefs), 'out_of_page_spans': 0, 'sha256': sha(path)}
 main_text = texts['manuscript']
+diagnostic_region = main_text[main_text.index('TABLE II'):main_text.index('Algorithm 1')]
+compiled_diagnostic = Counter(re.findall(r'\d+(?:\.\d+)?', diagnostic_region))
+expected_diagnostic = Counter()
+for record in new_audit['rows']:
+    for key,scale,digits in [('accuracy',100,1),('precision',100,1),('precision_lift',1,2)]:
+        if record[key] is not None:
+            expected_diagnostic[f'{scale*record[key]:.{digits}f}'] += 1
+check(all(compiled_diagnostic[v]>=n for v,n in expected_diagnostic.items()), 'Compiled diagnostic cells missing')
 for number in range(1,10):
     check(f'Fig. {number}.' in main_text, f'Figure {number} caption missing')
 for number in range(1,25):
@@ -261,6 +286,8 @@ compiled = Counter(re.findall(r'[+-]?\d+(?:\.\d+)?',table_region))
 expected = Counter(v for r in manifest['table']['rows'] for v in r['display_values'])
 check(all(compiled[v] >= n for v,n in expected.items()), 'Compiled intervention cells missing')
 all_tex = '\n'.join(p.read_text(encoding='utf-8') for p in (DRAFT / 'sections').glob('*.tex'))
+check(not re.search(r'^ef\{|Algorithm~\s+ef\{', all_tex, re.M), 'Malformed reference escape')
+check(not re.search(r':\s*\\begin\{(?:equation|align)', all_tex), 'Colon before displayed equation')
 check(not re.search(r'fixed[- ]probe|secant|Barzilai', all_tex, re.I), 'Superseded terminology')
 check(not re.search(r'(?<![A-Za-z])_s(?![A-Za-z])|_\{s[+}\-]', all_tex), 'Old mathematical clock')
 bib = (DRAFT / 'references.bib').read_text(encoding='utf-8')
@@ -274,7 +301,9 @@ check(abstract_words <= 250, 'Abstract over 250 words')
 result = {'status': 'passed', 'protected_files_unchanged': len(protected),
           'main_figures': 9, 'main_tables': 3, 'algorithms': 2,
           'recomputed_intervention_metrics': 144, 'compiled_intervention_cells': 144,
-          'gd_conditions_checked': 9, 'severity_table_hits_and_precision_cells': 24,
+          'gd_conditions_checked': 9, 'historical_severity_counts_checked': 24,
+          'new_diagnostic_conditions': 21, 'new_diagnostic_confusion_cells': 84,
+          'compiled_diagnostic_metric_cells': sum(expected_diagnostic.values()),
           'spectral_control_cells_checked': 24, 'supplement_figures': 24, 'supplement_tables': 9,
           'smooth_loss_and_cap_cases': 128, 'general_optimizer_step_cases': 128,
           'verified_figure_pdfs': len(figures['outputs']), 'mathematical_max_errors': math_max_errors,

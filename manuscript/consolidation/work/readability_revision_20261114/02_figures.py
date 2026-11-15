@@ -78,9 +78,23 @@ def translate(text, name):
     text = re.sub(r"(?<![A-Za-z'])s(?![A-Za-z])", 't', text)
     text = text.replace('Fixed probe', 'Reference examples')
     text = text.replace(r'First observed output $\rho<0$', 'First output reversal')
-    if name == '00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf':
-        text = text.replace(r'$\eta\widehat\kappa_t$', r'$Q_t$')
-        text = text.replace(r'$\eta\hat\kappa_t$', r'$Q_t$')
+    text = text.replace(r'$Q\geq2$', r'$\eta\widehat\kappa\geq2$')
+    text = text.replace('Q alarms:', 'Threshold alarms:')
+    text = text.replace('Alarms D/G/DG/Q:', 'Alarms D/G/DG/threshold:')
+    if name == '00-three-model-loss-representation-motion.pdf':
+        text = text.replace('Displacement RMS\n/ stage maximum',
+                            'Relative RMS\n' + r'$a_t^\ell/\max_u a_u^\ell$')
+    if name == '01-three-model-temporal-structure.pdf':
+        translations = {
+            'Number of modes': 'Number of patterns $k$',
+            'Cumulative energy': 'Squared movement\nfraction $E_k$',
+            'Top-1 energy': r'First pattern $E_1$',
+            'Top-10 energy': r'First ten $E_{10}$',
+            'Output overlap': r'Temporal overlap $O_{10}$',
+            'Energy fraction / overlap': 'Movement fraction / overlap',
+            r'Output $\alpha_1/\sqrt{P}$': r'Output $\alpha_{t,1}/\sqrt{P}$',
+        }
+        text = translations.get(text, text)
     return text
 
 

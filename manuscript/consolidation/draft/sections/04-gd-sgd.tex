@@ -1,23 +1,13 @@
 \section{Empirical Characterization of Constructive and Destructive Regimes}
 \label{sec:gd-experiments}\label{sec:gd}
 
-We test how constructive and destructive regimes emerge during training,
-how the gradient-based curvature estimate relates to their onset, and
-how repeated reversal shapes accumulated parameter change. Full-batch
-GD isolates these dynamics from sampling noise. We then vary batch size
-to examine how stochasticity changes the observed alignment.
-
-The comparison uses a tanh MLP on 5,000 CIFAR-10 images, ResNet-32 on all
-50,000 CIFAR-10 training images, and a word-level Transformer on WikiText-2.
-Each minimizes its fixed training objective for 3,000 updates.
-The constant learning rates are $\{0.004,0.02,0.04\}$ for the MLP,
-$\{0.025,0.05,0.1\}$ for ResNet, and $\{0.05,0.1,0.2\}$ for the Transformer.
-Within each model, all rates share one frozen initialization and data
-preparation.
-Table~\ref{tab:setup} summarizes the objectives and measurement coverage;
-Supplementary Section S2 gives the numerical and sampling conventions.
-Training uses FP32, diagnostic reductions use FP64, and data augmentation,
-dropout, and TF32 are disabled.
+We test how constructive and destructive regimes emerge, how their
+curvature and gradient signatures relate, and how repeated reversal
+affects accumulated parameter change. Table~\ref{tab:setup} summarizes
+the three model--dataset cases and learning rates. Within each model,
+all GD rates share one initialization and the complete training objective
+for 3,000 updates. Full-batch GD isolates these dynamics from sampling
+noise; subsequent mini-batch continuations test the effect of sampling.
 
 \begin{table*}[!t]
 \centering\small
@@ -53,18 +43,25 @@ downward; the estimated scaled curvature approaches two. ResNet enters
 this regime at every tested rate, with earlier transitions at larger
 learning rates.
 
-The retained Hessian measurements place these signatures in their
-spectral context. As sharpness grows, the trajectories develop the
-oscillations associated with EoS, while the inexpensive gradient
-diagnostic identifies the curvature response along the direction
-actually followed. In the oscillatory regime, $\eta\widehat\kappa_t$
-remains close to the local loss-change boundary even when
-$\eta\lambda_{\max}$ is larger. The distinction is expected: directional
-curvature depends on the gradient's orientation, whereas the leading
-eigenvalue describes the sharpest direction. ResNet and Transformer
-spectra additionally use fixed subsets of their training objectives.
-The comparison therefore supports monitoring the realized curvature
-response throughout training, with no additional Hessian computation.
+The dashed curves measure sharpness, the largest Hessian eigenvalue
+$\lambda_{\max}$. Computing it repeatedly requires additional
+Hessian--vector products. To keep this measurement feasible, we use all
+MLP data but fixed subsets for ResNet and Transformer, evaluated every
+100 steps; the caption gives their coverage. This follows the practical
+use of sampled sharpness measurements in EoS experiments~\cite{cohen2021edge}.
+Our solid curves instead use consecutive gradients of the complete
+training objective at every step, without diagnostic subsampling or
+additional derivative evaluations. They measure a different quantity:
+curvature along the realized GD direction, averaged over the step.
+Agreement with starting-point directional Hessian measurements is checked
+separately in Supplementary Section S2. Subset spectra and finite-step
+directional curvature need not coincide.
+
+Near the oscillatory regime, the smoothed $\eta\widehat\kappa_t$ stays
+close to two. This identifies the directional loss-balance boundary but
+hides how the oscillation changes in size. Figure~\ref{fig:gd-alignment-displacement}
+provides the missing information by separating reversal from gradient
+growth and accumulated displacement.
 
 \begin{figure*}[!t]
 \centering
@@ -94,6 +91,18 @@ final training loss. These destructive regimes therefore coexist with continued 
 despite extensive local reversal. The risk of an upward loss excursion
 depends on how strongly gradient growth amplifies that reversal.
 
+The transition from constructive to destructive alignment changes how
+parameter updates accumulate: nearly opposite gradients undo much of
+the preceding step. In a quadratic picture this is overshooting
+and returning across a directional minimum. In a neural network, declining
+loss together with growing gradient norms also permits descent along a
+changing valley while oscillating across its steeper directions. Neither
+a move between distinct basins nor overwriting a learned representation
+can be inferred from these parameter-space measurements alone. The
+functional analysis below asks directly whether representations also
+reverse. This separates an interpretable geometric possibility from an
+observed change in the learned function.
+
 The complete displacement sums confirm that local reversal need not
 dominate accumulated motion. Across all nine trajectories, the sum of
 all cross-step interactions is positive, including the seven whose
@@ -122,7 +131,11 @@ The early oscillation envelope contracts, rapidly for the MLP and ResNet
 and more slowly for the Transformer. Across the full window, alignment
 can strengthen again, so the envelope is not monotone. These recurrences
 illustrate how local destructive interference coexists with reinforcement
-over longer lags. The all-pair sums above quantify the resulting accumulation.
+over longer lags. This persistent oscillation across multiple steps, including renewed
+alignment at longer lags, reveals temporal structure beyond immediate
+neighbors. Because plain GD has no momentum state, this apparent memory
+comes from the evolving objective gradients, rather than an explicit
+optimizer memory. The complete displacement sums quantify its accumulated effect.
 
 \begin{figure*}[!t]
 \centering
@@ -133,59 +146,24 @@ over longer lags. The all-pair sums above quantify the resulting accumulation.
 \subsection{Mini-Batch Attenuation of Directional Alignment}
 \label{sec:sgd-noise-experiments}
 
-To test the effect of sampling, we vary batch size at initialization
-and after 2,000 GD updates in the same three model--dataset cases.
-Learning rates remain fixed at $0.02$, $0.1$, and $0.2$ for the MLP,
-ResNet, and Transformer, respectively. Each starting state receives
-200-update continuations, with three initializations, eight sampling
-repetitions per stochastic condition, and one full-GD control per
-initialization. Figure~\ref{fig:sgd-moving-geometry} summarizes mean
-consecutive-gradient cosine over these continuations. Sampling units
-and objective coverage are specified in
-Supplementary Section S2; equal update budgets imply
-different amounts of data exposure.
+To examine the directional dilution in Eq.~\eqref{eq:noise-cosine-approx}
+during training, we vary batch size at initialization and after 2,000 GD
+updates. Learning rates are $0.02$, $0.1$, and $0.2$ for MLP, ResNet, and
+Transformer. Each starting state receives 200 updates, with three
+initializations, eight sampling repetitions per stochastic condition,
+and one full-GD control per initialization. Every condition therefore
+has the same number of optimizer steps, but a larger batch exposes the
+model to more examples within those steps.
 
-From the trained states, the smallest batches move the strongly
-negative full-GD alignment toward zero in all three cases. This
-attenuation is consistent with sampling weakening the coherent
-back-and-forth motion of the destructive regime. The response need
-not be monotone across intermediate batch sizes: sampling changes
-both the measured gradient and the trajectory itself.
-
-The initial-state comparison makes this dependence on the trajectory
-visible. Full GD has positive mean cosine in the MLP and ResNet,
-but negative mean cosine in the Transformer, where reversal develops
-within the 200-update window. Smaller MLP batches can also induce
-negative mean alignment despite a positive full-GD mean. Thus the
-batch size influences which regime training reaches as well as the
-coherence within that regime.
-
-Directional attenuation alone does not determine objective progress.
-For the Transformer at $b=8$, mean cosine is near $-0.26$ from both
-starting states, yet mean full-data loss falls
-from initialization and rises from the trained state. Together with
-the full-batch results, this motivates reading alignment alongside
-gradient magnitude and loss: the same directional regime can support
-descent or an upward excursion depending on the gradient's growth
-and the state being traversed.
-
-
-\subsection{Checking the Curvature Estimate}
-\label{subsec:gd-validation}
-
-The smooth tanh MLP allows a direct check of the estimated curvature.
-We independently compute Hessian--vector products along the same sampled
-gradient direction and compare them with Eq.~\eqref{eq:kappa-estimate}.
-The comparison shows why the sampling term matters: correcting for the
-measured noise brings the two-gradient estimate much closer to the
-independent curvature calculation across all stochastic batch sizes.
-Supplementary Table S2 and Figs. S1--S2 give the paired errors and the
-separate frozen-parameter sampling check.
-
-Curvature agreement and accurate loss prediction are different questions.
-On a nonlinear objective, curvature can change during a large step, and
-the local quadratic loss relation can then give the wrong sign. We retain
-the complete sign comparison in Supplementary Table S1. Accordingly, the
-figures are interpreted through direction, magnitude, and observed loss
-together; the reference value two is not used as an unconditional
-prediction of the next loss increase.
+Figure~\ref{fig:sgd-moving-geometry} shows that the smallest batches move
+the strongly negative trained-state alignment toward zero in all three
+cases. Sampling weakens coherent reversal, consistent with attenuation
+of the destructive regime. However, it also changes gradient norms and
+the trajectory, so weaker opposition alone is not a stability guarantee.
+At initialization, smaller MLP batches can induce negative mean alignment
+despite a positive full-GD mean; in the Transformer, the same small batch
+has similar negative cosine from both starting states but decreasing loss
+from initialization and increasing loss from the trained state. Batch
+size therefore influences both the coherence of updates and which region
+of the objective they reach. The joint angle/norm condition explains why
+these effects must be considered together.

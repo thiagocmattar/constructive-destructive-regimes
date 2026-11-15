@@ -1,7 +1,7 @@
 \section{Derivations and the Measurement Clock}
 
 \subsection{State and update indexing}
-State $\theta_t$ has $t$ completed updates. The raw gradient $g_t$ is evaluated at that state and is available before the outgoing increment $u_t=\theta_{t+1}-\theta_t$. Paired gradient quantities $\rho_t,r_t,Q_t$ compare states $t-1$ and $t$. Representation motion $\delta_t^\ell=\operatorname{vec}(A_t^\ell-A_{t-1}^\ell)$ is incoming and is displayed at its endpoint $t$. In a fitted window $a{:}b$, the raw-gradient comparison uses $g_{a-1},\ldots,g_{b-1}$, the vectors used for those incoming updates. Earlier source records that number a gradient by the update it supplies are shifted by one when displayed; their numerical values are unchanged.
+State $\theta_t$ has $t$ completed updates. The raw gradient $g_t$ is evaluated at that state and is available before the outgoing increment $u_t=\theta_{t+1}-\theta_t$. Paired gradient quantities $\rho_t,r_t,\eta\widehat\kappa_t$ compare states $t-1$ and $t$. Representation motion $\delta_t^\ell=\operatorname{vec}(A_t^\ell-A_{t-1}^\ell)$ is incoming and is displayed at its endpoint $t$. In a fitted window $a{:}b$, the raw-gradient comparison uses $g_{a-1},\ldots,g_{b-1}$, the vectors used for those incoming updates. Earlier source records that number a gradient by the update it supplies are shifted by one when displayed; their numerical values are unchanged.
 
 \subsection{Displacement and directional curvature}
 For constant-rate plain SGD, summation gives $\theta_T-\theta_0=-\eta\sum_{t=0}^{T-1}g_t$. Expanding its squared norm gives the main all-pair identity. The triangle inequality gives $0\leq R_T\leq1$ when the total path length is nonzero. For another optimizer, the same geometric identity holds for the actual increments $u_t$, but replacing them by unweighted raw gradients generally does not recover parameter displacement.
@@ -35,9 +35,9 @@ For plain SGD, $u_{t-1}=-\eta g_{t-1}$ gives
  =\frac{1}{\eta}\left(1-\frac{g_{t-1}^{\top}g_t}{\|g_{t-1}\|^2}\right)
  =\widehat\kappa_t.
 \end{equation}
-Its sampling term is $-\varepsilon_t/\eta$, where $\varepsilon_t$ is defined in the main text. In the same specialization the starting-point error bound becomes $L_H\eta\|g_{t-1}\|/2$. For a different optimizer, the raw-gradient combination $Q_t$ and the step-direction curvature are generally different: one projects the gradient change onto the preceding gradient, the other onto the applied increment. The Adam overview retains the former measured quantity and labels it $Q_t$; it is not relabeled as an empirical measurement of the latter.
+Its sampling term is $-\varepsilon_t/\eta$, where $\varepsilon_t$ is defined in the main text. In the same specialization the starting-point error bound becomes $L_H\eta\|g_{t-1}\|/2$. For a different optimizer, the raw-gradient combination $\eta\widehat\kappa_t$ and the step-direction curvature are generally different: one projects the gradient change onto the preceding gradient, the other onto the applied increment. The Adam overview retains the former measured quantity and labels it $\eta\widehat\kappa_t$; it is not relabeled as an empirical measurement of the latter.
 
-A zero applied step makes $\widehat\kappa_t^{\mathrm{step}}$ undefined. Separately, $Q_t$ is undefined when $g_{t-1}=0$; if only $g_t=0$, the inner-product expression gives $Q_t=1$ although the gradient cosine is undefined. We use $r_t=\|g_t\|/\|g_{t-1}\|$ as the norm ratio in the supplementary timing tables.
+A zero applied step makes $\widehat\kappa_t^{\mathrm{step}}$ undefined. Separately, $\eta\widehat\kappa_t$ is undefined when $g_{t-1}=0$; if only $g_t=0$, the inner-product expression gives $\eta\widehat\kappa_t=1$ although the gradient cosine is undefined. We use $r_t=\|g_t\|/\|g_{t-1}\|$ as the norm ratio in the supplementary timing tables.
 
 \subsection{Sampling identities and their limits}
 Fresh conditional unbiasedness gives $\E[g_{t-1}^\top\xi_t]=0$. At the preceding state, $g_{t-1}=f_{t-1}+\xi_{t-1}$ and $\E[f_{t-1}^\top\xi_{t-1}]=0$, hence
@@ -55,12 +55,12 @@ Let $x=\theta_{t-1}$, $u=-\eta g_{t-1}$ and $\phi(a)=L(x+a u)$. Then $L_t-L_{t-1
  =\int_0^1(\tfrac12-a)u^\top H(x+a u)u\,da.
  \label{eq:t-trapezoid}
 \end{equation}
-Substituting $f_t=g_t-\xi_t$ yields the main sampled-loss identity. If $H$ is constant, the integral vanishes and full-batch GD gives $\Delta L_t=\eta\|g_{t-1}\|^2(Q_t-2)/2$ exactly. If the Hessian is $L_H$-Lipschitz, subtract its value at the midpoint inside~\eqref{eq:t-trapezoid}; the constant term integrates to zero. Consequently,
+Substituting $f_t=g_t-\xi_t$ yields the main sampled-loss identity. If $H$ is constant, the integral vanishes and full-batch GD gives $\Delta L_t=\eta\|g_{t-1}\|^2(\eta\widehat\kappa_t-2)/2$ exactly. If the Hessian is $L_H$-Lipschitz, subtract its value at the midpoint inside~\eqref{eq:t-trapezoid}; the constant term integrates to zero. Consequently,
 \begin{equation}
  |\mathcal E_t|\leq L_H\|u\|^3\int_0^1|a-\tfrac12|^2\,da
  =L_H\|u\|^3/12.
 \end{equation}
-A small curvature discrepancy does not by itself imply a small error relative to a near-zero loss change. This motivates the separate empirical sign audit. The strict quadratic condition $Q_t>2$ implies $\rho_t<0$ and $r_t>1$, but those two signs alone do not imply it. Current zero gradients and previous zero gradients retain the undefined-case rules in the main text.
+A small curvature discrepancy does not by itself imply a small error relative to a near-zero loss change. This motivates the separate empirical sign audit. The strict quadratic condition $\eta\widehat\kappa_t>2$ implies $\rho_t<0$ and $r_t>1$, but those two signs alone do not imply it. Current zero gradients and previous zero gradients retain the undefined-case rules in the main text.
 
 \subsection{Adaptive updates}
 For full-objective Adam, use $u_t=-\eta_t d_t$, with the parameter-state convention
@@ -70,4 +70,4 @@ For full-objective Adam, use $u_t=-\eta_t d_t$, with the parameter-state convent
  d_t&=\frac{m_t/(1-\beta_1^{t+1})}{\sqrt{v_t/(1-\beta_2^{t+1})}+\epsilon},&
  \theta_{t+1}&=\theta_t-\eta_t d_t.
 \end{align}
-Moments are initialized to zero at index $-1$. Here $h_t=g_t$ for native Adam and $h_t=\min(1,\gamma/\|g_t\|)g_t$ for global clipping, with factor one when $g_t=0$. The raw diagnostic always uses the unclipped $g_t$. Late $\beta_2$ interventions preserve moments and the native counter; their bias correction uses the new coefficient and that existing counter, rather than a product of historical coefficients. Caps subsequently transform the stored parameter proposal while retaining these advanced moments. The step-direction estimate uses the actual increment after any intervention. The raw-gradient quantity $Q_t$ continues to describe gradient reversal and growth, with the distinct interpretation explained above.
+Moments are initialized to zero at index $-1$. Here $h_t=g_t$ for native Adam and $h_t=\min(1,\gamma/\|g_t\|)g_t$ for global clipping, with factor one when $g_t=0$. The raw diagnostic always uses the unclipped $g_t$. Late $\beta_2$ interventions preserve moments and the native counter; their bias correction uses the new coefficient and that existing counter, rather than a product of historical coefficients. Caps subsequently transform the stored parameter proposal while retaining these advanced moments. The step-direction estimate uses the actual increment after any intervention. The raw-gradient quantity $\eta\widehat\kappa_t$ continues to describe gradient reversal and growth, with the distinct interpretation explained above.

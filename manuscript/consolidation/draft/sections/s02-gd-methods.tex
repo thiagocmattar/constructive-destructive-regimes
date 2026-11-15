@@ -5,7 +5,7 @@ The MLP has dimensions 3072--200--200--10 with tanh hidden activations, 656,810 
 
 The two-layer, two-head word-level Transformer has embedding and feed-forward widths 200. Twenty corpus streams form causal chunks of at most 35 tokens: 59,680 prepared sequences with 2,088,600 supervised targets. Loss sums valid-token negative log likelihood and divides by the complete target count, excluding padding. The 33,278-word first-occurrence dictionary over training, validation, and test text follows the pinned PyTorch example revision \texttt{13acec6d7c78}~\cite{pytorchWordLanguageModelPinned}. This is a fixed-objective dynamics setup, not a train-only-vocabulary benchmark. Held-out words enter dictionary construction, but held-out losses are not used for updates or intervention selection.
 
-Parameters, stored gradients, and moments are FP32; diagnostic products and norms are reduced in FP64. TF32 is disabled. Spectra use the largest algebraic Hessian eigenvalue at steps $0,100,\ldots,3000$, with relative eigenpair residual at most $.005$. MLP spectral coverage is complete; ResNet uses five intact normalization groups and Transformer uses 2,500 sequences. In main Fig. 1, sparse spectra are interpolated before the same centered 101-step mean used for $Q_t$; no additional Hessian observation is created. Main Fig. 2 uses complete trailing 50-observation means for norms/cosines and raw prefix $R_t$.
+Parameters, stored gradients, and moments are FP32; diagnostic products and norms are reduced in FP64. TF32 is disabled. Spectra use the largest algebraic Hessian eigenvalue at steps $0,100,\ldots,3000$, with relative eigenpair residual at most $.005$. MLP spectral coverage is complete; ResNet uses five intact normalization groups and Transformer uses 2,500 sequences. In main Fig. 1, sparse spectra are interpolated before the same centered 101-step mean used for $\eta\widehat\kappa_t$; no additional Hessian observation is created. Main Fig. 2 uses complete trailing 50-observation means for norms/cosines and raw prefix $R_t$.
 
 \begin{table}[H]
 \centering\small
@@ -33,7 +33,7 @@ At nine MLP reference states (three initializations, steps 0/1000/2000), each ba
 \label{fig:t-frozen}
 \end{figure}
 
-The separate moving MLP experiment contains 297 continuations across the three starts and five batch sizes. Four state-matched derivative pairs per continuation produce 1,188 comparisons. Each reference evaluates a directional HVP of the complete objective at the starting state; full gradients at both states supply the realized noise difference. Table~\ref{tab:t-hvp} compares $Q_t$ and $Q_t+\varepsilon_t$ with the independent scaled Rayleigh quotient. The correction is algebraic, but the HVP is separately computed. Measurements are dependent within trajectories.
+The separate moving MLP experiment contains 297 continuations across the three starts and five batch sizes. Four state-matched derivative pairs per continuation produce 1,188 comparisons. Each reference evaluates a directional HVP of the complete objective at the starting state; full gradients at both states supply the realized noise difference. Table~\ref{tab:t-hvp} compares $\eta\widehat\kappa_t$ and $\eta\widehat\kappa_t+\varepsilon_t$ with the independent scaled Rayleigh quotient. The correction is algebraic, but the HVP is separately computed. Measurements are dependent within trajectories.
 
 \begin{table}[H]
 \centering\small
