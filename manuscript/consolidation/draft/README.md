@@ -1,5 +1,7 @@
 # Consolidation manuscript for author review
 
+- **Sections I and II polished, 15 November 2026:** all 29 original prose units reviewed sequentially, with a diagnosis and proposed solution recorded before each edit. Concepts now precede technical terms; transitions and diagnostic timing are explicit. Five displayed equations, all labels, and the remaining scientific sources are preserved. The rebuilt PDF is 22 pages and warning-free. [Paragraph review and verification](../work/readability_paragraphs_20261115/OBSERVATIONS.md).
+
 - **Section II revised, 15 November 2026:** now "Related Work and Conceptual Foundations," organized around oscillatory stability and sampling, training-time diagnostics, and representation dynamics and update control. The five equations and all labels are preserved. Three verified references were added; the introduction roadmap was aligned. The PDF remains 22 pages. [Scope, source audit, and verification](../work/section2_framing_20261115/OBSERVATIONS.md).
 
 - **Introduction revised, 15 November 2026:** four contributions now follow the agreed framework, diagnostic, representation, and intervention order. The functional gap, exact-versus-predictive distinction, and intervention-target framing are explicit. The main PDF remains 22 pages; abstract, Section II onward, bibliography source, evidence, and supplement are unchanged. [Revision scope and verification](../work/introduction_framing_20261115/OBSERVATIONS.md).
