@@ -1,13 +1,14 @@
 \section{Empirical Characterization of Constructive and Destructive Regimes}
 \label{sec:gd-experiments}\label{sec:gd}
 
-We test how constructive and destructive regimes emerge, how their
-curvature and gradient signatures relate, and how repeated reversal
-affects accumulated parameter change. Table~\ref{tab:setup} summarizes
-the three model--dataset cases and learning rates. Within each model,
-all GD rates share one initialization and the complete training objective
-for 3,000 updates. Full-batch GD isolates these dynamics from sampling
-noise; subsequent mini-batch continuations test the effect of sampling.
+We test how constructive and destructive regimes emerge, how curvature
+relates to gradient size and alignment, and how repeated reversal
+coexists with accumulated parameter change. Table~\ref{tab:setup}
+summarizes the three model--dataset cases and learning rates. Within
+each model, all GD rates share one initialization and the complete
+training objective for 3,000 updates. Full-batch GD isolates these
+dynamics from sampling noise; subsequent mini-batch continuations
+test the effect of sampling.
 
 \begin{table*}[!t]
 \centering\small
@@ -35,13 +36,12 @@ Reference examples & All 5,000 training images & First intact 1,000-image group 
 \label{fig:gd-loss}
 \end{figure*}
 
-Figure~\ref{fig:gd-loss} shows a clear separation between smooth and
-oscillatory convergence. The lowest MLP and Transformer rates produce
-smooth loss curves and $\eta\widehat\kappa_t$ near zero. At higher rates,
-the loss develops fluctuations while its longer-term trend continues
-downward; the estimated scaled curvature approaches two. ResNet enters
-this regime at every tested rate, with earlier transitions at larger
-learning rates.
+Figure~\ref{fig:gd-loss} shows both smooth and oscillatory loss reduction.
+The lowest MLP and Transformer rates produce smooth loss curves and
+$\eta\widehat\kappa_t$ near zero. At higher rates, the loss fluctuates
+while its longer-term trend continues downward; the estimated scaled
+curvature approaches two. ResNet enters this regime at every tested
+rate, with earlier transitions at larger learning rates.
 
 The dashed curves measure sharpness, the largest Hessian eigenvalue
 $\lambda_{\max}$. Computing it repeatedly requires additional
@@ -57,11 +57,12 @@ Agreement with starting-point directional Hessian measurements is checked
 separately in Appendix~\ref{app:validation}. Subset spectra and finite-step
 directional curvature need not coincide.
 
-Near the oscillatory regime, the smoothed $\eta\widehat\kappa_t$ stays
-close to two. This identifies the directional loss-balance boundary but
-hides how the oscillation changes in size. Figure~\ref{fig:gd-alignment-displacement}
-provides the missing information by separating reversal from gradient
-growth and accumulated displacement.
+During oscillatory training, the smoothed $\eta\widehat\kappa_t$ stays
+close to two, the quadratic reference threshold for a loss increase.
+This average does not classify individual loss changes, and the nonlinear
+criterion has a finite-step remainder. Figure~\ref{fig:gd-alignment-displacement}
+separates gradient reversal, gradient growth, and accumulated displacement
+to show features of the motion that the smoothed curvature alone obscures.
 
 \begin{figure*}[!t]
 \centering
@@ -87,9 +88,18 @@ falls even as training continues to reduce the loss. At the highest
 rates, the retained fraction after 3,000 updates is approximately
 2.6\% for the MLP, 3.7\% for ResNet, and 5.4\% for the Transformer.
 Nevertheless, each highest-rate condition reaches its model's lowest
-final training loss. These destructive regimes therefore coexist with continued loss reduction
-despite extensive local reversal. The risk of an upward loss excursion
-depends on how strongly gradient growth amplifies that reversal.
+final training loss among the tested learning rates. These destructive
+regimes therefore coexist with continued loss reduction despite
+extensive local reversal.
+
+The complete displacement sums confirm that local reversal need not
+dominate accumulated motion. Across all nine trajectories, the sum of
+all cross-step interactions is positive, including the seven whose
+adjacent-pair sum is negative. Interactions at longer lags more than offset
+the adjacent cancellations (Appendix~\ref{app:validation}). Positive total
+interaction means that squared displacement exceeds the sum of squared
+step lengths. This is compatible with low $R_t$, which compares
+displacement with the total distance traveled.
 
 The transition from constructive to destructive alignment changes how
 parameter updates accumulate: nearly opposite gradients undo much of
@@ -102,12 +112,6 @@ can be inferred from these parameter-space measurements alone. The
 functional analysis below asks directly whether representations also
 reverse. This separates an interpretable geometric possibility from an
 observed change in the learned function.
-
-The complete displacement sums confirm that local reversal need not
-dominate accumulated motion. Across all nine trajectories, the sum of
-all cross-step interactions is positive, including the seven whose
-adjacent-pair sum is negative. Interactions at longer lags more than offset
-the adjacent cancellations (Appendix~\ref{app:validation}).
 
 \begin{figure*}[tp]
 \centering
@@ -127,15 +131,14 @@ even-lag alignment. This is direct evidence of repeated back-and-forth
 motion: a gradient can oppose its immediate predecessor while reinforcing
 the direction from two steps earlier.
 
-The early oscillation envelope contracts, rapidly for the MLP and ResNet
-and more slowly for the Transformer. Across the full window, alignment
-can strengthen again, so the envelope is not monotone. These recurrences
-illustrate how local destructive interference coexists with reinforcement
-over longer lags. This persistent oscillation across multiple steps, including renewed
-alignment at longer lags, reveals temporal structure beyond immediate
-neighbors. Because plain GD has no momentum state, this apparent memory
-comes from the evolving objective gradients, rather than an explicit
-optimizer memory. The complete displacement sums quantify its accumulated effect.
+Across the first several backward lags, the positive and negative
+alignment peaks shrink rapidly for the MLP and ResNet and more slowly
+for the Transformer. This describes increasing separation from the fixed
+endpoint. At longer lags, alignment can strengthen again, so its
+magnitude does not decrease monotonically with separation. These
+recurrences show how opposition to the immediate predecessor can coexist
+with alignment to earlier gradients. Such dependence across multiple
+lags occurs under plain GD, which has no momentum state.
 
 \begin{figure*}[!t]
 \centering
@@ -146,9 +149,11 @@ optimizer memory. The complete displacement sums quantify its accumulated effect
 \subsection{Mini-Batch Attenuation of Directional Alignment}
 \label{sec:sgd-noise-experiments}
 
-To examine the directional dilution in Eq.~\eqref{eq:noise-cosine-approx}
-during training, we vary batch size at initialization and after 2,000 GD
-updates. Learning rates are $0.02$, $0.1$, and $0.2$ for MLP, ResNet, and
+We next vary batch size during training, where sampling changes both
+the measured gradients and the parameter trajectory. This differs from
+the fixed-state calculation in Eq.~\eqref{eq:noise-cosine-approx}.
+Continuations start at initialization or after 2,000 GD updates.
+Learning rates are $0.02$, $0.1$, and $0.2$ for MLP, ResNet, and
 Transformer. Each starting state receives 200 updates, with three
 initializations, eight sampling repetitions per stochastic condition,
 and one full-GD control per initialization. Every condition therefore
@@ -156,14 +161,15 @@ has the same number of optimizer steps, but a larger batch exposes the
 model to more examples within those steps.
 
 Figure~\ref{fig:sgd-moving-geometry} shows that the smallest batches move
-the strongly negative trained-state alignment toward zero in all three
-cases. Sampling weakens coherent reversal, consistent with attenuation
-of the destructive regime. However, it also changes gradient norms and
-the trajectory, so weaker opposition alone is not a stability guarantee.
+the strongly negative mean alignment from the trained starting states
+toward zero in all three cases. This indicates weaker reversal in these
+continuations. Sampling also changes gradient norms and the trajectory,
+so weaker opposition alone does not establish stability.
+
 At initialization, smaller MLP batches can induce negative mean alignment
-despite a positive full-GD mean; in the Transformer, the same small batch
+despite a positive full-GD mean. In the Transformer, the same small batch
 has similar negative cosine from both starting states but decreasing loss
-from initialization and increasing loss from the trained state. Batch
-size therefore influences both the coherence of updates and which region
-of the objective they reach. The joint angle/norm condition explains why
-these effects must be considered together.
+from initialization and increasing loss from the trained state. Cosine
+alone therefore does not distinguish these loss behaviors. The loss relation also includes gradient magnitudes, the sampling
+term in Eq.~\eqref{eq:loss-curvature}, and the nonlinear finite-step
+remainder.
