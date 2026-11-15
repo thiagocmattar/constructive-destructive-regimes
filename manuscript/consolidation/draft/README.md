@@ -1,5 +1,7 @@
 # Consolidation manuscript for author review
 
+- **Appendix restructured, 15 November 2026:** three appendices retain mathematical limits, essential experimental definitions, diagnostic checks, and intervention verification. A compact existing nine-trajectory GD audit is now included; former Figures 10-12 moved unchanged to Supplement S7. The main paper is 20 pages and the supplement is 31, both warning-free. [Sequential review and verification](../work/appendix_restructure_20261115/OBSERVATIONS.md).
+
 - **Section VII clarified, 15 November 2026:** the conclusion leads with the central finding, states the curvature identity's conditions, separates next-step warnings from completed-step accounting, and specifies the intervention outcomes and endpoint exception. Its final claim concerns observed improvement despite persistent reversal. Four paragraphs reviewed sequentially; all other scientific sources preserved. The PDF remains 22 pages and warning-free. [Paragraph review and verification](../work/section7_readability_20261115/OBSERVATIONS.md).
 
 - **Section VI clarified, 15 November 2026:** local cap guarantees, calibration percentiles, and optimizer-state choices are explained explicitly. Outcome claims distinguish matched updates from elapsed time, and the output-loss identity separates direction, magnitude, and causal interpretation. Five equations, the algorithm, figures, and numerical results are preserved. The PDF remains 22 pages and warning-free. [Paragraph review and verification](../work/section6_readability_20261115/OBSERVATIONS.md).
@@ -16,10 +18,10 @@
 
 - **Introduction revised, 15 November 2026:** four contributions now follow the agreed framework, diagnostic, representation, and intervention order. The functional gap, exact-versus-predictive distinction, and intervention-target framing are explicit. The main PDF remains 22 pages; abstract, Section II onward, bibliography source, evidence, and supplement are unchanged. [Revision scope and verification](../work/introduction_framing_20261115/OBSERVATIONS.md).
 
-- **Read:** [revised manuscript - 22 pages](manuscript.pdf), including the compact reviewer appendix beginning on page 17. This is the file for your next commenting round; the second-round feedback remains incorporated.
-- **Extended research record:** [supplement - 27 pages](supplementary.pdf), preserved unchanged, with the exhaustive intervention heatmap grid and historical MLP replication. The main manuscript now contains the necessary appendix and does not require this separate document.
+- **Read:** [revised manuscript - 20 pages](manuscript.pdf), including the compact reviewer appendix beginning on page 17. This is the file for your next commenting round; the second-round feedback remains incorporated.
+- **Extended research record:** [supplement - 31 pages](supplementary.pdf), with the exhaustive intervention grid, historical MLP replication, and transferred trajectory figures in Section S7. The main manuscript retains the central evidence and checks; the supplement provides the complete supporting records.
 - **Main changes:** definitions before tracing algorithms/results; precise modes and temporal overlap; representation retention computed from saved data; clearer diagnostic timing; selective-cap computation and positioning; absolute intervention metrics and a compact q25 motion figure.
-- **Contents:** nine main figures, three main tables, two algorithms, and 44 numbered equations. The appendix adds three figures and four small tables: applied updates and controller activity for all settings, selected conventional-intervention heatmaps, curvature and spectral controls, late losses, and measured costs. Sections I-IV retain the framing and regime development; V characterizes Adam and traces functional oscillations; VI tests interventions; VII concludes.
+- **Contents:** nine main figures, three main tables, two algorithms, and 44 numbered equations. The appendix adds five compact tables: accumulated interactions and loss-sign disagreements, independent curvature checks, spectral controls, late losses, and measured costs. Complete update/activity histories and selected conventional-intervention heatmaps are in Supplement S7. Sections I-IV retain the framing and regime development; V characterizes Adam and traces functional oscillations; VI tests interventions; VII concludes.
 - **Editable sources:** [main wrapper](manuscript.tex), [sections](sections/), [supplement wrapper](supplementary.tex), [bibliography](references.bib), [figures](figures/), and [tables](tables/). Original evidence remains preserved in the sibling folder.
 - **Verified:** warning-free compilation, numerical and rendered-page checks, 108 absolute intervention table cells, full-Gram retention, q25 output-loss accounting, and 416 unchanged protected originals. [Current revision and comment resolutions](../work/author_feedback2_20261115/OBSERVATIONS.md).
 - **Appendix checks:** 78 plotted series, 18 heatmaps, and 36 late-mean cells verified against frozen evidence. [Appendix sources and rationale](../work/appendix_20261115/OBSERVATIONS.md).
@@ -41,9 +43,9 @@ python manuscript/consolidation/work/readability_revision_20261114/02_figures.py
 # Or regenerate only the compact appendix figures and tables:
 python manuscript/consolidation/work/appendix_20261115/01_artifacts.py
 
-python manuscript/consolidation/work/readability_revision_20261114/03_build.py
-python manuscript/consolidation/work/readability_revision_20261114/04_verify.py
-python manuscript/consolidation/work/readability_revision_20261114/05_review_sheets.py
+python manuscript/consolidation/work/appendix_restructure_20261115/02_build.py manuscript
+python manuscript/consolidation/work/appendix_restructure_20261115/02_build.py supplementary
+python manuscript/consolidation/work/appendix_restructure_20261115/03_verify.py
 ```
 
 Page renders and auxiliary files remain in ignored scratch storage. Inspect rebuilt pages before refreshing the visual-review record. This is the author-review version inside consolidation; the submission route and venue formatting remain as recorded in [PLAN](../PLAN.md).

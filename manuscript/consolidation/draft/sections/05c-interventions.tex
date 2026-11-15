@@ -182,7 +182,8 @@ learning-rate reduction can almost remove upward movement while
 retaining higher final loss than other settings,
 especially in ResNet. Late second-moment changes and clipping are more
 model-dependent: an intervention that helps the Transformer can worsen
-the MLP. Appendix~\ref{app:plots} retains all applied-update histories and selected functional trajectories.
+the MLP. Supplementary Section S7 provides complete applied-update histories
+and selected representation trajectories.
 
 All three cap quantiles improve both mean loss and positive variation
 over unchanged Adam in all three cases. The lowest observed mean loss
@@ -199,7 +200,7 @@ Large output jumps become smaller, while repeated reversals remain.
 Thus q25 improves the reported training-loss outcomes while preserving
 back-and-forth movement. The complete window also matters: attenuating
 the traced ResNet peak does not remove all later oscillations.
-Appendix~\ref{app:plots} compares this functional motion with selected
+Supplementary Section S7 shows representation trajectories for selected
 conventional interventions.
 
 For the squared-loss MLP, output changes give an exact accounting of
