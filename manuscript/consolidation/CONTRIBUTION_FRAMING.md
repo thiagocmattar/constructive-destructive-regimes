@@ -223,6 +223,45 @@ representation changes remains a hypothesis. A less concentrated spectrum could
 also result from attenuation of dominant modes, without new movement directions.
 No such spectral intervention comparison was established in this discussion.
 
+## Side note: noise, reversal damping, and implicit regularization
+
+Author's hypothesis, recorded on 15 November 2026 for later discussion:
+mini-batch noise weakens coherent negative gradient alignment in the measured
+trained-state continuations. If this damping also reflects a reduction in the
+curvature encountered along training, it could provide evidence for an implicit
+regularization effect of SGD. The intended connection is from sampling-induced
+changes in update dynamics to a preference for lower-curvature regions.
+
+This is a hypothesis, not a conclusion established by the current measurements.
+Section III separates the explicit sampling contribution to consecutive-gradient
+products from an approximate dilution of cosine for independent gradients at a
+fixed state. The latter does not establish attenuation of negative cosine along
+a moving trajectory, or a reduction in the Hessian of the full objective.
+The moving-trajectory damping is an empirical observation in the studied cases.
+
+The relation `rho ~= (norm_previous / norm_current) *
+(1 - eta * kappa + epsilon)` makes the identification issue explicit:
+changes in cosine can reflect norm ratios and sampling terms as well as
+directional curvature. A change in direction can also reduce directional
+curvature without lowering the largest Hessian eigenvalue. Consequently, damping
+of rho alone does not identify curvature reduction or an implicit regularizer.
+
+To substantiate the author's interpretation, a future matched comparison would
+need independent full-objective curvature measurements, distinguishing curvature
+along the applied direction from spectral sharpness, and separating sampling
+effects at fixed parameters from the geometry reached by different trajectories.
+Evidence of a systematic preference for lower-curvature regions would support
+implicit regularization; improved generalization would require separate evidence.
+These are proposed checks, not an authorized experiment or a new registered
+hypothesis/run.
+
+Relevant antecedents already located in the literature discussion are
+[Andreyev and Beneventano, Edge of Stochastic Stability](https://arxiv.org/html/2412.20553)
+and [Liao, Kolomvaki, and Kyrillidis, The Stochastic Sharpness Gap,
+April 2026 preprint](https://arxiv.org/html/2604.21016). These works address
+stochastic stability and suppression of sharpness, so any future claim should
+identify the additional evidence or mechanism provided here.
+
 ## Remaining contribution-by-contribution discussion
 
 | Current introduction bullet | Status after this discussion |
