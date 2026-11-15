@@ -115,6 +115,38 @@ fixed reference sets. The MLP/ResNet/Transformer output changes require 5/20/15
 modes for 95% of squared movement, among at most 51/61/49 observable directions.
 These results are characterizations of the measured changes, not capacity bounds.
 
+## Accepted framing and full bullet: intervention target
+
+The author approved the following direction and requested retaining the full
+bullet without shortening it. The contribution is evidence that controlling
+local representation displacement is a promising intervention direction. The
+cap serves as an experimental instrument for testing that direction; proposing
+a new optimizer or establishing algorithmic superiority is not the intended
+central claim. Insertion into the manuscript remains pending.
+
+> **Testing representation displacement as a target for intervention.**
+> Explaining how loss spikes arise leaves open how to control disruptive
+> movement while preserving training progress [Bai et al., 2026]. Motivated by
+> the observed functional oscillations and prior representation-based controls
+> [Kosson et al., 2024], we use local displacement caps to test whether
+> selectively limiting movement magnitude can improve training without
+> eliminating reversals. In matched continuations across three model–dataset
+> cases, all tested cap quantiles reduce mean training loss and accumulated
+> upward loss variation relative to unchanged Adam, while functional reversals
+> persist. Comparisons with learning-rate reduction, second-moment changes,
+> and gradient clipping reveal distinct tradeoffs. These findings identify
+> local representation displacement as a promising intervention target, with
+> endpoint and computational limitations defining the scope of the evidence.
+
+Use the existing bibliography keys `bai2026spikes` and `kosson2024warmup` when
+converting this prose to TeX. The literature motivation is recorded above;
+the experimental support is in
+[the intervention section](draft/sections/05c-interventions.tex), Figures 8–9,
+Table III, and the endpoint and cost checks in the appendix. The claim concerns
+the three measured continuations, with one initialization per model and unequal
+effective intervention strengths. It does not assert improved generalization,
+asymptotic convergence, or time-to-loss performance.
+
 ## Mathematical novelty: antecedent requiring explicit positioning
 
 The discussion identified a direct antecedent for the step-direction scalar.
@@ -199,7 +231,7 @@ No such spectral intervention comparison was established in this discussion.
 | Cheap curvature along the applied step | BB antecedent identified; novelty language needs explicit positioning. |
 | Reversal, growth, and loss increases | Preserve exact quadratic GD versus nonlinear approximation and retrospective versus outgoing-step timing; gap formulation still pending. |
 | Functional tracing | Explicit Central Flows motivation located; proposed bullet recorded above. |
-| Selective displacement control | Discuss next, separately; connect to the unresolved control/progress question and representation-based controls. |
+| Selective displacement control | Author approved intervention-target framing and requested the full bullet above; manuscript insertion remains pending. |
 
 For the last bullet, the closest literature includes
 [Kosson et al., Analyzing & Reducing the Need for Learning Rate Warmup in GPT
