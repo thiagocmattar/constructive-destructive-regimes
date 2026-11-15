@@ -1,0 +1,46 @@
+{
+  "generator": "71_report_q25_svd.py",
+  "figures": [
+    {
+      "case": "mlp",
+      "path": "mlp-q25-svd.pdf",
+      "pages": 3,
+      "sha256": "eb8909394086001b4b407257e99c255438b136a5fc0f56f1e1af8ed1142f00c5"
+    },
+    {
+      "case": "resnet",
+      "path": "resnet-q25-svd.pdf",
+      "pages": 3,
+      "sha256": "de3dfb2bf3fb390ee0410af189fb6518e84ab8e5b60430cbc4979dbd7bb67be3"
+    },
+    {
+      "case": "transformer",
+      "path": "transformer-q25-svd.pdf",
+      "pages": 3,
+      "sha256": "e3f6380a18105ed3f78a2ea79477ccf29a720d4be3934fcc7b078626793bc82c"
+    },
+    {
+      "case": "comparison",
+      "path": "comparison-q25-svd.pdf",
+      "pages": 1,
+      "sha256": "df23707e8b6101fd9243521b703e045b9ba886bd64b68cb25e70049badde0d60"
+    }
+  ],
+  "sources": {
+    "mlp": {
+      "results_sha256": "617a2400aa1e627672ccdb77c27ad5403c2c2358eb5a97794abb1c2243f6b4b0",
+      "gram_sha256": "1dfabb09cf939e5c6c4f79dd3a6a34d0a26d143a2de6e3d2fe20b37debbe211b",
+      "inventory_sha256": "ce7da1d0c94d4822c27e78009773b68688747d4baebf73f64057b32b320f7d10"
+    },
+    "resnet": {
+      "results_sha256": "55c76e59747d6e1d95999c8c6734fecdbadc7cb3038c4876c358241650d62884",
+      "gram_sha256": "84f9202c2883ab52528df303603c8d8513591d4c72fe1b9773832745af557883",
+      "inventory_sha256": "c15e48968bc99188e5b8fdbea59c3b41881d300c96bc8acec76fbf45c0af60b2"
+    },
+    "transformer": {
+      "results_sha256": "6ac1a9cf62874b6de82b8145b51ea308eaa0d5b2e77e9cadba6f809e906642bb",
+      "gram_sha256": "051d02f38639a604df4ded2415b00bb441e501ad3a9b0b7ed3a6fad26db887cf",
+      "inventory_sha256": "bd3fa774c94dbc2d99190047a9257a0fa4a0a97d803392b35139bb74461727f4"
+    }
+  }
+}

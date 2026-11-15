@@ -1,5 +1,9 @@
 # Research index
 
+## Q25 representation-motion spectra, 15 November 2026
+
+[H053 / Run297 / Analysis065](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/017-q25-representation-svd.md): paired 64-update continuations give output rank95 6 to 10 / 26 to 19 / 15 to 32 for MLP / ResNet / Transformer. Squared-motion ratios are 0.01664 / 0.77229 / 0.09635; ResNet changes direction across depth, and concentration measures can disagree. Four PDFs / ten pages, 114 compact checks, nine direct SVD checks and 81 source checks pass. One initialization per case; non-MLP traces are fresh matched Spark continuations. 70.434 GB retained on owned Spark, zero cloud spend, manuscript unchanged. Next analysis067 / run298 / H054.
+
 
 ## Activation inactivity and concentration, 15 November 2026
 

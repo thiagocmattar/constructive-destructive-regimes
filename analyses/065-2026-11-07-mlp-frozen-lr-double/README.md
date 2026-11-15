@@ -1,5 +1,21 @@
 # MLP interventions: ongoing analysis (064 / 065)
 
+## H053: Q25 representation-motion SVD completed
+
+[Observation017](observations/017-q25-representation-svd.md) and the
+[one-page comparison](svd_q25/comparison-q25-svd.pdf) complete Run297's matched
+64-update continuations on owned Spark. Full-output rank95 changes from
+6 to 10 / 26 to 19 / 15 to 32 for MLP / ResNet / Transformer, with squared-motion
+ratios 0.01664 / 0.77229 / 0.09635. ResNet increases near the input and decreases
+deeper in the network. More modes are not a universal consequence of the cap;
+spectral concentration, absolute motion and subspace changes remain distinct.
+
+The [analysis folder](svd_q25/README.md) retains every site and all 32/32/64-update
+windows, verified tables, four PDFs / ten pages, source qualification and
+checksum receipts. All task workers finished; 70.434 GB remains on owned Spark,
+with zero cloud spend. Manuscript/consolidation is unchanged. One initialization
+per case; early windows; non-MLP historical replay is numerically inexact.
+
 ## H051 matched intervention matrix completed, 14 November 2026
 
 - [Observation016](observations/016-matched-intervention-matrix.md) completes Runs 293–295: 36 conditions / 11,904 treated updates, common initialization-0 forks and full matched measurements. LR.75/.5/.1, beta2.95/.9/.5, raw-gradient clipping.5/1, and distributed q25/q50/q75 all retain unchanged Adam.

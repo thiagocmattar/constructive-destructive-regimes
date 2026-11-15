@@ -1,5 +1,11 @@
 # Consolidated findings
 
+## Q25 changes movement spectra without a uniform dimensionality increase
+
+[H053 / Run297 / Analysis065](../../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/017-q25-representation-svd.md). In paired 64-update windows, full-output rank95 changes 6 to 10 / 26 to 19 / 15 to 32 for MLP / ResNet / Transformer, while squared-motion ratios are 0.01664 / 0.77229 / 0.09635. ResNet increases rank95 near the input but decreases it deeper. Leading-mode shares and participation ranks sometimes disagree with rank95. Absolute output movement outside the baseline95 subspace decreases in MLP and increases in ResNet/Transformer despite lower total motion.
+
+These observations separate concentration, amplitude and changes relative to a fixed dominant subspace. They do not establish new directions outside the full baseline span, greater model capacity or a learning mechanism. Evidence covers one initialization per case, original fixed probes and early windows; non-MLP trajectories are fresh matched Spark continuations. All numerical/source/retrieval checks and ten figure pages pass. Raw evidence is retained on owned Spark; no manuscript/consolidation edits.
+
 ## Matched intervention effects, 14 November 2026
 
 [H051 / Runs 293–295](../../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md). All 36 initialization-0 conditions / 11,904 treated updates are complete and independently verified. Common forks: MLP 512–800, ResNet 256–576, Transformer 544–928. Immediate LR .75/.5/.1, late beta2 .95/.9/.5, global raw-gradient clipping .5/1 and distributed q25/q50/q75 each retain unchanged Adam. q50 mean-loss changes are -32.18%/-9.42%/-19.84%; late/test tradeoffs and nonmonotone quantile sensitivity remain explicit. One initialization/model, unequal treatment strengths; no universal superiority or generalization claim.

@@ -1,0 +1,543 @@
+{
+  "mlp": {
+    "layout": {
+      "sites": {
+        "1": {
+          "file": "activation-00.npy",
+          "coordinates": 1000000,
+          "shape": [
+            5000,
+            200
+          ]
+        },
+        "2": {
+          "file": "activation-01.npy",
+          "coordinates": 1000000,
+          "shape": [
+            5000,
+            200
+          ]
+        },
+        "3": {
+          "file": "activation-02.npy",
+          "coordinates": 1000000,
+          "shape": [
+            5000,
+            200
+          ]
+        },
+        "4": {
+          "file": "activation-03.npy",
+          "coordinates": 1000000,
+          "shape": [
+            5000,
+            200
+          ]
+        },
+        "output": {
+          "file": "activation-04.npy",
+          "coordinates": 50000,
+          "shape": [
+            5000,
+            10
+          ]
+        }
+      },
+      "first_state": 512,
+      "last_state": 576,
+      "updates": 64
+    },
+    "capture": {
+      "status": "completed",
+      "seconds": 9.506574973987881,
+      "smoke": false
+    },
+    "environment": {
+      "gpu": "NVIDIA GB10",
+      "torch": "2.11.0+cu130",
+      "cuda": "13.0",
+      "numpy": "2.5.0",
+      "deterministic": true,
+      "tf32": false
+    },
+    "loss_summary": {
+      "control": {
+        "initial": 0.02305707847699523,
+        "post_update_mean": 0.028086865055229282,
+        "final": 0.022897090297192335
+      },
+      "cap_q25": {
+        "initial": 0.02305707847699523,
+        "post_update_mean": 0.0196766265144106,
+        "final": 0.01788019109517336
+      }
+    },
+    "qualifications": {
+      "control": {
+        "checks": [
+          {
+            "state": 512,
+            "kind": "fork_gradient",
+            "exact": true,
+            "relative": 0.0,
+            "max_absolute": 0.0,
+            "repeat_probe_exact": true
+          },
+          {
+            "state": 513,
+            "kind": "historic_first_update",
+            "exact": true,
+            "relative": 0.0,
+            "max_absolute": 0.0
+          },
+          {
+            "state": 544,
+            "kind": "historic_gradient",
+            "exact": true,
+            "relative": 0.0,
+            "max_absolute": 0.0
+          },
+          {
+            "state": 544,
+            "kind": "historic_parameters",
+            "exact": true,
+            "relative": 0.0,
+            "max_absolute": 0.0
+          }
+        ],
+        "historic_losses_exact": true,
+        "max_historic_loss_absolute_error": 0.0,
+        "seconds": 3.204535950004356
+      },
+      "cap_q25": {
+        "checks": [
+          {
+            "state": 512,
+            "kind": "fork_gradient",
+            "exact": true,
+            "relative": 0.0,
+            "max_absolute": 0.0,
+            "repeat_probe_exact": true
+          },
+          {
+            "state": 513,
+            "kind": "historic_first_update",
+            "exact": true,
+            "relative": 0.0,
+            "max_absolute": 0.0
+          },
+          {
+            "state": 544,
+            "kind": "historic_gradient",
+            "exact": true,
+            "relative": 0.0,
+            "max_absolute": 0.0
+          },
+          {
+            "state": 544,
+            "kind": "historic_parameters",
+            "exact": true,
+            "relative": 0.0,
+            "max_absolute": 0.0
+          }
+        ],
+        "historic_losses_exact": true,
+        "max_historic_loss_absolute_error": 0.0,
+        "seconds": 5.796311779995449
+      }
+    },
+    "source_hashes": {
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/cache/cifar10-eos/data.pt": "2e4761c655a66a7e578efeb30950b9e39deeafd618f519cbc4ec823ff867985e",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/cache/eos-multitask/inputs.json": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/cache/eos-multitask/reference/resnet_cifar.py": "7a98f29fed2635bfc80b6cbea00d0d08e92122125789483e2600aa82fc5735c9",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/cache/eos-multitask/reference/model.py": "9d2a01d0076146232bb10b21f642b2c27435ae33aaaa9fbd1f80a357ff84c196",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/297-2026-11-15-cap-q25-temporal-svd/01_capture.py": "73fae1c204f30fd69e7e7f8ae4cd8c77b7744ffa3bd387f3d020c3a01c48ed98",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/297-2026-11-15-cap-q25-temporal-svd/config.json": "6ec48248eb302400a3e11535153ebd1eae044fe2a81863a8ebc4e4b23e211d9d",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/src/eos_tasks/matched_interventions.py": "2d41ceede8bccac8248c549decad75b372934f2a2580476ac657b5cdc65373d9",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/src/eos_tasks/representation_continuation.py": "f754d6599dc27851c74d4b01cf39e1bb197e44ed83ad8f717ed2eb8f720b9805",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/src/eos_tasks/representation_policy.py": "8bdae2560e3134885901823b6e1a29d31f5243bb95df38cfbac4e0d817ec3b71",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/293-2026-11-14-mlp-matched-interventions/config.json": "a4f66286d559dc088fb6c41c739893c9b978364c6cc9778a8a14686a38647ab5",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/shared/thresholds.json": "711a920e5b5238531e40323a53d230baa2597e5f58b890ded833bb573edc6ebb",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/control/audit-0512.pt": "ffa07827d59490dda0fe9e0060f82e3cd429a9515bc4bdfeae9ab94c9f766f3b",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/control/boundaries.jsonl": "025111cfc08154ba0a59e1eac1cc36f4a1c9bd80664a8439b7bae3a38c7115d7",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/control/audit-0544.pt": "a1f614fc004e4ee4d7f291945bfff448f4b736ac7a189f0d74419e067a9bff36",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/cap_q25/audit-0512.pt": "c3c1f6f441d36636a22a13815c1df4a07d7658ed7e358d269163e2ad53f60b62",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/cap_q25/boundaries.jsonl": "015de44efb59234e6dd32fc70e9fae186f93da368b956f26c480898a4b3b43a4",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/293-2026-11-14-mlp-matched-interventions/artifacts/attempt-01/spark/cap_q25/audit-0544.pt": "a287943a15caa397ef05c96ce18e5140bdfce161e677b5e7859aaa9c94e6e529"
+    }
+  },
+  "resnet": {
+    "layout": {
+      "sites": {
+        "conv1": {
+          "file": "activation-00.npy",
+          "coordinates": 16384000,
+          "shape": [
+            1000,
+            16,
+            32,
+            32
+          ]
+        },
+        "layer1": {
+          "file": "activation-01.npy",
+          "coordinates": 16384000,
+          "shape": [
+            1000,
+            16,
+            32,
+            32
+          ]
+        },
+        "layer2": {
+          "file": "activation-02.npy",
+          "coordinates": 8192000,
+          "shape": [
+            1000,
+            32,
+            16,
+            16
+          ]
+        },
+        "layer3": {
+          "file": "activation-03.npy",
+          "coordinates": 4096000,
+          "shape": [
+            1000,
+            64,
+            8,
+            8
+          ]
+        },
+        "avgpool": {
+          "file": "activation-04.npy",
+          "coordinates": 64000,
+          "shape": [
+            1000,
+            64,
+            1,
+            1
+          ]
+        },
+        "output": {
+          "file": "activation-05.npy",
+          "coordinates": 10000,
+          "shape": [
+            1000,
+            10
+          ]
+        },
+        "correct_label_log_probability": {
+          "file": "activation-06.npy",
+          "coordinates": 1000,
+          "shape": [
+            1000
+          ]
+        }
+      },
+      "first_state": 256,
+      "last_state": 320,
+      "updates": 64
+    },
+    "capture": {
+      "status": "completed",
+      "seconds": 2137.338366593991,
+      "smoke": false
+    },
+    "environment": {
+      "gpu": "NVIDIA GB10",
+      "torch": "2.11.0+cu130",
+      "cuda": "13.0",
+      "numpy": "2.5.0",
+      "deterministic": true,
+      "tf32": false
+    },
+    "loss_summary": {
+      "control": {
+        "initial": 0.48259168823242193,
+        "post_update_mean": 0.37424114298820493,
+        "final": 0.26611359954833985
+      },
+      "cap_q25": {
+        "initial": 0.48259168823242193,
+        "post_update_mean": 0.3473312227725983,
+        "final": 0.2703161584472657
+      }
+    },
+    "qualifications": {
+      "control": {
+        "checks": [
+          {
+            "state": 256,
+            "kind": "fork_gradient",
+            "exact": false,
+            "relative": 0.0001332112284790417,
+            "max_absolute": 5.24669885635376e-05,
+            "repeat_probe_exact": true
+          },
+          {
+            "state": 257,
+            "kind": "historic_first_update",
+            "exact": false,
+            "relative": 4.385344250484934e-07,
+            "max_absolute": 1.5050172805786133e-06
+          },
+          {
+            "state": 288,
+            "kind": "historic_gradient",
+            "exact": false,
+            "relative": 0.04330638765692704,
+            "max_absolute": 0.011251673102378845
+          },
+          {
+            "state": 288,
+            "kind": "historic_parameters",
+            "exact": false,
+            "relative": 0.0004268792270535296,
+            "max_absolute": 0.0009117424488067627
+          }
+        ],
+        "historic_losses_exact": false,
+        "max_historic_loss_absolute_error": 0.01211571929931643,
+        "seconds": 1005.0847187220061
+      },
+      "cap_q25": {
+        "checks": [
+          {
+            "state": 256,
+            "kind": "fork_gradient",
+            "exact": false,
+            "relative": 0.0001332112284790417,
+            "max_absolute": 5.24669885635376e-05,
+            "repeat_probe_exact": true
+          },
+          {
+            "state": 257,
+            "kind": "historic_first_update",
+            "exact": false,
+            "relative": 3.8984042308678763e-07,
+            "max_absolute": 1.5050172805786133e-06
+          },
+          {
+            "state": 288,
+            "kind": "historic_gradient",
+            "exact": false,
+            "relative": 0.10691637239355038,
+            "max_absolute": 0.024426929652690887
+          },
+          {
+            "state": 288,
+            "kind": "historic_parameters",
+            "exact": false,
+            "relative": 0.000333630315791713,
+            "max_absolute": 0.0007431283593177795
+          }
+        ],
+        "historic_losses_exact": false,
+        "max_historic_loss_absolute_error": 0.024034782409667943,
+        "seconds": 1131.2406293670065
+      }
+    },
+    "source_hashes": {
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/cache/eos-multitask/resnet_data.pt": "0a71ff06ddf09c355f82712bcb57f973e987916269e26ed278133e008b88564a",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/cache/eos-multitask/inputs.json": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/cache/eos-multitask/reference/resnet_cifar.py": "7a98f29fed2635bfc80b6cbea00d0d08e92122125789483e2600aa82fc5735c9",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/cache/eos-multitask/reference/model.py": "9d2a01d0076146232bb10b21f642b2c27435ae33aaaa9fbd1f80a357ff84c196",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/297-2026-11-15-cap-q25-temporal-svd/01_capture.py": "73fae1c204f30fd69e7e7f8ae4cd8c77b7744ffa3bd387f3d020c3a01c48ed98",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/297-2026-11-15-cap-q25-temporal-svd/config.json": "6ec48248eb302400a3e11535153ebd1eae044fe2a81863a8ebc4e4b23e211d9d",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/src/eos_tasks/matched_interventions.py": "2d41ceede8bccac8248c549decad75b372934f2a2580476ac657b5cdc65373d9",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/src/eos_tasks/representation_continuation.py": "f754d6599dc27851c74d4b01cf39e1bb197e44ed83ad8f717ed2eb8f720b9805",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/src/eos_tasks/representation_policy.py": "8bdae2560e3134885901823b6e1a29d31f5243bb95df38cfbac4e0d817ec3b71",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/294-2026-11-14-resnet-matched-interventions/config.json": "066d32579657b55f79640548078bf082d0cc527e77a80eae4ba5c2a941359b19",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/shared/thresholds.json": "fc3a0e785334022011ab9a54a8b0f1242c6dc8f13319f04924d113de72fb60af",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/control/audit-0256.pt": "e2984536b334664ad9de873209a02399cb66ba667942b7ca6591e4233db8acb6",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/control/boundaries.jsonl": "cafae9e6f7a9d6e2a9af7dc179d767daf5bd3fad72c91bb8d5617938e727b9cb",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/control/audit-0288.pt": "fa2727edf1307b8052eb33b00f20f733b8649cb8ce561365b085f51da8d2f8f5",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/cap_q25/audit-0256.pt": "21a85280a919c7fec2928184763bfb848f46a064ead012f3ce22cecfe8704d76",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/cap_q25/boundaries.jsonl": "c7be360075efb9de237298ac8af339d0d59ed803d4cc79adaff1851a74a50b10",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/294-2026-11-14-resnet-matched-interventions/artifacts/attempt-01/resnet-1/cap_q25/audit-0288.pt": "09d5e1ef5e5942e0d69ae7a2ac8bcfef369891dbb60e966d5f836fe3ea7603af"
+    }
+  },
+  "transformer": {
+    "layout": {
+      "sites": {
+        "encoder": {
+          "file": "activation-00.npy",
+          "coordinates": 448000,
+          "shape": [
+            2240,
+            200
+          ]
+        },
+        "transformer_encoder.layers.0.self_attn": {
+          "file": "activation-01.npy",
+          "coordinates": 448000,
+          "shape": [
+            2240,
+            200
+          ]
+        },
+        "transformer_encoder.layers.0": {
+          "file": "activation-02.npy",
+          "coordinates": 448000,
+          "shape": [
+            2240,
+            200
+          ]
+        },
+        "transformer_encoder.layers.1.self_attn": {
+          "file": "activation-03.npy",
+          "coordinates": 448000,
+          "shape": [
+            2240,
+            200
+          ]
+        },
+        "transformer_encoder.layers.1": {
+          "file": "activation-04.npy",
+          "coordinates": 448000,
+          "shape": [
+            2240,
+            200
+          ]
+        },
+        "output": {
+          "file": "activation-05.npy",
+          "coordinates": 74542720,
+          "shape": [
+            2240,
+            33278
+          ]
+        },
+        "correct_label_log_probability": {
+          "file": "activation-06.npy",
+          "coordinates": 2240,
+          "shape": [
+            2240
+          ]
+        }
+      },
+      "first_state": 544,
+      "last_state": 608,
+      "updates": 64
+    },
+    "capture": {
+      "status": "completed",
+      "seconds": 4692.975233562,
+      "smoke": false
+    },
+    "environment": {
+      "gpu": "NVIDIA GB10",
+      "torch": "2.11.0+cu130",
+      "cuda": "13.0",
+      "numpy": "2.5.0",
+      "deterministic": true,
+      "tf32": false
+    },
+    "loss_summary": {
+      "control": {
+        "initial": 0.8672125483769227,
+        "post_update_mean": 0.9586302733081151,
+        "final": 0.8038621953934818
+      },
+      "cap_q25": {
+        "initial": 0.8672125483769227,
+        "post_update_mean": 0.7939337955922515,
+        "final": 0.7526021198877985
+      }
+    },
+    "qualifications": {
+      "control": {
+        "checks": [
+          {
+            "state": 544,
+            "kind": "fork_gradient",
+            "exact": false,
+            "relative": 0.000499236612034495,
+            "max_absolute": 3.085413482040167e-06,
+            "repeat_probe_exact": true
+          },
+          {
+            "state": 545,
+            "kind": "historic_first_update",
+            "exact": false,
+            "relative": 7.825965139443313e-07,
+            "max_absolute": 5.2344053983688354e-05
+          },
+          {
+            "state": 576,
+            "kind": "historic_gradient",
+            "exact": false,
+            "relative": 0.20772707962106818,
+            "max_absolute": 0.011778637766838074
+          },
+          {
+            "state": 576,
+            "kind": "historic_parameters",
+            "exact": false,
+            "relative": 0.013857215446213829,
+            "max_absolute": 0.07753737829625607
+          }
+        ],
+        "historic_losses_exact": false,
+        "max_historic_loss_absolute_error": 0.019339993067836403,
+        "seconds": 2344.939827002003
+      },
+      "cap_q25": {
+        "checks": [
+          {
+            "state": 544,
+            "kind": "fork_gradient",
+            "exact": false,
+            "relative": 0.000499236612034495,
+            "max_absolute": 3.085413482040167e-06,
+            "repeat_probe_exact": true
+          },
+          {
+            "state": 545,
+            "kind": "historic_first_update",
+            "exact": false,
+            "relative": 7.824934823706919e-07,
+            "max_absolute": 5.2344053983688354e-05
+          },
+          {
+            "state": 576,
+            "kind": "historic_gradient",
+            "exact": false,
+            "relative": 0.18726789977212663,
+            "max_absolute": 0.002392581896856427
+          },
+          {
+            "state": 576,
+            "kind": "historic_parameters",
+            "exact": false,
+            "relative": 0.0010814604996784297,
+            "max_absolute": 0.0252673476934433
+          }
+        ],
+        "historic_losses_exact": false,
+        "max_historic_loss_absolute_error": 0.003192557086777903,
+        "seconds": 2346.1372025210003
+      }
+    },
+    "source_hashes": {
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/cache/eos-multitask/transformer_data.pt": "6be25abd18302070e46ac69cd47316212f9a3b62f24ededebc63f2a0d8e3db35",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/cache/eos-multitask/inputs.json": "ef6f5b79249c05b1deda802d8b24c55e186c75825bc80f21a0c6f66c829d729f",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/cache/eos-multitask/reference/resnet_cifar.py": "7a98f29fed2635bfc80b6cbea00d0d08e92122125789483e2600aa82fc5735c9",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/multispike-2026-11-04/cache/eos-multitask/reference/model.py": "9d2a01d0076146232bb10b21f642b2c27435ae33aaaa9fbd1f80a357ff84c196",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/297-2026-11-15-cap-q25-temporal-svd/01_capture.py": "73fae1c204f30fd69e7e7f8ae4cd8c77b7744ffa3bd387f3d020c3a01c48ed98",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/297-2026-11-15-cap-q25-temporal-svd/config.json": "6ec48248eb302400a3e11535153ebd1eae044fe2a81863a8ebc4e4b23e211d9d",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/src/eos_tasks/matched_interventions.py": "2d41ceede8bccac8248c549decad75b372934f2a2580476ac657b5cdc65373d9",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/src/eos_tasks/representation_continuation.py": "f754d6599dc27851c74d4b01cf39e1bb197e44ed83ad8f717ed2eb8f720b9805",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/src/eos_tasks/representation_policy.py": "8bdae2560e3134885901823b6e1a29d31f5243bb95df38cfbac4e0d817ec3b71",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/295-2026-11-14-transformer-matched-interventions/config.json": "b301ad26fa2c9dfbee7d9fd9da594e13bf26c732e83b9a810b615f4b7b68332f",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/shared/thresholds.json": "0a4ca8774ed40fc1b97362263563ba9228c5daf23423de13589de47d7f7ff584",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-1/control/audit-0544.pt": "4f9c69651b257ad3a1bef7fbc4fe0b60e5fb7dd6957ee8060fd100ee6d43d166",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-1/control/boundaries.jsonl": "d6278e4edb3d9c5337688addfaf83854084faeba723e624cab294e76a036662a",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-1/control/audit-0576.pt": "9715e7cd89654ba93dc17143687796657ec1648115f00b0940cc3731110fb1a2",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-1/cap_q25/audit-0544.pt": "e4826499ea18a135eef2ba8b04b32abb2dc574fd752e024872c6e9f17dfa873a",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-1/cap_q25/boundaries.jsonl": "7cf095d4fe7128cfd560aa0a8b2e3eae8696c7589364dffe2842c40641fa656e",
+      "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/295-2026-11-14-transformer-matched-interventions/artifacts/attempt-01/transformer-1/cap_q25/audit-0576.pt": "d679554cf01ad2ae6cc63538c8b2ffb4c6fde72504cb1faa0169b3a59f7360f2"
+    }
+  }
+}

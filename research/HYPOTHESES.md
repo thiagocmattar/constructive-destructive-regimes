@@ -1,5 +1,11 @@
 # Hypothesis registry
 
+## H053: Q25 and representation-motion dimensionality, 15 November 2026
+
+- **Question:** Does the existing distributed Q25 cap broaden the spectrum of representation changes relative to unchanged Adam, and how does relative concentration differ from absolute movement outside baseline-dominant directions?
+- **Status/evidence:** Completed, with case- and site-dependent effects. [Run297 / Analysis065 observation017](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/017-q25-representation-svd.md). In matched 64-update windows, output rank95 changes 6 to 10 / 26 to 19 / 15 to 32 (MLP / ResNet / Transformer), while squared-motion ratios are 0.01664 / 0.77229 / 0.09635. All MLP/Transformer sites have larger rank95; ResNet increases near the input and decreases deeper. Other concentration measures can disagree. Absolute output energy outside the baseline95 subspace decreases for MLP and increases for ResNet/Transformer.
+- **Scope/verification:** One initialization per case; fixed original probes; every coordinate retained; uncentered FP64 Grams; 32/32/64-update windows. No capacity, generalization or new-full-span-direction inference. All 114 compact checks, nine direct SVD/projection checks and 81 source-dependency checks pass. Four PDFs / ten reviewed pages. Fresh matched Spark continuations for non-MLP cases; historical drift is quantified. Workers finished, 70.434 GB retained on owned Spark, zero cloud spend, manuscript/consolidation unchanged.
+
 
 ## H052: activation inactivity versus concentration in saved intervention states
 

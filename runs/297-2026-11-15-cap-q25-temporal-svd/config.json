@@ -1,0 +1,17 @@
+{
+  "run_id": 297,
+  "analysis_id": "065",
+  "hypothesis": "H053",
+  "source_runs": {"mlp": 293, "resnet": 294, "transformer": 295},
+  "arms": ["control", "cap_q25"],
+  "updates": 64,
+  "windows": [[0,32],[32,64],[0,64]],
+  "start": "shared original fork; 512/256/544 completed updates",
+  "probe": {"mlp": 5000,"resnet":1000,"transformer":64},
+  "measurement": "uncentered consecutive representation differences, every update, original fixed reference sets and all coordinates",
+  "precision": "FP32 native training and stored activations; subtract and reduce in FP64",
+  "gram_block_coordinates": 65536,
+  "maximum_seconds_per_case": 10800,
+  "hardware": "owned Spark only; zero cloud spending",
+  "interpretation": "matched Spark continuations from authenticated saved forks; exact historical replay only if verified; one seed, early post-intervention window"
+}

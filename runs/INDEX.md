@@ -1,5 +1,9 @@
 # Run registry
 
+## Run 297: Q25 temporal representation SVD, 15 November 2026
+
+[Run297](297-2026-11-15-cap-q25-temporal-svd/README.md) / H053 / ongoing Analysis065. Completed unchanged-Adam/Q25 continuations from the saved Runs293-295 forks: 64 updates per arm/model, 384 updates and 390 full-objective/probe states. All original coordinates retained for exact temporal/cross Grams and matched 32/32/64-update comparisons. Output rank95: 6 to 10 / 26 to 19 / 15 to 32; squared-motion ratios: 0.01664 / 0.77229 / 0.09635. [Findings and figures](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/017-q25-representation-svd.md). All numerical, source and retrieval checks pass; four PDFs / ten reviewed pages. Owned Spark only, workers finished, 70.434 GB retained, zero cloud spend. No manuscript changes. Next unused run298 / H054.
+
 
 ## Run 296: saved-state activation audit, 15 November 2026
 

@@ -1,5 +1,9 @@
 # Analysis registry
 
+## Analysis 065 follow-up: Q25 representation-motion SVD, 15 November 2026
+
+[Observation017](065-2026-11-07-mlp-frozen-lr-double/observations/017-q25-representation-svd.md) / H053 / Run297 continues the same intervention analysis. Paired 64-update continuations show output rank95 6 to 10 (MLP), 26 to 19 (ResNet), and 15 to 32 (Transformer). Squared movement falls at every measured site in the complete windows; dimensionality changes are not uniform across sites/cases or concentration metrics. [Four PDFs / ten pages and verified tables](065-2026-11-07-mlp-frozen-lr-double/svd_q25/README.md) retain every site and the two half-windows. One initialization/case; non-MLP historical drift recorded. Owned Spark, zero cloud spend, 70.434 GB retained, workers finished; manuscript unchanged. Next analysis067 / run298 / H054.
+
 
 ## Analysis 066: activation distributions and inactive units, 15 November 2026
 

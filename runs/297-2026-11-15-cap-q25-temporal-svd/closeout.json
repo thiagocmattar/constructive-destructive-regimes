@@ -1,0 +1,57 @@
+{
+  "status": "completed",
+  "recorded_utc": "2026-11-15T20:01:22.555085+00:00",
+  "run": 297,
+  "analysis": "065",
+  "hypothesis": "H053",
+  "cloud_spend_usd": 0,
+  "cloud_resources_created": false,
+  "hardware": "owned NVIDIA GB10 Spark",
+  "remote_root": "/home/tcml-spark/experiments/constructive-destructive-regimes/matched-interventions-2026-11-14/runs/297-2026-11-15-cap-q25-temporal-svd",
+  "cases": {
+    "mlp": {
+      "capture_seconds": 9.506574973987881,
+      "reduction_seconds": 2.0322734389919788,
+      "retained_evidence_bytes": 2180335563,
+      "verified_compact_files": 13,
+      "peak_cuda_allocated_bytes": 460081664,
+      "source_inputs_match_local": true
+    },
+    "resnet": {
+      "capture_seconds": 2137.338366593991,
+      "reduction_seconds": 12.710820023989072,
+      "retained_evidence_bytes": 23521703113,
+      "verified_compact_files": 13,
+      "peak_cuda_allocated_bytes": 4693834752,
+      "source_inputs_match_local": true
+    },
+    "transformer": {
+      "capture_seconds": 4692.975233562,
+      "reduction_seconds": 23.98963118699612,
+      "retained_evidence_bytes": 41502147298,
+      "verified_compact_files": 13,
+      "peak_cuda_allocated_bytes": 3519469056,
+      "source_inputs_match_local": true
+    }
+  },
+  "exit_codes": {
+    "mlp": "0",
+    "resnet": "0",
+    "transformer": "0"
+  },
+  "active_task_workers": [],
+  "retained_directory_bytes": 70434023021,
+  "raw_evidence_retained": true,
+  "production_updates": 384,
+  "production_probe_states": 390,
+  "verification": {
+    "synthetic_math_command": "python runs/297-2026-11-15-cap-q25-temporal-svd/04_test.py",
+    "synthetic_math_status": "passed",
+    "compact_checks": 114,
+    "direct_svd_checks": 9,
+    "source_dependency_checks": 81,
+    "figure_pages_reviewed": 10,
+    "scientific_inputs_unchanged": true,
+    "preexisting_registry_edits_preserved": true
+  }
+}
