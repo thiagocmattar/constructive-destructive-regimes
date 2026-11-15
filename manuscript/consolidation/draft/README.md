@@ -1,5 +1,7 @@
 # Consolidation manuscript for author review
 
+- **Section II revised, 15 November 2026:** now "Related Work and Conceptual Foundations," organized around oscillatory stability and sampling, training-time diagnostics, and representation dynamics and update control. The five equations and all labels are preserved. Three verified references were added; the introduction roadmap was aligned. The PDF remains 22 pages. [Scope, source audit, and verification](../work/section2_framing_20261115/OBSERVATIONS.md).
+
 - **Introduction revised, 15 November 2026:** four contributions now follow the agreed framework, diagnostic, representation, and intervention order. The functional gap, exact-versus-predictive distinction, and intervention-target framing are explicit. The main PDF remains 22 pages; abstract, Section II onward, bibliography source, evidence, and supplement are unchanged. [Revision scope and verification](../work/introduction_framing_20261115/OBSERVATIONS.md).
 
 - **Read:** [revised manuscript - 22 pages](manuscript.pdf), including the compact reviewer appendix beginning on page 17. This is the file for your next commenting round; the second-round feedback remains incorporated.
