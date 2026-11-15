@@ -1,5 +1,11 @@
 # Run registry
 
+
+## Run 296: saved-state activation audit, 15 November 2026
+
+[Run296](296-2026-11-15-checkpoint-activation-audit/README.md) / [Analysis066](../analyses/066-2026-11-15-activation-inactivity/FINDINGS.md) / H052. Completed 21 full-training and 48 reference-state activation measurements of unchanged Adam and caps q25/q50. All source-qualified losses, threshold reductions, observer checks, 150 retrieval hashes and 90 ResNet structural audits pass. Capture took 332.7 seconds on owned Spark; no optimizer updates, Runpod usage or manuscript changes. Next unused run297.
+
+
 ## Runs 293–295: matched interventions, 14 November 2026
 
 | Run | Case / window | Completed scope |

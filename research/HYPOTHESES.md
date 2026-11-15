@@ -1,5 +1,11 @@
 # Hypothesis registry
 
+
+## H052: activation inactivity versus concentration in saved intervention states
+
+**Completed descriptive investigation.** [Analysis066](../analyses/066-2026-11-15-activation-inactivity/FINDINGS.md), diagnostic Run296. Compare unchanged Adam with q25/q50 at identical saved steps and sweep activation thresholds, separating all-row inactivity from coordinate sparsity and energy concentration. Full-training measurements reject a generic cap-revives-dead-units story in these cases; Transformer final FF concentration changes strongly, while ResNet fixed post-add zero channels reflect its architecture/initialization. One initialization and selected checkpoints; no causal spike mechanism or population-wide inactivity claim. No new optimizer updates, cloud spending or manuscript edits. Next unused H053.
+
+
 ## H051: matched four-family intervention comparison
 
 - **Question:** from the same full warm state and horizon, how do LR, late beta2, raw-gradient clipping and local affine-displacement caps alter spike burden, learning progress and functional motion?

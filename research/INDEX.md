@@ -1,5 +1,11 @@
 # Research index
 
+
+## Activation inactivity and concentration, 15 November 2026
+
+[Analysis066 / Run296 / H052](../analyses/066-2026-11-15-activation-inactivity/FINDINGS.md): all-data saved-state audit distinguishes sparse entries, inactive units and energy concentration. Transformer caps reduce final FF energy dominance without changing dead-unit counts. ResNet has a fixed 50%/75% post-add inactive-channel pattern associated with its zero-initialized branch/padded-shortcut construction; MLP tanh units remain active. Verified 21 full-data passes, 48 reference states, 21 figure pages, no new training or manuscript edits. Spark only, zero cloud cost. Next analysis067 / run297 / H053.
+
+
 ## Matched interventions completed, 14 November 2026
 
 [H051 / Runs 293–295](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md) completes the common-fork comparison: 36 conditions / 11,904 updates. q50 mean-loss changes are -32.18%/-9.42%/-19.84%; endpoint/test tradeoffs and all quantile settings are retained. Seven PDFs / 20 pages plus editable tables/captions are verified in [consolidation](../manuscript/consolidation/evidence/05-adam/c-intervention/README.md). All raw evidence is hashed on Spark and task Pods deleted; provisional total USD 26.07, within USD 50. Extra seeds/grid remain deferred. Continue Analysis 065; next run 296 / H052.

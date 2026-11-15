@@ -1,0 +1,2014 @@
+{
+  "arrays": [
+    {
+      "tag": "threshold/mlp/control/maximum",
+      "shape": [
+        13
+      ],
+      "sha256": "f7db56af394302e2f156ce202954106dce2839774075201824bcad225e31663b"
+    },
+    {
+      "tag": "threshold/mlp/control/rms",
+      "shape": [
+        13
+      ],
+      "sha256": "3058ff1eccb09c2fb70b033ae4bf4ea28ed0b55d46b0ff30090b6ea9045ca4ae"
+    },
+    {
+      "tag": "threshold/mlp/cap_q25/maximum",
+      "shape": [
+        13
+      ],
+      "sha256": "f7db56af394302e2f156ce202954106dce2839774075201824bcad225e31663b"
+    },
+    {
+      "tag": "threshold/mlp/cap_q25/rms",
+      "shape": [
+        13
+      ],
+      "sha256": "ab01d3a7229772660ce0557c928586e0690beeda33f0f9ced56d76109e47a93f"
+    },
+    {
+      "tag": "threshold/mlp/cap_q50/maximum",
+      "shape": [
+        13
+      ],
+      "sha256": "f7db56af394302e2f156ce202954106dce2839774075201824bcad225e31663b"
+    },
+    {
+      "tag": "threshold/mlp/cap_q50/rms",
+      "shape": [
+        13
+      ],
+      "sha256": "9a1c3ec69e73b8d3ea5f9c9d940dc84cb634aacb535912c95fac22d07b26d490"
+    },
+    {
+      "tag": "threshold/resnet/control/maximum",
+      "shape": [
+        13
+      ],
+      "sha256": "a2bb52384beb6e49c6666e320660cccac061ece0b21312a558b85fdcd53d87d4"
+    },
+    {
+      "tag": "threshold/resnet/control/rms",
+      "shape": [
+        13
+      ],
+      "sha256": "2364a0a993cf8f2416c61af85cc04971038ca9ee3e5a8f134d5c3e6383c5625f"
+    },
+    {
+      "tag": "threshold/resnet/cap_q25/maximum",
+      "shape": [
+        13
+      ],
+      "sha256": "c3b710bc428d9ae70265f49ed0f86cdfa6fd62d1c389ffca2f4bd4de2ef2984d"
+    },
+    {
+      "tag": "threshold/resnet/cap_q25/rms",
+      "shape": [
+        13
+      ],
+      "sha256": "2364a0a993cf8f2416c61af85cc04971038ca9ee3e5a8f134d5c3e6383c5625f"
+    },
+    {
+      "tag": "threshold/resnet/cap_q50/maximum",
+      "shape": [
+        13
+      ],
+      "sha256": "a2bb52384beb6e49c6666e320660cccac061ece0b21312a558b85fdcd53d87d4"
+    },
+    {
+      "tag": "threshold/resnet/cap_q50/rms",
+      "shape": [
+        13
+      ],
+      "sha256": "2364a0a993cf8f2416c61af85cc04971038ca9ee3e5a8f134d5c3e6383c5625f"
+    },
+    {
+      "tag": "threshold/transformer/control/maximum",
+      "shape": [
+        13
+      ],
+      "sha256": "c966d0938531579f2c7c37e80185aacf27399df8f7600ae1cbf3139aa3c6986e"
+    },
+    {
+      "tag": "threshold/transformer/control/rms",
+      "shape": [
+        13
+      ],
+      "sha256": "5528d1a8c08346723ca68ffce082299ffe54f86d3760e11596c2dd11d3b71c5d"
+    },
+    {
+      "tag": "threshold/transformer/cap_q25/maximum",
+      "shape": [
+        13
+      ],
+      "sha256": "bddbc55c6213fa261d878b41aca6d6745047114c435cb7c436a80ebfa2403a93"
+    },
+    {
+      "tag": "threshold/transformer/cap_q25/rms",
+      "shape": [
+        13
+      ],
+      "sha256": "a456ba5f3f111210c5b9b04d799d365d80bf1b5a9c12e0003fa6b7effd0c0482"
+    },
+    {
+      "tag": "threshold/transformer/cap_q50/maximum",
+      "shape": [
+        13
+      ],
+      "sha256": "5238072df013af7e7591d13ef3dd624dda217ad1a2704d949cf731b0b2d4e8a0"
+    },
+    {
+      "tag": "threshold/transformer/cap_q50/rms",
+      "shape": [
+        13
+      ],
+      "sha256": "a456ba5f3f111210c5b9b04d799d365d80bf1b5a9c12e0003fa6b7effd0c0482"
+    },
+    {
+      "tag": "depth/mlp/dead_zero_fraction",
+      "shape": [
+        2,
+        3
+      ],
+      "sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1"
+    },
+    {
+      "tag": "depth/mlp/effective_unit_fraction",
+      "shape": [
+        2,
+        3
+      ],
+      "sha256": "b0e1f8c8214027e47490252bffd5777c31eae2bd09132ed420cf492f2fa34510"
+    },
+    {
+      "tag": "depth/resnet/dead_zero_fraction",
+      "shape": [
+        31,
+        3
+      ],
+      "sha256": "5672f38d8127acde12ea301c17ebf1310b589cbe430a860f10522d49d0dc1396"
+    },
+    {
+      "tag": "depth/resnet/effective_unit_fraction",
+      "shape": [
+        31,
+        3
+      ],
+      "sha256": "c0832e7142a259fd41706f379523ba382f3a0256082b210053030776b3bc239c"
+    },
+    {
+      "tag": "depth/transformer/dead_zero_fraction",
+      "shape": [
+        2,
+        3
+      ],
+      "sha256": "17b0761f87b081d5cf10757ccc89f12be355c70e2e29df288b65b30710dcbcd1"
+    },
+    {
+      "tag": "depth/transformer/effective_unit_fraction",
+      "shape": [
+        2,
+        3
+      ],
+      "sha256": "f7e411faab9342fce173c93e7781a83f5704e4b2299690db79c8b7ce2ee69416"
+    },
+    {
+      "tag": "hist/mlp/control",
+      "shape": [
+        104
+      ],
+      "sha256": "1bd5991ae0b10b54d451a173144e238c143a51327f41ade23c0743c2a2ddf9d3"
+    },
+    {
+      "tag": "energy/mlp/control",
+      "shape": [
+        200
+      ],
+      "sha256": "7ad4816d156f12f1e10cde2f29b4d91f090b38c938a6b6daa36cf4675568a538"
+    },
+    {
+      "tag": "hist/mlp/cap_q25",
+      "shape": [
+        104
+      ],
+      "sha256": "92774a10f08cdcbc46aacf1b1c902528bdc8c3c18be40f0239183e01e54f305f"
+    },
+    {
+      "tag": "energy/mlp/cap_q25",
+      "shape": [
+        200
+      ],
+      "sha256": "d1d3e7ebd20693afdf20fd9af9ebc21538c679abf6b24d5aec8cd59c8b1ae9ab"
+    },
+    {
+      "tag": "hist/mlp/cap_q50",
+      "shape": [
+        104
+      ],
+      "sha256": "3d9cee6cc65d83791545c7d3d90877e7132a9296677787e8723f562a5f057e68"
+    },
+    {
+      "tag": "energy/mlp/cap_q50",
+      "shape": [
+        200
+      ],
+      "sha256": "43ab2042304d4994a6a97c72ae63fc549bd23567858b082253598d2b751b5ab0"
+    },
+    {
+      "tag": "hist/resnet/control",
+      "shape": [
+        104
+      ],
+      "sha256": "fb164d0a68c80d0101e8037c5630f64c5460aeeba3414dfb5c06d6760aeab5cf"
+    },
+    {
+      "tag": "energy/resnet/control",
+      "shape": [
+        64
+      ],
+      "sha256": "4e51d925449c7beff9d84f8eb628b9c92355a7313fe65b7be5995ebc7c75ab3d"
+    },
+    {
+      "tag": "hist/resnet/cap_q25",
+      "shape": [
+        104
+      ],
+      "sha256": "61cb4ef8c385e053d113dedb62f6a6cbe75ba08772e06da03e7a31cc160abffb"
+    },
+    {
+      "tag": "energy/resnet/cap_q25",
+      "shape": [
+        64
+      ],
+      "sha256": "c4c1383a86989ed1377ee5e9e5397729efc2de3aab3b99ab16a156e6cffdf3dc"
+    },
+    {
+      "tag": "hist/resnet/cap_q50",
+      "shape": [
+        104
+      ],
+      "sha256": "d30f475cc9732b3bbd548ce3b85b5ee36538676eceeae648eba30be975c178d9"
+    },
+    {
+      "tag": "energy/resnet/cap_q50",
+      "shape": [
+        64
+      ],
+      "sha256": "8e69e88d417d0e20fd22a36bb3d129087328520fa829f72a47bf0b68b68dae44"
+    },
+    {
+      "tag": "hist/transformer/control",
+      "shape": [
+        104
+      ],
+      "sha256": "244404acff8bd4db541254b55c1aa5edae0bcd89cbea0e8c804ad1252a13a42b"
+    },
+    {
+      "tag": "energy/transformer/control",
+      "shape": [
+        200
+      ],
+      "sha256": "6edd782e5bf1f47029935fc45bb2c30ecb64a4f7fc6eb4222f8860f1aeeceafb"
+    },
+    {
+      "tag": "hist/transformer/cap_q25",
+      "shape": [
+        104
+      ],
+      "sha256": "9b65f47952e716b07b59eef22f121379ecb2aff93fc79dcf0343136490316440"
+    },
+    {
+      "tag": "energy/transformer/cap_q25",
+      "shape": [
+        200
+      ],
+      "sha256": "9b86640415ddd6960e055012befd32df68863695f1286c11ab01678aae9bdc7a"
+    },
+    {
+      "tag": "hist/transformer/cap_q50",
+      "shape": [
+        104
+      ],
+      "sha256": "6cb1fcacf9533b48a96ec4e89b3c6f1951064c771e8ce8ab2e004021e8c03f6b"
+    },
+    {
+      "tag": "energy/transformer/cap_q50",
+      "shape": [
+        200
+      ],
+      "sha256": "ede00a82d1253e1bc3d3bba49da7615e837d878a57d3756f45d990927b2b3d5c"
+    },
+    {
+      "tag": "time/mlp/control/dead",
+      "shape": [
+        2,
+        6
+      ],
+      "sha256": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4"
+    },
+    {
+      "tag": "time/mlp/control/weak",
+      "shape": [
+        2,
+        6
+      ],
+      "sha256": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4"
+    },
+    {
+      "tag": "time/mlp/control/energy",
+      "shape": [
+        2,
+        6
+      ],
+      "sha256": "129e9d8f17a9c73f82ee0466f67477f8471d70347bfd97edca7d9524ffdfbd9d"
+    },
+    {
+      "tag": "time/mlp/cap_q25/dead",
+      "shape": [
+        2,
+        6
+      ],
+      "sha256": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4"
+    },
+    {
+      "tag": "time/mlp/cap_q25/weak",
+      "shape": [
+        2,
+        6
+      ],
+      "sha256": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4"
+    },
+    {
+      "tag": "time/mlp/cap_q25/energy",
+      "shape": [
+        2,
+        6
+      ],
+      "sha256": "290a9bf0c537cbbf0698cbc1bf405628694e1b629bdc5f953e4605294afb0db9"
+    },
+    {
+      "tag": "time/mlp/cap_q50/dead",
+      "shape": [
+        2,
+        6
+      ],
+      "sha256": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4"
+    },
+    {
+      "tag": "time/mlp/cap_q50/weak",
+      "shape": [
+        2,
+        6
+      ],
+      "sha256": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4"
+    },
+    {
+      "tag": "time/mlp/cap_q50/energy",
+      "shape": [
+        2,
+        6
+      ],
+      "sha256": "cf558566613d267a2a9dd127b11c722d28ab314cab979a28d2115f0704d6a8b2"
+    },
+    {
+      "tag": "time/resnet/control/dead",
+      "shape": [
+        31,
+        6
+      ],
+      "sha256": "c746ddd7ff4e01f252f5a0b6f8bf972190cf212060b479b4f4ea41470846147a"
+    },
+    {
+      "tag": "time/resnet/control/weak",
+      "shape": [
+        31,
+        6
+      ],
+      "sha256": "c746ddd7ff4e01f252f5a0b6f8bf972190cf212060b479b4f4ea41470846147a"
+    },
+    {
+      "tag": "time/resnet/control/energy",
+      "shape": [
+        31,
+        6
+      ],
+      "sha256": "7423276b0ee06416b5682a727ef9689697f30ce25bb4ae64bc4e6434e7218689"
+    },
+    {
+      "tag": "time/resnet/cap_q25/dead",
+      "shape": [
+        31,
+        6
+      ],
+      "sha256": "c746ddd7ff4e01f252f5a0b6f8bf972190cf212060b479b4f4ea41470846147a"
+    },
+    {
+      "tag": "time/resnet/cap_q25/weak",
+      "shape": [
+        31,
+        6
+      ],
+      "sha256": "c746ddd7ff4e01f252f5a0b6f8bf972190cf212060b479b4f4ea41470846147a"
+    },
+    {
+      "tag": "time/resnet/cap_q25/energy",
+      "shape": [
+        31,
+        6
+      ],
+      "sha256": "79a131aac72daabddcd6ac3efaeeee125c34e210f084538068b6ef905cc7da8c"
+    },
+    {
+      "tag": "time/resnet/cap_q50/dead",
+      "shape": [
+        31,
+        6
+      ],
+      "sha256": "c746ddd7ff4e01f252f5a0b6f8bf972190cf212060b479b4f4ea41470846147a"
+    },
+    {
+      "tag": "time/resnet/cap_q50/weak",
+      "shape": [
+        31,
+        6
+      ],
+      "sha256": "c746ddd7ff4e01f252f5a0b6f8bf972190cf212060b479b4f4ea41470846147a"
+    },
+    {
+      "tag": "time/resnet/cap_q50/energy",
+      "shape": [
+        31,
+        6
+      ],
+      "sha256": "581d37a87d922762fda08bd3d32ce03df4ec7f95d1f2d66cfc73a1482f41746f"
+    },
+    {
+      "tag": "time/transformer/control/dead",
+      "shape": [
+        2,
+        6
+      ],
+      "sha256": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4"
+    },
+    {
+      "tag": "time/transformer/control/weak",
+      "shape": [
+        2,
+        6
+      ],
+      "sha256": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4"
+    },
+    {
+      "tag": "time/transformer/control/energy",
+      "shape": [
+        2,
+        6
+      ],
+      "sha256": "febaf66bb7624a30a8d4fc3dcfc60bbcdca91ad8cf8960b1e61d776d8428c9ee"
+    },
+    {
+      "tag": "time/transformer/cap_q25/dead",
+      "shape": [
+        2,
+        6
+      ],
+      "sha256": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4"
+    },
+    {
+      "tag": "time/transformer/cap_q25/weak",
+      "shape": [
+        2,
+        6
+      ],
+      "sha256": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4"
+    },
+    {
+      "tag": "time/transformer/cap_q25/energy",
+      "shape": [
+        2,
+        6
+      ],
+      "sha256": "4fe18b3edc3d4512a465d265e3b8bf9f6533a97d578c886215b5da204e97b18f"
+    },
+    {
+      "tag": "time/transformer/cap_q50/dead",
+      "shape": [
+        2,
+        6
+      ],
+      "sha256": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4"
+    },
+    {
+      "tag": "time/transformer/cap_q50/weak",
+      "shape": [
+        2,
+        6
+      ],
+      "sha256": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4"
+    },
+    {
+      "tag": "time/transformer/cap_q50/energy",
+      "shape": [
+        2,
+        6
+      ],
+      "sha256": "c0e8d87e6afdf043efd564c9e4e40fa21d85ddac5e9a833a98e9d081d5dcc5b1"
+    },
+    {
+      "tag": "matrix/mlp/control/1",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "e8feba7469c84000f55f991cc807cc3c86f4fc7fec5eba84fc6264c60a2665ce"
+    },
+    {
+      "tag": "matrix/mlp/cap_q25/1",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "76e0210fe8666037d90a4eaa133a179fb84a3185ff794e28b831c33324aab5c5"
+    },
+    {
+      "tag": "matrix/mlp/cap_q50/1",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "cda30fbdba8b486f905eb94251eed0bb8a20dd6ee9d4cb596e6bfee50b7da97b"
+    },
+    {
+      "tag": "matrix/mlp/control/2",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "6516bc19cffe11e884fe485a708056d38fa96b6a93da36d79af8ab0679d1706c"
+    },
+    {
+      "tag": "matrix/mlp/cap_q25/2",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "f5624ed85c6ca5f9523132a362e99e4d7cafdfb3ac57c54cf3f03f32534b43c6"
+    },
+    {
+      "tag": "matrix/mlp/cap_q50/2",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "a98942cfa7b4c411d64b02a4655e1ff38cad167c4aab1943935f34db90498cc1"
+    },
+    {
+      "tag": "matrix/mlp/control/3",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "4d45f750c3a4313bcb9e508921513746e6837cd5032e679c1b8e20ef405f2154"
+    },
+    {
+      "tag": "matrix/mlp/cap_q25/3",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "9fbf77effb3f61e7a77528a0ad813be20a88aaa6383aca1dbe209dfb15f9e2bc"
+    },
+    {
+      "tag": "matrix/mlp/cap_q50/3",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "8960b46fe0933a150d7c70448387b49fec2ea02fdfdba4e4fdfbdc3f0534d517"
+    },
+    {
+      "tag": "matrix/mlp/control/4",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "67e2852f1fbafa304d63aa7fd2f82820b39cc63d580b31f34031c64d17ed1204"
+    },
+    {
+      "tag": "matrix/mlp/cap_q25/4",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "7ef3edbdd805d90bba9fb63a30c687a4a427ee5088e55d4c361718a29e8cb051"
+    },
+    {
+      "tag": "matrix/mlp/cap_q50/4",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "8a886f075cbc56f6fc094fdcd16773431768233e9ee0b70940b2f7c5e76f1f45"
+    },
+    {
+      "tag": "matrix/mlp/control/5",
+      "shape": [
+        512,
+        10
+      ],
+      "sha256": "e65a0ee1f29c7727e0f4e5ae08d3ae41523ff44305b7074ef3bd64e80b6b80ff"
+    },
+    {
+      "tag": "matrix/mlp/cap_q25/5",
+      "shape": [
+        512,
+        10
+      ],
+      "sha256": "443cc10019fab4e96318b4465c735a59185c276f09ddc071da01e8a33ea80caf"
+    },
+    {
+      "tag": "matrix/mlp/cap_q50/5",
+      "shape": [
+        512,
+        10
+      ],
+      "sha256": "8e87f9094f6aeaf7a1e6f25b280b850365b9c2e67635f6428073b5457009b7b3"
+    },
+    {
+      "tag": "matrix/resnet/control/relu#1",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "5038973628b22c9b446a0d5f45f8ac5c7de92af48d689c0c381835af86dfc754"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/relu#1",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "0c55729aadd762b518aac139cbf3ba8978b20bf8a9c9936ff6e57edc7a92c5e0"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/relu#1",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "5171de77d46eaa6469fbafb2cb57e7548c13f1080d2850f22a85c6edb57f318e"
+    },
+    {
+      "tag": "matrix/resnet/control/layer1.0.relu#1",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "386af37de6f2dd0f18cb1413b7a0086b63c27d79fe9aca3f57667195637a58b0"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer1.0.relu#1",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "0007ca625e7565647119276ffedd06fc98c836b89cfc240f815d07167dd9d010"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer1.0.relu#1",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "98f9b0ebec4995db391d534ea3c21c7134af92fe1f069c07be9466b2ad801847"
+    },
+    {
+      "tag": "matrix/resnet/control/layer1.0.relu#2",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "72b54969bbafca4350cacb2fdeb6e4f299a6c6fd9d287e7d7a239432cdb5afca"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer1.0.relu#2",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "92a85dd215be97ecf8530b206d4498eff70c92787b29084782208b240db08d1d"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer1.0.relu#2",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "36fb56d11b498d65e6f639689053aa49cb2a850c0b925cf817f2d021dfe2b8b6"
+    },
+    {
+      "tag": "matrix/resnet/control/layer1.1.relu#1",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "fdf4a0b63da37b67d66c90256589c16bef7f1343fbc7d6c95a8726754e9a6d43"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer1.1.relu#1",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "5700636f4105a7bf6ae7983e9e2ef9cd5898cea20416aab5c24febd76b8d616d"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer1.1.relu#1",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "68ab5aa640b1183371d261dc5b53ad0428328f04519d863b01be2d15f9c0144c"
+    },
+    {
+      "tag": "matrix/resnet/control/layer1.1.relu#2",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "f2f61035ea9d2a63409103e6abfc8d33a43be36eaa2e1a5741599cd868afcf86"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer1.1.relu#2",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "d1ab22a82ccc26ede916a01b27e8fb139d09a7195d20db7e0f9a9e104b63905f"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer1.1.relu#2",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "f1b3bf3fcf07ef385db3eadd87ff5c84e951f35d4dd8200ed52d38c248e09d2a"
+    },
+    {
+      "tag": "matrix/resnet/control/layer1.2.relu#1",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "6b244a3285c1c91bd348bbaeb2427eb9fd0dd86bd537acb9ad6a5ba9bb68dab3"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer1.2.relu#1",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "b58c6bad980d46dd7475a1a8a6c5fc4400f96b5f34f9f83e226a3f75346afa0b"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer1.2.relu#1",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "7bf7ea8d4a6f84fe3e87e1d2e2388bb6d190cf5602d9da29a44b69aba389aae8"
+    },
+    {
+      "tag": "matrix/resnet/control/layer1.2.relu#2",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "79634bd1317331bd8a965b49304cd0817cc9899e8fba79147cf8fdb6b4cc5d72"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer1.2.relu#2",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "929daf8881ad3d43ffcfa45220eb932f34cd31ecdf277426d28fe5fbd7221cbc"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer1.2.relu#2",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "157a9b6928edd0a7b3a75ece9797f12796ce9bd7e7cc566756841c5d2569cbd7"
+    },
+    {
+      "tag": "matrix/resnet/control/layer1.3.relu#1",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "7a097e2b83edfa5b4b519ef92d39c3d31a56e3dbe75e50dfba857157923eb0aa"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer1.3.relu#1",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "de39a98d7f881d4614bdf520db233c154fe68f668cf3770a9cf00e1014ce8516"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer1.3.relu#1",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "0d362c2102a7e278d4793051fb93475f7d503de9b3488e00eb82beb49ce83134"
+    },
+    {
+      "tag": "matrix/resnet/control/layer1.3.relu#2",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "3c89341ba93f99e76e2dbbacca26a93336c65cabd74dea597e9845aa697fbdfd"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer1.3.relu#2",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "12370cbb7f35d5fc096c10e67450379154401e276df6ee7d9129f638b40f6ba3"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer1.3.relu#2",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "0290785e23fc895c2ead579f6582c70797bb39f7155f7042d5c34a768cbd59b2"
+    },
+    {
+      "tag": "matrix/resnet/control/layer1.4.relu#1",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "379caf7cbc248afec4b1f16ab24ad43de2b5e8f2cdcaf7da0120f360015aaf6c"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer1.4.relu#1",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "f7152bf5aba6f03fcc2732b11feb6a969e9fd43a474be25f38bd0394266a8dd4"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer1.4.relu#1",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "a013e6c8ad455364249758cee719c8e876203ae21f9351c9eaac4b0cea1aed0e"
+    },
+    {
+      "tag": "matrix/resnet/control/layer1.4.relu#2",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "ee9c13122055a1fab33599b48520ef626819e9775dead0c0d7178965b216b068"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer1.4.relu#2",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "f8dbd25e0b71380fe4fa2f167a9395cb77e34bb7462f15832cfac03ae8abb1f9"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer1.4.relu#2",
+      "shape": [
+        512,
+        16
+      ],
+      "sha256": "51d688ecbe2bc158695df1a369f392aec8e37fd2ba874370b7c04e68997c7206"
+    },
+    {
+      "tag": "matrix/resnet/control/layer2.0.relu#1",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "81a4a7dd53e6d2399281cf6aaf14b47f21ca14292d3f401e751e41d6f05abd2a"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer2.0.relu#1",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "768edda59034d1e9ffc67bfe812974fd09908e0637cb2b0162deb31a4b3a78bb"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer2.0.relu#1",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "f1ac769eafa1a1be192f77d822db16324f6a8558570a44840cc6454c695a38e1"
+    },
+    {
+      "tag": "matrix/resnet/control/layer2.0.relu#2",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "8d4aa769ed47f0721f391c7bfda49c5e95db15670778a716a2dbec4e97a216f0"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer2.0.relu#2",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "9906321bbc97eef4e52ab8afdb313b96b3ef068a6b37152c836a06846662eef8"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer2.0.relu#2",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "30337c44a870af6b33404f3d25927c637c8ee6407bcc1071fe92d9c18c080325"
+    },
+    {
+      "tag": "matrix/resnet/control/layer2.1.relu#1",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "9ff72f4d6890dd9997b9a9263dba11b221e3552af83ab1bc113c3cd187b1d713"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer2.1.relu#1",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "8b028c1060812ece08a84f0919d7480b4ca6afe216eaefab7ab1f2f88dab6336"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer2.1.relu#1",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "6f72c43719615f6da28c4bb18d0461df06b16a70ea43e2d7b302d3dff16b636e"
+    },
+    {
+      "tag": "matrix/resnet/control/layer2.1.relu#2",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "2de9a0665d74d6266ddefcafed3c130c960366bf3294ab90fdf24558cabb7d92"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer2.1.relu#2",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "058d9debc1d6fd791e2da2143a19aa74f86a9b9011a94587d570443ed3b44b57"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer2.1.relu#2",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "bc6c202037d86a759059c48d0a01a5444bf633ba9566d030c89777ec826d2d20"
+    },
+    {
+      "tag": "matrix/resnet/control/layer2.2.relu#1",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "005b53b50e70f04a7bf536cbe132b6a42d965f10be78eb2a31b270aa5b7b8986"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer2.2.relu#1",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "8130f48846f264a80063a023afb27653bf5337ef1a810d26c1aec261bf590d41"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer2.2.relu#1",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "5191a808f0446717b7930cdc4f649268624df2eed1a1b39f1ac0e97d5416ffbf"
+    },
+    {
+      "tag": "matrix/resnet/control/layer2.2.relu#2",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "e6295c7b49565db4aa7a7635ad570a0bca40ec4165d0c0b021806334144b7cfb"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer2.2.relu#2",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "3b7d64a150d942a019ecaff2c2211e474de91d6392767b40bce4ebb33ec31003"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer2.2.relu#2",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "6cc94520bbcd9aa29e4699316423a41df131996bde14e5501630859ec8fd4e7f"
+    },
+    {
+      "tag": "matrix/resnet/control/layer2.3.relu#1",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "28c7f27f8b58cacb319e9725acd313b2c9e58db45455892b9734d9d7c38cd2ee"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer2.3.relu#1",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "76e9ff94d395e2f1a5df736b36f70d5bcb398db2d29cb622a81e7f6b08d50c04"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer2.3.relu#1",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "26ec2d8db01c5214a28e308ebacbb75cfbdab0b843a20bb7c83fe78ddc9c661f"
+    },
+    {
+      "tag": "matrix/resnet/control/layer2.3.relu#2",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "91f9b4872f69665b224bf41471a782bc7e5f216a15937c0c34203acbd2889870"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer2.3.relu#2",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "b00ab6519df82a8be1c3b7645d0b170f8d3c00534cfdab96fdb0bba048129f48"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer2.3.relu#2",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "14f39dede7bfed6f607800dbace6d6c43678be56baa8d411c9907bd6c5dbfc8f"
+    },
+    {
+      "tag": "matrix/resnet/control/layer2.4.relu#1",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "176dd2a4c3d9e95d72248b933643a85a6cf07b57af675411218759adcabcd9fc"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer2.4.relu#1",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "e0d2b3d6eb44b49b4939bf5a7f4ca394cd51a49bcf837b2608a794697fa3cef6"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer2.4.relu#1",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "1e261339333feee4e34320a4fa6fba4aa1085a0a6083a1ecb28f86bd396b7113"
+    },
+    {
+      "tag": "matrix/resnet/control/layer2.4.relu#2",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "626a0fe7e3c65c204bb3786c4abf72841538ee766559cf14f2ff8a2054632d46"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer2.4.relu#2",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "50601c927065d988eaf928ecfcbe3065f73eb0b7552b835df2d7902ef3884036"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer2.4.relu#2",
+      "shape": [
+        512,
+        32
+      ],
+      "sha256": "fa9944cb9f8dee6c1f4f052e698cd4028b48858aa689c6010a6e30d4a6c7b9db"
+    },
+    {
+      "tag": "matrix/resnet/control/layer3.0.relu#1",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "68b20facdb15ac1cc267aee34245f6c10451618306ba0c73186c9ac85963f34f"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer3.0.relu#1",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "6fe924fe763f4b3684d0fe0f3fbc619f1ee459c9b927b919623d5e53e3e7f06d"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer3.0.relu#1",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "9f0b8748382c5d33f147bdabaa4d536c5e96d16b8c3cfb33c35a69be015d3d04"
+    },
+    {
+      "tag": "matrix/resnet/control/layer3.0.relu#2",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "21f315c5a75b8cf940eacd199f6f502657593691161f369a92bb51087ce3a8d4"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer3.0.relu#2",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "7b8b9d22746c1ac238ab089ddf7fd95f39d7f85e0dfc4bb5c5cba3d4c7c96851"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer3.0.relu#2",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "4995318c156a30c513c73ccc875387f88711be548bd98a99dc07281303fa8bfe"
+    },
+    {
+      "tag": "matrix/resnet/control/layer3.1.relu#1",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "52adfa6ded7a60b779c98e42d6e004c301a12eed8f6d1177726fba7099ee933e"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer3.1.relu#1",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "5f088762e29762de883be3b473562464801b7c0b70bf4ed88f5e733b4e3787d8"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer3.1.relu#1",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "e3581009c329fc9e633f9b6f7d83d070eff054d36e9b7161d769829d79d5c71d"
+    },
+    {
+      "tag": "matrix/resnet/control/layer3.1.relu#2",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "8aada35b57b9b1420fc1d4172e2a57b2c6426dba26ad870098a6f1b37be00033"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer3.1.relu#2",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "05daa8cad83814b850b106b9c4e43f710a1f852b02a0e04b6503143059cbb01c"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer3.1.relu#2",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "d4905710bd573d01d3cf04072b078403e5d4117729b3441ef6df734a36f53a6c"
+    },
+    {
+      "tag": "matrix/resnet/control/layer3.2.relu#1",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "3de4303b038f492f3856f0b2c67fc2827026af8372f16eeebb87b94a80374572"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer3.2.relu#1",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "6c6669ada02ecf41dc74a5a007cdfa378fbf48579a249c33ccd62e9a2c908f3b"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer3.2.relu#1",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "c22029b4e71cf8cc07120f6822cbac8ae7eeb204206c327aa0a2ef251a8bd077"
+    },
+    {
+      "tag": "matrix/resnet/control/layer3.2.relu#2",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "6f99973648372356f54d4f93c7b69c00107641d91b0ecd8207e9008e5880c233"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer3.2.relu#2",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "5f14290ca2e233d09b0718f31ff9163b1ded7fa3ed57e63c514b1f15c0b3a209"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer3.2.relu#2",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "401ed37d5fffa288bd01b68d8feb8b7ecd71dae0b872761a61933b2eeba193d3"
+    },
+    {
+      "tag": "matrix/resnet/control/layer3.3.relu#1",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "e6fcc0955b3669aafdbd158d3e3e05570ba9a54dcbbede3a8de6ca1e7fe03563"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer3.3.relu#1",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "5667cd978eddbdf42f1511d5f4ac704c8d40814567fdd6254d4653472dfb1e3a"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer3.3.relu#1",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "7a59c85f3e8d86dfc8376c4a8293f960b92badc28361acb93c4ad14e2721a531"
+    },
+    {
+      "tag": "matrix/resnet/control/layer3.3.relu#2",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "ddfe6a891b190998baeb344b6bec141e3d2e4123e0c09dc4abc14fed403cb197"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer3.3.relu#2",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "ff4cd3591efe04b25813a65318dd305c884ac4eb7498848cade15b36f50823ee"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer3.3.relu#2",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "2aeb8d8cc691b0b89bbcf86f639fdd1444d83beca1eef957518b911a5a29a109"
+    },
+    {
+      "tag": "matrix/resnet/control/layer3.4.relu#1",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "3122093c1c52d02ef5dbe182221226c5c4abfe481199b3f28d6a3f4aa4b4271a"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer3.4.relu#1",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "f21e9d81be922535d8fefa27914ec06df45c36ea71ef6080844dd111099b7a41"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer3.4.relu#1",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "4e8ef4147bdb414e363e6580c08f77ca2feff18100822936818e150874d35138"
+    },
+    {
+      "tag": "matrix/resnet/control/layer3.4.relu#2",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "ececdeccf750fc2d2cfdfe5593a0aef9cee5f5c8f48ff84144a8786c83887f93"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/layer3.4.relu#2",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "9769a695ff5f2e81adfa02dae92329f1ce364ec2664c1c34e1a6ca2cc368124c"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/layer3.4.relu#2",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "9c72ab2a408afab740c64b835fed425f9ae099ab0431a20741b5c544fc5f9c65"
+    },
+    {
+      "tag": "matrix/resnet/control/avgpool",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "3f402c9bf282273036e93d918200d220d770ad2c8edd5dc88135fe6648babc48"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/avgpool",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "ccebd89e25ff2b6c4cb4daa861e4c2bbdbf2da25297896e02df71df23489ad9c"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/avgpool",
+      "shape": [
+        512,
+        64
+      ],
+      "sha256": "ba3dfb7d220b0a96c49659e76eeb8bbf87cedbc9840fb0bb04d6a94cc009a61b"
+    },
+    {
+      "tag": "matrix/resnet/control/fc",
+      "shape": [
+        512,
+        10
+      ],
+      "sha256": "31405799c6912fe95bc996ae39b9dd7a10bb45c6e8ecf018945419e0267d09a5"
+    },
+    {
+      "tag": "matrix/resnet/cap_q25/fc",
+      "shape": [
+        512,
+        10
+      ],
+      "sha256": "e61e305a01af942fd54b0f081fd1dfc001ecb318ccb79d94a27ad1c5f4118f65"
+    },
+    {
+      "tag": "matrix/resnet/cap_q50/fc",
+      "shape": [
+        512,
+        10
+      ],
+      "sha256": "4754f6e9cfdf44298aaa1b64ef1689c3381ccb0516dfad32a83978245594d78b"
+    },
+    {
+      "tag": "matrix/transformer/control/encoder",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "cbb500a686988ee1e716a9d29da627d69bdaa32cfd9a2fe797d36b3902efef0a"
+    },
+    {
+      "tag": "matrix/transformer/cap_q25/encoder",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "0234696f9f01d6f79d29361d93581fa054f19d129b195796559424ddc7189067"
+    },
+    {
+      "tag": "matrix/transformer/cap_q50/encoder",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "3c74a28d86640419c7bca36c378932f5ce72391a637f205d6b4d7ad046591385"
+    },
+    {
+      "tag": "matrix/transformer/control/pos_encoder",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "ddf13d123558cc450d271723f812f2d4f7d020c7f1a6e3fcfee9aed86710256f"
+    },
+    {
+      "tag": "matrix/transformer/cap_q25/pos_encoder",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "cbd38deb06d51ad5c77826ce05b507baac0091b9a1d5495be7876b68865c05d0"
+    },
+    {
+      "tag": "matrix/transformer/cap_q50/pos_encoder",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "45ab18ea650d72d12520fe72b955bb795d8790fd2329a69af709a75d0f705ba2"
+    },
+    {
+      "tag": "matrix/transformer/control/transformer_encoder.layers.0.norm1",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "295cd687f1bda6f3ae975402b42fb2e29bb8181f2e0d8c2e98475ec9d6d9b5ac"
+    },
+    {
+      "tag": "matrix/transformer/cap_q25/transformer_encoder.layers.0.norm1",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "efdcfc1fdfcd7d6d7e188866c77e2f327e5fa7dd71ed983b6521a86ca75cef9e"
+    },
+    {
+      "tag": "matrix/transformer/cap_q50/transformer_encoder.layers.0.norm1",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "2cd6da543b6263daea8946b40299fdc5c86f8f490b233f542d8fac6cb8bf997d"
+    },
+    {
+      "tag": "matrix/transformer/control/transformer_encoder.layers.0.linear1",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "cbe13d4420a87bab0d2b743675cf8e7d09073a5d3478138798bf526bfbb4fe09"
+    },
+    {
+      "tag": "matrix/transformer/cap_q25/transformer_encoder.layers.0.linear1",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "4a6ac2e72afd8574bf6ff97f223f7ff8b7c720fb1a1bdcacf1de51e251836d60"
+    },
+    {
+      "tag": "matrix/transformer/cap_q50/transformer_encoder.layers.0.linear1",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "3e5f7d0257d840640daac6b600a308afc8715272e5ba78ede8fdf2c2e00a956a"
+    },
+    {
+      "tag": "matrix/transformer/control/transformer_encoder.layers.0.linear2",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "c9b8150608ff51e3180716d4a5e7684edf6fab07f214040e3e1567294273d1c2"
+    },
+    {
+      "tag": "matrix/transformer/cap_q25/transformer_encoder.layers.0.linear2",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "94e78e7259b0bca624e168f345e9c94f2b99b964f2e11b9bf828f7614089a4c4"
+    },
+    {
+      "tag": "matrix/transformer/cap_q50/transformer_encoder.layers.0.linear2",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "66c45da0826a2a1015b7afbae32c0d6c25c0e972392832ac68acf29d0ce53a0c"
+    },
+    {
+      "tag": "matrix/transformer/control/transformer_encoder.layers.0.norm2",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "2879e1587de269c89cf05fcfe445f3ed74bd464f5dde45ad8aad6e8a5873bea3"
+    },
+    {
+      "tag": "matrix/transformer/cap_q25/transformer_encoder.layers.0.norm2",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "bf00f95be1aa7b3ebcaf7018cee78761d7b5bc64cb8e33f4a44171c8a4c75f16"
+    },
+    {
+      "tag": "matrix/transformer/cap_q50/transformer_encoder.layers.0.norm2",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "e6eded402e5e16b8176e0b5bb233c05eeecc3e4502d67bcd411461db8afeebd6"
+    },
+    {
+      "tag": "matrix/transformer/control/transformer_encoder.layers.1.norm1",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "2bc2fc70af6993e57d55e3fbae740d9a85847f6721a9d6d2116030f170137dc0"
+    },
+    {
+      "tag": "matrix/transformer/cap_q25/transformer_encoder.layers.1.norm1",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "fd11fa5206c105f69c59d41bee6a35e989ad63a9928327f6d932c29ca09d4690"
+    },
+    {
+      "tag": "matrix/transformer/cap_q50/transformer_encoder.layers.1.norm1",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "62ef0123fffb1f962fcb6e0888a8049fa3428517a1173df052e3af96ca1dd1f5"
+    },
+    {
+      "tag": "matrix/transformer/control/transformer_encoder.layers.1.linear1",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "88145b1e2be3928e78ab4e7824438b986963083c998dbed3c19e849ec1833ef8"
+    },
+    {
+      "tag": "matrix/transformer/cap_q25/transformer_encoder.layers.1.linear1",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "a80576ed73cc67dc3a25043ce278a2dac7b89559b160598ffeea0cadeeed0356"
+    },
+    {
+      "tag": "matrix/transformer/cap_q50/transformer_encoder.layers.1.linear1",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "5f527ae4285cb34c0438475fa4436be2ad8d28a7c80741892001893737b45149"
+    },
+    {
+      "tag": "matrix/transformer/control/transformer_encoder.layers.1.linear2",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "e4765085ce3b2812cb95214f7bd4fd6bd22e5a2f289964ca7080b32b6f678ff3"
+    },
+    {
+      "tag": "matrix/transformer/cap_q25/transformer_encoder.layers.1.linear2",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "2551109d3b14d06e43bf45a1e9e145cd074c88d63618d7c9027b2053cefa0680"
+    },
+    {
+      "tag": "matrix/transformer/cap_q50/transformer_encoder.layers.1.linear2",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "b564ac02304c6b5541df8c468cfbd50814a4c613f99d5e71b41815215b79b67f"
+    },
+    {
+      "tag": "matrix/transformer/control/transformer_encoder.layers.1.norm2",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "afb3a95fde94e8e46e3532c747306c1184597c6bdbae3933d41668ccfaf993b4"
+    },
+    {
+      "tag": "matrix/transformer/cap_q25/transformer_encoder.layers.1.norm2",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "84fb0a7bdef88fd6b4823aab126bc1164fa7d98e943ffcca363daa2d950e771a"
+    },
+    {
+      "tag": "matrix/transformer/cap_q50/transformer_encoder.layers.1.norm2",
+      "shape": [
+        512,
+        200
+      ],
+      "sha256": "cadb0f22a58a34a04c33a9c1214b0ed4fe82789117de3949502d34933cbf42a6"
+    }
+  ],
+  "figures": {
+    "activation-summary.pdf": "e802437ad41ea5e896decc76e6750d71d5da09ec47469a54f66713a41b5d57ab",
+    "activation-matrices.pdf": "ba77a2f7df830ac66a3b9ecded27219f1f877c12a3c446b05075c7718085b91b"
+  },
+  "matrix_color_limits": [
+    {
+      "case": "mlp",
+      "site": "1",
+      "vmin": -17.842283248901367,
+      "vmax": 17.842283248901367,
+      "pooled_clipped_fraction": 0.005
+    },
+    {
+      "case": "mlp",
+      "site": "2",
+      "vmin": -1.0,
+      "vmax": 1.0,
+      "pooled_clipped_fraction": 0.0
+    },
+    {
+      "case": "mlp",
+      "site": "3",
+      "vmin": -1.5662604570388794,
+      "vmax": 1.5662604570388794,
+      "pooled_clipped_fraction": 0.005
+    },
+    {
+      "case": "mlp",
+      "site": "4",
+      "vmin": -0.9164288640022278,
+      "vmax": 0.9164288640022278,
+      "pooled_clipped_fraction": 0.005
+    },
+    {
+      "case": "mlp",
+      "site": "5",
+      "vmin": -1.0574707984924316,
+      "vmax": 1.0574707984924316,
+      "pooled_clipped_fraction": 0.005013020833333334
+    },
+    {
+      "case": "resnet",
+      "site": "relu#1",
+      "vmin": 0,
+      "vmax": 2.4641361236572266,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer1.0.relu#1",
+      "vmin": 0,
+      "vmax": 2.7144289016723633,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer1.0.relu#2",
+      "vmin": 0,
+      "vmax": 2.4128739833831787,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer1.1.relu#1",
+      "vmin": 0,
+      "vmax": 2.6516900062561035,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer1.1.relu#2",
+      "vmin": 0,
+      "vmax": 2.3914012908935547,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer1.2.relu#1",
+      "vmin": 0,
+      "vmax": 2.724459171295166,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer1.2.relu#2",
+      "vmin": 0,
+      "vmax": 2.5409111976623535,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer1.3.relu#1",
+      "vmin": 0,
+      "vmax": 2.763062000274658,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer1.3.relu#2",
+      "vmin": 0,
+      "vmax": 2.897001028060913,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer1.4.relu#1",
+      "vmin": 0,
+      "vmax": 2.731494426727295,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer1.4.relu#2",
+      "vmin": 0,
+      "vmax": 3.0235953330993652,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer2.0.relu#1",
+      "vmin": 0,
+      "vmax": 2.7452783584594727,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer2.0.relu#2",
+      "vmin": 0,
+      "vmax": 2.002108097076416,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer2.1.relu#1",
+      "vmin": 0,
+      "vmax": 2.7878143787384033,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer2.1.relu#2",
+      "vmin": 0,
+      "vmax": 1.7963629961013794,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer2.2.relu#1",
+      "vmin": 0,
+      "vmax": 2.489793539047241,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer2.2.relu#2",
+      "vmin": 0,
+      "vmax": 1.668845772743225,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer2.3.relu#1",
+      "vmin": 0,
+      "vmax": 2.4864423274993896,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer2.3.relu#2",
+      "vmin": 0,
+      "vmax": 1.7218084335327148,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer2.4.relu#1",
+      "vmin": 0,
+      "vmax": 2.4602222442626953,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer2.4.relu#2",
+      "vmin": 0,
+      "vmax": 1.9417810440063477,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer3.0.relu#1",
+      "vmin": 0,
+      "vmax": 2.433885335922241,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer3.0.relu#2",
+      "vmin": 0,
+      "vmax": 3.5270655155181885,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer3.1.relu#1",
+      "vmin": 0,
+      "vmax": 2.252506732940674,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer3.1.relu#2",
+      "vmin": 0,
+      "vmax": 4.017963409423828,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer3.2.relu#1",
+      "vmin": 0,
+      "vmax": 2.281999349594116,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer3.2.relu#2",
+      "vmin": 0,
+      "vmax": 5.009687423706055,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer3.3.relu#1",
+      "vmin": 0,
+      "vmax": 2.338698625564575,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer3.3.relu#2",
+      "vmin": 0,
+      "vmax": 6.382734775543213,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer3.4.relu#1",
+      "vmin": 0,
+      "vmax": 2.108218193054199,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "layer3.4.relu#2",
+      "vmin": 0,
+      "vmax": 8.110109329223633,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "avgpool",
+      "vmin": 0,
+      "vmax": 6.79823112487793,
+      "pooled_clipped_fraction": 0.0050048828125
+    },
+    {
+      "case": "resnet",
+      "site": "fc",
+      "vmin": -11.331258773803711,
+      "vmax": 11.331258773803711,
+      "pooled_clipped_fraction": 0.005013020833333334
+    },
+    {
+      "case": "transformer",
+      "site": "encoder",
+      "vmin": -0.37585535645484924,
+      "vmax": 0.37585535645484924,
+      "pooled_clipped_fraction": 0.005
+    },
+    {
+      "case": "transformer",
+      "site": "pos_encoder",
+      "vmin": -5.432680130004883,
+      "vmax": 5.432680130004883,
+      "pooled_clipped_fraction": 0.005
+    },
+    {
+      "case": "transformer",
+      "site": "transformer_encoder.layers.0.norm1",
+      "vmin": -2.799941301345825,
+      "vmax": 2.799941301345825,
+      "pooled_clipped_fraction": 0.005
+    },
+    {
+      "case": "transformer",
+      "site": "transformer_encoder.layers.0.linear1",
+      "vmin": -4.232927322387695,
+      "vmax": 4.232927322387695,
+      "pooled_clipped_fraction": 0.005
+    },
+    {
+      "case": "transformer",
+      "site": "transformer_encoder.layers.0.linear2",
+      "vmin": 0,
+      "vmax": 2.03946590423584,
+      "pooled_clipped_fraction": 0.005
+    },
+    {
+      "case": "transformer",
+      "site": "transformer_encoder.layers.0.norm2",
+      "vmin": -3.2546613216400146,
+      "vmax": 3.2546613216400146,
+      "pooled_clipped_fraction": 0.005
+    },
+    {
+      "case": "transformer",
+      "site": "transformer_encoder.layers.1.norm1",
+      "vmin": -2.876661539077759,
+      "vmax": 2.876661539077759,
+      "pooled_clipped_fraction": 0.005
+    },
+    {
+      "case": "transformer",
+      "site": "transformer_encoder.layers.1.linear1",
+      "vmin": -6.579860687255859,
+      "vmax": 6.579860687255859,
+      "pooled_clipped_fraction": 0.005
+    },
+    {
+      "case": "transformer",
+      "site": "transformer_encoder.layers.1.linear2",
+      "vmin": 0,
+      "vmax": 2.4397106170654297,
+      "pooled_clipped_fraction": 0.005
+    },
+    {
+      "case": "transformer",
+      "site": "transformer_encoder.layers.1.norm2",
+      "vmin": -6.465542793273926,
+      "vmax": 6.465542793273926,
+      "pooled_clipped_fraction": 0.005
+    }
+  ]
+}

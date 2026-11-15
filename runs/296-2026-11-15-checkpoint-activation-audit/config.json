@@ -1,0 +1,22 @@
+{
+  "run_id": 296,
+  "analysis_id": "066",
+  "hypothesis": "H052",
+  "source_runs": {"mlp": 293, "resnet": 294, "transformer": 295},
+  "arms": ["control", "cap_q25", "cap_q50"],
+  "states": "fork, fork+1, fork+32, fork+33, end-1, end; shared fork measured once",
+  "full_training_states": "fork, fork+32, end",
+  "reference_examples": {"mlp": 5000, "resnet": 1000, "transformer": 64},
+  "absolute_thresholds": [0, 0.000001, 0.0001, 0.001, 0.01, 0.1, 1],
+  "relative_thresholds": [0, 0.000001, 0.00001, 0.0001, 0.001, 0.01, 0.03, 0.1, 0.3, 1],
+  "relative_scale": "full-training layer RMS at common fork; fixed across arms/states",
+  "unit": "feature for MLP/Transformer, channel for CNN; all valid sample/spatial/token positions form rows",
+  "inactive_unit": "max absolute activation over every covered row <= threshold",
+  "weak_unit": "unit RMS <= threshold; distinct from inactive on every row",
+  "matrix_rows": 4096,
+  "precision": "original FP32 forward; FP64 sums and per-unit moments; exact integer zero/count summaries",
+  "cudnn_deterministic": true,
+  "training": "no optimizer updates; saved states only; hooked versus plain forward/backward qualification",
+  "hardware": "owned Spark; notebook available; no Runpod",
+  "maximum_seconds_per_case": 10800
+}
