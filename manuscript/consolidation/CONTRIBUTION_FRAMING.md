@@ -8,6 +8,96 @@ This note consolidates the author's discussion with the assistant. It is a
 working record, not an approved rewrite of the introduction or a replacement
 for [PLAN.md](PLAN.md). No new experiment is authorized by this note.
 
+## Consolidated contribution bullets in manuscript order
+
+At the author's request, the four full formulations are collected here in the
+order **framework, diagnostic, representations, intervention**. This is the
+consolidated working block; the sections below retain the supporting discussion
+and claim boundaries. Insertion into the manuscript remains pending. The
+implicit-regularization experiment remains a separate side note.
+
+1. **A framework for interpreting constructive and destructive training dynamics
+   under sampling noise.** Existing analyses characterize oscillatory stability,
+   gradient-based convergence diagnostics, and optimization path length, but these
+   perspectives do not by themselves determine how observed update opposition
+   translates into accumulated motion. We connect update magnitudes, temporal
+   alignment, and displacement through an exact decomposition of SGD trajectories,
+   and explicitly characterize how sampling enters consecutive-gradient
+   measurements. This separates local reversal, cumulative interference, and
+   displacement retention while distinguishing fixed-state alignment dilution
+   from changes along an evolving trajectory. Across the studied GD trajectories,
+   negative adjacent interactions coexist with positive accumulated interactions
+   and continued loss reduction; matched mini-batch continuations further reveal
+   how sampling modifies coherent reversal. Together, these results provide the
+   parameter-space foundation for investigating the corresponding changes in
+   network representations.
+
+2. **Recovering step-averaged curvature from training gradients for practical
+   loss-rise diagnostics.** Curvature-based analyses provide insight into loss
+   spikes, but their additional derivative computations remain a recognized
+   obstacle to scalable monitoring [Bai et al., 2026]. We connect
+   consecutive-gradient measurements to an exact geometric quantity: for a smooth
+   objective and full gradients, the gradient difference projected onto the
+   applied update recovers directional Hessian curvature averaged along that
+   step, independently of the optimizer. Under gradient descent, this identity
+   reduces to a combination of gradient cosine and norm ratio, linking reversal
+   and amplification to the curvature encountered during training. The diagnostic
+   reuses training gradients without additional backward passes or
+   Hessian--vector products, requiring linear storage and vector operations. For
+   quadratic full-batch GD, the resulting condition exactly characterizes loss
+   increases on the completed step. In the three studied Adam trajectories, we
+   separately test the combined angle--magnitude signal before each outgoing
+   update: it achieves the highest accuracy and warning lift among the evaluated
+   warning rules, outperforming previous-loss-rise, reversal-only, and
+   norm-growth-only diagnostics. These findings support its usefulness for
+   inexpensive training-time monitoring, while distinguishing exact retrospective
+   geometry from empirically evaluated next-step prediction.
+
+3. **Connecting oscillatory optimization to representation dynamics.** Existing
+   stability analyses explain oscillatory parameter trajectories through loss
+   geometry, but leave open how these dynamics manifest within the network.
+   Central Flows explicitly identifies the translation from loss-landscape
+   dynamics to layer-level mechanisms as an unresolved problem [Cohen et al.,
+   2025]. We address the functional characterization of this gap by tracking
+   representation changes on fixed reference inputs across successive training
+   states. Separating reversal, displacement magnitude, and shared temporal
+   structure reveals architecture-dependent patterns of functional oscillation:
+   reversal spans all measured MLP sites, while earlier ResNet and Transformer
+   sites exhibit less persistent reversal than their outputs. These measurements
+   motivate testing local displacement control while distinguishing observed
+   coordination from causal attribution.
+
+4. **Testing representation displacement as a target for intervention.**
+   Explaining how loss spikes arise leaves open how to control disruptive
+   movement while preserving training progress [Bai et al., 2026]. Motivated by
+   the observed functional oscillations and prior representation-based controls
+   [Kosson et al., 2024], we use local displacement caps to test whether
+   selectively limiting movement magnitude can improve training without
+   eliminating reversals. In matched continuations across three model--dataset
+   cases, all tested cap quantiles reduce mean training loss and accumulated
+   upward loss variation relative to unchanged Adam, while functional reversals
+   persist. Comparisons with learning-rate reduction, second-moment changes,
+   and gradient clipping reveal distinct tradeoffs. These findings identify
+   local representation displacement as a promising intervention target, with
+   endpoint and computational limitations defining the scope of the evidence.
+
+For bullet 2, the comparison is supported by
+[Table II](draft/tables/diagnostic-0p1pct.tex) and
+[the characterization section](draft/sections/05a-characterization.tex).
+The angle/norm and projected-response rules are algebraically equivalent and
+tie; they are not independent evidence. The exact actual-step curvature identity
+must not be conflated with Adam's raw-gradient response or extended unchanged
+to differently sampled gradients. The BB antecedent is discussed below.
+
+An additional recent comparator found during the discussion is
+[Lee and Lee, The Road Taken, September 2026 preprint version, sections 6.2--6.4](https://arxiv.org/html/2608.18415v2).
+It computes an exact realized loss-balance quantity from the gradient, applied
+direction, and observed loss change without HVPs, and leaves stochastic extension
+open. This differs from our gradient-difference step-average quantity, but means
+that exactness and absence of HVPs alone are not exclusive novelty claims.
+Position the diagnostic through its specific quantity, angle/magnitude
+interpretation, sampling analysis, and evaluated prediction task.
+
 ## Author's framing principle
 
 Define the scientific gap before claiming a contribution. Work through the
@@ -316,15 +406,18 @@ April 2026 preprint](https://arxiv.org/html/2604.21016). These works address
 stochastic stability and suppression of sharpness, so any future claim should
 identify the additional evidence or mechanism provided here.
 
-## Remaining contribution-by-contribution discussion
+## Mapping from the original introduction to the consolidated block
 
 | Current introduction bullet | Status after this discussion |
 | --- | --- |
-| Constructive and destructive regimes | Full fourth-bullet proposal and literature positioning recorded above at the author's request; manuscript insertion pending. |
-| Cheap curvature along the applied step | BB antecedent identified; novelty language needs explicit positioning. |
-| Reversal, growth, and loss increases | Preserve exact quadratic GD versus nonlinear approximation and retrospective versus outgoing-step timing; gap formulation still pending. |
-| Functional tracing | Explicit Central Flows motivation located; proposed bullet recorded above. |
-| Selective displacement control | Author approved intervention-target framing and requested the full bullet above; manuscript insertion remains pending. |
+| Constructive and destructive regimes | Consolidated bullet 1: framework, cumulative displacement, and sampling. |
+| Cheap curvature along the applied step | Combined into bullet 2; BB and the recent realized-loss-balance comparator constrain novelty claims. |
+| Reversal, growth, and loss increases | Combined into bullet 2; exact quadratic retrospective relation remains distinct from empirical outgoing-step prediction. |
+| Functional tracing | Consolidated bullet 3; explicit Central Flows motivation and measurement scope retained. |
+| Selective displacement control | Consolidated bullet 4; intervention-target framing retained, rather than a new-optimizer claim. |
+
+All four formulations are now recorded in this file. Manuscript insertion
+remains pending.
 
 For the last bullet, the closest literature includes
 [Kosson et al., Analyzing & Reducing the Need for Learning Rate Warmup in GPT
