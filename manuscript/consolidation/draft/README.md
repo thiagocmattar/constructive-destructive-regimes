@@ -1,5 +1,7 @@
 # Consolidation manuscript for author review
 
+- **Introduction revised, 15 November 2026:** four contributions now follow the agreed framework, diagnostic, representation, and intervention order. The functional gap, exact-versus-predictive distinction, and intervention-target framing are explicit. The main PDF remains 22 pages; abstract, Section II onward, bibliography source, evidence, and supplement are unchanged. [Revision scope and verification](../work/introduction_framing_20261115/OBSERVATIONS.md).
+
 - **Read:** [revised manuscript - 22 pages](manuscript.pdf), including the compact reviewer appendix beginning on page 17. This is the file for your next commenting round; the second-round feedback remains incorporated.
 - **Extended research record:** [supplement - 27 pages](supplementary.pdf), preserved unchanged, with the exhaustive intervention heatmap grid and historical MLP replication. The main manuscript now contains the necessary appendix and does not require this separate document.
 - **Main changes:** definitions before tracing algorithms/results; precise modes and temporal overlap; representation retention computed from saved data; clearer diagnostic timing; selective-cap computation and positioning; absolute intervention metrics and a compact q25 motion figure.
