@@ -6,7 +6,7 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
-from matplotlib.ticker import ScalarFormatter, NullLocator
+from matplotlib.ticker import FuncFormatter, NullLocator, FixedLocator
 
 HERE=Path(__file__).resolve().parent
 BASE=HERE.parents[1];DRAFT=BASE/'draft';DATA=BASE/'evidence/05-adam/c-intervention/data'
@@ -32,16 +32,16 @@ def main():
     thresholds={'mlp':.001,'resnet':.01,'transformer':.01}
     for ax,case in zip(axes,old.CASES):
         values=[rows[case,a] for a in old.ARMS]
-        xs=[r['mean_loss'] for r in values];ys=[r['positive_variation'] for r in values]
-        span=max(xs)-min(xs)
-        ax.set_xlim(min(xs)-.18*span,max(xs)+.22*span)
+        xs=[r['final_loss'] for r in values];ys=[r['positive_variation'] for r in values]
+        ax.set_xscale('log')
+        ax.set_xlim(min(xs)*.82,max(xs)*1.22)
         ax.set_yscale('symlog',linthresh=thresholds[case],linscale=.65)
         ax.set_ylim(-thresholds[case]*.22,max(ys)*2.5)
         ax.axhline(rows[case,'control']['positive_variation'],color='.7',lw=.55)
-        ax.axvline(rows[case,'control']['mean_loss'],color='.7',lw=.55)
+        ax.axvline(rows[case,'control']['final_loss'],color='.7',lw=.55)
         labels=[]
         for arm in old.ARMS:
-            row=rows[case,arm];x,y=row['mean_loss'],row['positive_variation']
+            row=rows[case,arm];x,y=row['final_loss'],row['positive_variation']
             ax.scatter(x,y,s=23,c=old.COLORS[arm],marker='x' if arm=='control' else old.MARKERS[row['family']],zorder=4)
             # Labels use offsets only; the underlying measured points are untouched.
             label='Adam' if arm=='control' else old.POINT_LABELS[arm]
@@ -49,12 +49,14 @@ def main():
                 color='.25' if arm=='control' else old.LABEL_COLORS[arm],
                 bbox=dict(fc='white',ec='none',alpha=.85,pad=.1),
                 arrowprops=dict(arrowstyle='-',lw=.4,color='.5',shrinkA=1,shrinkB=3)))
-            manifest['points'].append(dict(case=case,arm=arm,mean_loss=x,positive_variation=y))
+            manifest['points'].append(dict(case=case,arm=arm,final_loss=x,positive_variation=y))
         ax.set_title(old.TITLES[case],pad=7)
-        ax.set_xlabel(r'Mean training loss $\bar L$')
+        ax.set_xlabel(r'Final training loss $L_{t_f}$')
         ax.tick_params(length=2.5,pad=2)
         ax.yaxis.set_minor_locator(NullLocator())
-        ax.xaxis.set_major_locator(plt.MaxNLocator(3))
+        ax.xaxis.set_major_locator(FixedLocator({'mlp':[.01,.02,.04],'resnet':[.005,.02,.1],'transformer':[.5,.7,1]}[case]))
+        ax.xaxis.set_major_formatter(FuncFormatter(lambda x,pos:f'{x:g}'))
+        ax.xaxis.set_minor_locator(NullLocator())
         ax._comparison_labels=labels
     axes[0].set_ylabel(r'Upward loss variation $\mathcal{P}$')
     handles=[Line2D([],[],marker=old.MARKERS[f],color=old.COLORS[a],ls='',label=l,markersize=4)
@@ -79,7 +81,7 @@ def main():
                 score=overlap+100*outside+.015*(dx*dx+dy*dy)
                 if best is None or score<best[0]:best=(score,(dx,dy),b)
             label.set_position(best[1]);occupied.append(best[2])
-        overrides={'mlp':{'control':(7,-15)},'resnet':{'control':(7,12),'cap_q50':(-29,-25)},'transformer':{}}
+        overrides={'mlp':{},'resnet':{'control':(4,12),'cap_q25':(7,-7),'cap_q75':(6,-9),'cap_q50':(15,-6),'lr_0p75':(6,-17),'lr_0p5':(10,-4),'clip_0p5':(-26,-32),'clip_1p0':(-32,22),'beta2_0p9':(4,12),'beta2_0p5':(8,-17)},'transformer':{}}
         for arm,offset in overrides[case].items():
             ax._comparison_labels[old.ARMS.index(arm)].set_position(offset)
     name='24-main-intervention-tradeoff.pdf'
@@ -147,7 +149,9 @@ def main():
                 np.testing.assert_allclose(value,check,rtol=2e-12,atol=2e-12)
                 val=f'{1000*value:.1f}';plain.append(val)
                 cells.append(r'\textbf{'+val+'}' if value==min(rows[c,b][m] for b in old.ARMS) else val)
-        tex.append(' & '.join([names[i],values[i]]+cells)+r' \\')
+        group_sizes={1:3,4:3,7:2,9:3}
+        family = names[i] if i==0 else (r'\multirow{'+str(group_sizes[i])+r'}{*}{'+names[i]+'}' if i in group_sizes else '')
+        tex.append(' & '.join([family,values[i]]+cells)+r' \\')
         manifest['table'].append(dict(arm=a,display_values=plain))
     tex +=[r'\bottomrule',r'\end{tabular}',r'\end{table*}','']
     (DRAFT/'tables/matched-main-outcomes.tex').write_text('\n'.join(tex),encoding='utf8',newline='\n')

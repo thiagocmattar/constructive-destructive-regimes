@@ -284,6 +284,12 @@ for token in ['Algorithm 1', 'Algorithm 2', 'TABLE I', 'TABLE II', 'TABLE III']:
 table_region = main_text[main_text.index('TABLE III'):main_text.index('Fig. 9.')]
 compiled = Counter(re.findall(r'[+-]?\d+(?:\.\d+)?',table_region))
 round2 = json.loads((BASE/'work/author_feedback2_20261115/presentation-manifest.json').read_text())
+check(len(round2['points'])==36,'Complete final-loss comparison')
+for point in round2['points']:
+    values=computed[point['case'],point['arm']]
+    check(math.isclose(point['final_loss'],values[2],rel_tol=2e-12),'Final-loss scatter coordinate')
+    check(math.isclose(point['positive_variation'],values[0],rel_tol=2e-12,abs_tol=2e-12),'Variation scatter coordinate')
+check((DRAFT/'tables/matched-main-outcomes.tex').read_text().count('\\multirow{')==4,'Intervention family multirows')
 expected = Counter(v for r in round2['table'] for v in r['display_values'])
 check(all(compiled[v] >= n for v,n in expected.items()), 'Compiled intervention cells missing')
 for row in round2['table']:

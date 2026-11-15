@@ -52,7 +52,7 @@ a zero calibrated budget disables that site's cap.
 \begin{figure*}[!t]
 \centering
 \includegraphics[width=\textwidth]{figures/24-main-intervention-tradeoff.pdf}
-\caption{Mean training loss $\bar L$ and accumulated upward loss variation $\mathcal P$ for unchanged Adam and all 33 treated continuations. Both metrics are lower-is-better; gray lines mark the control's values. Axes differ across models. The vertical axis is linear below $0.001$ (MLP) or $0.01$ (ResNet/Transformer), and logarithmic above, retaining the zero-variation Transformer continuation. Every tested setting is shown. One initialization is used per model; settings are not independent replications and their effective strengths are not matched.}
+\caption{Final training loss $L_{t_f}$ and accumulated upward loss variation $\mathcal P$ for unchanged Adam and all 33 treated continuations. Both metrics are lower-is-better; gray lines mark the control's values. The horizontal axis is logarithmic; axes differ across models. The vertical axis is linear below $0.001$ (MLP) or $0.01$ (ResNet/Transformer), and logarithmic above, retaining the zero-variation Transformer continuation. Every tested setting is shown. One initialization is used per model; settings are not independent replications and their effective strengths are not matched.}
 \label{fig:vc-tradeoff}
 \end{figure*}
 
@@ -161,12 +161,20 @@ shared starting state; $\mathcal P$ sums all upward loss movement,
 rather than counting peaks. Final training loss $L_{t_f}$ records the
 attained endpoint. All three are reported in absolute units, with lower
 values favorable. The fixed windows make their comparison meaningful
-within each model.
+within each model. The losses retain their original definitions: half-squared
+error for MLP and cross-entropy for ResNet and Transformer. Logarithmic
+axes change the display, not the objective or the definition of $\mathcal P$.
 
 Figure~\ref{fig:vc-tradeoff} separates suppression of loss fluctuations
-from training progress. A point below and to the left of the control
-improves both metrics. Strong learning-rate reduction can almost remove
-upward movement while retaining higher mean loss than other settings,
+from the final loss reached over the same update budget. A point below
+and to the left of the control improves both metrics. Mean loss can fall
+simply because peaks shrink, so the horizontal axis uses $L_{t_f}$ rather
+than $\bar L$. The latter remains a trajectory-wide summary in
+Table~\ref{tab:vc-outcomes}. Final loss records the attained endpoint,
+not proof of asymptotic convergence; the last-32-step means in the
+supplement help assess sensitivity to its oscillatory phase. Strong
+learning-rate reduction can almost remove upward movement while
+retaining higher final loss than other settings,
 especially in ResNet. Late second-moment changes and clipping are more
 model-dependent: an intervention that helps the Transformer can worsen
 the MLP. Supplementary Section S5 retains their complete trajectories.

@@ -38,7 +38,8 @@
 
 - Generator: [04_figures.py](04_figures.py); [numeric manifest](presentation-manifest.json).
 - Sources: frozen `matched-results.json` and `matched-curves.npz` in evidence/05-adam/c-intervention/data; all 36 arms and original windows are preserved.
-- Fig. 8 uses exact absolute mean loss horizontally and positive variation vertically. Its symmetric-log vertical scale retains zero (linear below .001 for MLP and .01 otherwise); points are not jittered, only label locations move.
+- Follow-up author request: Table III now groups its four intervention families with LaTeX multirow. Fig. 8 uses exact absolute final loss horizontally and positive variation vertically. The horizontal axis is logarithmic; table values remain untransformed loss metrics scaled by 1000. Mean loss remains in the table as a trajectory-wide summary, not the primary convergence comparison. Final loss is the fixed-budget endpoint; the supplement retains final-32 means to expose phase sensitivity.
+- Fig. 8 uses final loss and positive variation. Its symmetric-log vertical scale retains zero (linear below .001 for MLP and .01 otherwise); points are not jittered, only label locations move.
 - Table III contains 108 training-metric cells, independently recomputed from complete loss curves; ×1000 units allow one decimal without rounding every small loss to zero. Bold uses full-precision minima.
 - Fig. 9 uses q25 and unchanged Adam, all post-fork updates and measured sites. RMS normalization is shared within each site across arms, using its unchanged-Adam maximum. The common color scale retains all values; no smoothing.
 - q25 maximum output RMS reductions: **92.7/33.0/45.1%**. Squared output movement changes: **−97.6/−2.5/−59.7%**. Output reversal frequencies: **49.7/59.7/88.5%**.
@@ -52,3 +53,9 @@
 - Current full build pipeline: `../readability_revision_20261114/02_figures.py`, `03_build.py`, `04_verify.py`, and `05_review_sheets.py`.
 - Checks cover 416 protected originals; retained tracing arrays; 144 underlying intervention metrics; 108 compiled main-table values; diagnostic counts; curvature/cap identities; citation/reference resolution; embedded fonts; page bounds; and final rendered pages.
 - Figures, tables, main PDF, and supplement stay inside consolidation. No push is authorized by this round.
+
+## Loss-scale clarification
+
+- MLP uses half-squared error; ResNet and Transformer use mean cross-entropy. For the Transformer, perplexity is exp(cross-entropy in nats), not log(cross-entropy). A logarithmic plotting axis changes only the display. Positive variation is computed from original loss differences; exponentiating it would not produce a useful perplexity statistic.
+- Primary reference for the perplexity identity: https://huggingface.co/docs/transformers/v4.56.2/perplexity
+- All 36 final-loss/variation coordinates are checked against full-precision independent curve reductions. All 108 table cells and the four multirow groups are checked. No experiments or source evidence changed.
