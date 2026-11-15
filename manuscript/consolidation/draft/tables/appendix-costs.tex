@@ -1,0 +1,15 @@
+\begin{table}[!t]
+\caption{Recorded q50 component times (ms). Reference evaluation includes the forward pass used to collect cap inputs. These are instrumented component costs, not matched time-to-loss benchmarks.}
+\label{tab:app-cost}
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrr}
+\toprule
+Case / GPU & Gradient & Reference & Cap \\
+\midrule
+MLP / GB10 & 4.4 & 3.2 & 41.8 \\
+ResNet / RTX 4090 & 3461.6 & 24.1 & 292.0 \\
+Transformer / RTX 5090 & 9516.3 & 10.2 & 12.6 \\
+\bottomrule
+\end{tabular}
+\end{table}

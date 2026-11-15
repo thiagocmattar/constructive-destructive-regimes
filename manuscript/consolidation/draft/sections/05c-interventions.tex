@@ -103,7 +103,7 @@ whole network. The implemented controller also evaluates the reference
 examples to collect current inputs and verifies the rounded increments;
 its total overhead therefore exceeds that local product alone.
 The temporal SVD is an analysis tool and is not computed by the cap.
-Supplementary Section S5 separates the bounded direct change from
+Appendix~\ref{app:interventions} separates the bounded direct change from
 upstream changes and their interactions.
 
 The closest representation-based comparator is the relative-change
@@ -171,13 +171,12 @@ and to the left of the control improves both metrics. Mean loss can fall
 simply because peaks shrink, so the horizontal axis uses $L_{t_f}$ rather
 than $\bar L$. The latter remains a trajectory-wide summary in
 Table~\ref{tab:vc-outcomes}. Final loss records the attained endpoint,
-not proof of asymptotic convergence; the last-32-step means in the
-supplement help assess sensitivity to its oscillatory phase. Strong
+not proof of asymptotic convergence; the last-32-step means in Table~\ref{tab:app-late} help assess sensitivity to its oscillatory phase. Strong
 learning-rate reduction can almost remove upward movement while
 retaining higher final loss than other settings,
 especially in ResNet. Late second-moment changes and clipping are more
 model-dependent: an intervention that helps the Transformer can worsen
-the MLP. Supplementary Section S5 retains their complete trajectories.
+the MLP. Appendix~\ref{app:plots} retains all applied-update histories and selected functional trajectories.
 
 All three cap quantiles improve both mean loss and positive variation
 over unchanged Adam in all three cases. The lowest observed mean loss
@@ -195,8 +194,7 @@ oscillatory. The q25 cap can therefore improve training while retaining
 back-and-forth movement. Its effect is on the size and distribution of
 that movement, rather than eliminating every reversal. The complete
 window also matters: attenuating the traced ResNet peak does not remove
-all later oscillations. Supplementary Section S5 reports output-motion
-measurements and maps for every setting.
+all later oscillations. Appendix~\ref{app:plots} compares their functional motion with selected conventional interventions.
 
 For the squared-loss MLP, the connection to output displacement is exact.
 Let $F_t$ be the output matrix on all $N=5000$ training examples,
@@ -216,7 +214,7 @@ directional derivative, and cross-entropy requires its own loss readout.
 These comparisons support selective control of local movement in the
 tested training trajectories. The implementation adds measurable cost;
 the recorded MLP cap computation exceeds its full-gradient calculation
-(Supplementary Section S5). One initialization per model and unequal
+(Appendix~\ref{app:interventions}). One initialization per model and unequal
 intervention strengths limit conclusions about a universal optimizer
 ranking. The consistent reductions in mean loss and upward variation
 nevertheless show that persistent oscillation can be made less disruptive

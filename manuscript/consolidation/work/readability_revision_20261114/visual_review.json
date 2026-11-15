@@ -2,7 +2,7 @@
   "status": "passed",
   "reviewer": "Codex rendered-page inspection",
   "date": "2026-11-15",
-  "method": "All 18 main and 27 supplementary pages rendered at 1.6x and inspected in contact sheets; changed main tracing/algorithm pages, intervention scatter/table, and q25 maps additionally inspected at full render resolution.",
+  "method": "All 22 main pages inspected in rendered contact sheets; appendix tables, figures, and bibliography additionally checked at full render size. Unchanged supplementary PDF retains its prior 27-page inspection.",
   "checks": [
     "Readable equations, text, captions, and tables; no page clipping",
     "Definitions precede Algorithm 1 and tracing figures",
@@ -11,12 +11,14 @@
     "q25 logarithmic losses, shared RMS denominators, no peak lines",
     "Nine main figures, three tables, two algorithms, 40 equations",
     "Original evidence and training arrays preserved",
-    "Follow-up: four multirow families; final-loss logarithmic X axis, exact untransformed table metrics; modified pages 15-18 re-inspected."
+    "Follow-up: four multirow families; final-loss logarithmic X axis, exact untransformed table metrics; modified pages 15-18 re-inspected.",
+    "Compact appendix: all-setting updates/activity, selected beta2=.5/LR=.1/clip=1 heatmaps, four small evidence tables; no duplicated Adam heatmaps, no clipping or legend collisions.",
+    "Bibliography column height reset after full-width float pages; references fit page 22."
   ],
   "pdfs": {
     "manuscript": {
-      "sha256": "8d205e9dfc029a1c1c0e59fe2f3d7b0a8a86e1401baa1b88f2fb44a987de6d09",
-      "pages": 18,
+      "sha256": "9c4c297ec32750fa15cad6b78e1b35f63988ce0f04380b626f2faba70bc1484b",
+      "pages": 22,
       "inspected_pages": [
         1,
         2,
@@ -35,7 +37,11 @@
         15,
         16,
         17,
-        18
+        18,
+        19,
+        20,
+        21,
+        22
       ]
     },
     "supplementary": {

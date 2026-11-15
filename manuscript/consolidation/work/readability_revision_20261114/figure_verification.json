@@ -1,6 +1,6 @@
 {
   "clock": "Training step t = completed optimizer updates",
-  "changes": "t/site terminology; absolute intervention axes/table; q25 illustration. Original data and windows preserved.",
+  "changes": "t/site terminology; absolute intervention axes/table; q25 illustration; compact appendix trajectories. Original data and windows preserved.",
   "sources": {
     "manuscript/consolidation/work/figure_revision_20261114/01_figures.py": "03096087e45f65cdf3f33a45a865139cbf085307ab5666b334b7ebe24af75859",
     "manuscript/consolidation/work/figure_revision_20261114/plotted_arrays.npz": "89def5ce31a3d7eb9d6ff6b4e092afb98ef89c90defff52777d6aac716f7d8ae",
@@ -83,7 +83,8 @@
     "manuscript/consolidation/evidence/04-gd-sgd/support/frozen_calibration.pdf": "d006e63017e50df583378d6ce6363bf6cc7834367f47d3fbb328967e6c37872d",
     "manuscript/consolidation/evidence/04-gd-sgd/support/sgd_proxy_validation.pdf": "6b29dbdaf58928fbb149e8e64f30ee01f4b7fcf404eaed88262b0e383d7d1edb",
     "manuscript/consolidation/evidence/05-adam/c-intervention/14-distributed-cap-quantile-ablation-mlp.pdf": "db39980868d6e694e0d62c4648637cfc0f54b6ff68a329b06b63221970703c38",
-    "manuscript/consolidation/work/author_feedback2_20261115/04_figures.py": "f8b149fae1d7f7d67c37fc230bd9a767d75a004eafbf1b4d928cc030d003c954"
+    "manuscript/consolidation/work/author_feedback2_20261115/04_figures.py": "f8b149fae1d7f7d67c37fc230bd9a767d75a004eafbf1b4d928cc030d003c954",
+    "manuscript/consolidation/work/appendix_20261115/01_artifacts.py": "909d43d6b958a1751f6efdcdbfc635ba0cc55f6ccef2f3d787faf4c1313b7150"
   },
   "exports": [
     {
@@ -1219,8 +1220,8 @@
       "values": 510,
       "labels": [
         {
-          "before": "State s diagnostics evaluated against step s Ã¢â€ â€™ s+1 Ã‚Â· all 1,023 eligible states per model",
-          "after": "State t diagnostics evaluated against step t Ã¢â€ â€™ t+1 Ã‚Â· all 1,023 eligible states per model"
+          "before": "State s diagnostics evaluated against step s → s+1 · all 1,023 eligible states per model",
+          "after": "State t diagnostics evaluated against step t → t+1 · all 1,023 eligible states per model"
         },
         {
           "before": "Threshold: $Q\\geq2$",
@@ -1234,24 +1235,24 @@
       "values": 888,
       "labels": [
         {
-          "before": "MLP Ã‚Â· LR 0.001\nDecisions: 1008; rises: 167Ã¢â‚¬â€œ168\nAlarms D/G/DG/Q: 801/536/447/301",
-          "after": "MLP Ã‚Â· LR 0.001\nDecisions: 1008; rises: 167Ã¢â‚¬â€œ168\nAlarms D/G/DG/threshold: 801/536/447/301"
+          "before": "MLP · LR 0.001\nDecisions: 1008; rises: 167–168\nAlarms D/G/DG/Q: 801/536/447/301",
+          "after": "MLP · LR 0.001\nDecisions: 1008; rises: 167–168\nAlarms D/G/DG/threshold: 801/536/447/301"
         },
         {
-          "before": "ResNet Ã‚Â· LR 0.003\nDecisions: 1008; rises: 12Ã¢â‚¬â€œ12\nAlarms D/G/DG/Q: 300/323/162/36",
-          "after": "ResNet Ã‚Â· LR 0.003\nDecisions: 1008; rises: 12Ã¢â‚¬â€œ12\nAlarms D/G/DG/threshold: 300/323/162/36"
+          "before": "ResNet · LR 0.003\nDecisions: 1008; rises: 12–12\nAlarms D/G/DG/Q: 300/323/162/36",
+          "after": "ResNet · LR 0.003\nDecisions: 1008; rises: 12–12\nAlarms D/G/DG/threshold: 300/323/162/36"
         },
         {
-          "before": "Transformer Ã‚Â· LR 0.003\nDecisions: 1008; rises: 26Ã¢â‚¬â€œ26\nAlarms D/G/DG/Q: 520/417/300/147",
-          "after": "Transformer Ã‚Â· LR 0.003\nDecisions: 1008; rises: 26Ã¢â‚¬â€œ26\nAlarms D/G/DG/threshold: 520/417/300/147"
+          "before": "Transformer · LR 0.003\nDecisions: 1008; rises: 26–26\nAlarms D/G/DG/Q: 520/417/300/147",
+          "after": "Transformer · LR 0.003\nDecisions: 1008; rises: 26–26\nAlarms D/G/DG/threshold: 520/417/300/147"
         },
         {
-          "before": "[L(s+h) Ã¢Ë†â€™ L(s+hÃ¢Ë†â€™1)] / L(s+hÃ¢Ë†â€™1) Ã¢â€°Â¥ 10%",
-          "after": "[L(t+h) Ã¢Ë†â€™ L(t+hÃ¢Ë†â€™1)] / L(t+hÃ¢Ë†â€™1) Ã¢â€°Â¥ 10%"
+          "before": "[L(s+h) − L(s+h−1)] / L(s+h−1) ≥ 10%",
+          "after": "[L(t+h) − L(t+h−1)] / L(t+h−1) ≥ 10%"
         },
         {
-          "before": "Same decision states s=1Ã¢â‚¬Â¦1008 at every horizon; diagnostics fixed at s. Gray line: target frequency without a diagnostic.\nCurves are exploratory; no horizon was chosen as a validated optimum. Window-target positives increase with horizon by construction.",
-          "after": "Same decision states t=1Ã¢â‚¬Â¦1008 at every horizon; diagnostics fixed at t. Gray line: target frequency without a diagnostic.\nCurves are exploratory; no horizon was chosen as a validated optimum. Window-target positives increase with horizon by construction."
+          "before": "Same decision states s=1…1008 at every horizon; diagnostics fixed at s. Gray line: target frequency without a diagnostic.\nCurves are exploratory; no horizon was chosen as a validated optimum. Window-target positives increase with horizon by construction.",
+          "after": "Same decision states t=1…1008 at every horizon; diagnostics fixed at t. Gray line: target frequency without a diagnostic.\nCurves are exploratory; no horizon was chosen as a validated optimum. Window-target positives increase with horizon by construction."
         },
         {
           "before": "Threshold: $Q\\geq2$",
@@ -1265,24 +1266,24 @@
       "values": 888,
       "labels": [
         {
-          "before": "MLP Ã‚Â· LR 0.001\nDecisions: 1008; rises: 167Ã¢â‚¬â€œ254\nAlarms D/G/DG/Q: 801/536/447/301",
-          "after": "MLP Ã‚Â· LR 0.001\nDecisions: 1008; rises: 167Ã¢â‚¬â€œ254\nAlarms D/G/DG/threshold: 801/536/447/301"
+          "before": "MLP · LR 0.001\nDecisions: 1008; rises: 167–254\nAlarms D/G/DG/Q: 801/536/447/301",
+          "after": "MLP · LR 0.001\nDecisions: 1008; rises: 167–254\nAlarms D/G/DG/threshold: 801/536/447/301"
         },
         {
-          "before": "ResNet Ã‚Â· LR 0.003\nDecisions: 1008; rises: 12Ã¢â‚¬â€œ48\nAlarms D/G/DG/Q: 300/323/162/36",
-          "after": "ResNet Ã‚Â· LR 0.003\nDecisions: 1008; rises: 12Ã¢â‚¬â€œ48\nAlarms D/G/DG/threshold: 300/323/162/36"
+          "before": "ResNet · LR 0.003\nDecisions: 1008; rises: 12–48\nAlarms D/G/DG/Q: 300/323/162/36",
+          "after": "ResNet · LR 0.003\nDecisions: 1008; rises: 12–48\nAlarms D/G/DG/threshold: 300/323/162/36"
         },
         {
-          "before": "Transformer Ã‚Â· LR 0.003\nDecisions: 1008; rises: 26Ã¢â‚¬â€œ153\nAlarms D/G/DG/Q: 520/417/300/147",
-          "after": "Transformer Ã‚Â· LR 0.003\nDecisions: 1008; rises: 26Ã¢â‚¬â€œ153\nAlarms D/G/DG/threshold: 520/417/300/147"
+          "before": "Transformer · LR 0.003\nDecisions: 1008; rises: 26–153\nAlarms D/G/DG/Q: 520/417/300/147",
+          "after": "Transformer · LR 0.003\nDecisions: 1008; rises: 26–153\nAlarms D/G/DG/threshold: 520/417/300/147"
         },
         {
-          "before": "[L(s+h) Ã¢Ë†â€™ L(s)] / L(s) Ã¢â€°Â¥ 10%",
-          "after": "[L(t+h) Ã¢Ë†â€™ L(t)] / L(t) Ã¢â€°Â¥ 10%"
+          "before": "[L(s+h) − L(s)] / L(s) ≥ 10%",
+          "after": "[L(t+h) − L(t)] / L(t) ≥ 10%"
         },
         {
-          "before": "Same decision states s=1Ã¢â‚¬Â¦1008 at every horizon; diagnostics fixed at s. Gray line: target frequency without a diagnostic.\nCurves are exploratory; no horizon was chosen as a validated optimum. Window-target positives increase with horizon by construction.",
-          "after": "Same decision states t=1Ã¢â‚¬Â¦1008 at every horizon; diagnostics fixed at t. Gray line: target frequency without a diagnostic.\nCurves are exploratory; no horizon was chosen as a validated optimum. Window-target positives increase with horizon by construction."
+          "before": "Same decision states s=1…1008 at every horizon; diagnostics fixed at s. Gray line: target frequency without a diagnostic.\nCurves are exploratory; no horizon was chosen as a validated optimum. Window-target positives increase with horizon by construction.",
+          "after": "Same decision states t=1…1008 at every horizon; diagnostics fixed at t. Gray line: target frequency without a diagnostic.\nCurves are exploratory; no horizon was chosen as a validated optimum. Window-target positives increase with horizon by construction."
         },
         {
           "before": "Threshold: $Q\\geq2$",
@@ -1296,24 +1297,24 @@
       "values": 888,
       "labels": [
         {
-          "before": "MLP Ã‚Â· LR 0.001\nDecisions: 1008; rises: 167Ã¢â‚¬â€œ537\nAlarms D/G/DG/Q: 801/536/447/301",
-          "after": "MLP Ã‚Â· LR 0.001\nDecisions: 1008; rises: 167Ã¢â‚¬â€œ537\nAlarms D/G/DG/threshold: 801/536/447/301"
+          "before": "MLP · LR 0.001\nDecisions: 1008; rises: 167–537\nAlarms D/G/DG/Q: 801/536/447/301",
+          "after": "MLP · LR 0.001\nDecisions: 1008; rises: 167–537\nAlarms D/G/DG/threshold: 801/536/447/301"
         },
         {
-          "before": "ResNet Ã‚Â· LR 0.003\nDecisions: 1008; rises: 12Ã¢â‚¬â€œ93\nAlarms D/G/DG/Q: 300/323/162/36",
-          "after": "ResNet Ã‚Â· LR 0.003\nDecisions: 1008; rises: 12Ã¢â‚¬â€œ93\nAlarms D/G/DG/threshold: 300/323/162/36"
+          "before": "ResNet · LR 0.003\nDecisions: 1008; rises: 12–93\nAlarms D/G/DG/Q: 300/323/162/36",
+          "after": "ResNet · LR 0.003\nDecisions: 1008; rises: 12–93\nAlarms D/G/DG/threshold: 300/323/162/36"
         },
         {
-          "before": "Transformer Ã‚Â· LR 0.003\nDecisions: 1008; rises: 26Ã¢â‚¬â€œ221\nAlarms D/G/DG/Q: 520/417/300/147",
-          "after": "Transformer Ã‚Â· LR 0.003\nDecisions: 1008; rises: 26Ã¢â‚¬â€œ221\nAlarms D/G/DG/threshold: 520/417/300/147"
+          "before": "Transformer · LR 0.003\nDecisions: 1008; rises: 26–221\nAlarms D/G/DG/Q: 520/417/300/147",
+          "after": "Transformer · LR 0.003\nDecisions: 1008; rises: 26–221\nAlarms D/G/DG/threshold: 520/417/300/147"
         },
         {
-          "before": "max over k=1Ã¢â‚¬Â¦h of [L(s+k) Ã¢Ë†â€™ L(s)] / L(s) Ã¢â€°Â¥ 10%",
-          "after": "max over k=1Ã¢â‚¬Â¦h of [L(t+k) Ã¢Ë†â€™ L(t)] / L(t) Ã¢â€°Â¥ 10%"
+          "before": "max over k=1…h of [L(s+k) − L(s)] / L(s) ≥ 10%",
+          "after": "max over k=1…h of [L(t+k) − L(t)] / L(t) ≥ 10%"
         },
         {
-          "before": "Same decision states s=1Ã¢â‚¬Â¦1008 at every horizon; diagnostics fixed at s. Gray line: target frequency without a diagnostic.\nCurves are exploratory; no horizon was chosen as a validated optimum. Window-target positives increase with horizon by construction.",
-          "after": "Same decision states t=1Ã¢â‚¬Â¦1008 at every horizon; diagnostics fixed at t. Gray line: target frequency without a diagnostic.\nCurves are exploratory; no horizon was chosen as a validated optimum. Window-target positives increase with horizon by construction."
+          "before": "Same decision states s=1…1008 at every horizon; diagnostics fixed at s. Gray line: target frequency without a diagnostic.\nCurves are exploratory; no horizon was chosen as a validated optimum. Window-target positives increase with horizon by construction.",
+          "after": "Same decision states t=1…1008 at every horizon; diagnostics fixed at t. Gray line: target frequency without a diagnostic.\nCurves are exploratory; no horizon was chosen as a validated optimum. Window-target positives increase with horizon by construction."
         },
         {
           "before": "Threshold: $Q\\geq2$",
@@ -1327,24 +1328,24 @@
       "values": 888,
       "labels": [
         {
-          "before": "MLP Ã‚Â· LR 0.001\nDecisions: 562; rises: 62Ã¢â‚¬â€œ279\nAlarms D/G/DG/Q: 389/95/40/5",
-          "after": "MLP Ã‚Â· LR 0.001\nDecisions: 562; rises: 62Ã¢â‚¬â€œ279\nAlarms D/G/DG/threshold: 389/95/40/5"
+          "before": "MLP · LR 0.001\nDecisions: 562; rises: 62–279\nAlarms D/G/DG/Q: 389/95/40/5",
+          "after": "MLP · LR 0.001\nDecisions: 562; rises: 62–279\nAlarms D/G/DG/threshold: 389/95/40/5"
         },
         {
-          "before": "ResNet Ã‚Â· LR 0.003\nDecisions: 913; rises: 2Ã¢â‚¬â€œ63\nAlarms D/G/DG/Q: 213/240/86/7",
-          "after": "ResNet Ã‚Â· LR 0.003\nDecisions: 913; rises: 2Ã¢â‚¬â€œ63\nAlarms D/G/DG/threshold: 213/240/86/7"
+          "before": "ResNet · LR 0.003\nDecisions: 913; rises: 2–63\nAlarms D/G/DG/Q: 213/240/86/7",
+          "after": "ResNet · LR 0.003\nDecisions: 913; rises: 2–63\nAlarms D/G/DG/threshold: 213/240/86/7"
         },
         {
-          "before": "Transformer Ã‚Â· LR 0.003\nDecisions: 856; rises: 4Ã¢â‚¬â€œ160\nAlarms D/G/DG/Q: 382/286/180/63",
-          "after": "Transformer Ã‚Â· LR 0.003\nDecisions: 856; rises: 4Ã¢â‚¬â€œ160\nAlarms D/G/DG/threshold: 382/286/180/63"
+          "before": "Transformer · LR 0.003\nDecisions: 856; rises: 4–160\nAlarms D/G/DG/Q: 382/286/180/63",
+          "after": "Transformer · LR 0.003\nDecisions: 856; rises: 4–160\nAlarms D/G/DG/threshold: 382/286/180/63"
         },
         {
-          "before": "max over k=1Ã¢â‚¬Â¦h of [L(s+k) Ã¢Ë†â€™ L(s)] / L(s) Ã¢â€°Â¥ 10% Ã‚Â· only states with L(s) Ã¢â€°Â¤ L(sÃ¢Ë†â€™1)",
-          "after": "max over k=1Ã¢â‚¬Â¦h of [L(t+k) Ã¢Ë†â€™ L(t)] / L(t) Ã¢â€°Â¥ 10% Ã‚Â· only states with L(t) Ã¢â€°Â¤ L(tÃ¢Ë†â€™1)"
+          "before": "max over k=1…h of [L(s+k) − L(s)] / L(s) ≥ 10% · only states with L(s) ≤ L(s−1)",
+          "after": "max over k=1…h of [L(t+k) − L(t)] / L(t) ≥ 10% · only states with L(t) ≤ L(t−1)"
         },
         {
-          "before": "Same decision states s=1Ã¢â‚¬Â¦1008 at every horizon; diagnostics fixed at s. Gray line: target frequency without a diagnostic.\nCurves are exploratory; no horizon was chosen as a validated optimum. Window-target positives increase with horizon by construction.",
-          "after": "Same decision states t=1Ã¢â‚¬Â¦1008 at every horizon; diagnostics fixed at t. Gray line: target frequency without a diagnostic.\nCurves are exploratory; no horizon was chosen as a validated optimum. Window-target positives increase with horizon by construction."
+          "before": "Same decision states s=1…1008 at every horizon; diagnostics fixed at s. Gray line: target frequency without a diagnostic.\nCurves are exploratory; no horizon was chosen as a validated optimum. Window-target positives increase with horizon by construction.",
+          "after": "Same decision states t=1…1008 at every horizon; diagnostics fixed at t. Gray line: target frequency without a diagnostic.\nCurves are exploratory; no horizon was chosen as a validated optimum. Window-target positives increase with horizon by construction."
         },
         {
           "before": "Threshold: $Q\\geq2$",
@@ -1358,20 +1359,20 @@
       "values": 888,
       "labels": [
         {
-          "before": "MLP Ã‚Â· LR 0.001\nDecisions: 1008; rises: 168Ã¢â‚¬â€œ168\nQ alarms: 307Ã¢â‚¬â€œ856",
-          "after": "MLP Ã‚Â· LR 0.001\nDecisions: 1008; rises: 168Ã¢â‚¬â€œ168\nThreshold alarms: 307Ã¢â‚¬â€œ856"
+          "before": "MLP · LR 0.001\nDecisions: 1008; rises: 168–168\nQ alarms: 307–856",
+          "after": "MLP · LR 0.001\nDecisions: 1008; rises: 168–168\nThreshold alarms: 307–856"
         },
         {
-          "before": "ResNet Ã‚Â· LR 0.003\nDecisions: 1008; rises: 12Ã¢â‚¬â€œ12\nQ alarms: 36Ã¢â‚¬â€œ260",
-          "after": "ResNet Ã‚Â· LR 0.003\nDecisions: 1008; rises: 12Ã¢â‚¬â€œ12\nThreshold alarms: 36Ã¢â‚¬â€œ260"
+          "before": "ResNet · LR 0.003\nDecisions: 1008; rises: 12–12\nQ alarms: 36–260",
+          "after": "ResNet · LR 0.003\nDecisions: 1008; rises: 12–12\nThreshold alarms: 36–260"
         },
         {
-          "before": "Transformer Ã‚Â· LR 0.003\nDecisions: 1008; rises: 26Ã¢â‚¬â€œ26\nQ alarms: 147Ã¢â‚¬â€œ514",
-          "after": "Transformer Ã‚Â· LR 0.003\nDecisions: 1008; rises: 26Ã¢â‚¬â€œ26\nThreshold alarms: 147Ã¢â‚¬â€œ514"
+          "before": "Transformer · LR 0.003\nDecisions: 1008; rises: 26–26\nQ alarms: 147–514",
+          "after": "Transformer · LR 0.003\nDecisions: 1008; rises: 26–26\nThreshold alarms: 147–514"
         },
         {
-          "before": "Each target update counted once; same states s=16Ã¢â‚¬Â¦1023 at every width. Only past/current gradients enter the warning.\nLonger memory raises coverage and flags more non-target steps. No winning width or universal operating threshold is claimed.",
-          "after": "Each target update counted once; same states t=16Ã¢â‚¬Â¦1023 at every width. Only past/current gradients enter the warning.\nLonger memory raises coverage and flags more non-target steps. No winning width or universal operating threshold is claimed."
+          "before": "Each target update counted once; same states s=16…1023 at every width. Only past/current gradients enter the warning.\nLonger memory raises coverage and flags more non-target steps. No winning width or universal operating threshold is claimed.",
+          "after": "Each target update counted once; same states t=16…1023 at every width. Only past/current gradients enter the warning.\nLonger memory raises coverage and flags more non-target steps. No winning width or universal operating threshold is claimed."
         },
         {
           "before": "Threshold: $Q\\geq2$",
@@ -1389,6 +1390,24 @@
       "file": "25-main-q25-functional-motion.pdf",
       "numerical_artist_sha256": "f6523083848a6a56abb7e81ddea81dd680a3de2f63824b51e1b864cea7dc08c7",
       "values": 27224,
+      "labels": []
+    },
+    {
+      "file": "a01-matched-applied-updates.pdf",
+      "numerical_artist_sha256": "cac7854024f25291bd46ef6796e5daea27c625b1f5c0d6993f2a1fb8bd67f9ab",
+      "values": 29808,
+      "labels": []
+    },
+    {
+      "file": "a02-matched-controller-activity.pdf",
+      "numerical_artist_sha256": "83969fdceaf08dda5bac55c4bb59f3863ae7ef7c9b54fb03b109da2c3de09d6c",
+      "values": 9944,
+      "labels": []
+    },
+    {
+      "file": "a03-selected-intervention-motion.pdf",
+      "numerical_artist_sha256": "4e04b6ecf100c4097d3a6437d05936e51f34708706d7fe068f827c8d48c46b2e",
+      "values": 46560,
       "labels": []
     }
   ],
@@ -1421,13 +1440,16 @@
     "00-three-model-loss-representation-motion.pdf": "27de79aebf753690eba9f2e04b86083ce4a76879995d819a33e5496e19e06a77",
     "01-three-model-temporal-structure.pdf": "6dc7ccaea8116d02ac37574e4a2f3bed2375049566775f6ea73ce7064da66be7",
     "14-distributed-cap-quantile-ablation-mlp.pdf": "db39980868d6e694e0d62c4648637cfc0f54b6ff68a329b06b63221970703c38",
-    "17-matched-intervention-loss.pdf": "b286474c85787d1b7dea6b8a349ef02c565641e9a0d53123d8bab8a8019b1710",
-    "20-matched-all-setting-stage-heatmaps.pdf": "e5e066afb7b837e4e29c27a51b544ccf07f77b4ff51f3da0c0dfe179dd61c1da",
-    "21-matched-heldout-loss.pdf": "68996aca053ecacbde491b50758362601602d40288f106b3a965e3b8172e6806",
-    "22-matched-update-and-controller-activity.pdf": "449e3f554e4b47aeb8b514909b791005ae7791b97d3c45350611a5659ff18119",
+    "17-matched-intervention-loss.pdf": "b4d8c840a14fec4cfa5262117bda6eeffa1a43d55a133f77895661709986f177",
+    "20-matched-all-setting-stage-heatmaps.pdf": "7e696d036aa1e2904993974bd7801d1996ab47c4e93d23e7992c2f4678ce09d2",
+    "21-matched-heldout-loss.pdf": "e69469d2edf403d8daeec906c347588337a1769d2ad7938f50ef8e4ef4e4286b",
+    "22-matched-update-and-controller-activity.pdf": "955af3d9c90386a3d083507399e1303cba53d827f54a97894269a7c7fbfda86c",
     "24-main-intervention-tradeoff.pdf": "8a2163989c1fd085cdd9a50a76af677fda1e188a15dc2c131244d0b31ed8cd22",
     "25-main-q25-functional-motion.pdf": "10a730ee5f3b0c62cac84608079b3b498745ebf8125f712904d7ace2e621a26d",
     "25-main-q50-functional-motion.pdf": "8edc2da32a9ef525851abe50a69affc049c109c2b6407dfff9ef40b3bf95824b",
+    "a01-matched-applied-updates.pdf": "4725aff8213731b6d1793a06d6d622c8cfa6b8b5182a78f1fc34f1544b23871c",
+    "a02-matched-controller-activity.pdf": "9717d8a01aa1e3b6bf2b7f7bf32e63734999fb017fac4b1ca40dcbfa0c0b59d5",
+    "a03-selected-intervention-motion.pdf": "f93ff99ac7b149b455cbd9bbfb8f9fb794d068d6ff3a1ba29f346ef249b6c4cd",
     "adam_forward_and_severity.pdf": "ed9f854d060f7f67d07d20c878e208320e2027259ec96557fb21c10b7de6af6f",
     "frozen_calibration.pdf": "d006e63017e50df583378d6ce6363bf6cc7834367f47d3fbb328967e6c37872d",
     "gd_backward_compact.pdf": "d186bc2f9e7184c15d973a66a8aed0e4c3b52a8d23a3d207c24d6b77c7a2c421",

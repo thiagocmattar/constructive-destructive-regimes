@@ -1,0 +1,24 @@
+\begin{table}[!t]
+\caption{Final-32-step mean training loss, multiplied by $10^3$. Every matched setting is retained; bold marks the full-precision minimum in each column.}
+\label{tab:app-late}
+\centering\small
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{lrrr}
+\toprule
+Intervention & MLP & ResNet & Transformer \\
+\midrule
+Adam & 13.5 & 8.2 & 993.7 \\
+LR $\times.75$ & 16.0 & 28.5 & 630.6 \\
+LR $\times.5$ & 11.2 & 76.1 & 648.3 \\
+LR $\times.1$ & 18.7 & 254.2 & 760.6 \\
+$\beta_2=.95$ & 17.9 & 307.9 & 731.8 \\
+$\beta_2=.9$ & 19.3 & 89.1 & 605.5 \\
+$\beta_2=.5$ & 35.5 & 50.0 & 652.9 \\
+Clip .5 & 16.8 & 75.4 & 616.2 \\
+Clip 1 & 64.1 & 78.2 & 625.1 \\
+Cap q25 & 9.7 & \textbf{5.9} & \textbf{582.5} \\
+Cap q50 & \textbf{9.1} & 10.0 & 606.5 \\
+Cap q75 & 10.7 & 6.0 & 586.6 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -138,6 +138,7 @@ for case in spectral['cases']:
     for kind in ['observed', 'same_energy_orthogonal', 'unit_row_directional']:
         values.extend([f"{100*case[kind]['top1']:.2f}", str(case[kind]['rank95'])])
     check(' & '.join(values) in spectral_text, 'Spectral-control table mismatch')
+    check(' & '.join([values[0]]+values[2:]) in (DRAFT/'sections/appendix.tex').read_text(), 'Appendix spectral-control table mismatch')
     top_ten = 100*math.fsum(case['observed']['fractions'][:10])
 
 # New explicit trapezoidal residual: test general smooth cubic/quartic losses,
@@ -273,13 +274,13 @@ for record in new_audit['rows']:
         if record[key] is not None:
             expected_diagnostic[f'{scale*record[key]:.{digits}f}'] += 1
 check(all(compiled_diagnostic[v]>=n for v,n in expected_diagnostic.items()), 'Compiled diagnostic cells missing')
-for number in range(1,10):
+for number in range(1,13):
     check(f'Fig. {number}.' in main_text, f'Figure {number} caption missing')
 for number in range(1,19):
     check(f'Figure S{number}:' in texts['supplementary'], f'Supplement figure {number} caption missing')
 for number in range(1,9):
     check(f'Table S{number}:' in texts['supplementary'], f'Supplement table {number} caption missing')
-for token in ['Algorithm 1', 'Algorithm 2', 'TABLE I', 'TABLE II', 'TABLE III']:
+for token in ['Algorithm 1', 'Algorithm 2', 'TABLE I', 'TABLE II', 'TABLE III', 'TABLE IV', 'TABLE V', 'TABLE VI', 'TABLE VII']:
     check(token in main_text, 'Missing compiled element: ' + token)
 table_region = main_text[main_text.index('TABLE III'):main_text.index('Fig. 9.')]
 compiled = Counter(re.findall(r'[+-]?\d+(?:\.\d+)?',table_region))
@@ -309,6 +310,38 @@ for r in retention['rows']:
 for site,case in [('output','mlp'),('output.log_probabilities','resnet'),('output.log_probabilities','transformer')]:
     r=next(x for x in retention['rows'] if x['case']==case and x['site']==site)
     check(f'{100*r["retention"]:.2f}\\%' in tracing_text,'Output retention claim')
+# Compact appendix: independently recover each plotted series and heatmap.
+appendix = json.loads((BASE/'work/appendix_20261115/manifest.json').read_text())
+arrsha = lambda a: hashlib.sha256(np.ascontiguousarray(a).tobytes()).hexdigest()
+for file,digest in appendix['sources'].items():
+    check(sha(data/file)==digest, 'Appendix source changed')
+for file,digest in appendix['figures'].items():
+    check(sha(DRAFT/'figures'/file)==digest, 'Appendix figure changed')
+check(len(appendix['lines'])==78 and len(appendix['maps'])==18, 'Appendix figure coverage')
+for r in appendix['lines']:
+    stem=f'{r["case"]}__{r["arm"]}__'
+    x=curves[stem+'state']; y=curves[stem+r['metric']]
+    if r['metric']!='loss': x=x[1:]
+    check(arrsha(x)==r['x_sha256'] and arrsha(y)==r['y_sha256'], 'Appendix plotted series')
+for r in appendix['maps']:
+    stem=f'{r["case"]}__{r["arm"]}__'
+    den=curves[f'{r["case"]}__control__stage_change_rms'][:,1:].max(axis=1)
+    z=(curves[stem+'stage_change_rms'][:,1:]/den[:,None] if r['metric']=='relative_rms'
+       else curves[stem+'stage_rho'][:,1:])
+    check(arrsha(z)==r['sha256'], 'Appendix heatmap normalization')
+late_text=(DRAFT/'tables/appendix-last32.tex').read_text()
+for r in appendix['last32']:
+    value=float(curves[f'{r["case"]}__{r["arm"]}__loss'][-32:].mean())
+    check(math.isclose(value,r['value'],rel_tol=1e-13), 'Late mean reduction')
+    check(r['display']==f'{1000*value:.1f}' and r['display'] in late_text, 'Late table value')
+cost_text=(DRAFT/'tables/appendix-costs.tex').read_text()
+for r in rows(data/'matched-costs.csv'):
+    if r['arm']!='cap_q50': continue
+    for metric,count in [('gradient_seconds','full_gradient_passes'),('probe_seconds','full_gradient_passes'),('controller_seconds','updates')]:
+        check(f'{1000*float(r[metric])/int(r[count]):.1f}' in cost_text, 'Component cost')
+appendix_text=(DRAFT/'sections/appendix.tex').read_text()
+check('51/61/49' in appendix_text, 'Tracing window coverage')
+check(not re.search(r'Supplementary|supplement', '\n'.join(p.read_text() for p in (DRAFT/'sections').glob('0*.tex'))), 'External supplement dependency')
 all_tex = '\n'.join(p.read_text(encoding='utf-8') for p in (DRAFT / 'sections').glob('*.tex'))
 check(not re.search(r'^ef\{|Algorithm~\s+ef\{', all_tex, re.M), 'Malformed reference escape')
 check(not re.search(r':\s*\\begin\{(?:equation|align)', all_tex), 'Colon before displayed equation')
@@ -323,7 +356,8 @@ abstract = (DRAFT / 'sections/00-abstract.tex').read_text(encoding='utf-8')
 abstract_words = len(re.sub(r'\\(?:begin|end)\{abstract\}', '', abstract).split())
 check(abstract_words <= 250, 'Abstract over 250 words')
 result = {'status': 'passed', 'protected_files_unchanged': len(protected),
-          'main_figures': 9, 'main_tables': 3, 'algorithms': 2,
+          'main_figures': 9, 'main_tables': 3, 'appendix_figures': 3, 'appendix_tables': 4, 'algorithms': 2,
+          'appendix_verified_lines': 78, 'appendix_verified_heatmaps': 18, 'appendix_late_mean_cells': 36,
           'recomputed_intervention_metrics': 144, 'compiled_intervention_cells': 108,
           'gd_conditions_checked': 9, 'historical_severity_counts_checked': 24,
           'new_diagnostic_conditions': 21, 'new_diagnostic_confusion_cells': 84,

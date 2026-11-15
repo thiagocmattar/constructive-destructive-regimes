@@ -229,9 +229,11 @@ with contextlib.redirect_stdout(io.StringIO()):
 # Round-two presentation: absolute outcomes and q25 motion, using the same frozen grid.
 m = load(BASE / 'work/author_feedback2_20261115/04_figures.py', 'feedback2_interventions')
 m.main()
-RECORD['changes'] = 't/site terminology; absolute intervention axes/table; q25 illustration. Original data and windows preserved.'
+m = load(BASE / 'work/appendix_20261115/01_artifacts.py', 'compact_appendix')
+m.main()
+RECORD['changes'] = 't/site terminology; absolute intervention axes/table; q25 illustration; compact appendix trajectories. Original data and windows preserved.'
 RECORD['outputs'] = {p.name: sha(p) for p in sorted(OUT.glob('*.pdf'))}
-assert len(RECORD['outputs']) == 18
+assert len(RECORD['outputs']) == 21
 (HERE / 'figure_verification.json').write_text(json.dumps(RECORD, indent=2, ensure_ascii=False) + '\n',
                                                encoding='utf-8', newline='\n')
 print(json.dumps({'figures': len(RECORD['outputs']), 'checked_exports': len(RECORD['exports']),

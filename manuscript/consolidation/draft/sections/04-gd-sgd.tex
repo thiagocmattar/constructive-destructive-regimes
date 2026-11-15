@@ -18,7 +18,7 @@ noise; subsequent mini-batch continuations test the effect of sampling.
 \toprule
  & CIFAR-10 / MLP & CIFAR-10 / ResNet-32 & WikiText-2 / Transformer \\
 \midrule
-Architecture & Two tanh hidden layers, width 200 & Three residual sites & Two layers, two heads; widths 200 \\
+Architecture & Two tanh hidden layers, width 200 & Three residual block groups & Two layers, two heads; widths 200 \\
 Objective & Half squared error; sum over ten outputs, mean over images & Mean cross-entropy; 50 fixed BatchNorm groups & Token-weighted negative log likelihood \\
 Training coverage & First 5,000 training images & All 50,000 training images & 59,680 sequences; 2,088,600 valid targets \\
 GD rates & $.004,\ .02,\ .04$ & $.025,\ .05,\ .1$ & $.05,\ .1,\ .2$ \\
@@ -54,7 +54,7 @@ training objective at every step, without diagnostic subsampling or
 additional derivative evaluations. They measure a different quantity:
 curvature along the realized GD direction, averaged over the step.
 Agreement with starting-point directional Hessian measurements is checked
-separately in Supplementary Section S2. Subset spectra and finite-step
+separately in Appendix~\ref{app:validation}. Subset spectra and finite-step
 directional curvature need not coincide.
 
 Near the oscillatory regime, the smoothed $\eta\widehat\kappa_t$ stays
@@ -107,7 +107,7 @@ The complete displacement sums confirm that local reversal need not
 dominate accumulated motion. Across all nine trajectories, the sum of
 all cross-step interactions is positive, including the seven whose
 adjacent-pair sum is negative. Interactions at longer lags more than offset
-the adjacent cancellations (Supplementary Table S1).
+the adjacent cancellations (Appendix~\ref{app:validation}).
 
 \begin{figure*}[tp]
 \centering

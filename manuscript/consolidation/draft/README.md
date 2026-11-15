@@ -1,11 +1,12 @@
 # Consolidation manuscript for author review
 
-- **Read:** [revised manuscript - 18 pages](manuscript.pdf), updated against all 61 annotations in the second author-feedback round. This is the file for your next commenting round.
-- **Optional detail:** [supplement - 27 pages](supplementary.pdf), with derivations, controls, complete intervention settings, and historical MLP replication.
+- **Read:** [revised manuscript - 22 pages](manuscript.pdf), including the compact reviewer appendix beginning on page 17. This is the file for your next commenting round; the second-round feedback remains incorporated.
+- **Extended research record:** [supplement - 27 pages](supplementary.pdf), preserved unchanged, with the exhaustive intervention heatmap grid and historical MLP replication. The main manuscript now contains the necessary appendix and does not require this separate document.
 - **Main changes:** definitions before tracing algorithms/results; precise modes and temporal overlap; representation retention computed from saved data; clearer diagnostic timing; selective-cap computation and positioning; absolute intervention metrics and a compact q25 motion figure.
-- **Contents:** nine main figures, three tables, two algorithms, and 40 numbered equations. Sections I-IV retain the framing and regime development; V characterizes Adam and traces functional oscillations; VI tests interventions; VII concludes.
+- **Contents:** nine main figures, three main tables, two algorithms, and 44 numbered equations. The appendix adds three figures and four small tables: applied updates and controller activity for all settings, selected conventional-intervention heatmaps, curvature and spectral controls, late losses, and measured costs. Sections I-IV retain the framing and regime development; V characterizes Adam and traces functional oscillations; VI tests interventions; VII concludes.
 - **Editable sources:** [main wrapper](manuscript.tex), [sections](sections/), [supplement wrapper](supplementary.tex), [bibliography](references.bib), [figures](figures/), and [tables](tables/). Original evidence remains preserved in the sibling folder.
 - **Verified:** warning-free compilation, numerical and rendered-page checks, 108 absolute intervention table cells, full-Gram retention, q25 output-loss accounting, and 416 unchanged protected originals. [Current revision and comment resolutions](../work/author_feedback2_20261115/OBSERVATIONS.md).
+- **Appendix checks:** 78 plotted series, 18 heatmaps, and 36 late-mean cells verified against frozen evidence. [Appendix sources and rationale](../work/appendix_20261115/OBSERVATIONS.md).
 - **Archived feedback:** [round one](archive/2026-11-15/manuscript+feedback.pdf) and [round two](archive/2026-11-15/manuscript+feedback2.pdf), preserved byte-for-byte with their annotations. New comments belong on the updated manuscript.pdf.
 - **Preserved:** active manuscript, evidence, and human originals. The earlier full rewrite is in commit `20d783d`; the older [V-C review excerpt](intervention-review.pdf) is historical and retains its previous notation.
 
@@ -20,6 +21,9 @@ python manuscript/consolidation/work/author_feedback_20261115/02_diagnostic_tabl
 
 # Only needed when regenerating current figure variants:
 python manuscript/consolidation/work/readability_revision_20261114/02_figures.py
+
+# Or regenerate only the compact appendix figures and tables:
+python manuscript/consolidation/work/appendix_20261115/01_artifacts.py
 
 python manuscript/consolidation/work/readability_revision_20261114/03_build.py
 python manuscript/consolidation/work/readability_revision_20261114/04_verify.py

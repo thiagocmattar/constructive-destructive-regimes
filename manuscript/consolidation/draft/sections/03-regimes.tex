@@ -176,7 +176,7 @@ Eq.~\eqref{eq:kappa-estimate}. For Adam, the actual increment must be used:
 the raw gradient generally points in a different direction. With sampled
 gradients, Eq.~\eqref{eq:kappa-step} also contains
 $u_{t-1}^{\top}(\xi_t-\xi_{t-1})/\|u_{t-1}\|^2$.
-Supplementary Section S1 derives the identity and its approximation bound.
+Appendix~\ref{app:math} derives the identity and its approximation bound.
 A zero step leaves this estimate undefined. The estimator measures the
 completed step; it does not by itself predict the next loss change.
 
@@ -262,7 +262,7 @@ not a fraction of learned information or useful computation.
 When does a destructive regime produce a loss increase? Define the
 full-objective change over the preceding step as
 $\Delta\mathcal L_t:=\mathcal L(\theta_t)-\mathcal L(\theta_{t-1})$.
-The second-order approximation derived in Supplementary Section S1
+The second-order approximation derived in Appendix~\ref{app:math}
 separates three contributions
 \begin{equation}
 \begin{aligned}
