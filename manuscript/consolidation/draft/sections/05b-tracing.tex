@@ -20,9 +20,11 @@ changes ending at $a-1$ and $a$.
 A measured \emph{site} is a named output in the computation graph.
 It can be a single layer, an attention module, or the end of a residual
 block group; we record that output rather than averaging internal layers.
+At the final site, we use raw outputs for the MLP and log probabilities
+over all classes or words for ResNet and Transformer.
 Write its activation matrix as $A_t^\ell\in\mathbb R^{N_\ell\times m_\ell}$.
-The $N_\ell$ rows identify reference examples and, where relevant, spatial or token
-positions; columns identify the $m_\ell$ features at each position.
+The $N_\ell$ rows identify reference examples and, where relevant, spatial
+or token positions; columns identify the $m_\ell$ features at each position.
 The preceding update changes this representation by
 \begin{equation}
  \delta_t^\ell=\operatorname{vec}(A_t^\ell-A_{t-1}^\ell)
@@ -39,12 +41,13 @@ the change. Its direction and size are measured using
  a_t^\ell=\frac{\|\delta_t^\ell\|}{\sqrt{P_\ell}}.
  \label{eq:representation-motion}
 \end{equation}
-A negative $c_t^\ell$ means the new functional change opposes the
-preceding one; positive values indicate reinforcement. As $\rho_t$ measures alignment between consecutive raw gradients,
-$c_t^\ell$ measures alignment between consecutive functional changes at
-site $\ell$, giving a representation counterpart of constructive and
-destructive regimes. The root-mean-square (RMS) displacement $a_t^\ell$
-measures the change per coordinate. A zero change has undefined cosine.
+A negative $c_t^\ell$ indicates opposition between the two flattened
+changes at site $\ell$; positive values indicate reinforcement. This
+aggregate does not require every feature or reference input to reverse.
+Thus $c_t^\ell$ provides a representation counterpart to the consecutive
+gradient alignment measured by $\rho_t$. The root-mean-square (RMS)
+displacement $a_t^\ell$ measures the RMS size of coordinate changes.
+A zero change has undefined cosine.
 
 The representation counterpart of normalized displacement is
 \begin{equation}
@@ -149,31 +152,31 @@ Algorithm~\ref{alg:trace} assembles these measurements.
 \label{fig:trace-motion}
 \end{figure*}
 
-Figure~\ref{fig:trace-motion} shows where functional oscillation appears
-and how its size changes. The top row locates the loss excursion.
-Reading the cosine maps backwards from output to input reveals how
-widely reversal is shared. In the MLP, every displayed change has
-negative cosine at every measured site, from the first linear input
-map to the final output. Oscillation is therefore homogeneous across
-the measured depth, even while loss rises and falls. The RMS maps add
-its changing amplitude. Comparing pre- and post-nonlinearity measurements
-shows that tanh attenuates displacement; each site's separate
-normalization in the figure highlights timing rather than absolute
-differences in magnitude across sites.
+Figure~\ref{fig:trace-motion} shows where functional oscillation appears.
+The top row locates the loss excursion. Reading the cosine maps from
+output toward input shows that, in the MLP, every displayed change has
+negative aggregate cosine at every measured site, even while loss rises
+and falls. This shared sign does not imply equal amplitudes or reversal
+of every coordinate.
 
-ResNet and Transformer exhibit a less homogeneous pattern. Their
-output-side representations reverse while earlier representations can
-continue to reinforce their preceding change. The first displayed output
-reversal precedes the 10\% loss marker by 15 steps in ResNet and five
-in Transformer. In ResNet, the first convolution reaches its largest
-displacement at the loss peak, followed one step later by the remaining
-displayed sites. In Transformer, the embedding becomes more oscillatory
-near the large excursion and returns to constructive movement sooner
-than the later sites. Larger backpropagated errors could recruit earlier
-representations into stronger changes, while constructive intervals
-could accumulate smaller changes before that reorganization. This
-architecture-dependent interpretation motivates examining both the
-direction and magnitude throughout the network.
+Each RMS row is divided by that site's maximum within the window.
+Its colors therefore show within-site variation, not absolute magnitude
+differences between sites. For matched pre- and post-tanh coordinates,
+tanh cannot enlarge displacement because its derivative has magnitude
+at most one. Quantifying that attenuation requires unnormalized
+displacements; it cannot be read from these independently scaled rows.
+
+In ResNet and Transformer, output-side representations reverse while
+earlier representations can continue to reinforce their preceding change.
+The first displayed output reversal precedes the 10\% loss marker by
+15 steps in ResNet and five in Transformer. In ResNet, the first
+convolution reaches its largest displacement at the loss peak, followed
+one step later by the remaining displayed sites. In Transformer, the
+embedding becomes more oscillatory near the large excursion and returns
+to constructive movement sooner than the later sites. These differences
+motivate measuring direction and magnitude throughout the network.
+The measurements locate the observed changes without establishing
+their causal origin.
 
 \begin{figure*}[!t]
 \centering

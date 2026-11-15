@@ -47,6 +47,13 @@ trajectories considered here, we retain its notation,
  \end{aligned}
  \label{eq:adam-projected-response}
 \end{equation}
+Under Adam, $\eta\widehat\kappa_t$ describes gradient reversal and growth
+by projecting the gradient response onto the preceding raw gradient.
+That direction generally differs from the applied update. Consequently,
+this quantity is not generally the step-direction curvature
+$\widehat\kappa_t^{\mathrm{step}}$ in Eq.~\eqref{eq:kappa-step},
+despite the retained notation.
+
 We first characterize the gradient response along Adam's trajectory,
 then trace the corresponding functional changes through the network.
 The following section tests interventions from matched training states.

@@ -8,38 +8,38 @@
 \label{fig:adam-overview}
 \end{figure*}
 
-Unlike the sustained GD oscillations, the Adam trajectories exhibit
-distinct excursions and recoveries. This is consistent with the adaptive
-preconditioner mechanism analyzed by Bai et al.~\cite{bai2026spikes}:
-changing second moments can alter the effective step size independently
-of changes in the underlying Hessian. Our measurements describe how the
-resulting motion appears in consecutive gradients. Early constructive
-intervals give way to persistent reversal.
+The Adam trajectories exhibit distinct loss excursions and recoveries.
+Early constructive intervals give way to persistent reversal.
 Prominent excursions occur with negative cosine and growing gradient
 norms, producing large peaks in $\eta\widehat\kappa_t$. In ResNet and
 Transformer, recovery often includes renewed constructive alignment and
-falling norms.
+falling norms. These observations are compatible with the mechanism
+analyzed by Bai et al.~\cite{bai2026spikes}, in which Adam's averaging
+of squared gradients changes the effective step size independently of
+the underlying Hessian. Our gradient measurements do not isolate that
+mechanism.
 
-The loss can reach lower values after an excursion. Such an excursion
-could accompany movement into another basin, while momentum can delay
-the update's response to a newly changing gradient direction. Whether
-that movement helps depends on the current landscape, architecture,
-and optimizer state. Related work on SGD catapults shows that spikes can
-accompany improved feature learning~\cite{zhu2024catapults}; their role
-under Adam must likewise be evaluated together with subsequent progress.
+The loss can reach lower values after an excursion, although this does
+not establish that the excursion caused the improvement. Related work on
+SGD catapults shows that spikes can accompany improved feature
+learning~\cite{zhu2024catapults}. Under Adam, their role likewise needs
+to be evaluated through subsequent progress.
 
 After computing the raw gradient, but before applying the next update,
-we may want to classify whether that update will increase the loss.
-Let $L_t=\mathcal L(\theta_t)$ and define an increase as
-$(L_{t+1}-L_t)/L_t\geq0.001$. At decision step $t$, both $g_t$ and $L_t$
-are available. However, the pair $(g_{t-1},g_t)$ describes the response
-to the preceding update, from $\theta_{t-1}$ to $\theta_t$. Using it to
-classify the outgoing update tests whether that response carries forward.
-For quadratic full-batch plain GD, the strict condition
-$\eta\widehat\kappa_t>2$ exactly characterizes a positive loss change
-on the preceding step. This exact retrospective equivalence does not
-extend to a finite nonlinear step or to Adam, whose applied direction
-also depends on its moments.
+we classify whether that update will increase the loss by at least
+0.1\%. This single-step target differs from the excursions exceeding
+10\% marked in Fig.~\ref{fig:adam-overview}. Let
+$L_t=\mathcal L(\theta_t)$ and define the target as
+$(L_{t+1}-L_t)/L_t\geq0.001$.
+
+At decision step $t$, both $g_t$ and $L_t$ are available. The pair
+$(g_{t-1},g_t)$ describes the response to the preceding update, from
+$\theta_{t-1}$ to $\theta_t$. Using it to classify the outgoing update
+tests whether that response carries forward. For quadratic full-batch
+plain GD, the strict condition $\eta\widehat\kappa_t>2$ exactly
+characterizes a positive loss change on the preceding step. This exact
+retrospective equivalence does not extend to a finite nonlinear step or
+to Adam, whose applied direction also depends on its moments.
 
 Table~\ref{tab:severity} compares the gradient conditions with the
 simple history rule $L_t>L_{t-1}$. Accuracy is the fraction of all
@@ -50,8 +50,8 @@ from how informative an issued warning is.
 
 \input{tables/diagnostic-0p1pct}
 
-The \emph{destructive loss-spike condition} combines reversal with
-sufficient gradient growth, $\rho_t<0$ and
+For this next-step prediction task, the \emph{destructive loss-spike
+condition} combines reversal with sufficient gradient growth, $\rho_t<0$ and
 $\|g_t\|/\|g_{t-1}\|>-1/\rho_t$. It gives higher accuracy and warning
 lift than the previous-loss-rise rule in all three cases. Reversal or
 norm growth alone is less selective. The angle/norm condition is
