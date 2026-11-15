@@ -98,6 +98,91 @@ that exactness and absence of HVPs alone are not exclusive novelty claims.
 Position the diagnostic through its specific quantity, angle/magnitude
 interpretation, sampling analysis, and evaluated prediction task.
 
+## Proposed changes to Section II
+
+Recorded at the author's request as a restructuring proposal for
+[the current Section II](draft/sections/02-related-work.tex). This records the
+proposed organization; the manuscript sources have not been changed.
+
+Proposed section title: **Related Work and Conceptual Foundations**.
+The section should establish the gaps supporting the four consolidated
+contributions, while providing only the background needed to read Section III.
+Each subsection should close with what prior work establishes, the question
+that remains, and the part of this paper that investigates it. Distinguish
+authors' explicit open questions from our synthesis of the literature.
+
+### II-A. Oscillatory Dynamics, Stability, and Sampling Noise
+
+Start with the distinction between fixed-quadratic stability and sustained
+progress in neural-network training. Cover EoS, self-stabilization, Central
+Flows, and EoSS, explaining how sampling changes the interpretation of
+oscillations. Briefly include optimization path-length work when introducing
+the difference between local reversal and accumulated motion.
+
+The closing motivation should prepare contribution 1: interpreting observed
+training trajectories requires distinguishing local opposition, accumulation
+across steps, and sampling effects. Do not present oscillation with continued
+descent as a newly discovered phenomenon, or equate weaker sampled-gradient
+alignment with reduced full-objective curvature.
+
+Relevant anchors include Cohen et al., Damian et al., Andreyev and Beneventano,
+and Gupta et al.; the recent stochastic sharpness and momentum developments
+should constrain claims about what remains open. Select the closest references
+needed for the argument rather than expanding into a comprehensive survey.
+
+### II-B. Training-Time Diagnostics of Curvature and Loss Increases
+
+Bring together consecutive-gradient products, Barzilai--Borwein secants,
+gradient-based learning-rate adaptation, Adam spike diagnostics, and recent
+measures of realized behavior without HVPs. Relevant anchors include
+Chee and Toulis, Pesme et al., Tan et al., Baydin et al., Bai et al., and
+Lee and Lee. Explain the differences between their purposes rather than
+listing these methods as interchangeable curvature estimators.
+
+A compact comparison table could use the columns **approach, measured quantity,
+required information/additional derivatives, and interpretation/timing**.
+It should distinguish stationarity detection, learning-rate adaptation,
+completed-step characterization, and next-update warning. In particular,
+distinguish pointwise or preconditioned curvature, gradient-difference
+step-averaged curvature, and a realized loss-balance quantity computed using
+the observed loss change.
+
+The closing paragraph should prepare contribution 2: the particular connection
+between step-averaged curvature, angle/magnitude interpretation, explicit
+sampling terms, and the empirical before-update diagnostic. Keep the exact
+full-gradient identity separate from the quadratic GD loss criterion and
+from the tested Adam prediction signal. Avoid exclusive novelty claims based
+only on exactness, use of gradients, or absence of HVPs.
+
+### II-C. Representation Dynamics and Update Control
+
+Introduce the transition from parameter-space dynamics to measured internal
+responses and outputs. Discuss existing work on representation changes and
+representation-based update controls, using the architectural/learning-level
+question in Central Flows and prior controls such as Kosson et al. to position
+the paper. Bai et al.'s open questions about consequences and control of spikes
+provide complementary motivation.
+
+The closing questions should prepare contributions 3 and 4: how oscillatory
+trajectories manifest within the network, and whether limiting local movement
+magnitude can preserve training progress while reversals persist. Characterize
+the tracing as functional measurement, without implying causal layer attribution.
+Present the cap as an instrument for testing an intervention target, consistent
+with the author's chosen framing.
+
+### Editing and space allocation
+
+- Retain only the essential update notation, classical stability relation, and
+  sampling conventions needed to understand Section III.
+- Keep the paper's regime definitions and original derivations concentrated in
+  Section III; avoid duplicating them in the literature review.
+- Condense the current pretraining-recipe discussion into a short practical
+  motivation paragraph, freeing space for comparisons with the closest work.
+- Use the three subsections to support the four contributions: II-A supports
+  the framework, II-B the diagnostic, and II-C tracing and intervention.
+- Keep the proposed explicit-curvature batch experiment in the side note.
+  It is not part of the main contribution or a prerequisite for this rewrite.
+
 ## Author's framing principle
 
 Define the scientific gap before claiming a contribution. Work through the
