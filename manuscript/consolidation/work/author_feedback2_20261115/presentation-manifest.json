@@ -1,0 +1,680 @@
+{
+  "sources": {
+    "matched-results.json": "bb512310d6b99de542510a8de475757e51b49d2cb3927bddec8018d21d4d7554",
+    "matched-curves.npz": "439342210b2545139df2f447252a0798caaac0d7acc3f9740d22e1ed905d440d"
+  },
+  "points": [
+    {
+      "case": "mlp",
+      "arm": "control",
+      "mean_loss": 0.020804167521823222,
+      "positive_variation": 0.2883826005272567
+    },
+    {
+      "case": "mlp",
+      "arm": "lr_0p75",
+      "mean_loss": 0.017340503595429862,
+      "positive_variation": 0.23787467926740646
+    },
+    {
+      "case": "mlp",
+      "arm": "lr_0p5",
+      "mean_loss": 0.01559460096298911,
+      "positive_variation": 0.0028767420444637537
+    },
+    {
+      "case": "mlp",
+      "arm": "lr_0p1",
+      "mean_loss": 0.02011007944788111,
+      "positive_variation": 0.0012046867050230503
+    },
+    {
+      "case": "mlp",
+      "arm": "beta2_0p95",
+      "mean_loss": 0.024295050821415823,
+      "positive_variation": 0.6488416192587465
+    },
+    {
+      "case": "mlp",
+      "arm": "beta2_0p9",
+      "mean_loss": 0.024582060485651407,
+      "positive_variation": 0.5131943703163415
+    },
+    {
+      "case": "mlp",
+      "arm": "beta2_0p5",
+      "mean_loss": 0.047228822424787924,
+      "positive_variation": 0.8290899838320911
+    },
+    {
+      "case": "mlp",
+      "arm": "clip_0p5",
+      "mean_loss": 0.02123772102155878,
+      "positive_variation": 0.4767470059450716
+    },
+    {
+      "case": "mlp",
+      "arm": "clip_1p0",
+      "mean_loss": 0.030792351501683395,
+      "positive_variation": 1.4976041310001165
+    },
+    {
+      "case": "mlp",
+      "arm": "cap_q25",
+      "mean_loss": 0.014381195851456141,
+      "positive_variation": 0.07116866891738027
+    },
+    {
+      "case": "mlp",
+      "arm": "cap_q50",
+      "mean_loss": 0.014109297521321828,
+      "positive_variation": 0.03531435749027878
+    },
+    {
+      "case": "mlp",
+      "arm": "cap_q75",
+      "mean_loss": 0.01500915150043309,
+      "positive_variation": 0.007314225193113089
+    },
+    {
+      "case": "resnet",
+      "arm": "control",
+      "mean_loss": 0.17649629460182786,
+      "positive_variation": 1.3148764125061034
+    },
+    {
+      "case": "resnet",
+      "arm": "lr_0p75",
+      "mean_loss": 0.20616805335986613,
+      "positive_variation": 1.662598802871704
+    },
+    {
+      "case": "resnet",
+      "arm": "lr_0p5",
+      "mean_loss": 0.22450798612213135,
+      "positive_variation": 1.4609027989959724
+    },
+    {
+      "case": "resnet",
+      "arm": "lr_0p1",
+      "mean_loss": 0.33439132373046876,
+      "positive_variation": 0.013372888793945326
+    },
+    {
+      "case": "resnet",
+      "arm": "beta2_0p95",
+      "mean_loss": 0.22672081449174883,
+      "positive_variation": 4.606118900442125
+    },
+    {
+      "case": "resnet",
+      "arm": "beta2_0p9",
+      "mean_loss": 0.17026741223585606,
+      "positive_variation": 2.1474914018249516
+    },
+    {
+      "case": "resnet",
+      "arm": "beta2_0p5",
+      "mean_loss": 0.18757819319808483,
+      "positive_variation": 1.0289296495056148
+    },
+    {
+      "case": "resnet",
+      "arm": "clip_0p5",
+      "mean_loss": 0.2021173896403313,
+      "positive_variation": 1.3485264507293702
+    },
+    {
+      "case": "resnet",
+      "arm": "clip_1p0",
+      "mean_loss": 0.19991944661831856,
+      "positive_variation": 2.4410194311523443
+    },
+    {
+      "case": "resnet",
+      "arm": "cap_q25",
+      "mean_loss": 0.13844246482737366,
+      "positive_variation": 0.8403421927642827
+    },
+    {
+      "case": "resnet",
+      "arm": "cap_q50",
+      "mean_loss": 0.15986329273357985,
+      "positive_variation": 1.2784387870407097
+    },
+    {
+      "case": "resnet",
+      "arm": "cap_q75",
+      "mean_loss": 0.1421230347361863,
+      "positive_variation": 0.44519526992797886
+    },
+    {
+      "case": "transformer",
+      "arm": "control",
+      "mean_loss": 0.849627680862139,
+      "positive_variation": 5.886678120329
+    },
+    {
+      "case": "transformer",
+      "arm": "lr_0p75",
+      "mean_loss": 0.8242924308940474,
+      "positive_variation": 3.655511602021652
+    },
+    {
+      "case": "transformer",
+      "arm": "lr_0p5",
+      "mean_loss": 0.7530739023570617,
+      "positive_variation": 2.001730378620412
+    },
+    {
+      "case": "transformer",
+      "arm": "lr_0p1",
+      "mean_loss": 0.8027094562540199,
+      "positive_variation": 0.0
+    },
+    {
+      "case": "transformer",
+      "arm": "beta2_0p95",
+      "mean_loss": 0.7589548925003565,
+      "positive_variation": 6.306955323913803
+    },
+    {
+      "case": "transformer",
+      "arm": "beta2_0p9",
+      "mean_loss": 0.7065412219334236,
+      "positive_variation": 4.137474695483478
+    },
+    {
+      "case": "transformer",
+      "arm": "beta2_0p5",
+      "mean_loss": 0.7678425195819173,
+      "positive_variation": 1.2005534477200954
+    },
+    {
+      "case": "transformer",
+      "arm": "clip_0p5",
+      "mean_loss": 0.6984557395039376,
+      "positive_variation": 0.7232699820206051
+    },
+    {
+      "case": "transformer",
+      "arm": "clip_1p0",
+      "mean_loss": 0.7172815220472195,
+      "positive_variation": 2.02750726282124
+    },
+    {
+      "case": "transformer",
+      "arm": "cap_q25",
+      "mean_loss": 0.6926627326153968,
+      "positive_variation": 0.6380216229972244
+    },
+    {
+      "case": "transformer",
+      "arm": "cap_q50",
+      "mean_loss": 0.6810284221493864,
+      "positive_variation": 0.2216696262259229
+    },
+    {
+      "case": "transformer",
+      "arm": "cap_q75",
+      "mean_loss": 0.6815980633642479,
+      "positive_variation": 0.0726575387634838
+    }
+  ],
+  "maps": [
+    {
+      "case": "mlp",
+      "arm": "control",
+      "metric": "cosine",
+      "shape": [
+        5,
+        288
+      ],
+      "sha256": "18860df33ec1a7f363be568ae074a0b6949a1c09fe4561679ab67f6064f97c0f",
+      "denominator": [
+        0.16198166859919969,
+        0.055470994849668914,
+        0.05917221282097108,
+        0.052336660173595034,
+        0.16307615853538465
+      ]
+    },
+    {
+      "case": "mlp",
+      "arm": "cap_q25",
+      "metric": "cosine",
+      "shape": [
+        5,
+        288
+      ],
+      "sha256": "3b0f0ffeee8813e05759be1a32fce796a802a5bf68dbc9d196749eea3b6ac849",
+      "denominator": [
+        0.16198166859919969,
+        0.055470994849668914,
+        0.05917221282097108,
+        0.052336660173595034,
+        0.16307615853538465
+      ]
+    },
+    {
+      "case": "mlp",
+      "arm": "control",
+      "metric": "relative_rms",
+      "shape": [
+        5,
+        288
+      ],
+      "sha256": "0b024dd71bbfe40a4eab597fb3dfe6c48e35453ab7c9d32c024231426a479051",
+      "denominator": [
+        0.16198166859919969,
+        0.055470994849668914,
+        0.05917221282097108,
+        0.052336660173595034,
+        0.16307615853538465
+      ]
+    },
+    {
+      "case": "mlp",
+      "arm": "cap_q25",
+      "metric": "relative_rms",
+      "shape": [
+        5,
+        288
+      ],
+      "sha256": "807add93016b321c75b6d3a49d685c58cf8810588a25451ded2f6a1ea1ce7ca5",
+      "denominator": [
+        0.16198166859919969,
+        0.055470994849668914,
+        0.05917221282097108,
+        0.052336660173595034,
+        0.16307615853538465
+      ]
+    },
+    {
+      "case": "resnet",
+      "arm": "control",
+      "metric": "cosine",
+      "shape": [
+        6,
+        320
+      ],
+      "sha256": "0bffb1a86a5d9125ca2ac7ee87170fb21be974cfb10b92258c953555517236a7",
+      "denominator": [
+        0.016962332340993144,
+        0.0766361039013803,
+        0.08962531164674836,
+        0.5471440533501329,
+        0.4227447661699366,
+        2.784778249118874
+      ]
+    },
+    {
+      "case": "resnet",
+      "arm": "cap_q25",
+      "metric": "cosine",
+      "shape": [
+        6,
+        320
+      ],
+      "sha256": "246bcc350ea21d6c8a9ef71d40b73004c444245537b7de52bffc118dcfa2af3a",
+      "denominator": [
+        0.016962332340993144,
+        0.0766361039013803,
+        0.08962531164674836,
+        0.5471440533501329,
+        0.4227447661699366,
+        2.784778249118874
+      ]
+    },
+    {
+      "case": "resnet",
+      "arm": "control",
+      "metric": "relative_rms",
+      "shape": [
+        6,
+        320
+      ],
+      "sha256": "f88033614a0e9447beae21e62cb0e3ec59e6f143c953316f75154700feecb6e2",
+      "denominator": [
+        0.016962332340993144,
+        0.0766361039013803,
+        0.08962531164674836,
+        0.5471440533501329,
+        0.4227447661699366,
+        2.784778249118874
+      ]
+    },
+    {
+      "case": "resnet",
+      "arm": "cap_q25",
+      "metric": "relative_rms",
+      "shape": [
+        6,
+        320
+      ],
+      "sha256": "a950fdcf97b71676445afe3a52931a8d599f465b8d3174bacd80d3086fc4d7e4",
+      "denominator": [
+        0.016962332340993144,
+        0.0766361039013803,
+        0.08962531164674836,
+        0.5471440533501329,
+        0.4227447661699366,
+        2.784778249118874
+      ]
+    },
+    {
+      "case": "transformer",
+      "arm": "control",
+      "metric": "cosine",
+      "shape": [
+        6,
+        384
+      ],
+      "sha256": "c78465871400a878b52764fca07a31c163d2190c9f4d6471e8014bff8b89f059",
+      "denominator": [
+        0.0012485898166853656,
+        0.29096568498486747,
+        0.194217892682246,
+        0.5787494586545704,
+        0.9536967382241828,
+        7.400077945256229
+      ]
+    },
+    {
+      "case": "transformer",
+      "arm": "cap_q25",
+      "metric": "cosine",
+      "shape": [
+        6,
+        384
+      ],
+      "sha256": "eb3938a8a73d8277e4aad10bf726c8707fd759070cce1bfdcc6479559ea2ea7a",
+      "denominator": [
+        0.0012485898166853656,
+        0.29096568498486747,
+        0.194217892682246,
+        0.5787494586545704,
+        0.9536967382241828,
+        7.400077945256229
+      ]
+    },
+    {
+      "case": "transformer",
+      "arm": "control",
+      "metric": "relative_rms",
+      "shape": [
+        6,
+        384
+      ],
+      "sha256": "ddc15a3f60073561d03b22f098381ebf7f027dd9be4b3cedc5bad7f7010144c3",
+      "denominator": [
+        0.0012485898166853656,
+        0.29096568498486747,
+        0.194217892682246,
+        0.5787494586545704,
+        0.9536967382241828,
+        7.400077945256229
+      ]
+    },
+    {
+      "case": "transformer",
+      "arm": "cap_q25",
+      "metric": "relative_rms",
+      "shape": [
+        6,
+        384
+      ],
+      "sha256": "c183dc2d5e8312630d4a448e68d73e701bba38dfcdc860f3752e6fbaa7da97f7",
+      "denominator": [
+        0.0012485898166853656,
+        0.29096568498486747,
+        0.194217892682246,
+        0.5787494586545704,
+        0.9536967382241828,
+        7.400077945256229
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "case": "mlp",
+      "arm": "control",
+      "loss_sha256": "01b6f09467397d258e9258a2ded0c91921cca73b2fdd5baaf9215add7637f8b5",
+      "state_sha256": "0beffc2da4d88473467ba12bf38e6ea2415f4dbbac73fa0d680fcb3d0bb0994f"
+    },
+    {
+      "case": "mlp",
+      "arm": "cap_q25",
+      "loss_sha256": "624ab1b23550f6ff22c384314178290554502aa84ece4e76fd664109866b7724",
+      "state_sha256": "0beffc2da4d88473467ba12bf38e6ea2415f4dbbac73fa0d680fcb3d0bb0994f"
+    },
+    {
+      "case": "resnet",
+      "arm": "control",
+      "loss_sha256": "02883d0844f40a87d21c4da252a0e8e4274b29db50befe28281155ba7997239f",
+      "state_sha256": "d9eb6a382d3a78a2878ab393b07dd2d34d6f135ab5ae06d44c931814468b69ca"
+    },
+    {
+      "case": "resnet",
+      "arm": "cap_q25",
+      "loss_sha256": "495d8dca89ff219ccf84d8dce05661f01ee234736a9cb92c596f20111d349c8d",
+      "state_sha256": "d9eb6a382d3a78a2878ab393b07dd2d34d6f135ab5ae06d44c931814468b69ca"
+    },
+    {
+      "case": "transformer",
+      "arm": "control",
+      "loss_sha256": "64a6baee40a98695fbc257ad7e64a2d5fc40f6d249acb13ddd352b3751837823",
+      "state_sha256": "565b41ff13767c6d40c6e27f4c569f73a8c2d2606bfd90b817a2d2ce0fe54dc5"
+    },
+    {
+      "case": "transformer",
+      "arm": "cap_q25",
+      "loss_sha256": "eae2a9adb7d3d605b5b6e1fca5f616e0e34168572bde14a6c3e7a6a7337bdf45",
+      "state_sha256": "565b41ff13767c6d40c6e27f4c569f73a8c2d2606bfd90b817a2d2ce0fe54dc5"
+    }
+  ],
+  "table": [
+    {
+      "arm": "control",
+      "display_values": [
+        "20.8",
+        "288.4",
+        "30.3",
+        "176.5",
+        "1314.9",
+        "6.7",
+        "849.6",
+        "5886.7",
+        "917.8"
+      ]
+    },
+    {
+      "arm": "lr_0p75",
+      "display_values": [
+        "17.3",
+        "237.9",
+        "12.3",
+        "206.2",
+        "1662.6",
+        "21.8",
+        "824.3",
+        "3655.5",
+        "614.0"
+      ]
+    },
+    {
+      "arm": "lr_0p5",
+      "display_values": [
+        "15.6",
+        "2.9",
+        "10.7",
+        "224.5",
+        "1460.9",
+        "54.5",
+        "753.1",
+        "2001.7",
+        "627.7"
+      ]
+    },
+    {
+      "arm": "lr_0p1",
+      "display_values": [
+        "20.1",
+        "1.2",
+        "18.5",
+        "334.4",
+        "13.4",
+        "244.7",
+        "802.7",
+        "0.0",
+        "757.2"
+      ]
+    },
+    {
+      "arm": "beta2_0p95",
+      "display_values": [
+        "24.3",
+        "648.8",
+        "19.2",
+        "226.7",
+        "4606.1",
+        "114.2",
+        "759.0",
+        "6307.0",
+        "593.0"
+      ]
+    },
+    {
+      "arm": "beta2_0p9",
+      "display_values": [
+        "24.6",
+        "513.2",
+        "15.9",
+        "170.3",
+        "2147.5",
+        "21.4",
+        "706.5",
+        "4137.5",
+        "606.7"
+      ]
+    },
+    {
+      "arm": "beta2_0p5",
+      "display_values": [
+        "47.2",
+        "829.1",
+        "34.8",
+        "187.6",
+        "1028.9",
+        "55.1",
+        "767.8",
+        "1200.6",
+        "646.2"
+      ]
+    },
+    {
+      "arm": "clip_0p5",
+      "display_values": [
+        "21.2",
+        "476.7",
+        "16.7",
+        "202.1",
+        "1348.5",
+        "57.8",
+        "698.5",
+        "723.3",
+        "617.0"
+      ]
+    },
+    {
+      "arm": "clip_1p0",
+      "display_values": [
+        "30.8",
+        "1497.6",
+        "24.4",
+        "199.9",
+        "2441.0",
+        "62.0",
+        "717.3",
+        "2027.5",
+        "620.1"
+      ]
+    },
+    {
+      "arm": "cap_q25",
+      "display_values": [
+        "14.4",
+        "71.2",
+        "9.7",
+        "138.4",
+        "840.3",
+        "4.9",
+        "692.7",
+        "638.0",
+        "550.5"
+      ]
+    },
+    {
+      "arm": "cap_q50",
+      "display_values": [
+        "14.1",
+        "35.3",
+        "8.7",
+        "159.9",
+        "1278.4",
+        "8.0",
+        "681.0",
+        "221.7",
+        "703.9"
+      ]
+    },
+    {
+      "arm": "cap_q75",
+      "display_values": [
+        "15.0",
+        "7.3",
+        "10.5",
+        "142.1",
+        "445.2",
+        "4.8",
+        "681.6",
+        "72.7",
+        "583.3"
+      ]
+    }
+  ],
+  "motion": {
+    "mlp": {
+      "max_output_rms_reduction_percent": 92.65202688439678,
+      "squared_movement_change_percent": -97.57413378450704,
+      "baseline_negative_cosine_percent": 99.30555555555556,
+      "q25_negative_cosine_percent": 49.65277777777778
+    },
+    "resnet": {
+      "max_output_rms_reduction_percent": 33.00284726280945,
+      "squared_movement_change_percent": -2.4568721441855845,
+      "baseline_negative_cosine_percent": 36.875,
+      "q25_negative_cosine_percent": 59.68750000000001
+    },
+    "transformer": {
+      "max_output_rms_reduction_percent": 45.05900359996573,
+      "squared_movement_change_percent": -59.6664841724289,
+      "baseline_negative_cosine_percent": 36.71875,
+      "q25_negative_cosine_percent": 88.54166666666666
+    }
+  },
+  "figures": {
+    "24-main-intervention-tradeoff.pdf": "71c2d69b8b24a2ee8cc43cbbea883193ad4862ddf206d2f04fe4ea67bc494180",
+    "25-main-q25-functional-motion.pdf": "10a730ee5f3b0c62cac84608079b3b498745ebf8125f712904d7ace2e621a26d"
+  },
+  "mse_rises": {
+    "control": {
+      "total": 161,
+      "corrective": 161
+    },
+    "cap_q25": {
+      "total": 140,
+      "corrective": 139
+    }
+  }
+}

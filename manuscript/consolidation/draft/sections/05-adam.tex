@@ -7,8 +7,10 @@ size. Under SGD the raw gradients also determine the applied increments.
 Adam combines the current gradient with past gradients and rescales
 coordinates using second moments~\cite{kingma2014adam}. Its recurrences are
 \begin{equation}
- m_t=\beta_1m_{t-1}+(1-\beta_1)g_t,\qquad
- v_t=\beta_2v_{t-1}+(1-\beta_2)g_t^{\odot2}.
+ \begin{aligned}
+ m_t&=\beta_1m_{t-1}+(1-\beta_1)g_t,\\
+ v_t&=\beta_2v_{t-1}+(1-\beta_2)g_t^{\odot2}.
+ \end{aligned}
  \label{eq:adam-moments}
 \end{equation}
 The bias-corrected direction and parameter update are
@@ -45,24 +47,10 @@ trajectories considered here, we retain its notation,
  \end{aligned}
  \label{eq:adam-projected-response}
 \end{equation}
-This is a gradient-projected response to the applied direction. Under
-GD, $d_{t-1}=g_{t-1}$ and it is the scaled step-direction curvature.
-Under Adam those directions generally differ: curvature along the
-actual increment is instead $\widehat\kappa_t^{\mathrm{step}}$ in
-Eq.~\eqref{eq:kappa-step}. Thus the plotted quantity still combines
-reversal and amplification, but the GD loss threshold is not an Adam
-stability theorem. A value above two means that the component of the new
-gradient opposing its predecessor exceeds the predecessor's magnitude.
-
-We extend the same three full-objective learning problems to Adam, with
-one matched initialization per model and 1,024 updates. The tested rates
-are $.0001/.0003/.001$ for MLP and $.0003/.001/.003$ for ResNet and
-Transformer. Figure~\ref{fig:adam-overview} displays the highest rate in
-each grid, selected to expose pronounced excursions; the complete grid
-is retained in Supplementary Section S3. We first ask how gradient
-reversal and growth precede loss increases, then trace the corresponding
-functional changes. The following section tests interventions from
-matched training states.
+We first characterize the gradient response along Adam's trajectory,
+then trace the corresponding functional changes through the network.
+The following section tests interventions from matched training states.
+The complete experimental grid is specified in Supplementary Section S3.
 
 \input{sections/05a-characterization}
 \input{sections/05b-tracing}

@@ -1,14 +1,6 @@
 \subsection{Characterizing Loss Spikes}
 \label{subsec:characterization}
 
-Figure~\ref{fig:adam-overview} brings the loss and gradient measurements
-together for the highest tested Adam rate in each model. Read each column
-from top to bottom. The first row shows the training loss. The second
-combines gradient reversal and growth through $\eta\widehat\kappa_t$. The third shows
-whether consecutive gradients reinforce or oppose one another, and the
-fourth shows how their magnitude changes relative to initialization.
-All quantities are evaluated along the same trajectory.
-
 \begin{figure*}[!t]
 \centering
 \includegraphics[width=\textwidth]{figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf}
@@ -22,48 +14,55 @@ preconditioner mechanism analyzed by Bai et al.~\cite{bai2026spikes}:
 changing second moments can alter the effective step size independently
 of changes in the underlying Hessian. Our measurements describe how the
 resulting motion appears in consecutive gradients. Early constructive
-intervals give way to persistent reversal; the MLP also has an isolated
-negative cosine at its first measured pair, before its constructive interval.
+intervals give way to persistent reversal.
 Prominent excursions occur with negative cosine and growing gradient
 norms, producing large peaks in $\eta\widehat\kappa_t$. In ResNet and
 Transformer, recovery often includes renewed constructive alignment and
-falling norms. MLP reversals persist through both increases and recovery,
-so their magnitude is essential to interpreting the loss.
+falling norms.
 
-The loss can reach lower values after an excursion. This shows why
-removing an excursion and preserving subsequent progress are separate
-objectives; it does not by itself establish a transition between basins,
-a flatter destination, or premature convergence at a lower rate.
-Similarly, peaks in gradient norm and projected response accompany
-large excursions, but the panels do not establish a universal proportional
-relation. The matched interventions below test the effect of limiting
-movement rather than inferring it from the loss curve.
+The loss can reach lower values after an excursion. Such an excursion
+could accompany movement into another basin, while momentum can delay
+the update's response to a newly changing gradient direction. Whether
+that movement helps depends on the current landscape, architecture,
+and optimizer state. Related work on SGD catapults shows that spikes can
+accompany improved feature learning~\cite{zhu2024catapults}; their role
+under Adam must likewise be evaluated together with subsequent progress.
 
-For a direct before-update check, let $L_t=\mathcal L(\theta_t)$ and flag
-whether $(L_{t+1}-L_t)/L_t\geq0.001$. At decision step $t$, $g_t$ and
-$L_t$ are available, but the next update has not been applied.
-Table~\ref{tab:severity} compares the gradient conditions with the naive
-rule that the preceding step already increased the loss, $L_t>L_{t-1}$.
-Accuracy counts correct predictions of both increases and non-increases.
-The warning hit rate answers a different question: how often an increase
-follows a warning. Its lift divides this rate by the unconditional event
-frequency. Reporting both prevents the many non-increasing steps from
-making a weak warning rule appear effective.
+After computing the raw gradient, but before applying the next update,
+we may want to classify whether that update will increase the loss.
+Let $L_t=\mathcal L(\theta_t)$ and define an increase as
+$(L_{t+1}-L_t)/L_t\geq0.001$. At decision step $t$, both $g_t$ and $L_t$
+are available. However, the pair $(g_{t-1},g_t)$ describes the response
+to the preceding update, from $\theta_{t-1}$ to $\theta_t$. Using it to
+classify the outgoing update tests whether that response carries forward.
+For quadratic full-batch plain GD, the strict condition
+$\eta\widehat\kappa_t>2$ exactly characterizes a positive loss change
+on the preceding step. This exact retrospective equivalence does not
+extend to a finite nonlinear step or to Adam, whose applied direction
+also depends on its moments.
+
+Table~\ref{tab:severity} compares the gradient conditions with the
+simple history rule $L_t>L_{t-1}$. Accuracy is the fraction of all
+decisions classified correctly. Warning hit rate is the fraction of
+warnings followed by an increase; lift divides this rate by the overall
+frequency of increases. Together they distinguish correct classification
+from how informative an issued warning is.
 
 \input{tables/diagnostic-0p1pct}
 
-The combined angle/norm condition gives higher accuracy and warning
-lift than the previous-loss-rise rule in all three cases. Its warning
-lifts are $1.28\times$, $6.78\times$, and $3.87\times$ for MLP, ResNet,
-and Transformer. Reversal or norm growth alone is less selective. The
-angle/norm inequality and $\eta\widehat\kappa_t\geq2$ are equivalent
-on these data, not independent predictors. These inexpensive signals
-therefore contain information about the next loss increase before the
-update is applied, although accuracy improves only modestly over always
-predicting no increase. The threshold and trajectories were inspected
-retrospectively; prospective forecasting needs independent validation.
-Supplementary Section S3 retains the confusion counts and comparisons
-across larger increases, future steps, and warning histories.
+The \emph{destructive loss-spike condition} combines reversal with
+sufficient gradient growth, $\rho_t<0$ and
+$\|g_t\|/\|g_{t-1}\|>-1/\rho_t$. It gives higher accuracy and warning
+lift than the previous-loss-rise rule in all three cases. Reversal or
+norm growth alone is less selective. The angle/norm condition is
+algebraically equivalent to $\eta\widehat\kappa_t>2$; their identical
+table entries verify the two implementations, rather than constitute
+independent evidence. The non-strict threshold gives the same flags
+here because no observed value equals two. The warning lifts are
+$1.28\times$, $6.78\times$, and $3.87\times$ for MLP, ResNet, and
+Transformer. These signals contain information before the next update,
+although the gains in overall accuracy over always predicting no
+increase are modest.
 
 A loss curve and a whole-network gradient still leave an important
 question unanswered: what is changing inside the network during these

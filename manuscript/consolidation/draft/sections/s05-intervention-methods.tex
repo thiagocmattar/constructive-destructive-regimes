@@ -6,7 +6,7 @@ Write the native proposal for one output unit as $\bar u_j=[\Delta W_{j:},\Delta
 \begin{equation}
  c_j^2=\bar u_j^\top G\bar u_j,\qquad G=\bar H^\top\bar H/n.
 \end{equation}
-The input second moment is uncentered. A factor $a_j=\min(1,\tau/c_j)$ radially rescales the entire proposal for one output unit, retaining its within-row direction while ensuring $a_jc_j\leq\tau$ for $\tau>0$, up to stored FP32 rounding. It neither computes the nearest Euclidean projection nor inverts $G$. A zero score leaves the proposal unchanged, and a calibrated zero threshold disables that module's cap.
+The input second moment is uncentered. A factor $a_j=\min(1,\tau/c_j)$ radially rescales the entire proposal for one output unit, retaining its within-row direction while ensuring $a_jc_j\leq\tau$ for $\tau>0$, up to stored FP32 rounding. It neither computes the nearest Euclidean projection nor inverts $G$. A zero score leaves the proposal unchanged, and a calibrated zero threshold disables that site's cap.
 
 For simultaneous upstream and local updates, actual preactivation change is
 \begin{equation}
@@ -16,23 +16,23 @@ For simultaneous upstream and local updates, actual preactivation change is
 \end{equation}
 The local rule therefore does not bound total propagated representation movement, complete attention output, network output, or loss. Its distinction from relative representation-change correction, AGC, and neuron-space descent is described in the main related work~\cite{kosson2024warmup,brock2021normalization,benzing2022neurons}. Those methods are relevant comparators for a future superiority claim; the present four-family experiment does not implement them.
 
-The controller captures current reference-set inputs once and evaluates local products with the native stored Adam increments. It does not need a separate altered-network forward for every candidate unit. Convolutional scores account for receptive-field patches, with the original stride, padding, and module structure; absent bias increments are zero. The two MLP hidden affines, 31 ResNet convolutions, and two QKV/four feed-forward Transformer affines are targeted. Output heads and all other untargeted parameters keep native increments. Moments and clocks advance normally, and the accepted parameters are checked against the actual stored-increment bounds.
+The controller captures current reference-set inputs once and evaluates local products with the native stored Adam increments. It does not need a separate altered-network forward for every candidate unit. Convolutional scores account for receptive-field patches, with the original stride, padding, and site structure; absent bias increments are zero. The two MLP hidden affines, 31 ResNet convolutions, and two QKV/four feed-forward Transformer affines are targeted. Output heads and all other untargeted parameters keep native increments. Moments and clocks advance normally, and the accepted parameters are checked against the actual stored-increment bounds.
 
 \subsection{Matched design, calibration, and validation coverage}
 All 12 conditions within a model share its complete pre-treatment model/optimizer/random state, data order, and numerical configuration. Treatment starts at $512\to513$, $256\to257$, or $544\to545$, and continues through completed states 800/576/928. The unchanged control is included in every comparison. The 36 conditions contain 11,904 total continuation updates, of which 10,912 are in treated arms. Baseline training rates are $.001/.003/.003$. Immediate rate multipliers are $.75/.5/.1$; late second-moment coefficients are $.95/.9/.5$; complete raw-gradient clipping thresholds are $.5/1$; and cap quantiles are q25/q50/q75. No ramp, moment reset, loss-triggered delay, or additional method is bundled into these interventions.
 
-One scalar budget per target module is the linearly interpolated quantile of all its per-unit native scores pooled over the eight untreated outgoing states $f-8,\ldots,f-1$. The reference set and native rate are the same as in the unchanged continuation. Budgets are frozen before the first treated update and remain fixed as current inputs and moments evolve. q50 was selected before the matched outcomes; its retention as the principal method is not a test-set or endpoint choice.
+One scalar budget per target site is the linearly interpolated quantile of all its per-unit native scores pooled over the eight untreated outgoing states $t_0-8,\ldots,t_0-1$. The reference set and native rate are the same as in the unchanged continuation. Budgets are frozen before the first treated update and remain fixed as current inputs and moments evolve. q50 was selected before the matched outcomes. The main motion illustration now uses q25 after inspection of training outcomes; it is not presented as a prespecified selection or a universal optimum.
 
 Qualification includes common eight-update fingerprints across workers, 108 exact audits of the full gradient, reference-example evaluation, and native proposal, calibration-pool reconstruction, stored-increment bounds, observer invariance, and terminal full-state evaluation. These verify the executed comparisons; they are not additional statistical replications. One initialization per model supplies no seed-level confidence interval, and different settings have unequal effective strengths.
 
-All 10,000 CIFAR-10 test images and 245,550 WikiText-2 test tokens are evaluated at the five fixed states $f$, $f+32$, $(f+e)/2$, $e-32$, and $e$. Transformer validation also covers all 217,630 valid targets. These sparse trajectories cannot establish the timing or absence of held-out spikes. No evaluation state or setting is selected using held-out loss.
+All 10,000 CIFAR-10 test images and 245,550 WikiText-2 test tokens are evaluated at the five fixed states $t_0$, $t_0+32$, $(t_0+t_f)/2$, $t_f-32$, and $t_f$. Transformer validation also covers all 217,630 valid targets. These sparse trajectories cannot establish the timing or absence of held-out spikes. No evaluation state or setting is selected using held-out loss.
 
 \subsection{Metrics, complete values, and costs}
-Mean training loss excludes the shared start state, averaging $f+1,\ldots,e$. Positive variation sums $\max(L_t-L_{t-1},0)$ over those transitions. The last-32 mean uses $e-31,\ldots,e$. Final loss is $L_e$. Percentage loss changes are $100(x/x_{\rm Adam}-1)$; PV reduction is $100(1-\mathrm{PV}/\mathrm{PV}_{\rm Adam})$. Lowering PV alone can reward slower progress, and a finite-window mean is not a convergence rate.
+Mean training loss excludes the shared start state, averaging $t_0+1,\ldots,t_f$. Positive variation sums $\max(L_t-L_{t-1},0)$ over those transitions. The last-32 mean uses $t_f-31,\ldots,t_f$. Final loss is $L_{t_f}$. Percentage loss changes are $100(x/x_{\rm Adam}-1)$; Positive-variation reduction is $100(1-\mathcal P/\mathcal P_{\rm Adam})$. Lowering $\mathcal P$ alone can reward slower progress, and a finite-window mean is not a convergence rate.
 
-For stage motion, both baseline and treatment RMS divide by the same unchanged-Adam maximum for that stage over the complete post-treatment window. Cosine spans $[-1,1]$. Within each supplementary plate, the RMS color scale includes all observed values across the three cases; different plates may use different maxima. Dashed vertical lines mark the baseline's largest relative excursion peak, not a treatment trigger. The main q50 plate uses the identical values with a more compact layout.
+For site motion, both baseline and treatment RMS divide by the same unchanged-Adam maximum for that site over the complete post-treatment window. Cosine spans $[-1,1]$. Within each supplementary plate, the RMS color scale includes all observed values across the three cases; different plates may use different maxima. Dashed vertical lines mark the baseline's largest relative excursion peak, not a treatment trigger. The main q25 plate uses the same underlying q25 values with a compact layout, logarithmic losses, and no peak markers.
 
-The following three tables retain absolute final/late losses alongside all relative effects. The absolute unchanged-Adam mean/PV/test references also appear in the main compact table; retained CSVs supply every scalar and validation outcome.
+The following three tables retain absolute final/late losses alongside all relative effects. The main compact table reports absolute training outcomes; retained CSVs supply every scalar and validation outcome.
 \input{tables/supp-matched-outcomes.tex}
 \clearpage
 \input{tables/supp-matched-costs.tex}
@@ -44,6 +44,14 @@ Component times are synchronized on the stated GPU classes, but hosts and instru
 
 \clearpage
 \subsection{Output movement and the traced ResNet event}
+For the main q25 illustration, maximum output RMS jumps decrease by
+92.7\%/33.0\%/45.1\% in MLP/ResNet/Transformer. Total squared output movement
+changes by $-97.6\%/-2.5\%/-59.7\%$. Negative output-change cosine occurs in
+49.7\%/59.7\%/88.5\% of updates. In the squared-loss MLP, 139 of 140 q25
+loss rises above $10^{-8}$ have a negative linear term outweighed by the
+positive quadratic term; the remaining rise also has a positive linear
+term. The exact output-loss identity is verified for every recorded step.
+
 For q50, the maximum output RMS jump decreases by 83.2\%/23.1\%/62.9\% in MLP/ResNet/Transformer. The proportion of output changes with negative cosine is 89.2\%/66.9\%/95.8\%, compared with 99.3\%/36.9\%/36.7\% under unchanged Adam. Total squared output movement changes by $-88.6\%/+39.7\%/-55.4\%$. Thus a lower maximum jump need not mean less cumulative movement or fewer reversals.
 
 In ResNet's previously selected steps 390--450, q50 reduces maximum loss from $.4407$ to $.1736$ (60.6\%). Positive variation over the complete 256--576 continuation falls only 2.8\%, because later oscillations remain. The whole window is the primary intervention comparison. For the squared-loss MLP, all 161 unchanged-Adam and 70 q50 rises above $10^{-8}$ have a negative output-space linear term outweighed by the positive squared-movement term. These counts use actual output changes on all 5,000 training examples.

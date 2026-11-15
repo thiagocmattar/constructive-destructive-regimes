@@ -1,19 +1,20 @@
 {
   "status": "passed",
-  "reviewer": "Codex visual inspection",
+  "reviewer": "Codex rendered-page inspection",
   "date": "2026-11-15",
-  "method": "All pages rendered at 1.6x and inspected as contact sheets; main table II, tracing figures and equations, corrected algorithm reference, and both title pages also inspected at full render resolution. Final title/contribution and reference changes rechecked after compilation.",
+  "method": "All 18 main and 27 supplementary pages rendered at 1.6x and inspected in contact sheets; changed main tracing/algorithm pages, intervention scatter/table, and q25 maps additionally inspected at full render resolution.",
   "checks": [
-    "Readable text, mathematics, axis labels, tables, and captions",
-    "Training-step t clock; Adam eta*kappa_hat interpreted as gradient-projected response",
-    "Relative RMS, movement fraction, patterns, overlap, and coefficient labels agree with definitions",
-    "No clipped text, overlapping labels, unresolved references, or malformed references",
-    "Nine main figures, three tables, two algorithms, 39 equations, seven sections",
-    "Intervention results remain unchanged; original evidence protected"
+    "Readable equations, text, captions, and tables; no page clipping",
+    "Definitions precede Algorithm 1 and tracing figures",
+    "Measured site terminology and residual Group labels",
+    "Absolute intervention metrics, explicit scaling, 108 table cells, full-precision minima",
+    "q25 logarithmic losses, shared RMS denominators, no peak lines",
+    "Nine main figures, three tables, two algorithms, 40 equations",
+    "Original evidence and training arrays preserved"
   ],
   "pdfs": {
     "manuscript": {
-      "sha256": "6d673d9f4a6d10b877ef3df27a0391a09f7ce4992938f8ddd883fbbec2b8e5df",
+      "sha256": "328ed8398075b84b853ed67cedd2b837db7320d9e940c42e389f9e55ffe370ca",
       "pages": 18,
       "inspected_pages": [
         1,
@@ -37,8 +38,8 @@
       ]
     },
     "supplementary": {
-      "sha256": "004f6cdef64a365ce0fd62993cd318638c1f15d8e46eab57ead75b4b334a5886",
-      "pages": 33,
+      "sha256": "259ee7078d7282e9b00eeeb920e2a6c9dc8e0f7e21ec4d283036b4ea597d0909",
+      "pages": 27,
       "inspected_pages": [
         1,
         2,
@@ -66,20 +67,8 @@
         24,
         25,
         26,
-        27,
-        28,
-        29,
-        30,
-        31,
-        32,
-        33
+        27
       ]
     }
-  },
-  "notes": [
-    "Main is 18 pages; supplement is 33 pages.",
-    "Annotated original archived with SHA-256 and annotation-count verification.",
-    "Accuracy and warning precision/lift are explicitly distinguished in Table II."
-  ],
-  "remaining_layout_decisions": "Author review and eventual venue page budgeting; this draft prioritizes clear explanations."
+  }
 }

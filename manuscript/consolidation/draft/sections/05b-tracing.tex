@@ -1,51 +1,27 @@
 \subsection{Tracing Oscillations through the Learned Function}
 \label{subsec:tracing}
 
-A parameter update changes the representations computed at successive
-layers and, eventually, the network output. If gradients repeatedly
-reverse, we can ask whether these functional changes also move back and
-forth, whether their magnitude grows during a loss excursion, and how
-widely the behavior is shared across the network. Answering these
-questions requires comparing the network on the same inputs. Otherwise,
-a representation difference could arise simply because the examples
-changed.
+A parameter update changes the representations computed inside the
+network and, eventually, its output. We trace these changes backwards
+from the output toward the input-side layers, asking where they reverse,
+how large they become, and whether different parts of the network share
+their timing. We compare the same inputs at successive training states;
+otherwise, a representation difference could arise simply because the
+examples changed. The reference sets are all 5,000 MLP training images,
+one original 1,000-image ResNet normalization group, and 64 Transformer
+sequences with 2,240 unchanged token positions (Table~\ref{tab:setup}).
 
-Algorithm~\ref{alg:trace} summarizes the procedure: evaluate matching
-inputs, record each representation change, compare its direction and
-size with the preceding change, then examine the patterns carrying
-movement over a complete window.
+A training state $\theta_t$ is the parameter state after $t$ completed
+updates. For a window $a{:}b$, we analyze the $T_w=b-a+1$ representation
+changes ending at steps $a,\ldots,b$. Computing their consecutive
+cosines requires states $a-2,\ldots,b$: the first cosine compares the
+changes ending at $a-1$ and $a$.
 
-\begin{algorithm}[tbp]
-\caption{Tracing representation changes through a network}
-\label{alg:trace}
-\begin{algorithmic}[1]
-\Require Training trajectory; ordered reference examples; measured stages; window $a{:}b$
-\State Evaluate the same examples at states $a-2,\ldots,b$, preserving normalization groups and training state.
-\For{each measured stage $\ell$}
- \State Compute consecutive activation differences $\delta_t^\ell$.
- \State Measure change cosine $c_t^\ell$ and RMS displacement $a_t^\ell$; align them with loss at step $t$.
- \State Stack changes $a{:}b$ as rows of $D_\ell$.
- \State Decompose $D_\ell D_\ell^\top$ to obtain movement energies and signed coefficient histories.
-\EndFor
-\State Compare each stage's timing and direction with the output.
-\State Analyze the raw gradients used by the same updates separately.
-\end{algorithmic}
-\end{algorithm}
-
-The reference sets in Table~\ref{tab:setup} balance measurement cost and
-coverage. We retain every MLP training example, one complete original
-ResNet normalization group, and 64 Transformer sequences with unchanged
-token positions. As with sampled Hessian measurements, fixed subsets
-make repeated diagnostics feasible, but these are different measurements
-with different subsets. They describe the function on the retained inputs,
-not an unbiased estimate of population-wide representation dynamics.
-The full training objective still supplies every optimizer update.
-
-A measured \emph{stage} is a named output in the computation graph.
+A measured \emph{site} is a named output in the computation graph.
 It can be a single layer, an attention module, or the end of a residual
 block group; we record that output rather than averaging internal layers.
 Write its activation matrix as $A_t^\ell\in\mathbb R^{N_\ell\times m_\ell}$.
-Rows identify reference examples and, where relevant, spatial or token
+The $N_\ell$ rows identify reference examples and, where relevant, spatial or token
 positions; columns identify the $m_\ell$ features at each position.
 The preceding update changes this representation by
 \begin{equation}
@@ -64,60 +40,31 @@ the change. Its direction and size are measured using
  \label{eq:representation-motion}
 \end{equation}
 A negative $c_t^\ell$ means the new functional change opposes the
-preceding one; positive values indicate reinforcement. This gives a
-representation-level counterpart of destructive and constructive
-gradient regimes. The root-mean-square (RMS) displacement $a_t^\ell$
+preceding one; positive values indicate reinforcement. As $\rho_t$ measures alignment between consecutive raw gradients,
+$c_t^\ell$ measures alignment between consecutive functional changes at
+site $\ell$, giving a representation counterpart of constructive and
+destructive regimes. The root-mean-square (RMS) displacement $a_t^\ell$
 measures the change per coordinate. A zero change has undefined cosine.
 
-\begin{figure*}[!t]
-\centering
-\includegraphics[width=\textwidth]{figures/00-three-model-loss-representation-motion.pdf}
-\caption{Loss and representation changes in selected Adam windows: steps 451--501 (MLP), 390--450 (ResNet), and 553--601 (Transformer). Top: complete training loss and loss on the reference examples. Middle: cosine between consecutive representation changes; blue denotes reversal and red denotes reinforcement. Bottom: relative RMS displacement $a_t^\ell/\max_{u\in[a,b]}a_u^\ell$, normalized separately within each stage and displayed window. The 5/6/6 rows are measured stage outputs, not averages of internal layers. Reference sets contain 5,000 images, one original 1,000-image BatchNorm group, and 2,240 token positions. Blue dashed lines mark the first displayed negative output-change cosine; the MLP is already negative at entry. Black dashed lines mark the first loss at least 10\% above the pre-peak minimum. These lines compare timing; they do not identify a unique initiating event.}
-\label{fig:trace-motion}
-\end{figure*}
+The representation counterpart of normalized displacement is
+\begin{equation}
+ R_{a:b}^\ell=
+ \frac{\|\sum_{t=a}^b\delta_t^\ell\|}{\sum_{t=a}^b\|\delta_t^\ell\|}
+ =\frac{\|A_b^\ell-A_{a-1}^\ell\|_F}
+ {\sum_{t=a}^b\|A_t^\ell-A_{t-1}^\ell\|_F}.
+ \label{eq:representation-retention}
+\end{equation}
+This ratio lies in $[0,1]$ whenever movement occurs: it compares net
+displacement with total distance traveled. In the windows below, output
+retention is only 1.71\%/2.44\%/3.51\% for MLP/ResNet/Transformer;
+the first measured sites retain 3.25\%/3.72\%/24.33\%, respectively.
+Together with negative cosines, these values show substantial
+back-and-forth movement with little remaining net displacement,
+motivating control of its magnitude. Retention measures displacement,
+rather than learning quality; orthogonal changes can also produce a
+small ratio. All values use the full changes, without mode truncation.
 
-First, we ask where functional oscillation appears and how its size changes during an excursion.
-Figure~\ref{fig:trace-motion} aligns loss, change direction, and movement
-size on the same training-step axis. Reading downward connects a visible
-loss excursion to what happens inside the network. Reading upward from
-the output asks how far back the same behavior is already present.
-The displayed endpoints summarize the architecture without averaging
-away the changes within each measured representation.
-
-An affine layer means a linear map plus a bias, before its following nonlinearity.
-In the MLP, the middle heatmap is negative throughout the selected
-window, beginning at the first affine layer. Its representations keep
-reversing while the loss both rises and falls. The lower heatmap shows
-that the size of these reversals varies considerably; the tanh layers
-attenuate the movement transmitted by the preceding affine layers. The
-separate stage normalizations show when each representation moves most,
-not its absolute size relative to another stage.
-Thus the loss excursion occurs within an already oscillating network,
-rather than requiring a newly appearing reversal at its peak.
-
-ResNet and Transformer show a less uniform pattern across depth.
-Later stages follow the output oscillation more closely, while earlier
-representations can remain constructive during intervals of output
-reversal. In the Transformer this distinction is particularly clear at
-the embedding: its destructive changes are less persistent and become
-visible near the large excursion, while later attention and block
-outputs reverse earlier. The embedding also returns to constructive
-motion sooner. For ResNet, the first convolution reaches its largest
-displacement near the loss peak, followed by the later stages. Functional
-reversal can precede the visible loss increase, whereas large RMS
-movement is concentrated near and after the peak. The first displayed
-output reversal precedes the 10\% loss marker in ResNet and Transformer;
-MLP is already reversing at the window's start.
-
-These differences suggest that an excursion can involve a changing
-distribution of functional motion across the network. Backpropagated
-errors may recruit earlier representations into changes already visible
-near the output, potentially enabling subsequent reorganization. This is
-a hypothesis suggested by the timing, not an identified causal sequence
-or evidence that the network reaches otherwise inaccessible states.
-
-We next ask how many independent patterns are needed to describe this
-oscillating functional change. For each stage separately, collect the
+For each site separately, collect the
 changes at steps $a,\ldots,b$ into
 $D_\ell\in\mathbb R^{T_w\times P_\ell}$, where $T_w=b-a+1$.
 Each row is $(\delta_t^\ell)^\top$, and each column follows one fixed
@@ -139,12 +86,14 @@ variation. Specifically,
  \alpha_{t,j}^\ell=\sigma_{\ell,j}U_{\ell,(t-a+1),j}.
  \label{eq:pattern-reconstruction}
 \end{equation}
-We call each fixed pattern a \emph{mode}. For example, the pattern
-$(0.8,-0.6,0)$ increases one coordinate while decreasing another;
-a negative coefficient reverses those changes. The first mode captures
-the greatest total squared movement over the window. Subsequent modes
-capture the remaining movement in perpendicular directions. These are
-patterns used across updates, not selected training steps.
+A \emph{mode} is the right singular vector
+$v_{\ell,j}\in\mathbb R^{P_\ell}$: the $j$th fixed pattern at site $\ell$
+over the whole window. Its coordinates span all reference input positions
+and features; its indices identify the site and pattern, not a sample
+or training step. Equivalently, it is an eigenvector of
+$D_\ell^\top D_\ell$ with eigenvalue $\sigma_{\ell,j}^2$.
+The rectangular matrix $D_\ell$ itself need not have eigenvectors.
+At most $\min(T_w,P_\ell)$ independent patterns can be observed.
 
 The total squared movement is $\|D_\ell\|_F^2=\sum_j\sigma_{\ell,j}^2$.
 The fraction captured by the first $k$ patterns is
@@ -161,75 +110,99 @@ instead of variance because the change matrix is not centered: a
 persistent drift is part of the movement being measured. Row norms are
 also retained, so larger changes contribute more.
 
-\begin{figure*}[!t]
-\centering
-\includegraphics[width=\textwidth]{figures/01-three-model-temporal-structure.pdf}
-\caption{Patterns and timing of representation movement in the same windows as Fig.~\ref{fig:trace-motion}, containing 51/61/49 changes. Top: cumulative fraction of squared movement for output changes and for the raw gradients used by those updates; the dotted line marks 95\%. Middle: each stage's fraction in its first pattern ($E_1^\ell$) and first ten ($E_{10}^\ell$), and temporal overlap with the output ($O_{10}$). Bottom: signed coefficient of the leading output pattern, divided by $\sqrt P$ to express its coordinate RMS scale. A coefficient crossing zero reverses direction along that fixed pattern. Energy, temporal overlap, and signed motion answer different questions; none alone establishes causal transmission through a layer.}
-\label{fig:trace-structure}
-\end{figure*}
-
-The output curves in Fig.~\ref{fig:trace-structure} reach 95\% with
-5, 20, and 15 patterns for MLP, ResNet, and Transformer. Their maximum
-observable ranks are 51, 61, and 49, set by the numbers of changes in
-the windows. The required fractions of available directions are therefore
-9.8\%, 32.8\%, and 30.6\%. This is the appropriate comparison: the many
-input and feature coordinates do not provide more than $T_w$ independent
-directions from $T_w$ observations. For the Transformer, 15 fixed
-patterns jointly describe 95\% of output movement across 49 updates,
-2,240 token positions, and the complete 33,278-word output vocabulary.
-It does not mean that 49 updates are equivalent to 15 updates, or that
-every layer shares the same spatial patterns.
-
-Concentration also exceeds a reference in which every observed change
-keeps its size but points in a direction orthogonal to all other changes.
-This comparison asks how much concentration comes from repeated
-directions, beyond a few unusually large steps. A second comparison
-gives every change unit length before decomposition, separating directional
-structure from amplitude. Supplementary Table S4 shows that both effects
-matter, especially in ResNet and Transformer. The primary curves retain
-the actual movement that occurred.
-
-To compare timing across layers of different widths, we compare the
+To compare timing across sites of different widths, we compare the
 columns of $U_\ell$, whose coordinates always index the same training
-steps. With $F$ denoting the output, their leading-$k$ overlap is
+steps. Write $U_{\ell,k}$ for the first $k$ columns of $U_\ell$. With $F$ denoting the final network output, their leading-$k$ overlap is
 \begin{equation}
  O_k(\ell,F)=\frac{\|U_{\ell,k}^{\top}U_{F,k}\|_F^2}{k}.
  \label{eq:overlap}
 \end{equation}
-This averages squared projections of one set of orthonormal temporal
-patterns onto the other. A value of one means the same temporal subspace,
+It measures how much of a site's leading time histories lies in the
+subspace spanned by the final output's leading time histories. A value of one means the same temporal subspace,
 even if the individual basis vectors differ; zero means orthogonal
-temporal subspaces. We use $k=10$ within the numerical ranks. The middle row
-of Fig.~\ref{fig:trace-structure} shows shared timing across depth,
-with stronger agreement toward the output in the selected ResNet
-window. This compares how movement varies over time, not whether
-neurons in different layers have the same spatial direction.
+temporal subspaces. We use $k=10$ within the numerical ranks. This measures shared timing, without backpropagating outputs or
+equating feature directions at different sites.
 
-Finally, the lower row shows what energy fractions cannot show: the
-order of the movement. The coefficient
-$\alpha_{t,k}^\ell$ in Eq.~\eqref{eq:pattern-reconstruction} is the signed amount of
-change along one fixed pattern. Dividing it by $\sqrt{P_\ell}$ puts it
-on the scale of a per-coordinate displacement. Repeated positive and
-negative values expose back-and-forth movement along the leading output
-pattern. Larger amplitudes near the excursion show how that oscillation
-is amplified. Small sign changes in the tail can carry little movement,
-so sign and size must again be read together.
+Algorithm~\ref{alg:trace} assembles these measurements.
 
+\begin{algorithm}[H]
+\caption{Tracing representation changes through a network}
+\label{alg:trace}
+\begin{algorithmic}[1]
+\Require Training trajectory; ordered reference examples; measured sites; window $a{:}b$
+\State Evaluate the same examples at states $a-2,\ldots,b$, preserving normalization groups and training state.
+\For{each measured site $\ell$}
+ \State Compute consecutive activation differences $\delta_t^\ell$.
+ \State Measure change cosine $c_t^\ell$ and RMS displacement $a_t^\ell$; align them with loss at step $t$.
+ \State Stack changes $a{:}b$ as rows of $D_\ell$ and compute $R_{a:b}^\ell$.
+ \State Decompose $D_\ell D_\ell^\top$ to obtain movement energies and signed coefficient histories.
+\EndFor
+\State Compute temporal overlap $O_k(\ell,F)$ with the final network output.
+\State Analyze the raw gradients used by the same updates separately.
+\end{algorithmic}
+\end{algorithm}
 
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=\textwidth]{figures/00-three-model-loss-representation-motion.pdf}
+\caption{Loss and representation changes in selected Adam windows: steps 451--501 (MLP), 390--450 (ResNet), and 553--601 (Transformer). Top: complete training loss and loss on the reference examples. Middle: cosine between consecutive representation changes; blue denotes reversal and red denotes reinforcement. Bottom: relative RMS displacement $a_t^\ell/\max_{u\in[a,b]}a_u^\ell$, normalized separately within each site and displayed window. The 5/6/6 rows are measured site outputs, not averages of internal layers. Reference sets contain 5,000 images, one original 1,000-image BatchNorm group, and 2,240 token positions. Blue dashed lines mark the first displayed negative output-change cosine; the MLP is already negative at entry. Black dashed lines mark the first loss at least 10\% above the pre-peak minimum. These lines compare timing; they do not identify a unique initiating event.}
+\label{fig:trace-motion}
+\end{figure*}
 
-The temporal matrix
-$D_\ell D_\ell^\top$ permits this analysis without explicitly storing
-all spatial modes; implementation costs and numerical checks are in
-Supplementary Section S4. The analysis describes selected windows and
-one reference set per model. It establishes coordinated functional
-oscillation, while identifying a unique initiating layer or a pattern
-specific to spikes would require further comparisons.
+Figure~\ref{fig:trace-motion} shows where functional oscillation appears
+and how its size changes. The top row locates the loss excursion.
+Reading the cosine maps backwards from output to input reveals how
+widely reversal is shared. In the MLP, every displayed change has
+negative cosine at every measured site, from the first linear input
+map to the final output. Oscillation is therefore homogeneous across
+the measured depth, even while loss rises and falls. The RMS maps add
+its changing amplitude. Comparing pre- and post-nonlinearity measurements
+shows that tanh attenuates displacement; each site's separate
+normalization in the figure highlights timing rather than absolute
+differences in magnitude across sites.
 
-Together, concentration and signed reversals support approximately
-low-dimensional functional oscillation in these windows. Its persistence
-under Adam does not establish ineffective learning, because the loss can
-still improve. It instead sharpens the intervention question. If a representation
-can keep reversing while learning continues, suppressing reversal
-itself need not be the right objective. We instead test whether limiting
-the size of selected representation changes can reduce excursions
-without preventing useful subsequent movement.
+ResNet and Transformer exhibit a less homogeneous pattern. Their
+output-side representations reverse while earlier representations can
+continue to reinforce their preceding change. The first displayed output
+reversal precedes the 10\% loss marker by 15 steps in ResNet and five
+in Transformer. In ResNet, the first convolution reaches its largest
+displacement at the loss peak, followed one step later by the remaining
+displayed sites. In Transformer, the embedding becomes more oscillatory
+near the large excursion and returns to constructive movement sooner
+than the later sites. Larger backpropagated errors could recruit earlier
+representations into stronger changes, while constructive intervals
+could accumulate smaller changes before that reorganization. This
+architecture-dependent interpretation motivates examining both the
+direction and magnitude throughout the network.
+
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=\textwidth]{figures/01-three-model-temporal-structure.pdf}
+\caption{Patterns and timing of representation movement in the same windows as Fig.~\ref{fig:trace-motion}, containing 51/61/49 changes. Top: cumulative fraction of squared movement for output changes and for the raw gradients used by those updates; the dotted line marks 95\%. Middle: each site's fraction in its first pattern ($E_1^\ell$) and first ten ($E_{10}^\ell$), and temporal overlap with the output ($O_{10}$). Bottom: signed coefficient of the leading output pattern, divided by $\sqrt P$ to express its coordinate RMS scale. A coefficient crossing zero reverses direction along that fixed pattern. Energy, temporal overlap, and signed motion answer different questions; none alone establishes causal transmission through a layer.}
+\label{fig:trace-structure}
+\end{figure*}
+
+Figure~\ref{fig:trace-structure} asks whether these changes repeatedly
+use a small set of patterns. The top row shows concentration of squared
+movement in the leading output modes, alongside the corresponding
+gradient decomposition. Concentration can reflect both repeated
+directions and a few large changes; the equal-length and orthogonal
+controls in Supplementary Section S4 separate these effects.
+The middle row extends the analysis through the network: $E_1^\ell$
+and $E_{10}^\ell$ show concentration at each site, whereas $O_{10}$ shows
+how much its leading temporal structure is shared with the final output.
+The selected ResNet window has stronger temporal agreement toward the
+output, with shared structure still extending to the input-side sites.
+Finally, the bottom row establishes the back-and-forth component that
+energy fractions alone cannot establish. Repeated changes in the sign
+of $\alpha_{t,1}^F/\sqrt{P_F}$ show reversal along one fixed output
+pattern, and its amplitude shows how strongly that pattern moves.
+
+Together, the two figures and the small retention values characterize
+coordinated, approximately low-dimensional functional oscillation in
+these windows. The temporal Gram matrix $D_\ell D_\ell^\top$ permits
+the analysis without storing all spatial modes; implementation and
+numerical checks are in Supplementary Section S4. The resulting
+intervention question is whether limiting the magnitude of local
+representation changes can reduce loss excursions while preserving
+subsequent training progress.

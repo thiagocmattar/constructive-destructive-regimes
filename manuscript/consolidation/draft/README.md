@@ -1,18 +1,21 @@
 # Consolidation manuscript for author review
 
-- **Read:** [revised manuscript — 18 pages](manuscript.pdf), updated against all 62 annotations in the 15 November author-feedback PDF. This is the file for the next commenting round.
-- **Optional detail:** [supplement — 33 pages](supplementary.pdf), including derivations, controls, timing/severity audits, all intervention settings, and historical MLP replication.
-- **Main changes:** broader title and representation-learning motivation; five explicit contributions; clearer regimes and noise derivation; a 0.1% next-step diagnostic table with accuracy, event rates, loss-history baseline, and warning lift; explicit definitions of patterns/modes, squared movement, dimensionality, and temporal overlap. The Adam figure uses **ηκ̂**, with its gradient-projected interpretation derived separately from actual-step curvature.
-- **Contents:** nine main figures, three tables, two algorithms, and 39 numbered equations. Sections I–II frame the problem; III–IV develop and examine the regimes; V characterizes Adam spikes and traces functional oscillations; VI tests interventions; VII concludes.
-- **Editable sources:** [main wrapper](manuscript.tex), [sections](sections/), [supplement wrapper](supplementary.tex), and [bibliography](references.bib). Current figure variants live in [figures/](figures/); some tables are read from the preserved sibling `../evidence/` folder.
-- **Verified:** warning-free compilation; numerical checks and page review; diagnostic confusion counts; all 144 intervention table values; general curvature and Adam projected-response identities; 416 protected source files unchanged. [Current revision and comment resolutions](../work/author_feedback_20261115/OBSERVATIONS.md).
-- **Archived feedback:** [original annotated PDF](archive/2026-11-15/manuscript+feedback.pdf), preserved byte-for-byte with all annotations. New comments belong on the updated `manuscript.pdf`.
+- **Read:** [revised manuscript - 18 pages](manuscript.pdf), updated against all 61 annotations in the second author-feedback round. This is the file for your next commenting round.
+- **Optional detail:** [supplement - 27 pages](supplementary.pdf), with derivations, controls, complete intervention settings, and historical MLP replication.
+- **Main changes:** definitions before tracing algorithms/results; precise modes and temporal overlap; representation retention computed from saved data; clearer diagnostic timing; selective-cap computation and positioning; absolute intervention metrics and a compact q25 motion figure.
+- **Contents:** nine main figures, three tables, two algorithms, and 40 numbered equations. Sections I-IV retain the framing and regime development; V characterizes Adam and traces functional oscillations; VI tests interventions; VII concludes.
+- **Editable sources:** [main wrapper](manuscript.tex), [sections](sections/), [supplement wrapper](supplementary.tex), [bibliography](references.bib), [figures](figures/), and [tables](tables/). Original evidence remains preserved in the sibling folder.
+- **Verified:** warning-free compilation, numerical and rendered-page checks, 108 absolute intervention table cells, full-Gram retention, q25 output-loss accounting, and 416 unchanged protected originals. [Current revision and comment resolutions](../work/author_feedback2_20261115/OBSERVATIONS.md).
+- **Archived feedback:** [round one](archive/2026-11-15/manuscript+feedback.pdf) and [round two](archive/2026-11-15/manuscript+feedback2.pdf), preserved byte-for-byte with their annotations. New comments belong on the updated manuscript.pdf.
 - **Preserved:** active manuscript, evidence, and human originals. The earlier full rewrite is in commit `20d783d`; the older [V-C review excerpt](intervention-review.pdf) is historical and retains its previous notation.
 
 Build from the repository root with Python (NumPy, Matplotlib, PyMuPDF, Pillow) and a TeX distribution containing IEEEtran, newtx, algorithm, and algpseudocode:
 
 ```powershell
-# Only needed to reproduce the updated diagnostic table:
+# To reproduce representation retention:
+python manuscript/consolidation/work/author_feedback2_20261115/01_retention.py
+
+# To reproduce the earlier diagnostic table (caption received later editorial changes):
 python manuscript/consolidation/work/author_feedback_20261115/02_diagnostic_table.py
 
 # Only needed when regenerating current figure variants:

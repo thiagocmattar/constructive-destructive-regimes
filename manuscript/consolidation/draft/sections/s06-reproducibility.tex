@@ -12,7 +12,7 @@ Question & Source scope \\
 \midrule
 GD curvature and accumulation & Analysis 024 (nine trajectories and loss residuals), 035 (backward lags), 056 (all-pair and endpoint audit) \\
 Sampling and independent HVPs & Analyses 027/037; three initialization blocks, frozen-state controls, and matched moving continuations \\
-Adam severity and timing & Analysis 055; nine original full-objective Adam arms, complete decisions and horizon/memory reductions \\
+Adam severity and timing & Analysis 055; nine original full-objective Adam arms, complete next-step decisions \\
 Functional tracing & Analyses 062/063; reference-set event windows, with the revised ResNet fit from Run 292 \\
 Matched interventions & Analysis 065, Runs 293--295; 36 common-state conditions with full post-treatment coverage \\
 Historical MLP sensitivity & Analysis 065, Runs 286--288; 54 continuations with separate windows and calibration \\
@@ -20,6 +20,6 @@ Historical MLP sensitivity & Analysis 065, Runs 286--288; 54 continuations with 
 \end{tabular}
 \end{table}
 
-The main paper distinguishes exact identities, smooth approximations, empirical associations, and controlled treatment effects. Observed counts are not all independent: updates and windows overlap, stages share a network, and settings share one initialization. The sampling study's three initializations and historical MLP replication do not supply missing independent initializations for the main Adam grid. Likewise, single reference sets and selected event windows establish participation and temporal structure without identifying unique causes or spike-specific modes.
+The main paper distinguishes exact identities, smooth approximations, empirical associations, and controlled treatment effects. Observed counts are not all independent: updates and windows overlap, sites share a network, and settings share one initialization. The sampling study's three initializations and historical MLP replication do not supply missing independent initializations for the main Adam grid. Likewise, single reference sets and selected event windows establish participation and temporal structure without identifying unique causes or spike-specific modes.
 
 Initializations 1/2 for the complete matched intervention matrix, the cross-model cap-by-rate grid, quiet-window and contrasts across reference sets, and prospective forecasting remain additional experiments. None is represented as completed here. The present evidence supports the bounded conclusions in the main paper; stronger reliability, causal, generalization, or computational-efficiency claims require their corresponding tests.

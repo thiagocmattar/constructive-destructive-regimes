@@ -18,7 +18,7 @@ noise; subsequent mini-batch continuations test the effect of sampling.
 \toprule
  & CIFAR-10 / MLP & CIFAR-10 / ResNet-32 & WikiText-2 / Transformer \\
 \midrule
-Architecture & Two tanh hidden layers, width 200 & Three residual stages & Two layers, two heads; widths 200 \\
+Architecture & Two tanh hidden layers, width 200 & Three residual sites & Two layers, two heads; widths 200 \\
 Objective & Half squared error; sum over ten outputs, mean over images & Mean cross-entropy; 50 fixed BatchNorm groups & Token-weighted negative log likelihood \\
 Training coverage & First 5,000 training images & All 50,000 training images & 59,680 sequences; 2,088,600 valid targets \\
 GD rates & $.004,\ .02,\ .04$ & $.025,\ .05,\ .1$ & $.05,\ .1,\ .2$ \\

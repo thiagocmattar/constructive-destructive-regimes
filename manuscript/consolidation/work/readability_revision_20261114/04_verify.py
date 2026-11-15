@@ -275,16 +275,34 @@ for record in new_audit['rows']:
 check(all(compiled_diagnostic[v]>=n for v,n in expected_diagnostic.items()), 'Compiled diagnostic cells missing')
 for number in range(1,10):
     check(f'Fig. {number}.' in main_text, f'Figure {number} caption missing')
-for number in range(1,25):
+for number in range(1,19):
     check(f'Figure S{number}:' in texts['supplementary'], f'Supplement figure {number} caption missing')
-for number in range(1,10):
+for number in range(1,9):
     check(f'Table S{number}:' in texts['supplementary'], f'Supplement table {number} caption missing')
-for token in ['Algorithm 1', 'Algorithm 2', 'TABLE I', 'TABLE II', 'TABLE III', '+3551.08']:
+for token in ['Algorithm 1', 'Algorithm 2', 'TABLE I', 'TABLE II', 'TABLE III']:
     check(token in main_text, 'Missing compiled element: ' + token)
-table_region = main_text[main_text.index('TABLE III'):main_text.index('PV reports reduction')]
+table_region = main_text[main_text.index('TABLE III'):main_text.index('Fig. 9.')]
 compiled = Counter(re.findall(r'[+-]?\d+(?:\.\d+)?',table_region))
-expected = Counter(v for r in manifest['table']['rows'] for v in r['display_values'])
+round2 = json.loads((BASE/'work/author_feedback2_20261115/presentation-manifest.json').read_text())
+expected = Counter(v for r in round2['table'] for v in r['display_values'])
 check(all(compiled[v] >= n for v,n in expected.items()), 'Compiled intervention cells missing')
+for row in round2['table']:
+    expected_values=[f'{1000*computed[c,row["arm"]][i]:.1f}' for c in cases for i in [1,0,2]]
+    check(row['display_values']==expected_values,'Absolute table reduction or rounding mismatch')
+for file,digest in round2['figures'].items():
+    check(sha(DRAFT/'figures'/file)==digest,'Round-two figure hash mismatch')
+for arm,counts in round2['mse_rises'].items():
+    rising=curves[f'mlp__{arm}__mse_delta_loss']>1e-8
+    check(int(rising.sum())==counts['total'],'q25 total loss rises')
+    check(int((curves[f'mlp__{arm}__mse_linear'][rising]<0).sum())==counts['corrective'],'q25 corrective loss rises')
+retention=json.loads((BASE/'work/author_feedback2_20261115/retention-manifest.json').read_text())
+for file,digest in retention['sources'].items():
+    check(sha(ROOT/file)==digest,'Retention source changed')
+for r in retention['rows']:
+    check(math.isclose(r['retention'],r['net_displacement']/r['path_length'],rel_tol=1e-13),'Retention ratio')
+for site,case in [('output','mlp'),('output.log_probabilities','resnet'),('output.log_probabilities','transformer')]:
+    r=next(x for x in retention['rows'] if x['case']==case and x['site']==site)
+    check(f'{100*r["retention"]:.2f}\\%' in tracing_text,'Output retention claim')
 all_tex = '\n'.join(p.read_text(encoding='utf-8') for p in (DRAFT / 'sections').glob('*.tex'))
 check(not re.search(r'^ef\{|Algorithm~\s+ef\{', all_tex, re.M), 'Malformed reference escape')
 check(not re.search(r':\s*\\begin\{(?:equation|align)', all_tex), 'Colon before displayed equation')
@@ -300,11 +318,12 @@ abstract_words = len(re.sub(r'\\(?:begin|end)\{abstract\}', '', abstract).split(
 check(abstract_words <= 250, 'Abstract over 250 words')
 result = {'status': 'passed', 'protected_files_unchanged': len(protected),
           'main_figures': 9, 'main_tables': 3, 'algorithms': 2,
-          'recomputed_intervention_metrics': 144, 'compiled_intervention_cells': 144,
+          'recomputed_intervention_metrics': 144, 'compiled_intervention_cells': 108,
           'gd_conditions_checked': 9, 'historical_severity_counts_checked': 24,
           'new_diagnostic_conditions': 21, 'new_diagnostic_confusion_cells': 84,
           'compiled_diagnostic_metric_cells': sum(expected_diagnostic.values()),
-          'spectral_control_cells_checked': 24, 'supplement_figures': 24, 'supplement_tables': 9,
+          'spectral_control_cells_checked': 24, 'supplement_figures': 18, 'supplement_tables': 8,
+          'representation_retention_sites': len(retention['rows']),
           'smooth_loss_and_cap_cases': 128, 'general_optimizer_step_cases': 128,
           'verified_figure_pdfs': len(figures['outputs']), 'mathematical_max_errors': math_max_errors,
           'abstract_words': abstract_words, 'citation_keys': len(keys),

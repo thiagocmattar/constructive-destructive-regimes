@@ -37,7 +37,7 @@ For plain SGD, $u_{t-1}=-\eta g_{t-1}$ gives
 \end{equation}
 Its sampling term is $-\varepsilon_t/\eta$, where $\varepsilon_t$ is defined in the main text. In the same specialization the starting-point error bound becomes $L_H\eta\|g_{t-1}\|/2$. For a different optimizer, the raw-gradient combination $\eta\widehat\kappa_t$ and the step-direction curvature are generally different: one projects the gradient change onto the preceding gradient, the other onto the applied increment. The Adam overview retains the former measured quantity and labels it $\eta\widehat\kappa_t$; it is not relabeled as an empirical measurement of the latter.
 
-A zero applied step makes $\widehat\kappa_t^{\mathrm{step}}$ undefined. Separately, $\eta\widehat\kappa_t$ is undefined when $g_{t-1}=0$; if only $g_t=0$, the inner-product expression gives $\eta\widehat\kappa_t=1$ although the gradient cosine is undefined. We use $r_t=\|g_t\|/\|g_{t-1}\|$ as the norm ratio in the supplementary timing tables.
+A zero applied step makes $\widehat\kappa_t^{\mathrm{step}}$ undefined. Separately, $\eta\widehat\kappa_t$ is undefined when $g_{t-1}=0$; if only $g_t=0$, the inner-product expression gives $\eta\widehat\kappa_t=1$ although the gradient cosine is undefined. We use $r_t=\|g_t\|/\|g_{t-1}\|$ as the norm ratio in the diagnostic analysis.
 
 \subsection{Sampling identities and their limits}
 Fresh conditional unbiasedness gives $\E[g_{t-1}^\top\xi_t]=0$. At the preceding state, $g_{t-1}=f_{t-1}+\xi_{t-1}$ and $\E[f_{t-1}^\top\xi_{t-1}]=0$, hence
