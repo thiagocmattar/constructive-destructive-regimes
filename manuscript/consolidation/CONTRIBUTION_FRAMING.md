@@ -223,6 +223,48 @@ representation changes remains a hypothesis. A less concentrated spectrum could
 also result from attenuation of dominant modes, without new movement directions.
 No such spectral intervention comparison was established in this discussion.
 
+## Proposed fourth bullet: the Section III framework
+
+The author requested saving this full bullet after discussing Section III as a
+whole, including the regime definitions, cumulative displacement, and sampling
+effects. It is a contribution of integrated formulation, interpretation, and
+empirical characterization. Manuscript insertion remains pending.
+
+> **A framework for interpreting constructive and destructive training dynamics
+> under sampling noise.** Existing analyses characterize oscillatory stability,
+> gradient-based convergence diagnostics, and optimization path length, but these
+> perspectives do not by themselves determine how observed update opposition
+> translates into accumulated motion. We connect update magnitudes, temporal
+> alignment, and displacement through an exact decomposition of SGD trajectories,
+> and explicitly characterize how sampling enters consecutive-gradient
+> measurements. This separates local reversal, cumulative interference, and
+> displacement retention while distinguishing fixed-state alignment dilution
+> from changes along an evolving trajectory. Across the studied GD trajectories,
+> negative adjacent interactions coexist with positive accumulated interactions
+> and continued loss reduction; matched mini-batch continuations further reveal
+> how sampling modifies coherent reversal. Together, these results provide the
+> parameter-space foundation for investigating the corresponding changes in
+> network representations.
+
+The gap is our synthesis of the literature comparison, not a claim that an
+individual cited paper explicitly asks this exact question. Relevant antecedents
+are [Pesme et al., ICML 2020, section 4](https://proceedings.mlr.press/v119/pesme20a/pesme20a.pdf)
+on noise-sensitive consecutive-gradient diagnostics;
+[Gupta et al., JMLR 2021](https://jmlr.org/papers/v22/19-979.html)
+on optimization path length; and
+[Andreyev and Beneventano, sections 5 and 9](https://arxiv.org/html/2412.20553)
+on distinguishing stochastic oscillations from instability and the open question
+of their effects on learned features. The contribution does not claim novelty
+for the squared-norm expansion alone or a general stability guarantee.
+
+Evidence and definitions are in [Section III](draft/sections/03-regimes.tex),
+[Section IV](draft/sections/04-gd-sgd.tex), and the
+[integrated appendix](draft/sections/appendix.tex). All nine GD trajectories have
+positive all-pair interactions; seven have negative adjacent-pair interactions.
+The exact accumulated-gradient formula assumes plain constant-rate SGD; general
+optimizers require actual parameter increments. The fixed-state cosine formula
+is an approximation, and moving-trajectory damping is an empirical finding.
+
 ## Side note: noise, reversal damping, and implicit regularization
 
 Author's hypothesis, recorded on 15 November 2026 for later discussion:
@@ -255,6 +297,18 @@ implicit regularization; improved generalization would require separate evidence
 These are proposed checks, not an authorized experiment or a new registered
 hypothesis/run.
 
+Author's follow-up experimental idea: revisit the batch-size comparison at fixed
+saved training states, where rho was measured while varying batch size, and
+also measure directional curvature explicitly. Keep this as a side investigation,
+not a central paper contribution or a requirement for the current framing.
+Before designing new measurements, reconcile this idea with the existing
+independent HVP checks in the appendix. At a fixed state the full-objective
+Hessian is unchanged by resampling: directional curvature can vary because the
+sampled direction changes, whereas mini-batch Hessians measure different
+objectives. This comparison could help separate measurement and direction
+effects; showing a preference for flatter regions would additionally require
+trajectory comparisons. No implementation or execution is requested here.
+
 Relevant antecedents already located in the literature discussion are
 [Andreyev and Beneventano, Edge of Stochastic Stability](https://arxiv.org/html/2412.20553)
 and [Liao, Kolomvaki, and Kyrillidis, The Stochastic Sharpness Gap,
@@ -266,7 +320,7 @@ identify the additional evidence or mechanism provided here.
 
 | Current introduction bullet | Status after this discussion |
 | --- | --- |
-| Constructive and destructive regimes | Gap and distinctive result still to be refined against EoS and gradient-product diagnostics. |
+| Constructive and destructive regimes | Full fourth-bullet proposal and literature positioning recorded above at the author's request; manuscript insertion pending. |
 | Cheap curvature along the applied step | BB antecedent identified; novelty language needs explicit positioning. |
 | Reversal, growth, and loss increases | Preserve exact quadratic GD versus nonlinear approximation and retrospective versus outgoing-step timing; gap formulation still pending. |
 | Functional tracing | Explicit Central Flows motivation located; proposed bullet recorded above. |
