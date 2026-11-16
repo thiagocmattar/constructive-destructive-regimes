@@ -1,5 +1,7 @@
 # Consolidation manuscript for author review
 
+- **Advisor revision applied, 16 November 2026:** shorter framing, distinct Adam response and cap-score notation, explicit frozen calibration, secondary loss axes in Figure 7, a simpler Figure 8 retaining every point, warning coverage in Supplement S3, and a developed discussion. Main: 20 pages; supplement: 31 pages; both warning-free. [Completed action list](ADVISOR_ACTION_ITEMS_2026-11-16.md), [item-by-item resolutions and verification](../work/advisor_revision_20261116/OBSERVATIONS.md), and [literature checks](../work/advisor_revision_20261116/SOURCE_AUDIT.md).
+
 - **Appendix restructured, 15 November 2026:** three appendices retain mathematical limits, essential experimental definitions, diagnostic checks, and intervention verification. A compact existing nine-trajectory GD audit is now included; former Figures 10-12 moved unchanged to Supplement S7. The main paper is 20 pages and the supplement is 31, both warning-free. [Sequential review and verification](../work/appendix_restructure_20261115/OBSERVATIONS.md).
 
 - **Section VII clarified, 15 November 2026:** the conclusion leads with the central finding, states the curvature identity's conditions, separates next-step warnings from completed-step accounting, and specifies the intervention outcomes and endpoint exception. Its final claim concerns observed improvement despite persistent reversal. Four paragraphs reviewed sequentially; all other scientific sources preserved. The PDF remains 22 pages and warning-free. [Paragraph review and verification](../work/section7_readability_20261115/OBSERVATIONS.md).
@@ -31,21 +33,13 @@
 Build from the repository root with Python (NumPy, Matplotlib, PyMuPDF, Pillow) and a TeX distribution containing IEEEtran, newtx, algorithm, and algpseudocode:
 
 ```powershell
-# To reproduce representation retention:
-python manuscript/consolidation/work/author_feedback2_20261115/01_retention.py
+# Regenerate the current revised figures and warning-coverage table:
+python manuscript/consolidation/work/advisor_revision_20261116/02_figures.py
+python manuscript/consolidation/work/advisor_revision_20261116/03_warning_coverage.py
 
-# To reproduce the earlier diagnostic table (caption received later editorial changes):
-python manuscript/consolidation/work/author_feedback_20261115/02_diagnostic_table.py
-
-# Only needed when regenerating current figure variants:
-python manuscript/consolidation/work/readability_revision_20261114/02_figures.py
-
-# Or regenerate only the compact appendix figures and tables:
-python manuscript/consolidation/work/appendix_20261115/01_artifacts.py
-
-python manuscript/consolidation/work/appendix_restructure_20261115/02_build.py manuscript
-python manuscript/consolidation/work/appendix_restructure_20261115/02_build.py supplementary
-python manuscript/consolidation/work/appendix_restructure_20261115/03_verify.py
+python manuscript/consolidation/work/advisor_revision_20261116/04_build.py manuscript
+python manuscript/consolidation/work/advisor_revision_20261116/04_build.py supplementary
+python manuscript/consolidation/work/advisor_revision_20261116/05_verify.py
 ```
 
-Page renders and auxiliary files remain in ignored scratch storage. Inspect rebuilt pages before refreshing the visual-review record. This is the author-review version inside consolidation; the submission route and venue formatting remain as recorded in [PLAN](../PLAN.md).
+Page renders and auxiliary files remain in ignored scratch storage. The verifier uses the retained pre-edit snapshot; see the revision observations for its scope. Earlier scripts remain historical records and can overwrite newer captions or notation if rerun indiscriminately. Inspect rebuilt pages before refreshing the visual-review record. This is the author-review version inside consolidation; the submission route and venue formatting remain as recorded in [PLAN](../PLAN.md).

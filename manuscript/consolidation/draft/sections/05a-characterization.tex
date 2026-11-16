@@ -4,14 +4,14 @@
 \begin{figure*}[!t]
 \centering
 \includegraphics[width=\textwidth]{figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf}
-\caption{Loss spikes and consecutive-gradient behavior under full-objective Adam. Columns are MLP, ResNet-32, and Transformer, at learning rates $.001/.003/.003$, with one initialization per model. Rows show loss, the gradient-projected response $\eta\widehat\kappa_t$, consecutive-gradient cosine, and gradient norm relative to initialization. Filled gray bands mark the rising portions of recovered loss excursions exceeding 10\%; outlined bands mark excursions whose recovery is not observed. Events are selected from loss alone. Training step $t$ counts completed updates; gradient measurements are made at $\theta_t$, before the next update. Loss is recorded through 1,024 updates and gradients through 1,023. The $\eta\widehat\kappa_t$ axis starts at zero; negative values lie outside its displayed range.}
+\caption{Loss spikes and consecutive-gradient behavior under full-objective Adam. Columns are MLP, ResNet-32, and Transformer, at learning rates $.001/.003/.003$, with one initialization per model. Rows show loss, the gradient-projected response $Q_t$, consecutive-gradient cosine, and gradient norm relative to initialization. Filled gray bands mark the rising portions of recovered loss excursions exceeding 10\%; outlined bands mark excursions whose recovery is not observed. Events are selected from loss alone. Training step $t$ counts completed updates; gradient measurements are made at $\theta_t$, before the next update. Loss is recorded through 1,024 updates and gradients through 1,023. The $Q_t$ axis starts at zero; negative values lie outside its displayed range.}
 \label{fig:adam-overview}
 \end{figure*}
 
 The Adam trajectories exhibit distinct loss excursions and recoveries.
 Early constructive intervals give way to persistent reversal.
 Prominent excursions occur with negative cosine and growing gradient
-norms, producing large peaks in $\eta\widehat\kappa_t$. In ResNet and
+norms, producing large peaks in $Q_t$. In ResNet and
 Transformer, recovery often includes renewed constructive alignment and
 falling norms. These observations are compatible with the mechanism
 analyzed by Bai et al.~\cite{bai2026spikes}, in which Adam's averaging
@@ -25,9 +25,10 @@ SGD catapults shows that spikes can accompany improved feature
 learning~\cite{zhu2024catapults}. Under Adam, their role likewise needs
 to be evaluated through subsequent progress.
 
-After computing the raw gradient, but before applying the next update,
-we classify whether that update will increase the loss by at least
-0.1\%. This single-step target differs from the excursions exceeding
+We evaluate fixed decision rules on recorded trajectories; no classifier
+is trained. After computing the raw gradient, but before applying the
+next update, each rule warns whether that update will increase the loss
+by at least 0.1\%. This single-step target differs from the excursions exceeding
 10\% marked in Fig.~\ref{fig:adam-overview}. Let
 $L_t=\mathcal L(\theta_t)$ and define the target as
 $(L_{t+1}-L_t)/L_t\geq0.001$.
@@ -36,7 +37,7 @@ At decision step $t$, both $g_t$ and $L_t$ are available. The pair
 $(g_{t-1},g_t)$ describes the response to the preceding update, from
 $\theta_{t-1}$ to $\theta_t$. Using it to classify the outgoing update
 tests whether that response carries forward. For quadratic full-batch
-plain GD, the strict condition $\eta\widehat\kappa_t>2$ exactly
+plain GD, the strict condition $Q_t>2$ exactly
 characterizes a positive loss change on the preceding step. This exact
 retrospective equivalence does not extend to a finite nonlinear step or
 to Adam, whose applied direction also depends on its moments.
@@ -55,14 +56,16 @@ condition} combines reversal with sufficient gradient growth, $\rho_t<0$ and
 $\|g_t\|/\|g_{t-1}\|>-1/\rho_t$. It gives higher accuracy and warning
 lift than the previous-loss-rise rule in all three cases. Reversal or
 norm growth alone is less selective. The angle/norm condition is
-algebraically equivalent to $\eta\widehat\kappa_t>2$; their identical
+algebraically equivalent to $Q_t>2$; their identical
 table entries verify the two implementations, rather than constitute
 independent evidence. The non-strict threshold gives the same flags
 here because no observed value equals two. The warning lifts are
 $1.28\times$, $6.78\times$, and $3.87\times$ for MLP, ResNet, and
 Transformer. These signals contain information before the next update,
-although the gains in overall accuracy over always predicting no
-increase are modest.
+although the gains in accuracy over always predicting no increase are
+modest. The combined rule recalls 38.6\%/23.9\%/55.6\% of the target
+increases, so high lift does not imply complete coverage. Supplementary
+Section S3 reports warning counts and recall for every rule.
 
 A loss curve and a whole-network gradient still leave an important
 question unanswered: what is changing inside the network during these

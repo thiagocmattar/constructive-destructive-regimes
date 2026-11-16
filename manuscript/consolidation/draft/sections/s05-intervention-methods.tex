@@ -4,9 +4,9 @@
 \subsection{Input geometry and what the cap bounds}
 Write the native proposal for one output unit as $\bar u_j=[\Delta W_{j:},\Delta b_j]^\top\in\R^{d+1}$, and augment the current input matrix as $\bar H=[H,\mathbf1_n]$. The direct affine RMS satisfies
 \begin{equation}
- c_j^2=\bar u_j^\top G\bar u_j,\qquad G=\bar H^\top\bar H/n.
+ s_j^2=\bar u_j^\top G\bar u_j,\qquad G=\bar H^\top\bar H/n.
 \end{equation}
-The input second moment is uncentered. A factor $a_j=\min(1,\tau/c_j)$ radially rescales the entire proposal for one output unit, retaining its within-row direction while ensuring $a_jc_j\leq\tau$ for $\tau>0$, up to stored FP32 rounding. It neither computes the nearest Euclidean projection nor inverts $G$. A zero score leaves the proposal unchanged, and a calibrated zero threshold disables that site's cap.
+The input second moment is uncentered. A factor $\gamma_j=\min(1,\tau/s_j)$ radially rescales the entire proposal for one output unit, retaining its within-row direction while ensuring $\gamma_js_j\leq\tau$ for $\tau>0$, up to stored FP32 rounding. It neither computes the nearest Euclidean projection nor inverts $G$. A zero score leaves the proposal unchanged, and a calibrated zero threshold disables that site's cap.
 
 For simultaneous upstream and local updates, actual preactivation change is
 \begin{equation}

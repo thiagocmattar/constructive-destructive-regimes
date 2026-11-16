@@ -1,0 +1,334 @@
+{
+  "sources": {
+    "manuscript/consolidation/work/figure_revision_20261114/01_figures.py": "03096087e45f65cdf3f33a45a865139cbf085307ab5666b334b7ebe24af75859",
+    "manuscript/consolidation/work/intervention_manuscript_20261114/01_prepare.py": "e8dddb82a40d3017fc3d5e614ae02bf12774895e9c286ca305855737e0b8d715",
+    "manuscript/consolidation/work/figure_revision_20261114/plotted_arrays.npz": "89def5ce31a3d7eb9d6ff6b4e092afb98ef89c90defff52777d6aac716f7d8ae",
+    "analyses/063-2026-11-07-architecture-instability-tracing/resnet_390_450_motion.json": "a0fd57489730712c712affadd95a472ff98ed83edc96ee2dad666b31ba64a8b7",
+    "manuscript/consolidation/work/resnet_temporal_revision_20261114/plotted_arrays.npz": "d681688c35e3c2ef35c9c0396e2031754936acde2bc5c9c6ada6d46ecde748f8",
+    "manuscript/consolidation/evidence/05-adam/c-intervention/data/matched-results.json": "bb512310d6b99de542510a8de475757e51b49d2cb3927bddec8018d21d4d7554",
+    "manuscript/consolidation/evidence/05-adam/c-intervention/data/matched-curves.npz": "439342210b2545139df2f447252a0798caaac0d7acc3f9740d22e1ed905d440d",
+    "manuscript/consolidation/work/author_feedback2_20261115/presentation-manifest.json": "33ef7f83a44cf8cc1706e62615ae8a7c630c031d2d55efc9de72961cc3eaa539",
+    "analyses/055-2026-11-05-adam-directional-amplification/01_analyze.py": "1a968191db5fc39a6f95f4db300304e92f417c94ff968046691ecd741e41bc05",
+    "analyses/055-2026-11-05-adam-directional-amplification/PROTOCOL.md": "e83dd64411b0c65dda72c90d3a758912e20146ef8d4ea3ee1cbd5baae8754b3b",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_dataset/manifest.json": "bef7421d30a1cb4cb2715d21f5fad97434b3b8c55b4ff08f9f15e753fea6dc0d",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/spike_dataset/loss_spikes.csv": "d35e901cc68a1bce5379129b4ce74f4d1b8896c3c0ccfaf643d4647558e4500d",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/loss_spike_definition.md": "603b21c6fc70b5e48b38dfd392c813a399abcc6efd2c75b9f913eb273a9329f0",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/archive/PEAK_TEMPORAL_PROTOCOL.md": "d27ea7f3b805af86deccc80116d889596a3642ad5c865e8894668d2dbc0a45ff",
+    "analyses/036-2026-11-02-controlled-adam-diagnostics/archive/peak_forecasts.csv": "039bcadf4d92f807e239685d83cca6b6fe3e42ec71c126c43a62c7ea8885788f",
+    "runs/215-2026-11-02-controlled-full-batch-adam/results.json": "c907d1b5ccaa68b3310f13526e98f37fd1c19943eb7631cea46612f75de39572",
+    "runs/215-2026-11-02-controlled-full-batch-adam/config.json": "868c271e89bea4641e633d727c7b322a2220085ea1bee63c2dc712389e8e88f4",
+    "runs/215-2026-11-02-controlled-full-batch-adam/input_manifest.json": "d90c7fa4554c20e3f812ea7383a0ccfdc543d7bdb221eacb9bb6af88c82a71b1",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0001/manifest.json": "0655ffcc68288a311a1ebb977373418e676dac85b81f64100e7c12822d473072",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0001/boundaries.jsonl": "1ece15455f4e43d8c39495b0c6bc57e9b28296d1c2aff4e0f094b54d8bac432e",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0001/metrics.jsonl": "9e1d16738fea6715aee387c362e5e5f49caf372b77e832994bc2a28980a969ca",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0003/manifest.json": "856171914d42aaa62a26d70c3bb9a83791838564851c17195feec50946cc5b8a",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0003/boundaries.jsonl": "00bd2559e33299a21694c3162d7b39fbaa6949883808b5eb2b895b66a0da61cc",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.0003/metrics.jsonl": "5f3e2f82765b29b6cd124ec7fb727480910b6c820b681f5b74d76be7378a4cf3",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/manifest.json": "0a8ae45b014049fcd7350768bef6190f4991802ed6bf9e254c810c3ca2032e12",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/boundaries.jsonl": "bd15d446afab7641f01ed12c089b1f606f123b4e92982f2d0ff1deae1fe061be",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/local-mlp/lr-0.001/metrics.jsonl": "3c8bac53f92bde65da67b8bcc80046644f2db3ef7fd818334ebca2b04e7a0157",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker17/lr-0.0003/manifest.json": "b72f9bff98df63764804a4ab841702ff898c87be2497a99243130a06d92b9bc8",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker17/lr-0.0003/boundaries.jsonl": "70b283eb2777897feb04b13eb9aa68cb68e7e62649ab4b91f6e23a24be5bd0ba",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker17/lr-0.0003/metrics.jsonl": "811298ff7f5eb6a6982d7c8c24fe3c3b7372d15717276b1fe79af5055ec4a5c6",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker4/lr-0.001/manifest.json": "be5c9081f50634dcf658d3b532555e99e50aea2fac57b1651da43b950ad4cedf",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker4/lr-0.001/boundaries.jsonl": "b47c647c05dbab1defd6d5ab0e653e0ffe236066c483458b63167597e4639d16",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker4/lr-0.001/metrics.jsonl": "586c7a961f0a410e280e3286f8d044df28a29cc99c7a988798ce43f6a60cbfc8",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/manifest.json": "6162fb3eee941231f44bc006c92d74a702f0ab52bad560a78dc4ae36848a71c0",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/boundaries.jsonl": "b952c7e4d184e1da70d1dbadd7710de16452aaa7041d1e7df6fa2165ac3e28ee",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker18/lr-0.003/metrics.jsonl": "c9572aaa98f3e9f8c0378b6ff2b5ce60d8e3383e563c358485c5afffaf5945ca",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker0/lr-0.0003/manifest.json": "10755e07d67029177aac13f0a7af6a44033696e6101211f62a8c73df1cd8b19c",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker0/lr-0.0003/boundaries.jsonl": "0eeb0a81c45100e25bec785aa6eb826ef8c48840171de0ebe4f6e66dcb18981c",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker0/lr-0.0003/metrics.jsonl": "5983695e1071ab62c0cd1c9a71d000e7e5ad07f1d11390eb99baf38cb232c669",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker15/lr-0.001/manifest.json": "06416f93b915dae3be94e2f6c9b205de1b25a512a807904d14cf73d53aebe77f",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker15/lr-0.001/boundaries.jsonl": "ff71889f1653f41754a2a66cad38d2868415fd08b43b3d24df25196826fe4a69",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker15/lr-0.001/metrics.jsonl": "ecb5acb6fcbc82ef54833160aa5ec4b2f76d5784a07ae3a649f02571fd41ded3",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/manifest.json": "96fd00453edef0c3f0096716cb550ef3f86d25466e06be1b29165beaa5739327",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/boundaries.jsonl": "822cccc891250b529fc8bb60d4a391d2002856e8e3c8b7233c145c7fbf15a3f7",
+    "runs/215-2026-11-02-controlled-full-batch-adam/artifacts/attempt-01/worker23/lr-0.003/metrics.jsonl": "3ae6e2af2400caea6e3a40ed2d06db31068524c39ef7e55ec931d16362b62574",
+    "analyses/063-2026-11-07-architecture-instability-tracing/mlp_450_500_results.json": "c2fc4492a455045c3c1223b4d3294d6b6eac504646e71f27f15fa2ef98ae597e",
+    "analyses/063-2026-11-07-architecture-instability-tracing/mlp_results.json": "000ce52ae4f645b424d8d98935181d7691238a452cd9897a357897d4f7c73005",
+    "analyses/063-2026-11-07-architecture-instability-tracing/resnet_results.json": "cb878406fb85d935b7370cd0aa1751ba16eda0606d157541f9dc9c43644c9f15",
+    "analyses/063-2026-11-07-architecture-instability-tracing/transformer_results.json": "962f0b0712dedff8423f8a89b2e65d032157f217685077eba3344b10c2a88357",
+    "analyses/063-2026-11-07-architecture-instability-tracing/resnet_390_450_results.json": "af4a93748c619dc0c66e02b8ec60bb60b576c2da106d5f09755ca0feb5b3d33a"
+  },
+  "figures": {
+    "00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf": "ef71e564addd05d070abd864e9693d9041a781d8bc40b9091ba4e76b43eb54c8",
+    "01-three-model-temporal-structure.pdf": "354f434b11ac8c4774c8c289cbe686936ae3cefd404c4ce53edd0a270609e6f1",
+    "24-main-intervention-tradeoff.pdf": "8623693a7b63a560c9816a9c1151eebdbfdf85a85e2bf5bece89fc5ab0a59e12"
+  },
+  "loss_overlays": [
+    {
+      "case": "mlp",
+      "completed_window": [
+        451,
+        501
+      ],
+      "points": 51,
+      "peak_step": 474,
+      "peak_loss": 0.05367295630276203,
+      "loss_sha256": "a166c8389817e386a6feaf80af915e52e70ba23b1acd1338579098f3f61d8b4f",
+      "clock_sha256": "db87df02635b20dc10f55a3f965fa9798e1abe5bb1c305145b14f7cc0459e85d",
+      "scope": "full training objective; no smoothing"
+    },
+    {
+      "case": "resnet",
+      "completed_window": [
+        390,
+        450
+      ],
+      "points": 61,
+      "peak_step": 415,
+      "peak_loss": 0.44070237731933587,
+      "loss_sha256": "cd1e7f686bcbf9cfc6106eef0955163da7b242445916133d04f0bd9a266fae39",
+      "clock_sha256": "0f35164768cdc558ed56eff75fd410f0090d636b4544e541c94a080371ee6654",
+      "scope": "full training objective; no smoothing"
+    },
+    {
+      "case": "transformer",
+      "completed_window": [
+        553,
+        601
+      ],
+      "points": 49,
+      "peak_step": 562,
+      "peak_loss": 1.69423240298525,
+      "loss_sha256": "3bb87b7446da442e109c84337505d85ad98d057d174c00cb6d2fa90950138a78",
+      "clock_sha256": "5162f4e61ea5efac2a14769cd5f9e3d5799e71cfdaa27da836a50ae7f3a42dcb",
+      "scope": "full training objective; no smoothing"
+    }
+  ],
+  "tradeoff_points": [
+    {
+      "case": "mlp",
+      "arm": "control",
+      "final_loss": 0.03025020658969879,
+      "positive_variation": 0.2883826005272567
+    },
+    {
+      "case": "mlp",
+      "arm": "lr_0p75",
+      "final_loss": 0.012306173564866185,
+      "positive_variation": 0.23787467926740646
+    },
+    {
+      "case": "mlp",
+      "arm": "lr_0p5",
+      "final_loss": 0.010726135107688606,
+      "positive_variation": 0.0028767420444637537
+    },
+    {
+      "case": "mlp",
+      "arm": "lr_0p1",
+      "final_loss": 0.018493561074137688,
+      "positive_variation": 0.0012046867050230503
+    },
+    {
+      "case": "mlp",
+      "arm": "beta2_0p95",
+      "final_loss": 0.019172469154000282,
+      "positive_variation": 0.6488416192587465
+    },
+    {
+      "case": "mlp",
+      "arm": "beta2_0p9",
+      "final_loss": 0.015884966356679797,
+      "positive_variation": 0.5131943703163415
+    },
+    {
+      "case": "mlp",
+      "arm": "beta2_0p5",
+      "final_loss": 0.03475925559177995,
+      "positive_variation": 0.8290899838320911
+    },
+    {
+      "case": "mlp",
+      "arm": "clip_0p5",
+      "final_loss": 0.016690470976755023,
+      "positive_variation": 0.4767470059450716
+    },
+    {
+      "case": "mlp",
+      "arm": "clip_1p0",
+      "final_loss": 0.02442448539659381,
+      "positive_variation": 1.4976041310001165
+    },
+    {
+      "case": "mlp",
+      "arm": "cap_q25",
+      "final_loss": 0.009721745853312314,
+      "positive_variation": 0.07116866891738027
+    },
+    {
+      "case": "mlp",
+      "arm": "cap_q50",
+      "final_loss": 0.008691495284438133,
+      "positive_variation": 0.03531435749027878
+    },
+    {
+      "case": "mlp",
+      "arm": "cap_q75",
+      "final_loss": 0.010495451395399868,
+      "positive_variation": 0.007314225193113089
+    },
+    {
+      "case": "resnet",
+      "arm": "control",
+      "final_loss": 0.006702044448852539,
+      "positive_variation": 1.3148764125061034
+    },
+    {
+      "case": "resnet",
+      "arm": "lr_0p75",
+      "final_loss": 0.021836198730468753,
+      "positive_variation": 1.662598802871704
+    },
+    {
+      "case": "resnet",
+      "arm": "lr_0p5",
+      "final_loss": 0.054456703567504865,
+      "positive_variation": 1.4609027989959724
+    },
+    {
+      "case": "resnet",
+      "arm": "lr_0p1",
+      "final_loss": 0.24469708526611328,
+      "positive_variation": 0.013372888793945326
+    },
+    {
+      "case": "resnet",
+      "arm": "beta2_0p95",
+      "final_loss": 0.11424990554809569,
+      "positive_variation": 4.606118900442125
+    },
+    {
+      "case": "resnet",
+      "arm": "beta2_0p9",
+      "final_loss": 0.021388716068267824,
+      "positive_variation": 2.1474914018249516
+    },
+    {
+      "case": "resnet",
+      "arm": "beta2_0p5",
+      "final_loss": 0.05510565231323242,
+      "positive_variation": 1.0289296495056148
+    },
+    {
+      "case": "resnet",
+      "arm": "clip_0p5",
+      "final_loss": 0.05778291709899903,
+      "positive_variation": 1.3485264507293702
+    },
+    {
+      "case": "resnet",
+      "arm": "clip_1p0",
+      "final_loss": 0.06198723793029784,
+      "positive_variation": 2.4410194311523443
+    },
+    {
+      "case": "resnet",
+      "arm": "cap_q25",
+      "final_loss": 0.004929884629249575,
+      "positive_variation": 0.8403421927642827
+    },
+    {
+      "case": "resnet",
+      "arm": "cap_q50",
+      "final_loss": 0.008043595829010012,
+      "positive_variation": 1.2784387870407097
+    },
+    {
+      "case": "resnet",
+      "arm": "cap_q75",
+      "final_loss": 0.004833180980682373,
+      "positive_variation": 0.44519526992797886
+    },
+    {
+      "case": "transformer",
+      "arm": "control",
+      "final_loss": 0.917827953618799,
+      "positive_variation": 5.886678120329
+    },
+    {
+      "case": "transformer",
+      "arm": "lr_0p75",
+      "final_loss": 0.6139946981413795,
+      "positive_variation": 3.655511602021652
+    },
+    {
+      "case": "transformer",
+      "arm": "lr_0p5",
+      "final_loss": 0.6277061310588867,
+      "positive_variation": 2.001730378620412
+    },
+    {
+      "case": "transformer",
+      "arm": "lr_0p1",
+      "final_loss": 0.7572108802404556,
+      "positive_variation": 0.0
+    },
+    {
+      "case": "transformer",
+      "arm": "beta2_0p95",
+      "final_loss": 0.5930347912313619,
+      "positive_variation": 6.306955323913803
+    },
+    {
+      "case": "transformer",
+      "arm": "beta2_0p9",
+      "final_loss": 0.6067137884899627,
+      "positive_variation": 4.137474695483478
+    },
+    {
+      "case": "transformer",
+      "arm": "beta2_0p5",
+      "final_loss": 0.6461578226824619,
+      "positive_variation": 1.2005534477200954
+    },
+    {
+      "case": "transformer",
+      "arm": "clip_0p5",
+      "final_loss": 0.617033055192334,
+      "positive_variation": 0.7232699820206051
+    },
+    {
+      "case": "transformer",
+      "arm": "clip_1p0",
+      "final_loss": 0.6201178053326513,
+      "positive_variation": 2.02750726282124
+    },
+    {
+      "case": "transformer",
+      "arm": "cap_q25",
+      "final_loss": 0.5504536229774412,
+      "positive_variation": 0.6380216229972244
+    },
+    {
+      "case": "transformer",
+      "arm": "cap_q50",
+      "final_loss": 0.7038511158147668,
+      "positive_variation": 0.2216696262259229
+    },
+    {
+      "case": "transformer",
+      "arm": "cap_q75",
+      "final_loss": 0.5833137499202797,
+      "positive_variation": 0.0726575387634838
+    }
+  ],
+  "array_checks": [
+    {
+      "figure": 5,
+      "unchanged_arrays": 24
+    },
+    {
+      "figure": 7,
+      "unchanged_arrays": 36,
+      "added_loss_arrays": 6
+    },
+    {
+      "figure": 8,
+      "unchanged_points": 36
+    }
+  ],
+  "generator_sha256": "2951fde9a4549acf4184662c60a300d9dc9b6d40921ecf5d6a4f361c082d1230"
+}

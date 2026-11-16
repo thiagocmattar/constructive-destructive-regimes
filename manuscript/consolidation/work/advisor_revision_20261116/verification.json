@@ -1,0 +1,146 @@
+{
+  "main_equations_preserved_modulo_notation": 44,
+  "existing_section_labels_preserved": true,
+  "unchanged_draft_files": [
+    "05c-interventions.tex",
+    "Cristiano _ Thiago - 2026_11_16 11_00 GMT-03_00 - Notes by Gemini.md",
+    "intervention-review.pdf",
+    "intervention-review.tex",
+    "manuscript.tex",
+    "references.bib",
+    "supplementary.tex",
+    "figures/00-three-model-loss-representation-motion.pdf",
+    "figures/14-distributed-cap-quantile-ablation-mlp.pdf",
+    "figures/17-matched-intervention-loss.pdf",
+    "figures/20-matched-all-setting-stage-heatmaps.pdf",
+    "figures/21-matched-heldout-loss.pdf",
+    "figures/22-matched-update-and-controller-activity.pdf",
+    "figures/25-main-q25-functional-motion.pdf",
+    "figures/25-main-q50-functional-motion.pdf",
+    "figures/a01-matched-applied-updates.pdf",
+    "figures/a02-matched-controller-activity.pdf",
+    "figures/a03-selected-intervention-motion.pdf",
+    "figures/adam_forward_and_severity.pdf",
+    "figures/frozen_calibration.pdf",
+    "figures/gd_backward_compact.pdf",
+    "figures/gd_loss_projected_change_spectral_clean.pdf",
+    "figures/gd_reversal_norm_retention.pdf",
+    "figures/sgd_batch_size_compact.pdf",
+    "figures/sgd_proxy_validation.pdf",
+    "sections/04-gd-sgd.tex",
+    "sections/appendix.tex",
+    "sections/s02-gd-methods.tex",
+    "sections/s04-tracing-methods.tex",
+    "sections/s06-reproducibility.tex",
+    "sections/s07-intervention-trajectories.tex",
+    "tables/appendix-costs.tex",
+    "tables/appendix-gd-audit.tex",
+    "tables/appendix-last32.tex",
+    "tables/audit-plates.tex",
+    "tables/gd-audit.tex",
+    "tables/intervention-plates.tex",
+    "tables/supp-matched-costs.tex",
+    "tables/supp-matched-outcomes.tex",
+    "archive/2026-11-15/manuscript+feedback.pdf",
+    "archive/2026-11-15/manuscript+feedback2.pdf",
+    "archive/2026-11-15/README.md"
+  ],
+  "changed_draft_files": [
+    "ADVISOR_ACTION_ITEMS_2026-11-16.md",
+    "manuscript.pdf",
+    "README.md",
+    "supplementary.pdf",
+    "figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf",
+    "figures/01-three-model-temporal-structure.pdf",
+    "figures/24-main-intervention-tradeoff.pdf",
+    "sections/00-abstract.tex",
+    "sections/01-introduction.tex",
+    "sections/02-related-work.tex",
+    "sections/03-regimes.tex",
+    "sections/05-adam.tex",
+    "sections/05a-characterization.tex",
+    "sections/05b-tracing.tex",
+    "sections/05c-interventions.tex",
+    "sections/06-conclusion.tex",
+    "sections/s01-proofs.tex",
+    "sections/s03-adam-audit.tex",
+    "sections/s05-intervention-methods.tex",
+    "tables/diagnostic-0p1pct.tex",
+    "tables/matched-main-outcomes.tex"
+  ],
+  "preexisting_unrelated_edits_preserved": 5,
+  "existing_main_table_values_unchanged": true,
+  "figure_source_hashes_verified": 50,
+  "figure_output_hashes_verified": 3,
+  "figure_array_checks": [
+    {
+      "figure": 5,
+      "unchanged_arrays": 24
+    },
+    {
+      "figure": 7,
+      "unchanged_arrays": 36,
+      "added_loss_arrays": 6
+    },
+    {
+      "figure": 8,
+      "unchanged_points": 36
+    }
+  ],
+  "loss_overlays": [
+    {
+      "case": "mlp",
+      "completed_window": [
+        451,
+        501
+      ],
+      "points": 51,
+      "peak_step": 474,
+      "peak_loss": 0.05367295630276203,
+      "loss_sha256": "a166c8389817e386a6feaf80af915e52e70ba23b1acd1338579098f3f61d8b4f",
+      "clock_sha256": "db87df02635b20dc10f55a3f965fa9798e1abe5bb1c305145b14f7cc0459e85d",
+      "scope": "full training objective; no smoothing"
+    },
+    {
+      "case": "resnet",
+      "completed_window": [
+        390,
+        450
+      ],
+      "points": 61,
+      "peak_step": 415,
+      "peak_loss": 0.44070237731933587,
+      "loss_sha256": "cd1e7f686bcbf9cfc6106eef0955163da7b242445916133d04f0bd9a266fae39",
+      "clock_sha256": "0f35164768cdc558ed56eff75fd410f0090d636b4544e541c94a080371ee6654",
+      "scope": "full training objective; no smoothing"
+    },
+    {
+      "case": "transformer",
+      "completed_window": [
+        553,
+        601
+      ],
+      "points": 49,
+      "peak_step": 562,
+      "peak_loss": 1.69423240298525,
+      "loss_sha256": "3bb87b7446da442e109c84337505d85ad98d057d174c00cb6d2fa90950138a78",
+      "clock_sha256": "5162f4e61ea5efac2a14769cd5f9e3d5799e71cfdaa27da836a50ae7f3a42dcb",
+      "scope": "full training objective; no smoothing"
+    }
+  ],
+  "main_source_lexical_tokens": {
+    "before": 10724,
+    "after": 10171,
+    "method": "English alphabetic tokens in main section TeX, including command names; same method both versions"
+  },
+  "manuscript": {
+    "pages": 20,
+    "warnings": [],
+    "sha256": "2562fe08be3a3ab9df76c59bf68abc74aaf32f0f3a95d63df8c28d43f8028542"
+  },
+  "supplementary": {
+    "pages": 31,
+    "warnings": [],
+    "sha256": "a12c31788e5c7c08a8134b361202dac2bb85709e80fca8f421328c594c93b153"
+  }
+}

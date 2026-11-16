@@ -1,44 +1,12 @@
-\section{Conclusion}
+\section{Discussion and Conclusion}
 \label{sec:conclusion}
 
-Opposition between consecutive updates can coexist with reinforcement
-across the trajectory and continued loss reduction. The displacement
-framework distinguishes these effects by accounting for update sizes
-and interactions between steps at every separation. For plain SGD,
-consecutive-gradient cosine measures only the adjacent interaction.
-The curvature and sampling relations explain why its sign alone does
-not determine loss improvement. The full-batch and mini-batch experiments
-also show that weaker reversal need not yield a lower final loss.
+Across the studied trajectories, limiting large local representation changes improves training-loss outcomes while reversals persist. The update-interaction framework explains why reversal alone is insufficient to assess progress: opposition between consecutive steps can coexist with reinforcement across longer intervals and continued loss reduction. Full gradients and the applied increment also recover step-averaged curvature for a smooth, fixed objective. This secant identity describes a completed step; the separate Adam warning experiment tests whether recent gradient reversal and growth carry information about the next loss increase.
 
-For a smooth, fixed objective, its full gradients at the endpoints of
-a nonzero parameter update recover directional curvature averaged along
-that step exactly, regardless of the optimizer. This uses gradient and
-parameter differences without additional Hessian computations. Under
-Adam, the separate combination of raw-gradient reversal and norm growth
-does not measure curvature along the applied update. Tested as a warning
-of a loss increase of at least $0.1\%$ on the next step, however, it gives
-the highest accuracy and warning lift among the evaluated rules in all
-three cases, tied with its algebraically equivalent rewriting. These
-empirical warnings are distinct from the exact completed-step identity.
+Functional measurements add information that the loss curve and whole-network gradient do not supply. They locate reversal at specific network sites, separate its magnitude from its direction, and reveal repeated movement along a small set of patterns. Low displacement retention describes motion relative to path length, not a fraction of useful learning. Likewise, temporal overlap describes shared timing rather than causal transmission. These distinctions allow the measurements to motivate interventions without assuming that a particular layer originates the oscillation.
 
-Measuring layer responses to the same inputs reveals where oscillation
-appears inside the network. In the studied windows, reversal spans all
-measured MLP sites; earlier ResNet and Transformer sites reverse less
-persistently than their outputs. A few patterns account for most output
-movement, with repeated changes in opposite directions and varying
-temporal overlap with internal sites. In the matched intervention
-comparisons, every tested cap quantile reduces mean training loss and
-the sum of upward loss changes relative to unchanged Adam in all three
-model--dataset cases. Final loss does not improve uniformly: ResNet q50
-finishes above the control. The cap also adds computation, so these
-outcomes do not establish faster wall-clock training.
+The cap tests one such intervention: limiting each unit's direct response change while retaining Adam's proposed direction within that unit. Every tested cap quantile lowers mean training loss and accumulated upward loss variation in all three cases, although ResNet q50 ends above unchanged Adam. The q25 comparison shows smaller output jumps alongside persistent reversal. Eliminating reversal was therefore unnecessary for these improvements. The squared-loss output identity helps interpret why direction alone is insufficient: a change toward reducing the current error can still be too large. It accounts for observed loss changes without identifying the mechanism behind the cap's benefit.
 
-Together, the framework and measurements connect update interactions
-to changes in network representations and motivate interventions on
-those changes. Independent initializations, prospective validation of
-the warning rules, and stochastic or larger-scale Adam studies remain
-next steps. In the studied trajectories, limiting large local
-representation changes improved training-loss outcomes while reversals
-persisted. These findings support representation displacement as a
-target for intervention and show that eliminating reversal is not
-necessary for those improvements.
+Whether some oscillation aids exploration or feature learning remains open. Catapult studies provide a related reason to examine outcomes beyond fluctuation suppression~\cite{zhu2024catapults}, but our comparisons do not establish that oscillation is necessary. Future work could test how displacement control interacts with representation compactness, sparsity, or activity-dependent exploration. These are hypotheses about additional learning objectives or controls, not conclusions of the present loss-minimization experiments. A biological analogy to activity regulation would likewise require a separate mechanism and validation; the cap constrains update-induced changes rather than targeting neuronal activity.
+
+The empirical scope is deliberately controlled. The matched intervention grid uses one initialization per model, finite continuation windows, full-objective Adam, and settings with unequal effective strengths. The warning rules need independent prospective validation; the representation decomposition is fitted retrospectively within selected windows. Caps add computation, with MLP controller cost exceeding its full-gradient calculation, so improved loss per update does not establish faster wall-clock training or better generalization. Independent initializations, stochastic and larger-scale Adam, and matched time-to-loss comparisons would test transfer beyond these cases. Within the measured scope, the results connect update geometry to functional motion and establish local representation displacement as a useful target for intervention.

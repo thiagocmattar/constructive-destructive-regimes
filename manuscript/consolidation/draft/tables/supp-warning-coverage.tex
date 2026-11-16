@@ -1,0 +1,20 @@
+\begin{table}[!ht]
+\centering
+\caption{Warning coverage for the fixed rules in main Table II. Each case has 1,023 decisions; there are 446/88/142 target increases for MLP/ResNet/Transformer. $W$ counts issued warnings, $H$ counts correct warnings, and recall is $100H/N_{\mathrm{target}}$. The angle-plus-norm and $Q_t\geq2$ rows are the same rule.}
+\label{tab:supp-warning-coverage}
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrr|rrr|rrr}
+\hline
+& \multicolumn{3}{c|}{MLP} & \multicolumn{3}{c|}{ResNet} & \multicolumn{3}{c}{Transformer} \\
+Rule & $W$ & $H$ & Recall & $W$ & $H$ & Recall & $W$ & $H$ & Recall \\ \hline
+Always no & 0 & 0 & 0.0 & 0 & 0 & 0.0 & 0 & 0 & 0.0 \\
+Always yes & 1023 & 446 & 100.0 & 1023 & 88 & 100.0 & 1023 & 142 & 100.0 \\
+Previous rise & 455 & 236 & 52.9 & 95 & 35 & 39.8 & 152 & 78 & 54.9 \\
+$\rho_t<0$ & 816 & 398 & 89.2 & 300 & 81 & 92.0 & 521 & 135 & 95.1 \\
+$\|g_t\|>\|g_{t-1}\|$ & 546 & 258 & 57.8 & 324 & 46 & 52.3 & 421 & 93 & 65.5 \\
+Angle + norm & 308 & 172 & 38.6 & 36 & 21 & 23.9 & 147 & 79 & 55.6 \\
+$Q_t\geq2$ & 308 & 172 & 38.6 & 36 & 21 & 23.9 & 147 & 79 & 55.6 \\
+\hline
+\end{tabular}
+\end{table}

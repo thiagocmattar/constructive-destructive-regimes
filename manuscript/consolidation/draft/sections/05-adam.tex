@@ -35,11 +35,12 @@ smooth objective, the fundamental theorem of calculus gives
  \label{eq:adam-gradient-response}
 \end{equation}
 Projecting this difference onto $g_{t-1}$ recovers the same measured
-combination as Eq.~\eqref{eq:kappa-estimate}. For the constant-rate Adam
-trajectories considered here, we retain its notation,
+combination as Eq.~\eqref{eq:kappa-estimate}. To distinguish this
+raw-gradient projection from step-direction curvature, define the
+dimensionless response $Q_t$. For the constant-rate trajectories here,
 \begin{equation}
  \begin{aligned}
- \eta\widehat\kappa_t
+ Q_t
  &=1-\rho_t\frac{\|g_t\|}{\|g_{t-1}\|}\\
  &=\eta\int_0^1
  \frac{g_{t-1}^{\top}H(\theta_{t-1}-a\eta d_{t-1})d_{t-1}}
@@ -47,12 +48,11 @@ trajectories considered here, we retain its notation,
  \end{aligned}
  \label{eq:adam-projected-response}
 \end{equation}
-Under Adam, $\eta\widehat\kappa_t$ describes gradient reversal and growth
-by projecting the gradient response onto the preceding raw gradient.
-That direction generally differs from the applied update. Consequently,
-this quantity is not generally the step-direction curvature
-$\widehat\kappa_t^{\mathrm{step}}$ in Eq.~\eqref{eq:kappa-step},
-despite the retained notation.
+For plain GD, $Q_t=\eta\widehat\kappa_t$. Under Adam, $Q_t$
+projects onto the preceding raw gradient, which generally differs from
+the applied update direction. It is therefore not the step-direction
+curvature $\widehat\kappa_t^{\mathrm{step}}$ in Eq.~\eqref{eq:kappa-step}.
+The latter requires the actual parameter increment.
 
 We first characterize the gradient response along Adam's trajectory,
 then trace the corresponding functional changes through the network.

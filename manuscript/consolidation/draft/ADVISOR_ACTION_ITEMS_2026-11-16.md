@@ -2,7 +2,9 @@
 
 Date: 2026-11-16
 
-Status: Review and proposed actions only. No manuscript edits or new experiments have been performed for this review. Item numbers are stable so feedback can refer to them individually.
+Status: **Approved editorial revision applied and verified, 2026-11-16.** The main manuscript (20 pages) and supplement (31 pages) are ready for the author's reading pass. No new experiments were run. Item numbers remain stable for step-by-step feedback.
+
+Start with the [applied changes and item-by-item resolutions](../work/advisor_revision_20261116/OBSERVATIONS.md), then the [revised manuscript](manuscript.pdf). The block-by-block notes below preserve the original review rationale; the completed checklist at the end records execution status. Item 18 contains only the approved secondary loss-axis overlay; cross-correlation was dismissed.
 
 ## Sources and scope
 
@@ -167,7 +169,7 @@ Labels used below:
 
 ### 20. 38:02-39:03 — Fix the repeated c notation
 
-- **Explicit, still outstanding:** rename $c_{t,j}$ in Eq. (36), since $c_t^\ell$ already denotes representation-change cosine.
+- **Explicit, now applied:** the score in Eq. (36) is now $s_{t,j}^{\ell}$, leaving $c_t^\ell$ for representation-change cosine.
 - Use a distinct symbol consistently in the score definition, scaling rule, calibration equation, algorithm, and supplement.
 - Prefer including the site index where it helps distinguish site-specific budgets and per-unit scores.
 - This is a straightforward editorial correction with no scientific change.
@@ -280,18 +282,18 @@ Labels used below:
 | **Closing discussion** | Interpret the findings without turning exploration or biological analogies into established mechanisms. |
 | **Appendices/supplement** | Preserve the nonlinear loss-sign audit, spectral controls, endpoint sensitivity, and cost evidence. These resolve foreseeable questions and should not disappear during shortening. |
 
-## Recommended execution order
+## Completed revision checklist
 
-These are proposed revision tasks, not completed changes. Checkbox IDs are separate from the block numbers above.
+The approved editing pass is complete. Checkbox IDs are separate from the block numbers above. Future research suggestions remain future work; author/advisor review follows this handoff.
 
-- [ ] **R1 — Resolve scientific communication discrepancies:** Adam curvature, retrospective exactness, frozen budgets, the upward-variation metric, SVD coefficients, and retention.
-- [ ] **R2 — Fix notation**, especially the duplicated $c$.
-- [ ] **R3 — Simplify Figure 8** while preserving the complete comparison.
-- [ ] **R4 — Add the secondary loss axis** to Figure 7's signed eigenmode-coefficient oscillation panels, showing the loss curve and its peak over the same training-step window (item 18).
-- [ ] **R5 — Write the final discussion** around the demonstrated result and clearly separated open questions.
-- [ ] **R6 — Shorten the abstract, introduction, and repeated explanations** across the body.
-- [ ] **R7 — Verify novelty and literature-gap statements** against their sources.
-- [ ] **R8 — Check the compiled PDF at print size**, including figure labels, captions, cross-references, and consistency with the supplement.
-- [ ] **R9 — Prepare the review PDF for Cristiano**, with any genuinely unresolved choices identified briefly.
+- [x] **R1 — Resolve scientific communication discrepancies:** Adam curvature, retrospective exactness, frozen budgets, the upward-variation metric, SVD coefficients, and retention.
+- [x] **R2 — Fix notation**, especially the duplicated $c$.
+- [x] **R3 — Simplify Figure 8** while preserving the complete comparison.
+- [x] **R4 — Add the secondary loss axis** to Figure 7's signed eigenmode-coefficient oscillation panels, showing the loss curve and its peak over the same training-step window (item 18).
+- [x] **R5 — Write the final discussion** around the demonstrated result and clearly separated open questions.
+- [x] **R6 — Shorten the abstract, introduction, and repeated explanations** across the body.
+- [x] **R7 — Verify novelty and literature-gap statements** against their sources.
+- [x] **R8 — Check the compiled PDF at print size**, including figure labels, captions, cross-references, and consistency with the supplement.
+- [x] **R9 — Prepare the review PDF for Cristiano**, with any genuinely unresolved choices identified briefly.
 
 The new seeds, rolling controller, sparsity interventions, exploration mechanisms, biological framing, and larger-scale studies should not become an expanding prerequisite for this handoff. The meeting supports a focused revision of the existing paper.

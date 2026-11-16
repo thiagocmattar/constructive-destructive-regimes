@@ -25,10 +25,10 @@ direct effect is
 \begin{equation}
  \Delta Z_t^{\mathrm{dir}}=H_t\Delta W_t^\top+
        \mathbf1_n\Delta b_t^\top,\qquad
- c_{t,j}=\frac{\|\Delta Z_{t,:,j}^{\mathrm{dir}}\|_2}{\sqrt n}.
+ s_{t,j}^{\ell}=\frac{\|\Delta Z_{t,:,j}^{\mathrm{dir}}\|_2}{\sqrt n}.
  \label{eq:vc-score}
 \end{equation}
-The score $c_{t,j}$ is the RMS change that the proposed update would
+The score $s_{t,j}^{\ell}$ is the RMS change that the proposed update would
 produce in output unit $j$, evaluated across the reference inputs.
 It measures an activation change, not the norm of the unit's weights
 or gradient.
@@ -38,7 +38,7 @@ at site $\ell$. Scale the proposed weight-row increment and bias
 increment by the same factor
 \begin{equation}
  \begin{aligned}
- \gamma_{t,j}&=\min(1,\tau_\ell/c_{t,j}),\\
+ \gamma_{t,j}&=\min(1,\tau_\ell/s_{t,j}^{\ell}),\\
  \Delta W^{\mathrm{cap}}_{t,j:}&=\gamma_{t,j}\Delta W_{t,j:},\qquad
  \Delta b^{\mathrm{cap}}_{t,j}=\gamma_{t,j}\Delta b_{t,j}.
  \end{aligned}
@@ -54,7 +54,7 @@ uses factor one; a zero calibrated budget disables that site's cap.
 \begin{figure*}[!t]
 \centering
 \includegraphics[width=\textwidth]{figures/24-main-intervention-tradeoff.pdf}
-\caption{Final training loss $L_{t_f}$ and accumulated upward loss variation $\mathcal P$ for unchanged Adam and all 33 treated continuations. Both metrics are lower-is-better; gray lines mark the control's values. The horizontal axis is logarithmic; axes differ across models. The vertical axis is linear below $0.001$ (MLP) or $0.01$ (ResNet/Transformer), and logarithmic above, retaining the zero-variation Transformer continuation. Every tested setting is shown. One initialization is used per model; settings are not independent replications and their effective strengths are not matched.}
+\caption{Final training loss $L_{t_f}$ and accumulated upward loss variation $\mathcal P$ for unchanged Adam and all 33 treated continuations. Both metrics are lower-is-better; gray lines mark the control's values. The horizontal axis is logarithmic; axes differ across models. The vertical axis is linear below $0.001$ (MLP) or $0.01$ (ResNet/Transformer), and logarithmic above, retaining the zero-variation Transformer continuation. Every tested setting is shown; cap settings and unchanged Adam are highlighted, while conventional settings are gray with family-specific markers. Full values are in Table~\ref{tab:vc-outcomes}. One initialization is used per model; settings are not independent replications and their effective strengths are not matched.}
 \label{fig:vc-tradeoff}
 \end{figure*}
 
@@ -64,7 +64,7 @@ and choose one quantile for each site
 \begin{equation}
  \begin{aligned}
  \tau_\ell(q)&=\operatorname{Quantile}_q
-       \{c^{\mathrm{Adam},\ell}_{t,j}\},\\
+       \{s^{\mathrm{Adam},\ell}_{t,j}\},\\
  &t=t_0-8,\ldots,t_0-1,\qquad j=1,\ldots,m_\ell.
  \end{aligned}
  \label{eq:vc-calibration}
@@ -72,8 +72,9 @@ and choose one quantile for each site
 The labels q25/q50/q75 denote the 25th/50th/75th percentiles of this
 pooled score distribution, using linear interpolation. Lower quantiles
 give smaller budgets, not fixed fractions of an update or preset numbers
-of capped units. Budgets remain fixed during treatment, while scores
-use each site's current inputs. The experiment prespecified q50 and
+of capped units. Budgets remain fixed during treatment: this is prefix calibration, not a
+rolling quantile. Current inputs, scores, and per-unit scaling factors
+evolve, but the budget does not. The experiment prespecified q50 and
 also tested q25 and q75; the illustration uses q25, with all three
 retained in the comparison.
 
@@ -107,7 +108,10 @@ per output unit. It does not forward the proposed update through the
 whole network. The implemented controller also evaluates the reference
 examples to collect current inputs and verifies the rounded increments;
 its total overhead therefore exceeds that local product alone.
-The temporal SVD is an analysis tool and is not computed by the cap.
+The cap does not identify or suppress SVD modes: it limits direct
+per-unit changes. Concentrated functional movement motivates this test,
+but need not be concentrated in a few neurons. No SVD is computed by
+the cap.
 Appendix~\ref{app:interventions} separates the bounded direct change from
 upstream changes and their interactions.
 
@@ -123,9 +127,9 @@ intervention target while retaining Adam's direction within each unit
 and its evolving moments. The experiment compares conventional
 interventions, without ranking these other representation-based methods.
 
-\begin{figure*}[!t]
+\begin{figure*}[!tp]
 \centering
-\includegraphics[width=\textwidth]{figures/25-main-q25-functional-motion.pdf}
+\includegraphics[width=.97\textwidth]{figures/25-main-q25-functional-motion.pdf}
 \caption{Functional motion under unchanged Adam and the q25 cap. Top: full training loss on logarithmic axes. Remaining rows compare consecutive representation-change cosine and RMS displacement on the same reference examples. Each RMS pair is divided by the same site-specific maximum under unchanged Adam; the color scale includes all values. Sites are the measured outputs used in Fig.~\ref{fig:trace-motion}. Incoming changes are displayed at their completed-step endpoint $t$, without smoothing or averaging over layers. q25 illustrates a setting that improves all three reported training outcomes in all models; all quantiles remain in Table~\ref{tab:vc-outcomes}.}
 \label{fig:vc-motion}
 \end{figure*}
@@ -163,8 +167,8 @@ update budget, define
  \label{eq:vc-outcomes}
 \end{equation}
 Here $t_0$ and $t_f$ are the start and end steps. Mean loss excludes the
-shared starting state; $\mathcal P$ sums all upward loss movement,
-rather than counting peaks. Final training loss $L_{t_f}$ records the
+shared starting state; $\mathcal P$ sums all positive consecutive loss
+changes. It is neither the maximum loss nor a count of peaks. Final training loss $L_{t_f}$ records the
 attained endpoint. All three are reported in absolute units, with lower
 values favorable. The fixed windows make their comparison meaningful
 within each model. The losses retain their original definitions: half-squared
