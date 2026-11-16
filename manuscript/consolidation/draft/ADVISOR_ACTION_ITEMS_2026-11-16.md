@@ -155,12 +155,8 @@ Labels used below:
 
 ### 18. 35:56-36:59 — Relate representation oscillation to the loss peak
 
-- **Explicit:** add a visual comparison with loss timing; Cristiano also proposes cross-correlation.
-- A clean first step is a loss trace aligned with Figure 7's coefficient history, or consistent event markers. A small aligned panel may be clearer than a secondary axis.
-- **Suggested additional analysis:** assess lead/lag relationships using retained trajectories, with an explicit lag convention and clearly chosen signals.
-- Distinguish signed oscillation from its amplitude: signed coefficients, absolute coefficients, and squared coefficients answer different questions.
-- **Critical limitation:** the current SVD is fitted over the complete window. Its coefficient history is retrospective. Cross-correlation of that history cannot, by itself, establish an online warning capability.
-- Treat this as a bounded enhancement, not an automatic requirement for new training or a new prediction claim.
+- **Author decision, 2026-11-16:** dismiss Cristiano's cross-correlation suggestion.
+- **Retained action only:** overlay the loss curve on a secondary vertical axis in Figure 7's signed eigenmode-coefficient oscillation panels, using the same training-step axis and window so the loss peak is visible alongside the oscillations.
 
 ### 19. 36:59-38:02 — Explain the bridge from modes to per-unit control
 
@@ -279,7 +275,7 @@ Labels used below:
 | **Section III** | Preserve the mathematical distinctions. Consider shortening the successive displacement expansions and repeated explanations, while keeping the exact/approximate boundary clear. |
 | **Section IV** | Preserve the result that adjacent cancellation coexists with positive all-pair interaction. Keep sampling at fixed parameters distinct from evolving SGD trajectories. |
 | **Section V-A** | Clarify fixed rules, timing, the target threshold, and the meaning of the Adam statistic. Keep the class-imbalance baseline prominent. |
-| **Section V-B** | Shorten the SVD tutorial; improve the interpretation of coefficients and overlap. Add the proposed loss-timing comparison if it remains clear and compact. |
+| **Section V-B** | Shorten the SVD tutorial; improve the interpretation of coefficients and overlap. Overlay the loss curve on a secondary vertical axis in Figure 7's signed eigenmode-coefficient oscillation panels so the loss peak is visible. |
 | **Section VI** | Fix the score notation, emphasize frozen calibration, simplify Figure 8, and retain Figure 9. Explain the upward-variation metric consistently. |
 | **Closing discussion** | Interpret the findings without turning exploration or biological analogies into established mechanisms. |
 | **Appendices/supplement** | Preserve the nonlinear loss-sign audit, spectral controls, endpoint sensitivity, and cost evidence. These resolve foreseeable questions and should not disappear during shortening. |
@@ -291,7 +287,7 @@ These are proposed revision tasks, not completed changes. Checkbox IDs are separ
 - [ ] **R1 — Resolve scientific communication discrepancies:** Adam curvature, retrospective exactness, frozen budgets, the upward-variation metric, SVD coefficients, and retention.
 - [ ] **R2 — Fix notation**, especially the duplicated $c$.
 - [ ] **R3 — Simplify Figure 8** while preserving the complete comparison.
-- [ ] **R4 — Improve the loss/oscillation timing presentation**; treat cross-correlation as a bounded optional analysis, with retrospective limitations explicit.
+- [ ] **R4 — Add the secondary loss axis** to Figure 7's signed eigenmode-coefficient oscillation panels, showing the loss curve and its peak over the same training-step window (item 18).
 - [ ] **R5 — Write the final discussion** around the demonstrated result and clearly separated open questions.
 - [ ] **R6 — Shorten the abstract, introduction, and repeated explanations** across the body.
 - [ ] **R7 — Verify novelty and literature-gap statements** against their sources.
