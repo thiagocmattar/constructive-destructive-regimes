@@ -1,5 +1,7 @@
 # Consolidation manuscript for author review
 
+- **Related Work rebuilt, 17 November 2026:** current working-tree manuscript compiled to [manuscript.pdf](manuscript.pdf), 20 pages. References and citations resolved; no overfull boxes. One underfull line warning (badness 1715) remains in the final review paragraph; rendered layout checked. No TeX sources changed during this rebuild. Logs, source hashes, and verification are in ignored `tmp/pdfs/related-work-rebuild-20261117/`.
+
 - **Introduction proofread and rebuilt, 17 November 2026:** applied the agreed spelling, grammar, and punctuation corrections to the author-revised introduction and closed its contribution list. Paragraphs remain single source lines. Current compiled version: [manuscript.pdf](manuscript.pdf), 21 pages, with no LaTeX warnings or unresolved references. Introduction and section transition visually checked; all-page layout reviewed. Build logs, source snapshot, and verification manifest are in ignored `tmp/pdfs/intro-grammar-20261117/`.
 
 - **Minor introduction polish, 17 November 2026:** retained the author's opening and resolved all five bracketed notes with local grammar/citation edits. Paragraphs remain single source lines; everything from `stop here` onward is preserved exactly. The current compiled version is [manuscript-polished.pdf](manuscript-polished.pdf), since the existing main PDF is locked. [Scope and checks](../work/introduction_polish_20261117/README.md).
