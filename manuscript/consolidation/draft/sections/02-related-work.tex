@@ -1,5 +1,45 @@
-\section{Related Work}
+\section{Related Work and Conceptual Foundations}
 \label{sec:background}
+
+% We review why oscillating updates can accompany loss reduction, what gradients reveal about those updates, and how their effects can be measured inside the network.
+
+% \subsection{Oscillatory Dynamics, Stability, and Sampling Noise}
+
+Let $\theta_t\in\mathbb{R}^p$ collect the network's $p$ parameters after $t$ completed updates. The gradient $g_t$ is computed from a mini-batch at $t$, before the next update. Plain SGD uses a constant learning rate $\eta>0$ as
+\begin{equation}
+  \theta_{t+1}=\theta_t-\eta g_t.
+  \label{eq:sgd_map_stability}
+\end{equation}
+For full-batch GD, the gradient uses the complete training objective $g_t=\nabla\mathcal L(\theta_t)$. The Hessian $H_t:=\nabla^2\mathcal L(\theta_t)$ collects its second derivatives and describes how the loss's slope changes with the parameters. The update-map Jacobian $J_t$ describes, to first order, how a small parameter perturbation changes after one update
+\begin{equation}
+  J_t=I-\eta H_t.
+  \label{eq:jacobian_sgd}
+\end{equation}
+On a fixed quadratic objective, the Hessian's eigenvectors identify directions whose perturbations evolve independently. The eigenvalue $\lambda_i$ is the curvature in direction $i$, and one update multiplies a perturbation in that direction by $1-\eta\lambda_i$. If all these curvatures are positive, every perturbation shrinks precisely when~\cite{polyak1964methods,bertsekas1997nonlinear}
+\begin{equation}
+  \max_i|1-\eta\lambda_i|<1
+  \quad\Longleftrightarrow\quad
+  \eta\lambda_{\max}(H_t)<2.
+  \label{eq:quad_stability_condition}
+\end{equation}
+Here $\lambda_{\max}$ is the largest curvature. If $0<\eta\lambda_i<1$, a perturbation in direction $i$ shrinks without changing sign. If $1<\eta\lambda_i<2$, it changes sign at every step but still shrinks. When $\eta\lambda_i>2$, it changes sign and grows. Thus back-and-forth motion can be either convergent or unstable, even on a fixed quadratic objective.
+
+Different mini-batches can produce different gradients at the same parameters~\cite{mandt2017sgd,hu2019diffusion,jastrzebski2018three}. Write $\xi_t$ for the difference between a batch gradient and the gradient of the full objective. For independent uniform batches of $b$ examples, each sampled without replacement from a dataset of $N>1$ examples,
+\begin{equation}
+\begin{aligned}
+g_t&=\nabla\mathcal L(\theta_t)+\xi_t,\\
+\mathbb E[\xi_t\mid\theta_t]&=0,\\
+\operatorname{Cov}(\xi_t\mid\theta_t)
+  &=\frac{N-b}{b(N-1)}\Sigma(\theta_t).
+\end{aligned}
+\label{eq:sgd_noise_decomposition}
+\end{equation}
+The expected batch gradient equals the full gradient. Its variability depends on how much the individual example gradients differ. For example $i$ with loss $\ell_i$, let $h_i:=\nabla\ell_i(\theta_t)$ and let $\mu:=N^{-1}\sum_i h_i=\nabla\mathcal L(\theta_t)$ be their mean. The covariance matrix $\Sigma$ records their variation around this mean
+\begin{equation}
+  \Sigma(\theta_t)
+  :=\frac{1}{N}\sum_{i=1}^{N}(h_i-\mu)(h_i-\mu)^\top.
+  \label{eq:grad_cov_def}
+\end{equation}
 
 Edge-of-Stability studies establish that oscillatory training can reduce loss while sharpness remains near or above $2/\eta$~\cite{cohen2021edge,arora2022understanding}. Self-stabilization and Central Flows explain how oscillations interact with curvature and influence slower optimization dynamics~\cite{damian2023self,cohen2025central}. Edge of Stochastic Stability extends the analysis to mini-batch objectives and distinguishes sampling-induced oscillations from instability~\cite{andreyev2025stochastic}. These accounts explain oscillatory stability, while path-length studies bound the distance traveled by optimization trajectories~\cite{gupta2021path}. The complementary question addressed here is how reinforcement and cancellation between individual updates determine the net displacement accumulated during training. We connect gradient magnitudes and temporal alignment to this displacement, distinguishing adjacent opposition from interactions across longer temporal separations and separating fixed-state sampling effects from changes along evolving trajectories.
 
