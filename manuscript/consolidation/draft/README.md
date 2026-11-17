@@ -1,5 +1,7 @@
 # Consolidation manuscript for author review
 
+- **Abstract rewritten from author feedback, 17 November 2026:** the motivation now connects optimization dynamics to representation changes and intervention; regimes are explicitly defined by consecutive-update alignment independently of loss behavior; the curvature measurement is described without "secant" in the abstract. All three annotations addressed. Body sources and supplement unchanged. Main: 20 pages, warning-free. [Diagnosis, responses, and checks](../work/abstract_feedback_20261117/RESPONSE.md).
+
 - **Advisor revision applied, 16 November 2026:** shorter framing, distinct Adam response and cap-score notation, explicit frozen calibration, secondary loss axes in Figure 7, a simpler Figure 8 retaining every point, warning coverage in Supplement S3, and a developed discussion. Main: 20 pages; supplement: 31 pages; both warning-free. [Completed action list](ADVISOR_ACTION_ITEMS_2026-11-16.md), [item-by-item resolutions and verification](../work/advisor_revision_20261116/OBSERVATIONS.md), and [literature checks](../work/advisor_revision_20261116/SOURCE_AUDIT.md).
 
 - **Appendix restructured, 15 November 2026:** three appendices retain mathematical limits, essential experimental definitions, diagnostic checks, and intervention verification. A compact existing nine-trajectory GD audit is now included; former Figures 10-12 moved unchanged to Supplement S7. The main paper is 20 pages and the supplement is 31, both warning-free. [Sequential review and verification](../work/appendix_restructure_20261115/OBSERVATIONS.md).
@@ -37,9 +39,9 @@ Build from the repository root with Python (NumPy, Matplotlib, PyMuPDF, Pillow) 
 python manuscript/consolidation/work/advisor_revision_20261116/02_figures.py
 python manuscript/consolidation/work/advisor_revision_20261116/03_warning_coverage.py
 
-python manuscript/consolidation/work/advisor_revision_20261116/04_build.py manuscript
+python manuscript/consolidation/work/abstract_feedback_20261117/01_build.py manuscript
 python manuscript/consolidation/work/advisor_revision_20261116/04_build.py supplementary
-python manuscript/consolidation/work/advisor_revision_20261116/05_verify.py
+python manuscript/consolidation/work/abstract_feedback_20261117/02_verify.py
 ```
 
-Page renders and auxiliary files remain in ignored scratch storage. The verifier uses the retained pre-edit snapshot; see the revision observations for its scope. Earlier scripts remain historical records and can overwrite newer captions or notation if rerun indiscriminately. Inspect rebuilt pages before refreshing the visual-review record. This is the author-review version inside consolidation; the submission route and venue formatting remain as recorded in [PLAN](../PLAN.md).
+Page renders and auxiliary files remain in ignored scratch storage. The current verifier checks the abstract revision against the saved source hashes; regenerating other artifacts can change their PDF hashes and requires checking them against their own generation records. Earlier scripts remain historical records and can overwrite newer captions or notation if rerun indiscriminately. Inspect rebuilt pages before refreshing the visual-review record. This is the author-review version inside consolidation; the submission route and venue formatting remain as recorded in [PLAN](../PLAN.md).
