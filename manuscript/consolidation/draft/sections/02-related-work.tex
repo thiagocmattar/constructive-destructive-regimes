@@ -40,7 +40,7 @@ The expected batch gradient equals the full gradient. Its variability depends on
   :=\frac{1}{N}\sum_{i=1}^{N}(h_i-\mu)(h_i-\mu)^\top.
   \label{eq:grad_cov_def}
 \end{equation}
-The trace of $\Sigma$ measures total gradient variability. Individual-gradient information is needed to recover it; the batch mean alone is insufficient. Resampling at fixed parameters changes the observed gradient without changing the full objective or Hessian, so sampled-gradient alignment alone does not establish a curvature change.
+The trace of $\Sigma$ measures variability among individual-example gradients, which cannot be determined from a single batch-mean gradient. At fixed parameters, different mini-batches can produce different gradient directions even though the full-objective Hessian remains unchanged. Changes in sampled-gradient alignment therefore need not reflect changes in the curvature of the full objective.
 
 During training, the parameters move and the Hessian changes. Early learning rates and batch sizes can influence the curvature and gradient variability encountered later~\cite{jastrzebski2020break}. In full-batch neural-network training, the largest curvature, or \emph{sharpness}, often remains near or above $2/\eta$ while the loss decreases over longer intervals~\cite{cohen2021edge,arora2022understanding}. This is the Edge-of-Stability phenomenon: the fixed-quadratic threshold does not, on its own, determine the behavior of a trajectory whose curvature is changing.
 
