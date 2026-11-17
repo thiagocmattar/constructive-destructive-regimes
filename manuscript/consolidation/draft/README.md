@@ -1,5 +1,7 @@
 # Consolidation manuscript for author review
 
+- **Introduction proofread and rebuilt, 17 November 2026:** applied the agreed spelling, grammar, and punctuation corrections to the author-revised introduction and closed its contribution list. Paragraphs remain single source lines. Current compiled version: [manuscript.pdf](manuscript.pdf), 21 pages, with no LaTeX warnings or unresolved references. Introduction and section transition visually checked; all-page layout reviewed. Build logs, source snapshot, and verification manifest are in ignored `tmp/pdfs/intro-grammar-20261117/`.
+
 - **Minor introduction polish, 17 November 2026:** retained the author's opening and resolved all five bracketed notes with local grammar/citation edits. Paragraphs remain single source lines; everything from `stop here` onward is preserved exactly. The current compiled version is [manuscript-polished.pdf](manuscript-polished.pdf), since the existing main PDF is locked. [Scope and checks](../work/introduction_polish_20261117/README.md).
 
 - **Abstract rewritten from author feedback, 17 November 2026:** the motivation now connects optimization dynamics to representation changes and intervention; regimes are explicitly defined by consecutive-update alignment independently of loss behavior; the curvature measurement is described without "secant" in the abstract. All three annotations addressed. Body sources and supplement unchanged. Main: 20 pages, warning-free. [Diagnosis, responses, and checks](../work/abstract_feedback_20261117/RESPONSE.md).
