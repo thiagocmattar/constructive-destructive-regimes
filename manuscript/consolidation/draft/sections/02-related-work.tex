@@ -5,12 +5,12 @@ We review why oscillating updates can accompany loss reduction, what gradients r
 
 \subsection{Oscillatory Dynamics, Stability, and Sampling Noise}
 
-Let $\theta_t\in\mathbb{R}^p$ collect the network's $p$ parameters after $t$ completed updates. The gradient $g_t$ is computed from a mini-batch at those parameters, before the next update. Plain SGD moves in the negative-gradient direction, with a constant learning rate $\eta>0$ setting the scale:
+Let $\theta_t\in\mathbb{R}^p$ collect the network's $p$ parameters after $t$ completed updates. The gradient $g_t$ is computed from a mini-batch at those parameters, before the next update. Plain SGD moves in the negative-gradient direction, with a constant learning rate $\eta>0$ setting the scale
 \begin{equation}
   \theta_{t+1}=\theta_t-\eta g_t.
   \label{eq:sgd_map_stability}
 \end{equation}
-For full-batch GD, the gradient uses the complete training objective: $g_t=\nabla\mathcal L(\theta_t)$. The Hessian $H_t:=\nabla^2\mathcal L(\theta_t)$ collects its second derivatives and describes how the loss's slope changes with the parameters. The update-map Jacobian $J_t$ describes, to first order, how a small parameter perturbation changes after one update:
+For full-batch GD, the gradient uses the complete training objective, $g_t=\nabla\mathcal L(\theta_t)$. The Hessian $H_t:=\nabla^2\mathcal L(\theta_t)$ collects its second derivatives and describes how the loss's slope changes with the parameters. The update-map Jacobian $J_t$ describes, to first order, how a small parameter perturbation changes after one update
 \begin{equation}
   J_t=I-\eta H_t.
   \label{eq:jacobian_sgd}
@@ -34,7 +34,7 @@ g_t&=\nabla\mathcal L(\theta_t)+\xi_t,\\
 \end{aligned}
 \label{eq:sgd_noise_decomposition}
 \end{equation}
-The expected batch gradient equals the full gradient. Its variability depends on how much the individual example gradients differ. For example $i$ with loss $\ell_i$, let $h_i:=\nabla\ell_i(\theta_t)$ and let $\mu:=N^{-1}\sum_i h_i=\nabla\mathcal L(\theta_t)$ be their mean. The covariance matrix $\Sigma$ records their variation around this mean:
+The expected batch gradient equals the full gradient. Its variability depends on how much the individual example gradients differ. For example $i$ with loss $\ell_i$, let $h_i:=\nabla\ell_i(\theta_t)$ and let $\mu:=N^{-1}\sum_i h_i=\nabla\mathcal L(\theta_t)$ be their mean. The covariance matrix $\Sigma$ records their variation around this mean
 \begin{equation}
   \Sigma(\theta_t)
   :=\frac{1}{N}\sum_{i=1}^{N}(h_i-\mu)(h_i-\mu)^\top.
