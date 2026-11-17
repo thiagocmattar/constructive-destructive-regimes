@@ -7,9 +7,12 @@ and derive a completed-step loss criterion. The displacement identities
 are exact; the loss criterion is exact for full-batch quadratic GD and
 approximate for nonlinear objectives.
 
-Consider the plain SGD update in Eq.~\eqref{eq:sgd_map_stability}, with
-constant learning rate $\eta>0$. Summing the updates gives the displacement
-from initialization at the final step $T$,
+Let $\theta_t\in\mathbb R^p$ denote the parameters after $t$ completed updates and $g_t$ the gradient computed at that state. Plain SGD with constant learning rate $\eta>0$ applies
+\begin{equation}
+  \theta_{t+1}=\theta_t-\eta g_t.
+  \label{eq:sgd_map_stability}
+\end{equation}
+For full-batch GD, $g_t=\nabla\mathcal L(\theta_t)$ uses the complete training objective. Summing the updates gives the displacement from initialization at the final step $T$,
 \begin{equation}
   \Delta_T:=\theta_T-\theta_0=-\eta\sum_{t=0}^{T-1} g_t.
   \label{eq:displacement}
@@ -62,6 +65,38 @@ relative to the distance traveled.
 \subsection{Directional Curvature and Consecutive Alignment}
 
 \label{subsec:curvature}
+
+For full-batch GD, let $H_t:=\nabla^2\mathcal L(\theta_t)$ denote the Hessian. The update-map Jacobian describes the first-order evolution of a parameter perturbation,
+\begin{equation}
+  J_t=I-\eta H_t.
+  \label{eq:jacobian_sgd}
+\end{equation}
+On a fixed quadratic objective with positive Hessian eigenvalues $\lambda_i$, all perturbations shrink precisely when~\cite{polyak1964methods,bertsekas1997nonlinear}
+\begin{equation}
+  \max_i|1-\eta\lambda_i|<1
+  \quad\Longleftrightarrow\quad
+  \eta\lambda_{\max}(H_t)<2.
+  \label{eq:quad_stability_condition}
+\end{equation}
+A perturbation along an eigendirection reverses sign when $\eta\lambda_i>1$; it still shrinks for $1<\eta\lambda_i<2$ but grows for $\eta\lambda_i>2$. Reversal alone therefore does not imply instability.
+
+For mini-batch SGD, write $\xi_t$ for the difference between the sampled and full gradients~\cite{mandt2017sgd,hu2019diffusion,jastrzebski2018three}. Independent uniform batches of $b$ examples, each sampled without replacement from $N>1$ examples, satisfy
+\begin{equation}
+\begin{aligned}
+g_t&=\nabla\mathcal L(\theta_t)+\xi_t,\\
+\mathbb E[\xi_t\mid\theta_t]&=0,\\
+\operatorname{Cov}(\xi_t\mid\theta_t)
+  &=\frac{N-b}{b(N-1)}\Sigma(\theta_t).
+\end{aligned}
+\label{eq:sgd_noise_decomposition}
+\end{equation}
+For individual-example gradients $h_i:=\nabla\ell_i(\theta_t)$ and their mean $\mu:=N^{-1}\sum_i h_i=\nabla\mathcal L(\theta_t)$, the covariance is
+\begin{equation}
+  \Sigma(\theta_t)
+  :=\frac{1}{N}\sum_{i=1}^{N}(h_i-\mu)(h_i-\mu)^\top.
+  \label{eq:grad_cov_def}
+\end{equation}
+Its trace measures total individual-gradient variability. Resampling at fixed parameters changes the observed gradient while leaving the full-objective Hessian unchanged.
 
 We now examine how the step from $\theta_{t-1}$ to $\theta_t$, generated
 by $g_{t-1}$, changes the gradient. For mini-batch SGD, use

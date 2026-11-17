@@ -1,72 +1,8 @@
-\section{Related Work and Conceptual Foundations}
+\section{Related Work}
 \label{sec:background}
 
-We review why oscillating updates can accompany loss reduction, what gradients reveal about those updates, and how their effects can be measured inside the network.
+Edge-of-Stability studies establish that oscillatory training can reduce loss while sharpness remains near or above $2/\eta$~\cite{cohen2021edge,arora2022understanding}. Self-stabilization and Central Flows explain how oscillations interact with curvature and influence slower optimization dynamics~\cite{damian2023self,cohen2025central}. Edge of Stochastic Stability extends the analysis to mini-batch objectives and distinguishes sampling-induced oscillations from instability~\cite{andreyev2025stochastic}. These accounts explain oscillatory stability, while path-length studies bound the distance traveled by optimization trajectories~\cite{gupta2021path}. The complementary question addressed here is how reinforcement and cancellation between individual updates determine the net displacement accumulated during training. We connect gradient magnitudes and temporal alignment to this displacement, distinguishing adjacent opposition from interactions across longer temporal separations and separating fixed-state sampling effects from changes along evolving trajectories.
 
-\subsection{Oscillatory Dynamics, Stability, and Sampling Noise}
+Bai et al.~\cite{bai2026spikes} explain Adam spikes through decoupling between squared gradients and their running average, but identify the cost of Hessian--vector-product-based monitoring as a scaling limitation. Consecutive-gradient diagnostics already target convergence-stage detection, with known sensitivity to sampling noise~\cite{chee2018diagnostics,pesme2020diagnostics}. Barzilai--Borwein methods provide the classical secant construction underlying our step-direction quantity, which is the reciprocal of BB1 when defined~\cite{barzilai1988two,tan2016bbsgd}. Lee and Lee~\cite{lee2026road} also avoid additional derivative evaluations, using observed loss changes to characterize completed steps. Our contribution concerns a different diagnostic quantity and use: gradient differences and the applied increment recover step-averaged directional curvature for smooth, fixed objectives with full gradients, while separate experiments evaluate gradient alignment and amplification as warnings before the next Adam update. This preserves the distinction between exact completed-step measurement and empirical prediction.
 
-Let $\theta_t\in\mathbb{R}^p$ collect the network's $p$ parameters after $t$ completed updates. The gradient $g_t$ is computed from a mini-batch at those parameters, before the next update. Plain SGD moves in the negative-gradient direction, with a constant learning rate $\eta>0$ setting the scale
-\begin{equation}
-  \theta_{t+1}=\theta_t-\eta g_t.
-  \label{eq:sgd_map_stability}
-\end{equation}
-For full-batch GD, the gradient uses the complete training objective, $g_t=\nabla\mathcal L(\theta_t)$. The Hessian $H_t:=\nabla^2\mathcal L(\theta_t)$ collects its second derivatives and describes how the loss's slope changes with the parameters. The update-map Jacobian $J_t$ describes, to first order, how a small parameter perturbation changes after one update
-\begin{equation}
-  J_t=I-\eta H_t.
-  \label{eq:jacobian_sgd}
-\end{equation}
-On a fixed quadratic objective, the Hessian's eigenvectors identify directions whose perturbations evolve independently. The eigenvalue $\lambda_i$ is the curvature in direction $i$, and one update multiplies a perturbation in that direction by $1-\eta\lambda_i$. If all these curvatures are positive, every perturbation shrinks precisely when~\cite{polyak1964methods,bertsekas1997nonlinear}
-\begin{equation}
-  \max_i|1-\eta\lambda_i|<1
-  \quad\Longleftrightarrow\quad
-  \eta\lambda_{\max}(H_t)<2.
-  \label{eq:quad_stability_condition}
-\end{equation}
-Here $\lambda_{\max}$ is the largest curvature. If $0<\eta\lambda_i<1$, a perturbation in direction $i$ shrinks without changing sign. If $1<\eta\lambda_i<2$, it changes sign at every step but still shrinks. When $\eta\lambda_i>2$, it changes sign and grows. Thus back-and-forth motion can be either convergent or unstable, even on a fixed quadratic objective.
-
-Different mini-batches can produce different gradients at the same parameters~\cite{mandt2017sgd,hu2019diffusion,jastrzebski2018three}. Write $\xi_t$ for the difference between a batch gradient and the gradient of the full objective. For independent uniform batches of $b$ examples, each sampled without replacement from a dataset of $N>1$ examples,
-\begin{equation}
-\begin{aligned}
-g_t&=\nabla\mathcal L(\theta_t)+\xi_t,\\
-\mathbb E[\xi_t\mid\theta_t]&=0,\\
-\operatorname{Cov}(\xi_t\mid\theta_t)
-  &=\frac{N-b}{b(N-1)}\Sigma(\theta_t).
-\end{aligned}
-\label{eq:sgd_noise_decomposition}
-\end{equation}
-The expected batch gradient equals the full gradient. Its variability depends on how much the individual example gradients differ. For example $i$ with loss $\ell_i$, let $h_i:=\nabla\ell_i(\theta_t)$ and let $\mu:=N^{-1}\sum_i h_i=\nabla\mathcal L(\theta_t)$ be their mean. The covariance matrix $\Sigma$ records their variation around this mean
-\begin{equation}
-  \Sigma(\theta_t)
-  :=\frac{1}{N}\sum_{i=1}^{N}(h_i-\mu)(h_i-\mu)^\top.
-  \label{eq:grad_cov_def}
-\end{equation}
-The trace of $\Sigma$ measures variability among individual-example gradients, which cannot be determined from a single batch-mean gradient. At fixed parameters, different mini-batches can produce different gradient directions even though the full-objective Hessian remains unchanged. Changes in sampled-gradient alignment therefore need not reflect changes in the curvature of the full objective.
-
-During training, the parameters move and the Hessian changes. Early learning rates and batch sizes can influence the curvature and gradient variability encountered later~\cite{jastrzebski2020break}. In full-batch neural-network training, the largest curvature, or \emph{sharpness}, often remains near or above $2/\eta$ while the loss decreases over longer intervals~\cite{cohen2021edge,arora2022understanding}. This is the Edge-of-Stability phenomenon: the fixed-quadratic threshold does not, on its own, determine the behavior of a trajectory whose curvature is changing.
-
-Self-stabilization analyses explain how motion along a high-curvature direction can subsequently reduce that curvature and limit the oscillation~\cite{damian2023self}. Central Flows follows the trajectory averaged over rapid oscillations, while accounting for their effect on the slower motion~\cite{cohen2025central}. For mini-batch training, Edge of Stochastic Stability studies curvature of a sampled batch's loss along that batch's gradient. It distinguishes oscillations caused by sampling from instability that produces sustained growth~\cite{andreyev2025stochastic}.
-
-Path-length studies bound the total distance traveled by optimization trajectories~\cite{gupta2021path}. We instead account for how update interactions determine the displacement that remains, distinguishing adjacent opposition from reinforcement or cancellation across the sequence.
-
-\subsection{Training-Time Diagnostics of Curvature and Loss Increases}
-
-Neural-network losses can curve much more strongly in a few parameter directions than in most others~\cite{sagun2017hessian,ghorbani2019density}. Estimating the largest curvature typically requires repeated Hessian--vector products (HVPs); measuring a single direction requires fewer, but still adds derivative evaluations beyond the training gradient.
-
-Bai et al.~\cite{bai2026spikes} attribute Adam spikes to decoupling between the squared gradients and their running average. Their gradient-directional diagnostic uses an HVP with a preconditioned Hessian, and they identify its monitoring cost as a scaling limitation. Our raw-gradient response and step-average secant quantity do not measure that same preconditioned curvature; they provide different diagnostics without additional derivative evaluations.
-
-Chee and Toulis~\cite{chee2018diagnostics} use consecutive-gradient products to detect fluctuations around an optimum. Pesme et al.~\cite{pesme2020diagnostics} show that the classical test can fail even for noisy quadratic objectives. These convergence-stage tests address a different target from a loss increase on the next update.
-
-Hypergradient descent adjusts the learning rate through its derivative~\cite{baydin2018hypergradient}. Barzilai--Borwein methods instead use parameter and gradient differences~\cite{barzilai1988two,tan2016bbsgd}. Our step-direction quantity is the reciprocal of BB1 when both are defined. The secant formula itself is classical; here it connects update geometry, sampling, and loss diagnostics.
-
-Lee and Lee~\cite{lee2026road} recover a full-batch loss-balance diagnostic from the initial gradient, applied direction, and observed loss change, without HVPs. Our secant quantity uses the gradient change to recover curvature averaged over the step. Both describe completed steps, but their measured quantities differ.
-
-Section~\ref{sec:displacement} relates consecutive-gradient direction and size to curvature and sampling. Section~\ref{subsec:characterization} separately evaluates whether the measured response warns of a loss increase before the next Adam update.
-
-\subsection{Representation Dynamics and Update Control}
-\label{subsec:practical-stability}
-
-The next question is how these parameter updates change the responses inside the network. Central Flows identifies the need to understand how individual layers participate in the training dynamics~\cite{cohen2025central}. Existing methods compare representations across layers, models, and training states, allowing researchers to follow how those representations evolve~\cite{raghu2017svcca,kornblith2019similarity}. We examine the changes between consecutive states for the same inputs: whether they reverse direction, how large they are, and whether different layers change together over the training steps. This locates observed oscillation within the network without establishing which layer causes it.
-
-SGD catapults---large loss excursions followed by recovery---can accompany improved feature learning~\cite{zhu2024catapults}. Controls such as checkpoint recovery, learning-rate reduction, and gradient clipping~\cite{chowdhery2022palm,zhang2022opt} should therefore be evaluated through subsequent loss reduction as well as the fluctuations they suppress.
-
-Kosson et al.~\cite{kosson2024warmup} study representation changes during the initial learning-rate increase known as \emph{warmup}, and propose a correction to those changes. Adaptive gradient clipping limits each unit's gradient relative to the size of its weights~\cite{brock2021normalization}. Our caps instead limit the direct response changes induced by proposed updates at fixed layer inputs, using thresholds set before intervention. This tests movement control during ongoing oscillatory training.
+Central Flows explicitly leaves unresolved how loss-landscape dynamics translate into the roles of individual layers~\cite{cohen2025central}. Representation-comparison methods characterize similarities across layers and training states~\cite{raghu2017svcca,kornblith2019similarity}; we examine consecutive representation changes to locate reversal, quantify movement, and identify low-dimensional patterns and shared timing during oscillatory training. Controlling these changes remains a related challenge. Kosson et al.~\cite{kosson2024warmup} identify representation change as a promising measure of update size, but leave effective control open, with their initial intervention results focused on reducing warmup. We test local displacement caps during established oscillatory training. Because loss excursions can accompany improved feature learning~\cite{zhu2024catapults}, our comparisons assess training-loss outcomes alongside fluctuation suppression, asking whether movement control helps while reversals persist.
