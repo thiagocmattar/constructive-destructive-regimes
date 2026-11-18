@@ -3,9 +3,7 @@
 
 For plain SGD, we separate adjacent opposition from accumulated
 interactions, connect consecutive gradients to curvature and sampling,
-and derive a completed-step loss criterion. The displacement identities
-are exact; the loss criterion is exact for full-batch quadratic GD and
-approximate for nonlinear objectives.
+and derive a completed-step loss criterion.
 
 Consider the plain SGD update in Eq.~\eqref{eq:sgd_map_stability}, with
 constant learning rate $\eta>0$. Summing the updates gives the displacement
@@ -27,10 +25,9 @@ from interactions across steps
 \end{equation}
 Squared norms contribute nonnegatively. Cross-step inner products
 reinforce displacement when positive and produce \emph{destructive
-interference} when negative. Large steps can therefore coexist with
-limited net parameter change.
+interference} when negative. Even large steps can leave little net parameter change when later updates undo much of the movement produced by earlier ones.
 
-To make the respective roles of magnitude and direction explicit,
+To make the respective roles of magnitude and alignment explicit,
 factor each inner product as
 $g_u^\top g_t=\|g_u\|\|g_t\|\rho_{u,t}$, where
 \begin{equation}
@@ -49,15 +46,25 @@ Substitution into Eq.~\eqref{eq:magnitude-interaction} gives
 \end{aligned}
 \label{eq:magnitude-alignment}
 \end{equation}
-For fixed norms, positive pairwise alignment reinforces displacement
-and negative alignment contributes cancellation. We identify a
-\emph{constructive regime} by persistent $\rho_t>0$ and a
-\emph{destructive regime} by persistent $\rho_t<0$. These qualitative
-labels describe repeated signs over an interval, not isolated pairs.
-They concern consecutive updates, so a destructive regime can coexist
-with net reinforcement across all pairs.
-Section~\ref{subsec:normalized-displacement} measures displacement
-relative to the distance traveled.
+For fixed step lengths, positive alignment between two updates increases their combined displacement, while negative alignment reduces it. We identify a \emph{constructive regime} by persistent $\rho_t>0$ and a \emph{destructive regime} by persistent $\rho_t<0$.
+
+\subsection{Normalized Displacement and Cumulative Interference}
+\label{subsec:normalized-displacement}
+
+How much of the distance traveled during training remains as net
+parameter change? We measure this fraction by the normalized displacement
+\begin{equation}
+  R_T:=
+  \frac{\|\Delta_T\|}
+       {\eta\sum_{t=0}^{T-1}\|g_t\|}
+  =\frac{\|\sum_{t=0}^{T-1} g_t\|}
+        {\sum_{t=0}^{T-1}\|g_t\|},
+  \qquad 0\leq R_T\leq1,
+  \label{eq:normalized-displacement}
+\end{equation}
+defined for nonzero total path length. The numerator measures the distance between the initial and final parameter states. The denominator sums the lengths of all $T$ updates.
+
+If all updates point in the same direction, $R_T=1$. If equal-length updates alternate between two opposite directions, each pair cancels and $R_T=0$ after an even number of steps. For $T$ equal-length, mutually orthogonal updates of length $s$, the path length is $Ts$ and the net displacement is $s\sqrt{T}$, giving $R_T=1/\sqrt{T}$. Even without any opposing steps, only 10\% of the path length remains as net displacement after 100 updates and 1\% after 10,000. Thus a small $R_T$ measures how little net movement accumulates. Consecutive alignment tells us whether successive steps actually reverse.
 
 \subsection{Directional Curvature and Consecutive Alignment}
 
@@ -224,34 +231,6 @@ fixed-state calculation nor the negative term in
 Eq.~\eqref{eq:noise-expectation} alone proves attenuation of a negative
 cosine. Section~\ref{sec:sgd-noise-experiments} tests that behavior during
 training.
-
-\subsection{Normalized Displacement and Cumulative Interference}
-\label{subsec:normalized-displacement}
-
-How much of the distance traveled during training remains as net
-parameter change? We measure this fraction by the normalized displacement
-\begin{equation}
-  R_T:=
-  \frac{\|\Delta_T\|}
-       {\eta\sum_{t=0}^{T-1}\|g_t\|}
-  =\frac{\|\sum_{t=0}^{T-1} g_t\|}
-        {\sum_{t=0}^{T-1}\|g_t\|},
-  \qquad 0\leq R_T\leq1,
-  \label{eq:normalized-displacement}
-\end{equation}
-defined for nonzero total path length. For constant-step plain SGD, the
-denominator is the traveled distance and the numerator is displacement
-from initialization. Thus $R_T$ measures how much of the accumulated step
-length remains as net parameter displacement; it does not measure
-change in parameter norm. The cosine $\rho_t$ concerns neighboring steps.
-
-Aligned steps give $R_T=1$, equal opposing pairs give zero, and
-equal-length orthogonal steps give $R_T=1/\sqrt T$. Even without exact
-cancellation, the orthogonal example retains only 10\% after 100 updates
-and 1\% after 10,000. In a destructive regime, successive updates actively
-undo components of preceding changes. A small $R_T$ makes this limited
-retention visible across many steps; it measures displacement retention,
-not a fraction of learned information or useful computation.
 
 \subsection{Conditions for Loss Decrease and Increase}
 \label{subsec:loss-connection}\label{subsec:loss}
