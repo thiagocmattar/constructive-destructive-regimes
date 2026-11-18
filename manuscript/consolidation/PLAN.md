@@ -3,7 +3,7 @@
 - **Central argument:** learning updates reinforce or reverse earlier changes. Their direction, amplification and accumulation connect optimization geometry to changes in the learned function; measuring those changes motivates selective control.
 - **Keep the current paper:** title, Sections I–VI, III's theory spine and four GD/SGD figures. Develop **characterization → tracing → intervention** inside V.
 - **Decision from this review:** the evidence supports this explanatory paper. Validated forecasting, a universal initiating layer and general optimizer superiority require additional evidence.
-- **Reading contract:** this is the complete executive map. The current revision follows the author's request to stay close to `manuscript/draft/bare_jrnl.pdf`, explain complex ideas fully, and place numerical detail in figures/tables. Links provide provenance, not additional required reading. The [complete manuscript rewrite](draft/manuscript.pdf) and [supplement](draft/supplementary.pdf) are now ready for author review inside consolidation; transfer to the active manuscript remains a later step.
+- **Reading contract:** this is the complete executive map. The current revision follows the author's request to stay close to `manuscript/draft/bare_jrnl.pdf`, explain complex ideas fully, and place numerical detail in figures/tables. Links provide provenance, not additional required reading. The [complete manuscript rewrite](draft/manuscript.pdf) and [supplement](draft/archive/2026-11-18/supplementary.pdf) are now ready for author review inside consolidation; transfer to the active manuscript remains a later step.
 - **Local assets:** [section-indexed evidence package](evidence/README.md); [display/table/algorithm map](evidence/ARTIFACTS.md).
 - **Figure convention, 14 November:** training-progress axes use **Training step t = completed optimizer updates**. Incoming representation changes are placed at their endpoint; lag/batch axes retain their units. The complete draft assigns Figures **1–4 to GD/SGD, 5 to Adam characterization, 6–7 to tracing, and 8–9 to interventions**. Supplementary Figures S1–S24 retain supporting comparisons. Current publication variants are in `draft/figures/`; preserved evidence PDFs may retain the former labels. Numerical arrays, event windows and reductions are unchanged.
 
@@ -171,7 +171,7 @@
 | ResNet | +2.77% | -9.42% | +20.02% | +21.47% | +2.42% |
 | Transformer | +96.23% | -19.84% | -23.31% | -38.97% | +27.52% |
 
-- **V-C integrated in the complete consolidation draft, 14 November:** [full manuscript](draft/manuscript.pdf), with **Figures 8–9, Table III, Algorithm 2, and Equations 21–25**. The [full-paper section](draft/sections/05c-interventions.tex) connects directly to V-A/B and incorporates explicit matrix dimensions and the practical cap computation. Limiting local displacement can reduce excursions and improve mean training loss while reversals persist. The [previous three-page excerpt](draft/intervention-review.pdf) remains preserved. Numerical and visual checks pass; the active manuscript and original evidence remain unchanged.
+- **V-C integrated in the complete consolidation draft, 14 November:** [full manuscript](draft/manuscript.pdf), with **Figures 8–9, Table III, Algorithm 2, and Equations 21–25**. The [full-paper section](draft/sections/05c-interventions.tex) connects directly to V-A/B and incorporates explicit matrix dimensions and the practical cap computation. Limiting local displacement can reduce excursions and improve mean training loss while reversals persist. The [previous three-page excerpt](draft/archive/2026-11-18/intervention-review.pdf) remains preserved. Numerical and visual checks pass; the active manuscript and original evidence remain unchanged.
 
 | Source display | Placement | Job in the paper / current status |
 |---|---|---|
@@ -210,7 +210,7 @@
 
 - **1. Assemble existing evidence — complete inside consolidation, no new training.**
   - The introduction and stability survey follow the active draft's progression. III–IV retain the original argument, examples and four figures, with the setup table, validation evidence and the general actual-step curvature extension.
-  - V-A uses exhaustive severity/timing evidence; V-B supplies the tracing on the same reference examples and temporal structure; V-C supplies **two main figures + one compact outcome table**. Its comparison retains LR → beta2 → clipping → distributed q50. The [complete draft](draft/manuscript.pdf) has reconciled numbering and references; [supplement](draft/supplementary.pdf) contains proofs, controls, every setting, and separate historical replication.
+  - V-A uses exhaustive severity/timing evidence; V-B supplies the tracing on the same reference examples and temporal structure; V-C supplies **two main figures + one compact outcome table**. Its comparison retains LR → beta2 → clipping → distributed q50. The [complete draft](draft/manuscript.pdf) has reconciled numbering and references; [supplement](draft/archive/2026-11-18/supplementary.pdf) contains proofs, controls, every setting, and separate historical replication.
   - State/update notation, losses, coverage, initializations, and source provenance are explicit. All 416 protected evidence/human/original-manuscript files remain unchanged.
 
 - **2. Matched intervention comparison — complete.**

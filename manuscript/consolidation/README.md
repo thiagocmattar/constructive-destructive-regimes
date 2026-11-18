@@ -1,6 +1,6 @@
 # Manuscript consolidation
 
-The **[revised manuscript](draft/manuscript.pdf)** follows the author's requested return to the active draft: its introduction and stability survey, the constructive/destructive formulation, and the four GD/SGD figures. The Adam extension now explains consecutive-gradient behavior, spike characterization, changes in the learned function, and interventions in that order. The **[supplement](draft/supplementary.pdf)** retains the technical and numerical detail; [sources and build instructions](draft/README.md) accompany both PDFs. Everything remains inside consolidation.
+The **[revised manuscript](draft/manuscript.pdf)** follows the author's requested return to the active draft: its introduction and stability survey, the constructive/destructive formulation, and the four GD/SGD figures. The Adam extension now explains consecutive-gradient behavior, spike characterization, changes in the learned function, and interventions in that order. The **[supplement](draft/archive/2026-11-18/supplementary.pdf)** retains the technical and numerical detail; [sources and build instructions](draft/README.md) accompany both PDFs. Everything remains inside consolidation.
 
 **[PLAN.md](PLAN.md)** remains the single executive paper anatomy and closure map.
 

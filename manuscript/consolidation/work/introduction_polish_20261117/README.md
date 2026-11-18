@@ -10,7 +10,7 @@
 
 The original order, motivation, and paragraph structure remain. Every revised paragraph occupies one source line. Everything from `stop here` onward is byte-identical to the author's draft. Other scientific sources, tables, figures, abstract, and supplementary PDF are unchanged.
 
-The existing main PDF is locked, so the current compiled output is [manuscript-polished.pdf](../../draft/manuscript-polished.pdf): 20 pages, 44 numbered equations, no compilation warnings. Rendered pages were inspected for reflow. [Verification](verification.json) records scope and hashes. The superseded broad rewrite and its alternate PDF remain untracked because automatic approval review blocked the cleanup deletion; they are not the current revision.
+The existing main PDF is locked, so the current compiled output is [manuscript-polished.pdf](../../draft/archive/2026-11-18/manuscript-polished.pdf): 20 pages, 44 numbered equations, no compilation warnings. Rendered pages were inspected for reflow. [Verification](verification.json) records scope and hashes. The superseded broad rewrite and its alternate PDF remain untracked because automatic approval review blocked the cleanup deletion; they are not the current revision.
 
 ```powershell
 python manuscript/consolidation/work/introduction_polish_20261117/01_build.py manuscript

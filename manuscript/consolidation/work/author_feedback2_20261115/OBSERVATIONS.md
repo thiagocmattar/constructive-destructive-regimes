@@ -1,6 +1,6 @@
 # Second author-feedback revision — 15 November 2026
 
-- **Read next:** [manuscript.pdf](../../draft/manuscript.pdf), 18 pages; [supplement](../../draft/supplementary.pdf), 27 pages.
+- **Read next:** [manuscript.pdf](../../draft/manuscript.pdf), 18 pages; [supplement](../../draft/archive/2026-11-18/supplementary.pdf), 27 pages.
 - **Scope:** 61 annotations in [feedback2](../../draft/archive/2026-11-15/manuscript+feedback2.pdf), preserved byte-for-byte. Both feedback rounds now reside in the archive; no locked duplicate remains at the draft root.
 - **Scientific inputs:** unchanged training trajectories, intervention arms, initialization, windows, and reference sets. No training or cloud spending. All 416 protected original files remain unchanged.
 - **Review approach:** the existing author-supplied review skill's gap → contribution → evidence approach informed the comparator paragraph. The explicitly requested Socratic sub-agent reviewed the definitions before and after editing. Its final corrections concerned temporal-basis notation, increment versus parameter scaling, and q25-specific verification.

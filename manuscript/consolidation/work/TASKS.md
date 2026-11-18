@@ -1,7 +1,7 @@
 # Closure tasks for the current paper plan
 
 - **Authority:** [PLAN.md](../PLAN.md). This is an implementation index, not a second scientific plan.
-- **Current phase:** the complete [17-page manuscript](../draft/manuscript.pdf) and [33-page supplement](../draft/supplementary.pdf) are ready for author review. The agreed H051 matrix is incorporated; the active draft and supplied inputs remain preserved.
+- **Current phase:** the complete [17-page manuscript](../draft/manuscript.pdf) and [33-page supplement](../draft/archive/2026-11-18/supplementary.pdf) are ready for author review. The agreed H051 matrix is incorporated; the active draft and supplied inputs remain preserved.
 
 | Plan step | Status | Work / acceptance |
 |---|---|---|

@@ -1,6 +1,6 @@
 # Author-guided revision, 14 November 2026
 
-- **Review artifact:** [main manuscript](../../draft/manuscript.pdf), 17 IEEE-style pages; [supplement](../../draft/supplementary.pdf), 33 pages. The author only needs the main PDF to review the narrative.
+- **Review artifact:** [main manuscript](../../draft/manuscript.pdf), 17 IEEE-style pages; [supplement](../../draft/archive/2026-11-18/supplementary.pdf), 33 pages. The author only needs the main PDF to review the narrative.
 - **Authority:** the author's latest comments supersede the broader rewrite in commit `20d783d`. The baseline is the preserved `manuscript/draft/bare_jrnl.pdf` and its TeX sources. The supplied [review skill](../../human/review-skill/SKILL%20(2).md) informs clarity and claim discipline within that structure.
 - **Scope:** all edits stay in consolidation. No scientific configuration, observation, run, source figure, active manuscript, or human input is changed. No cloud execution or push.
 

@@ -18,7 +18,7 @@
 | V-C main functional comparison; final number pending | [Matched q50 stage heatmaps](05-adam/c-intervention/figures/25-main-q50-functional-motion.pdf) | Verified: loss, paired cosine/RMS, whole windows and 5/6/6 stage endpoints; nine-point labels, shared scales and aligned reference lines |
 
 - **Tracing companion:** [SVD, stage overlap and output coefficients](05-adam/b-tracing/figures/01-three-model-temporal-structure.pdf) now matches Figure 6: completed steps 451–501 / 390–450 / 553–601. All ResNet spectral quantities are freshly fitted from replay-qualified captures; MLP/Transformer are unchanged. The original detailed fits and three all-stage PDFs remain under `05-adam/b-tracing/background/figures/` and their canonical sources.
-- **V-C draft:** [three IEEE-style pages](../draft/intervention-review.pdf), [editable section](../draft/05c-interventions.tex), two polished main figures and one compact table. The [four-family loss matrix](05-adam/c-intervention/figures/17-matched-intervention-loss.pdf) is the first supplementary comparison. Final numbering follows full-paper assembly; original 17--23 sources are preserved.
+- **V-C draft:** [three IEEE-style pages](../draft/archive/2026-11-18/intervention-review.pdf), [editable section](../draft/05c-interventions.tex), two polished main figures and one compact table. The [four-family loss matrix](05-adam/c-intervention/figures/17-matched-intervention-loss.pdf) is the first supplementary comparison. Final numbering follows full-paper assembly; original 17--23 sources are preserved.
 
 ## Tables, equations and algorithms
 
@@ -27,7 +27,7 @@
 | V-A all-step table | [Next-step signs](05-adam/a-characterization/tables/next-step-signs.md) | Flagged increases/decreases at one-step lead |
 | V-A severity table | [≥10% step increases](05-adam/a-characterization/tables/severity-10pct.md) | Four signals; complete false-alarm data retained alongside |
 | V-B control table | [Spectral controls](05-adam/b-tracing/tables/spectral-controls.md) | Same-norm orthogonal and unit-row references |
-| V-C main outcome table | [Compact TeX](05-adam/c-intervention/tables/matched-main-outcomes.tex), [review PDF](../draft/intervention-review.pdf) | Complete: 12 setting rows × three model groups; 144 cells plus 12 absolute baseline references verified and rendered at 9pt |
+| V-C main outcome table | [Compact TeX](05-adam/c-intervention/tables/matched-main-outcomes.tex), [review PDF](../draft/archive/2026-11-18/intervention-review.pdf) | Complete: 12 setting rows × three model groups; 144 cells plus 12 absolute baseline references verified and rendered at 9pt |
 | V-C detailed outcome tables | [36-row CSV](05-adam/c-intervention/tables/matched-outcomes.csv), [full TeX](05-adam/c-intervention/tables/matched-outcomes.tex), [PDF](05-adam/c-intervention/figures/23-matched-intervention-outcomes.pdf) | Original full absolute/late outcomes and source fields retained as supporting evidence |
 | V-C cost table, supplementary | [Editable TeX](05-adam/c-intervention/tables/matched-costs.tex), [all 36 timing rows](05-adam/c-intervention/data/matched-costs.csv) | Synchronized components; process high-water memory; no cross-host speed ranking. Cost limitation remains in main text |
 | V-C historical cap outcomes | [Earlier paired outcomes](05-adam/c-intervention/tables/distributed-cap-outcomes.md) | Five older baseline/cap pairs; different windows, preserved as support |

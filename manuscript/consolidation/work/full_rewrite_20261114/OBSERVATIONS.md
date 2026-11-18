@@ -1,7 +1,7 @@
 # Complete manuscript rewrite — 14 November 2026
 
 - **Request:** write the complete paper from the agreed consolidation plan, at publication quality, while keeping all work inside consolidation for later author review.
-- **Deliverables:** [main manuscript](../../draft/manuscript.pdf), 14 IEEE-style pages; [supplement](../../draft/supplementary.pdf), 33 pages; editable TeX, bibliography, generated tables, and reproducible build/verification scripts.
+- **Deliverables:** [main manuscript](../../draft/manuscript.pdf), 14 IEEE-style pages; [supplement](../../draft/archive/2026-11-18/supplementary.pdf), 33 pages; editable TeX, bibliography, generated tables, and reproducible build/verification scripts.
 - **Scientific direction:** unchanged title, Sections I–VI, III's theoretical spine, IV's four figures, and V characterization → tracing → intervention. The four contribution cards in [PLAN](../../PLAN.md) govern the introduction.
 - **Inputs:** all four human notes, the supplied [review skill](<../../human/review-skill/SKILL (2).md>), the current manuscript and research methods, section-indexed evidence, and the annotated local-displacement report. The latter informs explicit matrix dimensions, fixed-probe coordinates, one budget per module, and the practical cap computation.
 - **Scope:** manuscript composition and verification only. No training, cloud resources, new empirical claims from synthetic checks, push, or submission. The prior V-C excerpt remains unchanged.

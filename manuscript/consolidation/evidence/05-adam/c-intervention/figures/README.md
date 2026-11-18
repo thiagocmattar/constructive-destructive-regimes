@@ -1,7 +1,7 @@
 # Matched intervention figures
 
 - **All 36 conditions are complete and verified.** Initialization 0; common starts 512/256/544 and ends 800/576/928. All families retain unchanged Adam.
-- **Review first:** [three-page IEEE-style V-C draft](../../../../draft/intervention-review.pdf). It contains the polished main figures 24/25, a compact 12-row table, Algorithm 2 and precise captions. Numerical and final-size visual checks pass; final full-paper numbering remains open.
+- **Review first:** [three-page IEEE-style V-C draft](../../../../draft/archive/2026-11-18/intervention-review.pdf). It contains the polished main figures 24/25, a compact 12-row table, Algorithm 2 and precise captions. Numerical and final-size visual checks pass; final full-paper numbering remains open.
 - **Supporting pages:** the complete training-loss matrix, every setting's stage motion, full held-out test trajectories, applied-update/controller activity, and detailed outcome tables. Terminal test outcomes and endpoint/cost limitations remain in the main table/text.
 
 | Use | PDF |
