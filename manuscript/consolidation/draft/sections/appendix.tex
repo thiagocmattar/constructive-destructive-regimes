@@ -2,17 +2,34 @@
 \section{Exact Identities and Approximation Limits}
 \label{app:math}
 
-Full gradients of a fixed objective recover directional curvature
-averaged along an update. Let $f_t=\nabla\mathcal L(\theta_t)$ and
-$u_{t-1}=\theta_t-\theta_{t-1}\ne0$ be the actual applied increment.
-For a twice continuously differentiable objective along this segment,
+Let $u_{t-1}:=\theta_t-\theta_{t-1}\ne0$ be the actual parameter change.
+The step-direction estimate measures the change in the gradient component
+along the step per unit distance traveled,
+\begin{equation}
+ \boxed{\widehat\kappa_t^{\mathrm{step}}
+   :=\frac{u_{t-1}^{\top}(g_t-g_{t-1})}{\|u_{t-1}\|^2}.}
+ \label{eq:kappa-step}
+\end{equation}
+For full gradients $g_t=f_t:=\nabla\mathcal L(\theta_t)$ of a fixed objective
+that is twice continuously differentiable along this segment,
 \begin{equation}
  f_t-f_{t-1}=\int_0^1H(\theta_{t-1}+a u_{t-1})u_{t-1}\,da.
  \label{eq:app-gradient-integral}
 \end{equation}
-Taking the inner product with $u_{t-1}/\|u_{t-1}\|^2$ gives
-Eq.~\eqref{eq:kappa-step} with $g_t=f_t$, regardless of how the optimizer
-selected the update. This step average need not equal curvature at the
+Taking the inner product with $u_{t-1}/\|u_{t-1}\|^2$ gives the exact
+directional curvature averaged over the completed step,
+\begin{equation}
+ \widehat\kappa_t^{\mathrm{step}}=
+ \int_0^1\frac{u_{t-1}^{\top}H(\theta_{t-1}+a u_{t-1})u_{t-1}}
+ {\|u_{t-1}\|^2}\,da.
+ \label{eq:step-path-average}
+\end{equation}
+The identity holds regardless of how the optimizer selected the update,
+including momentum and Adam. Computing the estimate uses the two gradients
+and the applied increment, with storage and vector operations linear in the
+number of parameters and no additional backward pass or Hessian--vector product.
+
+This step average need not equal curvature at the
 starting state. If the Hessian is $L_H$-Lipschitz in operator norm along
 the segment, their difference satisfies
 \begin{equation}
@@ -22,11 +39,14 @@ the segment, their difference satisfies
  \label{eq:app-curvature-bound}
 \end{equation}
 The bound follows by integrating $L_Ha\|u_{t-1}\|$ over $a\in[0,1]$.
+For plain SGD, substituting $u_{t-1}=-\eta g_{t-1}$ in
+Eq.~\eqref{eq:kappa-step} recovers Eq.~\eqref{eq:kappa-estimate}.
 For Adam, projection onto the applied increment must be distinguished
 from the raw-gradient projection in Eq.~\eqref{eq:adam-projected-response}.
 Across nonsmooth activation boundaries, the smooth derivation need not
 apply even though the diagnostic remains computable. A zero increment
-leaves step-direction curvature undefined.
+leaves step-direction curvature undefined. This estimate describes the completed
+step and does not by itself predict the next loss change.
 
 The quadratic loss-sign criterion can fail on a finite nonlinear step.
 To quantify the discrepancy, set $x=\theta_{t-1}$ and $u=-\eta g_{t-1}$.
