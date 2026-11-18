@@ -13,7 +13,7 @@ from initialization at the final step $T$,
   \label{eq:displacement}
 \end{equation}
 Here $\theta_0$ and $\theta_T$ are the initial and final parameter states.
-Expanding the squared displacement separates individual step magnitudes
+Expanding the squared norm of displacements separates individual step magnitudes
 from interactions across steps
 \begin{equation}
 \begin{aligned}
@@ -23,9 +23,9 @@ from interactions across steps
 \end{aligned}
 \label{eq:magnitude-interaction}
 \end{equation}
-Squared norms contribute nonnegatively. Cross-step inner products
-reinforce displacement when positive and produce \emph{destructive
-interference} when negative. Even large steps can leave little net parameter change when later updates undo much of the movement produced by earlier ones.
+Squared norms of step gradients contribute nonnegatively. Cross-step inner products
+reinforce parameter displacement when positive and produce \emph{destructive
+interference} when negative. Task arithmetic illustrates how displacement can encode learned behavior. Combining the weight changes induced by fine-tuning on separate tasks can improve performance on multiple tasks~\cite{ilharco2023task}. We use the squared displacement $\|\Delta_T\|^2$ to measure the magnitude of the net change in the weights, taking initialization as the reference point~\cite{nagarajan2019distance}.
 
 To make the respective roles of magnitude and alignment explicit,
 factor each inner product as
