@@ -25,19 +25,16 @@ from interactions across steps
 \end{equation}
 Squared norms of step gradients contribute nonnegatively. Cross-step inner products
 reinforce parameter displacement when positive and produce \emph{destructive
-interference} when negative. Task arithmetic illustrates how displacement can encode learned behavior. Combining the weight changes induced by fine-tuning on separate tasks can improve performance on multiple tasks~\cite{ilharco2023task}. We use the squared displacement $\|\Delta_T\|^2$ to measure the magnitude of the net change in the weights, taking initialization as the reference point~\cite{nagarajan2019distance}.
+interference} when negative. Here we focus on the squared displacement $\|\Delta_T\|^2$, because it measures the magnitude of the net change in the weights, and therefore encode the network learned behavior~\cite{ilharco2023task, nagarajan2019distance}.
 
-To make the respective roles of magnitude and alignment explicit,
-factor each inner product as
+To make the respective roles of magnitude and alignment explicit, factor each inner product as
 $g_u^\top g_t=\|g_u\|\|g_t\|\rho_{u,t}$, where
 \begin{equation}
   \rho_{u,t}:=\frac{g_u^\top g_t}{\|g_u\|\|g_t\|},
   \qquad 0\leq u<t<T.
   \label{eq:rho}
 \end{equation}
-For nonzero consecutive gradients, write $\rho_t:=\rho_{t-1,t}$.
-A zero gradient leaves its cosine undefined; it is not assigned zero alignment.
-Substitution into Eq.~\eqref{eq:magnitude-interaction} gives
+For nonzero consecutive gradients, write $\rho_t:=\rho_{t-1,t}$. Substitution into Eq.~\eqref{eq:magnitude-interaction} gives
 \begin{equation}
 \begin{aligned}
 \|\Delta_T\|^2={}&\eta^2\sum_{t=0}^{T-1}\|g_t\|^2\\
@@ -46,13 +43,13 @@ Substitution into Eq.~\eqref{eq:magnitude-interaction} gives
 \end{aligned}
 \label{eq:magnitude-alignment}
 \end{equation}
-For fixed step lengths, positive alignment between two updates increases their combined displacement, while negative alignment reduces it. We identify a \emph{constructive regime} by persistent $\rho_t>0$ and a \emph{destructive regime} by persistent $\rho_t<0$.
+For fixed step lengths, positive alignment between two updates increases their combined displacement, while negative alignment limits it. We identify a \emph{constructive regime} by persistent $\rho_t>0$ and a \emph{destructive regime} by persistent $\rho_t<0$.
 
 \subsection{Normalized Displacement and Cumulative Interference}
 \label{subsec:normalized-displacement}
 
 How much of the distance traveled during training remains as net
-parameter change? We measure this fraction by the normalized displacement
+parameter change, and therefore as encoded learned behaviour? We measure this fraction by the normalized displacement
 \begin{equation}
   R_T:=
   \frac{\|\Delta_T\|}
@@ -64,14 +61,13 @@ parameter change? We measure this fraction by the normalized displacement
 \end{equation}
 defined for nonzero total path length. The numerator measures the distance between the initial and final parameter states. The denominator sums the lengths of all $T$ updates.
 
-If $\rho_t=1$ for every consecutive pair, all updates point in the same direction and $R_T=1$, regardless of their lengths. If $\rho_t=-1$ for every consecutive pair and the updates have equal length, successive updates alternate in direction and cancel in pairs, giving $R_T=0$ for even $T$. For equal-length, mutually orthogonal updates ($\rho_{u,t}=0$ for every pair), the squared net displacement is the sum of the squared step lengths, so $R_T=1/\sqrt{T}$. Even with zero alignment between every pair, net displacement is only 10\% of the path length after 100 updates and 1\% after 10,000. A small $R_T$ thus captures how inefficiently gradient steps can translate into net displacement of the weights that encode the network's learned structure.
+If $\rho_t=1$ for every $t$, all updates point in the same direction and $R_T=1$. If $\rho_t=-1$ for every $t$ and the updates have equal length, successive updates alternate in direction and cancel in pairs, giving $R_T=0$ for even $T$. For equal-length, mutually orthogonal updates ($\rho_{u,t}=0$ for every pair), the squared net displacement is the sum of the squared step lengths, so $R_T=1/\sqrt{T}$. Even with zero alignment between every pair, net displacement is only 10\% of the path length after 100 updates and 1\% after 10,000. A small $R_T$ thus captures precisely how inefficiently gradient steps can translate into net displacement of the weights that encode the network's learned structure.
 
 \subsection{Directional Curvature and Consecutive Alignment}
-
 \label{subsec:curvature}
 
 We now examine how the step from $\theta_{t-1}$ to $\theta_t$, generated
-by $g_{t-1}$, changes the gradient. For mini-batch SGD, use
+by $g_{t-1}$, changes the gradient $g_t$. For mini-batch SGD, use
 $g_t=\nabla\mathcal L(\theta_t)+\xi_t$ from
 Eq.~\eqref{eq:sgd_noise_decomposition}. Suppose $\mathcal L$ is twice
 continuously differentiable along this step and write
@@ -83,7 +79,7 @@ Expanding the full gradient around $\theta_{t-1}$ gives
 \end{equation}
 where $\mathcal R_t$ is the Taylor remainder. Neglecting it, we take
 the inner product with $g_{t-1}$ to isolate the new gradient's component
-along the preceding gradient:
+along the preceding gradient so
 \begin{equation}
 \begin{aligned}
 \|g_{t-1}\|\|g_t\|\rho_t
@@ -95,7 +91,7 @@ along the preceding gradient:
 \end{equation}
 Define $\kappa_t$ as the curvature at the starting point
 $\theta_{t-1}$ along $g_{t-1}$, and $\varepsilon_t$ as the noise
-contribution divided by the preceding gradient's squared norm:
+contribution divided by the preceding gradient's squared norm
 \begin{equation}
   \kappa_t:=\frac{g_{t-1}^\top H_{t-1}g_{t-1}}{\|g_{t-1}\|^2},
   \label{eq:kappa}
@@ -118,9 +114,7 @@ $\eta\kappa_t<1 \implies \rho_t>0$ (constructive alignment) and
 $\eta\kappa_t>1 \implies \rho_t<0$ (destructive alignment).
 At $\eta\kappa_t=1$, it predicts orthogonal consecutive gradients.
 
-Early in training from scratch, the network has little task-specific structure to overwrite. We therefore expect a constructive regime in which successive updates reinforce one another. In our GD experiments, this regime is associated with lower curvature along the update direction and smoother loss reduction. As training progresses, the weights come to encode learned structure, and a new update can partially undo the changes through which that structure was acquired. Across our three architectures, the transition to destructive updates coincides with sharpening along the update direction (Figs.~\ref{fig:gd-loss} and~\ref{fig:gd-alignment-displacement}).
-
-We interpret this progression as a trade-off that becomes more pronounced in mid-to-late training. The network must incorporate new information while preserving what it has already learned. Our hypothesis is that this tension is reflected in the curvature encountered during training. In Section~\ref{subsec:tracing}, we show that reversal also occurs within the network, where successive updates can push the same hidden representation in opposing directions.
+From a representation-learning perspective, a destructive regime arises when gradient updates interfere with and overwrite previously learned structure. Early in training, however, the network has accumulated little such structure, leaving subsequent updates with little to disrupt. We therefore expect learning to initially follow a predominantly constructive regime. We show, both formally and empirically across multiple datasets, architectures, and modalities, that this regime is associated with lower curvature and, consequently, greater training stability. As training progresses, the network accumulates learned structure in its weights, and subsequent updates increasingly interfere with what has already been learned. This transition toward a destructive regime occurs during the middle to later stages of training, coinciding with the progressive sharpening of the loss landscape. Together, these insights suggest that loss-landscape geometry reflects a fundamental trade-off between acquiring new information and preserving previously learned structure without destructive interference. In Section~\ref{subsec:tracing}, we extend this analysis to the network's hidden representations, showing that destructive interference also manifests in the network's functional responses.
 
 \subsection{Estimating Curvature without Hessian Computation}
 \label{subsec:curvature-diagnostic}
@@ -135,15 +129,11 @@ into a directional-curvature estimator
 \end{equation}
 Its computation requires retaining one additional gradient and taking
 norms and an inner product. Thus curvature information can be monitored at every
-training step using gradients the optimizer already needs.
-
-Under smooth full-batch GD, $\widehat\kappa_t$ measures directional
-curvature averaged over the completed step exactly. This differs from
-$\kappa_t$, the curvature at the step's starting point. The two are close
-when curvature changes little along the step. Both concern the direction
-actually followed, rather than the largest Hessian eigenvalue, which
+training step using gradients the optimizer already needs. Under smooth full-batch GD ($\varepsilon_t=0$), 
+$\widehat\kappa_t$ measures directional
+curvature averaged over the completed step, rather than the largest Hessian eigenvalue, which
 describes the sharpest available direction. Appendix~\ref{app:math} extends
-this construction to any optimizer using its actual parameter change.
+this construction to any optimizer using its actual parameter change rule.
 
 \subsection{Noise Contribution under Mini-Batch Sampling}
 \label{subsec:sampling-noise}
@@ -154,8 +144,7 @@ state satisfy $\mathbb E[g_{t-1}^\top\xi_t]=0$ and
 $\mathbb E[\nabla\mathcal L(\theta_{t-1})^\top\xi_{t-1}]=0$.
 Substituting $g_{t-1}=\nabla\mathcal L(\theta_{t-1})+\xi_{t-1}$ into
 $g_{t-1}^{\top}\xi_{t-1}$ leaves expectation
-$\mathbb E\|\xi_{t-1}\|^2$, because the full-gradient/noise cross term
-vanishes. Subtracting this from the zero expectation of
+$\mathbb E\|\xi_{t-1}\|^2$. Subtracting this from the zero expectation of
 $g_{t-1}^{\top}\xi_t$ gives
 \begin{equation}
   \mathbb E[g_{t-1}^\top(\xi_t-\xi_{t-1})]
@@ -184,7 +173,7 @@ product by the expected squared norm gives
    \frac{N-b}{b(N-1)}\operatorname{tr}\Sigma(\theta)}.
   \label{eq:noise-cosine-approx}
 \end{equation}
-Appendix~\ref{app:batch-alignment} derives these relations. At a fixed state, the numerator is the squared norm of the full gradient, the mean shared by both batch gradients. Smaller batches increase the sampling variance in the denominator, bringing the predicted mean cosine closer to zero. Along a training trajectory, this suggests testing whether smaller batches weaken both positive alignment in a constructive regime and negative alignment in a destructive regime. Section~\ref{sec:sgd-noise-experiments} finds weaker negative alignment in all three models when training resumes from trained states. From initialization, sampling can also reverse the sign of the mean alignment.
+Appendix~\ref{app:batch-alignment} derives these relations. At a fixed state, the numerator is the squared norm of the full gradient, the mean shared by both batch gradients. Smaller batches increase the sampling variance in the denominator, bringing the predicted mean cosine closer to zero. Therefore, along a training trajectory, this suggests that smaller batches attenuates the alignment in magnitude between steps, making $\rho_t$ closer to zero independent of being in a constructive or destructive regime. Section~\ref{sec:sgd-noise-experiments} finds weaker negative alignment in all three models when training resumes from a shared trained state.
 
 \subsection{Conditions for Loss Decrease and Increase}
 \label{subsec:loss-connection}\label{subsec:loss}
@@ -217,24 +206,16 @@ For a fixed negative cosine, the required norm ratio is
 $\|g_t\|/\|g_{t-1}\|>-1/\rho_t$. At $\rho_t=-1$, any increase in norm
 is enough; at $\rho_t=-0.5$, the norm must more than double; at
 $\rho_t=-0.2$, it must grow by more than a factor of five. Thus a weaker
-reversal needs stronger amplification to produce an upward loss step.
-
-The equivalent curvature form is
+reversal needs stronger amplification to produce an upward loss step. The equivalent curvature form is
 \begin{equation}
   \Delta\mathcal L_t\approx
   \frac{\eta}{2}\|g_{t-1}\|^2(\eta\kappa_t-2).
   \label{eq:loss-rise-curvature}
 \end{equation}
-Together, these relations distinguish three cases for a completed
-full-batch GD step on a quadratic objective. When $\eta\kappa_t<1$,
-consecutive gradients are constructive and that step decreases the loss.
+When $\eta\kappa_t<1$, consecutive gradients are constructive and that step decreases the loss.
 When $1<\eta\kappa_t<2$, the gradients are destructive, yet the completed
 step still decreases the loss. When $\eta\kappa_t>2$, the completed step
-increases the loss and produces sufficiently amplified reversal.
-The boundaries give zero alignment and zero loss change, respectively,
-when the relevant gradients are nonzero. The angle/norm condition thus
-expresses the same directional loss balance through measurements already
-available after the step. The curvature here is directional, not the
-largest Hessian eigenvalue. For nonlinear losses the relation has a
-finite-step remainder, and sampling adds the explicit noise term.
-We next examine how these regimes appear in training.
+increases the loss. The angle/norm condition from Eq.~\ref{eq:loss-rise-alignment} thus
+expresses the same curvature condition, but from a representation learning interpretation and from measurements already
+available after the step. The limitations of our approach is that for nonlinear losses the relation has a
+finite-step Taylor remainder, and sampling adds the explicit noise term. We next examine how these regimes appear empirically in training.
