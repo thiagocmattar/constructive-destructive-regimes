@@ -41,12 +41,31 @@ the segment, their difference satisfies
 The bound follows by integrating $L_Ha\|u_{t-1}\|$ over $a\in[0,1]$.
 For plain SGD, substituting $u_{t-1}=-\eta g_{t-1}$ in
 Eq.~\eqref{eq:kappa-step} recovers Eq.~\eqref{eq:kappa-estimate}.
-For Adam, projection onto the applied increment must be distinguished
-from the raw-gradient projection in Eq.~\eqref{eq:adam-projected-response}.
 Across nonsmooth activation boundaries, the smooth derivation need not
 apply even though the diagnostic remains computable. A zero increment
 leaves step-direction curvature undefined. This estimate describes the completed
 step and does not by itself predict the next loss change.
+
+For full gradients of a smooth, fixed objective, substituting Adam's actual
+increment $u_{t-1}=-\eta_{t-1}d_{t-1}$ into Eq.~\eqref{eq:app-gradient-integral} gives
+\begin{equation}
+ g_t-g_{t-1}=-\eta_{t-1}\int_0^1
+ H(\theta_{t-1}-a\eta_{t-1}d_{t-1})d_{t-1}\,da.
+ \label{eq:adam-gradient-response}
+\end{equation}
+For nonzero consecutive gradients and constant learning rate $\eta$, taking
+the inner product with $-g_{t-1}/\|g_{t-1}\|^2$ gives
+\begin{equation}
+  1-\rho_t\frac{\|g_t\|}{\|g_{t-1}\|}
+  =\eta\int_0^1
+   \frac{g_{t-1}^{\top}H(\theta_{t-1}-a\eta d_{t-1})d_{t-1}}
+        {\|g_{t-1}\|^2}\,da.
+  \label{eq:adam-projected-response}
+\end{equation}
+For plain GD, the left-hand side equals $\eta\widehat\kappa_t$
+by Eq.~\eqref{eq:kappa-estimate}. Under Adam it measures the gradient
+response along the preceding raw gradient. The step-direction curvature
+in Eq.~\eqref{eq:kappa-step} instead projects onto the actual parameter increment.
 
 The quadratic loss-sign criterion can fail on a finite nonlinear step.
 To quantify the discrepancy, set $x=\theta_{t-1}$ and $u=-\eta g_{t-1}$.

@@ -27,32 +27,7 @@ $(\beta_1,\beta_2)=(.9,.999)$ and $\epsilon=10^{-8}$, without weight decay.
 Although Adam transforms the raw gradient, consecutive gradients are
 evaluated at states separated by the actual Adam update. Their alignment
 and relative magnitudes therefore characterize the gradient response
-along the trajectory followed by the optimizer. For full gradients of a
-smooth objective, the fundamental theorem of calculus gives
-\begin{equation}
- g_t-g_{t-1}=-\eta_{t-1}\int_0^1
- H(\theta_{t-1}-a\eta_{t-1}d_{t-1})d_{t-1}\,da.
- \label{eq:adam-gradient-response}
-\end{equation}
-Projecting this difference onto $g_{t-1}$ recovers the same measured
-combination as Eq.~\eqref{eq:kappa-estimate}. To distinguish this
-raw-gradient projection from step-direction curvature, define the
-dimensionless response $Q_t$. For the constant-rate trajectories here,
-\begin{equation}
- \begin{aligned}
- Q_t
- &=1-\rho_t\frac{\|g_t\|}{\|g_{t-1}\|}\\
- &=\eta\int_0^1
- \frac{g_{t-1}^{\top}H(\theta_{t-1}-a\eta d_{t-1})d_{t-1}}
- {\|g_{t-1}\|^2}\,da.
- \end{aligned}
- \label{eq:adam-projected-response}
-\end{equation}
-For plain GD, $Q_t=\eta\widehat\kappa_t$. Under Adam, $Q_t$
-projects onto the preceding raw gradient, which generally differs from
-the applied update direction. It is therefore not the step-direction
-curvature $\widehat\kappa_t^{\mathrm{step}}$ in Eq.~\eqref{eq:kappa-step}.
-The latter requires the actual parameter increment.
+along the trajectory followed by the optimizer (Appendix~\ref{app:math}).
 
 We first characterize the gradient response along Adam's trajectory,
 then trace the corresponding functional changes through the network.

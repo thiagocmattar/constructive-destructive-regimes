@@ -58,7 +58,7 @@ def save(fig, name):
 def overview_save(fig, name):
     for artist in fig.findobj(match=Text):
         label = re.sub(r'(?<![A-Za-z])s(?![A-Za-z])', 't', artist.get_text())
-        label = label.replace(r'\eta\widehat\kappa_t', 'Q_t')
+        label = label.replace(r'$\eta\widehat\kappa_t$', 'Projected\nresponse')
         artist.set_text(label)
     save(fig, name)
 

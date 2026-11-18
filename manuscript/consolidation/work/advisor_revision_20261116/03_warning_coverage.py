@@ -15,10 +15,10 @@ labels = [
     ('negative_cosine', r'$\rho_t<0$'),
     ('norm_growth', r'$\|g_t\|>\|g_{t-1}\|$'),
     ('angle_norm', 'Angle + norm'),
-    ('eta_kappa_ge2', r'$Q_t\geq2$'),
+    ('eta_kappa_ge2', r'$1-\rho_t\|g_t\|/\|g_{t-1}\|\geq2$'),
 ]
 lines = [r'\begin{table}[!ht]', r'\centering',
-         r'\caption{Warning coverage for the fixed rules in main Table II. Each case has 1,023 decisions; there are 446/88/142 target increases for MLP/ResNet/Transformer. $W$ counts issued warnings, $H$ counts correct warnings, and recall is $100H/N_{\mathrm{target}}$. The angle-plus-norm and $Q_t\geq2$ rows are the same rule.}',
+         r'\caption{Warning coverage for the fixed rules in main Table II. Each case has 1,023 decisions; there are 446/88/142 target increases for MLP/ResNet/Transformer. $W$ counts issued warnings, $H$ counts correct warnings, and recall is $100H/N_{\mathrm{target}}$. The final two rows flag the same steps in these trajectories.}',
          r'\label{tab:supp-warning-coverage}', r'\small',
          r'\setlength{\tabcolsep}{3pt}',
          r'\begin{tabular}{lrrr|rrr|rrr}', r'\hline',
