@@ -64,7 +64,7 @@ parameter change? We measure this fraction by the normalized displacement
 \end{equation}
 defined for nonzero total path length. The numerator measures the distance between the initial and final parameter states. The denominator sums the lengths of all $T$ updates.
 
-If $\rho_t=1$ for every $t=1,\ldots,T-1$, all updates point in the same direction and $R_T=1$, regardless of their lengths. If $\rho_t=-1$ for every such $t$ and the updates have equal length, successive updates alternate in direction and cancel in pairs, giving $R_T=0$ for even $T$. For equal-length, mutually orthogonal updates ($\rho_{u,t}=0$ for every $0\leq u<t<T$), the squared net displacement is the sum of the squared step lengths, so $R_T=1/\sqrt{T}$. Even with zero alignment between every pair, net displacement is only 10\% of the path length after 100 updates and 1\% after 10,000.
+If $\rho_t=1$ for every consecutive pair, all updates point in the same direction and $R_T=1$, regardless of their lengths. If $\rho_t=-1$ for every consecutive pair and the updates have equal length, successive updates alternate in direction and cancel in pairs, giving $R_T=0$ for even $T$. For equal-length, mutually orthogonal updates ($\rho_{u,t}=0$ for every pair), the squared net displacement is the sum of the squared step lengths, so $R_T=1/\sqrt{T}$. Even with zero alignment between every pair, net displacement is only 10\% of the path length after 100 updates and 1\% after 10,000. A small $R_T$ thus captures how inefficiently gradient steps can translate into net displacement of the weights that encode the network's learned structure.
 
 \subsection{Directional Curvature and Consecutive Alignment}
 
