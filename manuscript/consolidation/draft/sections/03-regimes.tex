@@ -184,16 +184,7 @@ product by the expected squared norm gives
    \frac{N-b}{b(N-1)}\operatorname{tr}\Sigma(\theta)}.
   \label{eq:noise-cosine-approx}
 \end{equation}
-The numerator is the squared norm of the full gradient shared in
-expectation by both samples. Sampling adds variance to the denominator
-without adding shared alignment. Within this approximation, smaller
-batches bring the expected cosine closer to zero. Along an evolving
-trajectory, sampling also changes the next state and the full gradient
-there. It can weaken coherent back-and-forth motion, but neither this
-fixed-state calculation nor the negative term in
-Eq.~\eqref{eq:noise-expectation} alone proves attenuation of a negative
-cosine. Section~\ref{sec:sgd-noise-experiments} tests that behavior during
-training.
+Appendix~\ref{app:batch-alignment} derives these relations. At a fixed state, the numerator is the squared norm of the full gradient, the mean shared by both batch gradients. Smaller batches increase the sampling variance in the denominator, bringing the predicted mean cosine closer to zero. Along a training trajectory, this suggests testing whether smaller batches weaken both positive alignment in a constructive regime and negative alignment in a destructive regime. Section~\ref{sec:sgd-noise-experiments} finds weaker negative alignment in all three models when training resumes from trained states. From initialization, sampling can also reverse the sign of the mean alignment.
 
 \subsection{Conditions for Loss Decrease and Increase}
 \label{subsec:loss-connection}\label{subsec:loss}

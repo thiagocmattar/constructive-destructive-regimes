@@ -91,19 +91,6 @@ the additional term $u_{t-1}^{\top}(\xi_t-\xi_{t-1})/\|u_{t-1}\|^2$.
 Under plain SGD, $u_{t-1}=-\eta g_{t-1}$, this term is
 $-\varepsilon_t/\eta$.
 
-Along the SGD trajectory, conditional unbiasedness does not require
-the new state to be independent of the preceding noise. Fresh sampling
-gives $\E[g_{t-1}^{\top}\xi_t]=0$, whereas
-$\E[g_{t-1}^{\top}\xi_{t-1}]=\E\|\xi_{t-1}\|^2$.
-
-Separately, at a fixed state $\theta$, uniform subsets of size $b$ from
-$N$ examples, sampled without replacement, have
-$\operatorname{Cov}(\xi\mid\theta)=(N-b)\Sigma/[b(N-1)]$
-when $\Sigma$ uses denominator $N$. For two independent draws at that
-state, the expected-cosine formula additionally approximates their random
-product of norms by a moment-based value. It is not an exact identity
-obtained by taking a ratio of expectations.
-
 \section{Experimental Definitions and Diagnostic Checks}
 \label{app:validation}
 
@@ -237,6 +224,33 @@ Transformer & 41.65 & 15 & 16.72 & 20 & 16.77 & 29 \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+\subsection{Mini-batch noise and gradient alignment}
+\label{app:batch-alignment}
+
+\emph{Consecutive steps along a trajectory.}
+Condition on the training history up to the draw at step $t$. The state $\theta_t$ and preceding gradient $g_{t-1}$ are then fixed. The fresh batch has conditional mean gradient $f_t=\nabla\mathcal L(\theta_t)$, so $\E[g_{t-1}^{\top}\xi_t]=0$. Conditioning instead just before the preceding draw gives $\E[f_{t-1}^{\top}\xi_{t-1}]=0$. Using $g_{t-1}=f_{t-1}+\xi_{t-1}$ therefore yields
+\[
+ \E[g_{t-1}^{\top}\xi_{t-1}]=\E\|\xi_{t-1}\|^2.
+\]
+Subtracting this identity from $\E[g_{t-1}^{\top}\xi_t]=0$ gives Eq.~\eqref{eq:noise-expectation}.
+
+\emph{Variance of a batch mean.}
+Fix $\theta$ and write $v_i=h_i-\mu$ for the centered example gradients from Eq.~\eqref{eq:grad_cov_def}. Put $V=N^{-1}\sum_i\|v_i\|^2=\operatorname{tr}\Sigma(\theta)$. Since $\sum_i v_i=0$, summing $v_i^\top v_j$ over ordered pairs $i\ne j$ gives $-NV$. Two distinct draws without replacement thus have mean inner product $-V/(N-1)$. The batch noise $\xi$ is the mean of $b$ such draws. Its squared norm contains $b$ diagonal terms and $b(b-1)$ off-diagonal terms, giving
+\[
+ \E[\|\xi\|^2\mid\theta]
+ =\frac{1}{b^2}\left(bV-\frac{b(b-1)}{N-1}V\right)
+ =\frac{N-b}{b(N-1)}V.
+\]
+Averaging over $\theta_{t-1}$ gives Eq.~\eqref{eq:finite-population-noise}.
+
+\emph{Two independent batches at the same state.}
+Let $g$ and $g'$ be their gradients and condition throughout on $\theta$. Independence gives $\E[g^\top g']=\|\mu\|^2$. For either batch, centering gives $\E\|g\|^2=\|\mu\|^2+\E\|\xi\|^2$. When both norms are nonzero and concentrate near their common root-mean-square value, replacing their product by $\E\|g\|^2$ gives
+\[
+ \E\!\left[\frac{g^\top g'}{\|g\|\|g'\|}\right]
+ \approx\frac{\|\mu\|^2}{\|\mu\|^2+\E\|\xi\|^2}.
+\]
+Substituting the batch variance yields Eq.~\eqref{eq:noise-cosine-approx}. Along a trajectory the next gradient is evaluated at an updated state, so the shared-mean argument applies only to the fixed-state comparison.
 
 \section{Intervention Verification, Endpoint Sensitivity, and Cost}
 \label{app:interventions}
