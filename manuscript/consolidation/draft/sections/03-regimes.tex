@@ -118,15 +118,9 @@ $\eta\kappa_t<1 \implies \rho_t>0$ (constructive alignment) and
 $\eta\kappa_t>1 \implies \rho_t<0$ (destructive alignment).
 At $\eta\kappa_t=1$, it predicts orthogonal consecutive gradients.
 
-In parameter space, negative alignment means that the next plain-SGD
-update opposes a component of the preceding update. Whether the
-corresponding representations also reverse must be measured;
-Section~\ref{subsec:tracing} follows these changes inside the network.
-For full-batch GD, negative alignment indicates that the completed step
-has passed the minimum along its direction in the local quadratic model.
-The next update then partially reverses that step. Passing this minimum
-does not itself imply a loss increase: the completed-step loss balance
-also depends on the size of the new gradient, as derived below.
+Early in training from scratch, the network has acquired little task-specific structure that a new update could disrupt. We therefore expect constructive alignment to be more common at this stage. At a fixed learning rate, the curvature relation above predicts reinforcement when the loss is relatively flat along the update direction and reversal as curvature along that direction rises past $1/\eta$. In our GD experiments, we observe transitions to sustained reversal across all three architectures, even as training loss continues to fall (Fig.~\ref{fig:gd-alignment-displacement}).
+
+We hypothesize that this sharpening reflects a trade-off between learning new information and preserving structure already encoded in the weights. Section~\ref{subsec:tracing} examines the functional counterpart of reversal under Adam. Successive changes in the network outputs reverse in all three models, while the extent of reversal in hidden layers varies across architectures.
 
 \subsection{Estimating Curvature without Hessian Computation}
 \label{subsec:curvature-diagnostic}
