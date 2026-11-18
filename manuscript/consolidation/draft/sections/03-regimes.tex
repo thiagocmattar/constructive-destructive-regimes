@@ -112,12 +112,11 @@ the central relation
                    (1-\eta\kappa_t+\varepsilon_t).}
   \label{eq:rho-normalized}
 \end{equation}
-In full-batch GD with nonzero gradients, $\varepsilon_t=0$ and the
-norm ratio is positive. Within this approximation, the sign of $\rho_t$
-is therefore the sign of $1-\eta\kappa_t$: $\eta\kappa_t<1$ gives
-constructive alignment, while $\eta\kappa_t>1$ gives destructive
-alignment. At the boundary $\eta\kappa_t=1$, the approximation gives
-orthogonal gradients; a vanishing gradient leaves the cosine undefined.
+In full-batch GD with nonzero gradients, $\varepsilon_t=0$ and the ratio of
+gradient norms is positive. The approximation therefore predicts
+$\eta\kappa_t<1 \implies \rho_t>0$ (constructive alignment) and
+$\eta\kappa_t>1 \implies \rho_t<0$ (destructive alignment).
+At $\eta\kappa_t=1$, it predicts orthogonal consecutive gradients.
 
 In parameter space, negative alignment means that the next plain-SGD
 update opposes a component of the preceding update. Whether the
