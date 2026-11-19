@@ -1,11 +1,7 @@
 \section{Loss Spikes and Functional Oscillations under Adam}
 \label{sec:adam}\label{sec:adam-diagnostics}
 
-The preceding experiments show why consecutive steps must be considered
-together. Reversal describes opposition; gradient growth determines its
-size. Under SGD the raw gradients also determine the applied increments.
-Adam combines the current gradient with past gradients and rescales
-coordinates using second moments~\cite{kingma2014adam}. Its recurrences are
+The preceding experiments show why consecutive steps must be considered together. Reversal describes opposition; gradient growth determines its size. Under SGD the raw gradients also determine the applied increments. Adam combines the current gradient with past gradients and rescales coordinates using second moments~\cite{kingma2014adam}. Its recurrences are
 \begin{equation}
  \begin{aligned}
  m_t&=\beta_1m_{t-1}+(1-\beta_1)g_t,\\
@@ -20,21 +16,11 @@ The bias-corrected direction and parameter update are
  \theta_{t+1}=\theta_t-\eta_t d_t.
  \label{eq:adam-update}
 \end{equation}
-Moments start at zero before $t=0$, and the operations on second moments
-are coordinatewise. The experiments use the native Adam update with
-$(\beta_1,\beta_2)=(.9,.999)$ and $\epsilon=10^{-8}$, without weight decay.
-The Adam overview uses 1,024 full-batch updates per model, with learning rates
-of $0.001$ for the MLP and $0.003$ for both ResNet-32 and the Transformer.
+Moments start at zero before $t=0$, and the operations on second moments are coordinatewise. The experiments use the native Adam update with $(\beta_1,\beta_2)=(.9,.999)$ and $\epsilon=10^{-8}$, without weight decay. The Adam overview uses 1,024 full-batch updates per model, with learning rates of $0.001$ for the MLP and $0.003$ for both ResNet-32 and the Transformer.
 
-Although Adam transforms the raw gradient, consecutive gradients are
-evaluated at states separated by the actual Adam update. Their alignment
-and relative magnitudes therefore characterize the gradient response
-along the trajectory followed by the optimizer (Appendix~\ref{app:math}).
+Although Adam transforms the raw gradient, consecutive gradients are evaluated at states separated by the actual Adam update. Their alignment and relative magnitudes therefore characterize the gradient response along the trajectory followed by the optimizer (Appendix~\ref{app:math}).
 
-We first characterize the gradient response along Adam's trajectory,
-then trace the corresponding functional changes through the network.
-The following section tests interventions from matched training states.
-The complete experimental grid is specified in Supplementary Section~S3.
+We first characterize the gradient response along Adam's trajectory, then trace the corresponding functional changes through the network. The following section tests interventions from matched training states. The complete experimental grid is specified in Supplementary Section~S3.
 
 \subsection{Characterizing Loss Spikes}
 \label{subsec:characterization}
@@ -46,105 +32,36 @@ The complete experimental grid is specified in Supplementary Section~S3.
 \label{fig:adam-overview}
 \end{figure*}
 
-The Adam trajectories exhibit distinct loss excursions and recoveries.
-Early constructive intervals give way to persistent reversal.
-Prominent excursions occur with negative cosine and growing gradient
-norms, producing large peaks in the projected response. In ResNet and
-Transformer, recovery often includes renewed constructive alignment and
-falling norms. These observations are compatible with the mechanism
-analyzed by Bai et al.~\cite{bai2026spikes}, in which Adam's averaging
-of squared gradients changes the effective step size independently of
-the underlying Hessian. Our gradient measurements do not isolate that
-mechanism.
+The Adam trajectories exhibit distinct loss excursions and recoveries. Early constructive intervals give way to persistent reversal. Prominent excursions occur with negative cosine and growing gradient norms, producing large peaks in the projected response. In ResNet and Transformer, recovery often includes renewed constructive alignment and falling norms. These observations are compatible with the mechanism analyzed by Bai et al.~\cite{bai2026spikes}, in which Adam's averaging of squared gradients changes the effective step size independently of the underlying Hessian. Our gradient measurements do not isolate that mechanism.
 
-The loss can reach lower values after an excursion, although this does
-not establish that the excursion caused the improvement. Related work on
-SGD catapults shows that spikes can accompany improved feature
-learning~\cite{zhu2024catapults}. Under Adam, their role likewise needs
-to be evaluated through subsequent progress.
+The loss can reach lower values after an excursion, although this does not establish that the excursion caused the improvement. Related work on SGD catapults shows that spikes can accompany improved feature learning~\cite{zhu2024catapults}. Under Adam, their role likewise needs to be evaluated through subsequent progress.
 
-We evaluate fixed decision rules on recorded trajectories; no classifier
-is trained. After computing the raw gradient, but before applying the
-next update, each rule warns whether that update will increase the loss
-by at least 0.1\%. This single-step target differs from the excursions exceeding
-10\% marked in Fig.~\ref{fig:adam-overview}. Let
-$L_t=\mathcal L(\theta_t)$ and define the target as
-$(L_{t+1}-L_t)/L_t\geq0.001$.
+We evaluate fixed decision rules on recorded trajectories; no classifier is trained. After computing the raw gradient, but before applying the next update, each rule warns whether that update will increase the loss by at least 0.1\%. This single-step target differs from the excursions exceeding 10\% marked in Fig.~\ref{fig:adam-overview}. Let $L_t=\mathcal L(\theta_t)$ and define the target as $(L_{t+1}-L_t)/L_t\geq0.001$.
 
-At decision step $t$, both $g_t$ and $L_t$ are available. The pair
-$(g_{t-1},g_t)$ describes the response to the preceding update, from
-$\theta_{t-1}$ to $\theta_t$. Using it to classify the outgoing update
-tests whether that response carries forward. For quadratic full-batch
-plain GD, the strict condition in Eq.~\eqref{eq:loss-rise-alignment} exactly
-characterizes a positive loss change on the preceding step. This exact
-retrospective equivalence does not extend to a finite nonlinear step or
-to Adam, whose applied direction also depends on its moments.
+At decision step $t$, both $g_t$ and $L_t$ are available. The pair $(g_{t-1},g_t)$ describes the response to the preceding update, from $\theta_{t-1}$ to $\theta_t$. Using it to classify the outgoing update tests whether that response carries forward. For quadratic full-batch plain GD, the strict condition in Eq.~\eqref{eq:loss-rise-alignment} exactly characterizes a positive loss change on the preceding step. This exact retrospective equivalence does not extend to a finite nonlinear step or to Adam, whose applied direction also depends on its moments.
 
-Table~\ref{tab:severity} compares the gradient conditions with the
-simple history rule $L_t>L_{t-1}$. Accuracy is the fraction of all
-decisions classified correctly. Warning hit rate is the fraction of
-warnings followed by an increase; lift divides this rate by the overall
-frequency of increases. Together they distinguish correct classification
-from how informative an issued warning is.
+Table~\ref{tab:severity} compares the gradient conditions with the simple history rule $L_t>L_{t-1}$. Accuracy is the fraction of all decisions classified correctly. Warning hit rate is the fraction of warnings followed by an increase; lift divides this rate by the overall frequency of increases. Together they distinguish correct classification from how informative an issued warning is.
 
 \input{tables/diagnostic-0p1pct}
 
-For this next-step prediction task, the \emph{destructive loss-spike
-condition} combines reversal with sufficient gradient growth, $\rho_t<0$ and
-$\|g_t\|/\|g_{t-1}\|>-1/\rho_t$. It gives higher accuracy and warning
-lift than the previous-loss-rise rule in all three cases. Reversal or
-norm growth alone is less selective. The angle/norm condition is
-algebraically equivalent to $1-\rho_t\|g_t\|/\|g_{t-1}\|>2$; their identical
-table entries verify the two implementations, rather than constitute
-independent evidence. The non-strict threshold gives the same flags
-here because no observed value equals two. The warning lifts are
-$1.28\times$, $6.78\times$, and $3.87\times$ for MLP, ResNet, and
-Transformer. These signals contain information before the next update,
-although the gains in accuracy over always predicting no increase are
-modest. The combined rule recalls 38.6\%/23.9\%/55.6\% of the target
-increases, so high lift does not imply complete coverage. Supplementary
-Section S3 reports warning counts and recall for every rule.
+For this next-step prediction task, the \emph{destructive loss-spike condition} combines reversal with sufficient gradient growth, $\rho_t<0$ and $\|g_t\|/\|g_{t-1}\|>-1/\rho_t$. It gives higher accuracy and warning lift than the previous-loss-rise rule in all three cases. Reversal or norm growth alone is less selective. The angle/norm condition is algebraically equivalent to $1-\rho_t\|g_t\|/\|g_{t-1}\|>2$; their identical table entries verify the two implementations, rather than constitute independent evidence. The non-strict threshold gives the same flags here because no observed value equals two. The warning lifts are $1.28\times$, $6.78\times$, and $3.87\times$ for MLP, ResNet, and Transformer. These signals contain information before the next update, although the gains in accuracy over always predicting no increase are modest. The combined rule recalls 38.6\%/23.9\%/55.6\% of the target increases, so high lift does not imply complete coverage. Supplementary Section S3 reports warning counts and recall for every rule.
 
-A loss curve and a whole-network gradient still leave an important
-question unanswered: what is changing inside the network during these
-oscillations? We next examine that functional expression directly.
+A loss curve and a whole-network gradient still leave an important question unanswered: what is changing inside the network during these oscillations? We next examine that functional expression directly.
 
 \subsection{Tracing Oscillations through the Learned Function}
 \label{subsec:tracing}
 
-A parameter update changes the representations computed inside the
-network and, eventually, its output. We trace these changes backwards
-from the output toward the input-side layers, asking where they reverse,
-how large they become, and whether different parts of the network share
-their timing. We compare the same inputs at successive training states;
-otherwise, a representation difference could arise simply because the
-examples changed. The reference sets are all 5,000 MLP training images,
-the first 1,000-image ResNet normalization group, and the first 64 Transformer
-sequences with 2,240 unchanged token positions.
+A parameter update changes the representations computed inside the network and, eventually, its output. We trace these changes backwards from the output toward the input-side layers, asking where they reverse, how large they become, and whether different parts of the network share their timing. We compare the same inputs at successive training states; otherwise, a representation difference could arise simply because the examples changed. The reference sets are all 5,000 MLP training images, the first 1,000-image ResNet normalization group, and the first 64 Transformer sequences with 2,240 unchanged token positions.
 
-A training state $\theta_t$ is the parameter state after $t$ completed
-updates. For a window $a{:}b$, we analyze the $T_w=b-a+1$ representation
-changes ending at steps $a,\ldots,b$. Computing their consecutive
-cosines requires states $a-2,\ldots,b$: the first cosine compares the
-changes ending at $a-1$ and $a$.
+A training state $\theta_t$ is the parameter state after $t$ completed updates. For a window $a{:}b$, we analyze the $T_w=b-a+1$ representation changes ending at steps $a,\ldots,b$. Computing their consecutive cosines requires states $a-2,\ldots,b$: the first cosine compares the changes ending at $a-1$ and $a$.
 
-A measured \emph{site} is a named output in the computation graph.
-It can be a single layer, an attention module, or the end of a residual
-block group; we record that output rather than averaging internal layers.
-At the final site, we use raw outputs for the MLP and log probabilities
-over all classes or words for ResNet and Transformer.
-Write its activation matrix as $A_t^\ell\in\mathbb R^{N_\ell\times m_\ell}$.
-The $N_\ell$ rows identify reference examples and, where relevant, spatial
-or token positions; columns identify the $m_\ell$ features at each position.
-The preceding update changes this representation by
+A measured \emph{site} is a named output in the computation graph. It can be a single layer, an attention module, or the end of a residual block group; we record that output rather than averaging internal layers. At the final site, we use raw outputs for the MLP and log probabilities over all classes or words for ResNet and Transformer. Write its activation matrix as $A_t^\ell\in\mathbb R^{N_\ell\times m_\ell}$. The $N_\ell$ rows identify reference examples and, where relevant, spatial or token positions; columns identify the $m_\ell$ features at each position. The preceding update changes this representation by
 \begin{equation}
  \delta_t^\ell=\operatorname{vec}(A_t^\ell-A_{t-1}^\ell)
  \in\mathbb R^{P_\ell},\qquad P_\ell=N_\ell m_\ell.
  \label{eq:representation-change}
 \end{equation}
-Each flattened coordinate is one feature's response at one matching
-input position. No examples or features are averaged before measuring
-the change. Its direction and size are measured using
+Each flattened coordinate is one feature's response at one matching input position. No examples or features are averaged before measuring the change. Its direction and size are measured using
 \begin{equation}
  c_t^\ell=
  \frac{\langle\delta_{t-1}^\ell,\delta_t^\ell\rangle}
@@ -152,13 +69,7 @@ the change. Its direction and size are measured using
  a_t^\ell=\frac{\|\delta_t^\ell\|}{\sqrt{P_\ell}}.
  \label{eq:representation-motion}
 \end{equation}
-A negative $c_t^\ell$ indicates opposition between the two flattened
-changes at site $\ell$; positive values indicate reinforcement. This
-aggregate does not require every feature or reference input to reverse.
-Thus $c_t^\ell$ provides a representation counterpart to the consecutive
-gradient alignment measured by $\rho_t$. The root-mean-square (RMS)
-displacement $a_t^\ell$ measures the RMS size of coordinate changes.
-A zero change has undefined cosine.
+A negative $c_t^\ell$ indicates opposition between the two flattened changes at site $\ell$; positive values indicate reinforcement. This aggregate does not require every feature or reference input to reverse. Thus $c_t^\ell$ provides a representation counterpart to the consecutive gradient alignment measured by $\rho_t$. The root-mean-square (RMS) displacement $a_t^\ell$ measures the RMS size of coordinate changes. A zero change has undefined cosine.
 
 The representation counterpart of normalized displacement is
 \begin{equation}
@@ -168,67 +79,35 @@ The representation counterpart of normalized displacement is
  {\sum_{t=a}^b\|A_t^\ell-A_{t-1}^\ell\|_F}.
  \label{eq:representation-retention}
 \end{equation}
-This ratio lies in $[0,1]$ whenever movement occurs: it compares net
-displacement with total distance traveled. In the windows below, output
-retention is only 1.71\%/2.44\%/3.51\% for MLP/ResNet/Transformer;
-the first measured sites retain 3.25\%/3.72\%/24.33\%, respectively.
-Together with negative cosines, these values show substantial
-back-and-forth movement with little remaining net displacement,
-motivating control of its magnitude. Retention measures displacement,
-rather than learning quality; orthogonal changes can also produce a
-small ratio. All values use the full changes, without mode truncation.
+This ratio lies in $[0,1]$ whenever movement occurs: it compares net displacement with total distance traveled. In the windows below, output retention is only 1.71\%/2.44\%/3.51\% for MLP/ResNet/Transformer; the first measured sites retain 3.25\%/3.72\%/24.33\%, respectively. Together with negative cosines, these values show substantial back-and-forth movement with little remaining net displacement, motivating control of its magnitude. Retention measures displacement, rather than learning quality; orthogonal changes can also produce a small ratio. All values use the full changes, without mode truncation.
 
-For each site separately, collect the
-changes at steps $a,\ldots,b$ into
-$D_\ell\in\mathbb R^{T_w\times P_\ell}$, where $T_w=b-a+1$.
-Each row is $(\delta_t^\ell)^\top$, and each column follows one fixed
-input-position/feature coordinate across updates. A single singular
-value decomposition (SVD) fits the whole window,
+For each site separately, collect the changes at steps $a,\ldots,b$ into $D_\ell\in\mathbb R^{T_w\times P_\ell}$, where $T_w=b-a+1$. Each row is $(\delta_t^\ell)^\top$, and each column follows one fixed input-position/feature coordinate across updates. A single singular value decomposition (SVD) fits the whole window,
 \begin{equation}
  D_\ell=U_\ell\Sigma_\ell V_\ell^\top.
  \label{eq:temporal-svd}
 \end{equation}
-The columns $v_{\ell,j}$ of $V_\ell$ are fixed orthonormal patterns
-across input-position/feature coordinates. The nonnegative singular
-values $\sigma_{\ell,j}$ are ordered from largest to smallest; their
-products with entries of $U_\ell$ give signed coefficients over time:
+The columns $v_{\ell,j}$ of $V_\ell$ are fixed orthonormal patterns across input-position/feature coordinates. The nonnegative singular values $\sigma_{\ell,j}$ are ordered from largest to smallest; their products with entries of $U_\ell$ give signed coefficients over time:
 \begin{equation}
  \delta_t^\ell=\sum_j\alpha_{t,j}^\ell v_{\ell,j},\qquad
  \alpha_{t,j}^\ell=\sigma_{\ell,j}U_{\ell,(t-a+1),j}.
  \label{eq:pattern-reconstruction}
 \end{equation}
-Each \emph{mode} $v_{\ell,j}$ is an eigenvector of
-$D_\ell^\top D_\ell$ with eigenvalue $\sigma_{\ell,j}^2$. The coefficient
-$\alpha_{t,j}^\ell$, not the eigenvalue, changes sign as movement reverses
-along that pattern. At most $\min(T_w,P_\ell)$ independent patterns can
-be observed in the window.
+Each \emph{mode} $v_{\ell,j}$ is an eigenvector of $D_\ell^\top D_\ell$ with eigenvalue $\sigma_{\ell,j}^2$. The coefficient $\alpha_{t,j}^\ell$, not the eigenvalue, changes sign as movement reverses along that pattern. At most $\min(T_w,P_\ell)$ independent patterns can be observed in the window.
 
-The total squared movement is $\|D_\ell\|_F^2=\sum_j\sigma_{\ell,j}^2$.
-The fraction captured by the first $k$ patterns is
+The total squared movement is $\|D_\ell\|_F^2=\sum_j\sigma_{\ell,j}^2$. The fraction captured by the first $k$ patterns is
 \begin{equation}
  E_k^\ell=\frac{\sum_{j=1}^k\sigma_{\ell,j}^2}
  {\sum_j\sigma_{\ell,j}^2}.
  \label{eq:energy}
 \end{equation}
-Thus $E_k^\ell=0.95$ leaves 5\% squared reconstruction error. This
-cumulative energy sums patterns, not steps. Because $D_\ell$ is uncentered
-and its rows retain their norms, the measure includes persistent drift
-and weights larger changes more heavily; it is not centered explained
-variance.
+Thus $E_k^\ell=0.95$ leaves 5\% squared reconstruction error. This cumulative energy sums patterns, not steps. Because $D_\ell$ is uncentered and its rows retain their norms, the measure includes persistent drift and weights larger changes more heavily; it is not centered explained variance.
 
-To compare timing across sites of different widths, we compare the
-columns of $U_\ell$, whose coordinates always index the same training
-steps. Write $U_{\ell,k}$ for the first $k$ columns of $U_\ell$. With $F$ denoting the final network output, their leading-$k$ overlap is
+To compare timing across sites of different widths, we compare the columns of $U_\ell$, whose coordinates always index the same training steps. Write $U_{\ell,k}$ for the first $k$ columns of $U_\ell$. With $F$ denoting the final network output, their leading-$k$ overlap is
 \begin{equation}
  O_k(\ell,F)=\frac{\|U_{\ell,k}^{\top}U_{F,k}\|_F^2}{k}.
  \label{eq:overlap}
 \end{equation}
-It measures how much of a site's leading time histories lies in the
-subspace spanned by the final output's leading time histories. A value of one means the same temporal subspace,
-even if the individual basis vectors differ; zero means orthogonal
-temporal subspaces. We use $k=10$ within the numerical ranks. This measures shared timing, without backpropagating outputs or
-equating feature directions at different sites. It is not the fraction
-of output oscillation caused by a site.
+It measures how much of a site's leading time histories lies in the subspace spanned by the final output's leading time histories. A value of one means the same temporal subspace, even if the individual basis vectors differ; zero means orthogonal temporal subspaces. We use $k=10$ within the numerical ranks. This measures shared timing, without backpropagating outputs or equating feature directions at different sites. It is not the fraction of output oscillation caused by a site.
 
 Algorithm~\ref{alg:trace} assembles these measurements.
 
@@ -256,31 +135,11 @@ Algorithm~\ref{alg:trace} assembles these measurements.
 \label{fig:trace-motion}
 \end{figure*}
 
-Figure~\ref{fig:trace-motion} shows where functional oscillation appears.
-The top row locates the loss excursion. Reading the cosine maps from
-output toward input shows that, in the MLP, every displayed change has
-negative aggregate cosine at every measured site, even while loss rises
-and falls. This shared sign does not imply equal amplitudes or reversal
-of every coordinate.
+Figure~\ref{fig:trace-motion} shows where functional oscillation appears. The top row locates the loss excursion. Reading the cosine maps from output toward input shows that, in the MLP, every displayed change has negative aggregate cosine at every measured site, even while loss rises and falls. This shared sign does not imply equal amplitudes or reversal of every coordinate.
 
-Each RMS row is divided by that site's maximum within the window.
-Its colors therefore show within-site variation, not absolute magnitude
-differences between sites. For matched pre- and post-tanh coordinates,
-tanh cannot enlarge displacement because its derivative has magnitude
-at most one. Quantifying that attenuation requires unnormalized
-displacements; it cannot be read from these independently scaled rows.
+Each RMS row is divided by that site's maximum within the window. Its colors therefore show within-site variation, not absolute magnitude differences between sites. For matched pre- and post-tanh coordinates, tanh cannot enlarge displacement because its derivative has magnitude at most one. Quantifying that attenuation requires unnormalized displacements; it cannot be read from these independently scaled rows.
 
-In ResNet and Transformer, output-side representations reverse while
-earlier representations can continue to reinforce their preceding change.
-The first displayed output reversal precedes the 10\% loss marker by
-15 steps in ResNet and five in Transformer. In ResNet, the first
-convolution reaches its largest displacement at the loss peak, followed
-one step later by the remaining displayed sites. In Transformer, the
-embedding becomes more oscillatory near the large excursion and returns
-to constructive movement sooner than the later sites. These differences
-motivate measuring direction and magnitude throughout the network.
-The measurements locate the observed changes without establishing
-their causal origin.
+In ResNet and Transformer, output-side representations reverse while earlier representations can continue to reinforce their preceding change. The first displayed output reversal precedes the 10\% loss marker by 15 steps in ResNet and five in Transformer. In ResNet, the first convolution reaches its largest displacement at the loss peak, followed one step later by the remaining displayed sites. In Transformer, the embedding becomes more oscillatory near the large excursion and returns to constructive movement sooner than the later sites. These differences motivate measuring direction and magnitude throughout the network. The measurements locate the observed changes without establishing their causal origin.
 
 \begin{figure*}[!t]
 \centering
@@ -289,32 +148,6 @@ their causal origin.
 \label{fig:trace-structure}
 \end{figure*}
 
-Figure~\ref{fig:trace-structure} asks whether these changes repeatedly
-use a small set of patterns. The top row shows concentration of squared
-movement in the leading output modes, alongside the corresponding
-gradient decomposition. The output needs 5/20/15 patterns to capture
-95\% of squared movement in the 51/61/49-change MLP/ResNet/Transformer
-windows. Concentration can reflect both repeated
-directions and a few large changes; the equal-length and orthogonal
-controls in Supplementary Section~S4 separate these effects.
-The middle row extends the analysis through the network: $E_1^\ell$
-and $E_{10}^\ell$ show concentration at each site, whereas $O_{10}$ shows
-how much its leading temporal structure is shared with the final output.
-The selected ResNet window has stronger temporal agreement toward the
-output, with shared structure still extending to the input-side sites.
-Finally, the bottom row establishes the back-and-forth component that
-energy fractions alone cannot establish. Repeated changes in the sign
-of $\alpha_{t,1}^F/\sqrt{P_F}$ show reversal along one fixed output
-pattern, and its amplitude shows how strongly that pattern moves. The
-secondary axis overlays the complete-objective loss and marks its peak
-on the same completed-step clock. This is a retrospective comparison
-within each fitted window.
+Figure~\ref{fig:trace-structure} asks whether these changes repeatedly use a small set of patterns. The top row shows concentration of squared movement in the leading output modes, alongside the corresponding gradient decomposition. The output needs 5/20/15 patterns to capture 95\% of squared movement in the 51/61/49-change MLP/ResNet/Transformer windows. Concentration can reflect both repeated directions and a few large changes; the equal-length and orthogonal controls in Supplementary Section~S4 separate these effects. The middle row extends the analysis through the network: $E_1^\ell$ and $E_{10}^\ell$ show concentration at each site, whereas $O_{10}$ shows how much its leading temporal structure is shared with the final output. The selected ResNet window has stronger temporal agreement toward the output, with shared structure still extending to the input-side sites. Finally, the bottom row establishes the back-and-forth component that energy fractions alone cannot establish. Repeated changes in the sign of $\alpha_{t,1}^F/\sqrt{P_F}$ show reversal along one fixed output pattern, and its amplitude shows how strongly that pattern moves. The secondary axis overlays the complete-objective loss and marks its peak on the same completed-step clock. This is a retrospective comparison within each fitted window.
 
-Together, the two figures and the small retention values characterize
-coordinated, approximately low-dimensional functional oscillation in
-these windows. The temporal Gram matrix $D_\ell D_\ell^\top$ permits
-the analysis without storing all spatial modes; implementation and
-numerical checks are in Supplementary Section~S4. The resulting
-intervention question is whether limiting the magnitude of local
-representation changes can reduce loss excursions while preserving
-subsequent training progress.
+Together, the two figures and the small retention values characterize coordinated, approximately low-dimensional functional oscillation in these windows. The temporal Gram matrix $D_\ell D_\ell^\top$ permits the analysis without storing all spatial modes; implementation and numerical checks are in Supplementary Section~S4. The resulting intervention question is whether limiting the magnitude of local representation changes can reduce loss excursions while preserving subsequent training progress.
