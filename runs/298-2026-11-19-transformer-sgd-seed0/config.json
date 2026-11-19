@@ -1,0 +1,43 @@
+{
+  "run_id": "298",
+  "analysis_id": "037",
+  "hypothesis": "H023",
+  "tasks": [
+    "transformer"
+  ],
+  "seeds": [
+    0
+  ],
+  "states": [
+    0,
+    2000
+  ],
+  "learning_rates": {
+    "transformer": 0.1
+  },
+  "batches": {
+    "transformer": [
+      8,
+      32,
+      128,
+      512,
+      59680
+    ]
+  },
+  "physical": {
+    "transformer": 512
+  },
+  "stochastic_repetitions": 8,
+  "continuation_updates": 200,
+  "reference_updates": 2000,
+  "sampling_seed": 20261102,
+  "checkpoint_every": 50,
+  "cache": "cache/eos-multitask",
+  "reference_policy": "Pinned seed-0 initialization and Run125 state after 2000 GD updates",
+  "optimizer": "constant-rate plain SGD, no momentum, clipping, decay or schedule",
+  "precision": "FP32 parameters and gradients; FP64 diagnostic reductions; TF32 disabled",
+  "evaluation": "complete training objective at fork start and end; no validation/test inference",
+  "notes": [
+    "Reuse Run216 sampling and accumulation with a single initialization."
+  ]
+}

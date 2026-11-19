@@ -58,15 +58,14 @@ Taken together, Figs.~\ref{fig:gd-alignment-displacement} and~\ref{fig:gd-backwa
 \begin{figure*}[!t]
 \centering
 \includegraphics[width=\textwidth]{figures/sgd_batch_size_compact.pdf}
-\caption{Sampled-gradient alignment during 200-update continuations from initialization or a 2,000-update GD state. Lines equally weight three initialization means after repetition averaging; shading spans those means. Hollow rightmost markers denote full GD. Learning rates are $0.02$, $0.1$, and $0.2$ for the MLP, ResNet, and Transformer, respectively. Each ResNet batch contains one or more whole BatchNorm groups from the full-batch GD run, making one group (1,000 images) the smallest batch. Transformer batch sizes count prepared sequences. Batch axes are logarithmic. Equal update budgets entail unequal data exposure.}
+\caption{Sampled-gradient alignment during 200-update continuations from initialization or a 2,000-update GD state. Each panel uses one initialization. Lines average eight sampling repetitions at each mini-batch size, and shading spans their range. Hollow rightmost markers denote full GD. Learning rates are $0.02$ for the MLP and $0.1$ for both ResNet and the Transformer. Each ResNet batch contains one or more whole BatchNorm groups from the full-batch GD run, making one group (1,000 images) the smallest batch. Transformer batch sizes count prepared sequences. Batch axes are logarithmic. Equal update budgets entail unequal data exposure.}
 \label{fig:sgd-moving-geometry}
 \end{figure*}
 \subsection{Mini-Batch Attenuation of Directional Alignment}
 \label{sec:sgd-noise-experiments}
 
 How does mini-batch sampling change the alignment observed under full-batch GD? At fixed parameters, Eq.~\eqref{eq:noise-cosine-approx} predicts that sampling weakens alignment between independent batch gradients. Along a trajectory, this suggests that smaller batches may bring the mean $\rho_t$ closer to zero in both constructive and destructive regimes. We test this by varying batch size over 200 updates, starting either at initialization or after 2,000 GD updates.
-% TODO: Test a lower Transformer learning rate for which the full-batch continuation from initialization has positive mean alignment.
 
-Figure~\ref{fig:sgd-moving-geometry} shows that the smallest batches reduce the magnitude of mean alignment in all three models. In the MLP, for example, reducing the batch from 5,000 images to 32 shifts the mean from $+0.99$ to $-0.14$ at initialization and from $-0.99$ to $-0.38$ at the trained state.
+Figure~\ref{fig:sgd-moving-geometry} shows that the smallest batches reduce the magnitude of mean alignment in both training windows for all three models. In the Transformer, reducing the batch from the full corpus to eight sequences shifts the initial-window mean from $+0.999$ to $-0.089$ and the trained-window mean from $-0.973$ to $-0.261$. In both the MLP and the Transformer, sampling can thus reverse the sign of initially constructive alignment.
 
 By weakening reinforcement early in training, sampling noise may slow learning. Once updates begin to reverse, the same noise can dampen their oscillation. Could this damping contribute to the implicit regularization associated with SGD noise~\cite{haochen2021shape,smith2021origin}? Large-scale training often uses large batches for throughput~\cite{mccandlish2018largebatch,chowdhery2022palm}, which also reduces sampling variance. Whether that reduction amplifies instability during large-scale training remains open.

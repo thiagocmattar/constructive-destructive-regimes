@@ -117,12 +117,11 @@ losses $\ell_i$, the Transformer estimator is
 $N(bM)^{-1}\sum_{i\in B}\ell_i$, where $N=59680$ and $M=2088600$.
 The fixed denominator preserves the token-weighted objective.
 
-Three initializations provide matched states at steps 0 and 2000,
-with 200-update continuations and eight stochastic repetitions per cell.
-Equal update counts do not imply equal data exposure. The two smallest
-ResNet batches in initialization 2 use a different runtime; batch size
-and runtime remain confounded in that block. Supplementary Section S2
-retains the numerical bridge check and complete sampling protocol.
+For each model, we start from one initialization and its state after
+2,000 full-batch GD updates. From each state, we run 200 updates per
+continuation, with eight draws of the batch sequence at each stochastic
+batch size and one full-GD control. Supplementary Section S2 details
+the sampling protocol.
 
 The Adam grid uses MLP rates $.0001/.0003/.001$ and ResNet/Transformer
 rates $.0003/.001/.003$, for 1,024 updates with one initialization per

@@ -1,5 +1,9 @@
 # Run registry
 
+## Seed-0 mini-batch comparison, 19 November 2026
+
+[Run 298](298-2026-11-19-transformer-sgd-seed0/README.md) completed 66 seed-0 WikiText-2 Transformer continuations at learning rate 0.1 from initialization and step 2,000. [Analysis 037 Figure 4](../analyses/037-2026-11-02-sgd-batch-extension/observations/002-seed0-rate-01.md) combines these with the existing MLP and ResNet arms. Next unused run 299.
+
 ## Run 297: Q25 temporal representation SVD, 15 November 2026
 
 [Run297](297-2026-11-15-cap-q25-temporal-svd/README.md) / H053 / ongoing Analysis065. Completed unchanged-Adam/Q25 continuations from the saved Runs293-295 forks: 64 updates per arm/model, 384 updates and 390 full-objective/probe states. All original coordinates retained for exact temporal/cross Grams and matched 32/32/64-update comparisons. Output rank95: 6 to 10 / 26 to 19 / 15 to 32; squared-motion ratios: 0.01664 / 0.77229 / 0.09635. [Findings and figures](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/017-q25-representation-svd.md). All numerical, source and retrieval checks pass; four PDFs / ten reviewed pages. Owned Spark only, workers finished, 70.434 GB retained, zero cloud spend. No manuscript changes. Next unused run298 / H054.

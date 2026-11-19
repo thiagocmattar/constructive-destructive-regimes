@@ -1,5 +1,10 @@
 # Analysis037: three-case SGD batch-size comparison
 
+The [19 November Figure 4 revision](observations/002-seed0-rate-01.md)
+uses one initialization per model and new Transformer continuations
+at learning rate 0.1 from Run 298. The original three-initialization
+experiment is documented below.
+
 H023; Runs214/216. Complete:348 new continuations, six fresh 2,000-update GD
 references, and the additional 200-update Spark runtime bridge. Reusing 198
 unchanged Analysis027 MLP continuations supplies 546 trajectories for the

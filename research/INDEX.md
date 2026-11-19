@@ -1,5 +1,9 @@
 # Research index
 
+## Seed-0 mini-batch comparison, 19 November 2026
+
+[Run 298 and Analysis 037](../analyses/037-2026-11-02-sgd-batch-extension/observations/002-seed0-rate-01.md) complete the seed-0 Figure 4 comparison. At Transformer learning rate 0.1, full-GD mean cosines were +0.999 and −0.973 in the initial and trained windows. At eight sequences they were −0.089 and −0.261. All 66 new continuations passed verification. Next unused run 299.
+
 ## Q25 representation-motion spectra, 15 November 2026
 
 [H053 / Run297 / Analysis065](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/017-q25-representation-svd.md): paired 64-update continuations give output rank95 6 to 10 / 26 to 19 / 15 to 32 for MLP / ResNet / Transformer. Squared-motion ratios are 0.01664 / 0.77229 / 0.09635; ResNet changes direction across depth, and concentration measures can disagree. Four PDFs / ten pages, 114 compact checks, nine direct SVD checks and 81 source checks pass. One initialization per case; non-MLP traces are fresh matched Spark continuations. 70.434 GB retained on owned Spark, zero cloud spend, manuscript unchanged. Next analysis067 / run298 / H054.
