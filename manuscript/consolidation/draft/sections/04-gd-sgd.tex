@@ -27,33 +27,7 @@ Learning rates & $0.004,\ 0.02,\ 0.04$ & $0.025,\ 0.05,\ 0.1$ & $0.05,\ 0.1,\ 0.
 \label{fig:gd-loss}
 \end{figure*}
 
-Figure~\ref{fig:gd-loss} shows both smooth and oscillatory loss reduction.
-The lowest MLP and Transformer rates produce smooth loss curves and
-$\eta\widehat\kappa_t$ near zero. At higher rates, the loss fluctuates
-while its longer-term trend continues downward; the estimated scaled
-curvature approaches two. ResNet enters this regime at every tested
-rate, with earlier transitions at larger learning rates.
-
-The dashed curves measure sharpness, the largest Hessian eigenvalue
-$\lambda_{\max}$. Computing it repeatedly requires additional
-Hessian--vector products. To keep this measurement feasible, we use all
-MLP data but fixed subsets for ResNet and Transformer, evaluated every
-100 steps; the caption gives their coverage. This follows the practical
-use of sampled sharpness measurements in EoS experiments~\cite{cohen2021edge}.
-Our solid curves instead use consecutive gradients of the complete
-training objective at every step, without diagnostic subsampling or
-additional derivative evaluations. They measure a different quantity:
-curvature along the realized GD direction, averaged over the step.
-Agreement with starting-point directional Hessian measurements is checked
-separately in Appendix~\ref{app:validation}. Subset spectra and finite-step
-directional curvature need not coincide.
-
-During oscillatory training, the smoothed $\eta\widehat\kappa_t$ stays
-close to two, the quadratic reference threshold for a loss increase.
-This average does not classify individual loss changes, and the nonlinear
-criterion has a finite-step remainder. Figure~\ref{fig:gd-alignment-displacement}
-separates gradient reversal, gradient growth, and accumulated displacement
-to show features of the motion that the smoothed curvature alone obscures.
+Figure~\ref{fig:gd-loss} shows how the onset of oscillatory updates relates to the curvature encountered during training. At the lowest learning rates for the MLP and Transformer, loss decreases smoothly and the scaled directional curvature $\eta\widehat\kappa_t$ remains near zero. At higher rates, $\eta\widehat\kappa_t$ approaches two as the scaled sharpness $\eta\lambda_{\max}$ reaches or exceeds the same threshold. ResNet exhibits this transition at all three rates, with earlier transitions at larger learning rates. Once oscillations are established, sharpness can rise further while $\eta\widehat\kappa_t$ remains near two. The latter thus provides a practical indicator of the oscillatory regime using only consecutive training gradients, without additional Hessian--vector products.
 
 \begin{figure*}[!t]
 \centering
@@ -62,47 +36,11 @@ to show features of the motion that the smoothed curvature alone obscures.
 \label{fig:gd-alignment-displacement}
 \end{figure*}
 
-\subsection{Destructive Regimes and Displacement Retention}
+Figure~\ref{fig:gd-alignment-displacement} shows what happens to the updates during this transition. Consider the MLP at $\eta=0.02$. Around step 1,200, as $\eta\widehat\kappa_t$ approaches two, the cosine between consecutive gradients falls from near $+1$ to near $-1$. Equation~\eqref{eq:kappa-estimate} connects the two observations: $\eta\widehat\kappa_t=1-\rho_t\|g_t\|/\|g_{t-1}\|$ approaches two when consecutive gradients are nearly opposite and have similar norms. The gradient norm rises, so the network takes larger steps that increasingly undo the preceding parameter change. The resulting drop in $R_t$ is visible across the destructive runs. At the highest learning rate for each model, only 2.6\% of the distance traveled by the MLP, 3.7\% by ResNet, and 5.4\% by the Transformer remains as net displacement after 3,000 updates. Yet each of these runs achieves its model's lowest final training loss among the rates tested.
 
-The loss oscillations coincide with a transition to a destructive
-regime in Fig.~\ref{fig:gd-alignment-displacement}. The lowest MLP and
-Transformer rates retain positive cosine, while the other seven
-conditions develop nearly opposing consecutive gradients. In the MLP
-and ResNet, this transition also accompanies growing gradient norms:
-larger steps increasingly reverse preceding parameter changes. The
-joint behavior directly exposes the magnitude and directional factors
-in Eq.~\eqref{eq:loss-rise-alignment}.
+From an optimization perspective, negative alignment is consistent with a step that overshoots a minimum along its direction and is followed by a step back. On a fixed positive-definite quadratic, a convergent oscillation would bring the iterates closer to the minimum and shrink the gradients. In the destructive MLP and ResNet runs, the gradients instead grow as loss continues to fall. The network therefore encounters steeper slopes even while making progress on the training objective. From a representation-learning perspective, this suggests a tension between acquiring new information and retaining structure already encoded in the weights: later updates can undo parameter changes through which that structure was learned.
 
-Normalized displacement then declines strongly. The larger steps
-accumulate path length faster than net parameter change, so $R_t$
-falls even as training continues to reduce the loss. At the highest
-rates, the retained fraction after 3,000 updates is approximately
-2.6\% for the MLP, 3.7\% for ResNet, and 5.4\% for the Transformer.
-Nevertheless, each highest-rate condition reaches its model's lowest
-final training loss among the tested learning rates. These destructive
-regimes therefore coexist with continued loss reduction despite
-extensive local reversal.
-
-The complete displacement sums confirm that local reversal need not
-dominate accumulated motion. Across all nine trajectories, the sum of
-all cross-step interactions is positive, including the seven whose
-adjacent-pair sum is negative. Interactions at longer lags more than offset
-the adjacent cancellations (Table~\ref{tab:app-gd-audit}). Positive total
-interaction means that squared displacement exceeds the sum of squared
-step lengths. This is compatible with low $R_t$, which compares
-displacement with the total distance traveled.
-
-The transition from constructive to destructive alignment changes how
-parameter updates accumulate: nearly opposite gradients undo much of
-the preceding step. In a quadratic picture this is overshooting
-and returning across a directional minimum. In a neural network, declining
-loss together with growing gradient norms also permits descent along a
-changing valley while oscillating across its steeper directions. Neither
-a move between distinct basins nor overwriting a learned representation
-can be inferred from these parameter-space measurements alone. The
-functional analysis below asks directly whether representations also
-reverse. This separates an interpretable geometric possibility from an
-observed change in the learned function.
+How long does this interference persist? The cosine $\rho_t$ compares only two consecutive updates. In all nine runs, the sum of gradient inner products over all pairs is positive, including the seven runs in which the sum over adjacent pairs is negative. An update can therefore oppose its immediate predecessor while reinforcing earlier changes. This motivates examining alignment across longer lags.
 
 \begin{figure*}[tp]
 \centering
