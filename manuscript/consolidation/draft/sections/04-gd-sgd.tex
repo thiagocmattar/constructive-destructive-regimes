@@ -64,27 +64,8 @@ Taken together, Figs.~\ref{fig:gd-alignment-displacement} and~\ref{fig:gd-backwa
 \subsection{Mini-Batch Attenuation of Directional Alignment}
 \label{sec:sgd-noise-experiments}
 
-We next vary batch size during training, where sampling changes both
-the measured gradients and the parameter trajectory. This differs from
-the fixed-state calculation in Eq.~\eqref{eq:noise-cosine-approx}.
-Continuations start at initialization or after 2,000 GD updates.
-Learning rates are $0.02$, $0.1$, and $0.2$ for MLP, ResNet, and
-Transformer. Each starting state receives 200 updates, with three
-initializations, eight sampling repetitions per stochastic condition,
-and one full-GD control per initialization. Every condition therefore
-has the same number of optimizer steps, but a larger batch exposes the
-model to more examples within those steps.
+Does the reversal observed under full-batch GD persist when each update uses a mini-batch? Equation~\eqref{eq:noise-cosine-approx} describes two gradients sampled at the same parameters. During training, each sampled gradient also determines the state at which the next gradient is evaluated. We therefore compare 200-update continuations from two starting points: initialization and the state reached after 2,000 full-batch GD updates. We vary batch size at a fixed learning rate for each model ($0.02$ for the MLP, $0.1$ for ResNet, and $0.2$ for the Transformer). For each of three initializations and each starting point, we run eight repetitions per mini-batch size and one full-batch control. Larger batches process more examples over the same 200 updates.
 
-Figure~\ref{fig:sgd-moving-geometry} shows that the smallest batches move
-the strongly negative mean alignment from the trained starting states
-toward zero in all three cases. This indicates weaker reversal in these
-continuations. Sampling also changes gradient norms and the trajectory,
-so weaker opposition alone does not establish stability.
+Figure~\ref{fig:sgd-moving-geometry} shows the clearest common pattern in the continuations from trained states. In all three models, the smallest batches bring the strongly negative mean cosine closer to zero. For the MLP, reducing the batch from all 5,000 images to 32 shifts the mean from $-0.99$ to $-0.38$. Successive updates still tend to oppose one another, but they retrace less of the preceding direction. From initialization, the same MLP comparison shifts the mean from $+0.99$ to $-0.14$: sampling weakens the initial reinforcement enough to reverse its sign.
 
-At initialization, smaller MLP batches can induce negative mean alignment
-despite a positive full-GD mean. In the Transformer, the same small batch
-has similar negative cosine from both starting states but decreasing loss
-from initialization and increasing loss from the trained state. Cosine
-alone therefore does not distinguish these loss behaviors. The loss relation also includes gradient magnitudes, the sampling
-term in Eq.~\eqref{eq:loss-curvature}, and the nonlinear finite-step
-remainder.
+The Transformer illustrates why the effect on alignment matters separately from the effect on loss. With batches of eight sequences, the mean cosine is approximately $-0.26$ from either starting point. Yet the full training loss falls on average from initialization and rises from the trained state. Thus batch size changes how successive gradients align, while the loss response also depends on their magnitudes, the sampling term in Eq.~\eqref{eq:loss-curvature}, and the nonlinear remainder.
