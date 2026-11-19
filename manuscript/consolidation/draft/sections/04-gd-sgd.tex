@@ -40,7 +40,7 @@ Figure~\ref{fig:gd-alignment-displacement} shows what happens to the updates dur
 
 From an optimization perspective, negative alignment is consistent with a step that overshoots a minimum along its direction and is followed by a step back. On a fixed positive-definite quadratic, a convergent oscillation would bring the iterates closer to the minimum and shrink the gradients. In the destructive MLP and ResNet runs, the gradients instead grow as loss continues to fall. The network therefore encounters steeper slopes even while making progress on the training objective. From a representation-learning perspective, this suggests a tension between acquiring new information and retaining structure already encoded in the weights: later updates can undo parameter changes through which that structure was learned.
 
-How long does this interference persist? The cosine $\rho_t$ compares only two consecutive updates. In all nine runs, the sum of gradient inner products over all pairs is positive, including the seven runs in which the sum over adjacent pairs is negative. An update can therefore oppose its immediate predecessor while reinforcing earlier changes. This motivates examining alignment across longer lags.
+The cosine $\rho_t$ tells us whether an update reverses part of the preceding step. How far back does this oscillation extend?
 
 \begin{figure*}[tp]
 \centering
@@ -49,25 +49,11 @@ How long does this interference persist? The cosine $\rho_t$ compares only two c
 \label{fig:gd-backward}
 \end{figure*}
 
-\subsection{Oscillation across Temporal Lags}
+Figure~\ref{fig:gd-backward} compares the gradient at step 2,256 with each of the preceding 256 gradients at the highest learning rate tested for each model. Across all three models, the first two lags reveal the same pattern: the current update nearly reverses the preceding one and points in nearly the same direction as the update two steps earlier.
 
-We next ask whether destructive alignment reflects an isolated pair
-of updates or a recurring temporal structure. Figure~\ref{fig:gd-backward}
-fixes the gradient after 2,256 updates and compares it with the preceding
-256 gradients, using the highest rate for each model. The first lags
-alternate between strongly negative odd-lag and strongly positive
-even-lag alignment. This is direct evidence of repeated back-and-forth
-motion: a gradient can oppose its immediate predecessor while reinforcing
-the direction from two steps earlier.
+The models differ in how quickly this alignment weakens with separation. At lag eight, the cosine has fallen to $0.54$ in the MLP and $0.49$ in ResNet, while it remains $0.96$ in the Transformer. Strong alignment can also recur at much longer lags. In the MLP, the gradient at step 2,256 is nearly orthogonal to the gradient 15 steps earlier, yet aligns with the gradient 202 steps earlier and opposes the one 203 steps earlier.
 
-Across the first several backward lags, the positive and negative
-alignment peaks shrink rapidly for the MLP and ResNet and more slowly
-for the Transformer. This describes increasing separation from the fixed
-endpoint. At longer lags, alignment can strengthen again, so its
-magnitude does not decrease monotonically with separation. These
-recurrences show how opposition to the immediate predecessor can coexist
-with alignment to earlier gradients. Such dependence across multiple
-lags occurs under plain GD, which has no momentum state.
+Taken together, Figs.~\ref{fig:gd-alignment-displacement} and~\ref{fig:gd-backward} show why GD can accumulate parameter displacement so inefficiently in a destructive regime. Successive updates repeatedly undo part of the preceding change, so the weights travel a long path while retaining little net displacement. Does this back-and-forth motion persist under an adaptive optimizer such as Adam, and does it carry through to the representations encoded by the weights? If it does, successive updates should move the hidden representation of the same input in opposing directions. Section~\ref{sec:adam} examines this prediction by tracing changes in hidden representations and outputs during Adam training.
 
 \begin{figure*}[!t]
 \centering
