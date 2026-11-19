@@ -58,7 +58,7 @@ Taken together, Figs.~\ref{fig:gd-alignment-displacement} and~\ref{fig:gd-backwa
 \begin{figure*}[!t]
 \centering
 \includegraphics[width=\textwidth]{figures/sgd_batch_size_compact.pdf}
-\caption{Sampled-gradient alignment during 200-update continuations from initialization or a 2,000-update GD state. Lines equally weight three initialization means after repetition averaging; shading spans those means. Hollow rightmost markers denote full GD. Learning rates are $0.02$, $0.1$, and $0.2$ for the MLP, ResNet, and Transformer, respectively. ResNet sampling preserves complete fixed 1,000-image normalization groups; Transformer batch sizes count prepared sequences. Batch axes are logarithmic. Equal update budgets entail unequal data exposure.}
+\caption{Sampled-gradient alignment during 200-update continuations from initialization or a 2,000-update GD state. Lines equally weight three initialization means after repetition averaging; shading spans those means. Hollow rightmost markers denote full GD. Learning rates are $0.02$, $0.1$, and $0.2$ for the MLP, ResNet, and Transformer, respectively. Each ResNet batch contains one or more whole BatchNorm groups from the full-batch GD run, making one group (1,000 images) the smallest batch. Transformer batch sizes count prepared sequences. Batch axes are logarithmic. Equal update budgets entail unequal data exposure.}
 \label{fig:sgd-moving-geometry}
 \end{figure*}
 \subsection{Mini-Batch Attenuation of Directional Alignment}
