@@ -1,23 +1,21 @@
 \section{Empirical Characterization of Constructive and Destructive Regimes}
 \label{sec:gd-experiments}\label{sec:gd}
 
-In this section, we empirically characterize the constructive and destructive regimes defined in Section~\ref{sec:regimes}. We examine how the learning rate affects curvature and gradient alignment, and how successive updates accumulate into net parameter displacement. We first train an MLP and a ResNet-32 on CIFAR-10 and a Transformer on WikiText-2 using full-batch GD. For each model, we compare three learning rates from the same initialization, using the full training objective for 3,000 updates per run (Table~\ref{tab:setup}). We then vary the mini-batch size in separate runs starting from initialization or from a trained state to test how sampling affects alignment between consecutive gradients.
+We empirically characterize the constructive and destructive regimes defined in Section~\ref{sec:regimes}. We use three settings studied by Cohen et al.~\cite{cohen2021edge} in their work on the Edge of Stability: a tanh MLP and a ResNet-32 trained on CIFAR-10, and a Transformer trained on WikiText-2. These settings let us examine how successive updates reinforce or oppose one another as the loss landscape sharpens in image classification and language modeling. We begin with full-batch GD to isolate this behavior from mini-batch sampling noise. For each model, we compare three learning rates from the same initialization over 3,000 updates (Table~\ref{tab:setup}). We then vary batch size in separate runs starting from initialization or from a trained state to test how sampling affects gradient alignment at different stages of training.
 
 \begin{table*}[!t]
 \centering\small
-\caption{Objectives and coverage. The complete training objective supplies every full-batch GD/Adam update. Reference examples are fixed diagnostic sets; they do not replace that objective. GD runs have 3,000 updates; the Adam overview has 1,024.}
+\caption{Full-batch gradient descent settings.}
 \label{tab:setup}
 \setlength{\tabcolsep}{5pt}
 \begin{tabular}{@{}l>{\raggedright\arraybackslash}p{2.0in}>{\raggedright\arraybackslash}p{1.7in}>{\raggedright\arraybackslash}p{1.85in}@{}}
 \toprule
- & CIFAR-10 / MLP & CIFAR-10 / ResNet-32 & WikiText-2 / Transformer \\
+ & MLP / CIFAR-10 & ResNet-32 / CIFAR-10 & Transformer / WikiText-2 \\
 \midrule
-Architecture & Two tanh hidden layers, width 200 & Three residual block groups & Two layers, two heads; widths 200 \\
-Objective & Half squared error; sum over ten outputs, mean over images & Mean cross-entropy; 50 fixed BatchNorm groups & Token-weighted negative log likelihood \\
-Training coverage & First 5,000 training images & All 50,000 training images & 59,680 sequences; 2,088,600 valid targets \\
-GD rates & $.004,\ .02,\ .04$ & $.025,\ .05,\ .1$ & $.05,\ .1,\ .2$ \\
-Displayed Adam rate & $.001$ & $.003$ & $.003$ \\
-Reference examples & All 5,000 training images & First intact 1,000-image group & First 64 sequences; 2,240 positions \\
+Architecture & Two tanh hidden layers, width 200 & Three residual stages & Two layers, two attention heads, width 200 \\
+Training data & First 5,000 training images & All 50,000 training images & 59,680 sequences, 2,088,600 target tokens \\
+Training loss & Half squared error summed over outputs and averaged over images & Mean cross-entropy & Mean negative log-likelihood over target tokens \\
+Learning rates & $0.004,\ 0.02,\ 0.04$ & $0.025,\ 0.05,\ 0.1$ & $0.05,\ 0.1,\ 0.2$ \\
 \bottomrule
 \end{tabular}
 \end{table*}

@@ -8,8 +8,8 @@ how large they become, and whether different parts of the network share
 their timing. We compare the same inputs at successive training states;
 otherwise, a representation difference could arise simply because the
 examples changed. The reference sets are all 5,000 MLP training images,
-one original 1,000-image ResNet normalization group, and 64 Transformer
-sequences with 2,240 unchanged token positions (Table~\ref{tab:setup}).
+the first 1,000-image ResNet normalization group, and the first 64 Transformer
+sequences with 2,240 unchanged token positions.
 
 A training state $\theta_t$ is the parameter state after $t$ completed
 updates. For a window $a{:}b$, we analyze the $T_w=b-a+1$ representation

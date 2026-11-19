@@ -95,13 +95,9 @@ $-\varepsilon_t/\eta$.
 \label{app:validation}
 
 \subsection{Objectives and experimental design}
-Table~\ref{tab:setup} gives architectures, objective reductions, and
-data coverage. MLP inputs use coordinate-wise standardization; ResNet
-uses channel-wise standardization, both from training-split statistics.
-ResNet retains fixed training-mode BatchNorm groups throughout training
-and measurement. There is no augmentation or dropout.
+For CIFAR-10~\cite{krizhevsky2009cifar}, we use coordinate-wise standardization for the MLP and channel-wise standardization for ResNet-32~\cite{he2016residual}, both using training-split statistics. ResNet computes BatchNorm statistics within 50 fixed groups of 1,000 images throughout training and measurement. Its full-batch gradient averages the gradients of the mean loss across these equally sized groups. There is no augmentation or dropout.
 
-The Transformer forms sequences of at most 35 tokens from twenty streams.
+The Transformer~\cite{vaswani2017attention} forms sequences of at most 35 tokens from twenty streams of WikiText-2~\cite{merity2017pointer}.
 Its 33,278-word dictionary follows the pinned PyTorch example
 revision~\cite{pytorchWordLanguageModelPinned}, including words from
 training, validation, and test text. This is a fixed-objective dynamics

@@ -23,6 +23,8 @@ The bias-corrected direction and parameter update are
 Moments start at zero before $t=0$, and the operations on second moments
 are coordinatewise. The experiments use the native Adam update with
 $(\beta_1,\beta_2)=(.9,.999)$ and $\epsilon=10^{-8}$, without weight decay.
+The Adam overview uses 1,024 full-batch updates per model, with learning rates
+of $0.001$ for the MLP and $0.003$ for both ResNet-32 and the Transformer.
 
 Although Adam transforms the raw gradient, consecutive gradients are
 evaluated at states separated by the actual Adam update. Their alignment
