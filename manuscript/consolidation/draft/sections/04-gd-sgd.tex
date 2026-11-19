@@ -1,14 +1,7 @@
 \section{Empirical Characterization of Constructive and Destructive Regimes}
 \label{sec:gd-experiments}\label{sec:gd}
 
-We test how constructive and destructive regimes emerge, how curvature
-relates to gradient size and alignment, and how repeated reversal
-coexists with accumulated parameter change. Table~\ref{tab:setup}
-summarizes the three model--dataset cases and learning rates. Within
-each model, all GD rates share one initialization and the complete
-training objective for 3,000 updates. Full-batch GD isolates these
-dynamics from sampling noise; subsequent mini-batch continuations
-test the effect of sampling.
+In this section, we empirically characterize the constructive and destructive regimes defined in Section~\ref{sec:regimes}. We examine how the learning rate affects curvature and gradient alignment, and how successive updates accumulate into net parameter displacement. We first train an MLP and a ResNet-32 on CIFAR-10 and a Transformer on WikiText-2 using full-batch GD. For each model, we compare three learning rates from the same initialization, using the full training objective for 3,000 updates per run (Table~\ref{tab:setup}). We then vary the mini-batch size in separate runs starting from initialization or from a trained state to test how sampling affects alignment between consecutive gradients.
 
 \begin{table*}[!t]
 \centering\small
