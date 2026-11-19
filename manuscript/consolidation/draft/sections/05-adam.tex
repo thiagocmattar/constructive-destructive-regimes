@@ -34,7 +34,7 @@ along the trajectory followed by the optimizer (Appendix~\ref{app:math}).
 We first characterize the gradient response along Adam's trajectory,
 then trace the corresponding functional changes through the network.
 The following section tests interventions from matched training states.
-The complete experimental grid is specified in Appendix~\ref{app:validation}.
+The complete experimental grid is specified in Supplementary Section~S3.
 
 \subsection{Characterizing Loss Spikes}
 \label{subsec:characterization}
@@ -294,9 +294,9 @@ use a small set of patterns. The top row shows concentration of squared
 movement in the leading output modes, alongside the corresponding
 gradient decomposition. The output needs 5/20/15 patterns to capture
 95\% of squared movement in the 51/61/49-change MLP/ResNet/Transformer
-windows (Table~\ref{tab:app-spectral}). Concentration can reflect both repeated
+windows. Concentration can reflect both repeated
 directions and a few large changes; the equal-length and orthogonal
-controls in Appendix~\ref{app:validation} separate these effects.
+controls in Supplementary Section~S4 separate these effects.
 The middle row extends the analysis through the network: $E_1^\ell$
 and $E_{10}^\ell$ show concentration at each site, whereas $O_{10}$ shows
 how much its leading temporal structure is shared with the final output.
@@ -314,7 +314,7 @@ Together, the two figures and the small retention values characterize
 coordinated, approximately low-dimensional functional oscillation in
 these windows. The temporal Gram matrix $D_\ell D_\ell^\top$ permits
 the analysis without storing all spatial modes; implementation and
-numerical checks are in Appendix~\ref{app:validation}. The resulting
+numerical checks are in Supplementary Section~S4. The resulting
 intervention question is whether limiting the magnitude of local
 representation changes can reduce loss excursions while preserving
 subsequent training progress.

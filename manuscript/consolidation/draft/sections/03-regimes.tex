@@ -173,7 +173,7 @@ product by the expected squared norm gives
    \frac{N-b}{b(N-1)}\operatorname{tr}\Sigma(\theta)}.
   \label{eq:noise-cosine-approx}
 \end{equation}
-Appendix~\ref{app:batch-alignment} derives these relations. At a fixed state, the numerator is the squared norm of the full gradient, the mean shared by both batch gradients. Smaller batches increase the sampling variance in the denominator, bringing the predicted mean cosine closer to zero. Therefore, along a training trajectory, this suggests that smaller batches attenuates the alignment in magnitude between steps, making $\rho_t$ closer to zero independent of being in a constructive or destructive regime. Section~\ref{sec:sgd-noise-experiments} finds weaker negative alignment in all three models when training resumes from a shared trained state.
+At a fixed state, the numerator is the squared norm of the full gradient, the mean shared by both batch gradients. Smaller batches increase the sampling variance in the denominator, bringing the predicted mean cosine closer to zero. Therefore, along a training trajectory, this suggests that smaller batches attenuates the alignment in magnitude between steps, making $\rho_t$ closer to zero independent of being in a constructive or destructive regime. Section~\ref{sec:sgd-noise-experiments} finds weaker negative alignment in all three models when training resumes from a shared trained state.
 
 \subsection{Conditions for Loss Decrease and Increase}
 \label{subsec:loss-connection}\label{subsec:loss}
