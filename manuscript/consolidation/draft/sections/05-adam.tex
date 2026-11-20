@@ -44,12 +44,7 @@ We then ask whether raw gradients can predict a loss increase before Adam applie
 
 Each Adam update changes the network's hidden representations and predictions. We ask how the constructive and destructive regimes observed in the gradients manifest in these functional changes. Around a loss spike in each model, we follow the same inputs across successive updates and trace their representations from the output back toward the input. Across all three spike windows, the predictions repeatedly move back and forth along a small set of directions. By the end of each window, the net output displacement is only 1.7--3.5\% of the total distance traveled. Thus, across the spike, successive Adam updates largely undo one another's changes to the predictions.
 
-
-We compare the same inputs at successive training states; otherwise, a representation difference could arise simply because the examples changed. The reference sets are all 5,000 MLP training images, the first 1,000-image ResNet normalization group, and the first 64 Transformer sequences with 2,240 unchanged token positions.
-
-A training state $\theta_t$ is the parameter state after $t$ completed updates. For a window $a{:}b$, we analyze the $T_w=b-a+1$ representation changes ending at steps $a,\ldots,b$. Computing their consecutive cosines requires states $a-2,\ldots,b$: the first cosine compares the changes ending at $a-1$ and $a$.
-
-A measured \emph{site} is a named output in the computation graph. It can be a single layer, an attention module, or the end of a residual block group; we record that output rather than averaging internal layers. At the final site, we use raw outputs for the MLP and log probabilities over all classes or words for ResNet and Transformer. Write its activation matrix as $A_t^\ell\in\mathbb R^{N_\ell\times m_\ell}$. The $N_\ell$ rows identify reference examples and, where relevant, spatial or token positions; columns identify the $m_\ell$ features at each position. The preceding update changes this representation by
+We track how each Adam update changes the network's responses to a fixed set of inputs. A measured site $\ell$ is the output of a selected layer, attention module, or residual block group, or the final network output. Let $A_t^\ell$ collect the responses at site $\ell$ after $t$ updates, with its $N_\ell$ rows indexing the same examples or input positions across steps and its $m_\ell$ columns indexing features. The $t$th update induces the representation change
 \begin{equation}
  \delta_t^\ell=\operatorname{vec}(A_t^\ell-A_{t-1}^\ell)
  \in\mathbb R^{P_\ell},\qquad P_\ell=N_\ell m_\ell.
@@ -65,7 +60,7 @@ Each flattened coordinate is one feature's response at one matching input positi
 \end{equation}
 A negative $c_t^\ell$ indicates opposition between the two flattened changes at site $\ell$; positive values indicate reinforcement. This aggregate does not require every feature or reference input to reverse. Thus $c_t^\ell$ provides a representation counterpart to the consecutive gradient alignment measured by $\rho_t$. The root-mean-square (RMS) displacement $a_t^\ell$ measures the RMS size of coordinate changes. A zero change has undefined cosine.
 
-The representation counterpart of normalized displacement is
+Over the updates $t=a,\ldots,b$, we measure the fraction of the total distance traveled at site $\ell$ that remains as net displacement,
 \begin{equation}
  R_{a:b}^\ell=
  \frac{\|\sum_{t=a}^b\delta_t^\ell\|}{\sum_{t=a}^b\|\delta_t^\ell\|}
