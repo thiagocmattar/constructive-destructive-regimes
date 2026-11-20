@@ -2,59 +2,40 @@
 \section{Exact Identities and Approximation Limits}
 \label{app:math}
 
-Let $u_{t-1}:=\theta_t-\theta_{t-1}\ne0$ be the actual parameter change.
-The step-direction estimate measures the change in the gradient component
-along the step per unit distance traveled,
+\emph{Curvature along a completed step.} Let $u_{t-1}=\theta_t-\theta_{t-1}\ne0$ be the applied parameter increment. The gradient change per unit distance in the step direction is
 \begin{equation}
  \boxed{\widehat\kappa_t^{\mathrm{step}}
    :=\frac{u_{t-1}^{\top}(g_t-g_{t-1})}{\|u_{t-1}\|^2}.}
  \label{eq:kappa-step}
 \end{equation}
-For full gradients $g_t=f_t:=\nabla\mathcal L(\theta_t)$ of a fixed objective
-that is twice continuously differentiable along this segment,
+Assume the fixed objective $\mathcal L$ is twice continuously differentiable along the step. Its full gradients $f_t=\nabla\mathcal L(\theta_t)$ satisfy
 \begin{equation}
  f_t-f_{t-1}=\int_0^1H(\theta_{t-1}+a u_{t-1})u_{t-1}\,da.
  \label{eq:app-gradient-integral}
 \end{equation}
-Taking the inner product with $u_{t-1}/\|u_{t-1}\|^2$ gives the exact
-directional curvature averaged over the completed step,
+For full gradients, taking the inner product with $u_{t-1}/\|u_{t-1}\|^2$ expresses the estimator as the average directional curvature along any optimizer's step,
 \begin{equation}
  \widehat\kappa_t^{\mathrm{step}}=
  \int_0^1\frac{u_{t-1}^{\top}H(\theta_{t-1}+a u_{t-1})u_{t-1}}
  {\|u_{t-1}\|^2}\,da.
  \label{eq:step-path-average}
 \end{equation}
-The identity holds regardless of how the optimizer selected the update,
-including momentum and Adam. Computing the estimate uses the two gradients
-and the applied increment, with storage and vector operations linear in the
-number of parameters and no additional backward pass or Hessian--vector product.
-
-This step average need not equal curvature at the
-starting state. If the Hessian is $L_H$-Lipschitz in operator norm along
-the segment, their difference satisfies
+If the Hessian is $L_H$-Lipschitz in operator norm along the step, its change at fraction $a$ of the step is bounded by $L_Ha\|u_{t-1}\|$. Integrating over $a$ bounds the error of using the starting-point curvature,
 \begin{equation}
  \left|\widehat\kappa_t^{\mathrm{step}}-
  \frac{u_{t-1}^{\top}H(\theta_{t-1})u_{t-1}}{\|u_{t-1}\|^2}\right|
  \leq \frac{L_H}{2}\|u_{t-1}\|.
  \label{eq:app-curvature-bound}
 \end{equation}
-The bound follows by integrating $L_Ha\|u_{t-1}\|$ over $a\in[0,1]$.
-For plain SGD, substituting $u_{t-1}=-\eta g_{t-1}$ in
-Eq.~\eqref{eq:kappa-step} recovers Eq.~\eqref{eq:kappa-estimate}.
-Across nonsmooth activation boundaries, the smooth derivation need not
-apply even though the diagnostic remains computable. A zero increment
-leaves step-direction curvature undefined. This estimate describes the completed
-step and does not by itself predict the next loss change.
+The estimator in Eq.~\eqref{eq:kappa-step} requires only the two gradients and the applied increment. It remains computable across nonsmooth boundaries, where the smooth identity may fail. With sampled gradients $g_t=f_t+\xi_t$, sampling adds $u_{t-1}^\top(\xi_t-\xi_{t-1})/\|u_{t-1}\|^2$ to the step average. For plain SGD, $u_{t-1}=-\eta g_{t-1}$ recovers Eq.~\eqref{eq:kappa-estimate} for nonzero gradients, and the added term is $-\varepsilon_t/\eta$.
 
-For full gradients of a smooth, fixed objective, substituting Adam's actual
-increment $u_{t-1}=-\eta_{t-1}d_{t-1}$ into Eq.~\eqref{eq:app-gradient-integral} gives
+\emph{Raw-gradient response under Adam.} For full gradients, substituting Adam's increment $u_{t-1}=-\eta_{t-1}d_{t-1}$ into Eq.~\eqref{eq:app-gradient-integral} gives
 \begin{equation}
  g_t-g_{t-1}=-\eta_{t-1}\int_0^1
  H(\theta_{t-1}-a\eta_{t-1}d_{t-1})d_{t-1}\,da.
  \label{eq:adam-gradient-response}
 \end{equation}
-For nonzero consecutive gradients and constant learning rate $\eta$, taking
-the inner product with $-g_{t-1}/\|g_{t-1}\|^2$ gives
+At constant learning rate $\eta$ and with nonzero consecutive gradients, taking the inner product with $-g_{t-1}/\|g_{t-1}\|^2$ gives the measured response,
 \begin{equation}
   1-\rho_t\frac{\|g_t\|}{\|g_{t-1}\|}
   =\eta\int_0^1
@@ -62,14 +43,9 @@ the inner product with $-g_{t-1}/\|g_{t-1}\|^2$ gives
         {\|g_{t-1}\|^2}\,da.
   \label{eq:adam-projected-response}
 \end{equation}
-For plain GD, the left-hand side equals $\eta\widehat\kappa_t$
-by Eq.~\eqref{eq:kappa-estimate}. Under Adam it measures the gradient
-response along the preceding raw gradient. The step-direction curvature
-in Eq.~\eqref{eq:kappa-step} instead projects onto the actual parameter increment.
+For plain GD this equals $\eta\widehat\kappa_t$. Under Adam the Hessian acts on the update direction $d_{t-1}$, while the projection uses the preceding raw gradient $g_{t-1}$. These directions can differ, whereas Eq.~\eqref{eq:kappa-step} projects onto the applied increment itself.
 
-The quadratic loss-sign criterion can fail on a finite nonlinear step.
-To quantify the discrepancy, set $x=\theta_{t-1}$ and $u=-\eta g_{t-1}$.
-Integration by parts gives the remainder
+\emph{Remainder in the loss change.} For a plain GD or SGD step, write $x=\theta_{t-1}$ and $u=-\eta g_{t-1}$. Integration by parts along the step gives
 \begin{equation}
  \begin{aligned}
  \mathcal E_t
@@ -78,15 +54,4 @@ Integration by parts gives the remainder
  \end{aligned}
  \label{eq:app-loss-remainder}
 \end{equation}
-Substituting $f_t=g_t-\xi_t$ gives the loss identity in the main text.
-For a constant Hessian the remainder vanishes, and full-gradient plain
-GD obeys $\Delta L_t=\eta\|g_{t-1}\|^2(\eta\widehat\kappa_t-2)/2$
-exactly. Under the Lipschitz assumption, subtracting the midpoint Hessian
-inside the integral gives $|\mathcal E_t|\leq L_H\|u\|^3/12$.
-The remainder can therefore change the predicted loss sign on a nonlinear
-step, particularly when the quadratic prediction is near zero.
-
-For sampled gradients $g_t=f_t+\xi_t$, the curvature measurement contains
-the additional term $u_{t-1}^{\top}(\xi_t-\xi_{t-1})/\|u_{t-1}\|^2$.
-Under plain SGD, $u_{t-1}=-\eta g_{t-1}$, this term is
-$-\varepsilon_t/\eta$.
+Substituting $f=g-\xi$ into the endpoint term gives the three terms in Eq.~\eqref{eq:loss-curvature}. For a constant Hessian, the integral vanishes and full-batch GD gives $\Delta L_t=\eta\|g_{t-1}\|^2(\eta\widehat\kappa_t-2)/2$. For an $L_H$-Lipschitz Hessian, the weight $\tfrac12-a$ integrates to zero, so we may subtract $H(x+u/2)$ inside the integral. This yields $|\mathcal E_t|\le L_H\|u\|^3\int_0^1(a-\tfrac12)^2\,da=L_H\|u\|^3/12$, quantifying the uncertainty in the loss sign near the quadratic threshold.
