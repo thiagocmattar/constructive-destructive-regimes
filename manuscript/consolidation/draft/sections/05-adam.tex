@@ -18,7 +18,7 @@ The bias-corrected direction and parameter update are
 \end{equation}
 Moments start at zero before $t=0$, and the operations on second moments are coordinatewise. The experiments use the native Adam update with $(\beta_1,\beta_2)=(.9,.999)$ and $\epsilon=10^{-8}$, without weight decay. The Adam overview uses 1,024 full-batch updates per model, with learning rates of $0.001$ for the MLP and $0.003$ for both ResNet-32 and the Transformer.
 
-Although Adam transforms the raw gradient, consecutive gradients are evaluated at states separated by the actual Adam update. Their alignment and relative magnitudes therefore characterize the gradient response along the trajectory followed by the optimizer (Appendix~\ref{app:math}).
+Although Adam transforms the raw gradient, consecutive gradients are evaluated at states separated by the actual Adam update. Their alignment and relative magnitudes therefore characterize the gradient response along the trajectory followed by the optimizer (see Appendix~\ref{app:math} for the derivation).
 
 We first characterize the gradient response along Adam's trajectory, then trace the corresponding functional changes through the network. The following section tests interventions from matched training states. The complete experimental grid is specified in Supplementary Section~S3.
 
