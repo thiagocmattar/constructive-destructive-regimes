@@ -3,22 +3,19 @@
 
 Can Adam reach a lower training loss while successive changes in its predictions continue to reverse? Motivated by the large output changes near loss peaks in Fig.~\ref{fig:trace-motion}, we cap the change that Adam's proposed update would produce in each selected unit on fixed reference inputs. Across all three models, this reduced mean training loss even as predictions continued to oscillate.
 
-At each selected site $\ell$, we collect the current inputs to the linear map in the $n$ rows of $H_t$ (receptive-field patches for a convolution). With those inputs fixed, Adam's proposed weight and bias increments induce a direct output change $\Delta Z_t^{\mathrm{dir}}$. For each unit $j$, we compute its root-mean-square (RMS) displacement as
+From Eq.~\eqref{eq:adam-update}, Adam proposes the parameter increment $\Delta\theta_t=-\eta_t d_t$. Let $\Delta\theta_{t,j}^{\ell}$ be the block of this increment for unit $j$ at site $\ell$, including its bias when present. The rows of $H_t^\ell$ contain the unit's current inputs at $n$ reference examples or positions (receptive-field patches for a convolution), with a column of ones when the unit has a bias. Holding these inputs fixed, the root-mean-square (RMS) change in the unit's response is
 \begin{equation}
- \Delta Z_t^{\mathrm{dir}}=H_t\Delta W_t^\top+\mathbf1_n\Delta b_t^\top,\qquad
- s_{t,j}^{\ell}=\frac{\|\Delta Z_{t,:,j}^{\mathrm{dir}}\|_2}{\sqrt n}.
+ s_{t,j}^{\ell}=\frac{\|H_t^\ell\,\Delta\theta_{t,j}^{\ell}\|_2}{\sqrt n}.
  \label{eq:vc-score}
 \end{equation}
-Whenever this displacement exceeds the site's budget $\tau_\ell$, we scale the unit's weight and bias increments by the same factor,
+When this displacement exceeds the site budget $\tau_\ell$, we scale the unit's proposed increment according to
 \begin{equation}
- \begin{aligned}
- \gamma_{t,j}&=\min(1,\tau_\ell/s_{t,j}^{\ell}),\\
- (\Delta W^{\mathrm{cap}}_{t,j:},\Delta b^{\mathrm{cap}}_{t,j})
- &=\gamma_{t,j}(\Delta W_{t,j:},\Delta b_{t,j}).
- \end{aligned}
+ \Delta\theta_{t,j}^{\ell,\mathrm{cap}}
+ =\gamma_{t,j}^{\ell}\,\Delta\theta_{t,j}^{\ell},\qquad
+ \gamma_{t,j}^{\ell}=\min\!\left(1,\frac{\tau_\ell}{s_{t,j}^{\ell}}\right).
  \label{eq:vc-cap}
 \end{equation}
-This preserves Adam's proposed direction within each unit. Adam advances its moments before the cap is applied. A zero score or zero calibrated budget gives $\gamma_{t,j}=1$. Updates to earlier layers can also change $H_t$, so the budget bounds only the unit's direct displacement.
+This preserves Adam's proposed direction within each unit. Adam advances its moments before the cap is applied. A zero score or zero calibrated budget gives $\gamma_{t,j}^{\ell}=1$. Updates to earlier layers can also change $H_t^\ell$, so the budget bounds only the unit's direct displacement.
 
 We fix each site's budget at the 25th, 50th, or 75th percentile (q25, q50, or q75) of its unit displacements pooled over the eight Adam updates before treatment. We cap the MLP's two hidden linear maps, all ResNet convolutions, and the Transformer's query, key, value, and feed-forward projections.
 
