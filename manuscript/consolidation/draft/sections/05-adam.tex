@@ -81,18 +81,18 @@ The maps show when each site moves most by plotting its RMS displacement relativ
 
 Across these windows, net output displacement was only 1.71\% of the distance traveled in the MLP, 2.44\% in ResNet, and 3.51\% in the Transformer. Retention was also low at the first measured site in the MLP and ResNet (3.25\% and 3.72\%). The Transformer showed a larger difference across depth: its embedding retained 24.33\% of its path, even as successive updates largely undid one another's changes to the predictions. The embedding's largest change occurred one update after the loss peak, suggesting that training around a spike may reshape even early representations, where gradients can weaken during backpropagation~\cite{glorot2010difficulty}.
 
-Consecutive changes often reverse, but do they revisit the same functional directions across the spike? At each site $\ell$, we stack the changes $(\delta_t^\ell)^\top$ for $t=a,\ldots,b$ as rows of $D_\ell\in\mathbb R^{T_w\times P_\ell}$, where $T_w=b-a+1$. A singular value decomposition (SVD) over the whole window gives
+When consecutive updates reverse, do they repeatedly undo the same pattern of change in the network's predictions? At each site $\ell$, we stack the representation changes $(\delta_t^\ell)^\top$ over the spike window $t=a,\ldots,b$ as rows of $D_\ell$ and compute its singular value decomposition (SVD),
 \begin{equation}
  D_\ell=U_\ell\Sigma_\ell V_\ell^\top.
  \label{eq:temporal-svd}
 \end{equation}
-Each column $v_{\ell,j}$ of $V_\ell$ is a fixed direction in the responses to the reference inputs. The signed coefficient $\alpha_{t,j}^\ell$ gives the displacement along that direction at step $t$,
+Each column $v_{\ell,j}$ of $V_\ell$ describes a fixed direction of change across features and reference inputs. The signed displacement along that direction during update $t$ is the projection
 \begin{equation}
- \delta_t^\ell=\sum_j\alpha_{t,j}^\ell v_{\ell,j},\qquad
- \alpha_{t,j}^\ell=\sigma_{\ell,j}U_{\ell,(t-a+1),j}.
+ \alpha_{t,j}^\ell=\langle\delta_t^\ell,v_{\ell,j}\rangle,\qquad
+ \delta_t^\ell=\sum_j\alpha_{t,j}^\ell v_{\ell,j}.
  \label{eq:pattern-reconstruction}
 \end{equation}
-A change in the sign of $\alpha_{t,j}^\ell$ marks a reversal along the same direction. To measure how much of the movement follows the leading $k$ directions, we order the singular values $\sigma_{\ell,j}$ from largest to smallest and compute their share of the total squared displacement,
+A change in the sign of $\alpha_{t,j}^\ell$ between updates indicates a reversal along that direction. With singular values $\sigma_{\ell,j}$ ordered from largest to smallest, the fraction of squared movement along the first $k$ directions is
 \begin{equation}
  E_k^\ell=\frac{\sum_{j=1}^k\sigma_{\ell,j}^2}
  {\sum_j\sigma_{\ell,j}^2}.
@@ -102,19 +102,17 @@ A change in the sign of $\alpha_{t,j}^\ell$ marks a reversal along the same dire
 \begin{figure*}[!t]
 \centering
 \includegraphics[width=\textwidth]{figures/01-three-model-temporal-structure.pdf}
-\caption{Functional changes over the 51 MLP, 61 ResNet, and 49 Transformer updates in Fig.~\ref{fig:trace-motion}. Top panels show the cumulative fraction of squared movement in the leading modes of the output changes and the raw gradients used by the same updates. The dotted line marks 95\%. Middle panels show the fraction of each site's squared movement in its first mode ($E_1^\ell$) and first ten modes ($E_{10}^\ell$), and the overlap between its leading ten temporal modes and those of the output ($O_{10}$). Bottom panels show the signed displacement along the leading output mode on each update (orange, left axis), divided by $\sqrt{P_F}$ to give a per-coordinate RMS scale. The dashed curve shows full training loss on a separate axis, with a dot at the peak.}
+\caption{Functional changes over the 51 MLP, 61 ResNet, and 49 Transformer updates in Fig.~\ref{fig:trace-motion}. Panels (a)--(c) show the cumulative fraction of squared movement for output changes and the corresponding fraction of squared gradient norms for the raw gradients used by the same updates. The dotted line marks 95\%. Panels (d)--(f) show each site's fraction of squared movement along its first direction ($E_1^\ell$) and first ten directions ($E_{10}^\ell$), and their temporal overlap with the output ($O_{10}$). Panels (g)--(i) show signed displacement along the leading output direction, divided by $\sqrt{P_F}$ for a per-coordinate RMS scale (orange, left axis). The dashed curve shows full training loss on a separate axis, with a dot at the peak.}
 \label{fig:trace-structure}
 \end{figure*}
 
-The output repeatedly reverses along directions that account for a substantial fraction of its movement (Fig.~\ref{fig:trace-structure}, top and bottom). In the MLP, one direction accounts for 53\% of squared output movement, and its coefficient changes sign 42 times across 50 adjacent pairs of updates. In ResNet and the Transformer, the leading direction accounts for 27\% and 42\% of squared movement, with 33 and 22 sign changes, respectively. The coefficient amplitudes distinguish the large swings around the peak from smaller reversals elsewhere in the window.
+Functional change concentrates in a few directions at every measured site. At the output, five directions capture 95\% of squared movement in the MLP, compared with 20 in ResNet and 15 in the Transformer (Fig.~\ref{fig:trace-structure}a--c, orange curves). The raw gradients used by the same updates reach 95\% of their total squared norms with 5, 11, and 6 directions, respectively (dashed blue curves). This concentration extends through the hidden representations. At every displayed site, ten directions capture 82--99\% of squared movement over the window (Fig.~\ref{fig:trace-structure}d--f, blue squares).
 
-Across the MLP, ResNet, and Transformer windows, 5, 20, and 15 directions capture 95\% of squared output movement, respectively. The raw gradients used by the same updates require 5, 11, and 6 directions to capture 95\% of their squared norms. Larger changes carry more weight in these decompositions. After rescaling every output change to unit length, the MLP still requires only five directions, whereas ResNet and the Transformer require 33 and 29 (Supplementary Section~S4). Thus the MLP repeatedly revisits a narrow set of directions even when every update counts equally. In the other two windows, the largest changes account for much of the observed concentration.
+Predictions repeatedly reverse along the direction that carries the most output movement. This direction alone accounts for 53\% of squared output movement in the MLP, 27\% in ResNet, and 42\% in the Transformer (orange marker in the output row of Fig.~\ref{fig:trace-structure}d--f). Panels (g)--(i) follow that same direction one update at a time, plotting its signed displacement $\alpha_{t,1}^F/\sqrt{P_F}$ at the output $F$. The trace changes sign 42, 33, and 22 times, respectively. Thus, across each spike window, successive updates repeatedly reverse the same pattern of change in predictions on the fixed inputs.
 
-How widely is this temporal pattern shared across the network? Although sites have different feature coordinates, their changes are measured at the same steps. Let $U_{\ell,k}$ contain the leading $k$ columns of $U_\ell$. We measure their overlap with the corresponding temporal modes at the output $F$ by
+Later layers more closely share the timing of output oscillations. Each site has its own functional directions, but the columns of $U_\ell$ describe their time courses over the same updates. Let $U_{\ell,k}$ contain the first $k$ columns of $U_\ell$. Their temporal overlap with the output is
 \begin{equation}
- O_k(\ell,F)=\frac{\|U_{\ell,k}^{\top}U_{F,k}\|_F^2}{k}.
+ O_k(\ell,F)=\frac{\|U_{\ell,k}^\top U_{F,k}\|_F^2}{k}.
  \label{eq:overlap}
 \end{equation}
-An overlap of one indicates identical temporal subspaces. In ResNet, $O_{10}$ rises from 0.57 at the first convolution to 0.99 at the end of the final residual stage (Fig.~\ref{fig:trace-structure}, middle). Thus two sites can differ in whether they reverse on a particular update while still sharing a broader pattern of movement across the spike.
-
-Together, the repeated reversals and low output retention suggest that a spike may amplify movement along a few recurring functional directions. Predictions can then change substantially from one update to the next while ending close to where they began relative to the distance traveled. We next test whether limiting the largest local representation changes can reduce loss spikes while preserving training progress.
+An overlap of one indicates identical temporal subspaces. In ResNet, $O_{10}$ rises from 0.57 at the first convolution to 0.99 at the final residual stage. In the Transformer, it rises from 0.46 at the embedding to 0.98 at the final block (Fig.~\ref{fig:trace-structure}e--f, green triangles). Thus, even when early layers and the output differ in whether they reverse on a particular update, the later representations closely track the timing of output changes across the spike. We next test whether limiting the largest local representation changes can reduce loss spikes while preserving training progress.
