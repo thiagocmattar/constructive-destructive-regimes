@@ -50,7 +50,7 @@ We track how each Adam update changes the network's responses to a fixed set of 
  \in\mathbb R^{P_\ell},\qquad P_\ell=N_\ell m_\ell.
  \label{eq:representation-change}
 \end{equation}
-Each flattened coordinate is one feature's response at one matching input position. No examples or features are averaged before measuring the change. Its direction and size are measured using
+At site $\ell$, we measure the alignment between consecutive representation changes by their cosine $c_t^\ell$ and the size of each change by its root-mean-square displacement $a_t^\ell$:
 \begin{equation}
  c_t^\ell=
  \frac{\langle\delta_{t-1}^\ell,\delta_t^\ell\rangle}
@@ -58,9 +58,7 @@ Each flattened coordinate is one feature's response at one matching input positi
  a_t^\ell=\frac{\|\delta_t^\ell\|}{\sqrt{P_\ell}}.
  \label{eq:representation-motion}
 \end{equation}
-A negative $c_t^\ell$ indicates opposition between the two flattened changes at site $\ell$; positive values indicate reinforcement. This aggregate does not require every feature or reference input to reverse. Thus $c_t^\ell$ provides a representation counterpart to the consecutive gradient alignment measured by $\rho_t$. The root-mean-square (RMS) displacement $a_t^\ell$ measures the RMS size of coordinate changes. A zero change has undefined cosine.
-
-Over the updates $t=a,\ldots,b$, we measure the fraction of the total distance traveled at site $\ell$ that remains as net displacement,
+Like $\rho_t$ for gradients, $c_t^\ell$ distinguishes constructive ($c_t^\ell>0$) from destructive ($c_t^\ell<0$) alignment, here over all measured responses at the site. The cosine is defined when both changes are nonzero. To quantify how these changes accumulate over updates $t=a,\ldots,b$, we define displacement retention $R_{a:b}^\ell$ as the ratio of net displacement to total distance traveled:
 \begin{equation}
  R_{a:b}^\ell=
  \frac{\|\sum_{t=a}^b\delta_t^\ell\|}{\sum_{t=a}^b\|\delta_t^\ell\|}
