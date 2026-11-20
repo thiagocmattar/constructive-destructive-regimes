@@ -1,237 +1,60 @@
 \section{Selective Interventions Guided by Representation Changes}
 \label{sec:vc-interventions}
 
-The preceding analysis shows substantial functional movement repeatedly
-reversing with little net displacement. We test whether limiting unusually
-large local changes can improve training outcomes while reversals persist.
-A distributed displacement cap applies the rule to individual units
-across selected sites, scaling Adam's proposed increments according to
-the direct representation changes they would produce. Learning-rate
-reductions, second-moment changes, and gradient clipping provide
-complementary controls at other points in the update.
+Can Adam reach a lower training loss while successive changes in its predictions continue to reverse? Motivated by the large output changes near loss peaks in Fig.~\ref{fig:trace-motion}, we cap the change that Adam's proposed update would produce in each selected unit on fixed reference inputs. Across all three models, this reduced mean training loss even as predictions continued to oscillate.
 
-\subsection{Limiting the change made by an individual unit}
-First, consider a layer that applies a linear map and adds a bias,
-$Z=HW^\top+\mathbf1_n b^\top$. Its current input matrix
-$H_t\in\mathbb R^{n\times d}$ contains the reference examples or their
-spatial/token positions. The weight matrix is
-$W_t\in\mathbb R^{m\times d}$, the bias is $b_t\in\mathbb R^m$, and each
-column of $Z$ is one output unit. Convolutional inputs are the
-corresponding receptive-field patches.
-
-Let $\Delta W_t,\Delta b_t$ be the parameter increments proposed by
-unmodified Adam. Holding the site's current inputs constant, their
-direct effect is
+At each selected site $\ell$, we collect the current inputs to the linear map in the $n$ rows of $H_t$ (receptive-field patches for a convolution). With those inputs fixed, Adam's proposed weight and bias increments induce a direct output change $\Delta Z_t^{\mathrm{dir}}$. For each unit $j$, we compute its root-mean-square (RMS) displacement as
 \begin{equation}
- \Delta Z_t^{\mathrm{dir}}=H_t\Delta W_t^\top+
-       \mathbf1_n\Delta b_t^\top,\qquad
+ \Delta Z_t^{\mathrm{dir}}=H_t\Delta W_t^\top+\mathbf1_n\Delta b_t^\top,\qquad
  s_{t,j}^{\ell}=\frac{\|\Delta Z_{t,:,j}^{\mathrm{dir}}\|_2}{\sqrt n}.
  \label{eq:vc-score}
 \end{equation}
-The score $s_{t,j}^{\ell}$ is the RMS change that the proposed update would
-produce in output unit $j$, evaluated across the reference inputs.
-It measures an activation change, not the norm of the unit's weights
-or gradient.
-
-Let the positive budget $\tau_\ell$ limit each unit's direct RMS change
-at site $\ell$. Scale the proposed weight-row increment and bias
-increment by the same factor
+Whenever this displacement exceeds the site's budget $\tau_\ell$, we scale the unit's weight and bias increments by the same factor,
 \begin{equation}
  \begin{aligned}
  \gamma_{t,j}&=\min(1,\tau_\ell/s_{t,j}^{\ell}),\\
- \Delta W^{\mathrm{cap}}_{t,j:}&=\gamma_{t,j}\Delta W_{t,j:},\qquad
- \Delta b^{\mathrm{cap}}_{t,j}=\gamma_{t,j}\Delta b_{t,j}.
+ (\Delta W^{\mathrm{cap}}_{t,j:},\Delta b^{\mathrm{cap}}_{t,j})
+ &=\gamma_{t,j}(\Delta W_{t,j:},\Delta b_{t,j}).
  \end{aligned}
  \label{eq:vc-cap}
 \end{equation}
-An update whose direct RMS change is twice its budget is halved;
-a smaller update is unchanged. This preserves the direction of the
-unit's proposed weight-and-bias change. The bound covers only its
-direct effect at fixed inputs: changes arriving from earlier layers
-can still produce larger total representation changes. A zero score
-uses factor one; a zero calibrated budget disables that site's cap.
+This preserves Adam's proposed direction within each unit. Adam advances its moments before the cap is applied. A zero score or zero calibrated budget gives $\gamma_{t,j}=1$. Updates to earlier layers can also change $H_t$, so the budget bounds only the unit's direct displacement.
+
+We fix each site's budget at the 25th, 50th, or 75th percentile (q25, q50, or q75) of its unit displacements pooled over the eight Adam updates before treatment. We cap the MLP's two hidden linear maps, all ResNet convolutions, and the Transformer's query, key, value, and feed-forward projections.
 
 \begin{figure*}[!t]
 \centering
 \includegraphics[width=\textwidth]{figures/24-main-intervention-tradeoff.pdf}
-\caption{Final training loss $L_{t_f}$ and accumulated upward loss variation $\mathcal P$ for unchanged Adam and all 33 treated continuations. Both metrics are lower-is-better; gray lines mark the control's values. The horizontal axis is logarithmic; axes differ across models. The vertical axis is linear below $0.001$ (MLP) or $0.01$ (ResNet/Transformer), and logarithmic above, retaining the zero-variation Transformer continuation. Every tested setting is shown; cap settings and unchanged Adam are highlighted, while conventional settings are gray with family-specific markers. Full values are in Table~\ref{tab:vc-outcomes}. One initialization is used per model; settings are not independent replications and their effective strengths are not matched.}
+\caption{Final training loss and accumulated upward loss variation for unchanged Adam and 11 interventions per model. Points below and to the left of the gray control lines improve both outcomes. The horizontal axis is logarithmic. The vertical axis is linear near zero and logarithmic above $0.001$ for the MLP and $0.01$ for ResNet and the Transformer. Table~\ref{tab:vc-outcomes} gives the settings and absolute outcomes.}
 \label{fig:vc-tradeoff}
 \end{figure*}
 
-Budgets are determined before the cap begins. At starting step $t_0$,
-we pool the unmodified per-unit scores from the eight preceding updates
-and choose one quantile for each site
-\begin{equation}
- \begin{aligned}
- \tau_\ell(q)&=\operatorname{Quantile}_q
-       \{s^{\mathrm{Adam},\ell}_{t,j}\},\\
- &t=t_0-8,\ldots,t_0-1,\qquad j=1,\ldots,m_\ell.
- \end{aligned}
- \label{eq:vc-calibration}
-\end{equation}
-The labels q25/q50/q75 denote the 25th/50th/75th percentiles of this
-pooled score distribution, using linear interpolation. Lower quantiles
-give smaller budgets, not fixed fractions of an update or preset numbers
-of capped units. Budgets remain fixed during treatment: this is prefix calibration, not a
-rolling quantile. Current inputs, scores, and per-unit scaling factors
-evolve, but the budget does not. The experiment prespecified q50 and
-also tested q25 and q75; the illustration uses q25, with all three
-retained in the comparison.
-
-\begin{algorithm}[tbp]
-\caption{Distributed displacement cap}
-\label{alg:vc-cap}
-\begin{algorithmic}[1]
-\Require Parameters and Adam state; reference examples; target sites; budgets $\tau_\ell$
-\State Compute the training gradient at $\theta_t$.
-\State Evaluate the reference examples and retain each target site's current inputs $H_t^\ell$.
-\State Compute Adam's proposed parameter increments and advance its moments and step counter.
-\For{each target site with $\tau_\ell>0$}
- \State Compute each output unit's direct RMS change using Eq.~\eqref{eq:vc-score}.
- \State Apply Eq.~\eqref{eq:vc-cap} to its weight row and bias.
-\EndFor
-\State Apply the resulting increments; leave other parameters' increments unchanged and retain the advanced Adam state.
-\end{algorithmic}
-\end{algorithm}
-
-Algorithm~\ref{alg:vc-cap} makes the order explicit: Adam first proposes
-its update and advances its internal moments; the cap then scales the
-selected increments before they reach the parameters. The moments are
-not recomputed from the capped change. This distinction is part of the
-intervention being tested.
-
-The score evaluates only the \emph{local} effect of the proposed
-increment, holding the current site's inputs fixed. Once these inputs
-are available, Eq.~\eqref{eq:vc-score} requires one linear product
-(a convolution for convolutional sites), followed by a squared reduction
-per output unit. It does not forward the proposed update through the
-whole network. The implemented controller also evaluates the reference
-examples to collect current inputs and verifies the rounded increments;
-its total overhead therefore exceeds that local product alone.
-The cap does not identify or suppress SVD modes: it limits direct
-per-unit changes. Concentrated functional movement motivates this test,
-but need not be concentrated in a few neurons. No SVD is computed by
-the cap.
-Appendix~\ref{app:interventions} separates the bounded direct change from
-upstream changes and their interactions.
-
-Kosson et al.~\cite{kosson2024warmup} regulate relative representation
-changes during warmup. Here we test \emph{absolute} per-unit displacement
-during an established oscillatory trajectory, with budgets calibrated
-from preceding updates. This avoids dividing by a possibly small
-activation scale and leaves smaller unit updates intact. Adaptive
-gradient clipping compares raw-gradient and weight norms~\cite{brock2021normalization};
-Benzing derives a descent direction in the space of neuron
-outputs~\cite{benzing2022neurons}. Our cap tests local displacement as an
-intervention target while retaining Adam's direction within each unit
-and its evolving moments. The experiment compares conventional
-interventions, without ranking these other representation-based methods.
-
-\begin{figure*}[!tp]
-\centering
-\includegraphics[width=.97\textwidth]{figures/25-main-q25-functional-motion.pdf}
-\caption{Functional motion under unchanged Adam and the q25 cap. Top: full training loss on logarithmic axes. Remaining rows compare consecutive representation-change cosine and RMS displacement on the same reference examples. Each RMS pair is divided by the same site-specific maximum under unchanged Adam; the color scale includes all values. Sites are the measured outputs used in Fig.~\ref{fig:trace-motion}. Incoming changes are displayed at their completed-step endpoint $t$, without smoothing or averaging over layers. q25 illustrates a setting that improves all three reported training outcomes in all models; all quantiles remain in Table~\ref{tab:vc-outcomes}.}
-\label{fig:vc-motion}
-\end{figure*}
-
-\subsection{Comparing interventions from the same training state}
-Within each model, every intervention and the unchanged Adam control
-starts from the same parameters, optimizer moments, and random state.
-The continuation windows are steps 512--800 for MLP, 256--576 for
-ResNet, and 544--928 for the Transformer. All training updates use the
-complete objectives in Table~\ref{tab:setup}; the reference examples are
-used to measure representation changes and compute the cap.
-
-\input{tables/matched-main-outcomes.tex}
-
-We compare four intervention families. Learning-rate schedules motivate
-changing the step scale~\cite{smith2017cyclical,loshchilov2016sgdr};
-we test immediate multipliers $.75/.5/.1$. Following the second-moment
-mechanism studied for Adam spikes~\cite{bai2026spikes}, we reduce
-$\beta_2$ to $.95/.9/.5$. Global gradient clipping~\cite{pascanu2013difficulty}
-uses norm thresholds $.5/1$. The displacement caps use q25/q50/q75.
-
-The $\beta_2$ changes retain the moments and step counter, using the
-new coefficient in both the recurrence and native bias correction.
-Clipping acts on the full accumulated gradient before Adam. The cap
-acts on Adam's proposed update, targeting both hidden MLP linear maps,
-all ResNet convolutions, and the Transformer's query, key, and value
-(QKV) and feed-forward linear maps. Untargeted parameters keep their
-proposed increments. No intervention waits for a detected loss spike.
-
-To distinguish smoother loss from better loss outcomes over the same
-update budget, define
+Within each model, every continuation starts from the same parameters, Adam moments, and random state and runs for the same number of full-batch updates (Table~\ref{tab:vc-outcomes}). Alongside unchanged Adam and the three caps, we test learning-rate reductions, reductions in Adam's second-moment coefficient $\beta_2$~\cite{bai2026spikes}, and global gradient clipping~\cite{pascanu2013difficulty}. We report final training loss $L_{t_f}$ and summarize the trajectory from $t_0$ to $t_f$ by its mean loss and accumulated upward loss variation,
 \begin{equation}
  \bar L=\frac{1}{t_f-t_0}\sum_{t=t_0+1}^{t_f}L_t,\qquad
  \mathcal P=\sum_{t=t_0+1}^{t_f}\max(L_t-L_{t-1},0).
  \label{eq:vc-outcomes}
 \end{equation}
-Here $t_0$ and $t_f$ are the start and end steps. Mean loss excludes the
-shared starting state; $\mathcal P$ sums all positive consecutive loss
-changes. It is neither the maximum loss nor a count of peaks. Final training loss $L_{t_f}$ records the
-attained endpoint. All three are reported in absolute units, with lower
-values favorable. The fixed windows make their comparison meaningful
-within each model. The losses retain their original definitions: half-squared
-error for MLP and cross-entropy for ResNet and Transformer. Logarithmic
-axes change the display, not the objective or the definition of $\mathcal P$.
 
-Figure~\ref{fig:vc-tradeoff} separates suppression of loss fluctuations
-from the final loss reached over the same update budget. A point below
-and to the left of the control improves both metrics. Mean loss can fall
-simply because peaks shrink, so the horizontal axis uses $L_{t_f}$ rather
-than $\bar L$. The latter remains a trajectory-wide summary in
-Table~\ref{tab:vc-outcomes}. Final loss records the attained endpoint,
-not proof of asymptotic convergence; the last-32-step means in Table~\ref{tab:app-late} help assess sensitivity to its oscillatory phase. Strong
-learning-rate reduction can almost remove upward movement while
-retaining higher final loss than other settings,
-especially in ResNet. Late second-moment changes and clipping are more
-model-dependent: an intervention that helps the Transformer can worsen
-the MLP. Supplementary Section S7 provides complete applied-update histories
-and selected representation trajectories.
+\input{tables/matched-main-outcomes.tex}
 
-All three cap quantiles improve both mean loss and positive variation
-over unchanged Adam in all three cases. The lowest observed mean loss
-in each model belongs to a cap setting. Table~\ref{tab:vc-outcomes}
-also exposes the endpoint tradeoff: ResNet q50 finishes above the
-control, whereas q25 and q75 finish below it. No quantile is best across
-all metrics and models. We use q25 in Fig.~\ref{fig:vc-motion} because
-it improves all three training outcomes in every case; q50 remains the
-experiment's originally prespecified setting.
+All three caps lowered mean training loss and accumulated upward variation relative to unchanged Adam in every model (Table~\ref{tab:vc-outcomes}). Among all tested settings, q50 gave the lowest mean loss in the MLP and Transformer, and q25 in ResNet. Smoother trajectories could still end at higher loss (Fig.~\ref{fig:vc-tradeoff}). In ResNet, a tenfold learning-rate reduction cut upward variation by 99\%, yet final loss rose from 0.0067 under unchanged Adam to 0.245. The q25 cap allowed more fluctuation and reached 0.0049. Every tested clipping threshold and $\beta_2$ reduction raised mean loss in the MLP and lowered it in the Transformer.
 
-The top row of Fig.~\ref{fig:vc-motion} shows the loss trajectories;
-the paired maps show movement size and reversal at each site over time.
-Large output jumps become smaller, while repeated reversals remain.
-Thus q25 improves the reported training-loss outcomes while preserving
-back-and-forth movement. The complete window also matters: attenuating
-the traced ResNet peak does not remove all later oscillations.
-Supplementary Section S7 shows representation trajectories for selected
-conventional interventions.
+\begin{figure*}[!tp]
+\centering
+\includegraphics[width=.97\textwidth]{figures/25-main-q25-functional-motion.pdf}
+\caption{Unchanged Adam and the q25 displacement cap over the matched continuations. The top row shows full training loss. The paired heatmaps show consecutive-change cosine and RMS displacement on the same reference inputs and at the sites in Fig.~\ref{fig:trace-motion}. Each displacement pair uses the same scale, normalized by the site's maximum under unchanged Adam. Changes are plotted at the completed update.}
+\label{fig:vc-motion}
+\end{figure*}
 
-For the squared-loss MLP, output changes give an exact accounting of
-observed loss changes. Let $F_t$ be the output matrix on all $N=5000$
-training examples, $Y$ their targets, and $\Delta F_t=F_{t+1}-F_t$. Then
+Figure~\ref{fig:vc-motion} shows q25 because it lowered all three training metrics in every model. The prespecified q50 setting ended with higher ResNet training loss than unchanged Adam. Under q25, the largest RMS change in predictions fell by 93\% in the MLP, 33\% in ResNet, and 45\% in the Transformer relative to unchanged Adam. Yet consecutive output changes still reversed on 50\%, 60\%, and 89\% of updates, respectively.
+
+The MLP's squared-error loss explains how an output change can point toward the targets and still increase loss. Let $F_t$ and $Y$ be the predictions and targets on all $N=5000$ training examples, and let $\Delta F_t=F_{t+1}-F_t$. The loss change is exactly
 \begin{equation}
- L_{t+1}-L_t=\frac{\langle F_t-Y,\Delta F_t\rangle}{N}
-             +\frac{\|\Delta F_t\|_F^2}{2N}.
+ L_{t+1}-L_t=\frac{\langle F_t-Y,\Delta F_t\rangle_F}{N}
+              +\frac{\|\Delta F_t\|_F^2}{2N}.
  \label{eq:vc-output-loss}
 \end{equation}
-The first term depends on both the direction and magnitude of the
-output change; it is negative when that change points toward reducing
-the current error. The second is nonnegative and grows with the squared
-size of the change. For all 161 baseline rises and 139 of 140 q25 rises
-above $10^{-8}$, the first term is negative but the second is larger.
-An output change directed toward reducing error can therefore still be
-too large. This accounts for the observed loss changes without
-establishing why the cap improves training. The first term need not
-equal the parameter-space directional derivative, and cross-entropy
-requires its own loss readout.
+Among loss increases exceeding $10^{-8}$, the first term was negative in all 161 cases under unchanged Adam and in 139 of 140 under q25. In each of these cases the output moved toward correcting the current error, but the positive squared-displacement term outweighed that gain. The inner product here measures alignment with the current error, whereas the cosine in Fig.~\ref{fig:vc-motion} measures alignment with the preceding output change.
 
-These comparisons support local representation displacement as an
-intervention target in the tested trajectories. The implementation adds
-measurable cost: the recorded MLP cap computation exceeds its full-gradient
-calculation (Appendix~\ref{app:interventions}). The results do not establish
-faster wall-clock training. One initialization per model and unequal
-intervention strengths limit conclusions about a universal optimizer
-ranking. The consistent reductions in mean loss and upward variation
-show that persistent oscillation can be made less disruptive without
-requiring consecutive changes to become constructive.
+In these matched runs, limiting large local changes made functional reversal less disruptive to training. The comparison covers one initialization per model at a fixed update budget. The lower loss at that budget came with additional computational cost. In the MLP, computing the q50 cap took 41.8~ms per update, compared with 4.4~ms for the full gradient.
