@@ -68,14 +68,25 @@ Like $\rho_t$ for gradients, $c_t^\ell$ distinguishes constructive ($c_t^\ell>0$
 \end{equation}
 We analyze one window of completed updates per model. For the MLP, we use steps 451--501 of the existing trace around the loss peak at step 474. For ResNet, steps 390--450 span the last recovered loss spike with a rise above 100\% before step 512 (peak at 415, recovery at 439). For the Transformer, we selected steps 553--601 around the first recovered spike with a rise above 10\% in the recorded control after checkpoint 544. In the traced continuation, loss peaked at step 562 and recovered at 596.
 
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=\textwidth]{figures/00-three-model-loss-representation-motion.pdf}
+\caption{Loss and representation changes in selected Adam windows: steps 451--501 (MLP), 390--450 (ResNet), and 553--601 (Transformer). Top: complete training loss and loss on the reference examples. Middle: cosine between consecutive representation changes; blue denotes reversal and red denotes reinforcement. Bottom: relative RMS displacement $a_t^\ell/\max_{u\in[a,b]}a_u^\ell$, normalized separately within each site and displayed window. The 5/6/6 rows are measured site outputs, not averages of internal layers. Reference sets contain 5,000 images, one original 1,000-image BatchNorm group, and 2,240 token positions. Blue dashed lines mark the first displayed negative output-change cosine; the MLP is already negative at entry. Black dashed lines mark the first loss at least 10\% above the pre-peak minimum. These lines compare timing; they do not identify a unique initiating event.}
+\label{fig:trace-motion}
+\end{figure*}
+
+Figure~\ref{fig:trace-motion} shows that output changes already reverse before the loss rises sharply, while their magnitude is greatest near the peak. In the MLP, all five measured sites remain in the destructive regime throughout the window, even as loss rises and falls. In ResNet and the Transformer, output-side representations can reverse while earlier sites remain in the constructive regime. The first displayed output reversal precedes the 10\% loss-rise marker by 15 updates in ResNet and five in the Transformer.
+
+The RMS displacement maps show when each site moves most. In the MLP, all five sites reach their largest displacement one update after the loss peak. In ResNet, the first convolution reaches its maximum at the peak and the other measured sites one update later. In the Transformer, both attention outputs, both block outputs, and the final output reach their maxima at the peak. The embedding reaches its maximum one update later and returns to constructive movement sooner than the later sites.
+
 Across these windows, net output displacement was only 1.71\% of the distance traveled in the MLP, 2.44\% in ResNet, and 3.51\% in the Transformer. Retention was also low at the first measured site in the MLP and ResNet (3.25\% and 3.72\%). The Transformer showed a larger difference across depth: its embedding retained 24.33\% of its path, even as successive updates largely undid one another's changes to the predictions.
 
-For each site separately, collect the changes at steps $a,\ldots,b$ into $D_\ell\in\mathbb R^{T_w\times P_\ell}$, where $T_w=b-a+1$. Each row is $(\delta_t^\ell)^\top$, and each column follows one fixed input-position/feature coordinate across updates. A single singular value decomposition (SVD) fits the whole window,
+Consecutive changes often reverse, but do they revisit the same functional directions across the spike? To answer this question, we collect the changes at steps $a,\ldots,b$ at each site into $D_\ell\in\mathbb R^{T_w\times P_\ell}$, where $T_w=b-a+1$. Each row is $(\delta_t^\ell)^\top$, and each column follows one fixed input-position/feature coordinate across updates. A single singular value decomposition (SVD) fits the whole window,
 \begin{equation}
  D_\ell=U_\ell\Sigma_\ell V_\ell^\top.
  \label{eq:temporal-svd}
 \end{equation}
-The columns $v_{\ell,j}$ of $V_\ell$ are fixed orthonormal patterns across input-position/feature coordinates. The nonnegative singular values $\sigma_{\ell,j}$ are ordered from largest to smallest; their products with entries of $U_\ell$ give signed coefficients over time:
+For comparison, we separately decompose the raw gradients used by the same updates. The columns $v_{\ell,j}$ of $V_\ell$ are fixed orthonormal patterns across input-position/feature coordinates. The nonnegative singular values $\sigma_{\ell,j}$ are ordered from largest to smallest; their products with entries of $U_\ell$ give signed coefficients over time:
 \begin{equation}
  \delta_t^\ell=\sum_j\alpha_{t,j}^\ell v_{\ell,j},\qquad
  \alpha_{t,j}^\ell=\sigma_{\ell,j}U_{\ell,(t-a+1),j}.
@@ -98,38 +109,6 @@ To compare timing across sites of different widths, we compare the columns of $U
 \end{equation}
 It measures how much of a site's leading time histories lies in the subspace spanned by the final output's leading time histories. A value of one means the same temporal subspace, even if the individual basis vectors differ; zero means orthogonal temporal subspaces. We use $k=10$ within the numerical ranks. This measures shared timing, without backpropagating outputs or equating feature directions at different sites. It is not the fraction of output oscillation caused by a site.
 
-Algorithm~\ref{alg:trace} assembles these measurements.
-
-\begin{algorithm}[H]
-\caption{Tracing representation changes through a network}
-\label{alg:trace}
-\begin{algorithmic}[1]
-\Require Training trajectory; ordered reference examples; measured sites; window $a{:}b$
-\State Evaluate the same examples at states $a-2,\ldots,b$, preserving normalization groups and training state.
-\For{each measured site $\ell$}
- \State Compute consecutive activation differences $\delta_t^\ell$.
- \State Measure change cosine $c_t^\ell$ and RMS displacement $a_t^\ell$; align them with loss at step $t$.
- \State Stack changes $a{:}b$ as rows of $D_\ell$ and compute $R_{a:b}^\ell$.
- \State Decompose $D_\ell D_\ell^\top$ to obtain movement energies and signed coefficient histories.
-\EndFor
-\State Compute temporal overlap $O_k(\ell,F)$ with the final network output.
-\State Analyze the raw gradients used by the same updates separately.
-\end{algorithmic}
-\end{algorithm}
-
-\begin{figure*}[!t]
-\centering
-\includegraphics[width=\textwidth]{figures/00-three-model-loss-representation-motion.pdf}
-\caption{Loss and representation changes in selected Adam windows: steps 451--501 (MLP), 390--450 (ResNet), and 553--601 (Transformer). Top: complete training loss and loss on the reference examples. Middle: cosine between consecutive representation changes; blue denotes reversal and red denotes reinforcement. Bottom: relative RMS displacement $a_t^\ell/\max_{u\in[a,b]}a_u^\ell$, normalized separately within each site and displayed window. The 5/6/6 rows are measured site outputs, not averages of internal layers. Reference sets contain 5,000 images, one original 1,000-image BatchNorm group, and 2,240 token positions. Blue dashed lines mark the first displayed negative output-change cosine; the MLP is already negative at entry. Black dashed lines mark the first loss at least 10\% above the pre-peak minimum. These lines compare timing; they do not identify a unique initiating event.}
-\label{fig:trace-motion}
-\end{figure*}
-
-Figure~\ref{fig:trace-motion} shows where functional oscillation appears. The top row locates the loss excursion. Reading the cosine maps from output toward input shows that, in the MLP, every displayed change has negative aggregate cosine at every measured site, even while loss rises and falls. This shared sign does not imply equal amplitudes or reversal of every coordinate.
-
-Each RMS row is divided by that site's maximum within the window. Its colors therefore show within-site variation, not absolute magnitude differences between sites. For matched pre- and post-tanh coordinates, tanh cannot enlarge displacement because its derivative has magnitude at most one. Quantifying that attenuation requires unnormalized displacements; it cannot be read from these independently scaled rows.
-
-In ResNet and Transformer, output-side representations reverse while earlier representations can continue to reinforce their preceding change. The first displayed output reversal precedes the 10\% loss marker by 15 steps in ResNet and five in Transformer. In ResNet, the first convolution reaches its largest displacement at the loss peak, followed one step later by the remaining displayed sites. In Transformer, the embedding becomes more oscillatory near the large excursion and returns to constructive movement sooner than the later sites. These differences motivate measuring direction and magnitude throughout the network. The measurements locate the observed changes without establishing their causal origin.
-
 \begin{figure*}[!t]
 \centering
 \includegraphics[width=\textwidth]{figures/01-three-model-temporal-structure.pdf}
@@ -137,6 +116,6 @@ In ResNet and Transformer, output-side representations reverse while earlier rep
 \label{fig:trace-structure}
 \end{figure*}
 
-Figure~\ref{fig:trace-structure} asks whether these changes repeatedly use a small set of patterns. The top row shows concentration of squared movement in the leading output modes, alongside the corresponding gradient decomposition. The output needs 5/20/15 patterns to capture 95\% of squared movement in the 51/61/49-change MLP/ResNet/Transformer windows. Concentration can reflect both repeated directions and a few large changes; the equal-length and orthogonal controls in Supplementary Section~S4 separate these effects. The middle row extends the analysis through the network: $E_1^\ell$ and $E_{10}^\ell$ show concentration at each site, whereas $O_{10}$ shows how much its leading temporal structure is shared with the final output. The selected ResNet window has stronger temporal agreement toward the output, with shared structure still extending to the input-side sites. Finally, the bottom row establishes the back-and-forth component that energy fractions alone cannot establish. Repeated changes in the sign of $\alpha_{t,1}^F/\sqrt{P_F}$ show reversal along one fixed output pattern, and its amplitude shows how strongly that pattern moves. The secondary axis overlays the complete-objective loss and marks its peak on the same completed-step clock. This is a retrospective comparison within each fitted window.
+The top row of Fig.~\ref{fig:trace-structure} shows concentration of squared movement in the leading output modes, alongside the corresponding gradient decomposition. The output needs 5/20/15 patterns to capture 95\% of squared movement in the 51/61/49-change MLP/ResNet/Transformer windows. Concentration can reflect both repeated directions and a few large changes; the equal-length and orthogonal controls in Supplementary Section~S4 separate these effects. The middle row extends the analysis through the network: $E_1^\ell$ and $E_{10}^\ell$ show concentration at each site, whereas $O_{10}$ shows how much its leading temporal structure is shared with the final output. The selected ResNet window has stronger temporal agreement toward the output, with shared structure still extending to the input-side sites. Finally, the bottom row establishes the back-and-forth component that energy fractions alone cannot establish. Repeated changes in the sign of $\alpha_{t,1}^F/\sqrt{P_F}$ show reversal along one fixed output pattern, and its amplitude shows how strongly that pattern moves. The secondary axis overlays the complete-objective loss and marks its peak on the same completed-step clock. This is a retrospective comparison within each fitted window.
 
 Together, the two figures and the small retention values characterize coordinated, approximately low-dimensional functional oscillation in these windows. The temporal Gram matrix $D_\ell D_\ell^\top$ permits the analysis without storing all spatial modes; implementation and numerical checks are in Supplementary Section~S4. The resulting intervention question is whether limiting the magnitude of local representation changes can reduce loss excursions while preserving subsequent training progress.
