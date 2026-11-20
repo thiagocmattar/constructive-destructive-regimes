@@ -49,12 +49,13 @@ All three caps lowered mean training loss and accumulated upward variation relat
 
 Figure~\ref{fig:vc-motion} shows q25 because it lowered all three training metrics in every model. The prespecified q50 setting ended with higher ResNet training loss than unchanged Adam. Under q25, the largest RMS change in predictions fell by 93\% in the MLP, 33\% in ResNet, and 45\% in the Transformer relative to unchanged Adam. Yet consecutive output changes still reversed on 50\%, 60\%, and 89\% of updates, respectively.
 
-The MLP's squared-error loss explains how an output change can point toward the targets and still increase loss. Let $F_t$ and $Y$ be the predictions and targets on all $N=5000$ training examples, and let $\Delta F_t=F_{t+1}-F_t$. The loss change is exactly
+The MLP's squared-error loss explains how an output change can point toward the targets and still increase loss. Let $\widehat Y_t$ and $Y$ be the prediction and target matrices on all $N=5000$ training examples, and let $\Delta\widehat Y_t=\widehat Y_{t+1}-\widehat Y_t$. The loss change is exactly
 \begin{equation}
- L_{t+1}-L_t=\frac{\langle F_t-Y,\Delta F_t\rangle_F}{N}
-              +\frac{\|\Delta F_t\|_F^2}{2N}.
+ L_{t+1}-L_t=\frac{\langle\widehat Y_t-Y,\Delta\widehat Y_t\rangle_{\mathrm{F}}}{N}
+              +\frac{\|\Delta\widehat Y_t\|_{\mathrm{F}}^2}{2N}.
  \label{eq:vc-output-loss}
 \end{equation}
+Here $\langle A,B\rangle_{\mathrm{F}}=\sum_{i,j}A_{ij}B_{ij}$ is the Frobenius inner product.
 Among loss increases exceeding $10^{-8}$, the first term was negative in all 161 cases under unchanged Adam and in 139 of 140 under q25. In each of these cases the output moved toward correcting the current error, but the positive squared-displacement term outweighed that gain. The inner product here measures alignment with the current error, whereas the cosine in Fig.~\ref{fig:vc-motion} measures alignment with the preceding output change.
 
 In these matched runs, limiting large local changes made functional reversal less disruptive to training. The comparison covers one initialization per model at a fixed update budget. The lower loss at that budget came with additional computational cost. In the MLP, computing the q50 cap took 41.8~ms per update, compared with 4.4~ms for the full gradient.
