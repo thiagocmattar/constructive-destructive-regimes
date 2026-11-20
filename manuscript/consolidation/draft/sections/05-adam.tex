@@ -73,13 +73,6 @@ Like $\rho_t$ for gradients, $c_t^\ell$ distinguishes constructive ($c_t^\ell>0$
  {\sum_{t=a}^b\|A_t^\ell-A_{t-1}^\ell\|_F}.
  \label{eq:representation-retention}
 \end{equation}
-\begin{figure*}[!t]
-\centering
-\includegraphics[width=\textwidth]{figures/01-three-model-temporal-structure.pdf}
-\caption{Functional changes over the 51 MLP, 61 ResNet, and 49 Transformer updates in Fig.~\ref{fig:trace-motion}. Top panels show the cumulative fraction of squared movement in the leading modes of the output changes and the raw gradients used by the same updates. The dotted line marks 95\%. Middle panels show the fraction of each site's squared movement in its first mode ($E_1^\ell$) and first ten modes ($E_{10}^\ell$), and the overlap between its leading ten temporal modes and those of the output ($O_{10}$). Bottom panels show the signed displacement along the leading output mode on each update (orange, left axis), divided by $\sqrt{P_F}$ to give a per-coordinate RMS scale. The dashed curve shows full training loss on a separate axis, with a dot at the peak.}
-\label{fig:trace-structure}
-\end{figure*}
-
 We analyze one spike window per model. For the MLP, we take steps 451--501 around the peak at step 474 in the existing trace. For ResNet, steps 390--450 span the last recovered loss rise exceeding 100\% before step 512. For the Transformer, we selected steps 553--601 around the first recovered loss rise exceeding 10\% in the recorded control after checkpoint 544.
 
 Figure~\ref{fig:trace-motion} shows that output changes already reverse before the loss rises sharply, while their magnitude is greatest near the peak. In the MLP, all five measured sites remain in the destructive regime throughout the window, even as loss rises and falls. In ResNet and the Transformer, output-side representations can reverse while earlier sites remain in the constructive regime. The first displayed output reversal precedes the 10\% loss-rise marker by 15 updates in ResNet and five in the Transformer.
@@ -105,6 +98,13 @@ A change in the sign of $\alpha_{t,j}^\ell$ marks a reversal along the same dire
  {\sum_j\sigma_{\ell,j}^2}.
  \label{eq:energy}
 \end{equation}
+
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=\textwidth]{figures/01-three-model-temporal-structure.pdf}
+\caption{Functional changes over the 51 MLP, 61 ResNet, and 49 Transformer updates in Fig.~\ref{fig:trace-motion}. Top panels show the cumulative fraction of squared movement in the leading modes of the output changes and the raw gradients used by the same updates. The dotted line marks 95\%. Middle panels show the fraction of each site's squared movement in its first mode ($E_1^\ell$) and first ten modes ($E_{10}^\ell$), and the overlap between its leading ten temporal modes and those of the output ($O_{10}$). Bottom panels show the signed displacement along the leading output mode on each update (orange, left axis), divided by $\sqrt{P_F}$ to give a per-coordinate RMS scale. The dashed curve shows full training loss on a separate axis, with a dot at the peak.}
+\label{fig:trace-structure}
+\end{figure*}
 
 The output repeatedly reverses along directions that account for a substantial fraction of its movement (Fig.~\ref{fig:trace-structure}, top and bottom). In the MLP, one direction accounts for 53\% of squared output movement, and its coefficient changes sign 42 times across 50 adjacent pairs of updates. In ResNet and the Transformer, the leading direction accounts for 27\% and 42\% of squared movement, with 33 and 22 sign changes, respectively. The coefficient amplitudes distinguish the large swings around the peak from smaller reversals elsewhere in the window.
 
