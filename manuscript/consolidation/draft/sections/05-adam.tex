@@ -42,7 +42,10 @@ We then ask whether raw gradients can predict a loss increase before Adam applie
 \subsection{Tracing Oscillations through the Learned Function}
 \label{subsec:tracing}
 
-A parameter update changes the representations computed inside the network and, eventually, its output. We trace these changes backwards from the output toward the input-side layers, asking where they reverse, how large they become, and whether different parts of the network share their timing. We compare the same inputs at successive training states; otherwise, a representation difference could arise simply because the examples changed. The reference sets are all 5,000 MLP training images, the first 1,000-image ResNet normalization group, and the first 64 Transformer sequences with 2,240 unchanged token positions.
+Each Adam update changes the network's hidden representations and predictions. We ask how the constructive and destructive regimes observed in the gradients manifest in these functional changes. Around a loss spike in each model, we follow the same inputs across successive updates and trace their representations from the output back toward the input. Across all three spike windows, the predictions repeatedly move back and forth along a small set of directions. By the end of each window, the net output displacement is only 1.7--3.5\% of the total distance traveled. Thus, across the spike, successive Adam updates largely undo one another's changes to the predictions.
+
+
+We compare the same inputs at successive training states; otherwise, a representation difference could arise simply because the examples changed. The reference sets are all 5,000 MLP training images, the first 1,000-image ResNet normalization group, and the first 64 Transformer sequences with 2,240 unchanged token positions.
 
 A training state $\theta_t$ is the parameter state after $t$ completed updates. For a window $a{:}b$, we analyze the $T_w=b-a+1$ representation changes ending at steps $a,\ldots,b$. Computing their consecutive cosines requires states $a-2,\ldots,b$: the first cosine compares the changes ending at $a-1$ and $a$.
 
