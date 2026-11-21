@@ -71,7 +71,7 @@ for key, value in v.PLOTTED.items():
 manifest['array_checks'].append({'figure':5, 'unchanged_arrays':len(v.PLOTTED)})
 v.PLOTTED.clear()
 
-# Figure 7: retain all spectra, overlaps and coefficients; add matched loss only.
+# Figure 7: layerwise concentration and temporal overlap, then output reversal and loss.
 data = v.trace_data()
 resnet = v.read(ROOT / 'analyses/063-2026-11-07-architecture-instability-tracing/resnet_390_450_results.json')
 motion_path = source(ROOT / 'analyses/063-2026-11-07-architecture-instability-tracing/resnet_390_450_motion.json')
@@ -83,34 +83,28 @@ data['resnet']['loss'] = np.array(motion['loss'])
 # Match the GD panel height in PDF points. Leave room between rows for x-axis labels.
 panel_height = 64.19
 row_gap, top_margin, bottom_margin = 37, 23, 48
-figure_height = 3 * panel_height + 2 * row_gap + top_margin + bottom_margin
-fig, axes = plt.subplots(3, 3, figsize=(7.16, figure_height / 72))
+figure_height = 2 * panel_height + row_gap + top_margin + bottom_margin
+fig, axes = plt.subplots(2, 3, figsize=(7.16, figure_height / 72))
 loss_axes = []
 for col, case in enumerate(v.CASES):
     d = data[case]; r = d['result']; x = d['x']
     records = {s['name']:s for s in r['stages']}; out = d['names'][-1]
-    for name,label,color,ls in [(out,'Output changes',v.COLORS[1],'-'),('raw_gradient','Raw gradients',v.COLORS[0],'--')]:
-        values = np.asarray(r['curves'][name]['spectrum'])
-        assert abs(values.sum()-1)<1e-9
-        v.curve(axes[0,col],np.arange(1,len(values)+1),np.cumsum(values),f'spectrum:{case}:{name}',color=color,ls=ls,lw=1,label=label)
-    axes[0,col].axhline(.95,color='.5',ls=':',lw=.6)
-    axes[0,col].set(xlim=(1,len(x)),ylim=(0,1.03),yticks=[0,.5,1],xlabel='Number of patterns $k$')
-    axes[0,col].set_title(f'({chr(97+col)}) {v.TITLES[col]}',pad=8); v.style(axes[0,col])
     y = np.arange(len(d['names']))
-    for key,label,color,marker in [('top1',r'First pattern $E_1$',v.COLORS[1],'o'),('top10',r'First ten $E_{10}$',v.COLORS[0],'s'),('temporal_top10_overlap',r'Temporal overlap $O_{10}$',v.COLORS[2],'^')]:
+    for key,label,color,marker in [('top1',r'First direction $E_1$',v.COLORS[1],'o'),('top10',r'First ten $E_{10}$',v.COLORS[0],'s'),('temporal_top10_overlap',r'Temporal overlap $O_{10}$',v.COLORS[2],'^')]:
         values = np.array([records[n][key] for n in d['names']])
-        v.curve(axes[1,col],values,y,f'spectral-stages:{case}:{key}',color=color,marker=marker,ms=3,lw=.7,label=label)
-    axes[1,col].set(xlim=(0,1.03),xticks=[0,.5,1],ylim=(len(y)-.5,-.5),xlabel='Movement fraction / overlap')
-    axes[1,col].set_yticks(y,[label.replace('Stage','Group') for label in d['labels']],fontsize=7)
-    v.style(axes[1,col]); v.letter(axes[1,col],chr(100+col))
+        v.curve(axes[0,col],values,y,f'spectral-stages:{case}:{key}',color=color,marker=marker,ms=3,lw=.7,label=label)
+    axes[0,col].set(xlim=(0,1.03),xticks=[0,.5,1],ylim=(len(y)-.5,-.5),xlabel='Movement fraction / overlap')
+    axes[0,col].set_yticks(y,[label.replace('Stage','Group') for label in d['labels']],fontsize=7)
+    axes[0,col].set_title(f'({chr(97+col)}) {v.TITLES[col]}',pad=8)
+    v.style(axes[0,col])
     alpha = np.array(r['curves'][out]['alpha'])/np.sqrt(records[out]['coordinates'])
-    v.curve(axes[2,col],x,alpha,f'output-coefficient:{case}',color=v.COLORS[1],lw=.9)
-    axes[2,col].axhline(0,color='.7',lw=.5)
-    axes[2,col].set(xlim=(x[0],x[-1]),xlabel=v.XLABEL)
-    axes[2,col].set_xticks({'mlp':[451,475,501],'resnet':[390,420,450],'transformer':[553,577,601]}[case])
-    v.style(axes[2,col]); v.letter(axes[2,col],chr(103+col))
-    axes[2,col].tick_params(axis='y',colors=v.COLORS[1])
-    twin = axes[2,col].twinx(); loss_axes.append(twin)
+    v.curve(axes[1,col],x,alpha,f'output-coefficient:{case}',color=v.COLORS[1],lw=.9)
+    axes[1,col].axhline(0,color='.7',lw=.5)
+    axes[1,col].set(xlim=(x[0],x[-1]),xlabel=v.XLABEL)
+    axes[1,col].set_xticks({'mlp':[451,475,501],'resnet':[390,420,450],'transformer':[553,577,601]}[case])
+    v.style(axes[1,col]); v.letter(axes[1,col],chr(100+col))
+    axes[1,col].tick_params(axis='y',colors=v.COLORS[1])
+    twin = axes[1,col].twinx(); loss_axes.append(twin)
     twin.spines['right'].set_visible(True)
     loss = np.asarray(d['loss'])
     v.curve(twin,x,loss,f'loss-overlay:{case}',color='.3',ls='--',lw=.9)
@@ -123,20 +117,20 @@ for col, case in enumerate(v.CASES):
     manifest['loss_overlays'].append({'case':case,'completed_window':[int(x[0]),int(x[-1])],
         'points':len(x),'peak_step':int(x[peak]),'peak_loss':float(loss[peak]),
         'loss_sha256':v.arrsha(loss),'clock_sha256':v.arrsha(x), 'scope':'full training objective; no smoothing'})
-axes[0,0].set_ylabel('Squared movement\nfraction $E_k$')
-axes[2,0].set_ylabel(r'Output $\alpha_{t,1}/\sqrt{P}$', color=v.COLORS[1])
+axes[1,0].set_ylabel(r'Output $\alpha_{t,1}/\sqrt{P}$', color=v.COLORS[1])
 loss_axes[-1].set_ylabel('Training loss',color='.3',labelpad=4)
-handles = axes[0,0].get_legend_handles_labels()[0] + axes[1,0].get_legend_handles_labels()[0]
-fig.legend(handles=handles, loc='lower center', bbox_to_anchor=(.5,.005), ncol=5,
+handles = axes[0,0].get_legend_handles_labels()[0]
+fig.legend(handles=handles, loc='lower center', bbox_to_anchor=(.5,.005), ncol=3,
            frameon=False, columnspacing=1.4, handlelength=2)
 fig.subplots_adjust(left=.12, right=.92, top=1-top_margin/figure_height,
                     bottom=bottom_margin/figure_height, hspace=row_gap/panel_height, wspace=.85)
 save(fig,'01-three-model-temporal-structure.pdf')
 reference = np.load(source(BASE / 'work/resnet_temporal_revision_20261114/plotted_arrays.npz'))
-for key in reference.files:
+retained = {key for key in reference.files if not key.startswith('spectrum:')}
+for key in retained:
     np.testing.assert_array_equal(v.PLOTTED[key],reference[key],err_msg=key)
-assert set(v.PLOTTED)-set(reference.files) == {f'loss-overlay:{c}:{xy}' for c in v.CASES for xy in ['x','y']}
-manifest['array_checks'].append({'figure':7,'unchanged_arrays':len(reference.files),'added_loss_arrays':6})
+assert set(v.PLOTTED) == retained | {f'loss-overlay:{c}:{xy}' for c in v.CASES for xy in ['x','y']}
+manifest['array_checks'].append({'figure':7,'unchanged_arrays':len(retained),'added_loss_arrays':6})
 
 # Figure 8: every point retains its original metrics and axes; highlight caps/control.
 report = json.loads(source(BASE / 'evidence/05-adam/c-intervention/data/matched-results.json').read_text())
