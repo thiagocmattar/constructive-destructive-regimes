@@ -1,5 +1,5 @@
 \begin{table*}[!tp]
-\caption{Absolute matched training outcomes. All numeric outcomes are multiplied by $10^3$; lower is better. Bold marks each column minimum at full precision. Windows are 512--800 (MLP), 256--576 (ResNet), and 544--928 (Transformer), with one initialization per model.}
+\caption{Absolute matched training outcomes. Lower is better. Bold marks each column minimum at full precision. Windows are 512--800 (MLP), 256--576 (ResNet), and 544--928 (Transformer), with one initialization per model.}
 \label{tab:vc-outcomes}
 \centering\fontsize{8.5}{10.5}\selectfont
 \setlength{\tabcolsep}{4pt}
@@ -8,24 +8,24 @@
 \toprule
  & & \multicolumn{3}{c}{CIFAR-10 / MLP} & \multicolumn{3}{c}{CIFAR-10 / ResNet-32} & \multicolumn{3}{c}{WikiText-2 / Transformer} \\
 \cmidrule(lr){3-5}\cmidrule(lr){6-8}\cmidrule(lr){9-11}
-Intervention & Parameter value & $\bar L$ & $\mathcal P$ & $L_{t_f}$ & $\bar L$ & $\mathcal P$ & $L_{t_f}$ & $\bar L$ & $\mathcal P$ & $L_{t_f}$ \\
+Intervention & Parameter value & $10^3 L_{t_f}$ & $10^3\bar L$ & $10^3\mathcal P$ & $10^3 L_{t_f}$ & $10^3\bar L$ & $10^3\mathcal P$ & $10^3 L_{t_f}$ & $10^3\bar L$ & $10^3\mathcal P$ \\
 \midrule
-Adam & --- & 20.8 & 288.4 & 30.3 & 176.5 & 1314.9 & 6.7 & 849.6 & 5886.7 & 917.8 \\
+Adam & --- & 30.3 & 20.8 & 288.4 & 6.7 & 176.5 & 1314.9 & 917.8 & 849.6 & 5886.7 \\
 \addlinespace[3pt]
-\multirow{3}{*}{LR reduction} & $0.75\eta$ & 17.3 & 237.9 & 12.3 & 206.2 & 1662.6 & 21.8 & 824.3 & 3655.5 & 614.0 \\
- & $0.5\eta$ & 15.6 & 2.9 & 10.7 & 224.5 & 1460.9 & 54.5 & 753.1 & 2001.7 & 627.7 \\
- & $0.1\eta$ & 20.1 & \textbf{1.2} & 18.5 & 334.4 & \textbf{13.4} & 244.7 & 802.7 & \textbf{0.0} & 757.2 \\
+\multirow{3}{*}{LR reduction} & $0.75\eta$ & 12.3 & 17.3 & 237.9 & 21.8 & 206.2 & 1662.6 & 614.0 & 824.3 & 3655.5 \\
+ & $0.5\eta$ & 10.7 & 15.6 & 2.9 & 54.5 & 224.5 & 1460.9 & 627.7 & 753.1 & 2001.7 \\
+ & $0.1\eta$ & 18.5 & 20.1 & \textbf{1.2} & 244.7 & 334.4 & \textbf{13.4} & 757.2 & 802.7 & \textbf{0.0} \\
 \addlinespace[3pt]
-\multirow{3}{*}{$\beta_2$ reduction} & 0.95 & 24.3 & 648.8 & 19.2 & 226.7 & 4606.1 & 114.2 & 759.0 & 6307.0 & 593.0 \\
- & 0.9 & 24.6 & 513.2 & 15.9 & 170.3 & 2147.5 & 21.4 & 706.5 & 4137.5 & 606.7 \\
- & 0.5 & 47.2 & 829.1 & 34.8 & 187.6 & 1028.9 & 55.1 & 767.8 & 1200.6 & 646.2 \\
+\multirow{3}{*}{$\beta_2$ reduction} & 0.95 & 19.2 & 24.3 & 648.8 & 114.2 & 226.7 & 4606.1 & 593.0 & 759.0 & 6307.0 \\
+ & 0.9 & 15.9 & 24.6 & 513.2 & 21.4 & 170.3 & 2147.5 & 606.7 & 706.5 & 4137.5 \\
+ & 0.5 & 34.8 & 47.2 & 829.1 & 55.1 & 187.6 & 1028.9 & 646.2 & 767.8 & 1200.6 \\
 \addlinespace[3pt]
-\multirow{2}{*}{Gradient clipping} & 0.5 & 21.2 & 476.7 & 16.7 & 202.1 & 1348.5 & 57.8 & 698.5 & 723.3 & 617.0 \\
- & 1 & 30.8 & 1497.6 & 24.4 & 199.9 & 2441.0 & 62.0 & 717.3 & 2027.5 & 620.1 \\
+\multirow{2}{*}{Gradient clipping} & 0.5 & 16.7 & 21.2 & 476.7 & 57.8 & 202.1 & 1348.5 & 617.0 & 698.5 & 723.3 \\
+ & 1 & 24.4 & 30.8 & 1497.6 & 62.0 & 199.9 & 2441.0 & 620.1 & 717.3 & 2027.5 \\
 \addlinespace[3pt]
-\multirow{3}{*}{Displacement cap} & q25 & 14.4 & 71.2 & 9.7 & \textbf{138.4} & 840.3 & 4.9 & 692.7 & 638.0 & \textbf{550.5} \\
- & q50 & \textbf{14.1} & 35.3 & \textbf{8.7} & 159.9 & 1278.4 & 8.0 & \textbf{681.0} & 221.7 & 703.9 \\
- & q75 & 15.0 & 7.3 & 10.5 & 142.1 & 445.2 & \textbf{4.8} & 681.6 & 72.7 & 583.3 \\
+\multirow{3}{*}{Displacement cap} & q25 & 9.7 & 14.4 & 71.2 & 4.9 & \textbf{138.4} & 840.3 & \textbf{550.5} & 692.7 & 638.0 \\
+ & q50 & \textbf{8.7} & \textbf{14.1} & 35.3 & 8.0 & 159.9 & 1278.4 & 703.9 & \textbf{681.0} & 221.7 \\
+ & q75 & 10.5 & 15.0 & 7.3 & \textbf{4.8} & 142.1 & 445.2 & 583.3 & 681.6 & 72.7 \\
 \bottomrule
 \end{tabular}
 \end{table*}
