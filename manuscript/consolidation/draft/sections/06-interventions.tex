@@ -22,7 +22,7 @@ We fix each site's budget at the 25th, 50th, or 75th percentile (q25, q50, or q7
 \begin{figure*}[!t]
 \centering
 \includegraphics[width=\textwidth]{figures/24-main-intervention-tradeoff.pdf}
-\caption{Final training loss and accumulated upward loss variation for unchanged Adam and 11 interventions per model. Points below and to the left of the gray control lines improve both outcomes. The horizontal axis is logarithmic. The vertical axis is linear near zero and logarithmic above $0.001$ for the MLP and $0.01$ for ResNet and the Transformer. Table~\ref{tab:vc-outcomes} gives the settings and absolute outcomes.}
+\caption{Final training loss and accumulated upward loss variation for 11 interventions, each expressed as a ratio to unchanged Adam for the same model. The solid lines intersect at the Adam baseline $(1,1)$. Points below and to its left improve both outcomes. Horizontal axes are logarithmic with model-specific ranges. The shared vertical axis is linear up to $0.005$ and logarithmic above it. Table~\ref{tab:vc-outcomes} reports the absolute values.}
 \label{fig:vc-tradeoff}
 \end{figure*}
 
