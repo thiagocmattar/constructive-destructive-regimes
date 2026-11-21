@@ -80,7 +80,11 @@ np.testing.assert_array_equal(resnet['completed_steps'], motion['completed_steps
 data['resnet']['result'] = resnet
 data['resnet']['x'] = np.array(resnet['completed_steps'])
 data['resnet']['loss'] = np.array(motion['loss'])
-fig, axes = plt.subplots(3, 3, figsize=(7.16,5.65), gridspec_kw={'height_ratios':[1,1.25,1]})
+# Match the GD panel height in PDF points. Leave room between rows for x-axis labels.
+panel_height = 64.19
+row_gap, top_margin, bottom_margin = 37, 23, 48
+figure_height = 3 * panel_height + 2 * row_gap + top_margin + bottom_margin
+fig, axes = plt.subplots(3, 3, figsize=(7.16, figure_height / 72))
 loss_axes = []
 for col, case in enumerate(v.CASES):
     d = data[case]; r = d['result']; x = d['x']
@@ -122,9 +126,11 @@ for col, case in enumerate(v.CASES):
 axes[0,0].set_ylabel('Squared movement\nfraction $E_k$')
 axes[2,0].set_ylabel(r'Output $\alpha_{t,1}/\sqrt{P}$', color=v.COLORS[1])
 loss_axes[-1].set_ylabel('Training loss',color='.3',labelpad=4)
-fig.legend(*axes[0,0].get_legend_handles_labels(),loc='upper center',bbox_to_anchor=(.52,1.005),ncol=2,frameon=False)
-fig.legend(*axes[1,0].get_legend_handles_labels(),loc='lower center',bbox_to_anchor=(.52,.002),ncol=3,frameon=False)
-fig.subplots_adjust(left=.12,right=.92,top=.91,bottom=.13,hspace=.70,wspace=.85)
+handles = axes[0,0].get_legend_handles_labels()[0] + axes[1,0].get_legend_handles_labels()[0]
+fig.legend(handles=handles, loc='lower center', bbox_to_anchor=(.5,.005), ncol=5,
+           frameon=False, columnspacing=1.4, handlelength=2)
+fig.subplots_adjust(left=.12, right=.92, top=1-top_margin/figure_height,
+                    bottom=bottom_margin/figure_height, hspace=row_gap/panel_height, wspace=.85)
 save(fig,'01-three-model-temporal-structure.pdf')
 reference = np.load(source(BASE / 'work/resnet_temporal_revision_20261114/plotted_arrays.npz'))
 for key in reference.files:
