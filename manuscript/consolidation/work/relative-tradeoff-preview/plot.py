@@ -33,6 +33,8 @@ with np.load(DATA / "matched-curves.npz") as curves:
         ax.set_yscale("symlog", linthresh=.005, linscale=.65)
         ax.margins(x=.08)
         ax.set_ylim(-.0009, 8)
+        ax.set_axisbelow(True)
+        ax.grid(which="major", axis="both", color=".85", linestyle=":", linewidth=.5)
         ax.axvline(1, color=".65", lw=.65)
         ax.axhline(1, color=".65", lw=.65)
         control = controls[case]
@@ -60,6 +62,7 @@ with np.load(DATA / "matched-curves.npz") as curves:
                 ax.annotate(arm[4:], (x, y), xytext=offset, textcoords="offset points",
                             fontsize=7, color=".18")
         ax.set_title(title, fontsize=9, pad=6)
+        ax.set_xlabel(r"Final training loss  $L_{t_f}/L_{t_f}^{\mathrm{Adam}}$", labelpad=3)
         ax.spines[["top", "right"]].set_visible(False)
         ax.set_xticks(x_ticks[case], labels=[f"{tick:g}" for tick in x_ticks[case]])
         ax.set_yticks([0, .01, .1, 1, 5], labels=["0", "0.01", "0.1", "1", "5"])
@@ -67,7 +70,6 @@ with np.load(DATA / "matched-curves.npz") as curves:
         ax.yaxis.set_minor_locator(NullLocator())
         ax.tick_params(length=3, pad=2)
 axes[0].set_ylabel(r"Upward loss variation  $\mathcal{P}/\mathcal{P}^{\mathrm{Adam}}$")
-fig.supxlabel(r"Final training loss  $L_{t_f}/L_{t_f}^{\mathrm{Adam}}$", fontsize=9, y=.11)
 handles = [Line2D([], [], ls="", marker=markers[f], color=c, markersize=4.4, label=l)
            for f, c, l in [("control", ".1", "Unchanged Adam"), ("lr", ".55", "LR reduction"),
                            ("beta2", ".55", r"$\beta_2$ reduction"), ("clipping", ".55", "Gradient clipping"),
