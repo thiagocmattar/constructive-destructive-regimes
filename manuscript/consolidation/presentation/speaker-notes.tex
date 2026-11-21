@@ -1,0 +1,47 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,xcolor,graphicx}
+\usepackage[a4paper,margin=22mm]{geometry}
+\usepackage[hidelinks]{hyperref}
+\definecolor{Teal}{HTML}{007568}
+\definecolor{Ink}{HTML}{172F40}
+\renewcommand{\familydefault}{\sfdefault}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.6em}
+\newcounter{talkslide}
+\newcommand{\slide}[5]{%
+  \stepcounter{talkslide}%
+  \ifnum\value{talkslide}>1\relax\clearpage\fi
+  {\color{Teal}\bfseries SLIDE \thetalkslide\hfill #1}\par
+  {\color{Ink}\large\bfseries #2}\par #5\par
+  \vfill
+  {\centering\setlength{\fboxsep}{0pt}\fcolorbox{Ink!18}{white}{\includegraphics[width=.98\linewidth,page=\thetalkslide]{presentation.pdf}}\par}
+  \medskip{\footnotesize\color{Ink!78}#3\par}}
+\begin{document}
+{\huge\bfseries Speaker notes}\par
+Constructive and Destructive Training Regimes\hfill 45-minute talk\par
+\smallskip\hrule\medskip
+\input{talk}
+\clearpage
+{\LARGE\bfseries Technical questions}\par
+\textbf{Why does the diagnostic extend to any optimizer?}
+For a nonzero applied step \(u=\theta_t-\theta_{t-1}\) and full gradients of a fixed, twice continuously differentiable loss, integrating the gradient along the step gives
+\[
+\frac{u^\top(g_t-g_{t-1})}{\|u\|^2}
+=\int_0^1\frac{u^\top H(\theta_{t-1}+au)u}{\|u\|^2}\,da.
+\]
+The right side is the exact average directional curvature. If the Hessian is \(L_H\)-Lipschitz along the step, the discrepancy from the starting-point curvature is at most \(L_H\|u\|/2\). Substituting \(u=-\eta g_{t-1}\) recovers the GD diagnostic on slide 5. With Adam, use the actual increment to recover this curvature. Sampling adds a projected gradient-noise difference. See manuscript Appendix A.
+
+\textbf{Can a small retention ratio arise without reversals?}
+Yes. With \(T\) equal, mutually orthogonal steps, net displacement grows as \(\sqrt{T}\) while travel grows as \(T\). The ratio is \(1/\sqrt{T}\). This is why the measurements include adjacent cosines and the signed functional projections in addition to retention.
+
+\textbf{What are the singular directions and the temporal overlap?}
+At site \(\ell\), stack response changes as the rows of \(D_\ell=U_\ell\Sigma_\ell V_\ell^\top\).
+A column of \(V_\ell\) is a direction across fixed input and feature coordinates. The fraction of squared movement in the first \(k\) directions is
+\(E_k^\ell=\sum_{j\le k}\sigma_{\ell,j}^2/\sum_j\sigma_{\ell,j}^2\).
+For \(k=10\), compute \(\|U_{\ell,k}^\top U_{\mathrm{out},k}\|_{\rm F}^2/k\).
+Both temporal bases refer to the same updates, even when their sites have different widths. The Frobenius norm squares and sums all entries.
+
+\textbf{Which related results motivate the study?}
+Cohen et al., \emph{Gradient Descent on Neural Networks Typically Occurs at the Edge of Stability} (ICLR 2021), motivates the full-batch settings. Kingma and Ba, \emph{Adam: A Method for Stochastic Optimization} (2014), gives the adaptive update. Bai et al., \emph{Adaptive Preconditioners Trigger Loss Spikes in Adam} (ICML 2026), motivates the second-moment control. This study observes the gradient and functional response and directly tests a hidden-unit cap.
+\end{document}

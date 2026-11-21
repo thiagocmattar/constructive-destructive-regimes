@@ -1,0 +1,40 @@
+\documentclass[aspectratio=169,11pt]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,booktabs,graphicx}
+\usefonttheme{professionalfonts}
+\definecolor{Ink}{HTML}{172F40}
+\definecolor{Teal}{HTML}{007568}
+\definecolor{Rust}{HTML}{A9441D}
+\setbeamercolor{normal text}{fg=Ink,bg=white}
+\setbeamercolor{frametitle}{fg=Ink}
+\setbeamercolor{structure}{fg=Teal}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamersize{text margin left=8mm,text margin right=8mm}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{frametitle}{\vspace{3mm}\insertframetitle\par}
+\setbeamertemplate{footline}{\hspace{8mm}\color{Ink!76}\scriptsize\sourcecredit
+  \hfill\insertframenumber\hspace{8mm}\vspace{2.5mm}}
+\setlength{\parskip}{.35em}
+\newcommand{\sourcecredit}{}
+\newcommand{\point}[1]{{\color{Teal}\bfseries #1}}
+\newcommand{\lead}[1]{{\large #1\par}}
+\newcommand{\displaylineoftext}[1]{{\fontsize{26}{29}\selectfont\bfseries #1\par}}
+\newcommand{\chart}[1]{\begin{center}\includegraphics[width=.97\linewidth,height=4.72cm,keepaspectratio]{figures/#1.pdf}\end{center}}
+\newcommand{\splitview}[2]{\begin{columns}[c,onlytextwidth]\column{.48\textwidth}#1\column{.48\textwidth}#2\end{columns}}
+\newcommand{\slide}[5]{%
+  \begingroup
+  \renewcommand{\sourcecredit}{#3}%
+  \ifnum\value{framenumber}=0\relax
+    \setbeamercolor{background canvas}{bg=Ink}%
+    \setbeamercolor{normal text}{fg=white,bg=Ink}%
+    \renewcommand{\point}[1]{{\color{white!64!cyan}\bfseries ##1}}%
+    \def\talkheading{}%
+  \else
+    \def\talkheading{\frametitle{#2}}%
+  \fi
+  \frame{\usebeamercolor[fg]{normal text}\talkheading #4}%
+  \endgroup}
+\hypersetup{pdftitle={Constructive and Destructive Training Regimes},pdfauthor={Thiago Mattar and coauthors}}
+\begin{document}
+\input{talk}
+\end{document}
