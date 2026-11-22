@@ -83,6 +83,15 @@ cumulative motion or loss progress. Selected rates/objectives, unequal exposure,
 descriptive ranges and batch/runtime confounding in one ResNet block limit
 attribution; no stability/generalization benefit is established.
 
+[Analysis016's exact Hessian diagnostics](../../analyses/016-2026-10-11-rosenbrock-hessian/observations/001-curvature.md)
+reproduce Analysis013's three Rosenbrock trajectories bitwise and measure all
+2,001 positions per rate. Largest eigenvalue rises from 200 to final values
+953.119/984.995/996.329 at LR 0.01/midpoint/0.001; the smallest LR has highest
+final curvature and lowest objective here. The initial smallest eigenvalue is
+-398, so maximum curvature does not describe negative curvature by itself.
+These exact deterministic measurements describe positions under AdamW;
+they do not establish its stability boundary or a causal curvature benefit.
+
 [Analysis014's Gaussian gradient-noise sweep](../../analyses/014-2026-10-10-rosenbrock-gradient-noise/observations/006-sigma-comparison.md)
 keeps Rosenbrock, AdamW decay0.1, start(0,1), three LRs and 2,000 updates,
 with sigma0/0.01/0.1/1/10 and one shared seed1234. In this realization, final

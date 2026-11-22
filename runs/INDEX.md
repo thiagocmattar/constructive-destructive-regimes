@@ -8,11 +8,9 @@
 
 [Run297](297-2026-11-15-cap-q25-temporal-svd/README.md) / H053 / ongoing Analysis065. Completed unchanged-Adam/Q25 continuations from the saved Runs293-295 forks: 64 updates per arm/model, 384 updates and 390 full-objective/probe states. All original coordinates retained for exact temporal/cross Grams and matched 32/32/64-update comparisons. Output rank95: 6 to 10 / 26 to 19 / 15 to 32; squared-motion ratios: 0.01664 / 0.77229 / 0.09635. [Findings and figures](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/017-q25-representation-svd.md). All numerical, source and retrieval checks pass; four PDFs / ten reviewed pages. Owned Spark only, workers finished, 70.434 GB retained, zero cloud spend. No manuscript changes. Next unused run298 / H054.
 
-
 ## Run 296: saved-state activation audit, 15 November 2026
 
 [Run296](296-2026-11-15-checkpoint-activation-audit/README.md) / [Analysis066](../analyses/066-2026-11-15-activation-inactivity/FINDINGS.md) / H052. Completed 21 full-training and 48 reference-state activation measurements of unchanged Adam and caps q25/q50. All source-qualified losses, threshold reductions, observer checks, 150 retrieval hashes and 90 ResNet structural audits pass. Capture took 332.7 seconds on owned Spark; no optimizer updates, Runpod usage or manuscript changes. Next unused run297.
-
 
 ## Runs 293–295: matched interventions, 14 November 2026
 
@@ -85,6 +83,9 @@
 | [052](052-2026-10-10-rosenbrock-noise-sigma-10-lr-1e-3/README.md) | H013: Rosenbrock noisy gradients; sigma 10, LR 1e-3, seed1234 | Completed; 2,000 local updates; replay/optimizer/noise identities verified | Attempt001-local | [001: Noise geometry](052-2026-10-10-rosenbrock-noise-sigma-10-lr-1e-3/observations/001-noise-geometry.md); Analysis014 PDFs reviewed |
 | [053](053-2026-10-10-pythia14m-high-lr-0p02/README.md) | H014: Spark warmup-only LR0.02; loss and g/m/d geometry | Completed; 712/712 updates; zero overflows; outputs retrieved/hashed | Attempt01; detached queue | [Analysis015 results/review](../analyses/015-2026-10-10-spark-high-lr/observations/002-completed-results-and-review.md); two PDFs reviewed |
 | [054](054-2026-10-10-pythia14m-high-lr-0p04/README.md) | H014: matched Spark warmup-only LR0.04 | Completed; 712/712 updates; zero overflows; outputs retrieved/hashed | Attempt01; detached queue | [Analysis015 results/review](../analyses/015-2026-10-10-spark-high-lr/observations/002-completed-results-and-review.md); two PDFs reviewed |
+| [055](055-2026-10-11-rosenbrock-hessian-lr-1e-2/README.md) | H015: Analysis013 replica, LR 0.01; full Hessian at every position | Complete; 2,000 updates and 2,001 Hessians verified; bitwise control038 match | Attempt001-local | [001: Curvature](055-2026-10-11-rosenbrock-hessian-lr-1e-2/observations/001-curvature.md); Analysis016 PDFs reviewed |
+| [056](056-2026-10-11-rosenbrock-hessian-lr-midpoint/README.md) | H015: matched midpoint LR; full Hessian | Complete; 2,000 updates and 2,001 Hessians verified; bitwise control039 match | Attempt001-local | [001: Curvature](056-2026-10-11-rosenbrock-hessian-lr-midpoint/observations/001-curvature.md); Analysis016 PDFs reviewed |
+| [057](057-2026-10-11-rosenbrock-hessian-lr-1e-3/README.md) | H015: matched LR 0.001; full Hessian | Complete; 2,000 updates and 2,001 Hessians verified; bitwise control040 match | Attempt001-local | [001: Curvature](057-2026-10-11-rosenbrock-hessian-lr-1e-3/observations/001-curvature.md); Analysis016 PDFs reviewed |
 | [058](058-2026-10-13-cifar10-eos-calibration/README.md) | Calibration only: CIFAR-10 5k tanh MLP, GD/Adam, RTX/Spark, full geometry and Hessian spectra | Complete; 96 short updates; mathematical/state/hash checks pass; no production run | Attempt01-rtx / Attempt01-spark | [Setup, memory and ETC](058-2026-10-13-cifar10-eos-calibration/REPORT.md) |
 
 | [059](059-2026-10-13-cifar10-eos-gd-lr-4e-3/README.md) | H018: CIFAR-10 5k tanh MLP,GD LR0.004; full geometry/Hessian spectra | Complete;20,000 fixed updates; retrieved/hashed/state-verified | Attempt01-spark; detached queue | [Analysis019](../analyses/019-2026-10-13-cifar10-eos-lr/REPORT.md); final train loss0.096876; four PDFs reviewed |

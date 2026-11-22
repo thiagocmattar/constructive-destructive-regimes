@@ -8,11 +8,9 @@
 
 [H053 / Run297 / Analysis065](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/017-q25-representation-svd.md): paired 64-update continuations give output rank95 6 to 10 / 26 to 19 / 15 to 32 for MLP / ResNet / Transformer. Squared-motion ratios are 0.01664 / 0.77229 / 0.09635; ResNet changes direction across depth, and concentration measures can disagree. Four PDFs / ten pages, 114 compact checks, nine direct SVD checks and 81 source checks pass. One initialization per case; non-MLP traces are fresh matched Spark continuations. 70.434 GB retained on owned Spark, zero cloud spend, manuscript unchanged. Next analysis067 / run298 / H054.
 
-
 ## Activation inactivity and concentration, 15 November 2026
 
 [Analysis066 / Run296 / H052](../analyses/066-2026-11-15-activation-inactivity/FINDINGS.md): all-data saved-state audit distinguishes sparse entries, inactive units and energy concentration. Transformer caps reduce final FF energy dominance without changing dead-unit counts. ResNet has a fixed 50%/75% post-add inactive-channel pattern associated with its zero-initialized branch/padded-shortcut construction; MLP tanh units remain active. Verified 21 full-data passes, 48 reference states, 21 figure pages, no new training or manuscript edits. Spark only, zero cloud cost. Next analysis067 / run297 / H053.
-
 
 ## Matched interventions completed, 14 November 2026
 
@@ -556,6 +554,15 @@ means1.790/1.755/1.748, with later transitions at smaller LR. All5,997 pairs,
 No new optimizer trajectories, cloud resources or billing; this SGD-derived
 quantity is a proxy on AdamW, not a verified Hessian estimator or stability test.
 
+[Analysis016: Rosenbrock Hessian curvature](../analyses/016-2026-10-11-rosenbrock-hessian/README.md)
+completed Runs055-057, reproducing every Analysis013 trajectory array bitwise.
+Exact Hessians/eigenvalues cover all 6,003 positions; final lambda_max is
+953.119/984.995/996.329 at decreasing LRs, from 200 initially. Smallest LR has
+highest final curvature and lowest loss. Both focused and eleven-panel PDFs
+pass numeric/source/render review. Full replay, independent optimizer and
+Hessian/eigenvalue checks pass; 3.11 MB histories retained locally, no cloud
+or billing. Local curvature alone supplies no AdamW stability threshold.
+
 <!-- analysis015:start -->
 [Analysis015: larger Spark learning rates](../analyses/015-2026-10-10-spark-high-lr/observations/002-completed-results-and-review.md)
 completed Runs053/054 at LR0.02/0.04: 712 updates each, complete training and
@@ -821,7 +828,7 @@ SGD remains deferred. Original manuscript assets are preserved.
 - [Surgical changes proposal](../manuscript/archive/2026-10-07-surgical-changes-proposal/README.md):
   evidence, draft changes, and proposed momentum/LR experiments; planning only.
 
-Next run: 055; analysis: 019; hypothesis: H018. Preserve executed inputs and raw evidence.
+Next run: 058; analysis: 019; hypothesis: H018. Preserve executed inputs and raw evidence.
 
 ## Resumed batch-size figure extension
 

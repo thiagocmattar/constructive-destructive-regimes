@@ -1,0 +1,331 @@
+{
+  "conditions": [
+    {
+      "run_id": "Run055",
+      "directory": "runs/055-2026-10-11-rosenbrock-hessian-lr-1e-2",
+      "learning_rate": 0.01,
+      "lr_label": "0.01",
+      "control_directory": "runs/038-2026-10-10-rosenbrock-adamw-new-start-lr-1e-2",
+      "updates": 2000,
+      "initial_loss": 101.0,
+      "final_loss": 0.0009722630595963418,
+      "minimum_observed_loss": 0.0009267890787629013,
+      "minimum_loss_update": 1654,
+      "final_point": [
+        0.9693563324802891,
+        0.9402281427300229
+      ],
+      "final_gradient_norm": 0.30724897006034635,
+      "final_distance_to_minimum": 0.06716925844879565,
+      "first_convergence_threshold_update": null,
+      "final_100_updates_meet_threshold": false,
+      "loss_increase_fraction": 0.4435,
+      "late_loss_median": 0.0009910590606945207,
+      "late_loss_min": 0.0009267890787629013,
+      "late_loss_max": 0.0010670203524199085,
+      "streams": {
+        "raw": {
+          "final_A": 9016.680425456021,
+          "final_B": 7414.5097244681865,
+          "final_ratio": 0.8223103597567278,
+          "median_cosine": -0.9683200604037563,
+          "negative_cosine_fraction": 0.6988494247123562,
+          "late_median_cosine": -0.9850801456312778,
+          "negative_cosine_and_decreased_loss_count": 815,
+          "positive_cosine_and_increased_loss_count": 305,
+          "final_energy": 1171013.7432348933,
+          "final_all_pair": 53803940.71099841,
+          "final_lag_one": 2300118.108584079,
+          "final_beyond_lag_one": 51503822.60241433
+        },
+        "momentum": {
+          "final_A": 8051.030365940661,
+          "final_B": 7414.595395328403,
+          "final_ratio": 0.9209498732852067,
+          "median_cosine": 0.7794624519442822,
+          "negative_cosine_fraction": 0.005502751375687844,
+          "late_median_cosine": 0.6309520952642942,
+          "negative_cosine_and_decreased_loss_count": 9,
+          "positive_cosine_and_increased_loss_count": 885,
+          "final_energy": 946991.6267401759,
+          "final_all_pair": 54029233.24968499,
+          "final_lag_one": 1891494.1180616806,
+          "final_beyond_lag_one": 52137739.131623305
+        },
+        "adaptive": {
+          "final_A": 440.07922774748425,
+          "final_B": 325.24423670724644,
+          "final_ratio": 0.7390583699484911,
+          "median_cosine": 0.7140274855954438,
+          "negative_cosine_fraction": 0.003501750875437719,
+          "late_median_cosine": 0.5537961209566311,
+          "negative_cosine_and_decreased_loss_count": 5,
+          "positive_cosine_and_increased_loss_count": 885,
+          "final_energy": 198.9218473179695,
+          "final_all_pair": 105584.89166396139,
+          "final_lag_one": 358.87566345245295,
+          "final_beyond_lag_one": 105226.01600050894
+        },
+        "displacement": {
+          "final_A": 2.7959080329503285,
+          "final_B": 0.9711973920069696,
+          "final_ratio": 0.3473638548053858,
+          "median_cosine": -0.993616041143098,
+          "negative_cosine_fraction": 0.6643321660830416,
+          "late_median_cosine": -0.9956749014899859,
+          "negative_cosine_and_decreased_loss_count": 764,
+          "positive_cosine_and_increased_loss_count": 323,
+          "final_energy": 0.015820140633343277,
+          "final_all_pair": 0.9274042336077962,
+          "final_lag_one": 0.027720451563306856,
+          "final_beyond_lag_one": 0.8996837820444894
+        }
+      },
+      "curvature": {
+        "positions": 2001,
+        "initial_lambda_max": 200.0,
+        "final_lambda_max": 953.1194912613771,
+        "minimum_lambda_max": 200.0,
+        "minimum_lambda_max_update": 0,
+        "maximum_lambda_max": 954.6781679013201,
+        "maximum_lambda_max_update": 1434,
+        "initial_lambda_min": -398.0,
+        "final_lambda_min": 0.3712908301778839,
+        "negative_lambda_min_positions": 82
+      },
+      "elapsed_seconds": 0.06880140001885593,
+      "history_sha256": "3b9d3fbea1cbac50179c42b8c4f89446f947c569cd877c3e38ba96f00240fda4",
+      "history_bytes": 1042137,
+      "first_y_turn": {
+        "update": 81,
+        "point": [
+          0.6496286832061973,
+          0.3648314219018606
+        ],
+        "lambda_max": 553.5003071339471,
+        "lambda_min": 8.988035358370055
+      },
+      "first_nonnegative_lambda_min_update": 66
+    },
+    {
+      "run_id": "Run056",
+      "directory": "runs/056-2026-10-11-rosenbrock-hessian-lr-midpoint",
+      "learning_rate": 0.0031622776601683794,
+      "lr_label": "0.0031622776601683794",
+      "control_directory": "runs/039-2026-10-10-rosenbrock-adamw-new-start-lr-midpoint",
+      "updates": 2000,
+      "initial_loss": 101.0,
+      "final_loss": 0.00011795811865859671,
+      "minimum_observed_loss": 0.00010525967067664174,
+      "minimum_loss_update": 1469,
+      "final_point": [
+        0.9896366979357687,
+        0.9797057568065426
+      ],
+      "final_gradient_norm": 0.1628921313015886,
+      "final_distance_to_minimum": 0.02278715288204503,
+      "first_convergence_threshold_update": null,
+      "final_100_updates_meet_threshold": false,
+      "loss_increase_fraction": 0.3625,
+      "late_loss_median": 0.00011189108274105576,
+      "late_loss_min": 0.00010525967067664174,
+      "late_loss_max": 0.00011965979275317555,
+      "streams": {
+        "raw": {
+          "final_A": 25112.309187094714,
+          "final_B": 23907.220011849622,
+          "final_ratio": 0.9520120126641165,
+          "median_cosine": -0.9225581141424184,
+          "negative_cosine_fraction": 0.5967983991995998,
+          "late_median_cosine": -0.9843791993664659,
+          "negative_cosine_and_decreased_loss_count": 708,
+          "positive_cosine_and_increased_loss_count": 240,
+          "final_energy": 3633371.455411103,
+          "final_all_pair": 567921797.2395719,
+          "final_lag_one": 7226341.79714154,
+          "final_beyond_lag_one": 560695455.4424304
+        },
+        "momentum": {
+          "final_A": 24871.790113755025,
+          "final_B": 23907.275505325415,
+          "final_ratio": 0.9612205392527738,
+          "median_cosine": 0.882351255864197,
+          "negative_cosine_fraction": 0.0,
+          "late_median_cosine": 0.6489223298194932,
+          "negative_cosine_and_decreased_loss_count": 0,
+          "positive_cosine_and_increased_loss_count": 725,
+          "final_energy": 3428578.961808247,
+          "final_all_pair": 568129243.1257243,
+          "final_lag_one": 6854882.451388311,
+          "final_beyond_lag_one": 561274360.674336
+        },
+        "adaptive": {
+          "final_A": 754.8351043502688,
+          "final_B": 515.7582111832994,
+          "final_ratio": 0.6832726885791076,
+          "median_cosine": 0.8473489534997354,
+          "negative_cosine_fraction": 0.0,
+          "late_median_cosine": 0.5736354392941956,
+          "negative_cosine_and_decreased_loss_count": 0,
+          "positive_cosine_and_increased_loss_count": 725,
+          "final_energy": 612.6346648948469,
+          "final_all_pair": 265393.897738102,
+          "final_lag_one": 1191.6021859282912,
+          "final_beyond_lag_one": 264202.29555217375
+        },
+        "displacement": {
+          "final_A": 1.8902280643567877,
+          "final_B": 0.9898447606609873,
+          "final_ratio": 0.5236641965729223,
+          "median_cosine": -0.9900536795043682,
+          "negative_cosine_fraction": 0.5582791395697849,
+          "late_median_cosine": -0.9955107817205668,
+          "negative_cosine_and_decreased_loss_count": 633,
+          "positive_cosine_and_increased_loss_count": 242,
+          "final_energy": 0.005509344994687902,
+          "final_all_pair": 0.9742833052133192,
+          "final_lag_one": 0.010680013484488505,
+          "final_beyond_lag_one": 0.9636032917288306
+        }
+      },
+      "curvature": {
+        "positions": 2001,
+        "initial_lambda_max": 200.0,
+        "final_lambda_max": 984.9949495677463,
+        "minimum_lambda_max": 200.0,
+        "minimum_lambda_max_update": 0,
+        "maximum_lambda_max": 985.607388324719,
+        "maximum_lambda_max_update": 1797,
+        "initial_lambda_min": -398.0,
+        "final_lambda_min": 0.3797003910910064,
+        "negative_lambda_min_positions": 211
+      },
+      "elapsed_seconds": 0.0636802000226453,
+      "history_sha256": "fb065358971a478c5d706183514e621d55874d382884e9bbb6e5eb8c238b31ea",
+      "history_bytes": 1024283,
+      "first_y_turn": {
+        "update": 228,
+        "point": [
+          0.6238761676552245,
+          0.376754314839678
+        ],
+        "lambda_max": 515.6541382973032,
+        "lambda_min": 2.709902848629298
+      },
+      "first_nonnegative_lambda_min_update": 211
+    },
+    {
+      "run_id": "Run057",
+      "directory": "runs/057-2026-10-11-rosenbrock-hessian-lr-1e-3",
+      "learning_rate": 0.001,
+      "lr_label": "0.001",
+      "control_directory": "runs/040-2026-10-10-rosenbrock-adamw-new-start-lr-1e-3",
+      "updates": 2000,
+      "initial_loss": 101.0,
+      "final_loss": 1.1047135695278591e-05,
+      "minimum_observed_loss": 1.099278711084565e-05,
+      "minimum_loss_update": 1905,
+      "final_point": [
+        0.9966943578112849,
+        0.9933650213077523
+      ],
+      "final_gradient_norm": 0.009983228941723933,
+      "final_distance_to_minimum": 0.007412841056328832,
+      "first_convergence_threshold_update": null,
+      "final_100_updates_meet_threshold": false,
+      "loss_increase_fraction": 0.1315,
+      "late_loss_median": 2.9398186216371925e-05,
+      "late_loss_min": 1.099278711084565e-05,
+      "late_loss_max": 0.04716181041584069,
+      "streams": {
+        "raw": {
+          "final_A": 76771.07775281776,
+          "final_B": 74202.92275999753,
+          "final_ratio": 0.9665478840731011,
+          "median_cosine": 0.9998564662933824,
+          "negative_cosine_fraction": 0.25012506253126565,
+          "late_median_cosine": -0.010044368551848759,
+          "negative_cosine_and_decreased_loss_count": 329,
+          "positive_cosine_and_increased_loss_count": 92,
+          "final_energy": 11296356.148571875,
+          "final_all_pair": 5494777389.977587,
+          "final_lag_one": 22552598.477367364,
+          "final_beyond_lag_one": 5472224791.500219
+        },
+        "momentum": {
+          "final_A": 76726.45966733934,
+          "final_B": 74202.91424467786,
+          "final_ratio": 0.9671098414601332,
+          "median_cosine": 0.999988442954597,
+          "negative_cosine_fraction": 0.0,
+          "late_median_cosine": 0.9830259288792436,
+          "negative_cosine_and_decreased_loss_count": 0,
+          "positive_cosine_and_increased_loss_count": 263,
+          "final_energy": 11101167.020270891,
+          "final_all_pair": 5494971315.382745,
+          "final_lag_one": 22200165.27243003,
+          "final_beyond_lag_one": 5472771150.110314
+        },
+        "adaptive": {
+          "final_A": 1774.3450441180537,
+          "final_B": 1145.654171632413,
+          "final_ratio": 0.6456772178727309,
+          "median_cosine": 0.9999830481180466,
+          "negative_cosine_fraction": 0.0,
+          "late_median_cosine": 0.9797008002711233,
+          "negative_cosine_and_decreased_loss_count": 0,
+          "positive_cosine_and_increased_loss_count": 263,
+          "final_energy": 2078.7301917570153,
+          "final_all_pair": 1310444.7507869934,
+          "final_lag_one": 4141.051070680034,
+          "final_beyond_lag_one": 1306303.6997163133
+        },
+        "displacement": {
+          "final_A": 1.6574454652888582,
+          "final_B": 0.9967164420411134,
+          "final_ratio": 0.6013570056541236,
+          "median_cosine": 0.9999825597285263,
+          "negative_cosine_fraction": 0.20060030015007504,
+          "late_median_cosine": 0.9784164273597877,
+          "negative_cosine_and_decreased_loss_count": 231,
+          "positive_cosine_and_increased_loss_count": 93,
+          "final_energy": 0.0019570894850648377,
+          "final_all_pair": 0.9914865763500315,
+          "final_lag_one": 0.003897576999687417,
+          "final_beyond_lag_one": 0.987588999350344
+        }
+      },
+      "curvature": {
+        "positions": 2001,
+        "initial_lambda_max": 200.0,
+        "final_lambda_max": 996.3293093315319,
+        "minimum_lambda_max": 200.0,
+        "minimum_lambda_max_update": 0,
+        "maximum_lambda_max": 996.412281324838,
+        "maximum_lambda_max_update": 1972,
+        "initial_lambda_min": -398.0,
+        "final_lambda_min": 0.4042536167866331,
+        "negative_lambda_min_positions": 634
+      },
+      "elapsed_seconds": 0.06210129999089986,
+      "history_sha256": "114dd625cc630c9c9c871a38d8d561cf8bd3aa0b029837d90c3fb0ec1989d217",
+      "history_bytes": 1039279,
+      "first_y_turn": {
+        "update": 655,
+        "point": [
+          0.6056350805457498,
+          0.362119115447759
+        ],
+        "lambda_max": 495.74372691731264,
+        "lambda_min": 1.5612478487719414
+      },
+      "first_nonnegative_lambda_min_update": 634
+    }
+  ],
+  "updates_per_run": 2000,
+  "curvature_positions_per_run": 2001,
+  "raw_storage_bytes": 3105699,
+  "simulation_and_save_seconds": 0.19458290003240108,
+  "reduction_script": "analyses/016-2026-10-11-rosenbrock-hessian/03_record.py",
+  "reduction_script_sha256": "db2ab34ef173b2e0503741e2c1c20f25b0d06a3c65c7d0e2fc6ad73b17a47e0b"
+}

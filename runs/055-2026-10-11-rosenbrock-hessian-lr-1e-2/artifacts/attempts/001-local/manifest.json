@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "run_id": "Run055",
+  "attempt": "001-local",
+  "status": "completed",
+  "started_utc": "2026-10-11T14:58:30.981030+00:00",
+  "config_sha256": "e5459019d1bb4b985565952ce2d0a6bdc548db47774adf6d3fb076c562045ffc",
+  "source_sha256": "e43c399759e5255e2aa12aa801d6fbf38e64b0ac7b9ebddc0c4d58fe7f6d4f73",
+  "source": "src/controlled/rosenbrock_curvature.py",
+  "base_source": "src/controlled/rosenbrock.py",
+  "base_source_sha256": "deb6f05c631feac3ceb05678462a2443a9a71ca414345148d40fb33127633506",
+  "launcher_sha256": "0d380bccd1a038d7465a4e062e5f31aa1f33e64d91555de89ee428479c59887d",
+  "initial_point_sha256": "fc62429c3e69001d65972cdeb94fb9aa18a7d9c16bc449e1e474e7e41bb95a7d",
+  "execution": "local CPU / NumPy float64",
+  "command": [
+    "runs/055-2026-10-11-rosenbrock-hessian-lr-1e-2/01_run.py"
+  ],
+  "environment": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "numpy": "2.5.0",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "required_outputs": [
+    "history.npz",
+    "summary.json",
+    "final_state.json"
+  ],
+  "curvature_indexing": "H(theta[t]), t=0..2000; post-update point at t>0; no L2 penalty",
+  "completed_utc": "2026-10-11T14:58:31.134993+00:00",
+  "completed_updates": 2000,
+  "verification_sha256": "c9b71e638ce9dd26e79fffa9e77a2d7f9a3727222470da7538d7be30079515ea"
+}
