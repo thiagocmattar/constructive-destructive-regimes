@@ -43,19 +43,20 @@ analyses/009-2026-10-09-intermediate-lr/local-controller.json
 analyses/015-2026-10-10-spark-high-lr/latest-status.json
 analyses/015-2026-10-10-spark-high-lr/local-controller.json
 runs/*/prelaunch/*-log.txt
-manuscript/artifacts/
-manuscript/draft/*.aux
-manuscript/draft/*.bbl
-manuscript/draft/*.blg
-manuscript/draft/*.fdb_latexmk
-manuscript/draft/*.fls
-manuscript/draft/*.out
-manuscript/draft/*.synctex.gz
-manuscript/draft/*.toc
-manuscript/draft/bare_jrnl.pdf
+/manuscript/archive/
+/manuscript/bare_jrnl/*.aux
+/manuscript/bare_jrnl/*.bbl
+/manuscript/bare_jrnl/*.blg
+/manuscript/bare_jrnl/*.fdb_latexmk
+/manuscript/bare_jrnl/*.fls
+/manuscript/bare_jrnl/*.out
+/manuscript/bare_jrnl/*.toc
+/manuscript/bare_jrnl/build/
 
-# Preserve the supplied source archive; it is not a disposable transfer archive.
-!manuscript/latex-zip.zip
+# Reduced inputs for regenerating the presentation's published plots.
+!/manuscript/bare_jrnl/work/figure_revision_20261114/plotted_arrays.npz
+!/manuscript/bare_jrnl/work/resnet_peak_revision_20261114/plotted_arrays.npz
+!/manuscript/bare_jrnl/work/resnet_temporal_revision_20261114/plotted_arrays.npz
 
 # Analysis020 retains raw calibration/noise evidence locally and on owned Spark.
 runs/067-2026-10-14-eos-multitask-calibration/artifacts/

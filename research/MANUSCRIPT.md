@@ -1,6 +1,8 @@
 # Manuscript and evidence
 
-## Active draft restored, 5 November 2026
+The [current journal manuscript](../manuscript/bare_jrnl/bare_jrnl.pdf) is built from the [promoted consolidation sources](../manuscript/bare_jrnl/bare_jrnl.tex). See the [manuscript guide](../manuscript/README.md) for the evidence, presentation and local archive. Earlier entries below refer to the versions in use on their recorded dates.
+
+## Draft restored, 5 November 2026
 
 The author requested archiving the review-session draft and restoring the
 pre-review manuscript at commit `89ec071`. Sources and PDF now match that
@@ -10,7 +12,7 @@ experiment-priority records below are historical, not the active draft status.
 
 ## Reviewer-led experiment priorities, 5 November 2026
 
-[Independent reviews and ranked tests](../manuscript/draft/revisions/2026-11-05-experiment-priorities/README.md)
+[Independent reviews and ranked tests](../manuscript/archive/draft/revisions/2026-11-05-experiment-priorities/README.md)
 recommend retained-data GD/actual-Adam/Pythia audits first, then a bounded
 independent-seed, fixed-checkpoint clipping comparison if new training is chosen.
 A nine-anchor smooth-MLP HVP calibration is optional. The review distinguishes
@@ -19,7 +21,7 @@ No manuscript edits, scientific reductions, launches, spending or new registry I
 
 ## Submission synthesis and closure, 5 November 2026
 
-[Revision package](../manuscript/draft/revisions/2026-11-05-submission-synthesis/README.md)
+[Revision package](../manuscript/archive/draft/revisions/2026-11-05-submission-synthesis/README.md)
 contains a scientific synthesis, central argument, source-pinned evidence
 selection, revised 18-page manuscript and two adversarial review rounds.
 The contribution is diagnostic: adjacent cancellation, cumulative motion
@@ -34,7 +36,7 @@ analysis, hypothesis, experiment or spending; prior records/assets preserved.
 
 ## Adam response and memory revision, 5 November 2026
 
-[Revision and experiment plan](../manuscript/draft/revisions/2026-11-05-human-input-adam/README.md)
+[Revision and experiment plan](../manuscript/archive/draft/revisions/2026-11-05-human-input-adam/README.md)
 integrates the author's Adam proposal and Analysis057's retained-data checks.
 The paper distinguishes projected response, current-slope/update alignment,
 severity association and the analytical curvature comparison. It reports all
@@ -46,7 +48,7 @@ The current PDF is rebuilt and reviewed; no training or cloud resource created.
 
 ## GD/SGD author-input revision, 2026-11-05
 
-The [current revision](../manuscript/draft/revisions/2026-11-05-human-input/README.md)
+The [current revision](../manuscript/archive/draft/revisions/2026-11-05-human-input/README.md)
 implements the supplied argument structure and retained-data analyses.
 [Analysis056](../analyses/056-2026-11-05-gd-paired-displacement/observations/001-paired-displacement.md)
 quantifies adjacent cancellation versus residual accumulation, adds R_perp/Q,
@@ -62,7 +64,7 @@ cloud spending, hypothesis or modification of prior experimental evidence.
 
 ## Second author-feedback pass, 2026-11-03
 
-The [current revision](../manuscript/draft/revisions/2026-11-03-original-argument-feedback-feedback/README.md)
+The [current revision](../manuscript/archive/draft/revisions/2026-11-03-original-argument-feedback-feedback/README.md)
 addresses the next 30 annotations in sequence. Explicit deletions are removed,
 regime terminology and mathematical presentation are simplified, and Adam's raw
 gradients are clearly separated from its adaptive step. A schematic marks the
@@ -78,7 +80,7 @@ revision, supplied feedback and original introduction remain preserved.
 
 ## Author-feedback revision of Sections II-IV, 2026-11-03
 
-The [preceding revision](../manuscript/draft/revisions/2026-11-03-original-argument-feedback/README.md)
+The [preceding revision](../manuscript/archive/draft/revisions/2026-11-03-original-argument-feedback/README.md)
 extracts and addresses all 41 annotations in the original-argument feedback PDF.
 It clarifies stability/EoS context, separates Hessian-free directional-curvature
 estimation, boxes the curvature and local loss-increase relations, and explains
@@ -96,7 +98,7 @@ with no training, Hessian computation or remote execution.
 
 ## Original argument restored, 2026-11-03
 
-The [preceding restoration](../manuscript/draft/revisions/2026-11-03-original-argument-restored/README.md)
+The [preceding restoration](../manuscript/archive/draft/revisions/2026-11-03-original-argument-restored/README.md)
 uses `bba6203`, before the broad writing pass, for the title, abstract, keywords
 and all main sections. This is the version beginning with "Neural scaling laws
 have ushered in new paradigms for interpreting deep learning dynamics." It
@@ -110,7 +112,7 @@ preserved, including the preceding restoration that used the wrong baseline.
 
 ## Superseded restoration of Sections I-IV, 2026-11-03
 
-The [preceding restoration](../manuscript/draft/revisions/2026-11-03-sections-i-iv-restored/README.md)
+The [preceding restoration](../manuscript/archive/draft/revisions/2026-11-03-sections-i-iv-restored/README.md)
 restores Sections I-IV byte for byte from `a4bbf0d`, the concise-appendix
 version immediately preceding the curvature-focused pass. The abstract, title,
 keywords, Adam section, conclusion, appendices and scientific assets remain
@@ -120,7 +122,7 @@ visual checks. No new scientific analysis or experiment is introduced.
 
 ## Full-paper writing revision, 2026-11-03
 
-The [preceding writing revision](../manuscript/draft/revisions/2026-11-03-regime-writing-revision/README.md)
+The [preceding writing revision](../manuscript/archive/draft/revisions/2026-11-03-regime-writing-revision/README.md)
 applies the author's clarified writing methodology: consistent regimes defined
 by adjacent raw-gradient cosine, direct contribution statements, intuition
 before mathematics, and results that explain their scientific implication.
@@ -150,7 +152,7 @@ The author's supplied feedback and previous review PDFs remain preserved.
 
 ## Adam spike anatomy, 2026-11-03
 
-The [new revision](../manuscript/draft/revisions/2026-11-03-adam-spike-anatomy/README.md)
+The [new revision](../manuscript/archive/draft/revisions/2026-11-03-adam-spike-anatomy/README.md)
 implements the author's sequence: Adam/raw-gradient motivation, controlled
 loss overview, largest recovered spikes at the highest rates, fixed-reference
 event definition, all-amplitude density, grouped >10% anatomy table, and signed
@@ -179,7 +181,7 @@ No new training, cloud resources, run or hypothesis.
 
 ## Adam-section author feedback, 2026-11-02
 
-The [new revision](../manuscript/draft/revisions/2026-11-02-adam-feedback/README.md)
+The [new revision](../manuscript/archive/draft/revisions/2026-11-02-adam-feedback/README.md)
 addresses six further annotations and the author's clarified central claim:
 in Adam, raw-gradient dynamics provide information about impending loss
 excursions beyond recent loss history, despite their transformation before
@@ -206,7 +208,7 @@ acceptance are recorded in the revision's verification/review JSON files.
 
 ## Author-feedback revision, 2026-11-02
 
-The [completed 28-comment revision](../manuscript/draft/revisions/2026-11-02-feedback/README.md)
+The [completed 28-comment revision](../manuscript/archive/draft/revisions/2026-11-02-feedback/README.md)
 reorganizes curvature around directional overshoot, expands the noise
 expectation and separates signed loss-change contributions. The local
 loss-rise condition needs sufficiently negative cosine and norm growth.
@@ -296,7 +298,7 @@ supported. One seed, numerical replay sensitivity and nonstationarity remain
 explicit; the original replicated conclusions and manuscript assets are preserved.
 No working TeX or supplied reflection was changed.
 
-On 2026-10-07, the [surgical changes proposal](../manuscript/2026-10-07-surgical-changes-proposal/README.md)
+On 2026-10-07, the [surgical changes proposal](../manuscript/archive/2026-10-07-surgical-changes-proposal/README.md)
 records the user's preference for characterization plus a practical LR
 intervention direction. It maps concrete draft changes to the existing evidence,
 replaces the proposed stability framing with horizon-specific vector geometry,
@@ -311,7 +313,7 @@ then treats Adam separately. Generic update and vector-sequence symbols have
 been removed.
 
 On 2026-10-13, the requested
-[GD formulation report](../manuscript/2026-10-11-restatement/README.md) turns
+[GD formulation report](../manuscript/archive/2026-10-11-restatement/README.md) turns
 the supplied formulation into an English LaTeX technical report, following the
 local style guide and stopping before Displacement under Adam. It retains the
 exact displacement and all-lag identities, qualifies the local curvature/noise
@@ -524,7 +526,7 @@ prioritizes the local/all-lag distinction, theory validation, spectral scope
 and a clearer contribution relative to Edge of Stability. The working draft
 and publication figures are unchanged; no training or cloud work is launched.
 
-The subsequent [Section IV surgical proposal](../manuscript/2026-10-30-section-iv-surgical-proposal/README.md)
+The subsequent [Section IV surgical proposal](../manuscript/archive/2026-10-30-section-iv-surgical-proposal/README.md)
 provides exact anchors and replacement prose for eight coordinated edits.
 It retains the three main figures, promotes the local/all-lag distinction,
 incorporates the completed retrospective loss audit, moves spectral context
@@ -543,7 +545,7 @@ records the source mapping, independent verification of all 36 table rows
 and 26,991 loss comparisons, preserved figure arrays and visual review of
 the 18-page draft. No additional training, HVPs or cloud work was performed.
 
-The subsequent [mini-batch noise assessment and proposal](../manuscript/2026-10-30-minibatch-noise-proposal/README.md)
+The subsequent [mini-batch noise assessment and proposal](../manuscript/archive/2026-10-30-minibatch-noise-proposal/README.md)
 reviews the compiled Section III-B and Analysis020's frozen initial-state
 control. It separates the exact unnormalized noise projection and conditional
 variance law from the concentrated-norm cosine approximation, and distinguishes

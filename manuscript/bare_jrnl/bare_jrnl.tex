@@ -1,0 +1,35 @@
+\documentclass[journal]{IEEEtran}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,graphicx,booktabs,cite,array,multirow}
+\usepackage{algorithm,algpseudocode,microtype,url}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Constructive and Destructive Training Regimes: From Gradient Interactions to Functional Oscillations},pdfauthor={Thiago Mattar; Cristiano L. Castro; Frederico Coelho; Yan G. Ferreira; Antonio P. Braga}}
+\interdisplaylinepenalty=2500
+\newtheorem{proposition}{Proposition}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\R}{\mathbb{R}}
+\hyphenation{Wiki-Text Transformer pre-con-di-tion-er}
+\title{Constructive and Destructive Training Regimes: From Gradient Interactions to Functional Oscillations}
+\author{Thiago Mattar, Cristiano L. Castro, Frederico Coelho, Yan G. Ferreira, Antonio P. Braga%
+\thanks{Thiago Mattar and Yan G. Ferreira are with the Graduate Program in Electrical Engineering, Universidade Federal de Minas Gerais, Belo Horizonte 31270-901, Brazil (e-mail: thiagocmattar@gmail.com; yanvgferreira@gmail.com).}%
+\thanks{Cristiano L. Castro is with the Graduate Program in Electrical Engineering and the Department of Electrical Engineering, Universidade Federal de Minas Gerais (UFMG), Belo Horizonte, Minas Gerais 31270-901, Brazil (e-mail: crislcastro@gmail.com).}%
+\thanks{Frederico Coelho and Antonio P. Braga are with the Graduate Program in Electrical Engineering and the Department of Electronic Engineering, Universidade Federal de Minas Gerais (UFMG), Belo Horizonte, Minas Gerais 35931-008, Brazil (e-mail: fredgfc@ufmg.br; apbraga@ufmg.br).}}
+\markboth{Constructive and Destructive Training Regimes}{Mattar et al.: Constructive and Destructive Training Regimes}
+\begin{document}
+\maketitle
+\input{sections/00-abstract}
+\begin{IEEEkeywords}
+Training dynamics, gradient alignment, directional curvature, representation learning, adaptive optimization.
+\end{IEEEkeywords}
+\raggedbottom
+\input{sections/01-introduction}
+\input{sections/02-related-work}
+\input{sections/03-regimes}
+\input{sections/04-gd-sgd}
+\input{sections/05-adam}
+\input{sections/06-interventions}
+\input{sections/07-conclusion}
+\input{sections/appendix}
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+\end{document}

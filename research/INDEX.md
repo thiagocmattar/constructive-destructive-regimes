@@ -16,7 +16,7 @@
 
 ## Matched interventions completed, 14 November 2026
 
-[H051 / Runs 293–295](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md) completes the common-fork comparison: 36 conditions / 11,904 updates. q50 mean-loss changes are -32.18%/-9.42%/-19.84%; endpoint/test tradeoffs and all quantile settings are retained. Seven PDFs / 20 pages plus editable tables/captions are verified in [consolidation](../manuscript/consolidation/evidence/05-adam/c-intervention/README.md). All raw evidence is hashed on Spark and task Pods deleted; provisional total USD 26.07, within USD 50. Extra seeds/grid remain deferred. Continue Analysis 065; next run 296 / H052.
+[H051 / Runs 293–295](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/016-matched-intervention-matrix.md) completes the common-fork comparison: 36 conditions / 11,904 updates. q50 mean-loss changes are -32.18%/-9.42%/-19.84%; endpoint/test tradeoffs and all quantile settings are retained. Seven PDFs / 20 pages plus editable tables/captions are verified in [consolidation](../manuscript/bare_jrnl/evidence/05-adam/c-intervention/README.md). All raw evidence is hashed on Spark and task Pods deleted; provisional total USD 26.07, within USD 50. Extra seeds/grid remain deferred. Continue Analysis 065; next run 296 / H052.
 
 
 ## Larger ResNet tracing event, 14 November 2026
@@ -31,21 +31,21 @@ Estimated compute USD 0.412, billing provisional; no retained cloud storage. Nex
 
 ## Consolidation figures refreshed, 14 November 2026
 
-[Current figure notes and captions](../manuscript/consolidation/evidence/FIGURE_NOTES.md): seven revised PDFs use a common completed-update clock, matched GD curvature smoothing, a compact Adam overview and a three-model stage-level tracing view with synchronized markers. SVD/overlap is a separate companion. All numerical, visual, caption and package checks pass (116 assets); manuscript sources and all 17 intervention PDFs are unchanged. No new training or run IDs.
+[Current figure notes and captions](../manuscript/bare_jrnl/evidence/FIGURE_NOTES.md): seven revised PDFs use a common completed-update clock, matched GD curvature smoothing, a compact Adam overview and a three-model stage-level tracing view with synchronized markers. SVD/overlap is a separate companion. All numerical, visual, caption and package checks pass (116 assets); manuscript sources and all 17 intervention PDFs are unchanged. No new training or run IDs.
 
 ## Conventional-intervention coverage completed, 8 November 2026
 
-[H050 / Runs289-291](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/015-conventional-model-coverage.md): all 10 continuations / 3,584 updates and 20 audits verified. ResNet/Transformer beta2 (.95/.9/.5) and Transformer clipping (.5/1) now complete the requested three-model figures. Transformer training means/peaks improve but test loss worsens; ResNet effects are mixed. One initialization, original fixed forks and qualified unchanged controls; not a four-family ranking. All raw evidence rehashed on Spark, all seven task pods deleted; provisional compute USD11.36. The [ablation TODO](../manuscript/consolidation/evidence/05-adam/c-intervention/TODO_ABLATIONS.md) records remaining seeds, common forks/times and measurement gaps. Continue Analysis065; next unused run292 and H051.
+[H050 / Runs289-291](../analyses/065-2026-11-07-mlp-frozen-lr-double/observations/015-conventional-model-coverage.md): all 10 continuations / 3,584 updates and 20 audits verified. ResNet/Transformer beta2 (.95/.9/.5) and Transformer clipping (.5/1) now complete the requested three-model figures. Transformer training means/peaks improve but test loss worsens; ResNet effects are mixed. One initialization, original fixed forks and qualified unchanged controls; not a four-family ranking. All raw evidence rehashed on Spark, all seven task pods deleted; provisional compute USD11.36. The [ablation TODO](../manuscript/bare_jrnl/evidence/05-adam/c-intervention/TODO_ABLATIONS.md) records remaining seeds, common forks/times and measurement gaps. Continue Analysis065; next unused run292 and H051.
 
 ## Paper evidence package, 8 November 2026
 
-[Consolidation evidence](../manuscript/consolidation/evidence/README.md) now follows
+[Consolidation evidence](../manuscript/bare_jrnl/evidence/README.md) now follows
 Sections I-VI and Adam characterization/tracing/intervention. The package contains
 102 traceable source assets, four rebuilt summary tables, four equation sets and
 two algorithms. Stale contribution, figure and task mappings were reconciled;
 source/hash/link/PDF and editable-TeX checks pass. Original manuscript and human
 inputs are preserved. Final figure assembly and matched comparisons remain
-explicit closure tasks in [PLAN](../manuscript/consolidation/PLAN.md).
+explicit closure tasks in [PLAN](../manuscript/bare_jrnl/PLAN.md).
 Selected intervention figures now follow LR, beta2, clipping and distributed q50;
 the original layer-heatmap page is exported intact as a standalone PDF.
 
@@ -134,7 +134,7 @@ owned Spark, zero cloud cost. Next Run 245 / Analysis 065 / H045.
 8 November: [retained-Gram controls](../analyses/063-2026-11-07-architecture-instability-tracing/observations/006-spectral-controls.md)
 show directional concentration beyond step magnitudes, with stronger amplitude
 weighting in the Transformer. This and the completed timing audit are distilled
-into the broader [adversarial paper plan](../manuscript/consolidation/PLAN.md).
+into the broader [adversarial paper plan](../manuscript/bare_jrnl/PLAN.md).
 No new training or manuscript edits.
 
 The [five-page technical report](../analyses/063-2026-11-07-architecture-instability-tracing/report/instability-tracing-report.pdf)
@@ -270,7 +270,7 @@ controls reject a universal Q>2 alarm. All 9,216 states and 46,098 plotted point
 pass independent checks. Argument/evidence map and tests2-5/>200M backlog are
 organized separately. No fitted classifier, training, cloud or manuscript edit.
 
-8 November: [Analysis055 timing/severity audit](../analyses/055-2026-11-05-adam-directional-amplification/observations/004-timing-severity-audit.md) verifies all-step, magnitude and 1-16-update lead-time structure with false alarms and independent raw checks. Results strengthen the single [paper consolidation map](../manuscript/consolidation/PLAN.md); manuscript and source histories remain unchanged. No new training or fitted predictor.
+8 November: [Analysis055 timing/severity audit](../analyses/055-2026-11-05-adam-directional-amplification/observations/004-timing-severity-audit.md) verifies all-step, magnitude and 1-16-update lead-time structure with false alarms and independent raw checks. Results strengthen the single [paper consolidation map](../manuscript/bare_jrnl/PLAN.md); manuscript and source histories remain unchanged. No new training or fitted predictor.
 
 [Analysis043: fixed-step Spark interventions](../analyses/043-2026-11-03-spark-fixed-step-interventions/FINDINGS.md)
 completed all 36 matched branches from warm state 1024, with 64 full-objective
@@ -326,7 +326,7 @@ hypothesis. Next Run217 / Analysis038 / H028.
 
 [Analysis036: controlled Adam spike anatomy](../analyses/036-2026-11-02-controlled-adam-diagnostics/README.md)
 uses nine fixed-rate, 1024-update trajectories from matched initial weights.
-The [current manuscript](../manuscript/draft/revisions/2026-11-03-original-argument-feedback-feedback/README.md)
+The [current manuscript](../manuscript/archive/draft/revisions/2026-11-03-original-argument-feedback-feedback/README.md)
 addresses the next 30 author annotations: literal deletions, clearer raw-gradient
 semantics under Adam, simpler equations, verified percentages and a compact
 spike-boundary sketch. The 13-page review preserves the original introduction,
@@ -818,7 +818,7 @@ SGD remains deferred. Original manuscript assets are preserved.
   [artifact contract](ARTIFACTS.md), [plotting](PLOTTING.md)
 - [Manuscript](MANUSCRIPT.md), [review context](REVIEW_CONTEXT.md),
   [bootstrap provenance](BOOTSTRAP.md)
-- [Surgical changes proposal](../manuscript/2026-10-07-surgical-changes-proposal/README.md):
+- [Surgical changes proposal](../manuscript/archive/2026-10-07-surgical-changes-proposal/README.md):
   evidence, draft changes, and proposed momentum/LR experiments; planning only.
 
 Next run: 055; analysis: 019; hypothesis: H018. Preserve executed inputs and raw evidence.

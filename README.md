@@ -23,8 +23,8 @@ is context; its existing figures are not results produced in this workspace.
 
 ```text
 AGENTS.md                         collaboration and research conventions
-manuscript/draft/                 editable LaTeX extracted from the original ZIP
-manuscript/2026-10-03 review/      supplied submission and reviewer materials
+manuscript/bare_jrnl/             current journal paper, evidence, and presentation
+manuscript/archive/               local history, previous submissions, and author reviews
 research/                        shared definitions, protocols, and current state
 research/HYPOTHESES.md            user-directed hypothesis registry
 research/findings/               links to verified observations and agreed findings

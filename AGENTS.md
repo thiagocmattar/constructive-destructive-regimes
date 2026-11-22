@@ -72,7 +72,7 @@ executable permission system.
   064 as its first-stage evidence. Do not open another analysis until the user
   requests it. Changed executed scientific inputs still receive separate run IDs.
 - Keep `research/INDEX.md` compact. Update registries and records at closeout.
-- Preserve supplied manuscript/review originals. Edit `manuscript/draft/` for
+- Preserve supplied manuscript/review originals. Edit `manuscript/bare_jrnl/` for
   requested changes and tie new empirical claims to observations and artifacts.
 
 ## Scientific discipline
