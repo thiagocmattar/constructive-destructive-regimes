@@ -1,23 +1,19 @@
-\section{Selective Interventions Guided by Representation Changes}
+\section{Activation Caps Reduce Adam Loss Spikes}
 \label{sec:vc-interventions}
 
-Can Adam reach a lower training loss while successive changes in its predictions continue to reverse? Motivated by the large output changes near loss peaks in Fig.~\ref{fig:trace-motion}, we cap the change that Adam's proposed update would produce in each selected unit on fixed reference inputs. Across all three models, this reduced mean training loss even as predictions continued to oscillate.
-
-From Eq.~\eqref{eq:adam-update}, Adam proposes the parameter increment $\Delta\theta_t=-\eta_t d_t$. Let $\Delta\theta_{t,j}^{\ell}$ be the block of this increment for unit $j$ at site $\ell$. Each row of $H_t^\ell$ contains the inputs to the unit for one reference example or position.\footnote{Each row holds the values under a convolutional filter at one position or, in self-attention, the token representation used to compute its query, key, and value. For units with a bias, we include its update in the parameter block and append a column of ones to $H_t^\ell$.} Holding these inputs fixed, the root-mean-square (RMS) change in the unit's response is
+Motivated by the large changes in outputs and hidden representations observed at loss peaks (Fig.~\ref{fig:trace-motion}), we test a training intervention that limits Adam updates when they induce large changes in neuronal responses. From Eq.~\eqref{eq:adam-update}, Adam proposes the parameter increment $\Delta\theta_t=-\eta_t d_t$. Let $\Delta\theta_{t,j}^{\ell}$ be the block of this increment for unit $j$ at site $\ell$. Each row of $H_t^\ell$ contains the inputs to the unit for one reference example or position.\footnote{Each row holds the values under a convolutional filter at one position or, in self-attention, the token representation used to compute its query, key, and value. For units with a bias, we include its update in the parameter block and append a column of ones to $H_t^\ell$.} Holding these inputs fixed, the root-mean-square (RMS) change in the unit's response is
 \begin{equation}
  s_{t,j}^{\ell}=\frac{\|H_t^\ell\,\Delta\theta_{t,j}^{\ell}\|_2}{\sqrt n}.
  \label{eq:vc-score}
 \end{equation}
-When this displacement exceeds the site budget $\tau_\ell$, we scale the unit's proposed increment according to
+When this displacement exceeds the site budget $\tau_\ell$, we scale down the unit's proposed increment according to
 \begin{equation}
  \Delta\theta_{t,j}^{\ell,\mathrm{cap}}
  =\gamma_{t,j}^{\ell}\,\Delta\theta_{t,j}^{\ell},\qquad
  \gamma_{t,j}^{\ell}=\min\!\left(1,\frac{\tau_\ell}{s_{t,j}^{\ell}}\right).
  \label{eq:vc-cap}
 \end{equation}
-This preserves Adam's proposed direction within each unit. Adam advances its moments before the cap is applied. A zero score or zero calibrated budget gives $\gamma_{t,j}^{\ell}=1$. Updates to earlier layers can also change $H_t^\ell$, so the budget bounds only the unit's direct displacement.
-
-We fix each site's budget at the 25th, 50th, or 75th percentile (q25, q50, or q75) of its unit displacements pooled over the eight Adam updates before treatment. We cap the MLP's two hidden linear maps, all ResNet convolutions, and the Transformer's query, key, value, and feed-forward projections.
+Since $\gamma_{t,j}^{\ell}\in[0,1]$, the cap can only reduce the magnitude of each unit's update, without reversing its direction. It is applied after Adam's moment estimates are updated, leaving them unaffected. The constraint bounds only the unit's direct response change with fixed inputs, without accounting for changes propagated from earlier layers. We calibrate each site's budget $\tau_\ell$ using the 25th, 50th, or 75th percentile (q25, q50, or q75) of unit displacements pooled over the eight Adam updates preceding the intervention. We apply the cap to the MLP's two hidden linear maps, all ResNet convolutions, and the Transformer's query, key, value, and feed-forward projections.
 
 \begin{figure*}[!t]
 \centering
@@ -26,24 +22,23 @@ We fix each site's budget at the 25th, 50th, or 75th percentile (q25, q50, or q7
 \label{fig:vc-tradeoff}
 \end{figure*}
 
-Within each model, every continuation starts from the same parameters, Adam moments, and random state and runs for the same number of full-batch updates (Table~\ref{tab:vc-outcomes}). Alongside unchanged Adam and the three caps, we test learning-rate reductions, reductions in Adam's second-moment coefficient $\beta_2$~\cite{bai2026spikes}, and global gradient clipping~\cite{pascanu2013difficulty}. We report final training loss $L_{t_f}$ and summarize the trajectory from $t_0$ to $t_f$ by its mean loss and accumulated upward loss variation,
+To compare interventions, we resume training from identical parameters, Adam moments, and random states for the same number of full-batch updates. We evaluate the three activation caps against unchanged Adam, reduced learning rates, lower second-moment coefficients $\beta_2$~\cite{bai2026spikes}, and global gradient clipping~\cite{pascanu2013difficulty}. We measure optimization performance by final loss $L_{t_f}$ and mean loss $\bar L$, and quantify instability through cumulative upward loss variation $\mathcal P$
 \begin{equation}
- \bar L=\frac{1}{t_f-t_0}\sum_{t=t_0+1}^{t_f}L_t,\qquad
  \mathcal P=\sum_{t=t_0+1}^{t_f}\max(L_t-L_{t-1},0).
  \label{eq:vc-outcomes}
 \end{equation}
 
 \input{tables/matched-main-outcomes.tex}
 
-All three caps lowered mean training loss and accumulated upward variation relative to unchanged Adam in every model (Table~\ref{tab:vc-outcomes}). Among all tested settings, q50 gave the lowest mean loss in the MLP and Transformer, and q25 in ResNet. Smoother trajectories could still end at higher loss (Fig.~\ref{fig:vc-tradeoff}). In ResNet, a tenfold learning-rate reduction cut upward variation by 99\%, yet final loss rose from 0.0067 under unchanged Adam to 0.245. The q25 cap allowed more fluctuation and reached 0.0049. Every tested clipping threshold and $\beta_2$ reduction raised mean loss in the MLP and lowered it in the Transformer.
-
 \begin{figure*}[!tp]
 \centering
 \includegraphics[width=.97\textwidth]{figures/25-main-q25-functional-motion.pdf}
-\caption{Unchanged Adam and the q25 displacement cap over the matched continuations. The top row shows full training loss. The paired heatmaps show consecutive-change cosine and RMS displacement on the same reference inputs and at the sites in Fig.~\ref{fig:trace-motion}. Each displacement pair uses the same scale, normalized by the site's maximum under unchanged Adam. Changes are plotted at the completed update.}
+\caption{Training loss and representation changes under unchanged Adam and the q25 activation cap. Top: training loss. Below: cosine between consecutive representation changes and RMS displacement at the measured sites, evaluated on the same reference inputs. For each site, RMS displacement is normalized by its maximum under unchanged Adam, allowing direct comparison between interventions.}
 \label{fig:vc-motion}
 \end{figure*}
 
-Figure~\ref{fig:vc-motion} shows q25 because it lowered all three training metrics in every model. The prespecified q50 setting ended with higher ResNet training loss than unchanged Adam. Under q25, the largest RMS change in predictions fell by 93\% in the MLP, 33\% in ResNet, and 45\% in the Transformer relative to unchanged Adam. Yet consecutive output changes still reversed on 50\%, 60\%, and 89\% of updates, respectively.
+All three activation caps reduced mean training loss and accumulated upward loss variation across all models (Table~\ref{tab:vc-outcomes}). Among the tested interventions, q50 achieved the lowest mean loss in the MLP and Transformer, while q25 performed best in ResNet. These results highlight a trade-off between suppressing loss spikes and reaching lower-loss solutions: reducing the learning rate can limit further optimization, whereas activation caps can improve both outcomes (Fig.~\ref{fig:vc-tradeoff}). For example, a tenfold learning-rate reduction in ResNet suppressed upward loss variation by 99\% but increased final loss from 0.0067 to 0.245. In contrast, q25 reduced final loss to 0.0049.
 
-Across all three models, the q25 cap reduced the largest changes in predictions and lowered mean training loss, even as successive changes in predictions continued to reverse. The comparison covers one initialization per model at a fixed update budget. The lower loss at that budget came with additional computational cost. In the MLP, computing the q50 cap took 41.8~ms per update, compared with 4.4~ms for the full gradient.
+To examine the effect on network representations, Fig.~\ref{fig:vc-motion} compares q25 with unchanged Adam, as this setting improved all three training metrics across models. The largest RMS change in predictions decreased by 93\%, 33\%, and 45\% in the MLP, ResNet, and Transformer, respectively. Nevertheless, consecutive output changes remained negatively aligned on 50\%, 60\%, and 89\% of updates. Thus, activation caps substantially reduce the magnitude of functional changes without eliminating destructive oscilation, suggesting that controlling their amplitude can improve training without suppressing oscillatory dynamics entirely. Activation caps, however, introduce computational overhead by requiring estimates of each unit's response to the proposed update. Although preliminary, these findings point toward a broader research direction: can we develop training algorithms that regulate updates based on how they affect the network's learned representations, rather than solely on gradient or parameter magnitudes?
+
+

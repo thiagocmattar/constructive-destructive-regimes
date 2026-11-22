@@ -1,7 +1,7 @@
 \section{Loss Spikes and Functional Oscillations under Adam}
 \label{sec:adam}\label{sec:adam-diagnostics}
 
-The preceding experiments show why consecutive steps must be considered together. Reversal describes opposition; gradient growth determines its size. Under SGD the raw gradients also determine the applied increments. Adam combines the current gradient with past gradients and rescales coordinates using second moments~\cite{kingma2014adam}. Its recurrences are
+Under gradient descent the raw gradients coincide with the applied update direction. Adam, in the other hand, combines the current raw gradient with past gradients and rescales coordinates using second moments~\cite{kingma2014adam}. Its recurrences are
 \begin{equation}
  \begin{aligned}
  m_t&=\beta_1m_{t-1}+(1-\beta_1)g_t,\\
@@ -16,11 +16,7 @@ The bias-corrected direction and parameter update are
  \theta_{t+1}=\theta_t-\eta_t d_t.
  \label{eq:adam-update}
 \end{equation}
-Moments start at zero before $t=0$, and the operations on second moments are coordinatewise. The experiments use the native Adam update with $(\beta_1,\beta_2)=(.9,.999)$ and $\epsilon=10^{-8}$, without weight decay. The Adam overview uses 1,024 full-batch updates per model, with learning rates of $0.001$ for the MLP and $0.003$ for both ResNet-32 and the Transformer.
-
-Although Adam transforms the raw gradient, consecutive gradients are evaluated at states separated by the actual Adam update. Their alignment and relative magnitudes therefore characterize the gradient response along the trajectory followed by the optimizer (see Appendix~\ref{app:math} for the derivation).
-
-We first characterize the gradient response along Adam's trajectory, then trace the corresponding functional changes through the network. The following section tests interventions from matched training states. The complete experimental grid is specified in Supplementary Section~S3.
+We study full-batch Adam over 1,024 updates per model, using standard hyperparameters $(\beta_1,\beta_2)=(0.9,0.999)$ and $\epsilon=10^{-8}$, without weight decay. Learning rates are chosen to produce pronounced loss spikes in each model. Although Adam transforms the raw gradient, they are evaluated at states separated by the actual Adam update. Therefore, the alignment and relative norms can still characterize the response along the trajectory followed by the optimizer (see Appendix~\ref{app:math} for the derivation). We first characterize the gradient response along Adam's trajectory, then trace the corresponding functional changes through the network.
 
 \subsection{Characterizing Loss Spikes}
 \label{subsec:characterization}
@@ -28,11 +24,11 @@ We first characterize the gradient response along Adam's trajectory, then trace 
 \begin{figure*}[!t]
 \centering
 \includegraphics[width=\textwidth]{figures/00-high-lr-overview-cifar10-mlp-resnet-wikitext2-transformer.pdf}
-\caption{Loss spikes and consecutive-gradient behavior under full-objective Adam. Columns are MLP, ResNet-32, and Transformer, at learning rates $.001/.003/.003$, with one initialization per model. Rows show loss, the projected gradient response $1-\rho_t\|g_t\|/\|g_{t-1}\|$, consecutive-gradient cosine, and gradient norm relative to initialization. Filled gray bands mark the rising portions of recovered loss excursions exceeding 10\%; outlined bands mark excursions whose recovery is not observed. Events are selected from loss alone. Training step $t$ counts completed updates; gradient measurements are made at $\theta_t$, before the next update. Loss is recorded through 1,024 updates and gradients through 1,023. The projected-response axis starts at zero; negative values lie outside its displayed range.}
+\caption{Loss spikes and consecutive-gradient behavior under full-objective Adam. Columns are MLP, ResNet-32, and Transformer, at learning rates $.001/.003/.003$. Rows show loss, the projected gradient response $1-\rho_t\|g_t\|/\|g_{t-1}\|$, consecutive-gradient cosine, and gradient norm relative to initialization.}
 \label{fig:adam-overview}
 \end{figure*}
 
-Adam exhibits different loss dynamics from full-batch GD. In the oscillatory GD runs of Section~\ref{sec:gd-experiments}, training persists in the destructive regime while the loss continues its overall decline. Under Adam, the loss rises in recurring spikes that typically begin in the destructive regime ($\rho_t<0$), as shown in Fig.~\ref{fig:adam-overview}. Gradient norms grow as the loss rises and typically peak with the loss. During recovery, training can return to the constructive regime ($\rho_t>0$) as gradient norms and loss decline. These spikes recur, yet in 58 of the 60 excursions exceeding 10\%, loss subsequently fell below its pre-spike value. If moving uphill allows the trajectory to enter a lower-loss basin, reducing the learning rate to suppress a spike could lead to premature convergence. Section~\ref{subsec:tracing} examines how the network's representations change during these excursions. We first ask whether raw gradients can warn of a loss increase before Adam applies the update.
+Adam exhibits markedly different dynamics from full-batch GD. While GD remains in the destructive regime despite a sustained overall loss decrease (Section~\ref{sec:gd-experiments}), Adam undergoes recurrent loss spikes that begin with negative alignment ($\rho_t<0$) and increasing gradient norms (Fig.~\ref{fig:adam-overview}). During recovery, it can move to constructive regime ($\rho_t>0$), while gradient norms and loss decline. In most cases, the loss eventually falls below its pre-spike value. From an optimization perspective, these excursions may allow Adam to traverse higher-loss regions and reach lower-loss basins. It suggests that suppressing spikes by reducing the learning rate could also lead to premature convergence. 
 
 We then ask whether raw gradients can predict a loss increase before Adam applies the next update. For quadratic full-batch GD, Eq.~\eqref{eq:loss-rise-alignment} shows that the preceding step raises the loss exactly when $\eta\widehat{\kappa}_t=1-\rho_t\|g_t\|/\|g_{t-1}\|>2$. Under Adam, we test whether this raw-gradient condition predicts a loss increase of at least 0.1\% on the next step, $(L_{t+1}-L_t)/L_t\geq0.001$, where $L_t=\mathcal L(\theta_t)$. Table~\ref{tab:severity} compares the combined condition with constant predictions, the preceding loss change ($L_t>L_{t-1}$), and rules based on alignment or norm growth alone. Across all three models, the combined condition achieves the highest accuracy and warning lift.
 
@@ -45,19 +41,17 @@ We then ask whether raw gradients can predict a loss increase before Adam applie
 \begin{figure*}[!t]
 \centering
 \includegraphics[width=\textwidth]{figures/00-three-model-loss-representation-motion.pdf}
-\caption{Loss and representation changes in selected Adam windows: steps 451--501 (MLP), 390--450 (ResNet), and 553--601 (Transformer). Top: complete training loss and loss on the reference examples. Middle: cosine between consecutive representation changes; blue denotes reversal and red denotes reinforcement. Bottom: relative RMS displacement $a_t^\ell/\max_{u\in[a,b]}a_u^\ell$, normalized separately within each site and displayed window. The 5/6/6 rows are measured site outputs, not averages of internal layers. Reference sets contain 5,000 images, one original 1,000-image BatchNorm group, and 2,240 token positions. Blue dashed lines mark the first displayed negative output-change cosine; the MLP is already negative at entry. Black dashed lines mark the first loss at least 10\% above the pre-peak minimum. These lines compare timing; they do not identify a unique initiating event.}
+\caption{Loss and representation changes during selected Adam spikes in the MLP (steps 451--501), ResNet (390--450), and Transformer (553--601). Top: training loss and loss on fixed reference inputs. Middle: cosine between consecutive representation changes at each measured site (blue: reversal; red: reinforcement). Bottom: RMS displacement normalized by each site's maximum within the window. Blue dashed lines mark the first displayed negative output-change cosine (already negative for the MLP); black dashed lines mark when loss first exceeds the pre-peak minimum by 10\%.}
 \label{fig:trace-motion}
 \end{figure*}
 
-Each Adam update changes the network's hidden representations and predictions. We ask how the constructive and destructive regimes observed in the gradients manifest in these functional changes. Around a loss spike in each model, we follow the same inputs across successive updates and trace their representations from the output back toward the input. Across all three spike windows, the predictions repeatedly move back and forth along a small set of directions. By the end of each window, the net output displacement is only 1.7--3.5\% of the total distance traveled. Thus, across the spike, successive Adam updates largely undo one another's changes to the predictions.
-
-We track how each Adam update changes the network's responses to a fixed set of inputs. We use all 5,000 training images for the MLP, the first intact 1,000-image BatchNorm group for ResNet, and the first 64 complete sequences for the Transformer (2,240 supervised token positions). A measured site $\ell$ is the output of a selected layer, attention module, or residual block group, or the final network output ($\ell=\mathrm{out}$). Let $A_t^\ell$ collect the responses at site $\ell$ after $t$ updates, with its $N_\ell$ rows indexing the same examples or input positions across steps and its $m_\ell$ columns indexing features. The $t$th update induces the representation change
+To examine how constructive and destructive gradient regimes manifest in the network's functional behavior, we track changes in hidden representations and outputs induced by each Adam update on a fixed set of inputs. We use all 5,000 training images for the MLP, the first intact 1,000-image BatchNorm group for ResNet, and the first 64 complete sequences (2,240 token positions) for the Transformer. At each measured site $\ell$ (a selected layer, attention module, residual block group, or network output), let $A_t^\ell\in\mathbb{R}^{N_\ell\times m_\ell}$ denote the responses after $t$ updates, with rows corresponding to fixed inputs or token positions and columns to features. The $t$th update induces the representation change
 \begin{equation}
  \delta_t^\ell=\operatorname{vec}(A_t^\ell-A_{t-1}^\ell)
  \in\mathbb R^{P_\ell},\qquad P_\ell=N_\ell m_\ell.
  \label{eq:representation-change}
 \end{equation}
-At site $\ell$, we measure the alignment between consecutive representation changes by their cosine $c_t^\ell$ and the size of each change by its root-mean-square displacement $a_t^\ell$:
+At site $\ell$, we measure the alignment between consecutive representation changes by their cosine $c_t^\ell$ and the size of each change by its root-mean-square displacement $a_t^\ell$
 \begin{equation}
  c_t^\ell=
  \frac{\langle\delta_{t-1}^\ell,\delta_t^\ell\rangle}
@@ -65,7 +59,7 @@ At site $\ell$, we measure the alignment between consecutive representation chan
  a_t^\ell=\frac{\|\delta_t^\ell\|}{\sqrt{P_\ell}}.
  \label{eq:representation-motion}
 \end{equation}
-Like $\rho_t$ for gradients, $c_t^\ell$ distinguishes constructive ($c_t^\ell>0$) from destructive ($c_t^\ell<0$) alignment, here over all measured responses at the site. The cosine is defined when both changes are nonzero. To quantify how these changes accumulate over updates $t=a,\ldots,b$, we define displacement retention $R_{a:b}^\ell$ as the ratio of net displacement to total distance traveled:
+Like $\rho_t$ for gradients, $c_t^\ell$ distinguishes constructive ($c_t^\ell>0$) from destructive ($c_t^\ell<0$) alignment, here over all measured responses at the site. To quantify how these changes accumulate over updates $t=a,\ldots,b$, we define displacement retention $R_{a:b}^\ell$ as the ratio of net displacement to total distance traveled
 \begin{equation}
  R_{a:b}^\ell=
  \frac{\|\sum_{t=a}^b\delta_t^\ell\|}{\sum_{t=a}^b\|\delta_t^\ell\|}
@@ -73,32 +67,28 @@ Like $\rho_t$ for gradients, $c_t^\ell$ distinguishes constructive ($c_t^\ell>0$
  {\sum_{t=a}^b\|A_t^\ell-A_{t-1}^\ell\|_{\mathrm{F}}}.
  \label{eq:representation-retention}
 \end{equation}
-Here $\|M\|_{\mathrm{F}}=(\sum_{i,j}M_{ij}^2)^{1/2}$ denotes the Frobenius norm, the Euclidean norm of the vector obtained by flattening $M$.
-We analyze one spike window per model. For the MLP, we take steps 451--501 around the peak at step 474 in the existing trace. For ResNet, steps 390--450 span the last recovered loss rise exceeding 100\% before step 512. For the Transformer, we selected steps 553--601 around the first recovered loss rise exceeding 10\% in the recorded control after checkpoint 544.
+Here $\|M\|_{\mathrm{F}}=(\sum_{i,j}M_{ij}^2)^{1/2}$ denotes the Frobenius norm, i.e. the Euclidean norm of the vector obtained by flattening $M$.
 
-Figure~\ref{fig:trace-motion} shows that output changes already reverse before the loss rises sharply, while their magnitude is greatest near the peak. In the MLP, all five measured sites remain in the destructive regime throughout the window, even as loss rises and falls. In ResNet and the Transformer, output-side representations can reverse while earlier sites remain in the constructive regime. The first displayed output reversal precedes the 10\% loss-rise marker by 15 updates in ResNet and five in the Transformer.
+Figure~\ref{fig:trace-motion} traces representation changes during one selected loss spike per model. Output changes become negatively aligned before the sharp loss increase in ResNet and the Transformer, while the MLP is already in the destructive regime at the start of the window. Across all three models, representation changes are largest near the loss peak, but their alignment differs across depth: outputs can exhibit destructive reversals even while earlier layers remain constructive. These oscillations produce substantial cancellation, with only 1.71\%, 2.44\%, and 3.51\% of the total output path retained in the MLP, ResNet, and Transformer, respectively. While retention is also low in the earliest measured layers of the MLP and ResNet (3.25\% and 3.72\%), the Transformer's embedding retains 24.33\%, indicating that large output oscillations can coexist with more persistent changes in earlier representations.
 
-The maps show when each site moves most by plotting its RMS displacement relative to its own maximum over the displayed steps, $a_t^\ell/\max_{u\in[a,b]}a_u^\ell$. In the MLP, all five sites reach their largest displacement one update after the loss peak. In ResNet, the first convolution reaches its maximum at the peak and the other measured sites one update later. In the Transformer, both attention outputs, both block outputs, and the final output reach their maxima at the peak. The embedding reaches its maximum one update later and returns to constructive movement sooner than the later sites.
-
-Across these windows, net output displacement was only 1.71\% of the distance traveled in the MLP, 2.44\% in ResNet, and 3.51\% in the Transformer. Retention was also low at the first measured site in the MLP and ResNet (3.25\% and 3.72\%). The Transformer showed a larger difference across depth: its embedding retained 24.33\% of its path, even as successive updates largely undid one another's changes to the predictions. The embedding's largest change occurred one update after the loss peak, suggesting that training around a spike may reshape even early representations, where gradients can weaken during backpropagation~\cite{glorot2010difficulty}.
-
-When consecutive updates reverse, do they repeatedly undo the same pattern of change in the network's predictions? At each site $\ell$, we stack the representation changes $(\delta_t^\ell)^\top$ over the spike window $t=a,\ldots,b$ as rows of $D_\ell$ and compute its singular value decomposition (SVD),
+Do successive updates repeatedly reverse the same patterns of change in the network's representations? To investigate this, we stack the representation changes $(\delta_t^\ell)^\top$ over each spike window $t=a,\ldots,b$ into a matrix $D_\ell$ and compute its singular value decomposition (SVD),
 \begin{equation}
  D_\ell=U_\ell\Sigma_\ell V_\ell^\top.
  \label{eq:temporal-svd}
 \end{equation}
-Each column $v_{\ell,j}$ of $V_\ell$ describes a fixed direction of change across features and reference inputs. The signed displacement along that direction during update $t$ is the projection
+Each right singular vector $v_{\ell,j}$ defines a fixed pattern of change across reference inputs and features. We project each update onto these directions,
 \begin{equation}
  \alpha_{t,j}^\ell=\langle\delta_t^\ell,v_{\ell,j}\rangle,\qquad
  \delta_t^\ell=\sum_j\alpha_{t,j}^\ell v_{\ell,j}.
  \label{eq:pattern-reconstruction}
 \end{equation}
-A change in the sign of $\alpha_{t,j}^\ell$ between updates indicates a reversal along that direction. With singular values $\sigma_{\ell,j}$ ordered from largest to smallest, the fraction of squared movement along the first $k$ directions is
+A change in the sign of $\alpha_{t,j}^\ell$ indicates a reversal along the same pattern. To measure how concentrated these changes are, we compute the fraction of total squared movement captured by the first $k$ directions,
 \begin{equation}
  E_k^\ell=\frac{\sum_{j=1}^k\sigma_{\ell,j}^2}
- {\sum_j\sigma_{\ell,j}^2}.
+ {\sum_j\sigma_{\ell,j}^2},
  \label{eq:energy}
 \end{equation}
+where the singular values $\sigma_{\ell,j}$ are ordered from largest to smallest.
 
 \begin{figure*}[!t]
 \centering
@@ -107,13 +97,12 @@ A change in the sign of $\alpha_{t,j}^\ell$ between updates indicates a reversal
 \label{fig:trace-structure}
 \end{figure*}
 
-Across all three models, ten directions capture 82--99\% of squared movement at every measured site during the spike window (Fig.~\ref{fig:trace-structure}a--c, blue squares).
-
-Predictions repeatedly reverse along the direction that carries the most output movement. This direction alone accounts for 53\% of squared output movement in the MLP, 27\% in ResNet, and 42\% in the Transformer (orange marker in the output row of Fig.~\ref{fig:trace-structure}a--c). Panels (d)--(f) follow that same direction one update at a time, plotting its signed displacement $\alpha_{t,1}^{\mathrm{out}}/\sqrt{P_{\mathrm{out}}}$ at the network output. The trace changes sign 42, 33, and 22 times, respectively. Thus, across each spike window, successive updates repeatedly reverse the same pattern of change in predictions on the fixed inputs.
-
-Later layers more closely share the timing of output oscillations. Each site has its own functional directions, but the columns of $U_\ell$ describe their time courses over the same updates. Let $U_{\ell,k}$ contain the first $k$ columns of $U_\ell$. Their temporal overlap with the output is
+To compare the temporal structure of representation changes across sites, we use the left singular vectors $U_\ell$. Each column describes how a dominant pattern of change varies in magnitude and direction across successive updates. Let $U_{\ell,k}$ contain the first $k$ columns of $U_\ell$. We define their temporal overlap with the output as
 \begin{equation}
- O_k(\ell,\mathrm{out})=\frac{\|U_{\ell,k}^\top U_{\mathrm{out},k}\|_{\mathrm{F}}^2}{k}.
+ O_k(\ell,\mathrm{out})=\frac{\|U_{\ell,k}^\top U_{\mathrm{out},k}\|_{\mathrm{F}}^2}{k},
  \label{eq:overlap}
 \end{equation}
-An overlap of one indicates identical temporal subspaces. In ResNet, $O_{10}$ rises from 0.57 at the first convolution to 0.99 at the final residual stage. In the Transformer, it rises from 0.46 at the embedding to 0.98 at the final block (Fig.~\ref{fig:trace-structure}b--c, green triangles). Thus, even when early layers and the output differ in whether they reverse on a particular update, the later representations closely track the timing of output changes across the spike. We next test whether limiting the largest local representation changes can reduce loss spikes while preserving training progress.
+where an overlap of one indicates identical temporal subspaces.
+
+Figure~\ref{fig:trace-structure} shows that representation changes during loss spikes are highly concentrated in a few directions. Across all models and measured sites, the first ten directions capture 82--99\% of total squared movement. At the output, the leading direction alone accounts for 53\%, 27\%, and 42\% in the MLP, ResNet, and Transformer, respectively. Importantly, updates repeatedly reverse along this same direction over the spike windows (Fig.~\ref{fig:trace-structure}d--f). These oscillations also exhibit shared temporal structure across network depth. In ResNet, the overlap $O_{10}$ with the output increases from 0.57 at the first convolution to 0.99 at the final residual stage. Similarly, in the Transformer, it increases from 0.46 at the embedding to 0.98 at the final block. Together, these findings reveal that loss spikes involve a structured, low-dimensional oscillations shared accross the network sites that repeatedly reverse functional changes. It then motivates an intervention that limits large representation changes.
+

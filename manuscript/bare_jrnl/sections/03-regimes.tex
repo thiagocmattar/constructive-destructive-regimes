@@ -1,7 +1,7 @@
 \section{Constructive and Destructive Regimes}
 \label{sec:displacement}\label{sec:regimes}
 
-For plain SGD, we separate adjacent opposition from accumulated interactions, connect consecutive gradients to curvature and sampling, and derive a completed-step loss criterion.
+%For plain SGD, we separate adjacent opposition from accumulated interactions, connect consecutive gradients to curvature and sampling, and derive a completed-step loss criterion.
 
 Consider the plain SGD update in Eq.~\eqref{eq:sgd_map_stability}, with constant learning rate $\eta>0$. Summing the updates gives the displacement from initialization at the final step $T$,
 \begin{equation}
@@ -34,7 +34,7 @@ For nonzero consecutive gradients, write $\rho_t:=\rho_{t-1,t}$. Substitution in
 \end{aligned}
 \label{eq:magnitude-alignment}
 \end{equation}
-For fixed step lengths, positive alignment between two updates increases their combined displacement, while negative alignment limits it. We identify a \emph{constructive regime} by persistent $\rho_t>0$ and a \emph{destructive regime} by persistent $\rho_t<0$.
+For fixed step lengths, positive alignment between two updates increases their combined displacement, while negative alignment limits it. We identify a \emph{constructive regime} by $\rho_t>0$ and a \emph{destructive regime} by $\rho_t<0$.
 
 \subsection{Normalized Displacement and Cumulative Interference}
 \label{subsec:normalized-displacement}
@@ -81,7 +81,7 @@ Define $\kappa_t$ as the curvature at the starting point $\theta_{t-1}$ along $g
   \frac{g_{t-1}^\top(\xi_t-\xi_{t-1})}{\|g_{t-1}\|^2}.
   \label{eq:epsilon}
 \end{equation}
-Dividing Eq.~\eqref{eq:rho-expanded} by the two gradient norms gives the central relation
+Dividing Eq.~\eqref{eq:rho-expanded} by the two gradient norms gives
 \begin{equation}
   \boxed{\rho_t\approx\frac{\|g_{t-1}\|}{\|g_t\|}
                    (1-\eta\kappa_t+\varepsilon_t).}
@@ -89,7 +89,7 @@ Dividing Eq.~\eqref{eq:rho-expanded} by the two gradient norms gives the central
 \end{equation}
 In full-batch GD with nonzero gradients, $\varepsilon_t=0$ and the ratio of gradient norms is positive. The approximation therefore predicts $\eta\kappa_t<1 \implies \rho_t>0$ (constructive alignment) and $\eta\kappa_t>1 \implies \rho_t<0$ (destructive alignment). At $\eta\kappa_t=1$, it predicts orthogonal consecutive gradients.
 
-From a representation-learning perspective, a destructive regime arises when gradient updates interfere with and overwrite previously learned structure. Early in training, however, the network has accumulated little such structure, leaving subsequent updates with little to disrupt. We therefore expect learning to initially follow a predominantly constructive regime. We show, both formally and empirically across multiple datasets, architectures, and modalities, that this regime is associated with lower curvature and, consequently, greater training stability. As training progresses, the network accumulates learned structure in its weights, and subsequent updates increasingly interfere with what has already been learned. This transition toward a destructive regime occurs during the middle to later stages of training, coinciding with the progressive sharpening of the loss landscape. Together, these insights suggest that loss-landscape geometry reflects a fundamental trade-off between acquiring new information and preserving previously learned structure without destructive interference. In Section~\ref{subsec:tracing}, we extend this analysis to the network's hidden representations, showing that destructive interference also manifests in the network's functional responses.
+From a representation-learning perspective, a destructive regime arises when gradient updates interfere with and overwrite previously learned structure. Early in training the network has accumulated little such structure, leaving subsequent updates with little to disrupt. We therefore expect learning to initially follow a predominantly constructive regime. We show, both formally and empirically across multiple datasets, architectures, and modalities, that this regime is associated with lower curvature and, consequently, greater training stability. As training progresses, the network accumulates learned structure in its weights, and subsequent updates increasingly interfere with what has already been learned. This transition toward a destructive regime occurs during the middle to later stages of training, coinciding with the progressive sharpening of the loss landscape. Together, these insights suggest that loss-landscape geometry reflects a fundamental trade-off between acquiring new information and preserving previously learned structure without destructive interference. In Section~\ref{subsec:tracing}, we extend this analysis to the network's hidden representations.
 
 \subsection{Estimating Curvature without Hessian Computation}
 \label{subsec:curvature-diagnostic}
@@ -101,7 +101,7 @@ Equation~\eqref{eq:rho-normalized} turns consecutive training gradients into a d
    \approx\eta\kappa_t-\varepsilon_t.
 \label{eq:kappa-estimate}
 \end{equation}
-Its computation requires retaining one additional gradient and taking norms and an inner product. Thus curvature information can be monitored at every training step using gradients the optimizer already needs. Under smooth full-batch GD ($\varepsilon_t=0$), $\widehat\kappa_t$ measures directional curvature averaged over the completed step, rather than the largest Hessian eigenvalue, which describes the sharpest available direction. Appendix~\ref{app:math} extends this construction to any optimizer using its actual parameter change rule.
+Its computation requires retaining one additional gradient and taking norms and an inner product. Thus curvature information can be monitored at every training step using gradients the optimizer already needs. Under smooth full-batch GD ($\varepsilon_t=0$), $\widehat\kappa_t$ measures directional curvature averaged over the completed step. Appendix~\ref{app:math} extends this to any optimizer using its actual parameter change rule.
 
 \subsection{Noise Contribution under Mini-Batch Sampling}
 \label{subsec:sampling-noise}
@@ -119,9 +119,9 @@ For uniform batches sampled without replacement,
     \mathbb E[\operatorname{tr}\Sigma(\theta_{t-1})].
   \label{eq:finite-population-noise}
 \end{equation}
-Smaller batches therefore increase the magnitude of this negative unnormalized contribution at fixed parameters; full-batch evaluation eliminates it.
+Smaller batches increase the magnitude of this negative unnormalized contribution, and full-batch eliminates it.
 
-Separately, sample two independent gradients at a fixed state $\theta$, without updating parameters. Here $\rho_t$ denotes their cosine. When their norms concentrate near a common scale, approximating their product by the expected squared norm gives
+Separately, sample two independent gradients at a fixed state $\theta$. Here $\rho_t$ denotes their cosine. When their norms concentrate near a common scale, approximating their product by the expected squared norm gives
 \begin{equation}
   \mathbb E[\rho_t\mid\theta\text{ fixed}]\approx
   \frac{\|\nabla\mathcal L(\theta)\|^2}
@@ -129,20 +129,20 @@ Separately, sample two independent gradients at a fixed state $\theta$, without 
    \frac{N-b}{b(N-1)}\operatorname{tr}\Sigma(\theta)}.
   \label{eq:noise-cosine-approx}
 \end{equation}
-At a fixed state, the numerator is the squared norm of the full gradient, the mean shared by both batch gradients. Smaller batches increase the sampling variance in the denominator, bringing the predicted mean cosine closer to zero. Therefore, along a training trajectory, this suggests that smaller batches attenuates the alignment in magnitude between steps, making $\rho_t$ closer to zero independent of being in a constructive or destructive regime. Section~\ref{sec:sgd-noise-experiments} finds weaker negative alignment in all three models when training resumes from a shared trained state.
+At a fixed state, the numerator is the squared norm of the full gradient. Smaller batches increase the sampling variance in the denominator, bringing the predicted mean cosine closer to zero. Therefore, along a training trajectory, this suggests that smaller batches attenuates the alignment in magnitude between steps, making $\rho_t$ closer to zero independent of being in a constructive or destructive regime. Section~\ref{sec:sgd-noise-experiments} shows empircally this attenuation is present in all the models.
 
 % Queue the first Section IV figure for the following page.
 \begin{figure*}[!t]
 \centering
 \includegraphics[width=\textwidth]{figures/gd_loss_projected_change_spectral_clean.pdf}
-\caption{Training loss and curvature under full-batch GD, with one initialization per model. Top: unsmoothed full-objective loss. Bottom: $\eta\widehat\kappa_t$ (solid) and $\eta\lambda_{\max}$ (dashed), both smoothed with the same centered 101-step mean; dotted line: two. Spectra measured every 100 steps are linearly interpolated before smoothing, with equally truncated edge windows. Spectral objectives cover all 5,000 MLP images, 5,000/50,000 ResNet images, and 2,500/59,680 Transformer sequences. Training step $t$ counts completed updates; smoothing does not identify exact onset times.}
+\caption{Training loss and curvature under full-batch GD, with one initialization per model. Top: unsmoothed training loss. Bottom: scaled directional curvature $\eta\widehat{\kappa}_t$ (solid) and sharpness $\eta\lambda_{\max}$ (dashed), smoothed with a centered 101-step moving average. The dotted line marks the threshold at $2$. Sharpness is evaluated every 100 steps on model-specific subsets of the training data.}
 \label{fig:gd-loss}
 \end{figure*}
 
 \subsection{Conditions for Loss Decrease and Increase}
 \label{subsec:loss-connection}\label{subsec:loss}
 
-When does the step that produces gradient reversal also increase the loss? For plain SGD, define the full-objective change over the completed step as $\Delta\mathcal L_t:=\mathcal L(\theta_t)-\mathcal L(\theta_{t-1})$. The second-order relation derived in Appendix~\ref{app:math}, exact for a quadratic objective, separates three contributions
+When does the step that produces gradient reversal also increase the loss? For plain SGD, define the full-objective change over the completed step as $\Delta\mathcal L_t:=\mathcal L(\theta_t)-\mathcal L(\theta_{t-1})$, then we can show
 \begin{equation}
 \begin{aligned}
 \Delta\mathcal L_t
@@ -163,4 +163,4 @@ For a fixed negative cosine, the required norm ratio is $\|g_t\|/\|g_{t-1}\|>-1/
   \frac{\eta}{2}\|g_{t-1}\|^2(\eta\kappa_t-2).
   \label{eq:loss-rise-curvature}
 \end{equation}
-When $\eta\kappa_t<1$, consecutive gradients are constructive and that step decreases the loss. When $1<\eta\kappa_t<2$, the gradients are destructive, yet the completed step still decreases the loss. When $\eta\kappa_t>2$, the completed step increases the loss. The angle/norm condition from Eq.~\ref{eq:loss-rise-alignment} thus expresses the same curvature condition, but from a representation learning interpretation and from measurements already available after the step. The limitations of our approach is that for nonlinear losses the relation has a finite-step Taylor remainder, and sampling adds the explicit noise term. We next examine how these regimes appear empirically in training.
+The condition from Eq.~\ref{eq:loss-rise-alignment} thus is equivalente to the curvature condition, but from a representation learning interpretation and from measurements already available. The limitations of our approach is that for nonlinear losses the relation has a finite-step Taylor remainder, and sampling adds the explicit noise term. We next examine how these regimes appear empirically in training.
